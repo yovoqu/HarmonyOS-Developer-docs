@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1030
 
-## 实现Text设置lineHeight属性后文本垂直居中显示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Text设置lineHeight属性后，导致文本无法垂直居中，如何实现文本垂直居中显示？
  
@@ -19,12 +15,12 @@ Text("测试Text设置lineHeight").lineHeight(100).backgroundColor(Color.Green)
 问题展示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/Lu5sJcpGTamRpyhczMq6Kw/zh-cn_image_0000002628564722.png?HW-CC-KV=V1&HW-CC-Date=20260701T025721Z&HW-CC-Expire=86400&HW-CC-Sign=C0CF842FB4AFDB7D28FDDA214902217334963A6F22340099B77E615AC28E7EFE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/Lu5sJcpGTamRpyhczMq6Kw/zh-cn_image_0000002628564722.png?HW-CC-KV=V1&HW-CC-Date=20260701T041215Z&HW-CC-Expire=86400&HW-CC-Sign=2BEC349A667F8B083C9A81C125B0C165F430868638373A48B9DD4D8F2B322986)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [lineHeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#lineheight)：设置文本的文本行高。设置值不大于0时，不限制文本行高，自适应字体大小，number类型时单位为fp。string类型支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
 - [halfLeading](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#halfleading12)：设置文本是否将行间距平分至行的顶部与底部。组件侧设置halfLeading优先级高于module.json5配置文件中的halfLeading配置项，仅支持API12以上版本。
@@ -34,7 +30,7 @@ Text("测试Text设置lineHeight").lineHeight(100).backgroundColor(Color.Green)
  
  
 
-##### 解决方案
+#### 解决方案
 
 实现文本垂直居中显示方式及其适用场景内容如下：
   
@@ -48,7 +44,8 @@ Text("测试Text设置lineHeight").lineHeight(100).backgroundColor(Color.Green)
  
  
 - 方案一：通过组件侧设置halfLeading属性，将行间距平分至行的顶部与底部。仅支持API12以上版本。组件侧设置halfLeading优先级高于module.json5配置文件中的half_leading配置项。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -74,8 +71,9 @@ struct Index {
 ```
 
 - 方案二：通过配置module.json5中的half_leading参数。在module.json5文件中，将half_leading配置为true，可以改变文本的默认绘制行为，从而避免因lineHeight过大而导致的文本偏移问题。
- 
-```text
+
+  
+```json
 "metadata": [
   {
     "name": "half_leading",
@@ -84,8 +82,9 @@ struct Index {
 ],
 ```
  对应的Text组件代码如下：
- 
-```text
+
+  
+```json
 @Entry
 @Component
 struct TextLineHeight {
@@ -108,10 +107,9 @@ struct TextLineHeight {
 }
 ```
  
+> [!NOTE]
+> 设置half_leading为true会对整个HAP生效，可能会影响其他已正常显示Text组件。如果已有Text组件通过lineHeight和padding实现了居中效果，启用half_leading后，这些组件的显示可能会发生偏移，需谨慎使用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/wpjt4DMvTlyo7F_uvx2GzQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025721Z&HW-CC-Expire=86400&HW-CC-Sign=7209CCB9563A5701E07371CB2DF57E89DDE248B820620B34106A7CD00C3551D4)
- 
-设置half_leading为true会对整个HAP生效，可能会影响其他已正常显示Text组件。如果已有Text组件通过lineHeight和padding实现了居中效果，启用half_leading后，这些组件的显示可能会发生偏移，需谨慎使用。
 - 方案三：使用baselineOffset属性可以设置Text、Span组件的对准基线，实现内部文本垂直居中对齐。
 ```text
 @Entry
@@ -167,7 +165,7 @@ struct TextLineHeightThree {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：当Text内包含多个Span且各Span设置了不同的字体大小时，默认渲染为基线对齐，如何实现多字号Span在Text容器内的垂直居中对齐？
  

@@ -4,218 +4,208 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-91
 
-## 客户端如何根据服务器返回的内容自定义设置http请求头字段
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在多个场景中，客户端需根据业务具体需求自定义设置http请求头字段，例如根据服务器返回的内容动态调整请求参数。这种情况下，客户端应如何自定义设置http请求头字段？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [http数据请求](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-http-request)：应用通过http发起一个数据请求，支持常见的GET、POST、OPTIONS、HEAD、PUT、DELETE、TRACE、CONNECT方法。
  
  
 
-##### 解决方案
+#### 解决方案
 
 http请求的请求头为Object类型，本来就支持动态设置。
  
+> [!NOTE]
+> 需要自定义类型来接收响应数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/9n7mNkbMQyaYRCKafCPqiw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025753Z&HW-CC-Expire=86400&HW-CC-Sign=17A9A095722CED604C81C3A9426D82AF292256021A1281BEEE329381677325A8)
- 
-
-需要自定义类型来接收响应数据。
- 
-
- 
-- 客户端：向服务器发送GET请求，以对象（具体格式需与服务端对齐）为header参数询问服务端有哪些商品类型。
-```text
-get('goods', (data: Object) => {
-  let goods: Goods = JSON.parse(data.toString());
-  let type = goods.goods;
-  console.info(type);
-  // 依据服务器返回的商品类型再请求具体的商品列表。
-  get(type!, (data: Object) => {
-    let sorts: Shoes = JSON.parse(data.toString());
-    this.shoes = sorts.shoes;
-    let s: Clothing = JSON.parse(data.toString());
-    this.clothing = s.clothing;
-  });
-});
+1. 客户端：向服务器发送GET请求，以对象（具体格式需与服务端对齐）为header参数询问服务端有哪些商品类型。
+```json
+<span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'goods'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Object</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">goods</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Goods </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">type </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">goods</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">goods</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">依据服务器返回的商品类型再请求具体的商品列表。</span></em>
+  <span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">!, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Object</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">sorts</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Shoes </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">shoes </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sorts</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">shoes</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">s</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Clothing </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clothing </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">s</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clothing</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
-- 服务端：随机返回当前服务器上存在的商品类型。
-```text
-if (type === "goods") {
-  // 客户端请求商品类型时随机返回 clothing 或 shoes
-  res.json({ "goods": Math.random() > 0.5 ? "clothing" : "shoes" })
-}
+2. 服务端：随机返回当前服务器上存在的商品类型。
+```json
+if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">"goods"</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">客户端请求商品类型时随机返回</span><span style="color: rgb(128,128,128);"> clothing </span><span style="color: rgb(128,128,128);">或</span><span style="color: rgb(128,128,128);"> shoes</span></em>
+  <span style="color: rgb(255,255,255);">res</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">json</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">"goods"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">random</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0.5 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">"clothing" </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"shoes" </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
-- 客户端：依据服务端返回的商品类型请求商品列表。
-```text
-get(type!, (data: Object) => {
-  let sorts: Shoes = JSON.parse(data.toString());
-  this.shoes = sorts.shoes;
-  let s: Clothing = JSON.parse(data.toString());
-  this.clothing = s.clothing;
-});
+3. 客户端：依据服务端返回的商品类型请求商品列表。
+```json
+<span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">!, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Object</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">sorts</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Shoes </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">shoes </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sorts</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">shoes</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">s</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Clothing </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clothing </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">s</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clothing</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
-
 
  
 完整示例参考如下：
  
 客户端ArkTS代码：
  
-```text
-import http from '@ohos.net.http';
-import { BusinessError } from '@ohos.base';
+```json
+import <span style="color: rgb(255,255,255);">http </span>from <span style="color: rgb(132,63,161);">'@ohos.net.http'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@ohos.base'</span><span style="color: rgb(181,106,1);">;</span>
 
-interface Goods {
-  goods: string;
-}
+interface Goods <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">goods</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-interface Shoes {
-  shoes: string[];
-}
+interface Shoes <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">shoes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-interface Clothing {
-  clothing: string[];
-}
+interface Clothing <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">clothing</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-let httpRequest = http.createHttp();
-httpRequest.on('headersReceive', (header) => {
-  console.info(`header: ${JSON.stringify(header)}`);
-});
+let <span style="color: rgb(255,255,255);">httpRequest </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createHttp</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,255,255);">httpRequest</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'headersReceive'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">header</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`header: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">header</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-function get(type: string, f: (data: Object) => void) {
-  httpRequest.request(
-    // 服务器url，运行服务器的电脑连手机wifi时可直接用ip代替域名。
-    'http://x.x.x.x:9588',
-    {
-      method: http.RequestMethod.GET,
-      // header字段为Object，支持动态设置。
-      header: {
-        'type': type
-      },
-      connectTimeout: 10000, // 可选，默认为60000ms.
-      readTimeout: 10000, // 可选，默认为60000ms.
-    }, (err: BusinessError, data: http.HttpResponse) => {
-    if (!err) {
-      f(data.result);
-    } else {
-      console.error(`error code:${err.code}, error message:${err.message}`);
-      // 取消订阅http响应头事件。
-      httpRequest.off('headersReceive');
-    }
-  }
-  );
-}
+function <span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">f</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Object</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">void</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">httpRequest</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(255,0,170);">(</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">服务器</span><span style="color: rgb(128,128,128);">url</span><span style="color: rgb(128,128,128);">，运行服务器的电脑连手机</span><span style="color: rgb(128,128,128);">wifi</span><span style="color: rgb(128,128,128);">时可直接用</span><span style="color: rgb(128,128,128);">ip</span><span style="color: rgb(128,128,128);">代替域名。</span></em>
+    <span style="color: rgb(132,63,161);">'http://x.x.x.x:9588'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">method</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">RequestMethod</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">GET</span><span style="color: rgb(181,106,1);">,</span>
+    <em>  <span style="color: rgb(128,128,128);">// header</span><span style="color: rgb(128,128,128);">字段为</span><span style="color: rgb(128,128,128);">Object</span><span style="color: rgb(128,128,128);">，支持动态设置。</span></em>
+      <span style="color: rgb(255,255,255);">header</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(132,63,161);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">type</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">connectTimeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10000</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">可选，默认为</span><span style="color: rgb(128,128,128);">60000ms.</span></em>
+      <span style="color: rgb(255,255,255);">readTimeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10000</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">可选，默认为</span><span style="color: rgb(128,128,128);">60000ms.</span></em>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">http</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">HttpResponse</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+    if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">f</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">result</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`error code:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">code</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">, error message:</span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">取消订阅</span><span style="color: rgb(128,128,128);">http</span><span style="color: rgb(128,128,128);">响应头事件。</span></em>
+      <span style="color: rgb(255,255,255);">httpRequest</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'headersReceive'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
+  <span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct Index {
-  private message: string = '获取商品';
-  @State shoes: string[] | undefined = [];
-  @State clothing: string[] | undefined = [];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
+  private <span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">获取商品</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">shoes</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">clothing</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('get')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          // 先发请求询问有哪些商品类型，服务器随机返回shoes或clothing.
-          get('goods', (data: Object) => {
-            let goods: Goods = JSON.parse(data.toString());
-            let type = goods.goods;
-            console.info(type);
-            // 依据服务器返回的商品类型再请求具体的商品列表。
-            get(type!, (data: Object) => {
-              let sorts: Shoes = JSON.parse(data.toString());
-              this.shoes = sorts.shoes;
-              let s: Clothing = JSON.parse(data.toString());
-              this.clothing = s.clothing;
-            });
-          });
-        });
-      Text('获取的商品如下')
-        .id('info')
-        .alignRules({
-          top: { anchor: 'get', align: VerticalAlign.Bottom },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .margin({ top: '5%' });
-      Row() {
-        ForEach(this.shoes, (item: string) => {
-          Text(item);
-        });
-        ForEach(this.clothing, (item: string) => {
-          Text(item);
-        });
-      }
-      .id('shoes')
-      .alignRules({
-        top: { anchor: 'info', align: VerticalAlign.Bottom },
-        middle: { anchor: '__container__', align: HorizontalAlign.Center }
-      })
-      .justifyContent(FlexAlign.SpaceEvenly)
-      .width('100%')
-      .backgroundColor(Color.Yellow)
-      .margin({ top: '5%' });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'get'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">先发请求询问有哪些商品类型，服务器随机返回</span><span style="color: rgb(128,128,128);">shoes</span><span style="color: rgb(128,128,128);">或</span><span style="color: rgb(128,128,128);">clothing.</span></em>
+          <span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'goods'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Object</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            let <span style="color: rgb(255,255,255);">goods</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Goods </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+            let <span style="color: rgb(255,255,255);">type </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">goods</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">goods</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">依据服务器返回的商品类型再请求具体的商品列表。</span></em>
+            <span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">!, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Object</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+              let <span style="color: rgb(255,255,255);">sorts</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Shoes </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">shoes </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">sorts</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">shoes</span><span style="color: rgb(181,106,1);">;</span>
+              let <span style="color: rgb(255,255,255);">s</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Clothing </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parse</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clothing </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">s</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clothing</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">获取的商品如下</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'info'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'get'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bottom </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'5%' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">shoes</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">clothing</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'shoes'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'info'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bottom </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SpaceEvenly</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Yellow</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'5%' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
 服务器端js代码：
  
-```text
-const express = require('express');
-const app = express();
+```json
+const <span style="color: rgb(255,255,255);">express </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">require</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'express'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(255,255,255);">app </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">express</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-/* GET home page. */
-app.get('/', function (req, res, next) {
-  let header = req.headers;
-  console.log(JSON.stringify(header))
-  let type = header.type;
-  if (type === "goods") {
-    // 客户端请求商品类型时随机返回 clothing 或 shoes
-    res.json({ "goods": Math.random() > 0.5 ? "clothing" : "shoes" })
-  }
-  if (type === "clothing") {
-    // 客户端请求clothing则返回clothing列表
-    res.json({ "clothing": ["coat", "shirt", "jacket"] })
-  }
-  if (type === "shoes") {
-    // 客户端请求shoes则返回shoes列表
-    res.json({ "shoes": ["slippers", "sneakers", "high heels"] })
-  }
-  res.send('Home Page');
-});
+<em>/* GET home page. */</em>
+<span style="color: rgb(255,255,255);">app</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'/'</span><span style="color: rgb(181,106,1);">, </span>function <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">req</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">res</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">next</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">header </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">req</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">headers</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">header</span><span style="color: rgb(255,0,170);">))</span>
+  let <span style="color: rgb(255,255,255);">type </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">header</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">;</span>
+  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">"goods"</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">客户端请求商品类型时随机返回</span><span style="color: rgb(128,128,128);"> clothing </span><span style="color: rgb(128,128,128);">或</span><span style="color: rgb(128,128,128);"> shoes</span></em>
+    <span style="color: rgb(255,255,255);">res</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">json</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">"goods"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">random</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0.5 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">"clothing" </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">"shoes" </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">"clothing"</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">客户端请求</span><span style="color: rgb(128,128,128);">clothing</span><span style="color: rgb(128,128,128);">则返回</span><span style="color: rgb(128,128,128);">clothing</span><span style="color: rgb(128,128,128);">列表</span></em>
+    <span style="color: rgb(255,255,255);">res</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">json</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">"clothing"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">"coat"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">"shirt"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">"jacket"</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(132,63,161);">"shoes"</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">客户端请求</span><span style="color: rgb(128,128,128);">shoes</span><span style="color: rgb(128,128,128);">则返回</span><span style="color: rgb(128,128,128);">shoes</span><span style="color: rgb(128,128,128);">列表</span></em>
+    <span style="color: rgb(255,255,255);">res</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">json</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">"shoes"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(132,63,161);">"slippers"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">"sneakers"</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(132,63,161);">"high heels"</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(255,255,255);">res</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">send</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Home Page'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-app.listen(9588, () => {
-  console.info('服务器启动成功');
-});
+<span style="color: rgb(255,255,255);">app</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listen</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">9588</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">服务器启动成功</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-module.exports = app;
+<span style="color: rgb(255,255,255);">module</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">exports </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">app</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：http请求报2300023错误。
  
@@ -243,6 +233,6 @@ A：Object的key-value作为string即可，如：extraData: {'start':'0','limit'
  
  
 
-##### 总结
+#### 总结
 
 该方案中服务器端采用express搭建，新建项目后将index.js文件替换为demo中的服务器端代码即可运行，注意服务器ip地址的设置。

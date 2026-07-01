@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-27
 
-## 使用Dockerfile搭建Command Line Tools流水线
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用Dockerfile搭建Command Line Tools流水线？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [流水线搭建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-building-app)：流水线可通过命令行的方式搭建，包括准备构建环境、构建HAP、签名运行等操作。可在Windows、Linux和macOS下调用相应命令来执行。
 - Dockerfile：是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
@@ -23,17 +19,15 @@
  
  
 
-##### 解决方案
-
-- 指定基础镜像；
-- 设置工作目录；
-- 设置环境变量，设置时区、语言和字符集；
-- 更新APT源列表并安装基础工具；
-- 下载并安装多种开发工具和依赖项；
-- 设置环境变量。
-
+#### 解决方案
+1. 指定基础镜像；
+2. 设置工作目录；
+3. 设置环境变量，设置时区、语言和字符集；
+4. 更新APT源列表并安装基础工具；
+5. 下载并安装多种开发工具和依赖项；
+6. 设置环境变量。
  
-```ts
+```json
 #使用 Ubuntu 18.04 作为基础镜像，可以替换为其他版本的 Ubuntu 或其他 Linux 发行版
 FROM --platform=linux/amd64 ubuntu:18.04
 
@@ -173,7 +167,7 @@ ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8 PATH="/home/tools/l
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：该Dockerfile是否可在docker上直接运行？
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1050
 
-## 基于属性字符串实现Span的边框效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在HarmonyOS开发中，由于Span组件本身不支持设置margin、padding等布局属性，开发者可以通过属性字符串（StyledString）实现类似效果。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - ArkUI提供轻量的UI元素复用机制[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)，其内部UI结构固定，仅与使用方进行数据传递。开发者可将重复使用的UI元素抽象成函数，在build函数中调用。
 - 将[StyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string)应用到文本组件上，可以采用多种方式修改文本，包括调整字号、添加字体颜色、使文本具备可点击性，以及通过自定义方式绘制文本等。
@@ -22,17 +18,17 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-- 可以通过以下几点达成最终效果：
-路径计算：定义calculateArcPoints方法，该方法用于生成圆弧边框的路径坐标点，确保边框形状符合预期。
-- 自定义Span绘制：绘制边框与文本，在onDraw方法中调用canvas.drawPath绘制边框路径，并同步渲染文本内容。
-- 样式绑定：将生成的styledString通过setStyledString方法设置到Text组件。
+- 可以通过以下几点达成最终效果：1. 路径计算：定义calculateArcPoints方法，该方法用于生成圆弧边框的路径坐标点，确保边框形状符合预期。
 
- 
+2. 自定义Span绘制：绘制边框与文本，在onDraw方法中调用canvas.drawPath绘制边框路径，并同步渲染文本内容。
+
+3. 样式绑定：将生成的styledString通过setStyledString方法设置到Text组件。
+
  
 - 具体代码实现如下：
-```text
+```json
 import { DrawContext } from '@ohos.arkui.node';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -59,7 +55,12 @@ function calculateArcPoints(
   let thetaStart = Math.atan2(startVec.y, startVec.x);
   let thetaEnd = Math.atan2(endVec.y, endVec.x);
 
-  if (thetaEnd 
+  if (thetaEnd < thetaStart) {
+    thetaEnd += 2 * Math.PI;
+  }
+  const angleDiff = thetaEnd - thetaStart;
+
+  const angles = Array.from({ length: numPoints + 1 }, (item: undefined, i) =>
   thetaStart + angleDiff * (i / numPoints)
   );
   let arr: Point[] = [];

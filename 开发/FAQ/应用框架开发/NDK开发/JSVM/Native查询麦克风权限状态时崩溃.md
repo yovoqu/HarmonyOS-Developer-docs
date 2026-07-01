@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-jsvm-11
 
-## Native查询麦克风权限状态时崩溃
- 
-
-
-##### 问题现象
+#### 问题现象
 
 案例Demo：
  
@@ -32,30 +28,30 @@ napi_value global;
 如上，在native层调用ArkTS API查询当前麦克风的权限状态时，会出现崩溃。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/ZVS2J2NpQfeZln7q9K7ewA/zh-cn_image_0000002628388614.png?HW-CC-KV=V1&HW-CC-Date=20260701T025533Z&HW-CC-Expire=86400&HW-CC-Sign=EC87EF306C15138F7CA29A06DB5AE84C1E60F2DB409FCED2449B5FB0917FB80D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/ZVS2J2NpQfeZln7q9K7ewA/zh-cn_image_0000002628388614.png?HW-CC-KV=V1&HW-CC-Date=20260701T041133Z&HW-CC-Expire=86400&HW-CC-Sign=C032C7A4F0A0E5F9360E860F658F009E3853209436F06D943175DB9817DFBD63)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 napi_value是一个C的结构体指针，表示一个JavaScript对象的引用。napi_value持有JS对象，同时，napi_value受handle_scope管理，scope中napi_value持有的JS对象不会被释放；超出scope后，napi_value将失效，不再持有对应的JS对象。参考：[使用Node-API接口进行生命周期相关开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-life-cycle#napi_open_handle_scopenapi_close_handle_scope)。
  
  
 
-##### 问题定位
+#### 问题定位
 
 根据崩溃日志定位分析NULL pointer dereference原因。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/uGg2hGRyRPWUxniY0FpUCQ/zh-cn_image_0000002628548514.png?HW-CC-KV=V1&HW-CC-Date=20260701T025533Z&HW-CC-Expire=86400&HW-CC-Sign=0C113D58577813BE8882AF134527CC3800AD1913F400A35B5ECDFA027DD953D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/uGg2hGRyRPWUxniY0FpUCQ/zh-cn_image_0000002628548514.png?HW-CC-KV=V1&HW-CC-Date=20260701T041133Z&HW-CC-Expire=86400&HW-CC-Sign=F2E8AEB1D42EC8CEE5EF71AB488442EE1D819A16874967AB0BD16976022263C2)
 
  
 对案例Demo进行debug分析可见abilityAccessCtrlModule获取出来是一个napi_undefined类型，而status = napi_get_named_property(env,abilityAccessCtrlModule,"createAtManager", &createAtManagerMethod)，期望abilityAccessCtrlModule是一个napi_value的object类型。
  
  
 
-##### 分析结论
+#### 分析结论
 
 - NULL pointer dereference定位空指针引用位置，需确保在使用对象之前对其进行了非空的初始化。
 - napi_value类型异常，检查参数类型。
@@ -63,10 +59,9 @@ napi_value是一个C的结构体指针，表示一个JavaScript对象的引用�
  
  
 
-##### 修改建议
-
-- 确保在使用对象之前对其进行了非空的初始化。
-- 检查参数类型，避免类型异常。
+#### 修改建议
+1. 确保在使用对象之前对其进行了非空的初始化。
+2. 检查参数类型，避免类型异常。
 ```text
 #include "napi/native_api.h"
 
@@ -89,16 +84,16 @@ static napi_value CheckUndefined(napi_env env, napi_callback_info info)
     }
 
 
-    // 检查abilityAccessCtrlModule是否为undefined
+    <em>// 检查abilityAccessCtrlModule是否为undefined</em>
     napi_valuetype value_type;
     napi_typeof(env, abilityAccessCtrlModule, &value_type);
     if (value_type == napi_undefined) {
-        // 这是undefined类型
+        <em>// 这是undefined类型</em>
         return res;
     }
 
 
-    // 不是undefined类型，继续执行其他操作
+   <em> // 不是undefined类型，继续执行其他操作</em>
     napi_value createAtManagerMethod;
     status = napi_get_named_property(env, abilityAccessCtrlModule, "createAtManager", &createAtManagerMethod);
     if (status != napi_ok) {

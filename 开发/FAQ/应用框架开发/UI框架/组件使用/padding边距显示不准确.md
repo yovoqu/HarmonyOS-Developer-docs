@@ -4,80 +4,76 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-818
 
-## padding边距显示不准确
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Row组件内包含Image和Text组件，当Text内容为多行时，Row组件设置的内边距显示不准确。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/Frhk9B7oTmyOqzn35MD0IQ/zh-cn_image_0000002628398432.png?HW-CC-KV=V1&HW-CC-Date=20260701T025548Z&HW-CC-Expire=86400&HW-CC-Sign=7F2498AA9A083BA56AD0DA873C0EBF15170CEF82486C2DDE8745C90980BF8035)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/Frhk9B7oTmyOqzn35MD0IQ/zh-cn_image_0000002628398432.png?HW-CC-KV=V1&HW-CC-Date=20260701T041255Z&HW-CC-Expire=86400&HW-CC-Sign=8F35EFB13192DDE42A28E0C01340BEF49420CC7CAE273C4873FE6EB777F053A6)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Text组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)是显示一段文本的组件，可以设置属性[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes#constraintsize11)，在组件布局时，进行尺寸范围限制。
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过添加constraintSize属性来限制Text文本显示的最大长度，使内边距显示准确。
  
 ```text
-@Entry
-@Component
-struct constraintSizeExample {
-  build() {
-    Column({ space: 30 }) {
-      Row() {
-        Text('添加constraintSize属性下的状态，右padding样式添加正常').constraintSize({ maxWidth: '90%' });
-        Image($r('app.media.startIcon'))   // 开发者需自行替换图片
-          .width(18)
-          .height(18)
-      }
-      .rowStyle('#77ceeb')
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">constraintSizeExample </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">添加</span><span style="color: rgb(255,0,170);">constraintSize</span><span style="color: rgb(255,0,170);">属性下的状态，右</span><span style="color: rgb(255,0,170);">padding</span><span style="color: rgb(255,0,170);">样式添加正常</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constraintSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">maxWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'90%' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">))   </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开发者需自行替换图片</span></em>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#77ceeb'</span><span style="color: rgb(0,0,255);">)</span>
 
-      Row() {
-        Text('没有添加constraintSize属性下的状态，右padding添加未生效');
-        Image($r('app.media.startIcon'))  // 开发者需自行替换图片
-          .width(18)
-          .height(18)
-      }
-      .rowStyle('#f3f5f7')
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center)
-  }
-}
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">没有添加</span><span style="color: rgb(255,0,170);">constraintSize</span><span style="color: rgb(255,0,170);">属性下的状态，右</span><span style="color: rgb(255,0,170);">padding</span><span style="color: rgb(255,0,170);">添加未生效</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)) </span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开发者需自行替换图片</span></em>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rowStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#f3f5f7'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Extend(Row)
-function rowStyle(color: string) {
-  .padding({
-    left: 16,
-    top: 10,
-    right: 16,
-    bottom: 10
-  })
-  .width('50%')
-  .borderRadius(20)
-  .backgroundColor(color)
-  .justifyContent(FlexAlign.SpaceBetween);
-}
+<span style="color: rgb(181,106,1);">@Extend</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">)</span>
+function <span style="color: rgb(0,0,255);">rowStyle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10</span>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">color</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceBetween</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：特定场景下constraintSize属性不生效？
  

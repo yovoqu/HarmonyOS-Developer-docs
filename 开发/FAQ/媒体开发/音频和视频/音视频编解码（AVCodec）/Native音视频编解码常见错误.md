@@ -4,29 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-13
 
-## Native音视频编解码常见错误
- 
-
-
-##### 问题现象
+#### 问题现象
 
 视频编码器触发OH_AVCodecOnError回调函数，错误码AV_ERR_INPUT_DATA_ERROR = 10。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [OH_AVErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h#oh_averrcode)，当OH_AVCodec实例运行出错时，回调将上报具体的错误信息的函数指针。
  
  
 
-##### 问题定位
+#### 问题定位
 
 DevEco Studio本地搜索OH_AVErrCode关键字，查看错误码AV_ERR_INPUT_DATA_ERROR = 10含义，确认为输入数据错误。
  
  
 
-##### 分析结论
+#### 分析结论
 
 错误码AV_ERR_INPUT_DATA_ERROR错误可能原因：
  
@@ -37,6 +33,6 @@ DevEco Studio本地搜索OH_AVErrCode关键字，查看错误码AV_ERR_INPUT_DAT
  
  
 
-##### 修改建议
+#### 修改建议
 
 参考[使用AVCodec实现视频编解码](https://gitcode.com/HarmonyOS_Samples/AVCodecVideo)为编解码中的配置项设置正确的参数。

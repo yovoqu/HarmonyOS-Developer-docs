@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-65
 
-## 如何使用CameraPicker拍摄HEIF图
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用CameraPicker来拍摄HEIF格式的图片？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [通过系统相机拍照和录像(CameraPicker)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-picker)：应用可调用CameraPicker拍摄照片或录制视频，无需申请相机权限。
 - [ImagePacker.packToFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtofile11)：指定编码参数，将ImageSource直接编码进文件。使用callback异步回调。
@@ -22,12 +18,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 当前CameraPicker不支持拍摄HEIF格式的图片，但是可以通过ImagePacker.packToFile接口将Picker拍摄的图片重新编码成HEIF格式并保存。
  
 样例代码如下：
-```text
+```json
 import { common } from '@kit.AbilityKit';
 import { camera, cameraPicker } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -43,7 +39,67 @@ struct Index {
 
   getImageBaseName(imageName: string): string {
     const LAST_DOT_INDEX = imageName.lastIndexOf('.');
-    if (LAST_DOT_INDEX > 0 && LAST_DOT_INDEX  {
+    if (LAST_DOT_INDEX > 0 && LAST_DOT_INDEX < imageName.length - 1) {
+      return imageName.substring(0, LAST_DOT_INDEX);
+    }
+    return imageName;
+  }
+
+  copyFile(sourceUri: string, destinationPath: string) {
+    let sourceFile: fs.File | null = null;
+    let destFile: fs.File | null = null;
+
+    try {
+      sourceFile = fs.openSync(sourceUri, fs.OpenMode.READ_ONLY);
+      destFile = fs.openSync(destinationPath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
+      fs.copyFileSync(sourceFile.fd, destFile.fd);
+    } catch (err) {
+      hilog.error(0x0000, 'CopyFile', `Failed to copy file：${err.message}`);
+    } finally {
+      if (sourceFile) {
+        try {
+          fs.closeSync(sourceFile);
+        } catch (closeError) {
+          hilog.error(0x0000, 'ImageUtil', `close file error: ${closeError.message}`);
+        }
+      }
+
+      if (destFile) {
+        try {
+          fs.closeSync(destFile);
+        } catch (closeError) {
+          hilog.error(0x0000, 'ImageUtil', `close file error: ${closeError.message}`);
+        }
+      }
+    }
+  }
+
+  imageToImageSource(imagePath: string): image.ImageSource {
+    let imageFile: fs.File | null = null;
+
+    try {
+      imageFile = fs.openSync(imagePath, fs.OpenMode.READ_ONLY);
+      const STAT = fs.statSync(imagePath);
+      const BUFFER = new ArrayBuffer(STAT.size);
+      fs.readSync(imageFile.fd, BUFFER);
+
+      const IMAGE_SOURCE = image.createImageSource(BUFFER);
+
+      return IMAGE_SOURCE;
+    } catch (error) {
+      throw new Error('Failed to trans image.');
+    } finally {
+      if (imageFile) {
+        try {
+          fs.closeSync(imageFile);
+        } catch (closeError) {
+          hilog.error(0x0000, 'ImageUtil', `close file error: ${closeError.message}`);
+        }
+      }
+    }
+  }
+
+  async imageFormatTrans(imageSource: image.ImageSource, targetPath: string): Promise<void> {
     if (!image.getImageSourceSupportedFormats().includes('image/heic')) {
       hilog.info(0x0000, 'ImageUtil', 'imageFormatTrans failed: heic not supported!');
       return;
@@ -145,7 +201,7 @@ struct Index {
 
   private async takePhotoAndSaveAsHEIF() {
     try {
-      // 1. 拉起相机选择器
+      <em>// 1. 拉起相机选择器</em>
       const pickerProfile: cameraPicker.PickerProfile = {
         cameraPosition: camera.CameraPosition.CAMERA_POSITION_BACK,
       };
@@ -166,16 +222,16 @@ struct Index {
       const imageBaseName = this.getImageBaseName(imageName);
       const sandboxPath = this.context.filesDir + '/' + imageName;
 
-      // 2. 复制原始图片到沙盒
+      <em>// 2. 复制原始图片到沙盒</em>
       this.copyFile(originalUri, sandboxPath);
 
-      // 3. 转换为 HEIF 格式
+      <em>// 3. 转换为 HEIF 格式</em>
       const imageSource = this.imageToImageSource(sandboxPath);
       const targetPath = this.context.filesDir + '/' + imageBaseName + '.heic';
 
       await this.imageFormatTrans(imageSource, targetPath);
 
-      // 4. 保存到本地
+      <em>// 4. 保存到本地</em>
       this.saveToLocalFile(this.context, this.getUIContext(), imageBaseName + '.heic', targetPath);
 
       console.log('拍照并成功保存为 HEIF 格式：', targetPath);
@@ -196,4 +252,4 @@ struct Index {
 拍摄照片如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/SGHdAAJvSOmERP-ZVNPOiw/zh-cn_image_0000002628552486.png?HW-CC-KV=V1&HW-CC-Date=20260701T025817Z&HW-CC-Expire=86400&HW-CC-Sign=3BBBF963B89260FE6A57FAE27C8049FAF15A61A62B4DD938BABC6C626CC4042E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/SGHdAAJvSOmERP-ZVNPOiw/zh-cn_image_0000002628552486.png?HW-CC-KV=V1&HW-CC-Date=20260701T041040Z&HW-CC-Expire=86400&HW-CC-Sign=C18ABE8E4510D5612CCD08DF3BAE98D1029CC47CBDBFCBC6650B6FB351F0EFBD)

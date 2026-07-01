@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-964
 
-## NavDestination嵌套使用Tabs，TabContent页面如何跳转至目标页面
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Navigation组件导航，NavDestination组件嵌套使用Tabs组件，TabContent组件内再嵌套使用自定义组件，如何在TabContent的自定义组件中使用NavPathStack方法跳转至目标页面？
  
  
 
-##### 背景知识
+#### 背景知识
 
 该问题涉及Navigation组件导航与Tabs两方面内容。
  
@@ -26,9 +22,8 @@
  
  
 
-##### 解决方案
-
-- 在src/main目录下的module.json5配置文件中的module字段里配置"routerMap": "$profile:router_map"，并在src/main/resources/base/profile目录下新增router_map.json。router_map.json示例如下:
+#### 解决方案
+1. 在src/main目录下的module.json5配置文件中的module字段里配置"routerMap": "$profile:router_map"，并在src/main/resources/base/profile目录下新增router_map.json。router_map.json示例如下:
 ```ArkTS
 {
   "routerMap": [
@@ -68,8 +63,9 @@
 }
 ```
 
-- Navigation主页面（Index）页面内容：
-点击文字跳转到“父组件（PageTabs.ets）页面”。
+2. Navigation主页面（Index）页面内容：
+
+  点击文字跳转到“父组件（PageTabs.ets）页面”。
 ```text
 @Entry
 @Component
@@ -94,8 +90,9 @@ struct Index {
 }
 ```
 
-- 父组件（PageTabs.ets）页面内容：UI架构说明：该页面中，Tabs组件为NavDestination组件的子组件，TabContent组件为Tabs组件的子组件，TabContent内为自定义的组件（HomePage和MinePage）。
- 
+3. 父组件（PageTabs.ets）页面内容：UI架构说明：该页面中，Tabs组件为NavDestination组件的子组件，TabContent组件为Tabs组件的子组件，TabContent内为自定义的组件（HomePage和MinePage）。
+
+  
 ```text
 import { MinePage } from './MinePage';
 import { HomePage } from './HomePage';
@@ -141,12 +138,12 @@ struct PageTabs {
         controller: this.tabsController
       }) {
         TabContent() {
-          HomePage(); // 首页内容组件，pathStack由context获取，跳转至其他页面失败
+          HomePage(); <em>// 首页内容组件，pathStack由context获取，跳转至其他页面失败</em>
         }.tabBar(this.tabBarBuilder('首页', 0));
 
 
         TabContent() {
-          MinePage({ pathStack: this.pathStack }); // 我的页面内容组件，pathStack由本页面传入，跳转其他页面成功
+          MinePage({ pathStack: this.pathStack }); <em>// 我的页面内容组件，pathStack由本页面传入，跳转其他页面成功</em>
         }.tabBar(this.tabBarBuilder('我的', 1));
 
 
@@ -166,7 +163,7 @@ struct PageTabs {
 }
 ```
 
-- “我的”页面（MinePage.ets）内容，pathStack由父组件传入，跳转至OrderPage页面成功：
+4. “我的”页面（MinePage.ets）内容，pathStack由父组件传入，跳转至OrderPage页面成功：
 ```text
 @Builder
 export function MinePageBuilder() {
@@ -192,13 +189,13 @@ export struct MinePage {
       .width('100%')
       .height('100%')
       .onVisibleAreaChange([0.0, 1.0], (isVisible: boolean, currentRatio: number) => {
-        if (isVisible && currentRatio >= 1.0) { // 由隐藏至显示时执行下面方法
+        if (isVisible && currentRatio >= 1.0) { <em>// 由隐藏至显示时执行下面方法</em>
           this.onVisible();
         }
       })
       .onClick(() => {
         try {
-          // pathStack由父组件传入，跳转至订单页面成功
+         <em> // pathStack由父组件传入，跳转至订单页面成功</em>
           this.pathStack.pushPathByName('OrderPage', null);
         } catch (err) {
           console.error(`pushPathByName error, ${err}`);
@@ -211,7 +208,7 @@ export struct MinePage {
 }
 ```
 
-- HomePage页面：
+5. HomePage页面：
 ```text
 @Builder
 export function HomePageBuilder() {
@@ -248,7 +245,7 @@ export struct HomePage {
 }
 ```
 
-- OrderPage页面：
+6. OrderPage页面：
 ```text
 @Builder
 export function OrderPageBuilder() {

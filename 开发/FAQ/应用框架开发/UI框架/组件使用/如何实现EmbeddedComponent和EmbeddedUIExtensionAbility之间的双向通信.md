@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-973
 
-## 如何实现EmbeddedComponent和EmbeddedUIExtensionAbility之间的双向通信
- 
-
-
-##### 问题现象
+#### 问题现象
 
 EmbeddedComponent和EmbeddedUIExtensionAbility之间进程隔离，目前官网[场景示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-embedded-components#场景示例)只提供了[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)方法，没有提供更多资料参考，如何实现EmbeddedComponent和EmbeddedUIExtensionAbility之间的双向通信？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [EmbeddedComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component)：EmbeddedComponent组件用于在当前页面嵌入本应用内其他EmbeddedUIExtensionAbility提供的UI。
 - [EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)：提供方应用中定义使用，用于实现跨进程界面嵌入功能，仅能被同应用的UIAbility拉起，并需在多进程权限的场景下使用。
@@ -23,11 +19,10 @@ EmbeddedComponent和EmbeddedUIExtensionAbility之间进程隔离，目前官网[
  
  
 
-##### 解决方案
+#### 解决方案
 
 EmbeddedComponent和EmbeddedUIExtensionAbility属于两个进程，可以利用commonEventManager进行双向通信，详细步骤如下：
- 
-- 在项目的ets/extensionAbility（extensionAbility目录需要手动创建）目录下新建EmbeddedUIExtensionAbility，代码如下：
+ 1. 在项目的ets/extensionAbility（extensionAbility目录需要手动创建）目录下新建EmbeddedUIExtensionAbility，代码如下：
 ```ArkTS
 import { EmbeddedUIExtensionAbility, UIExtensionContentSession, Want } from '@kit.AbilityKit';
 
@@ -62,11 +57,11 @@ export default class ExampleEmbeddedAbility extends EmbeddedUIExtensionAbility {
     } catch (error) {
       console.info(TAG, `error`);
     }
-    let param: Record = {
+    let param: Record<string, UIExtensionContentSession> = {
       'session': session
     };
     let storage: LocalStorage = new LocalStorage(param);
-    // 加载pages/extension.ets页面内容
+  <em>  // 加载pages/extension.ets页面内容</em>
     session.loadContent('pages/Extension', storage);
   }
 
@@ -77,8 +72,8 @@ export default class ExampleEmbeddedAbility extends EmbeddedUIExtensionAbility {
 };
 ```
 
-- 在项目main_pages.json中增加声明Extension：
-```text
+2. 在项目main_pages.json中增加声明Extension：
+```json
 {
   "src": [
     "pages/Index",
@@ -87,7 +82,7 @@ export default class ExampleEmbeddedAbility extends EmbeddedUIExtensionAbility {
 }
 ```
 
-- 在module.json5配置文件的"extensionAbilities"标签下增加ExampleEmbeddedAbility配置：
+3. 在module.json5配置文件的"extensionAbilities"标签下增加ExampleEmbeddedAbility配置：
 ```ArkTS
 {
   "module": {
@@ -147,16 +142,18 @@ export default class ExampleEmbeddedAbility extends EmbeddedUIExtensionAbility {
 }
 ```
 
-- 在Index页面中实现主页面UI布局并且接收来自EmbeddedUIExtensionAbility的信息：
-```text
+4. 在Index页面中实现主页面UI布局并且接收来自EmbeddedUIExtensionAbility的信息：
+```json
 import { Want } from '@kit.AbilityKit';
 import { BusinessError, commonEventManager } from '@kit.BasicServicesKit';
+
+
 
 
 let options: commonEventManager.CommonEventPublishData = {
   code: 0,
   data: 'Hello',
-  isOrdered: true // 有序公共事件
+  isOrdered: true <em>// 有序公共事件</em>
 };
 
 
@@ -171,22 +168,22 @@ struct Index {
 
 
   aboutToAppear(): void {
-    // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
+  <em>  // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作</em>
     let subscriber: commonEventManager.CommonEventSubscriber;
-    // 订阅者信息
+    <em>// 订阅者信息</em>
     let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
       events: ['event']
     };
 
 
-    // 创建订阅者
+ <em>   // 创建订阅者</em>
     try {
       commonEventManager.createSubscriber(subscribeInfo,
         (err: BusinessError, commonEventSubscriber: commonEventManager.CommonEventSubscriber) => {
           if (!err) {
             console.info(`Succeeded in creating subscriber.`);
             subscriber = commonEventSubscriber;
-            // 订阅公共事件
+         <em>   // 订阅公共事件</em>
             try {
               commonEventManager.subscribe(subscriber,
                 (err: BusinessError, data: commonEventManager.CommonEventData) => {
@@ -247,7 +244,7 @@ struct Index {
           .width('100%')
           .height('100%')
           .onError((error) => {
-            // 失败或异常触发onError回调，文本框显示如下报错内容
+          <em>  // 失败或异常触发onError回调，文本框显示如下报错内容</em>
             this.message = 'Error: code = ' + error.code;
           });
       }
@@ -266,18 +263,19 @@ struct Index {
   }
 }
 ```
- 
- 注意：bundleName需要和项目的包名一致。
-- 在Extension页面中实现EmbeddedComponent的UI布局并且发送事件信息：
-```text
+
+
+  注意：bundleName需要和项目的包名一致。
+5. 在Extension页面中实现EmbeddedComponent的UI布局并且发送事件信息：
+```json
 import { BusinessError, commonEventManager } from '@kit.BasicServicesKit';
 
 
-// 公共事件相关信息，以发布有序公共事件为例
+<em>// 公共事件相关信息，以发布有序公共事件为例</em>
 let options: commonEventManager.CommonEventPublishData = {
   code: 0,
   data: 'Good',
-  isOrdered: true // 有序公共事件
+  isOrdered: true<em> // 有序公共事件</em>
 };
 
 
@@ -288,22 +286,22 @@ struct Extension {
 
 
   aboutToAppear(): void {
-    // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
+   <em> // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作</em>
     let subscriber: commonEventManager.CommonEventSubscriber;
-    // 订阅者信息
+ <em>   // 订阅者信息</em>
     let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
       events: ['event2']
     };
 
 
-    // 创建订阅者
+  <em>  // 创建订阅者</em>
     try {
       commonEventManager.createSubscriber(subscribeInfo,
         (err: BusinessError, commonEventSubscriber: commonEventManager.CommonEventSubscriber) => {
           if (!err) {
             console.info(`Succeeded in creating subscriber.`);
             subscriber = commonEventSubscriber;
-            // 订阅公共事件
+            /<em>/ 订阅公共事件</em>
             try {
               commonEventManager.subscribe(subscriber,
                 (err: BusinessError, data: commonEventManager.CommonEventData) => {
@@ -336,7 +334,7 @@ struct Extension {
       Button('发送数据')
         .width('80%')
         .onClick(() => {
-          // 发布公共事件
+        <em>  // 发布公共事件</em>
           try {
             commonEventManager.publish('event', options, (err: BusinessError) => {
               if (err) {

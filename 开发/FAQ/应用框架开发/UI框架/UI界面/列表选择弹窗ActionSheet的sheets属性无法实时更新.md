@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-936
 
-## 列表选择弹窗ActionSheet的sheets属性无法实时更新
- 
-
-
-##### 问题现象
+#### 问题现象
 
 动态改变列表选择弹窗ActionSheet的sheets属性，弹窗内容无法实时更新。问题代码示例参考如下：
  
@@ -16,7 +12,7 @@
 @Entry
 @Component
 struct showActionSheetExample {
-  @State sheets: Array = [{
+  @State sheets: Array<SheetInfo> = [{
     title: 'apples',
     action: () => {
     }
@@ -57,7 +53,7 @@ struct showActionSheetExample {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [列表选择弹窗 (ActionSheet)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-fixes-style-dialog#列表选择弹窗-actionsheet)是一个列表选择器弹窗适用于呈现多个操作选项，尤其当界面中仅需展示操作列表而无其他内容时。固定样式，当用户需要关注或确认的信息存在列表选择时使用。
 - 当用户需要自定义弹出框内动态更新弹出框属性和内容时，使用[不依赖UI组件的自定义弹出框 (openCustomDialog)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-uicontext-custom-dialog)。存在两种入参方式创建自定义弹出框：
@@ -68,19 +64,19 @@ openCustomDialog（传参为ComponentContent形式）：通过ComponentContent�
  
  
 
-##### 问题定位
+#### 问题定位
 
 在showActionSheet打开列表选择弹窗后，对sheets属性进行动态修改，弹窗UI未变化。
  
  
 
-##### 分析结论
+#### 分析结论
 
 ActionSheet列表选择弹窗不支持动态更新属性，需要通过自定义弹出框实现。
  
  
 
-##### 修改建议
+#### 修改建议
 
 下面通过openCustomDialog实现，并且以传builder的形式为例，实现动态更新自定义弹出框的内容。
  

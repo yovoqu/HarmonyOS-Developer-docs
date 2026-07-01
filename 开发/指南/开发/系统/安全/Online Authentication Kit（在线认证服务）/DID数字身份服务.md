@@ -4,46 +4,44 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-did
 
-## DID数字身份服务
-   
-    
 从26.0.0版本开始，新增DID（Decentralized Identifier，去中心化身份）能力。
-    
+
 DID提供基于W3C DID标准的身份认证和可验证凭证管理能力，支持DID密钥生成、数字凭证导入/查询/删除、数据签名等功能。
-    
-          
-##### 场景介绍
-     
+
+
+#### 场景介绍
+
 DID模块提供去中心化身份管理和可验证凭证能力，应用可以使用这些能力实现用户身份的自主管理和可信凭证的安全存储与出示。
-    
-    
-          
-##### [h2]应用场景
-     
+
+
+
+#### 应用场景
+
  - **数字身份管理**：生成和管理用户的去中心化身份（DID），支持身份的导入、查询和删除。
  - **可验证凭证管理**：导入、查询和删除可验证凭证（VC）和可验证表达（VP）。
  - **数据签名**：使用DID密钥对数据进行数字签名，确保数据的完整性和来源可信。
  - **选择性披露**：支持选择性披露凭证（SELECTIVE_DISCLOSURE_VC/VP），保护用户隐私。
-     
-    
-    
-          
-##### 基本概念
-     
+
+
+
+
+#### 基本概念
+
  - **DID（Decentralized Identifier）**：去中心化身份标识符，一种新型的身份标识方式，不需要中心化的注册机构。
  - **VC（Verifiable Credential）**：可验证凭证，由发行方签名的数字凭证，包含关于主体的可验证声明。
  - **VP（Verifiable Presentation）**：可验证表达，由持有人创建的凭证呈现，包含一个或多个凭证及签名。
  - **DID Document**：DID文档，包含DID相关的公钥、认证、服务等元数据信息。
  - **KeyAlias**：密钥别名，用于标识和索引DID密钥。
-     
-    
-    
-          
-##### 约束与限制
-     
+
+
+
+
+#### 约束与限制
+
  - 开发者应用已接入DID生态，并部署符合DID标准协议的服务器。
  - 需满足以下条件，才能使用本功能。移动端设备需要支持生物特征（指纹/3D人脸），查询当前移动端设备是否支持ATL4级别的认证可信等级。
-       
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { userAuth } from '@kit.UserAuthenticationKit';
@@ -59,65 +57,59 @@ try {
 ```
 
  - 数字身份服务会将凭证信息、匿名化的指纹ID和面容ID等个人信息返回至三方应用，以提供绑定具体生物特征的免密认证能力。应用将个人信息上云前，需要向用户明示并且取得同意，详细请参考[个人数据处理说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-personal-data-processing-description)。
-     
-    
-    
-          
-##### 业务流程
-    
-    
-          
-##### [h2]启用数字身份流程
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/1YXp7taISSG9YUgMHaQI8Q/zh-cn_image_0000002659100349.png?HW-CC-KV=V1&HW-CC-Date=20260701T025433Z&HW-CC-Expire=86400&HW-CC-Sign=4D9B9646DF8BFFF6DEBBB421934D61B29BA8BABD32589FBAA882957D25D1BB2C)
 
-     
+
+
+#### 业务流程
+
+
+
+#### 启用数字身份流程
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/1YXp7taISSG9YUgMHaQI8Q/zh-cn_image_0000002659100349.png?HW-CC-KV=V1&HW-CC-Date=20260701T041505Z&HW-CC-Expire=86400&HW-CC-Sign=345DD0AB97F0212CAEB3DA291351B50B05B094FEC71AE50D6A032AE95F9A98CD)
+
+
 流程说明：
-     
- - 应用构造[GenerateKeyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#generatekeyrequest)，指定密钥别名、算法类型、用途等参数。
- - 应用调用[generateKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#generatekey)接口生成DID密钥。
- - DID API返回公钥、证书链等信息。
- - 公钥上链后，应用获取DID文档等信息。
- - 应用调用[importDid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#importdid)接口将DID文档等信息导入。
-     
-    
-    
-          
-##### [h2]颁发数字凭证流程
-     
+1. 应用构造[GenerateKeyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#generatekeyrequest)，指定密钥别名、算法类型、用途等参数。
+2. 应用调用[generateKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#generatekey)接口生成DID密钥。
+3. DID API返回公钥、证书链等信息。
+4. 公钥上链后，应用获取DID文档等信息。
+5. 应用调用[importDid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#importdid)接口将DID文档等信息导入。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/iZpIPKYgQ_-8eh145sh-lw/zh-cn_image_0000002628861000.png?HW-CC-KV=V1&HW-CC-Date=20260701T025433Z&HW-CC-Expire=86400&HW-CC-Sign=4BEF4029DDF218486A55021BC6996A9188238ABEDF6362CF393AE52C70A2062B)
 
-     
+
+#### 颁发数字凭证流程
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/iZpIPKYgQ_-8eh145sh-lw/zh-cn_image_0000002628861000.png?HW-CC-KV=V1&HW-CC-Date=20260701T041505Z&HW-CC-Expire=86400&HW-CC-Sign=A82C8CE6AAFC45FE9CB33FD933EECD4C3E360114FCF500CC186818D12B6246F1)
+
+
 流程说明：
-     
- - 应用从发行方获取加密（也可不加密）的可验证凭证。
- - 构造[ImportDigitalCredentialRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#importdigitalcredentialrequest)，配置解密参数、显示配置等，调用[importDigitalCredential](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#importdigitalcredential)接口导入凭证。
- - DID API验证凭证格式并安全存储，返回调用结果，凭证概要信息。
-     
-    
-    
-          
-##### [h2]出示数字凭证流程
-     
+1. 应用从发行方获取加密（也可不加密）的可验证凭证。
+2. 构造[ImportDigitalCredentialRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#importdigitalcredentialrequest)，配置解密参数、显示配置等，调用[importDigitalCredential](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#importdigitalcredential)接口导入凭证。
+3. DID API验证凭证格式并安全存储，返回调用结果，凭证概要信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/eJioI5NLSAWfzDDgHyGyzQ/zh-cn_image_0000002659220315.png?HW-CC-KV=V1&HW-CC-Date=20260701T025433Z&HW-CC-Expire=86400&HW-CC-Sign=D0FE53B846C82528535056CB4D8F1DF11C1A32247DF05771D66A2F595FE0BDB0)
 
-     
+
+#### 出示数字凭证流程
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/eJioI5NLSAWfzDDgHyGyzQ/zh-cn_image_0000002659220315.png?HW-CC-KV=V1&HW-CC-Date=20260701T041505Z&HW-CC-Expire=86400&HW-CC-Sign=3F730F5A888AAE7BFAC3752625D70A7D206F68100E6AEDE2B7F48F09F3AAC654)
+
+
 流程说明：
-     
- - 验证方云侧，云侧下发请求凭证的参数。
- - 应用构造[GetDigitalCredentialRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#getdigitalcredentialrequest)，指定凭证类型、验证方信息等，调用[getDigitalCredential](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#getdigitalcredential)接口获取凭证。
- - DID API返回可验证表达（VP）给验证方。
-     
-    
-    
-          
-##### 接口说明
-     
+1. 验证方云侧，云侧下发请求凭证的参数。
+2. 应用构造[GetDigitalCredentialRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#getdigitalcredentialrequest)，指定凭证类型、验证方信息等，调用[getDigitalCredential](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#getdigitalcredential)接口获取凭证。
+3. DID API返回可验证表达（VP）给验证方。
+
+
+
+#### 接口说明
+
 业务使用DID能力进行数字身份的启用、数字凭证的导入、数字凭证的出示等待。具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api#generatekey)。
-     
+
 | 接口名 | 描述 |
 | --- | --- |
 | generateKey | 生成DID密钥。 |
@@ -129,18 +121,18 @@ try {
 | queryDigitalCredential | 查询数字凭证摘要。 |
 | deleteDigitalCredential | 删除数字凭证。 |
 | getDigitalCredential | 获取数字凭证。 |
-     
-    
-    
-          
-##### 开发步骤
-    
-    
-          
-##### [h2]启用数字身份
-     
- - 导入did模块，构造密钥生成请求。
-       
+
+
+
+
+#### 开发步骤
+
+
+
+#### 启用数字身份
+1. 导入did模块，构造密钥生成请求。
+
+  
 ```text
 import { did } from '@kit.OnlineAuthenticationKit';
 import { buffer } from '@kit.ArkTS';
@@ -173,9 +165,10 @@ try {
 }
 ```
 
- - 构造DID导入请求，调用importDid接口，将DID文档等信息导入端侧。
-       
-```text
+2. 构造DID导入请求，调用importDid接口，将DID文档等信息导入端侧。
+
+  
+```json
 let importDidRequest: did.ImportDidRequest = {
   isUpdate: false,
   did: 'did:example:123456',
@@ -199,8 +192,9 @@ try {
 }
 ```
 
- - 构造查询请求，调用queryDid接口，查询端侧的did有没有导入成功。
-       
+3. 构造查询请求，调用queryDid接口，查询端侧的did有没有导入成功。
+
+  
 ```text
 let queryDidRequest: did.QueryDidRequest = {
   did: 'did:example:123456',
@@ -221,8 +215,9 @@ try {
 }
 ```
 
- - 如果端侧存在相关did以及did密钥，调用sign接口可以为待签名数字签名。
-       
+4. 如果端侧存在相关did以及did密钥，调用sign接口可以为待签名数字签名。
+
+  
 ```text
 let data: string = 'data to sign';
 let signRequest: did.SignRequest = {
@@ -240,8 +235,9 @@ try {
 }
 ```
 
- - 调用deleteDid删除端侧对应的did信息。
-       
+5. 调用deleteDid删除端侧对应的did信息。
+
+  
 ```text
 try {
   await did.deleteDid(context, 'did:example:123456');
@@ -252,15 +248,14 @@ try {
 }
 ```
 
-     
-    
-    
-          
-##### [h2]颁发数字凭证
-     
- - 构造凭证导入请求，配置安全参数和显示参数。
-       
-```text
+
+
+
+#### 颁发数字凭证
+1. 构造凭证导入请求，配置安全参数和显示参数。
+
+  
+```json
 let importCredentialRequest: did.ImportDigitalCredentialRequest = {
   did: 'did:example:123456',
   credentialType: did.CredentialType.VC,
@@ -295,8 +290,9 @@ try {
 }
 ```
 
- - 调用queryDigitalCredential接口查询凭证是否导入成功。
-       
+2. 调用queryDigitalCredential接口查询凭证是否导入成功。
+
+  
 ```text
 try {
   let response: did.QueryDigitalCredentialResponse =
@@ -309,8 +305,9 @@ try {
 }
 ```
 
- - 调用deleteDigitalCredential接口删除端侧对应的数字凭证。
-       
+3. 调用deleteDigitalCredential接口删除端侧对应的数字凭证。
+
+  
 ```text
 try {
   await did.deleteDigitalCredential(context, 'did:example:123456', 'credential123');
@@ -321,14 +318,13 @@ try {
 }
 ```
 
-     
-    
-    
-          
-##### [h2]出示数字凭证
-     
+
+
+
+#### 出示数字凭证
+
 构造凭证获取请求，调用getDigitalCredential接口。
-     
+
 ```text
 let getCredentialRequest: did.GetDigitalCredentialRequest = {
   credentialType: did.CredentialType.VP,

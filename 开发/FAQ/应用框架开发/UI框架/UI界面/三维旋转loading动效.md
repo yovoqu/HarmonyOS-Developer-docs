@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-648
 
-## 三维旋转loading动效
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现具有三维旋转效果的加载动画界面？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)提供接口来指定由于闭包代码导致的状态变化插入过渡动效。
 - [rotate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#rotate)是一种通用属性，可用于设置组件的旋转。
@@ -22,9 +18,8 @@
  
  
 
-##### 解决方案
-
-- 调用animateTo动画函数，将旋转参数从初始值过渡到目标值并通过设置iterations:-1，实现无限循环。
+#### 解决方案
+1. 调用animateTo动画函数，将旋转参数从初始值过渡到目标值并通过设置iterations:-1，实现无限循环。
 ```text
 this.getUIContext()?.animateTo({
   duration: 2000,
@@ -43,7 +38,7 @@ this.getUIContext()?.animateTo({
 });
 ```
 
-- 通过rotate方法设置x/y/z轴旋转分量和旋转中心点(centerX/Y)，实现空间错位效果。
+2. 通过rotate方法设置x/y/z轴旋转分量和旋转中心点(centerX/Y)，实现空间错位效果。
 ```text
 .rotate({
   x: 50,
@@ -55,7 +50,7 @@ this.getUIContext()?.animateTo({
 });
 ```
 
-- 完整示例参考如下：
+3. 完整示例参考如下：
 ```text
 @Entry
 @Component
@@ -73,7 +68,7 @@ struct RotatingAnimationDemo {
   onDidBuild(): void {
     this.getUIContext()?.animateTo({
       duration: 2000,
-      // 动画播放次数，设置为-1时表示无限次播放
+    <em>  // 动画播放次数，设置为-1时表示无限次播放</em>
       iterations: -1,
       curve: Curve.Linear
     }, () => {
@@ -111,13 +106,13 @@ struct RotatingAnimationDemo {
       .height(190)
       .border({ width: { bottom: 8 }, color: 'rgb(255, 65, 106)', style: BorderStyle.Solid })
       .borderRadius(90)
-      // 设置组件的旋转参数
+     <em> // 设置组件的旋转参数</em>
       .rotate({
-        x: 20, // 旋转轴向量x坐标
-        y: 50, // 旋转轴向量y坐标
+        x: 20, <em>// 旋转轴向量x坐标</em>
+        y: 50, <em>// 旋转轴向量y坐标</em>
         z: this.twonumZ,
-        angle: this.twonum, // 旋转角度
-        centerX: 80, // 变换中心点x轴坐标
+        angle: this.twonum, <em>// 旋转角度</em>
+        centerX: 80,<em> // 变换中心点x轴坐标</em>
         centerY: 80,
       });
 
@@ -164,5 +159,6 @@ struct RotatingAnimationDemo {
 }
 ```
  效果图为：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/_5iN7d2eRaOI5lOG40Utsg/zh-cn_image_0000002628394516.png?HW-CC-KV=V1&HW-CC-Date=20260701T025710Z&HW-CC-Expire=86400&HW-CC-Sign=08556DCD86624268DF98204138B2E522C0570AA9579C9E85017D57474C79FA86)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/_5iN7d2eRaOI5lOG40Utsg/zh-cn_image_0000002628394516.png?HW-CC-KV=V1&HW-CC-Date=20260701T041149Z&HW-CC-Expire=86400&HW-CC-Sign=2F41877C5BD8363AE1E7991ED77A8074AA1D6A112E3F2C3978FE52E47C333B08)

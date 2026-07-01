@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-659
 
-## Video组件如何获取视频的时长和播放进度
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何创建一个用于播放视频的自定义组件Player，其内部使用Video组件，然后在另一个自定义父组件内调用Player组件，希望在父组件中获取视频的时长和播放进度信息。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/FK2N7JlzQceYLJ6d6pe2ZQ/zh-cn_image_0000002658913865.png?HW-CC-KV=V1&HW-CC-Date=20260701T025541Z&HW-CC-Expire=86400&HW-CC-Sign=5D0DE1CD80198A7BFA28EDE3963BCCE5F28F283B4FC79012C46C29F64232B7EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/FK2N7JlzQceYLJ6d6pe2ZQ/zh-cn_image_0000002658913865.png?HW-CC-KV=V1&HW-CC-Date=20260701T041253Z&HW-CC-Expire=86400&HW-CC-Sign=0890B4A2DB481DE07016B9CAC40B64E608676FCD0F95C14B0D06FDCC8723E3C1)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Video](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-video-player)组件：封装了视频播放的基础能力，需要设置数据源以及基础信息即可播放视频，但相对扩展能力较弱。如果开发者想自定义视频播放，请参考[视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
 - [onPrepared](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#onprepared)：视频准备完成时触发该事件，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -32,14 +28,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过事件回调机制来实现。核心思路是：
- 
-- 子组件(Player)定义回调接口：在Player组件中，定义可以被父组件传递进来的回调函数onPrepared和onUpdate，分别用于获取视频时长和监控播放进度变化。
-- 父组件传递回调函数：父组件在调用Player时，通过属性方式传入具体的回调函数实现。
-- 子组件在适当时机调用：Player内部的Video组件在onPrepared（获取时长）和onUpdate（获取进度）等事件触发时，调用父组件传过来的回调函数。
-
+ 1. 子组件(Player)定义回调接口：在Player组件中，定义可以被父组件传递进来的回调函数onPrepared和onUpdate，分别用于获取视频时长和监控播放进度变化。
+2. 父组件传递回调函数：父组件在调用Player时，通过属性方式传入具体的回调函数实现。
+3. 子组件在适当时机调用：Player内部的Video组件在onPrepared（获取时长）和onUpdate（获取进度）等事件触发时，调用父组件传过来的回调函数。
  
 父组件:
  
@@ -47,8 +41,8 @@
 @Component
 @Entry
 struct MovePage {
-  @State duration: number = 0; // 视频总时长状态
-  @State time: number = 0; // 当前播放时间状态
+  @State duration: number = 0;<em> // 视频总时长状态</em>
+  @State time: number = 0;<em> // 当前播放时间状态</em>
 
   build() {
     Column({ space: 20 }) {
@@ -85,8 +79,8 @@ struct MovePage {
 export default struct Player {
   @Prop src: string | Resource;
   @Prop isControls: boolean = true;
-  onPrepared?: (duration: number) => void; // 视频准备完成时触发该事件
-  onUpdate?: (time: number) => void; // 播放进度变化时触发该事件
+  onPrepared?: (duration: number) => void; <em>// 视频准备完成时触发该事件</em>
+  onUpdate?: (time: number) => void; <em>// 播放进度变化时触发该事件</em>
   private videoController: VideoController = new VideoController();
 
   build() {
@@ -95,14 +89,14 @@ export default struct Player {
         src: this.src,
         controller: this.videoController
       })
-        .loop(true)// 循环播放
-        .objectFit(ImageFit.Cover)// 画面填充模式
-        .controls(this.isControls)// 绑定控制条
+        .loop(true)<em>// 循环播放</em>
+        .objectFit(ImageFit.Cover)<em>// 画面填充模式</em>
+        .controls(this.isControls)<em>// 绑定控制条</em>
         .onPrepared((event) => {
-          this.onPrepared?.(event.duration); // 获取到总时长后调用
+          this.onPrepared?.(event.duration);<em> // 获取到总时长后调用</em>
         })
         .onUpdate((event) => {
-          this.onUpdate?.(event.time); // 当前视频播放的进度
+          this.onUpdate?.(event.time);<em> // 当前视频播放的进度</em>
         })
         .onError(() => {
           console.error('播放失败');
@@ -125,7 +119,7 @@ export default struct Player {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Video组件的onUpdate回调仅每秒一次，无法满足精细进度监控的需求。
  

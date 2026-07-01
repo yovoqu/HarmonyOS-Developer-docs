@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-audiokit-7001
 
-## Audio Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 属性变更 | 类名：AudioStreamInfo； API声明：samplingRate: AudioSamplingRate; 差异内容：AudioSamplingRate | 类名：AudioStreamInfo； API声明：samplingRate: AudioSamplingRate \| number; 差异内容：AudioSamplingRate,number | api/@ohos.multimedia.audio.d.ts |

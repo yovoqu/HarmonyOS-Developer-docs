@@ -3,37 +3,37 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-skillmanager
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+本模块提供技能（Skill）信息的查询能力，支持查询应用自身的技能信息、指定应用的技能信息以及所有应用的技能信息。AI代理框架在规划任务时，可通过本模块查询设备上所有应用可用的技能，选择合适的技能来完成用户请求。通过技能信息查询，可以实现智能任务调度、能力匹配优化，提升AI代理的任务执行效率，降低开发者的技能集成复杂度。
+
+**起始版本：** 26.0.0
+
+
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## @ohos.bundle.skillManager (skillManager模块)
-   
-    
-本模块提供技能（Skill）信息的查询能力，支持查询应用自身的技能信息、指定应用的技能信息以及所有应用的技能信息。AI代理框架在规划任务时，可通过本模块查询设备上所有应用可用的技能，选择合适的技能来完成用户请求。通过技能信息查询，可以实现智能任务调度、能力匹配优化，提升AI代理的任务执行效率，降低开发者的技能集成复杂度。
-    
-**起始版本：** 26.0.0
-    
-          
-##### 导入模块
-     
 ```text
 import { skillManager } from '@kit.AbilityKit';
 ```
-    
-    
-          
-##### SkillInfoFlag
-     
+
+
+
+#### SkillInfoFlag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 技能信息标志，指示需要获取的技能信息的内容。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-     
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | GET_SKILL_INFO_DEFAULT | 0x00000000 | 获取默认技能信息，不包含description、srcEntries、permissions和requestPermissions。 |
@@ -41,53 +41,55 @@ import { skillManager } from '@kit.AbilityKit';
 | GET_SKILL_INFO_WITH_SRC_ENTRIES | 0x00000002 | 用于获取包含srcEntries的技能信息。 |
 | GET_SKILL_INFO_WITH_PERMISSIONS | 0x00000004 | 用于获取包含permissions的技能信息。 |
 | GET_SKILL_INFO_WITH_REQUEST_PERMISSIONS | 0x00000008 | 用于获取包含requestPermissions的技能信息。 |
-     
-    
-    
-          
-##### skillManager.getSkillInfoForSelf
-     
+
+
+
+
+#### skillManager.getSkillInfoForSelf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSkillInfoForSelf(moduleName: string, skillName: string, flags: number): Promise<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>
-     
+
 获取本应用中指定模块下指定名称的技能信息。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | moduleName | string | 是 | 指定查询技能所属模块的名称。 |
 | skillName | string | 是 | 指定查询技能的名称。 |
 | flags | number | 是 | 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;SkillInfo&gt; | Promise对象，返回指定技能的SkillInfo。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17700002 | The specified module is not found. |
 | 17700093 | The specified skillName is not found. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 import { skillManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -107,40 +109,42 @@ try {
   hilog.error(0x0000, 'testTag', 'getSkillInfoForSelf failed: error %{public}d  %{public}s', code, message);
 }
 ```
-    
-    
-          
-##### skillManager.getSkillInfosForSelf
-     
+
+
+
+#### skillManager.getSkillInfosForSelf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSkillInfosForSelf(flags: number): Promise<Array<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>>
-     
+
 获取本应用的所有技能信息。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | flags | number | 是 | 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Array&lt;SkillInfo&gt;> | Promise对象，返回调用方所在应用的所有技能信息数组。 |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 import { skillManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -158,55 +162,53 @@ try {
   hilog.error(0x0000, 'testTag', 'getSkillInfosForSelf failed: error %{public}d  %{public}s', code, message);
 }
 ```
-    
-    
-          
-##### skillManager.getSkillInfo
-     
+
+
+
+#### skillManager.getSkillInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSkillInfo(bundleName: string, moduleName: string, skillName: string, flags: number, userId?: number): Promise<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>
-     
+
 获取指定应用中指定模块下指定名称的技能信息。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **需要权限：** ohos.permission.MANAGE_SKILL_PRIVILEGE 或 ohos.permission.MANAGE_SKILL
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/bfYw_fqYRuyKadEFUT6wAg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025446Z&HW-CC-Expire=86400&HW-CC-Sign=173A22B2FE1C5A44892E5602E5A8B809A262FDB62B56F56821A6D35FCEF89852)
-       
-       
-跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
-      
-     
-     
+
+> [!NOTE]
+> 跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 指定查询应用的包名。 |
 | moduleName | string | 是 | 指定查询技能所属模块的名称。 |
 | skillName | string | 是 | 指定查询技能的名称。 |
 | flags | number | 是 | 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。 |
-| userId | number | 否 | 指定查询的用户ID，可以通过getOsAccountLocalId获取。          默认值：调用方所在用户。          取值范围：大于等于0。 |
-     
-     
+| userId | number | 否 | 指定查询的用户ID，可以通过getOsAccountLocalId获取。 默认值：调用方所在用户。 取值范围：大于等于0。 |
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;SkillInfo&gt; | Promise对象，返回指定技能的SkillInfo。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -214,11 +216,11 @@ getSkillInfo(bundleName: string, moduleName: string, skillName: string, flags: n
 | 17700002 | The specified module is not found. |
 | 17700004 | The specified user ID is not found. |
 | 17700093 | The specified skillName is not found. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 import { skillManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -239,63 +241,61 @@ try {
   hilog.error(0x0000, 'testTag', 'getSkillInfo failed: error %{public}d  %{public}s', code, message);
 }
 ```
-    
-    
-          
-##### skillManager.getSkillInfos
-     
+
+
+
+#### skillManager.getSkillInfos
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSkillInfos(bundleName: string, flags: number, userId?: number): Promise<Array<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>>
-     
+
 获取指定应用的所有技能信息。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **需要权限：** ohos.permission.MANAGE_SKILL_PRIVILEGE 或 ohos.permission.MANAGE_SKILL
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/91aiuMvMQ9G4C0-sj7BUCw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025446Z&HW-CC-Expire=86400&HW-CC-Sign=7B6B3C11D6082654FD9D213751E5EAB6393527AF26F08D13EA72AFAF775E1D90)
-       
-       
-跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
-      
-     
-     
+
+> [!NOTE]
+> 跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 指定查询应用的包名。 |
 | flags | number | 是 | 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。 |
-| userId | number | 否 | 指定查询的用户ID，可以通过getOsAccountLocalId获取。          默认值：调用方所在用户。          取值范围：大于等于0。 |
-     
-     
+| userId | number | 否 | 指定查询的用户ID，可以通过getOsAccountLocalId获取。 默认值：调用方所在用户。 取值范围：大于等于0。 |
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Array&lt;SkillInfo&gt;> | Promise对象，返回指定应用的所有技能信息数组。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
 | 17700001 | The specified bundleName is not found. |
 | 17700004 | The specified user ID is not found. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 import { skillManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -314,61 +314,59 @@ try {
   hilog.error(0x0000, 'testTag', 'getSkillInfos failed: error %{public}d  %{public}s', code, message);
 }
 ```
-    
-    
-          
-##### skillManager.getAllSkillInfos
-     
+
+
+
+#### skillManager.getAllSkillInfos
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllSkillInfos(flags: number, userId?: number): Promise<Array<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>>
-     
+
 获取设备上安装应用的所有技能信息。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **需要权限：** ohos.permission.MANAGE_SKILL_PRIVILEGE 或 ohos.permission.MANAGE_SKILL
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/5krXxhzmSgqmOUPgJVT5uA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025446Z&HW-CC-Expire=86400&HW-CC-Sign=31FFD11B07CD690F20CE152E24E52F040841ECA9D290AC0D8796C73C214BF338)
-       
-       
-跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
-      
-     
-     
+
+> [!NOTE]
+> 跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | flags | number | 是 | 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。 |
-| userId | number | 否 | 指定查询的用户ID，可以通过getOsAccountLocalId获取。          默认值：调用方所在用户。          取值范围：大于等于0。 |
-     
-     
+| userId | number | 否 | 指定查询的用户ID，可以通过getOsAccountLocalId获取。 默认值：调用方所在用户。 取值范围：大于等于0。 |
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Array&lt;SkillInfo&gt;> | Promise对象，返回所有应用的技能信息数组。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
 | 17700004 | The specified user ID is not found. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 import { skillManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -386,44 +384,48 @@ try {
   hilog.error(0x0000, 'testTag', 'getAllSkillInfos failed: error %{public}d  %{public}s', code, message);
 }
 ```
-    
-    
-          
-##### SkillInfo
-     
+
+
+
+#### SkillInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SkillInfo = _SkillInfo
-     
+
 技能配置信息，用于定义AI代理的技能能力。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | _SkillInfo | 应用技能信息。 |
-     
-    
-    
-          
-##### SkillType
-     
+
+
+
+
+#### SkillType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SkillType = _SkillType
-     
+
 技能类型的枚举。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | _SkillType | 技能类型的枚举。 |

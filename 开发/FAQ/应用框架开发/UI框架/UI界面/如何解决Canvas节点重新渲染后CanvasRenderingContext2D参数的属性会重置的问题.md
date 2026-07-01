@@ -4,18 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1066
 
-## 如何解决Canvas节点重新渲染后CanvasRenderingContext2D参数的属性会重置的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用animator给Canvas实现动画效果，onReady中设置画笔颜色为蓝色，大小为'bold 18vp sans-serif'。Canvas宽度改变后CanvasRenderingContext2D画笔的粗细和颜色发生重置效果。
  
 问题效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/a3O3BCIdQhuhxHXDbi50dg/zh-cn_image_0000002658806483.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=B8EE7511271151DF4D7CFECB759B68974B0C26856E76804846E0321B712B2F19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/a3O3BCIdQhuhxHXDbi50dg/zh-cn_image_0000002658806483.png?HW-CC-KV=V1&HW-CC-Date=20260701T041209Z&HW-CC-Expire=86400&HW-CC-Sign=3FB8D3EABB51D333CF68804CECC965C109738B9561F6A7868FC64BCEAA1F77C4)
 
  
 点击变更时，蓝色的大“测试”闪烁成黑色的小“测试”。疑似CanvasRenderingContext2D发生重置。
@@ -43,7 +39,7 @@ struct Index {
 
   build() {
     Column() {
-      // 需求:点击变更按钮的时候,Canvas绘制的内容不会闪动
+      <em>// 需求:点击变更按钮的时候,Canvas绘制的内容不会闪动</em>
       Button('变更').onClick(() => {
         this.animatorResult.play()
       })
@@ -63,7 +59,7 @@ struct Index {
 
   private createAnimator() {
     this.settings.antialias = true
-    // 创建动画的初始参数
+   <em> // 创建动画的初始参数</em>
     let options: AnimatorOptions = {
       duration: 1000,
       easing: 'friction',
@@ -71,8 +67,8 @@ struct Index {
       fill: 'forwards',
       direction: 'normal',
       iterations: 1,
-      begin: 0, // 动画onFrame插值首帧值
-      end: 18, // 动画onFrame插值尾帧值
+      begin: 0,<em> // 动画onFrame插值首帧值</em>
+      end: 18, <em>// 动画onFrame插值尾帧值</em>
     };
     return this.getUIContext().createAnimator(options)
   }
@@ -81,15 +77,15 @@ struct Index {
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/SOTf3AAjSzGl9jM63jl2vQ/zh-cn_image_0000002628567126.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=9C4C0965DCF8D5B3E4FB096BC8F944DC6B542822B33EA46051DD3300AA628EDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/SOTf3AAjSzGl9jM63jl2vQ/zh-cn_image_0000002628567126.png?HW-CC-KV=V1&HW-CC-Date=20260701T041209Z&HW-CC-Expire=86400&HW-CC-Sign=55F3891DE09827E747D6564BA75453D7D0FCE770F91007DC124B1424D1189AB2)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)是画布组件，组件本身只相当于一个画布，其参数[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)相当于画笔，[onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas#onready)是Canvas相关资源准备完毕后触发的回调，通常在此回调中使用CanvasRenderingContext2D进行赋值和绘制操作。
 - [@ohos.animator (动画)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-animator)每帧触发一次[AnimatorResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-animator#animatorresult)的onFrame回调。
@@ -97,21 +93,19 @@ struct Index {
  
  
 
-##### 问题定位
-
-- 查看代码中动画实现部分：自定义组件在生命周期aboutToAppear中创建了帧动画，每一帧动画执行时，系统会调用onFrame回调函数修改Canvas宽度。
-- 查阅Canvas官网文档可知：Canvas组件发生大小变化时会触发onReady回调，而问题代码中onReady回调中重置了画笔CanvasRenderingContext2D的样式。
-
+#### 问题定位
+1. 查看代码中动画实现部分：自定义组件在生命周期aboutToAppear中创建了帧动画，每一帧动画执行时，系统会调用onFrame回调函数修改Canvas宽度。
+2. 查阅Canvas官网文档可知：Canvas组件发生大小变化时会触发onReady回调，而问题代码中onReady回调中重置了画笔CanvasRenderingContext2D的样式。
  
  
 
-##### 分析结论
+#### 分析结论
 
 动画过程中每一帧都会重新渲染，所以每一帧会触发onFrame回调，也都会触发onReady回调，在onReady中设置CanvasRenderingContext2D的值完成之前就已经执行了onFrame中绘制“测试”的操作，体现为一个小的黑色“测试”。
  
  
 
-##### 修改建议
+#### 修改建议
 
 为防止Canvas刷新导致CanvasRenderingContext2D参数被重置，不要在onReady中进行参数设置，而是仅在onFrame中执行画布的清除，画笔参数的设置，绘制文字的全部过程。
  
@@ -140,7 +134,7 @@ struct FrameAnimator {
 
   build() {
     Column() {
-      // 需求:点击变更按钮的时候,Canvas绘制的内容不会闪动
+      <em>// 需求:点击变更按钮的时候,Canvas绘制的内容不会闪动</em>
       Button('变更').onClick(() => {
         this.animatorResult.play();
       });
@@ -158,7 +152,7 @@ struct FrameAnimator {
 
   private createAnimator() {
     this.settings.antialias = true;
-    // 创建动画的初始参数
+   <em> // 创建动画的初始参数</em>
     let options: AnimatorOptions = {
       duration: 1000,
       easing: 'friction',
@@ -166,8 +160,8 @@ struct FrameAnimator {
       fill: 'forwards',
       direction: 'normal',
       iterations: 1,
-      begin: 0, // 动画onFrame插值首帧值
-      end: 18, // 动画onFrame插值尾帧值
+      begin: 0, <em>// 动画onFrame插值首帧值</em>
+      end: 18, <em>// 动画onFrame插值尾帧值</em>
     };
     return this.getUIContext().createAnimator(options);
   }

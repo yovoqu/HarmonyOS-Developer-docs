@@ -4,30 +4,30 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-form-19
 
-## 如何根据不同尺寸的卡片适配不同的UI
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发服务卡片如何针对不同尺寸的卡片适配不同的UI？
  
  
 
-##### 背景知识
+#### 背景知识
 
 Form Kit（卡片开发框架）提供了一种在桌面、锁屏等系统入口嵌入显示应用信息的开发框架和API，可以将应用内用户关注的重要信息或常用操作抽取到服务卡片上，通过将卡片添加到桌面上，以达到信息展示、服务直达的便捷体验效果。卡片的创建可参考[创建一个ArkTS卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)，卡片的生命周期可参考[卡片生命周期管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-lifecycle)。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 在创建卡片的生命周期[onAddForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonaddform)中，通过want.parameters.[formInfo.FormParam.DIMENSION_KEY]取出卡片尺寸的相关信息，再通过[formBindingData.createFormBindingData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formbindingdata#formbindingdatacreateformbindingdata)创建FormBindingData对象并将尺寸信息传入卡片，在卡片页面根据不同尺寸信息结合业务场景适配不同的UI。卡片尺寸枚举请参考[FormDimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo#formdimension)。
- EntryFormAbility示例代码如下：
- 
-```text
+
+  EntryFormAbility示例代码如下：
+
+  
+```json
 import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
+
+
 
 
 export default class EntryFormAbility extends FormExtensionAbility {
@@ -56,13 +56,13 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
   onAddForm(want: Want) {
-    // Called to return a FormBindingData object.
+ <em>   // Called to return a FormBindingData object.</em>
     let dimension: string = '';
     if (want.parameters) {
-      dimension = JSON.stringify(want.parameters[formInfo.FormParam.DIMENSION_KEY]); // 获取要创建的卡片的尺寸
+      dimension = JSON.stringify(want.parameters[formInfo.FormParam.DIMENSION_KEY]);<em> // 获取要创建的卡片的尺寸</em>
       console.info('dimension=' + dimension);
     }
-    let obj: Record = {
+    let obj: Record<string, string> = {
       'dimension': this.transNumToStrName(Number(dimension))
     };
     return formBindingData.createFormBindingData(obj);
@@ -70,39 +70,40 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
   onCastToNormalForm(formId: string) {
-    // Called when the form provider is notified that a temporary form is successfully
-    // converted to a normal form.
+   <em> // Called when the form provider is notified that a temporary form is successfully</em>
+<em>    // converted to a normal form.</em>
     console.info('onCastToNormalForm', formId);
   }
 
 
   onUpdateForm(formId: string) {
-    // Called to notify the form provider to update a specified form.
+ <em>   // Called to notify the form provider to update a specified form.</em>
     console.info('onUpdateForm', formId);
   }
 
 
   onFormEvent(formId: string, message: string) {
-    // Called when a specified message event defined by the form provider is triggered.
+  <em>  // Called when a specified message event defined by the form provider is triggered.</em>
     console.info('onFormEvent', formId, message);
   }
 
 
   onRemoveForm(formId: string) {
-    // Called to notify the form provider that a specified form has been destroyed.
+  <em>  // Called to notify the form provider that a specified form has been destroyed.</em>
     console.info('onRemoveForm', formId, formId);
   }
 
 
   onAcquireFormState(want: Want) {
-    // Called to return a {@link FormState} object.
+ <em>   // Called to return a {@link FormState} object.</em>
     console.info('onAcquireFormState', want.bundleName);
     return formInfo.FormState.READY;
   }
 };
 ```
  WidgetCard示例代码如下：
- 
+
+  
 ```text
 let storageUpdateByMsg = new LocalStorage();
 
@@ -110,7 +111,7 @@ let storageUpdateByMsg = new LocalStorage();
 @Entry(storageUpdateByMsg)
 @Component
 export struct WidgetCard {
-  // 卡片页面接收尺寸信息
+<em>  // 卡片页面接收尺寸信息</em>
   @LocalStorageProp("dimension") dimension: string = '';
 
 
@@ -130,7 +131,7 @@ export struct WidgetCard {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：卡片预览有3种尺寸Minimum、Default、Maximum的展示，不同尺寸的留白不同，是否需要关注每种尺寸的效果，能否做到自动适配？
  
@@ -163,7 +164,7 @@ Q：元服务添加到桌面的卡片大小是否可以更改？
 A：加桌之后的元服务卡片的大小是固定尺寸，当前开发者在没有适配其他大小尺寸的卡片前提下，无法改变桌面卡片的大小。所以建议在创建卡片的时候，就规划多个尺寸的卡片，以支持创建多种不同大小的卡片。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/X_nyuNyQR4Cfn32cuoG46g/zh-cn_image_0000002628791562.png?HW-CC-KV=V1&HW-CC-Date=20260701T025529Z&HW-CC-Expire=86400&HW-CC-Sign=D45A318F9566A7042EBC6749CA112214A951106C12D7B26C15CA7686F95845CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/X_nyuNyQR4Cfn32cuoG46g/zh-cn_image_0000002628791562.png?HW-CC-KV=V1&HW-CC-Date=20260701T041353Z&HW-CC-Expire=86400&HW-CC-Sign=F807C2D315BFF8FE241C628677EA9DA23C0D2506464627A77CD73484ABE2F3C7)
 
  
 Q：如何解决小尺寸卡片中图片显示不完全？

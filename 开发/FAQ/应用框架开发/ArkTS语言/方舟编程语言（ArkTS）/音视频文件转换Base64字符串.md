@@ -4,34 +4,29 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-156
 
-## 音视频文件转换Base64字符串
- 
-
-
-##### 问题现象
+#### 问题现象
 
 业务场景需要在H5页面使用Base64字符串播放音视频，如何将录制的视频、录音的音频文件转换为Base64字符串？
  
  
 
-##### 背景知识
+#### 背景知识
 
 Base64编码常用于存储二进制数据，如图片、视频、音频文件等，因为它将数据转换为可打印字符，避免了二进制数据在存储过程中可能出现的问题。HarmonyOS提供了工具类[Base64Helper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#base64helper9)进行Base64编解码。
  
  
 
-##### 解决方案
-
-- 读取音视频文件调用[encodeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#encodesync9)函数得到Base64字符串。示例代码如下：
+#### 解决方案
+1. 读取音视频文件调用[encodeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#encodesync9)函数得到Base64字符串。示例代码如下：
 ```text
 videoToBase64() {
-  // 读取rawfile目录下的sample.mp4视频
+<em>  // 读取rawfile目录下的sample.mp4视频</em>
   let rawfileContent = this.getUIContext().getHostContext()?.resourceManager.getRawFileContentSync('sample.mp4');
   let base64Helper = new util.Base64Helper();
   let base64Result = base64Helper.encodeSync(rawfileContent);
   let base64ResultArrayBuffer:ArrayBuffer = base64Result.buffer.slice(0);
   console.info('the videoBase64 is: ' + base64Result);
-  // 保存到沙箱目录下
+  <em>// 保存到沙箱目录下</em>
   let path = this.getUIContext().getHostContext()?.filesDir + '/Vbase64.txt';
   let sandBoxFile = fs.openSync(path, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
   fs.write(sandBoxFile.fd, base64ResultArrayBuffer).then((writeLen:number) => {
@@ -46,7 +41,7 @@ videoToBase64() {
 }
 ```
 
-- 从Base64转回原视频，读取Base64数据到ArrayBuffer使用[decode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#decode9)解码Base64并写入到沙箱中：
+2. 从Base64转回原视频，读取Base64数据到ArrayBuffer使用[decode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#decode9)解码Base64并写入到沙箱中：
 ```text
 base64ToVideo() {
   let path = this.getUIContext().getHostContext()?.filesDir + '/Vbase64.txt';
@@ -79,7 +74,6 @@ base64ToVideo() {
 }
 ```
 
-
  
 完整示例代码如下：
  
@@ -111,13 +105,13 @@ struct Index {
 
 
   videoToBase64() {
-    // 读取rawfile目录下的sample.mp4视频
+   <em> // 读取rawfile目录下的sample.mp4视频</em>
     let rawfileContent = this.getUIContext().getHostContext()?.resourceManager.getRawFileContentSync('sample.mp4');
     let base64Helper = new util.Base64Helper();
     let base64Result = base64Helper.encodeSync(rawfileContent);
     let base64ResultArrayBuffer:ArrayBuffer = base64Result.buffer.slice(0);
     console.info('the videoBase64 is: ' + base64Result);
-    // 保存到沙箱目录下
+  <em>  // 保存到沙箱目录下</em>
     let path = this.getUIContext().getHostContext()?.filesDir + '/Vbase64.txt';
     let sandBoxFile = fs.openSync(path, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
     fs.write(sandBoxFile.fd, base64ResultArrayBuffer).then((writeLen:number) => {
@@ -164,12 +158,12 @@ struct Index {
   build() {
     Column() {
       Button('videoToBase64txt')
-      // 保存编码后的base64到沙箱中
+    <em>  // 保存编码后的base64到沙箱中</em>
         .onClick( () => {
           this.videoToBase64();
         })
       Button('base64txtToVideo')
-      // 从沙箱加载base64解码成原视频到沙箱中
+   <em>   // 从沙箱加载base64解码成原视频到沙箱中</em>
         .onClick(()=> {
           this.base64ToVideo();
         })
@@ -180,7 +174,7 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：转换后的Base64字符串添加到页面中用Video组件加载是可以正常显示的，但是打印出的log日志通过在线Base64转视频工具转换后无法正常显示。
  

@@ -4,15 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-23
 
-## request.downloadFile下载文件失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 问题一：报错信息：Failed to request the download. err: {"code":13400001}，提示操作文件异常，问题场景代码如下：
 ```text
- // 场景一
+<em> // 场景一</em>
  let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
  let filesDir = context.filesDir;
  try {
@@ -22,13 +18,13 @@
    console.error(`Failed to request the download. Code: ${error.code}, message: ${error.message}`);
  }
 
- // 场景二
+ <em>// 场景二</em>
  request.downloadFile(context, {
    url: 'https://www.example.com/xxxx.jpg', 
    filePath: '/data/storage/el2/base/files/test/test.jpg'
  }
 
- // 场景三
+ <em>// 场景三</em>
  let url = 'https://www.example.com/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.docx';
  request.downloadFile(context, { url:url}).then((data: request.DownloadTask) => {
    let downloadTask: request.DownloadTask = data;
@@ -54,27 +50,27 @@ request.downloadFile(context, { url: this.url, filePath: tempDir }).then((downlo
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request)模块给应用提供上传下载文件、后台代理传输的基础功能，主要适用场景：需后台下载、断点续传、多文件或大文件上传。
-- request模块提供了两套上传下载能力：
-[request.uploadFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestuploadfile9)接口用于上传任务，支持自定义请求头，可以用on('headerReceive')接口接收上传成功或者失败服务端返回的结果。
-- [request.downloadFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestdownloadfile9)接口用于下载任务，支持配置后台下载（后台任务下载成功或者失败界面都会有弹窗提示，前台任务没有任何提示信息），支持暂停恢复下载，用on('complete')成功回调之后可以做一些业务操作，比如将图片保存到相册、进行页面展示等。
-- [request.agent.create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentcreate10)接口涵盖了uploadFile、downloadFile所有支持的能力，其支持断点续传、重定向（redirect）、代理（proxy）、覆盖已存在的文件（overwrite）等。
+- request模块提供了两套上传下载能力：1. [request.uploadFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestuploadfile9)接口用于上传任务，支持自定义请求头，可以用on('headerReceive')接口接收上传成功或者失败服务端返回的结果。
 
- - 在普通应用（也称三方应用）视角下，不仅可见的目录与文件数量限制了范围，并且可见的目录与文件路径也与系统进程等其他进程看到的不同。我们将普通应用视角下看到的“[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory#应用沙箱目录与应用沙箱路径)”下某个文件或某个具体目录的路径，称为“[应用沙箱路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory#应用沙箱目录与应用沙箱路径)”。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/AYHPHWkTQn6rzPrF4iOohg/zh-cn_image_0000002628773308.png?HW-CC-KV=V1&HW-CC-Date=20260701T025805Z&HW-CC-Expire=86400&HW-CC-Sign=3CE3D5D08A117866B5626D6C297AA9350E724A080C5EF8DB7E582A540B2441DB)
+2. [request.downloadFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestdownloadfile9)接口用于下载任务，支持配置后台下载（后台任务下载成功或者失败界面都会有弹窗提示，前台任务没有任何提示信息），支持暂停恢复下载，用on('complete')成功回调之后可以做一些业务操作，比如将图片保存到相册、进行页面展示等。
+
+3. [request.agent.create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentcreate10)接口涵盖了uploadFile、downloadFile所有支持的能力，其支持断点续传、重定向（redirect）、代理（proxy）、覆盖已存在的文件（overwrite）等。
+- 在普通应用（也称三方应用）视角下，不仅可见的目录与文件数量限制了范围，并且可见的目录与文件路径也与系统进程等其他进程看到的不同。我们将普通应用视角下看到的“[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory#应用沙箱目录与应用沙箱路径)”下某个文件或某个具体目录的路径，称为“[应用沙箱路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory#应用沙箱目录与应用沙箱路径)”。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/AYHPHWkTQn6rzPrF4iOohg/zh-cn_image_0000002628773308.png?HW-CC-KV=V1&HW-CC-Date=20260701T041416Z&HW-CC-Expire=86400&HW-CC-Sign=CE3DF277C4443EDC9399D62EC31B01476CAEC1EDE3FB83D663BC9415F561BFD4)
 
 
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 问题一：[13400001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-request#section13400001-文件操作异常)操作文件异常。
 场景一：filePath参数必须指向已存在的文件夹或具体文件路径，若文件夹不存在，接口不会自动创建。可以通过[fs.mkdir](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsmkdir)接口在沙箱路径下创建新文件，使用[fs.access](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsaccess)接口判断文件、目录存在后再执行下载任务。
 - 场景二：request接口中的filePath参数配置只支持沙箱路径，不支持用户uri地址。将用户uri地址修改为通过filesDir、cacheDir获取应用的文件路径即可，下载完成后IDE中查看下载文件位置：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/NMLWlixYS_WR9kC8yiaxjA/zh-cn_image_0000002658972625.png?HW-CC-KV=V1&HW-CC-Date=20260701T025805Z&HW-CC-Expire=86400&HW-CC-Sign=4706AB150D4D1BC8F2924BAD18E135A1E25AC02D71E353427C3C3C5B72FF5A29)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/NMLWlixYS_WR9kC8yiaxjA/zh-cn_image_0000002658972625.png?HW-CC-KV=V1&HW-CC-Date=20260701T041416Z&HW-CC-Expire=86400&HW-CC-Sign=82715F2B981AB18F95ED87598B839C4314B00B8B64DD9E022E8736726413E44D)
 
 - 场景三：系统默认以url里最后一个'/'后面的字符串作为文件名，当文件名过长（最大支持255字节）时会导致报错，可通过配置filePath自定义文件名解决。
 
@@ -103,14 +99,14 @@ interface DownloadResult {
 @Component
 struct Index {
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  downloadUrl: string = ''; // 需要手动将url替换为真实服务器的HTTP协议地址
+  downloadUrl: string = ''; <em>// 需要手动将url替换为真实服务器的HTTP协议地址</em>
   @State filePath: string = '';
   @State current: number = 0;
   @State total: number = 0;
   @State downloadTask: request.DownloadTask = {} as request.DownloadTask;
   @State downloadImage: string = '';
 
-  // 创建文件
+<em>  // 创建文件</em>
   createFolder(url: string) {
     let isExist = fs.accessSync(`${this.context.filesDir}/testDir`, fs.AccessModeType.EXIST);
     if (isExist) {
@@ -132,24 +128,24 @@ struct Index {
     });
   }
 
-  DownloadFile(url: string, savePath: string): Promise {
+  DownloadFile(url: string, savePath: string): Promise<DownloadResult> {
     return new Promise(async (resolve, reject) => {
       this.filePath = savePath + '/test.png';
       this.downloadTask = await request.downloadFile(this.context, { url, filePath: this.filePath });
-      // 监听下载进度
+    <em>  // 监听下载进度</em>
       this.downloadTask.on('progress', (receivedSize: number, totalSize: number) => {
         this.current = receivedSize;
         this.total = totalSize;
       });
 
-      // 监听下载是否失败
+   <em>   // 监听下载是否失败</em>
       this.downloadTask.on('fail', (err) => {
         if (err) {
           return reject({ isSuccess: false, msg: '下载失败' });
         }
       });
 
-      // 监听下载是否完成
+    <em>  // 监听下载是否完成</em>
       this.downloadTask.on('complete', () => {
         this.downloadImage = 'file://' + this.filePath;
         return resolve({ isSuccess: true, msg: 'Download task completed.' });
@@ -194,7 +190,7 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：下载地址不可用，调用request下载，无状态返回。
  

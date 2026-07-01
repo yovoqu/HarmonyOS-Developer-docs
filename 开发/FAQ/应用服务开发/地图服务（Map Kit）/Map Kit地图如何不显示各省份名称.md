@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-43
 
-## Map Kit地图如何不显示各省份名称
- 
-
-
-##### 问题现象
+#### 问题现象
 
 地图缩放到全国的场景下，如何实现不显示各省份名称？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
 - Map Kit提供两种方法设置自定义地图样式：
@@ -25,7 +21,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 配置地图自定义JSON的administrative.province为不显示。
  
@@ -41,13 +37,13 @@ import { display } from '@kit.ArkUI';
 struct Index {
   private mapOptions?: mapCommon.MapOptions;
   private mapController?: map.MapComponentController;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   @State mapHeight: number = 0;
 
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-    // 地图初始化参数
+   <em> // 地图初始化参数</em>
     this.mapOptions = {
       position: {
         target: {
@@ -60,7 +56,7 @@ struct Index {
     this.callback = async (err, mapController) => {
       if (!err) {
         this.mapController = mapController;
-        // 自定义样式参数
+     <em>   // 自定义样式参数</em>
         let param: mapCommon.CustomMapStyleOptions = {
           styleContent: `[
                             {
@@ -70,7 +66,7 @@ struct Index {
                             }
                         ]`
         };
-        // 设置自定义样式
+      <em>  // 设置自定义样式</em>
         await this.mapController.setCustomMapStyle(param);
       }
     };
@@ -91,4 +87,4 @@ struct Index {
 实现效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/-7vbPji6QAixG26rF3zIvQ/zh-cn_image_0000002628394390.png?HW-CC-KV=V1&HW-CC-Date=20260701T025842Z&HW-CC-Expire=86400&HW-CC-Sign=3F76AD461FD2FD405C1D77A95D2C12D97D2724D9E1C4F3DAC1F78D87FCDD4E55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/-7vbPji6QAixG26rF3zIvQ/zh-cn_image_0000002628394390.png?HW-CC-KV=V1&HW-CC-Date=20260701T041105Z&HW-CC-Expire=86400&HW-CC-Sign=438DFFAE26F408EF2B3E37E492A3281E134D420DAAC43C67F397DF06963D2FAA)

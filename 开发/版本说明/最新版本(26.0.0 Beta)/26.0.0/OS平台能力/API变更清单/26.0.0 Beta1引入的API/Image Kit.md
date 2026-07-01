@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-imagekit-7001
 
-## Image Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：PixelMapFormat； API声明：ALPHA_U8 = 15 差异内容：ALPHA_U8 = 15 | api/@ohos.multimedia.image.d.ts |

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-21
 
-## App点击蓝牙设备列表不显示设备
- 
-
-
-##### 问题现象
+#### 问题现象
 
 进入App内蓝牙设备列表，不显示设备，是什么原因导致的？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [蓝牙connection模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection)：connection模块提供了蓝牙设备的配对、连接及状态查询等能力。
 - [connection.on('bluetoothDeviceFind')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectiononbluetoothdevicefind)：订阅蓝牙设备扫描结果上报事件。使用Callback异步回调。可扫描到的设备类型包括传统蓝牙设备和低功耗蓝牙设备。该上报方式只支持获取设备地址信息。
@@ -26,31 +22,27 @@
  
  
 
-##### 问题定位
+#### 问题定位
+1. 检查从系统设置里是否能蓝牙搜索到附近设备：系统设置中可搜到附近设备，排除硬件问题。
+2. 检查是否配置权限接入了ohos.permission.ACCESS_BLUETOOTH：观察hilog日志，触发蓝牙扫描时未触发permission相关报错，并且返回了相关地址信息，说明蓝牙功能是可用的。
+3. 检查触发蓝牙扫描时的hilog信息，蓝牙扫描时的hilog结果（截取部分）：(operator():81)device: D0:1E:**:**:**:8D, len: 31
 
-- 检查从系统设置里是否能蓝牙搜索到附近设备：系统设置中可搜到附近设备，排除硬件问题。
-- 检查是否配置权限接入了ohos.permission.ACCESS_BLUETOOTH：观察hilog日志，触发蓝牙扫描时未触发permission相关报错，并且返回了相关地址信息，说明蓝牙功能是可用的。
-- 检查触发蓝牙扫描时的hilog信息，蓝牙扫描时的hilog结果（截取部分）：(operator():81)device: D0:1E:**:**:**:8D, len: 31
- 可见进入App蓝牙设备列表后有获取到附近设备的地址信息，但并未有相关设备名。
-
+  可见进入App蓝牙设备列表后有获取到附近设备的地址信息，但并未有相关设备名。
  
  
 
-##### 分析结论
+#### 分析结论
 
 根据问题定位现象可知，App能正常获取到地址信息。未能在App蓝牙设备页面显示应用信息，可能原因有：
- 
-- 缺少了通过设备地址获取设备名称的步骤。
-- UI设计上缺少了列表显示设备信息的组件。
-
+ 1. 缺少了通过设备地址获取设备名称的步骤。
+2. UI设计上缺少了列表显示设备信息的组件。
  
  
 
-##### 修改建议
-
-- 在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)的requestPermissions标签中声明权限ohos.permission.ACCESS_BLUETOOTH。
-- 在使用connection.on('bluetoothDeviceFind')获取蓝牙设备相关信息后，通过connection.getRemoteDeviceName获取蓝牙设备的名称。示例代码如下：
-```text
+#### 修改建议
+1. 在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)的requestPermissions标签中声明权限ohos.permission.ACCESS_BLUETOOTH。
+2. 在使用connection.on('bluetoothDeviceFind')获取蓝牙设备相关信息后，通过connection.getRemoteDeviceName获取蓝牙设备的名称。示例代码如下：
+```json
 connection.on('bluetoothDeviceFind', (data: string[]) => {
   console.info(`data: ${JSON.stringify(data)} ${connection.getRemoteDeviceName(data[0])}`);
   if (!this.findList.find((item: Device) => item.deviceId === data[0])) {
@@ -62,7 +54,7 @@ connection.on('bluetoothDeviceFind', (data: string[]) => {
 });
 ```
 
-- 使用ForEach结合List实现列表显示设备信息的组件。示例代码如下：
+3. 使用ForEach结合List实现列表显示设备信息的组件。示例代码如下：
 ```text
 List() {
   ForEach(this.findList, (item: Device) => {
@@ -78,7 +70,7 @@ List() {
         Row({ space: 5 }) {
           Button('链接').width(60).height(20).fontSize(12).onClick(() => {
             try {
-              // 实际的地址可由扫描流程获取
+           <em>   // 实际的地址可由扫描流程获取</em>
               connection.pairDevice(item.deviceId, () => {
                 this.getUIContext().getPromptAction().showToast({
                   message: '配对成功'
@@ -105,8 +97,8 @@ List() {
 .flexBasis(1);
 ```
 
-- 完整示例代码如下：
-```text
+4. 完整示例代码如下：
+```json
 import connection from '@ohos.bluetooth.connection';
 import { BusinessError } from '@ohos.base';
 import { PromptAction } from '@kit.ArkUI';
@@ -123,7 +115,7 @@ interface Device {
 @Entry
 @Component
 struct Index {
-  // 正确写法（Stage模型）
+<em>  // 正确写法（Stage模型）</em>
   private context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
   promptAction: PromptAction = this.getUIContext().getPromptAction();
 
@@ -132,10 +124,10 @@ struct Index {
 
 
   aboutToAppear(): void {
-    const permissions: Array = ['ohos.permission.ACCESS_BLUETOOTH'];
+    const permissions: Array<Permissions> = ['ohos.permission.ACCESS_BLUETOOTH'];
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     atManager.requestPermissionsFromUser(this.context, permissions).then(() => {
-      // 授权成功
+   <em>   // 授权成功</em>
     }).catch((err: BusinessError) => {
       console.error(`Failed to request permissions from user. Code is ${err.code}, message is ${err.message}`);
     });
@@ -146,7 +138,7 @@ struct Index {
     Flex({ direction: FlexDirection.Column }) {
       Row() {
         Button('扫描蓝牙').onClick(() => {
-          // 开启扫描
+         <em> // 开启扫描</em>
           try {
             connection.startBluetoothDiscovery();
             console.info('startBleScan success');
@@ -160,7 +152,7 @@ struct Index {
           };
 
 
-          // 接收扫描结果
+        <em>  // 接收扫描结果</em>
           connection.on('bluetoothDeviceFind', (data: string[]) => {
             console.info(`data: ${JSON.stringify(data)} ${connection.getRemoteDeviceName(data[0])}`);
             if (!this.findList.find((item: Device) => item.deviceId === data[0])) {
@@ -175,7 +167,7 @@ struct Index {
 
         Button('停止扫描').onClick(() => {
           try {
-            // 关闭扫描
+        <em>    // 关闭扫描</em>
             connection.stopBluetoothDiscovery();
             console.info('stopBleScan success');
             this.getUIContext().getPromptAction().showToast({
@@ -207,7 +199,7 @@ struct Index {
               Row({ space: 5 }) {
                 Button('链接').width(60).height(20).fontSize(12).onClick(() => {
                   try {
-                    // 实际的地址可由扫描流程获取
+                  <em>  // 实际的地址可由扫描流程获取</em>
                     connection.pairDevice(item.deviceId, () => {
                       this.getUIContext().getPromptAction().showToast({
                         message: '配对成功'

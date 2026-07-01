@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-860
 
-## 鼠标无法滑动Scroll组件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 List组件嵌套Scroll组件布局，List组件竖向滚动，ListItem内嵌套一个横向滚动、隐藏滚动条的Scroll组件，外接鼠标按下左键拖拽或滚动滚轮均无法操作Scroll组件滑动。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)：可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
 [scrollable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollable)：设置滚动方向。
@@ -32,24 +28,20 @@ List组件嵌套Scroll组件布局，List组件竖向滚动，ListItem内嵌套�
  
  
 
-##### 问题定位
-
-- 检查触屏操作时，List组件内的Scroll组件是否可正常响应滑动手势进行滚动。
-- 检查当Scroll组件外层没有其他滚动组件时，鼠标左键按下滑动和滚动滚轮是否可以控制Scroll组件滚动。
-- 检查当List组件内的Scroll组件有滚动条时，鼠标左键按下滚动条是否可以控制Scroll组件滚动。
-
+#### 问题定位
+1. 检查触屏操作时，List组件内的Scroll组件是否可正常响应滑动手势进行滚动。
+2. 检查当Scroll组件外层没有其他滚动组件时，鼠标左键按下滑动和滚动滚轮是否可以控制Scroll组件滚动。
+3. 检查当List组件内的Scroll组件有滚动条时，鼠标左键按下滚动条是否可以控制Scroll组件滚动。
  
  
 
-##### 分析结论
-
-- 仅当滚动条存在时，Scroll组件才能通过滚动条响应鼠标左键按下滑动事件进行滚动，滚动条隐藏时Scroll组件默认不响应鼠标左键按下滑动事件。
-- 当Scroll组件的上层不存在其他滚动组件时，Scroll组件能够响应鼠标滚轮滚动事件进行滚动；当Scroll组件的上层存在其他滚动组件（如List）时，鼠标滚轮滚动事件会被上层的滚动组件优先响应（List滚动）并拦截，导致Scroll组件无法响应鼠标滚轮滚动事件。
-
+#### 分析结论
+1. 仅当滚动条存在时，Scroll组件才能通过滚动条响应鼠标左键按下滑动事件进行滚动，滚动条隐藏时Scroll组件默认不响应鼠标左键按下滑动事件。
+2. 当Scroll组件的上层不存在其他滚动组件时，Scroll组件能够响应鼠标滚轮滚动事件进行滚动；当Scroll组件的上层存在其他滚动组件（如List）时，鼠标滚轮滚动事件会被上层的滚动组件优先响应（List滚动）并拦截，导致Scroll组件无法响应鼠标滚轮滚动事件。
  
  
 
-##### 修改建议
+#### 修改建议
 
 给Scroll组件绑定[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件来响应鼠标左键按下滑动事件，调用[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)的[scrollTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollto)方法实现Scroll组件跟随滚动。示例代码如下：
  
@@ -61,8 +53,21 @@ struct MousePage {
   scrollers: Scroller[] = [];
 
   aboutToAppear(): void {
-    // 循环调用10次，初始化用于循环渲染ListItem的数组及用于控制Scroll组件的控制器数组
-    for (let i = 0; i  {
+    <em>// 循环调用10次，初始化用于循环渲染ListItem的数组及用于控制Scroll组件的控制器数组</em>
+    for (let i = 0; i < 10; i++) {
+      this.arr.push(i);
+      this.scrollers.push(new Scroller());
+    }
+  }
+
+  build() {
+    Column() {
+      List({ space: 10 }) {
+        ListItem() {
+          Text('Header');
+        };
+
+        ForEach(this.arr, (item: number, index: number) => {
           ListItem() {
             this.RowContent(item, this.scrollers[index]);
           };
@@ -98,16 +103,16 @@ struct MousePage {
       }
       .borderRadius(12)
       .margin({ right: 16 })
-      .scrollable(ScrollDirection.Horizontal) // 设置Scroll组件横向滚动
-      .scrollBar(BarState.Off) // 设置Scroll组件隐藏滚动条
-      .gesture( // 给Scroll组件绑定PanGesture滑动手势事件
-        PanGesture(new PanGestureOptions({ direction: PanDirection.Horizontal })) // 设置只响应水平方向的滑动手势事件
-          .onActionUpdate((event: GestureEvent) => { // 监听手势移动
+      .scrollable(ScrollDirection.Horizontal) <em>// 设置Scroll组件横向滚动</em>
+      .scrollBar(BarState.Off) <em>// 设置Scroll组件隐藏滚动条</em>
+      .gesture( <em>// 给Scroll组件绑定PanGesture滑动手势事件</em>
+        PanGesture(new PanGestureOptions({ direction: PanDirection.Horizontal })) <em>// 设置只响应水平方向的滑动手势事件</em>
+          .onActionUpdate((event: GestureEvent) => { <em>// 监听手势移动</em>
             if (event) {
               scroller.scrollTo({
-                // 监听到Scroll组件上水平方向的滑动手势事件时，让Scroll组件滚动对应距离
+                <em>// 监听到Scroll组件上水平方向的滑动手势事件时，让Scroll组件滚动对应距离</em>
                 xOffset: scroller.currentOffset().xOffset -
-                event.offsetX, // 在Scroll组件当前的水平滚动偏移量基础上，偏移该次手势移动的距离，当向右滑动时event.offsetX为正值否则为负值
+                event.offsetX, <em>// 在Scroll组件当前的水平滚动偏移量基础上，偏移该次手势移动的距离，当向右滑动时event.offsetX为正值否则为负值</em>
                 yOffset: 0
               });
             }
@@ -123,12 +128,12 @@ struct MousePage {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/SU0qCr0oQNW5UrypmqsEwA/zh-cn_image_0000002658798167.png?HW-CC-KV=V1&HW-CC-Date=20260701T025550Z&HW-CC-Expire=86400&HW-CC-Sign=4D2771F843718688CAD23F82D77ED830AA998B45189ED8672D1B0E667A1D539C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/SU0qCr0oQNW5UrypmqsEwA/zh-cn_image_0000002658798167.png?HW-CC-KV=V1&HW-CC-Date=20260701T041333Z&HW-CC-Expire=86400&HW-CC-Sign=3768FD899141BE6D7B47498676917FC29E82CFE10E5C33B0901C9098EA3A3026)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：可以通过给不同的Scroll组件绑定同一个Scroller实例吗，比如想要通过这种方式实现所有Scroll组件统一滑动？
  

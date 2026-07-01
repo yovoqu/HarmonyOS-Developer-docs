@@ -4,15 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-18
 
-## 打开工程，反复执行“Updating indexes”
- 
-
 **问题现象**
  
 在DevEco Studio 新建 / 打开工程，反复执行“Updating indexes”、“Indexing”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/WJy5OxbKTlSIfrXRulnuSQ/zh-cn_image_0000002654797779.png?HW-CC-KV=V1&HW-CC-Date=20260701T025909Z&HW-CC-Expire=86400&HW-CC-Sign=8C6B2A2FAC6965C0D9CC3204ED225471F9EB41D1A567612B342E7D59E4E553E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/WJy5OxbKTlSIfrXRulnuSQ/zh-cn_image_0000002654797779.png?HW-CC-KV=V1&HW-CC-Date=20260701T041018Z&HW-CC-Expire=86400&HW-CC-Sign=EA647F3E6FC87B6ECFAE6C8DB68692F51571A2659E34B49248EF2F76910BD8BF)
 
  
 **解决措施**

@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-581
 
-## 多级Tabs嵌套滑动
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Tabs组件嵌套Tabs，在正常情况下，当子组件滑动到边缘时不会继续滑动到下一个Tab，如何实现父组件继续滑动到下一个页签？
  
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/77YCawQhRLyX2YmI4yfgIg/zh-cn_image_0000002628552384.png?HW-CC-KV=V1&HW-CC-Date=20260701T025653Z&HW-CC-Expire=86400&HW-CC-Sign=915616BD0CF31CA02A66D1C1ADA3C91A651D686DD50FC41A1E57D3EEE5F45D7B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/77YCawQhRLyX2YmI4yfgIg/zh-cn_image_0000002628552384.png?HW-CC-KV=V1&HW-CC-Date=20260701T041155Z&HW-CC-Expire=86400&HW-CC-Sign=9580841B2A7F08308765598CF1AE722A110BDA34DFE9D3957DF36ADA656CFC38)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)是一种通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图，该组件一方面可以提升查找信息的效率，另一方面也能精简用户单次获取到的信息量。
 - [PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)是HarmonyOS提供的滑动手势事件，当滑动的最小距离达到设定的最小值时触发该事件。
@@ -28,14 +24,13 @@ Tabs组件嵌套Tabs，在正常情况下，当子组件滑动到边缘时不会
  
  
 
-##### 解决方案
+#### 解决方案
 
-- 方案一：使用PanGesture方法切换到外部Tabs。
-创建currentIndex属性，该属性在Tabs滑动时，与当前页面中Tabs的index索引值作比较，达到突出显示当前页签的效果。
-- 为处于边缘的二级Tabs中的TabContent添加gesture方法，处于左边缘的TabContent向左滑动时，触发changeIndex方法，回到相邻的一级Tabs页面，处于右边缘的TabContent向右滑动时同理。
+- 方案一：使用PanGesture方法切换到外部Tabs。1. 创建currentIndex属性，该属性在Tabs滑动时，与当前页面中Tabs的index索引值作比较，达到突出显示当前页签的效果。
 
- 
-示例代码如下：
+2. 为处于边缘的二级Tabs中的TabContent添加gesture方法，处于左边缘的TabContent向左滑动时，触发changeIndex方法，回到相邻的一级Tabs页面，处于右边缘的TabContent向右滑动时同理。
+
+  示例代码如下：
 ```text
 @Entry
 @Component
@@ -98,7 +93,7 @@ struct MultiTabs {
 
   build() {
     Column() {
-      // 一级Tab
+      <em>// 一级Tab</em>
       Tabs({ barPosition: BarPosition.Start, index: this.currentIndex, controller: this.controller }) {
         TabContent() {
           Column() {
@@ -122,7 +117,7 @@ struct MultiTabs {
               }
               .tabBar(this.subTabBuilder(0, '组件1'))
               .margin({ left: 16, right: 16 })
-              // 关键代码
+              <em>// 关键代码</em>
               .gesture(
                 PanGesture(this.panOptionRight)
                   .onActionEnd(() => {
@@ -147,7 +142,7 @@ struct MultiTabs {
               }
               .tabBar(this.subTabBuilder(3, '组件4'))
               .margin({ left: 16, right: 16, top: 5 })
-              // 关键代码
+              <em>// 关键代码</em>
               .gesture(
                 PanGesture(this.panOptionLeft)
                   .onActionEnd(() => {
@@ -187,13 +182,13 @@ struct MultiTabs {
   }
 }
 ```
- 
- - 方案二：使用onGestureRecognizerJudgeBegin()拦截内部Tabs滑动。可以使用[手势拦截增强](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement)解决Tabs多层嵌套滑动冲突问题。使用示例请参考[嵌套场景下拦截内部容器手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement#示例2嵌套场景下拦截内部容器手势)，通过onGestureRecognizerJudgeBegin监听手势事件，内层Tabs到头/尾时拒绝手势传递，允许外层Tabs响应。
+
+- 方案二：使用onGestureRecognizerJudgeBegin()拦截内部Tabs滑动。可以使用[手势拦截增强](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement)解决Tabs多层嵌套滑动冲突问题。使用示例请参考[嵌套场景下拦截内部容器手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement#示例2嵌套场景下拦截内部容器手势)，通过onGestureRecognizerJudgeBegin监听手势事件，内层Tabs到头/尾时拒绝手势传递，允许外层Tabs响应。
 
  
  
 
-##### 总结
+#### 总结
 
 方案一和方案二都解决了内外层Tabs滑动冲突的问题，实现了多级Tabs嵌套滑动功能。两个解决方案的对比如下表：
   

@@ -4,82 +4,81 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-145
 
-## Web组件加载H5，页面中视频全屏按钮置灰
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过Web组件加载H5页面，页面中视频的全屏按钮置灰，无法点击。
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/9cmkUE5MRgSvZGJTmLBc3w/zh-cn_image_0000002628899138.png?HW-CC-KV=V1&HW-CC-Date=20260701T025741Z&HW-CC-Expire=86400&HW-CC-Sign=70987EA5E2910FED077D86E50A289C3B11F919C932121B79D003C81D8A4656FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/9cmkUE5MRgSvZGJTmLBc3w/zh-cn_image_0000002628899138.png?HW-CC-KV=V1&HW-CC-Date=20260701T041336Z&HW-CC-Expire=86400&HW-CC-Sign=A0DDE9EE6D4E313A0A20ED720753FD3D6E699C64EBE58FF6E09ED2B62D788B97)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [使用Web组件加载页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-page-loading-with-web-components)：页面加载是Web组件的基本功能。根据页面加载数据来源可以分为三种常用场景，包括加载网络页面、加载本地页面、加载HTML格式的富文本数据。
  
  
 
-##### 问题定位
-
-- 查看浏览器访问H5页面时视频的全屏按钮是否是置灰状态。
-- Web组件加载时全屏按钮是否是置灰状态。
-
+#### 问题定位
+1. 查看浏览器访问H5页面时视频的全屏按钮是否是置灰状态。
+2. Web组件加载时全屏按钮是否是置灰状态。
  
  
 
-##### 分析结论
+#### 分析结论
 
 直接打开HTML文件在浏览器中全屏按钮也是置灰的，由此怀疑是H5页面写法有问题，打开H5页面发现其加载了iframe，浏览器对iframe中的视频播放做了限制，根据其安全策略阻止视频全屏播放。
  
  
 
-##### 修改建议
+#### 修改建议
 
 需要添加iframe全屏权限属性allowfullscreen="true"，为了解决浏览器兼容问题，最好也加上mozallowfullscreen="true"、webkitallowfullscreen="true"这两个属性。
  
 WebComponent.ets（下方Web组件引入的本地文件需要在rawfile文件夹中有相应的文件）：
  
 ```text
-import { webview } from '@kit.ArkWeb';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct WebComponent {
-  controller: webview.WebviewController = new webview.WebviewController();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">WebComponent </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Web({ src: $rawfile('test.html'), controller: this.controller })
-        .domStorageAccess(true)
-        .geolocationAccess(false)
-        .fileAccess(false)
-        .width('100%')
-        .height('100%');
-    }
-    .width('100%')
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'test.html'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 test.html（需要将下方iframe加载的src内容替换为实际的业务中的有视频播放的链接）：
  
 ```text
-
-
-    
-    
-    Responsive iFrame
-
-
-    
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Responsive iFrame</title>
+</head>
+<body>
+<div style="width: 100%;height:100%;text-align:center;">
+    <iframe allowfullscreen="true" data-v-558f754e="" mozallowfullscreen="true" src="xx.xx.xx"
+            style="width:80%;height:100%;border:1px solid #000000;"
+            webkitallowfullscreen="true"></iframe>
+</div>
+</body>
+</html>
 ```

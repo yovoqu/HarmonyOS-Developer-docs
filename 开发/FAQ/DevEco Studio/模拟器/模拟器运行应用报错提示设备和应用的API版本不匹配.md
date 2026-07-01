@@ -4,35 +4,31 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-3
 
-## 模拟器运行应用报错提示设备和应用的API版本不匹配
- 
-
-
-##### 问题现象
+#### 问题现象
 
 新创建了工程后无法在模拟器上运行，提示Please try to match the API version of the device and the app。模拟器版本是HarmonyOS 5.0.1(13)，DevEco版本5.0.2Release，项目配置信息：
  
 ```text
-"compileSdkVersion": 14,
-"compatibleSdkVersion": 12,
-"runtimeOS": "OpenHarmony",
+<span style="color: rgb(255,0,170);">"compileSdkVersion"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">14</span><span style="color: rgb(181,106,1);">,</span>
+<span style="color: rgb(255,0,170);">"compatibleSdkVersion"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(181,106,1);">,</span>
+<span style="color: rgb(255,0,170);">"runtimeOS"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"OpenHarmony"</span><span style="color: rgb(181,106,1);">,</span>
 ```
  
  
 
-##### 背景知识
+#### 背景知识
 
 [OpenHarmony](https://docs.openharmony.cn/pages/v5.1/zh-cn/OpenHarmony-Overview_zh.md)是一个面向全场景的开源分布式操作系统，当前OpenHarmony社区支持22款[开发板](https://docs.openharmony.cn/pages/v5.1/zh-cn/OpenHarmony-Overview_zh.md#支持的开发板)，典型应用场景包含影音娱乐、智慧出行、智能家居等。
  
  
 
-##### 解决方案
+#### 解决方案
 
 DevEco Studio提供了基础的工程模板资源，不同模板支持的设备类型、API Version不同。OpenHarmony项目不可运行在模拟器上，需在开源设备上运行。[创建和配置新工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)文档中提供了[创建HarmonyOS工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section11644183711342)和[创建OpenHarmony工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project#section1826317225311)两种工程模板的创建方式，直接创建HarmonyOS工程即可。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：工程检查报错，提示“Incorrect settings found in the build-profile.json5 file”？
  

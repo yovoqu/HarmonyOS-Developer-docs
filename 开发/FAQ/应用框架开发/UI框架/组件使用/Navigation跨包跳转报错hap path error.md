@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1449
 
-## Navigation跨包跳转报错hap path error
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在进行跨模块跳转时，发生报错hap path error，具体报错内容如下：
  
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)组件适用于模块内和跨模块的路由切换，通过组件级路由能力实现更加自然流畅的转场体验。
 - [跨包路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#跨包路由)：动态路由设计的初衷旨在解决多个模块（HAR/HSP）能够复用相同的业务逻辑，实现各业务模块间的解耦，同时支持路由功能的扩展与整合。
@@ -26,12 +22,11 @@
  
  
 
-##### 问题定位
-
-- 查看路由表配置，路由表配置正确。
-- 找到跳转的页面，查看是否使用NavDestination组件，发现没有使用NavDestination组件。
-- 根据报错提示是HAP模块，查看对应模块中module.json5中的type类型为feature，发现该模块是HAP模块。
-```text
+#### 问题定位
+1. 查看路由表配置，路由表配置正确。
+2. 找到跳转的页面，查看是否使用NavDestination组件，发现没有使用NavDestination组件。
+3. 根据报错提示是HAP模块，查看对应模块中module.json5中的type类型为feature，发现该模块是HAP模块。
+```json
 // module.json5文件
 {
    "module": {
@@ -41,18 +36,16 @@
 }
 ```
 
-
  
  
 
-##### 分析结论
+#### 分析结论
 
 查看对应模块中module.json5中的type为feature类型，该模块是HAP模块，而跨模块仅跳转支持HAR/HSP模块，不支持HAP模块。此外，目标页面未使用NavDestination组件，即使配置都正确页面也会显示空白，需要使用NavDestination组件包裹。
  
  
 
-##### 修改建议
-
-- 路由表配置时，可以根据[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)步骤逐步进行来配置。
-- 路由表中的页面，需要使用NavDestination组件才能展示页面。
-- HAR/HSP模块才可以跳转，可以通过module.json5文件查看type类型是否为har或者shared。
+#### 修改建议
+1. 路由表配置时，可以根据[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)步骤逐步进行来配置。
+2. 路由表中的页面，需要使用NavDestination组件才能展示页面。
+3. HAR/HSP模块才可以跳转，可以通过module.json5文件查看type类型是否为har或者shared。

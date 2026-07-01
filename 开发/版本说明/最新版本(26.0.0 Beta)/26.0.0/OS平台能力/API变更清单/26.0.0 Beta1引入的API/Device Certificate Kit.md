@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-devicecertificatekit-7001
 
-## Device Certificate Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增错误码 | 类名：certificateManagerDialog； API声明：function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise&lt;string&gt;; 差异内容：NA | 类名：certificateManagerDialog； API声明：function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise&lt;string&gt;; 差异内容：801 | api/@ohos.security.certManagerDialog.d.ts |

@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-neuralupscaledescription
-
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-## XEG_NeuralUpscaleDescription
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 此结构体描述下发空域AI超分渲染命令时需要的图像信息。
  
@@ -22,11 +19,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,11 +40,15 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### [h2]sType
+#### sType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 XEG_StructureType XEG_NeuralUpscaleDescription::sType
@@ -55,7 +60,9 @@ XEG_StructureType XEG_NeuralUpscaleDescription::sType
  
   
 
-##### [h2]pNext
+#### pNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const void* XEG_NeuralUpscaleDescription::pNext
@@ -67,7 +74,9 @@ const void* XEG_NeuralUpscaleDescription::pNext
  
   
 
-##### [h2]inputImage
+#### inputImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_NeuralUpscaleDescription::inputImage
@@ -79,7 +88,9 @@ VkImageView XEG_NeuralUpscaleDescription::inputImage
  
   
 
-##### [h2]outputImage
+#### outputImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_NeuralUpscaleDescription::outputImage
@@ -91,7 +102,9 @@ VkImageView XEG_NeuralUpscaleDescription::outputImage
  
   
 
-##### [h2]sharpness
+#### sharpness
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_NeuralUpscaleDescription::sharpness

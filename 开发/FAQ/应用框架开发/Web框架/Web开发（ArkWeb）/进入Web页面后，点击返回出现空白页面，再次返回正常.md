@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-124
 
-## 进入Web页面后，点击返回出现空白页面，再次返回正常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在首页点击内容后，页面跳转到Web页面，当用户点击返回按钮想回到首页时，会出现空白页面，无法正常显示内容，但再次点击返回按钮后，页面返回到首页。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onLoadIntercept](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)：当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。
 - [onInterceptRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oninterceptrequest9)：当Web组件加载url之前触发该回调，用于拦截url并返回响应数据。onInterceptRequest可拦截所有跳转请求并返回响应数据，但无法访问POST请求体（Body）内容，且不支持分片缓冲（buffer）类型数据获取。此类场景需改用WebSchemeHandler实现，依据具体业务需求进行判断。
@@ -23,7 +19,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 页面在加载Web内容时，进度条到一半后出现重新加载的现象。是页面加载被拦截后再次跳转新的页面，导致加载页面时，初始出现短暂空白，随后页面正常加载。返回上一页时，因页面加载过程被中断或拦截，进入一个处于半加载状态的界面，呈现为空白页。在日志中，OnBeforeBrowse字段为拦截关键字：
  
@@ -35,7 +31,7 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 当点击页面中自定义类型的url链接时，onLoadIntercept回调中执行了跳转到其他HarmonyOS页面，但未终止onLoadIntercept回调中代码的执行，导致执行到了最后一行返回false，表示允许此次访问。
  
@@ -57,7 +53,7 @@ build() {
       .onLoadIntercept((event) => {
         let url = event.data.getRequestUrl();
         if (url.includes(`xx.com`)) {
-          // 加载最终的url
+      <em>    // 加载最终的url</em>
           this.controller.loadUrl('');
         }
         return false;
@@ -69,7 +65,7 @@ build() {
  
  
 
-##### 修改建议
+#### 修改建议
 
 当H5跳转链接为无需访问的链接时，可在Web组件的onLoadIntercept回调中自定义处理逻辑。处理完成后，应立即返回true，以阻止当前url的加载，从而有效拦截跳转。代码示例：
  
@@ -152,7 +148,7 @@ export struct JumpInterceptCase {
           .verticalScrollBarAccess(false)
           .copyOptions(CopyOptions.LocalDevice)
           .onControllerAttached(() => {
-            this.controller.loadUrl($rawfile('audio.html')); // 替换成开发者自己的HTML
+            this.controller.loadUrl($rawfile('audio.html'));<em> // 替换成开发者自己的HTML</em>
           })
           .onInterceptRequest((event) => {
             if (!event) {
@@ -162,9 +158,9 @@ export struct JumpInterceptCase {
           })
           .onLoadIntercept((event) => {
             let url = event.data.getRequestUrl();
-            if (url.includes(`resource://rawfile/audio.html`)) { // 替换成开发者自己的HTML
-              // 加载最终的url
-              this.controller.loadUrl($rawfile('webBlock.html')); // 替换成开发者自己的HTML
+            if (url.includes(`resource://rawfile/audio.html`)) { <em>// 替换成开发者自己的HTML</em>
+             <em> // 加载最终的url</em>
+              this.controller.loadUrl($rawfile('webBlock.html')); <em>// 替换成开发者自己的HTML</em>
               return true;
             }
             return false;
@@ -182,11 +178,12 @@ export struct JumpInterceptCase {
 audio.html示例代码如下：
  
 ```text
-
-
-    
-    播放音频
-    
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>播放音频</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -201,38 +198,43 @@ audio.html示例代码如下：
         audio {
             margin-top: 10px;
         }
-    
-
-
+    </style>
+</head>
+<body onload='playAudio()'>
+<audio id="audioPlayer" muted="" controls></audio>
+<script>
     function playAudio(hexInput) {
-        // 将16进制字符串转换为二进制字节数组
+       <em> // 将16进制字符串转换为二进制字节数组</em>
         const binaryData = Uint8Array.from(hexInput.match(/.{1,2}/g), byte => parseInt(byte, 16));
-        // 创建一个Blob对象
+       <em> // 创建一个Blob对象</em>
         const blob = new Blob([binaryData], { type: 'audio/mpeg' });
-        // 创建一个url对应于该Blob
+        <em>// 创建一个url对应于该Blob</em>
         const url = URL.createObjectURL(blob);
-        // 设置音频元素的src属性
+     <em>   // 设置音频元素的src属性</em>
         const audioPlayer = document.getElementById('audioPlayer');
         audioPlayer.src = url;
-        // 播放音频
+    <em>    // 播放音频</em>
         audioPlayer.play().catch(error => {
         });
     }
-
-
+</script>
+</body>
+</html>
 ```
  
 webBlock.html示例代码如下：
  
 ```text
-
-
-    
-    简单示例
-
-
-欢迎
-这是一个简单的 HTML 页面。
-
-
+<!DOCTYPE html>
+<html lang="zh">
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>简单示例</title>
+</head>
+<body>
+<h1>欢迎</h1>
+<p>这是一个简单的 HTML 页面。</p>
+</body>
+</html>
 ```

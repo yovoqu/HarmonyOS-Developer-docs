@@ -3,22 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision
-
 **支持设备：** Phone | Tablet | PC/2in1
 
-## ArkTS API错误码
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/qn2280cjSvyWS1E0qLAgRw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025456Z&HW-CC-Expire=86400&HW-CC-Sign=C7C9C72A4F867C34075ED622C089F77699CC2430F5A126E6A931466D6D2F411C)
- 
- 
-以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-  
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
   
 
-##### 1008301002 路由跳转失败
+#### 1008301002 路由跳转失败
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -38,7 +32,9 @@ Route switching failed.
  
   
 
-##### 1008302000 检测算法初始化
+#### 1008302000 检测算法初始化
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -58,7 +54,9 @@ Detection algorithm initialization.
  
   
 
-##### 1008302001 检测超时
+#### 1008302001 检测超时
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -78,7 +76,9 @@ Detection timeout.
  
   
 
-##### 1008302002 动作错误
+#### 1008302002 动作错误
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -98,7 +98,9 @@ Action mutual exclusion error.
  
   
 
-##### 1008302003 连续性检测失败
+#### 1008302003 连续性检测失败
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -118,7 +120,9 @@ Continuity Check Failure.
  
   
 
-##### 1008302004 检测未完成
+#### 1008302004 检测未完成
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -138,7 +142,9 @@ The test is not complete.
  
   
 
-##### 1013700002 服务异常
+#### 1013700002 服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -149,9 +155,7 @@ The service is abnormal.
 使用功能时，底层服务异常。
  
 **可能原因**
- 
-- 底层能力绑定失败。
-
+ 1. 底层能力绑定失败。
  
 **处理步骤**
  

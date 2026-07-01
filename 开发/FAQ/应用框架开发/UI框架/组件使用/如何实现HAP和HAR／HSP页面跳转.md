@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1077
 
-## 如何实现HAP和HAR/HSP页面跳转
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HAP页面如何跳转到HAR/HSP页面，HAR/HSP页面如何跳转到HAP页面。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：路由导航的根视图容器，管理[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)子页面的路由栈。
  
@@ -24,32 +20,35 @@ HAR和HSP的使用：[HAR的使用](https://developer.huawei.com/consumer/cn/doc
  
  
 
-##### 解决方案
+#### 解决方案
 
 跳转示例：HAP模块Index页面（Router跳转）->HSP模块HspIndexPage页面（Navigation跳转）->HSP模块HspPage页面（Navigation跳转）->HAR模块HarPage页面（Router跳转）->HAP模块Index页面。
- 
-- HAP模块Index页面->HSP模块HspIndexPage页面，使用Router实现。
-方式一：通过命名路由的方式实现跨包跳转。可参考[跨包路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation#跨包路由)。
-- 方式二：使用@bundle协议指定目标模块的包名、模块名和页面路径。格式规则：@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)。参考示例如下所示：
+ 1. HAP模块Index页面->HSP模块HspIndexPage页面，使用Router实现。
+- 方式一：通过命名路由的方式实现跨包跳转。可参考[跨包路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation#跨包路由)。
+
+2. 方式二：使用@bundle协议指定目标模块的包名、模块名和页面路径。格式规则：@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)。参考示例如下所示：
 ```ArkTS
 this.getUIContext().getRouter().pushUrl({
-  url: '@bundle:com.example.navigationsystemtable/hsp/ets/pages/Index' // url格式为'@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)'
+  url: '@bundle:com.example.navigationsystemtable/hsp/ets/pages/Index' <em>// url格式为'@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)'</em>
 });
 ```
 
 
- - HSP模块HspIndexPage页面->HSP模块HspPage页面->HAR模块HarPage页面，推荐使用Navigation实现。
+3. HSP模块HspIndexPage页面->HSP模块HspPage页面->HAR模块HarPage页面，推荐使用Navigation实现。
 在对应的模块内oh-package.json5文件中配置依赖，参考示例如下所示：
-```text
+```json
 "dependencies": {
   "har": "file:../har",
   "hsp": "file:../hsp"
 }
 ```
 
-- 在HSP和HAR模块内的配置系统路由表：详情可参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)。
-- 构建HspIndexPage、HspPage、HarPage页面，并在对应模块内的Index.ets文件中导出。参考示例如下所示：HSP模块内Index.ets文件：
- 
+
+4. 在HSP和HAR模块内的配置系统路由表：详情可参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)。
+
+5. 构建HspIndexPage、HspPage、HarPage页面，并在对应模块内的Index.ets文件中导出。参考示例如下所示：HSP模块内Index.ets文件：
+
+  
 ```text
 export { Index } from './src/main/ets/pages/Index';
 
@@ -57,20 +56,21 @@ export { Index } from './src/main/ets/pages/Index';
 export { HspPageBuilder, HspPage } from './src/main/ets/pages/HspPage';
 ```
  HAR模块内Index.ets文件：
- 
+
+  
 ```text
 export { HarPage } from './src/main/ets/components/HarPage';
 ```
 
-- 通过pushPathByName等方法跳转页面：
+
+6. 通过pushPathByName等方法跳转页面：
 ```text
 this.pageInfos.pushPathByName('HspPage', null, false);
 ```
  除系统路由表外，可通过Navigation动态路由实现，开发者可参考[Navigation动态路由](https://gitcode.com/HarmonyOS-Cases/cases/tree/master/test/performance/dynamicRouter/)。
-
- - HAR模块HarPage页面->HAP模块Index页面，entry内模块路由跳转：pages/页面所在的文件名（不加.ets后缀），参考示例如下所示：
+- HAR模块HarPage页面->HAP模块Index页面，entry内模块路由跳转：pages/页面所在的文件名（不加.ets后缀），参考示例如下所示：
 ```text
-// (无需@bundle前缀）
+<em>// (无需@bundle前缀）</em>
 this.getUIContext().getRouter().pushUrl({ url: 'pages/Index' });
 ```
 
@@ -82,7 +82,7 @@ this.getUIContext().getRouter().pushUrl({ url: 'pages/Index' });
 HAP模块：oh-package.json5文件配置如上，Index页面代码如下所示。
  
 ```ArkTS
-// import引入HSP模块内跳转目标页面
+<em>// import引入HSP模块内跳转目标页面</em>
 import 'hsp/src/main/ets/pages/Index';
 
 
@@ -102,7 +102,7 @@ struct Index {
         Button('跳转到hspIndexPage页面（方法二）')
           .onClick(() => {
             this.getUIContext().getRouter().pushUrl({
-              url: '@bundle:com.example.navigationsystemtable/hsp/ets/pages/Index' // url格式为'@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)'
+              url: '@bundle:com.example.navigationsystemtable/hsp/ets/pages/Index' <em>// url格式为'@bundle:包名（bundleName）/模块名（moduleName）/路径/页面所在的文件名(不加.ets后缀)'</em>
             });
           });
         Button('跳转到HspPage页面')
@@ -125,7 +125,7 @@ struct Index {
 HSP模块：Index.ets文件如上配置。HspIndexPage页面代码如下：
  
 ```text
-// 命名路由页面的名字
+<em>// 命名路由页面的名字</em>
 @Entry({ routeName: 'HspIndexPage' })
 @Component
 export struct Index {
@@ -260,7 +260,7 @@ export struct HarPage {
 ```
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：HAR模块中能否支持Page页面？
  
@@ -268,13 +268,13 @@ A：HAR模块支持Page页面，但不支持在配置文件module.json5中声明
  
  
 
-##### 总结
+#### 总结
 
 HAP和HAR/HSP页面跳转相关问题如下表所示：
   
 |    | 实现方案 | 特点 | 适用场景 |
 | --- | --- | --- | --- |
 | Router | 方式一：通过命名路由的方式实现跨包跳转。 | 基于页面装饰器@Entry({routeName:'PageName'})声明路由名称。 | 模块内简单页面跳转、小型应用或原型开发。 |
-| 方式二：使用@bundle协议指定目标模块的包名、模块名和页面路径。 | 通过@bundle:包名/模块路径格式指定目标资源。 | 动态化场景（按需加载远程模块）、跨包跳转（如主应用跳子模块）。 |
+| Router | 方式二：使用@bundle协议指定目标模块的包名、模块名和页面路径。 | 通过@bundle:包名/模块路径格式指定目标资源。 | 动态化场景（按需加载远程模块）、跨包跳转（如主应用跳子模块）。 |
 | Navigation | 方式一：系统路由表 | 将路由表方案下沉到系统中管理。 | 复杂应用统一路由管理、多团队协作开发（各模块独立配置路由表）。 |
-| 方式二：动态路由 | 使用动态Import，按需加载页面 | 彻底解耦的模块化架构、跨HSP/HAR的无依赖跳转。 |
+| Navigation | 方式二：动态路由 | 使用动态Import，按需加载页面 | 彻底解耦的模块化架构、跨HSP/HAR的无依赖跳转。 |

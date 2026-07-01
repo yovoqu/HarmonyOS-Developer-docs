@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1569
 
-## 如何解决启动页背景和startWindowIcon属性设置为同一张图时出现的闪屏问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如果启动页背景和module.json中startWindowIcon属性设置为同一张图，APP启动时相当于需要加载两张图，不能平滑过渡，会有闪屏现象。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Image组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)为图片组件，常用于在应用中显示图片，支持png、jpg、jpeg、bmp、svg、webp、gif和heif类型的图片格式。
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用Image组件代替Column组件背景的方案，并设置图片加载方式为同步。
  
@@ -37,11 +33,11 @@ struct WhitePage {
 
   build() {
     Stack() {
-      Image($r('app.media.startIcon')) // 此图片仅作示例参考
+      Image($r('app.media.startIcon')) <em>// 此图片仅作示例参考</em>
         .width('50%')
         .height('50%')
         .opacity(0.2)
-        .syncLoad(true); // 设置图片为同步加载
+        .syncLoad(true); <em>// 设置图片为同步加载</em>
       Text('Hello World');
     }
     .width('100%')

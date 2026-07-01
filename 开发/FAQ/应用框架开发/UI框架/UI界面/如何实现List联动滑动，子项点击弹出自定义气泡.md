@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-787
 
-## 如何实现List联动滑动，子项点击弹出自定义气泡
- 
-
-
-##### 问题现象
+#### 问题现象
 
 实现功能效果：页面左侧是数据列表，右侧有导航字母表，一一对应，点击导航字母表中字母，数据表滚动到对应的内容位置。
  
@@ -16,7 +12,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-popup)属性可绑定在组件上显示气泡弹窗提示，设置弹窗内容、交互逻辑和显示状态。主要用于屏幕录制、信息弹出提醒等显示状态。
 - [scrollToIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrolltoindex)滑动到指定Index，支持设置滑动额外偏移量。
@@ -25,11 +21,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以通过双重List联动滑动实现导航表绑定数据列表的滑动，通过bindPopup绑定自定义气泡。
- 
-- 通过List和ListItemGroup显示分类数据列表。
+ 1. 通过List和ListItemGroup显示分类数据列表。
 ```text
 List({ scroller: this.categoryScroller }) {
   ListItemGroup({ header: this.itemHead('当前') }) {
@@ -58,7 +53,7 @@ List({ scroller: this.categoryScroller }) {
     });
   };
 
-  // A~L字母分组
+<em>  // A~L字母分组</em>
   ForEach(this.groupNameList, (item: string) => {
     ListItemGroup({ header: this.itemHead(item) }) {
       ForEach(this.getCitiesWithGroupName(item), (item: Category) => {
@@ -77,34 +72,33 @@ List({ scroller: this.categoryScroller }) {
 }
 ```
 
-- 使用List组件显示导航字母表，点击时控制数据表scrollToIndex跳转到对应的位置。
+2. 使用List组件显示导航字母表，点击时控制数据表scrollToIndex跳转到对应的位置。
 ```text
 this.categoryScroller.scrollToIndex(index + 2, true, ScrollAlign.START);
 ```
 
-- 给导航字母表子项item绑定Popup气泡，设置气泡参数，传入自定义builder。
+3. 给导航字母表子项item绑定Popup气泡，设置气泡参数，传入自定义builder。
 ```text
 .bindPopup(this.selectGroupIndex === index && this.handlePopup, {
   builder: this.popupBuilder(item),
   placement: Placement.Left,
   radius: '50%',
   mask: { color: '#33000000' },
-  popupColor: Color.Transparent, // 设置气泡的背景色
-  arrowHeight: 10, // 设置气泡箭头高度
-  arrowWidth: 20, // 设置气泡箭头宽度
+  popupColor: Color.Transparent, <em>// 设置气泡的背景色</em>
+  arrowHeight: 10, <em>// 设置气泡箭头高度</em>
+  arrowWidth: 20, <em>// 设置气泡箭头宽度</em>
   offset: { x: -10 },
 });
 ```
 
-
  
 完整示例如下：
  
-```text
+```json
 interface CategoriesType {
   current: string[],
   hot: string[],
-  categories: Map
+  categories: Map<string, Category[]>
 }
 
 interface Category {
@@ -118,7 +112,7 @@ export default struct CityList {
   @State handlePopup: boolean = false;
   private currentCategory: string = '';
   private hotCategories: string[] = [];
-  private groupCategories: Map = new Map;
+  private groupCategories: Map<string, Category[]> = new Map;
   private groupNameList: string[] = ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
   @State private selectGroupIndex: number = -1;
   private categoryScroller: ListScroller = new ListScroller();
@@ -194,7 +188,7 @@ export default struct CityList {
         });
       };
 
-      // A~L字母分组
+     <em> // A~L字母分组</em>
       ForEach(this.groupNameList, (item: string) => {
         ListItemGroup({ header: this.itemHead(item) }) {
           ForEach(this.getCitiesWithGroupName(item), (item: Category) => {
@@ -216,11 +210,11 @@ export default struct CityList {
     .scrollBar(BarState.Off)
     .sticky(StickyStyle.Header)
     .onTouch(() => {
-      // 分列表触摸滚动，isClickScroll=false，防止滚动过程中与导航列表触发滚动冲突
+     <em> // 分列表触摸滚动，isClickScroll=false，防止滚动过程中与导航列表触发滚动冲突</em>
       this.isClickScroll = false;
     })
     .onScrollIndex((start: number) => {
-      // 通过selectGroupIndex状态变量与start联动控制导航列表选中状态
+     <em> // 通过selectGroupIndex状态变量与start联动控制导航列表选中状态</em>
       if (!this.isClickScroll) {
         this.selectGroupIndex = start - 2;
       }
@@ -248,10 +242,10 @@ export default struct CityList {
               .backgroundColor(index === this.selectGroupIndex ? 0xCCCCCC : Color.Transparent)
               .borderRadius(15)
               .onClick(() => {
-                // 导航列表选中isClickScroll=true，防止与分列表滚动过程中带动导航列表状态变化
+               <em> // 导航列表选中isClickScroll=true，防止与分列表滚动过程中带动导航列表状态变化</em>
                 this.isClickScroll = true;
                 this.selectGroupIndex = index;
-                // 通过导航选中selectGroupIndex与Scroller控制分列表滚动到对应位置
+              <em>  // 通过导航选中selectGroupIndex与Scroller控制分列表滚动到对应位置</em>
                 this.categoryScroller.scrollToIndex(index + 2, true, ScrollAlign.START);
                 this.handlePopup = !this.handlePopup;
                 setTimeout(() => {
@@ -263,9 +257,9 @@ export default struct CityList {
                 placement: Placement.Left,
                 radius: '50%',
                 mask: { color: '#33000000' },
-                popupColor: Color.Transparent, // 设置气泡的背景色
-                arrowHeight: 10, // 设置气泡箭头高度
-                arrowWidth: 20, // 设置气泡箭头宽度
+                popupColor: Color.Transparent,<em> // 设置气泡的背景色</em>
+                arrowHeight: 10,<em> // 设置气泡箭头高度</em>
+                arrowWidth: 20,<em> // 设置气泡箭头宽度</em>
                 offset: { x: -10 },
               });
           };

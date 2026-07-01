@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-inputkit-7001
 
-## Input Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：declare namespace inputEventClient 差异内容：declare namespace inputEventClient | api/@ohos.multimodalInput.inputEventClient.d.ts |

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-glossary
 
-## IAP Kit术语
- 
- 
-
-##### C
+#### C
 
 **Checkout Screen; 收银台**
  
@@ -16,7 +12,7 @@ IAP Kit提供的支付确认页面，展示商品名称、价格等信息，用�
  
   
 
-##### E
+#### E
 
 **Embedded Cashier Component; 嵌入式收银台**
  
@@ -24,7 +20,7 @@ IAP Kit提供的一种可以内嵌在开发者页面的收银台组件。
  
   
 
-##### J
+#### J
 
 **JSON Web Signature(JWS); JSON Web签名**
  
@@ -32,7 +28,7 @@ IAP Kit提供的一种可以内嵌在开发者页面的收银台组件。
  
   
 
-##### O
+#### O
 
 **Order Loss; 掉单**
  
@@ -40,7 +36,7 @@ IAP Kit提供的一种可以内嵌在开发者页面的收银台组件。
  
   
 
-##### T
+#### T
 
 **Time Machine; 时光机**
  

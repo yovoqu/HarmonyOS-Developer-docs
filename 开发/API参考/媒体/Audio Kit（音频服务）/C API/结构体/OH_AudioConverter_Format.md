@@ -3,18 +3,16 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audioconverter-oh-audioconverter-format
-
 **支持设备：** Phone | PC/2in1 | Tablet
-
-## OH_AudioConverter_Format
- 
 
 ```text
 typedef struct OH_AudioConverter_Format {...} OH_AudioConverter_Format
 ```
   
 
-##### 概述
+#### 概述
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义音频转换器格式数据结构，用于描述基本音频格式。
  
@@ -26,11 +24,15 @@ typedef struct OH_AudioConverter_Format {...} OH_AudioConverter_Format
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

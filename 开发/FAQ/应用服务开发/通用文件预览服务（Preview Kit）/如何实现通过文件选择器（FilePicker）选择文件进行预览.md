@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-8
 
-## 如何实现通过文件选择器（FilePicker）选择文件进行预览
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用文件选择器（FilePicker）选择文件进行预览时报预览失败，如何解决？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - Preview Kit[文件预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-filepreview)需要调用方存在对应uri的转授权能力，从而让预览获得该文件的访问权限来正常读取文件。
 - [DocumentViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)拿到的文件uri应用仅有临时权限，该权限无法分享给预览，导致预览失败。
@@ -22,46 +18,45 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以先将文件选择器打开的文件拷贝至应用沙箱内，再通过传入拷贝的沙箱文件的uri来进行预览。
- 
-- 设置[PreviewInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section1081123302517)文件预览信息，其中mimeType为空时，Preview Kit会根据文件后缀判断文件类型。
+ 1. 设置[PreviewInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section1081123302517)文件预览信息，其中mimeType为空时，Preview Kit会根据文件后缀判断文件类型。
 ```text
-// 文件预览信息
+<em>// 文件预览信息</em>
 private fileInfo: filePreview.PreviewInfo = {
-  title: '', // 文件的标题名称
-  uri: '', // 文件的uri。Picker打开的文件只有临时权限，需要持久化权限或传入沙箱
-  mimeType: '' // 文件（夹）的媒体资源类型，传入空值可以由Preview Kit根据文件后缀自行判断类型
+  title: '', //<em> 文件的标题名称</em>
+  uri: '', // <em>文件的uri。Picker打开的文件只有临时权限，需要持久化权限或传入沙箱</em>
+  mimeType: '' //<em> 文件（夹）的媒体资源类型，传入空值可以由Preview Kit根据文件后缀自行判断类型</em>
 };
 ```
 
-- 通过[DocumentViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)拉起文件选择器选择文件，通过[fs.copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopyfilesync)复制文件到沙箱，通过[fileUri.getUriFromPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)将沙箱路径转换为Preview Kit使用的uri。
-```text
-// 1. 拉起Picker选择1个文件；2. 复制文件到沙箱；3. 将沙箱路径转uri传递给Preview Kit的uri字段
+2. 通过[DocumentViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)拉起文件选择器选择文件，通过[fs.copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopyfilesync)复制文件到沙箱，通过[fileUri.getUriFromPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)将沙箱路径转换为Preview Kit使用的uri。
+```json
+<em>// 1. 拉起Picker选择1个文件；2. 复制文件到沙箱；3. 将沙箱路径转uri传递给Preview Kit的uri字段</em>
 docPickerSelectThenCopy2Sandbox() {
   try {
-    // 1. 拉起Picker选择1个文件
+   <em> // 1. 拉起Picker选择1个文件</em>
     let documentSelectOptions = new picker.DocumentSelectOptions();
-    documentSelectOptions.maxSelectNumber = 1; // 选择文件最大个数1
+    documentSelectOptions.maxSelectNumber = 1; /<em>/ 选择文件最大个数1</em>
     let documentPicker = new picker.DocumentViewPicker(this.context);
-    documentPicker.select(documentSelectOptions).then((documentSelectResult: Array) => {
+    documentPicker.select(documentSelectOptions).then((documentSelectResult: Array<string>) => {
       console.info('DocumentViewPicker.select successfully, documentSelectResult uri: ' +
       JSON.stringify(documentSelectResult));
       let pickerUri = documentSelectResult[0];
 
 
-      // 2. 复制文件到沙箱
+     <em> // 2. 复制文件到沙箱</em>
       let file = fs.openSync(pickerUri, fs.OpenMode.READ_ONLY);
       let pathDir = this.context.filesDir;
-      let filePath = pathDir + '/' + file.name; // 沙箱文件路径
+      let filePath = pathDir + '/' + file.name; <em>// 沙箱文件路径</em>
       fs.copyFileSync(file.fd, filePath);
       fs.closeSync(file);
 
 
-      // 3. 将沙箱路径转uri传递给Preview Kit的uri字段
-      this.fileInfo.uri = fileUri.getUriFromPath(filePath); // 沙箱路径需要转换为uri才能传递给Preview Kit使用
-      this.fileInfo.title = file.name; // 将文件名赋值给Preview Kit中的title字段，可以按需修改
+      <em>// 3. 将沙箱路径转uri传递给Preview Kit的uri字段</em>
+      this.fileInfo.uri = fileUri.getUriFromPath(filePath); //<em> 沙箱路径需要转换为uri才能传递给Preview Kit使用</em>
+      this.fileInfo.title = file.name; //<em> 将文件名赋值给Preview Kit中的title字段，可以按需修改</em>
     }).catch((err: BusinessError) => {
       console.error(`DocumentViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);
     });
@@ -72,13 +67,13 @@ docPickerSelectThenCopy2Sandbox() {
 }
 ```
 
-- 通过filePreview.[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section3643113161616)判断文件是否可以预览，通过filePreview.[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section144826162913)打开预览窗口。
+3. 通过filePreview.[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section3643113161616)判断文件是否可以预览，通过filePreview.[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section144826162913)打开预览窗口。
 ```text
-// 根据文件的uri判断文件是否可以预览
-// 当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权
+<em>// 根据文件的uri判断文件是否可以预览</em>
+<em>// 当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权</em>
 filePreview.canPreview(this.context, this.fileInfo.uri).then((result) => { // 传入支持的文件类型且文件存在时会返回true
   console.info(`Succeeded in obtaining the result of whether it can be previewed. result = ${result}`);
-  // 打开预览窗口
+ <em> // 打开预览窗口</em>
   filePreview.openPreview(this.context, this.fileInfo).then(() => {
     console.info('openPreview success');
   }).catch((err: BusinessError) => {
@@ -89,16 +84,14 @@ filePreview.canPreview(this.context, this.fileInfo.uri).then((result) => { // �
 });
 ```
 
-
  
 注意事项：
  
 - 沙箱路径需要通过[fileUri.getUriFromPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)获取到uri传递给Preview Kit使用。
 - 判断文件是否可以预览的接口filePreview.[canPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section3643113161616)，仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权。
 
- 
-- 完整代码示例如下：
-```text
+1. 完整代码示例如下：
+```json
 import common from '@ohos.app.ability.common';
 import { filePreview } from '@kit.PreviewKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -109,38 +102,38 @@ import { fileIo as fs, fileUri, picker } from '@kit.CoreFileKit';
 @Component
 struct pickerPreviewDemo {
   context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  // 文件预览信息
+  /<em>/ 文件预览信息</em>
   private fileInfo: filePreview.PreviewInfo = {
-    title: '', // 文件的标题名称
-    uri: '', // 文件的uri。Picker打开的文件只有临时权限，需要持久化权限或传入沙箱
-    mimeType: '' // 文件（夹）的媒体资源类型，传入空值可以由Preview Kit根据文件后缀自行判断类型
+    title: '', //<em> 文件的标题名称</em>
+    uri: '',<em> // 文件的uri。Picker打开的文件只有临时权限，需要持久化权限或传入沙箱</em>
+    mimeType: '' <em>// 文件（夹）的媒体资源类型，传入空值可以由Preview Kit根据文件后缀自行判断类型</em>
   };
 
 
-  // 1. 拉起Picker选择1个文件；2. 复制文件到沙箱；3. 将沙箱路径转uri传递给Preview Kit的uri字段
+  <em>// 1. 拉起Picker选择1个文件；2. 复制文件到沙箱；3. 将沙箱路径转uri传递给Preview Kit的uri字段</em>
   docPickerSelectThenCopy2Sandbox() {
     try {
-      // 1. 拉起Picker选择1个文件
+      <em>// 1. 拉起Picker选择1个文件</em>
       let documentSelectOptions = new picker.DocumentSelectOptions();
-      documentSelectOptions.maxSelectNumber = 1; // 选择文件最大个数1
+      documentSelectOptions.maxSelectNumber = 1; <em>// 选择文件最大个数1</em>
       let documentPicker = new picker.DocumentViewPicker(this.context);
-      documentPicker.select(documentSelectOptions).then((documentSelectResult: Array) => {
+      documentPicker.select(documentSelectOptions).then((documentSelectResult: Array<string>) => {
         console.info('DocumentViewPicker.select successfully, documentSelectResult uri: ' +
         JSON.stringify(documentSelectResult));
         let pickerUri = documentSelectResult[0];
 
 
-        // 2. 复制文件到沙箱
+        /<em>/ 2. 复制文件到沙箱</em>
         let file = fs.openSync(pickerUri, fs.OpenMode.READ_ONLY);
         let pathDir = this.context.filesDir;
-        let filePath = pathDir + '/' + file.name; // 沙箱文件路径
+        let filePath = pathDir + '/' + file.name; /<em>/ 沙箱文件路径</em>
         fs.copyFileSync(file.fd, filePath);
         fs.closeSync(file);
 
 
-        // 3. 将沙箱路径转uri传递给Preview Kit的uri字段
-        this.fileInfo.uri = fileUri.getUriFromPath(filePath); // 沙箱路径需要转换为uri才能传递给Preview Kit使用
-        this.fileInfo.title = file.name; // 将文件名赋值给Preview Kit中的title字段，可以按需修改
+      <em>  // 3. 将沙箱路径转uri传递给Preview Kit的uri字段</em>
+        this.fileInfo.uri = fileUri.getUriFromPath(filePath); //<em> 沙箱路径需要转换为uri才能传递给Preview Kit使用</em>
+        this.fileInfo.title = file.name; //<em> 将文件名赋值给Preview Kit中的title字段，可以按需修改</em>
       }).catch((err: BusinessError) => {
         console.error(`DocumentViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);
       });
@@ -163,11 +156,11 @@ struct pickerPreviewDemo {
 
         Button('预览文件')
           .onClick(() => {
-            // 根据文件的uri判断文件是否可以预览
-            // 当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权
-            filePreview.canPreview(this.context, this.fileInfo.uri).then((result) => { // 传入支持的文件类型且文件存在时会返回true
+        <em>    // 根据文件的uri判断文件是否可以预览</em>
+<em>            // 当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权</em>
+            filePreview.canPreview(this.context, this.fileInfo.uri).then((result) => { // <em>传入支持的文件类型且文件存在时会返回true</em>
               console.info(`Succeeded in obtaining the result of whether it can be previewed. result = ${result}`);
-              // 打开预览窗口
+          <em>    // 打开预览窗口</em>
               filePreview.openPreview(this.context, this.fileInfo).then(() => {
                 console.info('openPreview success');
               }).catch((err: BusinessError) => {

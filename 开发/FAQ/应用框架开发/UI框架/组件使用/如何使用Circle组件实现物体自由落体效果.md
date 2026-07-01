@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-813
 
-## 如何使用Circle组件实现物体自由落体效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Circle组件是绘制圆形的组件，如何使用Circle组件实现物体自由落体效果？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/JJwNQj5eShGiocqTdTDiFg/zh-cn_image_0000002628557802.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025548Z&HW-CC-Expire=86400&HW-CC-Sign=03BEC8F2B72FF553C790BB6DD880FB8AA67FF2C5F9D487127630ECFA4702F541)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/JJwNQj5eShGiocqTdTDiFg/zh-cn_image_0000002628557802.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041302Z&HW-CC-Expire=86400&HW-CC-Sign=954DC9B235AFC262FC3B7453E8C5493FACA92BABB27E67D75234DF3FF33E4E6D)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Circle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle)：用于绘制圆形的组件。
 - [关键帧动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-keyframeanimateto#keyframeanimateparam对象说明)：可以用来指定若干个关键帧状态，实现分段的动画。
@@ -31,96 +27,95 @@ Circle组件是绘制圆形的组件，如何使用Circle组件实现物体自�
  
  
 
-##### 解决方案
+#### 解决方案
 
 利用自由落体公式根据起始高度算出落地时间，然后利用关键帧动画结合插值计算模拟出小球自由落体的动效，关键步骤如下：
- 
-- 计算小球活动区域范围。
+ 1. 计算小球活动区域范围。
 ```text
-displayInfo = display.getDefaultDisplaySync();
-// 活动区域
-maxHeight = this.getUIContext().px2vp(this.displayInfo.height) * 0.85;
-// 坐标x
-maxWidth = this.getUIContext().px2vp(this.displayInfo.width);
-middleX = this.maxWidth * 0.03;
-// 起始坐标y
-@State sportY: number = 0;
+<span style="color: rgb(255,255,255);">displayInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">活动区域</span></em>
+<span style="color: rgb(255,255,255);">maxHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">displayInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">0.85</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">坐标</span><span style="color: rgb(128,128,128);">x</span></em>
+<span style="color: rgb(255,255,255);">maxWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">displayInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,255,255);">middleX </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">0.03</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">起始坐标</span><span style="color: rgb(128,128,128);">y</span></em>
+<span style="color: rgb(181,106,1);">@</span><span style="color: rgb(255,255,255);">State sportY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
-- 根据自由落体公式构建在不同时间点Circle的坐标y的值。
+2. 根据自由落体公式构建在不同时间点Circle的坐标y的值。
 ```text
-generatePosition(): ArrayKeyframeState> {
-  // 根据自由落体公式求得时间
-  let time = Math.sqrt(2 * this.maxHeight / 9.8);
-  let result: ArrayKeyframeState> = [];
-  // 第一次落地的速度为v=gt,反弹假设损失0.1的动能,速度为原来的0.9,则第二次的高度为原来的90%,时间0.9*time
-  for (let i = 0; i  17; i++) {
-    let flag = i % 2 == 0;
-    result.push({
-      // 一帧等于17ms,1s约等于17ms*63
-      duration: time * 63 * Math.pow(0.9, Math.ceil(i / 2)),
-      curve: flag ? Curve.FastOutLinearIn : Curve.LinearOutSlowIn,
-      event: () => {
-        this.sportY =
-          flag ? this.maxHeight : this.maxHeight - 9.8 / 2 * Math.pow(time * Math.pow(0.9, Math.ceil(i / 2)), 2);
-      }
-    });
-  }
-  return result;
-}
+<span style="color: rgb(0,0,255);">generatePosition</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(255,255,255);">KeyframeState</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据自由落体公式求得时间</span></em>
+  <span style="color: rgb(255,255,255);">let time </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sqrt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">* </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxHeight </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">9.8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">let result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(255,255,255);">KeyframeState</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">第一次落地的速度为</span><span style="color: rgb(128,128,128);">v=gt,</span><span style="color: rgb(128,128,128);">反弹假设损失</span><span style="color: rgb(128,128,128);">0.1</span><span style="color: rgb(128,128,128);">的动能</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">速度为原来的</span><span style="color: rgb(128,128,128);">0.9,</span><span style="color: rgb(128,128,128);">则第二次的高度为原来的</span><span style="color: rgb(128,128,128);">90%,</span><span style="color: rgb(128,128,128);">时间</span><span style="color: rgb(128,128,128);">0.9*time</span></em>
+  <span style="color: rgb(255,255,255);">for </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">let i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">17</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">let flag </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">% </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">一帧等于</span><span style="color: rgb(128,128,128);">17ms,1s</span><span style="color: rgb(128,128,128);">约等于</span><span style="color: rgb(128,128,128);">17ms*63</span></em>
+      <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">time </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">63 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pow</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.9</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ceil</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">flag </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FastOutLinearIn </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LinearOutSlowIn</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sportY </span><span style="color: rgb(181,106,1);">=</span>
+          <span style="color: rgb(255,255,255);">flag </span><span style="color: rgb(181,106,1);">? </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxHeight </span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxHeight </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">9.8 </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pow</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">time </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pow</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.9</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ceil</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  return <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
-- 完整示例参考如下：
+3. 完整示例参考如下：
 ```text
-import { display } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">display </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct FreeFallDemo {
-  uiContext: UIContext = this.getUIContext?.();
-  displayInfo = display.getDefaultDisplaySync();
-  // 活动区域
-  maxHeight = this.getUIContext().px2vp(this.displayInfo.height) * 0.85;
-  // 坐标x
-  maxWidth = this.getUIContext().px2vp(this.displayInfo.width);
-  middleX = this.maxWidth * 0.03;
-  // 起始坐标y
-  @State sportY: number = 0;
-  generatePosition(): ArrayKeyframeState> {
-    // 根据自由落体公式求得时间
-    let time = Math.sqrt(2 * this.maxHeight / 9.8);
-    let result: ArrayKeyframeState> = [];
-    // 第一次落地的速度为v=gt,反弹假设损失0.1的动能,速度为原来的0.9,则第二次的高度为原来的90%,时间0.9*time
-    for (let i = 0; i  17; i++) {
-      let flag = i % 2 == 0;
-      result.push({
-        // 一帧等于17ms,1s约等于17ms*63
-        duration: time * 63 * Math.pow(0.9, Math.ceil(i / 2)),
-        curve: flag ? Curve.FastOutLinearIn : Curve.LinearOutSlowIn,
-        event: () => {
-          this.sportY =
-            flag ? this.maxHeight : this.maxHeight - 9.8 / 2 * Math.pow(time * Math.pow(0.9, Math.ceil(i / 2)), 2);
-        }
-      });
-    }
-    return result;
-  }
-  build() {
-    Column() {
-      Button('点击')
-        .width('80%')
-        .onClick(() => {
-          if (!this.uiContext) {
-            return;
-          }
-          let rs = this.generatePosition();
-          // 只循环1次,每次的坐标变换由position决定
-          this.uiContext.keyframeAnimateTo({ iterations: 1 }, rs);
-        });
-      Stack() {
-        Circle().width(50).height(50).position({ x: this.middleX, y: this.sportY });
-      };
-    }.width('100%').height('100%');
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">FreeFallDemo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">UIContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">getUIContext</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">displayInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">display</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getDefaultDisplaySync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">活动区域</span></em>
+  <span style="color: rgb(255,255,255);">maxHeight </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">displayInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">0.85</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">坐标</span><span style="color: rgb(128,128,128);">x</span></em>
+  <span style="color: rgb(255,255,255);">maxWidth </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">displayInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,255,255);">middleX </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxWidth </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">0.03</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">起始坐标</span><span style="color: rgb(128,128,128);">y</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">sportY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">generatePosition</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">KeyframeState</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据自由落体公式求得时间</span></em>
+    let <span style="color: rgb(255,255,255);">time </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sqrt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">* </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxHeight </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">9.8</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">KeyframeState</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">第一次落地的速度为</span><span style="color: rgb(128,128,128);">v=gt,</span><span style="color: rgb(128,128,128);">反弹假设损失</span><span style="color: rgb(128,128,128);">0.1</span><span style="color: rgb(128,128,128);">的动能</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">速度为原来的</span><span style="color: rgb(128,128,128);">0.9,</span><span style="color: rgb(128,128,128);">则第二次的高度为原来的</span><span style="color: rgb(128,128,128);">90%,</span><span style="color: rgb(128,128,128);">时间</span><span style="color: rgb(128,128,128);">0.9*time</span></em>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">17</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      let <span style="color: rgb(255,255,255);">flag </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">% </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">一帧等于</span><span style="color: rgb(128,128,128);">17ms,1s</span><span style="color: rgb(128,128,128);">约等于</span><span style="color: rgb(128,128,128);">17ms*63</span></em>
+        <span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">time </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">63 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pow</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.9</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ceil</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">flag </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FastOutLinearIn </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">LinearOutSlowIn</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sportY </span><span style="color: rgb(181,106,1);">=</span>
+            <span style="color: rgb(255,255,255);">flag </span><span style="color: rgb(181,106,1);">? </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxHeight </span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxHeight </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">9.8 </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pow</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">time </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pow</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0.9</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ceil</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">      }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    return <span style="color: rgb(255,255,255);">result</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">点击</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'80%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">!</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+            return<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          let <span style="color: rgb(255,255,255);">rs </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">generatePosition</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">只循环</span><span style="color: rgb(128,128,128);">1</span><span style="color: rgb(128,128,128);">次</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">每次的坐标变换由</span><span style="color: rgb(128,128,128);">position</span><span style="color: rgb(128,128,128);">决定</span></em>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">uiContext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">keyframeAnimateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">iterations</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">rs</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Circle</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">50</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">middleX</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">sportY </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

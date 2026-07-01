@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1107
 
-## Slider交互与动画控制
- 
-
-
-##### 问题现象
+#### 问题现象
 
 场景一：如何解决List组件内嵌Slider时，上下滑动List却频繁误触发Slider的点击事件？
  
@@ -16,7 +12,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)组件为滑动条组件，通常用于快速调节设置值，如音量调节、亮度调节等应用场景。
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)列表组件包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。在内容超出显示时，可以滑动显示。使用[onScrollStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onscrollstart9)和[onScrollStop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onscrollstop)可以实现对List组件列表滑动的开始和结束的监听。
@@ -25,10 +21,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：根据列表滚动状态动态调整Slider的交互模式，即可避免误触：列表滑动时，将[sliderInteractionMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#sliderinteractionmode12)设为SliderInteraction.SLIDE_ONLY，禁止点击；停止滑动后恢复为SliderInteraction.SLIDE_AND_CLICK_UP，允许正常操作。示例代码如下：
- 
+
+  
 ```text
 @Observed
 class ListItemData {
@@ -73,10 +70,10 @@ struct SliderPage1 {
     .width('100%')
     .height('100%')
     .backgroundColor('#F5F5F5')
-    .onScrollStart(() => { // 监听滚动开始事件
+    .onScrollStart(() => { <em>// 监听滚动开始事件</em>
       this.isListScrolling = true;
     })
-    .onScrollStop(() => { // 监听滚动结束事件
+    .onScrollStop(() => { <em>// 监听滚动结束事件</em>
       this.isListScrolling = false;
     });
   }
@@ -84,7 +81,7 @@ struct SliderPage1 {
 
 @Component
 struct ListItemComponent {
-  @ObjectLink item: ListItemData; // 建立对象级绑定
+  @ObjectLink item: ListItemData; <em>// 建立对象级绑定</em>
   @Prop isListScrolling: boolean;
 
   build() {
@@ -118,11 +115,13 @@ struct ListItemComponent {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/jt9helzVTwmdHQA-UZ8SWA/zh-cn_image_0000002628567386.png?HW-CC-KV=V1&HW-CC-Date=20260701T025725Z&HW-CC-Expire=86400&HW-CC-Sign=095BB3BE5E5E161B8E4052FD4F498355832349289A2C4B1BFB7270C6148F92BF)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/jt9helzVTwmdHQA-UZ8SWA/zh-cn_image_0000002628567386.png?HW-CC-KV=V1&HW-CC-Date=20260701T041143Z&HW-CC-Expire=86400&HW-CC-Sign=6FB1A89DA06C02A24CCBE5D4D9B0BEF23EBE856DFB4B7831AB882ABB2B0CB85B)
 
 - 场景二：可通过定时器逐步递减滑块数值，模拟松手后的回弹动画。当用户松手时，若当前进度未达到预设值（如60）则以固定步长持续减小当前值直至归零，实现平滑回退；若进度大于或等于预设值，则保持当前值正常显示。示例代码如下：
- 
+
+  
 ```text
 @Entry
 @Component
@@ -140,15 +139,20 @@ struct SliderPage2 {
   }
 
   private startResetAnimation() {
-    // 清除之前的计时器
+    <em>// 清除之前的计时器</em>
     if (this.slideInterval) {
       clearInterval(this.slideInterval);
     }
 
     this.slideInterval = setInterval(() => {
-      if (this.currentValue // 每次减少10步，模拟滑动回0
+      if (this.currentValue <= 0) {
+        clearInterval(this.slideInterval);
+        this.slideInterval = undefined;
+        return;
+      }
+      <em>// 每次减少10步，模拟滑动回0</em>
       this.currentValue = Math.max(0, this.currentValue - 10);
-    }, 16); // 约60fps，更平滑
+    }, 16); <em>// 约60fps，更平滑</em>
   }
 
   build() {
@@ -161,7 +165,13 @@ struct SliderPage2 {
       })
         .onChange((value: number, mode: SliderChangeMode) => {
           if (mode === SliderChangeMode.End) {
-            if (value // 滑动过程中取消正在进行的回弹动画
+            if (value < this.threshold) {
+              this.startResetAnimation();
+            } else {
+              this.currentValue = value;
+            }
+          } else {
+            <em>// 滑动过程中取消正在进行的回弹动画</em>
             if (this.slideInterval) {
               clearInterval(this.slideInterval);
               this.slideInterval = undefined;
@@ -177,5 +187,6 @@ struct SliderPage2 {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/TEuxyL1CQm2zHGpCONY4og/zh-cn_image_0000002658926703.png?HW-CC-KV=V1&HW-CC-Date=20260701T025725Z&HW-CC-Expire=86400&HW-CC-Sign=4220C3537343CE751E00B7DB454C97E6CB205D30F033D44C63E9BA76EC9F3CAA)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/TEuxyL1CQm2zHGpCONY4og/zh-cn_image_0000002658926703.png?HW-CC-KV=V1&HW-CC-Date=20260701T041143Z&HW-CC-Expire=86400&HW-CC-Sign=772C40CE4A0B1F1A1962BF97C76D50F250E2861D50786E906F1EE07A13D8E760)

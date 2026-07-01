@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-29
 
-## 使用request.uploadFile进行多文件上传，后台未收到文件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 多文件上传场景下使用[request.uploadFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestuploadfile9-1)，后台服务未收到文件，如何排查？
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 检查是否调用request.uploadFile时，文件不存在于应用缓存文件路径下。
 - 检查是否UploadConfig配置参数中文件的uri不是"internal://cache/"的形式。

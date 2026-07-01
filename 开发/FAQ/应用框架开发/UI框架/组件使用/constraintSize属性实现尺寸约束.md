@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1481
 
-## constraintSize属性实现尺寸约束
- 
-
-
-##### 问题现象
+#### 问题现象
 
 场景一：如何实现Flex布局中只显示固定行数的Button，超出固定行数的Button按钮不显示？
  
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)是以弹性方式布局子组件的容器组件，提供更加有效的方式对容器内的子元素进行排列、对齐和分配剩余空间。Flex组件主轴默认不设置时撑满父容器，Column、Row组件主轴不设置时默认是跟随子节点大小。
 - [constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)属性设置约束尺寸，组件布局时，进行尺寸范围限制。
@@ -27,10 +23,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：计算子组件高度和布局所占用高度的总和，将该值设置为父组件的constraintSize属性最大高度，实现只显示固定行数功能。
-具体实现可参考如下示例：
+
+  具体实现可参考如下示例：
 ```text
 import { LengthMetrics } from '@kit.ArkUI';
 
@@ -60,54 +57,57 @@ struct Solution1 {
             }
           );
         }
-        .margin(10) // 与外层Flex间隔为10
-        .constraintSize({ maxHeight: 45 * 4 + 10 * 3 }) // 设置内层Flex最大高度为4个Button的高度+Button之间的间隔
-        .clip(true) // 超出部分不显示
+        .margin(10) <em>// 与外层Flex间隔为10</em>
+        .constraintSize({ maxHeight: 45 * 4 + 10 * 3 }) <em>// 设置内层Flex最大高度为4个Button的高度+Button之间的间隔</em>
+        .clip(true) <em>// 超出部分不显示</em>
         .width('100%');
-      }.border({ width: 1 }).width('80%'); // 外层Flex不设置高度，自适应内层Flex高度
+      }.border({ width: 1 }).width('80%'); <em>// 外层Flex不设置高度，自适应内层Flex高度</em>
     }.width('100%').height('100%').justifyContent(FlexAlign.Center);
   }
 }
 ```
- 
- 实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/SigaJNXtSzus-OBs_gpjkg/zh-cn_image_0000002628765698.png?HW-CC-KV=V1&HW-CC-Date=20260701T025617Z&HW-CC-Expire=86400&HW-CC-Sign=C06644C304A922BDE1B5CE0C2A236DB5E2E32CDE73692CC46FC13DCB9B80E983)
 
-- **场景二**：可以使用[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)来实现，但会导致Text占据剩余空间，从而可能影响到Row组件设置的居中效果。因此，需要考虑其他方法。使用constraintSize设置Text的最大宽度，达到约束Text组件的效果，需要注意的是，应根据不同设备的适配需求，合理设置constraintSize中的maxWidth值。
-获取屏幕宽度。
-- 计算Text的最大允许宽度：屏幕宽度减去Image的宽度和Row的margin等。
-- 使用constraintSize设置Text的最大宽度。
 
- 
-具体实现可参考如下示例：
- 
+  实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/SigaJNXtSzus-OBs_gpjkg/zh-cn_image_0000002628765698.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=8B6EB98DB2D556376B79E84581EE239201A6301C6ACE4CF6A64696EF5F05416C)
+
+- **场景二**：可以使用[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)来实现，但会导致Text占据剩余空间，从而可能影响到Row组件设置的居中效果。因此，需要考虑其他方法。使用constraintSize设置Text的最大宽度，达到约束Text组件的效果，需要注意的是，应根据不同设备的适配需求，合理设置constraintSize中的maxWidth值。1. 获取屏幕宽度。
+
+2. 计算Text的最大允许宽度：屏幕宽度减去Image的宽度和Row的margin等。
+
+3. 使用constraintSize设置Text的最大宽度。
+
+  具体实现可参考如下示例：
+
+  
 ```text
 import { display } from '@kit.ArkUI';
 
 @Entry
 @Component
 struct Solution2 {
-  // 屏幕宽度-单位为px
+  <em>// 屏幕宽度-单位为px</em>
   screenWidthPx: number = 0;
-  // 屏幕宽度-单位为vp
+  <em>// 屏幕宽度-单位为vp</em>
   @State screenWidth: number = 0;
 
   aboutToAppear(): void {
-    // 获取显示设备的屏幕宽度，单位为px
+    <em>// 获取显示设备的屏幕宽度，单位为px</em>
     this.screenWidthPx = display.getDefaultDisplaySync().width;
-    // 将px转换为vp
+    <em>// 将px转换为vp</em>
     this.screenWidth = this.getUIContext().px2vp(this.screenWidthPx);
   }
 
   build() {
     Column() {
       Row({ space: 10 }) {
-        Image($r('app.media.startIcon')) // 图片资源需自行替换
+        Image($r('app.media.startIcon')) <em>// 图片资源需自行替换</em>
           .width(40);
         Text('测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字测试一段长文字')
           .backgroundColor('#F1F3F5')
-          .constraintSize({ maxWidth: this.screenWidth - 40 - 20 - 20 - 10 }); // 约束宽度，屏幕宽-图片宽-左右margin-间隔
+          .constraintSize({ maxWidth: this.screenWidth - 40 - 20 - 20 - 10 }); <em>// 约束宽度，屏幕宽-图片宽-左右margin-间隔</em>
       }
       .width('100%')
       .margin(20)
@@ -118,13 +118,12 @@ struct Solution2 {
   }
 }
 ```
- 
-实现效果如下：
- 
+ 实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/EcJgmgVAQX6BrHTM1Zf9vA/zh-cn_image_0000002658965025.png?HW-CC-KV=V1&HW-CC-Date=20260701T025617Z&HW-CC-Expire=86400&HW-CC-Sign=2D89BF8E0318954696640508DC2E82344FFDF4E02943C49209B7077E60B870AD)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/EcJgmgVAQX6BrHTM1Zf9vA/zh-cn_image_0000002658965025.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=169B3ACC811570CC7DBEE9A09AC394511FC409ED888D09FF3CFCB995E6E706E1)
 
- - **场景三**：将需要省略显示的Text组件的maxLines属性设置为1，并将其最大宽度设置为父组件宽度减去间距和其他组件的宽度。
+- **场景三**：将需要省略显示的Text组件的maxLines属性设置为1，并将其最大宽度设置为父组件宽度减去间距和其他组件的宽度。
 ```text
 @Entry
 @Component
@@ -161,5 +160,6 @@ struct Solution {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/HCNjLhUIQoWDmg9b7Zt2ig/zh-cn_image_0000002628605820.png?HW-CC-KV=V1&HW-CC-Date=20260701T025617Z&HW-CC-Expire=86400&HW-CC-Sign=60CFED8260E9BE32EB27A8D976BE6F580C45A859F7B5D51BA2AA39A98F5DD0D9)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/HCNjLhUIQoWDmg9b7Zt2ig/zh-cn_image_0000002628605820.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=EEAEBA0EB35DD41DF1FC8BD9ED5229DD23EFE5FA771ADF18FB19B58BCAE1C588)

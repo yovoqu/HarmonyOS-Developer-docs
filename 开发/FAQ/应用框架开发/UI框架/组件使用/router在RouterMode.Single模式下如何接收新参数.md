@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-587
 
-## router在RouterMode.Single模式下如何接收新参数
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用router的Single模式进行路由跳转时，跳转已存在的页面，如何接收参数？在页面的onPageShow生命周期函数中接收参数，切换后台会导致参数重置，如何处理？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/cYoJSgNRRQ-21HltA2nQwQ/zh-cn_image_0000002658791771.png?HW-CC-KV=V1&HW-CC-Date=20260701T025537Z&HW-CC-Expire=86400&HW-CC-Sign=3FB5527C01E668E790CA885431E5473B275B7931F70FA69EDFB10D0D3E3194B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/cYoJSgNRRQ-21HltA2nQwQ/zh-cn_image_0000002658791771.png?HW-CC-KV=V1&HW-CC-Date=20260701T041255Z&HW-CC-Expire=86400&HW-CC-Sign=70372A07E4B423A72635896C5C2F53AEF2464BA617D422892E5D824760166EF7)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)进行应用内的页面跳转时，可以指定跳转页面使用的模式。其中，使用[RouterMode.Single](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9)模式时，如果目标页面的url已经在页面栈中存在，该页面会被移动到栈顶，而不会创建新的实例。如果不存在，才会按照默认的多实例模式进行跳转。
  
@@ -26,7 +22,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方案一：在onPageShow中获取参数，使用AppStorage存储应用是否切换后台的标志位，通过标志位过滤返回参数为空和切后台返回的情况，避免参数重新读取。
 PageOne.ets代码示例如下：
@@ -74,7 +70,7 @@ struct PageTwo {
 
   onPageShow(): void {
     let param: RouterParams = this.getUIContext().getRouter().getParams() as RouterParams;
-    // 过滤返回param为空和切后台
+    <em>// 过滤返回param为空和切后台</em>
     if (param !== undefined && !AppStorage.get('fromBackground')) {
       this.params = param;
       console.info(`${param.message}`);
@@ -135,7 +131,7 @@ onCreate(): void {
   AppStorage.setOrCreate('fromBackground', false);
 }
 onBackground(): void {
-  // 切换后台，设置判断标志位true
+  <em>// 切换后台，设置判断标志位true</em>
   AppStorage.setOrCreate('fromBackground', true);
 }
 ```
@@ -235,7 +231,7 @@ struct AppStoragePageThree {
  
  
 
-##### 总结
+#### 总结
 
 方案一、二均使用到AppStorage实现页面参数传递：
  

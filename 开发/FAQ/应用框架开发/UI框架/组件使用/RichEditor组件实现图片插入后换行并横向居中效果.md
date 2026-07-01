@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-974
 
-## RichEditor组件实现图片插入后换行并横向居中效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 RichEditor组件如何实现文本中插入图片后，图片换行并横向居中的场景。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)是支持图文混排和文本交互式编辑的组件，适用于需要复杂文本输入的场景（如评论区、富文本编辑器）。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：文本中插入图片后，图片换行并横向居中的场景，可以使用[addBuilderSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#addbuilderspan11)在RichEditor中添加用户自定义布局（BuilderSpan），自定义布局中设置图片横向居中，并用Text组件设置换行。
 ```text
@@ -34,7 +30,7 @@ struct BuilderSpanExample {
   @Builder
   imageTextBuilder() {
     Row({ space: 2 }) {
-      // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
+     <em> // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。</em>
       Image($r('app.media.startIcon')).width(24).height(24).margin({ left: -5 });
       Text('\n').fontSize(10);
     }
@@ -92,7 +88,7 @@ struct Index {
   @Builder
   imageTextBuilder() {
     Row({ space: 2 }) {
-      // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
+    <em>  // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。</em>
       Image($r('app.media.startIcon')).width(70).height(70).margin({ left: -5 });
     }
     .height(this.imageTextHeight)

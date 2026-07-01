@@ -3,22 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-natural-language
-
 **支持设备：** Phone | PC/2in1 | Tablet
 
-## ArkTS API错误码
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/M_3OmZSnQxuPMqVUFIzUig/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025456Z&HW-CC-Expire=86400&HW-CC-Sign=E15E7254F5EBE413DBB9C8558332289EF1B0FEB644048C85E05608964EB37CBC)
- 
- 
-以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-  
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
   
 
-##### 200 运行超时
+#### 200 运行超时
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -38,7 +32,9 @@ Run timed out, please try again later.
  
   
 
-##### 1011200001 运行失败
+#### 1011200001 运行失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -58,7 +54,9 @@ Failed to run, please try again.
  
   
 
-##### 1011200002 服务异常
+#### 1011200002 服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

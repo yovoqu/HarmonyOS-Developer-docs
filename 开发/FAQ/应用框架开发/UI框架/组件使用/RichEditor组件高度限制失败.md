@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-944
 
-## RichEditor组件高度限制失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在父组件Column设置了尺寸限制，但是却未能在子组件RichEditor中生效，当给RichEditor输入多行文本后，RichEditor与其他子组件的总高度会超过父组件的尺寸限制。
  
@@ -38,7 +34,7 @@ struct Question {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)是支持图文混排和文本交互式编辑的组件，通常用于响应用户对图文混合内容的输入操作，例如可以输入图文的评论区。
 - [constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)：设置约束尺寸，组件布局时，进行尺寸范围限制。
@@ -50,19 +46,19 @@ struct Question {
  
  
 
-##### 问题定位
+#### 问题定位
 
 检查父组件constraintSize是否可以对子组件进行有效限制：当子元素高度小于父组件高度限制时，父组件高度为设置的最小高度；子元素高度大于父组件高度限制时，父组件高度随子元素高度自适应。
  
  
 
-##### 分析结论
+#### 分析结论
 
 当前代码未对子组件进行有效的高度限制，需要添加子组件的高度限制属性。
  
  
 
-##### 修改建议
+#### 修改建议
 
 对子组件进行高度限制的方法如下：为子组件添加constraintSize。
  
@@ -98,10 +94,12 @@ struct RichEditorDemo {
       .borderRadius(16)
 
 
+
+
       RichEditor({ controller: this.richEditorController })
         .backgroundColor('#ffffff')
         .width('100%')
-        // 添加constraintSize属性，将高度限制为50，子组件高度相加不超过100（父组件高度限制）
+      <em>  // 添加constraintSize属性，将高度限制为50，子组件高度相加不超过100（父组件高度限制）</em>
         .constraintSize({ maxHeight: 50 })
         .borderRadius(16)
     }
@@ -110,7 +108,7 @@ struct RichEditorDemo {
     .padding(16)
     .backgroundColor('#f1f3f5')
     .margin({ top: 40 })
-    // 添加constraintSize属性，将高度限制为148(50+50+32+16)，子组件高度相加不超过100（父组件高度限制）
+  <em>  // 添加constraintSize属性，将高度限制为148(50+50+32+16)，子组件高度相加不超过100（父组件高度限制）</em>
     .constraintSize({ maxHeight: 148 })
   }
 }

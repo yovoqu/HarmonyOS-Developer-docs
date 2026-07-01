@@ -4,40 +4,33 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-linking-2
 
-## App Linking跳转问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发者在AGC开通了App Linking服务，并且在域名服务器上配置了对应文件，AGC上面也显示发布成功，但是点击跳转失败，提示16000019，是什么原因呢？
  
  
 
-##### 背景知识
+#### 背景知识
 
 App Linking：为开发者提供了统一的链接跳转能力，可以基于社交平台、应用链接等形态，满足对用户的拉新、促活等场景，后续还将规划应用短链等能力，支持链接跳转逻辑可配置，提供更加灵活的链接跳转能力。
  
  
 
-##### 解决方案
+#### 解决方案
 
 [16000019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability#section16000019-隐式启动未查找到匹配应用)是隐式拉起失败，可能的原因是隐式启动的参数配置有误或者指定的HAP包未安装。
  
 排查方式：
- 
-- 检查目标应用代码中的skills配置：
+ 1. 检查目标应用代码中的skills配置：
 "entities"列表中必须包含"entity.system.browsable"；
-- "actions"列表中必须包含"ohos.want.action.viewData"；
-- "uris"列表中必须包含"scheme"为"https"且"host"为域名地址的元素，可选属性包含"path"、"pathStartWith"和"pathRegex"，具体请参见“[uris标签说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-uri-config#uris标签说明)”；
-- "domainVerify"设置为true，表示开启域名校验开关。
-
- - 检查应用中指定的目标应用HAP包是否安装成功。
-
+2. "actions"列表中必须包含"ohos.want.action.viewData"；
+3. "uris"列表中必须包含"scheme"为"https"且"host"为域名地址的元素，可选属性包含"path"、"pathStartWith"和"pathRegex"，具体请参见“[uris标签说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-uri-config#uris标签说明)”；
+4. "domainVerify"设置为true，表示开启域名校验开关。
+5. 检查应用中指定的目标应用HAP包是否安装成功。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：HarmonyOS是否支持从短信链接跳转到指定App？
  
@@ -78,10 +71,8 @@ App Linking的触发条件：App Linking需要特定的URI格式，且需通过o
 Q：AGC后台已开通App Linking，但是配置完域名链接发布后状态是失败是报错信息为：下载源JSON文件失败，请确认源文件是否存在异常？
  
 A：App Linking发布链接后平台状态显示失败，可以点击旁边的查看来获取到错误信息，遇到这种问题的可能原因：
- 
-- 网络原因：域名下服务器网络问题导致下载JSON文件失败。
-- 网站链接安全性问题：如果网站证书不安全，也可能导致直接下载JSON文件失败（可以通过复制JSON配置链接后在浏览器中点击查看来确认是否可以直接查看），另外JSON文件中配置的AppID如果不在AGC配置的应用列表中，状态也会显示失败。
-
+ 1. 网络原因：域名下服务器网络问题导致下载JSON文件失败。
+2. 网站链接安全性问题：如果网站证书不安全，也可能导致直接下载JSON文件失败（可以通过复制JSON配置链接后在浏览器中点击查看来确认是否可以直接查看），另外JSON文件中配置的AppID如果不在AGC配置的应用列表中，状态也会显示失败。
  
 Q：系统读NFC标签是否可通过App Linking进行应用跳转？
  
@@ -112,7 +103,7 @@ Q：在AGC创建应用链接时错出现报错：源JSON文件中的index字段�
 A：报错是由于applinking.json文件中类型不对导致的，比如HarmonyOS应用在applinking.json文件中类型为atomicServices，或者元服务应用在applinking.json文件中类型为apps。需要改为对应的正确类型。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/7qtlspTWTWuAkKbBPs33Vg/zh-cn_image_0000002628554440.png?HW-CC-KV=V1&HW-CC-Date=20260701T025855Z&HW-CC-Expire=86400&HW-CC-Sign=9BF977D31BB38896FF6BF31DC23150F4375256634D203EA6E9749F9E98607754)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/7qtlspTWTWuAkKbBPs33Vg/zh-cn_image_0000002628554440.png?HW-CC-KV=V1&HW-CC-Date=20260701T041122Z&HW-CC-Expire=86400&HW-CC-Sign=BC1D77C85FB57AFE7232D8B4DC719ED176618B25C3A0C87504F12C2364AAC3DD)
 
  
 Q：应用链接发布失败后，在域名服务器上重新完成了applinking.json配置文件放置，为何AGC显示的状态仍然是“失败”？

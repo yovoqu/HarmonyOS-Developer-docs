@@ -4,37 +4,30 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1361
 
-## 如何获取RichEditor组件中特殊字符
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用RichEditor组件时，如果文本内容包含特殊字符（如'@'和'#'），会导致无法获取完整文本信息的问题。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)是支持图文混排和文本交互式编辑的组件，通常用于响应用户对图文混合内容的输入操作。该组件可以通过[addTextSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#addtextspan)方法添加文本内容，在输入法完成输入后，会触发[onIMEInputComplete](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#onimeinputcomplete)回调。
  
  
 
-##### 解决方案
+#### 解决方案
 
 RichEditor组件通过实时文本监听机制捕获用户输入的文本流，当检测到以@或#结尾的符号时，触发导航路由跳转逻辑，引导进入话题选择界面；待完成选择后，通过跨页面回调通信将选定内容回传至原页面，并利用富文本动态插入接口将话题数据以样式化文本形式精准插入原输入位置，最终实现交互式富文本内容构建，具体步骤如下：
- 
-- 自定义方法监听输入事件；
-- 检测是否输入@或#，当检测到后，通过Navigation的方式跳转到对应的话题页面，并带参数返回；
-- 若光标前一个span是内容为@的textSpan，则先使用deleteSpans删除；
-- 通过onIMEInputComplete回调，监听输入完成事件。
-
+ 1. 自定义方法监听输入事件；
+2. 检测是否输入@或#，当检测到后，通过Navigation的方式跳转到对应的话题页面，并带参数返回；
+3. 若光标前一个span是内容为@的textSpan，则先使用deleteSpans删除；
+4. 通过onIMEInputComplete回调，监听输入完成事件。
  
 代码示例如下：
  
 首先需要在工程配置文件module.json5中配置{"routerMap": "$profile:route_map"}。
- 
-- 在entry/src/main/resources/base/profile中新建route_map.json。
+ 1. 在entry/src/main/resources/base/profile中新建route_map.json。
 ```ArkTS
 {
   "routerMap": [
@@ -50,9 +43,9 @@ RichEditor组件通过实时文本监听机制捕获用户输入的文本流，�
 }
 ```
 
-- Index.ets。
+2. Index.ets。
 ```ArkTS
-// Index.ets
+<em>// Index.ets</em>
 interface result {
   data: String;
 }
@@ -60,18 +53,18 @@ interface result {
 @Entry
 @Component
 struct RichEditorPage {
-  @State content: string = ''; // 存储输入内容
+  @State content: string = ''; <em>// 存储输入内容</em>
   controller: RichEditorController = new RichEditorController();
-  @Provide('navStack') pageInfo: NavPathStack = new NavPathStack(); // 导航栈实例
+  @Provide('navStack') pageInfo: NavPathStack = new NavPathStack(); <em>// 导航栈实例</em>
 
-  // 监听输入事件
+  <em>// 监听输入事件</em>
   handleInput(value: string) {
-    this.content = value; // 更新输入内容
+    this.content = value; <em>// 更新输入内容</em>
 
-    // 检测是否输入`@`或`#`
+    <em>// 检测是否输入`@`或`#`</em>
     if (value.endsWith('@') || value.endsWith('#')) {
       this.pageInfo.pushPath({
-        // 接收返回数据的回调
+        <em>// 接收返回数据的回调</em>
         name: 'pageOne', onPop: (popInfo: PopInfo) => {
           if (popInfo.result) {
             let res = popInfo.result as result;
@@ -87,17 +80,17 @@ struct RichEditorPage {
   build() {
     Navigation(this.pageInfo) {
       Column() {
-        // RichEditor组件
+        <em>// RichEditor组件</em>
         RichEditor({ controller: this.controller })
           .onIMEInputComplete((value: RichEditorTextSpanResult) => {
-            this.handleInput(value.value); // 监听输入完成事件
+            this.handleInput(value.value); <em>// 监听输入完成事件</em>
           })
           .width('100%')
           .height(200)
           .borderRadius(8)
           .backgroundColor('#0d000000');
 
-        // 显示输入内容
+        <em>// 显示输入内容</em>
         Text('输入内容：')
           .fontSize(16)
           .margin({ top: 10 });
@@ -113,22 +106,22 @@ struct RichEditorPage {
 }
 ```
 
-- TopicSelectionPage.ets。
+3. TopicSelectionPage.ets。
 ```text
 @Builder
 export function PageOneBuilder() {
   TopicSelectionPage()
 }
 
-// 话题选择页面
+<em>// 话题选择页面</em>
 @Entry
 @Component
 struct TopicSelectionPage {
-  @State topics: string[] = ['话题1', '话题2', '话题3']; // 话题列表
+  @State topics: string[] = ['话题1', '话题2', '话题3']; <em>// 话题列表</em>
   @Consume('navStack') pageInfo: NavPathStack;
 
   onBack() {
-    // 返回上级页面
+    <em>// 返回上级页面</em>
     this.pageInfo.pop();
   }
 
@@ -138,7 +131,7 @@ struct TopicSelectionPage {
         Text('请选择一个话题：')
           .fontSize(16)
           .margin({ top: 10 });
-        // 显示话题列表
+        <em>// 显示话题列表</em>
         ForEach(this.topics, (topic: string) => {
           Button(topic)
             .width('80%')
@@ -167,17 +160,16 @@ struct TopicSelectionPage {
 }
 ```
 
-
  
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/i-snpjlgSymbKZVVZuLyLg/zh-cn_image_0000002658961211.png?HW-CC-KV=V1&HW-CC-Date=20260701T025612Z&HW-CC-Expire=86400&HW-CC-Sign=AC9C98245866B6258EA65E7A84951AEEA03DF57201AC99DA4E7ABB086309B272)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/i-snpjlgSymbKZVVZuLyLg/zh-cn_image_0000002658961211.png?HW-CC-KV=V1&HW-CC-Date=20260701T041312Z&HW-CC-Expire=86400&HW-CC-Sign=5E8613CBF1D4B38EA8081D4E4F21F170201D74E5469A81A86A2222883D55D78D)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：RichEditor使用addBuilderSpan@人名过长时，导致文字换行，光标高度如何保持单行高度？
  

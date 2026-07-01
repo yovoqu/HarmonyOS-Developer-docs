@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-graphicsacceleratekit-7001
 
-## Graphics Accelerate Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：AppDownloadProgress； API声明：resourceVersion?: string; 差异内容：resourceVersion?: string; | api/@hms.gameAcceleration.assetDownloadManager.d.ts |

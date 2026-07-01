@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-946
 
-## Flex布局Text自动换行时显示不全
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在下面代码中，Flex布局使用alignItems: ItemAlign.Stretch进行拉伸，并使用clip进行裁剪时会出现部分字符被裁切显示不全。
  
@@ -31,7 +27,7 @@ struct Index {
           Column() {
             Text('yyyy')
             Text('yyyy')
-            Text(this.text) // 这里在自动换行时，最后一行的字符被部分遮挡
+            Text(this.text) <em>// 这里在自动换行时，最后一行的字符被部分遮挡</em>
           }
           .flexGrow(1)
           .flexShrink(1)
@@ -57,30 +53,30 @@ struct Index {
 下面是字符显示不全的效果图。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2SEPNyy0S1eVsr7otmjPEQ/zh-cn_image_0000002628401232.png?HW-CC-KV=V1&HW-CC-Date=20260701T025553Z&HW-CC-Expire=86400&HW-CC-Sign=3B0DF209C3480F2327AA0AA5EBAAB2E7167CB656E1242F684DC02B99B9F7463D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2SEPNyy0S1eVsr7otmjPEQ/zh-cn_image_0000002628401232.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=E357475813D84D664C5D64C237D33F124198615054DD8B79EA851DBCF9DD556A)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)组件可以通过设置[FlexOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)的参数alignItems，设置子元素在交叉轴的对齐方式。子元素的[alignSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout#alignself)属性也可以设置子元素在父容器交叉轴的对齐方式，且会覆盖Flex布局容器中alignItems配置。
  
  
 
-##### 问题定位
+#### 问题定位
 
 父组件设置的alignItems属性为[ItemAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#itemalign).Stretch时，子组件在交叉轴方向拉伸填充，拉伸效果由系统进行一个先期布局，不设置子组件的宽高时，会出现子组件溢出Flex区域的情况。
  
  
 
-##### 分析结论
+#### 分析结论
 
 在Flex容器的子组件设置alignSelf属性，可使该子组件不应用父组件的alignItems属性，从而防止子组件被过度拉伸导致溢出。
  
  
 
-##### 修改建议
+#### 修改建议
 
 可以给Flex容器中的Column组件增加alignSelf属性，Text子组件在Column父组件交叉轴的对齐格式会覆盖其alignItems设置，可以使Text子组件中的文本内容完整显示。
  
@@ -105,7 +101,7 @@ struct StretchDemo {
           Column() {
             Text('yyyy');
             Text('yyyy');
-            Text(this.text); // 这里在自动换行时，最后一行的字符被部分遮挡
+            Text(this.text); <em>// 这里在自动换行时，最后一行的字符被部分遮挡</em>
           }
           .flexGrow(1)
           .flexShrink(1)
@@ -133,4 +129,4 @@ struct StretchDemo {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/f7PCnLzqQISMVYjs2Kn1QQ/zh-cn_image_0000002658800497.png?HW-CC-KV=V1&HW-CC-Date=20260701T025553Z&HW-CC-Expire=86400&HW-CC-Sign=3A52F5099A152E86A8C23D2275AC89B554952EBDB241F994CD65425AA7161361)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/f7PCnLzqQISMVYjs2Kn1QQ/zh-cn_image_0000002658800497.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=164E5853B0BA1FDAB6C7F61DEFCBE77BBE3E41E7ECB383E2CC416BBFA7E1B80E)

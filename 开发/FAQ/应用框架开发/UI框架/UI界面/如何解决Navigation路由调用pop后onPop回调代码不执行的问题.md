@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-905
 
-## 如何解决Navigation路由调用pop后onPop回调代码不执行的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Navigation构建路由，从pageOne通过pushPath跳转到pageTwo，期望pageOne的onPop回调在pageTwo返回时被触发，但效果未达预期。
  
 问题代码示例参考如下：
  
-```text
+```json
 class ParamWithOp {
   operation: number = 1
   count: number = 10
@@ -46,7 +42,7 @@ struct PageOne {
           .height(40)
           .margin(10)
           .onClick(() => {
-            // 将name指定的NavDestination页面信息入栈，传递的数据为param，添加接收处理结果的onPop回调。
+         <em>   // 将name指定的NavDestination页面信息入栈，传递的数据为param，添加接收处理结果的onPop回调。</em>
             this.pageInfo.pushPath({
               name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
                 this.message = `[pushPath]last page is: ${popInfo.info.name} result: ${JSON.stringify(popInfo.result)}`
@@ -71,7 +67,7 @@ struct PageTwo {
           .height(40)
           .margin(20)
           .onClick(() => {
-            // 回退到上一个页面，此处代码，在pop回pageOne页面时，未传参数
+        <em>    // 回退到上一个页面，此处代码，在pop回pageOne页面时，未传参数</em>
             this.pathStack.pop();
           })
       }.width('100%').height('100%')
@@ -85,15 +81,15 @@ struct PageTwo {
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/L1st2PbJQN2h_zwlQFeIug/zh-cn_image_0000002628559672.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=185EF55E21CDF6759AAD72467EECB4E3F03D963237541D387BA29BE10F414C48)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/L1st2PbJQN2h_zwlQFeIug/zh-cn_image_0000002628559672.png?HW-CC-KV=V1&HW-CC-Date=20260701T041210Z&HW-CC-Expire=86400&HW-CC-Sign=890521107B14E815AA874CC2D95ED605938BE19D8F16132421643256DE351A83)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)组件是路由导航的根视图容器，结合导航控制器[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)可实现组件导航。
  
@@ -103,28 +99,28 @@ struct PageTwo {
  
  
 
-##### 问题定位
+#### 问题定位
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/gHjW6MhLRum804WO12pxMg/zh-cn_image_0000002658918979.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=B11429A5647B7C945BD73776FD8233599606DD876726BC17C2BEF60B4D46662D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/gHjW6MhLRum804WO12pxMg/zh-cn_image_0000002658918979.png?HW-CC-KV=V1&HW-CC-Date=20260701T041210Z&HW-CC-Expire=86400&HW-CC-Sign=9F00E5ECB9BD735D03F395B9E16E977A448EDCCE3C8FEC58B3E6EE224E7D2C9E)
 
  
 查阅官方文档关于pushPath方法的[NavPathInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathinfo10)入参说明，其中的onPop回调函数仅pop、[popToName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#poptoname11)、[popToIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#poptoindex11)中设置result参数后触发。
  
  
 
-##### 分析结论
+#### 分析结论
 
 onPop回调函数需要使用pop、popToName、popToIndex方法返回时设置result参数才会触发，否则不会执行onPop回调。
  
  
 
-##### 修改建议
+#### 修改建议
 
 按上节所述，只需在pageTwo中调用pop方法时，传入result参数，即可在pageOne中成功收到onPop的回调。修改问题代码如下：
  
 ```text
-// 回退到上一个页面，随便传个result即可触发onPop回调
+<em>// 回退到上一个页面，随便传个result即可触发onPop回调</em>
 this.pathStack.pop(1);
 ```
  

@@ -4,25 +4,22 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-22
 
-## 使用codelinter实现IDE外静态代码分析
- 
-
-
-##### 问题现象
+#### 问题现象
 
 项目的打包构建需要接入devops，其中需要进行静态代码分析，例如检查代码编写是否规范、变量命名后是否被使用、分析逻辑嵌套层数等，如何在IDE外实现？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - sonar是一款静态代码质量分析工具，支持Java、Python、PHP、JavaScript、CSS等25种以上的语言，而且能够集成在IDE、Jenkins、Git等服务中，方便随时查看代码质量分析报告。
 - [codelinter](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-codelinter)同时支持使用命令行执行代码检查与修复，可将codelinter工具集成到门禁或持续集成环境中。codelinter命令行格式如下：
-```text
+```bash
 codelinter [options] [dir]
 ```
  options：可选配置，参考[codelinter命令行配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-codelinter)。
- dir：待检查的工程根目录，为可选参数，如不指定，默认为当前上下文目录。
+
+  dir：待检查的工程根目录，为可选参数，如不指定，默认为当前上下文目录。
 
  
 - 检查结果json示例及字段说明：
@@ -32,8 +29,8 @@ codelinter [options] [dir]
     "filePath": "D:\\projects\\DemoApplication\\entry\\src\\main\\module.json5",
     "messages": [
       {
-        "line": 23,
-        "column": 27,
+        "line": <span style="color: rgb(0,0,255);">23</span>,
+        "column": <span style="color: rgb(0,0,255);">27</span>,
         "severity": "suggestion",
         "message": "For faster app startup, keep the startup icon size within 256 x 256 pixels.",
         "rule": "@performance/start-window-icon-check"
@@ -44,8 +41,8 @@ codelinter [options] [dir]
     "filePath": "D:\\projects\\DemoApplication\\entry\\src\\main\\ets\\pages\\StackDemo.ets",
     "messages": [
       {
-        "line": 75,
-        "column": 13,
+        "line": <span style="color: rgb(0,0,255);">75</span>,
+        "column": <span style="color: rgb(0,0,255);">13</span>,
         "severity": "warn",
         "message": "For performance purposes, set keyGenerator for ForEach.",
         "rule": "@performance/foreach-args-check"
@@ -54,21 +51,30 @@ codelinter [options] [dir]
   }
 ]
 ```
-  
+
+
 | 字段名 | 说明 |
+
 | --- | --- |
+
 | filePath | 代码文件路径 |
+
 | messages | 一个数组，每个元素对应检查到的一个问题 |
+
 | line | 问题所在代码行数 |
+
 | column | 问题所在代码列数 |
+
 | severity | 问题严重程度 |
+
 | message | 问题描述 |
+
 | rule | 问题对应的规则 |
 
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用命令行执行codelinter，然后把codelinter的结果传给sonar，使用--output/-o的方式将检查结果写入指定的文件，然后外部模块再从这个文件里边去读，可参考[codelinter指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-codelinter)的--output/-o &lt;filepath&gt;指令说明。
  

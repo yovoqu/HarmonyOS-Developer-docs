@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-175
 
-## 网页在HarmonyOS PC上的华为浏览器中无法打开如何处理
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在HarmonyOS操作系统的PC上使用华为浏览器存在部分网页无法打开的场景，应该如何处理？
  
  
 
-##### 解决方案
+#### 解决方案
 
 出现该问题的原因是该网页对应的代码没有适配HarmonyOS的UA，解决方案有两种：
  

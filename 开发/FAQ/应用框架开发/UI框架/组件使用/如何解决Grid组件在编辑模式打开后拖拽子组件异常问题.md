@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1506
 
-## 如何解决Grid组件在编辑模式打开后拖拽子组件异常问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Grid组件编辑模式打开后拖拽效果异常，预期和实际效果如下：
  
@@ -19,7 +15,7 @@ Grid组件编辑模式打开后拖拽效果异常，预期和实际效果如下�
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/bgtDbEsjQ1S320uJBAlfFA/zh-cn_image_0000002658845801.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=92BD33ACD533D2BEEE04E87E57CCF63CD57C6C76C3D3A86CE5059A8CA70C196C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/bgtDbEsjQ1S320uJBAlfFA/zh-cn_image_0000002658845801.png?HW-CC-KV=V1&HW-CC-Date=20260701T041313Z&HW-CC-Expire=86400&HW-CC-Sign=7418F37B22745646C42B98053A2C8B496520C9C4D63689BFDFAD8998E20C4CE8)
 
  
 问题代码如下：
@@ -58,10 +54,10 @@ import { DimensionUtil } from './DimensionUtil'
 @Entry
 @Component
 struct GridPullPage {
-  @State selectMedias: Array = ["-1"] // 选择的图片和视频
+  @State selectMedias: Array<string> = ["-1"]<em> // 选择的图片和视频</em>
   @State imageWH: number = 60
   @State editMode: boolean = true;
-  @State maxSelectPics: number = 9 // 最大选择图片数量
+  @State maxSelectPics: number = 9<em> // 最大选择图片数量</em>
   private scroller: Scroller = new Scroller()
 
   aboutToAppear() {
@@ -77,7 +73,7 @@ struct GridPullPage {
 
   @Builder
   itemGrid(item: string, index: number) {
-    // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。
+   <em> // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。</em>
     Image(item === "-1" ? $r('app.media.newsinformantspage_item_imagepicker_default') : item)
       .objectFit(ImageFit.Cover)
       .width(this.imageWH)
@@ -129,12 +125,13 @@ struct GridPullPage {
     .supportAnimation(true)
     .scrollBar(BarState.Off)
     .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
-        // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件。
+       <em> // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件。</em>
         return this.itemDragGrid(this.selectMedias[itemIndex], itemIndex)
     })
     .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
-      // 执行gridItem切换操作
-      if (isSuccess && insertIndex   // 点击选择图标不进行交换
+    <em>  // 执行gridItem切换操作</em>
+      if (isSuccess && insertIndex < this.selectMedias.length) {
+      <em>  // 点击选择图标不进行交换</em>
         if (this.selectMedias[itemIndex] === "-1") {
           return
         }
@@ -174,15 +171,15 @@ struct GridPullPage {
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/YSHas0OvR_GEh02fpvR3kQ/zh-cn_image_0000002628766432.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=D9593FC71FE98A4FAE73B455CE17385AE47449E9EE8A814F4F5EBC41FFA464BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/YSHas0OvR_GEh02fpvR3kQ/zh-cn_image_0000002628766432.png?HW-CC-KV=V1&HW-CC-Date=20260701T041313Z&HW-CC-Expire=86400&HW-CC-Sign=11C1AC4E6AA1A91DEAF13FA812828E8F591D556BB8C426BB0C3227A25DA2542B)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [editMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#editmode8)属性能够设置Grid是否进入编辑模式，Grid进入编辑模式后就可以拖曳Grid组件内部[GridItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem)。
 - [hitTestBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior#hittestbehavior)属性用于设置不同的触摸测试响应模式，影响触摸测试收集结果及后续触屏事件分发。具体影响参考[HitTestMode枚举说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#hittestmode9)。
@@ -190,28 +187,27 @@ struct GridPullPage {
  
  
 
-##### 问题定位
+#### 问题定位
 
 Grid组件的editMode属性能够控制整个Grid组件是否能编辑，在问题代码中，editMode属性设置为true时，Grid组件拖拽效果异常，是因为拖动事件跟onClick事件发生了冲突。
  
  
 
-##### 分析结论
+#### 分析结论
 
 由于拖动事件跟onClick事件发生冲突，因此可以使用hitTestBehavior属性对不同的组件设置不同的触摸测试效果：将包含点击事件的图片设置为HitTestMode.Default，并将被添加进来的图片设置为HitTestMode.None。保证添加图片的固定图片无法被拖曳位置，onClick事件可以生效；添加进来的图片可以被拖曳位置，onClick事件不生效。
  
  
 
-##### 修改建议
+#### 修改建议
 
 根据以上分析，修改建议如下：
- 
-- 不同的元素，设置不同的HitTestMode。
+ 1. 不同的元素，设置不同的HitTestMode。
 ```text
 @Builder
 itemGrid(item: string, index: number) {
   if (item === '-1') {
-    // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。
+  <em>  // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。</em>
     Image($r('app.media.newsinformantspage_item_imagepicker_default'))
       .objectFit(ImageFit.Cover)
       .width(this.imageWH)
@@ -242,15 +238,16 @@ itemGrid(item: string, index: number) {
 }
 ```
 
-- 拖拽图片后，根据拖拽的位置序号来进行重新排序。
+2. 拖拽图片后，根据拖拽的位置序号来进行重新排序。
 ```text
 .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
-  // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件
+ <em> // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件</em>
   return this.itemDragGrid(this.selectMedias[itemIndex], itemIndex);
 })
 .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
-  // 执行gridItem切换操作
-  if (isSuccess && insertIndex  // 点击选择图标不进行交换
+ <em> // 执行gridItem切换操作</em>
+  if (isSuccess && insertIndex < this.selectMedias.length) {
+   <em> // 点击选择图标不进行交换</em>
     if (this.selectMedias[itemIndex] === '-1') {
       return;
     }
@@ -258,7 +255,6 @@ itemGrid(item: string, index: number) {
   }
 });
 ```
-
 
  
 完整代码如下：
@@ -295,10 +291,10 @@ import { DimensionUtil } from './DimensionUtil';
 @Entry
 @Component
 struct GridPullPage {
-  @State selectMedias: Array = ['-1']; // 选择的图片和视频
+  @State selectMedias: Array<string> = ['-1']; <em>// </em><em>选择的图片和视频</em>
   @State imageWH: number = 60;
   editMode: boolean = true;
-  maxSelectPics: number = 9; // 最大选择图片数量
+  maxSelectPics: number = 9; <em>// </em><em>最大选择图片数量</em>
   private scroller: Scroller = new Scroller();
 
   aboutToAppear() {
@@ -315,7 +311,7 @@ struct GridPullPage {
   @Builder
   itemGrid(item: string, index: number) {
     if (item === '-1') {
-      // 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。
+      <em>// 此处'app.media.newsinformantspage_item_imagepicker_default'仅作示例。</em>
       Image($r('app.media.newsinformantspage_item_imagepicker_default'))
         .objectFit(ImageFit.Cover)
         .width(this.imageWH)
@@ -380,12 +376,13 @@ struct GridPullPage {
     .supportAnimation(true)
     .scrollBar(BarState.Off)
     .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
-      // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件
+     <em> // 在onItemDragStart函数返回自定义组件，可在拖拽过程中显示此自定义组件</em>
       return this.itemDragGrid(this.selectMedias[itemIndex], itemIndex);
     })
     .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
-      // 执行gridItem切换操作
-      if (isSuccess && insertIndex      // 点击选择图标不进行交换
+   <em>   // 执行gridItem切换操作</em>
+      if (isSuccess && insertIndex < this.selectMedias.length) {
+   <em>     // 点击选择图标不进行交换</em>
         if (this.selectMedias[itemIndex] === '-1') {
           return;
         }

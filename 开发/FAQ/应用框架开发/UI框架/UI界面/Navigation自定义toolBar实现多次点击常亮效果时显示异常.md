@@ -4,103 +4,99 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1326
 
-## Navigation自定义toolBar实现多次点击常亮效果时显示异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Navigation中定义工具栏，点击高亮标签时，标签会在高亮与不高亮之间切换，无法实现多次点击同一个页签，页签常亮的功能。问题代码如下：
  
 ```text
-@Entry
-@Component
-struct MethodOne {
-  @Provide('navPathStack') navPathStack: NavPathStack = new NavPathStack();
-  @State currentTabIndex: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">MethodOne </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'navPathStack'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">navPathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Navigation() {
-        Text('选中了tab' + this.currentTabIndex);
-      }
-      .width('100%')
-      .navBarWidth('100%')
-      .hideBackButton(true)
-      .hideTitleBar(true)
-      .hideToolBar(false)
-      .mode(NavigationMode.Stack)
-      .toolbarConfiguration(MenuList.GetDefaultMenuNavBarList(this.currentTabIndex, (index) => {
-        this.currentTabIndex = index;
-      }), { backgroundColor: Color.White, backgroundBlurStyle: BlurStyle.Regular })
-      .height('100%')
-      .width('100%')
-      .backgroundColor('#F1F3F5');
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">选中了</span><span style="color: rgb(255,0,170);">tab' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navBarWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideBackButton</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideToolBar</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">NavigationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolbarConfiguration</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">backgroundBlurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Regular </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#F1F3F5'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-class MenuList {
-  public static GetDefaultMenuList(): MenuEntity[] {
-    return [
-      new MenuEntity('消息', 0, $r('app.media.nav_bar_btn_msg'), $r('app.media.nav_bar_btn_msg_selected')),
-      new MenuEntity('待办', 1, $r('app.media.nav_bar_btn_todo'), $r('app.media.nav_bar_btn_todo_selected')),
-      new MenuEntity('工作台', 2, $r('app.media.nav_bar_btn_work'), $r('app.media.nav_bar_btn_work_selected')),
-      new MenuEntity('通讯录', 3, $r('app.media.nav_bar_btn_addressbook'),
-        $r('app.media.nav_bar_btn_addressbook_selected')),
-      new MenuEntity('我的', 4, $r('app.media.nav_bar_btn_me'), $r('app.media.nav_bar_btn_me_selected')),
-    ];
-  }
+class <span style="color: rgb(0,0,255);">MenuList </span><span style="color: rgb(255,0,170);">{</span>
+  public static <span style="color: rgb(0,0,255);">GetDefaultMenuList</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(255,0,170);">{</span>
+    return <span style="color: rgb(0,0,255);">[</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">消息</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_msg'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_msg_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">待办</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_todo'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_todo_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">工作台</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_work'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_work_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">通讯录</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_addressbook'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_addressbook_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">我的</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_me'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_me_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  public static GetDefaultMenuNavBarList(currentIndex: number,
-    menuOnClick?: (index: number) => void): ArrayToolbarItem> {
-    let toolbarList: ArrayToolbarItem> = [];
-    for (let i = 0; i  MenuList.GetDefaultMenuList().length; i++) {
-      let menuEntity: MenuEntity = MenuList.GetDefaultMenuList()[i];
-      toolbarList.push({
-        value: menuEntity.name,
-        icon: menuEntity.menuIcon,
-        activeIcon: menuEntity.focusMenuIcon,
-        status: currentIndex == i ? ToolbarItemStatus.ACTIVE : ToolbarItemStatus.NORMAL,
-        action: () => {
-          if (menuOnClick) {
-            menuOnClick(menuEntity.index);
-          }
-        }
-      });
-    }
-    return toolbarList;
-  }
-};
+  public static <span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToolbarItem</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToolbarItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuList</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MenuEntity </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuList</span><span style="color: rgb(0,0,255);">()[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">activeIcon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">status</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">ToolbarItemStatus</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ACTIVE </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ToolbarItemStatus</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NORMAL</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-class MenuEntity {
-  menuIcon?: Resource = $r('app.media.startIcon');
-  focusMenuIcon?: Resource = $r('app.media.startIcon');
-  name: string | Resource = 'text';
-  index: number = 0;
-  isShow?: boolean = true;
-  gotoPage: string = '';
+class <span style="color: rgb(0,0,255);">MenuEntity </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'text'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">gotoPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(name: string | Resource, index: number, menuIcon?: Resource,
-    focusMenuIcon?: Resource, isShow?: boolean) {
-    this.menuIcon = menuIcon;
-    this.focusMenuIcon = focusMenuIcon;
-    this.name = name;
-    this.index = index;
-    this.isShow = isShow;
-  }
-};
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Resource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Resource</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Resource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">menuIcon </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusMenuIcon </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isShow </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
 问题现象：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/GExBtgEqQBOdNowDS5SPjg/zh-cn_image_0000002628599750.png?HW-CC-KV=V1&HW-CC-Date=20260701T025649Z&HW-CC-Expire=86400&HW-CC-Sign=664926307D462456330DA0C75036844284DD0C67ABA03C377931305D7CCDEA79)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/GExBtgEqQBOdNowDS5SPjg/zh-cn_image_0000002628599750.png?HW-CC-KV=V1&HW-CC-Date=20260701T041141Z&HW-CC-Expire=86400&HW-CC-Sign=F0E2F795359631196667D7D597C33C55871C23BDB57278BE8301DCA7BA541516)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：页签切换组件，可实现自定义TabBar，并实现切换逻辑。TabBar实现方式参考[官方示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例)。
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：官方推荐的路由切换组件，其自带的工具栏通过[toolbarConfiguration属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#toolbarconfiguration10)实现。该属性内实现的工具栏可使用官方提供的[ToolbarItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#toolbaritem10)类实现或者通过[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)自定义实现。
@@ -117,271 +113,274 @@ Tabs的TabBar和Navigation工具栏点击效果区分：
  
  
 
-##### 问题定位
-
-- 状态变量this.currentTabIndex代表的是当前页签的索引值，第一次点击其它页签时，this.currentTabIndex会通过action属性执行传入的箭头函数更新为点击的页签索引，重复点击相同页签时，this.currentTabIndex的值不会发生改变。
-- @State会监听this.currentTabIndex的变化，当状态变量this.currentTabIndex变化时，会自动刷新UI。该问题代码是通过点击更改状态变量this.currentTabIndex的值，将点击的标签设置为ToolbarItemStatus.ACTIVE，显示activeIcon的图标，从而实现第一次点击高亮的效果。
-- 由于第一次点击后，再次点击该标签时，this.currentTabIndex不会发生变化，所以不会重新刷新toolbarConfiguration属性。已经是ToolbarItemStatus.ACTIVE属性的情况下，后续点击该标签时，实现的是ToolbarItemStatus.ACTIVE内在逻辑：点击取消高亮（显示icon图标），再次点击高亮（显示activeIcon图标）。
-- 通过在GetDefaultMenuNavBarList()函数内设置打印信息，监听其是否执行可以显示。验证代码如下：
+#### 问题定位
+1. 状态变量this.currentTabIndex代表的是当前页签的索引值，第一次点击其它页签时，this.currentTabIndex会通过action属性执行传入的箭头函数更新为点击的页签索引，重复点击相同页签时，this.currentTabIndex的值不会发生改变。
+2. @State会监听this.currentTabIndex的变化，当状态变量this.currentTabIndex变化时，会自动刷新UI。该问题代码是通过点击更改状态变量this.currentTabIndex的值，将点击的标签设置为ToolbarItemStatus.ACTIVE，显示activeIcon的图标，从而实现第一次点击高亮的效果。
+3. 由于第一次点击后，再次点击该标签时，this.currentTabIndex不会发生变化，所以不会重新刷新toolbarConfiguration属性。已经是ToolbarItemStatus.ACTIVE属性的情况下，后续点击该标签时，实现的是ToolbarItemStatus.ACTIVE内在逻辑：点击取消高亮（显示icon图标），再次点击高亮（显示activeIcon图标）。
+4. 通过在GetDefaultMenuNavBarList()函数内设置打印信息，监听其是否执行可以显示。验证代码如下：
 ```text
-public static GetDefaultMenuNavBarList(currentIndex: number,
-  menuOnClick?: (index: number) => void): ArrayToolbarItem> {
-  console.info('GetDefaultMenuNavBarList执行了一次。') // 监听函数执行。
-  let toolbarList: ArrayToolbarItem> = [];
-  for (let i = 0; i  MenuList.GetDefaultMenuList().length; i++) {
-    let menuEntity: MenuEntity = MenuList.GetDefaultMenuList()[i];
-    toolbarList.push({
-      value: menuEntity.name,
-      icon: menuEntity.menuIcon,
-      activeIcon: menuEntity.focusMenuIcon,
-      status: currentIndex === i ? ToolbarItemStatus.ACTIVE : ToolbarItemStatus.NORMAL,
-      action: () => {
-        console.info('点击了一次。') // 监听点击次数。
-        menuOnClick ? menuOnClick(menuEntity.index) : undefined
-      }
-    })
-  }
-  return toolbarList;
-}
+public static <span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToolbarItem</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'GetDefaultMenuNavBarList</span><span style="color: rgb(255,0,170);">执行了一次。</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">监听函数执行。</span></em>
+  let <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToolbarItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuList</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MenuEntity </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuList</span><span style="color: rgb(0,0,255);">()[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">activeIcon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">status</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">ToolbarItemStatus</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ACTIVE </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ToolbarItemStatus</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NORMAL</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点击了一次。</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">监听点击次数。</span></em>
+        <span style="color: rgb(0,0,255);">menuOnClick </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">: </span>undefined
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  return <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  验证效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Mo6Djx8XTXKigCh421ZbEQ/zh-cn_image_0000002628759654.png?HW-CC-KV=V1&HW-CC-Date=20260701T025649Z&HW-CC-Expire=86400&HW-CC-Sign=0B54CC344BC3D7FD546028A9F89155462AC9F8014F9B7C7481494286F20AAF57)
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Mo6Djx8XTXKigCh421ZbEQ/zh-cn_image_0000002628759654.png?HW-CC-KV=V1&HW-CC-Date=20260701T041141Z&HW-CC-Expire=86400&HW-CC-Sign=E50BCE3C218BDE0F00717A6BDEE566E443DA3E842BBE719900709D44DF46337C)
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 第一次点击后的后续点击，由于状态变量this.currentTabIndex没有变化，导致toolbarConfiguration属性没有刷新，实现的是标签本身的ToolbarItemStatus.ACTIVE逻辑，所以导致多次点击无法一直常亮。
  
  
 
-##### 修改建议
+#### 修改建议
 
 参考代码实现逻辑给出以下两种Navigation实现TabBar点击效果：
  
 - **方案一：采用官方提供的Array&lt;ToolbarItem&gt;对象数组。**
-方式一：每次点击时都更改一次状态变量参数this.currentTabIndex的值，强制刷新UI，核心修改如下：
+
+  方式一：每次点击时都更改一次状态变量参数this.currentTabIndex的值，强制刷新UI，核心修改如下：
 ```text
-.toolbarConfiguration(MenuList.GetDefaultMenuNavBarList(this.currentTabIndex, (index) => {
-  this.currentTabIndex = -1;
-  this.currentTabIndex = index;
-}), { backgroundColor: Color.White, backgroundBlurStyle: BlurStyle.Regular })
+<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolbarConfiguration</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">backgroundBlurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Regular </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 ```
- 
- 示例完整demo如下：
- 
+
+
+  示例完整demo如下：
+
+  
 ```text
-@Entry
-@Component
-struct MethodOne {
-  @Provide('navPathStack') navPathStack: NavPathStack = new NavPathStack();
-  @State currentTabIndex: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">MethodOne </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Provide</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'navPathStack'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(0,0,255);">navPathStack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">NavPathStack </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">NavPathStack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Navigation() {
-        Text('选中了tab' + this.currentTabIndex);
-      }
-      .width('100%')
-      .navBarWidth('100%')
-      .hideBackButton(true)
-      .hideTitleBar(true)
-      .hideToolBar(false)
-      .mode(NavigationMode.Stack)
-      .toolbarConfiguration(MenuList.GetDefaultMenuNavBarList(this.currentTabIndex, (index) => {
-        this.currentTabIndex = -1;
-        this.currentTabIndex = index;
-      }), { backgroundColor: Color.White, backgroundBlurStyle: BlurStyle.Regular })
-      .height('100%')
-      .width('100%')
-      .backgroundColor('#F1F3F5');
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">选中了</span><span style="color: rgb(255,0,170);">tab' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navBarWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideBackButton</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideToolBar</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">NavigationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolbarConfiguration</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">backgroundBlurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Regular </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#F1F3F5'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-class MenuList {
-  public static GetDefaultMenuList(): MenuEntity[] {
-    return [
-      new MenuEntity('消息', 0, $r('app.media.nav_bar_btn_msg'), $r('app.media.nav_bar_btn_msg_selected')),
-      new MenuEntity('代办', 1, $r('app.media.nav_bar_btn_todo'), $r('app.media.nav_bar_btn_todo_selected')),
-      new MenuEntity('工作台', 2, $r('app.media.nav_bar_btn_work'), $r('app.media.nav_bar_btn_work_selected')),
-      new MenuEntity('通讯录', 3, $r('app.media.nav_bar_btn_addressbook'),
-        $r('app.media.nav_bar_btn_addressbook_selected')),
-      new MenuEntity('我的', 4, $r('app.media.nav_bar_btn_me'), $r('app.media.nav_bar_btn_me_selected')),
-    ];
-  }
+class <span style="color: rgb(0,0,255);">MenuList </span><span style="color: rgb(255,0,170);">{</span>
+  public static <span style="color: rgb(0,0,255);">GetDefaultMenuList</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(255,0,170);">{</span>
+    return <span style="color: rgb(0,0,255);">[</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">消息</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_msg'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_msg_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">代办</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_todo'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_todo_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">工作台</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_work'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_work_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">通讯录</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_addressbook'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_addressbook_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+      new <span style="color: rgb(0,0,255);">MenuEntity</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">我的</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_me'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.nav_bar_btn_me_selected'</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  public static GetDefaultMenuNavBarList(currentIndex: number,
-    menuOnClick?: (index: number) => void): ArrayToolbarItem> {
-    let toolbarList: ArrayToolbarItem> = [];
-    for (let i = 0; i  MenuList.GetDefaultMenuList().length; i++) {
-      let menuEntity: MenuEntity = MenuList.GetDefaultMenuList()[i];
-      toolbarList.push({
-        value: menuEntity.name,
-        icon: menuEntity.menuIcon,
-        activeIcon: menuEntity.focusMenuIcon,
-        status: currentIndex == i ? ToolbarItemStatus.ACTIVE : ToolbarItemStatus.NORMAL,
-        action: () => {
-          if (menuOnClick) {
-            menuOnClick(menuEntity.index);
-          }
-        }
-      });
-    }
-    return toolbarList;
-  }
-};
+  public static <span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToolbarItem</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToolbarItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuList</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">MenuEntity </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">MenuList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuList</span><span style="color: rgb(0,0,255);">()[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">activeIcon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">status</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">ToolbarItemStatus</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ACTIVE </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ToolbarItemStatus</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NORMAL</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">menuEntity</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-class MenuEntity {
-  menuIcon?: Resource = $r('app.media.startIcon');
-  focusMenuIcon?: Resource = $r('app.media.startIcon');
-  name: string | Resource = 'text';
-  index: number = 0;
-  isShow?: boolean = true;
-  gotoPage: string = '';
+class <span style="color: rgb(0,0,255);">MenuEntity </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'text'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">gotoPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(name: string | Resource, index: number, menuIcon?: Resource,
-    focusMenuIcon?: Resource, isShow?: boolean) {
-    this.menuIcon = menuIcon;
-    this.focusMenuIcon = focusMenuIcon;
-    this.name = name;
-    this.index = index;
-    this.isShow = isShow;
-  }
-};
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">Resource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Resource</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Resource</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">menuIcon </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">menuIcon</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusMenuIcon </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">focusMenuIcon</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">name</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isShow </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">isShow</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 ```
  方式二：禁用ToolbarItemStatus.ACTIVE逻辑。
- 
-由于上述分析结论，在实现过程中不需要执行ToolbarItemStatus.ACTIVE逻辑，故取消activeIcon、status设置，将icon属性设置为三目运算的形式：
+
+  由于上述分析结论，在实现过程中不需要执行ToolbarItemStatus.ACTIVE逻辑，故取消activeIcon、status设置，将icon属性设置为三目运算的形式：
 ```text
-@Entry
-@Component
-struct MethodTwo {
-  @State currentTabIndex: number = 0;
-  // 标签信息。
-  @State toolList: ArrayArraystring>> = [
-    ['menuItem1', 'app.media.background', 'app.media.startIcon'],
-    ['menuItem2', 'app.media.background', 'app.media.startIcon'],
-    ['menuItem3', 'app.media.background', 'app.media.startIcon'],
-    ['menuItem4', 'app.media.background', 'app.media.startIcon'],
-  ];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">MethodTwo </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <em>// </em><em><span style="color: rgb(128,128,128);">标签信息。</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">toolList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span>
+<span style="color: rgb(0,0,255);">    [</span><span style="color: rgb(255,0,170);">'menuItem1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.background'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'menuItem2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.background'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'menuItem3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.background'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'menuItem4'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.background'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-  // 设置函数遍历标签信息并返回ArrayToolbarItem>类型数组。
-  GetDefaultMenuNavBarList(currentIndex: number,
-    menuOnClick?: (index: number) => void): ArrayToolbarItem> {
-    let toolbarList: ArrayToolbarItem> = [];
-    for (let i = 0; i  this.toolList.length; i++) {
-      toolbarList.push({
-        value: this.toolList[i][0],
-        icon: currentIndex === i ? $r(this.toolList[i][1]) : $r(this.toolList[i][2]),
-        action: () => {
-          if (menuOnClick) {
-            menuOnClick(i);
-          }
-        }
-      });
-    }
-    return toolbarList;
-  }
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">设置函数遍历标签信息并返回</span><span style="color: rgb(128,128,128);">Array</span><span style="color: rgb(128,128,128);"><</span><span style="color: rgb(128,128,128);">ToolbarItem</span><span style="color: rgb(128,128,128);">></span><span style="color: rgb(128,128,128);">类型数组。</span></em>
+  <span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">currentIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToolbarItem</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ToolbarItem</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">][</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">icon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">currentIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">][</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]) </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">][</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">action</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">menuOnClick</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return <span style="color: rgb(0,0,255);">toolbarList</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      Navigation() {
-        Text('选中了tab' + this.currentTabIndex);
-      }
-      .width('100%')
-      .navBarWidth('100%')
-      .hideBackButton(true)
-      .hideTitleBar(true)
-      .hideToolBar(false)
-      .mode(NavigationMode.Stack)
-      .toolbarConfiguration(this.GetDefaultMenuNavBarList(this.currentTabIndex, (index: number) => {
-        this.currentTabIndex = index;
-      }), { backgroundColor: Color.White, backgroundBlurStyle: BlurStyle.Thin });
-    }.height('100%')
-    .width('100%')
-    .backgroundColor('#F1F3F5');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">选中了</span><span style="color: rgb(255,0,170);">tab' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navBarWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideBackButton</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideToolBar</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">NavigationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolbarConfiguration</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">backgroundBlurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Thin </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#F1F3F5'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
  
 - **方案二：采用CustomBuilder自定义。**采用@Builder封装UI构件，通过三目运算实现点击聚焦功能。
- 
+
+  
 ```text
-@Entry
-@Component
-struct OptionTwo {
-  @State currentTabIndex: number = 0;
-  @State toolList: ArrayArraystring>> = [
-    ['item1', 'app.media.startIcon', 'app.media.background'],
-    ['item2', 'app.media.startIcon', 'app.media.background'],
-    ['item3', 'app.media.startIcon', 'app.media.background'],
-    ['item4', 'app.media.startIcon', 'app.media.background'],
-  ];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">OptionTwo </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">toolList</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[</span>
+<span style="color: rgb(0,0,255);">    [</span><span style="color: rgb(255,0,170);">'item1'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.background'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'item2'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.background'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'item3'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.background'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'item4'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'app.media.background'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-  @Builder
-  GetDefaultMenuNavBarList() {
-    Row() {
-      ForEach(this.toolList, (item: Arraystring>, index: number) => {
-        Column() {
-          Stack() {
-            Image($r(item[1]))
-              .height(30)
-              .width(30)
-              .draggable(false);
-            Image($r(item[2]))
-              .height(30)
-              .width(30)
-              .draggable(false)
-              .visibility(this.currentTabIndex === index ? Visibility.Visible : Visibility.None);
-          };
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolList</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]))</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">draggable</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">]))</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">draggable</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-          Text(item[0])
-            .fontSize(10)
-            .width(30)
-            .fontColor(this.currentTabIndex === index ? Color.Blue : Color.Black);
-        }
-        .width(70)
-        .onClick(() => {
-          this.currentTabIndex = index;
-        });
-      });
-    }
-    .width('100%')
-    .justifyContent(FlexAlign.SpaceBetween);
-  }
+          <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">])</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Blue </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">70</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SpaceBetween</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      Navigation() {
-        Text('选中了tab' + this.currentTabIndex);
-      }
-      .width('100%')
-      .navBarWidth('100%')
-      .hideBackButton(true)
-      .hideTitleBar(true)
-      .hideToolBar(false)
-      .mode(NavigationMode.Stack)
-      .toolbarConfiguration(this.GetDefaultMenuNavBarList(),
-        { backgroundColor: Color.White, backgroundBlurStyle: BlurStyle.Thin });
-    }
-    .height('100%')
-    .width('100%')
-    .backgroundColor('#F1F3F5');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Navigation</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">选中了</span><span style="color: rgb(255,0,170);">tab' </span><span style="color: rgb(181,106,1);">+ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">currentTabIndex</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">navBarWidth</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideBackButton</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideTitleBar</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hideToolBar</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">mode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">NavigationMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toolbarConfiguration</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">GetDefaultMenuNavBarList</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">backgroundBlurStyle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BlurStyle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Thin </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#F1F3F5'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
  
  
 
-##### 总结
+#### 总结
  
 | 方案 | 优缺点分析 |
 | --- | --- |

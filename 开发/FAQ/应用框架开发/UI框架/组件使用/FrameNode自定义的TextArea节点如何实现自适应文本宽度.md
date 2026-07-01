@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1654
 
-## FrameNode自定义的TextArea节点如何实现自适应文本宽度
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过FrameNode自定义的TextArea节点后，如何配置可以使得TextArea宽度随文本宽度变化而变化？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)表示组件树的实体节点，可以通过[appendChild()方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#appendchild12)在FrameNode最后一个子节点后添加新的子节点。
 - [typeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#typenode12)提供创建具体类型的FrameNode能力，可通过FrameNode的基础接口进行自定义的挂载，使用占位容器进行显示。
@@ -26,12 +22,10 @@
  
  
 
-##### 解决方案
-
-- 使用new FrameNode(uiContext)创建一个空的FrameNode作为整个动态组件树的根节点；
-- 通过typeNode.createNode动态创建Column和TextArea节点，利用width('auto')实现文本宽度自适应；
-- 同时通过commonAttribute.expandSafeArea设置安全区域避让，并使用appendChild组装节点树挂载至根FrameNode。
-
+#### 解决方案
+1. 使用new FrameNode(uiContext)创建一个空的FrameNode作为整个动态组件树的根节点；
+2. 通过typeNode.createNode动态创建Column和TextArea节点，利用width('auto')实现文本宽度自适应；
+3. 同时通过commonAttribute.expandSafeArea设置安全区域避让，并使用appendChild组装节点树挂载至根FrameNode。
  
 具体参考下列代码：
 ```text
@@ -47,11 +41,11 @@ class MyNodeController extends NodeController {
       .justifyContent(FlexAlign.Center)
       .backgroundColor('rgba(241, 243, 245, 1)');
     node.appendChild(col);
-    // 创建textArea
+    <em>// 创建textArea</em>
     let textArea = typeNode.createNode(uiContext, 'TextArea');
     textArea.initialize({ text: 'TextArea的内容是随文本宽度变化的' })
       .width('auto');
-    // 设置安全区域（沉浸式适配）
+    <em>// 设置安全区域（沉浸式适配）</em>
     col.commonAttribute.expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
     col.appendChild(textArea);
     return node;

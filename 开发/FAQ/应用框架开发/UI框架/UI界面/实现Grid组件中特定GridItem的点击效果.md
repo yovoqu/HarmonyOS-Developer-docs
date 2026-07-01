@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1215
 
-## 实现Grid组件中特定GridItem的点击效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 为Grid组件添加点击事件以实现缩放动画效果时，如何实现只点击特定GridItem项的功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)是HarmonyOS提供的一种网格容器，由行和列分割的单元格所组成，通过指定项目所在的单元格做出各种各样的布局。网格布局具有较强的页面均分能力，子组件占比控制能力，是一种重要的自适应布局。
 - [scale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#scale)属性用于设置canvas画布的缩放变换属性，后续的绘制操作将按照缩放比例进行缩放。
@@ -22,9 +18,8 @@
  
  
 
-##### 解决方案
-
-- GridLayoutOptions是Grid组件的布局选项，在该对象中设置onGetRectByIndex方法用以初始化整个Grid组件。
+#### 解决方案
+1. GridLayoutOptions是Grid组件的布局选项，在该对象中设置onGetRectByIndex方法用以初始化整个Grid组件。
 ```text
 layoutOptions: GridLayoutOptions = {
   regularSize: [1, 1],
@@ -46,7 +41,7 @@ layoutOptions: GridLayoutOptions = {
 };
 ```
 
-- 使用foreach方法依据上一步的设置的值循环渲染出每个GridItem组件，并为组件添加onclick方法，点击特定的GridItem组件时，在scale方法中将对应的GridItem组件缩放比例调整为0.5。
+2. 使用foreach方法依据上一步的设置的值循环渲染出每个GridItem组件，并为组件添加onclick方法，点击特定的GridItem组件时，在scale方法中将对应的GridItem组件缩放比例调整为0.5。
 ```text
 ForEach(this.numberT, (day: string, index: number) => {
   GridItem() {
@@ -69,7 +64,6 @@ ForEach(this.numberT, (day: string, index: number) => {
   .width('100%');
 }, (day: string) => day);
 ```
-
 
  
 完整代码如下所示：
@@ -140,4 +134,4 @@ struct GridClick {
 运行效果图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/j-hY987vS3Sj9qbi5BAbWw/zh-cn_image_0000002628593594.png?HW-CC-KV=V1&HW-CC-Date=20260701T025655Z&HW-CC-Expire=86400&HW-CC-Sign=F0F9CA35C749D74A07C5A0347E2170F7AB89EAEC9503CB09C8AACAFB6FC8B383)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/j-hY987vS3Sj9qbi5BAbWw/zh-cn_image_0000002628593594.png?HW-CC-KV=V1&HW-CC-Date=20260701T041215Z&HW-CC-Expire=86400&HW-CC-Sign=7016E3C6053E3DC6B11A6C79D853C41F37C1401D18A00E22F9B88F69EDAD3117)

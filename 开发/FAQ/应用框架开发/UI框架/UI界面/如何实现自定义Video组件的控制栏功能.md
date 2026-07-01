@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-747
 
-## 如何实现自定义Video组件的控制栏功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在HarmonyOS应用开发中，使用Video组件进行视频播放时，其自带的控制器（controls）样式固定，可能无法满足特定的UI设计需求。开发者常常需要实现自定义样式的播放/暂停按钮、进度条、音量控制、全屏切换等功能。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Video组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-video-player)是HarmonyOS提供的基础视频播放组件，通过[VideoController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videocontroller)可以便捷地控制视频的播放、暂停、进度调整、全屏等行为。要实现个性化的播放器界面需要将Video组件的[controls](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#controls)属性设置为false以隐藏默认控制器，然后组合使用基础组件（如[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)、[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)、[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)）与VideoController的API，自行构建控制栏的布局与交互逻辑。
  
  
 
-##### 解决方案
+#### 解决方案
 
 Video组件控制栏功能的自定义主要是通过将VideoController与各种基础组件结合实现，以下将分解四个常见自定义场景，详细说明其实现原理并提供关键代码片段。
  
@@ -34,7 +30,7 @@ Slider({
   max: this.durationTime
 })
   .onChange((value: number) => {
-    this.controller.setCurrentTime(value); // 设置视频播放的进度跳转到value处
+    this.controller.setCurrentTime(value); <em>// 设置视频播放的进度跳转到value处</em>
   })
   .width('65%');
 ```
@@ -47,19 +43,19 @@ Slider({
 .onPrepared((event) => {
   if (event) {
     this.durationTime = event.duration;
-    this.restTime = event.duration; // 获取视频总长
+    this.restTime = event.duration; <em>// 获取视频总长</em>
   }
 })
 .onUpdate((event) => {
   if (event) {
     this.currentTime = event.time;
-    this.restTime = this.durationTime - event.time; // 剩余时长等于总长减去当前位置
+    this.restTime = this.durationTime - event.time; <em>// 剩余时长等于总长减去当前位置</em>
   }
 });
 ```
  
 ```text
-// 展示剩余时长
+<em>// 展示剩余时长</em>
 Text(`${this.restTime.toString()}s`)
   .width('10%')
   .fontColor(Color.White);
@@ -100,7 +96,7 @@ AVVolumePanel({
 **实现原理：** 通过[window.getLastWindow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-f#windowgetlastwindow9)方法获取窗口信息，再通过[setPreferredOrientation()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setpreferredorientation9)方法设置窗口的显示方向。
 - **关键代码：**
 ```text
-// 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件
+<em>// 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件</em>
 Text(this.isFullScreen ? '退出全屏' : '全屏')
   .onClick(() => {
     this.isFullScreen = !this.isFullScreen;
@@ -111,7 +107,7 @@ Text(this.isFullScreen ? '退出全屏' : '全屏')
 ```
  
 ```text
-// 更改屏幕方向landscape为true横屏，false竖屏
+<em>// 更改屏幕方向landscape为true横屏，false竖屏</em>
 changeOrientation(landscape: boolean) {
   window.getLastWindow(this.getUIContext().getHostContext()).then((lastWindow) => {
     lastWindow.setPreferredOrientation(landscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT);
@@ -132,8 +128,8 @@ import { AVVolumePanel } from '@kit.AudioKit';
 @Component
 struct VideoControlPage {
   @State private isFullScreen: boolean = false;
-  @State videoSrc: Resource = $rawfile('videoTest.mp4'); // 视频文件资源需要替换为本地资源
-  @State previewUri: Resource = $r('app.media.foreground'); // 视频封面资源需要替换为本地资源
+  @State videoSrc: Resource = $rawfile('videoTest.mp4'); <em>// 视频文件资源需要替换为本地资源</em>
+  @State previewUri: Resource = $r('app.media.foreground'); <em>// 视频封面资源需要替换为本地资源</em>
   private controller = new VideoController();
   @State currentTime: number = 0;
   @State voiceValue: number = 5;
@@ -167,16 +163,16 @@ struct VideoControlPage {
         .onPrepared((event) => {
           if (event) {
             this.durationTime = event.duration;
-            this.restTime = event.duration; // 获取视频总长
+            this.restTime = event.duration; <em>// 获取视频总长</em>
           }
         })
         .onUpdate((event) => {
           if (event) {
             this.currentTime = event.time;
-            this.restTime = this.durationTime - event.time; // 剩余时长等于总长减去当前位置
+            this.restTime = this.durationTime - event.time; <em>// 剩余时长等于总长减去当前位置</em>
           }
         });
-      // 音量控制器
+      <em>// 音量控制器</em>
       Row() {
         Slider({
           value: $$this.voiceValue,
@@ -196,14 +192,14 @@ struct VideoControlPage {
       .justifyContent(FlexAlign.Start)
       .zIndex(1);
 
-      // 自定义的控制器
+      <em>// 自定义的控制器</em>
       Row() {
         Text(this.play ? '暂停' : '播放').onClick(() => {
           this.play = !this.play;
           if (this.play) {
-            this.controller.start(); // 开始播放
+            this.controller.start(); <em>// 开始播放</em>
           } else {
-            this.controller.pause(); // 暂停播放
+            this.controller.pause(); <em>// 暂停播放</em>
           }
         }).margin(5).fontColor(Color.White)
           .width('10%');
@@ -213,14 +209,14 @@ struct VideoControlPage {
           max: this.durationTime
         })
           .onChange((value: number) => {
-            this.controller.setCurrentTime(value); // 设置视频播放的进度跳转到value处
+            this.controller.setCurrentTime(value); <em>// 设置视频播放的进度跳转到value处</em>
           })
           .width('65%');
-        // 展示剩余时长
+        <em>// 展示剩余时长</em>
         Text(`${this.restTime.toString()}s`)
           .width('10%')
           .fontColor(Color.White);
-        // 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件
+        <em>// 修改全屏控制方法，同时删除原问题代码中Video组件的onFullscreenChange判断条件</em>
         Text(this.isFullScreen ? '退出全屏' : '全屏')
           .onClick(() => {
             this.isFullScreen = !this.isFullScreen;
@@ -245,7 +241,7 @@ struct VideoControlPage {
     .width('100%');
   }
 
-  // 更改屏幕方向landscape为true横屏，false竖屏
+  <em>// 更改屏幕方向landscape为true横屏，false竖屏</em>
   changeOrientation(landscape: boolean) {
     window.getLastWindow(this.getUIContext().getHostContext()).then((lastWindow) => {
       lastWindow.setPreferredOrientation(landscape ? window.Orientation.LANDSCAPE : window.Orientation.PORTRAIT);
@@ -257,7 +253,7 @@ struct VideoControlPage {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：横屏播放后页面的底部导航条依旧存在，如何去除底部导航条？
  

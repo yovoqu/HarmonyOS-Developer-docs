@@ -4,31 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-extension-key-export-arkts
 
-## 公钥导出(ArkTS)
-   
-    
 从API版本26.0.0开始，在外部密钥管理扩展场景下，公钥导出能力支持从扩展设备导出指定密钥的公钥。导出的公钥可用于证书申请、密钥协商等场景。
-    
+
 具体的场景介绍请参考[密钥生成与导入导出介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-extension-key-generation-import-overview)。
-    
-          
-##### 开发步骤
-     
- - 通过[openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取keyUri作为resourceId，或通过[getResourceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetresourceid)获取外部密钥管理扩展的资源ID。
- - 调用[openResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptoopenresource)打开资源。
- - 调用[exportKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksexportkeyitem9)导出公钥，密钥参数中需指定[HUKS_TAG_KEY_CLASS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)为[HUKS_KEY_CLASS_EXTENSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeyclasstype22)，表示该密钥由外部密钥管理扩展管理。
- - 调用[closeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptocloseresource)关闭资源。
-     
-    
-    
-          
-##### 开发案例
-     
+
+
+#### 开发步骤
+1. 通过[openAuthorizeDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取keyUri作为resourceId，或通过[getResourceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptogetresourceid)获取外部密钥管理扩展的资源ID。
+2. 调用[openResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptoopenresource)打开资源。
+3. 调用[exportKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksexportkeyitem9)导出公钥，密钥参数中需指定[HUKS_TAG_KEY_CLASS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)为[HUKS_KEY_CLASS_EXTENSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeyclasstype22)，表示该密钥由外部密钥管理扩展管理。
+4. 调用[closeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huksexternalcrypto#huksexternalcryptocloseresource)关闭资源。
+
+
+
+#### 开发案例
+
 ```text
 import { huks, huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function openResource(resourceId: string): Promise {
+async function openResource(resourceId: string): Promise<void> {
   try {
     await huksExternalCrypto.openResource(resourceId)
       .then(() => {
@@ -41,10 +36,10 @@ async function openResource(resourceId: string): Promise {
   }
 }
 
-async function exportPublicKey(keyAlias: string): Promise {
+async function exportPublicKey(keyAlias: string): Promise<Uint8Array> {
   let publicKey: Uint8Array = new Uint8Array([]);
   try {
-    const exportProperties: Array = [
+    const exportProperties: Array<huks.HuksParam> = [
       {
         tag: huks.HuksTag.HUKS_TAG_KEY_CLASS,
         value: huks.HuksKeyClass.HUKS_KEY_CLASS_EXTENSION
@@ -66,7 +61,7 @@ async function exportPublicKey(keyAlias: string): Promise {
   return publicKey;
 }
 
-async function closeResource(resourceId: string): Promise {
+async function closeResource(resourceId: string): Promise<void> {
   try {
     await huksExternalCrypto.closeResource(resourceId)
       .then(() => {
@@ -79,7 +74,7 @@ async function closeResource(resourceId: string): Promise {
   }
 }
 
-async function extensionKeyExport(): Promise {
+async function extensionKeyExport(): Promise<Uint8Array> {
   /* 1.准备资源ID */
   const resourceId = 'your_resource_id';
 

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-73
 
-## HAR、HSP、HAP三者的区别和使用场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在项目中经常会接触到HAR、HSP、HAP，这三者有什么区别，它们的使用场景分别是什么？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)：是应用安装和运行的基本单元。HAP包是由代码、资源、第三方库、配置文件等打包生成的模块包，其主要分为两种类型：entry和feature。应用程序包可以只包含一个基础的entry包，也可以包含一个基础的entry包和多个功能性的feature包。
  
@@ -34,7 +30,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 对比维度 | HAP | HAR | HSP |
 | --- | --- | --- | --- |
@@ -49,7 +45,7 @@
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：多模块使用同一个HAR，APP中会有多个HAR包还是只有一个？
  
@@ -60,7 +56,7 @@ Q：在HAR包中是否可以创建AbilityStage，该AbilityStage的生命周期�
 A：不能。AbilityStage与HAP包一一对应。具体关系可见下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/Ya5Am12rQcWVUbCqRcrn7w/zh-cn_image_0000002658867499.png?HW-CC-KV=V1&HW-CC-Date=20260701T025517Z&HW-CC-Expire=86400&HW-CC-Sign=4935D38354CD55C5D685E7FE89FBB585348C666A1D82BE53EEF3FA39594ED23C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/Ya5Am12rQcWVUbCqRcrn7w/zh-cn_image_0000002658867499.png?HW-CC-KV=V1&HW-CC-Date=20260701T041351Z&HW-CC-Expire=86400&HW-CC-Sign=F0CCD3AF6357A60770F16E5E9A7CFB70821C13F224F84468507F06604687024A)
 
  
 Q：HAR转HSP后，编译报错，该怎么排查？

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1286
 
-## 如何监听Swiper滑动索引位置
- 
-
-
-##### 问题现象
+#### 问题现象
 
 需要在Swiper组件滑动切换后获取新的索引的场景下，如何通过监听获取Swiper组件的索引位置？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onchange)事件可以在子组件索引变化时触发并且返回索引值，通过onChange方法即可监听当前页面的下标位置。
 - [onAnimationStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onanimationstart9)回调在切换动画开始时触发，其参数类型为[OnSwiperAnimationStartCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onswiperanimationstartcallback18)，其中的参数index为当前显示元素的索引，而切换动画结束回调[onAnimationEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onanimationend9)也包含index参数。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方案一：onChange事件可以在子组件索引变化时触发并且返回索引值，当Swiper滑动时，即可获取当前页面的索引值，监听当前页面的下标位置。调用onChange示例代码如下：
 ```text
@@ -56,7 +52,16 @@ struct SwiperOnChange {
 
   aboutToAppear(): void {
     let list: number[] = [];
-    for (let i = 1; i  {
+    for (let i = 1; i <= 15; i++) {
+      list.push(i);
+    }
+    this.data = new MyDataSource(list);
+  }
+
+  build() {
+    Column({ space: 5 }) {
+      Swiper(this.swiperController) {
+        LazyForEach(this.data, (item: string) => {
           Text(item.toString())
             .width('90%')
             .height(160)
@@ -75,7 +80,7 @@ struct SwiperOnChange {
       .onChange((index: number) => {
         console.info(`onChangeIndex + ${index}`);
       })
-      .indicator( // 设置圆点导航点样式
+      .indicator( <em>// 设置圆点导航点样式</em>
         new DotIndicator()
           .itemWidth(8)
           .itemHeight(8)
@@ -85,7 +90,7 @@ struct SwiperOnChange {
           .selectedColor(Color.Blue)
           .maxDisplayCount(9))
       .displayArrow({
-        // 设置导航点箭头样式
+     <em>   // 设置导航点箭头样式</em>
         showBackground: true,
         isSidebarMiddle: true,
         backgroundSize: 24,
@@ -101,7 +106,8 @@ struct SwiperOnChange {
 ```
 
 - 方案二：通过监听[属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#属性-1)index获取视窗内页面的索引，能够监听index参数的事件有：onAnimationStart事件，onAnimationEnd事件，[onGestureSwipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#ongestureswipe10)事件以及[onContentDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#oncontentdidscroll12)事件。以onAnimationStart事件为例获取index索引，示例代码如下：
- 
+
+  
 ```text
 class MyOwnDataSource implements IDataSource {
   private list: number[] = [];
@@ -133,7 +139,16 @@ struct SwiperOnAnimationStart {
 
   aboutToAppear(): void {
     let list: number[] = [];
-    for (let i = 1; i  {
+    for (let i = 1; i <= 15; i++) {
+      list.push(i);
+    }
+    this.data = new MyOwnDataSource(list);
+  }
+
+  build() {
+    Column({ space: 5 }) {
+      Swiper(this.swiperController) {
+        LazyForEach(this.data, (item: string) => {
           Text(item.toString())
             .width('90%')
             .height(160)
@@ -156,7 +171,7 @@ struct SwiperOnAnimationStart {
         console.info(`target offset: + ${extraInfo.targetOffset}`);
         console.info(`velocity: + ${extraInfo.velocity}`);
       })
-      .indicator( // 设置圆点导航点样式
+      .indicator( <em>// 设置圆点导航点样式</em>
         new DotIndicator()
           .itemWidth(8)
           .itemHeight(8)
@@ -166,7 +181,7 @@ struct SwiperOnAnimationStart {
           .selectedColor(Color.Blue)
           .maxDisplayCount(9))
       .displayArrow({
-        // 设置导航点箭头样式
+       <em> // 设置导航点箭头样式</em>
         showBackground: true,
         isSidebarMiddle: true,
         backgroundSize: 24,
@@ -185,7 +200,7 @@ struct SwiperOnAnimationStart {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何通过监听判断Swiper组件是否要切换到下一界面？
  

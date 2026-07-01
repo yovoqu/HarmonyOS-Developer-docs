@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-14
 
-## C++侧使用ArrayBuffer接收Float数组时异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 C++端要如何接收number[]数组，数组里保存的是Float类型，使用[napi_get_arraybuffer_info](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-arraybuffer#napi_get_arraybuffer_info)接口接收，获取到的status是napi_arraybuffer_expected。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [使用Node-API接口进行Array相关开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-array)：使用Node-API接口进行数组相关开发时，涉及的基本概念主要包括数组的创建、访问、修改、遍历以及与数组相关的操作。这些概念对于理解如何在Node-API模块中与ArkTS数组交互非常重要。
  
  
 
-##### 解决方案
+#### 解决方案
 
 ArkTS中的number数组是普通数组类型，而ArrayBuffer是二进制缓冲区类型，二者在NAPI层不兼容。
  
@@ -32,16 +28,16 @@ ArkTS中的number数组是普通数组类型，而ArrayBuffer是二进制缓冲�
 ```text
 static napi_value TransmitByTypedArray(napi_env env, napi_callback_info info)
 {
-    // 获取ArkTS侧传入的参数
+  <em>  // 获取ArkTS侧传入的参数</em>
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-    // 定义napi_get_typedarray_info所需参数
+ <em>   // 定义napi_get_typedarray_info所需参数</em>
     void *data;
     napi_typedarray_type type;
     size_t byteOffset, length;
     napi_value arraybuffer;
-    // 调用接口napi_get_typedarray_info获得TypedArray类型数据的信息
+  <em>  // 调用接口napi_get_typedarray_info获得TypedArray类型数据的信息</em>
     napi_get_typedarray_info(env, args[0], &type, &length, &data, &arraybuffer, &byteOffset);
     float* displayArr = (float*)data;
     float a = displayArr[0];
@@ -54,11 +50,12 @@ static napi_value TransmitByTypedArray(napi_env env, napi_callback_info info)
 
 - 接口声明：
 ```text
-export const transmitByTypedArray: (typeArray: T, b: number) => void;
+export const transmitByTypedArray: <T>(typeArray: T, b: number) => void;
 ```
 
 - ArkTS侧代码：此处使用了Button组件，点击触发接收数据，并打印日志。
- 
+
+  
 ```text
 Button('use TypedArray')
   .onClick(() => {
@@ -78,24 +75,28 @@ Button('use TypedArray')
 ```text
 static napi_value TransmitByNumber(napi_env env, napi_callback_info info)
 {
-    // 获取ArkTS侧传入的参数
+   <em> // 获取ArkTS侧传入的参数</em>
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-    // 判断是否为数组
+  <em>  // 判断是否为数组</em>
     bool isArr = false;
     napi_is_array(env, args[0], &isArr);
     if (!isArr) {
         napi_throw_error(env, nullptr, "Argument should be an object of type array");
         return NULL;
     }
-    // 获取数组长度
+  <em>  // 获取数组长度</em>
     uint32_t arrayLength;
     napi_get_array_length(env, args[0], &arrayLength);
-    // 循环语句逐一提取number[]元素
-    std::vector floatData;
-    for (uint32_t i = 0; i // 转换为double
-        floatData.push_back(static_cast(val)); // 显式转为float
+  <em>  // 循环语句逐一提取number[]元素</em>
+    std::vector<float> floatData;
+    for (uint32_t i = 0; i < arrayLength; i++) {
+        napi_value element;
+        napi_get_element(env, args[0], i, &element);
+        double val;
+        napi_get_value_double(env, element, &val); <em>// 转换为double</em>
+        floatData.push_back(static_cast<float>(val));<em> // 显式转为float</em>
     }
     float a = floatData[0];
     float b = floatData[1];
@@ -107,11 +108,12 @@ static napi_value TransmitByNumber(napi_env env, napi_callback_info info)
 
 - 接口声明：
 ```text
-export const transmitByNumber: (arr: Array, index: number) => void;
+export const transmitByNumber: <T>(arr: Array<T>, index: number) => void;
 ```
 
 - ArkTS侧代码：此处使用了Button组件，点击触发接收数据，并打印日志。
- 
+
+  
 ```text
 Button('use number[]')
   .onClick(() => {
@@ -126,41 +128,41 @@ Button('use number[]')
  
 - C++侧代码：
 ```text
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *     http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+<em>/*</em>
+<em> * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.</em>
+<em> * Licensed under the Apache License, Version 2.0 (the "License");</em>
+<em> * you may not use this file except in compliance with the License.</em>
+<em> * You may obtain a copy of the License at</em>
+<em> * </em>
+<em> *     http://www.apache.org/licenses/LICENSE-2.0</em>
+<em> * </em>
+<em> * Unless required by applicable law or agreed to in writing, software</em>
+<em> * distributed under the License is distributed on an "AS IS" BASIS,</em>
+<em> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
+<em> * See the License for the specific language governing permissions and</em>
+<em> * limitations under the License.</em>
+<em> */</em>
 #include "napi/native_api.h"
 #include "hilog/log.h"
-#include 
-#include 
+#include <cstddef>
+#include <vector>
 
 #undef LOG_DOMAIN
 #undef LOG_TAG
-#define LOG_DOMAIN 0x0000  // 全局domain宏，标识业务领域
-#define LOG_TAG "MY_TAG"   // 全局tag宏，标识模块日志tag
+#define LOG_DOMAIN 0x0000  <em>// 全局domain宏，标识业务领域</em>
+#define LOG_TAG "MY_TAG"  <em> // 全局tag宏，标识模块日志tag</em>
 static napi_value TransmitByTypedArray(napi_env env, napi_callback_info info)
 {
-    // 获取ArkTS侧传入的参数
+ <em>   // 获取ArkTS侧传入的参数</em>
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-    // 定义napi_get_typedarray_info所需参数
+   <em> // 定义napi_get_typedarray_info所需参数</em>
     void *data;
     napi_typedarray_type type;
     size_t byteOffset, length;
     napi_value arraybuffer;
-    // 调用接口napi_get_typedarray_info获得TypedArray类型数据的信息
+   <em> // 调用接口napi_get_typedarray_info获得TypedArray类型数据的信息</em>
     napi_get_typedarray_info(env, args[0], &type, &length, &data, &arraybuffer, &byteOffset);
     float* displayArr = (float*)data;
     float a = displayArr[0];
@@ -171,24 +173,28 @@ static napi_value TransmitByTypedArray(napi_env env, napi_callback_info info)
 }
 static napi_value TransmitByNumber(napi_env env, napi_callback_info info)
 {
-    // 获取ArkTS侧传入的参数
+   <em> // 获取ArkTS侧传入的参数</em>
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-    // 判断是否为数组
+  <em>  // 判断是否为数组</em>
     bool isArr = false;
     napi_is_array(env, args[0], &isArr);
     if (!isArr) {
         napi_throw_error(env, nullptr, "Argument should be an object of type array");
         return NULL;
     }
-    // 获取数组长度
+   <em> // 获取数组长度</em>
     uint32_t arrayLength;
     napi_get_array_length(env, args[0], &arrayLength);
-    // 循环语句逐一提取number[]元素
-    std::vector floatData;
-    for (uint32_t i = 0; i  // 转换为double
-        floatData.push_back(static_cast(val)); // 显式转为float
+ <em>   // 循环语句逐一提取number[]元素</em>
+    std::vector<float> floatData;
+    for (uint32_t i = 0; i < arrayLength; i++) {
+        napi_value element;
+        napi_get_element(env, args[0], i, &element);
+        double val;
+        napi_get_value_double(env, element, &val);<em> // 转换为double</em>
+        floatData.push_back(static_cast<float>(val)); <em>// 显式转为float</em>
     }
     float a = floatData[0];
     float b = floatData[1];
@@ -226,8 +232,8 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 
 - 接口声明：
 ```text
-export const transmitByTypedArray: (typeArray: T, b: number) => void;
-export const transmitByNumber: (arr: Array, index: number) => void;
+export const transmitByTypedArray: <T>(typeArray: T, b: number) => void;
+export const transmitByNumber: <T>(arr: Array<T>, index: number) => void;
 ```
 
 - ArkTS侧代码：

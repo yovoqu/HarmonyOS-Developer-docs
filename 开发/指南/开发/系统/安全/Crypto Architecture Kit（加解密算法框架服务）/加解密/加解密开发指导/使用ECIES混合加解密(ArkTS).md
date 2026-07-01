@@ -4,55 +4,49 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-encrypt-decrypt-using-ecies
 
-## 使用ECIES混合加解密(ArkTS)
-   
-    
 从API版本26.0.0开始，支持ECIES算法，ECIES是一种基于椭圆曲线密码学的加密算法。
-    
+
 **约束条件：**
-    
+
  - 密钥协商算法支持ECC256、ECC384、ECC521。
  - 密钥派生算法仅支持X963KDF，摘要算法支持SHA1、SHA256、SHA384、SHA512。
  - 对称加密算法支持AES128、AES192、AES256。
  - 分组模式仅支持GCM。
-    
-    
-          
-##### 开发步骤
-    
-    
-          
-##### [h2]加密
-     
- - 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)和[AsyKeyGenerator.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair)，使用ECC算法生成密钥对。
- - 调用[cryptoFramework.createKeyAgreement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekeyagreement)和[KeyAgreement.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)，基于本端的私钥（KeyPair.priKey）与对端的公钥（KeyPair.pubKey）进行密钥协商，返回共享密钥。
- - X963KDF密钥派生，调用[cryptoFramework.createKdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekdf11)和[Kdf.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)，基于协商的共享密钥（Secret）进行密钥派生，返回派生后的密钥。
- - 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|GCM'，创建对称密钥类型为AES128、分组模式为GCM的Cipher实例，用于完成加密操作。
- - 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定加密密钥（SymKey）和GCM模式对应的加密参数（GcmParamsSpec），初始化加密Cipher实例。
- - 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（明文）。
- - 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取加密后的数据。
- - 读取[GcmParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#gcmparamsspec).authTag作为解密的认证信息。
-     
-    
-    
-          
-##### [h2]解密
-     
- - 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)和[AsyKeyGenerator.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair)，使用ECC算法生成密钥对。
- - 调用[cryptoFramework.createKeyAgreement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekeyagreement)和[KeyAgreement.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)，基于本端的私钥（KeyPair.priKey）与对端的公钥（KeyPair.pubKey）进行密钥协商，返回共享密钥。
- - X963KDF密钥派生，调用[cryptoFramework.createKdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekdf11)和[Kdf.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)，基于协商的共享密钥（Secret）进行密钥派生，返回派生后的密钥。
- - 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|GCM'，创建对称密钥类型为AES128、分组模式为GCM的Cipher实例，用于完成解密操作。
- - 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定解密密钥（SymKey）和GCM模式对应的解密参数（GcmParamsSpec），初始化解密Cipher实例。
- - 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（密文）。
- - 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取解密后的数据。
-     
-    
-    
-          
-##### [h2]示例代码
-     
+
+
+
+#### 开发步骤
+
+
+
+#### 加密
+1. 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)和[AsyKeyGenerator.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair)，使用ECC算法生成密钥对。
+2. 调用[cryptoFramework.createKeyAgreement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekeyagreement)和[KeyAgreement.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)，基于本端的私钥（KeyPair.priKey）与对端的公钥（KeyPair.pubKey）进行密钥协商，返回共享密钥。
+3. X963KDF密钥派生，调用[cryptoFramework.createKdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekdf11)和[Kdf.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)，基于协商的共享密钥（Secret）进行密钥派生，返回派生后的密钥。
+4. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|GCM'，创建对称密钥类型为AES128、分组模式为GCM的Cipher实例，用于完成加密操作。
+5. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定加密密钥（SymKey）和GCM模式对应的加密参数（GcmParamsSpec），初始化加密Cipher实例。
+6. 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（明文）。
+7. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取加密后的数据。
+8. 读取[GcmParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#gcmparamsspec).authTag作为解密的认证信息。
+
+
+
+#### 解密
+1. 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)和[AsyKeyGenerator.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair)，使用ECC算法生成密钥对。
+2. 调用[cryptoFramework.createKeyAgreement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekeyagreement)和[KeyAgreement.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)，基于本端的私钥（KeyPair.priKey）与对端的公钥（KeyPair.pubKey）进行密钥协商，返回共享密钥。
+3. X963KDF密钥派生，调用[cryptoFramework.createKdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekdf11)和[Kdf.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)，基于协商的共享密钥（Secret）进行密钥派生，返回派生后的密钥。
+4. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|GCM'，创建对称密钥类型为AES128、分组模式为GCM的Cipher实例，用于完成解密操作。
+5. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定解密密钥（SymKey）和GCM模式对应的解密参数（GcmParamsSpec），初始化解密Cipher实例。
+6. 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（密文）。
+7. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取解密后的数据。
+
+
+
+#### 示例代码
+
  - 异步方法示例：
-       
+
+  
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
@@ -77,7 +71,7 @@ namespace ECIES {
   }
 
   async function generateSecret(priKey: cryptoFramework.PriKey, pubKey: cryptoFramework.PubKey):
-    Promise {
+    Promise<cryptoFramework.DataBlob> {
     // EC密钥协商
     let agreement: cryptoFramework.KeyAgreement = cryptoFramework.createKeyAgreement('ECC256');
     let keyData: cryptoFramework.DataBlob = await agreement.generateSecret(priKey, pubKey);
@@ -96,7 +90,7 @@ namespace ECIES {
     return secret;
   }
 
-  async function generateSymKey(secret: cryptoFramework.DataBlob): Promise {
+  async function generateSymKey(secret: cryptoFramework.DataBlob): Promise<cryptoFramework.SymKey> {
     let symKeyGenerator = cryptoFramework.createSymKeyGenerator('AES128');
     let keyData: cryptoFramework.DataBlob = {
       data: secret.data.slice(16),
@@ -106,7 +100,7 @@ namespace ECIES {
   }
 
   async function encrypt(symKey: cryptoFramework.SymKey, gcmParams: cryptoFramework.GcmParamsSpec,
-    plainText: cryptoFramework.DataBlob): Promise {
+    plainText: cryptoFramework.DataBlob): Promise<cryptoFramework.DataBlob> {
     // AES-GCM对称加密
     let cipher: cryptoFramework.Cipher = cryptoFramework.createCipher('AES128|GCM');
     await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, gcmParams);
@@ -116,7 +110,7 @@ namespace ECIES {
   }
 
   async function decrypt(symKey: cryptoFramework.SymKey, gcmParams: cryptoFramework.GcmParamsSpec,
-    cipherText: cryptoFramework.DataBlob): Promise {
+    cipherText: cryptoFramework.DataBlob): Promise<cryptoFramework.DataBlob> {
     // AES-GCM对称解密
     let cipher: cryptoFramework.Cipher = cryptoFramework.createCipher('AES128|GCM');
     await cipher.init(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, gcmParams);
@@ -124,7 +118,7 @@ namespace ECIES {
     return plainText;
   }
 
-  export async function doEciesTest(): Promise {
+  export async function doEciesTest(): Promise<string> {
     try {
       // 生成A端和B端的EC密钥对
       let asyKeyGenerator = cryptoFramework.createAsyKeyGenerator('ECC256');
@@ -159,7 +153,8 @@ namespace ECIES {
 ```
 
  - 同步方法示例：
-       
+
+  
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';

@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1289
 
-## bindSheet底部按钮如何固定
- 
-
-
-##### 问题现象
+#### 问题现象
 
 展开、收起bindSheet时，底部按钮位置都会发生变动，该如何固定？
  
 问题效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/cI_pzSn2Q_KZv9jJgikfVg/zh-cn_image_0000002628757878.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025659Z&HW-CC-Expire=86400&HW-CC-Sign=A5C099CC6E4F5054E3FC3532C3B056E733D3C6B289D7D8758021C3960A7F16AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/cI_pzSn2Q_KZv9jJgikfVg/zh-cn_image_0000002628757878.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041148Z&HW-CC-Expire=86400&HW-CC-Sign=88CEAF0CAAD18DF10BCABDFF25CD4D937B98740462B9021A7FF0297ACC305C82)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [bindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#bindsheet)：给组件绑定半模态页面，点击后显示模态页面。
 - [constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)：设置约束尺寸，组件布局时，进行尺寸范围限制。
@@ -29,7 +25,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 给bindSheet所绑定的自定义构建函数[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)内部的根容器组件设置constraintSize({minHeight:300,maxHeight:300})属性即可解决，高度值根据实际开发场景需要进行设置。示例代码如下：
  
@@ -83,12 +79,12 @@ struct SheetTransitionExample {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/ZzvwQCj5SWyYOe39xG9Xhw/zh-cn_image_0000002658957195.png?HW-CC-KV=V1&HW-CC-Date=20260701T025659Z&HW-CC-Expire=86400&HW-CC-Sign=453765D1641F9EF15E143809AC3AF0BB1BA049BAEAF7FE4D139E1E97D067B897)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/ZzvwQCj5SWyYOe39xG9Xhw/zh-cn_image_0000002658957195.png?HW-CC-KV=V1&HW-CC-Date=20260701T041148Z&HW-CC-Expire=86400&HW-CC-Sign=CA8CC07112D8E3378BF31D56880D2C4F3CC01C60CCB7A9425763C79D190AE7A4)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么bindSheet高度改变的时候固定在底部的按钮出现跳动？
  

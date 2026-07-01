@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-localizationkit-7001
 
-## Localization Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：I18NUtil； API声明：static convertCanonicalLocaleIdentifier(locale: string): string; 差异内容：static convertCanonicalLocaleIdentifier(locale: string): string; | api/@ohos.i18n.d.ts |

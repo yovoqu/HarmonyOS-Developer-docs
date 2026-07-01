@@ -4,29 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-26
 
-## 新建商品后不能复用之前的商品ID，应用后台是否支持更改商品类型
- 
-
-
-##### 问题现象
+#### 问题现象
 
 由于想更换商品类型从消耗型商品更改为非续期订阅商品，发现新建商品后不能复用之前的商品ID，在后台能否直接更改商品类型？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [数字商品](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-iap-product)：数字商品服务为接入应用内购买的应用提供了展示数字商品、购买数字商品、发放数字商品权益的功能。
  
  
 
-##### 解决方案
+#### 解决方案
 
 应用后台不支持更换商品类型，同时商品ID和商品类型创建成功后是不能修改的，只能[重新创建应用内商品](https://developer.huawei.com/consumer/cn/doc/app/agc-help-create-product-0000001099854866)。但是消耗型商品和非续期订阅商品IAP交互流程是一样的，非必要可以不进行更改商品类型。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：AppGallery Connect上商品管理的审核信息中，应用内截图指的是什么？
  

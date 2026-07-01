@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-63
 
-## Emitter线程间通信对象传递问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Emitter发送的数据中如果包含复杂对象，在订阅回调中无法获取复杂对象的属性。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [使用Emitter进行线程间通信](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/itc-with-emitter)。
 - [sendable使用场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-guide)。
@@ -22,7 +18,7 @@ Emitter发送的数据中如果包含复杂对象，在订阅回调中无法获�
  
  
 
-##### 解决方案
+#### 解决方案
 
 线程间通信共享对象，需封装成sendable对象。代码示例如下：
  
@@ -52,7 +48,7 @@ let options: emitter.Options = {
 
 let eventData = new SelfEventData();
 
-// 订阅事件
+<em>// 订阅事件</em>
 emitter.on('eventId', (eventData: SelfEventData) => {
   console.log('Event received:', eventData.data);
   eventData.data.printCount();
@@ -66,9 +62,9 @@ struct Index {
       Button('点击')
         .onClick(() => {
           console.log('Button clicked');
-          // 点击后打印当前 count 值
+         <em> // 点击后打印当前 count 值</em>
           console.log('Current count:', eventData.data.count);
-          // 发送事件
+        <em>  // 发送事件</em>
           emitter.emit('eventId', options, eventData);
         });
     }

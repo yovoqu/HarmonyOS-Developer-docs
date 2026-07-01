@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-48
 
-## 如何解决RSA加密报-1错误码问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用RSA加密算法进行加密，执行后报-1错误码是什么原因？如何解决？
  
@@ -26,7 +22,7 @@ OUkt2vbKPLwtTWKwzQIDAQAB
 报错信息截图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/q8t_gVLoSfS35ABXJcJNLw/zh-cn_image_0000002658848479.png?HW-CC-KV=V1&HW-CC-Date=20260701T025748Z&HW-CC-Expire=86400&HW-CC-Sign=18AAD46907A843DA5BD4ED3818D7BF1A96F157E179A82AFEABC4F7A67252F222)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/q8t_gVLoSfS35ABXJcJNLw/zh-cn_image_0000002658848479.png?HW-CC-KV=V1&HW-CC-Date=20260701T041424Z&HW-CC-Expire=86400&HW-CC-Sign=9AFB4C0BF6997E0189950AA18426A09343599754A675609C56E0E843D116765E)
 
  
 ```text
@@ -36,7 +32,7 @@ message = "The input string contains unsupported characters"
  
  
 
-##### 背景知识
+#### 背景知识
 
 [RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-encrypt-decrypt-spec#rsa)是一种非对称加解密算法，使用RSA算法进行加解密可以参考[使用RSA非对称密钥（PKCS1模式）加解密(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-asym-encrypt-decrypt-pkcs1)。
  
@@ -49,23 +45,21 @@ message = "The input string contains unsupported characters"
  
  
 
-##### 问题定位
-
-- 分析错误码-1，使用RSA加密时遇到错误码-1，这通常表示“ERR_UNEXPECTED”，即遇到了一个未被预期或未被特定处理的问题。
-- 根据错误提示信息“The input string contains unsupported characters”可以进一步判断出报错原因是因为输入参数错误。
-- RSA公钥加密输入参数为公钥和明文，明文传入后转换为Uint8Array数据类型，排除明文参数错误，可以确认报错是由传入的公钥参数导致。
-- 公钥数据中除公钥外尚有开头和结尾的标识符字符串，而RSA加密只需要公钥，最终可以确认报-1错误码是因为没有去除公钥数据首尾标识符导致。
-
+#### 问题定位
+1. 分析错误码-1，使用RSA加密时遇到错误码-1，这通常表示“ERR_UNEXPECTED”，即遇到了一个未被预期或未被特定处理的问题。
+2. 根据错误提示信息“The input string contains unsupported characters”可以进一步判断出报错原因是因为输入参数错误。
+3. RSA公钥加密输入参数为公钥和明文，明文传入后转换为Uint8Array数据类型，排除明文参数错误，可以确认报错是由传入的公钥参数导致。
+4. 公钥数据中除公钥外尚有开头和结尾的标识符字符串，而RSA加密只需要公钥，最终可以确认报-1错误码是因为没有去除公钥数据首尾标识符导致。
  
  
 
-##### 分析结论
+#### 分析结论
 
 RSA加密报-1错误码是因为没有对公钥数据进行去除首尾标识符，从而传入了错误的公钥参数，导致加密方法解析公钥参数失败。
  
  
 
-##### 修改建议
+#### 修改建议
 
 将公钥数据去除'-----BEGIN PUBLIC KEY-----'和'-----END PUBLIC KEY-----'标识符后作为公钥参数执行RSA加密。
  
@@ -76,34 +70,34 @@ import { buffer, util } from '@kit.ArkTS';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 
-// RSA pubKey example. 实际使用需要更换自己的公钥PEM
+<em>// RSA pubKey example. 实际使用需要更换自己的公钥PEM</em>
 const pubKeyStr = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuo5/hnnCOAERqdJwQM6Uwo2FZ\n' +
   'Gq/JHKRj43QnxxnxUIhnwaHH7PUv8V2v8pNdJl5NYD6qiEiD7i59HI0G5PSj3gjZ\n' +
   '4KuHy/RIN95BZyLtrg2BKzNiGvUV4IPFzE9ZAe0fcEvDPxGZn/vRWLRnQaEeYehc\n' +
   'OUkt2vbKPLwtTWKwzQIDAQAB';
 
 
-// RSA加密方法
+<em>// RSA加密方法</em>
 async function encryptRSA(message: string, pubKeyStr: string) {
   try {
-    // 初始化Base64工具实例
+    <em>// 初始化Base64工具实例</em>
     let base64Helper = new util.Base64Helper();
-    // 公钥转换为Uint8Array，然后包装为DataBlob类型
+  <em>  // 公钥转换为Uint8Array，然后包装为DataBlob类型</em>
     let pubKeyBlob: cryptoFramework.DataBlob = { data: base64Helper.decodeSync(pubKeyStr) };
-    // 创建RSA key生成器
+ <em>   // 创建RSA key生成器</em>
     let rsaGenerator = cryptoFramework.createAsyKeyGenerator('RSA1024');
-    // 将公钥包装数据pubKeyBlob转换成密钥对类型KeyPair
+   <em> // 将公钥包装数据pubKeyBlob转换成密钥对类型KeyPair</em>
     let keyPair = await rsaGenerator.convertKey(pubKeyBlob, null);
-    // 创建Cipher对象
+   <em> // 创建Cipher对象</em>
     let cipher = cryptoFramework.createCipher('RSA1024|PKCS1');
-    // 初始化加密模式，指定密钥keyPair.pubKey
+    <em>// 初始化加密模式，指定密钥keyPair.pubKey</em>
     await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, keyPair.pubKey, null);
-    // 包装要加密的明文
+   <em> // 包装要加密的明文</em>
     let plainTextBlob: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(message, 'utf-8').buffer) };
-    // 传入明文，获取加密后的数据
+    <em>// 传入明文，获取加密后的数据</em>
     let encryptBlob = await cipher.doFinal(plainTextBlob);
-    // 返回加密后的字符串
-    // return base64Helper.encodeToStringSync(encryptBlob.data);
+   <em> // 返回加密后的字符串</em>
+<em>    // return base64Helper.encodeToStringSync(encryptBlob.data);</em>
     console.info(`base64Helper: ${base64Helper.encodeToStringSync(encryptBlob.data)}`);
   } catch (e) {
     console.error('[base64Helper] error');
@@ -136,6 +130,6 @@ struct Index {
  
  
 
-##### 总结
+#### 总结
 
 方法报错问题可以根据错误码和错误提示进行判断错误原因，进行排查修改。

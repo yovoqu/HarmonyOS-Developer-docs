@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1308
 
-## Swiper组件被遮挡，导致点击事件不生效
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Swiper组件的点击事件不生效，应该如何处理？
  
@@ -78,12 +74,12 @@ struct Index {
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/z08QF2cJQriOjSuG0_4TVw/zh-cn_image_0000002658958241.png?HW-CC-KV=V1&HW-CC-Date=20260701T025609Z&HW-CC-Expire=86400&HW-CC-Sign=E9C8FA7178C727324C583AAFE4A6716F4B863E42755CCD7287181D949A316E55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/z08QF2cJQriOjSuG0_4TVw/zh-cn_image_0000002658958241.png?HW-CC-KV=V1&HW-CC-Date=20260701T041250Z&HW-CC-Expire=86400&HW-CC-Sign=2F105218FF1612BE9779BB249C022BEE7E7EEC2B30BD188FD1E7285CD19612E9)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)是滑块视图容器，提供子组件滑动轮播显示的能力。
 - [点击事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)是组件的通用事件。
@@ -91,7 +87,7 @@ struct Index {
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 调试业务代码，确认点击事件是否触发。
 - 通过ArkUIInspector查看页面布局是否存在问题（例如组件遮挡）导致点击事件未响应。
@@ -99,13 +95,13 @@ struct Index {
  
  
 
-##### 分析结论
+#### 分析结论
 
 Column组件遮挡Swiper组件，导致Swiper组件无法响应点击事件。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **方案一**：若业务上要求UI界面如此，那么可以参考[如何隔离触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1534)（设置hitTestBehavior为HitTestMode.Transparent或HitTestMode.None）来实现Swiper点击事件的响应。
 ```text
@@ -117,7 +113,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   message: string = 'Hello World';
   swiperController: SwiperController = new SwiperController();
-  // www.example.com仅做示例，需要替换为有效的图片url/resource
+ <em> // www.example.com仅做示例，需要替换为有效的图片url/resource</em>
   imageList: string[] = [
     'www.example.com',
     'www.example.com',
@@ -127,7 +123,7 @@ struct Index {
 
   build() {
     RelativeContainer() {
-      // swiper component
+    <em>  // swiper component</em>
       Swiper(this.swiperController) {
         ForEach(this.imageList, (imageUrl: string, index: number) => {
           Image(imageUrl)
@@ -185,8 +181,9 @@ struct Index {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/x6q9crcgQJir_eQKklZJDw/zh-cn_image_0000002658838293.png?HW-CC-KV=V1&HW-CC-Date=20260701T025609Z&HW-CC-Expire=86400&HW-CC-Sign=360961663C4411BA0A5CD189332C07ED6837D270CDBE3B0ADF34A837F93BD885)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/x6q9crcgQJir_eQKklZJDw/zh-cn_image_0000002658838293.png?HW-CC-KV=V1&HW-CC-Date=20260701T041250Z&HW-CC-Expire=86400&HW-CC-Sign=4473FE5F735E4F383A81A77C7589C41863DB4572CEA612A47125817B180C0317)
 
 - **方案二**：调整页面UI布局，使得Swiper组件上方无任何组件遮挡。
 ```text
@@ -198,7 +195,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   @Local message: string = 'Hello World';
   swiperController: SwiperController = new SwiperController();
-  // www.example.com仅做示例，需要替换为有效的图片url/resource
+ <em> // www.example.com仅做示例，需要替换为有效的图片url/resource</em>
   imageList: string[] = [
     'www.example.com',
     'www.example.com',
@@ -268,5 +265,6 @@ struct Index {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Ns-loMxtTHuOfo91UCnLNQ/zh-cn_image_0000002628599024.png?HW-CC-KV=V1&HW-CC-Date=20260701T025609Z&HW-CC-Expire=86400&HW-CC-Sign=237F5471BFB60214547C1AADC4F99568A3EDC4A3C767F207D24839FE5D4854B7)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Ns-loMxtTHuOfo91UCnLNQ/zh-cn_image_0000002628599024.png?HW-CC-KV=V1&HW-CC-Date=20260701T041250Z&HW-CC-Expire=86400&HW-CC-Sign=2F49B1F7A35D1B9B0F77B016A822BAAB107E90C16FFC4B47FB4013402544281E)

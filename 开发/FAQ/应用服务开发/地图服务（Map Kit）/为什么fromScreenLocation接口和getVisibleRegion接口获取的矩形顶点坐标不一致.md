@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-22
 
-## 为什么fromScreenLocation接口和getVisibleRegion接口获取的矩形顶点坐标不一致
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过fromScreenLocation接口获取的屏幕中地图边界坐标经纬度和getVisibleRegion接口获取的可视区域的坐标经纬度不一致。
  
  
 
-##### 解决方案
+#### 解决方案
 
 [fromScreenLocation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-projection#section1784991054119)接口获取的是屏幕中展示的完整地图的矩形四个角所在位置坐标。
  

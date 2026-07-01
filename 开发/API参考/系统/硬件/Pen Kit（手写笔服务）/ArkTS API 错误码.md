@@ -3,22 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen
-
 **支持设备：** Phone | PC/2in1 | Tablet
 
-## ArkTS API 错误码
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/IRtdqe1jQLa596hp7L-LXA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025451Z&HW-CC-Expire=86400&HW-CC-Sign=69D3696445C7CEF72119F3930D771F8B5E4D25E11EA078C208082948A7D00B86)
- 
- 
-以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-  
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
   
 
-##### 1010410001 系统内部错误
+#### 1010410001 系统内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -38,7 +32,9 @@ internal recognition engine has been released.
  
   
 
-##### 1010400001 加载失败
+#### 1010400001 加载失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -58,7 +54,9 @@ load failed.
  
   
 
-##### 1010400002 保存失败
+#### 1010400002 保存失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -78,7 +76,9 @@ save failed.
  
   
 
-##### 1013900001 IPC连接失败
+#### 1013900001 IPC连接失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -98,7 +98,9 @@ IPC连接失败。
  
   
 
-##### 1013900002 内存不足
+#### 1013900002 内存不足
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -118,7 +120,9 @@ memory is insufficient.
  
   
 
-##### 1013900003 服务不合法
+#### 1013900003 服务不合法
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -138,7 +142,9 @@ service is invalid.
  
   
 
-##### 1013900004 重复调用
+#### 1013900004 重复调用
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -158,7 +164,9 @@ multi app call.
  
   
 
-##### 1013900005 后台服务调用
+#### 1013900005 后台服务调用
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-710
 
-## 如何混用Navigation和router实现路由导航
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现Navigation和router的混用？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)：提供通过不同的url访问不同的页面，包括跳转到应用内的指定页面、同应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)：用于实现Navigation页面（[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)）间的跳转，支持在不同Navigation页面间传递参数，提供灵活的跳转栈操作，从而更便捷地实现对不同页面的访问和复用。Navigation是路由导航的根视图容器，一般作为页面（@Entry）的根容器。
@@ -22,13 +18,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 对于router跳转到的页面需要使用Navigation作为根容器，才能在这个页面跳转到下个NavDestination页面。这是因为router跳转的是page页面，而NavDestination是Navigation的子组件，二者层次不同。以下为Navigation和router混用的三种常见场景。
  
  
 
-##### [h2]场景一
+#### 场景一
 
 Navigation页面与router页面间的跳转，如：入口页面->NavPageOne->RouterPageOne->NavPageTwo。该混用场景常见于“全局导航+局部导航”的页面设计，例如首页到隐私模块页面等。
  
@@ -82,7 +78,7 @@ struct NavPageOne {
         .height(40)
         .margin(10)
         .onClick(() => {
-          // 使用router跳转到下一个页面
+          <em>// 使用router跳转到下一个页面</em>
           this.getUIContext().getRouter().pushUrl({
             url: 'pages/RouterPageOne'
           });
@@ -105,8 +101,8 @@ struct RouterPageOne {
   pageInfo: NavPathStack = new NavPathStack();
 
   build() {
-    // 注意：使用NavDestination，会导致无法跳转到指定NavDestination
-    // 使用Navigation，可以正常跳转
+    <em>// 注意：使用NavDestination，会导致无法跳转到指定NavDestination</em>
+    <em>// 使用Navigation，可以正常跳转</em>
     Navigation(this.pageInfo) {
       Column() {
         Text('RouterPage1')
@@ -160,7 +156,7 @@ struct NavPageTwo {
  
  
 
-##### [h2]场景二
+#### 场景二
 
 使用router页面作为闪屏页，后续页面跳转由Navigation承载。
  
@@ -227,12 +223,12 @@ struct NavIndex {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/igQZ6C1OT3mhoCBwQtS2IQ/zh-cn_image_0000002658914219.png?HW-CC-KV=V1&HW-CC-Date=20260701T025645Z&HW-CC-Expire=86400&HW-CC-Sign=30F21CCCA619C8BDAB7E263A014DC2F85024AB0A86BAB8A40E26854C51541A94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/igQZ6C1OT3mhoCBwQtS2IQ/zh-cn_image_0000002658914219.png?HW-CC-KV=V1&HW-CC-Date=20260701T041208Z&HW-CC-Expire=86400&HW-CC-Sign=0E0238C867F45E1950C97CA7AEE58B5F65EDE557CE28B5A6816A0771E504836E)
 
  
  
 
-##### [h2]场景三
+#### 场景三
 
 Navigation页面与router页面间的跳转为：入口页面->PageOne->pageTwo->RouterPage->PageThree。
  
@@ -249,7 +245,7 @@ struct SceneThree {
   onPageShow(): void {
     let rouNam: number | undefined = AppStorage.get('router');
     if (rouNam === 1) {
-      this.getUIContext().getRouter().clear(); // 清除掉历史页面router
+      this.getUIContext().getRouter().clear(); <em>// 清除掉历史页面router</em>
       this.pageInfos.pushDestination({ name: 'pageThree' }, false);
     }
   }
@@ -433,12 +429,12 @@ export struct PageThree {
     .title('pageThree')
     .onBackPressed(() => {
       let rouNam: number | undefined = AppStorage.get('router');
-      // 消除返回重影
+      <em>// 消除返回重影</em>
       setTimeout(() => {
         this.pathStack?.pop();
       }, rouNam === 1 ? 500 : 0);
       if (rouNam === 1) {
-        this.getUIContext().getRouter().clear(); // 清除掉历史页面router
+        this.getUIContext().getRouter().clear();<em> // 清除掉历史页面router</em>
         AppStorage.delete('router');
       }
       return true;
@@ -489,7 +485,7 @@ export struct PageThree {
  
 resources/base/profile/main_pages.json配置如下：
  
-```text
+```json
 {
   "src": [
     "pages/SceneThree",
@@ -505,15 +501,14 @@ resources/base/profile/main_pages.json配置如下：
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/pc-a1h_oR5KUEX0a2uu2EA/zh-cn_image_0000002628395004.png?HW-CC-KV=V1&HW-CC-Date=20260701T025645Z&HW-CC-Expire=86400&HW-CC-Sign=A9B4F044A77D86D39311BE85A97FE1852176D4C453EB86A0F2D40A85A67E3091)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/pc-a1h_oR5KUEX0a2uu2EA/zh-cn_image_0000002628395004.png?HW-CC-KV=V1&HW-CC-Date=20260701T041208Z&HW-CC-Expire=86400&HW-CC-Sign=AE1A59530F7228989F3BBB5574B5D21B42AF004DE2EBA6CFC9F7EE8E16CE6A6E)
 
  
  
 
-##### 总结
+#### 总结
 
 推荐单独使用Navigation组件导航，不建议混用。若涉及混合使用Navigation和router应注意以下关键点：
- 
-- router页面需以Navigation为根容器。
-- 避免路由栈冲突：Navigation通过NavPathStack管理自身路由栈，router有独立的路由栈机制。混合跳转时（如：NavDestination -> RouterPage），需显式清空router栈中不需要的页面（如闪屏页）。
-- 跳转方向需符合层级：router仅支持跳转到用@Entry的页面，无法通过router直接从NavDestination跳转到另一个NavDestination，需要经过@Entry页面中转。
+ 1. router页面需以Navigation为根容器。
+2. 避免路由栈冲突：Navigation通过NavPathStack管理自身路由栈，router有独立的路由栈机制。混合跳转时（如：NavDestination -> RouterPage），需显式清空router栈中不需要的页面（如闪屏页）。
+3. 跳转方向需符合层级：router仅支持跳转到用@Entry的页面，无法通过router直接从NavDestination跳转到另一个NavDestination，需要经过@Entry页面中转。

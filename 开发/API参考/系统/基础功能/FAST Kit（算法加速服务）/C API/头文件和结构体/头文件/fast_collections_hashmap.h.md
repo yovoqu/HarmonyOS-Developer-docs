@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-collections-hashmap-8h
-
 **支持设备：** Phone | PC/2in1 | Tablet
 
-## fast_collections_hashmap.h
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet
 
 哈希表相关数据结构及函数定义。
  
@@ -26,11 +23,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### [h2]类型定义
+#### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -44,7 +45,9 @@
  
   
 
-##### [h2]函数
+#### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

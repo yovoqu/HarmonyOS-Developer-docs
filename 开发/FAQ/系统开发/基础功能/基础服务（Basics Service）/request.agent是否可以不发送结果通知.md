@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-41
 
-## request.agent是否可以不发送结果通知
- 
-
-
-##### 问题现象
+#### 问题现象
 
 request.agent.create创建并开始下载任务，关闭app，为什么下载任务会继续下载不会停止？完成下载时，手机推送中心会有成功的通知，是否可以不发送该通知？尝试设置gauge参数，但无法达到预期效果。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - @ohos.request模块在上传/下载任务的配置信息[config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentconfig10)设置中有参数[mode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentmode10)可设置前台任务（FOREGROUND）或后台任务（BACKGROUND），默认为后台任务，当应用切换到后台时，后台任务不会影响，可正常进行。
 - [gauge参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentconfig10)用于控制后台任务的过程进度通知策略，仅应用于后台任务，默认值为false。
@@ -25,7 +21,7 @@ false：代表仅完成或失败的通知。
  
  
 
-##### 解决方案
+#### 解决方案
 
 [mode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentmode10)设置为前台任务时，在终止app或应用切后台一段时间后会失败/暂停，不会立即停止。
  

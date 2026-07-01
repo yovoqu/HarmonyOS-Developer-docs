@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkts-7001
 
-## ArkTS
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增错误码 | 类名：taskpool； API声明：function cancel(task: Task): void; 差异内容：NA | 类名：taskpool； API声明：function cancel(task: Task): void; 差异内容：10200016 | api/@ohos.taskpool.d.ts |

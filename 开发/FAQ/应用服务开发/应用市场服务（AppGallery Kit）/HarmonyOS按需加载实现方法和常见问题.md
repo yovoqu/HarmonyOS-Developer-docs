@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-79
 
-## HarmonyOS按需加载实现方法和常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何通过按需加载能力减少首次安装时耗时和应用的占用空间？
  
  
 
-##### 背景知识
+#### 背景知识
 
 按需加载模块：用户首次从应用市场安装时，只会下载不包含按需加载模块的内容。当用户需要使用特定功能时，可以选择下载并安装相应的功能模块。
  
@@ -27,7 +23,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 按需加载实现可分为三个步骤：基础包与扩展功能包分包、按需加载下载安装扩展功能包、运行扩展功能包。
  
@@ -42,17 +38,15 @@
 当动态模块为HSP时，基础功能Entry包的oh-package.json5中需要[添加依赖项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-dependencies)。添加HSP模块的动态依赖方式可参考[如何配置oh-package.json5动态依赖](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-48)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/apRKa0SIQ2u1nSUYUSoLVg/zh-cn_image_0000002658913849.png?HW-CC-KV=V1&HW-CC-Date=20260701T025903Z&HW-CC-Expire=86400&HW-CC-Sign=BFBA7CD489785FA7E21E9BEEEEF5614946D4BF49CD396F9D0945925D7CD303B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/apRKa0SIQ2u1nSUYUSoLVg/zh-cn_image_0000002658913849.png?HW-CC-KV=V1&HW-CC-Date=20260701T041114Z&HW-CC-Expire=86400&HW-CC-Sign=472AE6BB97C54F31CAECFC88B3FAFA606DBA469A9724AC93A7D524ADE56560F8)
 
  
 **步骤二：按需加载下载安装扩展功能包。**
  
 调用[moduleInstallManager (产品特性按需分发)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager)实现动态模块的按需加载，可分为以下几步：
- 
-- 使用[getInstalledModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section9621184365412)查询module是否安装。
-- 通过[createModuleInstallRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section0529646101115)创建按需加载请求对象。
-- [fetchModules](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section1375123411137)按需加载请求下载module功能包。
-
+ 1. 使用[getInstalledModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section9621184365412)查询module是否安装。
+2. 通过[createModuleInstallRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section0529646101115)创建按需加载请求对象。
+3. [fetchModules](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager#section1375123411137)按需加载请求下载module功能包。
  
 **步骤三：运行扩展功能包。**
  
@@ -64,18 +58,16 @@
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：按需加载[接入调试功能](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-moduleinstall_arkts#section68545351873)，如何在沙箱中导入动态模块。
  
 A：Device File Browser可访问的文件夹有五种类型：[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)、一般暂存区目录、日志目录、设备公共目录、媒体库目录。
- 
-- 按下图点击切换Device File Browser沙箱视图。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/r_vwGP4tSlaALxz7fqR6UQ/zh-cn_image_0000002658793909.png?HW-CC-KV=V1&HW-CC-Date=20260701T025903Z&HW-CC-Expire=86400&HW-CC-Sign=2FBB04D07013232D5593732E1436FBB75E1A6198BCDA8E79B37D79AD9F580B31)
+ 1. 按下图点击切换Device File Browser沙箱视图。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/r_vwGP4tSlaALxz7fqR6UQ/zh-cn_image_0000002658793909.png?HW-CC-KV=V1&HW-CC-Date=20260701T041114Z&HW-CC-Expire=86400&HW-CC-Sign=B2513968C47BB777DABB6C59728973CAF89D7F9ECBF69CECF37B95C533779DAE)
 
-- 在/&lt;PACKAGENAME&gt;/data/app/el2/base/cache/moduleinstall/&lt;ModuleName&gt;下添加对应的动态模块。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/Y6qOtbLtTFm32SzxRVT0Eg/zh-cn_image_0000002628394640.png?HW-CC-KV=V1&HW-CC-Date=20260701T025903Z&HW-CC-Expire=86400&HW-CC-Sign=52DD29163FFC458AB8E25317FD78EF56EAAA589FCB751C93BF4749387276A818)
-
+2. 在/&lt;PACKAGENAME&gt;/data/app/el2/base/cache/moduleinstall/&lt;ModuleName&gt;下添加对应的动态模块。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/Y6qOtbLtTFm32SzxRVT0Eg/zh-cn_image_0000002628394640.png?HW-CC-KV=V1&HW-CC-Date=20260701T041114Z&HW-CC-Expire=86400&HW-CC-Sign=6A912AC2AFEBB06580A6A0097EBB12EFBB8D4ADD7167975BA43D52058C55C4E2)
 
  
 Q：应用未上架如何测试按需加载功能？

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/task-pool-usage-guidelines
 
-## TaskPool使用规范
- 
- 
-
-##### 概述
+#### 概述
 
 [任务池（TaskPool）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)基于池化思想和任务机制，提供了一系列并发API，旨在充分发挥多核CPU的优势，降低主线程负载，提高程序性能。使用TaskPool进行开发需遵守一些规范，并综合业务和并发特性，细分场景使用。违反这些规范可能会导致性能劣化，引起稳定性或者其他非预期的问题。
  
@@ -16,18 +12,18 @@
  
   
 
-##### TaskPool使用规范
+#### TaskPool使用规范
 
   
 
-##### [h2]根据业务场景合理划分项目结构，避免在子线程中直接或间接引入UI
+#### 根据业务场景合理划分项目结构，避免在子线程中直接或间接引入UI
 
 **场景描述**
  
 在工程中导入文件和HAR时，某些文件使用了如@Observed、AppStorage等UI装饰器或状态变量，这些UI装饰器或状态变量即使没有被显式调用也可能会被解析执行。然而目前子线程并不支持UI属性，当解析到这些UI装饰器或状态变量时，会抛出异常并返回，导致本模块的解析会被中断。访问这些包含UI的文件中的某些变量时可能会抛出错误：xxx is not initialized ，导致功能失效甚至crash。如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/zk9Ta2h4RNGnh4uXID0q_A/zh-cn_image_0000002659099345.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=AFD7F5034D823002D01E2C0A84954FADA8F52876A7DCF637CBC01525A918FABD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/zk9Ta2h4RNGnh4uXID0q_A/zh-cn_image_0000002659099345.png?HW-CC-KV=V1&HW-CC-Date=20260701T041455Z&HW-CC-Expire=86400&HW-CC-Sign=7EC538BF4A7A8902B79312129478032A7E0EC47CA2C362C8CD8D7D931B04036C)
 
  
 另外在一些复杂项目中，即使本模块未发生改动，也可能由于SDK或其他依赖模块发生变更而导致该问题。此类问题排查起来较为困难，因此推荐在开发和迭代阶段就做好相应的约束和验证。
@@ -143,7 +139,7 @@ taskpool.execute(correctConcurrentFunc)
  
   
 
-##### [h2]在长时任务中注册监听事件，避免在非长时任务中使用带有监听性质的接口
+#### 在长时任务中注册监听事件，避免在非长时任务中使用带有监听性质的接口
 
 **场景描述**
  
@@ -154,7 +150,7 @@ taskpool.execute(correctConcurrentFunc)
 因此，当开发者有监听需求时，推荐使用长时任务，主动管理任务所在线程的生命周期。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/l5P6VbK6T1ubj-Ooazg8sQ/zh-cn_image_0000002628859996.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=79A7A8DECC2D767B7DC1C56E9DA543A54B6A5215B048D4F2F52BB2B9BFAE6815)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/l5P6VbK6T1ubj-Ooazg8sQ/zh-cn_image_0000002628859996.png?HW-CC-KV=V1&HW-CC-Date=20260701T041455Z&HW-CC-Expire=86400&HW-CC-Sign=A890FC446E17156BFFD4BCDF72F10D43589A052FBAC357B877D305033519A93E)
 
  
 **反例**
@@ -239,7 +235,7 @@ taskpool.execute(task)
  
   
 
-##### [h2]使用emitter和LongTask的组合实现回调场景的通信诉求，避免在回调函数中使用sendData()
+#### 使用emitter和LongTask的组合实现回调场景的通信诉求，避免在回调函数中使用sendData()
 
 **场景描述**
  
@@ -250,7 +246,7 @@ TaskPool提供了支持TaskPool子线程和宿主线程通信的接口[sendData(
 如果有需要，推荐使用emitter，emitter能够方便地实现宿主线程和子线程之间的双向通信。另外emitter的on()接口具有监听性质，在没有取消注册的情况下，能在任意时间被触发，因此需要在LongTask中注册。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/MgdU2UubQKq_ePJEhTAbDg/zh-cn_image_0000002659219311.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=0F7DE415A0E67EF183BFDDD4AF0B7B18C033240C6DC992D57744619AA684E3FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/MgdU2UubQKq_ePJEhTAbDg/zh-cn_image_0000002659219311.png?HW-CC-KV=V1&HW-CC-Date=20260701T041455Z&HW-CC-Expire=86400&HW-CC-Sign=7ED47DF09B7DE6018724BAED37AAD6DC28886460F92E278C8C3526C75AC59BE3)
 
  
 **反例**
@@ -332,7 +328,7 @@ taskpool.execute(task)
  
   
 
-##### [h2]根据业务场景和性能数据控制并发度
+#### 根据业务场景和性能数据控制并发度
 
 **场景描述**
  
@@ -343,7 +339,7 @@ taskpool.execute(task)
 在合适的场景下也可以使用[SequenceRunner](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#sequencerunner-11)()等API，以避免短时间内大量任务连续进入任务池，使线程数瞬间提升到最大。主线程连续处理大量任务密集返回时的回调和微任务会阻塞UI，影响用户体验。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/qcM3AuQNQo2BeTZrmVZWzQ/zh-cn_image_0000002628700112.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=8BF9B84513A53C2E7E9D02856AAEF611A7BDDB5A329888AEE001C98C62DEC5EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/qcM3AuQNQo2BeTZrmVZWzQ/zh-cn_image_0000002628700112.png?HW-CC-KV=V1&HW-CC-Date=20260701T041455Z&HW-CC-Expire=86400&HW-CC-Sign=69EB1D507FBCAE6435358889F583440B5BFDF151A0FA9A98840BDD00C0DB9008)
 
  
 ```ArkTS
@@ -398,7 +394,7 @@ histogramStatistic(buffer);
  
   
 
-##### [h2]正确处理业务逻辑异常情况，避免Task损耗
+#### 正确处理业务逻辑异常情况，避免Task损耗
 
 **场景描述**
  
@@ -506,7 +502,7 @@ taskpool.execute(correctConcurrentFunc2).catch((error: BusinessError) => {
  
   
 
-##### [h2]ArkTS线程间传递对象遵守序列化
+#### ArkTS线程间传递对象遵守序列化
 
 **场景描述**
  
@@ -544,7 +540,7 @@ taskpool.execute(returnModule).catch((e: BusinessError) => {
 // Sample6.ets
 @Concurrent
 async function returnPromise() {
-  let promise = new Promise((resolve) => {
+  let promise = new Promise<void>((resolve) => {
     setTimeout(() => {
       resolve();
     }, 1000);
@@ -566,11 +562,11 @@ taskpool.execute(returnPromise).catch((e: BusinessError) => {
  
   
 
-##### 常见问题
+#### 常见问题
 
   
 
-##### [h2]使用TaskPool时不遵循最小化导入原则有什么影响
+#### 使用TaskPool时不遵循最小化导入原则有什么影响
 
 根据ECMA规范，导入方法和变量的时候，JavaScript运行时会根据开发者指定的入口文件开始深度遍历import链上的每个文件，并先从叶子节点执行文件。每个文件只会运行一次，然后存放在线程缓存中，后续加载可直接获取。
  
@@ -594,17 +590,13 @@ function concurrentFunc() {
  
 因此在使用TaskPool时应该遵循最小化导入原则，尤其避免在独立的任务中引入大量不相关文件或者HAR。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/_axgDo35SS-GHRA8BdGddA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=9DAC107C206F0C878717EAE8DB009D77C7BCBCC516134136852A0838DACEA05E)
- 
- 
-由于不同线程中上下文对象不同，TaskPool工作线程只能使用线程安全的模块。例如，不能使用UI相关的非线程安全模块。TaskPool/Worker等工作线程不支持使用操作UI的模块、线程不安全的模块以及其他只支持在主线程中使用的模块。不支持UI模块是因为目前工作线程不支持操作UI，不支持线程不安全的模块是因为多线程使用该模块可能会导致多线程问题，只支持在主线程中使用的模块明确在文档中说明的有[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)等。线程安全的模块是指多线程同时使用该模块也不会引入多线程问题，如TaskPool/[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)/[hilog](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog)等。
-  
+> [!TIP]
+> 由于不同线程中上下文对象不同，TaskPool工作线程只能使用线程安全的模块。例如，不能使用UI相关的非线程安全模块。TaskPool/Worker等工作线程不支持使用操作UI的模块、线程不安全的模块以及其他只支持在主线程中使用的模块。不支持UI模块是因为目前工作线程不支持操作UI，不支持线程不安全的模块是因为多线程使用该模块可能会导致多线程问题，只支持在主线程中使用的模块明确在文档中说明的有 ApplicationContext 等。线程安全的模块是指多线程同时使用该模块也不会引入多线程问题，如TaskPool/ Worker / hilog 等。
 
  
   
 
-##### [h2]子线程使用同步接口和异步接口有什么差异 ，使用哪种接口比较合适
+#### 子线程使用同步接口和异步接口有什么差异 ，使用哪种接口比较合适
 
 TaskPool线程池线程的最大数量是有限的，当前策略是maxThreads=CPU核数 -1，因此基于当前的设备，正常情况下线程数上限为11个。当所有线程都被占用时，后续的任务可能不会被及时调度。因此，在工作线程中推荐使用异步接口而非同步接口，在等待I/O时能够及时处理新入队的任务，避免任务池阻塞。
  
@@ -637,7 +629,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
  
   
 
-##### [h2]使用Sendable传输数据与使用深拷贝传输数据有什么差异
+#### 使用Sendable传输数据与使用深拷贝传输数据有什么差异
 
 默认情况下，Sendable数据被分配在共享堆SharedHeap中，其在ArkTS并发实例间是通过引用传递数据。区别于深拷贝的方式，在trace上的直观表现是序列化和反序列化的时间明显减少，因此非常适用于性能敏感的场景。
  
@@ -649,7 +641,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
  
   
 
-##### [h2]Napi回调耗时长如何处理
+#### Napi回调耗时长如何处理
 
 ArkTS的执行是在单线程中进行的，这意味着异步函数不会自己创建线程。 即使用了TaskPool，任务在任务池的子线程执行，但是结果逻辑是需要返回到任务的宿主线程处理的。
  
@@ -659,6 +651,6 @@ ArkTS的执行是在单线程中进行的，这意味着异步函数不会自己
  
   
 
-##### 示例代码
+#### 示例代码
 
 - [TaskPool使用规范样例代码工程](https://gitcode.com/harmonyos_samples/BestPracticeSnippets/tree/master/TaskPoolPractice)

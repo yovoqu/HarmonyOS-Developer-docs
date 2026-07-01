@@ -4,33 +4,30 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-20
 
-## 在HarmonyOS工程中如何引用外部构建的so库
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在工程中如何引用已经适配HarmonyOS的so库？
  
  
 
-##### 背景知识
+#### 背景知识
 
 参考官网[ArkTS侧引用三方so库](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dynamic-link-library#section166546365376)的文档，通过配置模块动态依赖即可在工程中引用已经适配HarmonyOS的so库。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **非Native工程引用已经适配HarmonyOS的so库：**
 实现原理：
 将so库和对应的Native侧接口文件加入到工程中，在工程中配置so库对应的模块动态依赖，在ArkTS侧通过import引入依赖接口调用so库。
 - 但是需要注意该方案只能引用适配HarmonyOS的so库，因此在编译生成so库时需要实现功能函数并向Napi注册其Native侧接口，提供对应的Native侧接口文件index.d.ts和配置文件oh-package.json5。
 
- - 开发步骤：
-将已经适配HarmonyOS的so库文件（假设so库为libxxx.so），置于entry/libs对应的架构目录下。
-- 将libxxx.so的接口文件（index.d.ts）所在的文件夹拷贝到src/main/cpp/types下。
-- 在模块级oh-package.json5中声明so库根目录路径。
+ - 开发步骤：1. 将已经适配HarmonyOS的so库文件（假设so库为libxxx.so），置于entry/libs对应的架构目录下。
+
+2. 将libxxx.so的接口文件（index.d.ts）所在的文件夹拷贝到src/main/cpp/types下。
+
+3. 在模块级oh-package.json5中声明so库根目录路径。
 ```ArkTS
 {
   "name": "library",
@@ -45,7 +42,8 @@
 }
 ```
 
-- 在ArkTS侧使用import引用oh-package.json5中声明的依赖并进行结果验证。
+
+4. 在ArkTS侧使用import引用oh-package.json5中声明的依赖并进行结果验证。
 ```text
 import testNapi from 'libentry.so';
 
@@ -55,46 +53,50 @@ function test() {
 }
 ```
 
-- 工程关键部分结构。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/j6-t-5FdTlqKvrOgj5Cv_Q/zh-cn_image_0000002659138349.png?HW-CC-KV=V1&HW-CC-Date=20260701T025532Z&HW-CC-Expire=86400&HW-CC-Sign=D40EAB48DB6DA6962FFE866E0E70F0A91C9AC3E602CECC380E255AC705BB365F)
 
+5. 工程关键部分结构。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/j6-t-5FdTlqKvrOgj5Cv_Q/zh-cn_image_0000002659138349.png?HW-CC-KV=V1&HW-CC-Date=20260701T041135Z&HW-CC-Expire=86400&HW-CC-Sign=21C8AE29BBC1AAB2A1FCC573AB67A2DE4CD1F5A7E9AB9839C3AA9538A89AC8CA)
 
- - 注意事项：在引用过程中除了将已经适配HarmonyOS的libxxx.so库文件置于entry/libs对应的架构目录下外，还需要将编译三方so库时配套产生的libc++_shared.so库文件置于该目录下。
+- 注意事项：在引用过程中除了将已经适配HarmonyOS的libxxx.so库文件置于entry/libs对应的架构目录下外，还需要将编译三方so库时配套产生的libc++_shared.so库文件置于该目录下。
 
  
  
  
 - **Native工程引用已经适配HarmonyOS的so库：**
-开发步骤。
-将三方库生成的so文件拷贝到应用工程目录。为便于管理三方库，在应用工程的cpp目录新建一个thirdparty目录，将生成的so文件以及头文件拷贝到该目录下。
- 如果该三方库二进制文件为so文件，还需要将so文件拷贝到工程目录的entry/libs/${OHOS_ARCH}/目录下。
-- 配置对应链接。配置链接只需要在cpp目录的CMakeLists.txt文件中添加对应target_link_libraries即可，动态库和静态库只需要填写一个：
- 
+开发步骤。1. 将三方库生成的so文件拷贝到应用工程目录。为便于管理三方库，在应用工程的cpp目录新建一个thirdparty目录，将生成的so文件以及头文件拷贝到该目录下。
+
+  如果该三方库二进制文件为so文件，还需要将so文件拷贝到工程目录的entry/libs/${OHOS_ARCH}/目录下。
+
+2. 配置对应链接。配置链接只需要在cpp目录的CMakeLists.txt文件中添加对应target_link_libraries即可，动态库和静态库只需要填写一个：
+
+  
 ```text
-# 配置动态库，静态库配置方式一样，将.so文件改成.a文件即可
+<em># 配置动态库，静态库配置方式一样，将.so文件改成.a文件即可</em>
 target_link_libraries(entry PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/mytest/${OHOS_ARCH}/lib/libmytest.so)
 ```
 
-- 配置头文件路径。配置链接只需要在cpp目录的CMakeLists.txt文件中添加对应target_include_directories：
- 
+
+3. 配置头文件路径。配置链接只需要在cpp目录的CMakeLists.txt文件中添加对应target_include_directories：
+
+  
 ```text
 target_include_directories(entry PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/mytest/${OHOS_ARCH}/include)
 ```
 
-- 工程关键部分结构。假设xxx代表的是三方库名称，xxx文件夹下包含了arm64架构生成的二进制文件，架构目录下包含了该库的头文件(include)以及二进制文件(lib)。
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/_H9zIgPsQlmVMgiwXrr8nw/zh-cn_image_0000002629058998.png?HW-CC-KV=V1&HW-CC-Date=20260701T025532Z&HW-CC-Expire=86400&HW-CC-Sign=E2A854AD76FE670C606B358CE42D53AE87F878ACD98DEC3A3D14AA85BA937AE6)
 
+4. 工程关键部分结构。假设xxx代表的是三方库名称，xxx文件夹下包含了arm64架构生成的二进制文件，架构目录下包含了该库的头文件(include)以及二进制文件(lib)。
 
- - 注意事项。
-应用在引用动态库的时候是通过soname来查找的，所以我们需要将名字为soname的库文件拷贝到entry/libs/${OHOS_ARCH}/目录下。soname查看方法：llvm-readelf -d libxxx.so。
-- 要正确的拷贝so文件。正确拷贝so文件后so文件大小应该与原库实体文件大小一致，so文件大小也可以通过llvm-readelf -d libxxx.so查询。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/_H9zIgPsQlmVMgiwXrr8nw/zh-cn_image_0000002629058998.png?HW-CC-KV=V1&HW-CC-Date=20260701T041135Z&HW-CC-Expire=86400&HW-CC-Sign=90B506DE8C4FF6F401504B08ABB3912D2DB16E519B72BE3F0EA18E89819080A5)
+
+- 注意事项。1. 应用在引用动态库的时候是通过soname来查找的，所以我们需要将名字为soname的库文件拷贝到entry/libs/${OHOS_ARCH}/目录下。soname查看方法：llvm-readelf -d libxxx.so。
+
+2. 要正确的拷贝so文件。正确拷贝so文件后so文件大小应该与原库实体文件大小一致，so文件大小也可以通过llvm-readelf -d libxxx.so查询。
 
  
  
- 
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：har包依赖so库时编译报错：
 ```text

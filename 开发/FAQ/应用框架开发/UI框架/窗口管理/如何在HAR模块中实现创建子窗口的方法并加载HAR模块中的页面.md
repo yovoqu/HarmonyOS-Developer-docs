@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-686
 
-## 如何在HAR模块中实现创建子窗口的方法并加载HAR模块中的页面
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何在HAR模块A中写创建子窗口的方法，在HAP模块B中调用模块A创建子窗口，同时在B中传递参数给A中方法用于给子窗口中的页面展示信息？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/GBj1N_fqQcujz8r9AYoRig/zh-cn_image_0000002658794117.png?HW-CC-KV=V1&HW-CC-Date=20260701T025631Z&HW-CC-Expire=86400&HW-CC-Sign=5520D6DABEB74D3BE14173C6DC4ACF0E9C3368753F3FC431EF944537568F4360)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/GBj1N_fqQcujz8r9AYoRig/zh-cn_image_0000002658794117.png?HW-CC-KV=V1&HW-CC-Date=20260701T041233Z&HW-CC-Expire=86400&HW-CC-Sign=A5F4C5F5B0C803A5F4F8C7DF28349D2558EB0AD3476F967A2D075513F74CDCB7)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 通过[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)可以存储EntryAbility中用于创建子窗口的windowStage，以便在应用的其他地方使用。
 - 通过调用HAP模块中存储的windowStage的[createSubWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#createsubwindow9-1)方法创建子窗口。
@@ -31,13 +27,12 @@
  
  
 
-##### 解决方案
-
-- 首先在HAP模块的EntryAbility中存储windowStage至AppStorage，用于子窗口的创建。
-```text
+#### 解决方案
+1. 首先在HAP模块的EntryAbility中存储windowStage至AppStorage，用于子窗口的创建。
+```json
 onWindowStageCreate(windowStage: window.WindowStage): void {
   AppStorage.setOrCreate('windowStage', windowStage);
-  // Main window is created, set main page for this ability
+  <em>// Main window is created, set main page for this ability</em>
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
   windowStage.loadContent('pages/Index', (err) => {
@@ -50,7 +45,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 }
 ```
 
-- HAR中定义创建子窗口函数：本示例中，HAR模块名为hara，定义了一个用于创建子窗口的函数func。该函数接收两个参数，将参数值赋给LocalStorage类型的变量storage，用于向加载到窗口的页面内容传递状态属性。子窗口通过loadContentByName加载HAR模块的页面page1和接收storage传递的属性。（本示例中，该文件目录为：项目名\hara\src\main\ets\func.ets）
+2. HAR中定义创建子窗口函数：本示例中，HAR模块名为hara，定义了一个用于创建子窗口的函数func。该函数接收两个参数，将参数值赋给LocalStorage类型的变量storage，用于向加载到窗口的页面内容传递状态属性。子窗口通过loadContentByName加载HAR模块的页面page1和接收storage传递的属性。（本示例中，该文件目录为：项目名\hara\src\main\ets\func.ets）
 ```text
 import { display, UIContext, window } from '@kit.ArkUI';
 
@@ -66,7 +61,7 @@ export function func(value: string, value2: string) {
 
   let windowStage = AppStorage.get('windowStage') as window.WindowStage;
   windowStage.createSubWindow('SubWindow', (err, windowClass) => {
-    // 获取屏幕宽高以设置子窗口坐标
+    <em>// 获取屏幕宽高以设置子窗口坐标</em>
     let displayClass = display.getPrimaryDisplaySync();
     screenWidth = displayClass.width;
     screenHeight = displayClass.height;
@@ -75,15 +70,15 @@ export function func(value: string, value2: string) {
       return;
     }
     try {
-      // 设置子窗口加载页
+     <em> // 设置子窗口加载页</em>
       windowClass.loadContentByName('page1', storage);
-      // 设置子窗口左上角坐标
+     <em> // 设置子窗口左上角坐标</em>
       windowClass.moveWindowTo((screenWidth - uiContext.vp2px(300)) / 2, (screenHeight - uiContext.vp2px(300)) / 2);
-      // 设置子窗口大小
+      <em>// 设置子窗口大小</em>
       windowClass.resize(uiContext.vp2px(300), uiContext.vp2px(300));
-      // 设置子窗口圆角
+      <em>// 设置子窗口圆角</em>
       windowClass.setWindowCornerRadius(16);
-      // 展示子窗口
+      <em>// 展示子窗口</em>
       windowClass.showWindow();
 
     } catch (err) {
@@ -94,7 +89,7 @@ export function func(value: string, value2: string) {
 }
 ```
 
-- 在HAR模块中，page1页面通过routeName定义了命名路由页面，并定义了两个LocalStorage共享变量，用于接收页面加载时传递的参数。（本示例中，该文件目录为：项目名\hara\src\main\ets\components\MainPage.ets）
+3. 在HAR模块中，page1页面通过routeName定义了命名路由页面，并定义了两个LocalStorage共享变量，用于接收页面加载时传递的参数。（本示例中，该文件目录为：项目名\hara\src\main\ets\components\MainPage.ets）
 ```text
 import { window } from '@kit.ArkUI';
 
@@ -146,14 +141,14 @@ export struct Page1 {
 }
 ```
 
-- 导出HAR模块的页面和方法。（本示例中，该文件目录为：项目名\hara\Index.ets）
+4. 导出HAR模块的页面和方法。（本示例中，该文件目录为：项目名\hara\Index.ets）
 ```text
 export { Page1 } from './src/main/ets/components/MainPage';
 export { func } from './src/main/ets/func';
 ```
 
-- 在HAP模块的oh-package.json5文件中通过dependencies字段来导入对HAR模块的依赖。
-```text
+5. 在HAP模块的oh-package.json5文件中通过dependencies字段来导入对HAR模块的依赖。
+```json
 {
   "name": "entry",
   "version": "1.0.0",
@@ -167,7 +162,7 @@ export { func } from './src/main/ets/func';
 }
 ```
 
-- 在HAP模块的主窗口页面index中调用HAR模块中的func创建子窗口并传递参数用于子窗口页面的信息展示。
+6. 在HAP模块的主窗口页面index中调用HAR模块中的func创建子窗口并传递参数用于子窗口页面的信息展示。
 ```text
 import { func } from 'hara';
 import 'hara/src/main/ets/components/MainPage';
@@ -183,7 +178,7 @@ struct Index {
         .height(16);
       Button('打开子窗口')
         .onClick(() => {
-          // 调用HAR模块方法
+          <em>// 调用HAR模块方法</em>
           func('来自Index', 'app.media.startIcon');
         });
     }
@@ -194,7 +189,5 @@ struct Index {
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/PvRSxQizSvyBnb6Ng0XT6w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025631Z&HW-CC-Expire=86400&HW-CC-Sign=AE8F044C21AF76362E9D310CCD59D49A8EDF4A8341E47409C029288726F50377)
- 
-本文中使用的HAP模块指的是创建项目时的entry模块。
+> [!NOTE]
+> 本文中使用的HAP模块指的是创建项目时的entry模块。

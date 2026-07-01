@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-threading-model-6
 
-## 如何在多线程中传递Context上下文对象
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用TaskPool/Worker执行任务时，如何获取应用主进程的Context上下文对象呢?
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Context是应用中对象的上下文](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage)，其提供了应用的一些基础信息，例如resourceManager（资源管理）、applicationInfo（当前应用信息）、dir（应用文件路径）、area（文件分区）等，以及应用的一些基本方法，例如getApplicationContext()等。
 - [Transferable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/transferabled-object)，也称为NativeBinding对象，是指绑定C++对象的JS对象，主体功能由C++提供，其JS对象壳被分配在虚拟机本地堆（LocalHeap）。跨线程传输时复用同一个C++对象，相比于JS对象的拷贝模式，传输效率高。因此，可共享或转移的NativeBinding对象也被称为Transferable对象。常见的共享模式NativeBinding对象包括Context对象，它包含应用程序组件的上下文信息，提供访问系统服务和资源的方式，使得应用程序组件可以与系统进行交互。
@@ -24,7 +20,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 **一般常见多线程Context传递使用场景中，仅限于对Context中的资源进行读取，如果存在读写，可能存在并发安全问题，需要用到异步锁保证并发安全，不在本文中讨论。**
  
@@ -36,9 +32,9 @@
  
 **二、多线程中传递Context上下文对象有以下方案：**
 - 方案一：利用[TaskPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)/[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction#worker基本用法示例)序列化接口直接传递Context对象。
-背景知识中提到Context对象是共享模式NativeBinding对象，可以在多线程间共享传递，但是由于JS对象被分配在虚拟机本地堆，所以传递过程还是会存在一定内存开销。
-Worker传递Context对象：
-主线程中通过postMessage发送Context对象。
+
+  背景知识中提到Context对象是共享模式NativeBinding对象，可以在多线程间共享传递，但是由于JS对象被分配在虚拟机本地堆，所以传递过程还是会存在一定内存开销。
+Worker传递Context对象：1. 主线程中通过postMessage发送Context对象。
 ```ArkTS
 import { worker } from '@kit.ArkTS';
 import { common } from '@kit.AbilityKit';
@@ -72,8 +68,9 @@ struct Index {
 }
 ```
 
-- Worker中获取Context对象操作资源文件。
-```text
+
+2. Worker中获取Context对象操作资源文件。
+```json
 import { MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -96,9 +93,7 @@ workerPort.onmessage = (event: MessageEvents) => {
 };
 ```
 
-
- - TaskPool传递Context对象：
-先在主线程中获取对应的Context对象，通过TaskPool序列化接口execute传递。
+- TaskPool传递Context对象：1. 先在主线程中获取对应的Context对象，通过TaskPool序列化接口execute传递。
 ```text
 @Entry
 @Component
@@ -126,8 +121,9 @@ struct TaskPoolDemo {
 }
 ```
 
-- 然后在子线程中使用Context对象。
-```text
+
+2. 然后在子线程中使用Context对象。
+```json
 @Concurrent
 async function getStringFromUIThread(context: Context) {
   try {
@@ -146,11 +142,10 @@ async function getStringFromUIThread(context: Context) {
 
 
  
- 
  - 方案二：[利用SendableContext传递](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-sendablecontextmanager)。
-因为SendableContext是遵循@Sendable协议，在底层是进行引用传递，但是如果子线程较多，会存在多份引用，难以维护、管理。
-Worker传递SendableContext对象：
-主线程传递将Context对象转成SendableContext，通过postMessageWithSharedSendable发送给子线程。
+
+  因为SendableContext是遵循@Sendable协议，在底层是进行引用传递，但是如果子线程较多，会存在多份引用，难以维护、管理。
+Worker传递SendableContext对象：1. 主线程传递将Context对象转成SendableContext，通过postMessageWithSharedSendable发送给子线程。
 ```ArkTS
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { worker } from '@kit.ArkTS';
@@ -198,8 +193,9 @@ struct SharedContextWorkerDemo {
 }
 ```
 
-- Worker线程接收SendableContext对象并转回Context对象。
-```text
+
+2. Worker线程接收SendableContext对象并转回Context对象。
+```json
 import { MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -238,10 +234,10 @@ workerPort.onmessage = (e: MessageEvents) => {
 };
 ```
 
+- TaskPool传递SendableContext对象。可以将Context对象直接转成SendableContext对象传给执行函数，在执行函数中再转成Context。
 
- - TaskPool传递SendableContext对象。可以将Context对象直接转成SendableContext对象传给执行函数，在执行函数中再转成Context。
- 
-```text
+  
+```json
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { taskpool } from '@kit.ArkTS';
@@ -249,7 +245,7 @@ import { taskpool } from '@kit.ArkTS';
 @Concurrent
 async function getCacheDir(sendableContext: sendableContextManager.SendableContext) {
   const contextTask: common.UIAbilityContext = sendableContextManager.convertToUIAbilityContext(sendableContext);
-  // 直接使用getContext方法时，主线程调用获取Context对象并可正常打印。子线程调用时无法获取Context对象
+  <em>// 直接使用getContext方法时，主线程调用获取Context对象并可正常打印。子线程调用时无法获取Context对象</em>
   try {
     contextTask.resourceManager.getStringValue($r('app.string.module_desc').id,
       (error: BusinessError, value: string) => {
@@ -297,16 +293,17 @@ struct SharedContextTaskPoolDemo {
  
  
 - 方案三：使用[共享模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable-module)，实现一个单例类。在模块方法中将实例化的Context并转换为[SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-sendablecontextmanager#sendablecontextmanagerconvertfromcontext)，最后导出Sendable对象，在子线程中使用。
-该方案既保证了Context可以引用传递，减少内存开销，又避免了Context对象在多个线程间进行引用。
+
+  该方案既保证了Context可以引用传递，减少内存开销，又避免了Context对象在多个线程间进行引用。
 实现共享模块的单例Context类。
 ```ArkTS
-// 共享模块sharedModule.ets
+<em>// 共享模块sharedModule.ets</em>
 import { sendableContextManager } from '@kit.AbilityKit';
 
-// 声明当前模块为共享模块，只能导出可Sendable数据
+<em>// 声明当前模块为共享模块，只能导出可Sendable数据</em>
 'use shared'
 
-// 共享模块，SingletonA全局唯一
+<em>// 共享模块，SingletonA全局唯一</em>
 @Sendable
 class SingletonShareContext {
   private sendableContext: sendableContextManager.SendableContext | undefined;
@@ -317,7 +314,7 @@ class SingletonShareContext {
     }
   }
 
-  // 返回sendableContext对象
+ <em> // 返回sendableContext对象</em>
   public getContext() {
     if (this.sendableContext === undefined) {
       console.error('sendableContext未初始化');
@@ -331,7 +328,7 @@ export const singletonShareContext = new SingletonShareContext();
 
 - 在多线程业务代码中引用单例类，进行Context对象的使用。
 ```ArkTS
-// index.ets
+<em>// index.ets</em>
 import { taskpool } from '@kit.ArkTS';
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { singletonShareContext } from './SingletonShareContext';
@@ -339,9 +336,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 @Concurrent
 async function printContext() {
-  // 将SendableContext对象转换为Context
+ <em> // 将SendableContext对象转换为Context</em>
   let context: common.Context = sendableContextManager.convertToUIAbilityContext(singletonShareContext.getContext()!);
-  // 主线程和子线程调用时均可正常打印
+  <em>// 主线程和子线程调用时均可正常打印</em>
   console.info('sendableContextManager:' + context.cacheDir);
 }
 
@@ -382,7 +379,7 @@ struct SingletonSharedDemo {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么通过postMessage将SendableContext传递到Worker会报错？
  
@@ -396,7 +393,7 @@ postMessageWithSharedSendable：宿主线程向Worker线程发送消息，消息
  
  
 
-##### 总结
+#### 总结
  
 |    | 方案一 | 方案二 | 方案三 |
 | --- | --- | --- | --- |

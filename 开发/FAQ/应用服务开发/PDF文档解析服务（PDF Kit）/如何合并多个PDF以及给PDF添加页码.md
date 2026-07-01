@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-13
 
-## 如何合并多个PDF以及给PDF添加页码
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS Next有没有提供将多个pdf合并成一个pdf以及给pdf添加页码的API。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section7656515132015)接口提供能力，将其他Document的Page添加到当前Document，Page中的批注不支持插入到当前Document。
  
@@ -43,12 +39,10 @@ HarmonyOS Next有没有提供将多个pdf合并成一个pdf以及给pdf添加页
  
  
 
-##### 解决方案
-
-- aboutToAppear回调中，确保rawfile目录下有pdf文件，拷贝到沙箱内。
-- 使用[insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section7656515132015)接口将input_add.pdf文档页插入到input_src.pdf末尾的位置，并另存文档。
-- 给生成的testInsertPageFromDocument.pdf文档添加页码。
-
+#### 解决方案
+1. aboutToAppear回调中，确保rawfile目录下有pdf文件，拷贝到沙箱内。
+2. 使用[insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section7656515132015)接口将input_add.pdf文档页插入到input_src.pdf末尾的位置，并另存文档。
+3. 给生成的testInsertPageFromDocument.pdf文档添加页码。
  
 完整示例代码如下：
  
@@ -68,9 +62,9 @@ struct PdfPage {
   private pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
   private context = this.getUIContext().getHostContext() as Context;
 
-  async aboutToAppear(): Promise {
+  async aboutToAppear(): Promise<void> {
     try {
-      //确保rawfile目录下有pdf文件
+     <em> //确保rawfile目录下有pdf文件</em>
       await this.copyRawFileToSdcard(this.context, 'input_src.pdf');
       await this.copyRawFileToSdcard(this.context, 'input_add.pdf');
       promptAction.openToast({ message: '全部拷贝完成' });
@@ -81,7 +75,7 @@ struct PdfPage {
 
   build() {
     Column() {
-      // 将input_add.pdf文档页插入到input_src.pdf末尾的位置，并另存文档
+     <em> // 将input_add.pdf文档页插入到input_src.pdf末尾的位置，并另存文档</em>
       Button('insertPageFromDocument').onClick(async () => {
         let filePath = this.context.filesDir + '/input_src.pdf';
         let loadResult: pdfService.ParseResult = this.pdfDocument.loadDocument(filePath);
@@ -91,7 +85,7 @@ struct PdfPage {
           promptAction.openToast({ message: '加载失败' });
         }
         let pdfDoc: pdfService.PdfDocument = new pdfService.PdfDocument();
-        // 确保该沙箱目录下有input_add.pdf文档
+      <em>  // 确保该沙箱目录下有input_add.pdf文档</em>
         let res = pdfDoc.loadDocument(this.context.filesDir + '/input_add.pdf');
         if (res === pdfService.ParseResult.PARSE_SUCCESS) {
           this.pdfDocument.insertPageFromDocument(pdfDoc, 0, pdfDoc.getPageCount(), this.lastPage);
@@ -106,16 +100,16 @@ struct PdfPage {
       })
 
       Button('addHeaderFooter').onClick(async () => {
-        // 确保沙箱目录有testInsertPageFromDocument.pdf文档
+      <em>  // 确保沙箱目录有testInsertPageFromDocument.pdf文档</em>
         let filePath = this.context.filesDir + '/testInsertPageFromDocument.pdf';
         let res = this.pdfDocument.loadDocument(filePath);
         if (res === pdfService.ParseResult.PARSE_SUCCESS) {
           let hfInfo: pdfService.HeaderFooterInfo = new pdfService.HeaderFooterInfo();
           hfInfo.fontInfo = new pdfService.FontInfo();
-          // 确保字体路径存在
+       <em>   // 确保字体路径存在</em>
           let font: Font = new Font();
           hfInfo.fontInfo.fontPath = font.getFontByName('HarmonyOS Sans')?.path;
-          // 如果不知道字体的具体名称，可以为空字符串
+        <em>  // 如果不知道字体的具体名称，可以为空字符串</em>
           hfInfo.fontInfo.fontName = '';
           hfInfo.textSize = 10;
           hfInfo.charset = pdfService.CharsetType.PDF_FONT_DEFAULT_CHARSET;
@@ -126,11 +120,26 @@ struct PdfPage {
           hfInfo.rightMargin = 1.0;
           hfInfo.bottomMargin = 40.0;
           let pdfPageCount = this.pdfDocument.getPageCount();
-          for (let index = 0; index   // 拷贝pdf文件到应用沙箱目录
-  private copyRawFileToSdcard(context: common.Context, pdfName: string): Promise {
+          for (let index = 0; index < pdfPageCount; index++) {
+            hfInfo.footerCenterText = `${index + 1}`;
+            this.pdfDocument.addHeaderFooter(hfInfo, index, index, true, true);
+          }
+          let outPdfPath = this.context.filesDir + '/testAddHeaderFooter.pdf';
+          let result = this.pdfDocument.saveDocument(outPdfPath);
+          hilog.info(0x0000, 'PdfPage', 'addHeaderFooter %{public}s!', result ? 'success' : 'fail');
+        } else {
+          promptAction.openToast({ message: '加载失败' });
+        }
+        this.pdfDocument.releaseDocument();
+      })
+    }
+  }
+
+<em>  // 拷贝pdf文件到应用沙箱目录</em>
+  private copyRawFileToSdcard(context: common.Context, pdfName: string): Promise<void> {
     return new Promise((resolve) => {
       let destRoot = context.filesDir;
-      // rawfile下的文件名
+    <em>  // rawfile下的文件名</em>
       let srcFileName = pdfName;
       let destFilePath = `${destRoot}/${srcFileName}`;
       context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {
@@ -150,11 +159,5 @@ struct PdfPage {
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/WJZtoiFFSZWrV6wSX8bBRg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025837Z&HW-CC-Expire=86400&HW-CC-Sign=5CA770598741E83CDCF4BB36D2B7CA180B0F17B5025FCC4F71644F4D6569DE29)
- 
-
-- 示例代码中input_src、input_add文件需要提前放在项目rawfile目录下，路径：项目/entry/src/main/resources/rawfile。
-- 先点击insertPageFromDocument按钮将pdf文件合并。
-- 再点击addHeaderFooter按钮给合并后的pdf文件添加页脚页码。
-- IDE打开Device File Browser，查看保存的pdf文件，路径如下：应用包名/data/storage/el2/base/haps/entry/files，具体参考[访问设备文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-device-file-explorer)。
+> [!NOTE]
+> 示例代码中input_src、input_add文件需要提前放在项目rawfile目录下，路径：项目/entry/src/main/resources/rawfile。 先点击insertPageFromDocument按钮将pdf文件合并。 再点击addHeaderFooter按钮给合并后的pdf文件添加页脚页码。 IDE打开Device File Browser，查看保存的pdf文件，路径如下：应用包名/data/storage/el2/base/haps/entry/files，具体参考 访问设备文件 。

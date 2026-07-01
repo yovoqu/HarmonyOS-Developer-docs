@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-36
 
-## 在内网环境中使用DevEco Studio开发会有哪些常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在内网环境中DevEco Studio使用出现问题，原因有哪些。
  
  
 
-##### 问题定位
+#### 问题定位
 
 **内网环境中DevEco Studio无法正常使用，可能有多种现象和原因，汇总如下：** 
 | 问题现象 | 问题原因 |
@@ -26,7 +22,7 @@
  
  
 - **场景一：内网环境，项目构建失败：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/zUw2eQ2lRNqXPvXxvhMrFg/zh-cn_image_0000002628405108.png?HW-CC-KV=V1&HW-CC-Date=20260701T025910Z&HW-CC-Expire=86400&HW-CC-Sign=A1D0EFB3C2D56533D6486ADAC2285C898C36EA5BBE42D1421AFD1CE7EAA5720D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/zUw2eQ2lRNqXPvXxvhMrFg/zh-cn_image_0000002628405108.png?HW-CC-KV=V1&HW-CC-Date=20260701T041018Z&HW-CC-Expire=86400&HW-CC-Sign=9BA7AE5D84D9CAD95BA9D1A57171A545FA223CFE8D73985F8144300C7436BB45)
 
 - **场景二：内网开发中模拟器不能下载：**在内网开发发现模拟器不能下载，需要提供模拟器下载使用相关的域名。
 - **场景三：内网开发无法使用signing configs自动签名：**signing configs自动签名中，点击sign in登录的时候会跳转到授权登录页面，HUAWEI DevEco Studio想要访问您的华为帐号，点击允许会跳转到一个回调页面，跳到这个页面无法访问此网站，因为是内网开发需要针对访问的IP地址申请防火墙通过才允许访问。
@@ -34,7 +30,7 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 - **场景一：npm代理错误。**
 - **场景二：内网环境下防火墙策略导致不能下载模拟器。**
@@ -43,21 +39,27 @@
  
  
 
-##### 修改建议
+#### 修改建议
 
-- **场景一：建议根据工程代码量和机器内存大小设置内存上限：**
-需要配置npm代理，首先进入C:\Users\用户名目录，打开.npmrc文件。如果该目录下没有.npmrc文件，请新建一个。
-- 修改npm仓库信息，请参考：[配置npm代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section197296441787)。
-- 修改代理信息，在proxy和https-proxy中，将user、password、proxyserver和port按照实际代理服务器进行修改。请参考：[配置proxy代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section10369436568)。
-- 将Node.js配置到环境变量中：此处以Windows系统举例，不同系统Node.js路径不同，具体以实际路径为准：
- 在系统或者用户的PATH变量中，添加Node.js安装位置的路径（默认路径为$DevEco Studio安装目录\tools\node下）。
-- 代理配置完成后，打开命令行工具，执行npm info express命令验证网络是否正常。
+- **场景一：建议根据工程代码量和机器内存大小设置内存上限：**1. 需要配置npm代理，首先进入C:\Users\用户名目录，打开.npmrc文件。如果该目录下没有.npmrc文件，请新建一个。
 
- - **场景二：**
+2. 修改npm仓库信息，请参考：[配置npm代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section197296441787)。
+
+3. 修改代理信息，在proxy和https-proxy中，将user、password、proxyserver和port按照实际代理服务器进行修改。请参考：[配置proxy代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section10369436568)。
+
+4. 将Node.js配置到环境变量中：此处以Windows系统举例，不同系统Node.js路径不同，具体以实际路径为准：
+
+  在系统或者用户的PATH变量中，添加Node.js安装位置的路径（默认路径为$DevEco Studio安装目录\tools\node下）。
+
+5. 代理配置完成后，打开命令行工具，执行npm info express命令验证网络是否正常。
+- **场景二：**
 如果需要通过代理才能正常访问网络，可以参照文档[配置IDE的代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section10369436568)。
 - 将以下网址域名添加进网络白名单中：[devecostudio-drcn.deveco.dbankcloud.com](http://devecostudio-drcn.deveco.dbankcloud.com/)：获取镜像数，[updatebeta.hicloud.com](http://updatebeta.hicloud.com/)：下载镜像文件，[update.dbankcdn.com](http://update.dbankcdn.com/)：下载镜像文件。以上域名访问的安全端口：443。
 
  - **场景三：**内网环境中要使用自动签名需放开下面三个域名：
- [devecostudio-drcn.deveco.dbankcloud.com](http://devecostudio-drcn.deveco.dbankcloud.com/)
- [connect-api.cloud.huawei.com](http://connect-api.cloud.huawei.com/)
- [nsp-appgallery-agcfs-drcn.obs.cn-north-2.myhuaweicloud.cn](http://nsp-appgallery-agcfs-drcn.obs.cn-north-2.myhuaweicloud.cn/)
+
+  [devecostudio-drcn.deveco.dbankcloud.com](http://devecostudio-drcn.deveco.dbankcloud.com/)
+
+  [connect-api.cloud.huawei.com](http://connect-api.cloud.huawei.com/)
+
+  [nsp-appgallery-agcfs-drcn.obs.cn-north-2.myhuaweicloud.cn](http://nsp-appgallery-agcfs-drcn.obs.cn-north-2.myhuaweicloud.cn/)

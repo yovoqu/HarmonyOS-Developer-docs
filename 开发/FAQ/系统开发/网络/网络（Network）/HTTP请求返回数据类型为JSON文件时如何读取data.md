@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-79
 
-## HTTP请求返回数据类型为JSON文件时如何读取data
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过HTTP GET请求，可以正常调用并返回数据，但是当请求返回JSON格式内容时，无法直接读取，如何实现JSON文件响应数据的读取呢？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [JSON解析与生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-json)。
 - HTTP请求返回文件可通过requestInStream获取文本，参考[发起HTTP流式传输请求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request#发起http流式传输请求)。
@@ -22,12 +18,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 开发前需要在module.json5中声明ohos.permission.INTERNET权限，使用[requestInStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#requestinstream10-1)获取文本，再通过[on("dataReceive")](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#ondatareceive10)流式获取数据，[on("dataEnd")](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#ondataend10)整合文本内容转换为JSON数据。
  
-```text
-async httpTest(): Promise {
+```json
+async httpTest(): Promise<object> {
   return new Promise((resolve: Function, reject: Function) => {
     let res: ArrayBuffer = new ArrayBuffer(0);
     let httpRequest: http.HttpRequest = http.createHttp();
@@ -55,7 +51,7 @@ async httpTest(): Promise {
       }
     });
     httpRequest.requestInStream(
-      'xx.xx.xx/xx.json', // 后台服务器地址
+      'xx.xx.xx/xx.json', <em>// 后台服务器地址</em>
       {
         method: http.RequestMethod.GET,
         header: {
@@ -70,10 +66,9 @@ async httpTest(): Promise {
  
  
 
-##### 总结
-
-- 读取本地JSON文件的方式：
-```text
+#### 总结
+1. 读取本地JSON文件的方式：
+```json
 readJsonFromRawFile(fileName: string): object | undefined  {
   try {
     let value: Uint8Array | undefined = this.getUIContext().getHostContext()?.resourceManager.getRawFileContentSync(fileName);
@@ -85,12 +80,11 @@ readJsonFromRawFile(fileName: string): object | undefined  {
 }
 ```
 
-- 读取HTTP请求返回的JSON文件的方式：先使用[requestInStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#requestinstream10-1)获取文本，再通过[on("dataReceive")](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#ondatareceive10)流式获取数据，[on("dataEnd")](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#ondataend10)整合文本内容转换为JSON数据。
-
+2. 读取HTTP请求返回的JSON文件的方式：先使用[requestInStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#requestinstream10-1)获取文本，再通过[on("dataReceive")](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#ondatareceive10)流式获取数据，[on("dataEnd")](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#ondataend10)整合文本内容转换为JSON数据。
  
 完整示例如下：
  
-```text
+```json
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { buffer, util } from '@kit.ArkTS';
 import json from '@ohos.util.json';
@@ -104,7 +98,7 @@ struct Index {
   @State jsonObj: object | undefined = undefined;
 
 
-  async httpTest(): Promise {
+  async httpTest(): Promise<object> {
     return new Promise((resolve: Function, reject: Function) => {
       let res: ArrayBuffer = new ArrayBuffer(0);
       let httpRequest: http.HttpRequest = http.createHttp();
@@ -132,7 +126,7 @@ struct Index {
         }
       });
       httpRequest.requestInStream(
-        'xx.xx.xx/xx.json', // 后台服务器地址
+        'xx.xx.xx/xx.json', <em>// 后台服务器地址</em>
         {
           method: http.RequestMethod.GET,
           header: {
@@ -166,7 +160,7 @@ struct Index {
         })
       Button('读取本地JSON文件')
         .onClick(() => {
-          let fileName = 'xxx.json'; // 此处填写文件名，JSON文件需要放置到resources/rawfile目录下
+          let fileName = 'xxx.json'; <em>// 此处填写文件名，JSON文件需要放置到resources/rawfile目录下</em>
           this.jsonObj = this.readJsonFromRawFile(fileName);
         })
       Column({ space: 16 }) {

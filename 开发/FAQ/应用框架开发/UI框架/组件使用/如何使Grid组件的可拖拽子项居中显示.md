@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1548
 
-## 如何使Grid组件的可拖拽子项居中显示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Grid组件无法兼顾高度100%、子组件居中、拖拽事件三者同时存在。具体现象是：设置高度100%后，可以拖拽，但子项无法上下居中；如果想居中，就必须设置rowsTemplate和columnsTemplate，但没有拖拽动画。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Grid组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)作为网格容器，仅支持[GridItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem)子组件，[属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#属性)支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)、[滚动组件通用接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common)以及columnsTemplate、rowsTemplate等属性。
 - [columnsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#columnstemplate)设置当前网格布局列的数量、固定列宽或最小列宽值，不设置时默认1列。设置为'0fr'时，该列的列宽为0，不显示GridItem。
@@ -23,11 +19,11 @@ Grid组件无法兼顾高度100%、子组件居中、拖拽事件三者同时存
  
  
 
-##### 解决方案
+#### 解决方案
 
 在EntryAbility设置全局背景色，实现沉浸式效果，示例代码如下：
  
-```text
+```json
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -49,7 +45,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
+   <em> // Main window is created, set main page for this ability</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -64,17 +60,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+   <em> // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-    // Ability has brought to foreground
+   <em> // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-    // Ability has back to background
+   <em> // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };
@@ -116,7 +112,7 @@ struct gridDemo {
 
   build() {
     Grid() {
-      GridItem() { // 在最前单独添加一个GridItem，设置其中组件高度为100%
+      GridItem() { <em>// 在最前单独添加一个GridItem，设置其中组件高度为100%</em>
         Column()
           .height('100%');
       };
@@ -130,13 +126,13 @@ struct gridDemo {
     .height('100%')
     .layoutWeight(1)
     .align(Alignment.Center)
-    .columnsTemplate('0fr 1fr 1fr 1fr 1fr 1fr') // 设置第一个GridItem的宽值为0fr，该项不显示
+    .columnsTemplate('0fr 1fr 1fr 1fr 1fr 1fr')<em> // 设置第一个GridItem的宽值为0fr，该项不显示</em>
     .onItemDragStart((_, selectItemIndex: number) => {
       console.info('itemIndex:' + selectItemIndex);
-      return this.BottomNavItem(this.bottomNavList[selectItemIndex - 1]); // 为保证拖拽时显示正确，需要将索引值-1
+      return this.BottomNavItem(this.bottomNavList[selectItemIndex - 1]); <em>// 为保证拖拽时显示正确，需要将索引值-1</em>
     })
     .onItemDrop((_, itemIndex: number, insertIndex: number) => {
-      this.swapBottomNavItemPosition(itemIndex - 1, insertIndex - 1); // 为保证拖拽时显示正确，需要将索引值-1
+      this.swapBottomNavItemPosition(itemIndex - 1, insertIndex - 1); <em>// 为保证拖拽时显示正确，需要将索引值-1</em>
     })
     .editMode(true)
     .backgroundColor('#F1F3F5')
@@ -145,15 +141,15 @@ struct gridDemo {
     .padding({
       left: 10,
       right: 10,
-      bottom: 10 // 保留阴影不被截断
+      bottom: 10<em> // 保留阴影不被截断</em>
     })
   }
 
-  // 底部Tab子项
+ <em> // 底部Tab子项</em>
   @Builder
   BottomNavItem(bottomNav: TabItem) {
     Column() {
-      // 作用：设置padding来解决拖拽时阴影被截断的问题
+    <em>  // 作用：设置padding来解决拖拽时阴影被截断的问题</em>
       Stack({ alignContent: Alignment.TopEnd }) {
         Column({ space: 3 }) {
           Text(bottomNav.appletName)
@@ -184,15 +180,11 @@ struct gridDemo {
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/iIRxirSoTx2NhPJbmBhhCw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025620Z&HW-CC-Expire=86400&HW-CC-Sign=657F973D90FF52C76EFEFE6B9D7F8FEB9A4186A14A3B64512EE4352FF963B5BC)
- 
-
-此方法本质上是增加了一个GridItem子组件用于占满高度，保证其他GridItem子组件居中显示，所以针对拖拽时的索引值也要做出调整，上面例子将GridItem子组件添加在首位，所以对应的索引值需要-1。
- 
+> [!NOTE]
+> 此方法本质上是增加了一个GridItem子组件用于占满高度，保证其他GridItem子组件居中显示，所以针对拖拽时的索引值也要做出调整，上面例子将GridItem子组件添加在首位，所以对应的索引值需要-1。
 
  
 实现效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/xhCeG6jNTB6TxmOkcPbSsw/zh-cn_image_0000002658848491.png?HW-CC-KV=V1&HW-CC-Date=20260701T025620Z&HW-CC-Expire=86400&HW-CC-Sign=081E422AEC1CFF9E7A357D5BE3FF1DFC6BA19418E47A0872CA86C94FFA05E0C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/xhCeG6jNTB6TxmOkcPbSsw/zh-cn_image_0000002658848491.png?HW-CC-KV=V1&HW-CC-Date=20260701T041301Z&HW-CC-Expire=86400&HW-CC-Sign=28EAD71EB2BD54528992AC83DACF98D6E8975D02B74F4B7711B3DD1B5146D087)

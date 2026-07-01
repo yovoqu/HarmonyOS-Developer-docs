@@ -3,136 +3,132 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+闪控窗是悬浮在桌面/应用界面上的小型窗口，提供灵活的窗口管理能力。
+
+本模块提供闪控窗能力，包括判断设备是否支持闪控窗功能、创建闪控窗控制器以启动、更新或停止闪控窗等。
+
+**适用场景：**
+
+闪控窗适用于需要在独立小窗口中持续展示应用内容或提供快捷操作的场景。例如：
+
+ - 股市盯盘应用：用户在浏览其他应用时，通过闪控窗实时查看股票行情变化，无需频繁切换应用。
+ - 手机直播应用：主播在直播过程中使用闪控窗展示自定义的互动面板或控制界面，方便实时操作和互动。
+
+
+**闪控窗和闪控球对比**
+
+ - 共同点：闪控窗和[闪控球](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball)均为一种特殊的应用辅助窗口，具备在应用主窗口和对应UIAbility退至后台后仍然可以在前台显示的能力。可以用于应用退至后台后，使用其继续显示UI。
+ - 区别：      
+显示形式不同。闪控球以小圆球的形式展现，适用于展示关键信息。闪控窗以小型窗口展示，展示区域较大，可以持续展示应用内容或提供快捷操作。
+ - 闪控球只能贴边展示，闪控窗则没有此限制。
+ - 闪控球模板固定，应用不能定制UI。闪控窗同样存在模板，并由系统管理并统一绘制UI，但是提供了可绘制的区域，可供应用加载指定页面内容。
+
+
+
+**与闪控球联动：**
+
+本模块可与[@ohos.window.floatingBall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball)（闪控球）联合使用。通过[floatView.bind](#floatviewbind)接口将闪控窗控制器与闪控球控制器绑定后，用户点击闪控球可展开为闪控窗，点击闪控窗左上角的缩小按钮可收起为闪控球，实现两种窗口形态的相互切换。
+
+**全局悬浮窗和闪控窗对比**
+
+ - 共同点：全局悬浮窗和闪控窗均为一种特殊的应用辅助窗口，具备在应用主窗口和对应UIAbility退至后台后仍然可以在前台显示的能力。可以用于应用退至后台后，使用其继续显示UI。
+ - 区别：      
+全局悬浮窗由开发者管理并实现UI绘制，无统一UI及动效。
+ - 闪控窗由系统管理并统一绘制UI，动效更为高端精致。
+ - 闪控窗支持与[闪控球](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball)互相绑定联合使用，实现更复杂场景。
+
+
+
+**起始版本：** 26.0.0
+
+> [!NOTE]
+> 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。 本模块接口仅可在Stage模型下使用。
+
+
+
+#### 导入模块
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## @ohos.window.floatView (闪控窗)
-   
-    
-闪控窗是悬浮在桌面/应用界面上的小型窗口，提供灵活的窗口管理能力。
-    
-本模块提供闪控窗能力，包括判断设备是否支持闪控窗功能、创建闪控窗控制器以启动、更新或停止闪控窗等。
-    
-**适用场景：**
-    
-闪控窗适用于需要在独立小窗口中持续展示应用内容或提供快捷操作的场景。例如：
-    
- - 股市盯盘应用：用户在浏览其他应用时，通过闪控窗实时查看股票行情变化，无需频繁切换应用。
- - 手机直播应用：主播在直播过程中使用闪控窗展示自定义的互动面板或控制界面，方便实时操作和互动。
-    
-    
-**闪控窗和闪控球对比**
-    
- - 共同点：闪控窗和[闪控球](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball)均为一种特殊的应用辅助窗口，具备在应用主窗口和对应UIAbility退至后台后仍然可以在前台显示的能力。可以用于应用退至后台后，使用其继续显示UI。
- - 区别：      
-       显示形式不同。闪控球以小圆球的形式展现，适用于展示关键信息。闪控窗以小型窗口展示，展示区域较大，可以持续展示应用内容或提供快捷操作。
- - 闪控球只能贴边展示，闪控窗则没有此限制。
- - 闪控球模板固定，应用不能定制UI。闪控窗同样存在模板，并由系统管理并统一绘制UI，但是提供了可绘制的区域，可供应用加载指定页面内容。
-      
-    
-    
-**与闪控球联动：**
-    
-本模块可与[@ohos.window.floatingBall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball)（闪控球）联合使用。通过[floatView.bind](#floatviewbind)接口将闪控窗控制器与闪控球控制器绑定后，用户点击闪控球可展开为闪控窗，点击闪控窗左上角的缩小按钮可收起为闪控球，实现两种窗口形态的相互切换。
-    
-**全局悬浮窗和闪控窗对比**
-    
- - 共同点：全局悬浮窗和闪控窗均为一种特殊的应用辅助窗口，具备在应用主窗口和对应UIAbility退至后台后仍然可以在前台显示的能力。可以用于应用退至后台后，使用其继续显示UI。
- - 区别：      
-       全局悬浮窗由开发者管理并实现UI绘制，无统一UI及动效。
- - 闪控窗由系统管理并统一绘制UI，动效更为高端精致。
- - 闪控窗支持与[闪控球](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball)互相绑定联合使用，实现更复杂场景。
-      
-    
-    
-**起始版本：** 26.0.0
-    
-     
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/p26SRfsFQKitJdQPhZAfEQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025446Z&HW-CC-Expire=86400&HW-CC-Sign=8D43B8233D966E622E904623DD6A2F918E5E5D91B1202C4A86B0F7C895E76C3D)
-      
-      
- - 针对系统能力SystemCapability.Window.SessionManager，请先使用[canIUse()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口判断当前设备是否支持此syscap及对应接口。
- - 本模块接口仅可在Stage模型下使用。
-      
-     
-    
-    
-          
-##### 导入模块
-     
 ```text
 import { floatView } from '@kit.ArkUI';
 ```
-    
-    
-          
-##### floatView.isFloatViewEnabled
-     
+
+
+
+#### floatView.isFloatViewEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isFloatViewEnabled(): boolean
-     
+
 判断当前设备是否支持闪控窗功能。
-     
+
 **起始版本：** 26.0.0
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 当前设备是否支持闪控窗功能。true表示支持，false则表示不支持。 |
-     
-     
+
+
 **示例：**
-     
+
 ```text
 let enable: boolean = floatView.isFloatViewEnabled();
 console.info('Float view enabled is: ' + enable);
 ```
-    
-    
-          
-##### floatView.create
-     
+
+
+
+#### floatView.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 create(config: FloatViewConfiguration): Promise&lt;FloatViewController&gt;
-     
+
 创建闪控窗控制器。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | config | FloatViewConfiguration | 是 | 创建闪控窗控制器的参数。该参数以及构造该参数的context不能为null或者undefined，否则抛出401。其他参数异常情况抛出1300016。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;FloatViewController&gt; | Promise对象。返回当前创建的闪控窗控制器。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Possible cause: Call the API on unsupported device. |
 | 1300002 | This window state is abnormal. Possible cause: 1. This window context is abnormal. 2. System error, such as a null pointer, insufficient memory or a JS engine exception. |
 | 1300016 | Parameter error. Possible cause: Invalid template type. |
-     
-     
+
+
 **示例：**
-     
+
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
@@ -161,54 +157,49 @@ struct Index {
   }
 }
 ```
-    
-    
-          
-##### floatView.bind
-     
+
+
+
+#### floatView.bind
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 bind(floatViewController: FloatViewController, floatingBallController: floatingBall.FloatingBallController, floatingBallParams: floatingBall.FloatingBallParams): Promise&lt;void&gt;
-     
+
 绑定闪控窗和闪控球。需要先创建[闪控窗控制器](#floatviewcontroller)和[闪控球控制器](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball#floatingballcontroller)，且均未启动。使用Promise异步回调。
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/La8XsAGBSjWUVciGuPYp-Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025446Z&HW-CC-Expire=86400&HW-CC-Sign=9C1D21A4AABF7555CD900992D1476D4EE6059CE761425F0AC08DD482682D237B)
-       
-       
- - 绑定成功后，调用[start()](#start)或[startFloatingBall()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball#startfloatingball)均会同时创建闪控窗窗口和闪控球窗口，并触发对应窗口已注册的状态回调。但同一时刻仅展示其中一个窗口，展示顺序取决于先调用哪个控制器的启动接口。
- - 绑定成功后，用户可通过点击操作在闪控窗窗口与闪控球之间进行切换。
- - 绑定成功后，调用任一控制器的停止接口（[stop()](#stop)或[stopFloatingBall()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball#stopfloatingball)）会同时销毁闪控窗窗口和闪控球窗口，并触发对应窗口已注册的状态回调。
-       
-      
-     
-     
+
+> [!NOTE]
+> 绑定成功后，调用 start() 或 startFloatingBall() 均会同时创建闪控窗窗口和闪控球窗口，并触发对应窗口已注册的状态回调。但同一时刻仅展示其中一个窗口，展示顺序取决于先调用哪个控制器的启动接口。 绑定成功后，用户可通过点击操作在闪控窗窗口与闪控球之间进行切换。 绑定成功后，调用任一控制器的停止接口（ stop() 或 stopFloatingBall() ）会同时销毁闪控窗窗口和闪控球窗口，并触发对应窗口已注册的状态回调。
+
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **需要权限：** ohos.permission.USE_FLOAT_BALL 和 ohos.permission.FLOAT_VIEW
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | floatViewController | FloatViewController | 是 | 闪控窗控制器。 |
 | floatingBallController | floatingBall.FloatingBallController | 是 | 闪控球控制器。 |
 | floatingBallParams | floatingBall.FloatingBallParams | 是 | 闪控球参数。绑定时设置的参数会覆盖掉闪控球控制器启动时已保存的参数。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. Possible cause: The application does not have the permission required to call the API. |
@@ -216,10 +207,10 @@ bind(floatViewController: FloatViewController, floatingBallController: floatingB
 | 1300019 | Wrong parameters for operating the floating ball. Possible cause: Invalid floating ball params. |
 | 1300025 | The floating ball state does not support this operation. Possible cause: 1. The floating ball has started but not stopped yet. 2. The floating ball controller has been bound. |
 | 1300031 | The floatView state does not support this operation. Possible cause: 1. The float view has started but not stopped yet. 2. The float view controller has been bound. |
-     
-     
+
+
 **示例：**
-     
+
 ```ArkTS
 // Entry.ets
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -253,49 +244,51 @@ struct Index {
   }
 }
 ```
-    
-    
-          
-##### floatView.unbind
-     
+
+
+
+#### floatView.unbind
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unbind(floatViewController: FloatViewController, floatingBallController: floatingBall.FloatingBallController): Promise&lt;void&gt;
-     
+
 解绑闪控窗和闪控球。需要在[闪控窗控制器](#floatviewcontroller)和[闪控球控制器](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball#floatingballcontroller)均停止后才可解绑。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | floatViewController | FloatViewController | 是 | 闪控窗控制器。 |
 | floatingBallController | floatingBall.FloatingBallController | 是 | 闪控球控制器。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported on this device. Possible cause: Call api on unsupported device. |
 | 1300025 | The floating ball state does not support this operation. Possible cause: 1. The floating ball has started but not stopped yet. 2. The floatingBallController has not been bound. |
 | 1300031 | The floatView state does not support this operation. Possible cause: 1. The float view has started but not stopped yet. 2. The floatViewController has not been bound. 3. The floatViewController and the floatingBallController are not bound together. |
-     
-     
+
+
 **示例：**
-     
+
 ```ArkTS
 // Entry.ets
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -324,127 +317,135 @@ struct Index {
   }
 }
 ```
-    
-    
-          
-##### floatView.getFloatViewLimits
-     
+
+
+
+#### floatView.getFloatViewLimits
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFloatViewLimits(templateType: FloatViewTemplateType): FloatViewLimits
-     
+
 根据传入的模板类型获取对应闪控窗窗口的限制，单位为px。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | templateType | FloatViewTemplateType | 是 | 闪控窗模板类型。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | FloatViewLimits | 返回闪控窗窗口的限制，包括最大尺寸、最小尺寸和宽高比的限制范围。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Possible cause: Call the API on unsupported device. |
 | 1300002 | This window state is abnormal. Possible cause: System error, such as a null pointer, insufficient memory or a JS engine exception. |
 | 1300003 | This window manager service works abnormally. Possible cause: Internal IPC error. |
 | 1300016 | Parameter error. Possible cause: Invalid template type. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 let limits: floatView.FloatViewLimits = floatView.getFloatViewLimits(floatView.FloatViewTemplateType.ROUNDED_RECTANGLE);
 console.info('Float view limits: ' + JSON.stringify(limits));
 ```
-    
-    
-          
-##### FloatViewConfiguration
-     
+
+
+
+#### FloatViewConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 创建闪控窗控制器时需要提供的参数配置。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | context | BaseContext | 否 | 否 | 表示上下文环境。 |
 | templateType | FloatViewTemplateType | 否 | 否 | 闪控窗的模板类型。 |
-     
-    
-    
-          
-##### FloatViewController
-     
+
+
+
+
+#### FloatViewController
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控窗控制器实例。用于启动、停止闪控窗以及注册回调等操作。
-     
+
 下列API示例中都需先使用[floatView.create()](#floatviewcreate)方法获取到闪控窗控制器实例（即floatViewController），再通过此实例调用对应方法。
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-    
-    
-          
-##### [h2]setUIContext
-     
+
+
+
+#### setUIContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setUIContext(path: string, storage?: LocalStorage): Promise&lt;void&gt;
-     
+
 根据当前工程中指定的页面路径为闪控窗加载具体页面内容，通过LocalStorage传递状态属性至加载页面。使用Promise异步回调。
-     
+
 建议在闪控窗启动前使用该接口，重复调用将先销毁旧的页面内容（即UIContent）再加载新的页面内容，请谨慎使用。
-     
+
 本接口不支持加载跨包页面，若有需要请使用[setUIContextByName()](#setuicontextbyname)接口。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 要加载到窗口中的页面内容的路径，该路径需添加到工程的main_pages.json文件中。不支持相对路径写法，需与main_pages.json中的src取值保持一致。 |
 | storage | LocalStorage | 否 | 页面级UI状态存储单元，用于为加载到窗口的页面内容传递状态属性。默认值为空。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300016 | Parameter error. Possible causes: Invalid path. |
-     
-     
+
+
 **示例：**
-     
+
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -458,50 +459,52 @@ try {
   console.error(`Failed to set UI context. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]setUIContextByName
-     
+
+
+
+#### setUIContextByName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setUIContextByName(name: string, storage?: LocalStorage): Promise&lt;void&gt;
-     
+
 根据指定路由页面名称为当前窗口加载[命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)页面，通过LocalStorage传递状态属性至加载页面，使用Promise异步回调。
-     
+
 建议在闪控窗启动前使用该接口，重复调用将先销毁旧的页面内容（即UIContent）再加载新的页面内容，请谨慎使用。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 命名路由页面的名称。 |
 | storage | LocalStorage | 否 | 页面级UI状态存储单元，用于为加载到窗口的页面内容传递状态属性。默认值为空。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300016 | Parameter error. Possible causes: Invalid name. |
-     
-     
+
+
 **示例：**
-     
+
 ```ArkTS
 // Index.ets
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -526,7 +529,7 @@ struct Index {
   }
 }
 ```
-     
+
 ```ArkTS
 // Hello.ets
 export const entryName : string = 'Hello';
@@ -545,48 +548,50 @@ export struct Hello {
   }
 }
 ```
-    
-    
-          
-##### [h2]setWindowSize
-     
+
+
+
+#### setWindowSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowSize(size: window.Size): Promise&lt;void&gt;
-     
+
 设置闪控窗窗口大小。建议先调用[getFloatViewLimits](#floatviewgetfloatviewlimits)接口获取推荐的宽高范围和宽高比范围，再根据推荐值调用本接口。窗口实际大小变化可通过[onRectChange](#onrectchange)接口监听。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | size | window.Size | 是 | 表示窗口的大小。建议大小满足getFloatViewLimits接口返回的限制。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300003 | This window manager service works abnormally. Possible cause: Internal IPC error. |
 | 1300016 | Parameter error. Possible cause: The value of the size is less than or equal to 0. |
-     
-     
+
+
 **示例：**
-     
+
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
@@ -605,34 +610,36 @@ try {
   console.error(`Failed to set window size. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]start
-     
+
+
+
+#### start
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): Promise&lt;void&gt;
-     
+
 启动闪控窗窗口。接口返回不表示start流程结束，需要通过[onStateChange](#onstatechange)接口监听到STARTED回调时判断启动成功。建议在调用[setUIContext()](#setuicontext)或[setUIContextByName()](#setuicontextbyname)后调用start()。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **需要权限：** ohos.permission.FLOAT_VIEW
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. Possible cause: The application does not have the permission required to call the API. |
@@ -642,10 +649,10 @@ start(): Promise&lt;void&gt;
 | 1300031 | The float view state does not support this operation. Possible cause: The float view is stopping. |
 | 1300033 | Failed to start float view. Possible causes: 1. Start multiple float views. 2. The application does not have any foreground windows. |
 | 1300034 | This operation conflicts with other floating windows. Possible cause: App has already started floating ball or pip window. |
-     
-     
+
+
 **示例：**
-     
+
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -659,42 +666,44 @@ try {
   console.error(`Failed to start float view. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]stop
-     
+
+
+
+#### stop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
-     
+
 停止闪控窗窗口。接口返回不表示stop流程结束，需要通过[onStateChange](#onstatechange)接口监听到STOPPED回调时判断停止成功。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300003 | This window manager service works abnormally. Possible cause: Internal IPC error. |
 | 1300030 | Repeated operations on the float view. Possible cause: The float view is stopping or has already stopped. |
 | 1300031 | This operation is not supported on the float view in the current state. Possible cause: The float view window is not started. |
-     
-     
+
+
 **示例：**
-     
+
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -708,49 +717,51 @@ try {
   console.error(`Failed to stop float view. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]setFloatViewVisibilityInApp
-     
+
+
+
+#### setFloatViewVisibilityInApp
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFloatViewVisibilityInApp(isVisible: boolean): Promise&lt;void&gt;
-     
+
 设置应用在前台时闪控窗窗口是否可见。使用Promise异步回调。
-     
+
 创建闪控窗后未调用此接口前，默认其在应用处于前台时为可见状态。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isVisible | boolean | 是 | 应用在前台时闪控窗是否可见，true表示可见，false表示不可见。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300003 | This window manager service works abnormally. Possible cause: Internal IPC error. |
-     
-     
+
+
 **示例：**
-     
+
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -764,53 +775,55 @@ try {
   console.error(`Failed to set float view visibility in app. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]restoreMainWindow
-     
+
+
+
+#### restoreMainWindow
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restoreMainWindow(wantParameters?: Record<string, Object>): Promise&lt;void&gt;
-     
+
 恢复闪控窗的主窗口到前台显示。如果主窗口已处于前台时调用，将抬升主窗口层级。此接口只能在闪控窗窗口被点击后使用。当主窗口处于PAUSED生命周期或处于多任务状态时，调用接口将抛出错误码1300032。使用Promise异步回调。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | wantParameters | Record<string, Object> | 否 | 恢复闪控窗的主窗口时会给主窗口传递的自定义参数，主窗口会在触发onNewWant回调时收到。默认值为空，代表不向主窗传入任何自定义参数。 |
-     
-     
+
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300003 | This window manager service works abnormally. Possible cause: Internal IPC error. |
 | 1300031 | This operation is not supported on the float view in the current state. Possible cause: The float view window is not started when restoring. |
 | 1300032 | Failed to restore the main window. Possible cause: 1. User has never clicked the float view window before restore. 2. The float view window is not in the foreground. 3. The main window is in PAUSED lifecycle state. 4. The main window is in background during recent. |
-     
-     
+
+
 **示例：**
-     
+
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let param: Record = {
+let param: Record<string, Object> = {
   "info": "helloworld",
 };
 // 闪控窗状态需是STARTED
@@ -824,41 +837,43 @@ try {
   console.error(`Failed to restore main window. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]getWindowProperties
-     
+
+
+
+#### getWindowProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowProperties(): FloatViewProperties
-     
+
 获取闪控窗窗口的属性。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **返回值：**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | FloatViewProperties | 返回闪控窗窗口的属性。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300031 | This operation is not supported on the float view in the current state. Possible cause: The float view window has not started, has stopped, or is in an error state. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 try {
   let properties: floatView.FloatViewProperties | undefined = this.floatViewController?.getWindowProperties();
   console.info('Float view properties: ' + JSON.stringify(properties));
@@ -866,41 +881,43 @@ try {
   console.error(`Failed to get window properties. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]onStateChange
-     
+
+
+
+#### onStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onStateChange(callback: Callback&lt;FloatViewStateChangeInfo&gt;): void
-     
+
 注册闪控窗状态变化的监听事件。不再使用时，取消监听以避免内存泄漏。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;FloatViewStateChangeInfo&gt; | 是 | 回调函数。返回当前的闪控窗状态变化信息。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300030 | Repeated operations on the float view. Possible cause: The callback has already registered. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 let onStateChange = (info: floatView.FloatViewStateChangeInfo) => {
   console.info('Float view stateChange: ' + JSON.stringify(info));
 };
@@ -910,40 +927,42 @@ try {
   console.error(`Failed to on stateChange float view. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]offStateChange
-     
+
+
+
+#### offStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offStateChange(callback?: Callback&lt;FloatViewStateChangeInfo&gt;): void
-     
+
 取消闪控窗状态变化的监听事件。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;FloatViewStateChangeInfo&gt; | 否 | 回调函数。返回当前的闪控窗状态变化信息。若传入参数，则停止该监听。若未传入参数，则停止所有闪控窗状态变化的监听。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 let onStateChange = (info: floatView.FloatViewStateChangeInfo) => {
   console.info('Float view stateChange: ' + JSON.stringify(info));
 };
@@ -953,41 +972,43 @@ try {
   console.error(`Failed to off stateChange float view. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]onRectChange
-     
+
+
+
+#### onRectChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRectChange(callback: Callback&lt;FloatViewRectChangeInfo&gt;): void
-     
+
 注册闪控窗矩形区域（位置和大小）变化的监听事件。不再使用时，取消监听以避免内存泄漏。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;FloatViewRectChangeInfo&gt; | 是 | 回调函数。返回当前的闪控窗矩形区域变化信息。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300030 | Repeated operations on the float view. Possible cause: The callback has already registered. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 let onRectChange = (info: floatView.FloatViewRectChangeInfo) => {
   console.info('Float view rectChange: ' + JSON.stringify(info));
 };
@@ -997,40 +1018,42 @@ try {
   console.error(`Failed to on rectChange float view. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]offRectChange
-     
+
+
+
+#### offRectChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offRectChange(callback?: Callback&lt;FloatViewRectChangeInfo&gt;): void
-     
+
 取消闪控窗矩形区域变化的监听事件。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;FloatViewRectChangeInfo&gt; | 否 | 回调函数。返回当前的闪控窗矩形区域变化信息。若传入参数，则停止该监听。若未传入参数，则停止所有闪控窗矩形区域变化的监听。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 let onRectChange = (info: floatView.FloatViewRectChangeInfo) => {
   console.info('Float view rectChange: ' + JSON.stringify(info));
 };
@@ -1040,41 +1063,43 @@ try {
   console.error(`Failed to off rectChange float view. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]onLimitsChange
-     
+
+
+
+#### onLimitsChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onLimitsChange(callback: Callback&lt;FloatViewLimits&gt;): void
-     
+
 注册闪控窗限制变化的监听事件。当限制规格变化时（例如折叠展开导致屏幕宽度变化），触发回调并返回当前窗口模板类型的限制信息。不再使用时，取消监听以避免内存泄漏。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;FloatViewLimits&gt; | 是 | 回调函数。返回当前的闪控窗限制变化信息。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
 | 1300030 | Repeated operations on the float view. Possible cause: The callback has already registered. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 let onLimitsChange = (limits: floatView.FloatViewLimits) => {
   console.info('Float view limitsChange: ' + JSON.stringify(limits));
 };
@@ -1084,40 +1109,42 @@ try {
   console.error(`Failed to on limitsChange float view. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### [h2]offLimitsChange
-     
+
+
+
+#### offLimitsChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offLimitsChange(callback?: Callback&lt;FloatViewLimits&gt;): void
-     
+
 取消闪控窗限制变化的监听事件。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;FloatViewLimits&gt; | 否 | 回调函数。返回当前的闪控窗限制变化信息。若传入参数，则停止该监听。若未传入参数，则停止所有闪控窗限制变化的监听。 |
-     
-     
+
+
 **错误码：**
-     
+
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-     
+
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The float view controller object is null. |
-     
-     
+
+
 **示例：**
-     
-```text
+
+```json
 let onLimitsChange = (limits: floatView.FloatViewLimits) => {
   console.info('Float view limitsChange: ' + JSON.stringify(limits));
 };
@@ -1127,36 +1154,40 @@ try {
   console.error(`Failed to off limitsChange float view. Cause:${e.code}, message:${e.message}`);
 }
 ```
-    
-    
-          
-##### FloatViewTemplateType
-     
+
+
+
+#### FloatViewTemplateType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控窗模板类型的枚举。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ROUNDED_RECTANGLE | 0 | 圆角矩形。 |
-     
-    
-    
-          
-##### FloatViewProperties
-     
+
+
+
+
+#### FloatViewProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控窗窗口的属性。
-     
+
 **起始版本：** 26.0.0
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | templateType | FloatViewTemplateType | 否 | 否 | 闪控窗的模板类型。 |
@@ -1164,77 +1195,85 @@ try {
 | displayId | number | 否 | 否 | 闪控窗所在屏幕ID。 |
 | windowRect | window.Rect | 否 | 否 | 闪控窗窗口矩形区域。 |
 | windowScale | number | 否 | 否 | 闪控窗窗口缩放比例。 |
-| avoidArea | window.AvoidArea | 否 | 否 | 闪控窗内容的避让区域。          注意：          通过setUIContext()或setUIContextByName()加载的页面中，位于避让区域的组件将不响应手势事件，添加需要手势响应事件的组件时，请注意避让这些区域。 |
+| avoidArea | window.AvoidArea | 否 | 否 | 闪控窗内容的避让区域。 注意： 通过setUIContext()或setUIContextByName()加载的页面中，位于避让区域的组件将不响应手势事件，添加需要手势响应事件的组件时，请注意避让这些区域。 |
 | inSidebar | boolean | 否 | 否 | 闪控窗是否在侧边栏中。true为在侧边栏中，false为不在侧边栏中。 |
-     
-    
-    
-          
-##### RatioLimit
-     
+
+
+
+
+#### RatioLimit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控窗的宽高比限制范围。宽高比比值由窗口矩形区域的宽除以高获得。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | minRatio | number | 否 | 否 | 闪控窗的宽高比最小值。 |
 | maxRatio | number | 否 | 否 | 闪控窗的宽高比最大值。 |
-     
-    
-    
-          
-##### FloatViewLimits
-     
+
+
+
+
+#### FloatViewLimits
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控窗窗口的限制。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | minSize | window.Size | 否 | 否 | 闪控窗的最小尺寸。 |
 | maxSize | window.Size | 否 | 否 | 闪控窗的最大尺寸。 |
 | ratioLimits | Array&lt;RatioLimit&gt; | 否 | 否 | 闪控窗的宽高比限制范围。 |
-     
-    
-    
-          
-##### FloatViewStateChangeInfo
-     
+
+
+
+
+#### FloatViewStateChangeInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控窗状态变化信息。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | state | FloatViewState | 否 | 否 | 闪控窗的状态。 |
-| stopReason | string | 否 | 否 | 闪控窗停止的原因。该参数仅在状态为FloatViewState.STOPPED时有效，在其他状态下默认为空字符串。停止原因和对应含义如下：          "APP_STOP"：应用主动停止          "STOP_IN_SIDEBAR"：在侧边栏被关闭          "TITLE_BAR_STOP_CLICK"：标题栏点击关闭按钮          "DUMPSTER_STOP"：拖入垃圾桶停止          "REPLACE_STOP"：被其他闪控窗挤占          "FLOATING_BALL_STOP"：绑定状态下跟随闪控球停止          "MAIN_WINDOW_DESTROY_STOP"：context关联的主窗被销毁后停止 |
-     
-    
-    
-          
-##### FloatViewState
-     
+| stopReason | string | 否 | 否 | 闪控窗停止的原因。该参数仅在状态为FloatViewState.STOPPED时有效，在其他状态下默认为空字符串。停止原因和对应含义如下： "APP_STOP"：应用主动停止 "STOP_IN_SIDEBAR"：在侧边栏被关闭 "TITLE_BAR_STOP_CLICK"：标题栏点击关闭按钮 "DUMPSTER_STOP"：拖入垃圾桶停止 "REPLACE_STOP"：被其他闪控窗挤占 "FLOATING_BALL_STOP"：绑定状态下跟随闪控球停止 "MAIN_WINDOW_DESTROY_STOP"：context关联的主窗被销毁后停止 |
+
+
+
+
+#### FloatViewState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控窗状态的枚举。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | STARTED | 1 | 闪控窗已启动并显示。 |
@@ -1243,22 +1282,24 @@ try {
 | IN_SIDEBAR | 4 | 闪控窗在侧边栏中。 |
 | IN_FLOATING_BALL | 5 | 闪控窗切换为闪控球。 |
 | ERROR | 6 | 闪控窗发生异常。 |
-     
-    
-    
-          
-##### FloatViewRectChangeInfo
-     
+
+
+
+
+#### FloatViewRectChangeInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控窗矩形区域变化信息。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **系统能力：** SystemCapability.Window.SessionManager
-     
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | windowRect | window.Rect | 否 | 否 | 闪控窗窗口矩形区域。 |
 | windowScale | number | 否 | 否 | 闪控窗窗口缩放比例。 |
-| reason | string | 否 | 否 | 闪控窗矩形区域变化的原因。原因和对应含义如下：          "POSITION_CHANGE"：位置变化          "SIZE_CHANGE"：大小变化          "RECT_CHANGE"：位置大小同时变化 |
+| reason | string | 否 | 否 | 闪控窗矩形区域变化的原因。原因和对应含义如下： "POSITION_CHANGE"：位置变化 "SIZE_CHANGE"：大小变化 "RECT_CHANGE"：位置大小同时变化 |

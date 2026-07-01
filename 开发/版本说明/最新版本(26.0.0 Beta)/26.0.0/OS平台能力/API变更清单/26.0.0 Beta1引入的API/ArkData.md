@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkdata-7001
 
-## ArkData
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：cloudData； API声明：enum AutoSyncTriggerMode 差异内容：enum AutoSyncTriggerMode | api/@ohos.data.cloudData.d.ts |

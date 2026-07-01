@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-677
 
-## 如何实现自定义UI单选功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 实现一个单选组件，要求：①绘制指示图标，②选中项需显示高亮状态。
  
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/pgh2B1e6QyCCgQFDE8Q0oQ/zh-cn_image_0000002658914057.png?HW-CC-KV=V1&HW-CC-Date=20260701T025541Z&HW-CC-Expire=86400&HW-CC-Sign=D22E2794FE779C09A599D0EA5FDE4CF25FF684CAA34F7DA10053571AD64BF151)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/pgh2B1e6QyCCgQFDE8Q0oQ/zh-cn_image_0000002658914057.png?HW-CC-KV=V1&HW-CC-Date=20260701T041309Z&HW-CC-Expire=86400&HW-CC-Sign=0F5CAF00325564BE8A11FF5FE4A66EA6F441116C4586A81C922322B2C5A9C18F)
 
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/lNYZA2K7T2OyTwCcCkcLxg/zh-cn_image_0000002658794107.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025541Z&HW-CC-Expire=86400&HW-CC-Sign=9D14B548DE43BDCB028CCE0CA1FEA857510DCBC8D9B47B2B0813FCD11F243E88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/lNYZA2K7T2OyTwCcCkcLxg/zh-cn_image_0000002658794107.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041309Z&HW-CC-Expire=86400&HW-CC-Sign=822322B8E41BE707DD8EB83DA9EF09BFDBFC80B5A378BC3B380A863E71302C0D)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Polygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polygon)：多边形绘制组件。
 - [Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-container-stack)：堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件。
@@ -36,57 +32,57 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 采用Stack容器实现层叠布局，通过@State变量控制Polygon绘制的三角形指示图标显示与隐藏状态，结合条件渲染，实现选中时的高亮切换效果。
  
 ```text
-@Entry
-@Component
-struct RadioPage {
-  @State select: string = 'SELECT_OPTION_1'; // SELECT_OPTION_1为选项一，SELECT_OPTION_2为选项二
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">RadioPage </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">select</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'SELECT_OPTION_1'</span><span style="color: rgb(181,106,1);">; </span><em>// SELECT_OPTION_1</em><em><span style="color: rgb(128,128,128);">为选项一，</span><span style="color: rgb(128,128,128);">SELECT_OPTION_2</span><span style="color: rgb(128,128,128);">为选项二</span></em>
 
-  @Builder
-  commonUI(selectValue:string,imageUrl:string,context:string) {
-    Stack() {
-      Row() {
-        Image($r(imageUrl))
-          .width(40)
-          .height(40)
-        Text(context)
-      }
-      .width(150)
-      .padding(5)
-      .borderRadius(5)
-      .border({ width: 1, color: this.select === selectValue ? '#ff5892de' : '#ffc4cac7' }) // 根据select变量判断选中的border颜色
-      .backgroundColor(this.select === selectValue? '#ff5892de' : '#ffc4cac7') // 根据select变量判断选中的backgroundColor颜色
-      .justifyContent(FlexAlign.Center)
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">commonUI</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">selectValue</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,255,255);">imageUrl</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">imageUrl</span><span style="color: rgb(255,0,170);">))</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">40</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">context</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">150</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">select </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">selectValue </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#ff5892de' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#ffc4cac7' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">select</span><span style="color: rgb(128,128,128);">变量判断选中的</span><span style="color: rgb(128,128,128);">border</span><span style="color: rgb(128,128,128);">颜色</span></em>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">select </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">selectValue</span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(132,63,161);">'#ff5892de' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#ffc4cac7'</span><span style="color: rgb(255,0,170);">) </span><em>// </em><em><span style="color: rgb(128,128,128);">根据</span><span style="color: rgb(128,128,128);">select</span><span style="color: rgb(128,128,128);">变量判断选中的</span><span style="color: rgb(128,128,128);">backgroundColor</span><span style="color: rgb(128,128,128);">颜色</span></em>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
 
-      if (this.select === selectValue) {
-        // 三角形指示图标
-        Polygon({ width: 20, height: 20 })
-          .points([[10, 10], [15, 0], [20, 10]])
-          .fill('#ff5892de')
-          .position({ top: -10, left: 10 })
-      }
-    }
-    .onClick(() => {
-      this.select = selectValue;
-    })
-  }
+      if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">select </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">selectValue</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">三角形指示图标</span></em>
+        <span style="color: rgb(0,0,255);">Polygon</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">points</span><span style="color: rgb(255,0,170);">([[</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">15</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">]])</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fill</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'#ff5892de'</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">position</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">10 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">    }</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">select </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">selectValue</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Flex({ justifyContent: FlexAlign.SpaceBetween }) {
-        // 选项一
-        this.commonUI('SELECT_OPTION_1','app.media.startIcon','选项一');
-        // 选项二
-        this.commonUI('SELECT_OPTION_2','app.media.startIcon','选项二');
-      }
-      .padding(10)
-      .height(100)
-      .width('100%')
-    }
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">justifyContent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SpaceBetween </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">选项一</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">commonUI</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'SELECT_OPTION_1'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">选项一</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+     <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">选项二</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">commonUI</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'SELECT_OPTION_2'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'app.media.startIcon'</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">选项二</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

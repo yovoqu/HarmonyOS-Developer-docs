@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-jsvm-8
 
-## NDK调用Native方法异常闪退
- 
-
-
-##### 问题现象
+#### 问题现象
 
 NDK工程中，调用Native方法报异常。
  
@@ -27,7 +23,8 @@ TypeError: Cannot read property add of undefined
 xxx.so: __fd_chk: symbol not found
 ```
  或者：
- 
+
+  
 ```text
 xxx: Symbol not found
 ```
@@ -36,7 +33,7 @@ xxx: Symbol not found
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [使用命令行CMake构建NDK工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-cmake)：在Linux/MAC环境，使用命令行构建库。
 - [使用Node-API跨语言调用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-napi-interaction-with-cpp)：ArkTS和Native C++跨语言调用的规范和指导。
@@ -45,7 +42,7 @@ xxx: Symbol not found
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 根据缺失的符号，查看对应的SO是否被打包到HAP中正确的路径下，并且该符号在SO中对外可见。
 - 查看对应的SO是否存在其他依赖库，依赖库是否正确引入。
@@ -57,7 +54,7 @@ xxx: Symbol not found
  
  
 
-##### 分析结论
+#### 分析结论
 
 可能导致问题的原因为：
  
@@ -70,7 +67,7 @@ xxx: Symbol not found
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 修改代码，确保未使用被禁止的方法。
 - 使用HarmonyOS工具链编译库及其依赖的库，确认需要调用的接口对外可见。
@@ -80,7 +77,7 @@ xxx: Symbol not found
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Native引用libusb_ndk.z.so或者libusb_serial_ndk.z.so，运行后闪退，这是什么原因导致的？
  

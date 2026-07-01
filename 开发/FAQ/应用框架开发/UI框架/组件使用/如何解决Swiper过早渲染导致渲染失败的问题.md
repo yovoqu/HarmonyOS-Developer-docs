@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1447
 
-## 如何解决Swiper过早渲染导致渲染失败的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Swiper组件中，在aboutToAppear回调中调用接口方法获取图片资源，Swiper组件却无法显示图片，如何解决这种情况下Swiper渲染失败问题？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/L6EWM-OgTNmdWmEZmXyVDg/zh-cn_image_0000002658963479.png?HW-CC-KV=V1&HW-CC-Date=20260701T025616Z&HW-CC-Expire=86400&HW-CC-Sign=26DC2841E68274360AAF9E550EF99086BD90BB58042E3668723B473ABACF00EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/L6EWM-OgTNmdWmEZmXyVDg/zh-cn_image_0000002658963479.png?HW-CC-KV=V1&HW-CC-Date=20260701T041315Z&HW-CC-Expire=86400&HW-CC-Sign=F3E0AC0AEC655CA03A6AD313258BCE35C40971790A3FC106429A58EFEBDA92A0)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)组件是滑块视图容器，能够提供给子组件滑动轮播显示的能力。[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)函数在创建自定义组件的新实例后，在执行其build函数之前执行。
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过请求数据创建页面时，存在加载网络资源等场景，由于网速等一些条件限制，可能出现数据接收晚于页面渲染完成的情况，导致页面没有渲染对象从而显示空白。
  
@@ -62,13 +58,27 @@ class MySpecialDataSourceTwo implements IDataSource {
 struct SwiperPrematureRendering {
   private swiperController: SwiperController = new SwiperController();
   @State data: MySpecialDataSourceTwo = new MySpecialDataSourceTwo([]);
-  @State isShow: boolean = false; // 设置一个标志位状态用来控制轮播图组件的显隐
+  @State isShow: boolean = false; <em>// 设置一个标志位状态用来控制轮播图组件的显隐</em>
 
   aboutToAppear(): void {
-    // 模拟网络请求获取轮播图数据
+   <em> // 模拟网络请求获取轮播图数据</em>
     setTimeout(() => {
       let list: number[] = [];
-      for (let i = 1; i  {
+      for (let i = 1; i <= 10; i++) {
+        list.push(i);
+      }
+      this.data = new MySpecialDataSourceTwo(list);
+      this.isShow = true;
+    }, 3000);
+
+  }
+
+  build() {
+    Column({ space: 5 }) {
+      if (this.isShow) {
+        Column() {
+          Swiper(this.swiperController) {
+            LazyForEach(this.data, (item: string) => {
               Text(item.toString())
                 .width('90%')
                 .height(160)

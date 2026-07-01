@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-109
 
-## 使用connection.setAppHttpProxy设置代理后如何取消代理
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用connection.setAppHttpProxy设置代理后，如何才能取消代理？没有在官方文档中看到可以取消代理的接口。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [connection.setAppHttpProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectionsetapphttpproxy11)设置应用级http代理配置信息。
 - [connection.getDefaultHttpProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetdefaulthttpproxy10)获取网络默认的代理配置信息。如果设置了全局代理，则会返回全局代理配置信息。如果进程使用setAppNet绑定到指定[NetHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#nethandle)对应的网络，则返回[NetHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#nethandle)对应网络的代理配置信息。在其它情况下，将返回默认网络的代理配置信息。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方案一：使用[connection.setAppHttpProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectionsetapphttpproxy11)设置空代理配置：通过将host设为空字符串、port设为0，并将exclusionList置为空列表。
 - 方案二：通过[connection.getDefaultHttpProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetdefaulthttpproxy10)获取到默认网络的代理配置信息，然后通过[connection.setAppHttpProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectionsetapphttpproxy11)重新设置为默认配置。
@@ -30,7 +26,7 @@
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何获取设备当前的代理列表？
  

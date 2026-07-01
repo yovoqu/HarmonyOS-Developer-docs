@@ -4,37 +4,33 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-push-11
 
-## HarmonyOS 3.x/4.x已接入过华为推送，HarmonyOS Next/5.x及以上版本应用如何升级适配
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS 3.x/4.x已接入过[推送服务（Push Kit）](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/service-introduction-0000001050040060)，现在需要给HarmonyOS Next/5.x及之后的系统版本推送通知，应用需要如何升级适配。
  
  
 
-##### 背景知识
+#### 背景知识
 
 HarmonyOS 3.x/4.x应用适配HarmonyOS Next/5.x需要在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)上创建不同APP ID的应用，创建流程可参考官网[创建HarmonyOS应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-create-app-0000002247955506)。
  
 HarmonyOS Next/5.x接入[Push Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-kit-introduction)，开发流程按客户端和服务端可分为以下几个步骤。
  
-- 客户端：
-[开通推送服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-config-setting)。
-- [申请通知消息自分类权益](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#section16708911111611)。
-- [Push Token获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-get-token)与[场景化消息推送](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-scenes)。
+- 客户端：1. [开通推送服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-config-setting)。
 
- - 服务端：
-[基于服务账号生成鉴权令牌](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-jwt-token)。
-- [调用REST API推送场景化消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-scenes-send)。
-- [开发消息回执](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-msg-receipt)。
+2. [申请通知消息自分类权益](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#section16708911111611)。
+
+3. [Push Token获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-get-token)与[场景化消息推送](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-scenes)。
+- 服务端：1. [基于服务账号生成鉴权令牌](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-jwt-token)。
+
+2. [调用REST API推送场景化消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-scenes-send)。
+
+3. [开发消息回执](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-msg-receipt)。
 
  
  
- 
 
-##### 解决方案
+#### 解决方案
 
 HarmonyOS Next/5.x应用升级适配Push Kit流程按客户端和服务端差异点主要在以下几个方面。
  
@@ -54,13 +50,13 @@ HarmonyOS Next/5.x应用升级适配Push Kit流程按客户端和服务端差异
  
  
 
-##### 总结
+#### 总结
 
 HarmonyOS 3.x/4.x与HarmonyOS Next/5.x客户端和服务端Push Kit接入均存在差异，如果您的项目之前已经基于HarmonyOS 3.x/4.x的系统接入过Push Kit，仍然需要按照HarmonyOS Next/5.x[开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-gettingstart#section65812095297)重新进行开发客户端和服务端。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：HarmonyOS 3.x/4.x和HarmonyOS Next/5.x使用的AppGallery Connect账号是同一个吗，Push kit接入时使用的基于服务账号生成的鉴权令牌是账号级别的还是项目级别？
  

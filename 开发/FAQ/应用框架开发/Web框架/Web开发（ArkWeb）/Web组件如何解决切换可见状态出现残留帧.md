@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-161
 
-## Web组件如何解决切换可见状态出现残留帧
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当复用同一个WebviewController，Web组件切换到不可见状态时，通过loadUrl加载新的网页后再切换到可见状态，会出现上一个页面的残留帧。
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/PaBfSx7qTseR0oT7pj6esw/zh-cn_image_0000002659258387.png?HW-CC-KV=V1&HW-CC-Date=20260701T025742Z&HW-CC-Expire=86400&HW-CC-Sign=FFE40EBE9D1817B00E99B794FAEF3340A7797388AFD373A7918C7016F2992DBC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/PaBfSx7qTseR0oT7pj6esw/zh-cn_image_0000002659258387.png?HW-CC-KV=V1&HW-CC-Date=20260701T041337Z&HW-CC-Expire=86400&HW-CC-Sign=E704864FB55EA5407AB16234F729BC8B0AAA9445A9AF8BB3672CEDD6254AEAE7)
 
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/6ItruIUITBS63i4yUYBFSQ/zh-cn_image_0000002659138433.png?HW-CC-KV=V1&HW-CC-Date=20260701T025742Z&HW-CC-Expire=86400&HW-CC-Sign=74011C7FF572FC4895BF2D6732E9CE8642EF928B1C76A410BAD6E0F4E1C86A72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/6ItruIUITBS63i4yUYBFSQ/zh-cn_image_0000002659138433.png?HW-CC-KV=V1&HW-CC-Date=20260701T041337Z&HW-CC-Expire=86400&HW-CC-Sign=0ADAAFE23AD1067B52AD7D5D16DBDADE1C91ADDDBAA580044C3EFA62CD4D78E6)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onInactive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#oninactive)：调用此接口通知Web组件进入未激活状态。开发者可以在此回调中实现应用失去焦点时应表现的恰当行为。
 - [onActive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#onactive)：调用此接口通知Web组件进入前台激活状态。
@@ -37,7 +33,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 该问题主要由于Web组件在不可见到可见状态切换时，存在之前Web页面的残留帧导致的。可参考以下方案解决：
  
@@ -98,14 +94,14 @@ struct WebPages {
 @Component
 export struct TabOne {
   @State webviewController: webview.WebviewController = new webview.WebviewController();
-  // 用户标识
+  <em>// 用户标识</em>
   @StorageProp('userInfo') userInfo: string = '';
-  // 监听用户登录及退出操作
+ <em> // 监听用户登录及退出操作</em>
   @StorageProp('isLogged') @Watch('isLoggedChange') isLogged: boolean = false;
   loadNewUrl: () => void = () => {
-    // 通过loadUrl加载网页前，将Web组件设置为onActive状态
+  <em>  // 通过loadUrl加载网页前，将Web组件设置为onActive状态</em>
     this.webviewController.onActive();
-    // 此处地址实际使用过程中替换为三个不同的真实地址
+  <em>  // 此处地址实际使用过程中替换为三个不同的真实地址</em>
     if (this.userInfo === '1') {
       this.webviewController.loadUrl('xx.xx.xx');
     } else if (this.userInfo === '2') {
@@ -116,13 +112,13 @@ export struct TabOne {
   };
 
   aboutToAppear(): void {
-    // 订阅网页加载事件，其它Tab页面会通知加载网页
+  <em>  // 订阅网页加载事件，其它Tab页面会通知加载网页</em>
     emitter.on('loadUrl', this.loadNewUrl);
   }
 
   isLoggedChange() {
     if (!this.isLogged) {
-      // 当用户退出时，将Web组件设置为onActive状态后加载空URL
+     <em> // 当用户退出时，将Web组件设置为onActive状态后加载空URL</em>
       this.webviewController.onActive();
       this.webviewController.loadUrl('about:blank');
     }
@@ -133,7 +129,7 @@ export struct TabOne {
   }
 
   getSrc() {
-    // 此处地址实际使用过程中替换为三个不同的真实地址
+  <em>  // 此处地址实际使用过程中替换为三个不同的真实地址</em>
     let src = 'xx.xx.xx';
     if (this.userInfo === '1') {
       src = 'xx.xx.xx';
@@ -149,7 +145,7 @@ export struct TabOne {
       controller: this.webviewController
     })
       .onPageEnd((event) => {
-        // Web组件在后台时若一直保持onActive状态，可能会对功耗有影响。此处判断加载的URL，当加载空URL完成时将Web组件设置回onInactive状态
+      <em>  // Web组件在后台时若一直保持onActive状态，可能会对功耗有影响。此处判断加载的URL，当加载空URL完成时将Web组件设置回onInactive状态</em>
         if (event.url == 'about:blank') {
           this.webviewController.onInactive();
         }
@@ -172,7 +168,7 @@ export struct TabTwo {
       Text(`当前登录状态：${this.isLogged ? '已登录' : '未登录'}`);
       Text(`当前用户：${this.userInfo}`);
 
-      // 模拟用户登录退出操作
+     <em> // 模拟用户登录退出操作</em>
       Button('登录用户1 网页1')
         .onClick(() => {
           AppStorage.setOrCreate('isLogged', true);
@@ -204,8 +200,5 @@ export struct TabTwo {
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/5ctwPaAgTT2m_uRdeecOtA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025742Z&HW-CC-Expire=86400&HW-CC-Sign=01E67FDE9BAE51C6461B8AAF99FE4C6D5C318539591F7CEF6FA84470DDDB5F82)
- 
-
-访问在线网页时需添加网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+> [!NOTE]
+> 访问在线网页时需添加网络权限： ohos.permission.INTERNET ，具体申请方式请参考 声明权限 。

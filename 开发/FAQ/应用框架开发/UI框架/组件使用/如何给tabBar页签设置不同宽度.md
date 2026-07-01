@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-580
 
-## 如何给tabBar页签设置不同宽度
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在设计Tabs页签时，如何设置每个Tabs页签的宽度？
  
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/-4VeN3R8QxKm-mTI5JaxVQ/zh-cn_image_0000002658791765.png?HW-CC-KV=V1&HW-CC-Date=20260701T025537Z&HW-CC-Expire=86400&HW-CC-Sign=54FEF2A90BF820F66B1D2490A8FBE4E3EBD94384ACD2E33D359123649DFC7F41)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/-4VeN3R8QxKm-mTI5JaxVQ/zh-cn_image_0000002658791765.png?HW-CC-KV=V1&HW-CC-Date=20260701T041312Z&HW-CC-Expire=86400&HW-CC-Sign=210C3BE1DCBF800A8F7E5BE7972C0D2D9F68D1D5C1B606DA6AA7E9400A95E8BA)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。切换的页面由其子组件[TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)组成，通过在TabContent组件上绑定[tabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar)属性，实现切换的页签。
 - [barMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barmode10)：该属性可设置tabBar布局模式，默认为BarMode.Fixed（均分）。
@@ -32,17 +28,18 @@ BarMode.Fixed：所有tabBar会平均分配[barWidth](https://developer.huawei.c
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：barMode设置为BarMode.Scrollable可滚动模式，使tabBar的宽度可以根据实际宽度显示。以CustomBuilder为例：创建CustomBuilder时，由于每一个页签的宽度都可能不一样，所以可以采用传参的方式，创建每一个页签时都传入不同的宽度。本次采用封装页签对象的方式实现，示例代码如下：
- 
+
+  
 ```text
-// 封装页签属性为类
+<em>// 封装页签属性为类</em>
 class TabMember {
-  tabContent: string = ''; // 页面内容
-  tabBar: string = ''; // 页签内容
-  tabBarWidth: number = 0; // 页签宽度
-  tabBarHeight: number = 0; // 页签高度
+  tabContent: string = ''; <em>// 页面内容</em>
+  tabBar: string = ''; <em>// 页签内容</em>
+  tabBarWidth: number = 0; <em>// 页签宽度</em>
+  tabBarHeight: number = 0; <em>// 页签高度</em>
 
   constructor(tabContent: string, tabBar: string, tabBarWidth: number, tabBarHeight: number) {
     this.tabContent = tabContent;
@@ -62,7 +59,7 @@ struct TabContentExample {
     new TabMember('页面三', 'tab3', 140, 40), new TabMember('页面四', 'tab4', 100, 40),
     new TabMember('页面五', 'tab5', 200, 40)];
 
-  // 创建CustomBuilder，并传入页签的各种属性，此处封装为TabMember类
+  <em>// 创建CustomBuilder，并传入页签的各种属性，此处封装为TabMember类</em>
   @Builder
   tabBuilder(index: number, item: TabMember) {
     Column() {
@@ -73,8 +70,8 @@ struct TabContentExample {
     .justifyContent(FlexAlign.Center)
     .border({ width: 1 })
     .backgroundColor(this.selectedIndex === index ? '#46B1E3' : '#F1F3F5')
-    .width(item.tabBarWidth) // 宽度赋值
-    .height(item.tabBarHeight); // 高度赋值
+    .width(item.tabBarWidth) <em>// 宽度赋值</em>
+    .height(item.tabBarHeight); <em>// 高度赋值</em>
   }
 
   build() {
@@ -94,7 +91,7 @@ struct TabContentExample {
       .barMode(BarMode.Scrollable)
       .barHeight(56)
       .onChange((index: number) => {
-        // currentIndex控制TabContent显示页签
+        <em>// currentIndex控制TabContent显示页签</em>
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -102,7 +99,7 @@ struct TabContentExample {
         if (index === targetIndex) {
           return;
         }
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+        <em>// selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
         this.selectedIndex = targetIndex;
       })
       .width('100%')
@@ -114,10 +111,9 @@ struct TabContentExample {
 }
 ```
  
+> [!NOTE]
+> 该方案必须在滚动模式BarMode.Scrollable下才适用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/mldxhAKdT0i6ll86FdHraA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025537Z&HW-CC-Expire=86400&HW-CC-Sign=A690A4501AA01C32C98B3B2A67E2C0827C52D9A328BB038910BEBD60A7155DE9)
- 
-该方案必须在滚动模式BarMode.Scrollable下才适用。
 - **方案二**：采用自定义的方式，实现tabBar和TabContent解耦。
 
  
@@ -125,6 +121,6 @@ struct TabContentExample {
  
  
 
-##### 总结
+#### 总结
 
 在使用官方提供的tabBar属性时，想要实现宽高的设置，必须要设置tabBar滚动模式。若不使用官方API可以tabBar和TabContent解耦，自定义实现tabBar页签。

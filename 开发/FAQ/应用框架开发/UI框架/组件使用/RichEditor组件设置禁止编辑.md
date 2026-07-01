@@ -4,34 +4,31 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-631
 
-## RichEditor组件设置禁止编辑
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现RichEditor组件禁止编辑态？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/3fNtKn6_TYGEpI1eOsILBw/zh-cn_image_0000002658913491.png?HW-CC-KV=V1&HW-CC-Date=20260701T025539Z&HW-CC-Expire=86400&HW-CC-Sign=9E266F6FCC8E0E67F81052BCF833E43DD656906370025008B3C5299B72F6CA74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/3fNtKn6_TYGEpI1eOsILBw/zh-cn_image_0000002658913491.png?HW-CC-KV=V1&HW-CC-Date=20260701T041246Z&HW-CC-Expire=86400&HW-CC-Sign=48EE54DF71EFBE11652CA84BA971C82EB3B096603235A6BC6421E4A5C50FACDA)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)是支持图文混排和文本交互式编辑的组件。[customKeyboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#customkeyboard)属性可设置自定义键盘。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：RichEditor没有禁止文本编辑的属性，可使用customKeyboard属性绑定一个空白的自定义键盘来代替系统键盘，实现禁止编辑的功能。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -65,7 +62,7 @@ struct RichEditorDemo {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：RichEditor菜单怎么禁止剪切和粘贴？
  
@@ -80,7 +77,7 @@ struct Faq {
     Column() {
       RichEditor({ controller: this.controller })
         .editMenuOptions({
-          onCreateMenu: (menuItems: Array) => {
+          onCreateMenu: (menuItems: Array<TextMenuItem>) => {
             let menus = menuItems.filter((item: TextMenuItem) => {
               return !item.id.equals(TextMenuItemId.PASTE) && !item.id.equals(TextMenuItemId.of('OH_DEFAULT_PASTE'))
                 && !item.id.equals(TextMenuItemId.CUT) && !item.id.equals(TextMenuItemId.of('OH_DEFAULT_CUT'));

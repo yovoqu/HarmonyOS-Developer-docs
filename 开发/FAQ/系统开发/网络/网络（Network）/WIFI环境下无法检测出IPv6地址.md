@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-106
 
-## WIFI环境下无法检测出IPv6地址
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在WIFI环境下，WIFI设置页面显示已经分配了IPv6相关的地址，但是使用测试网站无法检测出IPv6地址。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 获取网络的连接信息：[getConnectionPropertiesSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetconnectionpropertiessync10)接口。
 - 网络地址[NetAddress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#netaddress)中的属性family=2代表IPv6，family=1代表IPv4。
@@ -28,7 +24,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 - HarmonyOS具备IPv6的能力，无法检测出IPv6地址需要检查公网上的IPv6分配。
 - 有本地IPv6地址，但是没有公网IPv6，通常无法通过IPv6的网络检测。
@@ -38,13 +34,13 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 基于以上定位，使用NetAddress类获取当前网络的地址信息，可以使用NetAddress类的family属性判定IP地址的版本，family属性的值为1表示IPv4，为2表示IPv6。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 使用NetAddress类获取当前网络的地址信息，NetAddress类的family属性用于指定IP地址的版本，family属性的值为1表示IPv4，为2表示IPv6。参考代码如下：
 ```text
@@ -61,7 +57,7 @@ struct Index {
     RelativeContainer() {
       Button(this.message)
         .id('click')
-        .fontSize(\$r('app.float.page_text_font_size'))
+        .fontSize($r('app.float.page_text_font_size'))
         .fontWeight(FontWeight.Bold)
         .alignRules({
           center: { anchor: '__container__', align: VerticalAlign.Center },
@@ -84,8 +80,32 @@ struct Index {
       if (connectionproperties !== undefined) {
         let arr_linkAddresses = connectionproperties.linkAddresses;
         if (arr_linkAddresses !== undefined && arr_linkAddresses instanceof Array && arr_linkAddresses.length > 0) {
-          for (let i = 0; i 
-##### 常见FAQ
+          for (let i = 0; i < arr_linkAddresses.length; i++) {
+            let address: connection.NetAddress = arr_linkAddresses[i].address;
+            if (address !== undefined) {
+              console.warn('log debug : address = ', `${address}`);
+              if (address.family === 1) {
+                console.warn('log debug : address is ipv4');
+              } else if (address.family === 2) {
+                console.warn('log debug : address is ipv6');
+              }
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.error(`Get exception: ${e}`);
+    }
+  }
+}
+```
+
+- 使用浏览器访问在线网址测试。
+
+ 
+ 
+
+#### 常见FAQ
 
 Q：手机和电脑连接同一WIFI网络，使用各自的浏览器访问“XXXXIPv6”测试网址，电脑IPv6检测是正常的，但是手机识别不到IPv6地址。这是什么原因？
  

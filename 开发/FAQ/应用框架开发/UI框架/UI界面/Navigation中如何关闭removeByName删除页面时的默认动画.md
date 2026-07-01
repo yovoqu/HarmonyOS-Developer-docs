@@ -4,29 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-776
 
-## Navigation中如何关闭removeByName删除页面时的默认动画
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Navigation中使用removeByName删除页面时存在从底部滑出的动画，API文档上未提供关闭动画的参数，如何关闭该动画？
  
 目前效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/gMZ2ZD-yTxC_gXoSh8RnrA/zh-cn_image_0000002658915025.png?HW-CC-KV=V1&HW-CC-Date=20260701T025705Z&HW-CC-Expire=86400&HW-CC-Sign=2405DF1ADE6B5AFB29B8FA166DCCF936FA09FB0B0B976EB0225015B1D12E631E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/gMZ2ZD-yTxC_gXoSh8RnrA/zh-cn_image_0000002658915025.png?HW-CC-KV=V1&HW-CC-Date=20260701T041140Z&HW-CC-Expire=86400&HW-CC-Sign=1AFB8E4799BB7813DE47ACB8B5668E82CC3AE8A47001DA097A6B4F42D9C3BA14)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [customNavContentTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#customnavcontenttransition11)：设置Navigation自定义转场动画，通过返回的from、to得到退场/进场Destination的页面，其中也包括NavDestination名称、序号等信息，可以区分不同的NavDestination页面。
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以通过[customNavContentTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#customnavcontenttransition11)设置自定义转场动画，设置退场时无动画实现关闭removeByName的默认动画，如：
  
@@ -61,12 +57,12 @@ struct Index {
       .width('100%')
       .height('100%');
     }
-    // 设置自定义转场动画
+    <em>// 设置自定义转场动画</em>
     .customNavContentTransition((from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => {
       console.info(`current info: ${to.name}, index: ${to.index}, mode: ${to.mode}`);
       console.info(`pre info: ${from.name}, index: ${from.index}, mode: ${from.mode}`);
       console.info(`operation: ${operation}`);
-      // 通过name区分具体的页面
+    <em>  // 通过name区分具体的页面</em>
       if (from.name == 'SubPage' && this.flag === true) {
         this.flag = false;
         let customAnimation: NavigationAnimatedTransition = {
@@ -74,11 +70,11 @@ struct Index {
             console.info(`current transition result is ${isSuccess}`);
           },
           timeout: 100,
-          // 转场开始时系统调用该方法，并传入转场上下文代理对象
+          <em>// 转场开始时系统调用该方法，并传入转场上下文代理对象</em>
           transition: () => {
             if (operation == NavigationOperation.POP) {
               this.getUIContext().animateTo({
-                duration: 0, // 持续时间设置为0
+                duration: 0, <em>// 持续时间设置为0</em>
               }, () => {
               });
             }
@@ -112,7 +108,7 @@ struct SubPage {
         Button('removeByName当前页面')
           .onClick(() => {
             let eventhub = this.getUIContext().getHostContext()?.eventHub;
-            // 通过eventHub设置removeByName的区分标志区分removeByName和页面返回事件
+          <em>  // 通过eventHub设置removeByName的区分标志区分removeByName和页面返回事件</em>
             eventhub!.emit('removeByNameEvent');
             this.pathStack.removeByName('SubPage');
           });

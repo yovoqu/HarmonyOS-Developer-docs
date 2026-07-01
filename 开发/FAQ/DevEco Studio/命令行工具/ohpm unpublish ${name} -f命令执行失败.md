@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-29
 
-## ohpm unpublish ${name} -f命令执行失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 执行命令“ohpm unpublish ${name} -f”下架三方库失败，异常信息：
  
@@ -18,12 +14,12 @@ ERROR: Unpublish failed, detail: The "Unpublish" request to url "https://ohom.op
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/tRwq0h5kSzi_NeQAeNXNbQ/zh-cn_image_0000002658928949.png?HW-CC-KV=V1&HW-CC-Date=20260701T025925Z&HW-CC-Expire=86400&HW-CC-Sign=5456B2DFCA4592CDD45A65EA1AD1068DC1576AB53B9F10EBED43C5CE26D51B93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/tRwq0h5kSzi_NeQAeNXNbQ/zh-cn_image_0000002658928949.png?HW-CC-KV=V1&HW-CC-Date=20260701T041006Z&HW-CC-Expire=86400&HW-CC-Sign=59B929A041352E8AAF1CD7CDB0D90A5A41C7B88EBF517B7B54C3163FE165E8A9)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [ohpm unpublish](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-unpublish)：下架已发布的三方库。
 - [命令格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-unpublish#zh-cn_topic_0000001745217274_命令格式)：ohpm unpublish [options] [<@group>]&lt;pkg&gt;[@&lt;version&gt;]。
@@ -37,7 +33,7 @@ ERROR: Unpublish failed, detail: The "Unpublish" request to url "https://ohom.op
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 由异常描述可知，下架失败的原因为被其他三方库依赖。
 - 进入想要被下架的三方库的OpenHarmony三方库中心仓主页，在“被依赖”页签，可以看到有其他三方库依赖该三方库。
@@ -47,18 +43,18 @@ ERROR: Unpublish failed, detail: The "Unpublish" request to url "https://ohom.op
  
  
 
-##### 分析结论
+#### 分析结论
 
 unpublish命令执行失败原因在于还有依赖关系未删除。
  
  
 
-##### 修改建议
+#### 修改建议
 
 下架三方库，先根据“被依赖”页签递归删除被依赖项中的依赖关系，再执行对目标三方库的下架操作。
  
  
 
-##### 总结
+#### 总结
 
 unpublish命令不会直接下架目标三方库，避免因为依赖关系导致其他的库也不可用，若有依赖关系则无法被删除，会打上deprecated的标签。

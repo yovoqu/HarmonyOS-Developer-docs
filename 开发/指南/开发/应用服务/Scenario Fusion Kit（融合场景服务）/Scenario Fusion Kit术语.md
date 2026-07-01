@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-glossary
 
-## Scenario Fusion Kit术语
- 
- 
-
-##### M
+#### M
 
 **Matched suggestion；匹配推荐**
  
@@ -16,7 +12,7 @@
  
   
 
-##### P
+#### P
 
 **Proactive suggestion；主动推荐**
  

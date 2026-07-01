@@ -4,21 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-798
 
-## 如何控制Image组件的点击响应区域
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Image组件展示图片时，发现了如下问题：
- 
-- 如何扩大Image组件的有效触控面积？
-- 对于视觉面积远小于点击区域的Image组件，如何将点击事件限制在固定区域内触发？
-
+ 1. 如何扩大Image组件的有效触控面积？
+2. 对于视觉面积远小于点击区域的Image组件，如何将点击事件限制在固定区域内触发？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)：图片组件，常用于在应用中显示图片。
 - [responseRegion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-touch-target#responseregion)：设置一个或多个触摸热区。
@@ -26,7 +20,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 针对问题一：通过配置responseRegion中[Rectangle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-touch-target#rectangle对象说明)对象的width和height属性，可调整组件的点击区域范围，其实际响应区域为width和height所定义的矩形范围。当width或height设置为100%时，响应区域将恢复为组件原有的默认区域。
  
@@ -38,7 +32,7 @@
 struct Index1 {
   build() {
     Column() {
-      // 本地资源，使用时自行替换
+      <em>// 本地资源，使用时自行替换</em>
       Image($r('app.media.startIcon'))
         .width(150)
         .height(150)
@@ -73,7 +67,7 @@ struct Index1 {
 struct Index3 {
   build() {
     Stack() {
-      // 本地资源，使用时自行替换
+     <em> // 本地资源，使用时自行替换</em>
       Image($r('app.media.startIcon'))
         .width('300')
         .height('300')
@@ -84,7 +78,7 @@ struct Index3 {
       .height('280')
       .justifyContent(FlexAlign.Center)
       .backgroundColor(Color.Gray)
-      .opacity(0.5) //实际使用可以把不透明度降为0
+      .opacity(0.5) <em>//实际使用可以把不透明度降为0</em>
       .onClick(() => {
         this.getUIContext().getPromptAction().showToast({
           message: '已触发'

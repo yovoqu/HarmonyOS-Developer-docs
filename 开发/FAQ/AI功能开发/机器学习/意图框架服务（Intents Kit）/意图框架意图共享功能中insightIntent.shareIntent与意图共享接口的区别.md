@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-intents-kit-3
 
-## 意图框架意图共享功能中insightIntent.shareIntent与意图共享接口的区别
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS意图共享功能，什么时候用自带的API:insightIntent.shareIntent，什么时候用意图共享接口？二者有什么区别？
  
  
 
-##### 解决方案
+#### 解决方案
 
 功能范围：insightIntent.shareIntent是一个系统级的API，用于应用与系统之间的数据共享，而意图共享接口作为云侧接口更侧重于应用或服务内部的数据交换。
  

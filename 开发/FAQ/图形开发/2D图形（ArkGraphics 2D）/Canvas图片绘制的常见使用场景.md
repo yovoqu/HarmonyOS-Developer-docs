@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-39
 
-## Canvas图片绘制的常见使用场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发者在使用Canvas进行图片绘制时，可能会遇到以下几类场景：
  
@@ -19,7 +15,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)：提供画布组件，用于自定义绘制图形，开发者使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象和[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
 - [getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#getpixelmap)：以当前Canvas指定区域内的像素创建PixelMap对象。
@@ -29,13 +25,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-- 场景一：如何在Canvas上绘制项目资源中的图片，并调整其大小以铺满整个画布？
-调用getMediaContentSync接口获取图像数据，并通过图像解码机制将其转换为PixelMap实例。
-- 利用drawImage方法将PixelMap图像绘制至Canvas画布；当图像的原始尺寸与画布尺寸完全匹配时，图像将被完整填充画布区域。
+- 场景一：如何在Canvas上绘制项目资源中的图片，并调整其大小以铺满整个画布？1. 调用getMediaContentSync接口获取图像数据，并通过图像解码机制将其转换为PixelMap实例。
 
- 
+2. 利用drawImage方法将PixelMap图像绘制至Canvas画布；当图像的原始尺寸与画布尺寸完全匹配时，图像将被完整填充画布区域。
+
+  
 ```text
 import { image } from '@kit.ImageKit';
 
@@ -49,28 +45,28 @@ export struct Index1 {
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private contextFull: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   async drawImage() {
-    // 获取媒体内容（这里是启动图标）
+    <em>// 获取媒体内容（这里是启动图标）</em>
     const fileData: Uint8Array =
       this.getUIContext().getHostContext()?.resourceManager.getMediaContentSync($r('app.media.startIcon').id) as Uint8Array;
-    // 将文件数据转换为缓冲区
+  <em>  // 将文件数据转换为缓冲区</em>
     const buffer = fileData.buffer;
-    // 创建图像源对象
+   <em> // 创建图像源对象</em>
     const imageSource: image.ImageSource = image.createImageSource(buffer);
-    // 设置解码选项
+   <em> // 设置解码选项</em>
     let opts: image.DecodingOptions = {
-      // 是否可编辑
+   <em>   // 是否可编辑</em>
       editable: true,
-      // 目标大小
+      <em>// 目标大小</em>
       desiredSize: {
         height: 400,
         width: 400
       }
     };
-    // 创建像素映射对象
+   <em> // 创建像素映射对象</em>
     const pixelMap: image.PixelMap = await imageSource.createPixelMap(opts);
-    // 完整绘制：参数对应绘制区域左上角在x/y轴的位置
+    <em>// 完整绘制：参数对应绘制区域左上角在x/y轴的位置</em>
     this.context.drawImage(pixelMap, 100, 0);
-    // 拉伸绘制：参数对应绘制区域左上角在x/y轴的位置以及绘制区域的宽度和高度
+   <em> // 拉伸绘制：参数对应绘制区域左上角在x/y轴的位置以及绘制区域的宽度和高度</em>
     this.contextFull.drawImage(pixelMap, 0, 0, canvas_width, canvas_heith);
   }
   build() {
@@ -90,12 +86,14 @@ export struct Index1 {
   }
 }
 ```
- - 场景二：如何将Canvas绘制的图片转换为Base64字符串？
-使用packToData接口将PixelMap转换为ArrayBuffer格式的二进制数据。
-- 使用Uint8Array接口创建一个指向该ArrayBuffer的视图，从而获得一个无符号整数数组。
-- 通过Base64Helper的encodeToStringSync接口，将该Uint8Array编码为Base64格式的字符串。
 
- 
+- 场景二：如何将Canvas绘制的图片转换为Base64字符串？1. 使用packToData接口将PixelMap转换为ArrayBuffer格式的二进制数据。
+
+2. 使用Uint8Array接口创建一个指向该ArrayBuffer的视图，从而获得一个无符号整数数组。
+
+3. 通过Base64Helper的encodeToStringSync接口，将该Uint8Array编码为Base64格式的字符串。
+
+  
 ```text
 import { image } from '@kit.ImageKit';
 import { util } from '@kit.ArkTS';
@@ -106,8 +104,8 @@ struct Index2 {
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   @State picBase64: string = '';
-  // PixelMap转base64实现代码
-  async pixelToBase64(data: PixelMap): Promise {
+ <em> // PixelMap转base64实现代码</em>
+  async pixelToBase64(data: PixelMap): Promise<string> {
     const imagePackerApi: image.ImagePacker = image.createImagePacker();
     let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
     try {
@@ -136,9 +134,9 @@ struct Index2 {
             this.context.fillStyle = grad;
             this.context.fillRect(0, 30, 100, 100);
           });
-        // 显示base64字符串
+       <em> // 显示base64字符串</em>
         Text(this.picBase64);
-        // 将base64字符串显示为图片
+      <em>  // 将base64字符串显示为图片</em>
         if (this.picBase64 != '') {
           Image('data:image/png;base64,' + this.picBase64);
         }
@@ -157,15 +155,19 @@ struct Index2 {
   }
 }
 ```
- - 场景三：如何将Canvas绘制的图片导出为PNG格式并保存至设备相册？
-使用OffscreenCanvas创建一个离屏渲染的画布，并获取其绘图上下文，用于绘制图像。
-- 通过getPixelMap方法获取指定区域的像素数据，生成PixelMap对象。
-- 利用ImagePacker中的packToData方法，将像素数据编码为PNG格式，确保未绘制区域保持透明。
-- 通过文件管理接口创建并打开一个新文件，将生成的PNG图片数据写入该文件，完成后关闭文件。
-- 调用showAssetsCreationDialog以获取相册保存权限的URI，然后将沙箱目录中的图片写入设备相册。
 
- 
-```text
+- 场景三：如何将Canvas绘制的图片导出为PNG格式并保存至设备相册？1. 使用OffscreenCanvas创建一个离屏渲染的画布，并获取其绘图上下文，用于绘制图像。
+
+2. 通过getPixelMap方法获取指定区域的像素数据，生成PixelMap对象。
+
+3. 利用ImagePacker中的packToData方法，将像素数据编码为PNG格式，确保未绘制区域保持透明。
+
+4. 通过文件管理接口创建并打开一个新文件，将生成的PNG图片数据写入该文件，完成后关闭文件。
+
+5. 调用showAssetsCreationDialog以获取相册保存权限的URI，然后将沙箱目录中的图片写入设备相册。
+
+  
+```json
 import { image } from '@kit.ImageKit';
 import { fileIo, fileUri, ReadOptions, WriteOptions } from '@kit.CoreFileKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
@@ -209,7 +211,7 @@ export struct Index3 {
       const pixelMap: image.PixelMap =
         this.offContext.getPixelMap(0, 0, 300, 300);
       const imagePackerApi = image.createImagePacker();
-      // 此处支持jpg、jpeg等格式
+     <em> // 此处支持jpg、jpeg等格式</em>
       const buffer = await imagePackerApi.packToData(pixelMap, { format: 'image/png', quality: 100 });
       const filePath = this.getUIContext().getHostContext()?.filesDir + `/${(new Date).getTime()}.png`;
       try {
@@ -232,11 +234,11 @@ export struct Index3 {
     }
   }
 
-  // 保存到指定路径
+ <em> // 保存到指定路径</em>
   copyToPhoto(srcFilePath: string, destFilePath: string) {
     const srcFile = fileIo.openSync(srcFilePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
     const destFile = fileIo.openSync(destFilePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
-    // 读取源文件内容并写入至目的文件
+  <em>  // 读取源文件内容并写入至目的文件</em>
     const stat = fileIo.statSync(srcFilePath);
     const bufSize = stat.size;
     let readSize = 0;
@@ -255,7 +257,7 @@ export struct Index3 {
       readOptions.offset = readSize;
       readLen = fileIo.readSync(srcFile.fd, buf, readOptions);
     }
-    // 关闭文件
+   <em> // 关闭文件</em>
     fileIo.closeSync(srcFile);
     fileIo.closeSync(destFile);
   }

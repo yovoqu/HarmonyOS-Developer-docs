@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-58
 
-## ECC密钥如何转化为非压缩十六进制字符串
- 
-
-
-##### 问题现象
+#### 问题现象
 
 其他端生成的ECC的公钥字符串长度为65字节（130位16进制字符串），ArkTS中使用generateKeyPairSync生成的KeyPair里面的公钥二进制数据长度远多于65字节，如何通过KeyPair获取非压缩16进制的公私钥字符串？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [使用ECC压缩/非压缩点格式转换(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-compressed-or-uncompressed-ecc-point)：支持将压缩/非压缩的点数据转换为Point对象，用于密钥对象生成；也支持将Point对象转换为压缩/非压缩的点数据。
  
@@ -26,18 +22,63 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过密钥获取密钥参数X和Y合成非压缩公钥，获取SK参数转化成私钥。SM2也是基于椭圆曲线的公钥密码算法，公钥结构与ECC相同，是ECC算法的一种具体实现，demo以SM2算法为例。
  
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-// Uint8Array to hexadecimal
+<em>// Uint8Array to hexadecimal</em>
 function uint8ArrayToHexStr(data: Uint8Array): string {
   let hexString = '';
   let i: number;
-  for (i = 0; i  {
+  for (i = 0; i < data.length; i++) {
+    let char = ('00' + data[i].toString(16)).slice(-2);
+    hexString += char;
+  }
+  return hexString;
+}
+
+function padding(data: string): string {
+  while (data.length < 64) {
+    data = '0' + data;
+  }
+  return data;
+}
+
+function gen() {
+  let keypairGenerator = cryptoFramework.createAsyKeyGenerator('SM2_256');
+  let keyPair = keypairGenerator.generateKeyPairSync();
+  let oldPk = uint8ArrayToHexStr(keyPair.pubKey.getEncoded().data);
+  let oldSk = uint8ArrayToHexStr(keyPair.priKey.getEncoded().data);
+  console.info(`SM2 oldPk.len = ${oldPk.length}`);
+  console.info(`SM2 oldSk.len = ${oldSk.length}`);
+
+  let x = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_X_BN);
+  let y = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_Y_BN);
+  let pk = '04' + padding(x.toString(16)) + padding(y.toString(16));
+  console.info(`pk.len=${pk.length},pk:${pk}`);
+
+  let priKey = keyPair.priKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_SK_BN);
+  let sk = padding(priKey.toString(16));
+  console.info(`sk.len=${sk.length},sk:${sk}`);
+}
+
+@Entry
+@Component
+struct Index {
+  build() {
+    RelativeContainer() {
+      Text('Hello World')
+        .id('HelloWorld')
+        .fontSize($r('app.float.page_text_font_size'))
+        .fontWeight(FontWeight.Bold)
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
+        .onClick(() => {
           gen();
         });
     }

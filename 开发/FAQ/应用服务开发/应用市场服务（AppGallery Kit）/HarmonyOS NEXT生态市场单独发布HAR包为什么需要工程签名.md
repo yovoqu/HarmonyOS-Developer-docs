@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-66
 
-## HarmonyOS NEXT生态市场单独发布HAR包为什么需要工程签名
- 
-
-
-##### 问题现象
+#### 问题现象
 
 伙伴开发HarmonyOS NEXT组件在生态市场上架失败，"审核意见：1、包体规范：签名验证未通过，请补充！"。
  
@@ -16,6 +12,6 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 伙伴可以申请一个单独的证书，工程签名的目的是确保这个组件是这个开发者的，否则，被其他开发者滥用，容易引发版权纠纷等问题。

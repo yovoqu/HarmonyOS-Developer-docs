@@ -4,35 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-96
 
-## 如何查看和管理HarmonyOS Next应用市场的用户评论数据
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS Next应用上架应用市场后，用户在应用市场的评论数据如何在后台进行集中的查看，同时进行导出、回复、删除等操作？
  
  
 
-##### 背景知识
-
-- HarmonyOS Next应用市场评论评分系统已完成升级，新的评论评分系统已经接入到[应用推广引擎](https://developer.huawei.com/consumer/cn/service/apcs/aggrowth/chassis/resources/interactiveTools)新平台。开发者可以通过新平台，查看和管理HarmonyOS Next应用的评论评分数据。
-- HarmonyOS 5.0以下应用仍然在AGC平台进行应用评论评分数据查看和管理。入口为：AGC平台-运营-用户运营-互动评论。具体可参见[互动评论](https://developer.huawei.com/consumer/cn/doc/app/game-center-interaction-comments-0000001239182361)。
-
+#### 背景知识
+1. HarmonyOS Next应用市场评论评分系统已完成升级，新的评论评分系统已经接入到[应用推广引擎](https://developer.huawei.com/consumer/cn/service/apcs/aggrowth/chassis/resources/interactiveTools)新平台。开发者可以通过新平台，查看和管理HarmonyOS Next应用的评论评分数据。
+2. HarmonyOS 5.0以下应用仍然在AGC平台进行应用评论评分数据查看和管理。入口为：AGC平台-运营-用户运营-互动评论。具体可参见[互动评论](https://developer.huawei.com/consumer/cn/doc/app/game-center-interaction-comments-0000001239182361)。
  
  
 
-##### 解决方案
+#### 解决方案
+1. 操作路径：登录[应用推广引擎](https://developer.huawei.com/consumer/cn/service/apcs/aggrowth/chassis/resources/interactiveTools)，选择“用户经营-用户互动”，即可进入“评论评分”页面。默认展示“用户评论”数据。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/vaKXNAXjQyG0ksmapiJ2kw/zh-cn_image_0000002628394704.png?HW-CC-KV=V1&HW-CC-Date=20260701T041116Z&HW-CC-Expire=86400&HW-CC-Sign=E65BF5EE0099D04D2EF4CF078DA560163E8C1B45B16939D1C5EB2E32C4A7131F)
 
-- 操作路径：登录[应用推广引擎](https://developer.huawei.com/consumer/cn/service/apcs/aggrowth/chassis/resources/interactiveTools)，选择“用户经营-用户互动”，即可进入“评论评分”页面。默认展示“用户评论”数据。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/vaKXNAXjQyG0ksmapiJ2kw/zh-cn_image_0000002628394704.png?HW-CC-KV=V1&HW-CC-Date=20260701T025905Z&HW-CC-Expire=86400&HW-CC-Sign=B10AD3CCF2CDCAFB89A7B07B6138F7BFB310FDAA01A0ACF2C2EFE91D112228DD)
-
-- 除了查看评论数据，还可以进行评论数据的导出、回复等操作。具体参见[评论与评分](https://developer.huawei.com/consumer/cn/doc/app/comment-management-0000002246992933)。
-
+2. 除了查看评论数据，还可以进行评论数据的导出、回复等操作。具体参见[评论与评分](https://developer.huawei.com/consumer/cn/doc/app/comment-management-0000002246992933)。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：评论数据切换到应用推广引擎了，是不是老的AGC平台中互动评论不能使用了？
  

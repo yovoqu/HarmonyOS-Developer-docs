@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-83
 
-## hidumper命令常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - **场景一**：通过hidumper命令如何查询屏幕分辨率及折叠状态。
 - **场景二**：通过hidumper如何查看应用占用的内存大小。
@@ -17,7 +13,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：
 通过"hdc shell hidumper -s 10 -a screen"命令可以查看屏幕分辨率，当前存在多个屏幕时，会依次展示各屏幕分辨率信息。
@@ -25,6 +21,7 @@
 
  - **场景二**：使用hidumper --mem pid命令可以获取指定进程的内存使用情况，pid为指定的进程号，具体见[查询进程内存](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper#查询进程内存)。重点关注PSS的大小，PSS是一种更精确的内存使用度量方法，它将共享库所占的内存按比例分配给每个使用该库的进程。
 - **场景三**：应重点分析如下两个快照文件：
- 
-主线程的快照文件。
-- 对比两次dump的子线程快照文件，找出文件大小变化最大和node_count变化最大的子线程对应的快照文件，当node_count持续增长而业务没有大量新创建对象时，很有可能存在内存泄露。
+
+1. 主线程的快照文件。
+
+2. 对比两次dump的子线程快照文件，找出文件大小变化最大和node_count变化最大的子线程对应的快照文件，当node_count持续增长而业务没有大量新创建对象时，很有可能存在内存泄露。

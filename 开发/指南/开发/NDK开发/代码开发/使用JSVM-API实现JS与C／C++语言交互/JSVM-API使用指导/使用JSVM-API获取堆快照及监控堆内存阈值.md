@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-threshold-callback
 
-## 使用JSVM-API获取堆快照及监控堆内存阈值
- 
- 
-
-##### 简介
+#### 简介
 
 从API版本26.0.0开始，JSVM-API提供了堆内存管理相关的核心能力，包含**获取原始堆快照**和**监控堆内存阈值**两类关键接口：
  
@@ -21,11 +17,11 @@
  
   
 
-##### 基本概念
+#### 基本概念
 
   
 
-##### [h2]原始堆快照（Raw Heap Snapshot）
+#### 原始堆快照（Raw Heap Snapshot）
 
 JSVM-API提供了OH_JSVM_TakeRawHeapSnapshot接口，来获取VM的原始堆快照。原始堆快照以JSVM专属的二进制格式存储堆内存的完整状态，其格式是与具体VM实现绑定的，数据布局在不同版本之间不保证稳定。获取堆快照的操作可能短暂地暂停应用运行，频繁调用会生成大量快照文件，需开发者合理管控磁盘占用。
  
@@ -33,7 +29,7 @@ JSVM-API提供了OH_JSVM_TakeRawHeapSnapshot接口，来获取VM的原始堆快�
  
   
 
-##### [h2]堆内存阈值回调
+#### 堆内存阈值回调
 
 JSVM-API提供了OH_JSVM_SetHeapThresholdCallback接口，为指定的VM注册一个堆内存阈值回调函数。一个VM同一时间仅能注册**一个**堆内存阈值回调，回调通过“阈值（字节数）+回调函数+用户自定义数据”的组合唯一标识，当不再需要该回调时，必须调用OH_JSVM_ClearHeapThresholdCallback进行注销。
  
@@ -41,7 +37,7 @@ JSVM-API提供了OH_JSVM_SetHeapThresholdCallback接口，为指定的VM注册�
  
   
 
-##### [h2]接口说明
+#### 接口说明
  
 | 接口 | 功能说明 |
 | --- | --- |
@@ -52,25 +48,25 @@ JSVM-API提供了OH_JSVM_SetHeapThresholdCallback接口，为指定的VM注册�
  
   
 
-##### 使用示例
+#### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
  
   
 
-##### [h2]具体函数使用示例代码
+#### 具体函数使用示例代码
 
 包括OH_JSVM_TakeRawHeapSnapshot、OH_JSVM_SetHeapThresholdCallback、OH_JSVM_ClearHeapThresholdCallback三个函数的使用示例，涵盖堆快照采集、堆阈值回调注册/移除、边界场景（重复注册/移除、无效参数）等核心场景。
  
 **cpp部分代码**
  
-```text
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
+```cpp
+#include <iostream>
+#include <fstream>
+#include <thread>
+#include <chrono>
+#include <unistd.h>
+#include <sys/types.h>
 #include "napi/native_api.h"
 #include "hilog/log.h"
 #include "ark_runtime/jsvm.h"
@@ -91,10 +87,10 @@ static constexpr int TEST_DATA_VALUE = 0x12345678;
 
 bool SnapshotStreamCallback(const char* data, int size, void* streamData)
 {
-    std::FILE* file = reinterpret_cast(streamData);
+    std::FILE* file = reinterpret_cast<std::FILE*>(streamData);
     if (file) {
         size_t written = std::fwrite(data, 1, size, file);
-        return written == static_cast(size);
+        return written == static_cast<size_t>(size);
     }
     return true;
 }
@@ -103,7 +99,7 @@ void OnHeapThresholdReached(JSVM_VM vm, uint64_t threshold, void* data)
 {
     OH_LOG_INFO(LOG_APP, "== Heap threshold reached ==");
     OH_LOG_INFO(LOG_APP, "Threshold: %{public}lu bytes", threshold);
-    OH_LOG_INFO(LOG_APP, "User data: %{public}d", *static_cast(data));
+    OH_LOG_INFO(LOG_APP, "User data: %{public}d", *static_cast<int*>(data));
 
     g_heapThresholdCalled = true;
     g_triggeredThreshold = threshold;
@@ -112,22 +108,176 @@ void OnHeapThresholdReached(JSVM_VM vm, uint64_t threshold, void* data)
     if (!g_snapshotGenerated) {
         g_snapshotGenerated = true;
         pid_t pid = fork();
-        if (pid 
-##### 注意事项
+        if (pid < 0) {
+            OH_LOG_ERROR(LOG_APP, "fork failed");
+        } else if (pid == 0) {
+            std::FILE* file = std::fopen(
+                "/data/storage/el2/base/temp/threshold.rawheap", "wb");
+            OH_JSVM_TakeRawHeapSnapshot(vm, SnapshotStreamCallback, file);
+            std::fflush(file);
+            fclose(file);
+            _exit(0);
+        }
+    }
+}
 
-- OH_JSVM_TakeRawHeapSnapshot
+static void ResetTestState()
+{
+    g_heapThresholdCalled = false;
+    g_triggeredThreshold = 0;
+    g_callbackUserData = nullptr;
+    g_snapshotGenerated = false;
+}
+
+static void TestSetHeapThresholdCallback(JSVM_VM vm, uint64_t threshold, int* testData)
+{
+    JSVM_Status addStatus = OH_JSVM_SetHeapThresholdCallback(
+        vm, threshold, OnHeapThresholdReached, testData);
+    if (addStatus == JSVM_OK) {
+        OH_LOG_INFO(LOG_APP, "Set heap threshold callback success");
+    }
+
+    JSVM_Status addRepeatStatus = OH_JSVM_SetHeapThresholdCallback(
+        vm, threshold, OnHeapThresholdReached, testData);
+    if (addRepeatStatus == JSVM_INVALID_ARG) {
+        OH_LOG_INFO(LOG_APP, "Set repeated callback failed (expected)");
+    }
+
+    JSVM_Status addInvalidStatus = OH_JSVM_SetHeapThresholdCallback(
+        vm, 0, OnHeapThresholdReached, testData);
+    if (addInvalidStatus == JSVM_INVALID_ARG) {
+        OH_LOG_INFO(LOG_APP, "Set callback with 0 threshold failed (expected)");
+    }
+}
+
+static void TestClearHeapThresholdCallback(JSVM_VM vm, uint64_t threshold, int* testData)
+{
+    JSVM_Status removeStatus = OH_JSVM_ClearHeapThresholdCallback(
+        vm, threshold, OnHeapThresholdReached, testData);
+    if (removeStatus == JSVM_OK) {
+        OH_LOG_INFO(LOG_APP, "Clear heap threshold callback success");
+    }
+
+    JSVM_Status removeRepeatStatus = OH_JSVM_ClearHeapThresholdCallback(
+        vm, threshold, OnHeapThresholdReached, testData);
+    if (removeRepeatStatus == JSVM_INVALID_ARG) {
+        OH_LOG_INFO(LOG_APP, "Clear repeated callback failed (expected)");
+    }
+
+    JSVM_Status removeMismatchStatus = OH_JSVM_ClearHeapThresholdCallback(
+        vm, 999999, OnHeapThresholdReached, testData);
+    if (removeMismatchStatus == JSVM_INVALID_ARG) {
+        OH_LOG_INFO(LOG_APP, "Clear mismatch threshold callback failed (expected)");
+    }
+}
+
+static void RunAllocScript(JSVM_Env env)
+{
+    const char* allocJs = R"JS(
+        var holder = [];
+        for (let i = 0; i < 10000; i++) {
+            holder.push(new Uint8Array(1024));
+        }
+    )JS";
+
+    JSVM_Value jsSrc;
+    JSVM_Value result1;
+    JSVM_Script script;
+    OH_JSVM_CreateStringUtf8(env, allocJs, JSVM_AUTO_LENGTH, &jsSrc);
+    OH_JSVM_CompileScript(env, jsSrc, nullptr, 0, true, nullptr, &script);
+    OH_JSVM_RunScript(env, script, &result1);
+}
+
+static bool CheckTestResult(uint64_t threshold, int* testData)
+{
+    bool testSuccess = (g_heapThresholdCalled &&
+                        g_triggeredThreshold == threshold &&
+                        g_callbackUserData == testData &&
+                        g_snapshotGenerated);
+    if (testSuccess) {
+        OH_LOG_INFO(LOG_APP, "Heap management test: SUCCESS");
+    } else {
+        OH_LOG_ERROR(LOG_APP, "Heap management test: FAILED");
+    }
+    return testSuccess;
+}
+
+static JSVM_Value HeapMgmtTest(JSVM_Env env, JSVM_CallbackInfo info)
+{
+    ResetTestState();
+
+    JSVM_VM vm;
+    OH_JSVM_GetVM(env, &vm);
+    int testData = TEST_DATA_VALUE;
+    uint64_t threshold = THRESHOLD_SIZE;
+
+    std::FILE* file = std::fopen(
+        "/data/storage/el2/base/temp/take.rawheap", "wb");
+    JSVM_Status snapshotStatus = OH_JSVM_TakeRawHeapSnapshot(
+        vm, SnapshotStreamCallback, file);
+    if (snapshotStatus == JSVM_INVALID_ARG) {
+        OH_LOG_ERROR(LOG_APP, "Take raw heap snapshot failed (invalid arg)");
+    }
+
+    TestSetHeapThresholdCallback(vm, threshold, &testData);
+    RunAllocScript(env);
+
+    OH_JSVM_MemoryPressureNotification(env, JSVM_MEMORY_PRESSURE_LEVEL_CRITICAL);
+    std::this_thread::sleep_for(std::chrono::milliseconds(SLEEP_TIME_MS));
+
+    TestClearHeapThresholdCallback(vm, threshold, &testData);
+
+    bool testSuccess = CheckTestResult(threshold, &testData);
+
+    JSVM_Value result;
+    OH_JSVM_GetBoolean(env, testSuccess, &result);
+    return result;
+}
+
+static JSVM_CallbackStruct param[] = {
+    {.data = nullptr, .callback = HeapMgmtTest},
+};
+
+static JSVM_CallbackStruct* method = param;
+
+static JSVM_PropertyDescriptor descriptor[] = {
+    {"heapMgmtTest", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
+};
+
+const char* SRC_CALL_NATIVE = R"JS(heapMgmtTest();)JS";
+```
+ 
+**执行结果**
+ 
+在LOG中输出下面结果，同时生成take.rawheap和threshold.rawheap二进制快照文件：
+ 
+```text
+Set heap threshold callback success
+Set repeated callback failed (expected)
+Set callback with 0 threshold failed (expected)
+== Heap threshold reached ==
+Threshold: 1048576 bytes
+User data: 305419896
+Clear heap threshold callback success
+Clear repeated callback failed (expected)
+Clear mismatch threshold callback failed (expected)
+Heap management test: SUCCESS
+```
+ 
+  
+
+#### 注意事项
+1. OH_JSVM_TakeRawHeapSnapshot
 vm/stream参数为NULL时，返回JSVM_INVALID_ARG；其他场景均返回JSVM_OK；
-- 快照流回调需避免长时间阻塞，否则会阻塞VM线程；
-- 频繁调用会产生大量二进制文件，建议按需采集并及时清理。
-
- - OH_JSVM_SetHeapThresholdCallback
+2. 快照流回调需避免长时间阻塞，否则会阻塞VM线程；
+3. 频繁调用会产生大量二进制文件，建议按需采集并及时清理。
+4. OH_JSVM_SetHeapThresholdCallback
 阈值需满足：0 < threshold ≤ heapSizeLimit（heapSizeLimit来自JSVM_HeapStatistics），否则返回JSVM_INVALID_ARG；
-- vm或callback参数为NULL时，返回JSVM_INVALID_ARG；
-- VM已注册回调时重复注册，返回JSVM_INVALID_ARG；
-- 接口非线程安全，**必须**在VM运行的线程调用；
-- 阈值检查在GC期间进行，回调在同一线程同步调用；回调执行期间会跳过阈值检查，避免递归触发；回调返回后若堆使用量仍≥阈值，下次GC会再次触发，无需重新注册。
-
- - OH_JSVM_ClearHeapThresholdCallback
+5. vm或callback参数为NULL时，返回JSVM_INVALID_ARG；
+6. VM已注册回调时重复注册，返回JSVM_INVALID_ARG；
+7. 接口非线程安全，**必须**在VM运行的线程调用；
+8. 阈值检查在GC期间进行，回调在同一线程同步调用；回调执行期间会跳过阈值检查，避免递归触发；回调返回后若堆使用量仍≥阈值，下次GC会再次触发，无需重新注册。
+9. OH_JSVM_ClearHeapThresholdCallback
 vm/callback参数为NULL时，或（阈值+回调+用户数据）与已注册信息不匹配时，返回JSVM_INVALID_ARG；
-- 接口非线程安全，**必须**在VM运行的线程调用；
-- 回调执行期间可移除自身，并重新注册新的阈值回调（需保证参数合法）。
+10. 接口非线程安全，**必须**在VM运行的线程调用；
+11. 回调执行期间可移除自身，并重新注册新的阈值回调（需保证参数合法）。

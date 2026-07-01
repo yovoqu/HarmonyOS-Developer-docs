@@ -4,40 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-146
 
-## UIAbility组件各场景生命周期及监听
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用不同的启动方式，Ability的生命周期会稍有差异。在应用冷启、切后台等操作中Ability生命周期是什么状态？要如何监听生命周期变化？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [UIAbility组件的核心生命周期回调](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-lifecycle)包括onCreate、onForeground、onBackground、onDestroy。UIAbility的生命周期示意图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/KUUcHQ4ORziKeEO9mgQxJA/zh-cn_image_0000002658868621.png?HW-CC-KV=V1&HW-CC-Date=20260701T025525Z&HW-CC-Expire=86400&HW-CC-Sign=D4142292BB4AA757279DB5C4D8C8578330CA1A0503C7C6260982B8549BB13AB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/KUUcHQ4ORziKeEO9mgQxJA/zh-cn_image_0000002658868621.png?HW-CC-KV=V1&HW-CC-Date=20260701T041354Z&HW-CC-Expire=86400&HW-CC-Sign=FC7C28F7ADB0E338D3B91657EF6C96FD9B1482B1779928910702E3CE787EF9FB)
 
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一：如何监听UIAbility的生命周期？**如果需要感知UIAbility生命周期变化，开发者可以使用[ApplicationContext注册接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonabilitylifecycle)监听UIAbility生命周期变化。详见[监听UIAbility生命周期变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#监听uiability生命周期变化)。
 - **场景二：如何区分是热启动还是冷启动？**冷启动是进程不存在，UIAbility需先走创建流程[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-lifecycle#oncreate)。而热启动是进程还在后台存在，UIAbility再被拉起时，会先调用[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)。
 - **场景三：应用被系统或用户主动终止能否监听到？**用户上滑终止应用程序，则会触发Ability的[onDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-lifecycle#ondestroy)生命周期。
- 如果是被系统终止，则无法监听到。
+
+  如果是被系统终止，则无法监听到。
 - **场景四：如何主动终止Ability？**调用terminateSelf可以终止当前的UIAbility实例。如需要关闭应用所有的UIAbility实例，可以调用ApplicationContext的killAllProcesses()方法实现关闭应用所有的进程。
- **注意：**
- 调用[terminateSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)方法和[ApplicationContext.killAllProcesses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextkillallprocesses)方法终止或关闭UIAbility实例时，默认会保留该实例的快照（Snapshot），即在最近任务列表中仍然能查看到该实例对应的任务。如不需要保留该实例的快照，可以在其对应UIAbility的[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)配置文件中，将Abilities标签的removeMissionAfterTerminate字段配置为true。
+
+  **注意：**
+
+  调用[terminateSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)方法和[ApplicationContext.killAllProcesses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextkillallprocesses)方法终止或关闭UIAbility实例时，默认会保留该实例的快照（Snapshot），即在最近任务列表中仍然能查看到该实例对应的任务。如不需要保留该实例的快照，可以在其对应UIAbility的[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)配置文件中，将Abilities标签的removeMissionAfterTerminate字段配置为true。
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：onDestroy回调中是否可以做异步操作？
  

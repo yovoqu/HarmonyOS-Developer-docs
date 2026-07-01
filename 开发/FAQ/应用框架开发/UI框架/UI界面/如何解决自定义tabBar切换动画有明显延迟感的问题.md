@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-568
 
-## 如何解决自定义tabBar切换动画有明显延迟感的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Tabs页面切换时，tabBar切换动画发生的比较慢，需要等到Tabs页面完成切换时，tabBar才发生切换。效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/C5-Im_FvRsmsD49vhMFa5Q/zh-cn_image_0000002628552042.png?HW-CC-KV=V1&HW-CC-Date=20260701T025648Z&HW-CC-Expire=86400&HW-CC-Sign=B5674FBB4A704341F14B4BA136A7FB4279887043E06DE999CBEB049FF4DDEBC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/C5-Im_FvRsmsD49vhMFa5Q/zh-cn_image_0000002628552042.png?HW-CC-KV=V1&HW-CC-Date=20260701T041212Z&HW-CC-Expire=86400&HW-CC-Sign=12E7804526D011308DC264374E156DB1C83B13C828A49517A6383FA9758B5A1D)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - [onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onchange)：Tab页签切换后触发的事件。
@@ -27,32 +23,32 @@ Tabs页面切换时，tabBar切换动画发生的比较慢，需要等到Tabs页
  
  
 
-##### 问题定位
+#### 问题定位
 
 经排查发现，tabBar切换是通过在onChange事件中改变currentIndex实现，onChange回调在页签切换后触发，因此刷新tabBar会慢于TabContent的切换。
  
 ```text
 Tabs({ barPosition: BarPosition.Start, index: this.currentIndex, controller: this.controller }) {
-  // ...
+ <em> // ...</em>
 }
 .vertical(false)
 .barMode(BarMode.Fixed)
 .animationDuration(400)
 .onChange((index: number) => {
-  // currentIndex控制TabContent显示页签
+  <em>// currentIndex控制TabContent显示页签</em>
   this.currentIndex = index
 })
 ```
  
  
 
-##### 分析结论
+#### 分析结论
 
 currentIndex改变的时机不正确。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 新增一个selectedIndex的索引用于标识被选择的tabBar，原来的currentIndex仍然用于TabContent页签显示的控制。
 - selectedIndex的onAnimationStart事件中进行切换，就可以实现页签内容切换动画发生时，tabBar也同步切换。
@@ -164,7 +160,7 @@ struct TabsExample {
       .barHeight(56)
       .animationDuration(400)
       .onChange((index: number) => {
-        // currentIndex控制TabContent显示页签
+   <em>     // currentIndex控制TabContent显示页签</em>
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -173,7 +169,7 @@ struct TabsExample {
           return;
         }
         console.info(`event currentOffset ${event.currentOffset}`);
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
         this.selectedIndex = targetIndex;
       });
     }
@@ -189,7 +185,7 @@ struct TabsExample {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：点击切换页签时，图片切换有延迟是什么原因造成的？
  
@@ -197,6 +193,6 @@ A：通常图片加载有延迟与Tabs组件没有直接关系，而是由于进
  
  
 
-##### 总结
+#### 总结
 
 要实现Tabs滑动切换动画发生的时候，tabBar也同步进行切换，需要在onAnimationStart事件中进行索引更新，而且标识选中tabBar的索引要和标识选中tab页的索引区分开。

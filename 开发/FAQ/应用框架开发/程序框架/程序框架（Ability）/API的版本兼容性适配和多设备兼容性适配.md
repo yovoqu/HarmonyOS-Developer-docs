@@ -4,21 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-167
 
-## API的版本兼容性适配和多设备兼容性适配
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在HarmonyOS应用开发中，若需将手机、平板、电脑、手表等多设备形态打包至同一APP包并上架审核：
- 
-- **SDK版本限制**：同一APP包内仅支持一个targetSdkVersion和compatibleSdkVersion，直接降低compatibleSdkVersion可能导致高版本API（如hdsEffect）在低版本设备上闪退。
-- **设备能力差异**：手表等设备可能不支持特定API（如hdsEffect），导致功能无法使用。
-
+ 1. **SDK版本限制**：同一APP包内仅支持一个targetSdkVersion和compatibleSdkVersion，直接降低compatibleSdkVersion可能导致高版本API（如hdsEffect）在低版本设备上闪退。
+2. **设备能力差异**：手表等设备可能不支持特定API（如hdsEffect），导致功能无法使用。
  
  
 
-##### 背景知识
+#### 背景知识
 
 1.[应用和设备系统兼容性原则](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-intro#section144051257332)：
  
@@ -34,44 +28,49 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. **API兼容性适配，解决低版本闪退。**
+- **版本判断机制**：HarmonyOS设备独有特性接口，即接口标记为since M.S.F(N)，通过[distributionOSApiVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info#常量)，如6.0.0(20)对应60000。
 
-- **API兼容性适配，解决低版本闪退。**
-**版本判断机制**：HarmonyOS设备独有特性接口，即接口标记为since M.S.F(N)，通过[distributionOSApiVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info#常量)，如6.0.0(20)对应60000。
- OpenHarmony底座接口，即接口标记为since N，通过[sdkApiVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info#常量)判断设备系统版本，动态启用或禁用高版本API。
- 
+  OpenHarmony底座接口，即接口标记为since N，通过[sdkApiVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info#常量)判断设备系统版本，动态启用或禁用高版本API。
+
+  
 **高版本设备**：直接调用hdsEffect等新API。
-- **低版本设备**：提供降级方案（如隐藏功能入口或替代实现）。
 
- - **关键逻辑**：
+2. **低版本设备**：提供降级方案（如隐藏功能入口或替代实现）。
+
+3. **关键逻辑**：
 在代码中嵌入版本判断逻辑，确保仅在支持的设备上执行高版本API。
-- 对未支持设备，通过日志记录或明确提示用户功能限制。
 
- 
- - **系统能力SysCap检查，检查设备能力差异。**
+4. 对未支持设备，通过日志记录或明确提示用户功能限制。
+
+5. **系统能力SysCap检查，检查设备能力差异。**
 **能力验证**：使用[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口验证设备是否支持特定系统能力。
- 
+
+  
 **支持能力**：调用如hdsEffect实现高级功能。
-- **不支持能力**：禁用相关功能或提供基础替代方案。
 
- - **设备类型适配**：
+6. **不支持能力**：禁用相关功能或提供基础替代方案。
+
+7. **设备类型适配**：
 **手表设备**：通过deviceType字段wearable直接禁用不支持的API。
-- **其他设备**：根据能力验证结果动态调整功能可用性。
 
- 
- - **动态资源管理，将不同版本资源分别保存。**
+8. **其他设备**：根据能力验证结果动态调整功能可用性。
+
+9. **动态资源管理，将不同版本资源分别保存。**
 **资源目录分层**：
 **默认资源**：适用于所有设备（resources/base/）。
-- **高版本资源**：仅在6.0.0+设备加载（resources/v6/）。
-- **低版本资源**：兼容5.0.5及以下设备（resources/v5/）。
 
- - **运行时加载策略**：根据设备版本动态选择资源路径，确保UI和功能适配性。
+10. **高版本资源**：仅在6.0.0+设备加载（resources/v6/）。
 
- 
- 
-**4. 分发限制和运行降级。**
- 
-- **分发限制配置**：在build-profile.json5中通过deviceType字段，如["phone","tablet","2in1"]限制功能仅在支持的设备类型上启用。
+11. **低版本资源**：兼容5.0.5及以下设备（resources/v5/）。
+
+12. **运行时加载策略**：根据设备版本动态选择资源路径，确保UI和功能适配性。
+
+  **4. 分发限制和运行降级。**
+
+  
+**分发限制配置**：在build-profile.json5中通过deviceType字段，如["phone","tablet","2in1"]限制功能仅在支持的设备类型上启用。
 - **运行时降级方案**：
 **功能隐藏**：通过能力验证或设备类型判断，动态隐藏不支持的功能入口。
 - **替代实现**：提供低版本兼容的UI或逻辑（如禁用动画效果）。
@@ -81,7 +80,7 @@
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何查询hdsEffect的起始版本？
  

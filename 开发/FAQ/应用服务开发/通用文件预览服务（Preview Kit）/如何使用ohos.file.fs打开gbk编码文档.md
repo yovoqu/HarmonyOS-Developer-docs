@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-9
 
-## 如何使用ohos.file.fs打开gbk编码文档
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发过程中遇到有文档的编码类型不为utf-8，而ohos.file.fs中readTextSync，参数options-encoding仅支持utf-8，不支持其他编码类型，使用该方法打开文档会出现乱码。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Core File Kit简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-file-kit-intro#core-file-kit概述)：Core File Kit（文件基础服务）为开发者提供一套访问和管理应用文件和用户文件的能力。帮助用户更高效地管理、查找和备份各类文件，使用户能够轻松应对各种文件管理的需求。
 - [fs.readTextSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadtextsync)：以同步方法基于文本方式读取文件（即直接读取文件的文本内容）。
@@ -25,7 +21,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 下方代码中readGbkStr方法为解决方案。
  
@@ -36,20 +32,20 @@ import type { common } from '@kit.AbilityKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
 import { util } from '@kit.ArkTS';
 
-// demo展示使用utf8\gbk编码打开gbk编码文档的页面
-// writeGbkStr方法用于生成gbk编码文档用于展示
-// readGbkStr方法为使用gbk编码打开文档的实现
+<em>// demo展示使用utf8\gbk编码打开gbk编码文档的页面</em>
+<em>// writeGbkStr方法用于生成gbk编码文档用于展示</em>
+<em>// readGbkStr方法为使用gbk编码打开文档的实现</em>
 
 
 @Entry
 @Component
 struct Index {
   private ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  // 写入文档的内容，用于展示
+  <em>// 写入文档的内容，用于展示</em>
   private text = 'Text是文本组件，用于展示用户视图，如显示文章的文字内容。该组件支持绑定自定义文本选择菜单，用户可根据需要选择不同功能。';
-  // 用于测试生成的临时文件名
+  <em>// 用于测试生成的临时文件名</em>
   private fileName = 'test0.txt';
-  // 文件地址请按实际填写
+  <em>// 文件地址请按实际填写</em>
   private filesDir = this.ctx.filesDir + "/" + this.fileName;
 
   aboutToAppear(): void {
@@ -69,7 +65,7 @@ struct Index {
   }
 }
 
-// 生成gbk编码的文档
+<em>// 生成gbk编码的文档</em>
 function writeGbkStr(filesDir: string, content: string) {
   let file = fs.openSync(filesDir, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
   try {
@@ -86,7 +82,7 @@ function writeGbkStr(filesDir: string, content: string) {
 function readGbkStr(filesDir: string) {
   let file = fs.openSync(filesDir, fs.OpenMode.READ_ONLY);
   try {
-    // 读取数据到Uint8Array
+    <em>// 读取数据到Uint8Array</em>
     let buf = new ArrayBuffer(118);
     fs.readSync(file.fd, buf);
     let decoder = util.TextDecoder.create('gbk');

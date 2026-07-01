@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-608
 
-## 使用Repeat加载Text组件，内容渲染顺序出错如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Repeat懒加载N个带样式的Text组件，当列表向下滑动到底部后，向上滑动，渲染的内容出现错误如何解决。问题代码如下：
  
@@ -25,7 +21,10 @@ struct Index {
 
 
   aboutToAppear(): void {
-    for (let i = 0; i // 匹配第x条，加粗
+    for (let i = 0; i < 200; i++) {
+      let str: string = `第${i}条：测试数据 index=${i}`;
+      let styledString = new MutableStyledString(str);
+      let startStringMatch = str.match(/^第.+?条/); <em>// 匹配第x条，加粗</em>
       if (startStringMatch) {
         styledString.setStyle({
           start: 0,
@@ -52,8 +51,8 @@ struct Index {
   build() {
     Column() {
       List() {
-        Repeat(this.textBlockList)
-          .each((obj: RepeatItem) => {
+        Repeat<string>(this.textBlockList)
+          .each((obj: RepeatItem<string>) => {
             ListItem() {
               Text(obj.item, { controller: this.controllerList[obj.index] })
                 .width('90%')
@@ -75,12 +74,12 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/7QC6FoVSSKGYCLc8LBcpFw/zh-cn_image_0000002628552618.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025538Z&HW-CC-Expire=86400&HW-CC-Sign=1714804D9D56531AC9171C3DAD3138F0F52A5006650B7B659C74F6CCD57DD5F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/7QC6FoVSSKGYCLc8LBcpFw/zh-cn_image_0000002628552618.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041256Z&HW-CC-Expire=86400&HW-CC-Sign=C3F0D283C7A2887473C34CE66C82D3439DF536283D9B4103EB730967D38BF1E8)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)：可复用的循环渲染。基于数组类型数据来进行循环渲染，一般与容器组件配合使用。
 - [Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)：显示一段文本的组件。文本在组件区域显示效果与字体资源相关，默认字体排印可见[字体排印视觉指引](https://developer.huawei.com/consumer/cn/doc/design-guides/font-0000001828772001)。
@@ -89,23 +88,21 @@ struct Index {
  
  
 
-##### 问题定位
+#### 问题定位
 
 根据问题现象按照如下步骤进行定位：
- 
-- 判断是否是复用和懒加载引起的问题，将Repeat改成ForEach发现显示正常，怀疑问题是在懒加载处理过程中引入。
-- 观察问题现象，首次渲染时Text文本样式都正常，但当组件滑出可视区域外时，再往回滑动渲染的样式和文字出现问题。怀疑是组件复用过程中，复用的Text绑定的还是原有的样式，样式修改未生效。
-
+ 1. 判断是否是复用和懒加载引起的问题，将Repeat改成ForEach发现显示正常，怀疑问题是在懒加载处理过程中引入。
+2. 观察问题现象，首次渲染时Text文本样式都正常，但当组件滑出可视区域外时，再往回滑动渲染的样式和文字出现问题。怀疑是组件复用过程中，复用的Text绑定的还是原有的样式，样式修改未生效。
  
  
 
-##### 分析结论
+#### 分析结论
 
 首次渲染时TextController和Text进行了绑定，组件复用时需要使用setStyledString接口更新属性字符串，只替换TextOptions中的controller实际并没有生效。而定位过程中使用ForEach正常，是因为ForEach会全量渲染，首次渲染就将全量的TextController和Text进行了绑定，之后不存在修改TextController引起的更新未生效问题。
  
  
 
-##### 修改建议
+#### 修改建议
 
 建议在Text组件的onAppear回调函数中进行更新，确保每次渲染都能使用正确的属性字符串。
  
@@ -124,9 +121,12 @@ struct TextOrder {
 
 
   aboutToAppear(): void {
-    // 创建测试数据
-    for (let i = 0; i // 匹配第x条，加粗
-      // 使用正则表达式匹配文本开头的"第x条"部分
+   <em> // 创建测试数据</em>
+    for (let i = 0; i < 200; i++) {
+      let str: string = `第${i}条：测试数据 index=${i}`;
+      let styledString = new MutableStyledString(str);
+      let startStringMatch = str.match(/^第.+?条/); <em>// 匹配第x条，加粗</em>
+      <em>// 使用正则表达式匹配文本开头的"第x条"部分</em>
       if (startStringMatch) {
         styledString.setStyle({
           start: 0,
@@ -135,16 +135,16 @@ struct TextOrder {
           styledValue: new TextStyle({ fontWeight: 'bold' })
         });
       }
-      // 为整段文本设置段落样式
+     <em> // 为整段文本设置段落样式</em>
       styledString.setStyle({
         start: 0,
         length: str.length,
         styledKey: StyledStringKey.PARAGRAPH_STYLE,
         styledValue: new ParagraphStyle({ textIndent: new LengthMetrics(36) })
       });
-      // 创建文本控制器
+     <em> // 创建文本控制器</em>
       let controller = new TextController();
-      // 将数据添加到对应的数组中
+     <em> // 将数据添加到对应的数组中</em>
       this.textBlockList.push(str);
       this.styledStringList.push(styledString);
       this.controllerList.push(controller);
@@ -155,8 +155,8 @@ struct TextOrder {
   build() {
     Column() {
       List() {
-        Repeat(this.textBlockList)
-          .each((obj: RepeatItem) => {
+        Repeat<string>(this.textBlockList)
+          .each((obj: RepeatItem<string>) => {
             ListItem() {
               Text(obj.item, { controller: this.controllerList[obj.index] })
                 .width('90%')
@@ -164,7 +164,7 @@ struct TextOrder {
                 .copyOption(CopyOptions.LocalDevice)
                 .lineHeight(26)
                 .height('auto')
-                // 当文本组件出现时，为其设置样式
+            <em>    // 当文本组件出现时，为其设置样式</em>
                 .onAppear(() => {
                   this.controllerList[obj.index].setStyledString(this.styledStringList[obj.index]);
                 });
@@ -183,7 +183,7 @@ struct TextOrder {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用Repeat渲染列表，是否有动态预加载的功能？
  

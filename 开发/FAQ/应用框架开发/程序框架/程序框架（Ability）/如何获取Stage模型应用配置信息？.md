@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-165
 
-## 如何获取Stage模型应用配置信息？
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何获取Stage模型应用配置信息？包括全局应用配置文件app.json5以及模块配置文件module.json5。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)：根据给定的bundleFlags获取当前应用的BundleInfo。使用Promise异步回调。
  
@@ -24,7 +20,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 Stage模型下应用配置主要是app.json5和module.json5两个文件，其中app.json5包含应用全局的配置信息（例如Bundle名称、开发厂商、版本号等基本信息）以及特定设备类型的配置信息，module.json5包含Module的基本配置信息（Module名称、类型、描述、支持的设备类型等基本信息）、应用组件配置信息（UIAbility、ExtensionAbility）、应用运行过程当中所需的权限信息。可以通过包管理工具类当中提供的方法bundleManager.getBundleInfoForSelf在应用代码当中获取这些值。
   
@@ -50,7 +46,7 @@ Stage模型下应用配置主要是app.json5和module.json5两个文件，其中
  
 代码实例参考如下：
  
-```text
+```json
 import { bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { buffer } from '@kit.ArkTS';
@@ -82,11 +78,11 @@ struct GetStageConfigData {
             console.info(`版本描述：${bundleInfo.versionName}`);
             console.info(`分布式场景下应用兼容的最低版本：${bundleInfo.minCompatibleVersionCode}`);
             console.info(`应用运行目标版本：${bundleInfo.targetVersion}`);
-            // 权限信息：bundleFlags需要包含GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION
+           <em> // 权限信息：bundleFlags需要包含GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION</em>
             let permissions = bundleInfo.reqPermissionDetails;
             console.info(`应用运行时需向系统申请的权限集合的详细信息：${JSON.stringify(permissions)}`);
 
-            // 应用程序的配置信息，GET_BUNDLE_INFO_WITH_APPLICATION
+           <em> // 应用程序的配置信息，GET_BUNDLE_INFO_WITH_APPLICATION</em>
             let applicationInfo = bundleInfo.appInfo;
             console.info(`bundleName：${applicationInfo.name}`);
             let descriptionId = applicationInfo.descriptionId;
@@ -103,7 +99,7 @@ struct GetStageConfigData {
               console.info(`icon: ${buffer.from(icon.buffer).toString()}`);
             }
 
-            // 获取模块配置信息, GET_BUNDLE_INFO_WITH_HAP_MODULE
+           <em> // 获取模块配置信息, GET_BUNDLE_INFO_WITH_HAP_MODULE</em>
             let hapInfos = bundleInfo.hapModulesInfo;
             for (let hapInfo of hapInfos) {
               console.info(`模块名称：${hapInfo.name}`);
@@ -113,12 +109,12 @@ struct GetStageConfigData {
               for (let ability of abilitiesInfo) {
                 console.info(`ability信息: ${JSON.stringify(ability)}`);
               }
-              // 获取当前模块所有ExtensionAbility的信息,需要额外的GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY
+             <em> // 获取当前模块所有ExtensionAbility的信息,需要额外的GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY</em>
               let extensionAbilitiesInfo = hapInfo.extensionAbilitiesInfo;
               for (let extensionAbilityInfo of extensionAbilitiesInfo) {
                 console.info(`extensionAbility信息: ${JSON.stringify(extensionAbilityInfo)}`);
               }
-              // 获取模块元信息, 需要额外的GET_BUNDLE_INFO_WITH_METADATA
+            <em>  // 获取模块元信息, 需要额外的GET_BUNDLE_INFO_WITH_METADATA</em>
               let metaData = hapInfo.metadata;
               console.info(`当前模块的元数据: ${JSON.stringify(metaData)}`);
             }

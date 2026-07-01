@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1092
 
-## 如何实现Flex分页展示的功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现Flex布局每超过两行自动分页，并能够像Swiper容器一样能左右滑动？
  
 参考图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/Fh3wUeMkSSWWXKYvhb9cjg/zh-cn_image_0000002658926573.png?HW-CC-KV=V1&HW-CC-Date=20260701T025725Z&HW-CC-Expire=86400&HW-CC-Sign=3106A6C4C32A159E008AF49645B466A0124EE627E583BC22CDFB7677AC0EC806)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/Fh3wUeMkSSWWXKYvhb9cjg/zh-cn_image_0000002658926573.png?HW-CC-KV=V1&HW-CC-Date=20260701T041159Z&HW-CC-Expire=86400&HW-CC-Sign=832C747F459C985DCCF929B859CA93C2188D4642BF64B9519F88D9B58B98A3E5)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)是以弹性方式布局子组件的容器组件，能够高效地排列、对齐子元素并分配剩余空间。
 - [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)滑块视图容器，提供子组件滑动轮播显示的能力。
@@ -30,26 +26,24 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过Swiper组件和Flex布局组件可以实现分页展示多个文本框的功能，步骤如下：
- 
-- 获取当前窗口对象，得到窗口宽度。通过当前窗口宽度计算单行的可用宽度。
-- 遍历需要展示在文本框中的字符串数组，通过measureText方法和文本框属性计算文本框占用的宽度。
-- 根据当前每行可用宽度和文本框占用的宽度进行计算。当前行可用宽度-文本框占用宽度-Flex布局中的组件间距，如果小于0就进行换行，并记录每个文本框所在的行。
-- 由于当前每页需要展示两行，通过最大行数/2计算出需要的总页数。最后用记录的文本框所在行判断展示在对应的Swiper页。
-
+ 1. 获取当前窗口对象，得到窗口宽度。通过当前窗口宽度计算单行的可用宽度。
+2. 遍历需要展示在文本框中的字符串数组，通过measureText方法和文本框属性计算文本框占用的宽度。
+3. 根据当前每行可用宽度和文本框占用的宽度进行计算。当前行可用宽度-文本框占用宽度-Flex布局中的组件间距，如果小于0就进行换行，并记录每个文本框所在的行。
+4. 由于当前每页需要展示两行，通过最大行数/2计算出需要的总页数。最后用记录的文本框所在行判断展示在对应的Swiper页。
  
 实现代码如下：
  
-```text
+```json
 import { LengthMetrics, MeasureUtils, UIContext, window } from '@kit.ArkUI';
 
 class TextInfo {
   text: string = '';
-  width: number = 0; // 文本框占用的宽
-  line: number = 0; // 原本文本框所在行
-  remainWidth: number = 0; // 添加文本框后本行剩下的宽
+  width: number = 0; <em>// 文本框占用的宽</em>
+  line: number = 0; <em>// 原本文本框所在行</em>
+  remainWidth: number = 0; <em>// 添加文本框后本行剩下的宽</em>
 
   constructor(text: string, width: number, line: number, remainWidth: number) {
     this.text = text;
@@ -73,7 +67,7 @@ struct TextItem {
         top: 5,
         bottom: 5
       })
-      .constraintSize({ minWidth: 70 }) // 文本框的最小宽度
+      .constraintSize({ minWidth: 70 }) <em>// 文本框的最小宽度</em>
       .border({ width: 1, color: '#ffececec' })
       .borderRadius(5);
   }
@@ -84,30 +78,31 @@ struct TextItem {
 struct FlexPage {
   uiContext: UIContext = this.getUIContext();
   measureUtils: MeasureUtils = this.uiContext.getMeasureUtils();
-  lineWidth: number = 0; // 每行的可用宽度，aboutToAppear中获取
+  lineWidth: number = 0; <em>// 每行的可用宽度，aboutToAppear中获取</em>
   allData: string[] =
     ['1234567', '2222222', '333', '44444', '555555', '666', '7777', '88888888888', '99', '3434', '5656', '7878',
       '12131415', '68681', '7777', '8888888888888', '99', '3434', '5656', '7878', '141414141', '68681'];
-  textInfos: TextInfo[] = []; // 文本框信息
-  maxLine: number = 0; // 文本框原本能占用的最大行数
-  @State swiperList: TextInfo[][] = []; // 轮播图数据
+  textInfos: TextInfo[] = []; <em>// 文本框信息</em>
+  maxLine: number = 0; <em>// 文本框原本能占用的最大行数</em>
+  @State swiperList: TextInfo[][] = []; <em>// 轮播图数据</em>
 
   getTextInfos() {
     let line = 1;
-    let remainWidth = this.lineWidth + 5; // +5是因为首行添加第一个文本框不会出现间距，方便后面计算
+    let remainWidth = this.lineWidth + 5; <em>// +5是因为首行添加第一个文本框不会出现间距，方便后面计算</em>
     this.allData.forEach((str) => {
-      // 文字占用的宽度，单位px
+      <em>// 文字占用的宽度，单位px</em>
       let value = this.measureUtils.measureText({
         textContent: str,
         fontSize: '16fp'
       });
-      // 文本框占用的宽度
+      <em>// 文本框占用的宽度</em>
       let width = this.uiContext.px2vp(value) + 10;
-      if (width = 0) { // 本行是否能放下当前文本框
-          remainWidth = remainWidth - 70 - 5; // 计算剩余宽度，减去文本框宽度和间距
+      if (width <= 70) {
+        if (remainWidth - 70 - 5 >= 0) { <em>// 本行是否能放下当前文本框</em>
+          remainWidth = remainWidth - 70 - 5; <em>// 计算剩余宽度，减去文本框宽度和间距</em>
           this.textInfos.push(new TextInfo(str, 70, line, remainWidth));
         } else {
-          line++; // 换行
+          line++; <em>// 换行</em>
           remainWidth = this.lineWidth - 70;
           this.textInfos.push(new TextInfo(str, 70, line, remainWidth));
         }
@@ -117,18 +112,19 @@ struct FlexPage {
           this.textInfos.push(new TextInfo(str, width, line, remainWidth));
         } else {
           remainWidth = this.lineWidth - width;
-          line++; // 换行
+          line++; <em>// 换行</em>
           this.textInfos.push(new TextInfo(str, width, line, remainWidth));
         }
       }
     });
     console.info(JSON.stringify(this.textInfos));
-    this.maxLine = line; // 得到原本能占用的最大行数
+    this.maxLine = line; <em>// 得到原本能占用的最大行数</em>
   }
 
   getSwiperList() {
-    let maxIndex = Math.ceil(this.maxLine / 2); // 轮播图需要的页数
-    for (let index = 1; index  {
+    let maxIndex = Math.ceil(this.maxLine / 2); <em>// 轮播图需要的页数</em>
+    for (let index = 1; index <= maxIndex; index++) {
+      this.swiperList[index - 1] = this.textInfos.filter((item: TextInfo) => {
         return item.line === index * 2 - 1 || item.line === index * 2;
       });
     }
@@ -138,11 +134,11 @@ struct FlexPage {
   aboutToAppear(): void {
     window.getLastWindow(this.uiContext.getHostContext()).then((win) => {
       let winWidth = win.getWindowProperties().windowRect.width;
-      // 计算行宽，40是因为左右内边距20
+      <em>// 计算行宽，40是因为左右内边距20</em>
       this.lineWidth = this.uiContext.px2vp(winWidth) - 40 > 0 ? this.uiContext.px2vp(winWidth) - 40 : 320;
       console.info(`每行可用宽度：${this.lineWidth}`);
-      this.getTextInfos(); // 获取文本框信息
-      this.getSwiperList(); // 获取轮播图页数
+      this.getTextInfos(); <em>// 获取文本框信息</em>
+      this.getSwiperList(); <em>// 获取轮播图页数</em>
     });
   }
 
@@ -181,12 +177,12 @@ struct FlexPage {
 效果图展示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/aizTYZ-lTWSTO2TlA-oWfA/zh-cn_image_0000002658806631.png?HW-CC-KV=V1&HW-CC-Date=20260701T025725Z&HW-CC-Expire=86400&HW-CC-Sign=5CFE5DBC66A9F132EF217082813C2B8C39A6F7710B8E7C3FF9EEBDD47C8F1A51)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/aizTYZ-lTWSTO2TlA-oWfA/zh-cn_image_0000002658806631.png?HW-CC-KV=V1&HW-CC-Date=20260701T041159Z&HW-CC-Expire=86400&HW-CC-Sign=434BC04066CDDE6B8F5C92515BACD35F1B1AC785EBBA47BE22E52CEB23D051CF)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何获取Flex组件中元素的相关信息？
  

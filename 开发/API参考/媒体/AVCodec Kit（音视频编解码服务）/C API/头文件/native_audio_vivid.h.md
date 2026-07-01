@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-vivid-h
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## native_audio_vivid.h
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 声明Audio Vivid相关的函数和枚举。
  
@@ -26,11 +23,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]结构体
+#### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -42,7 +43,9 @@
  
   
 
-##### [h2]枚举
+#### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -51,12 +54,14 @@
  
   
 
-##### [h2]函数
+#### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
 | OH_AVErrCode OH_AudioVividMetaBuilder_Create(OH_AudioVividMetaBuilder **builder, const OH_AVFormat *format) | 创建Audio Vivid元数据构建器。 |
-| OH_AVErrCode OH_AudioVividMetaBuilder_UpdateObjectPos(OH_AudioVividMetaBuilder *builder, int32_t objectIndex, OH_AudioObjectPosition pos) | 更新Audio Vivid信号格式为OH_AudioVividSignalFormat.OH_AUDIO_VIVID_SIGNAL_FORMAT_MIX时的音频对象位置。在此信号格式下，输入编码的PCM（Pulse Code Modulation）数据中，声道排列顺序为：声床声道在前，对象声道在后。  对象声道按顺序与objectIndex对应，从0开始编号。 |
+| OH_AVErrCode OH_AudioVividMetaBuilder_UpdateObjectPos(OH_AudioVividMetaBuilder *builder, int32_t objectIndex, OH_AudioObjectPosition pos) | 更新Audio Vivid信号格式为OH_AudioVividSignalFormat.OH_AUDIO_VIVID_SIGNAL_FORMAT_MIX时的音频对象位置。在此信号格式下，输入编码的PCM（Pulse Code Modulation）数据中，声道排列顺序为：声床声道在前，对象声道在后。 对象声道按顺序与objectIndex对应，从0开始编号。 |
 | OH_AVErrCode OH_AudioVividMetaBuilder_UpdateObjectGain(OH_AudioVividMetaBuilder *builder, int32_t objectIndex, float gain) | 更新Audio Vivid信号格式为OH_AudioVividSignalFormat.OH_AUDIO_VIVID_SIGNAL_FORMAT_MIX时的音频对象渲染的线性增益。 |
 | OH_AVErrCode OH_AudioVividMetaBuilder_GetMetaLen(const OH_AudioVividMetaBuilder *builder, bool withStaticMeta, int32_t *len) | 获取元数据长度。 |
 | OH_AVErrCode OH_AudioVividMetaBuilder_GetMeta(const OH_AudioVividMetaBuilder *builder, bool withStaticMeta, uint8_t *buffer, int32_t len) | 获取元数据缓冲区。 |
@@ -65,11 +70,15 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]OH_AudioVividSignalFormat
+#### OH_AudioVividSignalFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AudioVividSignalFormat
@@ -91,11 +100,15 @@ Audio Vivid编码器信号格式枚举。
  
   
 
-##### 函数说明
+#### 函数说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]OH_AudioVividMetaBuilder_Create()
+#### OH_AudioVividMetaBuilder_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioVividMetaBuilder_Create(OH_AudioVividMetaBuilder **builder, const OH_AVFormat *format)
@@ -105,15 +118,8 @@ OH_AVErrCode OH_AudioVividMetaBuilder_Create(OH_AudioVividMetaBuilder **builder,
  
 创建Audio Vivid元数据构建器。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/5nNgiZHkRaGGbVwJIjjYNA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025452Z&HW-CC-Expire=86400&HW-CC-Sign=EC95681F34E292C55DEE77A5510FF37C0BB123775E59A003E11934033CC64C0E)
- 
- 
-生命周期管理：
-  
-- 通过本函数创建的实例不再使用时，必须调用[OH_AudioVividMetaBuilder_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-vivid-h#oh_audiovividmetabuilder_destroy)手动释放，以避免内存泄漏。
-
-  
+> [!NOTE]
+> 生命周期管理： 通过本函数创建的实例不再使用时，必须调用 OH_AudioVividMetaBuilder_Destroy 手动释放，以避免内存泄漏。
 
  
 **起始版本：** 26.0.0
@@ -130,12 +136,14 @@ OH_AVErrCode OH_AudioVividMetaBuilder_Create(OH_AudioVividMetaBuilder **builder,
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AVErrCode | AV_ERR_OK：执行成功。  AV_ERR_INVALID_VAL：参数builder或format为空指针或无效。  AV_ERR_UNSUPPORT：当前设备不支持此功能。  AV_ERR_UNKNOWN：创建构建器失败，属于未知错误，请查看日志获取详细信息。 |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：参数builder或format为空指针或无效。 AV_ERR_UNSUPPORT：当前设备不支持此功能。 AV_ERR_UNKNOWN：创建构建器失败，属于未知错误，请查看日志获取详细信息。 |
  
  
   
 
-##### [h2]OH_AudioVividMetaBuilder_UpdateObjectPos()
+#### OH_AudioVividMetaBuilder_UpdateObjectPos()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioVividMetaBuilder_UpdateObjectPos(OH_AudioVividMetaBuilder *builder, int32_t objectIndex, OH_AudioObjectPosition pos)
@@ -162,12 +170,14 @@ OH_AVErrCode OH_AudioVividMetaBuilder_UpdateObjectPos(OH_AudioVividMetaBuilder *
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AVErrCode | AV_ERR_OK：执行成功。  AV_ERR_INVALID_VAL：参数builder为空指针或无效，objectIndex或pos无效。 |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：参数builder为空指针或无效，objectIndex或pos无效。 |
  
  
   
 
-##### [h2]OH_AudioVividMetaBuilder_UpdateObjectGain()
+#### OH_AudioVividMetaBuilder_UpdateObjectGain()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioVividMetaBuilder_UpdateObjectGain(OH_AudioVividMetaBuilder *builder, int32_t objectIndex, float gain)
@@ -192,12 +202,14 @@ OH_AVErrCode OH_AudioVividMetaBuilder_UpdateObjectGain(OH_AudioVividMetaBuilder 
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AVErrCode | AV_ERR_OK：执行成功。  AV_ERR_INVALID_VAL：参数builder为空指针或无效，objectIndex或gain无效。 |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：参数builder为空指针或无效，objectIndex或gain无效。 |
  
  
   
 
-##### [h2]OH_AudioVividMetaBuilder_GetMetaLen()
+#### OH_AudioVividMetaBuilder_GetMetaLen()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioVividMetaBuilder_GetMetaLen(const OH_AudioVividMetaBuilder *builder, bool withStaticMeta, int32_t *len)
@@ -222,12 +234,14 @@ OH_AVErrCode OH_AudioVividMetaBuilder_GetMetaLen(const OH_AudioVividMetaBuilder 
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AVErrCode | AV_ERR_OK：执行成功。  AV_ERR_INVALID_VAL：参数builder为空指针或无效，len为空指针。 |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：参数builder为空指针或无效，len为空指针。 |
  
  
   
 
-##### [h2]OH_AudioVividMetaBuilder_GetMeta()
+#### OH_AudioVividMetaBuilder_GetMeta()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioVividMetaBuilder_GetMeta(const OH_AudioVividMetaBuilder *builder, bool withStaticMeta, uint8_t *buffer, int32_t len)
@@ -253,12 +267,14 @@ OH_AVErrCode OH_AudioVividMetaBuilder_GetMeta(const OH_AudioVividMetaBuilder *bu
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AVErrCode | AV_ERR_OK：执行成功。  AV_ERR_INVALID_VAL：builder为空指针或无效，buffer为空指针或len不足。 |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：builder为空指针或无效，buffer为空指针或len不足。 |
  
  
   
 
-##### [h2]OH_AudioVividMetaBuilder_Destroy()
+#### OH_AudioVividMetaBuilder_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioVividMetaBuilder_Destroy(OH_AudioVividMetaBuilder *builder)
@@ -281,4 +297,4 @@ OH_AVErrCode OH_AudioVividMetaBuilder_Destroy(OH_AudioVividMetaBuilder *builder)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AVErrCode | AV_ERR_OK：执行成功。  AV_ERR_INVALID_VAL：参数builder为空指针。 |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：参数builder为空指针。 |

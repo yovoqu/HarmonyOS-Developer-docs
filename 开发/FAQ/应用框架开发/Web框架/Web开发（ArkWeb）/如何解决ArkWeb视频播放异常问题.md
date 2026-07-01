@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-196
 
-## 如何解决ArkWeb视频播放异常问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Web组件播放视频异常，这类问题要如何定位解决？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 在页面加载过程中，若涉及网络资源的获取，需要在module.json5中配置网络访问的权限，添加方法可参考在配置文件中[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 - 视频播放场景常用到的属性：
@@ -27,65 +23,14 @@ Web组件播放视频异常，这类问题要如何定位解决？
  
  
 
-##### 解决方案
+#### 解决方案
 
 Web加载视频播放出现异常问题时，可按如下步骤进行定位排查：
- 
-- 确保真机正常联网，并在工程中的module.json5配置文件中添加网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，具体申请方式请参考声明权限。如果使用的是模拟器，需要检查模拟器是否无法连接网络，通常是由于[网络代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-more-features#section206461549731)的原因，按照指引配置即可。
-- 对于通过src直接加载在线视频地址链接的场景：
+ 1. 确保真机正常联网，并在工程中的module.json5配置文件中添加网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，具体申请方式请参考声明权限。如果使用的是模拟器，需要检查模拟器是否无法连接网络，通常是由于[网络代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-more-features#section206461549731)的原因，按照指引配置即可。
+2. 对于通过src直接加载在线视频地址链接的场景：
 首先尝试在浏览器中打开该网址，若该网址可以正常打开，则检查是否是因为domStorageAccess和mixedMode属性配置错误的原因。
-- 对于浏览器打开后直接下载的视频链接，需要将文件先下载后再进行加载：
-
- 
-```text
-import { webview } from '@kit.ArkWeb';
-
-@Entry
-@Component
-struct DownloadVideoDemo {
-  controller: webview.WebviewController = new webview.WebviewController();
-  delegate: webview.WebDownloadDelegate = new webview.WebDownloadDelegate();
-  cacheDir: string = this.getUIContext().getHostContext()!.cacheDir;
-
-  build() {
-    Column() {
-      Web({
-        src: 'xxx.com/xxx.mp4', // 需要替换为那种打开后自动下载的链接
-        controller: this.controller
-      })
-        .fileAccess(true)
-        .domStorageAccess(true)
-        .geolocationAccess(false)
-        .onControllerAttached(() => {
-          try {
-            this.delegate.onBeforeDownload((webDownloadItem: webview.WebDownloadItem) => {
-              // 传入本地沙箱路径并开始下载
-              webDownloadItem.start(this.cacheDir + '/' + webDownloadItem.getSuggestedFileName());
-            });
-            this.delegate.onDownloadUpdated((webDownloadItem: webview.WebDownloadItem) => {
-              // 下载任务进度和速度监测处理
-              console.info(`download update guid: ${webDownloadItem.getGuid()}`);
-            });
-            this.delegate.onDownloadFailed((webDownloadItem: webview.WebDownloadItem) => {
-              // 下载任务失败处理
-              console.error(`download failed guid: ${webDownloadItem.getGuid()}`);
-            });
-            this.delegate.onDownloadFinish((webDownloadItem: webview.WebDownloadItem) => {
-              // 下载成功通过Web重新加载本地文件打开预览
-              this.controller.loadUrl(`file://${this.cacheDir}/` + webDownloadItem.getSuggestedFileName());
-            });
-            this.controller.setDownloadDelegate(this.delegate);
-          } catch (error) {
-            // 异常处理
-            console.error(
-              `ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-          }
-        });
-    };
-  }
-}
-```
- - 对于通过src加载本地视频文件的场景，需要检查是否开启fileAccess权限：
+3. 对于浏览器打开后直接下载的视频链接，需要将文件先下载后再进行加载：
+4. 对于通过src加载本地视频文件的场景，需要检查是否开启fileAccess权限：
 ```text
 import { webview } from '@kit.ArkWeb';
 
@@ -109,7 +54,7 @@ struct SandboxVideoDemo {
 }
 ```
 
-- 对于通过src加载本地H5页面，H5页面中通过video标签加载一个视频的场景：
+5. 对于通过src加载本地H5页面，H5页面中通过video标签加载一个视频的场景：
 ```text
 import { webview } from '@kit.ArkWeb';
 
@@ -132,20 +77,26 @@ struct LocalH5Demo {
 ```
  
 ```text
-
-
-    
-    
-
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<video id="myVideo" src="resource://rawfile/file/video.mp4" autoplay controls muted >
+</video>
+<script>
+</script>
+</body>
+</html>
 ```
 
-- 涉及到跨域的话，请参考[Web页面跨域解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-cross-domain-solutions-for-web-pages#section6164167185112)。
-
+6. 涉及到跨域的话，请参考[Web页面跨域解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-cross-domain-solutions-for-web-pages#section6164167185112)。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：H5中video组件如果没有设置poster兜底图时，低版本WebView内核是否会崩溃？
  

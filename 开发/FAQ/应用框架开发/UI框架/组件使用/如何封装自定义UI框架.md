@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1422
 
-## 如何封装自定义UI框架
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何基于基础组件来构建自己的UI框架？例如构建自定义List组件UI框架。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [动态属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier)能够动态设置组件的属性，支持开发者在属性设置时使用if/else语法，且根据需要使用多态样式设置属性。其中的[自定义Modifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)支持TextModifier、ListModifier等接口，但是[自定义Modifier不支持感知@State装饰的状态数据变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#示例3自定义modifier不支持感知state装饰的状态数据变化)。
 - [AttributeUpdater](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-attributeupdater)是一个特殊的[AttributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-attributemodifier)，不仅继承了AttributeModifier的功能，还提供了直接获取属性对象的能力。通过属性对象，AttributeUpdater能够直接更新对应属性，无需经过状态变量，并且可以利用AttributeUpdater实现自定义的更新策略，从而进一步提升属性更新的性能。
@@ -22,13 +18,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 建议采用AttributeUpdater方法自定义框架，具体实现如下：
- 
-- 首先，继承AttributeUpdater类定义ExListModify类，初始化并配置一个列表属性对象，通过链式调用的方式设置一些可选的属性，如滚动条状态exScrollBar、约束尺寸exConstrainSize、边缘效果exEdgeEffect和边缘效果选项exEdgeEffectOption。
+ 1. 首先，继承AttributeUpdater类定义ExListModify类，初始化并配置一个列表属性对象，通过链式调用的方式设置一些可选的属性，如滚动条状态exScrollBar、约束尺寸exConstrainSize、边缘效果exEdgeEffect和边缘效果选项exEdgeEffectOption。
 ```text
-export class ExListModify extends AttributeUpdater {
+export class ExListModify extends AttributeUpdater<ListModifier> {
   private exScrollBar: BarState = BarState.Off;
   private exConstrainSize: ConstraintSizeOptions = { maxHeight: '100%' };
 
@@ -42,7 +37,7 @@ export class ExListModify extends AttributeUpdater {
 };
 ```
 
-- 接下来，实现一个自定义列表组件ExList，在build方法中，使用List组件构建列表结构，并通过AttributeModifier方法调用封装好的修饰类ExListModify。
+2. 接下来，实现一个自定义列表组件ExList，在build方法中，使用List组件构建列表结构，并通过AttributeModifier方法调用封装好的修饰类ExListModify。
 ```text
 @Component
 export struct ExList {
@@ -56,12 +51,12 @@ export struct ExList {
   build() {
     List({ scroller: this.scroller, space: this.space, initialIndex: this.initialIndex }) {
       this.bindView();
-    }.attributeModifier(this.attribute); // AttributeModifier方法调用封装好的修饰类ExListModify
+    }.attributeModifier(this.attribute); <em>// AttributeModifier方法调用封装好的修饰类ExListModify</em>
   }
 }
 ```
 
-- 最后，通过使用自定义列表组件ExList来展示相关数据，完成列表内容的渲染与呈现。
+3. 最后，通过使用自定义列表组件ExList来展示相关数据，完成列表内容的渲染与呈现。
 ```text
 ExList({ attribute: this.modify }) {
   ForEach(this.dataList1, (item: number) => {
@@ -72,7 +67,6 @@ ExList({ attribute: this.modify }) {
 };
 ```
 
-
  
 完整示例参考如下：
  
@@ -80,8 +74,8 @@ ExList({ attribute: this.modify }) {
 import { AttributeUpdater, ListModifier } from '@kit.ArkUI';
 
 
-// 初始化并配置列表属性对象
-export class ExListModify extends AttributeUpdater {
+<em>// 初始化并配置列表属性对象</em>
+export class ExListModify extends AttributeUpdater<ListModifier> {
   private exScrollBar: BarState = BarState.Off;
   private exConstrainSize: ConstraintSizeOptions = { maxHeight: '100%' };
 
@@ -95,7 +89,7 @@ export class ExListModify extends AttributeUpdater {
 };
 
 
-// 自定义列表组件ExList
+<em>// 自定义列表组件ExList</em>
 @Component
 export struct ExList {
   @BuilderParam bindView: () => void;
@@ -108,9 +102,11 @@ export struct ExList {
   build() {
     List({ scroller: this.scroller, space: this.space, initialIndex: this.initialIndex }) {
       this.bindView();
-    }.attributeModifier(this.attribute); // AttributeModifier方法调用封装好的修饰类ExListModify
+    }.attributeModifier(this.attribute); <em>// AttributeModifier方法调用封装好的修饰类ExListModify</em>
   }
 }
+
+
 
 
 @Entry
@@ -141,7 +137,7 @@ export struct CustomUiDemo {
 
 
       Blank().height(10);
-      // 组件ExList展示相关数据
+  <em>    // 组件ExList展示相关数据</em>
       ExList({ attribute: this.modify }) {
         ForEach(this.dataList1, (item: number) => {
           ListItem() {
@@ -161,12 +157,12 @@ export struct CustomUiDemo {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/XyFKjGpbTD6kPCWcoyZ3Xw/zh-cn_image_0000002658962959.png?HW-CC-KV=V1&HW-CC-Date=20260701T025615Z&HW-CC-Expire=86400&HW-CC-Sign=5DA469C558404308910A149D299F6E9C02A9CEB20829C8FEEF805BA9E2C971A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/XyFKjGpbTD6kPCWcoyZ3Xw/zh-cn_image_0000002658962959.png?HW-CC-KV=V1&HW-CC-Date=20260701T041310Z&HW-CC-Expire=86400&HW-CC-Sign=8D310279934219C0E079CB25124DF34C7F8F7BB2289C42DAE4A0927170ED386A)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：在构建页面时，去使用不同的Text组件替代List组件，这种情况下，构建几个Text组件就要创建几个Modifier，页面比较复杂时就可能要创建过多的Modifier，如何处理这种散装字段的数据源？
  

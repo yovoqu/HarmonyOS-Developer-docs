@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-74
 
-## 多个HAP包集成同一个HSP的规则
- 
-
-
-##### 问题现象
+#### 问题现象
 
 代码复用在软件工程中很常见。复杂业务场景中，一般会将业务功能实现拆分成各个模块，并将通用的能力/服务抽象到底层通用框架/模块。如果只有一个应用，各个模块可以放在同一个工程下，来实现代码和资源的共享；如果有多个应用，即多个HAP包，怎么去集成同一个HSP呢？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 代码和资源的共享，可以使用[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)。
 - HAR和HSP包有各自的适用场景，可以参考[选择合适的包类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-overview#选择合适的包类型)。
@@ -22,25 +18,26 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 实现不同项目的代码和资源共享，需要使用集成态HSP。可以将需要复用的工程代码产物包改成集成态HSP，以此来解决业务工程和基础工程间bundleName的强耦合问题，但versionCode、minAPIVersion字段仍需要人工提前规划，来保证这些字段在这两个工程间一致。
- 
-- 规划版本号和最小API版本，即保证versionCode、minAPIVersion字段在多个项目工程一致。
-- 使用[集成态HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/integrated-hsp)来完成bundleName字段的解耦。
-- 关于后续演进，请参考下面场景：场景一：业务工程不涉及改动，但基础工程需要演进（功能增强/修复bug等）。只需要修改基础工程中的versionCode、minAPIVersion（如果涉及的话）。其他业务工程后续迭代时，增加对应业务工程的versionCode版本，使之与基础工程中的versionCode版本一致。
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/AyJMQv_pTUaFgbsLWhkbkQ/zh-cn_image_0000002628788120.png?HW-CC-KV=V1&HW-CC-Date=20260701T025517Z&HW-CC-Expire=86400&HW-CC-Sign=83149609D8C566AD442F04A597A5AF7CC030908676BECFDC016C60063940F7FD)
+ 1. 规划版本号和最小API版本，即保证versionCode、minAPIVersion字段在多个项目工程一致。
+2. 使用[集成态HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/integrated-hsp)来完成bundleName字段的解耦。
+3. 关于后续演进，请参考下面场景：场景一：业务工程不涉及改动，但基础工程需要演进（功能增强/修复bug等）。只需要修改基础工程中的versionCode、minAPIVersion（如果涉及的话）。其他业务工程后续迭代时，增加对应业务工程的versionCode版本，使之与基础工程中的versionCode版本一致。
 
- 场景二：基础工程不涉及改动，业务工程需要演进（功能增强/修复bug等）。不仅需要增加业务工程中的versionCode，同时需要修改基础工程中的versionCode。如果涉及到minAPIVersion改动，同理，也需要两者一起修改。
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/uibmRC9XRze_FuGUfqPtyw/zh-cn_image_0000002658987443.png?HW-CC-KV=V1&HW-CC-Date=20260701T025517Z&HW-CC-Expire=86400&HW-CC-Sign=7E183C1036ECCF61A2A81B88A31278987D9F26CAE6D6B43860EEC54E0A57BDFF)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/AyJMQv_pTUaFgbsLWhkbkQ/zh-cn_image_0000002628788120.png?HW-CC-KV=V1&HW-CC-Date=20260701T041351Z&HW-CC-Expire=86400&HW-CC-Sign=7C4D68722545D61BED0423965A5CCF5FBFD096A97B9344E927E4973A7FBC1FFC)
 
 
+  场景二：基础工程不涉及改动，业务工程需要演进（功能增强/修复bug等）。不仅需要增加业务工程中的versionCode，同时需要修改基础工程中的versionCode。如果涉及到minAPIVersion改动，同理，也需要两者一起修改。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/uibmRC9XRze_FuGUfqPtyw/zh-cn_image_0000002658987443.png?HW-CC-KV=V1&HW-CC-Date=20260701T041351Z&HW-CC-Expire=86400&HW-CC-Sign=A0824CAC3456F85A6D222C08799DF6E86DB015EDD86A2DA13BD1873E319AFDC6)
+
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：安装HAP包时提示错误码10024？
  

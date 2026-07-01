@@ -4,20 +4,16 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-63
 
-## 预览帧处理时如何选择format
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在双路预览开发时，可能会出现下面两种异常场景：
  
 - **画面色彩混乱、画面错位。** 画面出现大面积偏色或者局部色彩错误，甚至出现色块杂乱等情况，如下图所示（图一为正常图案，图二三为异常现象）：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/zNhl3NqVRVGBNJXqkplqZw/zh-cn_image_0000002658911805.png?HW-CC-KV=V1&HW-CC-Date=20260701T025817Z&HW-CC-Expire=86400&HW-CC-Sign=91A44DB9A90831519DD1DA657DA736079679B016C8B2D5E0F8E86C94FE37E637)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/zNhl3NqVRVGBNJXqkplqZw/zh-cn_image_0000002658911805.png?HW-CC-KV=V1&HW-CC-Date=20260701T041044Z&HW-CC-Expire=86400&HW-CC-Sign=4F2326710DBF4E1241BF99D45CDD783D1E377A4B3A5B51266F3073EFA7B8A371)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/TL0y_JCATyCHOfoJos6iaA/zh-cn_image_0000002628392596.png?HW-CC-KV=V1&HW-CC-Date=20260701T025817Z&HW-CC-Expire=86400&HW-CC-Sign=09026126993B206AADA759C6BFF281EC0C54FB4A94296DF43312C03E92989FC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/TL0y_JCATyCHOfoJos6iaA/zh-cn_image_0000002628392596.png?HW-CC-KV=V1&HW-CC-Date=20260701T041044Z&HW-CC-Expire=86400&HW-CC-Sign=8A26AB1C2E04DEC149E86B5BFD341E2CCBA57E1421136959780F793DF56950AD)
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/rJia_y43TuSa1Yb3wXqF-A/zh-cn_image_0000002658791863.png?HW-CC-KV=V1&HW-CC-Date=20260701T025817Z&HW-CC-Expire=86400&HW-CC-Sign=2D3326E7DEAC52F06BEF31878968A8C8033A3149BE52A30E88852CCA91D21BF3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/rJia_y43TuSa1Yb3wXqF-A/zh-cn_image_0000002658791863.png?HW-CC-KV=V1&HW-CC-Date=20260701T041044Z&HW-CC-Expire=86400&HW-CC-Sign=7D7EB72B12E5AE823885FEE6809AA8C074A57A91105FD36C8168FE6500CB5349)
 
 - **预览界面直接闪退。** 相机预览界面打开后快速闪退，并伴有如下crash日志：
 ```ArkTS
@@ -50,7 +46,7 @@ Tid:54261, Name:OS_FFRT_2_2
 #01 pc 000000000005ce6c /system/lib64/platformsdk/libace_napi.z.so(NativeAsyncWork::Queue(NativeEngine*)+412)(0cebf964e89dab5a2ce4cefd8e58beea)
 #02 pc 000000000008bf38 /system/lib64/platformsdk/libace_napi.z.so(napi_queue_async_work+40)(0cebf964e89dab5a2ce4cefd8e58beea)
 #03 pc 00000000000c0488 /system/lib64/platformsdk/libimage_napi.z.so(OHOS::Media::PixelMapNapi::CreatePixelMap(napi_env__*, napi_callback_info__*) (.cfi)+524)(8a4937c6722b56ca6a98bec4c504c48f)
-#04 pc 0000000000066fd4 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack(panda::JsiRuntimeCallInfo*)+292)(0cebf964e89dab5a2ce4cefd8e58beea)
+#04 pc 0000000000066fd4 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+292)(0cebf964e89dab5a2ce4cefd8e58beea)
 #05 pc 0000000000e0d9f0 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+44)
 #06 pc 0000000000465018 /system/lib64/module/arkcompiler/stub.an(BCStub_HandleCallthis2Imm8V8V8V8StwCopy+436)
 #07 at anonymous entry (entry/src/main/ets/pages/Index.ets:230:38)
@@ -60,8 +56,8 @@ Tid:54261, Name:OS_FFRT_2_2
 #11 pc 0000000000093740 /system/lib64/platformsdk/libimage_napi.z.so(OHOS::Media::CommonCallbackRoutine(napi_env__*, OHOS::Media::ImageAsyncContext*&, napi_value__* const&)+444)(8a4937c6722b56ca6a98bec4c504c48f)
 #12 pc 0000000000093a24 /system/lib64/platformsdk/libimage_napi.z.so(OHOS::Media::JsGetComponentCallBack(napi_env__*, napi_status, OHOS::Media::ImageAsyncContext*) (.cfi)+336)(8a4937c6722b56ca6a98bec4c504c48f)
 #13 pc 000000000003f4f4 /system/lib64/platformsdk/libace_napi.z.so(NativeAsyncWork::AsyncAfterWorkCallback(uv_work_s*, int)+468)(0cebf964e89dab5a2ce4cefd8e58beea)
-#14 pc 00000000000722c0 /system/lib64/platformsdk/libruntime.z.so(std::__h::__function::__func, void ()>::operator()()+128)(6fac88a3788b167d65c694c7b98b5186)
-#15 pc 000000000001efe4 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::(anonymous namespace)::EventRunnerImpl::ExecuteEventHandler(std::__h::unique_ptr&)+1824)(cb50d8e3b11e95df8dfdd059d8351e8d)
+#14 pc 00000000000722c0 /system/lib64/platformsdk/libruntime.z.so(std::__h::__function::__func<OHOS::AbilityRuntime::OHOSJsEnvironmentImpl::PostTaskToHandler(uv_task_info_s const*)::$_0, std::__h::allocator<OHOS::AbilityRuntime::OHOSJsEnvironmentImpl::PostTaskToHandler(uv_task_info_s const*)::$_0>, void ()>::operator()()+128)(6fac88a3788b167d65c694c7b98b5186)
+#15 pc 000000000001efe4 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::(anonymous namespace)::EventRunnerImpl::ExecuteEventHandler(std::__h::unique_ptr<OHOS::AppExecFwk::InnerEvent, void (*)(OHOS::AppExecFwk::InnerEvent*)>&)+1824)(cb50d8e3b11e95df8dfdd059d8351e8d)
 ```
 
 
@@ -70,35 +66,41 @@ Tid:54261, Name:OS_FFRT_2_2
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [CameraFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraformat)：相机输出流的原始数据格式，定义相机硬件输出图像的编码方式（如YUV、RGB等）。决定Surface接收数据的底层结构。
 - [nextImage.format](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h#oh_nativebuffer_format)：ImageReceiver接收图像的格式，是相机输出流数据经系统封装后的中间格式，与CameraFormat强关联。
 - [PixelMapFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#pixelmapformat7)：PixelMap的处理格式，用于内存中处理图像数据的像素排列方式（如RGBA、NV21等）。
-- 三者关系：CameraFormat决定nextImage.format，二次预览时则需要根据nextImage.format取值来选择对应的PixelMapFormat和单位像素字节数。芯片根据创建预览输出流时的CameraFormat类型来出图，因此nextImage.format是由CameraFormat来决定的。而在将nextImage处理成pixelMap时，需要根据nextImage.format的值选择对应的PixelMapFormat以及单位像素字节数。三者的对应关系如下表： 
+- 三者关系：CameraFormat决定nextImage.format，二次预览时则需要根据nextImage.format取值来选择对应的PixelMapFormat和单位像素字节数。芯片根据创建预览输出流时的CameraFormat类型来出图，因此nextImage.format是由CameraFormat来决定的。而在将nextImage处理成pixelMap时，需要根据nextImage.format的值选择对应的PixelMapFormat以及单位像素字节数。三者的对应关系如下表：
+
 | CameraFormat值 | 对应nextImage.format值 | PixelMapFormat取值 | 单位像素字节数 | 适用的输出流 |
+
 | --- | --- | --- | --- | --- |
+
 | CAMERA_FORMAT_RGBA_8888 | - | - | - | - |
+
 | CAMERA_FORMAT_YUV_420_SP | 25 | image.PixelMapFormat.NV21 | 1.5 | 预览流，视频流（NORMAL_VIDEO） |
+
 | CAMERA_FORMAT_JPEG | - | - | - | 拍照流（NORMAL_PHOTO） |
+
 | CAMERA_FORMAT_YCBCR_P010 | 35 | image.PixelMapFormat.YCBCR_P010 | 3 | 预览流（NORMAL_VIDEO），视频流（NORMAL_VIDEO） |
+
 | CAMERA_FORMAT_YCRCB_P010 | 36 | image.PixelMapFormat.YCRCB_P010 | 3 | 预览流（NORMAL_VIDEO），视频流（NORMAL_VIDEO） |
+
 | CAMERA_FORMAT_HEIC | - | - | - | - |
+
+  
+> [!NOTE]
+> 注：表中的NORMAL_VIDEO指的是相机模式为NORMAL_VIDEO，NORMAL_PHOTO则是指相机模式为NORMAL_VIDEO，未特别标明的表示两种模式都可以。
+
+
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/7ZEJ6tVASw60DuC0SZbHJQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025817Z&HW-CC-Expire=86400&HW-CC-Sign=8609045835D099943702704CF6554EFAC9D0DCEAD51670A6024357952AA2A91D)
- 
-注：表中的NORMAL_VIDEO指的是相机模式为NORMAL_VIDEO，NORMAL_PHOTO则是指相机模式为NORMAL_VIDEO，未特别标明的表示两种模式都可以。
-
- 
- 
-
-##### 问题定位
+#### 问题定位
 
 - 画面色彩杂乱。画面色彩异常现象明显，根本原因在于像素格式解析错配，由于CameraFormat与PixelMapFormat取值不匹配，导致色彩空间不匹配或者色彩通道顺序错位，进而造成色彩错乱。
-- 预览界面发生crash闪退。
-从日志可以看出crash是因为发生了严重的内存访问异常（SIGSEGV(SEGV_MAPERR)），从日志33行可以看出问题出在Index.ets:230:38，对应代码中操作为：
+- 预览界面发生crash闪退。1. 从日志可以看出crash是因为发生了严重的内存访问异常（SIGSEGV(SEGV_MAPERR)），从日志33行可以看出问题出在Index.ets:230:38，对应代码中操作为：
 ```text
 let pixelMapFormat = image.PixelMapFormat.YCRCB_P010;
 pixelMap = await image.createPixelMap(dstArr.buffer, {
@@ -107,16 +109,25 @@ pixelMap = await image.createPixelMap(dstArr.buffer, {
 });
 ```
 
-- [image.createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)方法是通过图像像素数据的缓冲区（dstArr.buffer）内容创建PixelMap，而dstArr.buffer的创建过程为：
+
+2. [image.createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)方法是通过图像像素数据的缓冲区（dstArr.buffer）内容创建PixelMap，而dstArr.buffer的创建过程为：
 ```text
 let mSize = 1.5;
-const dstBufferSize = width * height * mSize; // 以NV21为例（YUV_420_SP格式的图片）YUV_420_SP内存计算公式：长x宽+(长x宽)/2
+const dstBufferSize = width * height * mSize; <em>// 以NV21为例（YUV_420_SP格式的图片）YUV_420_SP内存计算公式：长x宽+(长x宽)/2</em>
 const dstArr = new Uint8Array(dstBufferSize);
-for (let j = 0; j 
+for (let j = 0; j < height * mSize; j++) {
+  const srcBuf = new Uint8Array(imgComponent.byteBuffer, j * stride, width);
+  dstArr.set(srcBuf, j * width);
+}
+```
+
+
+3. 从上面两段代码可知，创建图像缓冲区数据时选择的单位像素字节数为1.5，而createPixelMap时传入的格式是PixelMapFormat.YCRCB_P010。PixelMapFormat.YCRCB_P010格式对应的单位像素字节数应该为3。
+
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 画面色彩杂乱：画面出现错乱是因为在转成pixelMap处理时，选择错了pixelMapFormat，导致画面色彩混乱。
 - 预览界面发生crash闪退：crash闪退是因为图像数组拷贝时，单位像素字节数选择过小，使得图像缓冲区数据长度不符合要求，导致创建pixelMap时发生地址越界造成闪退。
@@ -124,7 +135,7 @@ for (let j = 0; j
  
  
 
-##### 修改建议
+#### 修改建议
 
 参照背景知识章节中的表格，选择正确的相机模式和CameraFormat值，然后在处理nextImage时选择对应的PixelMapFormat和单位像素字节数。
  

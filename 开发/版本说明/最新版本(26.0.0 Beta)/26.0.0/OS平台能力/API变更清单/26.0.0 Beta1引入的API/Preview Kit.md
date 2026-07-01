@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-previewkit-7001
 
-## Preview Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | API废弃版本变更 | 类名：global； API声明：declare namespace openFileBoost 差异内容：NA | 类名：global； API声明：declare namespace openFileBoost 差异内容：26.0.0 | api/@hms.pcService.openFileBoost.d.ts |

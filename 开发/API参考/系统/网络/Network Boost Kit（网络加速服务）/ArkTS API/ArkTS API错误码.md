@@ -3,23 +3,16 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost
-
 **支持设备：** Phone | PC/2in1 | Tablet
 
-## ArkTS API错误码
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/7opniQgkRJ-w5vFR8kIPEg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025449Z&HW-CC-Expire=86400&HW-CC-Sign=1DF64DEF4B8876C5F1DE58BFDD37E0B0DF9CA3FF403BD58495DB019F3B66B681)
- 
- 
-- 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> [!NOTE]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 。
 
   
 
-  
+#### 1013600001 内部错误
 
-##### 1013600001 内部错误
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -39,7 +32,9 @@ Internal error.
  
   
 
-##### 1013600002 系统服务处理异常
+#### 1013600002 系统服务处理异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -59,7 +54,9 @@ IPC通信异常。
  
   
 
-##### 1013620000 多网功能没有使能
+#### 1013620000 多网功能没有使能
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -79,7 +76,9 @@ Multi-path capability is disabled.
  
   
 
-##### 1013620001 多网已经激活或者是在激活的过程中
+#### 1013620001 多网已经激活或者是在激活的过程中
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -99,7 +98,9 @@ Multi-path links are already active or in the process of being established.
  
   
 
-##### 1013620002 应用多网请求已经达到上限
+#### 1013620002 应用多网请求已经达到上限
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -119,7 +120,9 @@ App request limit reached.
  
   
 
-##### 1013620003 功耗限制不允许发起多网
+#### 1013620003 功耗限制不允许发起多网
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -139,7 +142,9 @@ Request denied due to power consumption restrictions.
  
   
 
-##### 1013620004 配额耗尽
+#### 1013620004 配额耗尽
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -159,7 +164,9 @@ No quota.
  
   
 
-##### 1013620005 多网请求冲突
+#### 1013620005 多网请求冲突
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -179,7 +186,9 @@ Conflict.
  
   
 
-##### 1013620006 发起太频繁
+#### 1013620006 发起太频繁
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -199,7 +208,9 @@ Requests are too frequent.
  
   
 
-##### 1013620007 没有合适的多网链路可用
+#### 1013620007 没有合适的多网链路可用
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -219,7 +230,9 @@ No suitable path.
  
   
 
-##### 1013620008 流量不足
+#### 1013620008 流量不足
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -239,7 +252,9 @@ Insufficient traffic.
  
   
 
-##### 1013620009 不支持并发
+#### 1013620009 不支持并发
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -259,7 +274,9 @@ Concurrency is not allowed.
  
   
 
-##### 1013620100 多网释放信息不匹配
+#### 1013620100 多网释放信息不匹配
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -279,7 +296,9 @@ Release request mismatch.
  
   
 
-##### 1013620101 多网不在激活态
+#### 1013620101 多网不在激活态
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

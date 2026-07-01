@@ -4,45 +4,41 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-external-arraybuffer
 
-## 使用JSVM-API接口从外部内存创建ArrayBuffer
-   
-    
-          
-##### 简介
-     
+#### 简介
+
 ArrayBuffer是JavaScript中的一种数据类型，用于表示通用的、固定长度的原始二进制数据缓冲区。提供了一种在JavaScript中有效地表示和操作原始二进制数据的方式。
-     
+
 在某些场景下，应用已有一块外部内存（如从文件映射、硬件缓冲区、或其他Native模块分配的内存），希望将其包装为JavaScript的ArrayBuffer对象，以便在JS层进行读写操作。从API版本26.0.0开始，JSVM-API提供了[OH_JSVM_CreateArrayBufferFromExternalMemory](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-h#oh_jsvm_createarraybufferfromexternalmemory)接口来满足这类场景。
-    
-    
-          
-##### 基本概念
-     
+
+
+
+#### 基本概念
+
  - **零拷贝与拷贝**：该接口**不保证零拷贝**。在某些JSVM实现或版本中，外部内存可能被拷贝到引擎内部缓冲区。输出参数copied显示当前是否发生了拷贝。**开发者不应依赖零拷贝行为**，因为copied的值可能随JSVM版本演进而发生变化。
  - **内存生命周期**：该接口接收可选的类型为[JSVM_FinalizeArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-types-h#jsvm_finalizearraybuffer)的回调函数，回调函数中包含bool copied参数，指示数据是否被拷贝。当copied为false（零拷贝）时，ArrayBuffer直接引用外部内存，调用方**必须保证在finalizeCb被调用之前不释放该内存**（调用方可在回调函数中释放外部内存）；当copied为true时，调用方可在API返回后立即释放外部内存。
-     
-    
-    
-          
-##### 接口说明
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/GmO8jG6-TZemvY7An8TOYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025443Z&HW-CC-Expire=86400&HW-CC-Sign=573EAA6CE0C6DDE63B40BEC638217E3A6850EB649F1AB94E260372DA7603E3DF)
-       
-       
+
+
+
+
+#### 接口说明
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/GmO8jG6-TZemvY7An8TOYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T041442Z&HW-CC-Expire=86400&HW-CC-Sign=F83898BE393322966BFAD052D1BCD8282B9FE73A4C2F05D22333E3B34B2447C7)
+
+
 此接口是实验性接口，需定义JSVM_EXPERIMENTAL宏后方可使用。
-      
-     
-     
+
+
+
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_CreateArrayBufferFromExternalMemory | 从外部内存创建ArrayBuffer对象。 |
-     
-    
-    
-          
-##### [h2]参数说明
-     
+
+
+
+
+#### 参数说明
+
 | 参数项 | 描述 |
 | --- | --- |
 | JSVM_Env env | 调用JSVM-API的环境。 |
@@ -52,78 +48,75 @@ ArrayBuffer是JavaScript中的一种数据类型，用于表示通用的、固�
 | void* finalizeHint | 可选参数。传递给finalizeCb的自定义提示数据。 |
 | bool* copied | 可选输出参数。为true表示数据被拷贝，为false表示零拷贝 |
 | JSVM_Value *result | 输出参数。创建的ArrayBuffer对象。 |
-     
-    
-    
-          
-##### [h2]JSVM_FinalizeArrayBuffer回调类型
-     
+
+
+
+
+#### JSVM_FinalizeArrayBuffer回调类型
+
 ```text
 typedef void (*JSVM_FinalizeArrayBuffer)(JSVM_Env env, void* finalizeData, void* finalizeHint, bool copied);
 ```
-     
+
 | 参数 | 说明 |
 | --- | --- |
 | env | 环境句柄。始终为NULL，不可使用。 |
 | finalizeData | 调用API时传入的externalData指针。 |
 | finalizeHint | 调用API时传入的finalizeHint指针。 |
 | copied | 是否发生了拷贝。true表示引擎拷贝了数据，原始externalData内存不受引擎管理；false表示零拷贝，引擎直接引用了externalData内存。 |
-     
-     
+
+
 JSVM_FinalizeArrayBuffer回调函数将会在关联的ArrayBuffer对象被回收时被调用，用以执行native的清理动作。使用JSVM_FinalizeArrayBuffer请遵循以下规则：
-     
+
  - 由于JSVM_FinalizeArrayBuffer回调函数的调用时机具有不确定性（可能是GC期间，也可能是虚拟机销毁期间等），回调时JSVM环境可能已经销毁，因此JSVM_FinalizeArrayBuffer的env参数始终是NULL。
  - 回调函数仅做资源释放，不要执行复杂逻辑。回调函数中不能调用其他JSVM API。
  - 回调函数可能在非JSVM主线程上调用，如果回调需要访问共享状态，必须使用原子操作或锁进行同步。
  - 根据copied参数决定内存的释放策略。
-     
-    
-    
-          
-##### [h2]返回值
-     
+
+
+
+
+#### 返回值
+
  - **JSVM_OK**：创建成功。
  - **JSVM_INVALID_ARG**：参数非法，可能原因：result为NULL；byteLength>0但externalData为NULL；externalData未8字节对齐；byteLength超过引擎最大限制；byteLength==0但finalizeCb不为NULL。
-     
-    
-    
-          
-##### 注意事项
-     
- - **需开启实验性宏**：在#include "ark_runtime/jsvm.h"和#include "ark_runtime/jsvm_types.h"前必须#define JSVM_EXPERIMENTAL，否则接口不可见。
- - **不保证零拷贝**：copied输出参数的值取决于当前JSVM实现，可能随版本演进而变化。开发者**不应在业务逻辑中依赖零拷贝行为**，否则会产生未定义行为。
- - **8字节对齐**：externalData必须8字节对齐，否则返回JSVM_INVALID_ARG。
- - **利用copied参数管理内存**：       
-        **推荐方式**：在finalizeCb中根据copied参数决定是否释放外部内存。当copied为false时应该在finalizeCb中释放外部内存（否则会造成ArrayBuffer底层内存泄漏）。
- - finalizeCb的copied参数与API输出参数copied的值始终一致。
-       
- - **finalizeCb调用时机**：finalizeCb在ArrayBuffer对象被GC回收时调用，调用时机不确定。不要在finalizeCb中执行耗时操作。
-     
-    
-    
-          
-##### 使用示例
-     
+
+
+
+
+#### 注意事项
+1. **需开启实验性宏**：在#include "ark_runtime/jsvm.h"和#include "ark_runtime/jsvm_types.h"前必须#define JSVM_EXPERIMENTAL，否则接口不可见。
+2. **不保证零拷贝**：copied输出参数的值取决于当前JSVM实现，可能随版本演进而变化。开发者**不应在业务逻辑中依赖零拷贝行为**，否则会产生未定义行为。
+3. **8字节对齐**：externalData必须8字节对齐，否则返回JSVM_INVALID_ARG。
+4. **利用copied参数管理内存**：       
+**推荐方式**：在finalizeCb中根据copied参数决定是否释放外部内存。当copied为false时应该在finalizeCb中释放外部内存（否则会造成ArrayBuffer底层内存泄漏）。
+5. finalizeCb的copied参数与API输出参数copied的值始终一致。
+6. **finalizeCb调用时机**：finalizeCb在ArrayBuffer对象被GC回收时调用，调用时机不确定。不要在finalizeCb中执行耗时操作。
+
+
+
+#### 使用示例
+
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
-     
+
 本示例介绍了如何从外部内存创建ArrayBuffer，并根据copied参数合理管理外部内存生命周期。
-     
+
 cpp部分代码：
-     
-```text
+
+```cpp
 #define JSVM_EXPERIMENTAL  // 必须在include jsvm.h之前定义，否则无法调用实验接口
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
 #include "hilog/log.h"
-#include 
-#include 
+#include <cstdlib>
+#include <cstring>
 // ...
 
 // 模拟从外部模块获取图像像素数据（RGBA，4像素）
 static void *LoadPixelData(size_t *outSize)
 {
     *outSize = 16;  // 4pixels×4bytes(RGBA)
-    uint8_t *data = static_cast(malloc(*outSize));
+    uint8_t *data = static_cast<uint8_t *>(malloc(*outSize));
     if (data == nullptr) {
         return nullptr;
     }
@@ -214,9 +207,9 @@ const char *SRC_CALL_NATIVE = R"JS(
 createArrayBufferFromExternal();
 )JS";
 ```
-     
+
 预期结果：
-     
+
 ```text
 JSVM CreateArrayBufferFromExternalMemory: success, byteLength=16
 ```

@@ -4,29 +4,24 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-574
 
-## onTouch全局监听滑动事件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何全局监听滑动事件，控制紫色子组件的显示隐藏，实现下图的功能？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/Jnm9yZEJSZqz-ev9pSYL2w/zh-cn_image_0000002658911371.png?HW-CC-KV=V1&HW-CC-Date=20260701T025536Z&HW-CC-Expire=86400&HW-CC-Sign=B08CA835E39779CDEE7334A4265F1BB0B10DB9AA282125C6E7AC39AFF274B2DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/Jnm9yZEJSZqz-ev9pSYL2w/zh-cn_image_0000002658911371.png?HW-CC-KV=V1&HW-CC-Date=20260701T041255Z&HW-CC-Expire=86400&HW-CC-Sign=F157A5CDC1EDFC91051D3BB84FF290215DC14E50D4884383F85D18992E0CD2F1)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)：手指触摸动作触发该回调。鼠标左键按下时对应的事件也会转化成触摸事件并触发该回调。
  
  
 
-##### 解决方案
-
-- 创建一个紫色的stack组件，设置visibility属性，通过判断标记isDirectShowPlayPanel来控制组件的显示与隐藏。
+#### 解决方案
+1. 创建一个紫色的stack组件，设置visibility属性，通过判断标记isDirectShowPlayPanel来控制组件的显示与隐藏。
 ```text
 if (this.isShowPlayPanel) {
   Stack() {
@@ -53,8 +48,9 @@ if (this.isShowPlayPanel) {
 }
 ```
 
-- 使用onTouch监听全局的滑动，获取event对象，在TouchType.Up回调里获取滑动的距离和滑动的时间，计算出滑动的速度，速度大于零表示下滑，此时紫色组件显示；速度小于零表示上滑，此时紫色组件隐藏。**注意：通过上下滑动来控制紫色组件的显示与隐藏。**
- 
+2. 使用onTouch监听全局的滑动，获取event对象，在TouchType.Up回调里获取滑动的距离和滑动的时间，计算出滑动的速度，速度大于零表示下滑，此时紫色组件显示；速度小于零表示上滑，此时紫色组件隐藏。**注意：通过上下滑动来控制紫色组件的显示与隐藏。**
+
+  
 ```text
 .onTouch((event: TouchEvent) => {
   if (!event) {
@@ -74,7 +70,10 @@ if (this.isShowPlayPanel) {
       let deltaTime = (endTime - this.startTime) / 1000000000;
       let speed = (endY - this.startY) / (deltaTime === 0 ? 1 : deltaTime);
       if (Math.abs(speed) > 800) {
-        if (speed  0) {
+        if (speed < 0) {
+          this.isShowPlayPanel = false;
+          this.isDirectShowPlayPanel = false;
+        } else if (speed > 0) {
           this.isDirectShowPlayPanel = true;
           this.isShowPlayPanel = true;
         }
@@ -83,7 +82,6 @@ if (this.isShowPlayPanel) {
   }
 });
 ```
-
 
  
 全量代码示例如下：
@@ -164,7 +162,10 @@ struct Index {
           let deltaTime = (endTime - this.startTime) / 1000000000;
           let speed = (endY - this.startY) / (deltaTime === 0 ? 1 : deltaTime);
           if (Math.abs(speed) > 800) {
-            if (speed  0) {
+            if (speed < 0) {
+              this.isShowPlayPanel = false;
+              this.isDirectShowPlayPanel = false;
+            } else if (speed > 0) {
               this.isDirectShowPlayPanel = true;
               this.isShowPlayPanel = true;
             }
@@ -246,4 +247,4 @@ export function getPage1RouterMap(): void {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/1XcF4SbMT8CC366hlnYlfA/zh-cn_image_0000002628392154.png?HW-CC-KV=V1&HW-CC-Date=20260701T025536Z&HW-CC-Expire=86400&HW-CC-Sign=A6ABDA1BE979E4D47E3955D5FB6E8577D1F85EAB0FF8A3A4E089A6D78A0DD22F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/1XcF4SbMT8CC366hlnYlfA/zh-cn_image_0000002628392154.png?HW-CC-KV=V1&HW-CC-Date=20260701T041255Z&HW-CC-Expire=86400&HW-CC-Sign=AE47376769DDBC69DF3D1CE12E14AF883D57B951FE1EA36F644107AAEF55E608)

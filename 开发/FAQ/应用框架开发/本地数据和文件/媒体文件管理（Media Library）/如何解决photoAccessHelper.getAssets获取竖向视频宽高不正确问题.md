@@ -4,27 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-12
 
-## 如何解决photoAccessHelper.getAssets获取竖向视频宽高不正确问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 图库显示宽高1080*1920。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/b2cMaQ8nR9qBYAk2RxHPGA/zh-cn_image_0000002659258335.png?HW-CC-KV=V1&HW-CC-Date=20260701T025734Z&HW-CC-Expire=86400&HW-CC-Sign=0CAE351E69A155E13276789D2E60C7BBEC9D2EDD18B61BEA333C2B8E9A20B40C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/b2cMaQ8nR9qBYAk2RxHPGA/zh-cn_image_0000002659258335.png?HW-CC-KV=V1&HW-CC-Date=20260701T041345Z&HW-CC-Expire=86400&HW-CC-Sign=97CBDDC1705DF5A60B2BEA0DB87EAB141A1270E82DC6C5DDB451B39E253BE8BA)
 
  
 通过API获取到的视频高为1080，宽为1920，API获取的值宽高与实际相反。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/71SQX3vZSI2Z27z4uIrOyA/zh-cn_image_0000002628899116.png?HW-CC-KV=V1&HW-CC-Date=20260701T025734Z&HW-CC-Expire=86400&HW-CC-Sign=0B829A7883FCD1561FDBF69D92110C7AB6D3B0804E8FF6A904A69F757E36352B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/71SQX3vZSI2Z27z4uIrOyA/zh-cn_image_0000002628899116.png?HW-CC-KV=V1&HW-CC-Date=20260701T041345Z&HW-CC-Expire=86400&HW-CC-Sign=9C910673F6766BD62AE908D89AB60D56A08343E719AB755EF63F2F8D79930101)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 使用[PhotoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets-1)获取媒体资源。
 - 使用[PhotoAsset.get](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset#get)获取图片和视频文件关键信息。
@@ -32,130 +28,130 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 获取横屏视频做对比，两个视频在手机上显示的尺寸宽高数值相反。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/gWioWTP2S_Gz16anACcOFw/zh-cn_image_0000002659138385.png?HW-CC-KV=V1&HW-CC-Date=20260701T025734Z&HW-CC-Expire=86400&HW-CC-Sign=94A9A0C3425AF12E217365B27C00636534F4237A18FCA1D2FDF16729A4743BE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/gWioWTP2S_Gz16anACcOFw/zh-cn_image_0000002659138385.png?HW-CC-KV=V1&HW-CC-Date=20260701T041345Z&HW-CC-Expire=86400&HW-CC-Sign=65E2FF03C93310426CC88394F73C52B2AC7B3AFC028A780B24D4153DC6B7F8B6)
 
  
 通过API获取到的两个视频同样高为1080，宽为1920，但是竖向视频有90°旋转，因此怀疑是旋转导致的问题。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/NOl-0ePSRDmkf1To2dO8Qg/zh-cn_image_0000002629059034.png?HW-CC-KV=V1&HW-CC-Date=20260701T025734Z&HW-CC-Expire=86400&HW-CC-Sign=0391F3A07BEDF9E85634A7F088A2D591EC465EA25C94E9192B7210C277C56689)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/NOl-0ePSRDmkf1To2dO8Qg/zh-cn_image_0000002629059034.png?HW-CC-KV=V1&HW-CC-Date=20260701T041345Z&HW-CC-Expire=86400&HW-CC-Sign=FE661826E99613D8789A294790DDA160DAE9E6CB1AA098B3C8BF0CDC083A6F50)
 
  
 再对比下旋转180°和270°的情况，旋转度数除以180余数为90的时候，需要长宽的数值互换，才能得出手机上看到的结果。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/DyQkbZNERii-TkJHccLSpQ/zh-cn_image_0000002659258337.png?HW-CC-KV=V1&HW-CC-Date=20260701T025734Z&HW-CC-Expire=86400&HW-CC-Sign=CD01E7F1F7AC30840CC6994628C165526887C886B243B80AD8728CFCF4045198)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/DyQkbZNERii-TkJHccLSpQ/zh-cn_image_0000002659258337.png?HW-CC-KV=V1&HW-CC-Date=20260701T041345Z&HW-CC-Expire=86400&HW-CC-Sign=B9F1100CB5B75DC77ED284099755A9F463A676A84A1CF6F02EE475356BCB24E1)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/9Olw1LV1S_idw072dZ5yUQ/zh-cn_image_0000002628899118.png?HW-CC-KV=V1&HW-CC-Date=20260701T025734Z&HW-CC-Expire=86400&HW-CC-Sign=7ECF0BFDB2D5E210B9C04463673696FFC239917B03A4F8308F0B95B6579C4414)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/9Olw1LV1S_idw072dZ5yUQ/zh-cn_image_0000002628899118.png?HW-CC-KV=V1&HW-CC-Date=20260701T041345Z&HW-CC-Expire=86400&HW-CC-Sign=9CC291A7409B239CB05887E7F65C456E324FEF030AB41160173ECC49BECC5C46)
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 获取视频或图片长宽时，还需要判断是否有旋转，如果旋转度数除以180余数为90即视频是竖屏时，需要长宽的数值互换，才能得出手机上看到的结果。
  
  
 
-##### 修改建议
+#### 修改建议
 
 通过photoAsset.get('orientation')判断视频是否旋转，来判断视觉效果上的长宽和参数的对应关系：
  
-```text
-import { photoAccessHelper } from '@kit.MediaLibraryKit';
-import { dataSharePredicates } from '@kit.ArkData';
-import { common } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+```bash
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">photoAccessHelper </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.MediaLibraryKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">dataSharePredicates </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkData'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct PhAccessHelperGetAssets {
-  @State phName: string = '';
-  @State phHeight: number = 0;
-  @State phWidth: number = 0;
-  @State phOrientation: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">PhAccessHelperGetAssets </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">phName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">phHeight</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">phWidth</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">phOrientation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  async testMethod() {
-    const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
-    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE; // 过滤选择媒体文件类型为IMAGE
-    photoSelectOptions.maxSelectNumber = 1; // 选择媒体文件的最大数目
-    let uris: Arraystring> = [];
-    const photoViewPicker = new photoAccessHelper.PhotoViewPicker();
-    // 拉起相册
-    photoViewPicker.select(photoSelectOptions).then(async (photoSelectResult: photoAccessHelper.PhotoSelectResult) => {
-      uris = photoSelectResult.photoUris;
-      console.info('photoViewPicker.select to file succeed and uris are:' + uris);
-      if (uris.length === 0) {
-        return;
-      }
-      let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-      let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
-      let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
-      let uri = uris[0]; // 需保证此uri已存在
-      predicates.equalTo(photoAccessHelper.PhotoKeys.URI, uri.toString());
-      let fetchOptions: photoAccessHelper.FetchOptions = {
-        fetchColumns: [
-          'title',
-          photoAccessHelper.PhotoKeys.WIDTH, // 图片宽度
-          photoAccessHelper.PhotoKeys.HEIGHT, // 图片高度
-          photoAccessHelper.PhotoKeys.DURATION, // 持续时间
-          photoAccessHelper.PhotoKeys.SIZE, // 文件大小
-          photoAccessHelper.PhotoKeys.DISPLAY_NAME, // 显示名字
-          photoAccessHelper.PhotoKeys.ORIENTATION, // 图片文件的方向
-          photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE], // 媒体文件的子类型
-        predicates: predicates
-      };
-      let fetchResult: photoAccessHelper.FetchResultphotoAccessHelper.PhotoAsset> =
-        await phAccessHelper.getAssets(fetchOptions);
-      let photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
-      let title: photoAccessHelper.PhotoKeys = photoAccessHelper.PhotoKeys.TITLE;
-      let paTitle = photoAsset.get(title.toString());
-      this.phName = paTitle.toString();
-      this.phOrientation = photoAsset.get('orientation') as number; // 获取旋转角度
-      if (this.phOrientation % 180 == 90) {
-        this.phName = paTitle.toString();
-        this.phWidth = photoAsset.get('height') as number;
-        this.phHeight = photoAsset.get('width') as number;
-        this.phOrientation = photoAsset.get('orientation') as number;
-      } else {
-        this.phWidth = photoAsset.get('width') as number;
-        this.phHeight = photoAsset.get('height') as number;
-      }
-      // 释放FetchResult实例并使其失效
-      fetchResult.close();
-      return photoAsset;
-    }).catch((err: BusinessError) => {
-      console.error(`Invoke photoViewPicker.select failed, code is ${err.code}, message is ${err.message}`);
-    });
-    return;
-  }
+  async <span style="color: rgb(0,0,255);">testMethod</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    const <span style="color: rgb(0,0,255);">photoSelectOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoSelectOptions</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">photoSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">MIMEType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoViewMIMETypes</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IMAGE_VIDEO_TYPE</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">过滤选择媒体文件类型为</span><span style="color: rgb(128,128,128);">IMAGE</span></em>
+    <span style="color: rgb(0,0,255);">photoSelectOptions</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxSelectNumber </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">选择媒体文件的最大数目</span></em>
+    let <span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Array</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+    const <span style="color: rgb(0,0,255);">photoViewPicker </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoViewPicker</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">拉起相册</span></em>
+    <span style="color: rgb(0,0,255);">photoViewPicker</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">select</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">photoSelectOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">photoSelectResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoSelectResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">uris </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoSelectResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">photoUris</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'photoViewPicker.select to file succeed and uris are:' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        return<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      let <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">phAccessHelper </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPhotoAccessHelper</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">predicates</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">dataSharePredicates</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataSharePredicates </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">dataSharePredicates</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DataSharePredicates</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">uri </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">uris</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">需保证此</span><span style="color: rgb(128,128,128);">uri</span><span style="color: rgb(128,128,128);">已存在</span></em>
+      <span style="color: rgb(0,0,255);">predicates</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">equalTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">URI</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">fetchOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FetchOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">fetchColumns</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>
+          <span style="color: rgb(255,0,170);">'title'</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WIDTH</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片宽度</span></em>
+          <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">HEIGHT</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片高度</span></em>
+          <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DURATION</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">持续时间</span></em>
+          <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SIZE</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">文件大小</span></em>
+          <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DISPLAY_NAME</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">显示名字</span></em>
+          <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ORIENTATION</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">图片文件的方向</span></em>
+          <span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PHOTO_SUBTYPE</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">媒体文件的子类型</span></em>
+        <span style="color: rgb(0,0,255);">predicates</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">predicates</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">fetchResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FetchResult</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoAsset</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> =</span>
+        await <span style="color: rgb(0,0,255);">phAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAssets</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fetchOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoAsset </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">fetchResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getFirstObject</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAccessHelper</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PhotoKeys</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TITLE</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">paTitle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">paTitle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phOrientation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'orientation'</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取旋转角度</span></em>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phOrientation </span><span style="color: rgb(181,106,1);">% </span><span style="color: rgb(255,0,0);">180 </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">paTitle</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'height'</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'width'</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phOrientation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'orientation'</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phWidth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'width'</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phHeight </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'height'</span><span style="color: rgb(0,0,255);">) </span>as <span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+     <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">释放</span><span style="color: rgb(128,128,128);">FetchResult</span><span style="color: rgb(128,128,128);">实例并使其失效</span></em>
+      <span style="color: rgb(0,0,255);">fetchResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      return <span style="color: rgb(0,0,255);">photoAsset</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Invoke photoViewPicker.select failed, code is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column() {
-      Button('选择图片或视频')
-        .id('PhAccessHelperGetAssetsHelloWorld')
-        .fontSize(30)
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          this.testMethod();
-        });
-      Text(`图片：${this.phName},属性长：${this.phHeight}宽：${this.phWidth}角度：${this.phOrientation}`);
-    }
-    .height('100%')
-    .width('100%')
-    .alignItems(HorizontalAlign.Center)
-    .justifyContent(FlexAlign.Center);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">选择图片或视频</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'PhAccessHelperGetAssetsHelloWorld'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">testMethod</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">图片：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phName</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">,</span><span style="color: rgb(255,0,170);">属性长：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phHeight</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">宽：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phWidth</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">角度：</span><span style="color: rgb(255,0,170);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">phOrientation</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

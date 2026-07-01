@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1033
 
-## bindSheet如何实现与List联动
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现bindSheet与List联动，主要有以下几个场景：
  
@@ -20,7 +16,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)：列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
 - [ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)：用来展示列表具体item，必须配合List来使用。
@@ -30,7 +26,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 bindSheet通过isShow参数决定是否显示半模态页面。使用[@State装饰](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)的变量传入isShow，当绑定的组件被点击时触发变量修改，组件渲染更新，即可实现半模态页面的显示与关闭。
  
@@ -39,12 +35,12 @@ bindSheet通过isShow参数决定是否显示半模态页面。使用[@State装�
 @Entry
 @Component
 struct BindSheetDemo {
-  // 半模态转场显示隐藏控制
+ <em> // 半模态转场显示隐藏控制</em>
   @State isShowSheet: boolean = false;
   @State isShowDetailSheet: boolean = false;
   private menuList: string[] = ['内容1', '内容2', '内容3', '内容4', '内容5', '内容6', '内容7', '内容8', '内容9'];
   private detailList: string[] = ['详细内容1', '详细内容2', '更多'];
-  // 通过@Builder构建半模态展示界面
+ <em> // 通过@Builder构建半模态展示界面</em>
   @Builder
   mySheet() {
     Column() {
@@ -153,19 +149,20 @@ struct BindSheetDemo {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/loEGJflSQkyoC_18gaTrsA/zh-cn_image_0000002628404818.png?HW-CC-KV=V1&HW-CC-Date=20260701T025633Z&HW-CC-Expire=86400&HW-CC-Sign=7450928EC483E7AB664BC64A30267397D79698D680076C0AB04942D8A837C090)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/loEGJflSQkyoC_18gaTrsA/zh-cn_image_0000002628404818.png?HW-CC-KV=V1&HW-CC-Date=20260701T041231Z&HW-CC-Expire=86400&HW-CC-Sign=47AC92AB082FF3C868AE8C49B7BEF2DB74B289E7CC33D0F217563729EB75386C)
 
 - 场景二：bindSheet通过builder参数配置半模态页面内容。可以在[@Builder装饰](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)的构建函数中规定一个传入参数，根据传入的参数选择构建的半模态页面。对于List组件中的每个元素，绑定bindSheet属性，判断当前组件的参数是否应该显示半模态页面。完整示例参考如下：
 ```text
 @Entry
 @Component
 struct BindSheetDemo1 {
-  // 半模态转场显示隐藏控制
+ <em> // 半模态转场显示隐藏控制</em>
   @State isShowSheet: boolean = false;
   private menuList: string[] = ['内容1', '内容2', '内容3', '内容4', '内容5', '内容6', '内容7', '内容8', '内容9'];
   @State isShowDetailSheet: boolean[] = new Array(this.menuList.length).fill(false);
-  // 通过@Builder构建半模态展示界面
+ <em> // 通过@Builder构建半模态展示界面</em>
   @Builder
   mySheet() {
     Column() {
@@ -273,19 +270,20 @@ struct BindSheetDemo1 {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/r6aAfGZIT-myJ-iRR5loSA/zh-cn_image_0000002658804087.png?HW-CC-KV=V1&HW-CC-Date=20260701T025633Z&HW-CC-Expire=86400&HW-CC-Sign=EEE50799F019FDC1B40F9207CFAA94590070A42BDFEE046AEE4A24B3C1A42C48)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/r6aAfGZIT-myJ-iRR5loSA/zh-cn_image_0000002658804087.png?HW-CC-KV=V1&HW-CC-Date=20260701T041231Z&HW-CC-Expire=86400&HW-CC-Sign=3AF022188FA313DA4895B7096ACEABF016EDE677606085E09A7D25C9C0A8E577)
 
 - 场景三：实现侧边弹窗需要将preferType设置为SheetType.SIDE，具体可参考[SheetType枚举说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheettype11枚举说明)。同时设置[自动旋转方向类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-rotation#自动旋转方向类型)，实现横屏效果。完整示例参考如下：
 ```text
 @Entry
 @Component
 struct BindSheetDemo2 {
-  // 半模态转场显示隐藏控制
+  <em>// 半模态转场显示隐藏控制</em>
   @State isShowSheet: boolean = false;
   private menuList: string[] = ['内容1', '内容2', '内容3', '内容4', '内容5', '内容6', '内容7', '内容8', '内容9'];
   private detailList: string[] = ['详细内容1', '详细内容2', '更多'];
-  // 通过@Builder构建半模态展示界面
+ <em> // 通过@Builder构建半模态展示界面</em>
   @Builder
   mySheet() {
     Column() {
@@ -346,5 +344,6 @@ struct BindSheetDemo2 {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/WSq7HcPATX6JSNQeVIcwiA/zh-cn_image_0000002628564724.png?HW-CC-KV=V1&HW-CC-Date=20260701T025633Z&HW-CC-Expire=86400&HW-CC-Sign=F3ECEF9B69A642E80B8445D7BF496D9F497B78585806E98D4CB6394B2CD471F4)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/WSq7HcPATX6JSNQeVIcwiA/zh-cn_image_0000002628564724.png?HW-CC-KV=V1&HW-CC-Date=20260701T041231Z&HW-CC-Expire=86400&HW-CC-Sign=9FEA45B605217F129E80FD70F71DA3D545CA9CAB783B9E4F6B51C554A0CCE292)

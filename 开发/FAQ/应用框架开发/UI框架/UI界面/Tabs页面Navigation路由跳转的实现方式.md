@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1148
 
-## Tabs页面Navigation路由跳转的实现方式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Tabs组件结合Navigation组件实现页面跳转时，虽然TabContent能够成功跳转，但TabBar部分并未消失。
  
@@ -145,12 +141,12 @@ export struct WebView {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/HqT8CPYyTUe8cFNHwlMMeg/zh-cn_image_0000002628569610.png?HW-CC-KV=V1&HW-CC-Date=20260701T025659Z&HW-CC-Expire=86400&HW-CC-Sign=B5853DA201C2197A7B09887A36BAB90BA3B3B60375D704AA0692CBE97E38203C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/HqT8CPYyTUe8cFNHwlMMeg/zh-cn_image_0000002628569610.png?HW-CC-KV=V1&HW-CC-Date=20260701T041145Z&HW-CC-Expire=86400&HW-CC-Sign=B6EAFEE698076EC2F14C58029545E57CDA5486CA84C743B5493EE5C7A9C85B45)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：Navigation组件是路由导航的根视图容器，一般作为Page页面的根容器使用，其内部默认包含了标题栏、内容区和工具栏，其中内容区默认首页显示导航内容（[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)的子组件）或非首页显示（NavDestination的子组件），首页和非首页通过路由进行切换。
@@ -159,19 +155,19 @@ export struct WebView {
  
  
 
-##### 问题定位
+#### 问题定位
 
 根据代码逻辑排查出是由于Navigation组件放置TabContent内部导致的。
  
  
 
-##### 分析结论
+#### 分析结论
 
 Navigation组件放置在TabContent内部，在页面跳转时，只能实现TabContent内容的替换并不能覆盖到TabBar部分。
  
  
 
-##### 修改建议
+#### 修改建议
 
 将Navigation放到Tabs外层即实现跳转，同时需要在工程配置文件module.json5中配置{"routerMap": "$profile:router_map"}。示例代码如下：
  
@@ -189,8 +185,8 @@ struct TempPage {
 
   build() {
     Column() {
-      // solution start
-      // 将Navigation放到Tabs外层
+     <em> // solution start</em>
+<em>      // 将Navigation放到Tabs外层</em>
       Navigation(this.appPathStack) {
         Tabs({ barPosition: BarPosition.Start, index: this.currentIndex, controller: this.controller }) {
           ForEach(['待办', '已办', '已发'], (item: string, index: number) => {
@@ -212,7 +208,7 @@ struct TempPage {
         .margin({ top: 0, bottom: 0 });
       }
       .hideToolBar(true);
-      // solution end
+   <em>   // solution end</em>
     }
     .height('100%')
     .width('100%');
@@ -245,12 +241,12 @@ struct TempPage {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/ZAV3-hWdSzKBtRMsbva2cw/zh-cn_image_0000002628409710.png?HW-CC-KV=V1&HW-CC-Date=20260701T025659Z&HW-CC-Expire=86400&HW-CC-Sign=1496318C2653CEDA68EED458E1D7DC86205A64EF3C1C5115CEBEE9CF2EA9BB16)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/ZAV3-hWdSzKBtRMsbva2cw/zh-cn_image_0000002628409710.png?HW-CC-KV=V1&HW-CC-Date=20260701T041145Z&HW-CC-Expire=86400&HW-CC-Sign=551F076E2EC9F26454B5849C6409885620F0204742900397AD52BC86CD5BE598)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Navigation双栏模式下切换Tab页签，右边页面未切换成对应子页面。
  

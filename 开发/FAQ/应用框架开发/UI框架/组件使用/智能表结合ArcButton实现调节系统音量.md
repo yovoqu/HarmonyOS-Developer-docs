@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-983
 
-## 智能表结合ArcButton实现调节系统音量
- 
-
-
-##### 问题现象
+#### 问题现象
 
 智能表为圆形屏幕的穿戴设备，如何在页面显示弧形按钮，并通过页面按钮实现调节智能表的系统音量？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [ArcButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbutton-1)：弧形按钮组件用于圆形屏幕的穿戴设备，提供强调、普通、警告等样式按钮。
 - [AVVolumePanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel#avvolumepanel)：应用无法直接调节系统音量，可以通过系统音量面板，让用户通过界面操作来调节音量。
@@ -22,124 +18,122 @@
  
  
 
-##### 解决方案
-
-- 页面初始化时，通过[getVolumeByStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumemanager#getvolumebystream20)获取指定音频流（以音乐为例）的音量并赋值。
-- 通过[ArcButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbutton-1)实现两个调节音量按钮，分别显示在页面顶部和底部，点击事件中改变音量值，并通过监听音量变化获取当前音量值进行弹窗提示。
-- 通过[AVVolumePanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel#avvolumepanel)组件实现调节系统音量，该组件在智能表上无UI显示。
-
+#### 解决方案
+1. 页面初始化时，通过[getVolumeByStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumemanager#getvolumebystream20)获取指定音频流（以音乐为例）的音量并赋值。
+2. 通过[ArcButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbutton-1)实现两个调节音量按钮，分别显示在页面顶部和底部，点击事件中改变音量值，并通过监听音量变化获取当前音量值进行弹窗提示。
+3. 通过[AVVolumePanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel#avvolumepanel)组件实现调节系统音量，该组件在智能表上无UI显示。
  
 完整代码示例如下：
  
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
-import { audio, AVVolumePanel } from '@kit.AudioKit';
-import {
-  LengthMetrics,
-  LengthUnit,
-  ArcButton,
-  ArcButtonOptions,
-  ArcButtonStatus,
-  ArcButtonStyleMode,
-  ArcButtonPosition,
-} from '@kit.ArkUI';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">AVVolumePanel </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AudioKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">LengthMetrics</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">LengthUnit</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">ArcButton</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">ArcButtonOptions</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">ArcButtonStatus</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">ArcButtonStyleMode</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">ArcButtonPosition</span><span style="color: rgb(181,106,1);">,</span>
+<span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
 
-@Entry
-@ComponentV2
-struct Index {
-  @Local topOptions: ArcButtonOptions = new ArcButtonOptions({});
-  @Local bottomOptions: ArcButtonOptions = new ArcButtonOptions({});
-  @Local volume: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">topOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArcButtonOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArcButtonOptions</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">bottomOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArcButtonOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArcButtonOptions</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(0,0,255);">volume</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  initVolume() {
-    try {
-      this.volume = audio.getAudioManager().getVolumeManager().getVolumeByStream(audio.StreamUsage.STREAM_USAGE_MUSIC);
-    } catch (err) {
-      let error = err as BusinessError;
-      console.error(`Failed to obtains the volume of a stream, error: ${error}`);
-    }
-  }
+  <span style="color: rgb(0,0,255);">initVolume</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    try <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAudioManager</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getVolumeManager</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getVolumeByStream</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StreamUsage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">STREAM_USAGE_MUSIC</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">error </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">err </span>as <span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to obtains the volume of a stream, error: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  aboutToAppear(): void {
-    this.initVolume();
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initVolume</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-    this.topOptions = new ArcButtonOptions({
-      label: '调高音量',
-      status: ArcButtonStatus.NORMAL,
-      position: ArcButtonPosition.TOP_EDGE,
-      styleMode: ArcButtonStyleMode.NORMAL_LIGHT,
-      fontSize: new LengthMetrics(15, LengthUnit.FP),
-      shadowEnabled: true,
-      onClick: () => {
-        if (this.volume  15) {
-          this.volume++;
-        }
-        let audioManager = audio.getAudioManager();
-        let audioVolumeManager = audioManager.getVolumeManager();
-        try {
-          audioVolumeManager.on('streamVolumeChange', audio.StreamUsage.STREAM_USAGE_MUSIC,
-            (streamVolumeEvent: audio.StreamVolumeEvent) => {
-              console.info(`StreamUsage of stream: ${streamVolumeEvent.streamUsage} `);
-              console.info(`Volume level: ${streamVolumeEvent.volume} `);
-              this.getUIContext().getPromptAction().showToast({
-                message: `当前音量为：${streamVolumeEvent.volume}`,
-                duration: 2000
-              });
-            });
-        } catch (error) {
-          console.error(`Failed to listen for stream volume change events, error: ${error}`);
-        }
-      }
-    });
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">topOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArcButtonOptions</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">label</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">调高音量</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">status</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArcButtonStatus</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NORMAL</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArcButtonPosition</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TOP_EDGE</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">styleMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArcButtonStyleMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NORMAL_LIGHT</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">LengthMetrics</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">15</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">LengthUnit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FP</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">shadowEnabled</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">15</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume</span><span style="color: rgb(181,106,1);">++;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+        let <span style="color: rgb(0,0,255);">audioManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAudioManager</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(0,0,255);">audioVolumeManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">audioManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getVolumeManager</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        try <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">audioVolumeManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'streamVolumeChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StreamUsage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">STREAM_USAGE_MUSIC</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">streamVolumeEvent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StreamVolumeEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`StreamUsage of stream: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">streamVolumeEvent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">streamUsage</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Volume level: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">streamVolumeEvent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前音量为：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">streamVolumeEvent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2000</span>
+              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to listen for stream volume change events, error: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    this.bottomOptions = new ArcButtonOptions({
-      label: '调低音量',
-      styleMode: ArcButtonStyleMode.NORMAL_LIGHT,
-      fontSize: new LengthMetrics(15, LengthUnit.FP),
-      shadowEnabled: true,
-      onClick: () => {
-        if (this.volume > 0) {
-          this.volume--;
-        }
-        let audioManager = audio.getAudioManager();
-        let audioVolumeManager = audioManager.getVolumeManager();
-        try {
-          audioVolumeManager.on('streamVolumeChange', audio.StreamUsage.STREAM_USAGE_MUSIC,
-            (streamVolumeEvent: audio.StreamVolumeEvent) => {
-              console.info(`StreamUsage of stream: ${streamVolumeEvent.streamUsage} `);
-              console.info(`Volume level: ${streamVolumeEvent.volume} `);
-              this.getUIContext().getPromptAction().showToast({
-                message: `当前音量为：${streamVolumeEvent.volume}`,
-                duration: 2000
-              });
-            });
-        } catch (error) {
-          console.error(`Failed to listen for stream volume change events, error: ${error}`);
-        }
-      }
-    });
-  }
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bottomOptions </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArcButtonOptions</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">label</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">调低音量</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">styleMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ArcButtonStyleMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">NORMAL_LIGHT</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(181,106,1);">: </span>new <span style="color: rgb(0,0,255);">LengthMetrics</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">15</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">LengthUnit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FP</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">shadowEnabled</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume</span><span style="color: rgb(181,106,1);">--;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+        let <span style="color: rgb(0,0,255);">audioManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getAudioManager</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        let <span style="color: rgb(0,0,255);">audioVolumeManager </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">audioManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getVolumeManager</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        try <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">audioVolumeManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'streamVolumeChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StreamUsage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">STREAM_USAGE_MUSIC</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">streamVolumeEvent</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">audio</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">StreamVolumeEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`StreamUsage of stream: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">streamVolumeEvent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">streamUsage</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Volume level: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">streamVolumeEvent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume</span><span style="color: rgb(255,0,170);">} </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+                <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">当前音量为：</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">streamVolumeEvent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">2000</span>
+              <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Failed to listen for stream volume change events, error: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Stack() {
-      AVVolumePanel({
-        volumeLevel: this.volume,
-        volumeParameter: {
-          position: {
-            x: 0,
-            y: 0
-          }
-        }
-      }).width('100%').height('100%');
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">AVVolumePanel</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">volumeLevel</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">volume</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">volumeParameter</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">position</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-      Column() {
-        ArcButton({ options: this.topOptions });
-        Blank();
-        ArcButton({ options: this.bottomOptions });
-      }.width('100%').height('100%');
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">ArcButton</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">topOptions </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Blank</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">ArcButton</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">options</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">bottomOptions </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    }.width(233).height(233);
-  }
-}
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">233</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">233</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

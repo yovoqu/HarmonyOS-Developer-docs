@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1503
 
-## App内图片触发非预期拖拽的交互问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 某些场景下的图片，如PC自由多窗模式下，左侧导航页签图标可以拖动，与使用习惯不符合。异常效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/mtp43iQtREuhcnJWGvs_vQ/zh-cn_image_0000002658965761.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=6B8C55B82DE7CC8A393B893C5A91C73B07D2A723416F16C40C9759B48D5E3822)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/mtp43iQtREuhcnJWGvs_vQ/zh-cn_image_0000002658965761.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=2FB695BE486C2322EF6741B3C3D7445E5E86449ECA46623C8C361E3F44804FF2)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)：图片组件，常用于在应用中显示图片。Image支持加载PixelMap、ResourceStr和DrawableDescriptor类型的数据源，支持png、jpg、jpeg、bmp、svg、webp、gif和heif类型的图片格式，不支持apng和svga格式。
@@ -28,31 +24,29 @@
  
  
 
-##### 问题定位
+#### 问题定位
+1. 使用DevEco Testing-实用工具-UIViewer查看页面布局，发现菜单栏Tabs组件下使用了Image组件。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/ELLWFYk_Ruiup1aXsweyjw/zh-cn_image_0000002628606550.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=24510B4975402035EEF4FFD9DB433AF9A72FFA0036BDB9073557FA1325055BF6)
 
-- 使用DevEco Testing-实用工具-UIViewer查看页面布局，发现菜单栏Tabs组件下使用了Image组件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/ELLWFYk_Ruiup1aXsweyjw/zh-cn_image_0000002628606550.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=021E15DDEFA1F87A842553EEE6E6AEE95D08352BFADF8049619D2FE368ACA8AE)
-
-- 排查代码Image组件中draggable属性值是否为可拖拽状态。Image的draggable设置为true或者未设置，图片都是可拖动。示例代码如下：
+2. 排查代码Image组件中draggable属性值是否为可拖拽状态。Image的draggable设置为true或者未设置，图片都是可拖动。示例代码如下：
 ```text
-Image($r('sys.media.ohos_ic_public_albums')) // 本地资源，需自行替换
+Image($r('sys.media.ohos_ic_public_albums')) <em>// 本地资源，需自行替换</em>
   .width(24)
   .height(24)
   .objectFit(ImageFit.Fill)
   .margin({ bottom: 8 })
 ```
 
-
  
  
 
-##### 分析结论
+#### 分析结论
 
 Image组件中未设置draggable属性，该属性默认为true，组件可拖拽。
  
  
 
-##### 修改建议
+#### 修改建议
 
 给Image组件设置draggable属性为false，使拖拽类事件不再触发。示例代码如下：
  
@@ -67,7 +61,16 @@ struct TabImageExample {
 
 
   aboutToAppear(): void {
-    for (let i = 0; i // 本地资源，需自行替换
+    for (let i = 0; i < 4; i++) {
+      this.data.push(i);
+    }
+  }
+
+
+  @Builder
+  tabBuilder(index: number) {
+    Column() {
+      Image($r('sys.media.ohos_ic_public_albums')) <em>// 本地资源，需自行替换</em>
         .width(24)
         .height(24)
         .objectFit(ImageFit.Fill)
@@ -120,4 +123,4 @@ struct TabImageExample {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/X_OiIAcrTseMaQNGFg_NxQ/zh-cn_image_0000002658845799.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=16208EB0D84B3F60A01AA41DA6819686E0B8A0E88AE7A25369C0A8AC6FE50D93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/X_OiIAcrTseMaQNGFg_NxQ/zh-cn_image_0000002658845799.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=6F547359B6FB20B31244B0B70F28F0C72D64DF122F8A7EC1CF392E5ECE184C11)

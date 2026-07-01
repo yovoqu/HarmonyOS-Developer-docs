@@ -4,25 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-35
 
-## Unit Test如何Mock系统API i18n
- 
-
-
-##### 问题现象
+#### 问题现象
 
 想对[setAppPreferredLanguage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i18n#setapppreferredlanguage11)和[getDisplayLanguage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i18n#getdisplaylanguage9)系统API进行Mock，应该如何Mock这两个接口？
  
  
 
-##### 背景知识
+#### 背景知识
 
 在实际开发中，一些接口或者对象依赖于外部资源或复杂的逻辑，这些依赖在测试环境中难以复现，导致这些接口或者对象难以测试，此时，可以使用[Mock能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-test-mock)，对这些接口或对象进行模拟。当前[Instrument Test](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test)和[Local Test](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-local-test)支持对本地模块进行Mock，也支持对系统模块API或外部依赖模块的Mock。
  
  
 
-##### 解决方案
-
-- 在src/mock目录下新建一个ArkTS文件：Language.mock.ets，在这个文件内定义目标模块的Mock实现。
+#### 解决方案
+1. 在src/mock目录下新建一个ArkTS文件：Language.mock.ets，在这个文件内定义目标模块的Mock实现。
 ```text
 import { i18n } from '@kit.LocalizationKit';
 
@@ -49,7 +44,7 @@ const mockI18n: I18n = {
 export default mockI18n;
 ```
 
-- 在Mock配置文件src/mock/mock-config.json5中定义目标模块与Mock实现的替换关系。
+2. 在Mock配置文件src/mock/mock-config.json5中定义目标模块与Mock实现的替换关系。
 ```ArkTS
 {
   "@ohos.i18n": {
@@ -58,7 +53,7 @@ export default mockI18n;
 }
 ```
 
-- 在测试文件src/test/LocalUnit.test.ets编写如下代码:
+3. 在测试文件src/test/LocalUnit.test.ets编写如下代码:
 ```text
 import { i18n } from '@kit.LocalizationKit';
 import { describe, it } from '@ohos/hypium';

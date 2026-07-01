@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-neuralupscalecreateinfo
-
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-## XEG_NeuralUpscaleCreateInfo
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 此结构体描述创建[XEG_NeuralUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_neuralupscale)对象的信息，当结构体中的信息变化时，需要创建新的[XEG_NeuralUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_neuralupscale)对象。
  
@@ -22,11 +19,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -41,11 +42,15 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### [h2]sType
+#### sType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 XEG_StructureType XEG_NeuralUpscaleCreateInfo::sType
@@ -57,7 +62,9 @@ XEG_StructureType XEG_NeuralUpscaleCreateInfo::sType
  
   
 
-##### [h2]pNext
+#### pNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const void* XEG_NeuralUpscaleCreateInfo::pNext
@@ -69,7 +76,9 @@ const void* XEG_NeuralUpscaleCreateInfo::pNext
  
   
 
-##### [h2]inputSize
+#### inputSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_NeuralUpscaleCreateInfo::inputSize
@@ -81,7 +90,9 @@ VkExtent2D XEG_NeuralUpscaleCreateInfo::inputSize
  
   
 
-##### [h2]inputRegion
+#### inputRegion
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkRect2D XEG_NeuralUpscaleCreateInfo::inputRegion
@@ -93,7 +104,9 @@ VkRect2D XEG_NeuralUpscaleCreateInfo::inputRegion
  
   
 
-##### [h2]outputSize
+#### outputSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_NeuralUpscaleCreateInfo::outputSize
@@ -105,7 +118,9 @@ VkExtent2D XEG_NeuralUpscaleCreateInfo::outputSize
  
   
 
-##### [h2]outputRegion
+#### outputRegion
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkRect2D XEG_NeuralUpscaleCreateInfo::outputRegion
@@ -117,7 +132,9 @@ VkRect2D XEG_NeuralUpscaleCreateInfo::outputRegion
  
   
 
-##### [h2]outputFormat
+#### outputFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkFormat XEG_NeuralUpscaleCreateInfo::outputFormat

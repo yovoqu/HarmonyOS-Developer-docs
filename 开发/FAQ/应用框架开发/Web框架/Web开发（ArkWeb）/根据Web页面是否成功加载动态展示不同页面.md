@@ -4,21 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-168
 
-## 根据Web页面是否成功加载动态展示不同页面
- 
-
-
-##### 问题现象
+#### 问题现象
 
 需要实现如下功能：
- 
-- Web正常加载时，页面展示Web页面。
-- Web异常加载时，展示默认页面（页面包含重新加载按钮）。
-
+ 1. Web正常加载时，页面展示Web页面。
+2. Web异常加载时，展示默认页面（页面包含重新加载按钮）。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onErrorReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onerrorreceive)：网页加载遇到错误时触发该回调。主资源与子资源出错都会回调该接口，可以通过isMainFrame来判断是否是主资源报错。出于性能考虑，建议此回调中尽量执行简单逻辑。在无网络的情况下，触发此回调。
 - [visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-visibility#visibility)：控制组件的显示或隐藏。当未设置visibility时，组件默认为显示。
@@ -30,7 +24,7 @@ Hidden：隐藏，但参与布局进行占位。
  
  
 
-##### 解决方案
+#### 解决方案
 
 [ArkWeb的网络协议栈错误列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist)中当ErrorCode为0时表示正常加载，为其他值时表示异常加载。
  
@@ -60,7 +54,7 @@ struct Index {
       .backgroundColor('#fff1f1f1')
       .visibility(this.successLoad !== 0 ? Visibility.Visible : Visibility.None);
 
-      Web({ controller: this.webController, src: 'www.example.com' }) // Web页面
+      Web({ controller: this.webController, src: 'www.example.com' })<em> // Web页面</em>
         .width('100%')
         .height('100%')
         .fileAccess(false)
@@ -76,8 +70,5 @@ struct Index {
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/b6zY2Rh6RXi33gooZfUZMg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025743Z&HW-CC-Expire=86400&HW-CC-Sign=48BBA7AE081EBC7E3D9BCC39CE0968EDA0BBEA6991661EAD187A24D4B28B84D5)
- 
-
-访问在线网页时需添加网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+> [!NOTE]
+> 访问在线网页时需添加网络权限： ohos.permission.INTERNET ，具体申请方式请参考 声明权限 。

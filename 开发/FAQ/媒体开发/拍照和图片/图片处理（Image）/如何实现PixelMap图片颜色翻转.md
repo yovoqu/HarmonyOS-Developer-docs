@@ -4,39 +4,34 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-36
 
-## 如何实现PixelMap图片颜色翻转
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过截图获取的图片类型是PixelMap，图片背景是白色，绘制内容是黑色，需要将白色背景图转换成透明色，将原来黑色的内容转换成白色，如何实现。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/G1YqpdYfTzyheW3GtrZhVw/zh-cn_image_0000002628552500.png?HW-CC-KV=V1&HW-CC-Date=20260701T025819Z&HW-CC-Expire=86400&HW-CC-Sign=F09FDF81CA548F540A4D27EA8B6E3780FE5855416B342262B28FA08538DF5BB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/G1YqpdYfTzyheW3GtrZhVw/zh-cn_image_0000002628552500.png?HW-CC-KV=V1&HW-CC-Date=20260701T041037Z&HW-CC-Expire=86400&HW-CC-Sign=68F470D6921C75A689ED4C80512AA768D1C147071A828A930AF325E607735652)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage#pixelmap)是图像解码后的一种无压缩位图格式，图片解码是指将所支持格式的图片文件解码成统一的PixelMap格式，目前支持的图片格式有JPEG、PNG、GIF、WebP、BMP、SVG、ICO、DNG、HEIF。PixelMap主要用于图像显示或进一步处理，这种格式可以有效地存储图像的原始数据，使其可以方便地进行[图像变换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-transformation)，如裁剪、缩放、偏移、旋转、翻转、设置透明度等。
  
  
 
-##### 解决方案
-
-- 使用[getPixelBytesNumber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#getpixelbytesnumber7)方法获取图像像素的总字节数，通过[readPixelsToBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage#readpixelstobuffer)读取图像像素数据，结果写入缓冲区ArrayBuffer里。
+#### 解决方案
+1. 使用[getPixelBytesNumber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#getpixelbytesnumber7)方法获取图像像素的总字节数，通过[readPixelsToBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage#readpixelstobuffer)读取图像像素数据，结果写入缓冲区ArrayBuffer里。
 ```text
 const imageInfo: image.ImageInfo = await pixelMap.getImageInfo();
 const buffer: ArrayBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
-// 通过readPixelsToBuffer实现PixelMap的深拷贝，其中readPixelsToBuffer输出为BGRA_8888
+<em>// 通过readPixelsToBuffer实现PixelMap的深拷贝，其中readPixelsToBuffer输出为BGRA_8888</em>
 await pixelMap.readPixelsToBuffer(buffer);
-// readPixelsToBuffer输出为BGRA_8888,此处createPixelMap需转为RGBA_8888
+<em>// readPixelsToBuffer输出为BGRA_8888,此处createPixelMap需转为RGBA_8888</em>
 const opts: image.InitializationOptions = {
   editable: true,
   pixelFormat: image.PixelMapFormat.RGBA_8888,
@@ -45,24 +40,24 @@ const opts: image.InitializationOptions = {
 const pixelData = new Uint32Array(buffer);
 ```
 
-- 遍历像素数组，改变颜色。再通过[image.createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)创建新的PixelMap对象，按照PixelMap的像素格式，读取缓冲区中的图像像素数据，并写入新PixelMap。
+2. 遍历像素数组，改变颜色。再通过[image.createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)创建新的PixelMap对象，按照PixelMap的像素格式，读取缓冲区中的图像像素数据，并写入新PixelMap。
 ```text
-// 遍历像素数组，将白色变为透明，深色主题下黑色变成白色
+<em>// 遍历像素数组，将白色变为透明，深色主题下黑色变成白色</em>
 const length = pixelData.length;
-for (let i = 0; i // 检查是否为白色
-    pixelData[i] = 0xFF000000; // 为了方便展示，背景先改成深色
+for (let i = 0; i < length; i++) {
+  if (pixelData[i] === 0xFFFFFFFF) { <em>// 检查是否为白色</em>
+    pixelData[i] = 0xFF000000; <em>// 为了方便展示，背景先改成深色</em>
   } else {
-    if (dark) { // 如果是深色
-      pixelData[i] = 0xFFffffff; // 改为白色
+    if (dark) { <em>// 如果是深色</em>
+      pixelData[i] = 0xFFffffff; <em>// 改为白色</em>
     }
   }
 }
-// 重新将修改像素写入
+<em>// 重新将修改像素写入</em>
 const newPixelMap = await image.createPixelMap(buffer, opts);
 await newPixelMap.writeBufferToPixels(buffer);
 this.changeImgPixelMap = newPixelMap;
 ```
-
 
  
 完整代码示例参考：
@@ -80,9 +75,9 @@ struct TurnImageColorDemo {
   async handleLightAndDarkPixelMap(pixelMap: image.PixelMap, dark: boolean) {
     const imageInfo: image.ImageInfo = await pixelMap.getImageInfo();
     const buffer: ArrayBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
-    // 通过readPixelsToBuffer实现PixelMap的深拷贝，其中readPixelsToBuffer输出为BGRA_8888
+    <em>// 通过readPixelsToBuffer实现PixelMap的深拷贝，其中readPixelsToBuffer输出为BGRA_8888</em>
     await pixelMap.readPixelsToBuffer(buffer);
-    // readPixelsToBuffer输出为BGRA_8888,此处createPixelMap需转为RGBA_8888
+   <em> // readPixelsToBuffer输出为BGRA_8888,此处createPixelMap需转为RGBA_8888</em>
     const opts: image.InitializationOptions = {
       editable: true,
       pixelFormat: image.PixelMapFormat.RGBA_8888,
@@ -90,17 +85,18 @@ struct TurnImageColorDemo {
     };
     const pixelData = new Uint32Array(buffer);
 
-    // 遍历像素数组，将白色变为透明，深色主题下黑色变成白色
+   <em> // 遍历像素数组，将白色变为透明，深色主题下黑色变成白色</em>
     const length = pixelData.length;
-    for (let i = 0; i  // 检查是否为白色
-        pixelData[i] = 0xFF000000; // 为了方便展示，背景先改成深色
+    for (let i = 0; i < length; i++) {
+      if (pixelData[i] === 0xFFFFFFFF) {<em> // 检查是否为白色</em>
+        pixelData[i] = 0xFF000000; <em>// 为了方便展示，背景先改成深色</em>
       } else {
-        if (dark) { // 如果是深色
-          pixelData[i] = 0xFFffffff; // 改为白色
+        if (dark) { <em>// 如果是深色</em>
+          pixelData[i] = 0xFFffffff;<em> // 改为白色</em>
         }
       }
     }
-    // 重新将修改像素写入
+   <em> // 重新将修改像素写入</em>
     const newPixelMap = await image.createPixelMap(buffer, opts);
     await newPixelMap.writeBufferToPixels(buffer);
     this.changeImgPixelMap = newPixelMap;
@@ -108,17 +104,17 @@ struct TurnImageColorDemo {
 
   async aboutToAppear() {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-    // 获取resourceManager资源管理
+   <em> // 获取resourceManager资源管理</em>
     const resourceManager = context.resourceManager;
-    // 获取图片数据，代码中图片仅作示例，实际请按开发环境图片为准
+   <em> // 获取图片数据，代码中图片仅作示例，实际请按开发环境图片为准</em>
     const fileData = await resourceManager.getMediaContent($r('app.media.turn_color').id);
-    // 创建imageSource
+   <em> // 创建imageSource</em>
     const imageSource = image.createImageSource(fileData.buffer);
     let decodingOptions: image.DecodingOptions = {
       editable: true,
       desiredPixelFormat: 3,
     };
-    // 创建PixelMap
+  <em>  // 创建PixelMap</em>
     this.pixelMap = await imageSource.createPixelMap(decodingOptions);
   }
 
@@ -151,13 +147,11 @@ struct TurnImageColorDemo {
  
  
 
-##### 总结
+#### 总结
 
 实现图片颜色翻转可参考以下步骤：
- 
-- 获取需要转换的图片资源数据，并写入缓冲区。
-- 遍历像素数组，通过条件判断将符合条件的像素值转变成指定的颜色值。
-- 使用修改后的像素数据创建新的PixelMap并保存。
-
+ 1. 获取需要转换的图片资源数据，并写入缓冲区。
+2. 遍历像素数组，通过条件判断将符合条件的像素值转变成指定的颜色值。
+3. 使用修改后的像素数据创建新的PixelMap并保存。
  
 根据不同的业务场景，实现将符合条件的像素数据转变成指定颜色（如蓝色转变为红色等）。

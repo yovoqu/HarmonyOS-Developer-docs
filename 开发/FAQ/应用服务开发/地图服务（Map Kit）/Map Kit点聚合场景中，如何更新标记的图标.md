@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-12
 
-## Map Kit点聚合场景中，如何更新标记的图标
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Map Kit点聚合场景中，如何在点绘制之后再进行图标更改？
  
  
 
-##### 背景知识
+#### 背景知识
 
 地图服务[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc)：开通地图服务后再继续进行开发活动。
  
@@ -27,7 +23,7 @@ Map Kit点聚合场景中，如何在点绘制之后再进行图标更改？
  
  
 
-##### 解决方案
+#### 解决方案
 
 更新点图标有2种方式：
  
@@ -46,7 +42,7 @@ import { AsyncCallback } from '@kit.BasicServicesKit';
 @Component
 struct ImageOverlay {
   private mapOption?: mapCommon.MapOptions;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   private mapController?: map.MapComponentController;
   private imageOverlayParams: mapCommon.ImageOverlayParams = {
     position: {
@@ -66,7 +62,7 @@ struct ImageOverlay {
 
 
   aboutToAppear(): void {
-    // 地图初始化参数，设置地图中心点坐标及层级
+  <em>  // 地图初始化参数，设置地图中心点坐标及层级</em>
     this.mapOption = {
       position: {
         target: {
@@ -80,20 +76,20 @@ struct ImageOverlay {
     };
 
 
-    // 地图初始化的回调
+ <em>   // 地图初始化的回调</em>
     this.callback = async (err, mapController) => {
       if (!err) {
-        // 获取地图的控制器类，用来操作地图
+      <em>  // 获取地图的控制器类，用来操作地图</em>
         this.mapController = mapController;
-        // 启用我的位置图层
+       <em> // 启用我的位置图层</em>
         this.mapController?.setMyLocationEnabled(true);
 
 
-        // 增加图片点聚合
+     <em>   // 增加图片点聚合</em>
         let imageOverlay = await this.mapController?.addImageOverlay(this.imageOverlayParams);
 
 
-        // 5秒后更换点图片，先删除老的点，再增加更换图片后新的点，达到更新图片效果
+        <em>// 5秒后更换点图片，先删除老的点，再增加更换图片后新的点，达到更新图片效果</em>
         setTimeout(async () => {
           this.imageOverlayParams.image = $r('app.media.emoji_happy');
           this.imageOverlayParams.width = 80;
@@ -103,8 +99,8 @@ struct ImageOverlay {
         }, 5000);
 
 
-        // 使用点击事件直接更新点图片
-        let imageOverlayCallback: Callback = (imageOverlay: map.ImageOverlay) => {
+        <em>// 使用点击事件直接更新点图片</em>
+        let imageOverlayCallback: Callback<map.ImageOverlay> = (imageOverlay: map.ImageOverlay) => {
           imageOverlay.setImage($r('app.media.startIcon'));
         };
         this.mapController.on('imageOverlayClick', imageOverlayCallback);

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-93
 
-## HarmonyOS指定设备发布常见错误码深度解析
- 
-
-
-##### 问题现象
+#### 问题现象
 
 [指定设备发布](https://developer.huawei.com/consumer/cn/doc/app/agc-help-internal-test-0000002270709477)是一种由开发者自行控制测试设备和版本的内部测试方式，实际在用户下载安装应用过程中可能会出现一些问题，本文针对常见的[错误码](https://developer.huawei.com/consumer/cn/doc/app/agc-help-internal-test-errorcode-0000002295325157)做深度解析，帮助开发者更好地分析解决问题。
  
  
 
-##### 背景知识
+#### 背景知识
 
 使用指定设备发布可以将应用发布上传至开发者自己的服务器或者第三方云上，团队参与测试的人员可以将应用下载到授权的设备上测试。更灵活发布版本和限定测试范围，及时修复问题并优化版本体验。
  
@@ -22,31 +18,37 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. **错误码10019：描述文件验签失败**解决方案：请检查描述文件的签名密钥与安装包的签名密钥，确保二者保持一致。请使用签名工具进行本地验证。操作如下：
 
-- **错误码10019：描述文件验签失败**解决方案：请检查描述文件的签名密钥与安装包的签名密钥，确保二者保持一致。请使用签名工具进行本地验证。操作如下：
- 
-获取签名后的描述文件（如manifest.json5），根据[验签工具](https://gitee.com/arkin-internal-testing/internal-testing)说明，执行如下命令：java -jar manifest-sign-tool-1.0.0.jar -operation verify -inputFile C:\xxx\manifest.json5 -keystore C:\xxx\internaltest.p12 -keystorepasswd internaltest其中：
+  
+- 获取签名后的描述文件（如manifest.json5），根据[验签工具](https://gitee.com/arkin-internal-testing/internal-testing)说明，执行如下命令：java -jar manifest-sign-tool-1.0.0.jar -operation verify -inputFile C:\xxx\manifest.json5 -keystore C:\xxx\internaltest.p12 -keystorepasswd internaltest其中：
 operation为操作类型，验证签名时为verify。
-- inputFile为需要生成签名的manifest.json5文件路径。
-- keystore为p12密钥文件路径，对应Store file(*.p12)。
-- keystorepasswd为密钥文件密码，对应Store password。
-- manifest-sign-tool-1.0.0.jar可通过[验签工具](https://gitee.com/arkin-internal-testing/internal-testing)获取。
 
- - 确保描述文件签名时使用的签名密钥p12和安装包使用的签名密钥是一致的。特别注意安装包有多产物和多签名密钥的情况。
+2. inputFile为需要生成签名的manifest.json5文件路径。
+
+3. keystore为p12密钥文件路径，对应Store file(*.p12)。
+
+4. keystorepasswd为密钥文件密码，对应Store password。
+
+5. manifest-sign-tool-1.0.0.jar可通过[验签工具](https://gitee.com/arkin-internal-testing/internal-testing)获取。
+- 确保描述文件签名时使用的签名密钥p12和安装包使用的签名密钥是一致的。特别注意安装包有多产物和多签名密钥的情况。
 
  - **错误码10021：安装包证书校验失败**解决方案：请检查是否使用了正确的[发布证书](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-cert-0000002283336729)和[指定设备发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-internaltest-profile-0000002283260129)打包安装包。请确保设备UDID在指定设备发布Profile指定的设备列表内。操作如下：
- 
+
+  
 获取到hap安装包，使用文本编辑器直接以文本方式打开。
 - 搜索关键词"app-distribution-type"，指定设备发布对应的分发类型为internaltesting，若是其他值，说明使用的Profile类型错误，需要重新[申请指定设备发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-internaltest-profile-0000002283260129)。
 - 搜索关键词"device-ids"，检查对应的UDID值是否包含设备的UDID，只有在device-ids中的设备才允许安装应用，参考[UDID获取方法](https://developer.huawei.com/consumer/cn/doc/app/agc-help-add-device-0000002283189937#section67331926102911)。
 - 搜索关键词"type""，指定设备分发的类型为release，若是其他值（如debug），需要重新打包。示例如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/-zexcee7T8aTqf0lhrKcDg/zh-cn_image_0000002658913913.png?HW-CC-KV=V1&HW-CC-Date=20260701T025905Z&HW-CC-Expire=86400&HW-CC-Sign=A0AB2A51CD175F1FD62049097A5EEFC0FD1B340CD0A1FCA5F87EF26B4A8B99A9)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/-zexcee7T8aTqf0lhrKcDg/zh-cn_image_0000002658913913.png?HW-CC-KV=V1&HW-CC-Date=20260701T041114Z&HW-CC-Expire=86400&HW-CC-Sign=16A01F213AFD24B058AD8BB021AD477E0874013F69F09080EEDE9C037C805A81)
 
 
  - **错误码10000：DeepLink格式错误**解决方案：
- 
+
+  
 DeepLink正确格式为：store://enterprise/manifest?url= encodeURIComponent（描述文件下载URL）。
 - 描述文件下载URL使用HTTPS协议。
 - 描述文件下载URL以“.json5”结尾。
@@ -54,12 +56,13 @@ DeepLink正确格式为：store://enterprise/manifest?url= encodeURIComponent（
 - 描述文件中deployDomain不要带协议头和端口号，正常格式为：[xx.huawei.com](http://xx.huawei.com/)。不要写成https://xx.huawei.com:80。
 
  - **错误码10026：身份校验不通过**解决方案：请确认设备的身份验证功能（设备华为账号、生物识别和密码）是否正常，以及使用者本人的合法性，确认无误后再重试。
- 常见原因还有手机网络连接了代理导致，可以断开代理重试。
+
+  常见原因还有手机网络连接了代理导致，可以断开代理重试。
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：点击应用提示“应用已过期”，如何解决？
  

@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1332
 
-## 如何隐藏PatternLock控件的解锁轨迹
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS如何隐藏图案锁PatternLock控件的解锁轨迹。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/TX29rzy2T8m2aREsnR-1Vg/zh-cn_image_0000002628599896.png?HW-CC-KV=V1&HW-CC-Date=20260701T025700Z&HW-CC-Expire=86400&HW-CC-Sign=88F5E890A6713DB1408A295C1F2ACD0C8D80E9C24952DE37F3DB1EC6CFF99481)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/TX29rzy2T8m2aREsnR-1Vg/zh-cn_image_0000002628599896.png?HW-CC-KV=V1&HW-CC-Date=20260701T041214Z&HW-CC-Expire=86400&HW-CC-Sign=7432E308B3EEE23F7165BEB4332692BD421F149EE25CEFAA0108869002AD39AC)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 HarmonyOS为图案密码锁提供了[PatternLock](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock)控件，以九宫格图案的方式输入密码，用于密码验证场景。
  
@@ -45,20 +41,18 @@ PatternLock()
 解锁效果如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/MMzjGOCVTGWINR-yAbnavA/zh-cn_image_0000002628759800.png?HW-CC-KV=V1&HW-CC-Date=20260701T025700Z&HW-CC-Expire=86400&HW-CC-Sign=2F1B351A08FFBEB753E594807EF50FA1978A983FE4A3E10ADCEF78605B9543C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/MMzjGOCVTGWINR-yAbnavA/zh-cn_image_0000002628759800.png?HW-CC-KV=V1&HW-CC-Date=20260701T041214Z&HW-CC-Expire=86400&HW-CC-Sign=E50C35A3C4D76EFD589C7745FA48219DAFB27131C946E93DEA5E74691448D82C)
 
  
  
 
-##### 解决方案
+#### 解决方案
 
 隐藏圆点与轨迹动效，主要修改点如下：
- 
-- 为了隐藏连接线，需要将PatternLock控件的[pathStrokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#pathstrokewidth)属性设置为0或负数。
-- 为了隐藏圆点颜色、大小变化，需要将PatternLock控件的[regularColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#regularcolor)属性、[activateCircleStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#activatecirclestyle12)属性中options参数的[color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#circlestyleoptions12对象说明:~:text=说明-,color,-ResourceColor)属性设置为同一颜色，并将[selectedColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#selectedcolor)属性、[activeColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#activecolor)属性设置为透明色'#00000000'。
-- 为了隐藏圆环大小变化，需要将PatternLock控件的[activateCircleStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#activatecirclestyle12)属性中options参数的radius属性与[circleRadius](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#circleradius)属性设置为同一大小。
-- 为了隐藏圆点动效，需要将PatternLock控件的[activateCircleStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#activatecirclestyle12)属性中options参数的enableWaveEffect属性设置为false。
-
+ 1. 为了隐藏连接线，需要将PatternLock控件的[pathStrokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#pathstrokewidth)属性设置为0或负数。
+2. 为了隐藏圆点颜色、大小变化，需要将PatternLock控件的[regularColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#regularcolor)属性、[activateCircleStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#activatecirclestyle12)属性中options参数的[color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#circlestyleoptions12对象说明:~:text=说明-,color,-ResourceColor)属性设置为同一颜色，并将[selectedColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#selectedcolor)属性、[activeColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#activecolor)属性设置为透明色'#00000000'。
+3. 为了隐藏圆环大小变化，需要将PatternLock控件的[activateCircleStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#activatecirclestyle12)属性中options参数的radius属性与[circleRadius](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#circleradius)属性设置为同一大小。
+4. 为了隐藏圆点动效，需要将PatternLock控件的[activateCircleStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock#activatecirclestyle12)属性中options参数的enableWaveEffect属性设置为false。
  
 将原组件代码按上文修改后如下：
  
@@ -106,12 +100,12 @@ struct HiddenPatternLock {
 在日志中会打印出选择的数字，截图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/LTCZu-XSSvyvC_-dMCGNvA/zh-cn_image_0000002658959115.png?HW-CC-KV=V1&HW-CC-Date=20260701T025700Z&HW-CC-Expire=86400&HW-CC-Sign=3BD08C7B8AC8B0727E347BEF60ABC570D73DCA43CD40F34672782C77228D0E8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/LTCZu-XSSvyvC_-dMCGNvA/zh-cn_image_0000002658959115.png?HW-CC-KV=V1&HW-CC-Date=20260701T041214Z&HW-CC-Expire=86400&HW-CC-Sign=3456C22575483D73D0F9E21B0B60C35F11D51F1094E2775A094ABFFEC1D1DF83)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：将所有颜色修改一致后，图案锁解锁时圆点大小仍然会有略微放大，且颜色带透明度时，会出现颜色加深问题。
  
@@ -135,9 +129,9 @@ struct SelectedPatternLock {
       PatternLock()
         .circleRadius(6)
         .pathStrokeWidth(12)
-        // 圆点在激活状态的填充颜色
+      <em>  // 圆点在激活状态的填充颜色</em>
         .activeColor('rgba(0, 0, 0, 0.9)')
-        // 圆点在选中状态的填充颜色
+       <em> // 圆点在选中状态的填充颜色</em>
         .selectedColor('rgba(10, 89, 247, 1)')
         .pathColor('rgba(0, 0, 0, 0.2)')
         .alignRules({
@@ -159,4 +153,4 @@ struct SelectedPatternLock {
 运行效果如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/yniu02UkQy-WNByieTE0TA/zh-cn_image_0000002658839165.png?HW-CC-KV=V1&HW-CC-Date=20260701T025700Z&HW-CC-Expire=86400&HW-CC-Sign=C1CD99EA58F497E01E498FB71ADFD7A4242B37CB4E1A11CE42414A66BE2AFACC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/yniu02UkQy-WNByieTE0TA/zh-cn_image_0000002658839165.png?HW-CC-KV=V1&HW-CC-Date=20260701T041214Z&HW-CC-Expire=86400&HW-CC-Sign=F90B28934596878837C4C223CA4B8F55520EB40FFAFC89154E84B44987812DD8)

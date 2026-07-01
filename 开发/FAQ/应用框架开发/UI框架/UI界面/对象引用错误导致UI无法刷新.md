@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-516
 
-## 对象引用错误导致UI无法刷新
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在onTouchDown方法中改变状态变量的值后无法引起UI刷新，代码和运行效果如下：
  
@@ -68,12 +64,12 @@ struct MainPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/GySc68XxTTqXP3rNbZiidQ/zh-cn_image_0000002628391164.png?HW-CC-KV=V1&HW-CC-Date=20260701T025657Z&HW-CC-Expire=86400&HW-CC-Sign=AB9C3E10D1AB32B38AA0CD26BF75CFFEB73250BDEA3539AD3C667B85546D9AAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/GySc68XxTTqXP3rNbZiidQ/zh-cn_image_0000002628391164.png?HW-CC-KV=V1&HW-CC-Date=20260701T041217Z&HW-CC-Expire=86400&HW-CC-Sign=4E0E79A1D4315BDD3B63036F4E79AF95F0A6FA798293AFFB6C8A734C20A7481A)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [this](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/introduction-to-arkts#this)是HarmonyOS中的一个关键字，代表当前对象的上下文，它指向调用该函数的对象。
 - bind方法允许明确设置函数运行时的this值。当this的指向不符合预期时，可以使用bind将this设置为指定的值。
@@ -81,21 +77,19 @@ struct MainPage {
  
  
 
-##### 问题定位
-
-- 当直接使用this.onTouchDown时，此时this指针指向的是子组件ContainerView，实际调用的是该组件的onTouchDown空方法。
-- 使用官网提供的适配方案，即利用lambda函数形式，参考链接如下：[bind适配指导案例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-more-cases#bind定义方法)。
-
+#### 问题定位
+1. 当直接使用this.onTouchDown时，此时this指针指向的是子组件ContainerView，实际调用的是该组件的onTouchDown空方法。
+2. 使用官网提供的适配方案，即利用lambda函数形式，参考链接如下：[bind适配指导案例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-more-cases#bind定义方法)。
  
  
 
-##### 分析结论
+#### 分析结论
 
 this所指向的对象错误，实际需要调用的方法没有被调用。
  
  
 
-##### 修改建议
+#### 修改建议
 
 修改onTouchDown函数，具体代码和运行效果如下：
  
@@ -103,7 +97,7 @@ this所指向的对象错误，实际需要调用的方法没有被调用。
 @Component
 struct ContainerView {
   @BuilderParam child: () => void;
-  // 实际调用的onTouchDown方法
+<em>  // 实际调用的onTouchDown方法</em>
   onTouchDown = () => {
   };
   onTouchUp = () => {
@@ -133,7 +127,7 @@ struct TouchDownCustom {
     Column() {
       ContainerView(
         {
-          // 修改后的代码
+      <em>    // 修改后的代码</em>
           onTouchDown: (): void => this.onTouchDown(),
           onTouchUp: () => {
             this.title = 'onTouchUp';
@@ -157,12 +151,12 @@ struct TouchDownCustom {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/ooZMEbqtRGuDUcKRpbNmWw/zh-cn_image_0000002658790415.png?HW-CC-KV=V1&HW-CC-Date=20260701T025657Z&HW-CC-Expire=86400&HW-CC-Sign=999A0EA18BA4A71511D9E63AF0F58C665F97D73BFF779EF42A3662DF20C59B6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/ooZMEbqtRGuDUcKRpbNmWw/zh-cn_image_0000002658790415.png?HW-CC-KV=V1&HW-CC-Date=20260701T041217Z&HW-CC-Expire=86400&HW-CC-Sign=17DFE1226E597A581171C743958524EB72CFFB71F935CE4959DCF0090B5EBFC3)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么在HarmonyOS开发者文档中没有找到bind关键字的详细说明？
  

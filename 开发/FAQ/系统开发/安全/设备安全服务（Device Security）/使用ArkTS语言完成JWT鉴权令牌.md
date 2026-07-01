@@ -4,33 +4,29 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-security-4
 
-## 使用ArkTS语言完成JWT鉴权令牌
- 
-
-
-##### 问题现象
+#### 问题现象
 
 请问在应用设备状态检测这块功能里，在签名的这一步报错了，生成鉴权令牌中的签名该如何用ArkTS实现？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [基于服务账号生成鉴权令牌](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-token)：使用应用设备状态检测服务时需要配置此章节。
  
  
 
-##### 解决方案
+#### 解决方案
 
 将完成BASE64编码后的Header字符串与Payload字符串，通过“.”进行连接，并在开发者的应用中，通过服务账号密钥文件中的private_key（华为不进行存储，请您妥善保管），使用SHA256withRSA/PSS算法对拼接的字符串签名，最后将Header，Payload以及字符串签名通过“.”进行连接，即可得到Token数据。
  
-```text
+```json
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer, util } from '@kit.ArkTS';
 
 let base64 = new util.Base64Helper();
 
-// 生成header
+<em>// 生成header</em>
 function genHeader(keyId: string): string {
   const jwtHeader: object = new Object({
     'kid': keyId,
@@ -41,7 +37,7 @@ function genHeader(keyId: string): string {
   return base64.encodeToStringSync(strArray, util.Type.BASIC_URL_SAFE);
 }
 
-// 生成payload
+<em>// 生成payload</em>
 function genPayload(subAccount: string): string {
   const now: number = Date.now();
   const jwtPayload: object = new Object({
@@ -66,7 +62,7 @@ async function pss(priKey: string, str: string) {
 }
 
 export async function main() {
-  // 服务账号密钥，需要根据教程使用自己的密钥
+ <em> // 服务账号密钥，需要根据教程使用自己的密钥</em>
   const privateJson: object = new Object({
     'project_id': '*****',
     'key_id': '*****',
@@ -106,8 +102,5 @@ struct Index {
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/Wb0OE01gRg2GlQoHjdXoEA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025752Z&HW-CC-Expire=86400&HW-CC-Sign=2ACD75E2B2500DB322DFEBBFE2C71428CC910D7C1E6AF5311E31D8A3FD9B2B7D)
- 
-
-鉴权json字段是固定的，无法更改，取用也是需要用json格式。
+> [!NOTE]
+> 鉴权json字段是固定的，无法更改，取用也是需要用json格式。

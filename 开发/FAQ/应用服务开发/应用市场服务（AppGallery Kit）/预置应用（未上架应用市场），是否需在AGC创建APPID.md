@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-92
 
-## 预置应用（未上架应用市场），是否需在AGC创建APPID
- 
-
-
-##### 问题现象
+#### 问题现象
 
 预置应用使用了自定义签名和AGC证书打包，同时开发中需要调用定时任务、闹钟等依赖APPID的系统能力。是否需要先在AGC创建应用？
  
  
 
-##### 解决方案
+#### 解决方案
 
 是的，需要先在AGC创建应用以获取APPID。
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-891
 
-## 自定义Tabs样式，TabBar底部指示器如何对齐
- 
-
-
-##### 问题现象
+#### 问题现象
 
 自定义TabBar，如何实现底部指示器（图中文字“页签2”下面的蓝色小横杠）的对齐？问题现象如下图：
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [选项卡Tabs介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs)：用于了解Tab组件的构成（TabBar、TabContent）。
 - [组件区域变化事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event)：可以通过该事件，计算TabBar的相对位置。oldValue返回目标元素变化之前的宽高以及目标元素相对父元素和页面左上角的坐标位置。newValue返回目标元素变化之后的宽高以及目标元素相对父元素和页面左上角的坐标位置。
@@ -23,7 +19,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 名称 | 方案一 | 方案二 |
 | --- | --- | --- |
@@ -38,7 +34,7 @@
 @Entry
 @Component
 struct TabSolution1 {
-  tabArray: Array = [0, 1, 2, 3, 4];
+  tabArray: Array<number> = [0, 1, 2, 3, 4];
   @State focusIndex: number = 0;
   index: number = 0;
   private controller: TabsController = new TabsController();
@@ -46,7 +42,7 @@ struct TabSolution1 {
   private scrollerForScroll: Scroller = new Scroller();
 
 
-  // 单独的页签
+  <em>// 单独的页签</em>
   @Builder
   myTabBar(tabName: string, tabItem: number, tabIndex: number) {
     Row({ space: 20 }) {
@@ -55,7 +51,7 @@ struct TabSolution1 {
           .fontSize(18)
           .fontColor(tabIndex === this.focusIndex ? '#0A59F7' : Color.Black)
           .id(tabIndex.toString());
-        // 资源文件需自行替换，可以替换为三角图片
+      <em>  // 资源文件需自行替换，可以替换为三角图片</em>
         Column()
           .width(20)
           .height(4)
@@ -77,7 +73,7 @@ struct TabSolution1 {
   @Builder
   sideComponent(textName: string) {
     Row({ space: 20 }) {
-      // 可以根据需要自行替换
+     <em> // 可以根据需要自行替换</em>
       Text(textName).fontSize(18);
     }
     .justifyContent(FlexAlign.Center)
@@ -90,7 +86,7 @@ struct TabSolution1 {
   build() {
     Column() {
       Stack({ alignContent: Alignment.TopStart }) {
-        // List自定义页签
+        <em>// List自定义页签</em>
         Column() {
           Row({ space: 8 }) {
             List({ space: 20, initialIndex: 0, scroller: this.scrollerForScroll }) {
@@ -150,15 +146,19 @@ struct TabSolution1 {
 ```
 
 - **方案二**：底部指示器对齐一共有四种情况处理，初始位置、TabBar切换（不涉及页签滑动，即在当前显示区域内切换页签的场景）、TabBar切换（涉及滑动，即切换到在显示区域显示不全的页签）、仅滑动（不涉及页签切换）。
-**初始位置**：因为保持了初始位置与页签0对齐且底部指示器与页签的宽度相同，只需要通过onAreaChange事件拿到新位置的X坐标，然后让底部指示器左侧外边距的大小等于该值即可。 
+**初始位置**：因为保持了初始位置与页签0对齐且底部指示器与页签的宽度相同，只需要通过onAreaChange事件拿到新位置的X坐标，然后让底部指示器左侧外边距的大小等于该值即可。
+
 | 名称 | 图片说明 |
+
 | --- | --- |
+
 | 偏移量计算 |  |
+
 | 运行效果 |  |
- 
- 
-```text
-// 单独的页签
+
+  
+```json
+<em>// 单独的页签</em>
 @Builder
 myTabBar(tabName: string, tabItem: number, tabIndex: number) {
   Row({ space: 20 }) {
@@ -168,7 +168,7 @@ myTabBar(tabName: string, tabItem: number, tabIndex: number) {
       .id(tabIndex.toString())
       .onAreaChange((oldValue: Area, newValue: Area) => {
         console.debug(`oldValue:${JSON.stringify(oldValue)}, newValue:${JSON.stringify(newValue)}`);
-        // 初始位置：底部指示器
+     <em>   // 初始位置：底部指示器</em>
         if (this.focusIndex === tabIndex && (this.indicatorLeftMargin === 0 || this.indicatorWidth === 0)) {
           if (newValue.position.x !== undefined) {
             let positionX = Number.parseFloat(newValue.position.x.toString());
@@ -194,14 +194,18 @@ myTabBar(tabName: string, tabItem: number, tabIndex: number) {
 }
 ```
 
-- **TabBar切换（不涉及滑动）**：在Tabs的onAnimationStart和onAnimationEnd事件，通过getInspectorByKey(id:string)方法获取页签距离左侧的偏移量和页签的宽度，接着进行单位转换（px转vp），最后给到底部指示器。 
+- **TabBar切换（不涉及滑动）**：在Tabs的onAnimationStart和onAnimationEnd事件，通过getInspectorByKey(id:string)方法获取页签距离左侧的偏移量和页签的宽度，接着进行单位转换（px转vp），最后给到底部指示器。
+
 | 名称 | 图片说明 |
+
 | --- | --- |
+
 | 偏移量计算 |  |
+
 | 运行效果 |  |
- 
- 
-```text
+
+  
+```json
 Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
   ForEach(this.tabArray, (item: number) => {
     TabContent() {
@@ -228,13 +232,13 @@ Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
 })
 .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
   console.debug(`index:${index}, event:${JSON.stringify(event)}`);
-  // 切换动画开始时触发该回调。下划线跟着页面一起滑动
+<em>  // 切换动画开始时触发该回调。下划线跟着页面一起滑动</em>
   this.focusIndex = targetIndex;
   let targetIndexInfo = this.getTextInfo(targetIndex);
   this.startAnimateTo(this.animationDuration, targetIndexInfo.left, targetIndexInfo.width);
 })
 .onGestureSwipe((index: number, event: TabsAnimationEvent) => {
-  // 在页面跟手滑动过程中，逐帧触发该回调。
+ <em> // 在页面跟手滑动过程中，逐帧触发该回调。</em>
   let currentIndicatorInfo = this.getCurrentIndicatorInfo(index, event);
   this.focusIndex = currentIndicatorInfo.index;
   this.indicatorLeftMargin = currentIndicatorInfo.left;
@@ -244,8 +248,8 @@ Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
 ```
  
 ```text
-// 获取页签信息，返回距左侧偏移量和页签宽度
-private getTextInfo(index: number): Record {
+<em>// 获取页签信息，返回距左侧偏移量和页签宽度</em>
+private getTextInfo(index: number): Record<string, number> {
   try {
     const rect = this.getUIContext().getComponentUtils().getRectangleById(index.toString());
     return {
@@ -258,24 +262,30 @@ private getTextInfo(index: number): Record {
 }
 
 
-private getCurrentIndicatorInfo(index: number, event: TabsAnimationEvent): Record {
+private getCurrentIndicatorInfo(index: number, event: TabsAnimationEvent): Record<string, number> {
   let nextIndex = index;
   if (index > 0 && event.currentOffset > 0) {
     nextIndex--;
-  } else if (index  0.5 ? nextIndex : index; // 页面滑动超过一半，tabBar切换到下一页。
+  } else if (index < this.tabArray.length && event.currentOffset < 0) {
+    nextIndex++;
+  }
+  let indexInfo = this.getTextInfo(index);
+  let nextIndexInfo = this.getTextInfo(nextIndex);
+  let swipeRatio = Math.abs(event.currentOffset / this.tabsWidth);
+  let currentIndex = swipeRatio > 0.5 ? nextIndex : index; <em>// 页面滑动超过一半，tabBar切换到下一页。</em>
   let currentLeft = indexInfo.left + (nextIndexInfo.left - indexInfo.left) * swipeRatio;
   let currentWidth = indexInfo.width + (nextIndexInfo.width - indexInfo.width) * swipeRatio;
   return { 'index': currentIndex, 'left': currentLeft, 'width': currentWidth };
 }
 
 
-// 动画效果（使底部指示器与页签同步移动）
+<em>// 动画效果（使底部指示器与页签同步移动）</em>
 private startAnimateTo(duration: number, leftMargin: number, width: number) {
   this.getUIContext().animateTo({
-    duration: duration, // 动画时长
-    curve: Curve.Linear, // 动画曲线
-    iterations: 1, // 播放次数
-    playMode: PlayMode.Normal, // 动画模式
+    duration: duration,<em> // 动画时长</em>
+    curve: Curve.Linear,<em> // 动画曲线</em>
+    iterations: 1, <em>// 播放次数</em>
+    playMode: PlayMode.Normal,<em> // 动画模式</em>
     onFinish: () => {
       console.info('play end');
     }
@@ -287,13 +297,17 @@ private startAnimateTo(duration: number, leftMargin: number, width: number) {
 }
 ```
 
-- **TabBar切换（涉及滑动）**：底部指示器根据方案二的第二步流程（即TabBar切换且不涉及滑动的场景）设置到对应页签下，然后通过onDidScroll事件跟随页签一起移动。伪代码：第一步是底部指示器左侧偏移量等于目标页签距离左侧的偏移量，第二步即由第一步得到的偏移量减去滑动偏移量。 
+- **TabBar切换（涉及滑动）**：底部指示器根据方案二的第二步流程（即TabBar切换且不涉及滑动的场景）设置到对应页签下，然后通过onDidScroll事件跟随页签一起移动。伪代码：第一步是底部指示器左侧偏移量等于目标页签距离左侧的偏移量，第二步即由第一步得到的偏移量减去滑动偏移量。
+
 | 名称 | 图片说明 |
+
 | --- | --- |
+
 | 偏移量计算 |  |
+
 | 运行效果 |  |
- 
- 
+
+  
 ```text
 List({ space: 20, initialIndex: 0, scroller: this.scrollerForScroll }) {
   ForEach(this.tabArray, (item: number, index: number) => {
@@ -311,24 +325,28 @@ List({ space: 20, initialIndex: 0, scroller: this.scrollerForScroll }) {
 .width('80%')
 .backgroundColor('#FFFFFF')
 .onDidScroll((xOffset: number) => {
-  // 场景三，跟随页签一起移动
+<em>  // 场景三，跟随页签一起移动</em>
   this.indicatorLeftMargin -= xOffset;
 });
 ```
 
-- **仅滑动（不涉及切换）**：通过onDidScroll事件跟随TabBar一起移动。 
+- **仅滑动（不涉及切换）**：通过onDidScroll事件跟随TabBar一起移动。
+
 | 名称 | 图片说明 |
+
 | --- | --- |
+
 | 偏移量计算 |  |
+
 | 运行效果 |  |
- 
- 该情况实现的代码同上述 **TabBar切换（涉及滑动）** 实现代码一致。
+
+  该情况实现的代码同上述 **TabBar切换（涉及滑动）** 实现代码一致。
 - 方案二完整示例参考如下：
-```text
+```json
 @Entry
 @Component
 struct TabSolution2 {
-  tabArray: Array = [0, 1, 2, 3, 4];
+  tabArray: Array<number> = [0, 1, 2, 3, 4];
   @State focusIndex: number = 0;
   private controller: TabsController = new TabsController();
   animationDuration: number = 300;
@@ -339,7 +357,7 @@ struct TabSolution2 {
   private scrollerForScroll: Scroller = new Scroller();
 
 
-  // 单独的页签
+  <em>// 单独的页签</em>
   @Builder
   myTabBar(tabName: string, tabItem: number, tabIndex: number) {
     Row({ space: 20 }) {
@@ -349,7 +367,7 @@ struct TabSolution2 {
         .id(tabIndex.toString())
         .onAreaChange((oldValue: Area, newValue: Area) => {
           console.debug(`oldValue:${JSON.stringify(oldValue)}, newValue:${JSON.stringify(newValue)}`);
-          // 初始位置：底部指示器
+         <em> // 初始位置：底部指示器</em>
           if (this.focusIndex === tabIndex && (this.indicatorLeftMargin === 0 || this.indicatorWidth === 0)) {
             if (newValue.position.x !== undefined) {
               let positionX = Number.parseFloat(newValue.position.x.toString());
@@ -390,7 +408,7 @@ struct TabSolution2 {
   build() {
     Column() {
       Stack({ alignContent: Alignment.TopStart }) {
-        // List自定义页签
+      <em>  // List自定义页签</em>
         Column() {
           Row({ space: 8 }) {
             List({ space: 20, initialIndex: 0, scroller: this.scrollerForScroll }) {
@@ -409,7 +427,7 @@ struct TabSolution2 {
             .width('80%')
             .backgroundColor('#FFFFFF')
             .onDidScroll((xOffset: number) => {
-              // 场景三，跟随页签一起移动
+            <em>  // 场景三，跟随页签一起移动</em>
               this.indicatorLeftMargin -= xOffset;
             });
 
@@ -424,7 +442,7 @@ struct TabSolution2 {
         .width('100%');
 
 
-        // 资源文件需自行替换，可以替换为三角图片
+    <em>    // 资源文件需自行替换，可以替换为三角图片</em>
         Column()
           .width(50)
           .height(4)
@@ -462,13 +480,13 @@ struct TabSolution2 {
       })
       .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
         console.debug(`index:${index}, event:${JSON.stringify(event)}`);
-        // 切换动画开始时触发该回调。下划线跟着页面一起滑动
+    <em>    // 切换动画开始时触发该回调。下划线跟着页面一起滑动</em>
         this.focusIndex = targetIndex;
         let targetIndexInfo = this.getTextInfo(targetIndex);
         this.startAnimateTo(this.animationDuration, targetIndexInfo.left, targetIndexInfo.width);
       })
       .onGestureSwipe((index: number, event: TabsAnimationEvent) => {
-        // 在页面跟手滑动过程中，逐帧触发该回调。
+      <em>  // 在页面跟手滑动过程中，逐帧触发该回调。</em>
         let currentIndicatorInfo = this.getCurrentIndicatorInfo(index, event);
         this.focusIndex = currentIndicatorInfo.index;
         this.indicatorLeftMargin = currentIndicatorInfo.left;
@@ -480,8 +498,8 @@ struct TabSolution2 {
   }
 
 
-  // 获取页签信息，返回距左侧偏移量和页签宽度
-  private getTextInfo(index: number): Record {
+ <em> // 获取页签信息，返回距左侧偏移量和页签宽度</em>
+  private getTextInfo(index: number): Record<string, number> {
     try {
       const rect = this.getUIContext().getComponentUtils().getRectangleById(index.toString());
       return {
@@ -494,24 +512,30 @@ struct TabSolution2 {
   }
 
 
-  private getCurrentIndicatorInfo(index: number, event: TabsAnimationEvent): Record {
+  private getCurrentIndicatorInfo(index: number, event: TabsAnimationEvent): Record<string, number> {
     let nextIndex = index;
     if (index > 0 && event.currentOffset > 0) {
       nextIndex--;
-    } else if (index  0.5 ? nextIndex : index; // 页面滑动超过一半，tabBar切换到下一页。
+    } else if (index < this.tabArray.length && event.currentOffset < 0) {
+      nextIndex++;
+    }
+    let indexInfo = this.getTextInfo(index);
+    let nextIndexInfo = this.getTextInfo(nextIndex);
+    let swipeRatio = Math.abs(event.currentOffset / this.tabsWidth);
+    let currentIndex = swipeRatio > 0.5 ? nextIndex : index; <em>// 页面滑动超过一半，tabBar切换到下一页。</em>
     let currentLeft = indexInfo.left + (nextIndexInfo.left - indexInfo.left) * swipeRatio;
     let currentWidth = indexInfo.width + (nextIndexInfo.width - indexInfo.width) * swipeRatio;
     return { 'index': currentIndex, 'left': currentLeft, 'width': currentWidth };
   }
 
 
-  // 动画效果（使底部指示器与页签同步移动）
+ <em> // 动画效果（使底部指示器与页签同步移动）</em>
   private startAnimateTo(duration: number, leftMargin: number, width: number) {
     this.getUIContext().animateTo({
-      duration: duration, // 动画时长
-      curve: Curve.Linear, // 动画曲线
-      iterations: 1, // 播放次数
-      playMode: PlayMode.Normal, // 动画模式
+      duration: duration, <em>// 动画时长</em>
+      curve: Curve.Linear, <em>// 动画曲线</em>
+      iterations: 1,<em> // 播放次数</em>
+      playMode: PlayMode.Normal, <em>// 动画模式</em>
       onFinish: () => {
         console.info('play end');
       }

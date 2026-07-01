@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-12
 
-## PC端设置窗口大小不生效
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过配置module.json5文件中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)的maxWindowWidth、maxWindowHeight两个属性，设置窗口设置宽高为500*1000，实际运行过程中未生效，日志监听窗口大小为950 * 1394。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/r2SwfrPKSWyHiCLZ767fnA/zh-cn_image_0000002658791751.png?HW-CC-KV=V1&HW-CC-Date=20260701T025502Z&HW-CC-Expire=86400&HW-CC-Sign=50B75CB510E2BF85CE5A75DFB758F7BDB83D58A6D11E9C1C4DAEDD120CA44796)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/r2SwfrPKSWyHiCLZ767fnA/zh-cn_image_0000002658791751.png?HW-CC-KV=V1&HW-CC-Date=20260701T041034Z&HW-CC-Expire=86400&HW-CC-Sign=F038BA29DE571C85A3D1080B7E6DDAF22BE46A975E258ABDD8BBC7BF3A13D59E)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 使用[getGlobalRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getglobalrect13)方法可以获取窗口在屏幕上的真实位置和大小。
 - 通过配置[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)文件中的[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)可以实现对应用图标、窗口等内容的自定义。
@@ -30,31 +26,24 @@
  
  
 
-##### 问题定位
-
-- 根据宽高都比设置数值偏大，推测是单位不一致导致。查阅[窗口大小限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#约束与限制)，module.json5中数值单位为vp。而getGlobalRect方法返回类型为[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)，宽高单位是px。
-- 使用[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)方法转换单位后，重新打印日志，高度值仍不正确。查看maxWindowWidth和maxWindowHeight属性的描述，两者是用于设置窗口的最大宽高，如果需要指定窗口为某一数值，则需要同时设置minWindowHeight以及minWindowWidth。
-
+#### 问题定位
+1. 根据宽高都比设置数值偏大，推测是单位不一致导致。查阅[窗口大小限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#约束与限制)，module.json5中数值单位为vp。而getGlobalRect方法返回类型为[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)，宽高单位是px。
+2. 使用[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)方法转换单位后，重新打印日志，高度值仍不正确。查看maxWindowWidth和maxWindowHeight属性的描述，两者是用于设置窗口的最大宽高，如果需要指定窗口为某一数值，则需要同时设置minWindowHeight以及minWindowWidth。
  
  
 
-##### 分析结论
-
-- 单位不同：module.json5里的数值单位是vp，通过getGlobalRect获取的宽高单位是px。
-- maxWindowHeight、minWindowHeight、maxWindowWidth、minWindowWidth是一个区间范围，同时设置才能固定数值。
-
+#### 分析结论
+1. 单位不同：module.json5里的数值单位是vp，通过getGlobalRect获取的宽高单位是px。
+2. maxWindowHeight、minWindowHeight、maxWindowWidth、minWindowWidth是一个区间范围，同时设置才能固定数值。
  
  
 
-##### 修改建议
-
-- 同时设置maxWindowHeight、minWindowHeight、maxWindowWidth、minWindowWidth四个属性固定初始窗口大小。
-- 日志打印通过getGlobalRect方法获取的宽高时使用px2vp()进行单位转换。
-
+#### 修改建议
+1. 同时设置maxWindowHeight、minWindowHeight、maxWindowWidth、minWindowWidth四个属性固定初始窗口大小。
+2. 日志打印通过getGlobalRect方法获取的宽高时使用px2vp()进行单位转换。
  
 示例代码：
- 
-- Index.ets文件：
+ 1. Index.ets文件：
 ```text
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -73,8 +62,8 @@ struct Index {
       let promise = window.getLastWindow(this.context);
       promise.then((data) => {
         windowClass = data;
-        this.screenWidth = windowClass.getGlobalRect().width; // 获取窗口宽度
-        this.screenHeight = windowClass.getGlobalRect().height; // 获取窗口高度
+        this.screenWidth = windowClass.getGlobalRect().width; <em>// 获取窗口宽度</em>
+        this.screenHeight = windowClass.getGlobalRect().height;<em> // 获取窗口高度</em>
       }).catch((err: BusinessError) => {
         console.error('getLastWindow error', err);
       });
@@ -97,7 +86,7 @@ struct Index {
 }
 ```
 
-- 在module.json5文件中abilities标签配置宽高：
+2. 在module.json5文件中abilities标签配置宽高：
 ```ArkTS
 {
   "module": {
@@ -121,10 +110,10 @@ struct Index {
         "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:startIcon",
         "startWindowBackground": "$color:start_window_background",
-        "maxWindowHeight": 1000, // 设置最大高度
-        "minWindowHeight": 1000, // 设置最小高度
-        "maxWindowWidth": 500, // 设置最大宽度
-        "minWindowWidth": 500, // 设置最小宽度
+        "maxWindowHeight": 1000, <em>// 设置最大高度</em>
+        "minWindowHeight": 1000,<em> // 设置最小高度</em>
+        "maxWindowWidth": 500,<em> // 设置最大宽度</em>
+        "minWindowWidth": 500,<em> // 设置最小宽度</em>
         "exported": true,
         "skills": [
           {
@@ -156,11 +145,10 @@ struct Index {
 }
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：PC端应用如何设置窗口大小？
  

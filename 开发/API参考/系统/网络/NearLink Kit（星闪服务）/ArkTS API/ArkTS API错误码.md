@@ -3,22 +3,16 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## ArkTS API错误码
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/YF9twtkyQQKI-LV8PdW5Ww/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025449Z&HW-CC-Expire=86400&HW-CC-Sign=1F2092B81A88D6F11C5C4569BFD7D228681970B6DCE0A40E8A21BECCCE99975F)
- 
- 
-以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-  
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
   
 
-##### 1009700003
+#### 1009700003
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -38,7 +32,9 @@ NearLink is off.
  
   
 
-##### 1009700020
+#### 1009700020
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -58,7 +54,9 @@ The UUID is already registered.
  
   
 
-##### 1009700021
+#### 1009700021
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -78,7 +76,9 @@ Port is exceeds the upper limit.
  
   
 
-##### 1009700022
+#### 1009700022
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -98,7 +98,9 @@ No port associated with this UUID is registered.
  
   
 
-##### 1009700023
+#### 1009700023
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -118,7 +120,9 @@ Write data congest.
  
   
 
-##### 1009700050
+#### 1009700050
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -138,7 +142,9 @@ Coordinated Devices Set Management not supported.
  
   
 
-##### 1009700099
+#### 1009700099
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  

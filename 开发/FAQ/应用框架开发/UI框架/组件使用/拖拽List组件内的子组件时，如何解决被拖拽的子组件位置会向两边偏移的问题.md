@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1132
 
-## 拖拽List组件内的子组件时，如何解决被拖拽的子组件位置会向两边偏移的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当在List组件内拖拽交换子组件位置时，拖拽开始时，被拖拽的子组件位置会偏到左侧或右侧。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/xPsrIlVYT0q6XdXFq7v-ZQ/zh-cn_image_0000002658808791.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=AC5D198579D9CFDA1F76F7031C423A98D4D061B7796B7C3A49F9BFF6D781C374)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/xPsrIlVYT0q6XdXFq7v-ZQ/zh-cn_image_0000002658808791.png?HW-CC-KV=V1&HW-CC-Date=20260701T041324Z&HW-CC-Expire=86400&HW-CC-Sign=6D0C3853A59EB995E01777D038332BFA31C35590282CD362FC61DC4453950D07)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 拖拽是移动端常见的操作，常用于编辑列表、网格中的元素顺序。ArkTS组件List，Grid等组件提供了简单的实现拖拽效果的API：[onItemDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onitemdragstart8)。
 - 可通过[组合手势GestureGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-combined-gestures)和[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)，实现自定义拖拽效果。
@@ -30,160 +26,158 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以采用组合手势和显示动画的方式来控制子组件拖拽时的位置变化情况，实现平滑拖动效果。
- 
-- 顺序识别组合手势。
+ 1. 顺序识别组合手势。
 长按手势事件LongPressGesture，标记被拖拽元素。
-- 拖动手势事件PanGesture，记录被拖拽元素的位移。
-
- - 在元素缩放和位移过程中，使用显示动画animateTo控制动画效果。
+2. 拖动手势事件PanGesture，记录被拖拽元素的位移。
+3. 在元素缩放和位移过程中，使用显示动画animateTo控制动画效果。
 ```text
-import curves from '@ohos.curves';
-import Curves from '@ohos.curves';
+import <span style="color: rgb(255,255,255);">curves </span>from <span style="color: rgb(132,63,161);">'@ohos.curves'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,255,255);">Curves </span>from <span style="color: rgb(132,63,161);">'@ohos.curves'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct ListItemExample {
-  @State private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  @State dragItem: number = -1;
-  @State scaleItem: number = -1;
-  @State neighborItem: number = -1;
-  @State neighborScale: number = -1;
-  private dragRefOffset: number = 0;
-  @State offsetY: number = 0;
-  private ITEM_INTV: number = 120;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">ListItemExample </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span>private <span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">3</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">5</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">6</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">7</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">9</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">dragItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">scaleItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">neighborItem</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">neighborScale</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">dragRefOffset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">offsetY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">ITEM_INTV</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">120</span><span style="color: rgb(181,106,1);">;</span>
 
-  scaleSelect(item: number): number {
-    if (this.scaleItem === item) {
-      return 1.05;
-    } else if (this.neighborItem === item) {
-      return this.neighborScale;
-    } else {
-      return 1;
-    };
-  }
+  <span style="color: rgb(0,0,255);">scaleSelect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">{</span>
+    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleItem </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      return <span style="color: rgb(80,160,79);">1.05</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborItem </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      return this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborScale</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">} </span>else <span style="color: rgb(181,106,1);">{</span>
+      return <span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  itemMove(index: number, newIndex: number): void {
-    let tmp = this.arr.splice(index, 1);
-    this.arr.splice(newIndex, 0, tmp[0]);
-  }
+  <span style="color: rgb(0,0,255);">itemMove</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">newIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">tmp </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">splice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">splice</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">newIndex</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">tmp</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Stack() {
-      List({ space: 20, initialIndex: 0 }) {
-        ForEach(this.arr, (item: number) => {
-          ListItem() {
-            Text(item.toString())
-              .width('100%')
-              .height(100)
-              .fontSize(16)
-              .textAlign(TextAlign.Center)
-              .borderRadius(10)
-              .backgroundColor(0xFFFFFF)
-              .shadow(this.scaleItem === item ? {
-                radius: 70,
-                color: '#15000000',
-                offsetX: 0,
-                offsetY: 0
-              } :
-                {
-                  radius: 0,
-                  color: '#15000000',
-                  offsetX: 0,
-                  offsetY: 0
-                })
-              .animation({ curve: Curve.Sharp, duration: 300 });
-          }
-          .margin({ left: 12, right: 12 })
-          .scale({ x: this.scaleSelect(item), y: this.scaleSelect(item) })
-          .zIndex(this.dragItem === item ? 1 : 0)
-          .translate(this.dragItem === item ? { y: this.offsetY } : { y: 0 })
-          .gesture(
-            // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件
-            GestureGroup(GestureMode.Sequence,
-              LongPressGesture({ repeat: true })
-                .onAction((event?: GestureEvent) => {
-                  this.getUIContext().animateTo({ curve: Curve.Friction, duration: 300 }, () => {
-                    this.scaleItem = item;
-                    console.info(`event: ${event}`);
-                  });
-                })
-                .onActionEnd(() => {
-                  this.getUIContext().animateTo({ curve: Curve.Friction, duration: 300 }, () => {
-                    this.scaleItem = -1;
-                  });
-                }),
-              PanGesture({ fingers: 1, direction: null, distance: 0 })
-                .onActionStart(() => {
-                  this.dragItem = item;
-                  this.dragRefOffset = 0;
-                })
-                .onActionUpdate((event: GestureEvent) => {
-                  this.offsetY = event.offsetY - this.dragRefOffset;
-                  this.neighborItem = -1;
-                  let index = this.arr.indexOf(item);
-                  let curveValue = Curves.initCurve(Curve.Sharp);
-                  let value: number = 0;
-                  // 根据位移计算相邻项的缩放
-                  if (this.offsetY  0) {
-                    value = curveValue.interpolate(-this.offsetY / this.ITEM_INTV);
-                    this.neighborItem = this.arr[index-1];
-                    this.neighborScale = 1 - value / 20;
-                    console.info(`neighborScale: ${this.neighborScale}`);
-                  } else if (this.offsetY > 0) {
-                    value = curveValue.interpolate(this.offsetY / this.ITEM_INTV);
-                    this.neighborItem = this.arr[index+1];
-                    this.neighborScale = 1 - value / 20;
-                  }
-                  // 根据位移交换排序
-                  if (this.offsetY > this.ITEM_INTV / 2) {
-                    this.getUIContext().animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
-                      this.offsetY -= this.ITEM_INTV;
-                      this.dragRefOffset += this.ITEM_INTV;
-                      this.itemMove(index, index + 1);
-                    });
-                  } else if (this.offsetY  -this.ITEM_INTV / 2) {
-                    this.getUIContext().animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
-                      this.offsetY += this.ITEM_INTV;
-                      this.dragRefOffset -= this.ITEM_INTV;
-                      this.itemMove(index, index - 1);
-                    });
-                  }
-                })
-                .onActionEnd((event: GestureEvent) => {
-                  console.info(`event: ${event}`);
-                  this.getUIContext().animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
-                    this.dragItem = -1;
-                    this.neighborItem = -1;
-                  });
-                  this.getUIContext().animateTo({
-                    curve: curves.interpolatingSpring(14, 1, 170, 17), delay: 150
-                  }, () => {
-                    this.scaleItem = -1;
-                  });
-                })
-            )
-              .onCancel(() => {
-                this.getUIContext().animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
-                  this.dragItem = -1;
-                  this.neighborItem = -1;
-                });
-                this.getUIContext().animateTo({
-                  curve: curves.interpolatingSpring(14, 1, 170, 17), delay: 150
-                }, () => {
-                  this.scaleItem = -1;
-                });
-              })
-          );
-        }, (item: number) => item.toString());
-      };
-    }
-    .width('100%')
-    .height('100%')
-    .backgroundColor(0xDCDCDC)
-    .padding({ top: 5 });
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Stack</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">initialIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">16</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(0xFFFFFF)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">shadow</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleItem </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">item </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(181,106,1);">{</span>
+                <span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">70</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#15000000'</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(255,255,255);">offsetX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+                <span style="color: rgb(255,255,255);">offsetY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span>
+              <span style="color: rgb(181,106,1);">} </span><span style="color: rgb(181,106,1);">:</span>
+                <span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(255,255,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'#15000000'</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(255,255,255);">offsetX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">,</span>
+                  <span style="color: rgb(255,255,255);">offsetY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Sharp</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">12</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">12 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleSelect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleSelect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">zIndex</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragItem </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">item </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">translate</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragItem </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,255,255);">item </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">} </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gesture</span><span style="color: rgb(255,0,170);">(</span>
+         <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件</span></em>
+            <span style="color: rgb(0,0,255);">GestureGroup</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">GestureMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Sequence</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">LongPressGesture</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">repeat</span><span style="color: rgb(181,106,1);">: </span>true <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAction</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(181,106,1);">GestureEvent</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Friction</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleItem </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">;</span>
+                    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`event: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Friction</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">300 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleItem </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">PanGesture</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">fingers</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">direction</span><span style="color: rgb(181,106,1);">: </span>null<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">distance</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionStart</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragItem </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">;</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragRefOffset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionUpdate</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">GestureEvent</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">- </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragRefOffset</span><span style="color: rgb(181,106,1);">;</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborItem </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                  let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  let <span style="color: rgb(255,255,255);">curveValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">Curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initCurve</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Sharp</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  let <span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
+               <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据位移计算相邻项的缩放</span></em>
+                  if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                    <span style="color: rgb(255,255,255);">value </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">curveValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interpolate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">-</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ITEM_INTV</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborItem </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborScale </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">value </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">;</span>
+                    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`neighborScale: </span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborScale</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(80,160,79);">0</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                    <span style="color: rgb(255,255,255);">value </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">curveValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interpolate</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">/ </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ITEM_INTV</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborItem </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">arr</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">+</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">]</span><span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborScale </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,255,255);">value </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">20</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span>
+            <em>      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">根据位移交换排序</span></em>
+                  if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">></span> this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ITEM_INTV </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interpolatingSpring</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">400</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">38</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">-= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ITEM_INTV</span><span style="color: rgb(181,106,1);">;</span>
+                      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragRefOffset </span><span style="color: rgb(181,106,1);">+= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ITEM_INTV</span><span style="color: rgb(181,106,1);">;</span>
+                      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">itemMove</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">} </span>else if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);"> -</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ITEM_INTV </span><span style="color: rgb(181,106,1);">/ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interpolatingSpring</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">400</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">38</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">offsetY </span><span style="color: rgb(181,106,1);">+= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ITEM_INTV</span><span style="color: rgb(181,106,1);">;</span>
+                      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragRefOffset </span><span style="color: rgb(181,106,1);">-= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ITEM_INTV</span><span style="color: rgb(181,106,1);">;</span>
+                      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">itemMove</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">                }</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">GestureEvent</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`event: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">event</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interpolatingSpring</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">400</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">38</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragItem </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborItem </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+                    <span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interpolatingSpring</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">14</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">170</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">17</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">150</span>
+                  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleItem </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">            )</span>
+              <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onCancel</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interpolatingSpring</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">400</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">38</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">dragItem </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">neighborItem </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">curves</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interpolatingSpring</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">14</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">170</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">17</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">150</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">scaleItem </span><span style="color: rgb(181,106,1);">= -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+<span style="color: rgb(255,0,170);">          )</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(255,0,170);">(0xDCDCDC)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">5 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

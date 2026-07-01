@@ -4,27 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-60
 
-## HiAppEvent获取的日志过长无法传输
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用HiAppEvent监听卡死的异常，获取的故障文件里面会把控制台的所有日志都输出，这样会造成大量冗余日志，经应用测试，整个报文大概在90万字，超出了后台的最大字符限制，如何不使用文件传输的方式，使用普通请求将报错日志传送给后台。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [HiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-intro)是在系统层面为应用开发者提供的一种事件打点机制，帮助应用记录在运行过程中发生的故障信息、统计信息、安全信息、用户行为信息，支撑开发者分析应用的运行情况。以便进一步统计分析访问数、日常用户活跃数量、用户操作习惯以及其他影响用户使用产品的关键因素。
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以设置最大单次传输的数据大小为maxBufferLength，在HiAppEvent回调中获取到故障日志文件路径后，创建一个长度不超过maxBufferLength的ArrayBuffer，使用fs将故障日志文件读取到ArrayBuffer中再发送网络请求。
  
-```text
+```json
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
@@ -50,24 +46,24 @@ export default class EntryAbility extends UIAbility {
           names: [hiAppEvent.event.APP_FREEZE, hiAppEvent.event.APP_CRASH]
         }
       ],
-      onReceive: (domain: string, appEventGroups: Array) => {
+      onReceive: (domain: string, appEventGroups: Array<hiAppEvent.AppEventGroup>) => {
         hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
         for (const eventGroup of appEventGroups) {
           hilog.info(0x0000, 'testTag', `HiAppEvent eventName=${eventGroup.name}`);
           for (const eventInfo of eventGroup.appEventInfos) {
-            let logPath: string = eventInfo.params['external_log'][0]; // 获取首个日志文件路径
+            let logPath: string = eventInfo.params['external_log'][0]; <em>// 获取首个日志文件路径</em>
             let accessible = fs.accessSync(logPath);
             if (accessible) {
               let maxBufferLength = 4096;
               let file = fs.openSync(logPath, fs.OpenMode.READ_ONLY);
               try {
-                let stat = fs.statSync(logPath); // 获取文件信息
-                let bufferLength = Math.min(stat.size, maxBufferLength);// 限制要发送的数据大小
-                let buf = new ArrayBuffer(bufferLength); // 创建缓冲区
-                fs.readSync(file.fd, buf); // 读取内容到缓冲区
-                // sendByHttps() 自行实现将数据异步发送给后台
+                let stat = fs.statSync(logPath);<em> // 获取文件信息</em>
+                let bufferLength = Math.min(stat.size, maxBufferLength);<em>// 限制要发送的数据大小</em>
+                let buf = new ArrayBuffer(bufferLength); <em>// 创建缓冲区</em>
+                fs.readSync(file.fd, buf); <em>// 读取内容到缓冲区</em>
+              <em>  // sendByHttps() 自行实现将数据异步发送给后台</em>
               } finally {
-                fs.closeSync(file); // 关闭文件
+                fs.closeSync(file);<em> // 关闭文件</em>
 
               }
             }
@@ -95,17 +91,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+   <em> // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-    // Ability has brought to foreground
+   <em> // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-    // Ability has back to background
+   <em> // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }
@@ -113,7 +109,7 @@ export default class EntryAbility extends UIAbility {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：订阅崩溃事件hiAppEvent.addWatcher中onReceive回调在应用里能正常执行，在元服务里不执行。
  

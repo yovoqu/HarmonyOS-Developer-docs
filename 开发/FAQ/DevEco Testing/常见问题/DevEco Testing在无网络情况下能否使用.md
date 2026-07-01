@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-9
 
-## DevEco Testing在无网络情况下能否使用
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在没有网络连接的情况下，DevEco Testing是否可以正常使用？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [DevEco Testing](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deveco-testing)登录机制特性：
 首次启动必须联网登录华为账号，但本地会缓存登录状态。
@@ -28,15 +24,19 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-- 场景一：根据DevEco Testing登录机制判断。 
+- 场景一：根据DevEco Testing登录机制判断。
+
 | 场景 | 网络状态 | 使用能力 |
+
 | --- | --- | --- |
+
 | 新设备首次启动 | 无网络 | 完全不可用。 |
+
 | 已登录未退出账号 | 无网络 | 核心功能可用。 |
- 
- 
+
+  
 场景二：根据网络依赖场景判断。
 被测应用依赖网络：若被测应用本身需要联网（如登录、数据加载），无网络可能导致测试用例执行失败，但这属于应用自身限制，而非工具问题。
 - 报告上传与更新：测试报告默认存储于本地，但若需将报告上传至组织空间或检查工具更新，则需联网。

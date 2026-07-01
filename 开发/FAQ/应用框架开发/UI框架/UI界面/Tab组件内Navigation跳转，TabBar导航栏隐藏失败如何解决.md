@@ -4,18 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-904
 
-## Tab组件内Navigation跳转，TabBar导航栏隐藏失败如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在“我的”页面点击“跳转设置页”按钮跳转到设置页面，底部的TabBar导航栏仍然存在。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/XN0I7Qu9RWeKUJGfYj8PxQ/zh-cn_image_0000002658918977.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=5EB59C4EF23A51CAEA8632E4473AEF05DCA36799E111FFBA2788AE7B614FB43D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/XN0I7Qu9RWeKUJGfYj8PxQ/zh-cn_image_0000002658918977.png?HW-CC-KV=V1&HW-CC-Date=20260701T041146Z&HW-CC-Expire=86400&HW-CC-Sign=ECE0F7265B16910A1F4FED1E27B47CF7F7BDC25ABF1DA8933DDC603555CBE1C4)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/Q3EdubCPQ76R5XOWPuo6yQ/zh-cn_image_0000002628399756.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=36DADE7136A03CAC44A3801154BFECE29493C1E2851BFD05D7C0E7FED3D81DBB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/Q3EdubCPQ76R5XOWPuo6yQ/zh-cn_image_0000002628399756.png?HW-CC-KV=V1&HW-CC-Date=20260701T041146Z&HW-CC-Expire=86400&HW-CC-Sign=6507E5D4946E63DDF5A1E94355AC92AFF70B2BB3F3EE2B5BDEA8861BF16D155C)
 
  
 主页面有“首页”、“我的”两个Tab页面，部分代码如下：
@@ -84,15 +80,15 @@ struct Settings {
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/un0ap7csQJCKg7_JS0p0uQ/zh-cn_image_0000002658799025.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=FB0CE94B96E996D121E29B2742FE9077CBB0DB02774333CD7B18AAC096220CFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/un0ap7csQJCKg7_JS0p0uQ/zh-cn_image_0000002658799025.png?HW-CC-KV=V1&HW-CC-Date=20260701T041146Z&HW-CC-Expire=86400&HW-CC-Sign=8BDDF5D3ACEEC819AA2BED805C9DC9949FEF6131FB9ABFDE3C6A3C253C7CA6EE)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)组件是路由导航的根视图容器，一般作为Page页面的根容器使用，其内部默认包含了标题栏、内容区和工具栏，其中内容区默认首页显示导航内容（Navigation的子组件）或非首页显示（[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)的子组件），首页和非首页通过路由进行切换。
 - [@Provide装饰器和@Consume装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)：应用于与后代组件的双向数据同步、状态数据在多个层级之间传递的场景。
@@ -100,7 +96,7 @@ struct Settings {
  
  
 
-##### 解决方案
+#### 解决方案
 
 问题现象中是用Tab组件包裹Navigation组件，跳转Navigation子组件并不会影响到外层的Tab组件。
  
@@ -110,7 +106,7 @@ struct Settings {
 @Entry
 @Component
 struct TabsNavPage {
-  // 使用@Provide将路由栈对象传递给TabContent内的组件
+ <em> // 使用@Provide将路由栈对象传递给TabContent内的组件</em>
   @Provide('pathStack') pathStack: NavPathStack = new NavPathStack();
 
   @Builder
@@ -121,7 +117,7 @@ struct TabsNavPage {
   }
 
   build() {
-    // 使用Navigation包裹Tabs，Tabs子页使用同一个路由栈对象
+   <em> // 使用Navigation包裹Tabs，Tabs子页使用同一个路由栈对象</em>
     Navigation(this.pathStack) {
       Tabs() {
         TabContent() {
@@ -143,7 +139,7 @@ struct TabsNavPage {
 
 @Component
 struct MinePage {
-  // 获取Navigation的路由栈对象
+ <em> // 获取Navigation的路由栈对象</em>
   @Consume('pathStack') pathStack: NavPathStack;
 
   build() {

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-764
 
-## 解决Text文本超出父容器高度的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 父容器的宽高固定，而Text文本内容长度不确定，当文本过长时，会超出父容器的高度。问题代码如下：
  
@@ -34,12 +30,12 @@ struct Index {
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/c5V7jfBxSImsL2CduNqqcQ/zh-cn_image_0000002628395802.png?HW-CC-KV=V1&HW-CC-Date=20260701T025704Z&HW-CC-Expire=86400&HW-CC-Sign=2F966666AE774B20CCD1E477D5B848D74CAC7B602D2819E980700A305EB9460E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/c5V7jfBxSImsL2CduNqqcQ/zh-cn_image_0000002628395802.png?HW-CC-KV=V1&HW-CC-Date=20260701T041226Z&HW-CC-Expire=86400&HW-CC-Sign=9E72579BB04F53C23C85D8E2D81A6499394181F59F0C4A25063F9CB8040D7909)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)是显示一段文本的组件。默认情况下，文本是可自动换行的，通过设置[maxLines](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#maxlines)属性，指定文本最多不会超过指定的行。如果有多余的文本，可以通过[textOverflow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textoverflow)来指定截断方式。
 - [TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea)是多行文本输入框组件，高度未设置时，组件无默认高度，自适应内容高度。宽度未设置时，默认撑满最大宽度。
@@ -48,7 +44,7 @@ struct Index {
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：通过measureTextSize的height值获取当前文本高度，需要注意获取到的值为px单位，需通过[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)转换为vp单位后使用，然后通过容器高度/文本高度计算出最多显示几行文本。
 ```text
@@ -93,15 +89,16 @@ struct MeasureTextPage {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/ZuPtB43DRFKyMToyJgOkmA/zh-cn_image_0000002658795067.png?HW-CC-KV=V1&HW-CC-Date=20260701T025704Z&HW-CC-Expire=86400&HW-CC-Sign=FF087374576D0B766A094C9A58FE4CBD4EE37F9434D6C16E99B9A821F5A40306)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/ZuPtB43DRFKyMToyJgOkmA/zh-cn_image_0000002658795067.png?HW-CC-KV=V1&HW-CC-Date=20260701T041226Z&HW-CC-Expire=86400&HW-CC-Sign=DD90A00102614F5918BF87EBA17F03B6467C81EA0CD3FAF5236B1EB5AE15209B)
 
 - **方案二**：使用TextArea代替Text组件，当TextArea的文本内容超过组件范围时会自动生成滑动条。
 
  
  
 
-##### 总结
+#### 总结
 
 Text组件默认可折行，从而导致超出父容器高度的现象，有两种方案可以解决：
  

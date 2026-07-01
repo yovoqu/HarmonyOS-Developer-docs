@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-184
 
-## 应用ArkTS侧如何通过代码手动控制H5中视频
- 
-
-
-##### 问题现象
+#### 问题现象
 
 H5网页集成到应用中，需要通过ArkTS控制H5中video视频播放暂停及倍速播放等，请问如何实现？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - H5中video组件，可以通过video.play()、video.pause()控制视频播放与暂停，通过video.playbackRate设置播放速率。
 - [runJavaScript](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)：异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。应用侧可通过调用runJavaScript，在H5中执行video.play()、video.pause()等脚本控制视频播放/暂停。
@@ -23,12 +19,12 @@ H5网页集成到应用中，需要通过ArkTS控制H5中video视频播放暂停
  
  
 
-##### 解决方案
+#### 解决方案
+1. 对于有声视频，需为Web组件设置[mediaPlayGestureAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#mediaplaygestureaccess9)属性。
+2. 页面加载完成，通过元素选择器document.querySelector('video')获取页面video元素。
+3. 应用侧设置暂停/播放/倍速播放按钮，通过[runJavaScript](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)函数，触发H5页面执行JavaScript脚本，控制video组件暂停与播放及倍速播放等。
 
-- 对于有声视频，需为Web组件设置[mediaPlayGestureAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#mediaplaygestureaccess9)属性。
-- 页面加载完成，通过元素选择器document.querySelector('video')获取页面video元素。
-- 应用侧设置暂停/播放/倍速播放按钮，通过[runJavaScript](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)函数，触发H5页面执行JavaScript脚本，控制video组件暂停与播放及倍速播放等。
-示例代码如下：
+  示例代码如下：
 ```text
 import { webview } from '@kit.ArkWeb';
 
@@ -40,26 +36,26 @@ struct VideoControlExample {
 
   build() {
     Column() {
-      // Web组件加载视频页面
+      <em>// Web组件加载视频页面</em>
       Web({
-        src: '******', // H5页面地址
+        src: '******', <em>// H5页面地址</em>
         controller: this.controller
       })
-        // 页面加载完成后初始化视频控制
+        <em>// 页面加载完成后初始化视频控制</em>
         .onPageEnd(() => {
           this.controller.runJavaScript(
-            // 获取页面video元素，并设置video.controls为false，设置video播放控件不显示
+            <em>// 获取页面video元素，并设置video.controls为false，设置video播放控件不显示</em>
             "window.videoElement = document.querySelector('video');"
               + "window.videoElement.controls = false;"
           );
         })
-        .mediaPlayGestureAccess(false)  // 允许有声视频用户手动点击播放
+        .mediaPlayGestureAccess(false)  <em>// 允许有声视频用户手动点击播放</em>
         .fileAccess(true)
         .geolocationAccess(false)
         .width('100%')
         .height('85%')
 
-      // 播放/暂停控制按钮
+      <em>// 播放/暂停控制按钮</em>
       Button(this.isPlaying ? '暂停' : '播放')
         .onClick(() => {
           this.isPlaying = !this.isPlaying;
@@ -73,7 +69,7 @@ struct VideoControlExample {
         .width('90%')
         .height('5%')
 
-      // 倍速控制按钮组
+      <em>// 倍速控制按钮组</em>
       Row() {
         Button('0.75x').onClick(() => this.setPlaybackSpeed(0.75))
         Button('1.0x').onClick(() => this.setPlaybackSpeed(1.0))
@@ -85,7 +81,7 @@ struct VideoControlExample {
     .height('100%')
   }
 
-  // 倍速控制按钮触发
+  <em>// 倍速控制按钮触发</em>
   setPlaybackSpeed(speed: number) {
     const script = `document.querySelector('video').playbackRate = ${speed};`;
     this.controller.runJavaScript(
@@ -102,30 +98,29 @@ struct VideoControlExample {
 }
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：ArkTS侧如何设置H5中视频的播放控件不显示？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/2-jcIQFtQk6gR18BHCjdjA/zh-cn_image_0000002628899170.png?HW-CC-KV=V1&HW-CC-Date=20260701T025744Z&HW-CC-Expire=86400&HW-CC-Sign=7D035E277905BF5268E73F767322868CDE1579BD6C8705B870C11C63045422A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/2-jcIQFtQk6gR18BHCjdjA/zh-cn_image_0000002628899170.png?HW-CC-KV=V1&HW-CC-Date=20260701T041341Z&HW-CC-Expire=86400&HW-CC-Sign=9450B9F00FC218BC47D75EA58F7A729AEE1A6F9268154EC743BA5C907B5511D5)
 
  
 A：video的播放控件由controls属性进行控制，网页加载完成后，设置controls属性为false，播放控件就不会显示。示例代码：
  
 ```text
-// Web组件加载视频页面
+<em>// Web组件加载视频页面</em>
 Web({
-  src: '******', // H5页面地址
+  src: '******', <em>// H5页面地址</em>
   controller: this.controller
 })
-  // 页面加载完成后初始化视频控制
+  <em>// 页面加载完成后初始化视频控制</em>
   .onPageEnd(() => {
     this.controller.runJavaScript(
-      // 获取页面video元素，并设置video.controls为false，设置video播放控件不显示
+      <em>// 获取页面video元素，并设置video.controls为false，设置video播放控件不显示</em>
       "window.videoElement = document.querySelector('video');"
         + "window.videoElement.controls = false;"
     );

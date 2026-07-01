@@ -3,18 +3,16 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-xmpmetadata
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## Class (XMPMetadata)
- 
 
 XMP（Extensible Metadata Platform）元数据。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { image } from '@kit.ImageKit';
@@ -22,7 +20,9 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### XMP路径语法
+#### XMP路径语法
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 XMP路径用于定位元数据中的具体标签。路径由以下语法构件组合而成：
   
@@ -37,7 +37,9 @@ XMP路径用于定位元数据中的具体标签。路径由以下语法构件�
  
   
 
-##### registerXMPNamespace
+#### registerXMPNamespace
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerXMPNamespace(xmpNamespace: XMPNamespace): Promise&lt;void&gt;
  
@@ -69,7 +71,7 @@ registerXMPNamespace(xmpNamespace: XMPNamespace): Promise&lt;void&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7600206 | Invalid argument. Possible causes:  1. Invalid namespace format.  2. The uri is already registered.  3. The prefix is already registered. |
+| 7600206 | Invalid argument. Possible causes: 1. Invalid namespace format. 2. The uri is already registered. 3. The prefix is already registered. |
  
  
 **示例：**
@@ -93,7 +95,9 @@ async function RegisterNamespacePrefix() {
  
   
 
-##### setValue
+#### setValue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setValue(path: string, type: XMPTagType, value?: string): Promise&lt;void&gt;
  
@@ -127,7 +131,7 @@ setValue(path: string, type: XMPTagType, value?: string): Promise&lt;void&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7600206 | Invalid argument. Possible causes:  1. Namespace is not registered.  2. The path syntax is invalid.  3. The path does not match the type.  4. The value is invalid for the type. |
+| 7600206 | Invalid argument. Possible causes: 1. Namespace is not registered. 2. The path syntax is invalid. 3. The path does not match the type. 4. The value is invalid for the type. |
  
  
 **示例：**
@@ -151,7 +155,9 @@ async function SetValue() {
  
   
 
-##### getTag
+#### getTag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTag(path: string): Promise<XMPTag | null>
  
@@ -183,7 +189,7 @@ getTag(path: string): Promise<XMPTag | null>
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7600206 | Invalid argument. Possible causes:  1. Namespace is not registered.  2. The path syntax is invalid. |
+| 7600206 | Invalid argument. Possible causes: 1. Namespace is not registered. 2. The path syntax is invalid. |
  
  
 **示例：**
@@ -207,7 +213,9 @@ async function GetTag() {
  
   
 
-##### removeTag
+#### removeTag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeTag(path: string): Promise&lt;void&gt;
  
@@ -239,7 +247,7 @@ removeTag(path: string): Promise&lt;void&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7600206 | Invalid argument. Possible causes:  1. Namespace is not registered.  2. The path syntax is invalid. |
+| 7600206 | Invalid argument. Possible causes: 1. Namespace is not registered. 2. The path syntax is invalid. |
  
  
 **示例：**
@@ -264,7 +272,9 @@ async function RemoveTag() {
  
   
 
-##### enumerateTags
+#### enumerateTags
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enumerateTags(callback: (path: string, tag: XMPTag) => boolean, rootPath?: string, options?: XMPEnumerateOptions): void
  
@@ -291,7 +301,7 @@ enumerateTags(callback: (path: string, tag: XMPTag) => boolean, rootPath?: strin
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7600206 | Invalid argument. Possible causes:  1. Namespace is not registered.  2. The rootPath syntax is invalid. |
+| 7600206 | Invalid argument. Possible causes: 1. Namespace is not registered. 2. The rootPath syntax is invalid. |
  
  
 **示例：**
@@ -324,7 +334,9 @@ async function EnumerateTags(imageSourceObj: image.ImageSource) {
  
   
 
-##### getTags
+#### getTags
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTags(rootPath?: string, options?: XMPEnumerateOptions): Promise<Record<string, XMPTag>>
  
@@ -357,12 +369,12 @@ getTags(rootPath?: string, options?: XMPEnumerateOptions): Promise<Record<string
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7600206 | Invalid argument. Possible causes:  1. Namespace is not registered.  2. The rootPath syntax is invalid. |
+| 7600206 | Invalid argument. Possible causes: 1. Namespace is not registered. 2. The rootPath syntax is invalid. |
  
  
 **示例：**
  
-```text
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetTags(imageSourceObj: image.ImageSource) {
@@ -372,7 +384,7 @@ async function GetTags(imageSourceObj: image.ImageSource) {
     if (metaData != undefined && metaData.xmpMetadata != undefined) {
       try {
         // 获取所有XMP标签（递归模式、包含普通节点和限定符）。
-        let tags: Record =
+        let tags: Record<string, image.XMPTag> =
           await metaData.xmpMetadata.getTags(undefined, { isRecursive: true, onlyQualifier: false });
         console.info(`tagCount: ${Object.keys(tags).length}`);
         console.info(JSON.stringify(tags));
@@ -389,7 +401,9 @@ async function GetTags(imageSourceObj: image.ImageSource) {
  
   
 
-##### getBlob
+#### getBlob
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBlob(): Promise&lt;ArrayBuffer&gt;
  
@@ -444,7 +458,9 @@ async function GetBlob(imageSourceObj: image.ImageSource) {
  
   
 
-##### setBlob
+#### setBlob
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBlob(buffer: ArrayBuffer): Promise&lt;void&gt;
  
@@ -476,7 +492,7 @@ setBlob(buffer: ArrayBuffer): Promise&lt;void&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7600206 | Invalid argument. Possible causes:  1. The buffer is empty or invalid. |
+| 7600206 | Invalid argument. Possible causes: 1. The buffer is empty or invalid. |
  
  
 **示例：**

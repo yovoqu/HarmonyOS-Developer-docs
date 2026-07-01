@@ -4,28 +4,24 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-42
 
-## Harmony无法正常显示对应的字体
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用了自定义字体的注册功能，但是字体无法正确显示？
  
 问题现象1（注册字体失败）：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/E138QwarSaqbYAwhQ-jQzQ/zh-cn_image_0000002628553252.png?HW-CC-KV=V1&HW-CC-Date=20260701T025836Z&HW-CC-Expire=86400&HW-CC-Sign=C3987A116AB73DA32068506BC63A8004C36BC06594024E769A6086F718B6F20A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/E138QwarSaqbYAwhQ-jQzQ/zh-cn_image_0000002628553252.png?HW-CC-KV=V1&HW-CC-Date=20260701T041026Z&HW-CC-Expire=86400&HW-CC-Sign=E0A1305FDF60A91228347E7E4BFB39A02685A0CBF4C77921B9AE025D2CF0E9DE)
 
  
 问题现象2（字体显示与字体资源文件中的字形显示不一致）：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/lOwTMeaLRMO_smLclkPceA/zh-cn_image_0000002658912565.png?HW-CC-KV=V1&HW-CC-Date=20260701T025836Z&HW-CC-Expire=86400&HW-CC-Sign=EC795FBC57D857D7A604C06BEF407B46C30A549AB86D5D7D33546A12EDB6E97A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/lOwTMeaLRMO_smLclkPceA/zh-cn_image_0000002658912565.png?HW-CC-KV=V1&HW-CC-Date=20260701T041026Z&HW-CC-Expire=86400&HW-CC-Sign=6876F87AF95308D8FD297926AC16A64645D429CE1F83B87B9307D880C424514C)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/mH-a7cUFTWiL1bn7srES9Q/zh-cn_image_0000002658792627.png?HW-CC-KV=V1&HW-CC-Date=20260701T025836Z&HW-CC-Expire=86400&HW-CC-Sign=C0248CC5B238174AE1DCAE339866ABD4DAD55146B80E797CD8CBD463B5606B97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/mH-a7cUFTWiL1bn7srES9Q/zh-cn_image_0000002658792627.png?HW-CC-KV=V1&HW-CC-Date=20260701T041026Z&HW-CC-Expire=86400&HW-CC-Sign=A88F524D9FDE7A1A9077129CBD2CF56DBB5971C26BC88CDEBF2176DB13E15A04)
 
  
 问题代码如下：
@@ -36,19 +32,19 @@ import { text } from '@kit.ArkGraphics2D';
 @Entry
 @Component
 struct Index {
-  // Hello1234밠
+  <em>// Hello1234밠</em>
   message: string = 'Hello1\u{0032}34\u{2BC20}';
   buttonName: string = '跳转至正确显示页面';
   private pathStack: NavPathStack = new NavPathStack();
 
   aboutToAppear(): void {
     let fontCollection = text.FontCollection.getGlobalInstance();
-    // 注册自定义字体
-    // 注册成功场景
+    <em>// 注册自定义字体</em>
+    <em>// 注册成功场景</em>
     fontCollection.loadFontSync('testSuccess', $rawfile('Test.ttf'));
-    // 注册失败场景
+    <em>// 注册失败场景</em>
     fontCollection.loadFontSync('testError', $rawfile('TestError.ttf'));
-    // 日志显示注册成功，实际未注册成功
+    <em>// 日志显示注册成功，实际未注册成功</em>
     fontCollection.loadFontSync('testSuccess', $rawfile('Test02.ttf'));
   }
 
@@ -87,7 +83,7 @@ struct Index {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 存在系统不支持字体的场景时，可以参考[自定义字体注册和使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/custom-font-arkts)来实现。
 - Text组件支持Unicode码，可以参考[Text组件如何加载Unicode字符](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-46)。经过其他编码处理的需要进行对应的解码才能正确显示，参考[应用里的文本内容显示乱码](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-152)。
@@ -97,45 +93,40 @@ struct Index {
  
  
 
-##### 问题定位
+#### 问题定位
 
 字体显示异常可能的原因有三类：
- 
-- 字体资源异常：字体资源文件存在问题，如不存在对应的字体，会导致字体不显示。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/cdJmsPxRQ1mMoa4gVaE_cw/zh-cn_image_0000002628393366.png?HW-CC-KV=V1&HW-CC-Date=20260701T025836Z&HW-CC-Expire=86400&HW-CC-Sign=3FB46FE2359A459EDB2ED1C2A3F30518DFC30EEE787D4E2A90802AB32D44DE99)
+ 1. 字体资源异常：字体资源文件存在问题，如不存在对应的字体，会导致字体不显示。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/cdJmsPxRQ1mMoa4gVaE_cw/zh-cn_image_0000002628393366.png?HW-CC-KV=V1&HW-CC-Date=20260701T041026Z&HW-CC-Expire=86400&HW-CC-Sign=D209ACA172165A79325D0EA60FA7B2F64F3D8B2BF33CCC9F5EBA1162AE37D2AE)
 
-- 字体引擎注册字体异常：注册字体失败。特别需要注意的是，注册字体使用的名称需要唯一。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/mK-EKaEjQBOFNOFHFB2Jcw/zh-cn_image_0000002628553256.png?HW-CC-KV=V1&HW-CC-Date=20260701T025836Z&HW-CC-Expire=86400&HW-CC-Sign=2EDAB663B4EB115ECE41937DF8E131E115DBF3F3996690D8B28E05ED0442C901)
+2. 字体引擎注册字体异常：注册字体失败。特别需要注意的是，注册字体使用的名称需要唯一。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/mK-EKaEjQBOFNOFHFB2Jcw/zh-cn_image_0000002628553256.png?HW-CC-KV=V1&HW-CC-Date=20260701T041026Z&HW-CC-Expire=86400&HW-CC-Sign=7CB049D7628F60CC2A044F633CA04664B5C22034575CF9207C06801E53C0B4DE)
 
-- 代码逻辑使用不当导致的异常：例如时序问题、使用了错误的Unicode码等。第一点可以通过使用在线字体网站/字体软件查询自定义字体文件中是否包含未正确显示的字体；第二点可以通过查看日志，来判断字体是否注册成功。
-
+3. 代码逻辑使用不当导致的异常：例如时序问题、使用了错误的Unicode码等。第一点可以通过使用在线字体网站/字体软件查询自定义字体文件中是否包含未正确显示的字体；第二点可以通过查看日志，来判断字体是否注册成功。
  
  
 
-##### 分析结论
+#### 分析结论
 
 ```text
-// 注册成功场景
+<em>// 注册成功场景</em>
 fontCollection.loadFontSync('testSuccess', $rawfile('Test.ttf'));
-// 注册失败场景
+<em>// 注册失败场景</em>
 fontCollection.loadFontSync('testError', $rawfile('TestError.ttf'));
-// 日志显示注册成功，实际未注册成功
+<em>// 日志显示注册成功，实际未注册成功</em>
 fontCollection.loadFontSync('testSuccess', $rawfile('Test02.ttf'));
 ```
- 
-- line 2模拟了字体资源异常，注册字体失败的场景。
-- line 3模拟了已经注册了fontFamily为testSuccess的字体，导致后注册的字体未能正确注册上（尽管日志显示字体注册成功）。
-
+ 1. line 2模拟了字体资源异常，注册字体失败的场景。
+2. line 3模拟了已经注册了fontFamily为testSuccess的字体，导致后注册的字体未能正确注册上（尽管日志显示字体注册成功）。
  
  
 
-##### 修改建议
-
-- 字体资源异常：更换可使用/正确的字体资源文件。
-- 使用自定义字体前，先查询对于fontFamily的名称是否已经注册，有两种方式。
+#### 修改建议
+1. 字体资源异常：更换可使用/正确的字体资源文件。
+2. 使用自定义字体前，先查询对于fontFamily的名称是否已经注册，有两种方式。
 方式一：查询所有注册的字体，与需要注册的字体进行匹配。代码如下：
-```text
-// 获取所有已经注册的字体（包括系统字体）
+```json
+<em>// 获取所有已经注册的字体（包括系统字体）</em>
 let promise = text.getSystemFontFullNamesByType(text.SystemFontType.CUSTOMIZED);
 await promise.then((data) => {
   console.info(`then font list size: ${data.length}`);
@@ -150,9 +141,9 @@ await promise.then((data) => {
 });
 ```
 
-- 方式二：通过需要注册的字体调用getFontDescriptorByFullName去查询是否存在。代码如下：
-```text
-// 根据字体名称和类型获取字体描述符
+3. 方式二：通过需要注册的字体调用getFontDescriptorByFullName去查询是否存在。代码如下：
+```json
+<em>// 根据字体名称和类型获取字体描述符</em>
 let promise2 = text.getFontDescriptorByFullName('testSuccess', text.SystemFontType.CUSTOMIZED);
 await promise2.then((fontDescriptor) => {
   console.info(`find fontName=testSuccess.desc: ${JSON.stringify(fontDescriptor)}`);
@@ -161,12 +152,10 @@ await promise2.then((fontDescriptor) => {
 });
 ```
 
-
- 
  
 完整代码如下：
  
-```text
+```json
 import { text } from '@kit.ArkGraphics2D';
 
 @Builder
@@ -177,19 +166,19 @@ export function SolutionBuilder() {
 @Entry
 @Component
 struct Solution {
-  // Hello1234밠
+  <em>// Hello1234밠</em>
   message: string = 'Hello1\u{0032}34\u{2BC20}';
   @State registerFontName: string = 'testSuccess';
 
   aboutToAppear(): void {
 
-    // 注册自定义字体：先检测name为test01是否已经注册，若已经注册，则注册test02的字体
+    <em>// 注册自定义字体：先检测name为test01是否已经注册，若已经注册，则注册test02的字体</em>
     this.registerTestFont();
 
   }
 
   async registerTestFont() {
-    // 获取所有已经注册的字体（包括系统字体）
+    <em>// 获取所有已经注册的字体（包括系统字体）</em>
     let promise = text.getSystemFontFullNamesByType(text.SystemFontType.CUSTOMIZED);
     await promise.then((data) => {
       console.info(`then font list size: ${data.length}`);
@@ -203,7 +192,7 @@ struct Solution {
       console.error(`Failed to get font fullNames by type, error: ${JSON.stringify(error)}`);
     });
 
-    // 根据字体名称和类型获取字体描述符
+    <em>// 根据字体名称和类型获取字体描述符</em>
     let promise2 = text.getFontDescriptorByFullName('testSuccess', text.SystemFontType.CUSTOMIZED);
     await promise2.then((fontDescriptor) => {
       console.info(`find fontName=testSuccess.desc: ${JSON.stringify(fontDescriptor)}`);
@@ -211,7 +200,7 @@ struct Solution {
       console.error(`Failed to get fontDescriptor by fullName, error: ${JSON.stringify(error)}`);
     });
 
-    // 实际需要自定义注册的字体
+    <em>// 实际需要自定义注册的字体</em>
     text.FontCollection.getGlobalInstance().loadFontSync(this.registerFontName, $rawfile('Test02.ttf'));
   }
 
@@ -239,7 +228,7 @@ struct Solution {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用drawTextBlob接口，部分字符不显示，是什么原因？
  

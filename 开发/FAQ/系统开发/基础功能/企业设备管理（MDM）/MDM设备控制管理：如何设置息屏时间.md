@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-10
 
-## MDM设备控制管理：如何设置息屏时间
- 
-
-
-##### 问题现象
+#### 问题现象
 
 MDM应用需要自定义息屏时间，通过[deviceSettings.setValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings#devicesettingssetvalue)设置3秒延迟息屏不生效。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [MDM Kit（企业设备管理服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit)提供企业设备管理服务接入和开发指南。
 - [@ohos.enterprise.deviceSettings （设备设置管理）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings)本模块提供企业设备设置能力，包括设置、获取设备息屏时间等。
@@ -22,25 +18,17 @@ MDM应用需要自定义息屏时间，通过[deviceSettings.setValue](https://d
  
  
 
-##### 解决方案
+#### 解决方案
 
 [deviceSettings](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings)模块提供企业设备设置能力，包括设置、获取设备息屏时间等。使用[deviceSettings.setValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings#devicesettingssetvalue)接口，item参数设置为screenOff，设置设备息屏策略。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/H4rhd6F-TcS0Qrt7I9jcMw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025811Z&HW-CC-Expire=86400&HW-CC-Sign=50A6BD61F17DE877C77187B54D9B22304E1B4D641F178ACADA50BA3FF7BBD110)
- 
-
-- MDM应用开发需要[申请资质](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide#申请资质)，并使用对应的证书和Profile才可以使用接口。
-- 该接口使用需要ohos.permission.ENTERPRISE_MANAGE_SETTINGS权限。
-- 目前手机/平板可设置息屏时间范围与系统设置中的可选时间一致。可通过“设置”->“显示和亮度”->“休眠”，查看系统支持的休眠时间，当前手机系统最短休眠时间为15s。
-- 当前永不息屏只在2in1设备上接通电源时才能生效。
-
- 
+> [!NOTE]
+> MDM应用开发需要 申请资质 ，并使用对应的证书和Profile才可以使用接口。 该接口使用需要ohos.permission.ENTERPRISE_MANAGE_SETTINGS权限。 目前手机/平板可设置息屏时间范围与系统设置中的可选时间一致。可通过“设置”->“显示和亮度”->“休眠”，查看系统支持的休眠时间，当前手机系统最短休眠时间为15s。 当前永不息屏只在2in1设备上接通电源时才能生效。
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：MDM应用是否有与华为时间服务器同步时间的接口？
  

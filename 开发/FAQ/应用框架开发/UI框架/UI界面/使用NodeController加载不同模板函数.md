@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-908
 
-## 使用NodeController加载不同模板函数
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当存在多个不同效果的UI模板时，除了在组件内使用if渲染机制去处理不同显示效果外，是否存在更简洁、高效的写法？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)用于实现自定义节点的创建、显示、更新等操作，并负责将自定义节点挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上。NodeContainer是一个自定义占位组件，接受一个NodeController的实例接口。
 - [BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)是挂载系统组件的自定义节点。
@@ -23,15 +19,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用NodeController创建自定义节点，将模板函数挂载到该节点中，并根据需要调用其中的模板函数。调用不同UI模板的逻辑在模板函数中执行，可以提高代码复用性，同时防止组件内使用if渲染机制造成性能浪费。
- 
-- 使用Builder函数构建显示模板，其中参数抽出使用一个单独的类Params实现，并通过参数决定显示具体的UI模板。
-- 使用NodeController创建自定义节点，使用wrapBuilder方法封装模板函数，挂载到BuilderNode上。再通过FrameNode将BuilderNode挂载到NodeContainer上。
-- 创建自定义节点实例，根据id决定自定义节点的UI模板，同时将实例存入nodeMap中。
-- 在build构建函数中使用NodeContainer。
-
+ 1. 使用Builder函数构建显示模板，其中参数抽出使用一个单独的类Params实现，并通过参数决定显示具体的UI模板。
+2. 使用NodeController创建自定义节点，使用wrapBuilder方法封装模板函数，挂载到BuilderNode上。再通过FrameNode将BuilderNode挂载到NodeContainer上。
+3. 创建自定义节点实例，根据id决定自定义节点的UI模板，同时将实例存入nodeMap中。
+4. 在build构建函数中使用NodeContainer。
  
 - 定义模板函数及其参数类：
 ```text
@@ -83,14 +77,14 @@ function TextBuilder() {
 
 - 使用NodeController构建自定义节点：
 ```text
-// 自定义节点
+<em>// 自定义节点</em>
 export class MyNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
-  private adNode: BuilderNode | null = null;
+  private adNode: BuilderNode<[Params]> | null = null;
   private uiContext ?: UIContext;
 
 
-  // 当NodeContainer进行绘制时，会调用makeNode()方法，将构建好的rootNode返回实现组件上树。
+ <em> // 当NodeContainer进行绘制时，会调用makeNode()方法，将构建好的rootNode返回实现组件上树。</em>
   makeNode(): FrameNode | null {
     if (this.rootNode != null) {
       return this.rootNode;
@@ -99,7 +93,7 @@ export class MyNodeController extends NodeController {
   }
 
 
-  // 初始化过程，通过判断queryById获取的Type是否为'button'来决定myBuilder调用哪种模板
+<em>  // 初始化过程，通过判断queryById获取的Type是否为'button'来决定myBuilder调用哪种模板</em>
   init(uiContext: UIContext, id: string, Type: string) {
     this.uiContext = uiContext;
     this.rootNode = new FrameNode(this.uiContext);
@@ -112,10 +106,10 @@ export class MyNodeController extends NodeController {
 
 - 创建自定义节点实例和构建nodeMap：
 ```text
-let nodeMap: Map = new Map();
+let nodeMap: Map<string, MyNodeController | undefined> = new Map();
 
 
-// 在组件中执行，通过组件中获取的参数创建MyNodeController实例
+<em>// 在组件中执行，通过组件中获取的参数创建MyNodeController实例</em>
 const getAdNodeController = (uiContext: UIContext, id: string): MyNodeController | undefined => {
   let baseNode = new MyNodeController();
   nodeMap.set(id, baseNode);
@@ -124,7 +118,7 @@ const getAdNodeController = (uiContext: UIContext, id: string): MyNodeController
 };
 
 
-// 假设id能被2整除则为Button，否则为Text
+<em>// 假设id能被2整除则为Button，否则为Text</em>
 function queryById(id: string): string {
   if (Number(id) % 2 === 0) {
     return 'button';
@@ -232,14 +226,14 @@ function TextBuilder() {
 }
 
 
-// 自定义节点
+<em>// 自定义节点</em>
 export class MyNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
-  private adNode: BuilderNode | null = null;
+  private adNode: BuilderNode<[Params]> | null = null;
   private uiContext ?: UIContext;
 
 
-  // 当NodeContainer进行绘制时，会调用makeNode()方法，将构建好的rootNode返回实现组件上树。
+  <em>// 当NodeContainer进行绘制时，会调用makeNode()方法，将构建好的rootNode返回实现组件上树。</em>
   makeNode(): FrameNode | null {
     if (this.rootNode != null) {
       return this.rootNode;
@@ -248,7 +242,7 @@ export class MyNodeController extends NodeController {
   }
 
 
-  // 初始化过程，通过判断queryById获取的Type是否为'button'来决定myBuilder调用哪种模板
+<em>  // 初始化过程，通过判断queryById获取的Type是否为'button'来决定myBuilder调用哪种模板</em>
   init(uiContext: UIContext, id: string, Type: string) {
     this.uiContext = uiContext;
     this.rootNode = new FrameNode(this.uiContext);
@@ -259,10 +253,10 @@ export class MyNodeController extends NodeController {
 }
 
 
-let nodeMap: Map = new Map();
+let nodeMap: Map<string, MyNodeController | undefined> = new Map();
 
 
-// 在组件中执行，通过组件中获取的参数创建MyNodeController实例
+<em>// 在组件中执行，通过组件中获取的参数创建MyNodeController实例</em>
 const getAdNodeController = (uiContext: UIContext, id: string): MyNodeController | undefined => {
   let baseNode = new MyNodeController();
   nodeMap.set(id, baseNode);
@@ -271,7 +265,7 @@ const getAdNodeController = (uiContext: UIContext, id: string): MyNodeController
 };
 
 
-// 假设id能被2整除则为Button，否则为Text
+<em>// 假设id能被2整除则为Button，否则为Text</em>
 function queryById(id: string): string {
   if (Number(id) % 2 === 0) {
     return 'button';

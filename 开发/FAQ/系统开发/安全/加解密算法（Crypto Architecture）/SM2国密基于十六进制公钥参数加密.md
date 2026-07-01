@@ -4,28 +4,24 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-38
 
-## SM2国密基于十六进制公钥参数加密
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用需要基于十六进制公钥参数对数据进行SM2国密算法加密，通过给定的公钥参数生成密钥对并加密，未正常完成加密动作，日志显示convert key failed错误。
  
  
 
-##### 背景知识
+#### 背景知识
 
 SM2为非对称加密算法，算法规格及使用可以参考如下相关文档内容：[SM2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-encrypt-decrypt-spec#sm2)、[使用SM2非对称密钥加解密](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sm2-asym-encrypt-decrypt)。
  
  
 
-##### 解决方案
+#### 解决方案
 
 由于给定的公钥参数为十六进制字符串类型，而加解密算法服务生成密钥对API所需要的DataBlob实际为Uint8Array类型，所以需要进行参数类型转换，转换接口参考如下：
  
 ```text
-async function convertStrToPubKey(publicKeyStr: string): Promise {
+async function convertStrToPubKey(publicKeyStr: string): Promise<cryptoFramework.PubKey> {
   let pubKeyStr = publicKeyStr.startsWith('04') ? publicKeyStr.slice(2) : publicKeyStr;
   let pkPart1 = pubKeyStr.slice(0, pubKeyStr.length / 2);
   let pkPart2 = pubKeyStr.slice(pubKeyStr.length / 2);
@@ -59,30 +55,30 @@ export interface SM2Cipher {
   skData: Uint8Array | null,
 }
 
-// 公钥十六进制参数
+<em>// 公钥十六进制参数</em>
 const pkData = 'A5BF515F9BA06EFCE0110DA183DEF4AD428B8E379ECF296017A8DDD22B6FA86F320DD9AD0403F24340BAB5291B97F420FF22EB25284E3EB74BE726961B975196';
-// 私钥十六进制参数
+<em>// 私钥十六进制参数</em>
 const skData = '2DA69465698665AA1FCA79AC4BA6E8717D6862AC23A2C35C37F53B965FBBC097';
 const base64Helper = new util.Base64Helper();
 
-/**
- * 生成密钥对
- * @param pubKeyData 公钥参数
- * @param privKeyData 私钥参数
- * @returns 生成的密钥对
- */
+<em>/**</em>
+<em> * 生成密钥对</em>
+<em> * @param pubKeyData 公钥参数</em>
+<em> * @param privKeyData 私钥参数</em>
+<em> * @returns 生成的密钥对</em>
+<em> */</em>
 async function genKeyPairByData(pubKeyData: cryptoFramework.DataBlob | null,
-  priKeyData: cryptoFramework.DataBlob | null): Promise {
+  priKeyData: cryptoFramework.DataBlob | null): Promise<cryptoFramework.KeyPair> {
   let sm2Generator = cryptoFramework.createAsyKeyGenerator('SM2_256');
   let keyPair = await sm2Generator.convertKey(pubKeyData, priKeyData);
   return keyPair;
 }
-/**
- * 加密
- * @param encryptKey 密钥
- * @param plainText 待加密字符串
- * @returns 加密后数据
- */
+<em>/**</em>
+<em> * 加密</em>
+<em> * @param encryptKey 密钥</em>
+<em> * @param plainText 待加密字符串</em>
+<em> * @returns 加密后数据</em>
+<em> */</em>
 async function encryptMessage(encryptKey: cryptoFramework.Key, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('SM2_256|SM3');
   await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, encryptKey, null);
@@ -90,29 +86,29 @@ async function encryptMessage(encryptKey: cryptoFramework.Key, plainText: crypto
   return encryptData;
 }
 
-/**
- * utf-8格式字符串转Uint8Array
- * @param str
- * @returns Uint8Array
- */
+<em>/**</em>
+<em> * utf-8格式字符串转Uint8Array</em>
+<em> * @param str</em>
+<em> * @returns Uint8Array</em>
+<em> */</em>
 function stringToUint8Array(str: string | undefined) {
   return new Uint8Array(buffer.from(str, 'utf-8').buffer);
 }
 
-async function encryptSM2BySpecifiedKeyPair(encryptOption: SM2Cipher): Promise {
+async function encryptSM2BySpecifiedKeyPair(encryptOption: SM2Cipher): Promise<string> {
   let pubKeyBlob: cryptoFramework.DataBlob | null = encryptOption.pkData ? { data: encryptOption.pkData } : null;
   let priKeyBlob: cryptoFramework.DataBlob | null = encryptOption.skData ? { data: encryptOption.skData } : null;
   let keyPair = await genKeyPairByData(pubKeyBlob, priKeyBlob);
   let pubKey = keyPair.pubKey;
-  // 把字符串按utf-8解码为Uint8Array
+  <em>// 把字符串按utf-8解码为Uint8Array</em>
   let plainTextBlob: cryptoFramework.DataBlob = { data: stringToUint8Array(encryptOption.plainText) };
   let encryptText = await encryptMessage(pubKey, plainTextBlob);
-  // 进行base64编码用于网络传输
+  <em>// 进行base64编码用于网络传输</em>
   let encryptData = base64Helper.encodeToStringSync(encryptText.data);
 
   return encryptData;
 }
-async function convertStrToPubKey(publicKeyStr: string): Promise {
+async function convertStrToPubKey(publicKeyStr: string): Promise<cryptoFramework.PubKey> {
   let pubKeyStr = publicKeyStr.startsWith('04') ? publicKeyStr.slice(2) : publicKeyStr;
   let pkPart1 = pubKeyStr.slice(0, pubKeyStr.length / 2);
   let pkPart2 = pubKeyStr.slice(pubKeyStr.length / 2);
@@ -129,13 +125,13 @@ async function convertStrToPubKey(publicKeyStr: string): Promise {
   let keypairGenerator = cryptoFramework.createAsyKeyGeneratorBySpec(pubKeySpec);
   return await keypairGenerator.generatePubKey();
 }
-/**
- * 解密
- * @param cipherTransform 加解密算法
- * @param key 密钥
- * @param plainText 加密后的字符串
- * @returns 解密后数据
- */
+<em>/**</em>
+<em> * 解密</em>
+<em> * @param cipherTransform 加解密算法</em>
+<em> * @param key 密钥</em>
+<em> * @param plainText 加密后的字符串</em>
+<em> * @returns 解密后数据</em>
+<em> */</em>
 async function decryptMessage(key: cryptoFramework.Key, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('SM2_256|SM3');
   await decoder.init(cryptoFramework.CryptoMode.DECRYPT_MODE, key, null);
@@ -143,17 +139,19 @@ async function decryptMessage(key: cryptoFramework.Key, cipherText: cryptoFramew
   return decryptData;
 }
 
-/**
- * Uint8Array转字符串
- * @param Uint8Array array
- * @returns 转化后的字符串
- */
+<em>/**</em>
+<em> * Uint8Array转字符串</em>
+<em> * @param Uint8Array array</em>
+<em> * @returns 转化后的字符串</em>
+<em> */</em>
 function uint8ArrayToString(array: Uint8Array): string {
-  // 将UTF-8编码转换成Unicode编码
+  <em>// 将UTF-8编码转换成Unicode编码</em>
   let out: string = '';
   let index: number = 0;
   let len: number = array.length;
-  while (index > 4) {
+  while (index < len) {
+    let character = array[index++];
+    switch (character >> 4) {
       case 0:
       case 1:
       case 2:
@@ -166,31 +164,44 @@ function uint8ArrayToString(array: Uint8Array): string {
         break;
       case 12:
       case 13:
-        out += String.fromCharCode(((character & 0x1F) /**
- * 根据指定密钥进行SM2解密
- * @param decryptOption 解密的数据对象
- * @returns 解密后数据
- */
-async function decryptSM2BySpecifiedKeyPair(decryptOption: SM2Cipher): Promise {
+        out += String.fromCharCode(((character & 0x1F) << 6) | (array[index++] & 0x3F));
+        break;
+      case 14:
+        out += String.fromCharCode(((character & 0x0F) << 12) | ((array[index++] & 0x3F) << 6) |
+          ((array[index++] & 0x3F) << 0));
+        break;
+      default:
+        break;
+    }
+  }
+  return out;
+}
+
+<em>/**</em>
+<em> * 根据指定密钥进行SM2解密</em>
+<em> * @param decryptOption 解密的数据对象</em>
+<em> * @returns 解密后数据</em>
+<em> */</em>
+async function decryptSM2BySpecifiedKeyPair(decryptOption: SM2Cipher): Promise<string> {
   let encryptStr = decryptOption.encryptedStr || '';
   let plainMessage = base64Helper.decodeSync(encryptStr);
   let pubKeyBlob: cryptoFramework.DataBlob | null = decryptOption.pkData ? { data: decryptOption.pkData } : null;
   let priKeyBlob: cryptoFramework.DataBlob | null = decryptOption.skData ? { data: decryptOption.skData } : null;
   let keyPair = await genKeyPairByData(pubKeyBlob, priKeyBlob);
   let priKey = keyPair.priKey;
-  // 把字符串按utf-8解码为Uint8Array
+  <em>// 把字符串按utf-8解码为Uint8Array</em>
   let plainTextBlob: cryptoFramework.DataBlob = { data: plainMessage };
   let decryptText = await decryptMessage(priKey, plainTextBlob);
   let decryptData = uint8ArrayToString(decryptText.data);
   return decryptData;
 }
 
-/**
- * 根据私钥参数生成SM2私钥
- * @param privateKeyStr 十六进制的字符串
- * @returns 生成的密钥
- */
-async function convertStrToPriKey(privateKeyStr: string): Promise {
+<em>/**</em>
+<em> * 根据私钥参数生成SM2私钥</em>
+<em> * @param privateKeyStr 十六进制的字符串</em>
+<em> * @returns 生成的密钥</em>
+<em> */</em>
+async function convertStrToPriKey(privateKeyStr: string): Promise<cryptoFramework.PriKey> {
   let sk = BigInt('0x' + privateKeyStr);
   let priKeySpec: cryptoFramework.ECCPriKeySpec = {
     params: cryptoFramework.ECCKeyUtil.genECCCommonParamsSpec('NID_sm2'),

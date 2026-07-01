@@ -4,15 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-16
 
-## PDF添加SquareAnnotationInfo标注，设置fillColor无效如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用下面代码添加SquareAnnotationInfo标注，设置fillColor实际渲染效果一直是黑色的，无法修改，详情请看截图。
  
-```text
+```json
 private controller: pdfViewManager.PdfController = new pdfViewManager.PdfController();
  private pdfDocument = new pdfService.PdfDocument();
 
@@ -78,12 +74,12 @@ private controller: pdfViewManager.PdfController = new pdfViewManager.PdfControl
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/qyqhSuYPRKq4a7IBdc0hMA/zh-cn_image_0000002628554252.png?HW-CC-KV=V1&HW-CC-Date=20260701T025837Z&HW-CC-Expire=86400&HW-CC-Sign=5643E12710A49B218E7C218240E885362E132D7A76B6FE857A0BA880BADDE59D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/qyqhSuYPRKq4a7IBdc0hMA/zh-cn_image_0000002628554252.png?HW-CC-KV=V1&HW-CC-Date=20260701T041056Z&HW-CC-Expire=86400&HW-CC-Sign=BD8BD25157E5449AD71313D53E7494926AA8A9CA7CFD8F888FD11815A3AE0088)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 在PDF中可以添加[SquareAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section3231520103410)标注并设置背景填充颜色。
 - PDF服务添加批注方法[addAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section8253013193814)。
@@ -92,7 +88,7 @@ private controller: pdfViewManager.PdfController = new pdfViewManager.PdfControl
  
  
 
-##### 解决方案
+#### 解决方案
 
 首先点击**保存到沙箱**按钮(通过[fs.writeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fswritesync)写入)，保存的沙箱地址为'/data/storage/el2/base/haps/entry/temp/test.pdf'，保存成功**Hello World**信息变更为**添加沙箱成功**；点击**加载pdf**按钮（案例中pdf原文件123.pdf存放在resources/rawfile目录下），展示pdf文件信息。
  
@@ -110,7 +106,7 @@ import { pdfService, PdfView, pdfViewManager } from '@kit.PDFKit';
 @Entry
 @Component
 struct PDFPage {
-  // pdf文件沙箱路径
+ <em> // pdf文件沙箱路径</em>
   @State message: string = '';
   @State addSandBoxMsg: string = 'Hello World';
   private context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
@@ -155,7 +151,7 @@ struct PDFPage {
   copyTempFile() {
     let tempDir = this.context.tempDir;
 
-    // 临时文件
+   <em> // 临时文件</em>
     this.tempFilePath = tempDir + `/temp222.pdf`;
     try {
       fs.copyFileSync(this.message, this.tempFilePath);
@@ -178,10 +174,10 @@ struct PDFPage {
       aInfo.bottom = 140;
       aInfo.right = 180;
       aInfo.top = 75;
-      // lineColor，fillColor组合为边框颜色
+     <em> // lineColor，fillColor组合为边框颜色</em>
       aInfo.lineColor = 0xFF0000;
       aInfo.fillColor = 0x00ff00;
-      // 边框区域内填充颜色
+    <em>  // 边框区域内填充颜色</em>
       let a: pdfService.PdfBorder = new pdfService.PdfBorder();
       a.borderColor = 0xFFFFFF;
       a.borderWidth = 4;
@@ -212,7 +208,7 @@ struct PDFPage {
       aInfo.endY = 75;
       aInfo.startPointStyle = pdfService.LineEndStyle.STYLE_NONE;
       aInfo.endPointStyle = pdfService.LineEndStyle.STYLE_NONE;
-      // 注意注意，lineColor的规格是BGR，0xFF0000是蓝色而非红色
+    <em>  // 注意注意，lineColor的规格是BGR，0xFF0000是蓝色而非红色</em>
       aInfo.lineColor = 0xFF0000;
 
       let a: pdfService.PdfBorder = new pdfService.PdfBorder();
@@ -281,10 +277,10 @@ struct PDFPage {
   }
 
   saveToSandBox() {
-    /**
-     * 通过fd来进行拷贝，避免文件过大的内存占用问题
-     * data.fd是hap包的fd，data.offset表示目标文件在hap包中的偏移，data.length表示目标文件的长度
-     */
+  <em>  /**</em>
+<em>     * 通过fd来进行拷贝，避免文件过大的内存占用问题</em>
+<em>     * data.fd是hap包的fd，data.offset表示目标文件在hap包中的偏移，data.length表示目标文件的长度</em>
+<em>     */</em>
     this.context.resourceManager.getRawFd('123.pdf', (err, data) => {
       if (err != null) {
         console.error(err.message);
@@ -299,10 +295,34 @@ struct PDFPage {
         let bufsize = 4096;
         let buf = new ArrayBuffer(bufsize);
         let off = 0, len = 0, readedLength = 0;
-        // 通过buffer将rawfile文件内容copy到沙箱路径
+      <em>  // 通过buffer将rawfile文件内容copy到沙箱路径</em>
         len = fs.readSync(data.fd, buf, { offset: data.offset + off, length: bufsize });
         while (len) {
           readedLength += len;
           fs.writeSync(dest.fd, buf, { offset: off, length: len });
           off = off + len;
-          if ((data.length - readedLength)
+          if ((data.length - readedLength) < bufsize) {
+            bufsize = data.length - readedLength;
+          }
+          len = fs.readSync(data.fd, buf, { offset: data.offset + off, length: bufsize });
+        }
+        fs.close(dest.fd);
+        fs.close(data.fd);
+      } catch (e) {
+        console.error(`errmsg: ${e}`);
+      }
+    });
+  }
+}
+```
+ 
+方案一效果图：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/iGVeuhpDRiOIHTLbc3zRtA/zh-cn_image_0000002658913571.png?HW-CC-KV=V1&HW-CC-Date=20260701T041056Z&HW-CC-Expire=86400&HW-CC-Sign=2A3ACA9CAC0649E6E9C94EE5BC5F979C53F81374D0E5D28A73BAEC28D2BC3A9F)
+
+ 
+方案二效果图：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/x11uIQ5jQEiW8hze3ZMfdw/zh-cn_image_0000002628394360.png?HW-CC-KV=V1&HW-CC-Date=20260701T041056Z&HW-CC-Expire=86400&HW-CC-Sign=300F482948EBFEF1DF5430F09392CE5982103BF2C07C266619B3AE44B9B48FB8)

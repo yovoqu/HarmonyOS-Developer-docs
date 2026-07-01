@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1303
 
-## Text组件设置装饰线透明色不生效
- 
-
-
-##### 问题现象
+#### 问题现象
 
 将Text组件的装饰线颜色设置为透明色Color.Transparent，用于控制装饰线的显示或隐藏，但实际显示与文本颜色相同，未达到预期效果。
  
@@ -50,18 +46,18 @@ struct TextExample {
 问题效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/j_RAx4ShSeSVPmR5VfmLdQ/zh-cn_image_0000002658958229.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025609Z&HW-CC-Expire=86400&HW-CC-Sign=3087CF62135FBB2EC9AD04851D5D1E31129921236C81BE4A0F9F767447ADD62A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/j_RAx4ShSeSVPmR5VfmLdQ/zh-cn_image_0000002658958229.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041253Z&HW-CC-Expire=86400&HW-CC-Sign=DBFBF533B4DC02518900DA4BD17708D4CAA72BB45185A36ADA3B94323949DF1F)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Text组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)用于显示一段文本，可以通过[decoration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#decoration)属性设置和调整文本装饰线的颜色和样式，其中样式包括单实线、双实线、点线、虚线和波浪线等5种。
  
  
 
-##### 解决方案
+#### 解决方案
 
 decoration属性中color的默认值为Color.Transparent，此时装饰线颜色跟随文本颜色。若期望设置装饰线为透明，需要设置装饰线颜色值为字符串格式，即透明色16进制对应值“#00FFFFFF”。
  
@@ -79,7 +75,7 @@ struct TextDecorationExample {
         .textAlign(TextAlign.Center)
         .decoration({
           type: TextDecorationType.LineThrough,
-          // 状态为false时，设置装饰线颜色为透明
+         <em> // 状态为false时，设置装饰线颜色为透明</em>
           color: this.selected ? Color.Black : '#00FFFFFF',
         })
         .onClick(() => {

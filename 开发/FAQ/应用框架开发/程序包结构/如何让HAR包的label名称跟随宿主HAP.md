@@ -4,33 +4,29 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-79
 
-## 如何让HAR包的label名称跟随宿主HAP
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HAP包集成HAR包，HAR包中的UIAbility进入后台任务列表界面时显示的label名称不跟随HAP包，如下图所示。如何让HAR包的label名称跟随HAP包的label名称呢？
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/5ZPnBM23TZ26WOT2mceuLg/zh-cn_image_0000002658987445.png?HW-CC-KV=V1&HW-CC-Date=20260701T025518Z&HW-CC-Expire=86400&HW-CC-Sign=28AAE915B1E6631C3727A889BDA4DCB1CBE7E922848626B69C82FA4F626D44B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/5ZPnBM23TZ26WOT2mceuLg/zh-cn_image_0000002658987445.png?HW-CC-KV=V1&HW-CC-Date=20260701T041351Z&HW-CC-Expire=86400&HW-CC-Sign=0253F246A8BFB105577A43F15D9FAD202CA2C0C9F507DEDED2941756EF20B96B)
 
  
  
 
-##### 效果预览
+#### 效果预览
 
 配置后可以看到HAR包的label名称跟随了HAP包：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/CKjDzxxPQya7gkBuM2C-QA/zh-cn_image_0000002628628224.png?HW-CC-KV=V1&HW-CC-Date=20260701T025518Z&HW-CC-Expire=86400&HW-CC-Sign=F3ED14F23FA8F246D4D6463A4DF7790D6432404BC2E09452230B00C1CDE73476)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/CKjDzxxPQya7gkBuM2C-QA/zh-cn_image_0000002628628224.png?HW-CC-KV=V1&HW-CC-Date=20260701T041351Z&HW-CC-Expire=86400&HW-CC-Sign=CB0B34236E01FD786594E4ABA18D0010EE5840F53CBF9E4EFC1C958C55A47980)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - label：标识当前UIAbility组件对用户显示的名称，取值为字符串资源的索引。详见[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)中的label字段。
 - [HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)（Harmony Archive）是静态共享包，可以包含代码、C++库、资源和配置文件。通过HAR可以实现多个模块或多个工程共享ArkUI组件、资源等相关代码。
@@ -39,71 +35,74 @@ HAP包集成HAR包，HAR包中的UIAbility进入后台任务列表界面时显�
  
  
 
-##### 解决方案
+#### 解决方案
 
 出现该情况主要是由于HAR包中的UIAbility使用的是HAR包中的label资源，没有使用宿主HAP包的资源导致，所以会展示为HAR包的label名称。
  
 由背景知识中可知，可以在HAP中配置和HAR中重名的label字段，这样根据优先级覆盖原则：AppScope（仅Stage模型支持）->HAP包自身模块->依赖的HAR模块，HAR中使用的就是HAP中的所配置的label资源。
  
 具体修改步骤如下：
- 
-- 在HAR模块的string.json中配置HAR包的label字段“Ability_label”，并在HAR模块的module.json5文件中abilities标签下的label字段中被引用。
-HAR string.json：
-```text
+ 1. 在HAR模块的string.json中配置HAR包的label字段“Ability_label”，并在HAR模块的module.json5文件中abilities标签下的label字段中被引用。
+
+  HAR string.json：
+```json
 {
-  "string": [
+  <span style="color: rgb(132,63,161);">"string"</span><span style="color: rgb(181,106,1);">: </span>[
     {
-      "name": "page_show",
-      "value": "page from package"
-    },
+      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"page_show"</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"page from package"</span>
+    }<span style="color: rgb(181,106,1);">,</span>
     {
-      "name": "HarAbility_desc",
-      "value": "description"
-    },
+      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"HarAbility_desc"</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"description"</span>
+    }<span style="color: rgb(181,106,1);">,</span>
     {
-      "name": "Ability_label",
-      "value": "HAR"
+      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"Ability_label"</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"HAR"</span>
     }
   ]
 }
 ```
- 
- HAR module.json5：
- 
-```text
-"label": "$string:Ability_label",
+
+
+  HAR module.json5：
+
+  
+```json
+<span style="color: rgb(80,160,79);">"label"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$string:Ability_label"</span><span style="color: rgb(181,106,1);">,</span>
 ```
 
-- 在HAP包的string.json中配置与HAR包中label相同字段名的“Ability_label”，并在HAP包的module.json5文件中abilities标签下的label字段中被引用。HAP string.json：
- 
-```text
+2. 在HAP包的string.json中配置与HAR包中label相同字段名的“Ability_label”，并在HAP包的module.json5文件中abilities标签下的label字段中被引用。HAP string.json：
+
+  
+```json
 {
-  "string": [
+  <span style="color: rgb(132,63,161);">"string"</span><span style="color: rgb(181,106,1);">: </span>[
     {
-      "name": "module_desc",
-      "value": "module description"
-    },
+      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"module_desc"</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"module description"</span>
+    }<span style="color: rgb(181,106,1);">,</span>
     {
-      "name": "EntryAbility_desc",
-      "value": "description"
-    },
+      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"EntryAbility_desc"</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"description"</span>
+    }<span style="color: rgb(181,106,1);">,</span>
     {
-      "name": "Ability_label",
-      "value": "APP"
+      <span style="color: rgb(132,63,161);">"name"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"Ability_label"</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(132,63,161);">"value"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"APP"</span>
     }
   ]
 }
 ```
  HAP module.json5：
- 
-```text
-"label": "$string:Ability_label",
+
+  
+```json
+<span style="color: rgb(80,160,79);">"label"</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">"$string:Ability_label"</span><span style="color: rgb(181,106,1);">,</span>
 ```
 
-
  
  
 
-##### 总结
+#### 总结
 
 可以利用资源优先级覆盖原则，在HAP中配置和HAR包同名label字段，使得HAR包的label名称跟随宿主HAP。

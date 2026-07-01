@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-13
 
-## JsCrash问题定位
- 
-
-
-##### 问题现象
+#### 问题现象
 
 启动应用或者点击应用页面上的按钮，应用出现闪退现象。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - JS Crash异常根据不同的异常场景，在Reason字段进行了分类，分为Error、TypeError、SyntaxError、ReferenceError、RangeError等错误类型。参考文档[JS Crash（进程崩溃）检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jscrash-guidelines)。
 - JS Crash日志可参考[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jscrash-guidelines#日志规格)。
@@ -28,15 +24,14 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
  
 
-##### [h2]场景一
-
-- 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是ReferenceError，引用错误类。
-- 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
-异常信息是：Error message：@Component xxx missing @Provide property with name xxx.Fail to resolve @Consume xxx。
+#### 场景一
+1. 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是ReferenceError，引用错误类。
+2. 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
+- 异常信息是：Error message：@Component xxx missing @Provide property with name xxx.Fail to resolve @Consume xxx。
 ```ArkTS
 Error name:ReferenceError
 Error message:@Component xxx missing @Provide property with name xxx. Fail to resolve @Consume xxx.
@@ -49,8 +44,9 @@ Stacktrace:
     at anonymous (entry/src/main/ets/pages/Index.ets:154:26)
 ```
 
-- 异常信息是：Error message：VideoVerifyView：duplicate @Provide property with name xxx. Property with this name is provided by one of the ancestor Views already. @Provide override not allowed。
-```ts
+
+3. 异常信息是：Error message：VideoVerifyView：duplicate @Provide property with name xxx. Property with this name is provided by one of the ancestor Views already. @Provide override not allowed。
+```text
 Reason:ReferenceError
 Error name:ReferenceError
 Error message:VideoVerifyView: duplicate @Provide property with name xxx. Property with this name is provided by one of the ancestor Views already. @Provide override not allowed.
@@ -71,8 +67,9 @@ Cannot get SourceMap info, dump raw stack:
     at rerender (app|app|1.0.0|src/main/ets/pages/scan/VideoVerifyPage.ts:181:1)
 ```
 
-- 异常信息是：Error message:xxx is not initialized。
-```ts
+
+4. 异常信息是：Error message:xxx is not initialized。
+```text
 Reason:ReferenceError
 Error name:ReferenceError
 Error message:PintuModel is not initialized
@@ -85,17 +82,17 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
- - 根据堆栈对应错误代码行，排查是否存在上述问题。
+5. 根据堆栈对应错误代码行，排查是否存在上述问题。
 
- 
- 
+  
 
-##### [h2]场景二
+  #### 场景二
 
-- 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是TypeError，类型错误类。
-- 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
+1. 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是TypeError，类型错误类。
+
+2. 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
 异常信息是：Error message:Cannot read property xxx of undefined。(Cannot read property xxx of null和Cannot load property of null or undefined同此场景)
-```ts
+```text
 Reason:TypeError
 Error name:TypeError
 Error message:Cannot read property loadPackage of undefined
@@ -104,8 +101,9 @@ Cannot get SourceMap info, dump raw stack:
   at initPageUrl (entry|entry|1.0.0|src/main/ets/h5common/page/H5Page.ts:3:1)
 ```
 
-- 异常信息是：Error message:is not callable。
-```ts
+
+3. 异常信息是：Error message:is not callable。
+```text
 Reason:TypeError
 Error name:TypeError
 Error message:is not callable
@@ -115,7 +113,8 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/pages/Child/CaseRepeat.ts:478:1)
 ```
 
-- 异常信息是：Error message:Receiver is not a JSObject。
+
+4. 异常信息是：Error message:Receiver is not a JSObject。
 ```ArkTS
 Reason:TypeError
 Error name:TypeError
@@ -129,8 +128,9 @@ Cannot get SourceMap info, dump raw stack:
     at (entry/src/main/ets/pages/base/WebViewTemplatePage.ets:183:7)
 ```
 
-- 异常信息是：Error message:Can not get Prototype on non ECMA Object。
-```ts
+
+5. 异常信息是：Error message:Can not get Prototype on non ECMA Object。
+```text
 Reason:TypeError
 Error name:TypeError
 Error message:Can not get Prototype on non ECMA Object
@@ -139,8 +139,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/com/jinbing/exampaper/module/capture/helper/ExamCameraOptHelper.ts:217:1)
 ```
 
-- 异常信息是：Error message:Cannot convert a illegal value to a Primitive。
-```ts
+
+6. 异常信息是：Error message:Cannot convert a illegal value to a Primitive。
+```text
 Reason:TypeError
 Error name:TypeError
 Error message:Cannot convert a illegal value to a Primitive
@@ -154,8 +155,9 @@ Cannot get SourceMap info, dump raw stack:
     at rerender (entry|order|1.0.0|src/main/ets/pages/source/list/OrderOften.ts:1657:1)
 ```
 
-- 异常信息是：Error message:stack contains value, usually caused by circular structure。
-```ts
+
+7. 异常信息是：Error message:stack contains value, usually caused by circular structure。
+```text
 Reason:TypeError
 Error name:TypeError
 Error message:stack contains value, usually caused by circular structure
@@ -165,17 +167,17 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
- - 根据堆栈对应错误代码行，排查是否存在上述问题。
+8. 根据堆栈对应错误代码行，排查是否存在上述问题。
 
- 
- 
+  
 
-##### [h2]场景三
+  #### 场景三
 
-- 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是Error，自定义错误类。
-- 分析上报的异常信息，部分可在官方文档中检索到相关解释，部分为应用自行抛出的异常。
+1. 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是Error，自定义错误类。
+
+2. 分析上报的异常信息，部分可在官方文档中检索到相关解释，部分为应用自行抛出的异常。
 异常信息是：xxx（应用代码自行抛出）。应用未处理直接抛出的异常。
-```ts
+```text
 Reason:Error
 Error name:Error
 Error message:ApiError too_many_request: 你的请求过于频繁或服务器当前繁忙，请于一分钟后重试
@@ -186,8 +188,9 @@ Cannot get SourceMap info, dump raw stack:
     at intercept (@xxx/network|@xxx/network|1.3.5|src/main/ets/Request.ts:134:19)
 ```
 
-- 异常信息是：Invalid parameter/The parameter invalid/Invalid argument。非法参数抛出异常，需要结合栈顶代码进行具体分析。
-```ts
+
+3. 异常信息是：Invalid parameter/The parameter invalid/Invalid argument。非法参数抛出异常，需要结合栈顶代码进行具体分析。
+```text
 Reason:Error
 Error name:Error
 Error message:Invalid parameter
@@ -197,7 +200,8 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (phone|@ohos/fcpush|1.0.0|src/main/ets/push/InitPushSDK.ts:94:1)
 ```
 
-- 异常信息是：No such file or directory。目录或文件不存在，需要结合栈顶代码进行具体分析。
+
+4. 异常信息是：No such file or directory。目录或文件不存在，需要结合栈顶代码进行具体分析。
 ```ArkTS
 Uid:20020261
 Reason:Error
@@ -211,8 +215,9 @@ Cannot get SourceMap info, dump raw stack:
     at (entry/src/main/ets/SecondaryPages/FileManagementPage2.ets:20:7)
 ```
 
-- 异常信息是：Init error. The WebviewController must be associated with a Web component，错误码是[17100001 WebviewController没有和具体的Web组件关联](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview#section17100001-webviewcontroller没有和具体的web组件关联)。
-```ts
+
+5. 异常信息是：Init error. The WebviewController must be associated with a Web component，错误码是[17100001 WebviewController没有和具体的Web组件关联](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview#section17100001-webviewcontroller没有和具体的web组件关联)。
+```text
 Reason:Error
 Error name:Error
 Error message:Init error. The WebviewController must be associated with a Web component
@@ -225,8 +230,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (@xxx/madcore|@xxx/madcore|1.0.0-beta.2|src/main/ets/pages/JsWebPage.ts:198:1)
 ```
 
-- 异常信息是：Invalid url，错误码是[17100002 Url格式错误](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview#section17100002-url格式错误)，无效的url。
-```ts
+
+6. 异常信息是：Invalid url，错误码是[17100002 Url格式错误](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview#section17100002-url格式错误)，无效的url。
+```text
 Reason:Error
 Error name:Error
 Error message:Invalid url
@@ -237,9 +243,12 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.2.0|src/main/ets/page/webview/WebViewComponent.ts:1141:1)
 ```
 
-- 异常信息是：@Component xxx:ForEach id xxx: use of default id generator function not possible onprovided data structure. Need tospecify id generator function (ForEach 3rd parameter). Application Error!ForEach提供了一个名为keyGenerator的参数，这是一个函数，开发者可以通过它自定义键值的生成规则。如果开发者没有定义keyGenerator函数，则ArkUI框架会使用默认的键值生成函数，即(item: Object, index: number) => { return index + '\_\_' + JSON.stringify(item);}，详情参考[键值生成规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach#键值生成规则)。
- 从异常信息可以看出默认的键值生成函数不能处理提供的数据结构，需要自定义键值生成函数。
- 
+
+7. 异常信息是：@Component xxx:ForEach id xxx: use of default id generator function not possible onprovided data structure. Need tospecify id generator function (ForEach 3rd parameter). Application Error!ForEach提供了一个名为keyGenerator的参数，这是一个函数，开发者可以通过它自定义键值的生成规则。如果开发者没有定义keyGenerator函数，则ArkUI框架会使用默认的键值生成函数，即(item: Object, index: number) => { return index + '\_\_' + JSON.stringify(item);}，详情参考[键值生成规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach#键值生成规则)。
+
+  从异常信息可以看出默认的键值生成函数不能处理提供的数据结构，需要自定义键值生成函数。
+
+  
 ```text
 Error name:Error
 Error message:@Component xxx: ForEach id 104: use of default id generator function not possible on provided data structure. Need to specify id generator function (ForEach 3rd parameter). Application Error!
@@ -248,8 +257,9 @@ Stacktrace:
     at anonymous (/usr1/hmos_for_system/src/increment/sourcecode/foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/engine/stateMgmt.js:4353:1)
 ```
 
-- 异常信息是：SQLite: Generic error。错误码是14800021 SQLite：通用错误。
-```ts
+
+8. 异常信息是：SQLite: Generic error。错误码是14800021 SQLite：通用错误。
+```text
 Reason:Error
 Error name:Error
 Error message:SQLite: Generic error.
@@ -259,8 +269,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (appentry|appentry|1.0.0|src/main/ets/common/utils/CoreDataUtil.ts:157:1)
 ```
 
-- 异常信息是：Column out of bounds。错误码是[14800013 列值为空或列类型与当前调用接口不兼容](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb#section14800013-列值为空或列类型与当前调用接口不兼容)，列号超出范围。
-```ts
+
+9. 异常信息是：Column out of bounds。错误码是[14800013 列值为空或列类型与当前调用接口不兼容](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb#section14800013-列值为空或列类型与当前调用接口不兼容)，列号超出范围。
+```text
 Reason:Error
 Error name:Error
 Error message:Column out of bounds.
@@ -271,7 +282,8 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/resourcesdatas/database/DJDbUtils.ts:101:1)
 ```
 
-- 异常信息是：Invalid resource ID。错误码是[9001001 无效的资源id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-resource-manager#section9001001-无效的资源id)，无效的资源ID。
+
+10. 异常信息是：Invalid resource ID。错误码是[9001001 无效的资源id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-resource-manager#section9001001-无效的资源id)，无效的资源ID。
 ```ArkTS
 Reason:Error
 Error name:Error
@@ -288,8 +300,9 @@ Cannot get SourceMap info, dump raw stack:
     at (products/phone/src/main/ets/pages/MainPage.ets:43:7)
 ```
 
-- 异常信息是：Internal error. UI execution context not found，错误码是100001，没有找到UI执行上下文。
-```ts
+
+11. 异常信息是：Internal error. UI execution context not found，错误码是100001，没有找到UI执行上下文。
+```text
 Reason:Error
 Error name:Error
 Error message:Internal error. UI execution context not found.
@@ -302,8 +315,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/widget/dialog/CustomWindowDialog.ts:89:1)
 ```
 
-- 异常信息为Session not config，错误码是[7400103 会话未配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera#section7400103-会话未配置)。
-```ts
+
+12. 异常信息为Session not config，错误码是[7400103 会话未配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera#section7400103-会话未配置)。
+```text
 Reason:Error
 Error name:Error
 Error message:Session not config.
@@ -315,8 +329,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/pages/MainPage.ts:7328:1)
 ```
 
-- 异常信息是：This window state is abnormal，窗口状态异常。
-```ts
+
+13. 异常信息是：This window state is abnormal，窗口状态异常。
+```text
 Reason:Error
 Error name:Error
 Error message:This window state is abnormal.
@@ -328,8 +343,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/entryability/EntryAbility.ts:21:1)
 ```
 
-- 异常信息是：Already closed，错误码为14800014，数据库或结果集已关闭。The RdbStore or ResultSet is already closed，RdbStore或者ResultSet对象已调用close接口关闭或者没有打开成功，相关接口无法使用。详情参考[14800014 数据库或结果集关闭](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb#section14800014-数据库或结果集关闭)。
-```ts
+
+14. 异常信息是：Already closed，错误码为14800014，数据库或结果集已关闭。The RdbStore or ResultSet is already closed，RdbStore或者ResultSet对象已调用close接口关闭或者没有打开成功，相关接口无法使用。详情参考[14800014 数据库或结果集关闭](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb#section14800014-数据库或结果集关闭)。
+```text
 Reason:Error
 Error name:Error
 Error message:Already closed.
@@ -339,8 +355,9 @@ Cannot get SourceMap info, dump raw stack:
     at firstNumber (phone|phone|1.0.0|src/main/ets/base/i5/s5.ts:269:1)
 ```
 
-- 异常信息是：Invalid relative path，错误码为9001005，无效的相对路径。
-```ts
+
+15. 异常信息是：Invalid relative path，错误码为9001005，无效的相对路径。
+```text
 Reason:Error
 Error name:Error
 Error message:Invalid relative path
@@ -360,8 +377,9 @@ Cannot get SourceMap info, dump raw stack:
     at rerender (phone|main|1.0.0|src/main/ets/pages/i15.ts:529:14)
 ```
 
-- 异常信息是：Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception; 2. N-API invocation exception, invalid N-API status，当调用motion模块on、off、get接口时，服务异常，可能原因为1.系统错误，如空指针、容器相关异常；2.N-API调用异常，N-API状态无效。
-```ts
+
+16. 异常信息是：Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception; 2. N-API invocation exception, invalid N-API status，当调用motion模块on、off、get接口时，服务异常，可能原因为1.系统错误，如空指针、容器相关异常；2.N-API调用异常，N-API状态无效。
+```text
 Reason:Error
 Error name:Error
 Error message:Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception; 2. N-API invocation exception, invalid N-API status.
@@ -372,17 +390,17 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
- - 根据堆栈对应错误代码行，排查是否存在上述问题。
+17. 根据堆栈对应错误代码行，排查是否存在上述问题。
 
- 
- 
+  
 
-##### [h2]场景四
+  #### 场景四
 
-- 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是BusinessError，业务错误类。
-- 分析上报的异常信息，部分可在官方文档中检索到相关解释，部分为应用捕获后通过BusinessError抛出的异常。
+1. 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是BusinessError，业务错误类。
+
+2. 分析上报的异常信息，部分可在官方文档中检索到相关解释，部分为应用捕获后通过BusinessError抛出的异常。
 异常信息是：e.message: Unexpected Text in JSON: Invalid Token, e.name: SyntaxError。应用捕获SyntaxError后通过BusinessError抛出业务错误。
-```ts
+```json
 Uid:20020303
 Reason:BusinessError
 Error name:BusinessError
@@ -396,8 +414,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/pages/util/http.ts:379:1)
 ```
 
-- 异常信息是：Parameter error. xxx，参数类型错误。The type of Parameter must be string。传入的参数类型必须是字符串。
-```ts
+
+3. 异常信息是：Parameter error. xxx，参数类型错误。The type of Parameter must be string。传入的参数类型必须是字符串。
+```text
 Reason:BusinessError
 Error name:BusinessError
 Error message:Parameter error. The type of Parameter must be string.
@@ -413,8 +432,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/common/jpush/JPushManager.ts:19:1)
 ```
 
-- 异常信息是：Error message:unterminated entity ref。未正确转义特殊字符。
-```ts
+
+4. 异常信息是：Error message:unterminated entity ref。未正确转义特殊字符。
+```xml
 Reason:BusinessError
 Error name:BusinessError
 Error message:unterminated entity ref
@@ -430,8 +450,9 @@ Cannot get SourceMap info, dump raw stack:
     at h3 (app|main|1.0.0|src/main/ets/components/SearchImageComponent.ts:521:1)
 ```
 
-- 异常信息是：Syntax Error. Invalid Url string，错误码为10200002，非法URL字符串，parseURL传入的URL参数不符合规范。
-```ts
+
+5. 异常信息是：Syntax Error. Invalid Url string，错误码为10200002，非法URL字符串，parseURL传入的URL参数不符合规范。
+```text
 Reason:BusinessError
 Error name:BusinessError
 Error message:Syntax Error. Invalid Url string
@@ -444,9 +465,12 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/pages/mine/new_mine/components/FunctionSectionCard.ts:40:64)
 ```
 
-- 异常信息是：Syntax Error. Invalid Uri string: xxx，非法的URI字符串。Syntax Error. Invalid Uri string: The path does not conform to the rule，此URI路径不符合规范。
- Syntax Error. Invalid Uri string: The #It can't be the first，#字符无法作为URI的首个字符。
- 
+
+6. 异常信息是：Syntax Error. Invalid Uri string: xxx，非法的URI字符串。Syntax Error. Invalid Uri string: The path does not conform to the rule，此URI路径不符合规范。
+
+  Syntax Error. Invalid Uri string: The #It can't be the first，#字符无法作为URI的首个字符。
+
+  
 ```ArkTS
 Reason:BusinessError
 Error name:BusinessError
@@ -461,7 +485,7 @@ Cannot get SourceMap info, dump raw stack:
     at (../../../../../../../../../../Users/heybox/.pub-cache/git/flutter_inappwebview-87d6095fde480b06c8c9c498685945807ce453cf/flutter_inappwebview_ohos/ohos/src/main/ets/components/plugin/webview/in_app_webview/OhosWebView.ets:205:3)
 ```
  
-```ts
+```text
 Reason:BusinessError
 Error name:BusinessError
 Error message:Syntax Error. Invalid Uri string: The #It can't be the first
@@ -476,17 +500,17 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
- - 根据堆栈对应错误代码行，排查是否存在上述问题。
+7. 根据堆栈对应错误代码行，排查是否存在上述问题。
 
- 
- 
+  
 
-##### [h2]场景五
+  #### 场景五
 
-- 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是SyntaxError，语法错误类。
-- 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
+1. 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是SyntaxError，语法错误类。
+
+2. 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
 异常信息是：Error message:Unexpected Text in JSON。这种错误通常发生在调用[JSON.parse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-json#jsonparse)函数时，表示在解析JSON数据时遇到了无效的字符或格式错误。
-```ts
+```json
 Reason:SyntaxError
 Error name:SyntaxError
 Error message:Unexpected Text in JSON: Invalid Token
@@ -497,17 +521,17 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
- - 根据堆栈对应错误代码行，排查是否存在上述问题。
+3. 根据堆栈对应错误代码行，排查是否存在上述问题。
 
- 
- 
+  
 
-##### [h2]场景六
+  #### 场景六
 
-- 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是RangeError，边界错误类。
-- 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
+1. 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是RangeError，边界错误类。
+
+2. 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
 异常信息是：Invalid array length。
-```ts
+```text
 Uid:20020237
 Reason:RangeError
 Error name:RangeError
@@ -522,8 +546,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|@ohos/home|1.0.0|src/main/ets/pages/medal/MyMedal/provider/MedalProgressProvider.ts:131:1)
 ```
 
-- 异常信息是：Stack overflow，从故障堆栈可以看到，应用在递归调用同一个函数，直到栈空间溢出。
-```ts
+
+3. 异常信息是：Stack overflow，从故障堆栈可以看到，应用在递归调用同一个函数，直到栈空间溢出。
+```text
 Reason:RangeError
 Error name:RangeError
 Error message:Stack overflow!
@@ -546,16 +571,15 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
- - 根据堆栈对应错误代码行，排查是否存在上述问题。
+4. 根据堆栈对应错误代码行，排查是否存在上述问题。
 
- 
- 
+  
 
-##### [h2]场景七
+  #### 场景七
 
-- 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是OutOfMemoryError，堆内存不够类。
+1. 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是OutOfMemoryError，堆内存不够类。
 故障信息为OutOfMemory when trying to allocate 278544 bytes function name: SharedHeap::AllocateHugeObject，AllocateHugeObject内存分配函数，在尝试分配278544字节内存时，超出了大对象空间阈值。
-```ts
+```text
 Reason:OutOfMemoryError
 Lifetime: 0.000000s
 Js-Engine: ark
@@ -567,8 +591,9 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry/build/default/cache/default/default@CompileArkTS/esmodule/release/common/src/main/ets/utils/persistence/KvStore.ts:90:90)
 ```
 
-- 故障信息为OutOfMemory when trying to allocate 40 bytes function name: Heap::AllocateYoungOrHugeObject，AllocateYoungOrHugeObject内存分配函数，在尝试分配仅40字节内存时，超出了年轻代或大对象空间阈值。
-```ts
+
+2. 故障信息为OutOfMemory when trying to allocate 40 bytes function name: Heap::AllocateYoungOrHugeObject，AllocateYoungOrHugeObject内存分配函数，在尝试分配仅40字节内存时，超出了年轻代或大对象空间阈值。
+```text
 Reason:OutOfMemoryError
 page: pages/Index.js
 Error message: OutOfMemory when trying to allocate 40 bytes function name: Heap::AllocateYoungOrHugeObject
@@ -592,18 +617,19 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
- - 应用分配内存时出现堆内存溢出，老年代和大对象空间初始化时均设定为Heap剩余未分配空间的大小，默认手机设备主线程OldSpaceSize上限接近350MB。应用分配的内存超过了350M导致出现OOM。详情可见[Heap结构及其配置参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gc-introduction#heap结构及其配置参数)。
-- 找到稳定复现场景，通过[Snapshot分析模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-snapshot)拍摄内存快照，对比操作前后的内存快照，找到泄漏对象。
+3. 应用分配内存时出现堆内存溢出，老年代和大对象空间初始化时均设定为Heap剩余未分配空间的大小，默认手机设备主线程OldSpaceSize上限接近350MB。应用分配的内存超过了350M导致出现OOM。详情可见[Heap结构及其配置参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gc-introduction#heap结构及其配置参数)。
 
- 
- 
+4. 找到稳定复现场景，通过[Snapshot分析模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-snapshot)拍摄内存快照，对比操作前后的内存快照，找到泄漏对象。
 
-##### [h2]场景八
+  
 
-- 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是URIError，URI错误类。
-- 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
+  #### 场景八
+
+1. 从faultlogger目录下获取到应用的JS Crash故障日志，故障类型是URIError，URI错误类。
+
+2. 分析上报的异常信息，大部分可在官方文档中检索到相关解释。
 异常信息是：DecodeURI: invalid character：xxx。在调用DecodeURI函数时发现URL无效抛出异常。
-```ts
+```text
 Reason:URIError
 Error name:URIError
 Error message:DecodeURI: invalid character: xxx
@@ -616,24 +642,23 @@ Cannot get SourceMap info, dump raw stack:
 ```
 
 
- 
- 
- 
+  
 
-##### 分析结论
+  #### 分析结论
 
- 
+  
 
-##### [h2]场景一
+  #### 场景一
 
-- 异常信息是：Error message：@Component xxx missing @Provide property with name xxx.Fail to resolve @Consume xxx。初始化@Consume变量时，没有定义对应名称的@Provide变量，引用一个不存在的变量。
+  
+异常信息是：Error message：@Component xxx missing @Provide property with name xxx.Fail to resolve @Consume xxx。初始化@Consume变量时，没有定义对应名称的@Provide变量，引用一个不存在的变量。
 - 异常信息是：Error message：xxx：duplicate @Provide property with name xxx. Property with this name is provided by one of the ancestor Views already. @Provide override not allowed。名为xxx的@Provide属性重复。具有此名称的属性已有父组件存在。不允许重写@Provide组件。
 - 异常信息是：Error message:xxx is not initialized。变量未初始化导致应用闪退。
 
  
  
 
-##### [h2]场景二
+#### 场景二
 
 - 异常信息是：Error message:Cannot read property xxx of undefined。变量不是预期的类型，不能调用对应的属性。
 - 异常信息是：Error message:is not callable。变量不是预期的类型，不能调用对应的方法。
@@ -645,7 +670,7 @@ Cannot get SourceMap info, dump raw stack:
  
  
 
-##### [h2]场景三
+#### 场景三
 
 - 异常信息是：xxx（应用代码自行抛出）。应用未处理直接抛出的异常。业务代码逻辑问题，应用未处理异常直接抛出导致闪退。
 - 异常信息是：Invalid parameter/The parameter invalid。非法参数抛出异常，应用未处理异常导致闪退。
@@ -666,7 +691,7 @@ Cannot get SourceMap info, dump raw stack:
  
  
 
-##### [h2]场景四
+#### 场景四
 
 - 异常信息是：e.message: Unexpected Text in JSON: Invalid Token, e.name: SyntaxError。应用捕获SyntaxError后通过BusinessError抛出业务错误。未处理业务错误抛出的异常导致应用闪退。
 - 异常信息是：Parameter error. xxx。参数类型错误抛出异常，应用未处理异常导致应用闪退。
@@ -677,13 +702,13 @@ Cannot get SourceMap info, dump raw stack:
  
  
 
-##### [h2]场景五
+#### 场景五
 
 字符串的格式不符合JSON语法规范。
  
  
 
-##### [h2]场景六
+#### 场景六
 
 - 异常信息是：Invalid array length。数组长度为负数或超长。
 - 异常信息是：Stack overflow。函数递归调用导致栈空间溢出。
@@ -691,23 +716,23 @@ Cannot get SourceMap info, dump raw stack:
  
  
 
-##### [h2]场景七
+#### 场景七
 
 应用内存溢出，分配的内存超过空间上限。
  
  
 
-##### [h2]场景八
+#### 场景八
 
 URL无效，DecodeURI函数抛出异常导致应用闪退。
  
  
 
-##### 修改建议
+#### 修改建议
 
  
 
-##### [h2]场景一
+#### 场景一
 
 - 异常信息是：Error message：@Component xxx missing @Provide property with name xxx.Fail to resolve @Consume xxx。检查变量是否存在，若存在则在父组件中定义@Provide变量并赋值。
 - 异常信息是：Error message：xxx：duplicate @Provide property with name xxx. Property with this name is provided by one of the ancestor Views already. @Provide override not allowed。删除/更改重复提供对应@Provide属性的代码。
@@ -716,7 +741,7 @@ URL无效，DecodeURI函数抛出异常导致应用闪退。
  
  
 
-##### [h2]场景二
+#### 场景二
 
 - 异常信息是：Error message:Cannot read property xxx of undefined。在使用变量前进行校验，检查变量是否存在对应的属性。
 - 异常信息是：Error message:is not callable。检查变量或者this指针是否存在对应的方法。
@@ -728,7 +753,7 @@ URL无效，DecodeURI函数抛出异常导致应用闪退。
  
  
 
-##### [h2]场景三
+#### 场景三
 
 - 异常信息是：xxx（应用代码自行抛出）。应用未处理直接抛出的异常。避免出现异常场景或者使用try-catch捕获并处理异常。
 - 异常信息是：Invalid parameter/The parameter invalid。修改异常入参，传递正确参数。
@@ -740,7 +765,8 @@ URL无效，DecodeURI函数抛出异常导致应用闪退。
 - 异常信息是：Column out of bounds。检查结果集当前列号是否超出范围。
 - 异常信息是：Invalid resource ID。排查是否为以下场景：HAR开启混淆、中间码HAR、字节码HAR、跨HAP/HSP包。这四种场景推荐使用[getStringByName()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getstringbyname9)等方法通过名称获取资源。检查传入参数的资源id是否已有。
 - 异常信息是：Internal error. UI execution context not found，错误码是100001。方法一（推荐）：使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)作为应用路由框架。
- 方法二（不推荐）：通过使用[Class (UIContext)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Class (Router)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象，再通过该对象调用对应方法。可参考[pushUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl)中的示例。
+
+  方法二（不推荐）：通过使用[Class (UIContext)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Class (Router)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象，再通过该对象调用对应方法。可参考[pushUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl)中的示例。
 - 异常信息是：Session not config。在调用需要会话配置的操作之前需要先调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11-1)接口配置会话。
 - 异常信息是：This window state is abnormal。在对窗口进行操作前，检查该窗口是否存在，确保其已创建且未被销毁，再进行相关操作。
 - 异常信息是：Already closed，错误码为14800014，数据库或结果集已关闭。重新打开RdbStore或者重新查询获取得到ResultSet，确保使用相关接口时，对象未close。
@@ -750,7 +776,7 @@ URL无效，DecodeURI函数抛出异常导致应用闪退。
  
  
 
-##### [h2]场景四
+#### 场景四
 
 - 异常信息是：e.message: Unexpected Text in JSON: Invalid Token, e.name: SyntaxError。应用捕获SyntaxError后通过BusinessError抛出业务错误。参考[堆栈轨迹分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-release-app-stack-analysis)解析堆栈后结合具体代码进行分析，在异常抛出位置使用try-catch捕获并处理异常。
 - 异常信息是：Parameter error. xxx。参考[堆栈轨迹分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-release-app-stack-analysis)解析堆栈后结合具体代码进行分析，传入正确的参数类型。
@@ -761,13 +787,13 @@ URL无效，DecodeURI函数抛出异常导致应用闪退。
  
  
 
-##### [h2]场景五
+#### 场景五
 
 在解析JSON数据之前，检查内容是否为有效的JSON格式，避免直接解析非JSON数据或者包含特殊字符。
  
  
 
-##### [h2]场景六
+#### 场景六
 
 - 异常信息是：Invalid array length。调整数组长度。
 - 异常信息是：Stack overflow。检查递归调用是否合理，如果合理，请将递归函数重写为循环形式避免栈空间溢出。
@@ -775,7 +801,7 @@ URL无效，DecodeURI函数抛出异常导致应用闪退。
  
  
 
-##### [h2]场景七
+#### 场景七
 
 - 如果内存溢出的堆栈一致，说明调用栈是个高频调用并且可能存在内存泄漏，结合具体代码进行分析。
 - 如果内存溢出的堆栈不一致，通过[Snapshot分析模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-snapshot)分析泄漏对象，修复内存溢出问题。
@@ -783,6 +809,6 @@ URL无效，DecodeURI函数抛出异常导致应用闪退。
  
  
 
-##### [h2]场景八
+#### 场景八
 
 检查URL，确保使用的URL真实有效，使用try-catch捕获并处理异常。

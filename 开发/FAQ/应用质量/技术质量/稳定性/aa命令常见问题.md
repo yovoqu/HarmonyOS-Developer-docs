@@ -4,15 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-88
 
-## aa命令常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过hdc shell aa start -U传递一个url参数时，应用实际接收到的url中缺失部分参数，如实际执行如下命令：
  
-```text
+```bash
 hdc shell aa start -U "www.example.com?yy=11&xx=2"
 ```
  
@@ -20,13 +16,13 @@ hdc shell aa start -U "www.example.com?yy=11&xx=2"
 应用侧获取到的url缺失xx=2参数。
  
 
-##### 背景知识
+#### 背景知识
 
 [aa工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aa-tool)即Ability assistant（Ability助手），是用于启动应用和启动测试用例的工具，为开发者提供基本的应用调试和测试能力，例如启动应用组件、强制停止进程、打印应用组件相关信息等。
  
  
 
-##### 问题定位
+#### 问题定位
 
 1、aa命令生效只是参数丢失，说明环境没有问题。
  
@@ -36,20 +32,16 @@ hdc shell aa start -U "www.example.com?yy=11&xx=2"
  
  
 
-##### 分析结论
+#### 分析结论
 
 使用-U命令传递的url中包含特殊字符'&'，特殊字符未做特殊处理，导致命令行解析异常，丢失了字符'&'后面的数据。
  
  
 
-##### 修改建议
-
-- 通过"\"转义特殊字符，如下所示：
-
+#### 修改建议
+1. 通过"\"转义特殊字符，如下所示：
  
 hdc shell aa start -U "www.example.com?yy=11\&xx=2"。
- 
-- aa命令整体添加双引号，同时给-U后面的url参数添加单引号，如下所示：
-
+ 1. aa命令整体添加双引号，同时给-U后面的url参数添加单引号，如下所示：
  
 hdc shell "aa start -U 'www.example.com?yy=11&xx=2'"。

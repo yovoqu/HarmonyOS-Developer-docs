@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-46
 
-## 如何将录屏码流数据从Native侧传递到ArkTS侧
- 
-
-
-##### 问题现象
+#### 问题现象
 
 屏幕录制实时获取码流的过程中，如何将Native侧获取的码流数据按帧传递到ArkTS侧函数处理。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 屏幕录制功能支持开发者获取屏幕数据，开发者可通过调用[AVScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avscreencapture)模块的C API，采集设备内外的音视频数据源。
 - [AVCodec Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-kit-intro)提供音视频的编解码、媒体文件的解析、封装、媒体数据输入等原子能力。开发者可以调用AVCodec Kit的C API完成[视频编码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding)。
@@ -24,18 +20,17 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 在录屏获取码流数据的场景中，为了避免阻塞主线程，处理视频编码输出通常在单独的子线程中实现。为了将Native侧的编码数据传递到ArkTS侧进行处理，可以创建一个线程安全的函数，通过线程安全函数调用ArkTS侧的回调函数。在编码码流数据到达后，在Native侧调用线程安全函数，将Native侧获取的编码码流数据，按帧传递到ArkTS侧的回调函数中处理。
  
 具体实现步骤如下：
- 
-- 在ArkTS侧，启动屏幕录制，并将回调函数传递到Native侧。
+ 1. 在ArkTS侧，启动屏幕录制，并将回调函数传递到Native侧。
 ```text
 export const startScreenCapture: (width: number, height: number, callback: (buffer: ArrayBuffer) => void) => void;
 ```
  
-```text
+```json
 let callback: (buffer: ArrayBuffer) => void = (buffer: ArrayBuffer) => {
     if (this.file) {
       try {
@@ -51,7 +46,7 @@ let callback: (buffer: ArrayBuffer) => void = (buffer: ArrayBuffer) => {
 }
 ```
 
-- 在Native侧，通过ArkTS侧传递的回调函数创建线程安全函数，并启动屏幕录制。
+2. 在Native侧，通过ArkTS侧传递的回调函数创建线程安全函数，并启动屏幕录制。
 ```text
 static napi_value StartScreenCapture(napi_env env, napi_callback_info info)
 {
@@ -62,9 +57,9 @@ static napi_value StartScreenCapture(napi_env env, napi_callback_info info)
     int32_t videoWidth, videoHeight;
     napi_get_value_int32(env, args[0], &videoWidth);
     napi_get_value_int32(env, args[1], &videoHeight);
-    // 注册回调函数
+    <em>// 注册回调函数</em>
     CAVScreenCaptureToStream::GetInstance().RegisterDataCallback(env, info, args[2]);
-    // 启动屏幕录制
+    <em>// 启动屏幕录制</em>
     CAVScreenCaptureToStream::GetInstance().StartScreenCapture(videoWidth, videoHeight);
 
     return nullptr;
@@ -82,21 +77,28 @@ void CAVScreenCaptureToStream::RegisterDataCallback(napi_env &env, napi_callback
 }
 ```
 
-- 码流数据到达时，调用线程安全函数，将码流数据作为参数传递到ArkTS侧处理。
+3. 码流数据到达时，调用线程安全函数，将码流数据作为参数传递到ArkTS侧处理。
 ```text
 void CAVScreenCaptureToStream::CallJs(napi_env env, napi_value jsCb, void *context, void *data)
 {
     (void)context;
-    OH_AVBuffer *avBuffer = reinterpret_cast(data);
+    OH_AVBuffer *avBuffer = reinterpret_cast<OH_AVBuffer *>(data);
     OH_AVCodecBufferAttr attr{};
     OH_AVBuffer_GetBufferAttr(avBuffer, &attr);
-    // 创建ArrayBuffer
+    <em>// 创建ArrayBuffer</em>
     uint8_t *buffer = nullptr;
     napi_value argv = nullptr;
     napi_create_arraybuffer(env, attr.size, (void **)&buffer, &argv);
     if (buffer != nullptr) {
         uint8_t *addr = OH_AVBuffer_GetAddr(avBuffer);
-        for (size_t i = 0; i // 调用JS侧回调函数
+        for (size_t i = 0; i < attr.size; ++i) {
+            buffer[i] = addr[i];
+        }
+    } else {
+        OH_LOG_ERROR(LOG_APP, "napi_create_arraybuffer failed");
+        return;
+    }
+    <em>// 调用JS侧回调函数</em>
     napi_value result = nullptr;
     napi_value undefined = nullptr;
     napi_get_undefined(env, &undefined);
@@ -105,24 +107,23 @@ void CAVScreenCaptureToStream::CallJs(napi_env env, napi_value jsCb, void *conte
 ```
  
 ```text
-// 视频编码器编码帧输出回调
+<em>// 视频编码器编码帧输出回调</em>
 void VideoEncoder::OnNewOutputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData)
 {
     (void)codec;
-    SampleInfo *info = reinterpret_cast(userData);
-    // 调用线程安全函数
+    SampleInfo *info = reinterpret_cast<SampleInfo *>(userData);
+    <em>// 调用线程安全函数</em>
     napi_call_threadsafe_function(info->func, buffer, napi_tsfn_nonblocking);
     OH_VideoEncoder_FreeOutputBuffer(codec, index);
 }
 ```
-
 
  
 完整参考代码如下：
  
 CMakeLists.txt：
  
-```text
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.5.0)
 project(AVScreenCapturerStream)
@@ -155,9 +156,9 @@ export const stopScreenCapture: () => void;
 napi_init.cpp：
  
 ```text
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.
- */
+<em>/*</em>
+<em> * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.</em>
+<em> */</em>
 #include "napi/native_api.h"
 #include "./CAVScreenCaptureToStream/CAVScreenCaptureToStream.h"
 
@@ -170,9 +171,9 @@ static napi_value StartScreenCapture(napi_env env, napi_callback_info info)
     int32_t videoWidth, videoHeight;
     napi_get_value_int32(env, args[0], &videoWidth);
     napi_get_value_int32(env, args[1], &videoHeight);
-    // 注册回调函数
+    <em>// 注册回调函数</em>
     CAVScreenCaptureToStream::GetInstance().RegisterDataCallback(env, info, args[2]);
-    // 启动屏幕录制
+    <em>// 启动屏幕录制</em>
     CAVScreenCaptureToStream::GetInstance().StartScreenCapture(videoWidth, videoHeight);
 
     return nullptr;
@@ -214,24 +215,24 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_mo
 SampleInfo.h：
  
 ```text
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.
- */
+<em>/*</em>
+<em> * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.</em>
+<em> */</em>
 #ifndef AVCODEC_SAMPLE_INFO_H
 #define AVCODEC_SAMPLE_INFO_H
 
 #include "napi/native_api.h"
 #include "multimedia/player_framework/native_avbuffer.h"
 #include "multimedia/player_framework/native_avcodec_base.h"
-#include 
-#include 
-#include 
-#include 
+#include <cstdint>
+#include <multimedia/player_framework/native_avcodec_videoencoder.h>
+#include <native_buffer/native_buffer.h>
+#include <string>
 
 
-/*
- * Screen recording configuration item
- */
+<em>/*</em>
+<em> * Screen recording configuration item</em>
+<em> */</em>
 struct SampleInfo {
     int32_t videoWidth = 0;
     int32_t videoHeight = 0;
@@ -249,16 +250,16 @@ struct SampleInfo {
 VideoEncoder.h：
  
 ```text
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.
- */
+<em>/*</em>
+<em> * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.</em>
+<em> */</em>
 #ifndef AVCODEC_SAMPLE_CALLBACK_H
 #define AVCODEC_SAMPLE_CALLBACK_H
 #define LOG_DOMAIN 0x3200
 #define LOG_TAG "MY_SCNDKDEMO"
 
 #include "SampleInfo.h"
-#include 
+#include <multimedia/player_framework/native_avmuxer.h>
 
 class VideoEncoder {
 public:
@@ -283,12 +284,12 @@ private:
 VideoEncoder.cpp：
  
 ```text
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.
- */
+<em>/*</em>
+<em> * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.</em>
+<em> */</em>
 #include "VideoEncoder.h"
-#include 
-#include 
+#include <hilog/log.h>
+#include <multimedia/player_framework/native_avcapability.h>
 
 int32_t VideoEncoder::Create(const std::string &videoCodecMime)
 {
@@ -301,7 +302,7 @@ int32_t VideoEncoder::Create(const std::string &videoCodecMime)
 
 int32_t VideoEncoder::Config(SampleInfo &sampleInfo)
 {
-    // Configure video encoder
+    <em>// Configure video encoder</em>
     OH_AVFormat *format = OH_AVFormat_Create();
 
     OH_AVFormat_SetIntValue(format, OH_MD_KEY_WIDTH, sampleInfo.videoWidth);
@@ -315,14 +316,14 @@ int32_t VideoEncoder::Config(SampleInfo &sampleInfo)
     OH_AVFormat_Destroy(format);
     format = nullptr;
 
-    OH_VideoEncoder_GetSurface(encoder_, &sampleInfo.window); // 视频编码器输入OHNativeWindow
+    OH_VideoEncoder_GetSurface(encoder_, &sampleInfo.window); <em>// 视频编码器输入OHNativeWindow</em>
 
     OH_VideoEncoder_RegisterCallback(encoder_,
                                      {VideoEncoder::OnCodecError, VideoEncoder::OnCodecFormatChange,
                                       VideoEncoder::OnNeedInputBuffer, VideoEncoder::OnNewOutputBuffer},
                                      &sampleInfo);
 
-    // Prepare video encoder
+   <em> // Prepare video encoder</em>
     OH_VideoEncoder_Prepare(encoder_);
 
     return 0;
@@ -373,12 +374,12 @@ void VideoEncoder::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuf
     (void)userData;
 }
 
-// 视频编码器编码帧输出回调
+<em>// 视频编码器编码帧输出回调</em>
 void VideoEncoder::OnNewOutputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData)
 {
     (void)codec;
-    SampleInfo *info = reinterpret_cast(userData);
-    // 调用线程安全函数
+    SampleInfo *info = reinterpret_cast<SampleInfo *>(userData);
+    <em>// 调用线程安全函数</em>
     napi_call_threadsafe_function(info->func, buffer, napi_tsfn_nonblocking);
     OH_VideoEncoder_FreeOutputBuffer(codec, index);
 }
@@ -387,16 +388,16 @@ void VideoEncoder::OnNewOutputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuf
 CAVScreenCaptureToStream.h：
  
 ```text
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.
- */
+<em>/*</em>
+<em> * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.</em>
+<em> */</em>
 #ifndef AVSCREENCAPTURESCREENRECORD_CAVSCREENCAPTURETOSTREAM_H
 #define AVSCREENCAPTURESCREENRECORD_CAVSCREENCAPTURETOSTREAM_H
 
 #include "napi/native_api.h"
 #include "CAVScreenCaptureToStream/SampleInfo.h"
 #include "CAVScreenCaptureToStream/VideoEncoder.h"
-#include 
+#include <multimedia/player_framework/native_avscreen_capture_base.h>
 
 
 class CAVScreenCaptureToStream {
@@ -433,16 +434,16 @@ public:
 CAVScreenCaptureToStream.cpp:
  
 ```text
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.
- */
+<em>/*</em>
+<em> * Copyright (c) Huawei Technologies Co., Ltd. 2026-2026. All rights reserved.</em>
+<em> */</em>
 #include "CAVScreenCaptureToStream.h"
 #include "SampleInfo.h"
 #include "VideoEncoder.h"
 #include "hilog/log.h"
-#include 
-#include 
-#include 
+#include <multimedia/player_framework/native_avscreen_capture.h>
+#include <multimedia/player_framework/native_avscreen_capture_errors.h>
+#include <thread>
 
 #undef LOG_DOMAIN
 #undef LOG_TAG
@@ -453,13 +454,13 @@ using namespace std;
 
 bool g_isRunning = false;
 OH_AVScreenCapture *g_avCapture = nullptr;
-std::unique_ptr videoEncoder_ = nullptr;
+std::unique_ptr<VideoEncoder> videoEncoder_ = nullptr;
 
 CAVScreenCaptureToStream::~CAVScreenCaptureToStream() {}
 
-/*
- * Screen recording Error callback
- */
+<em>/*</em>
+<em> * Screen recording Error callback</em>
+<em> */</em>
 void CAVScreenCaptureToStream::OnErrorToStream(OH_AVScreenCapture *capture, int32_t errorCode, void *userData)
 {
     (void)capture;
@@ -467,7 +468,7 @@ void CAVScreenCaptureToStream::OnErrorToStream(OH_AVScreenCapture *capture, int3
     OH_LOG_ERROR(LOG_APP, "ScreenCapture OnError errorCode is %{public}d", errorCode);
 }
 
-// 录屏原始数据获取回调
+<em>// 录屏原始数据获取回调</em>
 void CAVScreenCaptureToStream::OnBufferAvailable(OH_AVScreenCapture *capture, OH_AVBuffer *buffer,
                                                  OH_AVScreenCaptureBufferType bufferType, int64_t timestamp,
                                                  void *userData)
@@ -476,7 +477,7 @@ void CAVScreenCaptureToStream::OnBufferAvailable(OH_AVScreenCapture *capture, OH
     (void)userData;
     if (g_isRunning) {
         if (bufferType == OH_SCREEN_CAPTURE_BUFFERTYPE_VIDEO) {
-            // 屏幕录制原始视频数据（RGBA格式）
+           <em> // 屏幕录制原始视频数据（RGBA格式）</em>
             OH_AVCodecBufferAttr attr;
             OH_AVBuffer_GetBufferAttr(buffer, &attr);
             OH_LOG_INFO(LOG_APP, "RGBA Buffer: size=%{public}d timestamp=%{public}ld", attr.size, timestamp);
@@ -489,16 +490,23 @@ void CAVScreenCaptureToStream::OnBufferAvailable(OH_AVScreenCapture *capture, OH
 void CAVScreenCaptureToStream::CallJs(napi_env env, napi_value jsCb, void *context, void *data)
 {
     (void)context;
-    OH_AVBuffer *avBuffer = reinterpret_cast(data);
+    OH_AVBuffer *avBuffer = reinterpret_cast<OH_AVBuffer *>(data);
     OH_AVCodecBufferAttr attr{};
     OH_AVBuffer_GetBufferAttr(avBuffer, &attr);
-    // 创建ArrayBuffer
+   <em> // 创建ArrayBuffer</em>
     uint8_t *buffer = nullptr;
     napi_value argv = nullptr;
     napi_create_arraybuffer(env, attr.size, (void **)&buffer, &argv);
     if (buffer != nullptr) {
         uint8_t *addr = OH_AVBuffer_GetAddr(avBuffer);
-        for (size_t i = 0; i  // 调用JS侧回调函数
+        for (size_t i = 0; i < attr.size; ++i) {
+            buffer[i] = addr[i];
+        }
+    } else {
+        OH_LOG_ERROR(LOG_APP, "napi_create_arraybuffer failed");
+        return;
+    }
+   <em> // 调用JS侧回调函数</em>
     napi_value result = nullptr;
     napi_value undefined = nullptr;
     napi_get_undefined(env, &undefined);
@@ -514,9 +522,9 @@ void CAVScreenCaptureToStream::RegisterDataCallback(napi_env &env, napi_callback
                                     &sampleInfo_.func);
 }
 
-/*
- * Configure screen recording parameters
- */
+<em>/*</em>
+<em> * Configure screen recording parameters</em>
+<em> */</em>
 void CAVScreenCaptureToStream::InitAVScreenCapture(int32_t videoWidth, int32_t videoHeight)
 {
     if (g_avCapture != nullptr) {
@@ -529,13 +537,13 @@ void CAVScreenCaptureToStream::InitAVScreenCapture(int32_t videoWidth, int32_t v
     }
     OH_LOG_INFO(LOG_APP, "ScreenCapture after create sc");
 
-    // Set callback
+   <em> // Set callback</em>
     OH_AVScreenCapture_SetErrorCallback(g_avCapture, OnErrorToStream, nullptr);
     OH_AVScreenCapture_SetDataCallback(g_avCapture, OnBufferAvailable, nullptr);
 
     OH_AVScreenCapture_SetCanvasRotation(g_avCapture, true);
 
-    // Initialize configuration information
+  <em>  // Initialize configuration information</em>
     OH_AVScreenCaptureConfig config;
     OH_AudioCaptureInfo micCapInfo = {.audioSampleRate = 48000, .audioChannels = 2, .audioSource = OH_SOURCE_DEFAULT};
     OH_AudioCaptureInfo innerCapInfo = {.audioSampleRate = 48000, .audioChannels = 2, .audioSource = OH_ALL_PLAYBACK};
@@ -573,17 +581,17 @@ void CAVScreenCaptureToStream::StopScreenCaptureRecording(struct OH_AVScreenCapt
     }
 }
 
-/*
- * Initialize configuration information
- */
+<em>/*</em>
+<em> * Initialize configuration information</em>
+<em> */</em>
 void CAVScreenCaptureToStream::InitEncoder(int32_t videoWidth, int32_t videoHeight)
 {
-    // Video encoding configuration
+    <em>// Video encoding configuration</em>
     sampleInfo_.videoWidth = videoWidth;
     sampleInfo_.videoHeight = videoHeight;
     sampleInfo_.videoCodecMime = "video/avc";
 
-    videoEncoder_ = std::make_unique();
+    videoEncoder_ = std::make_unique<VideoEncoder>();
 
     videoEncoder_->Create(sampleInfo_.videoCodecMime);
     videoEncoder_->Config(sampleInfo_);
@@ -599,7 +607,7 @@ void CAVScreenCaptureToStream::StartScreenCapture(int32_t videoWidth, int32_t vi
 
     videoEncoder_->Start();
 
-    // 使用视频编码器输入OHNativeWindow以Surface模式启动屏幕录制
+  <em>  // 使用视频编码器输入OHNativeWindow以Surface模式启动屏幕录制</em>
     int result = OH_AVScreenCapture_StartScreenCaptureWithSurface(g_avCapture, sampleInfo_.window);
     OH_LOG_INFO(LOG_APP, "OH_VideoEncoder_Start Started by surface mode %{public}d", result);
     if (result != AV_SCREEN_CAPTURE_ERR_OK) {
@@ -608,9 +616,9 @@ void CAVScreenCaptureToStream::StartScreenCapture(int32_t videoWidth, int32_t vi
     }
 }
 
-/*
- * Stop screen recording
- */
+<em>/*</em>
+<em> * Stop screen recording</em>
+<em> */</em>
 void CAVScreenCaptureToStream::StopScreenCapture()
 {
     if (g_isRunning) {
@@ -649,7 +657,7 @@ void CAVScreenCaptureToStream::StopScreenCapture()
  
 Index.ets:
  
-```text
+```json
 import screenCapture from 'libentry.so';
 import { display } from '@kit.ArkUI';
 import { fileIo } from '@kit.CoreFileKit';

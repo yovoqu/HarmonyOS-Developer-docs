@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-5
 
-## 地图组件如何添加多个Marker并自定义样式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何在地图上实现多个Marker的效果，多个Marker的样式不同，需要自定义样式。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - Map Kit提供的点标记功能（又称[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)）是地图开发的核心组件之一。它封装了大量的触发事件，例如点击事件、长按事件、拖拽事件。
 - Marker的主要作用是在地图上标记任何位置，例如用户位置、车辆位置、店铺位置等一切带有位置属性的事物。
@@ -23,17 +19,15 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 添加多个Marker：可以通过调用map.MapComponentController类的[addMarker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section0810361284)方法，该方法会返回添加的Marker实例；再通过不同的[MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)参数调用该方法创建不同的Marker实例，即可在地图上添加多个Marker标记。
 - 自定义Marker样式的实现：Marker的[icon属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)可以自定义设置图片，可以尝试使用[组件截图](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentsnapshot)的方式去构建Builder组件来实现Marker的自定义设置。
 
  
 实现步骤如下：
- 
-- 构造Marker自定义样式。
-- 通过组件截图的方式获取需要样式的图片，并添加Marker至地图上显示。
-
+ 1. 构造Marker自定义样式。
+2. 通过组件截图的方式获取需要样式的图片，并添加Marker至地图上显示。
  
 完整示例参考如下：
  
@@ -47,7 +41,7 @@ import { image } from '@kit.ImageKit';
 struct CustomizationMarker {
   private mapOptions?: mapCommon.MapOptions;
   private mapController?: map.MapComponentController;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   uiContext: UIContext = this.getUIContext();
 
   addMarker() {
@@ -58,7 +52,7 @@ struct CustomizationMarker {
         if (error) {
           return;
         }
-        // Marker初始化参数
+       <em> // Marker初始化参数</em>
         let markerOptions: mapCommon.MarkerOptions = {
           position: {
             latitude: 31.984410259206815,
@@ -80,7 +74,7 @@ struct CustomizationMarker {
   }
 
   aboutToAppear(): void {
-    // 地图初始化参数
+ <em>   // 地图初始化参数</em>
     this.mapOptions = {
       position: {
         target: {
@@ -153,7 +147,7 @@ struct CustomizationMarker {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：地图上如何实现自定义信息窗？
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-144
 
-## 如何实现仅wifi网络时加载图片
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现应用内设置仅wifi网络时加载图片的功能。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [connection.getNetCapabilities](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetnetcapabilities)：获取netHandle对应网络的能力信息。
 该接口返回[NetCapabilities](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#netcapabilities)网络能力信息，其中bearerTypes字段表示网络类型[NetBearType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#netbeartype)数组，且数组里面只包含了一种网络类型。
@@ -29,7 +25,7 @@ onInterceptRequest可以拦截所有跳转，需要根据具体业务去做判�
  
  
 
-##### 解决方案
+#### 解决方案
 
 设置仅wifi加载图片后，应用加载页面内容之前，建议先通过connection.getNetCapabilities接口判断设备当前网络类型，然后再处理不同场景下的图片加载。
  
@@ -39,7 +35,7 @@ onInterceptRequest可以拦截所有跳转，需要根据具体业务去做判�
  
 示例代码如下：
  
-```text
+```json
 import { fileIo as fs } from '@kit.CoreFileKit';
 import common from '@ohos.app.ability.common';
 import webview from '@ohos.web.webview';
@@ -70,7 +66,14 @@ struct Index {
           console.error(`Failed to get net capabilities. Code:${error.code}, message:${error.message}`);
           return;
         }
-        for (let i = 0; i  {
+        for (let i = 0; i < data.bearerTypes.length; i++) {
+          // 判断设备是否连接wifi网络
+          if (data.bearerTypes[i] == connection.NetBearType.BEARER_WIFI) {
+            this.isWifiInUse = true;
+          }
+        }
+      });
+    }).catch((error: BusinessError) => {
       console.error(JSON.stringify(error));
     });
   }

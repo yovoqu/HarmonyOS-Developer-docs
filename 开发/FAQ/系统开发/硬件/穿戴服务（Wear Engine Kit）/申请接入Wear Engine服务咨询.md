@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-wear-engine-2
 
-## 申请接入Wear Engine服务咨询
- 
-
-
-##### 问题现象
+#### 问题现象
 
 接入Wear Engine服务，填写申请中对选项疑问咨询。
  
@@ -21,11 +17,11 @@
 问题四：运动表引入[Wear Engine SDK (Lite Wearable Devices)](https://developer.huawei.com/consumer/en/doc/connectivity-Library/litewearable-sdk-cn-0000001705004353)后编译报错，报错内容如下：
  
 ```text
->hvigor ERROR: Failed :entry:default@LegacyBuildJS...
->hvigor ERROR: Tools execution failed.
-Module not found:Error: Can't resolve '@system.wearengine' in 'D:\Demo\entry\src\main\js\MainAbility\pages'
-  Detail: Please check the message from tools.
->hvigor ERROR BUILD FAILED in 10 s 445 ms
+<span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">hvigor </span><span style="color: rgb(181,106,1);">ERROR</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Failed </span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(181,106,1);">entry</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">default</span><span style="color: rgb(181,106,1);">@</span><span style="color: rgb(0,0,255);">LegacyBuildJS</span><span style="color: rgb(181,106,1);">...</span>
+<span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">hvigor </span><span style="color: rgb(181,106,1);">ERROR</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Tools execution failed</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(0,0,255);">Module not </span><span style="color: rgb(181,106,1);">found</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(181,106,1);">Error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Can</span><span style="color: rgb(255,0,170);">'t resolve '</span><span style="color: rgb(181,106,1);">@</span><span style="color: rgb(0,0,255);">system</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">wearengine</span><span style="color: rgb(255,0,170);">' in '</span>D<span style="color: rgb(181,106,1);">:</span>\<span style="color: rgb(0,0,255);">Demo</span>\<span style="color: rgb(0,0,255);">entry</span>\<span style="color: rgb(0,0,255);">src</span>\<span style="color: rgb(0,0,255);">main</span>\<span style="color: rgb(0,0,255);">js</span>\<span style="color: rgb(0,0,255);">MainAbility</span>\<span style="color: rgb(0,0,255);">pages</span>'
+  <span style="color: rgb(181,106,1);">Detail</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Please check the message from tools</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(181,106,1);">></span><span style="color: rgb(0,0,255);">hvigor ERROR BUILD FAILED </span>in <span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(0,0,255);">s </span><span style="color: rgb(255,0,0);">445 </span><span style="color: rgb(0,0,255);">ms</span>
 ```
  
 问题五：若智能表在申请Wear Engine服务时未申请佩戴状态服务，应当如何获取佩戴状态或传感器服务？
@@ -34,7 +30,7 @@ Module not found:Error: Can't resolve '@system.wearengine' in 'D:\Demo\entry\src
  
  
 
-##### 解决方案
+#### 解决方案
 
 问题一：这里兼容的目的是让HarmonyOS Next手机应用与旧版本的的其他平台手表应用通信（系统内部会将HarmonyOS Next应用包名转为映射其他平台包名）。
  

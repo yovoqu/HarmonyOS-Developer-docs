@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-18
 
-## 解决同一个App包同时提交邀请测试和公开测试问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 同一个APP包可以同时提交邀请测试和公开测试吗？同时提交多个邀请测试和公开测试，测试用户在应用尝鲜区如何区分不同的包？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [邀请测试](https://developer.huawei.com/consumer/cn/doc/app/agc-help-invite-test-0000002270829393)和[公开测试](https://developer.huawei.com/consumer/cn/doc/app/agc-help-public-test-0000002287814841)：通过AppGallery Connect，开发者可以在应用正式版本发布之前，挑选特定的用户群组来测试HarmonyOS应用/元服务，或向AppGallery用户公开发布应用的测试版本。
 - 开发者需要了解邀请测试与公开测试的区别，参考[业务介绍](https://developer.huawei.com/consumer/cn/doc/app/agc-help-invite-test-overview-0000002287701773)。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 同一个包如果版本号相同，不支持同时提交邀请测试和公开测试，否则会弹窗提示“已存在相同版本号的测试版本处于发布状态，请修改版本号后再重新提交”。 
 | 测试类型 | 描述 | 要求 | 步骤 |
@@ -38,7 +34,7 @@
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：公开测试是否有计划支持多个版本？
  

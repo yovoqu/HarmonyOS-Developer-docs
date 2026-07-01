@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-49
 
-## Map Kit如何设置“我的位置”模式（方向、跟随、移动）
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Map Kit地图服务提供自带的“我的位置”图标显示，但应用有时需根据业务自定义“我的位置”的显示策略，如“我的位置”图标是否显示设备方向、图标是否跟随设备位置移动、相机是否跟随位置移动到屏幕中心等。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [setMyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section126791641317)：设置用户的位置样式。
 - [MyLocationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section3713124215275)：自定义“我的位置”样式。
@@ -27,11 +23,12 @@ Map Kit地图服务提供自带的“我的位置”图标显示，但应用有�
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一：显示或隐藏“我的位置”图标。**设置[setMyLocationEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#section201759451313)为true表示显示“我的位置”图标，设置为false表示隐藏“我的位置”图标。
 - **场景二：“我的位置”图标跟随设备移动，跟随设备旋转，相机不跟随移动到“我的位置”为屏幕中心。**从版本6.0.0(20)开始MyLocationDisplayType支持TRACK_ROTATE模式，满足此场景需求。
- 
+
+  
 ```text
 let style: mapCommon.MyLocationStyle = {
   anchorU: 0.5,
@@ -42,11 +39,14 @@ let style: mapCommon.MyLocationStyle = {
 this.mapController?.setMyLocationStyle(style);
 ```
  实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/v2q9i0eJQsq-gExjZvjk4A/zh-cn_image_0000002658913611.png?HW-CC-KV=V1&HW-CC-Date=20260701T025843Z&HW-CC-Expire=86400&HW-CC-Sign=5B58E852F3E64332B54F814134D69CA64CF6563FC9F06CA7B8435093E98B4369)
 
- 完整代码：
- 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/v2q9i0eJQsq-gExjZvjk4A/zh-cn_image_0000002658913611.png?HW-CC-KV=V1&HW-CC-Date=20260701T041106Z&HW-CC-Expire=86400&HW-CC-Sign=37F848EAA25550C230EE7751A41EAC83FD0473FCAFD65F044F09426F89D49BB2)
+
+
+  完整代码：
+
+  
 ```text
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
 import { abilityAccessCtrl, bundleManager, common, Permissions } from '@kit.AbilityKit';
@@ -57,13 +57,13 @@ import { display } from '@kit.ArkUI';
 @Component
 struct HuaweiMyLocationDemo {
   private mapOptions?: mapCommon.MapOptions;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   private mapController?: map.MapComponentController;
   @State mapHeight: number = 0;
 
-  async checkPermission(): Promise {
+  async checkPermission(): Promise<void> {
     let applyResult: boolean = false;
-    const permissions: Array =
+    const permissions: Array<Permissions> =
       ['ohos.permission.LOCATION', 'ohos.permission.APPROXIMATELY_LOCATION'];
     for (let permission of permissions) {
       let grantStatus: abilityAccessCtrl.GrantStatus = await this.checkAccessToken(permission);
@@ -77,9 +77,9 @@ struct HuaweiMyLocationDemo {
     if (!applyResult) {
       this.requestPermissions();
     } else {
-      // 启用我的位置图层，mapController为地图操作类对象，获取方式详见地图呈现章节
+      <em>// 启用我的位置图层，mapController为地图操作类对象，获取方式详见地图呈现章节</em>
       this.mapController?.setMyLocationEnabled(true);
-      // 启用我的位置按钮
+      <em>// 启用我的位置按钮</em>
       this.mapController?.setMyLocationControlsEnabled(true);
       let style: mapCommon.MyLocationStyle = {
         anchorU: 0.5,
@@ -91,15 +91,15 @@ struct HuaweiMyLocationDemo {
     }
   }
 
-  // 向用户申请授权
+  <em>// 向用户申请授权</em>
   requestPermissions(): void {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     atManager.requestPermissionsFromUser(this.getUIContext().getHostContext() as common.UIAbilityContext,
       ['ohos.permission.LOCATION', 'ohos.permission.APPROXIMATELY_LOCATION'])
       .then(() => {
-        // 启用我的位置图层
+        <em>// 启用我的位置图层</em>
         this.mapController?.setMyLocationEnabled(true);
-        // 启用我的位置按钮
+        <em>// 启用我的位置按钮</em>
         this.mapController?.setMyLocationControlsEnabled(true);
         let style: mapCommon.MyLocationStyle = {
           anchorU: 0.5,
@@ -114,12 +114,12 @@ struct HuaweiMyLocationDemo {
       });
   }
 
-  // 获取相应的权限
-  async checkAccessToken(permission: Permissions): Promise {
+  <em>// 获取相应的权限</em>
+  async checkAccessToken(permission: Permissions): Promise<abilityAccessCtrl.GrantStatus> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     let grantStatus:
       abilityAccessCtrl.GrantStatus = abilityAccessCtrl.GrantStatus.PERMISSION_DENIED;
-    // 获取应用程序的accessTokenID
+    <em>// 获取应用程序的accessTokenID</em>
     let tokenId: number = 0;
     try {
       let bundleInfo: bundleManager.BundleInfo =
@@ -130,7 +130,7 @@ struct HuaweiMyLocationDemo {
       let err: BusinessError = error as BusinessError;
       console.error(`Failed to get bundle info for self. Code is ${err.code},message is ${err.message}`);
     }
-    // 校验应用是否被授予权限
+    <em>// 校验应用是否被授予权限</em>
     try {
       grantStatus = await atManager.checkAccessToken(tokenId, permission);
     } catch (error) {
@@ -143,7 +143,7 @@ struct HuaweiMyLocationDemo {
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-    // 地图初始化参数，设置地图中心坐标以及层级
+    <em>// 地图初始化参数，设置地图中心坐标以及层级</em>
     this.mapOptions = {
       position: {
         target: {
@@ -155,10 +155,10 @@ struct HuaweiMyLocationDemo {
       myLocationControlsEnabled: true,
       scaleControlsEnabled: true,
     };
-    // 地图初始化的回调
+    <em>// 地图初始化的回调</em>
     this.callback = async (err, mapController) => {
       if (!err) {
-        // 获取地图的控制器类，用来操作地图
+        <em>// 获取地图的控制器类，用来操作地图</em>
         this.mapController = mapController;
         this.checkPermission();
       }

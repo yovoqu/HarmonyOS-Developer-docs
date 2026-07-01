@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1096
 
-## 如何设置TabBar切换动画
- 
-
-
-##### 问题现象
+#### 问题现象
 
 场景一：切换TabBar如何实现先放大后缩小复原动效？
  
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - [tabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar)：设置TabBar上显示内容。
@@ -33,7 +29,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 实现场景 | 实现方案 |
 | --- | --- |
@@ -44,7 +40,7 @@
  
  
 
-##### [h2]场景一：实现先放大后缩小复原动效
+#### 场景一：实现先放大后缩小复原动效
 
 使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)将自定义Tab栏与Tabs的TabBar区域重合，并通过if/else对自定义Tab栏进行渲染控制。通过[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)中onFinish回调实现Tab内容的先放大后缩小，最后复原的动画效果。参考代码如下所示：
  
@@ -55,21 +51,21 @@ struct OutFrame {
   fontColor: string = '#182431';
   selectedFontColor: string = '#007DFF';
   iconMinHeight: number = 640;
-  // 图片资源仅供参考，开发者可替换成所需资源
+  <em>// 图片资源仅供参考，开发者可替换成所需资源</em>
   iconList: Resource[] = [
     $r('app.media.person'),
     $r('app.media.ellipsis_message'),
     $r('app.media.envelope'),
     $r('app.media.magnifyingglass')
   ];
-  iconX: number = 20; // 图片位置x
-  iconY: number = 65; // 图片位置Y
+  iconX: number = 20; <em>// 图片位置x</em>
+  iconY: number = 65; <em>// 图片位置Y</em>
   private controller: TabsController = new TabsController();
   @State currentIndex: number = 0;
-  @State iconWidth: number = 80; // 图片宽度
-  @State iconHeight: number = 80; // 图片高度
-  @State showAnimation: boolean = false; // 控制动画显示
-  @State showTabIcon: boolean = true; // 控制Tab栏图标显隐
+  @State iconWidth: number = 80; <em>// 图片宽度</em>
+  @State iconHeight: number = 80; <em>// 图片高度</em>
+  @State showAnimation: boolean = false; <em>// 控制动画显示</em>
+  @State showTabIcon: boolean = true; <em>// 控制Tab栏图标显隐</em>
 
   @Builder
   tabBuilder(img: Resource, index: number) {
@@ -121,14 +117,14 @@ struct OutFrame {
       .barHeight('auto')
       .animationDuration(400)
       .onChange((index: number) => {
-        // currentIndex控制TabContent显示页签
+        <em>// currentIndex控制TabContent显示页签</em>
         this.currentIndex = index;
         this.showAnimation = true;
         this.showTabIcon = false;
         this.iconWidth = 70;
         this.iconHeight = 70;
         this.iconY = 65;
-        // 设置动画实现效果
+        <em>// 设置动画实现效果</em>
         this.getUIContext().animateTo({
           delay: 0,
           duration: 500,
@@ -167,12 +163,12 @@ struct OutFrame {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/uVjw6bp3TPivNlYq6UkGHQ/zh-cn_image_0000002628407368.png?HW-CC-KV=V1&HW-CC-Date=20260701T025725Z&HW-CC-Expire=86400&HW-CC-Sign=4306D02E5CAA25F5261901EC9417553936FEEC780BB8B63557E92154F7ED2922)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/uVjw6bp3TPivNlYq6UkGHQ/zh-cn_image_0000002628407368.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=CA9DE6E030D853061BD7F1ACD8036DF0637B8B81F3AF378DAA92A12B77E1B298)
 
  
  
 
-##### [h2]场景二：点击空白区域实现Tab栏下滑隐藏动效
+#### 场景二：点击空白区域实现Tab栏下滑隐藏动效
 
 使用[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)和[translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)方法控制Tab栏内容在y轴上的下滑动画效果。参考代码如下所示：
  
@@ -180,7 +176,7 @@ struct OutFrame {
 @Entry
 @Component
 struct HideTabBar {
-  // 图片资源仅供参考，开发者可替换成所需资源
+  <em>// 图片资源仅供参考，开发者可替换成所需资源</em>
   iconList: Resource[] = [
     $r('app.media.person'),
     $r('app.media.ellipsis_message'),
@@ -219,7 +215,7 @@ struct HideTabBar {
     .height('100%')
     .width('100%')
     .onClick(() => {
-      // 添加消失动画
+      <em>// 添加消失动画</em>
       this.getUIContext().animateTo({
         delay: 0,
         duration: 500,
@@ -241,17 +237,15 @@ struct HideTabBar {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/OD0D2TqbSfOPBPEhBBhN3A/zh-cn_image_0000002628567264.png?HW-CC-KV=V1&HW-CC-Date=20260701T025725Z&HW-CC-Expire=86400&HW-CC-Sign=3329504A0FF7BDF6C66EA42C2237A2B80BD671418DB856BB59962D02D51759D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/OD0D2TqbSfOPBPEhBBhN3A/zh-cn_image_0000002628567264.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=D601386A007124573542AC7058638C5C8079B501F9E137A63D70F6A2E625D87C)
 
  
  
 
-##### [h2]场景三：实现背景跟随手指拖动效果
-
-- 使用Stack将Tabs与背景组件堆叠，并通过onAreaChange获取页面和单个Tab的宽度，计算每个Tab的中心位置。
-- 滑动过程中触发[onGestureSwipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#ongestureswipe11)，根据页面滑动的比例让背景跟随手指移动。
-- 页面滑动结束触发[onAnimationEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onanimationend11)，根据背景移动距离占总切换距离的比例判断是否超过设定阈值，超过则吸附到目标Tab的中心，未超过则回弹至原Tab的中心。
-
+#### 场景三：实现背景跟随手指拖动效果
+1. 使用Stack将Tabs与背景组件堆叠，并通过onAreaChange获取页面和单个Tab的宽度，计算每个Tab的中心位置。
+2. 滑动过程中触发[onGestureSwipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#ongestureswipe11)，根据页面滑动的比例让背景跟随手指移动。
+3. 页面滑动结束触发[onAnimationEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onanimationend11)，根据背景移动距离占总切换距离的比例判断是否超过设定阈值，超过则吸附到目标Tab的中心，未超过则回弹至原Tab的中心。
  
 参考代码如下所示：
  
@@ -259,7 +253,7 @@ struct HideTabBar {
 @Entry
 @Component
 struct DragAction {
-  // 图片资源仅供参考，开发者可替换成所需资源
+  <em>// 图片资源仅供参考，开发者可替换成所需资源</em>
   iconList: Resource[] = [
     $r('app.media.person'),
     $r('app.media.ellipsis_message'),
@@ -267,14 +261,14 @@ struct DragAction {
     $r('app.media.magnifyingglass')
   ];
   private controller: TabsController = new TabsController();
-  threshold: number = 0.7; // 吸附阈值
+  threshold: number = 0.7; <em>// 吸附阈值</em>
   barHeight: number = 56;
   circleHeight: number = 50;
   circleWidth: number = 50;
-  @State barWidth: number = 0; // 单个TabBar的宽度值
+  @State barWidth: number = 0; <em>// 单个TabBar的宽度值</em>
   @State currentIndex: number = 0;
-  @State bgTransX: number = 0; // 背景的X偏移量
-  @State pageWidth: number = 0; // tabContent内页面的宽度
+  @State bgTransX: number = 0; <em>// 背景的X偏移量</em>
+  @State pageWidth: number = 0; <em>// tabContent内页面的宽度</em>
 
   @Builder
   tabBuilder(img: Resource) {
@@ -286,7 +280,7 @@ struct DragAction {
     .width('100%');
   }
 
-  // 计算背景的X偏移量
+  <em>// 计算背景的X偏移量</em>
   getBgOffset(index: number) {
     return index * this.barWidth + (this.barWidth - this.circleWidth) / 2;
   }
@@ -313,7 +307,7 @@ struct DragAction {
           .backgroundColor('#ffffff');
         });
       }
-      // 获取单个TabBar的宽度值、背景的X偏移量、tabContent内页面的宽度
+      <em>// 获取单个TabBar的宽度值、背景的X偏移量、tabContent内页面的宽度</em>
       .onAreaChange((old, current) => {
         console.info(`Succeeded in getting info.Old:${old.width},current:${current.width}.`);
         this.barWidth = Number(current.width) / this.iconList.length;
@@ -333,7 +327,7 @@ struct DragAction {
           iterations: 1
         }, () => {
           this.currentIndex = index;
-          // 重新偏移
+          <em>// 重新偏移</em>
           this.bgTransX = this.getBgOffset(index);
           this.currentIndex = index;
         });
@@ -342,27 +336,34 @@ struct DragAction {
       .height('100%')
       .width('100%')
       .backgroundColor('#ffffff')
-      // 滑动过程中：跟随手指滑动
+      <em>// 滑动过程中：跟随手指滑动</em>
       .onGestureSwipe((index: number, event: TabsAnimationEvent) => {
-        if (this.pageWidth // 松手后
+        if (this.pageWidth <= 0 || this.barWidth <= 0) {
+          return;
+        }
+        const ratio = event.currentOffset / this.pageWidth;
+        const from = this.getBgOffset(index);
+        this.bgTransX = from - ratio * this.barWidth;
+      })
+      <em>// 松手后</em>
       .onAnimationEnd((index: number) => {
         const targetIndex = index + 1;
-        const from = this.getBgOffset(index); // 当前Tab的中心位置
-        const to = this.getBgOffset(targetIndex); // 目标Tab的中心位置
+        const from = this.getBgOffset(index); <em>// 当前Tab的中心位置</em>
+        const to = this.getBgOffset(targetIndex); <em>// 目标Tab的中心位置</em>
         const totalMove = to - from;
         const currentMove = this.bgTransX - from;
-        const progress = Math.abs(currentMove / totalMove); // 滑动进度
+        const progress = Math.abs(currentMove / totalMove); <em>// 滑动进度</em>
         this.getUIContext().animateTo({
           delay: 0,
           duration: 200,
           curve: Curve.EaseOut,
           iterations: 1
         }, () => {
-          // 超过阈值，吸附到目标图标中心
+          <em>// 超过阈值，吸附到目标图标中心</em>
           if (progress >= this.threshold) {
             this.bgTransX = to;
           } else {
-            // 回弹原位置
+            <em>// 回弹原位置</em>
             this.bgTransX = from;
           }
         });
@@ -377,12 +378,12 @@ struct DragAction {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/rQwN3ZoCQkqIcYUfVgDs6Q/zh-cn_image_0000002658926577.png?HW-CC-KV=V1&HW-CC-Date=20260701T025725Z&HW-CC-Expire=86400&HW-CC-Sign=CDC4FCB6498D0FD86B07D47B9E527ABA63C31EA0F6471E3527B2ABDB6B986ACA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/rQwN3ZoCQkqIcYUfVgDs6Q/zh-cn_image_0000002658926577.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=B61B8461F7DF1F955A475159F2F15B525C09553C06EE9579216FB31761C95DEE)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么对SVG和PNG使用animateTo，最终动画效果不同？
  

@@ -3,18 +3,16 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-riskcontrolengine-api
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
-
-## StarShieldConfidentialRiskControlEngine（星盾机密风控引擎）
- 
 
 本模块提供获取风控评分的能力。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 import { riskControlEngine  } from '@kit.DeviceSecurityKit';
@@ -22,7 +20,9 @@ import { riskControlEngine  } from '@kit.DeviceSecurityKit';
  
   
 
-##### ValueType
+#### ValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type ValueType = number | boolean | string
  
@@ -45,7 +45,9 @@ type ValueType = number | boolean | string
  
   
 
-##### AppFactorData
+#### AppFactorData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 应用风险因子数据。
  
@@ -65,7 +67,9 @@ type ValueType = number | boolean | string
  
   
 
-##### ImportData
+#### ImportData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 导入应用风险因子数据。
  
@@ -85,7 +89,9 @@ type ValueType = number | boolean | string
  
   
 
-##### RiskControlDetectionRequest
+#### RiskControlDetectionRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 风控评分的请求参数。
  
@@ -105,7 +111,9 @@ type ValueType = number | boolean | string
  
   
 
-##### RiskControlDetectionResponse
+#### RiskControlDetectionResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 风控评分请求的返回对象。
  
@@ -124,7 +132,9 @@ type ValueType = number | boolean | string
  
   
 
-##### importRiskFactors
+#### importRiskFactors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 importRiskFactors(data: ImportData): Promise&lt;void&gt;
  
@@ -204,7 +214,9 @@ try {
  
   
 
-##### getRiskControlResult
+#### getRiskControlResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getRiskControlResult(req: RiskControlDetectionRequest): Promise&lt;RiskControlDetectionResponse&gt;
  
@@ -251,7 +263,7 @@ getRiskControlResult(req: RiskControlDetectionRequest): Promise&lt;RiskControlDe
  
 **示例：**
  
-```text
+```json
 import { riskControlEngine } from '@kit.DeviceSecurityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

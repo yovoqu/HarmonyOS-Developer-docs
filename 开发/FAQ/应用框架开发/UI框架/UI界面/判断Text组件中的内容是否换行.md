@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1438
 
-## 判断Text组件中的内容是否换行
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何获取Text组件每行显示的内容，并判断是否使用了换行符？
  
  
 
-##### 背景知识
+#### 背景知识
 
 在Text组件中，可以通过调用[getLayoutManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#getlayoutmanager12)接口来获取布局管理器对象[LayoutManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#layoutmanager12)，进而获得最新的布局信息。
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过调用getLayoutManager接口可以获取Text组件中每行显示的内容。将第i行文本的结束索引endIndex与第i+1行文本的起始索引startIndex进行对比，如果两者不相等，则表明该文本是通过换行符实现换行的。
  
@@ -41,7 +37,10 @@ struct TextPage3 {
           .onClick(() => {
             let layoutManager: LayoutManager = this.controller.getLayoutManager();
             let lineCount = layoutManager.getLineCount();
-            for (let i = 0; i    // 获取第i行的endIndex与第i+1行的startIndex相比较，如果不相同，则说明此文本存在换行行为
+            for (let i = 0; i < lineCount - 1; i++) {
+              if (layoutManager.getLineMetrics(i + 1).startIndex !==
+              layoutManager.getLineMetrics(i).endIndex) {
+             <em>   // 获取第i行的endIndex与第i+1行的startIndex相比较，如果不相同，则说明此文本存在换行行为</em>
                 console.info(util.format("第%s行存在使用换行符进行换行的行为", i + 1));
               } else {
                 console.info(util.format("第%s行不存在使用换行符进行换行的行为", i + 1));

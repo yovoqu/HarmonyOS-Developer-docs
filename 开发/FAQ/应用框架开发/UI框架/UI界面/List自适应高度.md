@@ -4,19 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1334
 
-## List自适应高度
- 
-
-
-##### 问题现象
-
-- List如何根据其中ListItem的高度，进行高度的自适应？
-- 页面包含三个纵向排列的子组件，中间的List组件需要实现动态高度：当列表项较少时，List与父容器高度自适应内容；当列表项充满父容器时，List自动占满剩余空间并启用滚动。请问如何实现这种动态布局效果？
-
+#### 问题现象
+1. List如何根据其中ListItem的高度，进行高度的自适应？
+2. 页面包含三个纵向排列的子组件，中间的List组件需要实现动态高度：当列表项较少时，List与父容器高度自适应内容；当列表项充满父容器时，List自动占满剩余空间并启用滚动。请问如何实现这种动态布局效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)是用于展示动态数据集合的核心组件，支持滚动、动态更新等特性。
 - [onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)事件在组件区域变化时触发该回调。仅会响应由布局变化所导致的组件大小、位置发生变化时的回调。可以使用该组件获取组件的高度。
@@ -25,9 +19,8 @@
  
  
 
-##### 解决方案
-
-- 通过给ListItem添加onAreaChange事件，通过回调获取每个ListItem组件的高度，通过对比将最大值赋值给List组件的height属性：
+#### 解决方案
+1. 通过给ListItem添加onAreaChange事件，通过回调获取每个ListItem组件的高度，通过对比将最大值赋值给List组件的height属性：
 ```text
 @Entry
 @Component
@@ -78,10 +71,11 @@ struct listDemoFirst {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/wB60kjzRQyOCv8kSWrlrrw/zh-cn_image_0000002628600018.png?HW-CC-KV=V1&HW-CC-Date=20260701T025700Z&HW-CC-Expire=86400&HW-CC-Sign=7B4775B345E754A08DB7EFB4337B80C240B1FA0AC50E815AA7AA91E770796B4E)
 
-- 在父容器高度受限的场景下，可通过List组件的constraintSize接口中的[ConstraintSizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#constraintsizeoptions)属性设置maxHeight参数控制最大高度，实现动态伸缩布局。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/wB60kjzRQyOCv8kSWrlrrw/zh-cn_image_0000002628600018.png?HW-CC-KV=V1&HW-CC-Date=20260701T041140Z&HW-CC-Expire=86400&HW-CC-Sign=7D199302205A0C28B5EA466F1B110121B27AE50333D9034D9E11B97F2AC7D9A9)
+
+2. 在父容器高度受限的场景下，可通过List组件的constraintSize接口中的[ConstraintSizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#constraintsizeoptions)属性设置maxHeight参数控制最大高度，实现动态伸缩布局。
 ```text
 @Entry
 @Component
@@ -130,14 +124,14 @@ struct Index {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/2IXyqgVSRYSLNDecfyFHQg/zh-cn_image_0000002628759924.png?HW-CC-KV=V1&HW-CC-Date=20260701T025700Z&HW-CC-Expire=86400&HW-CC-Sign=B5C20BDF248A967B123AEF8C197A07F25AC3B3939C23012DB0CC42088877446D)
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/2IXyqgVSRYSLNDecfyFHQg/zh-cn_image_0000002628759924.png?HW-CC-KV=V1&HW-CC-Date=20260701T041140Z&HW-CC-Expire=86400&HW-CC-Sign=13DE77C43779349ECB42EE1B09430C69E3E147CDBD21D6749F2780833503342E)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：在问题现象2中若无法确定其他子组件的高度，maxHeight该如何确定需要减去的高度？
  

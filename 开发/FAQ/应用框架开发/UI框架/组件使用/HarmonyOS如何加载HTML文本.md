@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1051
 
-## HarmonyOS如何加载HTML文本
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS组件如何实现加载富文本HTML文本。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [RichText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richtext)组件适用于加载与显示一段HTML字符串，且不需要对显示效果进行较多自定义的应用场景。
 - [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)：支持图文混排和文本交互式编辑的组件。
@@ -25,7 +21,7 @@ HarmonyOS组件如何实现加载富文本HTML文本。
  
  
 
-##### 解决方案
+#### 解决方案
 
 由背景知识可知，有以下三种解决方案可以实现HarmonyOS加载HTML文本。
  
@@ -35,11 +31,11 @@ HarmonyOS组件如何实现加载富文本HTML文本。
 @Entry
 @Component
 struct Solution3Page {
-  data: string = '穿越时空回到过去我也是一个人才了' +
-    '神作大赏' +
-    '#我重生在国庆放假的前一天' + '' +
-    '《苏梅梅的超市》' +
-    '' + '';
+  data: string = '<p style="color:black;font-size:50px;font-weight:800">穿越时空回到过去我也是一个人才了</p>' +
+    '<p style="color:black;font-size:50px;">神作大赏</p>' +
+    '<span style="color:blue;font-size:50px;">#我重生在国庆放假的前一天</span>' + '</p><p>' +
+    '<a style="color:blue;font-size:40px;" href="https://developer.huawei.com/consumer/cn/discover/" >《苏梅梅的超市》</a>' +
+    '</p><p>' + '<br/>';
   controller: RichEditorController = new RichEditorController();
   options: RichEditorOptions = { controller: this.controller };
 
@@ -72,11 +68,11 @@ struct Solution2Page {
   private controller: RichEditorController = new RichEditorController();
   @State StyledString: StyledString | undefined = undefined;
   message: string =
-    '啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦';
+    '<span style="font-size: 16.00px;font-style: normal;font-weight: normal;color: #000000E5;">啦啦啦</span><span style="font-size: 16.00px;font-style: normal;font-weight: normal;color: #FF0000FF;">啦</span><span style="font-size: 16.00px;font-style: normal;font-weight: normal;color: #000000E5;">啦啦</span><span style="font-size: 16.00px;font-style: normal;font-weight: bolder;color: #000000E5;">啦</span><span style="font-size: 16.00px;font-style: normal;font-weight: normal;color: #000000E5;">啦啦啦啦啦啦啦啦啦啦</span>';
 
   aboutToAppear(): void {
     StyledString.fromHtml(this.message).then((StyledString: StyledString) => {
-      this.StyledString = StyledString; // 将html转属性字符串
+      this.StyledString = StyledString;<em> // 将html转属性字符串</em>
     });
   }
 
@@ -86,8 +82,8 @@ struct Solution2Page {
         .height('35%')
         .border({ width: 1, color: Color.Blue })
         .onReady(() => {
-          let t = this.controller.fromStyledString(this.StyledString); // 将属性字符串
-          t.forEach(item => { // 编辑span并添加
+          let t = this.controller.fromStyledString(this.StyledString);<em> // 将属性字符串</em>
+          t.forEach(item => {<em> // 编辑span并添加</em>
             this.controller.addTextSpan((item as RichEditorTextSpanResult).value,
               { style: (item as RichEditorTextSpanResult).textStyle });
           });
@@ -101,7 +97,7 @@ struct Solution2Page {
  
 方案三：Web组件可以通过loadData()接口实现加载HTML格式的文本数据。当开发者不需要加载整个页面，只需要显示一些页面片段时，可通过此功能来快速加载页面，当加载大量HTML文件时，需设置第四个参数baseUrl为"data"。示例代码如下：
  
-```text
+```json
 import { webview } from '@kit.ArkWeb';
 import call from '@ohos.telephony.call';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -111,8 +107,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct WebComponent {
   controller: webview.WebviewController = new webview.WebviewController();
   msg: string =
-    '' + '' +
-      '登录遇到问题？请联系官方客服021-60314450服务时间：工作日9:00-19:00';
+    '<!DOCTYPE html>' + '<html><body><header></header>' +
+      '<p style="font-size:60px">登录遇到问题？请联系官方客服</p><a href=\'tel:021-60314450\'>021-60314450</a><br>服务时间：工作日9:00-19:00</body></html>';
 
   build() {
     Column() {
@@ -142,7 +138,7 @@ struct WebComponent {
  
  
 
-##### 总结
+#### 总结
 
 以上介绍了HarmonyOS中主流富文本方案和可运行示例代码，可以总结出以下差异点，在实际使用过程中，可以根据适用场景来选择合适的方案实现加载富文本HTML。
   

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1508
 
-## 如何通过Swiper实现可见式卡片轮播效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用Swiper组件实现在当前页面可显示出上/下一页部分内容，并且在滑动切换过程中有缩放动效，实现卡片轮播效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 滑块视图容器组件[Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)，提供子组件滑动轮播显示的能力。简单介绍实现该功能需要用到的属性以及事件：
  
@@ -31,33 +27,34 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方案一：将回调onGestureSwipe、onAnimationStart、onChange、onAnimationEnd组合使用实现轮播效果。使用prevMargin与nextMargin属性设置前边距、后边距，并且通过onGestureSwipe、onAnimationStart、onChange、onAnimationEnd回调事件修改当前页、前一页、后一页的scale值，从而实现突出中间项缩小前后两项的效果，代码实现如下：
- 
-注册回调函数GestureSwiperEvent，在页面跟手滑动过程中，逐帧触发该回调。
+
+1. 注册回调函数GestureSwiperEvent，在页面跟手滑动过程中，逐帧触发该回调。
 ```text
 GestureSwiperEvent(index: number, extraInfo: SwiperAnimationEvent) {
-  // 记录当前页初始状态时相对于Swiper起始位置的位移
+<em>  // 记录当前页初始状态时相对于Swiper起始位置的位移</em>
   if (this.startSwiperOffset === 0) {
     this.startSwiperOffset = extraInfo.currentOffset;
   }
-  // 记录Swiper当前显示元素在主轴方向上，相对于Swiper起始位置的位移。
+ <em> // 记录Swiper当前显示元素在主轴方向上，相对于Swiper起始位置的位移。</em>
   let offset: number = extraInfo.currentOffset;
   let nextIndex = (index === this.scaleArray.length - 1 ? 0 : index + 1);
   let preIndex = (index === 0 ? this.scaleArray.length - 1 : index - 1);
-  // 记录当前页的缩放倍数
+ <em> // 记录当前页的缩放倍数</em>
   let currentScale: number = 0;
-  // 记录下一页的缩放倍数
+<em>  // 记录下一页的缩放倍数</em>
   let nextScale: number = 0;
-  // 记录上一页的缩放倍数
+ <em> // 记录上一页的缩放倍数</em>
   let preScale: number = 0;
-  // 计算当前页的滑动距离吧
+ <em> // 计算当前页的滑动距离吧</em>
   let distance = Math.abs(this.startSwiperOffset - offset);
-  // 通过滑动距离控制当前页面缩小倍数，通过Math.min控制最小为MIN_SCALE
+<em>  // 通过滑动距离控制当前页面缩小倍数，通过Math.min控制最小为MIN_SCALE</em>
   currentScale = MAX_SCALE - Math.min(distance / DRAGGING_MAX_DISTANCE, MAX_SCALE - MIN_SCALE);
-  // 判断滑动方向
-  if (offset  // 通过滑动距离控制下一个页面放大倍数，通过Math.min控制最大为MAX_SCALE
+<em>  // 判断滑动方向</em>
+  if (offset < this.startSwiperOffset) {
+   <em> // 通过滑动距离控制下一个页面放大倍数，通过Math.min控制最大为MAX_SCALE</em>
     nextScale = MIN_SCALE + Math.min(distance / DRAGGING_MAX_DISTANCE, MAX_SCALE - MIN_SCALE);
     preScale = MIN_SCALE;
   } else {
@@ -70,39 +67,42 @@ GestureSwiperEvent(index: number, extraInfo: SwiperAnimationEvent) {
 }
 ```
 
-- 注册回调函数AnimationStartEvent，切换动画开始时触发该回调。
+
+2. 注册回调函数AnimationStartEvent，切换动画开始时触发该回调。
 ```text
 AnimationStartEvent(index: number, targetIndex: number) {
-  // 若元素当前页面为最后一页，则下一页置为0，否则置为targetIndex+1
+ <em> // 若元素当前页面为最后一页，则下一页置为0，否则置为targetIndex+1</em>
   let nextIndex = (targetIndex === this.scaleArray.length - 1 ? 0 : targetIndex + 1);
-  // 若元素当前页面为第一页，则上一页置为最后一项的targetIndex，否则置为targetIndex-1
+ <em> // 若元素当前页面为第一页，则上一页置为最后一项的targetIndex，否则置为targetIndex-1</em>
   let preIndex = (targetIndex === 0 ? this.scaleArray.length - 1 : targetIndex - 1);
-  // 将当前页scale放大比例置为MAX_SCALE，上一页与下一页都置为MIN_SCALE
+ <em> // 将当前页scale放大比例置为MAX_SCALE，上一页与下一页都置为MIN_SCALE</em>
   this.scaleArray[targetIndex] = MAX_SCALE;
   this.scaleArray[nextIndex] = MIN_SCALE;
   this.scaleArray[preIndex] = MIN_SCALE;
 }
 ```
 
-- 注册回调函数ChangeEvent，当前显示的子组件索引变化时触发。
+
+3. 注册回调函数ChangeEvent，当前显示的子组件索引变化时触发。
 ```text
 ChangeEvent(index: number) {
   this.currentIndex = index;
 }
 ```
 
-- 注册回调函数AnimationEndEvent，当切换动效结束时触发该回调。
+
+4. 注册回调函数AnimationEndEvent，当切换动效结束时触发该回调。
 ```text
 AnimationEndEvent() {
-  // startSwiperOffset重置为0
+<em>  // startSwiperOffset重置为0</em>
   this.startSwiperOffset = 0;
 }
 ```
 
 
- 
-完整示例代码如下：
- 
+  完整示例代码如下：
+
+  
 ```text
 class MyOwnDataSource implements IDataSource {
   private list: string[] = [];
@@ -126,16 +126,16 @@ class MyOwnDataSource implements IDataSource {
   }
 }
 
-// 最大缩放
+<em>// 最大缩放</em>
 const MAX_SCALE = 1;
-// 最小缩放
+<em>// 最小缩放</em>
 const MIN_SCALE = 0.8;
-// 可通过以下两个参数变化观察效果，然后优化
-// 子控件动画时长
+<em>// 可通过以下两个参数变化观察效果，然后优化</em>
+<em>// 子控件动画时长</em>
 const PAGE_DURATION = 100;
-// swiper组件切换动画时长
+<em>// swiper组件切换动画时长</em>
 const SWIPER_DURATION = 500;
-// 拖动时用来计算缩放，影响拖动缩放速度，可根据屏幕尺寸来定
+<em>// 拖动时用来计算缩放，影响拖动缩放速度，可根据屏幕尺寸来定</em>
 const DRAGGING_MAX_DISTANCE = 1000;
 
 @Entry
@@ -145,29 +145,30 @@ struct SwiperPageOne {
   private data: MyOwnDataSource = new MyOwnDataSource([]);
   @State currentIndex: number = 0;
   @State scaleArray: number[] = [];
-  startSwiperOffset: number = 0; // Swiper当前显示元素在主轴方向上，相对于Swiper起始位置的位移
+  startSwiperOffset: number = 0;<em> // Swiper当前显示元素在主轴方向上，相对于Swiper起始位置的位移</em>
 
   GestureSwiperEvent(index: number, extraInfo: SwiperAnimationEvent) {
-    // 记录当前页初始状态时相对于Swiper起始位置的位移
+   <em> // 记录当前页初始状态时相对于Swiper起始位置的位移</em>
     if (this.startSwiperOffset === 0) {
       this.startSwiperOffset = extraInfo.currentOffset;
     }
-    // 记录Swiper当前显示元素在主轴方向上，相对于Swiper起始位置的位移。
+  <em>  // 记录Swiper当前显示元素在主轴方向上，相对于Swiper起始位置的位移。</em>
     let offset: number = extraInfo.currentOffset;
     let nextIndex = (index === this.scaleArray.length - 1 ? 0 : index + 1);
     let preIndex = (index === 0 ? this.scaleArray.length - 1 : index - 1);
-    // 记录当前页的缩放倍数
+ <em>   // 记录当前页的缩放倍数</em>
     let currentScale: number = 0;
-    // 记录下一页的缩放倍数
+  <em>  // 记录下一页的缩放倍数</em>
     let nextScale: number = 0;
-    // 记录上一页的缩放倍数
+   <em> // 记录上一页的缩放倍数</em>
     let preScale: number = 0;
-    // 计算当前页的滑动距离吧
+ <em>   // 计算当前页的滑动距离吧</em>
     let distance = Math.abs(this.startSwiperOffset - offset);
-    // 通过滑动距离控制当前页面缩小倍数，通过Math.min控制最小为MIN_SCALE
+   <em> // 通过滑动距离控制当前页面缩小倍数，通过Math.min控制最小为MIN_SCALE</em>
     currentScale = MAX_SCALE - Math.min(distance / DRAGGING_MAX_DISTANCE, MAX_SCALE - MIN_SCALE);
-    // 判断滑动方向
-    if (offset   // 通过滑动距离控制下一个页面放大倍数，通过Math.min控制最大为MAX_SCALE
+  <em>  // 判断滑动方向</em>
+    if (offset < this.startSwiperOffset) {
+    <em>  // 通过滑动距离控制下一个页面放大倍数，通过Math.min控制最大为MAX_SCALE</em>
       nextScale = MIN_SCALE + Math.min(distance / DRAGGING_MAX_DISTANCE, MAX_SCALE - MIN_SCALE);
       preScale = MIN_SCALE;
     } else {
@@ -180,11 +181,11 @@ struct SwiperPageOne {
   }
 
   AnimationStartEvent(index: number, targetIndex: number) {
-    // 若元素当前页面为最后一页，则下一页置为0，否则置为targetIndex+1
+  <em>  // 若元素当前页面为最后一页，则下一页置为0，否则置为targetIndex+1</em>
     let nextIndex = (targetIndex === this.scaleArray.length - 1 ? 0 : targetIndex + 1);
-    // 若元素当前页面为第一页，则上一页置为最后一项的targetIndex，否则置为targetIndex-1
+   <em> // 若元素当前页面为第一页，则上一页置为最后一项的targetIndex，否则置为targetIndex-1</em>
     let preIndex = (targetIndex === 0 ? this.scaleArray.length - 1 : targetIndex - 1);
-    // 将当前页scale放大比例置为MAX_SCALE，上一页与下一页都置为MIN_SCALE
+  <em>  // 将当前页scale放大比例置为MAX_SCALE，上一页与下一页都置为MIN_SCALE</em>
     this.scaleArray[targetIndex] = MAX_SCALE;
     this.scaleArray[nextIndex] = MIN_SCALE;
     this.scaleArray[preIndex] = MIN_SCALE;
@@ -195,13 +196,23 @@ struct SwiperPageOne {
   }
 
   AnimationEndEvent() {
-    // startSwiperOffset重置为0
+  <em>  // startSwiperOffset重置为0</em>
     this.startSwiperOffset = 0;
   }
 
   aboutToAppear(): void {
     let list: string[] = [];
-    for (let i = 0; i  {
+    for (let i = 0; i <= 5; i++) {
+      list.push(i.toString());
+      this.scaleArray.push(i === 0 ? MAX_SCALE : MIN_SCALE);
+    }
+    this.data = new MyOwnDataSource(list);
+  }
+
+  build() {
+    Column({ space: 25 }) {
+      Swiper(this.swiperController) {
+        LazyForEach(this.data, (item: string, index: number) => {
           Column() {
             Text(item)
               .width(40)
@@ -212,7 +223,7 @@ struct SwiperPageOne {
           .width('100%')
           .height('100%')
           .backgroundColor('#F7B0BB')
-          // 通过scale控制缩放倍数
+       <em>   // 通过scale控制缩放倍数</em>
           .scale({ x: this.scaleArray[index], y: this.scaleArray[index] })
           .animation({
             duration: PAGE_DURATION,
@@ -234,19 +245,19 @@ struct SwiperPageOne {
       .curve(Curve.Linear)
       .backgroundColor(0xcccccc)
       .onGestureSwipe((index: number, extraInfo: SwiperAnimationEvent) => {
-        // 调用回调函数GestureSwiperEvent()
+     <em>   // 调用回调函数GestureSwiperEvent()</em>
         this.GestureSwiperEvent(index, extraInfo);
       })
       .onAnimationStart((index: number, targetIndex: number) => {
-        // 调用回调函数AnimationStartEvent()
+       <em> // 调用回调函数AnimationStartEvent()</em>
         this.AnimationStartEvent(index, targetIndex);
       })
       .onChange((index: number) => {
-        // 调用回调函数ChangeEvent()
+      <em>  // 调用回调函数ChangeEvent()</em>
         this.ChangeEvent(index);
       })
       .onAnimationEnd(() => {
-        // 调用回调函数AnimationEndEvent()
+      <em>  // 调用回调函数AnimationEndEvent()</em>
         this.AnimationEndEvent();
       });
     }
@@ -256,20 +267,20 @@ struct SwiperPageOne {
   }
 }
 ```
- 
-实现效果如下：
- 
+ 实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/Xc-Gwle5SOiIq6KKqtuhhQ/zh-cn_image_0000002628606554.png?HW-CC-KV=V1&HW-CC-Date=20260701T025656Z&HW-CC-Expire=86400&HW-CC-Sign=EF14F39CC4C3F7A919A9567FC135A70AB6DE515E65E9DB7C95C4BCC54EB23711)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/Xc-Gwle5SOiIq6KKqtuhhQ/zh-cn_image_0000002628606554.png?HW-CC-KV=V1&HW-CC-Date=20260701T041214Z&HW-CC-Expire=86400&HW-CC-Sign=7CA21B3783F5803F8BA52B2575847758C8B0D90F260F6D1CA3D5375F211EC3D8)
 
- - 方案二：通过自定义页面切换的动画来实现图片滑动过程中的缩放效果。
-创建继承IDataSource的类MyDataSource，监听滑动的图片。
-- 图片展示时，在onChange中根据当前图片的索引，来确定前后图片的缩放值。
-- 在customContentTransition中获取SwiperContentTransitionProxy回调的proxy对象，根据对象的属性selectedIndex、index、position、mainAxisLength计算滑动图片的缩放值，实现滑动时的缩放效果。
+- 方案二：通过自定义页面切换的动画来实现图片滑动过程中的缩放效果。1. 创建继承IDataSource的类MyDataSource，监听滑动的图片。
 
- 
-完整示例代码如下：
- 
+2. 图片展示时，在onChange中根据当前图片的索引，来确定前后图片的缩放值。
+
+3. 在customContentTransition中获取SwiperContentTransitionProxy回调的proxy对象，根据对象的属性selectedIndex、index、position、mainAxisLength计算滑动图片的缩放值，实现滑动时的缩放效果。
+
+  完整示例代码如下：
+
+  
 ```text
 class MyDataSource implements IDataSource {
   private listeners: DataChangeListener[] = [];
@@ -288,12 +299,21 @@ class MyDataSource implements IDataSource {
   }
 
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener) // 最大缩放
-const MIN_SIZE = 0.75; // 最小缩放
-// 可通过以下两个参数变化观察效果，然后优化
-const PAGE_TIME = 200; // 子控件动画时长
-const SWIPER_TIME = 300; // swiper组件切换动画时长
-// 拖动时用来计算缩放，影响拖动缩放速度，可根据屏幕尺寸来定
+    if (this.listeners.indexOf(listener) < 0) {
+      this.listeners.push(listener);
+    }
+  }
+
+  unregisterDataChangeListener() {
+  }
+}
+
+const MAX_SIZE = 1; <em>// 最大缩放</em>
+const MIN_SIZE = 0.75; <em>// 最小缩放</em>
+<em>// 可通过以下两个参数变化观察效果，然后优化</em>
+const PAGE_TIME = 200;<em> // 子控件动画时长</em>
+const SWIPER_TIME = 300; <em>// swiper组件切换动画时长</em>
+<em>// 拖动时用来计算缩放，影响拖动缩放速度，可根据屏幕尺寸来定</em>
 const DRAGGING_MAX_LENGTH = 1000;
 const DISPLAY_TIME: number = 1;
 
@@ -303,8 +323,8 @@ struct SwiperPageTwo {
   private swiperController: SwiperController = new SwiperController();
   private data: MyDataSource = new MyDataSource([]);
   @State currentIndex: number = 0;
-  @State scaleArray: number[] = []; // 缩放值
-  startSwiperOffset: number = 0; // 开始滑动距离
+  @State scaleArray: number[] = [];<em> // 缩放值</em>
+  startSwiperOffset: number = 0; <em>// 开始滑动距离</em>
   imageArr: string[] = [
     'app.media.drag_and_exchange_ic_public_app1', // app.media.drag_and_exchange_ic_public_app1仅供参考，需要自行配置。
     'app.media.drag_and_exchange_ic_public_app2', // app.media.drag_and_exchange_ic_public_app2仅供参考，需要自行配置。
@@ -316,9 +336,19 @@ struct SwiperPageTwo {
 
   aboutToAppear(): void {
     let list: string[] = [];
-    for (let i = 0; i  {
+    for (let i = 0; i <= 5; i++) {
+      list.push(this.imageArr[i]);
+      this.scaleArray.push(i === 0 ? MAX_SIZE : MIN_SIZE);
+    }
+    this.data = new MyDataSource(list);
+  }
+
+  build() {
+    Column({ space: 25 }) {
+      Swiper(this.swiperController) {
+        LazyForEach(this.data, (item: string, index: number) => {
           Column() {
-            // swiper内容区域
+          <em>  // swiper内容区域</em>
             Image($r(item))
               .width(200)
               .height(250);
@@ -348,41 +378,41 @@ struct SwiperPageTwo {
       .curve(Curve.Linear)
       .onChange((index) => {
         this.currentIndex = index;
-        // 设置当前index缩放值为最大值
+       <em> // 设置当前index缩放值为最大值</em>
         this.scaleArray[this.currentIndex] = MAX_SIZE;
         if (this.currentIndex === 0) {
-          // 当前index=0时，设置上一张图片的缩放值
+         <em> // 当前index=0时，设置上一张图片的缩放值</em>
           this.scaleArray[this.scaleArray.length - 1] = MIN_SIZE;
         } else {
-          // 当前index不为0时，设置上一张图片的缩放值
+         <em> // 当前index不为0时，设置上一张图片的缩放值</em>
           this.scaleArray[this.currentIndex -1] = MIN_SIZE;
         }
 
         if (this.currentIndex === this.scaleArray.length - 1) {
-          // 当index为最后一张图片时，设置下一张图片的缩放值
+        <em>  // 当index为最后一张图片时，设置下一张图片的缩放值</em>
           this.scaleArray[0] = MIN_SIZE;
         } else {
-          // 当index不为最后一张时，设置下一张图片的缩放值
+        <em>  // 当index不为最后一张时，设置下一张图片的缩放值</em>
           this.scaleArray[this.currentIndex + 1] = MIN_SIZE;
         }
       })
       .customContentTransition({
-        // 页面移除视窗时超时1000ms下渲染树
+       <em> // 页面移除视窗时超时1000ms下渲染树</em>
         timeout: 1000,
-        // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画
+      <em>  // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画</em>
         transition: (proxy: SwiperContentTransitionProxy) => {
           if (this.startSwiperOffset === 0) {
             this.startSwiperOffset = proxy.position * proxy.mainAxisLength;
           }
-          let offset: number = proxy.position * proxy.mainAxisLength; // 移动距离
-          let currentScale: number = this.scaleArray[proxy.index]; // 当前index缩放值
-          let nextIndex = (proxy.index === this.scaleArray.length - 2 ? 0 : proxy.index + 1); // 计算下一个index
-          let preIndex = (proxy.index === 0 ? this.scaleArray.length - 2 : proxy.index - 1); // 计算上一个index
-          let nextScale: number = this.scaleArray[nextIndex]; // 下一个index缩放值
-          let preScale: number = this.scaleArray[preIndex]; // 上一个index缩放值
-          // 滑动距离
+          let offset: number = proxy.position * proxy.mainAxisLength;<em> // 移动距离</em>
+          let currentScale: number = this.scaleArray[proxy.index]; <em>// 当前index缩放值</em>
+          let nextIndex = (proxy.index === this.scaleArray.length - 2 ? 0 : proxy.index + 1); <em>// 计算下一个index</em>
+          let preIndex = (proxy.index === 0 ? this.scaleArray.length - 2 : proxy.index - 1);<em> // 计算上一个index</em>
+          let nextScale: number = this.scaleArray[nextIndex]; <em>// 下一个index缩放值</em>
+          let preScale: number = this.scaleArray[preIndex]; <em>// 上一个index缩放值</em>
+         <em> // 滑动距离</em>
           let distance = Math.abs(offset);
-          currentScale = MAX_SIZE - Math.min(distance / DRAGGING_MAX_LENGTH, MAX_SIZE - MIN_SIZE); // 当前缩放值
+          currentScale = MAX_SIZE - Math.min(distance / DRAGGING_MAX_LENGTH, MAX_SIZE - MIN_SIZE); <em>// 当前缩放值</em>
           if (this.startSwiperOffset > offset) {
             nextScale = MIN_SIZE + Math.min(distance / DRAGGING_MAX_LENGTH, MAX_SIZE - MIN_SIZE);
             preScale = MIN_SIZE;
@@ -390,9 +420,9 @@ struct SwiperPageTwo {
             preScale = MIN_SIZE + Math.min(distance / DRAGGING_MAX_LENGTH, MAX_SIZE - MIN_SIZE);
             nextScale = MIN_SIZE;
           }
-          this.scaleArray[this.currentIndex] = currentScale; // 当前index缩放值
-          this.scaleArray[nextIndex] = nextScale; // 下一个index缩放值
-          this.scaleArray[preIndex] = preScale; // 上一个index缩放值
+          this.scaleArray[this.currentIndex] = currentScale;<em> // 当前index缩放值</em>
+          this.scaleArray[nextIndex] = nextScale; <em>// 下一个index缩放值</em>
+          this.scaleArray[preIndex] = preScale; <em>// 上一个index缩放值</em>
         }
       });
     }
@@ -401,8 +431,7 @@ struct SwiperPageTwo {
   }
 }
 ```
- 
-实现效果如下：
- 
+ 实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/4FKw2it6RCaycQt8TndqDg/zh-cn_image_0000002658845803.png?HW-CC-KV=V1&HW-CC-Date=20260701T025656Z&HW-CC-Expire=86400&HW-CC-Sign=B898B6993ABA9675597923C9BE44426DC250B57FF93AC06219F48873447523B5)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/4FKw2it6RCaycQt8TndqDg/zh-cn_image_0000002658845803.png?HW-CC-KV=V1&HW-CC-Date=20260701T041214Z&HW-CC-Expire=86400&HW-CC-Sign=3E2D0A63090C40161960D2E84DB1F8126724C3104B8552BB08C57B2C9B7C2BE6)

@@ -4,31 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1644
 
-## 如何实现Navigation的单栏与分栏模式动态切换的效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Navigation在平板上会默认显示双栏，在手机默认显示单栏，如何实现页面单栏与分栏切换显示的功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的分栏模式由[mode属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#mode9)控制，包括单栏（Stack）、分栏（Split）和自适应（Auto）三个属性。该属性默认为Auto模式，在该模式下会自动监听屏幕属性，当为折叠屏或平板时，默认分栏显示，在折叠状态或普通手机时可为单栏显示。可通过[状态管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview)实现动态切换mode属性的单栏与分栏模式，实现子页的放大效果。
-- 状态管理中的[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#appstorage)能实现全局的UI状态存储且通过[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)可以和AppStorage中key对应的属性建立双向数据同步：
-StorageLink装饰的变量本地发生修改后，该修改会被写回AppStorage中。
-- AppStorage中的修改发生后，该修改会被同步到所有绑定AppStorage对应key的属性上实现状态同步，包括单向（@StorageProp和通过Prop创建的单向绑定变量）、双向（@StorageLink和通过Link创建的双向绑定变量）变量和其他实例（比如PersistentStorage）。
+- 状态管理中的[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#appstorage)能实现全局的UI状态存储且通过[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)可以和AppStorage中key对应的属性建立双向数据同步：1. StorageLink装饰的变量本地发生修改后，该修改会被写回AppStorage中。
+
+2. AppStorage中的修改发生后，该修改会被同步到所有绑定AppStorage对应key的属性上实现状态同步，包括单向（@StorageProp和通过Prop创建的单向绑定变量）、双向（@StorageLink和通过Link创建的双向绑定变量）变量和其他实例（比如PersistentStorage）。
 
  
  
- 
 
-##### 解决方案
+#### 解决方案
 
-- **场景一：特定子页面缩小与放大。**
-通过@StorageLink创建状态管理变量isSplit控制Navigation组件的mode属性。
+- **场景一：特定子页面缩小与放大。**1. 通过@StorageLink创建状态管理变量isSplit控制Navigation组件的mode属性。
 ```text
 @Entry
 @Component
@@ -37,7 +31,7 @@ struct MainPage {
   @StorageLink('isSplit') isSplit: boolean = true;
 
 
-  // 跳转回主页时重新修改为分栏模式，根据实际需求设置
+  <em>// 跳转回主页时重新修改为分栏模式，根据实际需求设置</em>
   aboutToAppear(): void {
     AppStorage.set('isSplit', true);
   }
@@ -62,7 +56,8 @@ struct MainPage {
 }
 ```
 
-- 通过AppStorage.set方法修改状态管理变量isSplit值，从而控制Navigation组件的mode属性，并刷新UI。
+
+2. 通过AppStorage.set方法修改状态管理变量isSplit值，从而控制Navigation组件的mode属性，并刷新UI。
 ```text
 @Builder
 export function NavPageOneBuilder() {
@@ -75,7 +70,7 @@ struct NavPageOne {
   @State message: string = '放大';
 
 
-  // 跳转回该页面时重新修改为分栏模式，根据实际需求设置
+<em>  // 跳转回该页面时重新修改为分栏模式，根据实际需求设置</em>
   aboutToAppear(): void {
     AppStorage.set('isSplit', true);
   }
@@ -86,7 +81,7 @@ struct NavPageOne {
       RelativeContainer() {
         Text(this.message)
           .onClick(() => {
-            let value = AppStorage.get('isSplit');
+            let value = AppStorage.get<boolean>('isSplit');
             if (value === false || value === undefined) {
               AppStorage.set('isSplit', true);
               this.message = '放大';
@@ -106,11 +101,11 @@ struct NavPageOne {
 }
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/5jZe4Y5BSBCZOhA01xDksQ/zh-cn_image_0000002628660996.png?HW-CC-KV=V1&HW-CC-Date=20260701T025657Z&HW-CC-Expire=86400&HW-CC-Sign=413E9F52CC24BC9B24D83AA1A68BDC03A93BF0F29B6E551CF0B2258035BF3608)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/5jZe4Y5BSBCZOhA01xDksQ/zh-cn_image_0000002628660996.png?HW-CC-KV=V1&HW-CC-Date=20260701T041159Z&HW-CC-Expire=86400&HW-CC-Sign=25363DE44CB04DB228B5697DCA913745D53892F82F5162BF660B9D68379409FC)
 
+- **场景二：跳转不同页面采用不同的模式设置。**在推送子页时修改Navigation模式，需要单栏显示的页面设置为false，需要分栏显示的页面设置为true。参考场景一，修改代码如下：
 
- - **场景二：跳转不同页面采用不同的模式设置。**在推送子页时修改Navigation模式，需要单栏显示的页面设置为false，需要分栏显示的页面设置为true。参考场景一，修改代码如下：
- 
+  
 ```text
 @Builder
 export function NavPageTwoBuilder() {
@@ -123,7 +118,7 @@ struct NavPageTwo {
   @State message: string = '缩小';
 
 
-  // 其它页面跳转该页面时，会先重置为单栏模式
+  <em>// 其它页面跳转该页面时，会先重置为单栏模式</em>
   aboutToAppear(): void {
     AppStorage.set('isSplit', false);
     this.message = '缩小';
@@ -135,7 +130,7 @@ struct NavPageTwo {
       RelativeContainer() {
         Text(this.message)
           .onClick(() => {
-            let value = AppStorage.get('isSplit');
+            let value = AppStorage.get<boolean>('isSplit');
             if (value === false || value === undefined) {
               AppStorage.set('isSplit', true);
               this.message = '放大';
@@ -180,7 +175,7 @@ struct NavPageTwo {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：[navBarWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbarwidth9)和[navBarWidthRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbarwidthrange10)属性是否可以实现子页放大的功能？
  
@@ -204,7 +199,7 @@ A：Navigation的mode属性虽然作用于整个容器，但是mode的改变只�
  
  
 
-##### 总结
+#### 总结
 
 对于Navigation设置单栏与分栏模式总结如下：
   

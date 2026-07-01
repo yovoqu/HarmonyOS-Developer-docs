@@ -4,35 +4,31 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1374
 
-## 在RichEditor中格式化展示字符串文本
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用缓存的数据使用字符串保存，其中包含如：#话题、@好友这一类自定义样式的内容，如何回显到RichEditor组件中？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/eXGb2EBwQv2kiZRipBt-tA/zh-cn_image_0000002628602040.png?HW-CC-KV=V1&HW-CC-Date=20260701T025612Z&HW-CC-Expire=86400&HW-CC-Sign=1EA6A63EA51AB1B958C3A575708277CBC4262CEF3A83A1E16F5F046421ED7913)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/eXGb2EBwQv2kiZRipBt-tA/zh-cn_image_0000002628602040.png?HW-CC-KV=V1&HW-CC-Date=20260701T041300Z&HW-CC-Expire=86400&HW-CC-Sign=113D432C5FDD4DA3E08E099FA837C49871C360A18A4D8F7E5071672F2A0D2ADA)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-richeditor)是支持图文混排和文本交互式编辑的组件，通常用于响应用户对图文混合内容的输入操作，例如可以输入图文的评论区。可以通过[addTextSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#addtextspan)添加文本内容以及[addBuilderSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#addbuilderspan11)添加@Builder装饰器修饰的内容。
  
  
 
-##### 解决方案
+#### 解决方案
 
 获取缓存数据时需要解析成对应格式后展示。用js正则匹配出需要的正常文本内容通过addTextSpan添加到输入框中，接着通过addBuilderSpan自定义样式内容插入后面。示例代码为：
  
-```text
+```json
 interface FormatText {
   'content': string;
   'sendFriend': SendFriendText[];

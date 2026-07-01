@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-726
 
-## GridRow布局如何设置滚动
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在开发时，如果直接在GridRow栅格布局组件中放置大量内容，导致其总高度超出父容器，页面将无法通过滚动来查看被遮挡的部分，影响了内容的完整展示和用户体验。当内容超出容器高度，如何进行滚动操作。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [GridRow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridrow)是用于创建栅格布局的核心组件，用于将子组件按行排列在网格中，支持自动对齐、响应式布局和样式定制。GridRow为栅格容器组件，需与[GridCol](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridcol)联合使用。
 - [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)：可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。例如当子组件的内容尺寸（高度或宽度）超过Scroll容器的可视区域时，用户可以通过滑动来浏览完整内容。它支持垂直、水平或双向滚动，是解决内容溢出的关键组件。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 由于GridRow组件本身不内置滚动功能，要实现内容溢出时滚动查看的效果，常见的解决方案是将GridRow嵌套在Scroll组件内部。通过为外层的Scroll组件设置一个明确的高度限制，当GridRow的实际高度超过这个限制时，滚动条便会自动激活。
  
@@ -30,10 +26,17 @@
 @Entry
 @Component
 struct GridRowExample {
-  @State gridRowData: Array = [];
+  @State gridRowData: Array<number> = [];
 
   aboutToAppear(): void {
-    for (let index = 0; index    // 使用Scroll组件包裹GridRow使其可以进行滚动
+    for (let index = 0; index < 20; index++) {
+      this.gridRowData.push(index);
+    }
+  }
+
+  build() {
+    Column() {
+   <em>   // 使用Scroll组件包裹GridRow使其可以进行滚动</em>
       Scroll() {
         GridRow({
           columns: 5,
@@ -77,7 +80,7 @@ struct GridRowExample {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：GridRow内设置多个GridCol组件后发现触摸响应区域与实际点击区域不匹配。
  

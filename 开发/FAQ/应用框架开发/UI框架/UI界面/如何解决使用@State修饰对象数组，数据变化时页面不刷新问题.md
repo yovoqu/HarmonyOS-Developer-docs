@@ -4,14 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1071
 
-## 如何解决使用@State修饰对象数组，数据变化时页面不刷新问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 场景一：使用@State修饰对象数组，未使用@Observed/@ObjectLink装饰器进行深度观测，所以修改深层属性时，页面不刷新。问题代码如下：
-```text
+```json
 class SceneOnePerson {
   name: string;
   age: number;
@@ -94,7 +90,7 @@ interface PerInfoModel {
 
 @Component
 struct SceneTwoFirstChild {
-  @ObjectLink info: PerInfo; // 必须创建子组件，并用@ObjectLink接收数据。
+  @ObjectLink info: PerInfo;<em> // 必须创建子组件，并用@ObjectLink接收数据。</em>
 
 
   build() {
@@ -162,7 +158,7 @@ struct SceneTwo {
 ```
 
 - 场景三：使用了@Observed/@ObjectLink装饰器进行深度观测，由于ForEach首次渲染与非首次渲染引起的页面不刷新。
-```text
+```json
 @Observed
 class SceneThreePerson {
   name: string;
@@ -228,13 +224,14 @@ struct SceneThree {
 }
 ```
  场景三问题现象如下，当想要将小张的年龄第二次修改为88时（89修改为88）UI不刷新：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/YZlwmk1mS7K1LVBhbqfe3g/zh-cn_image_0000002628407230.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=BE7405EF4ADE5819B54599D12FBDF26A9BC20AD97815D387596662590FCF62BF)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/YZlwmk1mS7K1LVBhbqfe3g/zh-cn_image_0000002628407230.png?HW-CC-KV=V1&HW-CC-Date=20260701T041211Z&HW-CC-Expire=86400&HW-CC-Sign=DDB177A8719927A8194917E31C856198F9575C701A367D52237ABAAAFB168CDB)
 
 
  
 
-##### 背景知识
+#### 背景知识
 
 - [@State装饰的变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)，或称为状态变量，一旦变量拥有了状态属性，就可以触发其直接绑定UI组件的刷新。当状态改变时，UI会发生对应的渲染改变。@State装饰器仅能观察到第一层的变化，但是在实际应用开发中，应用会根据开发需要，封装自己的数据模型。对于多层嵌套的情况，比如二维数组、对象数组，或者对象内嵌套对象，他们的第二层的属性变化是无法观察到的。例如：当装饰对象为对象数组时，可以观察到数组本身的赋值和添加、删除、更新数组的变化，但是数组项中属性的赋值观察不到。
 - [@Observed/@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)、[@ObsevedV2/@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)等，可用于嵌套场景的观察，可以用来观察二维数组、数组项Class、Class的属性是Class，这些深层的属性变化。@Observed/@ObjectLink修饰的对象，没有通过new的方式实例化时，不会具备深度观测的能力。比如通过JSON.parse()的方式反序列化的对象，即使被@Observed/@ObjectLink装饰器修饰，也不会具备深度观测的能力。
@@ -243,7 +240,7 @@ struct SceneThree {
  
  
 
-##### 解决方案
+#### 解决方案
 
 @State装饰的变量可以观察到简单类型的变量值变化，在状态管理V1中要想观察到Class中对象类型的某个属性的变化，可以使用@Observed/@ObjectLink装饰器。同时，需要注意是否违背装饰器的限制条件，以及是否违背其它组件原则，常见问题现象总结及解决方案如下：
   
@@ -255,9 +252,11 @@ struct SceneThree {
  
  
 - 场景一：使用@State修饰对象数组，未使用@Observed/@ObjectLink装饰器进行深度观测，所以修改深层属性时，页面不刷新。使用@Observed修饰类，使用@ObjectLink在子组件中接收需要深层观测的对象，且该对象若想要被深度观测必须使用new操作符实例化。
- 示例代码如下：
- 
-```text
+
+  示例代码如下：
+
+  
+```json
 @Observed
 class SceneOnePerson {
   name: string;
@@ -322,22 +321,24 @@ struct SceneOne {
   }
 }
 ```
- 
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/6ILoIri9RwaCwqmeF5urVA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=7D4398D1E5B03F758C701568B71D7675761FECEF4CC149A534CD6DDE7D712935)
- 
-如果存在@Observed装饰的类没有使用new操作符实例化的情况、或者存在无法使用@Observed装饰器装饰类的情况时，也无法刷新页面。可以通过[makeV1observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)、[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)方法将对象转化为可深度观测的对象，再进行刷新。适用的场景详见官网链接：[概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved#概述)。
- 
-
- 场景一实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/d6cqQHTlQ1GWVL7R2YW5lA/zh-cn_image_0000002658806489.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=7AA14668D30CD9D697940C944E38EBF58A60ADA87FBC0617A750572B72C186C9)
 
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/6ILoIri9RwaCwqmeF5urVA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T041211Z&HW-CC-Expire=86400&HW-CC-Sign=896647837DD63E272405AB3A5871FB08A7CEFFBB0E4D122295E49808822277FD)
  
-- 场景二：使用了@Observed/@ObjectLink装饰器进行深度观测，由于@ObjectLink只能观察一层属性导致的页面不刷新。当@ObjectLink修饰的变量含有嵌套类对象时，组件修改嵌套对象的属性，无法刷新UI。因为@ObjectLink仅能观察其代理的属性，无法观察到代理属性的嵌套对象属性。参考：[复杂嵌套对象属性更改失效](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink#复杂嵌套对象属性更改失效)。每一层被嵌套的对象都需要封装一个子组件并用@ObjectLink接收，才能实现页面刷新。
-使用@Observed分别修饰双层嵌套的类。
-- 自定义子组件SceneThreeFirstChild和SceneThreeSecondChild分别接收对应层级的对象，注意@ObjectLink装饰器不能在@Entry装饰的自定义组件中使用。示例代码如下：
+
+  如果存在@Observed装饰的类没有使用new操作符实例化的情况、或者存在无法使用@Observed装饰器装饰类的情况时，也无法刷新页面。可以通过[makeV1observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)、[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)方法将对象转化为可深度观测的对象，再进行刷新。适用的场景详见官网链接：[概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved#概述)。
+
+  场景一实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/d6cqQHTlQ1GWVL7R2YW5lA/zh-cn_image_0000002658806489.png?HW-CC-KV=V1&HW-CC-Date=20260701T041211Z&HW-CC-Expire=86400&HW-CC-Sign=9684DF4EA38BB3C453B4E0B193FB83F57F862C038CEE9D3512216BA683EBA876)
+
+
+ 
+- 场景二：使用了@Observed/@ObjectLink装饰器进行深度观测，由于@ObjectLink只能观察一层属性导致的页面不刷新。当@ObjectLink修饰的变量含有嵌套类对象时，组件修改嵌套对象的属性，无法刷新UI。因为@ObjectLink仅能观察其代理的属性，无法观察到代理属性的嵌套对象属性。参考：[复杂嵌套对象属性更改失效](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink#复杂嵌套对象属性更改失效)。每一层被嵌套的对象都需要封装一个子组件并用@ObjectLink接收，才能实现页面刷新。1. 使用@Observed分别修饰双层嵌套的类。
+
+2. 自定义子组件SceneThreeFirstChild和SceneThreeSecondChild分别接收对应层级的对象，注意@ObjectLink装饰器不能在@Entry装饰的自定义组件中使用。示例代码如下：
 ```text
 @Observed
 class PerInfo {
@@ -441,68 +442,105 @@ struct SceneTwo {
 }
 ```
  场景二实现效果如下，嵌套对象的每个层级的属性都可以实现UI刷新：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Oy8uaNKhRxK2tBL93N5tKg/zh-cn_image_0000002628567138.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=4F58E476523E6FAACE2C88E414D387E3E4C197241DCA5BA322ACA934049301CC)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Oy8uaNKhRxK2tBL93N5tKg/zh-cn_image_0000002628567138.png?HW-CC-KV=V1&HW-CC-Date=20260701T041211Z&HW-CC-Expire=86400&HW-CC-Sign=79F6901ECC0122E7BB4586E4A86122B6FBB763947A7783DDF407EB96DDA30D77)
 
 
- 
  
 - 场景三：使用了@Observed/@ObjectLink装饰器进行深度观测，由于ForEach首次渲染与非首次渲染引起的页面不刷新。当数组对象只修改对象的属性时，不会出现ForEach组件创建规则导致UI不刷新的问题。当数组存在替换或修改数组项时，页面的刷新需要考虑到[ForEach循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)中的键值生成规则与组件创建规则，导致的刷新问题。如果ForEach组件的keyGenerator创建规则函数缺省，框架默认的keyGenerator生成函数为(item: T, index: number) => { return index + '__' + JSON.stringify(item); }。
- 参考系统默认的keyGenerator创建规则，针对场景三问题代码现象中每一步修改的keyGenerator分析表如下：
- 
-初次创建时ListItem对应的，keyGenerator如下： 
+
+  参考系统默认的keyGenerator创建规则，针对场景三问题代码现象中每一步修改的keyGenerator分析表如下：
+
+1. 初次创建时ListItem对应的，keyGenerator如下：
+
 | ListItem显示内容 | keyGenerator |
+
 | --- | --- |
+
 | 姓名小张 年龄12 | 0__{"name":"小张","age":12} |
+
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
+
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
+
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
-- 修改小张年龄属性为13，keyGenerator如下： 
+
+2. 修改小张年龄属性为13，keyGenerator如下：
+
 | ListItem显示内容 | keyGenerator |
+
 | --- | --- |
+
 | 姓名小张 年龄13 | 0__{"name":"小张","age":12} |
+
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
+
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
+
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
- 
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/2s7FSuiGRBqKol69gNBecQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T041211Z&HW-CC-Expire=86400&HW-CC-Sign=FBDE7C4243226CED59F45621CB80BA5CADD36BC17223CEACAACDF729580113FC)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/2s7FSuiGRBqKol69gNBecQ/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=8F3AAA3E04277AFC8C4807AF05E03145E285BB8410D75097C771809B5AF2C01B)
- 
-对象数组中对象属性的修改不会刷新keyGenerator，只有修改数组会触发ForEach重新刷新，从而刷新keyGenerator。此时刷新不依靠组件重建，而是依靠状态管理刷新。
-- 通过修改数组项，修改小张年龄属性为88，keyGenerator如下： 
+  对象数组中对象属性的修改不会刷新keyGenerator，只有修改数组会触发ForEach重新刷新，从而刷新keyGenerator。此时刷新不依靠组件重建，而是依靠状态管理刷新。
+
+3. 通过修改数组项，修改小张年龄属性为88，keyGenerator如下：
+
 | ListItem显示内容 | keyGenerator |
+
 | --- | --- |
+
 | 姓名小张 年龄88 | 0__{"name":"小张","age":88} |
+
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
+
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
+
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
- 
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/96npjnjHQ1O_j3oz20dDGA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T041211Z&HW-CC-Expire=86400&HW-CC-Sign=6EA45A0BEE3CD170B7FD75307FC075336F5D947D6C5C135C8FB39E7266B61786)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/96npjnjHQ1O_j3oz20dDGA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=A58D4904BF24FB95F204E46E2928FD1FA501F08B4B1393B1F0CDBBE237EB9CF2)
- 
-修改的数组项，会触发keyGenerator刷新，使得ForEach重建小张所在的组件，并将小张的年龄刷新为88。
-- 修改小张年龄属性为89，keyGenerator如下：（实现原理与第2步一致，都是状态管理深层嵌套对象属性的刷新，没有直接修改数组属于ForEach的非首次渲染。） 
+  修改的数组项，会触发keyGenerator刷新，使得ForEach重建小张所在的组件，并将小张的年龄刷新为88。
+
+4. 修改小张年龄属性为89，keyGenerator如下：（实现原理与第2步一致，都是状态管理深层嵌套对象属性的刷新，没有直接修改数组属于ForEach的非首次渲染。）
+
 | ListItem显示内容 | keyGenerator |
+
 | --- | --- |
+
 | 姓名小张 年龄89 | 0__{"name":"小张","age":88} |
+
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
+
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
+
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
-- 重置小张年龄属性为88，keyGenerator如下： 
+
+5. 重置小张年龄属性为88，keyGenerator如下：
+
 | ListItem显示内容 | keyGenerator |
+
 | --- | --- |
+
 | 姓名小张 年龄89 | 0__{"name":"小张","age":88} |
+
 | 姓名小赵 年龄13 | 1__{"name":"小赵","age":13} |
+
 | 姓名小李 年龄14 | 2__{"name":"小李","age":14} |
+
 | 姓名小王 年龄15 | 3__{"name":"小王","age":15} |
- 
- 发现第5步中无论是ListItem显示内容与keyGenerator都未发生变化。原因是通过替换数组项或数组是是触发的ForEach刷新，刷新的规则是刷新前后的keyGenerator不一致才会刷新，但是通过对比上述表格中的keyGenerator发现：第3步、第4步、第5步小张所在的组件对应的keyGenerator都没有变化，所以不会触发ForEach重建刷新。
- **综上所述**：当数据是对象数组时，若同时存在状态管理的对象深层嵌套的属性刷新与ForEach针对数组变化的首次渲染刷新时，应尽量避免使用两种方式交替刷新UI。若无法避免可参考以下解决方案：
- 
+
+  发现第5步中无论是ListItem显示内容与keyGenerator都未发生变化。原因是通过替换数组项或数组是是触发的ForEach刷新，刷新的规则是刷新前后的keyGenerator不一致才会刷新，但是通过对比上述表格中的keyGenerator发现：第3步、第4步、第5步小张所在的组件对应的keyGenerator都没有变化，所以不会触发ForEach重建刷新。
+
+  **综上所述**：当数据是对象数组时，若同时存在状态管理的对象深层嵌套的属性刷新与ForEach针对数组变化的首次渲染刷新时，应尽量避免使用两种方式交替刷新UI。若无法避免可参考以下解决方案：
+
+  
 方案一：重写系统默认的keyGenerator参数生成规则，加入每次修改的当前时间等唯一性的参数，保证前后两次依靠ForEach首次渲染刷新时，keyGenerator不会重复。示例代码如下：
-```text
+```json
 @Observed
 class SceneThreeOptionOnePerson {
   name: string;
@@ -550,8 +588,8 @@ struct SceneThreeOptionOne {
       ForEach(this.persons, (curPerson: SceneThreeOptionOnePerson) => {
         SceneThreeOptionOneChild({ person: curPerson });
       }, (item: SceneThreeOptionOnePerson, index: number) => {
-        console.info(`${index}'__'${JSON.stringify(item)}${JSON.stringify(Date.now())}`); // 打印keyGenerator
-        return index + '__' + JSON.stringify(item) + JSON.stringify(Date.now()); // 加入Date.now()避免重复
+        console.info(`${index}'__'${JSON.stringify(item)}${JSON.stringify(Date.now())}`); <em>// 打印keyGenerator</em>
+        return index + '__' + JSON.stringify(item) + JSON.stringify(Date.now()); <em>// 加入Date.now()避免重复</em>
       });
       Button('修改对象数组属性-修改小张年龄为+1')
         .onClick(() => {
@@ -571,13 +609,14 @@ struct SceneThreeOptionOne {
 }
 ```
 
-- 方案二：不重写系统默认的keyGenerator参数生成规则，给对象数组的每一个对象添加一个唯一的id标识，保证前后两次依靠ForEach首次渲染刷新时，keyGenerator不会重复。示例代码如下：
-```text
+
+6. 方案二：不重写系统默认的keyGenerator参数生成规则，给对象数组的每一个对象添加一个唯一的id标识，保证前后两次依靠ForEach首次渲染刷新时，keyGenerator不会重复。示例代码如下：
+```json
 @Observed
 class SceneThreeOptionTwoPerson {
   name: string;
   age: number;
-  id: string; // 给每个对象设置一个id
+  id: string; <em>// 给每个对象设置一个id</em>
 
 
   constructor(name: string, age: number, id: string) {
@@ -621,7 +660,7 @@ struct SceneThreeOptionTwo {
     Column({ space: 10 }) {
       ForEach(this.persons, (curPerson: SceneThreeOptionTwoPerson) => {
         SceneThreeOptionTwoChild({ person: curPerson });
-      }); // 使用默认的keyGenerator创建规则
+      }); <em>// 使用默认的keyGenerator创建规则</em>
       Button('修改对象数组属性-修改小张年龄为+1')
         .onClick(() => {
           this.persons[0].age++;
@@ -629,7 +668,7 @@ struct SceneThreeOptionTwo {
         });
       Button('替换对象数组元素-修改小张年龄为88')
         .onClick(() => {
-          // 此处以当前时间作为对象的id
+      <em>    // 此处以当前时间作为对象的id</em>
           this.persons.splice(0, 1, new SceneThreeOptionTwoPerson('小张', 88, Date.now().toString()));
           console.info(`当前小张的年龄为${JSON.stringify(this.persons[0])}`);
         });
@@ -641,16 +680,15 @@ struct SceneThreeOptionTwo {
 }
 ```
  场景三修复效果如下，重复上述第5步时，发现可以重建刷新UI将小张的年龄从89重置为88：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/NusJZJ6ZSmWVGK4_FJfstQ/zh-cn_image_0000002658926439.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=A4DDC38DE03851B3E7BECC30F1232C82C822312FE5D61A421F472E791B16AA94)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/NusJZJ6ZSmWVGK4_FJfstQ/zh-cn_image_0000002658926439.png?HW-CC-KV=V1&HW-CC-Date=20260701T041211Z&HW-CC-Expire=86400&HW-CC-Sign=D4D0F03CFCC7BC1C319B03E241493630F2F5EC1153B9AE42C1D905C4D862CCED)
 
 
  
  
- 
- 
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：@ObjectLink装饰器是否能在@Entry装饰的自定义组件中使用？
  
@@ -678,7 +716,6 @@ A：@State可以监听数组的增删，实现UI刷新。
  
  
 
-##### 总结
-
-- @State装饰器仅能观察到第一层的变化。对于多层嵌套的情况，比如对象数组等，他们的第二层的属性变化是无法观察到的。@Observed装饰的类，可以观察到属性的变化；@ObjectLink装饰器装饰的状态变量用于接收@Observed装饰的类的实例，和父组件中对应的状态变量建立双向数据绑定。使用时应遵循对应装饰器在官方指南的使用限制。
-- 当数据是对象数组时，若存在状态管理的对象深层嵌套的属性刷新与ForEach针对数组变化的首次渲染刷新时，应尽量避免使用两种方式交替刷新UI。若无法避免可重写系统默认的keyGenerator参数，加入每次修改的当前时间等唯一性的参数，保证前后两次依靠ForEach首次渲染刷新时，keyGenerator不会重复。
+#### 总结
+1. @State装饰器仅能观察到第一层的变化。对于多层嵌套的情况，比如对象数组等，他们的第二层的属性变化是无法观察到的。@Observed装饰的类，可以观察到属性的变化；@ObjectLink装饰器装饰的状态变量用于接收@Observed装饰的类的实例，和父组件中对应的状态变量建立双向数据绑定。使用时应遵循对应装饰器在官方指南的使用限制。
+2. 当数据是对象数组时，若存在状态管理的对象深层嵌套的属性刷新与ForEach针对数组变化的首次渲染刷新时，应尽量避免使用两种方式交替刷新UI。若无法避免可重写系统默认的keyGenerator参数，加入每次修改的当前时间等唯一性的参数，保证前后两次依靠ForEach首次渲染刷新时，keyGenerator不会重复。

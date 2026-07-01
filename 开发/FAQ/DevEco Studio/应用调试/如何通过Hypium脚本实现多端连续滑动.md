@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-68
 
-## 如何通过Hypium脚本实现多端连续滑动
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何利用Hypium实现UI自动化脚本，实现多端连续滑动，类似解锁图形密码操作？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [应用UI测试（基于Python）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines)：DevEco Testing Hypium(以下简称Hypium)是HarmonyOS平台的UI自动化测试框架，支持开发者使用python语言为应用编写UI自动化测试脚本，主要包含以下特性：
  
@@ -25,7 +21,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过手势对象的move_to方法进行移动实现连续滑动效果。
  
@@ -38,20 +34,20 @@ class TC_001(TestCase):
         super().__init__(self.TAG, controllers)
         self.driver = UiDriver(self.device1)
     def setup(self):
-        # 创建手势对象
+      <em>  # 创建手势对象</em>
         gesture = Gesture()
-        # 起始位置, 长按2秒
+       <em> # 起始位置, 长按2秒</em>
         gesture.start(Point(360, 500).to_tuple(), 2)
-        # 停留2秒
+      <em>  # 停留2秒</em>
         gesture.pause(2)
-        # 移动到(100, 500)的位置
+    <em>    # 移动到(100, 500)的位置</em>
         gesture.move_to(Point(100, 500).to_tuple())
-        # 停留2秒结束
+     <em>   # 停留2秒结束</em>
         gesture.pause(2)
-        # 移动到(300, 500)的位置
+     <em>   # 移动到(300, 500)的位置</em>
         gesture.move_to(Point(300, 500).to_tuple())
-        # 停留2秒结束
+     <em>   # 停留2秒结束</em>
         gesture.pause(2)
-        # 执行gesture对象描述的操作
+       <em> # 执行gesture对象描述的操作</em>
         self.driver.inject_gesture(gesture)
 ```

@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1454
 
-## CustomDialog设置透明背景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何将自定义弹窗（CustomDialog）的背景设置为透明？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/xk5EXdzsQs-eLFaNpeeahw/zh-cn_image_0000002628764166.png?HW-CC-KV=V1&HW-CC-Date=20260701T025708Z&HW-CC-Expire=86400&HW-CC-Sign=5D1B267D80D3D6C55B3EC0E03F01F8F89104057B10A315C320DE4FB589CFEE49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/xk5EXdzsQs-eLFaNpeeahw/zh-cn_image_0000002628764166.png?HW-CC-KV=V1&HW-CC-Date=20260701T041138Z&HW-CC-Expire=86400&HW-CC-Sign=A28781BA20109C5972E1DD7259CA4C642B3A929AE2F67DF0B25CCD6FF0502C34)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 自定义弹窗组件[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)类能够显示弹窗，并且可以自定义弹窗的样式与内容，允许用户灵活地设置弹窗的样式，布局和交互行为。
  
  
 
-##### 解决方案
+#### 解决方案
 
 CustomDialog设置透明背景的解决方案如下：
  
@@ -56,7 +52,7 @@ struct CustomDialogContent {
 struct Index {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogContent(),
-    // 设置弹窗背景色为透明
+   <em> // 设置弹窗背景色为透明</em>
     backgroundColor: Color.Transparent,
     backgroundBlurStyle: BlurStyle.NONE
   });
@@ -100,7 +96,7 @@ struct CustomDialogContent1 {
 struct Index1 {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogContent1(),
-    customStyle: true, // 设置弹窗背景色为透明
+    customStyle: true, <em>// 设置弹窗背景色为透明</em>
   });
 
   build() {
@@ -108,7 +104,7 @@ struct Index1 {
       Button('弹窗').onClick(() => {
         this.dialogController.open();
       })
-        .backgroundColor('#0a59f7') // 按钮颜色
+        .backgroundColor('#0a59f7') <em>// 按钮颜色</em>
         .margin({ top: 100 });
     }
     .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
@@ -116,7 +112,7 @@ struct Index1 {
     .justifyContent(FlexAlign.Center)
     .height('100%')
     .width('100%')
-    .backgroundColor(0xF1F3F5); // 主页面背景色
+    .backgroundColor(0xF1F3F5); <em>// 主页面背景色</em>
   }
 }
 ```
@@ -142,7 +138,7 @@ struct CustomDialogContent2 {
 struct Index2 {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogContent2(),
-    customStyle: true, // 设置弹窗背景色为透明
+    customStyle: true, <em>// 设置弹窗背景色为透明</em>
     isModal: false
   });
 
@@ -168,7 +164,7 @@ struct Index2 {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何修改自定义弹窗的背景色？同时怎么设定弹窗不点击遮罩就能消除？
  
@@ -184,7 +180,7 @@ A：maskColor当前只支持字符串颜色值，不支持\$r()资源引用。
  
  
 
-##### 总结
+#### 总结
 
 方案一、二、三都是通过自定义[CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)类方法实现透明背景，但实现方法略有不同，因此应用场景也不同，常见场景如下表格：
   

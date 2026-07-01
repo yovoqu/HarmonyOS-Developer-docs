@@ -4,24 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-171
 
-## 如何判断应用是release包还是debug包
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何判断应用是否为release包？
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方法1：通过命令行：
 bm dump -n [bundleName] |grep appProvisionType：判断应用程序签名证书文件的类型来判断release还是debug。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/NcixGPTvQJiAKE6HhE6Mkw/zh-cn_image_0000002628791476.png?HW-CC-KV=V1&HW-CC-Date=20260701T025528Z&HW-CC-Expire=86400&HW-CC-Sign=ACE9A138FCD9BC18CDA8186EBD50A789480F22E83A64CF840FD34862765EED5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/NcixGPTvQJiAKE6HhE6Mkw/zh-cn_image_0000002628791476.png?HW-CC-KV=V1&HW-CC-Date=20260701T041355Z&HW-CC-Expire=86400&HW-CC-Sign=C13E2FA5A7F3C41D2939B54F18631D79B7BDD9C7CA458FB051F94CDE308E0A8B)
 
 - bm dump -n [bundleName] |grep debug：标识应用是否处于调试模式，取值为true表示应用处于调试模式，取值为false表示应用处于非调试模式，以及应用程序签名证书文件的类型。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/AFBMwcHUR3iz722kETzk8Q/zh-cn_image_0000002658990791.png?HW-CC-KV=V1&HW-CC-Date=20260701T025528Z&HW-CC-Expire=86400&HW-CC-Sign=52A89649F33A213EC4F4486EB45E083A319DFF6666D4200957D25831A04DA6EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/AFBMwcHUR3iz722kETzk8Q/zh-cn_image_0000002658990791.png?HW-CC-KV=V1&HW-CC-Date=20260701T041355Z&HW-CC-Expire=86400&HW-CC-Sign=F69DDF18D175581D889994DE3D4F43415B5FFCB1EF2C99C5647605A71B79E960)
 
 
  - 方法2：通过bundleManager.getBundleInfoForSelf获取自身的应用程序信息：

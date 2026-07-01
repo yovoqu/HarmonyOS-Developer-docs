@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-40
 
-## 使用AudioCapturer录制音频时，如何获取音量分贝大小
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用AudioCapturer录制PCM音频数据时，需要监听音频音量大小，并通过绘制波形图等来反映出音频变化的趋势。该如何获取音量大小？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [AudioCapturer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer)是音频采集器，用于录制PCM（Pulse Code Modulation）音频数据，需要开发者持续读取音频数据进行工作。应用可以在读取音频数据后添加数据处理。
 - [getMaxAmplitudeForInputDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumegroupmanager#getmaxamplitudeforinputdevice12)：获取输入设备音频流的最大电平值，取值范围为[0, 1]。
@@ -22,28 +18,27 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 **方案一：计算PCM音频数据的音量分贝大小。**
  
 计算PCM音频数据的音量分贝，需要先获得采样点的幅值，然后使用分贝公式计算，具体步骤如下：
- 
-- 根据AudioCapturer的音频采样格式将PCM音频数据转化成对应的幅值。
-- 将所有采样点的幅值平方后求和，再除以采样点数后开平方，得到均方根能量值。
-- 将均方根能量值代入分贝公式计算得到音量分贝，分贝公式：db=20 * log10(均方根能量值/参考幅度值)。
-
+ 1. 根据AudioCapturer的音频采样格式将PCM音频数据转化成对应的幅值。
+2. 将所有采样点的幅值平方后求和，再除以采样点数后开平方，得到均方根能量值。
+3. 将均方根能量值代入分贝公式计算得到音量分贝，分贝公式：db=20 * log10(均方根能量值/参考幅度值)。
  
 当AudioCapturer的采样格式为SAMPLE_FORMAT_S16LE时，根据PCM音频数据计算音量分贝大小的参考代码如下：
 ```text
-// buffer：AudioCapturer录制的PCM音频数据
+<em>// buffer：AudioCapturer录制的PCM音频数据</em>
 private pcm2DB(buffer: ArrayBuffer): number {
-  const refAmplitude = 32767; // 采样深度为有符号16bit时，参考振幅值为最大正值32767。
-  const amplitudeArr = new Int16Array(buffer); // 16bit为一个采样点
+  const refAmplitude = 32767;<em> // 采样深度为有符号16bit时，参考振幅值为最大正值32767。</em>
+  const amplitudeArr = new Int16Array(buffer); <em>// 16bit为一个采样点</em>
   let sum: number = 0;
-  for (let i = 0; i  // 计算平方和
+  for (let i = 0; i < amplitudeArr.length; i++) {
+    sum += amplitudeArr[i] * amplitudeArr[i];<em> // 计算平方和</em>
   }
-  let rms = Math.sqrt(sum / amplitudeArr.length); // 计算均方根能量值
-  let db = 20 * Math.log10(rms / refAmplitude); // 计算音量分贝大小
+  let rms = Math.sqrt(sum / amplitudeArr.length);<em> // 计算均方根能量值</em>
+  let db = 20 * Math.log10(rms / refAmplitude); <em>// 计算音量分贝大小</em>
   return db;
 }
 ```
@@ -54,7 +49,7 @@ private pcm2DB(buffer: ArrayBuffer): number {
 如果需要获取音频流变化趋势，也可以调用getMaxAmplitudeForInputDevice()获取输入设备音频流的最大电平值，参考示例代码如下：
  
 ```text
-// 监听最大电平值
+<em>// 监听最大电平值</em>
 async getMaxAmplitude() {
   let audioManager = audio.getAudioManager();
   let audioVolumeManager: audio.AudioVolumeManager = audioManager.getVolumeManager();
@@ -77,7 +72,7 @@ async getMaxAmplitude() {
  
 完整代码参考如下:
  
-```text
+```json
 import { audio } from '@kit.AudioKit';
 import { abilityAccessCtrl, common, PermissionRequestResult, Permissions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -155,19 +150,20 @@ struct Index {
     .alignItems(HorizontalAlign.Center);
   }
 
-  // buffer：AudioCapturer录制的PCM音频数据
+ <em> // buffer：AudioCapturer录制的PCM音频数据</em>
   private pcm2DB(buffer: ArrayBuffer): number {
-    const refAmplitude = 32767; // 采样深度为有符号16bit时，参考振幅值为最大正值32767。
-    const amplitudeArr = new Int16Array(buffer); // 16bit为一个采样点
+    const refAmplitude = 32767; <em>// 采样深度为有符号16bit时，参考振幅值为最大正值32767。</em>
+    const amplitudeArr = new Int16Array(buffer);<em> // 16bit为一个采样点</em>
     let sum: number = 0;
-    for (let i = 0; i  // 计算平方和
+    for (let i = 0; i < amplitudeArr.length; i++) {
+      sum += amplitudeArr[i] * amplitudeArr[i];<em> // 计算平方和</em>
     }
-    let rms = Math.sqrt(sum / amplitudeArr.length); // 计算均方根能量值
-    let db = 20 * Math.log10(rms / refAmplitude); // 计算音量分贝大小
+    let rms = Math.sqrt(sum / amplitudeArr.length); <em>// 计算均方根能量值</em>
+    let db = 20 * Math.log10(rms / refAmplitude); <em>// 计算音量分贝大小</em>
     return db;
   }
 
-  async initCapturerGetDb(): Promise {
+  async initCapturerGetDb(): Promise<void> {
     this.capturer = await audio.createAudioCapturer(audioCapturerOptions);
 
     try {
@@ -180,7 +176,7 @@ struct Index {
     }
   }
 
-  // 监听最大电平值
+ <em> // 监听最大电平值</em>
   async getMaxAmplitude() {
     let audioManager = audio.getAudioManager();
     let audioVolumeManager: audio.AudioVolumeManager = audioManager.getVolumeManager();
@@ -200,7 +196,7 @@ struct Index {
     });
   }
 
-  async initCapturerGetMaxAmplitude(): Promise {
+  async initCapturerGetMaxAmplitude(): Promise<void> {
     this.capturer = await audio.createAudioCapturer(audioCapturerOptions);
 
     try {
@@ -212,7 +208,7 @@ struct Index {
     }
   }
 
-  async startCapturer(): Promise {
+  async startCapturer(): Promise<void> {
     if (this.capturer === undefined) {
       throw new Error(`AudioCapturer is undefined`);
     }
@@ -223,7 +219,7 @@ struct Index {
     await this.capturer.start();
   }
 
-  async stopCapturer(): Promise {
+  async stopCapturer(): Promise<void> {
     if (this.capturer === undefined) {
       throw new Error(`AudioCapturer is undefined`);
     }
@@ -235,7 +231,7 @@ struct Index {
     await this.capturer.stop();
   }
 
-  async releaseCapturer(): Promise {
+  async releaseCapturer(): Promise<void> {
     if (this.capturer === undefined) {
       throw new Error(`AudioCapturer is undefined`);
     }
@@ -261,14 +257,17 @@ function requestPermissions(context: common.UIAbilityContext, permissions: Permi
     .then((result: PermissionRequestResult) => {
       let grantStatus: number[] = result.authResults;
       let length = grantStatus.length;
-      for (let i = 0; i  {
+      for (let i = 0; i < length; i++) {
+        if (grantStatus[i] !== 0) {
+          console.info(`User reject to grant permission: ${permissions[i]}`);
+        }
+      }
+    })
+    .catch((err: BusinessError) => {
       console.error(`Request permissions from user failed, ${JSON.stringify(err)}`);
     });
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/18-6Aai-RwmZG3E8fyYoDQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025823Z&HW-CC-Expire=86400&HW-CC-Sign=2D3B686F3B0EC3A21E25045087BDD182DC9D16B981F4601AC5ADC37E3B637CCA)
- 
-
-应用可以调用麦克风录制音频，但该行为属于隐私敏感行为，在调用麦克风前，需要先[向用户申请权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)：ohos.permission.MICROPHONE。
+> [!NOTE]
+> 应用可以调用麦克风录制音频，但该行为属于隐私敏感行为，在调用麦克风前，需要先 向用户申请权限 ：ohos.permission.MICROPHONE。

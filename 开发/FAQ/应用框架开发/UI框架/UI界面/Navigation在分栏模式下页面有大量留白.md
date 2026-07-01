@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1242
 
-## Navigation在分栏模式下页面有大量留白
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当用户在平板设备上或折叠屏展开态打开应用时，应用的页面呈现出左侧为导航栏，而右侧为大面积空白的现象。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/NWLfyhC-TquS_qdC0XzXDw/zh-cn_image_0000002658834707.png?HW-CC-KV=V1&HW-CC-Date=20260701T025637Z&HW-CC-Expire=86400&HW-CC-Sign=9E25D6C5C21B0EEC9CA560D1547EA0AEDC5AE6A5A877B907AF47AAC3A0A966D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/NWLfyhC-TquS_qdC0XzXDw/zh-cn_image_0000002658834707.png?HW-CC-KV=V1&HW-CC-Date=20260701T041141Z&HW-CC-Expire=86400&HW-CC-Sign=1FB897B50965169E3010CB9E302EE000177617E329EA9F8D791D1E03FA03C5A9)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：Navigation组件是路由导航的根视图容器，一般作为Page页面的根容器使用，其内部默认包含了标题栏、内容区和工具栏，其中内容区默认首页显示导航内容（Navigation的子组件）或非首页显示（NavDestination的子组件），首页和非首页通过路由进行切换。
 - [mode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#mode9)：Navigation组件的分栏模式由mode属性控制，包括单栏（Stack）、分栏（Split）和自适应（Auto）三个属性。该属性默认为Auto模式，在该模式下会自动监听屏幕属性，当为折叠屏或平板时，默认分栏显示，在折叠状态或普通手机时可为单栏显示。
@@ -27,7 +23,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 建议检查代码中是否使用splitPlaceholder设置分栏模式下，右侧默认占位页面。
 - 建议检查代码中，是否在Navigation页面启动时，使用pushPath给右侧内容区域推送默认页面路由。
@@ -35,13 +31,13 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 应用在分栏模式下，未使用splitPlaceholder设置右侧默认占位页，也没有使用pushPath给右侧内容区域推送默认页面路由，导致刚进应用时，右侧显示空白。
  
  
 
-##### 修改建议
+#### 修改建议
 
 API20后推荐使用splitPlaceholder接口，可以使用splitPlaceholder设置右侧页面显示默认占位页。
  
@@ -113,7 +109,7 @@ struct NavigationExampleDemo {
       .titleMode(NavigationTitleMode.Full)
       .toolbarConfiguration([
         {
-          // $r("app.media.startIcon")需要替换为开发者所需的图像资源文件
+          <em>// $r("app.media.startIcon")需要替换为开发者所需的图像资源文件</em>
           value: '首页',
           icon: $r("app.media.startIcon")
         },

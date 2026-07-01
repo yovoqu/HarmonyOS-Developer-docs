@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-797
 
-## 在子窗口中使用Navigation进行多页面跳转
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何在子窗口中使用Navigation实现多页面跳转的功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)组件是路由导航的根视图容器，一般作为Page页面的根容器使用，其内部默认包含了标题栏、内容区和工具栏，其中内容区默认首页显示导航内容（Navigation的子组件）或非首页显示（NavDestination的子组件），首页和非首页通过路由进行切换。
 - HarmonyOS提供的窗口模块用于在同一块物理屏幕上，提供多个应用界面显示、交互的机制。开发者可以按需创建[应用子窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage#设置应用子窗口)，如弹窗等，并对其进行属性设置等操作。
@@ -23,15 +19,14 @@
  
  
 
-##### 解决方案
-
-- 在UIAbility中的onWindowStageCreate方法中添加在如下代码，以实现窗口的全局存储。
+#### 解决方案
+1. 在UIAbility中的onWindowStageCreate方法中添加在如下代码，以实现窗口的全局存储。
 ```text
 AppStorage.setAndLink('windowStage', windowStage);
 ```
 
-- 创建主页面，在该页面中实现createSubWindow方法，用以创建子窗口，设置子窗口的位置，大小及相关属性，并加载对应的页面。
-```text
+2. 创建主页面，在该页面中实现createSubWindow方法，用以创建子窗口，设置子窗口的位置，大小及相关属性，并加载对应的页面。
+```json
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -42,12 +37,12 @@ let sub_windowClass: window.Window | undefined = undefined;
 @Component
 struct Index {
   private createSubWindow() {
-    windowStage_ = AppStorage.get('windowStage'); // 获取windowStage
+    windowStage_ = AppStorage.get('windowStage'); <em>// 获取windowStage</em>
 
     if (windowStage_ == null) {
       console.error('Failed to create the subwindow. Cause: windowStage_ is null');
     } else {
-      windowStage_.createSubWindow('mySubWindow', (err: BusinessError, data) => { // 创建应用子窗口
+      windowStage_.createSubWindow('mySubWindow', (err: BusinessError, data) => { <em>// 创建应用子窗口</em>
         let errCode: number = err.code;
         if (errCode) {
           console.error('Failed to create the subwindow. Cause: ' + JSON.stringify(err));
@@ -59,7 +54,7 @@ struct Index {
           return;
         }
         console.info('Succeeded in creating the subwindow. Data: ' + JSON.stringify(data));
-        sub_windowClass.moveWindowTo(300, 300, (err: BusinessError) => { // 子窗口创建成功后，设置子窗口的位置、大小及相关属性等
+        sub_windowClass.moveWindowTo(300, 300, (err: BusinessError) => { <em>// 子窗口创建成功后，设置子窗口的位置、大小及相关属性等</em>
           let errCode: number = err.code;
           if (errCode) {
             console.error('Failed to move the window. Cause:' + JSON.stringify(err));
@@ -75,7 +70,7 @@ struct Index {
           }
           console.info('Succeeded in changing the window size.');
         });
-        sub_windowClass.setUIContent('pages/SubWindow', (err: BusinessError) => { // 为子窗口加载对应的目标页面。
+        sub_windowClass.setUIContent('pages/SubWindow', (err: BusinessError) => { <em>// 为子窗口加载对应的目标页面。</em>
           let errCode: number = err.code;
           if (errCode) {
             console.error('Failed to load the content. Cause:' + JSON.stringify(err));
@@ -86,7 +81,7 @@ struct Index {
             console.error('sub_windowClass is null');
             return;
           }
-          sub_windowClass.showWindow((err: BusinessError) => { // 显示子窗口
+          sub_windowClass.showWindow((err: BusinessError) => { <em>// 显示子窗口</em>
             let errCode: number = err.code;
             if (errCode) {
               console.error('Failed to show the window. Cause: ' + JSON.stringify(err));
@@ -104,7 +99,7 @@ struct Index {
       console.error('sub_windowClass is null');
       return;
     }
-    sub_windowClass.destroyWindow((err: BusinessError) => { // 销毁子窗口
+    sub_windowClass.destroyWindow((err: BusinessError) => { <em>// 销毁子窗口</em>
       let errCode: number = err.code;
       if (errCode) {
         console.error('Failed to destroy the window. Cause: ' + JSON.stringify(err));
@@ -150,7 +145,7 @@ struct Index {
 }
 ```
 
-- 使用Navigation创建子窗口的主页面及其子页面。
+3. 使用Navigation创建子窗口的主页面及其子页面。
 ```text
 @Entry
 @ComponentV2

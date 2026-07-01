@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1461
 
-## List下拉刷新时如何保证更新后的页面停留在原始位置上
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用List组件实现下拉刷新功能时，当向LazyForEach数据源头部插入新数据后，界面默认会替换当前展示的Item数据，导致用户无法继续向上滑动查看新增数据。如何实现新增数据在顶部展示，同时保持当前展示的Item不变，使用户可以继续向上滑动查看新增数据？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [List组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)可以轻松高效地显示结构化、可滚动的信息，页面的下拉刷新与上拉加载功能在移动应用中十分常见，该操作可使用[Refresh组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)实现。
 通过[maintainVisibleContentPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#maintainvisiblecontentposition12)设置显示区域上方插入或删除数据时是否要保持可见内容位置不变。
@@ -25,22 +21,22 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据具体使用maintainVisibleContentPosition、scrollToIndex或scrollTo的需求，可分别采用以下两种实现方案。
  
-- **方案一**：通过maintainVisibleContentPosition控制可见内容位置不变。
-根据业务需要构建数据源IDataSource，然后实现相关数据更新接口，在数据更新后，使用onDatasetChange通知组件数据更新。
-- 根据界面设计绘制界面，当触发数据增加时，调用pushDataPositionArray进行数据处理。
+- **方案一**：通过maintainVisibleContentPosition控制可见内容位置不变。1. 根据业务需要构建数据源IDataSource，然后实现相关数据更新接口，在数据更新后，使用onDatasetChange通知组件数据更新。
 
- 
-详细示例代码如下：
- 
-- 数据类实现LazyDataSource1.ets：
+2. 根据界面设计绘制界面，当触发数据增加时，调用pushDataPositionArray进行数据处理。
+
+  详细示例代码如下：
+
+  
+数据类实现LazyDataSource1.ets：
 ```text
-// 重写数据类
+<em>// 重写数据类</em>
 @Observed
-export class ObservedArray extends Array {
+export class ObservedArray<T> extends Array<T> {
   constructor(args?: T[]) {
     if (args instanceof Array) {
       super(...args);
@@ -51,25 +47,25 @@ export class ObservedArray extends Array {
 }
 
 
-// 数据更新监听处理
-class BasicDataSource implements IDataSource {
+<em>// 数据更新监听处理</em>
+class BasicDataSource<T> implements IDataSource {
   private listeners: DataChangeListener[] = [];
 
 
-  // 数据交给上层处理，若未定义则抛出错误
+ <em> // 数据交给上层处理，若未定义则抛出错误</em>
   totalCount(): number {
     throw new Error('Method not implemented.');
   }
 
 
-  // 数据交给上层处理，若未定义则抛出错误
+ <em> // 数据交给上层处理，若未定义则抛出错误</em>
   getData(index: number): T {
     console.info(`index: ${index}`);
     throw new Error('Method not implemented.');
   }
 
 
-  // 数据添加处理
+ <em> // 数据添加处理</em>
   public notifyDataArrayAdd(index: number, count: number, key: string[]): void {
     this.listeners.forEach(listener => {
       listener.onDatasetChange([{
@@ -82,9 +78,15 @@ class BasicDataSource implements IDataSource {
   }
 
 
-  // 注册监听
+ <em> // 注册监听</em>
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener)   // 取消监听
+    if (this.listeners.indexOf(listener) < 0) {
+      this.listeners.push(listener);
+    }
+  }
+
+
+<em>  // 取消监听</em>
   unregisterDataChangeListener(listener: DataChangeListener): void {
     const pos = this.listeners.indexOf(listener);
     if (pos >= 0) {
@@ -93,7 +95,7 @@ class BasicDataSource implements IDataSource {
   }
 
 
-  // 数据重新加载
+ <em> // 数据重新加载</em>
   notifyDataReload(): void {
     this.listeners.forEach(listener => {
       listener.onDataReloaded();
@@ -102,25 +104,25 @@ class BasicDataSource implements IDataSource {
 }
 
 
-// 业务数据操作
-export class LazyDataSource extends BasicDataSource {
+<em>// 业务数据操作</em>
+export class LazyDataSource<T> extends BasicDataSource<T> {
   dataArray: T[] = [];
 
 
-  // 获取数据数量
+<em>  // 获取数据数量</em>
   public totalCount(): number {
     return this.dataArray.length;
   }
 
 
-  // 获取指定数据
+ <em> // 获取指定数据</em>
   public getData(index: number): T {
     return this.dataArray[index];
   }
 
 
-  // 指定位置添加数据
-  public pushDataPositionArray(index: number, newData: ObservedArray, key: string[]): void {
+ <em> // 指定位置添加数据</em>
+  public pushDataPositionArray(index: number, newData: ObservedArray<T>, key: string[]): void {
     this.dataArray.splice(index, 0, ...newData);
     this.notifyDataArrayAdd(index, newData.length, key);
   }
@@ -137,14 +139,22 @@ import { LazyDataSource } from './LazyDataSource1';
 export struct Index1 {
   @Local isRefreshing: boolean = false;
   @Local refreshText: string = '';
-  @Local lazyDataModel: LazyDataSource = new LazyDataSource();
+  @Local lazyDataModel: LazyDataSource<string> = new LazyDataSource();
   @Local timer: number = 1;
 
 
-  // 生成数据
+  <em>// 生成数据</em>
   aboutToAppear(): void {
     let arr: string[] = [];
-    for (let i = 0; i  // 刷新UI提示
+    for (let i = 0; i < 30; i++) {
+      arr.push(`${i}Text Item`);
+    }
+    this.lazyDataModel.dataArray = arr;
+    this.lazyDataModel.notifyDataReload();
+  }
+
+
+ <em> // 刷新UI提示</em>
   @Builder
   getRefreshBuilder() {
     Row({ space: 8 }) {
@@ -158,7 +168,7 @@ export struct Index1 {
   }
 
 
-  // 添加数据
+ <em> // 添加数据</em>
   addData(timer: number) {
     let arr: string[] = [];
     for (let index = 5; index > 0; index--) {
@@ -186,7 +196,7 @@ export struct Index1 {
             };
           }, (item: string) => item.toString());
         }
-        .maintainVisibleContentPosition(true) // 设置可见内容位置不变
+        .maintainVisibleContentPosition(true) <em>// 设置可见内容位置不变</em>
         .width('100%')
         .height('100%')
         .scrollBar(BarState.Off)
@@ -215,17 +225,18 @@ export struct Index1 {
   }
 }
 ```
- 
- 效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/O6Q_VhkvRgudEdderrfmOA/zh-cn_image_0000002628605352.png?HW-CC-KV=V1&HW-CC-Date=20260701T025708Z&HW-CC-Expire=86400&HW-CC-Sign=2CBD1A1E03C91B472FB56DE51B22484FCCDDA57F8C523FA3B02F41A323CC0EC8)
 
 
- - **方案二**：通过scrollToIndex、scrollTo控制滚动，使得可视区域不变。
-LazyDataSource2.ets：定义LazyForEach懒加载数据通用工具类。
+  效果图如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/O6Q_VhkvRgudEdderrfmOA/zh-cn_image_0000002628605352.png?HW-CC-KV=V1&HW-CC-Date=20260701T041139Z&HW-CC-Expire=86400&HW-CC-Sign=E69D207DFED85B8BF08627CC1B0B3C535BC03F56F5DFA6323DEA2B964883EDB0)
+
+
+ - **方案二**：通过scrollToIndex、scrollTo控制滚动，使得可视区域不变。1. LazyDataSource2.ets：定义LazyForEach懒加载数据通用工具类。
 ```text
 @Observed
-export class ObservedArray extends Array {
+export class ObservedArray<T> extends Array<T> {
   constructor(args?: T[]) {
     if (args instanceof Array) {
       super(...args);
@@ -236,7 +247,7 @@ export class ObservedArray extends Array {
 }
 
 
-class BasicDataSource implements IDataSource {
+class BasicDataSource<T> implements IDataSource {
   private listeners: DataChangeListener[] = [];
 
 
@@ -252,7 +263,15 @@ class BasicDataSource implements IDataSource {
 
 
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener) = 0) {
+    if (this.listeners.indexOf(listener) < 0) {
+      this.listeners.push(listener);
+    }
+  }
+
+
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    const pos = this.listeners.indexOf(listener);
+    if (pos >= 0) {
       this.listeners.splice(pos, 1);
     }
   }
@@ -266,7 +285,7 @@ class BasicDataSource implements IDataSource {
 }
 
 
-export class LazyDataSource extends BasicDataSource {
+export class LazyDataSource<T> extends BasicDataSource<T> {
   dataArray: T[] = [];
 
 
@@ -280,14 +299,15 @@ export class LazyDataSource extends BasicDataSource {
   }
 
 
-  public pushDataPositionArray(index: number, newData: ObservedArray): void {
+  public pushDataPositionArray(index: number, newData: ObservedArray<T>): void {
     this.dataArray.splice(index, 0, ...newData);
     this.notifyDataReload();
   }
 }
 ```
 
-- Index2.ets：实现下拉刷新，向头部添加数据。使用scrollToIndex方法滚动至头部新增数据长度的索引位置，保持当前展示的Item数据不变。
+
+2. Index2.ets：实现下拉刷新，向头部添加数据。使用scrollToIndex方法滚动至头部新增数据长度的索引位置，保持当前展示的Item数据不变。
 ```text
 import { LazyDataSource } from './LazyDataSource2';
 
@@ -297,7 +317,7 @@ import { LazyDataSource } from './LazyDataSource2';
 export struct Index2 {
   @Local isRefreshing: boolean = false;
   @Local refreshText: string = '';
-  @Local lazyDataModel: LazyDataSource = new LazyDataSource();
+  @Local lazyDataModel: LazyDataSource<string> = new LazyDataSource();
   @Local listScroller: ListScroller = new ListScroller();
   @Local timer: number = 1;
   @Local listItemHeight: number = 0;
@@ -305,13 +325,36 @@ export struct Index2 {
 
   aboutToAppear(): void {
     let arr: string[] = [];
-    for (let i = 0; i  0; i--) {
+    for (let i = 0; i < 30; i++) {
+      arr.push(`${i}Text Item`);
+    }
+    this.lazyDataModel.dataArray = arr;
+    this.lazyDataModel.notifyDataReload();
+  }
+
+
+  @Builder
+  getRefreshBuilder() {
+    Row({ space: 8 }) {
+      LoadingProgress()
+        .width(20)
+        .aspectRatio(1);
+      Text(this.refreshText)
+        .fontSize(14)
+        .fontColor('#818181');
+    };
+  }
+
+
+  async getData(timer: number) {
+    let arr: string[] = [];
+    for (let i = 5; i > 0; i--) {
       arr.push(`第 ${timer} 次 add HeadItem ${i}`);
     }
     setTimeout(() => {
-      // 向lazyDataModel数据源头部添加一组数据，并使用scrollToIndex、scrollTo滚动到指定位置，使当前页面顶部展示数据不变。
+     <em> // 向lazyDataModel数据源头部添加一组数据，并使用scrollToIndex、scrollTo滚动到指定位置，使当前页面顶部展示数据不变。</em>
       this.lazyDataModel.pushDataPositionArray(0, arr);
-      // 使用scrollToIndex滚动到指定Item索引位置
+    <em>  // 使用scrollToIndex滚动到指定Item索引位置</em>
       this.listScroller.scrollToIndex(arr.length);
       this.isRefreshing = false;
     }, 500);
@@ -334,7 +377,7 @@ export struct Index2 {
               .padding({ left: 10, right: 10 });
             }
             .onAreaChange((newValue: Area) => {
-              this.listItemHeight = Number(newValue.height); // 获取item的高度
+              this.listItemHeight = Number(newValue.height); <em>// 获取item的高度</em>
             });
           }, (item: string) => item.toString());
         }
@@ -366,17 +409,18 @@ export struct Index2 {
   }
 }
 ```
- 
- 效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/xfwoiYSmQ96s7cj0otfphg/zh-cn_image_0000002658844609.png?HW-CC-KV=V1&HW-CC-Date=20260701T025708Z&HW-CC-Expire=86400&HW-CC-Sign=8A457C65767DEEF9316B194FF7A8CBAE9F9CFBC925928919D6A14897E5E0BEE7)
+
+
+  效果图如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/xfwoiYSmQ96s7cj0otfphg/zh-cn_image_0000002658844609.png?HW-CC-KV=V1&HW-CC-Date=20260701T041139Z&HW-CC-Expire=86400&HW-CC-Sign=A6DBB2024D29A7B77923259DFE97A4FD0E487AD3219A034C631B44819075A224)
 
 
  
  
- 
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么使用onDataReloaded更新数据，无法达成可视区域不变的效果？
  

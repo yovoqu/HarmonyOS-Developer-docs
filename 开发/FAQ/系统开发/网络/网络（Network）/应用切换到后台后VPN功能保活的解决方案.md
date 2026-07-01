@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-134
 
-## 应用切换到后台后VPN功能保活的解决方案
- 
-
-
-##### 问题现象
+#### 问题现象
 
 接入VPN功能的应用在切换至后台后，VPN扩展进程如何长时间在后台保活，这是VPN重要的使用场景之一。
  
  
 
-##### 背景知识
+#### 背景知识
 
 应用退至后台后，在后台需要长时间运行用户可感知的任务，如播放音乐、导航等。为防止应用进程被挂起，导致对应功能异常，可以申请长时任务，使应用在后台长时间运行。在长时任务中，支持同时申请多种类型的任务，也可以对任务类型进行更新。应用退至后台执行业务时，系统会做一致性校验，确保应用在执行相应的长时任务。应用在申请长时任务成功后，通知栏会显示与长时任务相关联的消息，用户删除通知栏消息时，系统会自动停止长时任务。
  
@@ -22,12 +18,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 当应用切换到后台时，启动长时任务。本次选择的长时任务类型为[DATA_TRANSFER](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task#使用场景)。具体方案步骤如下：
- 
-- 申请[ohos.permission.KEEP_BACKGROUND_RUNNING](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionkeep_background_running)权限，该权限是系统授权的开放权限。配置如下：
-```text
+ 1. 申请[ohos.permission.KEEP_BACKGROUND_RUNNING](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionkeep_background_running)权限，该权限是系统授权的开放权限。配置如下：
+```json
 "requestPermissions": [
   {
     "name": "ohos.permission.INTERNET"
@@ -41,29 +36,30 @@
 ],
 ```
 
-- 声明后台任务类型，[backgroundModes字段设置为dataTransfer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task#stage模型)。配置如下：
+2. 声明后台任务类型，[backgroundModes字段设置为dataTransfer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task#stage模型)。配置如下：
 ```text
 "backgroundModes": ["dataTransfer"],
 ```
 
-- 当App主进程切换到后台时，在onBackground回调函数中调用startLongTask方法启动长时任务。关键代码如下：
+3. 当App主进程切换到后台时，在onBackground回调函数中调用startLongTask方法启动长时任务。关键代码如下：
 ```text
 onBackground(): void {
-  // Ability has back to background
+ <em> // Ability has back to background</em>
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   this.longItemModel.startLongTask(this.context);
 }
 ```
  长时任务实现：
- 
-```text
+
+  
+```json
 startLongTask(currentContext: common.UIAbilityContext): void {
   let wantAgentInfo: wantAgent.WantAgentInfo = {
     wants: [
       {
-        // 应用的包名
+        <em>// 应用的包名</em>
         bundleName: 'com.example.vpnkeepdemo',
-        // 扩展的Ability文件名称
+        <em>// 扩展的Ability文件名称</em>
         abilityName: 'VpnAbility'
       }
     ],
@@ -95,12 +91,11 @@ startLongTask(currentContext: common.UIAbilityContext): void {
 }
 ```
 
-
  
 完整代码如下：
  
 - EntryAbility.ets代码：
-```text
+```json
 import { ConfigurationConstant, UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -125,7 +120,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
+ <em>   // Main window is created, set main page for this ability</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -138,17 +133,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+   <em> // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-    // Ability has brought to foreground
+   <em> // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-    // Ability has back to background
+   <em> // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
     this.longItemModel.startLongTask(this.context);
   }
@@ -186,9 +181,9 @@ struct Index {
   testVpn() {
     vpnExtension.startVpnExtensionAbility({
       deviceId: '',
-      // 应用的包名；vpn启动成功后显示的包名格式为【包名:vpn】
+     <em> // 应用的包名；vpn启动成功后显示的包名格式为【包名:vpn】</em>
       bundleName: 'com.example.vpnkeepdemo',
-      // 扩展的Ability文件名称
+     <em> // 扩展的Ability文件名称</em>
       abilityName: 'VpnAbility',
       parameters: {
         'testParam': '测试第一次启动无法传参数的问题',
@@ -202,7 +197,7 @@ struct Index {
 ```
 
 - 在ets目录下LongTermTaskModel.est代码：
-```text
+```json
 import { common, wantAgent, WantAgent } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -217,9 +212,9 @@ export class LongTermTaskModel {
     let wantAgentInfo: wantAgent.WantAgentInfo = {
       wants: [
         {
-          // 应用的包名
+          <em>// 应用的包名</em>
           bundleName: 'com.example.vpnkeepdemo',
-          // 扩展的Ability文件名称
+         <em> // 扩展的Ability文件名称</em>
           abilityName: 'VpnAbility'
         }
       ],
@@ -250,7 +245,7 @@ export class LongTermTaskModel {
     }
   }
 
-  // Stop a long task
+  <em>// Stop a long task</em>
   stopLongTask(currentContext: common.UIAbilityContext): void {
     backgroundTaskManager.getAllContinuousTasks(currentContext, false)
       .then((res: backgroundTaskManager.ContinuousTaskInfo[]) => {
@@ -406,6 +401,6 @@ export default class VpnAbility extends VpnExtensionAbility {
  
  
 
-##### 总结
+#### 总结
 
 尽管长时任务能延长VPN扩展进程在后台的存活时间，但是并不意味着VPN扩展进程一直在后台存活；系统仅支持规范内受约束的后台任务。应用退至后台后，若未使用规范内的后台任务或选择的后台任务类型不正确，对应的应用进程会被挂起或终止。应用申请了规范内的后台任务，仅会提升应用进程被回收的优先级。当系统资源严重不足时，即使应用进程申请了规范内的后台任务，系统仍会终止部分进程，用以保障系统稳定性。

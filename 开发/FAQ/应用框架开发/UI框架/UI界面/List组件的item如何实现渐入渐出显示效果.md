@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1637
 
-## List组件的item如何实现渐入渐出显示效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何动态添加或删除列表项，实现渐入渐出显示效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)是一个用于在状态变化时插入显式过渡动画的接口，尤其适用于闭包或异步代码中引发的状态更新（如属性颜色、位置偏移等可通过动画平滑过渡）。
 - [transition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component)（组件内转场）：transition属性能够在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除。transition函数的入参为组件内转场的效果，可以定义平移、透明度、旋转、缩放这几种转场样式的单个或者组合的转场效果，必须和animateTo一起使用才能产生组件转场效果。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：通过animateTo控制状态更新时机，transition定义元素入场动画，实现在动态添加列表项时的平滑过渡效果。此场景使用了[沉浸式效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-develop-apply-immersive-effects)。完整示例参考如下：
 ```text
@@ -79,7 +75,8 @@ struct ListDemoOne {
 }
 ```
  在上述示例代码中，为List添加ListScroller，并在animateTo回调中调用this.listScroller.[scrollEdge](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrolledge)(Edge.Bottom)，当插入项超出容器最大容量且列表高度超过屏幕时，新插入项的动画会触发，列表自动滚动至底部。完整示例参考如下：
- 
+
+  
 ```text
 @Entry
 @Component
@@ -134,7 +131,8 @@ struct ListDemoTwo {
 ```
 
 - **场景二**：通过配置transition属性，并配合arr.shift()方法触发数据变更，来实现元素从不透明到透明的渐出动画。完整示例参考如下：
- 
+
+  
 ```text
 @Entry
 @Component
@@ -178,7 +176,7 @@ struct ListDemoThree {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何实现水平方向渐出显示效果？
  

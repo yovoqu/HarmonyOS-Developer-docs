@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1317
 
-## CanvasRenderingContext2D是否可以绘制GIF动画
- 
-
-
-##### 问题现象
+#### 问题现象
 
 CanvasRenderingContext2D对象中的drawImage方法是否可以绘制GIF动画，如果可以，绘制的动画转成PixelMap是否依然有效？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/b55tvD7PQ5e8AwCHSswlPw/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260701T025726Z&HW-CC-Expire=86400&HW-CC-Sign=E6F800DEAE6F403B9EB57A1566AECB522112A0EBB2D21925CA0B65C4B4DDB60F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/b55tvD7PQ5e8AwCHSswlPw/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260701T041137Z&HW-CC-Expire=86400&HW-CC-Sign=857CD733FDB6BD349C313C5A18F5AAA382437A365D3E3FB53603A656EAD5A2B0)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)可用于在[Canvas画布组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)上进行绘制，绘制对象可以是图形、文本、线段、图片等。
 - CanvasRenderingContext2D中[drawImage方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#drawimage)用于在Canvas上绘制图片。它可以接受多种参数形式的图片资源，包括[ImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-image)、[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)等。CanvasRenderingContext2D中[getPixelMap方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)可以以当前Canvas指定区域内的像素创建PixelMap对象。
@@ -31,7 +27,7 @@ CanvasRenderingContext2D对象中的drawImage方法是否可以绘制GIF动画�
  
  
 
-##### 解决方案
+#### 解决方案
 
 drawImage方法本身可以用于绘制静态图片，而对于GIF动画文件，通常需要使用其他方法来实现动画效果。例如，可以通过定时器和定期刷新Canvas上的图像内容。或者使用专门的动画库来管理动画帧的绘制。
  

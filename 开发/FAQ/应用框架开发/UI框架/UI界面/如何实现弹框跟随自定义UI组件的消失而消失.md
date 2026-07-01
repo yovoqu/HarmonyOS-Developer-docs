@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-660
 
-## 如何实现弹框跟随自定义UI组件的消失而消失
- 
-
-
-##### 问题现象
+#### 问题现象
 
 页面A跳转到页面B，页面B使用UIContext.getPromptAction().openCustomDialog()的方式弹出自定义弹框，此时页面B返回到页面A，但弹框未消失。
  
@@ -16,15 +12,15 @@
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/jEtvRmrPSbqlSYVLLYqY3g/zh-cn_image_0000002658793923.png?HW-CC-KV=V1&HW-CC-Date=20260701T025719Z&HW-CC-Expire=86400&HW-CC-Sign=B1B25DB736CF71B1FC81D6A832B574E10765E72BE74DACEEF742BD73D568E4C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/jEtvRmrPSbqlSYVLLYqY3g/zh-cn_image_0000002658793923.png?HW-CC-KV=V1&HW-CC-Date=20260701T041202Z&HW-CC-Expire=86400&HW-CC-Sign=4E363C86FBD4BF4857A19773176F499BED1A4F325675F7D9E47788BBF0D29B1E)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [@ohos.promptAction (弹窗)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction)：创建并显示即时反馈、对话框和操作菜单。
 - [BaseDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)：选项中onWillDismiss()交互式关闭回调函数：当用户执行点击遮障层关闭、侧滑（左滑/右滑）、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。
@@ -32,12 +28,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 创建DialogOne并实现跳转到DialogTwo，使用弹窗组件的onWillDismiss()回调函数对应的枚举值实现关闭弹窗。并跳转回Dialog1页面。同时也可以实现侧滑返回页面A时，页面B与弹窗一起消失。
  
 - Dialog1初始页面，仅用于页面跳转。
-代码如下：
+
+  代码如下：
 ```text
 @Entry
 @Component
@@ -65,7 +62,7 @@ struct DialogOne {
 ```
 
 - DialogTwo页面。@Builder函数customDialogComponent()为弹窗自定义内容，通过使用UIContext中的getPromptAction方法获取当前UI上下文关联的PromptAction对象，拉起弹窗，点击确认返回上一页面。
-```text
+```json
 @Builder
 export function DialogTwoBuilder() {
   DialogTwo();
@@ -101,7 +98,7 @@ export struct DialogTwo {
           .width('45%')
           .borderRadius(20)
           .onClick(() => {
-            // 模拟B页面操作返回
+            <em>// 模拟B页面操作返回</em>
             this.pageInfo.pop();
           });
       }

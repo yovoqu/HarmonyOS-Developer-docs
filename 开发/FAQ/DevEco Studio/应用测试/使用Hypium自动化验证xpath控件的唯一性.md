@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-25
 
-## 使用Hypium自动化验证xpath控件的唯一性
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Hypium自动化在定位器中，通过XPath语法写的XPath路径，在定位器的哪里验证该XPath是否唯一？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/tN7nnQO-R5WjV8RIbrWE0Q/zh-cn_image_0000002628569454.png?HW-CC-KV=V1&HW-CC-Date=20260701T025922Z&HW-CC-Expire=86400&HW-CC-Sign=F2CD84D401E446148A2F2FBD7D569613EEA3F7526F421307CA4098275C2D0420)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/tN7nnQO-R5WjV8RIbrWE0Q/zh-cn_image_0000002628569454.png?HW-CC-KV=V1&HW-CC-Date=20260701T041011Z&HW-CC-Expire=86400&HW-CC-Sign=E35FDF6E9A17D22F99557B4C884A7D8D14619BC166D0FBF931F8EC3E5C7333B3)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [DevEco Testing Hypium](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section16890204264419)插件会在PyCharm界面右边缘的ToolWindow区域生成UiViewer标签，点击后会展开UiViewer面板。UiViewer功能目前分为4个界面：设备选择界面、单设备控件查看界面、单设备投屏界面、双设备投屏界面。
 - XPath方式查找匹配的控件：部分控件没有唯一定位的属性，同时通过相对定位的方式也无法准确定位，此时可以使用XPath语法来进行更精确的控件定位。使用BY.xpath匹配器可以支持通过XPath语法来查找控件。详情请参考[API使用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section4598236435)。
@@ -26,39 +22,39 @@ Hypium自动化在定位器中，通过XPath语法写的XPath路径，在定位�
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 用户可以根据控件的key、text、type内容来搜索指定控件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/tq0CPbjlSduaW-r_3NKnHQ/zh-cn_image_0000002658928773.png?HW-CC-KV=V1&HW-CC-Date=20260701T025922Z&HW-CC-Expire=86400&HW-CC-Sign=37AB9A3CC335DD22EB4E446EAA28BA8E4C6BA12437694E8BA8CEF6ACDCE1F5AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/tq0CPbjlSduaW-r_3NKnHQ/zh-cn_image_0000002658928773.png?HW-CC-KV=V1&HW-CC-Date=20260701T041011Z&HW-CC-Expire=86400&HW-CC-Sign=D32B354B7617964865BA8FADBF765046E958B56030FAB0F74A50C239EC0C9A77)
 
 - 通过API方法实现XPath语法验证控件是否唯一。
 ```text
-from devicetest.core.test_case import TestCase, Step, MESSAGE
-from hypium import UiDriver, BY
-class TC_001(TestCase):
-    def __init__(self, configs):
-        self.TAG = self.__class__.__name__
-        super().__init__(self.TAG, configs)
-        self.driver = UiDriver(self.device1)
-        self.driver_width, self.driver_height = self.driver.get_display_size()
-    def setup(self):
-        Step('1.回到桌面')
-        self.driver.swipe_to_home()
-    def process(self):
-        Step('2.启动设置应用')
-        self.driver.start_app("com.huawei.hmos.settings")
-        Step("步骤1:验证控件是否存在且唯一")
-        comp = self.driver.find_all_components(BY.xpath("//*[@text='WLAN']"))
-        MESSAGE('component is ' + str(comp))
-    def teardown(self):
-        pass
+<span style="color: rgb(181,106,1);">from </span>devicetest.core.test_case <span style="color: rgb(181,106,1);">import </span>TestCase, Step, MESSAGE
+<span style="color: rgb(181,106,1);">from </span>hypium <span style="color: rgb(181,106,1);">import </span>UiDriver, BY
+<span style="color: rgb(181,106,1);">class </span>TC_001(TestCase):
+    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(255,0,170);">__init__</span>(<span style="color: rgb(255,0,170);">self</span>, configs):
+        <span style="color: rgb(255,0,170);">self</span>.TAG = <span style="color: rgb(255,0,170);">self</span>.__class__.<span style="color: rgb(255,0,170);">__name__</span>
+        <span style="color: rgb(0,0,255);">super</span>().<span style="color: rgb(255,0,170);">__init__</span>(<span style="color: rgb(255,0,170);">self</span>.TAG, configs)
+        <span style="color: rgb(255,0,170);">self</span>.driver = UiDriver(<span style="color: rgb(255,0,170);">self</span>.device1)
+        <span style="color: rgb(255,0,170);">self</span>.driver_width, <span style="color: rgb(255,0,170);">self</span>.driver_height = <span style="color: rgb(255,0,170);">self</span>.driver.get_display_size()
+    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">setup</span>(<span style="color: rgb(255,0,170);">self</span>):
+        Step(<span style="color: rgb(80,160,79);">'1.</span><span style="color: rgb(80,160,79);">回到桌面</span><span style="color: rgb(80,160,79);">'</span>)
+        <span style="color: rgb(255,0,170);">self</span>.driver.swipe_to_home()
+    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">process</span>(<span style="color: rgb(255,0,170);">self</span>):
+        Step(<span style="color: rgb(80,160,79);">'2.</span><span style="color: rgb(80,160,79);">启动设置应用</span><span style="color: rgb(80,160,79);">'</span>)
+        <span style="color: rgb(255,0,170);">self</span>.driver.start_app(<span style="color: rgb(80,160,79);">"com.huawei.hmos.settings"</span>)
+        Step(<span style="color: rgb(80,160,79);">"</span><span style="color: rgb(80,160,79);">步骤</span><span style="color: rgb(80,160,79);">1:</span><span style="color: rgb(80,160,79);">验证控件是否存在且唯一</span><span style="color: rgb(80,160,79);">"</span>)
+        comp = <span style="color: rgb(255,0,170);">self</span>.driver.find_all_components(BY.xpath(<span style="color: rgb(80,160,79);">"//*[@text='WLAN']"</span>))
+        MESSAGE(<span style="color: rgb(80,160,79);">'component is ' </span>+ <span style="color: rgb(0,0,255);">str</span>(comp))
+    <span style="color: rgb(181,106,1);">def </span><span style="color: rgb(0,0,255);">teardown</span>(<span style="color: rgb(255,0,170);">self</span>):
+        <span style="color: rgb(181,106,1);">pass</span>
 ```
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：WebView页面是否支持验证XPath表达式？
  
@@ -69,4 +65,4 @@ Q：使用“hdc shell uitest dumpLayout”指令获取到的控件树如何实�
 A：控件树中类型为空串的节点代表当前的屏幕信息，类型为root和WindowScene和当前屏幕的对应关系可以通过UiViewer查看，如果想实现UI自动化，推荐使用[DevEco Testing Hypium](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section16890204264419)的UiViewer插件，可以对控件树进行可视化和获取控件的信息。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/8qQAGBrARfClfmPd-uLxQA/zh-cn_image_0000002658808825.png?HW-CC-KV=V1&HW-CC-Date=20260701T025922Z&HW-CC-Expire=86400&HW-CC-Sign=798E9336944BE91473007F4C9AE3D4B1F00770131EADEC75E247E89809F10235)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/8qQAGBrARfClfmPd-uLxQA/zh-cn_image_0000002658808825.png?HW-CC-KV=V1&HW-CC-Date=20260701T041011Z&HW-CC-Expire=86400&HW-CC-Sign=D8285C29AA34CF306ADB4E981821AF3C2E77E69A1E9BE2C98A5CFF7CCEAF369B)

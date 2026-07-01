@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-dataprotectionkit-7001
 
-## Data Protection Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 权限变更 | 类名：DlpConnPlugin； API声明：connectServer(requestId: string, requestData: string, callback: Callback&lt;string&gt;): void; 差异内容：ohos.permission.ENTERPRISE_ACCESS_DLP_FILE | 类名：DlpConnPlugin； API声明：connectServer(requestId: string, requestData: string, callback: Callback&lt;string&gt;): void; 差异内容：ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0] | api/@ohos.dlpPermission.d.ts |

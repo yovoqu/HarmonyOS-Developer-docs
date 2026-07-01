@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-115
 
-## 如何解决Socket bind失败问题
- 
+#### 问题现象
+1. 使用TCPSocket\UDPSocket bind失败，报错：
+- 报错场景一：2301013 Permission denied。
 
+2. 报错场景二：2301099 Address not available。
 
-##### 问题现象
+3. bind绑定指定端口未报错，但是分配到一个随机端口。
 
-- 使用TCPSocket\UDPSocket bind失败，报错：
-报错场景一：2301013 Permission denied。
-- 报错场景二：2301099 Address not available。
+  
 
- - bind绑定指定端口未报错，但是分配到一个随机端口。
+  #### 背景知识
 
- 
- 
-
-##### 背景知识
-
-- [SOCKET 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-socket)：错误码映射关系为2301000+[内核错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-kernel)。比如2301013就是2301000+内核错误码13，在应用申请系统保留端口导致无权访问等场景出现。
+  
+[SOCKET 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-socket)：错误码映射关系为2301000+[内核错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-kernel)。比如2301013就是2301000+内核错误码13，在应用申请系统保留端口导致无权访问等场景出现。
 - [bind](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#bind-1)接口：在创建Socket连接时，可以使用bind方法绑定IP地址和端口，端口可以由用户指定或由系统随机分配。如果端口冲突，系统会rebind随机分配端口号。
 - Socket通过TCP/UDP协议进行通信可以参考：[应用TCP/UDP协议进行通信](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/socket-connection#应用tcpudp协议进行通信)。
 
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 错误信息提示Permission denied拒绝访问，需检查port参数设置是否过低，属于系统保留端口。
 - 错误信息提示Address not available不能分配的地址，检查是否误绑了目标服务端IP地址或其他无效地址，Socket连接bind方法需要绑定本机IP地址。
@@ -36,7 +32,7 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 - bind时设置了系统保留端口，普通应用没有权限，应改设较大数值的端口。
 - Socket连接bind方法入参地址有误，应绑定本机IP地址而非目标服务端IP地址。
@@ -45,16 +41,15 @@
  
  
 
-##### 修改建议
-
-- 报错2301013 Permission denied，建议客户端bind更大的端口，避免使用系统保留端口。
-- 报错2301099 Address not available，可以使用0.0.0.0（IPv4通配符）或::（IPv6通配符）绑定本地所有地址：
+#### 修改建议
+1. 报错2301013 Permission denied，建议客户端bind更大的端口，避免使用系统保留端口。
+2. 报错2301099 Address not available，可以使用0.0.0.0（IPv4通配符）或::（IPv6通配符）绑定本地所有地址：
 ```text
-// socket绑定0.0.0.0作为本机IP地址，参考样例:
+<em>// socket绑定0.0.0.0作为本机IP地址，参考样例:</em>
 bindAllAddress() {
   let udp: socket.UDPSocket = socket.constructUDPSocketInstance();
   let bindAddr: socket.NetAddress = {
-    address: '0.0.0.0', // 本端地址
+    address: '0.0.0.0',<em> // 本端地址</em>
     port: 1234
   };
   udp.bind(bindAddr)
@@ -67,9 +62,10 @@ bindAllAddress() {
 }
 ```
  如果是通过[wifiManager.getIpInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetipinfo)接口获取到的IpInfo.ipAddress地址，需要转换为IP常用格式。
- 
+
+  
 ```text
-// 获取WiFi IPV4地址，参考样例:
+<em>// 获取WiFi IPV4地址，参考样例:</em>
 getWifiIp() {
   let localAddress = this.resolveIP(wifiManager.getIpInfo().ipAddress) as string;
   console.info(`localAddress: ${localAddress}`);
@@ -77,7 +73,7 @@ getWifiIp() {
 }
 
 resolveIP(ip: number): string {
-  if (ip  0xFFFFFFFF) {
+  if (ip < 0 || ip > 0xFFFFFFFF) {
     console.info('The number is not normal!');
   }
   return (ip >>> 24) + '.' + (ip >> 16 & 0xFF) + '.' + (ip >> 8 & 0xFF) + '.' + (ip & 0xFF);
@@ -89,8 +85,8 @@ checkIp(ip: string): boolean {
 }
 ```
 
-- 对于绑定指定端口失败，由于系统具备自动rebind机制随机分配端口，需要通过[getLocalAddress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#getlocaladdress12)接口自行判断是否绑定指定端口：
-```text
+3. 对于绑定指定端口失败，由于系统具备自动rebind机制随机分配端口，需要通过[getLocalAddress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#getlocaladdress12)接口自行判断是否绑定指定端口：
+```json
 bindWithoutRandomPort(address: socket.NetAddress) {
   let udp: socket.UDPSocket = socket.constructUDPSocketInstance();
   udp.bind(address, (error: BusinessError) => {
@@ -108,7 +104,7 @@ bindWithoutRandomPort(address: socket.NetAddress) {
         console.info('应用绑定的端口正确');
       } else {
         console.error(`应用重新绑定了另外的端口: ${localAddress.port}`);
-        // ...
+     <em>   // ...</em>
       }
     }).catch((err: Error) => {
       console.error(`获取UDP Socket地址失败: ${JSON.stringify(err)}`);
@@ -117,19 +113,14 @@ bindWithoutRandomPort(address: socket.NetAddress) {
 }
 ```
 
-
  
 完整示例参考如下：
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/K3zQgV74TAaJ2zIDx38_hQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025756Z&HW-CC-Expire=86400&HW-CC-Sign=B5376A5EF812A822155764088EBDDC2D0D6385977232302745436DB329D0D5B5)
- 
-
-需要在module.json5文件中申请[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)和[ohos.permission.GET_WIFI_INFO](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionget_wifi_info)权限。
- 
+> [!NOTE]
+> 需要在module.json5文件中申请 ohos.permission.INTERNET 和 ohos.permission.GET_WIFI_INFO 权限。
 
  
-```text
+```json
 import { wifiManager } from '@kit.ConnectivityKit';
 import { socket } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -137,7 +128,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct SocketBindExample {
-  // 获取WiFi IPV4地址，参考样例:
+ <em> // 获取WiFi IPV4地址，参考样例:</em>
   getWifiIp() {
     let localAddress = this.resolveIP(wifiManager.getIpInfo().ipAddress) as string;
     console.info(`localAddress: ${localAddress}`);
@@ -145,7 +136,7 @@ struct SocketBindExample {
   }
 
   resolveIP(ip: number): string {
-    if (ip  0xFFFFFFFF) {
+    if (ip < 0 || ip > 0xFFFFFFFF) {
       console.info('The number is not normal!');
     }
     return (ip >>> 24) + '.' + (ip >> 16 & 0xFF) + '.' + (ip >> 8 & 0xFF) + '.' + (ip & 0xFF);
@@ -156,11 +147,11 @@ struct SocketBindExample {
     return ipRegex.test(ip);
   }
 
-  // socket绑定0.0.0.0作为本机IP地址，参考样例:
+ <em> // socket绑定0.0.0.0作为本机IP地址，参考样例:</em>
   bindAllAddress() {
     let udp: socket.UDPSocket = socket.constructUDPSocketInstance();
     let bindAddr: socket.NetAddress = {
-      address: '0.0.0.0', // 本端地址
+      address: '0.0.0.0',<em> // 本端地址</em>
       port: 1234
     };
     udp.bind(bindAddr)
@@ -189,7 +180,7 @@ struct SocketBindExample {
           console.info('应用绑定的端口正确');
         } else {
           console.error(`应用重新绑定了另外的端口: ${localAddress.port}`);
-          // ...
+        <em>  // ...</em>
         }
       }).catch((err: Error) => {
         console.error(`获取UDP Socket地址失败: ${JSON.stringify(err)}`);
@@ -215,7 +206,7 @@ struct SocketBindExample {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：通过Socket连接向IP地址为192.168.1.1的路由器发送数据，应如何绑定IP地址？
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1194
 
-## 如何实现图标长按震动拖动并动态添加到另外一个Grid
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现长按图标后，拖动时手机发出震动；拖动图标时，图标样式可变，并且最终可以被拖到另外一个Grid？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 震动效果需要申请ohos.permission.VIBRATE权限，然后使用[vibrator.startVibration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator#vibratorstartvibration9)调用震动。
 - 图标的拖拽可以使用Grid组件的拖拽能力，并且可以通过[onItemDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#onitemdragstart8)和[onItemDrop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#onitemdrop8)监听图标拖拽和落下事件。
@@ -23,19 +19,17 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 需要使用Grid的拖拽能力实现长按图标的拖拽效果，在onItemDragStart拖拽回调中调用vibrator.startVibration来触发震动，同时在拖拽的回调中调用属性动画使图标抖动，并且可以自定义替换图标或者更换透明度等其他效果；拖拽的图标落下时，在onItemDrop回调中增加图标数量变化的业务逻辑。
- 
-- 实现手机震动需要先配置[ohos.permission.VIBRATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionvibrate)权限，然后调用vibrator.startVibration增加震动效果。权限申请：{"name": "ohos.permission.VIBRATE"}。
-- 使用animateTo属性动画设计动画效果，实现抖动。
-- 设置.editMode(true)使Grid进入拖拽，然后增加图标替换和数量变化的逻辑。
-- 图片资源需要根据实际情况进行替换，将startIcon、img1替换为已有资源。
-
+ 1. 实现手机震动需要先配置[ohos.permission.VIBRATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionvibrate)权限，然后调用vibrator.startVibration增加震动效果。权限申请：{"name": "ohos.permission.VIBRATE"}。
+2. 使用animateTo属性动画设计动画效果，实现抖动。
+3. 设置.editMode(true)使Grid进入拖拽，然后增加图标替换和数量变化的逻辑。
+4. 图片资源需要根据实际情况进行替换，将startIcon、img1替换为已有资源。
  
 完整demo参考如下：
  
-```text
+```json
 import { vibrator } from '@kit.SensorServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { util } from '@kit.ArkTS';
@@ -49,9 +43,9 @@ struct GridDragIconsTest {
   private scroller2: Scroller = new Scroller();
 
   @Builder
-  dragItem(item: string) { // 拖拽过程样式
+  dragItem(item: string) { <em>// 拖拽过程样式</em>
     Column() {
-      // 图片替换为已有资源
+   <em>   // 图片替换为已有资源</em>
       Image($r('app.media.img1'))
         .width(44)
         .height(44)
@@ -64,19 +58,19 @@ struct GridDragIconsTest {
     .height('auto');
   }
 
-  // 拖动时图片变化
+  <em>// 拖动时图片变化</em>
   @State scaleValue: number = 1;
   @State opacityValue: number = 1;
   private angle: number = 0;
-  // 是否在拖动
+ <em> // 是否在拖动</em>
   @State isDrag1: boolean = false;
   @State isDrag2: boolean = false;
-  // 落点是否在另外一个grid
+<em>  // 落点是否在另外一个grid</em>
   @State isDropIn1: boolean = false;
   @State isDropIn2: boolean = false;
-  // 设置抖动
+ <em> // 设置抖动</em>
   @State rotateZ: number = 0;
-  // 记录拖拽的图标起点和落点索引（无论上下哪个grid）
+<em>  // 记录拖拽的图标起点和落点索引（无论上下哪个grid）</em>
   @State indexUp: number = 0;
   @State indexDown: number = 0;
 
@@ -117,12 +111,12 @@ struct GridDragIconsTest {
         ForEach(this.addedItems1, (item: string) => {
           GridItem() {
             Column() {
-              // 图片替换为已有资源
+            <em>  // 图片替换为已有资源</em>
               Image($r('app.media.startIcon'))
                 .width(44)
                 .height(44)
                 .objectFit(ImageFit.Contain)
-                .draggable(false) // 设置为false
+                .draggable(false) <em>// 设置为false</em>
                 .scale({ x: this.scaleValue, y: this.scaleValue })
                 .opacity(this.opacityValue)
                 .rotate({
@@ -153,26 +147,26 @@ struct GridDragIconsTest {
         top: 30
       })
       .backgroundColor(0xFAEEE0)
-      .editMode(true) // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
-      .onItemDragStart(((event: ItemDragInfo, index: number) => { // 第一次拖拽此事件绑定的组件时，触发回调。
+      .editMode(true) <em>// 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
+      .onItemDragStart(((event: ItemDragInfo, index: number) => {<em> // 第一次拖拽此事件绑定的组件时，触发回调。</em>
         console.info(`kevin1---onItemDragStart1---index:${index}`);
         this.indexUp = index;
 
-        // 1、触发震动
+      <em>  // 1、触发震动</em>
         this.vibrator1();
 
-        // 2、按住旋转
+     <em>   // 2、按住旋转</em>
         this.isDrag1 = true;
         this.jumpWithSpeed(5, this.isDrag1);
-        this.scaleValue = 0.9; // 缩小至90%
-        this.opacityValue = 0.8; // 透明度80%
-        return this.dragItem(this.addedItems1[index]); // 设置拖拽过程中显示的图片。
+        this.scaleValue = 0.9; <em>// 缩小至90%</em>
+        this.opacityValue = 0.8; <em>// 透明度80%</em>
+        return this.dragItem(this.addedItems1[index]);<em> // 设置拖拽过程中显示的图片。</em>
       }))
-      .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number) => { // 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
+      .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number) => { <em>// 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
         this.indexDown = insertIndex;
         this.isDropIn1 = true;
         console.info('kevin1', 'onItemDrop1');
-        console.info(`itemIndex---itemIndex:${insertIndex}`); // itemIndex拖拽起始位置，insertIndex拖拽插入位置
+        console.info(`itemIndex---itemIndex:${insertIndex}`); <em>// itemIndex拖拽起始位置，insertIndex拖拽插入位置</em>
         this.changeIndex1();
         this.stopJump();
         this.scaleValue = 1;
@@ -180,17 +174,17 @@ struct GridDragIconsTest {
         this.init();
       });
 
-      // grid2
+     <em> // grid2</em>
       Grid(this.scroller2) {
         ForEach(this.addedItems2, (item: string) => {
           GridItem() {
             Column() {
-              // 图片替换为已有资源
+             <em> // 图片替换为已有资源</em>
               Image($r('app.media.startIcon'))
                 .width(44)
                 .height(44)
                 .objectFit(ImageFit.Contain)
-                .draggable(false) // 设置为false
+                .draggable(false)<em> // 设置为false</em>
                 .scale({ x: this.scaleValue, y: this.scaleValue })
                 .opacity(this.opacityValue)
                 .rotate({
@@ -222,29 +216,29 @@ struct GridDragIconsTest {
         top: 30
       })
       .backgroundColor(0xFAEEE0)
-      .editMode(true) // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
-      .onItemDragStart(((event: ItemDragInfo, index: number) => { // 第一次拖拽此事件绑定的组件时，触发回调。
+      .editMode(true)<em> // 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
+      .onItemDragStart(((event: ItemDragInfo, index: number) => {<em> // 第一次拖拽此事件绑定的组件时，触发回调。</em>
         console.info(`kevin2---onItemDragStart2---index:${index}`);
         this.indexUp = index;
 
-        // 1、触发震动
+       <em> // 1、触发震动</em>
         this.vibrator1();
 
-        // 2、按住旋转
+      <em>  // 2、按住旋转</em>
         this.isDrag2 = true;
 
         this.jumpWithSpeed(5, this.isDrag2);
 
-        this.scaleValue = 0.9; // 缩小至90%
-        this.opacityValue = 0.8; // 透明度80%
-        return this.dragItem(this.addedItems2[index]); // 设置拖拽过程中显示的图片。
+        this.scaleValue = 0.9; <em>// 缩小至90%</em>
+        this.opacityValue = 0.8; <em>// 透明度80%</em>
+        return this.dragItem(this.addedItems2[index]); <em>// 设置拖拽过程中显示的图片。</em>
       }))
-      .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number) => { // 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
+      .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number) => { <em>// 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
         this.indexDown = insertIndex;
         this.isDropIn2 = true;
         this.stopJump();
         console.info('kevin2', 'onItemDrop2');
-        console.info(`itemIndex---itemIndex:${insertIndex}`); // itemIndex拖拽起始位置，insertIndex拖拽插入位置
+        console.info(`itemIndex---itemIndex:${insertIndex}`); <em>// itemIndex拖拽起始位置，insertIndex拖拽插入位置</em>
         this.changeIndex2();
         this.scaleValue = 1;
         this.opacityValue = 1;
@@ -256,7 +250,7 @@ struct GridDragIconsTest {
     .width('100%');
   }
 
-  // 初始化长按拖拽状态
+<em>  // 初始化长按拖拽状态</em>
   init() {
     this.isDropIn2 = false;
     this.isDrag2 = false;
@@ -264,10 +258,10 @@ struct GridDragIconsTest {
     this.isDrag1 = false;
   }
 
-  // 触发马达振动
+<em>  // 触发马达振动</em>
   vibrator1() {
     try {
-      // 触发马达振动
+   <em>   // 触发马达振动</em>
       if (canIUse('SystemCapability.Sensors.MiscDevice')) {
         vibrator.startVibration({
           type: 'time',
@@ -283,7 +277,7 @@ struct GridDragIconsTest {
           console.info('Succeed in starting vibration');
         });
       } else {
-        // Fallback for unsupported SystemCapability
+    <em>    // Fallback for unsupported SystemCapability</em>
       }
     } catch (err) {
       let e: BusinessError = err as BusinessError;
@@ -291,19 +285,19 @@ struct GridDragIconsTest {
     }
   }
 
-  // 交换数组位置
-  // 拖入1中
+ <em> // 交换数组位置</em>
+<em>  // 拖入1中</em>
   changeIndex1() {
     const index1 = this.indexUp;
     const index2 = this.indexDown;
-    // 从2拖到1：在2中按住，然后从1中落地
+  <em>  // 从2拖到1：在2中按住，然后从1中落地</em>
     if (this.isDrag2 && this.isDropIn1) {
       let temp: string;
       temp = this.addedItems2[index1];
       this.addedItems2.splice(index1, 1);
       this.addedItems1.splice(index2, 0, temp);
     } else if (this.isDrag1 && this.isDropIn1 && !this.isDropIn2) {
-      // 从1拖到1：在1按住，然后在1中落地
+   <em>   // 从1拖到1：在1按住，然后在1中落地</em>
       let temp: string;
       temp = this.addedItems1[index1];
       this.addedItems1[index1] = this.addedItems1[index2];
@@ -311,18 +305,18 @@ struct GridDragIconsTest {
     }
   }
 
-  // 拖入2中
+ <em> // 拖入2中</em>
   changeIndex2() {
     const index1 = this.indexUp;
     const index2 = this.indexDown;
-    // 从1拖到2：在1中按住，然后从2中落地
+  <em>  // 从1拖到2：在1中按住，然后从2中落地</em>
     if (this.isDrag1 && this.isDropIn2) {
       let temp: string;
       temp = this.addedItems1[index1];
       this.addedItems1.splice(index1, 1);
       this.addedItems2.splice(index2, 0, temp);
     } else if (this.isDrag2 && this.isDropIn2 && !this.isDropIn1) {
-      // 从2拖到2：在2按住，然后在2中落地
+   <em>   // 从2拖到2：在2按住，然后在2中落地</em>
       let temp: string;
       temp = this.addedItems2[index1];
       this.addedItems2[index1] = this.addedItems2[index2];

@@ -4,24 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-batch-add
 
-## 批量新增关键资产(ArkTS)
-   
-    
-          
-##### 接口介绍
-     
+#### 接口介绍
+
 从版本26.0.0开始，系统提供异步接口[batchAdd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetbatchadd)以便开发者批量新增关键资产。
-     
+
 在批量新增关键资产时，关键资产属性的内容（AssetMap）参数如下表所示：
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/pXy3g4irRWaRZXkiW_6FpQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025431Z&HW-CC-Expire=86400&HW-CC-Sign=5BF3CF21D45DDB0F2A6C68ADCB61CCFF37A2CE27E50F1453B45AC40B558E6636)
-       
-       
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/pXy3g4irRWaRZXkiW_6FpQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T041502Z&HW-CC-Expire=86400&HW-CC-Sign=181F7CA99F3011451E1BB2D9010AB195EAE0B84B5999F2D4FCA72ECD3159DD89)
+
+
 下表中“ALIAS”和名称包含“DATA_LABEL”的关键资产属性，用于存储业务自定义信息，其内容不会被加密，请勿存放敏感个人数据。
-      
-     
-     
+
+
+
 | 属性名称（Tag） | 属性内容（Value） | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | SECRET | 类型为Uint8Array，长度为1-1024字节。 | 必选 | 关键资产明文。 |
@@ -30,15 +26,15 @@
 | REQUIRE_PASSWORD_SET | 类型为boolean。 | 可选 | 是否仅在设置了锁屏密码的情况下，可访问关键资产。为true时，表示仅在用户设置了锁屏密码的情况下，关键资产才允许被访问；为false时，表示无论用户是否设置锁屏密码，关键资产均允许被访问。默认值为false。 |
 | AUTH_TYPE | 类型为number，取值范围详见AuthType。 | 可选 | 访问关键资产所需的用户认证类型，默认值为NONE，即访问关键资产前无需用户认证。 |
 | SYNC_TYPE | 类型为number，取值范围详见SyncType。 | 可选 | 关键资产支持的同步类型，默认值为NEVER，即不允许同步该关键资产。 |
-| IS_PERSISTENT | 类型为boolean。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示应用卸载后，应用存储的关键资产将被保留；为false时表示应用卸载后，应用存储的关键资产将被删除。默认值为false。          注意： 设置此属性时，需申请权限ohos.permission.STORE_PERSISTENT_DATA。 |
-| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。          说明： 在API version 12及之前版本，长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。          说明： 在API version 12及之前版本，长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。          说明： 在API version 12及之前版本，长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。          说明： 在API version 12及之前版本，长度为1-512字节。 |
-| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。          说明： 在API version 12及之前版本，长度为1-512字节。 |
-| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。          说明： 在API version 12及之前版本，长度为1-512字节。 |
-| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。          说明： 在API version 12及之前版本，长度为1-512字节。 |
-| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。          说明： 在API version 12及之前版本，长度为1-512字节。 |
+| IS_PERSISTENT | 类型为boolean。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示应用卸载后，应用存储的关键资产将被保留；为false时表示应用卸载后，应用存储的关键资产将被删除。默认值为false。 注意： 设置此属性时，需申请权限ohos.permission.STORE_PERSISTENT_DATA。 |
+| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 | DATA_LABEL_NORMAL_LOCAL_112+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
 | DATA_LABEL_NORMAL_LOCAL_212+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
 | DATA_LABEL_NORMAL_LOCAL_312+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
@@ -47,38 +43,39 @@
 | REQUIRE_ATTR_ENCRYPTED14+ | 类型为boolean。 | 可选 | 是否加密业务自定义附属信息。为true时表示业务自定义附属信息加密存储，为false时表示业务自定义附属信息不加密存储。默认值为false。 |
 | GROUP_ID<18+ | 类型为Uint8Array，长度为7-127字节。 | 可选 | 待新增的关键资产所属群组，默认新增不属于任何群组的关键资产。 |
 | WRAP_TYPE18+ | 类型为number，取值范围详见WrapType。 | 可选 | 关键资产支持的加密导入导出类型，默认值为NEVER，即不允许加密导入导出关键资产。 |
-     
-    
-    
-          
-##### 约束和限制
-     
+
+
+
+
+#### 约束和限制
+
  - 基于别名的访问。
-       关键资产以密文的形式存储在ASSET数据库中，以业务身份 + 别名作为唯一索引。故业务需要保证每条关键资产的别名唯一。
+
+  关键资产以密文的形式存储在ASSET数据库中，以业务身份 + 别名作为唯一索引。故业务需要保证每条关键资产的别名唯一。
  - 业务自定义数据存储。
-       ASSET为业务预留了12个关键资产自定义属性，名称以“DATA_LABEL”开头。对于超过12个自定义属性的情况，业务可以将多段数据按照一定的格式（如JSON）拼接到同一个ASSET属性中。
-       ASSET对以“DATA_LABEL_CRITICAL”开头的属性提供完整性保护，写入后不可更新。
+
+  ASSET为业务预留了12个关键资产自定义属性，名称以“DATA_LABEL”开头。对于超过12个自定义属性的情况，业务可以将多段数据按照一定的格式（如JSON）拼接到同一个ASSET属性中。
+
+  ASSET对以“DATA_LABEL_CRITICAL”开头的属性提供完整性保护，写入后不可更新。
  - 批量新增限制。
-       批量新增的关键资产必须具有相同的[GROUP_ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#tag)和[REQUIRE_ATTR_ENCRYPTED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#tag)属性。
-       批量新增的关键资产数量最大值为100。
-     
-    
-    
-          
-##### 开发步骤
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/7njIinEQRueOLUpctJTOzw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025431Z&HW-CC-Expire=86400&HW-CC-Sign=B4759F5F4CF92999112CE4DE6A9A6924F4728CABDC243DD376A69976C02781BB)
-       
-       
-以下为批量新增接口的使用示例。
-      
-     
-     
+
+  批量新增的关键资产必须具有相同的[GROUP_ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#tag)和[REQUIRE_ATTR_ENCRYPTED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#tag)属性。
+
+  批量新增的关键资产数量最大值为100。
+
+
+
+
+#### 开发步骤
+
+> [!NOTE]
+> 以下为批量新增接口的使用示例。
+
+
 批量新增两条关键资产，密码分别为demo_pwd1和demo_pwd2，别名分别为demo_alias1和demo_alias2。
-     
- - 引用头文件，定义工具函数。
-       
+1. 引用头文件，定义工具函数。
+
+  
 ```ArkTS
 import { asset } from '@kit.AssetStoreKit';
 import { util } from '@kit.ArkTS';
@@ -90,8 +87,9 @@ function stringToArray(str: string): Uint8Array {
 }
 ```
 
- - 参考如下示例代码，进行业务功能开发。
-       
+2. 参考如下示例代码，进行业务功能开发。
+
+  
 ```ArkTS
 let attributesArray: asset.AssetMap[] = [];
 let attr1: asset.AssetMap = new Map();
@@ -108,7 +106,12 @@ try {
   asset.batchAdd(attributesArray).then((res: asset.BatchResult) => {
     console.info(`Succeeded in batch adding Asset, failedCount: ${res.failedCount}`);
     if (res.failedCount > 0) {
-      for (let i = 0; i  {
+      for (let i = 0; i < res.failedErrorInfos.length; i++) {
+        console.error(`Failed to add Asset at index ${res.failedErrorInfos[i].index},
+          errCode: ${res.failedErrorInfos[i].errCode}, message: ${res.failedErrorInfos[i].message}`);
+      }
+    }
+  }).catch((err: BusinessError) => {
     console.error(`Failed to batch add Asset. Code is ${err.code}, message is ${err.message}`);
   })
 } catch (error) {

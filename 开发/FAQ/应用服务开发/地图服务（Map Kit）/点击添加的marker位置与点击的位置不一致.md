@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-41
 
-## 点击添加的marker位置与点击的位置不一致
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在地图上通过手指点击添加marker，添加的marker的位置与手指点击的位置不一致，总是显示在左上角。
  
@@ -24,7 +20,7 @@ import { AsyncCallback } from '@kit.BasicServicesKit';
 struct IncorrectCode {
   private mapOptions?: mapCommon.MapOptions;
   private mapController?: map.MapComponentController;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   @State screenX: number = 0;
   @State screenY: number = 0;
   @State latitudeA: number = 0;
@@ -34,7 +30,7 @@ struct IncorrectCode {
 
 
   aboutToAppear(): void {
-    // 地图初始化参数
+   <em> // 地图初始化参数</em>
     this.mapOptions = {
       position: {
         target: {
@@ -80,7 +76,7 @@ struct IncorrectCode {
               };
 
 
-              // 转换经纬度坐标
+          <em>    // 转换经纬度坐标</em>
               let gcj02Position: mapCommon.LatLng =
                 map.convertCoordinateSync(mapCommon.CoordinateType.WGS84, mapCommon.CoordinateType.GCJ02,
                   wgs84Position);
@@ -88,7 +84,7 @@ struct IncorrectCode {
               this.longitudeB = gcj02Position.longitude;
 
 
-              // 添加一个红色标记点
+           <em>   // 添加一个红色标记点</em>
               const markerOptions: mapCommon.MarkerOptions = {
                 position: {
                   latitude: this.latitudeB,
@@ -107,7 +103,7 @@ struct IncorrectCode {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [fromScreenLocation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-projection#section1784991054119)：将屏幕像素点坐标转换成经纬度。添加的像素点坐标，单位为px。
 - 开通地图服务：需先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)，再进行后续地图开发活动。
@@ -115,9 +111,8 @@ struct IncorrectCode {
  
  
 
-##### 问题定位
-
-- 问题代码中，获取点击位置的像素点坐标后，直接将像素点坐标值用于转换经纬度。此时获取的像素点的坐标单位是vp，而将屏幕像素点坐标转换成经纬度fromScreenLocation接口需要传入px单位，导致像素点坐标输入值与实际点击位置有差异。
+#### 问题定位
+1. 问题代码中，获取点击位置的像素点坐标后，直接将像素点坐标值用于转换经纬度。此时获取的像素点的坐标单位是vp，而将屏幕像素点坐标转换成经纬度fromScreenLocation接口需要传入px单位，导致像素点坐标输入值与实际点击位置有差异。
 ```text
 this.screenX = event.touches[0].x;
 this.screenY = event.touches[0].y;
@@ -130,7 +125,7 @@ const screenPoint: mapCommon.MapPoint = {
 };
 ```
 
-- 问题代码中，对屏幕像素点坐标转换后的经纬度，又进行了一次WGS84坐标系转换GCJ02坐标系，屏幕像素点坐标转换后的经纬度本身应就GCJ02坐标系，无需再转换。
+2. 问题代码中，对屏幕像素点坐标转换后的经纬度，又进行了一次WGS84坐标系转换GCJ02坐标系，屏幕像素点坐标转换后的经纬度本身应就GCJ02坐标系，无需再转换。
 ```text
 let wgs84Position: mapCommon.LatLng = {
   latitude: this.latitudeA,
@@ -138,7 +133,7 @@ let wgs84Position: mapCommon.LatLng = {
 };
 
 
-// 转换经纬度坐标
+<em>// 转换经纬度坐标</em>
 let gcj02Position: mapCommon.LatLng =
   map.convertCoordinateSync(mapCommon.CoordinateType.WGS84, mapCommon.CoordinateType.GCJ02,
     wgs84Position);
@@ -146,23 +141,19 @@ this.latitudeB = gcj02Position.latitude;
 this.longitudeB = gcj02Position.longitude;
 ```
 
-
  
  
 
-##### 分析结论
+#### 分析结论
 
 问题代码存在两处错误导致添加marker不准确。
- 
-- onTouch获取的像素点坐标单位是vp，fromScreenLocation转化为经纬度坐标时，需要输入的单位是px，没有进行像素点坐标单位转换。
-- 屏幕像素点坐标转换后的经纬度本身应是GCJ02坐标系，问题代码中额外进行了一次WGS84坐标系转换GCJ02坐标系。
-
+ 1. onTouch获取的像素点坐标单位是vp，fromScreenLocation转化为经纬度坐标时，需要输入的单位是px，没有进行像素点坐标单位转换。
+2. 屏幕像素点坐标转换后的经纬度本身应是GCJ02坐标系，问题代码中额外进行了一次WGS84坐标系转换GCJ02坐标系。
  
  
 
-##### 修改建议
-
-- onTouch获取的像素点坐标进行vp转px单位转换。
+#### 修改建议
+1. onTouch获取的像素点坐标进行vp转px单位转换。
 ```text
 const screenPoint: mapCommon.MapPoint = {
   positionX: this.getUIContext().vp2px(this.screenX),
@@ -170,8 +161,7 @@ const screenPoint: mapCommon.MapPoint = {
 };
 ```
 
-- 去掉WGS84坐标系转换GCJ02坐标系的操作。
-
+2. 去掉WGS84坐标系转换GCJ02坐标系的操作。
  
 修改后的完整代码：
  
@@ -185,7 +175,7 @@ import { AsyncCallback } from '@kit.BasicServicesKit';
 struct IncorrectCode {
   private mapOptions?: mapCommon.MapOptions;
   private mapController?: map.MapComponentController;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   @State screenX: number = 0;
   @State screenY: number = 0;
   @State latitudeA: number = 0;
@@ -193,7 +183,7 @@ struct IncorrectCode {
 
 
   aboutToAppear(): void {
-    // 地图初始化参数
+    <em>// 地图初始化参数</em>
     this.mapOptions = {
       position: {
         target: {
@@ -233,7 +223,7 @@ struct IncorrectCode {
               this.longitudeA = latLng?.longitude as number;
 
 
-              // 添加一个红色标记点
+            <em>  // 添加一个红色标记点</em>
               const markerOptions: mapCommon.MarkerOptions = {
                 position: {
                   latitude: this.latitudeA,

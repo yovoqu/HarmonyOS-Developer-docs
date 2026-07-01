@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1529
 
-## TextArea设置计数器显示效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用TextArea组件显示计数器时，如何实现可以设置计数器的字体颜色、字体大小和显示位置，并且计数器输入字符数达到上限时，边框不变红也不晃动且字符计数器常显效果？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/cJfDWEwHQT6Gehr0jv5Sgg/zh-cn_image_0000002628606988.png?HW-CC-KV=V1&HW-CC-Date=20260701T025619Z&HW-CC-Expire=86400&HW-CC-Sign=185E1E6D81FD4A582DD5C18C0720B34B52756828795BC7BBE81E64DCDA47E45C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/cJfDWEwHQT6Gehr0jv5Sgg/zh-cn_image_0000002628606988.png?HW-CC-KV=V1&HW-CC-Date=20260701T041250Z&HW-CC-Expire=86400&HW-CC-Sign=9E1C0EF217FCA873372ACADDA7444CD67E588AFAFE279BF99E9714A76B90BD37)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea)：多行文本输入框组件，当输入的文本内容超过组件宽度时会自动换行显示。高度未设置时，组件无默认高度，自适应内容高度。宽度未设置时，默认撑满最大宽度。
 - [overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)：在当前组件上，增加遮罩文本或者叠加自定义组件以及ComponentContent作为该组件的浮层。浮层不通过组件树进行渲染，部分接口（例如[getRectangleById](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentutils#getrectanglebyid)）不支持获取浮层中的组件。
@@ -31,10 +27,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方案一：通过给组件设置浮层显示字符计数器来实现。
-示例代码如下：
+
+  示例代码如下：
 ```text
 @Entry
 @Component
@@ -43,7 +40,7 @@ struct TextAreaDemo {
   @State textAreaNum: number = 0;
   maxLength: number = 20;
 
-  // 定义字符计数器的字体颜色，当输入字符数大于或者等于最大字符数时，字体颜色为红色
+  <em>// 定义字符计数器的字体颜色，当输入字符数大于或者等于最大字符数时，字体颜色为红色</em>
   @Builder
   OverlayNode() {
     Text(`${this.textAreaNum}/${this.maxLength}`)
@@ -69,7 +66,7 @@ struct TextAreaDemo {
           this.inputValue = value;
           this.textAreaNum = value.length;
         })
-        // 给组件设置浮层显示字符计数器
+        <em>// 给组件设置浮层显示字符计数器</em>
         .overlay(this.OverlayNode(), {
           align: Alignment.BottomEnd,
           offset: { x: -10, y: -15 }
@@ -81,7 +78,8 @@ struct TextAreaDemo {
 ```
 
 - 方案二：使用Stack层叠布局，使Text覆盖在TextArea右下角，实现字符计数显示。示例代码如下：
- 
+
+  
 ```text
 @Entry
 @Component
@@ -93,7 +91,7 @@ struct TextAreaExample {
 
   build() {
     Column() {
-      // 使用Stack使Text覆盖在TextArea上
+      <em>// 使用Stack使Text覆盖在TextArea上</em>
       Stack({ alignContent: Alignment.BottomEnd }) {
         TextArea({
           text: this.text,
@@ -111,7 +109,7 @@ struct TextAreaExample {
           })
           .backgroundColor('#F1F3F5')
 
-        // 自定义右下角的Text组件
+        <em>// 自定义右下角的Text组件</em>
         Text(`${this.textAreaNum}/${this.maxLength}`)
           .fontSize(12)
           .fontColor(this.textAreaNum === this.maxLength ? Color.Red :
@@ -132,7 +130,7 @@ struct TextAreaExample {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何实现字符计数器常显？
  

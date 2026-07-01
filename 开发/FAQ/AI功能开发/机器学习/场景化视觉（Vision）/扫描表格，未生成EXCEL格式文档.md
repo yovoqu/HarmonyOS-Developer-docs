@@ -4,33 +4,29 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-14
 
-## 扫描表格，未生成EXCEL格式文档
- 
-
-
-##### 问题现象
+#### 问题现象
 
 参考官方文档Vision Kit（场景化视觉服务）的[开发实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-documentscanner#section12918203941611)，支持识别的文件类型配置了表格类型，生成的文件格式设置为JPEG格式，手机扫描表格后未生成EXCEL格式文档，如何解决？
  
  
 
-##### 背景知识
+#### 背景知识
 
 文档扫描[DocumentScanner](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-document-scanner#section143611912403)控件提供拍摄文档并转换为高清扫描件的服务，支持将文档表格扫描后生成图片。
  
  
 
-##### 解决方案
+#### 解决方案
 
 用手机对准表格扫描，预览界面左下角会出现“表格提取”按钮，需要点击“表格提取”按钮后才能进入表格提取页面，生成EXCEL格式文档。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/pxkxn5GwRQ--5xc_Z42C1Q/zh-cn_image_0000002658914043.png?HW-CC-KV=V1&HW-CC-Date=20260701T025930Z&HW-CC-Expire=86400&HW-CC-Sign=DB7AF2E326F71168F2789B2A83B82554C1604B6B637CFAD36E79F84E5EF1C5EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/pxkxn5GwRQ--5xc_Z42C1Q/zh-cn_image_0000002658914043.png?HW-CC-KV=V1&HW-CC-Date=20260701T041001Z&HW-CC-Expire=86400&HW-CC-Sign=28AD5346FEC1E20C3175D32584081418488798B88DD06EB45A1F3A1EAB061328)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：HarmonyOS应用中调用文档扫描控件DocumentScanner不能弹出按钮转换，将表格照片转换为EXCEL表格，如何解决？
  

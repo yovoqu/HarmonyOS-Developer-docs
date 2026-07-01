@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1204
 
-## 如何跨Text组件选择文本
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用多个Text组件时，如何跨组件选中文本。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/QpFlLpriT7SeQY_HyThicA/zh-cn_image_0000002658832831.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=B4250C13BD7F3885EBCE2E290635E06F25313CAF246B6EA8FE6A7EDEB6A2D180)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/QpFlLpriT7SeQY_HyThicA/zh-cn_image_0000002658832831.png?HW-CC-KV=V1&HW-CC-Date=20260701T041320Z&HW-CC-Expire=86400&HW-CC-Sign=45217A45201CBBDDCB5D108A9C60B31C0BB1425BBF3AD9047A15200FF1A103E5)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)用于给组件添加滑动手势事件，通过onActionStart、onActionUpdate、onActionEnd来判断当前手势状态。
 - [getLayoutManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#getlayoutmanager12)：调用文本的布局管理对象获取文本信息。
@@ -32,13 +28,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 实现思路：通过自定义光标组件结合手势事件，调整文本选区范围，并通过Canvas绘制区域高亮，实现跨Text组件选择文本。
- 
-- 自定义光标组件，并绑定了PanGesture，处理拖动事件，更新光标位置并调整选中区域：
+ 1. 自定义光标组件，并绑定了PanGesture，处理拖动事件，更新光标位置并调整选中区域：
 ```text
-// 自定义光标组件
+<em>// 自定义光标组件</em>
 @Builder
 caretBuilder(info: CaretInfo) {
   Column() {
@@ -52,7 +47,7 @@ caretBuilder(info: CaretInfo) {
       .border({ width: 2, color: 'rgba(10, 89, 247, 1)', radius: 10 });
   }
   .position(info.position)
-  // 拖拽时更新贯标位置
+ <em> // 拖拽时更新贯标位置</em>
   .gesture(
     PanGesture()
       .onActionStart(() => {
@@ -72,19 +67,124 @@ caretBuilder(info: CaretInfo) {
 }
 ```
 
-- 调用getTextInfos来获取选中的文本区域信息，最后通过paint方法在Canvas上绘制高亮，实现跨Text组件选择文本：
+2. 调用getTextInfos来获取选中的文本区域信息，最后通过paint方法在Canvas上绘制高亮，实现跨Text组件选择文本：
 ```text
-// 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。
+<em>// 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。</em>
 getTextInfos(start: CaretInfo, end: CaretInfo) {
   this.textInfos = [];
-  for (let i = start.listItemIndex; i  another.listItemIndex) &&
-      (this.listItemIndex  {
+  for (let i = start.listItemIndex; i <= end.listItemIndex; i++) {
+    let itemRect = this.scroller.getItemRect(i);
+    let startIndex = start.listItemIndex == i ? start.caretIndex : 0;
+    let endIndex = end.listItemIndex == i ? end.caretIndex : this.data[i].length;
+    let layoutManager = this.controllers[i].getLayoutManager();
+    let rects = this.getRectForRange(startIndex, endIndex, layoutManager);
+    this.textInfos.push(new TextInfo(i, itemRect, rects, startIndex, endIndex, this.yOffset));
+  }
+  if (this.textInfos.length <= 0) {
+    return;
+  }
+  let startCaretPosition = this.textInfos[0].getPosition(false);
+  let endCaretPosition = this.textInfos[this.textInfos.length - 1].getPosition();
+  if (startCaretPosition) {
+    start.position = startCaretPosition;
+  }
+  if (endCaretPosition) {
+    end.position = endCaretPosition;
+  }
+  this.paint();
+}
+```
+
+ 
+完整示例参考如下：
+ 
+```text
+import text from '@ohos.graphics.text';
+import { common2D } from '@kit.ArkGraphics2D';
+import { window } from '@kit.ArkUI';
+import cryptoFramework from '@ohos.security.cryptoFramework';
+
+class TextInfo {
+  index: number;
+  itemRect: RectResult;
+  textRects: common2D.Rect[] = [];
+  start: number;
+  end: number;
+  yOffset: number;
+
+  constructor(index: number, itemRect: RectResult, textRects: common2D.Rect[], start: number, end: number,
+    yOffset: number) {
+    this.index = index;
+    this.itemRect = itemRect;
+    this.textRects = textRects;
+    this.start = start;
+    this.end = end;
+    this.yOffset = yOffset;
+  }
+
+  getPosition(isEnd: boolean = true): Position | undefined {
+    if (this.textRects.length <= 0) {
+      return;
+    }
+    if (isEnd) {
+      return {
+        x: this.itemRect.x + this.textRects[this.textRects.length - 1].right - 10,
+        y: this.itemRect.y + this.textRects[this.textRects.length - 1].top
+      };
+    } else {
+      return { x: this.itemRect.x + this.textRects[0].left - 10, y: this.itemRect.y + this.textRects[0].top };
+    }
+  }
+}
+
+@ObservedV2
+class CaretInfo {
+  listItemIndex: number = -1;
+  caretIndex: number = -1;
+  @Trace position: Position = { x: -100, y: -100 };
+
+  lessThan(another: CaretInfo) {
+    return !(this.listItemIndex > another.listItemIndex) &&
+      (this.listItemIndex < another.listItemIndex || this.caretIndex < another.caretIndex);
+  }
+}
+
+@Entry
+@Component
+export struct ListSelectText {
+  private startCaretInfo: CaretInfo = new CaretInfo();
+  private endCaretInfo: CaretInfo = new CaretInfo();
+  private lastStartCaretPosition: Position = { x: -100, y: -100 };
+  private lastEndCaretPosition: Position = { x: -100, y: -100 };
+  @State data: string[] = [];
+  private controllers: TextController[] = [];
+  private settings: RenderingContextSettings = new RenderingContextSettings(true);
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
+  private scroller = new Scroller();
+  private textInfos: TextInfo[] = [];
+  private TOP_HEIGHT: number = 0;
+  private yOffset: number = 0;
+  private random: cryptoFramework.Random = cryptoFramework.createRandom();
+
+  aboutToAppear(): void {
+    for (let i = 0; i < 10; i++) {
+      let randData = this.random.generateRandomSync(3);
+      let length: number = Math.floor(randData.data[0] / 255 * 200) + 1;
+      let text: string = '';
+      for (let j = 0; j < length; j++) {
+        text += '啊';
+      }
+      this.data.push(text);
+      this.controllers.push(new TextController());
+    }
+    window.getLastWindow(this.getUIContext().getHostContext())
+      .then(win => {
         this.TOP_HEIGHT =
           this.getUIContext().px2vp(win.getWindowAvoidArea(window.AvoidAreaType.TYPE_SYSTEM).topRect.height);
       });
   }
 
-  // 自定义光标组件
+ <em> // 自定义光标组件</em>
   @Builder
   caretBuilder(info: CaretInfo) {
     Column() {
@@ -98,7 +198,7 @@ getTextInfos(start: CaretInfo, end: CaretInfo) {
         .border({ width: 2, color: 'rgba(10, 89, 247, 1)', radius: 10 });
     }
     .position(info.position)
-    // 拖拽时更新贯标位置
+   <em> // 拖拽时更新贯标位置</em>
     .gesture(
       PanGesture()
         .onActionStart(() => {
@@ -117,15 +217,48 @@ getTextInfos(start: CaretInfo, end: CaretInfo) {
     );
   }
 
-  // 获取文本中字符位置
+ <em> // 获取文本中字符位置</em>
   getTextIndex(x: number, y: number, layoutManager: LayoutManager) {
     let lineCount = layoutManager.getLineCount();
     let lineNum: number = -1;
-    for (let i = 0; i = this.getUIContext().px2vp(lineMetrics.topHeight) &&
-        y = this.getUIContext().px2vp(line.left + line.width)) {
+    for (let i = 0; i < lineCount; i++) {
+      let lineMetrics = layoutManager.getLineMetrics(i);
+      if (y >= this.getUIContext().px2vp(lineMetrics.topHeight) &&
+        y <= this.getUIContext().px2vp(lineMetrics.topHeight + lineMetrics.height)) {
+        lineNum = i;
+        break;
+      }
+    }
+    let line = layoutManager.getLineMetrics(lineNum);
+    let textIndex: number = -1;
+    if (x >= this.getUIContext().px2vp(line.left + line.width)) {
       return line.endIndex + 1;
     }
-    for (let i = line.startIndex; i  {
+    for (let i = line.startIndex; i < line.endIndex; i++) {
+      let rects = this.getRectForRange(i, line.endIndex, layoutManager);
+      if (x < rects[0].left) {
+        textIndex = i - 1;
+        break;
+      }
+    }
+    return textIndex;
+  }
+
+  getCaretInfo(x: number, y: number, info: CaretInfo): void {
+    let listIndex = this.scroller.getItemIndex(x, y);
+    if (listIndex < 0) {
+      return;
+    }
+    let itemRect = this.scroller.getItemRect(listIndex);
+    let layoutManager = this.controllers[listIndex].getLayoutManager();
+    let textIndex = this.getTextIndex(x - itemRect.x, y - itemRect.y, layoutManager);
+    info.listItemIndex = listIndex;
+    info.caretIndex = textIndex;
+  }
+
+  getRectForRange(start: number, end: number, layoutManager: LayoutManager) {
+    return layoutManager.getRectsForRange({ start: start, end: end }, text.RectWidthStyle.TIGHT,
+      text.RectHeightStyle.TIGHT).map((item): common2D.Rect => {
       return {
         left: this.getUIContext().px2vp(item.rect.left),
         right: this.getUIContext().px2vp(item.rect.right),
@@ -135,10 +268,32 @@ getTextInfos(start: CaretInfo, end: CaretInfo) {
     });
   }
 
-  // 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。
+ <em> // 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。</em>
   getTextInfos(start: CaretInfo, end: CaretInfo) {
     this.textInfos = [];
-    for (let i = start.listItemIndex; i  // 使用Canvas绘制黄色高亮背景
+    for (let i = start.listItemIndex; i <= end.listItemIndex; i++) {
+      let itemRect = this.scroller.getItemRect(i);
+      let startIndex = start.listItemIndex == i ? start.caretIndex : 0;
+      let endIndex = end.listItemIndex == i ? end.caretIndex : this.data[i].length;
+      let layoutManager = this.controllers[i].getLayoutManager();
+      let rects = this.getRectForRange(startIndex, endIndex, layoutManager);
+      this.textInfos.push(new TextInfo(i, itemRect, rects, startIndex, endIndex, this.yOffset));
+    }
+    if (this.textInfos.length <= 0) {
+      return;
+    }
+    let startCaretPosition = this.textInfos[0].getPosition(false);
+    let endCaretPosition = this.textInfos[this.textInfos.length - 1].getPosition();
+    if (startCaretPosition) {
+      start.position = startCaretPosition;
+    }
+    if (endCaretPosition) {
+      end.position = endCaretPosition;
+    }
+    this.paint();
+  }
+
+ <em> // 使用Canvas绘制黄色高亮背景</em>
   paint() {
     this.context.reset();
     this.context.translate(0, -this.yOffset);

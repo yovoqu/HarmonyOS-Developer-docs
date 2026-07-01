@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1256
 
-## Scroll容器嵌套RelativeContainer组件时无法滚动
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Scroll组件中嵌套RelativeContainer组件时，Scroll组件无法滚动。
  
@@ -24,7 +20,7 @@ struct Index {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局，与知识内容无关仅为全屏展示效果
+      data?.setWindowLayoutFullScreen(true); <em>// 设置沉浸式布局，与知识内容无关仅为全屏展示效果</em>
     });
   }
 
@@ -58,15 +54,15 @@ struct Index {
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/swOAF5qES5efuvq5aTiBHQ/zh-cn_image_0000002628755406.png?HW-CC-KV=V1&HW-CC-Date=20260701T025607Z&HW-CC-Expire=86400&HW-CC-Sign=96D58E4761E343BE5A49BF16B98603B15396BCBC3E6EA23C8773BE5E4110B758)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/swOAF5qES5efuvq5aTiBHQ/zh-cn_image_0000002628755406.png?HW-CC-KV=V1&HW-CC-Date=20260701T041247Z&HW-CC-Expire=86400&HW-CC-Sign=77E53EA2A49B8E52283F42B71DB6330606633B1079FD57DDE0EF0BAF43C36E80)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Scroll组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)：可滚动的容器组件，当Scroll子组件的布局尺寸超过Scroll组件的尺寸时，内容可以滚动。
 - [RelativeContainer组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)：相对布局组件，用于复杂场景中元素对齐的布局。
@@ -74,23 +70,19 @@ struct Index {
  
  
 
-##### 问题定位
+#### 问题定位
 
 RelativeContainer组件的默认高度是根据其父容器的高度确定。如果RelativeContainer组件没有设置具体的高度值，RelativeContainer组件会自动继承父组件的高度，而不是子组件高度。
  
 由此可见，当Scroll组件的子组件是RelativeContainer组件，且RelativeContainer组件未设置高于Scroll组件的高度时，会违反Scroll组件的子组件总高度必须大于Scroll组件高度的滚动条件，导致无法滚动。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/5sh6J_0tQZmNKIilVf_Mdg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025607Z&HW-CC-Expire=86400&HW-CC-Sign=5B4EF2E3AAD5F2C56EE63A7D323E6A45DD940D3E7275661E07B538EEB0BE89A0)
- 
-
-RelativeContainer组件的width属性、height属性参数设置"auto"时，表示RelativeContainer组件宽度和高度自适应子组件的宽度和高度。
- 
+> [!NOTE]
+> RelativeContainer组件的width属性、height属性参数设置"auto"时，表示RelativeContainer组件宽度和高度自适应子组件的宽度和高度。
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 Scroll组件中嵌套RelativeContainer组件时，Scroll组件无法滚动的原因是：
  
@@ -98,18 +90,16 @@ RelativeContainer组件默认继承Scroll组件的高度，导致RelativeContain
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 方案一：RelativeContainer组件height属性参数设置"auto"。RelativeContainer组件height属性参数设置"auto"时，需要保证RelativeContainer子组件的高度高于Scroll组件高度。
- 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/o5Cf8MJTS2OaiYNTU9TSFA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025607Z&HW-CC-Expire=86400&HW-CC-Sign=C7BE87DE0D330487F69CE062AEF928452339DF4FB82A12D2649D8F516981730D)
- 
-当width设置"auto"时，如果水平方向上子组件以容器作为锚点，则"auto"不会生效（即视为不设置width），也会导致无法滚动，垂直方向上同理。
- 
+  
+> [!NOTE]
+> 当width设置"auto"时，如果水平方向上子组件以容器作为锚点，则"auto"不会生效（即视为不设置width），也会导致无法滚动，垂直方向上同理。
 
- 
-完整示例代码如下：
+
+  完整示例代码如下：
 ```text
 import { window } from '@kit.ArkUI';
 
@@ -120,7 +110,7 @@ struct OptionOne {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局，与知识内容无关仅为全屏展示效果
+      data?.setWindowLayoutFullScreen(true);<em> // 设置沉浸式布局，与知识内容无关仅为全屏展示效果</em>
     });
   }
 
@@ -143,8 +133,8 @@ struct OptionOne {
         }
         .width('100%');
       }
-      .height('auto') // 自适应子组件高度
-      .width('auto'); // 自适应子组件宽度
+      .height('auto') <em>// 自适应子组件高度</em>
+      .width('auto');<em> // 自适应子组件宽度</em>
     }
     .width('100%')
     .height('100%');
@@ -153,8 +143,8 @@ struct OptionOne {
 ```
 
 - 方案二：[Flex组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)、[Column组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)代替RelativeContainer组件。以Column组件为例，Column组件会自适应子组件高度。
- 
-完整示例代码如下：
+
+  完整示例代码如下：
 ```text
 import { window } from '@kit.ArkUI';
 
@@ -165,12 +155,12 @@ struct OptionTwo {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局，与知识内容无关仅为全屏展示效果
+      data?.setWindowLayoutFullScreen(true);<em> // 设置沉浸式布局，与知识内容无关仅为全屏展示效果</em>
     });
   }
 
   build() {
-    // Column组件代替RelativeContainer组件
+  <em>  // Column组件代替RelativeContainer组件</em>
     Scroll(this.scroller) {
       Column({ space: 10 }) {
         Text('组件1')
@@ -195,7 +185,8 @@ struct OptionTwo {
 ```
 
 - 方案三：RelativeContainer组件嵌套Scroll组件。
-完整示例代码如下：
+
+  完整示例代码如下：
 ```text
 import { window } from '@kit.ArkUI';
 
@@ -206,12 +197,12 @@ struct OptionThree {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data?.setWindowLayoutFullScreen(true); // 设置沉浸式布局，与知识内容无关仅为全屏展示效果
+      data?.setWindowLayoutFullScreen(true);<em> // 设置沉浸式布局，与知识内容无关仅为全屏展示效果</em>
     });
   }
 
   build() {
-    // RelativeContainer组件嵌套Scroll组件
+   <em> // RelativeContainer组件嵌套Scroll组件</em>
     RelativeContainer() {
       Scroll(this.scroller) {
         Column({ space: 10 }) {
@@ -239,8 +230,5 @@ struct OptionThree {
 
 
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/nafoxLnTRBSssPtaj1L-qA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025607Z&HW-CC-Expire=86400&HW-CC-Sign=50E04705A1835E0714C4384FA919AD0C9A8F3CB78721E122B366E86C69CAD8A6)
- 
-
-由于方案二、方案三会更改布局，推荐使用方案一。
+> [!NOTE]
+> 由于方案二、方案三会更改布局，推荐使用方案一。

@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1588
 
-## 如何解决Tabs和滚动组件的嵌套滑动问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Tabs组件存在横向滑动的控制手势，当其内部嵌套Tabs或横向的List、Scroll、Swiper、Grid等滚动与滑动组件时，会产生横向滚动手势冲突，导致外部的Tabs无法横向切换。以Grid为例问题现象如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/zRj0PjIGR5Cn2z6XFc_UyA/zh-cn_image_0000002628770204.png?HW-CC-KV=V1&HW-CC-Date=20260701T025622Z&HW-CC-Expire=86400&HW-CC-Sign=0D53C50F1D7DB3F8DDE181B747E8A94AEEF7345CD039C07760B4AA18E55AB0ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/zRj0PjIGR5Cn2z6XFc_UyA/zh-cn_image_0000002628770204.png?HW-CC-KV=V1&HW-CC-Date=20260701T041316Z&HW-CC-Expire=86400&HW-CC-Sign=26BF74BC575E2DA62E3ABEEDD17FF3AB335B6BBA531DD2CEED47D827C2F18D02)
 
  
 当Grid组件滑动到右侧底部时，预期触发Tabs从“首页1”切换到“首页2”，实际未触发。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)是通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。可以通过控制器[TabsController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#tabscontroller)控制Tabs组件进行页签切换，不支持一个TabsController控制多个Tabs组件。
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)是官方提供的滑动与滚动组件，支持[滚动组件通用接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common)。且都可以通过自身属性控制横向或纵向滚动，当为横向滚动时，与Tabs嵌套时会发生手势冲突。
@@ -29,10 +25,11 @@ Tabs组件存在横向滑动的控制手势，当其内部嵌套Tabs或横向的
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：基于滚动组件通用接口[nestedScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#nestedscroll11)解决滚动冲突。List、Scroll、Grid滚动组件支持nestedScroll通用属性，可以设置滚动优先级。以Tabs嵌套横向滚动的Grid为例，在开启Tabs滑动切换的前提下给Grid设置嵌套滚动nestedScroll属性。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -50,7 +47,19 @@ struct TabsGridDemo {
 
 
   aboutToAppear(): void {
-    for (let i = 1; i  {
+    for (let i = 1; i <= 10; i++) {
+      this.gridData.push($r(`app.media.${i}`));
+    }
+  }
+
+
+  build() {
+    Column() {
+      Tabs({ controller: this.tabsController }) {
+        TabContent() {
+          Column() {
+            Grid() {
+              ForEach(this.gridData, (item: Resource) => {
                 GridItem() {
                   Image(item)
                     .height(150)
@@ -61,7 +70,7 @@ struct TabsGridDemo {
             .height('25%')
             .columnsGap(16)
             .rowsTemplate('1fr')
-            // 设置Grid优先滚动
+           <em> // 设置Grid优先滚动</em>
             .nestedScroll({
               scrollForward: NestedScrollMode.SELF_FIRST,
               scrollBackward: NestedScrollMode.SELF_FIRST,
@@ -89,10 +98,11 @@ struct TabsGridDemo {
 ```
 
 - **方案二**：通过自定义手势判断[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)实现Tabs嵌套内部组件滚动逻辑判断。
-Tabs嵌套Swiper组件的实现逻辑如下：
-当Swiper显示位置为第一个卡片时，若继续往右滑，执行Tabs切换到上一个页签。
-- 当Swiper显示位置为最后一个卡片时，若继续往左滑，执行Tabs切换到下一个页签。
-- 其他时候左右滑动手势执行Swiper切换功能，左滑切换上一个卡片，右滑切换下一个卡片。
+Tabs嵌套Swiper组件的实现逻辑如下：1. 当Swiper显示位置为第一个卡片时，若继续往右滑，执行Tabs切换到上一个页签。
+
+2. 当Swiper显示位置为最后一个卡片时，若继续往左滑，执行Tabs切换到下一个页签。
+
+3. 其他时候左右滑动手势执行Swiper切换功能，左滑切换上一个卡片，右滑切换下一个卡片。
 ```text
 @Entry
 @Component
@@ -119,7 +129,7 @@ struct TabsSwiperDemo {
 
 
         TabContent() {
-          // Swiper在第二个TabContent内。
+        <em>  // Swiper在第二个TabContent内。</em>
           Swiper(this.swiperController) {
             ForEach(this.data, (item: number, index: number) => {
               Text(item.toString())
@@ -136,13 +146,15 @@ struct TabsSwiperDemo {
                       console.info('Pan update');
                     })
                     .onActionEnd((event: GestureEvent) => {
-                      // Swiper在Tabs第二页内采用if/else逻辑优先判定Swiper边缘滑动情况。
+                   <em>   // Swiper在Tabs第二页内采用if/else逻辑优先判定Swiper边缘滑动情况。</em>
                       if (index === 0 && event.offsetX > 0) {
-                        this.tabsController.changeIndex(0); // Swiper滑动到第一页继续右滑，Tabs控制器跳转到第一页。
-                      } else if (index === (this.data.length - 1) && event.offsetX // Swiper滑动到最后一页继续左滑，Tabs控制器跳转到第三页。
-                      } else if (event.offsetX // Swiper控制器。
+                        this.tabsController.changeIndex(0); <em>// Swiper滑动到第一页继续右滑，Tabs控制器跳转到第一页。</em>
+                      } else if (index === (this.data.length - 1) && event.offsetX < 0) {
+                        this.tabsController.changeIndex(2); <em>// Swiper滑动到最后一页继续左滑，Tabs控制器跳转到第三页。</em>
+                      } else if (event.offsetX < 0) {
+                        this.swiperController.showNext(); <em>// Swiper控制器。</em>
                       } else if (event.offsetX > 0) {
-                        this.swiperController.showPrevious(); // Swiper控制器。
+                        this.swiperController.showPrevious();<em> // Swiper控制器。</em>
                       }
                     })
                 );
@@ -168,26 +180,25 @@ struct TabsSwiperDemo {
 }
 ```
 
-
- - Tabs嵌套Tabs组件的实现逻辑和上述Swiper相似，只需在内层Tabs的第一个和最后一个TabContent绑定手势处理PanGesture即可。完整示例代码如下：
+- Tabs嵌套Tabs组件的实现逻辑和上述Swiper相似，只需在内层Tabs的第一个和最后一个TabContent绑定手势处理PanGesture即可。完整示例代码如下：
 ```text
 @Entry
 @Component
 struct TabsTabsDemo {
   tabsController: TabsController = new TabsController();
-  @State selectIndex0: number = 0; // 外部页签
-  @State selectIndex1: number = 0; // 内部页签
+  @State selectIndex0: number = 0; <em>// 外部页签</em>
+  @State selectIndex1: number = 0;<em> // 内部页签</em>
 
 
   @Builder
-  tabContent0(nam: string, targetIndex: number) { // 外层Tab栏
+  tabContent0(nam: string, targetIndex: number) { <em>// 外层Tab栏</em>
     Text(nam)
       .fontColor(this.selectIndex0 === targetIndex ? '#0a59f7' : '#99000000')
   }
 
 
   @Builder
-  tabContent1(nam: string, targetIndex: number) { // 内层Tab栏
+  tabContent1(nam: string, targetIndex: number) {<em> // 内层Tab栏</em>
     Text(nam)
       .fontColor(this.selectIndex1 === targetIndex ? '#0a59f7' : '#99000000')
   }
@@ -217,7 +228,7 @@ struct TabsTabsDemo {
             );
 
 
-            // 中间的其它TabContent
+       <em>     // 中间的其它TabContent</em>
             TabContent() {
               Text('tab2').fontSize('30fp');
             }.tabBar(this.tabContent1('tab2', 1))
@@ -260,7 +271,7 @@ struct TabsTabsDemo {
  
  
 
-##### 总结
+#### 总结
  
 | 方案 | 局限性 | 本知识适用场景 | 拓展适用场景 |
 | --- | --- | --- | --- |
@@ -270,15 +281,13 @@ struct TabsTabsDemo {
  
  
 综上所述，总结如下：
- 
-- Swiper组件的[nestedScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#nestedscroll11)属性与Scroll、List、Grid的nestedScroll属性不一致。且Swiper不支持滚动组件通用属性。所以当Tabs嵌套Swiper时方案一并不适用。
-- Tabs组件属于导航与切换组件，也不支持nestedScroll和滚动组件通用属性，所以当Tabs嵌套Tabs时方案一也不适用。
-- 当Tabs内部嵌套List、Scroll、Grid组件时，优先选用方案一，内部嵌套Tabs或Swiper时，优先选用方案二，方案三。
-
+ 1. Swiper组件的[nestedScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#nestedscroll11)属性与Scroll、List、Grid的nestedScroll属性不一致。且Swiper不支持滚动组件通用属性。所以当Tabs嵌套Swiper时方案一并不适用。
+2. Tabs组件属于导航与切换组件，也不支持nestedScroll和滚动组件通用属性，所以当Tabs嵌套Tabs时方案一也不适用。
+3. 当Tabs内部嵌套List、Scroll、Grid组件时，优先选用方案一，内部嵌套Tabs或Swiper时，优先选用方案二，方案三。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Tabs嵌套Web组件出现左右滑动问题如何解决？
  

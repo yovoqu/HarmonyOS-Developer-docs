@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-22
 
-## NDK线程开发中的Env使用问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 NDK工程，在进行线程开发时，常因Env使用不当导致应用崩溃，有哪些常见场景以及应该如何处理？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [napi_env禁止缓存的原因是什么](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-73)：napi_env表示程序的运行状态和上下文信息。在不同的调用上下文、执行环境、NAPI模块初始化或销毁以及多线程环境中，napi_env的值可能会发生变化。
  
  
 
-##### 解决方案
+#### 解决方案
 
 **场景一：存储使用Env。**
  

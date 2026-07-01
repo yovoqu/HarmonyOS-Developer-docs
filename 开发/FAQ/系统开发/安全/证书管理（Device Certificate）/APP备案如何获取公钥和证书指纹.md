@@ -4,48 +4,43 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-certificate-5
 
-## APP备案如何获取公钥和证书指纹
- 
-
-
-##### 问题现象
+#### 问题现象
 
 移动端应用在各大平台使用云资源时，需要在对应的平台进行应用备案，平台会要求提供应用对应的公钥和证书md5指纹的信息。示例如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/qgEnFkzRR_yChPhLUwteNg/zh-cn_image_0000002628609894.png?HW-CC-KV=V1&HW-CC-Date=20260701T025751Z&HW-CC-Expire=86400&HW-CC-Sign=31372640F49D2B502A6EDE380973C09ED740CF0B9F847C62283FE8A0E87A6319)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/qgEnFkzRR_yChPhLUwteNg/zh-cn_image_0000002628609894.png?HW-CC-KV=V1&HW-CC-Date=20260701T041427Z&HW-CC-Expire=86400&HW-CC-Sign=6464CD92322D47771372A8FDBB19A438C89C36BDA87404C2DB21286195E60CD7)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 证书是由AppGallery Connect颁发的数字证书，用于验证应用的身份和签名。通过证书，验证应用身份，可以确保应用由合法开发者发布；对应用签名，可以确保应用的完整性和来源的可靠性。证书格式为.cer，包含公钥、证书指纹（即证书的摘要信息）等信息。
  
  
 
-##### 解决方案
+#### 解决方案
+1. 登录AppGallery Connect，点击“证书、APP ID和Profile”，在页面左侧点击“证书”，下载需要备案的HarmonyOS应用的发布证书。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/l2JXGW8IRi62kajvO8bxeA/zh-cn_image_0000002658969109.png?HW-CC-KV=V1&HW-CC-Date=20260701T041427Z&HW-CC-Expire=86400&HW-CC-Sign=1ED5ACF315F0887E47380D61A98E8773774914A9E6C41E82811106A4427E459A)
 
-- 登录AppGallery Connect，点击“证书、APP ID和Profile”，在页面左侧点击“证书”，下载需要备案的HarmonyOS应用的发布证书。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/l2JXGW8IRi62kajvO8bxeA/zh-cn_image_0000002658969109.png?HW-CC-KV=V1&HW-CC-Date=20260701T025751Z&HW-CC-Expire=86400&HW-CC-Sign=03770D2642568651B2774A0814F580F24B1FAD55262EECD2F66E86E67E49A269)
+2. 使用文本编辑器（如记事本）打开已下载的证书，删除前两段证书（根证书和中间证书），只保留最后一段证书（叶子证书），点击保存。
+3. 双击打开已保存的证书，点击“详细信息-公钥”，获取APP的公钥信息。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/ImwWqkliT1SDYzSdm-d7Jw/zh-cn_image_0000002658849157.png?HW-CC-KV=V1&HW-CC-Date=20260701T041427Z&HW-CC-Expire=86400&HW-CC-Sign=E61E28CE0D5CA80165B8A43E124140671954EBC3DDCACAE0E3E53416C71876D1)
 
-- 使用文本编辑器（如记事本）打开已下载的证书，删除前两段证书（根证书和中间证书），只保留最后一段证书（叶子证书），点击保存。
-- 双击打开已保存的证书，点击“详细信息-公钥”，获取APP的公钥信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/ImwWqkliT1SDYzSdm-d7Jw/zh-cn_image_0000002658849157.png?HW-CC-KV=V1&HW-CC-Date=20260701T025751Z&HW-CC-Expire=86400&HW-CC-Sign=C4CC6335DFDA157A689522726320B0FF1E8C348C2CD5F5994962CED67E639F6C)
+4. 双击打开已保存的证书点击“详细信息-指纹”，获取APP的指纹信息。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/0WDfVq8xROiwBVn7NPrbsw/zh-cn_image_0000002628769790.png?HW-CC-KV=V1&HW-CC-Date=20260701T041427Z&HW-CC-Expire=86400&HW-CC-Sign=34D8B155BD9422E66C72AACE5B02D561F633C2AAB3D17848C7D7EB11611FC635)
 
-- 双击打开已保存的证书点击“详细信息-指纹”，获取APP的指纹信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/0WDfVq8xROiwBVn7NPrbsw/zh-cn_image_0000002628769790.png?HW-CC-KV=V1&HW-CC-Date=20260701T025751Z&HW-CC-Expire=86400&HW-CC-Sign=25BE4AA910F332883E1D8B42292BF5A6DD07EE707A7182903D13E2388D19509A)
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/9BC9Nw8iRVqwVWghT03j0w/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T041427Z&HW-CC-Expire=86400&HW-CC-Sign=73462DFA9740CC81DA79A8F47477FDFDBEDFED78F10EB13AB72C0DFDFD891942)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/9BC9Nw8iRVqwVWghT03j0w/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025751Z&HW-CC-Expire=86400&HW-CC-Sign=F3436702AAE4D5E386FE01229A3369BBEC74B7AF86DF5327A40DAE5A58057BAD)
- 
-这里的指纹是sha1指纹，通常可以通过它作为md5值去备案。
-
+  这里的指纹是sha1指纹，通常可以通过它作为md5值去备案。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：对于MAC电脑，如何根据下载的证书获取公钥和签名信息？
  

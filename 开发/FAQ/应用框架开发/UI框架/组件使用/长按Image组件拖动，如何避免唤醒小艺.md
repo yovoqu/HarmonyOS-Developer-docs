@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1125
 
-## 长按Image组件拖动，如何避免唤醒小艺
- 
-
-
-##### 问题现象
+#### 问题现象
 
 拖拽功能支持跨设备、跨应用数据流转，用户可长按图片Image组件直接拖拽至小艺进行AI分析（如文字提取、智能搜索），并支持分屏操作、中转站暂存，提升多设备协同效率与交互便捷性。但在三方应用开发中，当三方应用内部需要自定义Image组件长按操作的业务逻辑（如收藏/点赞）时，如果这时误触发小艺唤醒，导致业务逻辑冲突与交互混乱。如何在实现长按拖动Image组件，同时避免唤醒小艺？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [统一拖拽](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-unified-drag-and-drop)：拖拽功能不仅操作便捷，还能与多种系统能力深度融合，拓展出更为广泛的应用场景。例如，跨设备拖拽让用户能在不同设备间无缝传输数据，跨窗口拖拽提升了多任务处理的灵活性。此外，基于拖拽操作还可以开发出更多创新性的应用场景，如AI智能识别、水印添加等，这些创新性的功能接入统称为“统一拖拽”。
 - [Image组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)：Image为图片组件，常用于在应用中显示图片。
@@ -25,12 +21,10 @@
  
  
 
-##### 解决方案
-
-- 将Image组件的draggable设置为false，该属性默认值为true。
-- 给Image组件配置LongPressGesture长按手势监听，用于标记拖动状态。
-- 配置onTouch事件，将Image组件的位置实时更新为手指触摸屏幕的位置。
-
+#### 解决方案
+1. 将Image组件的draggable设置为false，该属性默认值为true。
+2. 给Image组件配置LongPressGesture长按手势监听，用于标记拖动状态。
+3. 配置onTouch事件，将Image组件的位置实时更新为手指触摸屏幕的位置。
  
 完整示例参考如下：
  
@@ -47,21 +41,21 @@ struct DragDemoForImage {
       Column() {
         Text("This is a text.").fontSize(40).backgroundColor(Color.Green).width('100%').height('10%')
         Stack() {
-          // 背景
+        <em>  // 背景</em>
           Stack() {
-            // 若背景为地图，可在这里定义MapComponent组件
+           <em> // 若背景为地图，可在这里定义MapComponent组件</em>
           }.width('100%')
           .height('100%');
 
-          // 图片
+        <em>  // 图片</em>
           Image($r('app.media.startIcon'))
             .position({ x: this.positionX, y: this.positionY })
             .width(50)
             .height(50)
-            .draggable(false) // 图片设置为不可拖拽
-            // 触发长按拖动
+            .draggable(false) <em>// 图片设置为不可拖拽</em>
+          <em>  // 触发长按拖动</em>
             .gesture(
-              // 绑定可以重复触发的LongPressGesture
+            <em>  // 绑定可以重复触发的LongPressGesture</em>
               LongPressGesture({ duration: 500 })
                 .onAction((event: GestureEvent | undefined) => {
                   if (event) {
@@ -72,13 +66,13 @@ struct DragDemoForImage {
         }.width('100%').height('100%')
         .onTouch((event) => {
           if (this.flag) {
-            // 拖动标记位为true时，图片跟随手指移动
+           <em> // 拖动标记位为true时，图片跟随手指移动</em>
             if (event.type === TouchType.Move) {
-              // 触摸点默认是图片中心，图标默认大小50*50
+            <em>  // 触摸点默认是图片中心，图标默认大小50*50</em>
               this.positionX = event.touches[0].x - 25;
               this.positionY = event.touches[0].y - 25;
             }
-            // 手势抬起时，本次拖动结束
+         <em>   // 手势抬起时，本次拖动结束</em>
             if (event.type === TouchType.Up) {
               this.flag = false;
             }
@@ -92,7 +86,7 @@ struct DragDemoForImage {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：拖拽跟拖动有什么区别？
  

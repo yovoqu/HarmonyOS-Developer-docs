@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-3
 
-## MDM设置网络白名单功能异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过[addAllowedWifiList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)设置Wi-Fi白名单不生效。
  
  
 
-##### 背景知识
+#### 背景知识
 
 MDM应用可以通过[addAllowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)添加Wi-Fi白名单，Wi-Fi的ssid+BSSID作为参数传递，添加成功后当前设备仅允许连接该名单下的Wi-Fi。
  
@@ -26,40 +22,33 @@ MDM应用可以通过[addAllowedWifiList](https://developer.huawei.com/consumer/
  
  
 
-##### 问题定位
+#### 问题定位
 
 有问题的操作步骤如下：
- 
-- 确保[restrictions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)中启用Wi-Fi，wifiManager确保没有[Disallowed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageradddisallowedwifilist19)和[Allowed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)的Wi-Fi。
-- 使用[addAllowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)添加一个Wi-Fi白名单，其参数类似[{"ssid":"mate60","BSSID":"92:EF:1C:F1:21:81"}]，BSSID值在此处获取：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/VXxbS0LpRuS2wpkUr9IPIg/zh-cn_image_0000002658973601.png?HW-CC-KV=V1&HW-CC-Date=20260701T025811Z&HW-CC-Expire=86400&HW-CC-Sign=DDDF08E41C466080133EBB04D82CBDC8239596AB2BA2E674D84D2A4C120DE98D)
+ 1. 确保[restrictions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)中启用Wi-Fi，wifiManager确保没有[Disallowed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageradddisallowedwifilist19)和[Allowed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)的Wi-Fi。
+2. 使用[addAllowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)添加一个Wi-Fi白名单，其参数类似[{"ssid":"mate60","BSSID":"92:EF:1C:F1:21:81"}]，BSSID值在此处获取：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/VXxbS0LpRuS2wpkUr9IPIg/zh-cn_image_0000002658973601.png?HW-CC-KV=V1&HW-CC-Date=20260701T041414Z&HW-CC-Expire=86400&HW-CC-Sign=123431E5336EC7302D7CF6A5E63596193057469914AA9AA96BE8B6F52E01B198)
 
-- 设置后，Wi-Fi白名单未生效。
-
+3. 设置后，Wi-Fi白名单未生效。
  
 分析以上操作步骤，发现Wi-Fi白名单未生效的原因是**未正确传递BSSID值**。
  
 BSSID的正确获取方法：
- 
-- 打开“开发者选项”-->"开启wlan详细日志记录"：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/65vGvt0KSo-6RYzg_WBrAQ/zh-cn_image_0000002628614392.png?HW-CC-KV=V1&HW-CC-Date=20260701T025811Z&HW-CC-Expire=86400&HW-CC-Sign=760D714AC9C43FF7239A9F156474239BAAA52D7F4634EBB9FA06DA7D97F970A0)
+ 1. 打开“开发者选项”-->"开启wlan详细日志记录"：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/65vGvt0KSo-6RYzg_WBrAQ/zh-cn_image_0000002628614392.png?HW-CC-KV=V1&HW-CC-Date=20260701T041414Z&HW-CC-Expire=86400&HW-CC-Sign=87939B811B9B556CAA06ECD51F0CDA391DF9B1113C376CCC61A4DDE6DD079890)
 
-- 查看BSSID：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/cW4jjfB7RtCkiRIssomMYw/zh-cn_image_0000002658853641.png?HW-CC-KV=V1&HW-CC-Date=20260701T025811Z&HW-CC-Expire=86400&HW-CC-Sign=537DF57D8757F7ED7DF6CA6A08EFD3CD48DF38A033752C0E2D7F11A332BADC97)
-
+2. 查看BSSID：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/cW4jjfB7RtCkiRIssomMYw/zh-cn_image_0000002658853641.png?HW-CC-KV=V1&HW-CC-Date=20260701T041414Z&HW-CC-Expire=86400&HW-CC-Sign=9E8F7EA688B2DE28FB3D81C60667E2D00C148CBCB8078527E3751D9AEBF5A070)
 
  
  
 
-##### 分析结论
-
-- BSSID比较隐晦，需要专门的指引，用户才能正确获取BSSID。
-- MAC和BSSID的格式类似，容易误用，导致功能不正常。
-
+#### 分析结论
+1. BSSID比较隐晦，需要专门的指引，用户才能正确获取BSSID。
+2. MAC和BSSID的格式类似，容易误用，导致功能不正常。
  
  
 
-##### 修改建议
-
-- 正确获取BSSID。
-- [addAllowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)接口中，传递BSSID。
+#### 修改建议
+1. 正确获取BSSID。
+2. [addAllowedWifiList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager#wifimanageraddallowedwifilist19)接口中，传递BSSID。

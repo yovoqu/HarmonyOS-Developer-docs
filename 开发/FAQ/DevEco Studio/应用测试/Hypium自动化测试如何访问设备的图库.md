@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-16
 
-## Hypium自动化测试如何访问设备的图库
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用Hypium库实现访问图库？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [照片和视频存储位置](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-34)为/storage/cloud/100/files/Photo和/storage/media/100/local/files/Photo。
 - mediatool是一个轻量级的命令行工具集合，开发者可通过此工具操作媒体库资源。媒体库为图库提供和管理数据，媒体库中的图片和视频会在图库界面呈现。具体请参考[mediatool工具使用指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mediatool)。
@@ -22,11 +18,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用Hypium库实现访问图库，由于系统权限限制需要结合mediatool工具使用。最终可以实现访问图库。
 - 查询图库/storage/media/100/local/files/Photo中目录以及文件。
-```text
+```bash
 import logging
 from devicetest.core.test_case import TestCase, Step
 from hypium import UiDriver
@@ -60,7 +56,7 @@ class TC_001(TestCase):
 ```
 
 - 已知图片名称查看图片在设备中的位置，此处的文件名为图片设备显示名称display-name，可参考[mediatool查询命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mediatool#查询命令mediatool-query)。
-```text
+```bash
 locations = self.driver.shell('mediatool query IMG_XXXXX_XXXXX.jpg')
 logging.info('locations:' + locations)
 ```

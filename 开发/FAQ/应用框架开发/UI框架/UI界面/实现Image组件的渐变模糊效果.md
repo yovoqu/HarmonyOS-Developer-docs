@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-850
 
-## 实现Image组件的渐变模糊效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Image组件如何基于图片内容实现模糊渐变和纯颜色遮罩渐变效果。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [linearGradientBlur](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#lineargradientblur12)为组件添加内容线性渐变模糊效果。
 - [linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color#lineargradient)设置组件的颜色渐变效果，支持方向控制和多颜色配置。
@@ -23,7 +19,7 @@ Image组件如何基于图片内容实现模糊渐变和纯颜色遮罩渐变效
  
  
 
-##### 解决方案
+#### 解决方案
 
 方案一：可以通过linearGradientBlur设置组件的内容线性渐变模糊效果，具体可以参考官网案例[设置组件线性渐变模糊效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#示例2设置组件线性渐变模糊效果)。
  
@@ -41,7 +37,7 @@ struct demo {
       Column() {
         Text('原始图片')
           .fontSize(30);
-        // 本地资源，需自行替换
+      <em>  // 本地资源，需自行替换</em>
         Image($r('app.media.startIcon'))
           .width('100%')
           .height(300)
@@ -52,7 +48,7 @@ struct demo {
       Text('渐变图片')
         .fontSize(30);
       Stack() {
-        // 本地资源，需自行替换
+        <em>// 本地资源，需自行替换</em>
         Image($r('app.media.startIcon'))
           .width('100%')
           .height(300)
@@ -86,10 +82,10 @@ struct demo {
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/Cp5-Fv4cRjqGln_xfhkxOQ/zh-cn_image_0000002628398642.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=75F95C663BF5907E4A0C44C717088EF12B990CBF881B4194A5BE9313FBDF8F60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/Cp5-Fv4cRjqGln_xfhkxOQ/zh-cn_image_0000002628398642.png?HW-CC-KV=V1&HW-CC-Date=20260701T041215Z&HW-CC-Expire=86400&HW-CC-Sign=4F5C6DA00E32C4EF519B57C688C38A9D93EF9476C2475914C98F56C879C14D4A)
 
  
 
-##### 总结
+#### 总结
 
 方案一可以为组件添加内容线性渐变模糊效果，实现类似毛玻璃的景深效果（如近实远虚、半透明模糊背景）；方案二为纯颜色渐变效果，实现两种或多种颜色的平滑过渡（如从白色渐变到黑色）。

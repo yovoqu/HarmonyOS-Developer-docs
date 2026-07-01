@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-701
 
-## Row组件内Text内容溢出
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Row组件内布局了多个Text组件，其中一个Text组件长度较长，导致后面的组件超出Row组件，内容溢出屏幕，部分Text组件没有展示。
  
@@ -50,14 +46,14 @@ struct Index {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/l7y06ql-S1WCM4WwKC6fuA/zh-cn_image_0000002628394986.png?HW-CC-KV=V1&HW-CC-Date=20260701T025642Z&HW-CC-Expire=86400&HW-CC-Sign=B4CA244EF19445758AD5072C12E62E310F0F73E1830EEDD7F9CA78B64E26A737)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/l7y06ql-S1WCM4WwKC6fuA/zh-cn_image_0000002628394986.png?HW-CC-KV=V1&HW-CC-Date=20260701T041143Z&HW-CC-Expire=86400&HW-CC-Sign=BFD0F529F92F84AAB99878412D1C414FEF7A426E4512C58A72D2CCDC6619A639)
 
  
 可以观察到，当第二个子组件为长文本时，后面的其他子组件都无法显示出来。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [textOverflow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textoverflow)用于设置文本超长时的显示方式，[TextOverflow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#textoverflow).Ellipsis效果是文本超长时显示不下的文本用省略号代替，需要搭配[maxLines](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#maxlines)属性使用。
 - [width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#width)属性用于设置组件自身的宽度或水平方向布局策略，**缺省时使用元素自身内容需要的宽度**。若子组件的宽大于父组件的宽，则会超出父组件的范围。
@@ -68,7 +64,7 @@ struct Index {
  
  
 
-##### 解决方案
+#### 解决方案
 
 上文示例中Row组件虽然设置了第二个Text组件的textOverflow属性和maxLines属性，但是并没有设置width属性，所以导致Text组件超出Row组件的范围。有以下解决方法：
  
@@ -122,14 +118,14 @@ struct Page2 {
           .fontSize(15)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
-          .layoutWeight(5); // 占5/7剩余空间
+          .layoutWeight(5); <em>// 占5/7剩余空间</em>
         Text('Hello world')
           .fontColor('#999999')
           .borderWidth(1)
           .borderColor('#ff3880ff')
           .borderRadius(2)
           .maxLines(1)
-          .layoutWeight(2); // 占2/7剩余空间
+          .layoutWeight(2); <em>// 占2/7剩余空间</em>
       }
       .height(30)
       .width('100%')
@@ -194,7 +190,7 @@ struct Page4 {
           .fontSize(15)
           .fontColor(Color.Black)
           .maxLines(1)
-          .width('calc(100% - 100vp - 20vp)') // 父组件宽度减去另外两个子组件宽度
+          .width('calc(100% - 100vp - 20vp)') <em>// 父组件宽度减去另外两个子组件宽度</em>
           .textOverflow({ overflow: TextOverflow.Ellipsis });
         Text('Hello world')
           .fontColor('#999999')
@@ -256,7 +252,7 @@ struct Page5 {
  
  
 
-##### 总结
+#### 总结
  
 | 方案 | 优点 | 缺点 |
 | --- | --- | --- |
@@ -269,7 +265,7 @@ struct Page5 {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：此场景下可以使用文本计算能力吗？
  

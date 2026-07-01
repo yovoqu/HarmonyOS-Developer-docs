@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-41
 
-## DevEco Studio使用过程中闪退或报错问题汇总
- 
-
-
-##### 问题现象
+#### 问题现象
 
 内存问题：
  
@@ -35,13 +31,13 @@ Detail: Please check the message from tools.
  
  
 
-##### 背景知识
+#### 背景知识
 
 根据[工具简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tools-overview)可知，HUAWEI DevEco Studio是基于IntelliJ IDEA Community开源版本打造。对DevEco Studio运行异常的部分问题，可参考IntelliJ IDEA Community运行异常来处理。
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 内存问题：
 场景一：点击DevEco Studio的菜单项Help->Compress Logs and Show in Explorer获取日志，查看devecostudio-logs-xxx-xxx.zip压缩包内文件java_error_in_devecostudio64_xxxx.log有如下日志：
@@ -97,7 +93,7 @@ stack at sp + 7 slots: 0x0000000000167398 is an unknown value
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 内存问题：
 场景一：系统运行内存不足导致DevEco Studio运行出错。
@@ -116,23 +112,23 @@ stack at sp + 7 slots: 0x0000000000167398 is an unknown value
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 内存问题：
 场景一：点击DevEco Studio的菜单项“Help-Change Memory Settings”，增加内存，保存并重新启动DevEco Studio。
 - 场景二：关闭占用内存较多的应用或者线程，释放内存资源。
 
  - 系统问题：
-场景三：
-以管理员身份运行“命令提示符”（在开始菜单搜索cmd，右键选择“以管理员身份运行”）。
-- 输入以下命令并回车：sfc /scannow。
-- 系统会自动扫描并修复受损或缺失的系统文件。等待完成后，建议重启电脑。
+场景三：1. 以管理员身份运行“命令提示符”（在开始菜单搜索cmd，右键选择“以管理员身份运行”）。
 
- 
+2. 输入以下命令并回车：sfc /scannow。
+
+3. 系统会自动扫描并修复受损或缺失的系统文件。等待完成后，建议重启电脑。
+
  - 基座问题：
 场景四：点开Help > Edit Custom VM Options...，在devecostudio.vmoptions文件中增加一行配置：-Dsun.java2d.metal=false。
 
  - 交互问题：
-场景五：
-先排查网络环境。禁用防火墙/代理软件临时测试。
-- IDE配置修复。在Settings > Build > Compiler中勾选Clear IDE caches and restart，通过File > Invalidate Caches进行缓存清理。
+场景五：1. 先排查网络环境。禁用防火墙/代理软件临时测试。
+
+2. IDE配置修复。在Settings > Build > Compiler中勾选Clear IDE caches and restart，通过File > Invalidate Caches进行缓存清理。

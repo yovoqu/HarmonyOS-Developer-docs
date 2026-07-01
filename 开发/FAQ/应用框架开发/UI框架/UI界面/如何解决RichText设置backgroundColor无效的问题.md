@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1133
 
-## 如何解决RichText设置backgroundColor无效的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在深色模式下，RichText组件通过backgroundColor属性设置背景颜色不生效。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - RichText组件适用于加载与显示一段HTML字符串，且不需要对显示效果进行较多自定义的应用场景。RichText组件仅支持有限的通用[属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richtext)和事件。
 - 当前系统存在深浅色两种显示模式，为了给用户更好的使用体验，应用应适配[深浅色模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-dark-light-color-adaptation)。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 RichText组件不支持设置backgroundColor属性，所以当系统切换到深色模式后未生效，如果有较多的自定义HTML显示效果的场景，推荐使用Web组件。
  
@@ -35,13 +31,13 @@ import { ConfigurationConstant } from '@kit.AbilityKit';
 @Component
 struct ToggleExample {
   @State isOn: boolean = false;
-  // 背景颜色，通过内容中添加style样式，内容添加背景颜色或者其他样式信息
+  <em>// 背景颜色，通过内容中添加style样式，内容添加背景颜色或者其他样式信息</em>
   richBgContent: string =
-    '*{ background-color: blue;width:100%;padding:0;font-size:50px}';
-  // 文字内容
+    '<style>*{ background-color: blue;width:100%;padding:0;font-size:50px}</style>';
+  <em>// 文字内容</em>
   richContent: string =
-    '温馨提示：' +
-      '这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字，仅供参考。';
+    '<p style="background-color: blue"><span></span><span style="white-space: pre-wrap;">温馨提示：<br/>' +
+      '这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字，仅供参考。</span></p>';
 
   build() {
     Column() {
@@ -55,7 +51,7 @@ struct ToggleExample {
         Toggle({ type: ToggleType.Switch, isOn: this.isOn })
           .onChange(() => {
             this.isOn = !this.isOn;
-            // 切换深浅色主题
+            <em>// 切换深浅色主题</em>
             let context = this.getUIContext().getHostContext()?.getApplicationContext();
             if (context) {
               context.setColorMode(this.isOn ? ConfigurationConstant.ColorMode.COLOR_MODE_DARK :
@@ -71,10 +67,10 @@ struct ToggleExample {
 浅色模式效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/dEwUsuBfT9C4-EdMT8UHmg/zh-cn_image_0000002628569428.png?HW-CC-KV=V1&HW-CC-Date=20260701T025649Z&HW-CC-Expire=86400&HW-CC-Sign=96A75559032653BB9C29F5FE8F009F9E48521366D4E4ACAFAF8BF390563A2D2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/dEwUsuBfT9C4-EdMT8UHmg/zh-cn_image_0000002628569428.png?HW-CC-KV=V1&HW-CC-Date=20260701T041210Z&HW-CC-Expire=86400&HW-CC-Sign=BB38DBA84BEBD480F484A19569000A51C0F6917F3F885AEAFD1E8E7E78A8F38E)
 
  
 深色模式效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/fT3Cc3T9RXul72bkn9doKQ/zh-cn_image_0000002628409528.png?HW-CC-KV=V1&HW-CC-Date=20260701T025649Z&HW-CC-Expire=86400&HW-CC-Sign=7E5440CF41EE1030B4700C804961B61EB376FC0BC52FB48C971BB640C72EB93A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/fT3Cc3T9RXul72bkn9doKQ/zh-cn_image_0000002628409528.png?HW-CC-KV=V1&HW-CC-Date=20260701T041210Z&HW-CC-Expire=86400&HW-CC-Sign=F29A258CC2C5C24CE234525099B32B4B0740C3F035AE1EF9E7FE378067E9E061)

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-86
 
-## AGC上传软件包常见报错和解决方案
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用开发完成后，打好的app包上传应用市场，经常会遇到软件包报错的情况，阻塞上架流程。报错有错误码和无错误码两种场景：
  
 - 常见的错误码：
 上传软件包，提示软件包无效缺少依赖的包，错误码9。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/v6gHTGbZQ0mWfhtbBgj-jQ/zh-cn_image_0000002628394646.png?HW-CC-KV=V1&HW-CC-Date=20260701T025904Z&HW-CC-Expire=86400&HW-CC-Sign=5F06D76C7E558F44F4462D8A2B460A751AB67D54F9723BCFD5FD0AD4BDECD7D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/v6gHTGbZQ0mWfhtbBgj-jQ/zh-cn_image_0000002628394646.png?HW-CC-KV=V1&HW-CC-Date=20260701T041112Z&HW-CC-Expire=86400&HW-CC-Sign=6F5BAE3FF35841CBCA50FD170BA194F46BEA98DFC4E62E74A2DCD07C3299D903)
 
 - 上传软件包，提示非法软件包，错误码991。
 - 使用Profile打包，上传软件包报错误码993。
@@ -30,7 +26,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [软件包解析错误说明](https://developer.huawei.com/consumer/cn/doc/app/agc-help-harmonyoserror-0000001651912985)：不同的错误码表示不同的问题原因。
 - [定制hvigor插件](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-hvigor-plugin)：在进行编译构建的过程中，开发者可以通过定制hvigor插件，扩展构建逻辑，实现个性化的打包流程。定制hvigor插件可以满足自定义任务需求、加强构建任务可维护性、提升团队协作效率。
@@ -38,12 +34,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 报错返回错误码。
 [错误码9](https://developer.huawei.com/consumer/cn/doc/app/agc-help-harmonyoserror-0000001651912985#section148217589452)表示：软件包无效，缺少依赖的包。可以根据以下方向排查问题：
 压缩软件包时是否压缩掉依赖包？解决措施：如果项目中配置了包依赖，压缩掉依赖包会导致AGC找不到项目依赖包，上传时可以不压缩依赖包上传。
- 参考链接：[远程三方包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-dependencies#section0999112011818)。
+
+  参考链接：[远程三方包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-dependencies#section0999112011818)。
 - 打app包时使用的DevEco Studio是否不是最新版本，导致打出的包AGC解析异常？解决措施：安装使用最新版本的DevEco Studio。
 
  - [错误码991](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section522814356119)，表示非法软件包，按照下面步骤排查原因：
@@ -51,7 +48,7 @@
 - 检查签名和证书是否匹配，可以重新生成p12文件还有p7b和cer文件，然后再打包上传。
 - hap包的名字与pack.info中name值不同。
 - 在File > Project Structure > Project > Signing Configs窗口中，取消勾选“Automatically generate signature”（如果是HarmonyOS应用，请勾选“Support HarmonyOS”）然后配置工程的签名信息。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/GtPwWQfsRl6F1wKUfUu29g/zh-cn_image_0000002628554538.png?HW-CC-KV=V1&HW-CC-Date=20260701T025904Z&HW-CC-Expire=86400&HW-CC-Sign=3EAED04EE98549C1CEE726985681564405D4C4F55F36AE38705E2AAC5014E2C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/GtPwWQfsRl6F1wKUfUu29g/zh-cn_image_0000002628554538.png?HW-CC-KV=V1&HW-CC-Date=20260701T041112Z&HW-CC-Expire=86400&HW-CC-Sign=30B1ED356F5C9C0467F7320D9A6A12CF3182E146135F88444189259FC8590BD6)
 
 
  - [错误码993](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section411361491513)，表示Profile文件非法，出现此错误涉及多种原因，请根据[官网步骤](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section411361491513)排查。若排查后依旧报错，可能有以下原因：
@@ -73,11 +70,11 @@ BuildApp打包生成的包后，不能修改包命名，修改包命名上传应
  - [错误码7014](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section9225124218158)，表示软件包内权限与Profile权限不一致。需要更改软件包内权限，或者重新生成Profile，使得hap包内权限与Profile权限一致。按照下面步骤排查原因。
 重新配置软件包内权限，删除Profile内没有的权限。
 - 若软件包内的权限是必须要用到的，则建议重新[申请Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-profile-0000002248341090)，增加对应的权限。若Profile要申请特殊权限，可以参见[ACL权限](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apply-acl-0000002394212138#section156171230179)。ACL权限为受限权限，仅部分场景允许申请使用。应用上架审核会根据您的使用场景对该权限进行审核，为了避免您的应用上架申请被驳回，请优先使用Picker/控件等系统机制替代相关权限使用。
- 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/hzAuQXnLQFuyjbpzD7p_1w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025904Z&HW-CC-Expire=86400&HW-CC-Sign=9652E9B7A21EE8138853BE1FD48348901840518901EFFC300A18D2968684F948)
- 
-单次可申请的ACL权限数量最多为10个。
+  
+> [!NOTE]
+> 单次可申请的ACL权限数量最多为10个。
+
 
  - [错误码999](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section1070911435820)，表示上传的软件包使用的Profile类型错误。可能原因是软件包使用的是调试证书和调试Profile，上传应用市场时，需使用发布证书和发布Profile后重新上传。
 - [错误码7017](https://developer.huawei.com/consumer/cn/doc/app/agc-help-package-errorcode-0000002312513009#section154421017114817)，表示：软件包Profile版本不符合要求。出现此错误，表示软件包内的Profile版本不符合要求，请前往“证书、APP ID和Profile > Profile”页面重新下载Profile，然后重新打包上传。
@@ -93,18 +90,14 @@ BuildApp打包生成的包后，不能修改包命名，修改包命名上传应
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：重新生成Profile文件，增加权限重新生成Profile是否会对软件更新产生影响？
  
 A：保证证书是通过同一个CSR文件生成的，即需要确保密钥库文件（.p12）不变的情况下更换证书与Profile并不会导致应用更新失败的问题。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/dAjwdxBNR3-Y3-O3nBUE0w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025904Z&HW-CC-Expire=86400&HW-CC-Sign=AF78BD1ED5C4915D4A9CFA6C2C75DF8D50EF293F4BFF770E5D5D5568319AF88C)
- 
-
-更换证书需同时更新Profile文件。
- 
+> [!NOTE]
+> 更换证书需同时更新Profile文件。
 
  
 Q：Profile为什么支持100个？用途是什么，使用在什么场景？

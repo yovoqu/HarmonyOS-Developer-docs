@@ -4,31 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-576
 
-## 如何实现ListItem点击后居中显示的效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何利用List实现如下功能：
- 
-- 横向滚动导航栏支持点击切换。
-- 点击时自动滚动到目标位置。
-- 目标条目在容器中居中显示。
-- 动态高亮当前选中项。
-
+ 1. 横向滚动导航栏支持点击切换。
+2. 点击时自动滚动到目标位置。
+3. 目标条目在容器中居中显示。
+4. 动态高亮当前选中项。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/5QwFVpCoSKGRoj52qygFyw/zh-cn_image_0000002658911373.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025536Z&HW-CC-Expire=86400&HW-CC-Sign=2AD4CD3ACF6395E1933F8BF164F48D38F294CD886B0F1138344B9A358164E0E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/5QwFVpCoSKGRoj52qygFyw/zh-cn_image_0000002658911373.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041304Z&HW-CC-Expire=86400&HW-CC-Sign=1A0029BFB34DF6F6BD11A9A74C48728658EB913456208BCF9D32B472B89DFBCC)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)是用于展示动态数据集合的核心组件，支持滚动、动态更新等特性。可以利用[listDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#listdirection)设置List组件排列方向。
 - [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)是一种可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
@@ -37,50 +31,49 @@
  
  
 
-##### 解决方案
-
-- 定义一个CityList组件，包含一个Scroller和状态focusIndex。
-- 调用scrollToIndex()方法时，第三个参数传入[ScrollAlign.CENTER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollalign10枚举说明)，用来指定滚动对齐方式。
-- 每个标签项点击时会更新focusIndex并滚动到对应位置。
-- 根据focusIndex控制当前选中标签的背景色。
+#### 解决方案
+1. 定义一个CityList组件，包含一个Scroller和状态focusIndex。
+2. 调用scrollToIndex()方法时，第三个参数传入[ScrollAlign.CENTER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollalign10枚举说明)，用来指定滚动对齐方式。
+3. 每个标签项点击时会更新focusIndex并滚动到对应位置。
+4. 根据focusIndex控制当前选中标签的背景色。
 ```text
-@Entry
-@Component
-struct CityList {
-  private listScroller: Scroller = new Scroller();
-  @State focusIndex: number = 0;
-  allListString: string[] = ['111', '222', '333', '444', '555', '666', '777', '888', '999'];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">CityList </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">listScroller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Scroller </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Scroller</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">focusIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">allListString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'111'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'222'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'333'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'444'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'555'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'666'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'777'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'888'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'999'</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-  @Builder
-  child(tabName: string, tabIndex: number) {
-    Column() {
-      Text(tabName)
-        .fontSize(18)
-        .padding(4);
-    }
-    .borderRadius(3)
-    .onClick(() => {
-      this.focusIndex = tabIndex;
-      this.listScroller.scrollToIndex(tabIndex, true, ScrollAlign.CENTER);
-    })
-    .margin({ left: tabIndex === 0 ? 20 : 4, right: tabIndex === this.allListString.length - 1 ? 20 : 4 })
-    .backgroundColor(tabIndex === this.focusIndex ? '#0088FF' : '#F8F9F7');
-  }
+  <span style="color: rgb(181,106,1);">@Builder</span>
+  <span style="color: rgb(0,0,255);">child</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">tabName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">tabIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">tabName</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusIndex </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">tabIndex</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listScroller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollToIndex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">tabIndex</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ScrollAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CENTER</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">left</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tabIndex </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">4</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">right</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tabIndex </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">allListString</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">4 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">tabIndex </span><span style="color: rgb(181,106,1);">=== </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">focusIndex </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'#0088FF' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'#F8F9F7'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    List({ scroller: this.listScroller }) {
-      ForEach(this.allListString, (item: string, index: number) => {
-        ListItem() {
-          this.child(item, index);
-        };
-      }, (item: string) => item);
-    }
-    .scrollBar(BarState.Off)
-    .listDirection(Axis.Horizontal)
-    .backgroundColor('#FFF1F3')
-    .alignListItem(ListItemAlign.Center)
-    .height(60)
-    .margin({ top: 100 });
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">List</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">scroller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listScroller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">allListString</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">ListItem</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">child</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">item</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scrollBar</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BarState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Off</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listDirection</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Axis</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Horizontal</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#FFF1F3'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignListItem</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ListItemAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

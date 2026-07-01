@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-21
 
-## DrawingRenderingContext绘制图像图形如何填充
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用DrawingRenderingContext绘制图像时，图像默认为实心黑色，如何改变绘制图像的填充颜色或边框颜色。
  
  
 
-##### 背景知识
+#### 背景知识
 
 使用[DrawingRenderingContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawingrenderingcontext)实现在[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)组件上进行图案图形绘制。
  
@@ -22,12 +18,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 如果想要使用DrawingRenderingContext绘制非默认的实心图案，并实现自己想要的填充效果，可以通过设置Canvas的画笔（Pen）和画刷（Brush）进行图形绘制来实现填充效果。
  
 - 绘制图形框：设置画笔样式，使用attachpen将画笔应用到画布绘制中，关键代码如下：
- 
+
+  
 ```text
 const canvas = this.context.canvas;
 let pen = new drawing.Pen();
@@ -43,11 +40,13 @@ canvas.detachPen();
 this.context.invalidate();
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/7X3eHZR6SWmZkw_zZ9jz9w/zh-cn_image_0000002628553238.png?HW-CC-KV=V1&HW-CC-Date=20260701T025834Z&HW-CC-Expire=86400&HW-CC-Sign=117BC52C7C5B85F39A99A673E7E47C3208DC9D64E7D876A1763016F6EA978CAA)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/7X3eHZR6SWmZkw_zZ9jz9w/zh-cn_image_0000002628553238.png?HW-CC-KV=V1&HW-CC-Date=20260701T041025Z&HW-CC-Expire=86400&HW-CC-Sign=5D1CEE1E8832447B62FAC548A9E312AD8C636AB508BE537288E6D0524874477C)
 
 - 绘制实心图形：设置画刷样式，使用attachbrush将画刷应用到画布绘制中，关键代码如下：
- 
+
+  
 ```text
 const canvas = this.context.canvas;
 let brush = new drawing.Brush();
@@ -58,11 +57,13 @@ canvas.detachBrush();
 this.context.invalidate();
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/Rqf2oy3QSLanoPBVkj9a3Q/zh-cn_image_0000002658912553.png?HW-CC-KV=V1&HW-CC-Date=20260701T025834Z&HW-CC-Expire=86400&HW-CC-Sign=B272508C7DEEBBAA53D755EC69D94964E84839A3E1CBBB9F5F8D6AE753099BCE)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/Rqf2oy3QSLanoPBVkj9a3Q/zh-cn_image_0000002658912553.png?HW-CC-KV=V1&HW-CC-Date=20260701T041025Z&HW-CC-Expire=86400&HW-CC-Sign=A707D9EBF448223AC29C5E850C9CE6726EFB1931B3191324961972489E093FBD)
 
 - 绘制带描边的实心图形：绘制图案时若既要描边又要填充，可以将画笔和画刷样式都应用到画布绘制中，以绘制带描边的同心圆为示例，代码如下：
- 
+
+  
 ```text
 const canvas = this.context.canvas;
 const pen = new drawing.Pen();
@@ -82,7 +83,7 @@ canvas.detachBrush();
 this.context.invalidate();
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/4U5F9_C6RiqtwoVt_j1Zdg/zh-cn_image_0000002658792613.png?HW-CC-KV=V1&HW-CC-Date=20260701T025834Z&HW-CC-Expire=86400&HW-CC-Sign=DE6AAB2D77CD90B1A2B11087FE4CEFFFF3209C60FCAE72F068FA47CBA83E77E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/4U5F9_C6RiqtwoVt_j1Zdg/zh-cn_image_0000002658792613.png?HW-CC-KV=V1&HW-CC-Date=20260701T041025Z&HW-CC-Expire=86400&HW-CC-Sign=B55598853D4A098310BF9E037566E3EBF886C0C587F78D78049587AA2438CECD)
 
 
  

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-67
 
-## 内存泄漏-句柄泄漏(FD_LEAK)问题排查
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用在运行过程中突然崩溃或功能异常（如网络请求一直失败、文件无法写入）。
  
@@ -17,7 +13,7 @@
  
 **ArkTS最小运行代码示例（模拟泄漏场景）：**
  
-```text
+```json
 import { fileIo as fs } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
 
@@ -28,19 +24,21 @@ struct Index {
   @State leakCount: number = 0;
 
 
-  // 模拟泄漏：只打开不关闭
+ <em> // 模拟泄漏：只打开不关闭</em>
   triggerLeak() {
     let context = getHostContext(this) as common.UIAbilityContext;
     let path = context.filesDir + '/test_leak.txt';
-    // 创建一个文件用于测试
+   <em> // 创建一个文件用于测试</em>
     try {
       let file = fs.openSync(path, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
       fs.closeSync(file);
     } catch (e) {}
 
 
-    // 循环打开文件，模拟泄漏
-    for (let i = 0; i   // 错误：这里打开了文件句柄，但是没有保存引用，也没有调用close
+  <em>  // 循环打开文件，模拟泄漏</em>
+    for (let i = 0; i < 500; i++) {
+      try {
+      <em>  // 错误：这里打开了文件句柄，但是没有保存引用，也没有调用close</em>
         let file = fs.openSync(path, fs.OpenMode.READ_WRITE);
         this.leakCount++;
         console.info(`Open fd success: ${file.fd}`);
@@ -71,7 +69,7 @@ struct Index {
 ```
  
 
-##### 背景知识
+#### 背景知识
 
 - **句柄（File Descriptor）**：进程打开文件、创建Socket网络连接、创建线程（pipe/anon_inode）等操作都会申请文件句柄。
 - **句柄限制**：系统对单个进程持有的句柄数量有限制。当泄漏数量达到阈值（每隔60s遍历一次进程，获取进程fd句柄总数，超过阈值5000个时抓取详细句柄信息，同步上报泄漏），再次申请资源会失败，导致应用崩溃或被系统判定为资源泄漏而强行终止。
@@ -80,40 +78,64 @@ struct Index {
  
  
 
-##### 问题定位
+#### 问题定位
+1. **第一步：获取并分析泄漏日志**。日志路径通常位于/data/log/reliability/resource_leak/或通过导出故障日志获取。打开日志文件（如1380_fd_leak.txt），按以下顺序分析：
 
-- **第一步：获取并分析泄漏日志**。日志路径通常位于/data/log/reliability/resource_leak/或通过导出故障日志获取。打开日志文件（如1380_fd_leak.txt），按以下顺序分析：
- 
-确认泄漏规模：查看日志头部信息，关注leaked fd nums字段。
- 
+  
+- 确认泄漏规模：查看日志头部信息，关注leaked fd nums字段。
+
+  
 ```text
 time: 2024/06/27 11:55:28
  pid: 1380
  process: com.example.myapp
- leaked fd nums: 5111  查看Leaked fd Top 10区域：
- 
+ leaked fd nums: 5111  <-- 当前持有的句柄总数，远超正常值
+```
+
+
+2. 确定泄漏的主要类型：查看Leaked fd Top 10区域：
+
+  
 **情况A（普通文件泄漏）**：如果类型为REG或具体文件名很少，需结合下一步分析。
-- **情况B（特殊资源泄漏）**：如果Top 1是Ashmem（共享内存）、socket（网络）、pipe（管道）、dmabuf（显存）等，说明是特定系统资源未释放。
+
+3. **情况B（特殊资源泄漏）**：如果Top 1是Ashmem（共享内存）、socket（网络）、pipe（管道）、dmabuf（显存）等，说明是特定系统资源未释放。
 ```text
 Leaked fd Top 10:
- 4796    Ashmem    - 定位具体文件路径（针对文件句柄）：查看Dir Type Top 10区域，这里会按路径聚类。
- 如下所示，可以明确看到是RDB数据库文件发生了泄漏：
- 
+ 4796    Ashmem    <-- 绝大多数泄漏是共享内存
+ 259     socket
+ ...
+```
+
+
+4. 定位具体文件路径（针对文件句柄）：查看Dir Type Top 10区域，这里会按路径聚类。
+
+  如下所示，可以明确看到是RDB数据库文件发生了泄漏：
+
+  
 ```text
 Dir Type Top 10:
- 6175 /data/storage/el2/database/rdb  - **第二步：分析调用栈（核心步骤）**在日志下方的LOGGER_MEMCHECK_FD_STACK_INFO区域，系统记录了句柄申请的调用栈（需开启开发者模式或Log版本）。
- -num：表示该堆栈产生的句柄数量（未释放的）。
- -bt：调用栈的程序计数器（PC）地址。
- 
+ 6175 /data/storage/el2/database/rdb  <-- 明确指向数据库文件
+ 5    /dev/urandom
+```
+
+- **第二步：分析调用栈（核心步骤）**在日志下方的LOGGER_MEMCHECK_FD_STACK_INFO区域，系统记录了句柄申请的调用栈（需开启开发者模式或Log版本）。
+
+  -num：表示该堆栈产生的句柄数量（未释放的）。
+
+  -bt：调用栈的程序计数器（PC）地址。
+
+  
 ```text
 ==============================Sorted by num==============================
 num 8272 bt [/system/lib64/libfdleak_tracker.so+0x1fb58] ... [/data/storage/el1/bundle/libs/arm64/libentry.so+0x148940]
 ```
 
 - **第三步：反解堆栈定位代码**使用SDK提供的addr2line工具，将bt中的地址还原为代码行号。
- 假设泄漏发生在libentry.so的0x148940处：
- 
-```text
+
+  假设泄漏发生在libentry.so的0x148940处：
+
+  
+```bash
 # 命令行示例
 addr2line -C -f -e /path/to/libentry.so 0x148940
 ```
@@ -122,26 +144,22 @@ addr2line -C -f -e /path/to/libentry.so 0x148940
  
  
 
-##### 分析结论
+#### 分析结论
 
 导致句柄泄漏的常见原因有：
- 
-- **未关闭资源**：在循环或高频调用的函数中打开了文件/Socket，但在函数结束或异常返回（Exception/Early return）时未调用close。
-- **重复初始化**：对象（如RDB Store、AVPlayer）被重复创建，旧对象未释放。
-- **IPC通信异常**：Ashmem或Binder通信频繁创建且未正确回收。
-
+ 1. **未关闭资源**：在循环或高频调用的函数中打开了文件/Socket，但在函数结束或异常返回（Exception/Early return）时未调用close。
+2. **重复初始化**：对象（如RDB Store、AVPlayer）被重复创建，旧对象未释放。
+3. **IPC通信异常**：Ashmem或Binder通信频繁创建且未正确回收。
  
  
 
-##### 修改建议
-
-- **成对释放资源**：确保所有open都有对应的close。在C++中使用RAII（智能指针或类封装）管理资源；在ArkTS中使用try-finally块确保文件关闭。
-- **异常处理**：检查代码中的异常分支（if error return），确保在返回前已释放申请的fd。
-
+#### 修改建议
+1. **成对释放资源**：确保所有open都有对应的close。在C++中使用RAII（智能指针或类封装）管理资源；在ArkTS中使用try-finally块确保文件关闭。
+2. **异常处理**：检查代码中的异常分支（if error return），确保在返回前已释放申请的fd。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么日志中的堆栈信息（LOGGER_MEMCHECK_FD_STACK_INFO）是空的？
  

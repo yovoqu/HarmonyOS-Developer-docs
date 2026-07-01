@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-43
 
-## AVRecorder录制WAV封装格式的音频文件并识别为文字
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用AVRecorder录制WAV封装格式的音频文件，编码格式只能使用Audio_G711MU，采样率只能选择8000HZ。语音识别要求输入数据为16000HZ采样率、PCM编码格式的音频数据。使用AVRecorder录制WAV音频后，如何将音频文件识别为文字。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 当需要使用麦克风时，需要申请[ohos.permission.MICROPHONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionmicrophone)麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
 - [AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)用于音视频媒体录制。配置音视频录制参数时，需要使用[支持的格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#支持的格式)，具体的录制参数需严格契合既定的录制参数配置，具体可参考：[AVRecorderProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderprofile9)。当录制音频的封装格式为WAV格式时，音频编码格式只能选择AUDIO_G711MU，采样率必须是8000HZ，单声道，比特率为64000bps。
@@ -24,23 +20,22 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 [AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)录制WAV封装格式的音频文件时，目前只支持采样率为8000HZ的G711MU编码格式，不支持录制采样率16000HZ的PCM编码格式的WAV音频文件。可以通过三方库[@ohos/mp4parser(V2.0.7)](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmp4parser)调用ffmpeg命令，将AVRecorder录制G711MU编码的音频文件转换为语音识别支持的PCM音频文件，然后通过语音识别将录制的音频文件识别为文字。
- 
-- 使用[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)录制WAV封装格式的音频文件，编码格式为G711MU、采样率8000HZ、单声道、比特率64000bps。
+ 1. 使用[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)录制WAV封装格式的音频文件，编码格式为G711MU、采样率8000HZ、单声道、比特率64000bps。
 ```text
 let avProfile: media.AVRecorderProfile = {
-  audioChannels: 1, // 音频声道数目，单声道
-  audioBitrate: 64000, // 音频比特率
-  audioSampleRate: 8000, // 音频采样率
-  audioCodec: media.CodecMimeType.AUDIO_G711MU, // 音频编码格式
-  fileFormat: media.ContainerFormatType.CFT_WAV, // 音频封装格式
+  audioChannels: 1, <em>// 音频声道数目，单声道</em>
+  audioBitrate: 64000, <em>// 音频比特率</em>
+  audioSampleRate: 8000, <em>// 音频采样率</em>
+  audioCodec: media.CodecMimeType.AUDIO_G711MU, <em>// 音频编码格式</em>
+  fileFormat: media.ContainerFormatType.CFT_WAV,<em> // 音频封装格式</em>
 };
 ```
 
-- 使用[@ohos/mp4parser(V2.0.7)](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmp4parser)调用ffmpeg命令，生成采样率16000HZ、采样位数16位、单通道的PCM音频文件用于语音识别。
-```text
+2. 使用[@ohos/mp4parser(V2.0.7)](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmp4parser)调用ffmpeg命令，生成采样率16000HZ、采样位数16位、单通道的PCM音频文件用于语音识别。
+```json
 async convert2PCM(wavFilePath: string, pcmFilePath: string) {
   try {
     if (fileIo.accessSync(pcmFilePath)) {
@@ -65,8 +60,8 @@ async convert2PCM(wavFilePath: string, pcmFilePath: string) {
 }
 ```
 
-- 启动语音识别，读取PCM音频文件，通过[writeAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#section72131731149)接口持续写入待识别音频数据，并监听识别结果。
-```text
+3. 启动语音识别，读取PCM音频文件，通过[writeAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#section72131731149)接口持续写入待识别音频数据，并监听识别结果。
+```json
 onStart: (sessionId: string, eventMessage: string) => {
   console.info(`onStart, sessionId: ${sessionId} eventMessage: ${eventMessage}`);
   let audioBuf = new Uint8Array(bufSize);
@@ -95,11 +90,10 @@ onStart: (sessionId: string, eventMessage: string) => {
 },
 ```
 
-
  
 完整参考代码如下：
  
-```text
+```json
 import { abilityAccessCtrl, common, Permissions } from '@kit.AbilityKit';
 import { media } from '@kit.MediaKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -113,7 +107,7 @@ const intervalMS: number = 40;
 const wavFileName: string = 'example.wav';
 const pcmFileName: string = 'example.pcm';
 
-function reqPermissionsFromUser(permissions: Array, context: common.UIAbilityContext): void {
+function reqPermissionsFromUser(permissions: Array<Permissions>, context: common.UIAbilityContext): void {
   let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
   atManager.requestPermissionsFromUser(context, permissions)
     .catch((err: BusinessError) => {
@@ -136,7 +130,7 @@ struct WavAudioRecognizeDemo {
     reqPermissionsFromUser(permissions, this.context);
   }
 
-  async startAudioRecording(context: common.Context): Promise {
+  async startAudioRecording(context: common.Context): Promise<void> {
     try {
       this.avRecorder = await media.createAVRecorder();
     } catch (error) {
@@ -157,11 +151,11 @@ struct WavAudioRecognizeDemo {
       console.error(`Failed to set avRecorder callback, error code: ${err.code}, message: ${err.message}`);
     }
     let avProfile: media.AVRecorderProfile = {
-      audioChannels: 1, // 音频声道数目，单声道
-      audioBitrate: 64000, // 音频比特率
-      audioSampleRate: 8000, // 音频采样率
-      audioCodec: media.CodecMimeType.AUDIO_G711MU, // 音频编码格式
-      fileFormat: media.ContainerFormatType.CFT_WAV, // 音频封装格式
+      audioChannels: 1, <em>// 音频声道数目，单声道</em>
+      audioBitrate: 64000,<em> // 音频比特率</em>
+      audioSampleRate: 8000, <em>// 音频采样率</em>
+      audioCodec: media.CodecMimeType.AUDIO_G711MU, <em>// 音频编码格式</em>
+      fileFormat: media.ContainerFormatType.CFT_WAV, <em>// 音频封装格式</em>
     };
     let avConfig: media.AVRecorderConfig = {
       audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
@@ -190,7 +184,7 @@ struct WavAudioRecognizeDemo {
     }
 
     try {
-      if (this.avRecorder.state === 'prepared') { // 仅在prepared状态下调用start为合理状态切换。
+      if (this.avRecorder.state === 'prepared') { <em>// 仅在prepared状态下调用start为合理状态切换。</em>
         await this.avRecorder.start();
       }
     } catch (error) {
@@ -268,9 +262,9 @@ struct WavAudioRecognizeDemo {
       return;
     }
 
-    // 创建回调对象
+   <em> // 创建回调对象</em>
     let setListener: speechRecognizer.RecognitionListener = {
-      // 开始识别成功回调
+     <em> // 开始识别成功回调</em>
       onStart: (sessionId: string, eventMessage: string) => {
         console.info(`onStart, sessionId: ${sessionId} eventMessage: ${eventMessage}`);
         let audioBuf = new Uint8Array(bufSize);
@@ -297,15 +291,15 @@ struct WavAudioRecognizeDemo {
           }
         }, intervalMS);
       },
-      // 事件回调
+     <em> // 事件回调</em>
       onEvent: (sessionId: string, eventCode: number, eventMessage: string) => {
         console.info(`onEvent, sessionId: ${sessionId} eventCode: ${eventCode} eventMessage: ${eventMessage}`);
       },
-      // 识别结果回调，包括中间结果和最终结果
+     <em> // 识别结果回调，包括中间结果和最终结果</em>
       onResult: (sessionId: string, result: speechRecognizer.SpeechRecognitionResult) => {
         console.info(`onResult, sessionId: ${sessionId} result: ${JSON.stringify(result)}`);
       },
-      // 识别完成回调
+      <em>// 识别完成回调</em>
       onComplete: (sessionId: string, eventMessage: string) => {
         console.info(`onComplete, sessionId: ${sessionId} eventMessage: ${eventMessage}`);
         this.asrEngine?.shutdown();
@@ -318,7 +312,7 @@ struct WavAudioRecognizeDemo {
           }
         }
       },
-      // 错误回调
+     <em> // 错误回调</em>
       onError: (sessionId: string, errorCode: number, errorMessage: string) => {
         console.error(`onError, sessionId: ${sessionId} errorCode: ${errorCode} errorMessage: ${errorMessage}`);
         this.asrEngine?.shutdown();
@@ -332,7 +326,7 @@ struct WavAudioRecognizeDemo {
         }
       },
     };
-    // 设置回调
+   <em> // 设置回调</em>
     this.asrEngine.setListener(setListener);
 
     let audioParam: speechRecognizer.AudioInfo = {
@@ -341,7 +335,7 @@ struct WavAudioRecognizeDemo {
       soundChannel: 1,
       sampleBit: 16,
     };
-    let extraParam: Record = {
+    let extraParam: Record<string, Object> = {
       'recognitionMode': 1,
       'maxAudioDuration': 60000,
     };

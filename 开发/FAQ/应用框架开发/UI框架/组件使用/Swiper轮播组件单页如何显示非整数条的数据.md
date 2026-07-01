@@ -4,21 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1466
 
-## Swiper轮播组件单页如何显示非整数条的数据
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现如下效果：
- 
-- 显示轮播组件内的一条数据的完整页面，以及下一条数据约30%的前部分页面。
-- 最后一页显示最后一条数据的完整页面，以及上一条数据约30%的后部分页面。
-
+ 1. 显示轮播组件内的一条数据的完整页面，以及下一条数据约30%的前部分页面。
+2. 最后一页显示最后一条数据的完整页面，以及上一条数据约30%的后部分页面。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)：滑块视图容器，提供子组件滑动轮播显示的能力。
 - [nextMargin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#nextmargin10)：设置后边距，用于露出后一项的一小部分。
@@ -29,7 +23,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用nextMargin设置固定的后边距，并且将nextMargin属性的ignoreBlank参数设置为true即可实现需求效果。
  

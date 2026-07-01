@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-652
 
-## Video播放系统图库视频
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用Video组件播放用户系统图库中的视频文件。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video)：Video组件用于播放视频文件并控制其播放状态，支持加载本地视频和网络视频。
 - [PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)：PhotoViewPicker用于拉起系统图库，让用户选取图库中的图片、视频的场景。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 创建[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)实例，调用[select](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker#select)接口拉起图库界面供用户进行视频文件的选择，文件选择成功后，会返回视频文件的uri，可以通过Video组件播放该uri对应的相册视频。
  
@@ -70,7 +66,7 @@ struct Index {
           let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
           photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.VIDEO_TYPE;
           photoSelectOptions.maxSelectNumber = 1;
-          let uris: Array = [];
+          let uris: Array<string> = [];
           let photoViewPicker = new photoAccessHelper.PhotoViewPicker();
           photoViewPicker.select(photoSelectOptions)
             .then((photoSelectResult: photoAccessHelper.PhotoSelectResult) => {

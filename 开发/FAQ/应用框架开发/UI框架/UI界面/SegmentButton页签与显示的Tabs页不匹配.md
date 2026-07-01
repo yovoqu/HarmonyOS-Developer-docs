@@ -4,25 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1561
 
-## SegmentButton页签与显示的Tabs页不匹配
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 场景一：页面切换时，顶部按钮的突出显示未跟随页面滑动进行切换。问题现象如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/iH_El-S6SNmrJkvXs5EnZQ/zh-cn_image_0000002628769748.png?HW-CC-KV=V1&HW-CC-Date=20260701T025635Z&HW-CC-Expire=86400&HW-CC-Sign=CD0332DF781277DB167184C927F8440E5EAC7EE815CB53C5DCECC7830C38508C)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/iH_El-S6SNmrJkvXs5EnZQ/zh-cn_image_0000002628769748.png?HW-CC-KV=V1&HW-CC-Date=20260701T041143Z&HW-CC-Expire=86400&HW-CC-Sign=4E66B9F75ADD394A719456573343B7A4DEA1936D9E7710F5A82132B27A07EF9F)
 
 - 场景二：拖动顶部页签按钮进行滑动切换时，Tabs页面未同步切换。问题现象如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/EVAO5lPvRa-_CdZ4OnWJ1A/zh-cn_image_0000002658969069.png?HW-CC-KV=V1&HW-CC-Date=20260701T025635Z&HW-CC-Expire=86400&HW-CC-Sign=928E5700F3027C2D0F43F9FCD8CF7A3806D726AFB376F3FC036035DA0891CE77)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/EVAO5lPvRa-_CdZ4OnWJ1A/zh-cn_image_0000002658969069.png?HW-CC-KV=V1&HW-CC-Date=20260701T041143Z&HW-CC-Expire=86400&HW-CC-Sign=AFDA1B698C6B2922DE86D22261232AFB1ABD7AD0BE01C65388814BC799BA8BF2)
 
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onAnimationStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onanimationstart11)：切换动画开始时触发该回调。当[animationDuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#animationduration)为0时动画关闭且[scrollable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#scrollable)为false时，不触发该回调。
 - [SegmentButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton)：分段按钮组件，包含页签类分段按钮、胶囊类单选分段按钮、胶囊类多选分段按钮。
@@ -30,12 +28,12 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 通过[DevEco Testing](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deveco-testing)的UIViewer工具查看页面结构。确认顶部页签按钮不是Tabs组件本身的TabBar。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/qvkHIgJ7SaGQR7rLZgKeVA/zh-cn_image_0000002658849113.png?HW-CC-KV=V1&HW-CC-Date=20260701T025635Z&HW-CC-Expire=86400&HW-CC-Sign=4917F751CC6C74FB8EDDFC9449C55038EA8DEDC8D48D107C8F783EE723E3C3E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/qvkHIgJ7SaGQR7rLZgKeVA/zh-cn_image_0000002658849113.png?HW-CC-KV=V1&HW-CC-Date=20260701T041143Z&HW-CC-Expire=86400&HW-CC-Sign=88277C3FA9DAA0E39ECF5BDDA4B91FC142DD001CFE2CA6CEDB3AC124C8D3B527)
 
 - 场景一：查看Tabs组件绑定的onChange/onAnimationStart事件。确认页面切换时事件中只改变了currentIndex，但没有更新分段按钮的选中项绑定的segmentIndex变量，导致页面切换时，顶部页签未跟随切换。问题代码如下：
 ```text
@@ -44,19 +42,19 @@ import { ItemRestriction, SegmentButton, SegmentButtonOptions, SegmentButtonText
 @Entry
 @Component
 struct TabPage {
-  // SegmentButton配置项
+ <em> // SegmentButton配置项</em>
   @State tabOptions: SegmentButtonOptions = SegmentButtonOptions.tab({
     buttons: [
       { text: '测试01' },
       { text: '测试02' },
       { text: '测试03' },
       { text: '测试04' }
-    ] as ItemRestriction,
+    ] as ItemRestriction<SegmentButtonTextItem>,
   });
   controller: TabsController = new TabsController();
-  @State segmentIndex: number[] = [0]; // 选中项编号列表
-  @State currentIndex: number = 0; // 当前Tabs页索引
-  tabs: string[] = ['测试01', '测试02', '测试03', '测试04']; // Tabs页列表
+  @State segmentIndex: number[] = [0];<em> // 选中项编号列表</em>
+  @State currentIndex: number = 0; <em>// 当前Tabs页索引</em>
+  tabs: string[] = ['测试01', '测试02', '测试03', '测试04']; <em>// Tabs页列表</em>
 
   build() {
     Column() {
@@ -64,12 +62,12 @@ struct TabPage {
         options: this.tabOptions,
         selectedIndexes: this.segmentIndex,
         onItemClicked: (index: number) => {
-          this.controller.changeIndex(index); // 点击SegmentButton内的按钮切换Tabs页内容
+          this.controller.changeIndex(index); <em>// 点击SegmentButton内的按钮切换Tabs页内容</em>
         }
       });
       Tabs({
         barPosition: BarPosition.End,
-        index: $$this.currentIndex, // 双向同步当前Tabs页的索引
+        index: $$this.currentIndex, <em>// 双向同步当前Tabs页的索引</em>
         controller: this.controller
       }) {
         ForEach(this.tabs, (item: string, index?: number) => {
@@ -79,24 +77,24 @@ struct TabPage {
             };
           }
           .borderRadius(12)
-          .backgroundColor('#f1f3f5') // 灰色占位
+          .backgroundColor('#f1f3f5') <em>// 灰色占位</em>
           .margin({
-            left: index === 0 ? 0 : 6, // 第一页左边距为0，其他页左边距6px
-            right: index === this.tabs.length - 1 ? 0 : 6, // 最后一页右边距为0，其他页右边距6px
+            left: index === 0 ? 0 : 6, <em>// 第一页左边距为0，其他页左边距6px</em>
+            right: index === this.tabs.length - 1 ? 0 : 6,<em> // 最后一页右边距为0，其他页右边距6px</em>
             top: 8,
             bottom: 30
-          }); // 内容避让导航栏
+          }); <em>// 内容避让导航栏</em>
         });
       }
-      .barHeight(0) // 隐藏tabBar
+      .barHeight(0) <em>// 隐藏tabBar</em>
       .onChange((newIndex: number) => {
-        this.currentIndex = newIndex; // 页面切换，更改Tabs组件的index参数
+        this.currentIndex = newIndex; <em>// 页面切换，更改Tabs组件的index参数</em>
       });
     }
     .margin({ left: 20 })
     .height('100%')
     .width('90%')
-    .padding({ top: 26 }); // 避让状态栏
+    .padding({ top: 26 }); <em>// 避让状态栏</em>
   }
 }
 ```
@@ -108,19 +106,19 @@ import { ItemRestriction, SegmentButton, SegmentButtonOptions, SegmentButtonText
 @Entry
 @Component
 struct TabPage {
-  // SegmentButton配置项
+ <em> // SegmentButton配置项</em>
   @State tabOptions: SegmentButtonOptions = SegmentButtonOptions.tab({
     buttons: [
       { text: '测试01' },
       { text: '测试02' },
       { text: '测试03' },
       { text: '测试04' }
-    ] as ItemRestriction,
+    ] as ItemRestriction<SegmentButtonTextItem>,
   });
   controller: TabsController = new TabsController();
-  @State segmentIndex: number[] = [0]; // 选中项编号列表
-  @State currentIndex: number = 0; // 当前Tabs页索引
-  tabs: string[] = ['测试01', '测试02', '测试03', '测试04']; // Tabs页列表
+  @State segmentIndex: number[] = [0]; <em>// 选中项编号列表</em>
+  @State currentIndex: number = 0; <em>// 当前Tabs页索引</em>
+  tabs: string[] = ['测试01', '测试02', '测试03', '测试04']; <em>// Tabs页列表</em>
 
   build() {
     Column() {
@@ -133,7 +131,7 @@ struct TabPage {
       });
       Tabs({
         barPosition: BarPosition.End,
-        index: $$this.currentIndex, // 双向同步当前Tabs页的索引
+        index: $$this.currentIndex,<em> // 双向同步当前Tabs页的索引</em>
         controller: this.controller
       }) {
         ForEach(this.tabs, (item: string, index?: number) => {
@@ -143,19 +141,19 @@ struct TabPage {
             };
           }
           .borderRadius(12)
-          .backgroundColor('#f1f3f5') // 灰色占位
+          .backgroundColor('#f1f3f5')<em> // 灰色占位</em>
           .margin({
-            left: index === 0 ? 0 : 6, // 第一页左边距为0，其他页左边距6px
-            right: index === this.tabs.length - 1 ? 0 : 6, // 最后一页右边距为0，其他页右边距6px
+            left: index === 0 ? 0 : 6,<em> // 第一页左边距为0，其他页左边距6px</em>
+            right: index === this.tabs.length - 1 ? 0 : 6, <em>// 最后一页右边距为0，其他页右边距6px</em>
             top: 8,
             bottom: 30
-          }); // 内容避让导航栏
+          }); <em>// 内容避让导航栏</em>
         });
       }
-      // 推荐在onAnimationStart事件中更新，onChange事件是Tabs页切换完成后才触发的
+     <em> // 推荐在onAnimationStart事件中更新，onChange事件是Tabs页切换完成后才触发的</em>
       .onAnimationStart((index: number, targetIndex: number) => {
         if (this.currentIndex !== targetIndex) {
-          // 添加切换动画
+         <em> // 添加切换动画</em>
           this.getUIContext().animateTo({
             duration: 300,
             curve: Curve.EaseInOut
@@ -164,12 +162,12 @@ struct TabPage {
           });
         }
       })
-      .barHeight(0); // 隐藏tabBar
+      .barHeight(0);<em> // 隐藏tabBar</em>
     }
     .margin({ left: 20 })
     .height('100%')
     .width('90%')
-    .padding({ top: 26 }); // 避让状态栏
+    .padding({ top: 26 }); <em>// 避让状态栏</em>
   }
 }
 ```
@@ -179,7 +177,7 @@ struct TabPage {
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 场景一：Tabs组件只改变了自身index的值，但没有改变分段按钮选中项segmentIndex的值，导致页面切换时，顶部页签未跟随切换。
 - 场景二：滑动顶部按钮时没有触发onItemClicked，导致Tabs的控制器没有调用changeIndex方法，Tabs的页面不会切换。
@@ -187,7 +185,7 @@ struct TabPage {
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 场景一：当滑动Tab组件切换页面时，同步更改控制按钮显示状态selectedIndexes属性的值。
 - 场景二：由于selectedIndexes配置的装饰器类型是@Link，在滑动时会更改selectedIndexes属性的值。可以通过@Watch监听selectedIndexes属性值的变化，在该监听方法中切换Tabs页。
@@ -201,19 +199,19 @@ import { ItemRestriction, SegmentButton, SegmentButtonOptions, SegmentButtonText
 @Entry
 @Component
 struct TabPage {
-  // SegmentButton配置项
+ <em> // SegmentButton配置项</em>
   @State tabOptions: SegmentButtonOptions = SegmentButtonOptions.tab({
     buttons: [
       { text: '测试01' },
       { text: '测试02' },
       { text: '测试03' },
       { text: '测试04' }
-    ] as ItemRestriction,
+    ] as ItemRestriction<SegmentButtonTextItem>,
   });
-  @Watch('updateIndex') @State segmentIndex: number[] = [0]; // 选中项编号列表
+  @Watch('updateIndex') @State segmentIndex: number[] = [0];<em> // 选中项编号列表</em>
   controller: TabsController = new TabsController();
-  @State currentIndex: number = 0; // 当前Tabs页索引
-  tabs: string[] = ['测试01', '测试02', '测试03', '测试04']; // Tabs页列表
+  @State currentIndex: number = 0; <em>// 当前Tabs页索引</em>
+  tabs: string[] = ['测试01', '测试02', '测试03', '测试04']; <em>// Tabs页列表</em>
 
   updateIndex() {
     if (this.segmentIndex[0] != this.currentIndex) {
@@ -230,7 +228,7 @@ struct TabPage {
 
       Tabs({
         barPosition: BarPosition.End,
-        index: $$this.currentIndex, // 双向同步当前Tabs页的索引
+        index: $$this.currentIndex,<em> // 双向同步当前Tabs页的索引</em>
         controller: this.controller
       }) {
         ForEach(this.tabs, (item: string, index?: number) => {
@@ -240,20 +238,20 @@ struct TabPage {
             };
           }
           .borderRadius(12)
-          .backgroundColor('#F1F3F5') // 灰色占位
+          .backgroundColor('#F1F3F5')<em> // 灰色占位</em>
           .margin({
-            left: index === 0 ? 0 : 6, // 第一页左边距为0，其他页左边距6px
-            right: index === this.tabs.length - 1 ? 0 : 6, // 最后一页右边距为0，其他页右边距6px
+            left: index === 0 ? 0 : 6,<em> // 第一页左边距为0，其他页左边距6px</em>
+            right: index === this.tabs.length - 1 ? 0 : 6, <em>// 最后一页右边距为0，其他页右边距6px</em>
             top: 8,
             bottom: 30
-          }); // 内容避让导航栏
+          });<em> // 内容避让导航栏</em>
         });
       }
-      .barHeight(0) // 隐藏tabBar
-      // 推荐在onAnimationStart事件中更新，onChange事件是Tabs页切换完成后才触发的
+      .barHeight(0) <em>// 隐藏tabBar</em>
+   <em>   // 推荐在onAnimationStart事件中更新，onChange事件是Tabs页切换完成后才触发的</em>
       .onAnimationStart((index: number, targetIndex: number) => {
         if (this.currentIndex !== targetIndex) {
-          // 添加切换动画
+        <em>  // 添加切换动画</em>
           this.getUIContext().animateTo({
             duration: 300,
             curve: Curve.EaseInOut
@@ -269,7 +267,7 @@ struct TabPage {
     .margin({ left: 20 })
     .height('100%')
     .width('90%')
-    .padding({ top: 26 }); // 避让状态栏
+    .padding({ top: 26 }); <em>// 避让状态栏</em>
   }
 }
 ```
@@ -277,4 +275,4 @@ struct TabPage {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/4Oqk8-LxTTOGzrm_Q6gARw/zh-cn_image_0000002628609854.png?HW-CC-KV=V1&HW-CC-Date=20260701T025635Z&HW-CC-Expire=86400&HW-CC-Sign=5C06BF44C03C3CF2846B5222C0561789AD3263440F003FEF86AFC75EB236AA45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/4Oqk8-LxTTOGzrm_Q6gARw/zh-cn_image_0000002628609854.png?HW-CC-KV=V1&HW-CC-Date=20260701T041143Z&HW-CC-Expire=86400&HW-CC-Sign=C359717BCD02C8B3A87474ECD407C0523EE974454B79D572798526A81DD3D671)

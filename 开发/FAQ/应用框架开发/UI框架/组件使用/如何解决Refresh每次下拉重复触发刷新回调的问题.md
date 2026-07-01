@@ -4,35 +4,30 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-723
 
-## 如何解决Refresh每次下拉重复触发刷新回调的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Refresh组件在反复滑动时，会重复触发刷新回调，无法控制刷新状态，问题图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ZO4IywDySHKkBqI7zIEROw/zh-cn_image_0000002658914537.png?HW-CC-KV=V1&HW-CC-Date=20260701T025544Z&HW-CC-Expire=86400&HW-CC-Sign=EED979262C727E9E0ACD23D3373DB6FD1BD0C526032A25B7C3C4CF12FA8E1FB2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ZO4IywDySHKkBqI7zIEROw/zh-cn_image_0000002658914537.png?HW-CC-KV=V1&HW-CC-Date=20260701T041314Z&HW-CC-Expire=86400&HW-CC-Sign=5F73B167D2A9884BF4BCDD91A210C02943F76F1390F611185D791416E958C093)
 
  
 由图可见，Refresh的刷新不断重复触发，如何解决Refresh每次下拉重复触发刷新回调的问题？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)是可以进行页面下拉操作并显示刷新动效的容器组件，其[onRefreshing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh#onrefreshing)回调会在进入刷新状态时触发。
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过给onRefreshing刷新回调增加限制条件来限制其触发频率，具体实现如下：
- 
-- 使用@State装饰器定义多个状态变量，如arr、refreshing、refreshOffset等。
+ 1. 使用@State装饰器定义多个状态变量，如arr、refreshing、refreshOffset等。
 ```text
-@State arr: Array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+@State arr: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 @State refreshing: boolean = false;
 @State refreshOffset: number = 0;
 @State refreshState: RefreshStatus = RefreshStatus.Inactive;
@@ -41,7 +36,7 @@ Refresh组件在反复滑动时，会重复触发刷新回调，无法控制刷�
 @State isRefresh: boolean = true;
 ```
 
-- 在onScrollFrameBegin回调中，监听用户下拉操作，当下拉距离超过阈值且没有正在加载时，设置canLoad为true，允许加载更多数据。
+2. 在onScrollFrameBegin回调中，监听用户下拉操作，当下拉距离超过阈值且没有正在加载时，设置canLoad为true，允许加载更多数据。
 ```text
 .onScrollFrameBegin((offset: number) => {
   if (offset > 5 && !this.isLoading) {
@@ -51,7 +46,7 @@ Refresh组件在反复滑动时，会重复触发刷新回调，无法控制刷�
 })
 ```
 
-- 在onRefreshing回调中，处理刷新状态的逻辑，当触发刷新时，设置refreshing为true，并在6秒后恢复为false。
+3. 在onRefreshing回调中，处理刷新状态的逻辑，当触发刷新时，设置refreshing为true，并在6秒后恢复为false。
 ```text
 .onRefreshing(() => {
   if (this.refreshing) {
@@ -65,7 +60,6 @@ Refresh组件在反复滑动时，会重复触发刷新回调，无法控制刷�
 });
 ```
 
-
  
 完整代码示例如下：
  
@@ -73,7 +67,7 @@ Refresh组件在反复滑动时，会重复触发刷新回调，无法控制刷�
 @Entry
 @Component
 struct RefreshRepeatProblem {
-  @State arr: Array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  @State arr: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   @State refreshing: boolean = false;
   @State refreshOffset: number = 0;
   @State refreshState: RefreshStatus = RefreshStatus.Inactive;
@@ -104,7 +98,14 @@ struct RefreshRepeatProblem {
           this.canLoad = false;
           this.isLoading = true;
           setTimeout(() => {
-            for (let i = 0; i  {
+            for (let i = 0; i < 10; i++) {
+              this.arr.push(this.arr.length);
+              this.isLoading = false;
+            }
+          }, 6000);
+        }
+      })
+      .onScrollFrameBegin((offset: number) => {
         if (offset > 5 && !this.isLoading) {
           this.canLoad = true;
         }
@@ -140,7 +141,7 @@ struct RefreshRepeatProblem {
 修正效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/WDAAYU2HQJyl04-XJTp9Bg/zh-cn_image_0000002628395312.png?HW-CC-KV=V1&HW-CC-Date=20260701T025544Z&HW-CC-Expire=86400&HW-CC-Sign=8B16176E9D90F2C42CAC303F692785BE8200C03FEA78EBBB3FDF4C9D64E731BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/WDAAYU2HQJyl04-XJTp9Bg/zh-cn_image_0000002628395312.png?HW-CC-KV=V1&HW-CC-Date=20260701T041314Z&HW-CC-Expire=86400&HW-CC-Sign=A2BC8711BA48CD2769950632ED60064571B776858FCFA49DE64370FAED267037)
 
  
 由图可见，Refresh组件的刷新状态不会在短时间内频繁触发。

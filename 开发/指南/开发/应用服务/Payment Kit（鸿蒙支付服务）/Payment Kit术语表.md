@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-glossary
 
-## Payment Kit术语表
- 
- 
-
-##### D
+#### D
 
 **Direct Merchant；直连商户**
  
@@ -16,7 +12,7 @@
  
   
 
-##### H
+#### H
 
 **Huawei Pay；华为支付**
  
@@ -24,7 +20,7 @@
  
   
 
-##### M
+#### M
 
 **Mixed Payment；混合支付**
  
@@ -32,7 +28,7 @@
  
   
 
-##### P
+#### P
 
 **Partner；服务商**
  
@@ -48,7 +44,7 @@
  
   
 
-##### S
+#### S
 
 **SpecialMerchant；特约商户**
  
@@ -60,7 +56,7 @@
  
   
 
-##### T
+#### T
 
 **Third-Party Payment；三方支付**
  
@@ -68,7 +64,7 @@
  
   
 
-##### U
+#### U
 
 **User Identity Verification；用户身份验证服务**
  

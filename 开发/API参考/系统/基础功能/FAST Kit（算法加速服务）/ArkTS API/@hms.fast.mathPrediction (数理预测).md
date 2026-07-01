@@ -3,18 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-math-prediction
-
 **支持设备：** Phone | PC/2in1 | Tablet
-
-## @hms.fast.mathPrediction (数理预测)
- 
 
 本模块提供基于历史采样数据对序列数据进行建模和预测的能力，适用于手势跟踪、动画曲线预测、运动轨迹预估等实时预测场景。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { mathPrediction } from '@kit.FASTKit';
@@ -22,7 +20,9 @@ import { mathPrediction } from '@kit.FASTKit';
  
   
 
-##### predictIndex
+#### predictIndex
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 predictIndex(samples: IndexSample[]): number
  
@@ -78,7 +78,9 @@ try {
  
   
 
-##### IndexSample
+#### IndexSample
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 索引采样点，描述某一时刻的索引状态。
  

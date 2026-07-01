@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-universal-keystore-15
 
-## HUKS如何分段加解密
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用密钥管理服务进行分段加解密？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [加解密(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-arkts)：以AES128、RSA2048和SM2为例，完成加解密。
  
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 分段加解密可通过将明文进行指定长度多段拆分的形式传入，以1024为例，实现AES/CBC/PKCS7分段加解密。完整代码如下：
  
@@ -75,7 +71,14 @@ function Uint8ArrayToString(input: Uint8Array): string {
 function generatorData() {
   let i = 0;
   plainText = '1234567890';
-  while (i // 生成密钥
+  while (i <= 10) {
+    i++;
+    plainText = plainText + plainText;
+  }
+  console.info('造数据成功');
+}
+
+<em>// 生成密钥</em>
 async function GenerateAesKey() {
   let genProperties = GetAesGenerateProperties();
   let options: huks.HuksOptions = {
@@ -91,7 +94,7 @@ async function GenerateAesKey() {
 }
 
 function GetAesGenerateProperties() {
-  let properties: Array = [{
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
   }, {
@@ -106,7 +109,7 @@ function GetAesGenerateProperties() {
 }
 
 function GetAesEncryptProperties() {
-  let properties: Array = [{
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
   }, {
@@ -129,7 +132,7 @@ function GetAesEncryptProperties() {
 }
 
 function GetAesDecryptProperties() {
-  let properties: Array = [{
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
   }, {
@@ -151,7 +154,7 @@ function GetAesDecryptProperties() {
   return properties;
 }
 
-// 分段加密
+<em>// 分段加密</em>
 async function EncryptData() {
   let encryptProperties = GetAesEncryptProperties();
   let options: huks.HuksOptions = {
@@ -169,9 +172,9 @@ async function EncryptData() {
   let resultTemp = new Uint8Array(0);
   let contentTemp = plainText;
   while (contentTemp.length > 0) {
-    // 超过长度会取最长
+    <em>// 超过长度会取最长</em>
     const contentCurr = contentTemp.substring(0, MAX_UPDATE_SESSION_LENGTH);
-    // 起始点大于长度会返回""
+    <em>// 起始点大于长度会返回""</em>
     contentTemp = contentTemp.substring(MAX_UPDATE_SESSION_LENGTH, contentTemp.length);
     options.inData = StringToUint8Array(contentCurr);
     await huks.updateSession(handle, options).then((data) => {
@@ -184,7 +187,7 @@ async function EncryptData() {
     });
   }
 
-  // 分段加解密时，传入finishSession的inData要设置为空的
+  <em>// 分段加解密时，传入finishSession的inData要设置为空的</em>
   options.inData = new Uint8Array(0);
   await huks.finishSession(handle, options).then((data) => {
     cipherData = new Uint8Array(resultTemp.length + data.outData!.length);
@@ -195,7 +198,7 @@ async function EncryptData() {
   });
 }
 
-// 分段解密
+<em>// 分段解密</em>
 async function DecryptData() {
   let decryptOptions = GetAesDecryptProperties();
   let options: huks.HuksOptions = {
@@ -213,7 +216,7 @@ async function DecryptData() {
   let resultTemp = new Uint8Array(0);
   let contentTemp = cipherData;
   while (contentTemp.length > 0) {
-    const contentCurr = contentTemp.slice(0, MAX_UPDATE_SESSION_LENGTH); // 超过长度会取最长
+    const contentCurr = contentTemp.slice(0, MAX_UPDATE_SESSION_LENGTH); <em>// 超过长度会取最长</em>
     contentTemp = contentTemp.slice(MAX_UPDATE_SESSION_LENGTH, contentTemp.length);
     options.inData = contentCurr;
     await huks.updateSession(handle, options).then((data) => {
@@ -234,7 +237,7 @@ async function DecryptData() {
   });
 }
 
-// 验证
+<em>// 验证</em>
 function check() {
   console.info('批量加解密结果：', result === plainText);
 }

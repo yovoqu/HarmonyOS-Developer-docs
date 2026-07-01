@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___quic_io_vec
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## Rcp_QuicIoVec
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于存储二进制内容的数据结构。
  
@@ -22,11 +19,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,11 +37,15 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]data
+#### data
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint8_t* Rcp_QuicIoVec::data
@@ -52,7 +57,9 @@ uint8_t* Rcp_QuicIoVec::data
  
   
 
-##### [h2]length
+#### length
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint64_t Rcp_QuicIoVec::length

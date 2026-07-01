@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-206
 
-## 如何动态修改oh-package.json5的内容
- 
-
-
-##### 问题现象
+#### 问题现象
 
 想要在构建过程中动态将oh-package.json5中main指向的入口文件修改为另外的文件，例如由"main": "Index.ets"修改为"main": "Index123.ets"，如何实现？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - Hvigor允许开发者实现自己的插件，开发者可以定义自己的构建逻辑，Hvigor提供了一些API能够修改oh-package.json5中的内容，比如[setDependenciesOpt](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-expanding-context#section18789410129)设置工程下oh-package.json5中的dependencies依赖。[setOverrides](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-expanding-context#section469812496459)设置工程下oh-package.json5中的overrides字段，更多API可以参考[插件上下文](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-expanding-context)。
 - Hvigor插件并不支持修改main字段，但是可以通过fs在构建过程中写入内容来实现。
@@ -22,12 +18,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 以构建har包为例，准备两个入口文件Index.ets和Index123.ets，目前oh-package.json5的入口文件为Index.ets。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/lZMzUqp5RpiKRqtpXbZNTA/zh-cn_image_0000002628409280.png?HW-CC-KV=V1&HW-CC-Date=20260701T025915Z&HW-CC-Expire=86400&HW-CC-Sign=F66D46B2EB0C150AEE410C8F4B9DF0252D920AAAE020FE27860EB0CF7526FD11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/lZMzUqp5RpiKRqtpXbZNTA/zh-cn_image_0000002628409280.png?HW-CC-KV=V1&HW-CC-Date=20260701T041021Z&HW-CC-Expire=86400&HW-CC-Sign=1A6D46D86B46D950771F9A458FACF0BFC64289C7B477F16960563DBA745E6527)
 
  
 在har模块的hvigorfile.ts文件中添加如下内容：
@@ -36,19 +32,19 @@
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 import * as fs from 'fs';
 export default {
-  system: harTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
-  plugins: [customPluginFunction()] /* Custom plugin to extend the functionality of Hvigor. */
+  system: harTasks, <em> /* Built-in plugin of Hvigor. It cannot be modified. */</em>
+  plugins: [customPluginFunction()] <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
 }
 
 export function customPluginFunction(): HvigorPlugin  {
   return {
     pluginId: 'CustomPluginID1',
-    apply(pluginContext): Promise {
+    apply(pluginContext): Promise<void> {
       pluginContext.registerTask({
-        // 编写自定义任务
+       <em> // 编写自定义任务</em>
         name: 'customTask1',
         run: (taskContext) => {
-          // 读取文件内容
+         <em> // 读取文件内容</em>
           const packageFile = taskContext.modulePath+'\\oh-package.json5';
           console.info('packageFile', packageFile)
           fs.readFile(packageFile, 'utf8', (readError, data) => {
@@ -57,13 +53,13 @@ export function customPluginFunction(): HvigorPlugin  {
               return;
             }
             try {
-              // 解析JSON数据
+            <em>  // 解析JSON数据</em>
               const jsonData = JSON.parse(data);
-              // 修改main字段
+             <em> // 修改main字段</em>
               jsonData.main = 'Index123.ets';
-              // 将修改后的 JSON 数据转换为字符串
+            <em>  // 将修改后的 JSON 数据转换为字符串</em>
               const updatedData = JSON.stringify(jsonData, null, 2);
-              // 写入文件
+            <em>  // 写入文件</em>
               fs.writeFile(packageFile, updatedData, 'utf8', (writeError) => {
                 if (writeError) {
                   console.error('Error writing file:', writeError);
@@ -76,7 +72,7 @@ export function customPluginFunction(): HvigorPlugin  {
             }
           });
         },
-        // 确认自定义任务插入位置
+       <em> // 确认自定义任务插入位置</em>
         postDependencies: ['default@ProcessOHPackageJson']
       })
     }
@@ -87,4 +83,4 @@ export function customPluginFunction(): HvigorPlugin  {
 构建har包，可以看到入口文件已被替换成Index123.ets。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/Ed4j_tqUTASjSLDhvqPFAQ/zh-cn_image_0000002658808551.png?HW-CC-KV=V1&HW-CC-Date=20260701T025915Z&HW-CC-Expire=86400&HW-CC-Sign=06F583EA49A25CBB77ED0C0C09744CD789A67E63563C4509CAA139A15BCF13AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/Ed4j_tqUTASjSLDhvqPFAQ/zh-cn_image_0000002658808551.png?HW-CC-KV=V1&HW-CC-Date=20260701T041021Z&HW-CC-Expire=86400&HW-CC-Sign=71F5656DAAE6E4485943AF1B8149F46BF477E9EC7F94F258D25E34E0F4F91CCE)

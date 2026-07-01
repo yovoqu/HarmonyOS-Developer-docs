@@ -4,19 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-agent-framework-8
 
-## 智能体如何在真机上显示markdown格式文档
- 
-
-
-##### 问题现象
+#### 问题现象
 
 工作流模式智能体在真机测试时，消息样式不兼容markdown格式文档。
  
  
 
-##### 解决方案
+#### 解决方案
 
 将工作流模式结束节点中的流式输出打开，即可显示markdown格式文档。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/Sq6v_3dPSyajVmJ0DxNikA/zh-cn_image_0000002628394850.png?HW-CC-KV=V1&HW-CC-Date=20260701T025934Z&HW-CC-Expire=86400&HW-CC-Sign=864FC762DEC073B8D4CC04F87CC1996B9316DD3071D4CB5F2EDA2201F7A26C56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/Sq6v_3dPSyajVmJ0DxNikA/zh-cn_image_0000002628394850.png?HW-CC-KV=V1&HW-CC-Date=20260701T041005Z&HW-CC-Expire=86400&HW-CC-Sign=897A42875BF0F0070557B68DFD32324C9CA953F79823ECEB2538C575A28CAC24)

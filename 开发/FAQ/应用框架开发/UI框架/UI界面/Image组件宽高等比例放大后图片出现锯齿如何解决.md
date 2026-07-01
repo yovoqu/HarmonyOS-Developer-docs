@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1559
 
-## Image组件宽高等比例放大后图片出现锯齿如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Image组件时，若对图片进行尺寸放大（尤其是等比例放大），应如何解决由此导致的图片模糊和边缘锯齿问题？
  
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/MA1U6KZvT5WL5ELzUq1fIg/zh-cn_image_0000002658849111.png?HW-CC-KV=V1&HW-CC-Date=20260701T025652Z&HW-CC-Expire=86400&HW-CC-Sign=0246BDFB6C020456CB39F20E98F9B032439790128EFF88D04F44FB0B9685E03E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/MA1U6KZvT5WL5ELzUq1fIg/zh-cn_image_0000002658849111.png?HW-CC-KV=V1&HW-CC-Date=20260701T041139Z&HW-CC-Expire=86400&HW-CC-Sign=24876F9EB6D795E6F9935B891FA988EC9CDA82EF3ECDEE3E353A5C8744EF86B0)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 图片插值是指在缩放图片时，系统所采用的一种用于计算新像素颜色的数学算法。主要目的是缓解因缩放导致的图像边缘锯齿问题，使放大后的图片看起来更平滑。
 - Image组件可通过[interpolation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#interpolation)属性设置图片的插值效果，SVG类型图源不支持该属性。该属性的具体行为可由[ImageInterpolation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#imageinterpolation)枚举值定义，不同的设置采用了不同的插值算法。其中None对应最近邻插值，是一种高效的算法；High是Cubic插值，插值质量最高，但计算开销相对较大。
@@ -28,7 +24,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 要缓解图片放大时的锯齿问题，可将Image组件的interpolation属性设置为ImageInterpolation.High，以启用高质量的插值算法。
  
@@ -38,17 +34,17 @@
 @Entry
 @Component
 struct ImageScalingDemo {
-  @State picWidth: number = 100; // Image组件的宽度
+  @State picWidth: number = 100; <em>// Image组件的宽度</em>
 
 
   build() {
     Column({ space: 10 }) {
-      // 可更换为其他图片资源
+     <em> // 可更换为其他图片资源</em>
       Image($r('app.media.startIcon'))
         .width(this.picWidth)
-        .objectFit(ImageFit.Contain) // 设置图片缩放时保持宽高比，且不超出组件边界
+        .objectFit(ImageFit.Contain) <em>// 设置图片缩放时保持宽高比，且不超出组件边界</em>
         .interpolation(ImageInterpolation.High) // 设置图片的插值效果为Cubic插值
-        .autoResize(false); // 关闭图源自动缩放
+        .autoResize(false); <em>// 关闭图源自动缩放</em>
       Button('点击图片放大').onClick(() => this.picWidth += 50);
       Button('点击图片缩小').onClick(() => this.picWidth -= 50);
     }
@@ -62,12 +58,12 @@ struct ImageScalingDemo {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/a19wmy04T9C-XCF94w2krA/zh-cn_image_0000002628609852.png?HW-CC-KV=V1&HW-CC-Date=20260701T025652Z&HW-CC-Expire=86400&HW-CC-Sign=A99714655B3A54245FF4DB565EE82585ABA8FD248D658AC829811C581303614D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/a19wmy04T9C-XCF94w2krA/zh-cn_image_0000002628609852.png?HW-CC-KV=V1&HW-CC-Date=20260701T041139Z&HW-CC-Expire=86400&HW-CC-Sign=CBEA47B45A0EB3DD799A2F22C812A8248A2AF542AD93660F3E12C7D92AF8AD55)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何实现图片自适应不失真？
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-speech-1
 
-## 如何解决朗读控件TextReader的跳跃播放问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 朗读控件TextReader在朗读过程中，调用TextReader.setArticle()或TextReader.setArticleContent()修改列表其他数据内容，TextReader会直接跳转到最后一条数据播放。
  
  
 
-##### 背景知识
+#### 背景知识
 
 朗读控件应用广泛，例如在用户不方便或者无法查看屏幕文字的时候，为用户朗读新闻，提供资讯。
  
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据问题的描述，由于朗读控件TextReader在修改列表其他内容时出现了，"播放内容"跳跃到最后一条数据播放的问题，推测问题与"播放内容"或"判断播放内容"的相关代码有关。需要修改相关代码，将播放内容引导回正常的播放顺序。第一步先将与"播放内容"相关的数组中最后一个对象的**bodyInfo**字段，修改为**undefined**，示例代码如下：
  
@@ -56,9 +52,9 @@ let readInfoList: TextReader.ReadInfo[] = [{
     text: '2023/12/12',
     isClickable: false
   },
-  // 修改前：
-  // bodyInfo:'水调歌头，游泳。才饮长沙水，又食武昌鱼，万里长江横渡，极目楚天舒'
-  // 注意：bodyInfo修改成undefined或null
+<em>  // 修改前：</em>
+<em>  // bodyInfo:'水调歌头，游泳。才饮长沙水，又食武昌鱼，万里长江横渡，极目楚天舒'</em>
+<em>  // 注意：bodyInfo修改成undefined或null</em>
   bodyInfo: undefined
 }];
 ```
@@ -98,24 +94,24 @@ import { TextReader, TextReaderIcon, ReadStateCode } from '@kit.SpeechKit';
 @Entry
 @Component
 struct ReadText {
-  /**
-   * 待加载的文章
-   */
+<em>  /**</em>
+<em>   * 待加载的文章</em>
+<em>   */</em>
   @State readInfoList: TextReader.ReadInfo[] = [];
   @State selectedReadInfo: TextReader.ReadInfo = this.readInfoList[0];
-  /**
-   * 播放状态
-   */
+<em>  /**</em>
+<em>   * 播放状态</em>
+<em>   */</em>
   @State readState: ReadStateCode = ReadStateCode.WAITING;
-  /**
-   * 用于显示当前页的按钮状态
-   */
+<em>  /**</em>
+<em>   * 用于显示当前页的按钮状态</em>
+<em>   */</em>
   private isInit: boolean = false;
 
   async aboutToAppear() {
-    /**
-     * 加载数据
-     */
+<em>    /**</em>
+<em>     * 加载数据</em>
+<em>     */</em>
     let readInfoList: TextReader.ReadInfo[] = [{
       id: '001',
       title: {
@@ -145,9 +141,9 @@ struct ReadText {
         text: '2023/12/12',
         isClickable: false
       },
-      // 修改前：
-      // bodyInfo:'水调歌头，游泳。才饮长沙水，又食武昌鱼，万里长江横渡，极目楚天舒'
-      // 注意：bodyInfo修改成undefined或null
+   <em>   // 修改前：</em>
+<em>      // bodyInfo:'水调歌头，游泳。才饮长沙水，又食武昌鱼，万里长江横渡，极目楚天舒'</em>
+<em>      // 注意：bodyInfo修改成undefined或null</em>
       bodyInfo: undefined
     }];
     this.readInfoList = readInfoList;
@@ -155,9 +151,9 @@ struct ReadText {
     this.init();
   }
 
-  /**
-   * 初始化
-   */
+<em>  /**</em>
+<em>   * 初始化</em>
+<em>   */</em>
   async init() {
     const readerParam: TextReader.ReaderParam = {
       isVoiceBrandVisible: true,
@@ -178,7 +174,7 @@ struct ReadText {
     }
   }
 
-  // 设置操作监听
+<em>  // 设置操作监听</em>
   setActionListener() {
     TextReader.on('stateChange', (state: TextReader.ReadState) => {
       this.onStateChanged(state);

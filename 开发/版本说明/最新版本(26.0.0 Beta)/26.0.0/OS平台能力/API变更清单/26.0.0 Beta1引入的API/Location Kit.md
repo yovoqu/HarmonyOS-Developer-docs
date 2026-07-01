@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-locationkit-7001
 
-## Location Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：geoLocationManager； API声明：function isGnssServiceSupported(): boolean; 差异内容：function isGnssServiceSupported(): boolean; | api/@ohos.geoLocationManager.d.ts |

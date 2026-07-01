@@ -3,18 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-text-search-image-api
-
 **支持设备：** Phone | PC/2in1 | Tablet
-
-## textSearchImage（通过文本搜索图片）
- 
 
 文本搜索图片提供基于文本描述的图片检索能力。通过输入文本关键词，从已插入的图片库中搜索匹配的图像结果，返回图片路径、作用域和相似度信息。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { textSearchImage } from '@kit.CoreVisionKit';
@@ -22,7 +20,9 @@ import { textSearchImage } from '@kit.CoreVisionKit';
  
   
 
-##### ImageObject
+#### ImageObject
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 待处理图片信息。
  
@@ -41,7 +41,9 @@ import { textSearchImage } from '@kit.CoreVisionKit';
  
   
 
-##### textSearchImage.init
+#### textSearchImage.init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(): Promise&lt;boolean&gt;
  
@@ -105,7 +107,9 @@ struct Page {
  
   
 
-##### textSearchImage.insertImage
+#### textSearchImage.insertImage
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 insertImage(imagePath: string, scope: string): Promise&lt;boolean&gt;
  
@@ -179,7 +183,9 @@ struct Page {
  
   
 
-##### textSearchImage.search
+#### textSearchImage.search
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 search(query: string, scope: string, topKey?: number): Promise<Array&lt;ImageObject&gt;>
  
@@ -257,7 +263,9 @@ struct Page {
  
   
 
-##### textSearchImage.deleteImage
+#### textSearchImage.deleteImage
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 deleteImage(imagePath: string, scope: string): Promise&lt;boolean&gt;
  
@@ -329,7 +337,9 @@ struct Page {
  
   
 
-##### textSearchImage.clearData
+#### textSearchImage.clearData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 clearData(): Promise&lt;boolean&gt;
  
@@ -390,7 +400,9 @@ struct Page {
  
   
 
-##### textSearchImage.release
+#### textSearchImage.release
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 release(): Promise&lt;boolean&gt;
  

@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-962
 
-## 如何在同一个坐标系统里绘制多个Polygon
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在普通的容器中例如Column容器，多个Polygon组件只会上下排列，如何在同一个坐标系统里绘制多个Polygon？并且可以动态添加points？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/82KigigjRfeRNIUQWioNig/zh-cn_image_0000002628561582.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025715Z&HW-CC-Expire=86400&HW-CC-Sign=6C14DE65757D36F62AD950BAD05DF5668BAE856371DCB5742961AE29C3FEF790)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/82KigigjRfeRNIUQWioNig/zh-cn_image_0000002628561582.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041158Z&HW-CC-Expire=86400&HW-CC-Sign=EE17CEEEB9524F07FB006ED8F94EC708BF2F9DCC6ABA2CD54C8A48426DA6489D)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Polygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polygon)是HarmonyOS提供的多边形绘制组件，利用该组件可以绘制多边形背景，多边形图案等。
 - [Shape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-shape)绘制组件的父组件，父组件中会描述所有绘制组件均支持的通用属性。
@@ -30,7 +26,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 在Shape组件中绘制多个Polygon组件，同时指定Shape组件的视口[viewPort](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-shape#viewport)。viewPort的区域范围，就是多个Polygon组件的同一坐标系。Polygon的points属性接收类型为number的二维数组，每个数组元素表示一个坐标点。可通过动态更新points数组，实现点的增删与实时渲染。
  
@@ -60,19 +56,19 @@ struct PolygonDemo {
     Column() {
       Shape() {
         Polygon({ width: 100, height: 100 })
-          .points([[10, 10], [220, 30], [180, 260], [10, 130]]) // 画一个四边形
+          .points([[10, 10], [220, 30], [180, 260], [10, 130]]) <em>// 画一个四边形</em>
           .stroke('#EE6F20')
           .fillOpacity(0)
           .strokeWidth(2)
         Polygon({ width: 100, height: 100 })
-          .points(this.points) // 默认画一个三角形，可通过动态更新points数组，实现点的增删与实时渲染
+          .points(this.points) <em>// 默认画一个三角形，可通过动态更新points数组，实现点的增删与实时渲染</em>
           .stroke('#0A59F7')
           .fillOpacity(0)
           .strokeWidth(2)
       }
       .backgroundColor('#ffe7e6e6')
       .viewPort({
-        // viewport的区域范围，就是Shape的子组件同一坐标范围。
+     <em>   // viewport的区域范围，就是Shape的子组件同一坐标范围。</em>
         x: 0,
         y: 0,
         width: 280,

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
-## Button组件背景色设置
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发者在使用Button组件时，对组件的背景色设置有以下几个经典问题：
  
@@ -22,7 +18,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)按钮组件，可快速创建不同样式的按钮，可采用backgroundColor属性来更改组件的背景色，如需设置[颜色渐变](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color)，需先设置backgroundColor为透明色才能生效。
 - [stateStyles(多态样式)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-statestyles)可以依据组件的内部状态的不同，快速设置不同样式。
@@ -34,7 +30,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：使用[linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color#lineargradient)属性自定义颜色实现渐变背景色。
 ```text
@@ -49,7 +45,7 @@ struct ButtonSolution1 {
         .margin({ top: 50 })
         .borderRadius(10)
         .backgroundColor('#00000000')
-        // 设置渐变色
+     <em>   // 设置渐变色</em>
         .linearGradient({
           angle: 90,
           colors: [['#8E2233', 0.0], ['#D4344C', 0.3], ['#F48899', 0.7], ['#FBD7DD', 1]]
@@ -63,8 +59,9 @@ struct ButtonSolution1 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/d_ZkqdRDSK-OyhkTkMtXgg/zh-cn_image_0000002658849565.png?HW-CC-KV=V1&HW-CC-Date=20260701T025622Z&HW-CC-Expire=86400&HW-CC-Sign=E97D012D2AE2C0CC4941D3B423B9CD1EDC5BAB4CC2ABCCA19D4480D2A3B76611)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/d_ZkqdRDSK-OyhkTkMtXgg/zh-cn_image_0000002658849565.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=9261DE0F1851037256BBC848B904AB8EDD343AE4156246CCE435E1627EA2E2FF)
 
 - **场景二**：Button设置disabled多态样式会受到Button组件禁用控制属性样式影响导致显示颜色偏淡，建议用Text组件多态样式代替Button组件实现想要的效果。
 ```text
@@ -171,8 +168,9 @@ struct ButtonSolution2 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/_vodlE8BRrGC8BuffO86Yw/zh-cn_image_0000002628770200.png?HW-CC-KV=V1&HW-CC-Date=20260701T025622Z&HW-CC-Expire=86400&HW-CC-Sign=2A01D08059EB72DFCADF684FE9F6F72BDBD6444B1B2AA67E35F775D0AB4F2AC4)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/_vodlE8BRrGC8BuffO86Yw/zh-cn_image_0000002628770200.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=03E5B313FAAB7B881FAAD74F53C68B50218C2225CFB38D92728CE92E8E7C881A)
 
 - **场景三**：Button默认有背景色，直接设置渐变色会影响渐变效果，解决方案是设置渐变色的同时设置Button组件背景色为透明。
 ```text
@@ -227,8 +225,9 @@ struct ButtonSolution3 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/BEwXTFK2T6Gfcq5Y-hONDQ/zh-cn_image_0000002658969523.png?HW-CC-KV=V1&HW-CC-Date=20260701T025622Z&HW-CC-Expire=86400&HW-CC-Sign=0E8A37C23065C5EFE1E44531F7B1E9938B54164A5B9C75373D4CD70031FF21C0)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/BEwXTFK2T6Gfcq5Y-hONDQ/zh-cn_image_0000002658969523.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=B34D16241D108DD4DFE903049DE1229E7D5DC5735927CA59FC360434533EF9E7)
 
 - **场景四**：Button组件可以设置不透明度属性达到置灰效果，如设置不透明度属性opacity(0.4)实现与禁用控制属性enabled(false)时的相同样式效果。
 ```text
@@ -237,11 +236,11 @@ struct ButtonSolution3 {
 struct ButtonSolution4 {
   build() {
     Flex({ justifyContent: FlexAlign.SpaceAround }) {
-      // 点击时无响应
+     <em> // 点击时无响应</em>
       Button('disable')
         .enabled(false)
         .backgroundColor(0x317aff);
-      // 相同样式效果
+     <em> // 相同样式效果</em>
       Button('enable')
         .backgroundColor(0x317aff)
         .opacity(0.4);
@@ -252,21 +251,22 @@ struct ButtonSolution4 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/W_DFsSmYSNmyh7kHj5vzIw/zh-cn_image_0000002628610304.png?HW-CC-KV=V1&HW-CC-Date=20260701T025622Z&HW-CC-Expire=86400&HW-CC-Sign=BC677AC3AF49098B73C244BBB71C5DB658C5B58D40A72CD351A5EEFCC3B00FDA)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/W_DFsSmYSNmyh7kHj5vzIw/zh-cn_image_0000002628610304.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=0911F31300254310941113249FFFB40563A3F1BA0F9D72D73FF86835E3734410)
 
 - **场景五**：定义调色板数据源，用数组存储自定义颜色，通过@State响应式状态管理维护当前选中颜色的索引，实现状态与视图的双向联动。用Flex和ForEach组件完成调色板布局。给按钮和调色板都绑定点击事件，点击按钮时索引递增，超出数组长度自动重置，循环遍历调色板；点击调色板色块通过当前索引值，切换到对应颜色。
 ```text
 @Entry
 @Component
 struct BgColorSwitchPage {
-  // 自定义调色板颜色
+ <em> // 自定义调色板颜色</em>
   private bgColorList: string[] = [
     '#ff89fafa', '#ff8a8af6', '#ffcd89fa', '#fff689f6',
     '#fffa7d7d', '#fff5c885', '#fff6f688', '#ff8bf88b',
     '#ff4e4d4d', '#666666', '#999999', '#CCCCCC'
   ];
-  // 当前选中的颜色索引（响应式状态）
+<em>  // 当前选中的颜色索引（响应式状态）</em>
   @State currentColorIndex: number = 0;
 
   build() {
@@ -278,20 +278,20 @@ struct BgColorSwitchPage {
         .fontWeight(FontWeight.Medium)
         .fontColor('#FFFFFF')
         .fontColor('#ff050505')
-        .backgroundColor(this.bgColorList[this.currentColorIndex]) // 设置按钮背景颜色
+        .backgroundColor(this.bgColorList[this.currentColorIndex]) <em>// 设置按钮背景颜色</em>
         .borderRadius(16)
-        // 点击按钮组件切换颜色
+     <em>   // 点击按钮组件切换颜色</em>
         .onClick(() => {
-          // 循环切换颜色索引
+      <em>    // 循环切换颜色索引</em>
           this.currentColorIndex = (this.currentColorIndex + 1) % this.bgColorList.length;
         });
 
-      // 调色板标题
+   <em>   // 调色板标题</em>
       Text('自定义调色板')
         .fontSize(16)
         .margin({ top: 50, bottom: 15 });
 
-      // 调色板布局：Flex自动换行
+     <em> // 调色板布局：Flex自动换行</em>
       Flex({ wrap: FlexWrap.Wrap, justifyContent: FlexAlign.Center }) {
 
         ForEach(
@@ -303,11 +303,11 @@ struct BgColorSwitchPage {
               .backgroundColor(color)
               .borderRadius(8)
               .margin(8)
-              // 点击色块切换到对应颜色
+          <em>    // 点击色块切换到对应颜色</em>
               .onClick(() => {
                 this.currentColorIndex = index;
               })
-              // 当前选中的色块添加黑色边框高亮
+         <em>     // 当前选中的色块添加黑色边框高亮</em>
               .border({
                 width: this.currentColorIndex === index ? 2 : 0,
                 color: '#000000',
@@ -327,8 +327,9 @@ struct BgColorSwitchPage {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/r3x6W1g4Tk2f1Cw3eE-qMQ/zh-cn_image_0000002658849567.png?HW-CC-KV=V1&HW-CC-Date=20260701T025622Z&HW-CC-Expire=86400&HW-CC-Sign=AD63F1F6A2A9A7F3191BA67A28A5D09353066E3B11AF5A0508FE012F79AD42FE)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/r3x6W1g4Tk2f1Cw3eE-qMQ/zh-cn_image_0000002658849567.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=B3EDB07285EDC2F0A5491DCFE7E6FAAEC684660B13CE0983D0F82955F9113321)
 
 - **场景六**：使用stateStyles属性方法可以依据组件的内部状态的不同，快速设置不同样式，使用此方法将各个状态下的背景设为透明，此外通过stateEffect属性设置组件是否开启按压态显示效果。stateEffect默认值为true，将其设置为false即可关闭按压效果。
 ```text
@@ -347,7 +348,7 @@ struct BgStyles {
       Button() {
         Text(this.message).fontSize(40);
       }
-      .customStateStyle() // 调用自定义样式扩展
+      .customStateStyle() <em>// 调用自定义样式扩展</em>
       .onClick(() => {
         this.index++;
         if (this.index >= 10) {
@@ -362,10 +363,10 @@ struct BgStyles {
   }
 }
 
-// 自定义方法
+<em>// 自定义方法</em>
 @Extend(Button)
 function customStateStyle() {
-  // 设置组件不同状态下的样式
+ <em> // 设置组件不同状态下的样式</em>
   .stateStyles({
     clicked: {
       .backgroundColor(Color.Transparent);
@@ -386,19 +387,20 @@ function customStateStyle() {
       .backgroundColor(Color.Transparent);
     },
   })
-  // 用于控制是否开启状态动效
+<em>  // 用于控制是否开启状态动效</em>
   .stateEffect(false);
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/aS6b3K3jSpyQ1vTP4267rA/zh-cn_image_0000002628770202.png?HW-CC-KV=V1&HW-CC-Date=20260701T025622Z&HW-CC-Expire=86400&HW-CC-Sign=BF7AB628DCEE9FB2CA8A6E3EDB4EDD4D34CD7E7B70C58E019FC8281954C690F1)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/aS6b3K3jSpyQ1vTP4267rA/zh-cn_image_0000002628770202.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=3D891A79560644644E0DA35DFB24084B749037E479FFBA149F3F8C0C55991187)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Button设置渐变背景色为什么未生效？
  

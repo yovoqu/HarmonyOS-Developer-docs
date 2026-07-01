@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-23
 
-## 蓝牙BLE无法连接设备问题定位——广播/扫描阶段
- 
-
-
-##### 问题现象
+#### 问题现象
 
 蓝牙BLE扫描无法获取设备，如何定位是扫描端还是广播端的问题？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [ble.startAdvertising](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#blestartadvertising)：开始发送BLE广播报文。
  
@@ -26,7 +22,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 假设当前是手机扫描与车钥匙广播的场景，可以通过以下方式排查：
  
@@ -43,11 +39,12 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 - **可能原因1：** 硬件原因。如果是硬件原因，需要联系硬件提供方分析具体原因。
 - **可能原因2：** 应用侧代码设置问题。应用侧问题分析结论：
- 
+
+  
 示例中设置了ScanFilter过滤条件，所以扫描不到目标设备，过滤条件需要根据实际情况调整。
 - 对端设备发广播时没有把参数[AdvertiseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#advertisedata)中includeDeviceName设置为true，携带设备名称。由于广播报文数据内容中没有设备名称，扫描到的设备上报就不会有设备名称。
 - serviceUuid一般是外围设备在广播包里携带，表明自己支持哪些服务。serviceSolicitationUuid一般是中央设备在广播包里携带，表明自己希望搜索到哪些服务，但也有设备厂商在外围设备广播包里携带，表明外围设备希望搜索到哪些服务。
@@ -56,11 +53,12 @@
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **场景1：** 硬件原因：如果是硬件原因，需要联系硬件提供方分析具体原因后修改。
 - **场景2：** 应用侧问题：
-如果需要扫描所有可发现的周边BLE设备，需要把startBLEScan第一个入参改为null，根据实际情况调整过滤条件。
+
+  如果需要扫描所有可发现的周边BLE设备，需要把startBLEScan第一个入参改为null，根据实际情况调整过滤条件。
 需要把参数AdvertiseData中includeDeviceName设置为true，在广播报文数据内容中携带设备名称，扫描到的设备上报才会有设备名称。
 - 由于当前问题的外围设备在广播报文数据内容中，携带的字段为希望搜索到的UUID服务，因此扫描端需要过滤参数serviceSolicitationUuid，根据广播端携带的字段过滤，两端需要保持一致。
 
@@ -69,6 +67,6 @@
  
  
 
-##### 总结
+#### 总结
 
 蓝牙BLE扫描涉及两端交互，对于扫描端与广播端都需要进行排查，可以通过上述方法进行排查，初步确认问题所在。

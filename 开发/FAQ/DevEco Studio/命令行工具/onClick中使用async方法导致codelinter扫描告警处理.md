@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-25
 
-## onClick中使用async方法导致codelinter扫描告警处理
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用codelinter代码规范检测工具时对代码检测时，由于在onClick点击事件中使用了async方法，被codelinter检测出为错误规范的代码行，应该如何修改，被检测出的报错代码块具体如下所示：
  
@@ -19,8 +15,8 @@ struct IndexFalse {
   build() {
     Column() {
       Text('识别为错误规范的代码行')
-        .onClick(async () => { // 这一行被检测出识别为错误规范的代码行
-          // ...
+        .onClick(async () => { <em>// 这一行被检测出识别为错误规范的代码行</em>
+        <em>  // ...</em>
         })
     }
     .justifyContent(FlexAlign.Center)
@@ -32,13 +28,13 @@ struct IndexFalse {
  
  
 
-##### 背景知识
+#### 背景知识
 
 codelinter检测工具针对ArkTS/TS代码进行最佳实践/编程规范方面的检查，开发者可根据扫描结果中告警提示手工修复代码缺陷，或者执行一键式自动修复，在代码开发阶段，确保代码质量。其中一条规则"@typescript-eslint/no-misused-promises"，是禁止在不正确的位置使用Promise。
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用codelinter检测工具对代码扫描完成后，在底部工具面板查看检查结果。选中告警结果时，可以在右侧Defect Description窗口查看告警对应的规则详细说明，其中包含正向和反向示例，并根据其中的建议修改代码。
  
@@ -58,14 +54,14 @@ struct Index {
       Text('修改方式1')
         .onClick(() => {
           void (async () => {
-            // ...
+           <em> // ...</em>
           })();
         });
 
       Text('修改方式2')
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      <em>// eslint-disable-next-line @typescript-eslint/no-misused-promises</em>
         .onClick(async () => {
-          // ...
+        <em> </em><em> // ...</em>
         });
     }
     .justifyContent(FlexAlign.Center)

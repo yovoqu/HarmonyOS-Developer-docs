@@ -4,34 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-103
 
-## WebSocket发送消息失败，错误码是-1的原因
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过WebSocket发送消息，返回错误码为-1，请问是什么原因？
  
 ```text
-09-26 14:46:56.819  9308  9456 I C015B0/***/NETSTACK: [websocket_exec.cpp:1003] OnClose 1011 The link is down
-09-26 14:46:56.824  9308  9308 I C015B0/***/NETSTACK: [module_template.h:46] js invoke WebSocketSend
-09-26 14:46:56.824  9308  9308 I C015B0/***/NETSTACK: [send_context.cpp:38] SendContext data is String
-09-26 14:46:56.825  9308  9325 E C015B0/***/NETSTACK: [websocket_exec.cpp:809] user data is nullptr
-09-26 14:46:56.825  9308  9308 D A0000F/***/Utils: *** sendMessage the subscribeDevice result is: undefined
-09-26 14:46:56.825  9308  9308 E A0FFFF/***/Utils: *** sendMessage subscribeDevice got an error! Err.code is: -1, Err.message is: Websocket Unknown Other Error
+<span style="color: rgb(255,0,0);">09</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">26 14</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">46</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">56.819  9308  9456 </span><span style="color: rgb(0,0,255);">I C015B0</span><span style="color: rgb(128,128,128);">/***/</span><span style="color: rgb(181,106,1);">NETSTACK</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">websocket_exec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cpp</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">1003</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(0,0,255);">OnClose </span><span style="color: rgb(255,0,0);">1011 </span><span style="color: rgb(0,0,255);">The link is down</span>
+<span style="color: rgb(255,0,0);">09</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">26 14</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">46</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">56.824  9308  9308 </span><span style="color: rgb(0,0,255);">I C015B0</span><span style="color: rgb(128,128,128);">/***/</span><span style="color: rgb(181,106,1);">NETSTACK</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">module_template</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">h</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">46</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(0,0,255);">js invoke WebSocketSend</span>
+<span style="color: rgb(255,0,0);">09</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">26 14</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">46</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">56.824  9308  9308 </span><span style="color: rgb(0,0,255);">I C015B0</span><span style="color: rgb(128,128,128);">/***/</span><span style="color: rgb(181,106,1);">NETSTACK</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">send_context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cpp</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">38</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(0,0,255);">SendContext data is String</span>
+<span style="color: rgb(255,0,0);">09</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">26 14</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">46</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">56.825  9308  9325 </span><span style="color: rgb(0,0,255);">E C015B0</span><span style="color: rgb(128,128,128);">/***/</span><span style="color: rgb(181,106,1);">NETSTACK</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">websocket_exec</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cpp</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">809</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(0,0,255);">user data is nullptr</span>
+<span style="color: rgb(255,0,0);">09</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">26 14</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">46</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">56.825  9308  9308 </span><span style="color: rgb(0,0,255);">D A0000F</span><span style="color: rgb(128,128,128);">/***/</span><span style="color: rgb(181,106,1);">Utils</span><span style="color: rgb(181,106,1);">: *** </span><span style="color: rgb(0,0,255);">sendMessage the subscribeDevice result </span><span style="color: rgb(181,106,1);">is</span><span style="color: rgb(181,106,1);">: </span>undefined
+<span style="color: rgb(255,0,0);">09</span><span style="color: rgb(181,106,1);">-</span><span style="color: rgb(255,0,0);">26 14</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">46</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">56.825  9308  9308 </span><span style="color: rgb(0,0,255);">E A0FFFF</span><span style="color: rgb(128,128,128);">/***/</span><span style="color: rgb(181,106,1);">Utils</span><span style="color: rgb(181,106,1);">: *** </span><span style="color: rgb(0,0,255);">sendMessage subscribeDevice got an error</span><span style="color: rgb(181,106,1);">! </span><span style="color: rgb(0,0,255);">Err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code </span><span style="color: rgb(181,106,1);">is</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">Err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">is</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Websocket Unknown Other Error</span>
 ```
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据如上日志分析，WebSocket没有连接到服务器导致该问题出现：
- 
-- 确定服务器是否可连接：
+ 1. 确定服务器是否可连接：
 使用ping命令检查服务器是否在线，是否响应ICMP请求，成功时显示响应时间和数据包丢失率。
-- 使用telnet或nc测试端口检查服务器的指定端口是否开放，连接后显示空白或服务器响应。
-- 通过浏览器或curl发起HTTP请求，成功后返回HTTP状态码（如200、OK）。
-
- 
-
-- 确认服务器可连接后，使用WebSocket进行连接服务器，详情可见[WebSocket使用示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/websocket-connection)。
+2. 使用telnet或nc测试端口检查服务器的指定端口是否开放，连接后显示空白或服务器响应。
+3. 通过浏览器或curl发起HTTP请求，成功后返回HTTP状态码（如200、OK）。
+1. 确认服务器可连接后，使用WebSocket进行连接服务器，详情可见[WebSocket使用示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/websocket-connection)。

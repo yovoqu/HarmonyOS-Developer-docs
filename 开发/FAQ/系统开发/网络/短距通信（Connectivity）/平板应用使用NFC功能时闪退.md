@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-9
 
-## 平板应用使用NFC功能时闪退
- 
-
-
-##### 问题现象
+#### 问题现象
 
 平板上的应用使用NFC功能时，发生闪退。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - JsCrash异常根据不同的异常场景，在Reason字段进行了分类，分为Error、TypeError、SyntaxError、ReferenceError、RangeError等错误类型。参考文档[JS Crash（进程崩溃）检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jscrash-guidelines)。
 - JsCrash日志规格说明可以参考[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jscrash-guidelines#日志规格)。
@@ -23,10 +19,9 @@
  
  
 
-##### 问题定位
-
-- 从faultlogger目录下获取到应用的JsCrash故障日志，故障原因是TypeError，故障信息为Cannot read property unregisterForegroundDispatch of undefined，无法调用未定义的属性和方法。
-```ts
+#### 问题定位
+1. 从faultlogger目录下获取到应用的JsCrash故障日志，故障原因是TypeError，故障信息为Cannot read property unregisterForegroundDispatch of undefined，无法调用未定义的属性和方法。
+```bash
 Reason:TypeError
 Error name:TypeError
 Error message:Cannot read property unregisterForegroundDispatch of undefined
@@ -40,18 +35,17 @@ Cannot get SourceMap info, dump raw stack:
     at aboutToDisappear (phone|phone|1.0.0|src/main/ets/scenes/webview/pages/WebViewPage.ts:211:1)
 ```
 
-- 从堆栈中观察到栈顶为NFCUtil，未定义的属性和方法是unregisterForegroundDispatch，是[@ohos.nfc.tag (标准NFC-Tag)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag)的接口，平板不支持此领域的接口，设备的系统不存在相关SDK，这会导致在调用时出现undefined错误。
-
+2. 从堆栈中观察到栈顶为NFCUtil，未定义的属性和方法是unregisterForegroundDispatch，是[@ohos.nfc.tag (标准NFC-Tag)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag)的接口，平板不支持此领域的接口，设备的系统不存在相关SDK，这会导致在调用时出现undefined错误。
  
  
 
-##### 分析结论
+#### 分析结论
 
 平板不支持NFC相关能力，导致接口调用时出现undefined错误。
  
  
 
-##### 修改建议
+#### 修改建议
 
 使用canIUse("SystemCapability.Communication.NFC.Tag")判断设备是否支持NFC能力，详情可见[NFC标签读写开发指南](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-nfc-tag-access-guide)。
  
@@ -65,7 +59,7 @@ struct CheckNFCAbilityPage {
     this.checkNfcCapability();
   }
 
-  // 检查设备硬件能力
+  <em>// 检查设备硬件能力</em>
   checkNfcCapability() {
     if (canIUse('SystemCapability.Communication.NFC.Core')) {
       this.nfcSupport = true;
@@ -79,7 +73,7 @@ struct CheckNFCAbilityPage {
   build() {
     Column() {
       if (!this.nfcSupport) {
-        // 设备不支持NFC的情况
+        <em>// 设备不支持NFC的情况</em>
         Text('当前设备不支持NFC功能')
           .fontSize(20)
           .fontColor(Color.Red)

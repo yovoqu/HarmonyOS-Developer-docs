@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-509
 
-## 如何自定义cancelButton点击事件的业务逻辑
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发者使用cancelButton属性时，有以下经典场景：
  
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - Search组件的[cancelButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search#cancelbutton10)设置右侧清除按钮样式，仅支持自定义样式，不支持自定义点击事件。
 - [onEditChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#oneditchange8)：输入状态变化时，触发该回调。有光标时为编辑态，无光标时为非编辑态。
@@ -26,7 +22,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **针对场景一**：Search组件的cancelButton点击事件，只支持设置样式，如果要自定义业务逻辑，可以使用Stack在搜索框上堆叠一个图标，自行对这个图标增加业务逻辑。
 ```text
@@ -67,7 +63,7 @@ struct Index {
         Image($r('app.media.background'))
           .height(44)
           .onClick(() => {
-            // 此处编写自定义逻辑。
+          <em>  // 此处编写自定义逻辑。</em>
             this.isFocus = !this.isFocus;
           });
       };
@@ -76,17 +72,17 @@ struct Index {
 }
 ```
 
-- **针对场景二**：
-使用三元表达式更改图标的显示模式，通过onEditChange判断当前是否为输入状态，isEditing为true时表示正在输入。
-- 当前为编辑状态时，设置清除按钮的样式为CancelButtonStyle.INPUT，当前为非编辑态时，设置清除按钮的样式为CancelButtonStyle.INVISIBLE。
+- **针对场景二**：1. 使用三元表达式更改图标的显示模式，通过onEditChange判断当前是否为输入状态，isEditing为true时表示正在输入。
 
- 
+2. 当前为编辑状态时，设置清除按钮的样式为CancelButtonStyle.INPUT，当前为非编辑态时，设置清除按钮的样式为CancelButtonStyle.INVISIBLE。
+
+  
 ```text
 @Entry
 @Component
 struct ClearNodeExample {
   @State text: string = '';
-  // 编辑状态
+  <em>// 编辑状态</em>
   @State isOK: boolean = false;
   controller: TextInputController = new TextInputController();
 
@@ -97,7 +93,7 @@ struct ClearNodeExample {
         .height(60)
         .margin({ bottom: 16, left: 20, right: 20 })
         .cancelButton({
-          // 使用三元表达式更改图标的显示模式
+        <em>  // 使用三元表达式更改图标的显示模式</em>
           style: (this.isOK ? CancelButtonStyle.INPUT : CancelButtonStyle.INVISIBLE),
           icon: {
             size: 45,
@@ -106,7 +102,7 @@ struct ClearNodeExample {
           }
         })
         .onEditChange((isEditing: boolean) => {
-          // 存储TextInput组件的编辑状态
+        <em>  // 存储TextInput组件的编辑状态</em>
           this.isOK = isEditing;
         })
         .onChange((value: string) => {
@@ -127,11 +123,12 @@ struct ClearNodeExample {
   }
 }
 ```
- 
+
+
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)组件的cancelButton的内边距如何取消？
  

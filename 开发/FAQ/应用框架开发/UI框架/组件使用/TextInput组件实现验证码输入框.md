@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1043
 
-## TextInput组件实现验证码输入框
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现验证码输入框效果，并设置输入框内容居中显示？
  
 效果如图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/Xwd_ecRmSreGk_bR7IgCog/zh-cn_image_0000002628565450.png?HW-CC-KV=V1&HW-CC-Date=20260701T025557Z&HW-CC-Expire=86400&HW-CC-Sign=B12278422574A6D97C1AF939AF600CBD437EFC05B0A3D16A9D77DC6D852A8226)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/Xwd_ecRmSreGk_bR7IgCog/zh-cn_image_0000002628565450.png?HW-CC-KV=V1&HW-CC-Date=20260701T041251Z&HW-CC-Expire=86400&HW-CC-Sign=A9F8F01D47C5D77B8333E9CB0A83EA72355355B03A2D7EF3371F8A5878EEEB9A)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)是单行文本输入框组件，可以通过type属性设置输入框模式，具体模式可以参考[InputType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#inputtype枚举说明)枚举值。
 - [ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)：接口基于数组循环渲染，需要与容器组件配合使用，且接口返回的组件应当是允许包含在ForEach父容器组件中的子组件。
@@ -29,14 +25,15 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-- 方案一：
-通过inputIndex变量定义输入框个数。
-- 通过ForEach循环渲染，将所有输入框横排展示在Row组件中。
-- 编辑输入框时通过回调函数onDidDelete、onChange做状态变更，实现变焦效果。
+- 方案一：1. 通过inputIndex变量定义输入框个数。
 
- 
+2. 通过ForEach循环渲染，将所有输入框横排展示在Row组件中。
+
+3. 编辑输入框时通过回调函数onDidDelete、onChange做状态变更，实现变焦效果。
+
+  
 ```text
 @Entry
 @Component
@@ -53,7 +50,7 @@ struct FourTextInput {
             .fontSize('30vp')
             .textAlign(TextAlign.Center)
             .maxLength(1)
-            // .type(InputType.NUMBER_PASSWORD) // 如需要启动安全模式，添加此处属性
+          <em>  // .type(InputType.NUMBER_PASSWORD) // 如需要启动安全模式，添加此处属性</em>
             .showPasswordIcon(false)
             .height(80)
             .border({
@@ -65,14 +62,14 @@ struct FourTextInput {
             .id(index.toString())
             .onDidDelete(() => {
               if (this.inputValue[index].length === 0) {
-                // 不是第一个输入框且输入框内没有文字，则删除上一个输入框内容，并且使上一个输入框获取焦点
+              <em>  // 不是第一个输入框且输入框内没有文字，则删除上一个输入框内容，并且使上一个输入框获取焦点</em>
                 if (index !== 0) {
                   this.inputValue[index - 1] = '';
                   this.inputEnable[index] = false;
                   this.inputEnable[index - 1] = true;
                   this.getUIContext().getFocusController().requestFocus((index - 1).toString());
                 } else {
-                  // 如果输入框内有文字，则只删除当前输入框内容
+                  <em>// 如果输入框内有文字，则只删除当前输入框内容</em>
                   this.inputValue[index] = '';
                 }
               }
@@ -97,7 +94,8 @@ struct FourTextInput {
   }
 }
 ```
- 
+
+
  
 - 方案二：参照[多种验证码场景](https://gitcode.com/HarmonyOS_Samples/verification-code-scenario/blob/master/README.md)demo示例，当前包含五个验证码场景：
 文本框显示光标：输入数字光标会移动到下一个文本框，同时下边框变色。

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-808
 
-## 如何解决Text组件无法根据内容自动拉伸背景图片的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 给Text组件设置一个点九图的聊天气泡背景，聊天气泡根据内容自动拉伸，聊天气泡边上会变形、失真。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - NinePatch图形：NinePatchDrawable图形是一种可拉伸的位图，可用作视图的背景。其他平台会自动调整图形的大小以适应视图的内容。NinePatch图形是标准PNG图片，包含一个额外的1像素边框。主要使用于内容长度自适应背景图。点九图是其他系统特有的一种图片格式，HarmonyOS上不支持.9资源文件进行安全拉伸。
 - CSS实现点九图border-image：CSS不能直接使用点九图文件，但可以通过border-image属性结合border-image-slice来实现类似点九图的效果。这种方法可以在不失真的情况下对图片进行缩放。
@@ -22,14 +18,14 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：通过设置Image组件的[resizable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#resizable11)属性实现图片的安全拉伸效果。
 通过@Builder装饰器封装容器背景样式，根据点九图设置合适的Image组件拉伸属性resizable。
 ```text
 @Builder
 function bubbleBackground() {
-  // .9图地址
+  <em>// .9图地址</em>
   Image($r('app.media.imageresizable_border'))
     .objectFit(ImageFit.Fill)
     .resizable({
@@ -89,7 +85,7 @@ Text('满5000减4000')
 ```text
 @Builder
 function bubbleBackground() {
-  // .9图地址
+  <em>// .9图地址</em>
   Image($r('app.media.imageresizable_border'))
     .objectFit(ImageFit.Fill)
     .resizable({
@@ -159,10 +155,10 @@ struct NinePatchPage {
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/_HWNK3tRTwe4n5DjYf6RBQ/zh-cn_image_0000002658797163.png?HW-CC-KV=V1&HW-CC-Date=20260701T025548Z&HW-CC-Expire=86400&HW-CC-Sign=0ED723E90468460334A94A54EB8CB79B72B605D28CA93FCDB9F6DF5C950E791B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/_HWNK3tRTwe4n5DjYf6RBQ/zh-cn_image_0000002658797163.png?HW-CC-KV=V1&HW-CC-Date=20260701T041316Z&HW-CC-Expire=86400&HW-CC-Sign=0161CC65FD9F602AF633ACFBF2BF9C81CDD8AABA001E6B6F776D058A034323E9)
 
  
 
-##### 总结
+#### 总结
 
 HarmonyOS上不支持.9资源文件进行安全拉伸，应通过Image组件resizable属性达到图片拉伸的效果。同理，要实现类似的边框拉伸效果，均可参照以上两种方案。

@@ -3,18 +3,16 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-oh-avplayervideooutput
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## OH_AVPlayerVideoOutput
- 
 
 ```text
 typedef struct OH_AVPlayerVideoOutput OH_AVPlayerVideoOutput
 ```
   
 
-##### 概述
+#### 概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 OH_AVPlayerVideoOutput字段。
  

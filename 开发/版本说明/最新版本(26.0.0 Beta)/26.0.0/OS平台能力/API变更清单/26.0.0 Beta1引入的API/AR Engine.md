@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arengine-7001
 
-## AR Engine
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：arEngine； API声明：enum ARRemoteSensorMode 差异内容：enum ARRemoteSensorMode | api/@hms.core.ar.arengine.d.ts |

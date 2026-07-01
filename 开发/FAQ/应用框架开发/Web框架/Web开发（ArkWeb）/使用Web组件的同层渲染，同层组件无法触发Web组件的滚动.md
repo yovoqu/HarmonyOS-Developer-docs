@@ -4,19 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-159
 
-## 使用Web组件的同层渲染，同层组件无法触发Web组件的滚动
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Web组件的同层渲染，触摸同层组件上下移动时无法触发Web组件的滚动，而其他位置可以正常滚动。
  
 问题代码示例参考如下：
  
-```text
+```json
 Web({ src: $rawfile("embed_view.html"), controller: this.browserTabController })
-  // ...
+ <em> // ...</em>
   .onNativeEmbedGestureEvent((touch) => {
     console.info(`NativeEmbed onNativeEmbedGestureEvent ${JSON.stringify(touch.touchEvent)}`);
     this.componentIdArr.forEach((componentId: string) => {
@@ -29,7 +25,7 @@ Web({ src: $rawfile("embed_view.html"), controller: this.browserTabController })
           console.error(`onNativeEmbedGestureEvent failed ${componentId}`);
         }
         if (touch.result) {
-          // 通知Web组件手势事件消费结果。
+       <em>   // 通知Web组件手势事件消费结果。</em>
           touch.result.setGestureEventResult(ret);
         }
       }
@@ -40,57 +36,53 @@ Web({ src: $rawfile("embed_view.html"), controller: this.browserTabController })
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/Q53qJd9gTJ2ZEXsIsfx0OA/zh-cn_image_0000002628899164.png?HW-CC-KV=V1&HW-CC-Date=20260701T025742Z&HW-CC-Expire=86400&HW-CC-Sign=4F0329ABCC4A0560CA36D6E251EA634BC7D1D1637321A9D541091EDE73A70CC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/Q53qJd9gTJ2ZEXsIsfx0OA/zh-cn_image_0000002628899164.png?HW-CC-KV=V1&HW-CC-Date=20260701T041338Z&HW-CC-Expire=86400&HW-CC-Sign=FD93E21380438E8AA3F396A60EBDAEF309C52762C51C56A3D8539DCA9AEB6D17)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Web组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-web)的[同层渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-same-layer)可以在非ArkTS框架的UI组件功能或性能不如ArkTS组件时使用。当手指触摸到Web的同层标签时，可以触发Web组件的[onNativeEmbedGestureEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onnativeembedgestureevent11)事件，事件参数NativeEmbedTouchInfo的[EventResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-eventresult)用于通知Web组件手势事件的消费结果，该消费结果可以通过[setGestureEventResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-eventresult#setgestureeventresult12)进行设置。
  
  
 
-##### 问题定位
-
-- 查看日志，触摸同层组件GridItem时，onNativeEmbedGestureEvent回调的日志正常打印。
-- 长按并拖动GridItem，相关日志被打印，手势组合可识别。
-- 排查代码，ret为true并传入setGestureEventResult，设置同层组件消费手势，Web不消费手势。
-
+#### 问题定位
+1. 查看日志，触摸同层组件GridItem时，onNativeEmbedGestureEvent回调的日志正常打印。
+2. 长按并拖动GridItem，相关日志被打印，手势组合可识别。
+3. 排查代码，ret为true并传入setGestureEventResult，设置同层组件消费手势，Web不消费手势。
  
  
 
-##### 分析结论
+#### 分析结论
 
 onNativeEmbedGestureEvent回调中设置了同层组件消费手势，Web无法消费滑动手势，导致无法触发Web的滚动。
  
  
 
-##### 修改建议
-
-- 可以通过修改setGestureEventResult的参数为false，让手势事件被Web组件消费。
+#### 修改建议
+1. 可以通过修改setGestureEventResult的参数为false，让手势事件被Web组件消费。
 ```text
-// 触摸同层组件触发Web组件滚动
+<em>// 触摸同层组件触发Web组件滚动</em>
 touch.result.setGestureEventResult(false);
 ```
 
-- 当同层组件本身有手势事件需要响应，可以根据手势动作动态修改setGestureEventResult的参数。
+2. 当同层组件本身有手势事件需要响应，可以根据手势动作动态修改setGestureEventResult的参数。
 ```text
 if (AppStorage.get('longPressPan')) {
-  // 当同层组件本身有手势事件(如长按手势)需要响应，可以根据手势动作动态修改参数
-  // 此时触摸同层组件不触发Web组件滚动
+ <em> // 当同层组件本身有手势事件(如长按手势)需要响应，可以根据手势动作动态修改参数</em>
+<em>  // 此时触摸同层组件不触发Web组件滚动</em>
   touch.result.setGestureEventResult(ret, false);
 } else {
-  // 触摸同层组件触发Web组件滚动
+ <em> // 触摸同层组件触发Web组件滚动</em>
   touch.result.setGestureEventResult(false);
 }
 ```
 
-
  
 完整示例参考如下：
  
-```text
+```json
 import { webview } from '@kit.ArkWeb';
 import { UIContext } from '@kit.ArkUI';
 import { NodeController, BuilderNode, NodeRenderType, FrameNode } from '@kit.ArkUI';
@@ -112,7 +104,7 @@ declare class NodeControllerParams {
 }
 
 class MyNodeController extends NodeController {
-  private rootNode: BuilderNode | undefined | null;
+  private rootNode: BuilderNode<[Params]> | undefined | null;
   private embedId_: string = '';
   private surfaceId_: string = '';
   private renderType_: NodeRenderType = NodeRenderType.RENDER_TYPE_DISPLAY;
@@ -185,18 +177,18 @@ struct TextComponent {
               LongPressGesture({ repeat: true })
                 .tag('longPress')
                 .onAction(() => {
-                  // 长按动作
+          <em>        // 长按动作</em>
                   console.info('Long Press.');
                 }),
               PanGesture({ fingers: 1, direction: null, distance: 0 })
                 .tag('pan')
                 .onActionStart(() => {
-                  // 开始拖动
+                <em>  // 开始拖动</em>
                   AppStorage.setOrCreate('longPressPan', true);
                   console.info('Pan Start.');
                 })
                 .onActionEnd(() => {
-                  // 结束拖动
+              <em>    // 结束拖动</em>
                   AppStorage.setOrCreate('longPressPan', false);
                   console.info('Pan End.');
                 })
@@ -228,11 +220,11 @@ function TextBuilder(params: Params) {
 @Component
 struct Index {
   browserTabController: WebviewController = new webview.WebviewController();
-  private nodeControllerMap: Map = new Map();
-  @State componentIdArr: Array = [];
-  @State widthMap: Map = new Map();
-  @State heightMap: Map = new Map();
-  @State positionMap: Map = new Map();
+  private nodeControllerMap: Map<string, MyNodeController> = new Map();
+  @State componentIdArr: Array<string> = [];
+  @State widthMap: Map<string, number> = new Map();
+  @State heightMap: Map<string, number> = new Map();
+  @State positionMap: Map<string, Edges> = new Map();
   @State edges: Edges = {};
   uiContext: UIContext = this.getUIContext();
 
@@ -246,7 +238,7 @@ struct Index {
               .width(this.widthMap.get(componentId))
               .height(this.heightMap.get(componentId));
           }, (embedId: string) => embedId);
-          // Web组件加载本地html页面。
+      <em>    // Web组件加载本地html页面。</em>
           Web({ src: $rawfile('embed_view.html'), controller: this.browserTabController })
             .fileAccess(false)
             .geolocationAccess(false)
@@ -299,7 +291,7 @@ struct Index {
                 console.info(`NativeEmbed status ${embed.status}`);
               }
             })
-            // 获取同层渲染组件触摸事件信息。
+         <em>   // 获取同层渲染组件触摸事件信息。</em>
             .onNativeEmbedGestureEvent((touch) => {
               console.info(`NativeEmbed onNativeEmbedGestureEvent ${JSON.stringify(touch.touchEvent)}`);
               this.componentIdArr.forEach((componentId: string) => {
@@ -313,11 +305,11 @@ struct Index {
                   }
                   if (touch.result) {
                     if (AppStorage.get('longPressPan')) {
-                      // 当同层组件本身有手势事件(如长按手势)需要响应，可以根据手势动作动态修改参数
-                      // 此时触摸同层组件不触发Web组件滚动
+                     <em> // 当同层组件本身有手势事件(如长按手势)需要响应，可以根据手势动作动态修改参数</em>
+<em>                      // 此时触摸同层组件不触发Web组件滚动</em>
                       touch.result.setGestureEventResult(ret, false);
                     } else {
-                      // 触摸同层组件触发Web组件滚动
+                   <em>   // 触摸同层组件触发Web组件滚动</em>
                       touch.result.setGestureEventResult(false);
                     }
                   }
@@ -335,33 +327,36 @@ struct Index {
 ```
  
 ```text
-
-
-    同层渲染测试html
-    
-
-
-    
-        
-        
-            
-        
-        
-    
-
-
+<em><!--embed_view.html--></em>
+<!Document>
+<html>
+<head>
+    <title>同层渲染测试html</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+<body>
+<div>
+    <div id="bodyId">
+        <div class="top"></div>
+        <div align="center">
+            <embed id="embed1" type = "native/component" width="92%" height="54%" src="view"/>
+        </div>
+        <div class="bottom"></div>
+    </div>
+</div>
+<script>
     let nativeEmbed = {
-      // 判断设备是否支持touch事件
+   <em>   // 判断设备是否支持touch事件</em>
       touch:('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch,
       nativeEmbed : document.getElementById('embed1'),
 
-      // 事件
+   <em>   // 事件</em>
       events:{
         nativeEmbed:document.getElementById('embed1'),
         handleEvent:function(event){ },
       },
 
-      // 初始化
+    <em>  // 初始化</em>
       init:function(){
         let self = this;
         self.nativeEmbed.addEventListener('touchstart', self.events, false); // addEventListener第二个参数可以传一个对象，会调用该对象的handleEvent属性
@@ -369,8 +364,11 @@ struct Index {
     };
 
     nativeEmbed.init();
+</script>
 
-
+</body>
+</html>
+<style>
     .top{
         width:100%;
         height:500px;
@@ -381,12 +379,12 @@ struct Index {
         height:1000px;
         background-color:#f1f3f5
     }
-
+</style>
 ```
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：同层渲染时对html文件中div进行transform: rotate(30deg)旋转之后，为什么Web页面中的Slider组件无法滑动了？
  

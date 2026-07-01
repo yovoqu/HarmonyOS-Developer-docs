@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ads-2
 
-## 激励广告回调中无法弹出Toast弹窗
- 
-
-
-##### 问题现象
+#### 问题现象
 
 激励广告的回调中无法弹出Toast窗口。关键代码如下：
  
@@ -25,7 +21,7 @@ case AdStatus.VIDEO_PLAY_END:
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [事件订阅](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher-service-reward#section395845163219)：开发者需要在App中订阅com.huawei.hms.pps.action.PPS_REWARD_STATUS_CHANGED事件来监听激励广告页面变化并接收奖励信息，需要在每次展示广告前调用。
 - [advertising.showAd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#showad)：展示全屏广告。
@@ -35,25 +31,23 @@ case AdStatus.VIDEO_PLAY_END:
  
  
 
-##### 问题定位
-
-- 根据日志排查是否成功监听到了广告各状态：
-```text
+#### 问题定位
+1. 根据日志排查是否成功监听到了广告各状态：
+```bash
 A00000/com.hua...StatusHandler  com.huawe...ientdemo  I     Status is onVideoPlayBegin
 A00000/com.hua...StatusHandler  com.huawe...ientdemo  I     Status is onVideoPlayEnd
 ```
  从以上日志中可以看到成功监听到广告。
-- 排查Toast弹窗是否符合UX要求。
-
+2. 排查Toast弹窗是否符合UX要求。
  
  
 
-##### 分析结论
+#### 分析结论
 
 Toast弹窗为宿主创建的非系统子窗口，属于不安全窗口。advertising.showAd创建出来的是模态UIExtension，模态UIExtension不允许被不安全窗口遮挡。API 11之后拉起模态UIExtension时，会隐藏三方应用已创建的不安全窗口和组件，并阻止三方应用创建新的不安全窗口。
  
  
 
-##### 修改建议
+#### 修改建议
 
 可以在看完广告后，将广告弹窗移除，在原来的页面中弹出Toast弹窗。

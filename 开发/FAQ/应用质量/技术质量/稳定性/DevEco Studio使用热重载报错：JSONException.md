@@ -4,38 +4,34 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-54
 
-## DevEco Studio使用热重载报错：JSONException
- 
-
-
-##### 问题现象
+#### 问题现象
 
 DevEco Studio热重载启动应用报错：JSONException。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/j9t62p61Q8KmRuX3R1MwTA/zh-cn_image_0000002628554894.png?HW-CC-KV=V1&HW-CC-Date=20260701T025509Z&HW-CC-Expire=86400&HW-CC-Sign=5D7917E101122BD0D7F621AB863310050601355E840BB6AA89946BE951D47C47)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/j9t62p61Q8KmRuX3R1MwTA/zh-cn_image_0000002628554894.png?HW-CC-KV=V1&HW-CC-Date=20260701T041406Z&HW-CC-Expire=86400&HW-CC-Sign=C7CC2755EE0BB91A4E0CC3D1330AEB6456615FE404DD7B2E3C0AB1287C223FE3)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 DevEco Studio提供Hot Reload（热重载）能力，支持开发者在真机或模拟器上运行/调试应用时，修改代码并保存后无需重启应用，在真机或模拟器上即可使用最新的代码，帮助开发者更快速地进行调试。使用约束和操作步骤可以参考：[Hot Reload](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hot-reload#section995453874915)。
  
  
 
-##### 问题定位
+#### 问题定位
 
 根据报错提示，是JSON序列化的问题，而使用热重载时会在模块下生成一个patch.json文件，记录着应用和模块信息，排查是否修改过这个文件，导致序列化异常。
  
  
 
-##### 分析结论
+#### 分析结论
 
 patch.json文件被修改过，导致序列化异常。
  
  
 
-##### 修改建议
+#### 修改建议
 
 删除patch.json文件，之后热重载时会重新生成。

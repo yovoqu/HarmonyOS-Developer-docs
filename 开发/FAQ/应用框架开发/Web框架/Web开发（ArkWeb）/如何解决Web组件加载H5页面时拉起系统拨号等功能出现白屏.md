@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-144
 
-## 如何解决Web组件加载H5页面时拉起系统拨号等功能出现白屏
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Web加载H5页面，点击H5中“tel:”、“sms:”、“mailto:”开头的特殊链接，没有跳转到对应的拨号、短信、邮件应用，而是出现Web组件白屏现象。代码如下：
  
@@ -31,21 +27,24 @@ struct WebComponent {
 ```
  
 ```text
-
-
-    
-
-
-    拨打电话
-    发送信息
-    发送邮件
-
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+</head>
+<body>
+<div>
+    <a href="tel:xxx">拨打电话</a>
+    <a href="sms:xxx">发送信息</a>
+    <a href="mailto:xxx@example">发送邮件</a>
+</div>
+</body>
+</html>
 ```
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [跨应用跳转](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-redirection-and-browsing-history-mgmt#跨应用跳转)：Web组件可以实现点击前端页面超链接跳转到其他应用。
 - [onLoadIntercept](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)：当Web组件加载URL之前触发该回调，用于判断是否阻止此次访问。
@@ -57,19 +56,19 @@ struct WebComponent {
  
  
 
-##### 问题定位
+#### 问题定位
 
 Web组件不支持通过“tel:”、“sms:”、“mailto:”链接直接拉起对应应用（拨号、短信、邮件）。
  
  
 
-##### 分析结论
+#### 分析结论
 
 Web组件不支持通过“tel:”、“sms:”、“mailto:”链接直接拉起对应应用（拨号、短信、邮件），需要通过[onLoadIntercept](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)回调拦截这些链接，调用ArkTS API拉起对应应用。
  
  
 
-##### 修改建议
+#### 修改建议
 
 通过Web组件的[onLoadIntercept](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)回调拦截“tel:”、“sms:”、“mailto:”链接跳转，调用ArkTS API拉起对应应用。示例代码如下：
  
@@ -96,9 +95,9 @@ struct Index {
         .onLoadIntercept((event) => {
           if (event) {
             let url: string = event.data.getRequestUrl();
-            // 判断链接是否为拨号链接
+         <em>   // 判断链接是否为拨号链接</em>
             if (url.indexOf('tel:') === 0) {
-              // 跳转拨号界面
+             <em> // 跳转拨号界面</em>
               call.makeCall(url.substring(SUB_COUNT), (err) => {
                 if (!err) {
                   console.info('make call succeeded.');
@@ -108,9 +107,9 @@ struct Index {
               });
               return true;
             }
-            // 判断链接是否为发短信链接
+         <em>   // 判断链接是否为发短信链接</em>
             if (url.indexOf('sms:') === 0) {
-              // 跳转到短信编辑界面
+           <em>   // 跳转到短信编辑界面</em>
               let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
               let want: Want = {
                 bundleName: 'com.ohos.mms',
@@ -124,9 +123,9 @@ struct Index {
               });
               return true;
             }
-            // 判断链接是否为发邮件链接
+          <em>  // 判断链接是否为发邮件链接</em>
             if (url.indexOf('mailto:') === 0) {
-              // 跳转到邮件应用
+             <em> // 跳转到邮件应用</em>
               let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
               let want: Want = {
                 action: 'ohos.want.action.sendToData',
@@ -148,14 +147,17 @@ struct Index {
 ```
  
 ```text
-
-
-    
-
-
-    拨打电话
-    发送信息
-    发送邮件
-
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+</head>
+<body>
+<div>
+    <a href="tel:xxx">拨打电话</a>
+    <a href="sms:xxx">发送信息</a>
+    <a href="mailto:xxx@example">发送邮件</a>
+</div>
+</body>
+</html>
 ```

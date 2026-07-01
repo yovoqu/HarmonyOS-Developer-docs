@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1513
 
-## 如何实现Slider滑块的自定义设置
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当前Slider组件的滑块，只支持图片和形状的设置，并且只支持Circle、Ellipse、Path、Rect四种形状，无法实现滑块内部内容的自定义。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [blockStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#blockstyle10)：设置滑块形状参数。支持type、image、shape三种形式设置。
 - [Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)：堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件。
@@ -23,11 +19,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 实现逻辑：Slider组件的滑块不支持自定义布局，本方案使用Stack容器，在Slider的上层覆盖一个与滑块大小相同的Row组件，在Row组件中实现自定义布局内容，滑动滑块时，获取滑块位置传递给Row组件的offset，实现Row组件的同步移动。
- 
-- 设置Slider的滑块类型为SliderBlockType.SHAPE，设置为圆角矩形。颜色设置为透明。
+ 1. 设置Slider的滑块类型为SliderBlockType.SHAPE，设置为圆角矩形。颜色设置为透明。
 ```text
 Slider({ style: SliderStyle.OutSet, value: 0 })
   .width(this.slideWidth)
@@ -39,7 +34,7 @@ Slider({ style: SliderStyle.OutSet, value: 0 })
   })
 ```
 
-- 在Stack容器中Slider组件的同级，添加Row组件，设置为和步骤1中滑块相同的长宽和圆角，添加自定义内容。
+2. 在Stack容器中Slider组件的同级，添加Row组件，设置为和步骤1中滑块相同的长宽和圆角，添加自定义内容。
 ```text
 Row() {
   Text('自定义')
@@ -56,7 +51,7 @@ Row() {
 });
 ```
 
-- 通过Slider的onChange事件，获取滑块滑动的百分比。
+3. 通过Slider的onChange事件，获取滑块滑动的百分比。
 ```text
 Slider({ style: SliderStyle.OutSet, value: 0 })
   .width(this.slideWidth)
@@ -71,7 +66,7 @@ Slider({ style: SliderStyle.OutSet, value: 0 })
   });
 ```
 
-- 通过Slider组件的宽度乘以滑块位置百分比，获取X轴的偏移距离，动态赋值给Row组件的offset，实现Row组件的X轴同步偏移。注意：Slider自带边距，计算偏移时需考虑边距值。
+4. 通过Slider组件的宽度乘以滑块位置百分比，获取X轴的偏移距离，动态赋值给Row组件的offset，实现Row组件的X轴同步偏移。注意：Slider自带边距，计算偏移时需考虑边距值。
 ```text
 private showTip(value: number) {
   let percent = Number((value / 100).toFixed(2));
@@ -79,10 +74,11 @@ private showTip(value: number) {
 }
 ```
  实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/FRxFnzdsTS6HpEfnn1jkPQ/zh-cn_image_0000002628766436.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=623BEC3A8105EBEA0E34D9B5B141412421ED851FFEF17298ABF24633C3C88DBA)
 
-- 完整代码：
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/FRxFnzdsTS6HpEfnn1jkPQ/zh-cn_image_0000002628766436.png?HW-CC-KV=V1&HW-CC-Date=20260701T041305Z&HW-CC-Expire=86400&HW-CC-Sign=1264CB5EEECAE078749D7D0B0DA66ACCBCC26D0D9E07AEE248EEDCE9B8F462EC)
+
+5. 完整代码：
 ```text
 @Entry
 @Component

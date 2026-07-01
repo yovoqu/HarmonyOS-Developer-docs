@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-14
 
-## MP4视频在系统相册的画面预览中会出现部分绿屏
- 
-
-
-##### 问题现象
+#### 问题现象
 
 MP4格式视频资源在系统相册的底部画面预览中会出现部分绿屏，但播放时画面并无绿屏问题，且该视频资源在其它平台的系统相册中都不会出现画面预览绿屏的问题。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [媒体数据封装](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-muxer)：将音频、视频等编码后的媒体数据，按指定格式存储到文件里。
  
@@ -23,34 +19,31 @@ stss box（Sync Sample Atom）：标识媒体流中的关键帧，提供了随�
 stss box具体内容如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/N6eqCNobSw-40duphac8Gw/zh-cn_image_0000002628552688.png?HW-CC-KV=V1&HW-CC-Date=20260701T025832Z&HW-CC-Expire=86400&HW-CC-Sign=F1CF3767480458CF831F71EE8C327A8AD055AEDFF852A4B8CC56B10DC69BD110)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/N6eqCNobSw-40duphac8Gw/zh-cn_image_0000002628552688.png?HW-CC-KV=V1&HW-CC-Date=20260701T041049Z&HW-CC-Expire=86400&HW-CC-Sign=3416BE875DB9E6F1751D312A7544B45A21295F7833451DB5BF77F401CA5E18BA)
 
  
  
 
-##### 问题定位
+#### 问题定位
+1. 排查MP4文件资源及其关键帧信息是否正常。
+2. 排查MP4文件的stss box信息是否正常。使用MP4解析工具查看stss box信息，正常MP4文件的stss box信息如下图所示：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/TmEvP7JWQT2iiWGmZJ7YNg/zh-cn_image_0000002658912005.png?HW-CC-KV=V1&HW-CC-Date=20260701T041049Z&HW-CC-Expire=86400&HW-CC-Sign=C2ED00C1A576E6B264D52A4A95AB59276ABD24ACD3E8FFBF1C5513FF5FE749C4)
 
-- 排查MP4文件资源及其关键帧信息是否正常。
-- 排查MP4文件的stss box信息是否正常。使用MP4解析工具查看stss box信息，正常MP4文件的stss box信息如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/TmEvP7JWQT2iiWGmZJ7YNg/zh-cn_image_0000002658912005.png?HW-CC-KV=V1&HW-CC-Date=20260701T025832Z&HW-CC-Expire=86400&HW-CC-Sign=89E77B2B9140A04FBC1A8F826E44185057F3ED0C415895E1AB74180E04081D8F)
-
-- 排查业务代码里封装媒体数据的逻辑中，关键帧是否正常标记。
-
+3. 排查业务代码里封装媒体数据的逻辑中，关键帧是否正常标记。
  
  
 
-##### 分析结论
+#### 分析结论
+1. MP4文件资源正常播放，但解析该资源发现仅有一个关键帧信息。
+2. 解析MP4文件资源，发现缺失stss box信息，具体信息如下图：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/H6UydzOsQPqj2T3AGv_HEQ/zh-cn_image_0000002628392798.png?HW-CC-KV=V1&HW-CC-Date=20260701T041049Z&HW-CC-Expire=86400&HW-CC-Sign=1E61426C60D5773A799B572C529281B6980086F049B2162E0D45F478AA9543A4)
 
-- MP4文件资源正常播放，但解析该资源发现仅有一个关键帧信息。
-- 解析MP4文件资源，发现缺失stss box信息，具体信息如下图：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/H6UydzOsQPqj2T3AGv_HEQ/zh-cn_image_0000002628392798.png?HW-CC-KV=V1&HW-CC-Date=20260701T025832Z&HW-CC-Expire=86400&HW-CC-Sign=F6B9B3C2E44BA263912B4678D23DCB64437826C4E252E043095BFAD946329FE2)
 
- 缺失stss表中的数据信息导致预览组件seek就近位置的帧。实际上seek到一个非关键帧的位置，解码失败导致预览出现绿屏。
-- MP4文件缺失stss box信息的原因是封装关键帧数据时，没有标记AVCODEC_BUFFER_FLAGS_SYNC_FRAME的标识。
-
+  缺失stss表中的数据信息导致预览组件seek就近位置的帧。实际上seek到一个非关键帧的位置，解码失败导致预览出现绿屏。
+3. MP4文件缺失stss box信息的原因是封装关键帧数据时，没有标记AVCODEC_BUFFER_FLAGS_SYNC_FRAME的标识。
  
  
 
-##### 修改建议
+#### 修改建议
 
 封装关键帧数据添加标识，在传入帧数据的时候，在帧数据的信息结构[OH_AVCodecBufferAttr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core-oh-avcodecbufferattr)中的flag参数标记[OH_AVCodecBufferFlags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avbuffer-info-h#oh_avcodecbufferflags)枚举类型来说明帧的类型，详细参考文档媒体数据封装中调用OH_AVMuxer_WriteSampleBuffer()，写入封装数据的步骤。

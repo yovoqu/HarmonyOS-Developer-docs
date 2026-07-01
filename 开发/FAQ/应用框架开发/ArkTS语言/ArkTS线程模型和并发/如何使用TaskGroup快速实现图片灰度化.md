@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-threading-model-11
 
-## 如何使用TaskGroup快速实现图片灰度化
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在处理像素比较大的图片时，放在单个线程中耗时也很长。如何使用TaskGroup实现分片处理图片？比如图片灰度化。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TaskGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#taskgroup10)表示任务组，一次执行一组任务，适用于执行一组有关联的任务。如果所有任务正常执行，异步执行完毕后返回所有任务结果的数组，数组中元素的顺序与[addTask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#addtask10-1)的顺序相同；如果任意任务失败，则会抛出对应异常。如果任务组中存在多个任务失败的情况，则会抛出第一个失败任务的异常。任务组可以多次执行，但执行后不能新增任务。
 - 灰度化是将彩色图像转换为灰度图像的处理过程，其核心原理是通过统一像素点的R、G、B分量值实现色彩空间转换。在该转换过程中，就是将彩色图像转换为每个像素点R、G、B分量值相等的灰度图像。
@@ -22,19 +18,18 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 将图片的像素数据分片，通过TaskGroup一次执行一组图片灰度化的任务，实现并行处理，达到快速灰度化，具体步骤如下：
- 
-- 读取图片像素数据，分割为四份，添加到TaskGroup中。等待返回数据，并且把数据合并，重新编码为图片，代码示例如下：
+ 1. 读取图片像素数据，分割为四份，添加到TaskGroup中。等待返回数据，并且把数据合并，重新编码为图片，代码示例如下：
 ```text
 pixelMapGrayScale(pixelMap: PixelMap) {
-  // 读取pixelMap的像素数据。
+ <em> // 读取pixelMap的像素数据。</em>
   let width = pixelMap.getImageInfoSync().size.width;
   let height = pixelMap.getImageInfoSync().size.height;
   let readBuffer: ArrayBuffer = new ArrayBuffer(width * height * 4);
   pixelMap.readPixelsToBufferSync(readBuffer);
-  // 分成四段并发调度。
+  <em>// 分成四段并发调度。</em>
   let number: number = 4 * Math.ceil(width * height / 4);
   let buffer1: ArrayBuffer = readBuffer.slice(0, number);
   let buffer2: ArrayBuffer = readBuffer.slice(number, number * 2);
@@ -47,21 +42,43 @@ pixelMapGrayScale(pixelMap: PixelMap) {
   group.addTask(imageProcessing, buffer3);
   group.addTask(imageProcessing, buffer4);
 
-  taskpool.execute(group, taskpool.Priority.HIGH).then((res: Array) => {
-    // 结果数组汇总处理，重新编码为图片。
+  taskpool.execute(group, taskpool.Priority.HIGH).then((res: Array<Object>) => {
+    <em>// 结果数组汇总处理，重新编码为图片。</em>
     console.info('execute res success', res.length);
     let byteBufferTemp: Uint8Array = new Uint8Array(new ArrayBuffer(width * height * 4));
     let offset: number = 0;
-    for (let index = 0; index  // 图像灰度化处理操作
+    for (let index = 0; index < res.length; index++) {
+      const element = res[index] as Uint8Array;
+      byteBufferTemp.set(element, offset);
+      offset += element.length;
+    }
+    let color: ArrayBuffer = byteBufferTemp.buffer as ArrayBuffer;
+    let opts: image.InitializationOptions =
+      {
+        editable: true,
+        pixelFormat: pixelMap.getImageInfoSync().pixelFormat,
+        size: { height: height, width: width }
+      };
+    this.pixelMapTemp = image.createPixelMapSync(color, opts);
+    console.info('execute group success');
+  });
+}
+```
+
+2. 开启图片处理线程，将像素做灰度化，代码示例如下：
+```text
+function imageProcessing(dataSlice: ArrayBuffer): Uint8Array {
+ <em> // 图像灰度化处理操作</em>
   let byteBuffer: Uint32Array = new Uint32Array(dataSlice);
   let byteBufferTemp: Uint8Array = new Uint8Array(new ArrayBuffer(byteBuffer.length * 4));
-  for (let index = 0; index // 通过移位方式获取RGBA各通道的值。
+  for (let index = 0; index < byteBuffer.length; index++) {
+    <em>// 通过移位方式获取RGBA各通道的值。</em>
     let rgb = byteBuffer[index];
     let red = (rgb >> 0) & 0x000000ff;
     let green = (rgb >> 8) & 0x000000ff;
     let blue = (rgb >> 16) & 0x000000ff;
     let alpha = (rgb >> 24) & 0x000000ff;
-    // 加权平均算法，获取灰度值。
+ <em>   // 加权平均算法，获取灰度值。</em>
     let gray = (0.299 * red + 0.587 * green + 0.114 * blue);
     byteBufferTemp[index * 4] = gray;
     byteBufferTemp[index * 4 + 1] = gray;
@@ -71,7 +88,6 @@ pixelMapGrayScale(pixelMap: PixelMap) {
   return byteBufferTemp;
 }
 ```
-
 
  
 完整示例参考如下：
@@ -83,16 +99,17 @@ import { common } from '@kit.AbilityKit';
 
 @Concurrent
 function imageProcessing(dataSlice: ArrayBuffer): Uint8Array {
-  // 图像灰度化处理操作
+<em>  // 图像灰度化处理操作</em>
   let byteBuffer: Uint32Array = new Uint32Array(dataSlice);
   let byteBufferTemp: Uint8Array = new Uint8Array(new ArrayBuffer(byteBuffer.length * 4));
-  for (let index = 0; index   // 通过移位方式获取RGBA各通道的值。
+  for (let index = 0; index < byteBuffer.length; index++) {
+  <em>  // 通过移位方式获取RGBA各通道的值。</em>
     let rgb = byteBuffer[index];
     let red = (rgb >> 0) & 0x000000ff;
     let green = (rgb >> 8) & 0x000000ff;
     let blue = (rgb >> 16) & 0x000000ff;
     let alpha = (rgb >> 24) & 0x000000ff;
-    // 加权平均算法，获取灰度值。
+<em>    // 加权平均算法，获取灰度值。</em>
     let gray = (0.299 * red + 0.587 * green + 0.114 * blue);
     byteBufferTemp[index * 4] = gray;
     byteBufferTemp[index * 4 + 1] = gray;
@@ -108,11 +125,11 @@ struct Index {
   @State pixelMap: image.PixelMap | undefined = undefined;
   @State pixelMapTemp: image.PixelMap | undefined = undefined;
 
-  // 通过rawfile目录下的文件名称创建pixelMap。
+ <em> // 通过rawfile目录下的文件名称创建pixelMap。</em>
   createPixelMapFromFile(url: string) {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     const fileData: Uint8Array = context.resourceManager.getRawFileContentSync(url);
-    // 创建一个可供编辑的图片。
+  <em>  // 创建一个可供编辑的图片。</em>
     const buffer = fileData.buffer.slice(fileData.byteOffset, fileData.byteLength + fileData.byteOffset);
     let imageSource = image.createImageSource(buffer);
     const options: image.DecodingOptions = {
@@ -120,18 +137,18 @@ struct Index {
       desiredPixelFormat: image.PixelMapFormat.RGBA_8888,
     };
     let pixelMap: PixelMap = imageSource.createPixelMapSync(options);
-    // 资源释放
+   <em> // 资源释放</em>
     imageSource.release();
     return pixelMap;
   }
 
   pixelMapGrayScale(pixelMap: PixelMap) {
-    // 读取pixelMap的像素数据。
+  <em>  // 读取pixelMap的像素数据。</em>
     let width = pixelMap.getImageInfoSync().size.width;
     let height = pixelMap.getImageInfoSync().size.height;
     let readBuffer: ArrayBuffer = new ArrayBuffer(width * height * 4);
     pixelMap.readPixelsToBufferSync(readBuffer);
-    // 分成四段并发调度。
+    <em>// 分成四段并发调度。</em>
     let number: number = 4 * Math.ceil(width * height / 4);
     let buffer1: ArrayBuffer = readBuffer.slice(0, number);
     let buffer2: ArrayBuffer = readBuffer.slice(number, number * 2);
@@ -144,12 +161,30 @@ struct Index {
     group.addTask(imageProcessing, buffer3);
     group.addTask(imageProcessing, buffer4);
 
-    taskpool.execute(group, taskpool.Priority.HIGH).then((res: Array) => {
-      // 结果数组汇总处理，重新编码为图片。
+    taskpool.execute(group, taskpool.Priority.HIGH).then((res: Array<Object>) => {
+     <em> // 结果数组汇总处理，重新编码为图片。</em>
       console.info('execute res success', res.length);
       let byteBufferTemp: Uint8Array = new Uint8Array(new ArrayBuffer(width * height * 4));
       let offset: number = 0;
-      for (let index = 0; index  // 通过rawfile目录下的文件名称创建pixelMap，‘testicon.png’是测试图片，开发者需要在rawfile目录替换实际图片
+      for (let index = 0; index < res.length; index++) {
+        const element = res[index] as Uint8Array;
+        byteBufferTemp.set(element, offset);
+        offset += element.length;
+      }
+      let color: ArrayBuffer = byteBufferTemp.buffer as ArrayBuffer;
+      let opts: image.InitializationOptions =
+        {
+          editable: true,
+          pixelFormat: pixelMap.getImageInfoSync().pixelFormat,
+          size: { height: height, width: width }
+        };
+      this.pixelMapTemp = image.createPixelMapSync(color, opts);
+      console.info('execute group success');
+    });
+  }
+
+  aboutToAppear(): void {
+   <em> // 通过rawfile目录下的文件名称创建pixelMap，‘testicon.png’是测试图片，开发者需要在rawfile目录替换实际图片</em>
     this.pixelMap = this.createPixelMapFromFile('testicon.png');
   }
 
@@ -199,7 +234,7 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：在子线程进行蓝牙通信，需要一直发送，选用哪种线程类型，TaskGroup是否可以？
  

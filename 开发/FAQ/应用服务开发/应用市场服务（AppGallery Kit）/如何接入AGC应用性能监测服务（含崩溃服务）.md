@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-48
 
-## 如何接入AGC应用性能监测服务（含崩溃服务）
- 
-
-
-##### 问题现象
+#### 问题现象
 
 性能管理服务是不是实现崩溃日志堆栈信息上报收集功能？怎么在AGC平台上开通应用性能管理服务，方便应用崩溃时日志的查看和问题定位。
  
  
 
-##### 背景知识
+#### 背景知识
 
 崩溃服务已经合并到性能管理服务。实现了和友盟/bugly等类似的崩溃日志上报收集功能。
  
@@ -24,7 +20,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 2025年4月9日前，创建且从未使用过APMS服务的存量应用，可通过刷新【应用信息】的方式触发刷新，完成服务的开通，可以参考[存量应用如何开通APMS服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-faq-0000002271373129#section17901136608)。
  
@@ -38,7 +34,7 @@ APMS崩溃相关可以参考：[异常管理](https://developer.huawei.com/consu
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何能根据用户进行查找呢，比如怎么自定义userId或者tag，包括怎么区分测试版本和正式版本。
  
@@ -59,10 +55,8 @@ A：在AGC开启质量崩溃服务之后，无需在项目里面集成任何代�
 Q：在APMS服务中符号表如何获取，是否可以通过接口上传符号表？
  
 A：
- 
-- 获取符号表：release模式编译后，符号表位置：{ProjectPath}/{ModuleName}/build/{product}/cache/default/default@CompileArkTS/esmodule/release/sourceMaps.map，具体参考：[ArkTS调试产物sourcemap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section666114451518)。
-- APMS服务中符号表上传暂未开通接口方式进行上传方式。
-
+ 1. 获取符号表：release模式编译后，符号表位置：{ProjectPath}/{ModuleName}/build/{product}/cache/default/default@CompileArkTS/esmodule/release/sourceMaps.map，具体参考：[ArkTS调试产物sourcemap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section666114451518)。
+2. APMS服务中符号表上传暂未开通接口方式进行上传方式。
  
 Q：崩溃服务开通后，崩溃数据未及时获取到。
  
@@ -81,7 +75,7 @@ Q：APMS报错信息是混淆的，能否还原至原始代码？
 A：点击“还原堆栈”页签，可将混淆后的业务堆栈信息还原成用户可读信息。请确保已上传对应符号表文件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/lHEDsk3rSfiVh3XwUc3Tow/zh-cn_image_0000002658793885.png?HW-CC-KV=V1&HW-CC-Date=20260701T025901Z&HW-CC-Expire=86400&HW-CC-Sign=6995DF765F9E8DA8CF57751F2D7AF4F561613AABDD5D18C8813F7DDC1AF26A1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/lHEDsk3rSfiVh3XwUc3Tow/zh-cn_image_0000002658793885.png?HW-CC-KV=V1&HW-CC-Date=20260701T041116Z&HW-CC-Expire=86400&HW-CC-Sign=5F6D311A36A5DDEC13D0A898A6F2170ACD89B7FBAEA9938C4797B9E86ADE7B92)
 
  
 Q：在APMS中为什么最新型号手机信息没有，导致异常日志搜索不到。
@@ -93,7 +87,7 @@ Q：本地调试的Debug版本崩溃日志也会上传APMS吗？是否能够设�
 A：应用接入异常管理后，可通过设置调试版本和发布版本的不同版本号进行区分。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/LCNdv1mIRh6TXjpghHSONg/zh-cn_image_0000002628394620.png?HW-CC-KV=V1&HW-CC-Date=20260701T025901Z&HW-CC-Expire=86400&HW-CC-Sign=8621742C44C747BB099DF9436F66B0A714C224E329E0777F0A08C3E2E3EFDBBE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/LCNdv1mIRh6TXjpghHSONg/zh-cn_image_0000002628394620.png?HW-CC-KV=V1&HW-CC-Date=20260701T041116Z&HW-CC-Expire=86400&HW-CC-Sign=23DD2EC2B67680B014F2F92A281B31F1EF1F5320D3ECA29F7A448E8758D28515)
 
  
 Q：为什么收集到的崩溃信息的行号与源代码不一致？
@@ -103,7 +97,6 @@ A：APMS支持堆栈解析，但是注意sourceMaps上传的是map后缀的文�
 Q：APMS后台的JS_ERROR、CPP_CRASH、OOM等数据的来源是什么？
  
 A：数据来源主要包括客户端、服务端和网络等多个层面的监控数据。
- 
-- 客户端数据主要来源于用户设备上的应用程序。
-- 服务端数据主要来源于后端服务器、数据库、缓存系统等基础设施（比如日志数据依赖于服务器生成的日志文件）。
-- 网络数据主要来源于网络传输过程中的各种指标，比如网络延迟等。
+ 1. 客户端数据主要来源于用户设备上的应用程序。
+2. 服务端数据主要来源于后端服务器、数据库、缓存系统等基础设施（比如日志数据依赖于服务器生成的日志文件）。
+3. 网络数据主要来源于网络传输过程中的各种指标，比如网络延迟等。

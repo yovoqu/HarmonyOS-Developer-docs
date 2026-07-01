@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1633
 
-## Rating组件自定义图片资源
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Rating组件实现自定义评分样式时，获取不到自定义图片资源文件。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Rating](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-rating)是选择评分组件，组件中的[starStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-rating#starstyle)属性可以设置评分的样式。通过[StarStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-rating#starstyleoptions18对象说明)对象设置对应的评分图片，可以实现自定义评分样式。
 - 评分的样式支持加载本地图片和网络图片，暂不支持[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-common#pixelmap)类型。从API version 20开始，StarStyleOptions中的属性支持设置[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)资源。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 有如下方式可以实现自定义Rating组件评分的图片资源：
  
@@ -33,7 +29,7 @@
 示例代码如下：
  
 ```text
-// 方案二：通过string的方式访问项目资源
+<em>// 方案二：通过string的方式访问项目资源</em>
 @Entry
 @Component
 struct RatingExample1 {
@@ -45,7 +41,7 @@ struct RatingExample1 {
         .stars(5)
         .stepSize(0.5)
         .starStyle({
-          // common目录与pages同级，文件名根据实际情况
+         <em> // common目录与pages同级，文件名根据实际情况</em>
           backgroundUri: 'common/star1.png',
           foregroundUri: 'common/star2.png',
           secondaryUri: 'common/star3.png'
@@ -65,7 +61,7 @@ struct RatingExample1 {
  
 build-profile.json5文件中copyCodeResource的字段配置如下：
  
-```text
+```json
 "copyCodeResource": {
   "enable": true
 }
@@ -74,12 +70,12 @@ build-profile.json5文件中copyCodeResource的字段配置如下：
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/M_FSi7-YSqSeBLpwZQbjUA/zh-cn_image_0000002628617650.png?HW-CC-KV=V1&HW-CC-Date=20260701T025624Z&HW-CC-Expire=86400&HW-CC-Sign=A34F2EB7A0A3A06EA445A928FD4DBFED55C2FA9AE98D4C1838125899689E9BA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/M_FSi7-YSqSeBLpwZQbjUA/zh-cn_image_0000002628617650.png?HW-CC-KV=V1&HW-CC-Date=20260701T041245Z&HW-CC-Expire=86400&HW-CC-Sign=38639DFFFD494A9D93245F2489ED9923247E0B59A95E42892A5F27D71A777C67)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：在entry模块跳转到HSP模块时，HSP模块中Rating组件通过starStyle属性设置的评分样式显示空白，如何解决？
  

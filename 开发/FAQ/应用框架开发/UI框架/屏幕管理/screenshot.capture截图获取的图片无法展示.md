@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1299
 
-## screenshot.capture截图获取的图片无法展示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用[screenshot.capture官方文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-screenshot#screenshotcapture14)中提供的示例代码进行截图，获取的PixelMap在Image组件上无法正常显示。
  
@@ -31,7 +27,7 @@ struct PixelMapToAlbumComponent {
           promise.then((pixelMap: image.PixelMap) => {
             getPixelBytesNumber();
             this.showPixelMap = pixelMap;
-            pixelMap.release(); // PixelMap使用完后及时释放内存
+            pixelMap.release(); <em>// PixelMap使用完后及时释放内存</em>
           }).catch((err: BusinessError) => {
             console.error(`Failed to save screenshot. Code: ${err.code}`);
           });
@@ -63,7 +59,7 @@ struct PixelMapToAlbumComponent {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [screenshot.capture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-screenshot#screenshotcapture14)：获取屏幕全屏截图，此接口仅支持在平板和2in1设备上使用，会返回一个PixelMap对象。
 - [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)：图像像素类，用于读取或写入图像数据以及获取图像信息。
@@ -72,21 +68,19 @@ struct PixelMapToAlbumComponent {
  
  
 
-##### 问题定位
-
-- 排查screenshot.capture是否正确调用，并返回PixelMap类型Promise对象：由日志Succeeded in saving screenshot. Pixel bytes number: 16384000可以推断，Promise的then回调方法已完成调用且返回了PixelMap。
-- 排查Image中不显示相应PixelMap图片的原因：根据日志pixmap pointer is nullptr when CreatePixelMap排查到Image当前引用的PixelMap指向为空。
-- 根据日志排查代码：调用screenshot.capture方法，获取到相应PixelMap并赋值给Image组件绑定的全局变量后（this.showPixelMap = pixelMap），立即调用了pixelMap.release()方法，PixelMap对象已被释放。
-
+#### 问题定位
+1. 排查screenshot.capture是否正确调用，并返回PixelMap类型Promise对象：由日志Succeeded in saving screenshot. Pixel bytes number: 16384000可以推断，Promise的then回调方法已完成调用且返回了PixelMap。
+2. 排查Image中不显示相应PixelMap图片的原因：根据日志pixmap pointer is nullptr when CreatePixelMap排查到Image当前引用的PixelMap指向为空。
+3. 根据日志排查代码：调用screenshot.capture方法，获取到相应PixelMap并赋值给Image组件绑定的全局变量后（this.showPixelMap = pixelMap），立即调用了pixelMap.release()方法，PixelMap对象已被释放。
  
  
 
-##### 分析结论
+#### 分析结论
 
 screenshot.capture获取的PixelMap在赋值给全局变量showPixelMap后立即调用[release()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#release7)方法，导致showPixelMap指向的PixelMap已经被释放，无法在Image组件中显示。
  
  
 
-##### 修改建议
+#### 修改建议
 
 在screenshot.capture获取到PixelMap并赋值给全局变量showPixelMap后，不要调用pixelMap.release()方法，Image组件便可正常展示PixelMap图片。

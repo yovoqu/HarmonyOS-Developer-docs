@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1150
 
-## 使用RichEditor组件获取HTML的内容和样式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用RichEditor组件时，需要将获取的字符串转换成HTML文本，再用RichEditor展示出HTML文本。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)是ArkUI中支持图文混排和文本交互式编辑的组件，主要用于图文混合内容的输入和文本交互式编辑的场景。
  
@@ -24,16 +20,14 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 在RichEditor组件中使用onReady和onIMEInputComplete回调函数获取输入内容，其中onReady(callback:Callback&lt;void&gt;)和onIMEInputComplete(callback:Callback&lt;RichEditorTextSpanResult&gt;)参数callback都不可省略。
  
 具体实现步骤为：
- 
-- 创建[RichEditorController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#richeditorcontroller)类的实例对象controller；
-- 在onReady回调函数中调用[controller.addTextSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#addtextspan)方法传入HTML的内容部分data；
-- 在onIMEInputComplete回调函数中传入整个HTML标签字符串。
-
+ 1. 创建[RichEditorController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#richeditorcontroller)类的实例对象controller；
+2. 在onReady回调函数中调用[controller.addTextSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#addtextspan)方法传入HTML的内容部分data；
+3. 在onIMEInputComplete回调函数中传入整个HTML标签字符串。
  
 示例代码如下：
  
@@ -41,16 +35,16 @@
 @Entry
 @Component
 struct RichEditorShow {
-  private header: string = '\n' +
-    '\n' +
-    ' \n' +
-    '';
-  private end: string = '';
-  @State data: string = 'h1标题' +
-    'h1斜体' +
-    'h1下划线' +
-    'h2标题' +
-    'h3标题';
+  private header: string = '<html>\n' +
+    '<head>\n' +
+    ' <meta charset=\'UTF-8\'>\n' +
+    '</head>';
+  private end: string = '</html>';
+  @State data: string = '<h1 style= \'text-align: center; \'>h1标题</h1>' +
+    '<h1 style=\'text-align: center;\'><i>h1斜体</i></h1>' +
+    '<h1 style=\'text-align: center;\'><u>h1下划线</u></h1>' +
+    '<h2 style=\'text-align: center;\'>h2标题</h2>' +
+    '<h3 style=\'text-align: center;\'>h3标题</h3>';
   controller: RichEditorController = new RichEditorController();
   options: RichEditorOptions = { controller: this.controller };
 

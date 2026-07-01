@@ -3,28 +3,18 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-pointutils
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## Class (PointUtils)
- 
 
 提供了处理坐标点的工具。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/uE8cPauVSCSIqxsMZvN8yA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025454Z&HW-CC-Expire=86400&HW-CC-Sign=25F5DECB7F1A26873B1BA28E216517E83962BC1EE396359EA1CAF86609771BA7)
- 
- 
-- 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-- 本Class首批接口从API版本26.0.0开始支持。
-- 本模块使用屏幕物理像素单位px。
-- 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API版本26.0.0开始支持。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
   
 
-  
+#### 导入模块
 
-##### 导入模块
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
@@ -32,7 +22,9 @@ import { drawing } from '@kit.ArkGraphics2D';
  
   
 
-##### negate
+#### negate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static negate(point: common2D.Point): void
  
@@ -64,7 +56,9 @@ console.info('point.y:', point.y);
  
   
 
-##### offset
+#### offset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static offset(point: common2D.Point, dx: number, dy: number): void
  

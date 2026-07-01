@@ -3,22 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-screentimeguard
-
 **支持设备：** Phone | Tablet
 
-## ArkTS API错误码
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/eeIXA96VQq-jH9Q_742fRA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025456Z&HW-CC-Expire=86400&HW-CC-Sign=DBE35E29F9D390D1AFB10652EC38167FE1C8537DB1D5FF387A097460D9467368)
- 
- 
-以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-  
+> [!NOTE]
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
 
   
 
-##### 1019000001 内部错误
+#### 1019000001 内部错误
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -44,7 +38,9 @@ Internal error.
  
   
 
-##### 1019000002 用户未授权
+#### 1019000002 用户未授权
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -66,7 +62,9 @@ The user has not authorized the application to access this interface.
  
   
 
-##### 1019000003 用户取消
+#### 1019000003 用户取消
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -86,7 +84,9 @@ The user canceled the operation.
  
   
 
-##### 1019000004 策略数量超限
+#### 1019000004 策略数量超限
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -106,7 +106,9 @@ The number of strategies exceeds the upper limit.
  
   
 
-##### 1019000005 策略名称重复
+#### 1019000005 策略名称重复
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -128,7 +130,9 @@ The strategy name is already existed.
  
   
 
-##### 1019000006 策略不存在
+#### 1019000006 策略不存在
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -152,7 +156,9 @@ Nonexistent strategy.
  
   
 
-##### 1019000007 策略重复执行
+#### 1019000007 策略重复执行
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -172,7 +178,9 @@ The strategy is already being executed.
  
   
 
-##### 1019000008 策略未执行
+#### 1019000008 策略未执行
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -194,7 +202,9 @@ This strategy has not been started yet.
  
   
 
-##### 1019000009 参数检查失败
+#### 1019000009 参数检查失败
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -228,7 +238,9 @@ Parameter error. Possible causes:1. Mandatory parameters are left unspecified. 2
  
   
 
-##### 1019000010 该设备不支持此API
+#### 1019000010 该设备不支持此API
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -248,7 +260,9 @@ Capability is not supported on current device.
  
   
 
-##### 1019000011 策略类型不支持
+#### 1019000011 策略类型不支持
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  

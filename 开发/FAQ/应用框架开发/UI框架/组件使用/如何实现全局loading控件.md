@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1093
 
-## 如何实现全局loading控件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 实现一个可以作用于全局网络请求时，类似拦截器的loading弹窗，并在请求成功时关闭。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/v6vUWTP3QIqGH-1Mh-QCKw/zh-cn_image_0000002628407366.png?HW-CC-KV=V1&HW-CC-Date=20260701T025559Z&HW-CC-Expire=86400&HW-CC-Sign=C85589CA9323612CAB32D2C35133DEC39F432254A7765303E1D656FA145BB583)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/v6vUWTP3QIqGH-1Mh-QCKw/zh-cn_image_0000002628407366.png?HW-CC-KV=V1&HW-CC-Date=20260701T041305Z&HW-CC-Expire=86400&HW-CC-Sign=1BCCF76C40266381C46F295A8B874B0BCF8546D31DCF2FAF1AE84C231AD7EFC7)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)：用于显示加载动效的组件。
 - [window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)：当前窗口实例，窗口管理器管理的基本单元。
@@ -30,22 +26,21 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 构建一个新窗口用作全局loading控件，可在UI页面直接调用。使用window接口模拟实现网络请求拦截。定义新窗口，模拟弹窗，在窗口中自定义loading组件。并且实现沉浸式效果。
  
 **实现思路**：HarmonyOS中自定义弹窗需要在@Component中才可以调用，而问题现象需要用在全局，window窗口可以实现此功能。在EntryAbility.ets文件中定义一个新窗口，封装window方法类用于后续调用，最后在UI页面中调用实现用作全局网络请求时拦截的loading弹窗。
- 
-- 在EntryAbility.ets定义窗口，并在onWindowStageCreate()函数中调用。代码如下：
-```text
-// 定义窗口
+ 1. 在EntryAbility.ets定义窗口，并在onWindowStageCreate()函数中调用。代码如下：
+```json
+<em>// 定义窗口</em>
 subWindowStage: window.WindowStage | null = null;
 
 onWindowStageCreate(windowStage: window.WindowStage): void {
-  // Main window is created, set main page for this ability
+  <em>// Main window is created, set main page for this ability</em>
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-  // onWindowStageCreate()函数，并且增加监听
+<em>  // onWindowStageCreate()函数，并且增加监听</em>
   this.subWindowStage = windowStage;
   const that: EntryAbility = this;
   this.context.eventHub.on('createWindow', (data: Data) => {
@@ -66,8 +61,8 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 }
 ```
 
-- 封装window方法，CommonWindow.ets文件。
-```text
+2. 封装window方法，CommonWindow.ets文件。
+```json
 import window from '@ohos.window';
 import common from '@ohos.app.ability.common';
 import { BusinessError } from '@ohos.base';
@@ -112,9 +107,9 @@ export class CommonWindow {
         if (!this.subWindow) {
           console.info('Failed to load the content. Cause: windowClass is null');
         } else {
-          let names: Array = [];
+          let names: Array<'status' | 'navigation'> = [];
           this.subWindow.setWindowSystemBarEnable(names);
-          this.subWindow.setWindowTouchable(false); // 设置是否可以点击
+          this.subWindow.setWindowTouchable(false); <em>// 设置是否可以点击</em>
           this.loadContent(entryName);
           this.showSubWindow();
         }
@@ -157,7 +152,7 @@ export class CommonWindow {
   private loadContent(path: string) {
     if (this.subWindow) {
       let that = this;
-      let pAra: Record = { 'PropA': 66 };
+      let pAra: Record<string, number> = { 'PropA': 66 };
       that.storage = new LocalStorage(pAra);
       if (that.storage != null && this.subWindow != null) {
         that.storage.setOrCreate('windowObj', this.subWindow);
@@ -183,8 +178,8 @@ export interface Data {
 }
 ```
 
-- MainPage页面，沉浸式弹窗页面。
-```text
+3. MainPage页面，沉浸式弹窗页面。
+```json
 import window from '@ohos.window';
 
 export const entryName: string = 'loadingPage';
@@ -195,19 +190,19 @@ export struct MainPage {
   @LocalStorageLink('PropA') varA: number | undefined = 1;
   localStorage = this.getUIContext().getSharedLocalStorage();
 
-  // 页面生命周期：打开沉浸式
+  <em>// 页面生命周期：打开沉浸式</em>
   onPageShow() {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
-      // 获取当前窗口的属性
+     <em> // 获取当前窗口的属性</em>
       let prop: window.WindowProperties = win.getWindowProperties();
-      // 打印当前窗口属性
+   <em>   // 打印当前窗口属性</em>
       console.info(JSON.stringify(prop));
       console.error(`err: ${err}`);
       win.setWindowLayoutFullScreen(true);
     });
   }
 
-  // 页面生命周期：关闭沉浸式
+ <em> // 页面生命周期：关闭沉浸式</em>
   onPageHide() {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
       console.error(`err: ${err}`);
@@ -216,7 +211,7 @@ export struct MainPage {
   }
 
   aboutToAppear() {
-    this.varA = this.localStorage?.get('PropA');
+    this.varA = this.localStorage?.get<number>('PropA');
   }
 
   build() {
@@ -232,7 +227,7 @@ export struct MainPage {
 }
 ```
 
-- UI页面，初始页，调用window类，按钮唤出弹窗。
+4. UI页面，初始页，调用window类，按钮唤出弹窗。
 ```text
 import { CommonWindow } from '../utils/CommonWindow';
 import { common } from '@kit.AbilityKit';
@@ -273,10 +268,9 @@ struct Index {
 }
 ```
 
-
  
  
 
-##### 总结
+#### 总结
 
 运用窗口特性，封装类似弹窗的效果，相比于常规弹窗[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)和[getPromptAction()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction).[openCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialog12)不局限于依赖UI页面，在使用时自定义UI样式，可直接调用。

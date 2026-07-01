@@ -4,43 +4,40 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-appfreezewarning-events-arkts
 
-## 订阅应用冻屏告警事件（ArkTS）
-   
-    
-          
-##### 简介
-     
+#### 简介
+
 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅应用冻屏告警事件。接口的详细使用说明（参数限制、取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
-    
-    
-          
-##### 接口说明
-     
+
+
+
+#### 接口说明
+
 | 接口名 | 描述 |
 | --- | --- |
 | addWatcher(watcher: Watcher): AppEventPackageHolder | 添加应用事件观察者，以添加对应用事件的订阅。 |
 | removeWatcher(watcher: Watcher): void | 移除应用事件观察者，以移除对应用事件的订阅。 |
-     
-    
-    
-          
-##### 开发步骤
-    
-    
-          
-##### [h2]添加事件观察者
-     
+
+
+
+
+#### 开发步骤
+
+
+
+#### 添加事件观察者
+
 以订阅应用冻屏告警事件为例，说明开发步骤。
-     
- - 新建一个ArkTS应用工程，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块，示例代码如下：
-       
+1. 新建一个ArkTS应用工程，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块，示例代码如下：
+
+  
 ```text
 import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
- - 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中添加系统事件的订阅，示例代码如下：
-       
-```text
+2. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中添加系统事件的订阅，示例代码如下：
+
+  
+```json
 hiAppEvent.addWatcher({
   // 开发者可以自定义观察者名称，系统会使用名称来标识不同的观察者
   name: "watcher",
@@ -52,7 +49,7 @@ hiAppEvent.addWatcher({
     }
   ],
   // 开发者可以自行实现订阅实时回调函数，以便对订阅获取到的事件数据进行自定义处理
-  onReceive: (domain: string, appEventGroups: Array) => {
+  onReceive: (domain: string, appEventGroups: Array<hiAppEvent.AppEventGroup>) => {
     hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
     for (const eventGroup of appEventGroups) {
       // 开发者可以根据事件集合中的事件名称区分不同的系统事件
@@ -98,8 +95,9 @@ hiAppEvent.addWatcher({
 });
 ```
 
- - 编辑工程中的“entry > src > main > ets > pages> Index.ets”文件，新增按钮触发冻屏告警事件。示例代码如下：
-       
+3. 编辑工程中的“entry > src > main > ets > pages> Index.ets”文件，新增按钮触发冻屏告警事件。示例代码如下：
+
+  
 ```text
 @Entry
   @Component
@@ -116,11 +114,24 @@ hiAppEvent.addWatcher({
             .onClick(() => {
              // 在按钮点击函数中构造一个appFreezeWarning场景，触发应用冻屏告警事件
               const t = Date.now();
-              while (Date.now() - t      
-##### [h2]验证观察者是否订阅到应用冻屏告警事件
-     
+              while (Date.now() - t <= 6500) {}
+            })
+        }.width('100%')
+      }
+      .height('100%')
+      .width('100%')
+    }
+  }
+```
+
+4. 点击DevEco Studio界面中的运行按钮，运行应用工程，然后在应用界面中点击按钮“appFreezeWarning”，触发一次应用冻屏告警事件。
+
+
+
+#### 验证观察者是否订阅到应用冻屏告警事件
+
 等待约一分钟后，可以在Log窗口看到对系统事件数据的处理日志：
-     
+
 ```text
 HiAppEvent onReceive: domain=OS
 HiAppEvent eventName=APPFREEZE_WARNING

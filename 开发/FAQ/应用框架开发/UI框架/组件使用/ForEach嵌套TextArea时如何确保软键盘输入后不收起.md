@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1648
 
-## ForEach嵌套TextArea时如何确保软键盘输入后不收起
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在ForEach嵌套TextArea组件的使用场景下，TextArea输入完成后软键盘会收起，导致继续输入不方便，如何确保软键盘在输入后不退出？
  
@@ -18,7 +14,7 @@
 @Entry
 @Component
 struct TextAreaPage {
-  @State contentArr: Array = [''];
+  @State contentArr: Array<string> = [''];
 
   build() {
     Row() {
@@ -43,18 +39,18 @@ struct TextAreaPage {
 问题效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/zSSKmnRuS36rOZVXBpZZYw/zh-cn_image_0000002628820884.png?HW-CC-KV=V1&HW-CC-Date=20260701T025625Z&HW-CC-Expire=86400&HW-CC-Sign=D6D73202153753C241340F602842ABA2D9D0AFFE0BF2103CA92F66CDDF01FF9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/zSSKmnRuS36rOZVXBpZZYw/zh-cn_image_0000002628820884.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=D84F2ECC7EDF8FF23E36DE0B3BCD86FB1CF309603A136F537721EB2212C88FF8)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)装饰的变量，或称为状态变量，一旦变量拥有了状态属性，就可以触发其直接绑定UI组件的刷新。当状态改变时，UI会发生对应的渲染改变。
  
  
 
-##### 解决方案
+#### 解决方案
 
 上述问题是由于@State装饰的变量contentArr在TextArea值发生改变时同步更新，导致UI刷新，最后软键盘收起。因此将ForEach使用的变量contentArr和TextArea值分开更新即可解决问题。
  
@@ -64,8 +60,8 @@ struct TextAreaPage {
 @Entry
 @Component
 struct TextAreaPage {
-  @State contentArr: Array = [''];
-  @State editContentArr: Array = [];
+  @State contentArr: Array<string> = [''];
+  @State editContentArr: Array<string> = [];
 
   build() {
     Row() {
@@ -74,7 +70,7 @@ struct TextAreaPage {
           TextArea({ text: item })
             .width('95%')
             .onChange((val: string) => {
-              this.editContentArr.push(val); // 使用editContentArr替代contentArr存入输入值
+              this.editContentArr.push(val); <em>// 使用editContentArr替代contentArr存入输入值</em>
             })
             .textAlign(TextAlign.Start);
         })
@@ -90,4 +86,4 @@ struct TextAreaPage {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/-Nt3y-PhTUCrQCKDfxcYBQ/zh-cn_image_0000002659020189.png?HW-CC-KV=V1&HW-CC-Date=20260701T025625Z&HW-CC-Expire=86400&HW-CC-Sign=8D6BD22CFCE0DC68C58C7F5DED38981BA6C9430B1FF5FB8D2C1AB95D550D6A81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/-Nt3y-PhTUCrQCKDfxcYBQ/zh-cn_image_0000002659020189.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=9696D22C3D10FA3617F38E86B13BD8A2A7219129CABC40C301FDAB4054007BF2)

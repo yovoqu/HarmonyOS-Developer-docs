@@ -4,27 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-222
 
-## 集成第三方字节码HAR包报错汇总
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 场景一：应用运行，执行到import (harName)时报错：提示错误如下：
 ```text
-initRemoteConfig err: ReferenceError: Cannot find module '@test/remoteconfig' imported from 'com.example.testsample/entry@testCore/ets/com/solar/engine/remoteconfig/testBridge'.
+initRemoteConfig err: ReferenceError: Cannot find module '@test/remoteconfig' imported from 'com.example.testsample/entry@testCore/ets/com/solar/engine/remoteconfig/testBridge'<span style="color: rgb(0,0,255);">.</span>
 ```
 
 - 场景二：引入har包，编译报错，报错内容如下：
 ```text
 > hvigor ERROR: Failed :entry:default@CompileArkTS...
 > hvigor ERROR: Cannot read properties of undefined (reading 'split')
-1 ERROR: 10311002 ArkTS: ERROR
-ERROR: ArkTS:ERROR Failed to resolve OhmUrl.Error Message: Failed to get a resolved OhmUrl for ${filePath} imported by ${importerFile}.
+<span style="color: rgb(0,0,255);">1 </span>ERROR: <span style="color: rgb(0,0,255);">10311002 </span>ArkTS: ERROR
+ERROR: ArkTS:ERROR Failed to resolve OhmUrl.Error Message: Failed to get a resolved OhmUrl for ${filePath} imported by ${importerFile}<span style="color: rgb(0,0,255);">.</span>
 ```
 
 - 场景三：有如下编译报错：
-```text
+```json
 WARN: The current module 'ImportTest' has dependency which is not installed at its oh-package.json5
 ...
 local dependency "lib" found in "D:\W\code\demo\fasttest\ImportTest\oh-package.json5" does not match the actual name "har" of its oh-package.json5
@@ -34,15 +30,15 @@ There are some dependency names that are inconsistent with the actual package na
 
 - 场景四：执行flutter build hap指令编译，报错缺少对应har包。
 ```text
-[+2714 ms] Exitcode 1 from: ohpm install --all
-[        ] ohpm INFO: MetaDataFetcher fetching meta info of package '@tencent/mmkv' from https://ohpm.openharmony.cn/ohpm/
-          ohpm INFO: MetaDataFetcher fetching meta info of package '@ohos/hypiu' from https://ohpm.openharmony.cn/ohpm/
+[+<span style="color: rgb(0,0,255);">2714 </span>ms] Exitcode <span style="color: rgb(0,0,255);">1 </span>from: ohpm install --all
+[        ] ohpm INFO: MetaDataFetcher fetching meta info of package '@tencent/mmkv' from https:<span style="color: rgb(128,128,128);">//ohpm.openharmony.cn/ohpm/</span>
+          ohpm INFO: MetaDataFetcher fetching meta info of package '@ohos/hypiu' from https:<span style="color: rgb(128,128,128);">//ohpm.openharmony.cn/ohpm/</span>
           ohpm ERROR: Run install command failed
           Error: XXXXXXXX Fetch Local Package Failed
           Error Message: Fetch local file package error,
           /Users/XXX/XXX/XXX/ohos/har/screen_retriever.har does not exist.
-[   +1 ms] "flutter hap" took 14,528ms.
-[   +2 ms] Oops; flutter has exited unexpectedly: "ProcessException: The command failed with exit code 1
+[   +<span style="color: rgb(0,0,255);">1 </span>ms] "flutter hap" took <span style="color: rgb(0,0,255);">14</span>,<span style="color: rgb(0,0,255);">528ms</span>.
+[   +<span style="color: rgb(0,0,255);">2 </span>ms] Oops; flutter has exited unexpectedly: "ProcessException: The command failed with exit code 1
             Command: ohpm install --all".
 ```
 
@@ -50,7 +46,7 @@ There are some dependency names that are inconsistent with the actual package na
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [动态加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-dynamic-import)：动态import支持条件延迟加载，支持部分反射功能，可以提升页面的加载速度；动态import支持加载HSP模块/HAR模块/OHPM包/Native库等，并且HAR模块间只有变量动态import时还可以进行模块解耦。
 - [HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package#使用)（Harmony Archive）是静态共享包，可以包含代码、C++库、资源和配置文件。通过HAR可以实现多个模块或多个工程共享ArkUI组件、资源等相关代码。引用三方HAR，包括从仓库进行安装、从本地文件夹和本地压缩包中进行安装三种方式。
@@ -59,17 +55,18 @@ There are some dependency names that are inconsistent with the actual package na
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 场景一：根据运行错误日志，排查testBridge文件到代码位置如下：
- 
+
+  
 ```text
-let harName = '@test/remoteconfig';
-import (harName).then((ns:ESObject) => {
-  ns.startWithConfig(context,rcConfig,logLevel);
-}).catch((error:Error) =>{
-  LogUtil.error(TAG, "initRemoteConfig err: " + error);
-});
+let <span style="color: rgb(0,0,255);">harName </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'@test/remoteconfig'</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">import </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">harName</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">ns</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">ESObject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">ns</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startWithConfig</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(0,0,255);">rcConfig</span><span style="color: rgb(181,106,1);">,</span><span style="color: rgb(0,0,255);">logLevel</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(0,0,255);">Error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">LogUtil</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TAG</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">"initRemoteConfig err: " </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  排查build-profile.json5文件，没有发现runtimeOnly配置。根据ReferenceError: Cannot find module关键日志，可确认问题根因是引用错误，无法找到模块。
 - 场景二：分析编译日志，有关键错误码10311002或关键日志Failed to get a resolved OhmUrl for ${filePath} imported by ${importerFile}，可确认问题根因是无法获取解析后的OhmUrl。
@@ -79,7 +76,7 @@ import (harName).then((ns:ESObject) => {
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 场景一：代码中import的入参是变量(import (harName))，但没有在build-profile.json5文件中额外增加runtimeOnly的buildOption配置，导致动态import失败。
 - 场景二：[10311002 解析OhmUrl错误](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ets-loader#section10311002-解析ohmurl错误)。无法为${importerFile}导入的${filePath}获取解析后的OhmUrl。
@@ -89,7 +86,7 @@ import (harName).then((ns:ESObject) => {
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 场景一：使用变量表达式动态import模块时，需要在build-profile.json5文件中额外增加一个runtimeOnly的buildOption配置，和oh-package.json5中dependencies下面配置的模块名相同。例如："packages": [ "@test/remoteconfig", "@test/core" ]。
 - 场景二：

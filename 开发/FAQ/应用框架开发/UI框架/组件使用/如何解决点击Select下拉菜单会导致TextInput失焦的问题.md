@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1200
 
-## 如何解决点击Select下拉菜单会导致TextInput失焦的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 TextInput获焦时点击Select弹出菜单选项，此时TextInput会失焦，导致软键盘收起，希望弹出菜单选项时TextInput不会失焦，如何实现？
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/-5yS45Q4RRubfsIgLLWyYw/zh-cn_image_0000002658832829.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=EB6B1F0FA09FE0756156F881C44F13CAC0F76299D73D6BF8F97DC5977756537A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/-5yS45Q4RRubfsIgLLWyYw/zh-cn_image_0000002658832829.png?HW-CC-KV=V1&HW-CC-Date=20260701T041318Z&HW-CC-Expire=86400&HW-CC-Sign=427FF11AE04FAB9CE8DF386A5D31E4931541A4CC729C19F545C8D1699B2EB250)
 
  
 问题代码示例如下：
  
-```text
+```json
 @Entry
 @Component
 struct SelectExample {
@@ -79,15 +75,15 @@ struct SelectExample {
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/0u1GmR2MSJugyB5JzhXhWQ/zh-cn_image_0000002628593588.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=5640B717295676620BE76131C296FE255B7D3F8F886EE025888BF8143ACCBB8B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/0u1GmR2MSJugyB5JzhXhWQ/zh-cn_image_0000002628593588.png?HW-CC-KV=V1&HW-CC-Date=20260701T041318Z&HW-CC-Expire=86400&HW-CC-Sign=A57C5237EA267568C56AD8A30E1B3951C2A8FB9B1488537876C521416E9BEDBA)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)是单行文本输入框组件，当TextInput获焦时，会弹出软键盘并显示编辑光标。
 - [Select](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select)提供下拉选择菜单。
@@ -96,23 +92,23 @@ struct SelectExample {
  
  
 
-##### 问题定位
+#### 问题定位
 
 运行时发现在TextInput获焦时点击Select，TextInput会触发onBlur事件，但Select不会触发onFocus事件。
  
  
 
-##### 分析结论
+#### 分析结论
 
 上述运行结果说明焦点并没有从TextInput组件转移到Select组件上，而Select弹出的菜单选项相当于一个弹窗，焦点是从页面转移到了菜单弹窗上。
  
  
 
-##### 修改建议
+#### 修改建议
 
 自定义一个完全属于页面这个层级的自定义Select，防止焦点转移到弹窗这个层级，导致TextInput失焦。
  
-```text
+```json
 @Entry
 @Component
 struct SelectExample {

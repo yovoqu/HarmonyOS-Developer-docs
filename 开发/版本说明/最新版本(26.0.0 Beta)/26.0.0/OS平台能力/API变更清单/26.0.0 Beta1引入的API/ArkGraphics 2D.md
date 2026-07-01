@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkgraphics2d-7001
 
-## ArkGraphics 2D
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增错误码 | 类名：ColorSpaceManager； API声明：getColorSpaceName(): ColorSpace; 差异内容：NA | 类名：ColorSpaceManager； API声明：getColorSpaceName(): ColorSpace; 差异内容：18600001 | api/@ohos.graphics.colorSpaceManager.d.ts |

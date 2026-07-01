@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-941
 
-## 水印遮罩导致TextInput无法获取粘贴权限
- 
-
-
-##### 问题现象
+#### 问题现象
 
 用户长按复制文本后，先在TextInput组件上添加水印遮罩，随后通过长按输入框唤起菜单，但点击“粘贴”时不生效。
  
 问题效果预览:
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/2rznFASaQ16OBBDxjmyRMw/zh-cn_image_0000002658800465.png?HW-CC-KV=V1&HW-CC-Date=20260701T025553Z&HW-CC-Expire=86400&HW-CC-Sign=5A5FA23E2F2B4D78AFE3235467E881C2A6AEBF16D85FE31F5EFEE0AE3565738B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/2rznFASaQ16OBBDxjmyRMw/zh-cn_image_0000002658800465.png?HW-CC-KV=V1&HW-CC-Date=20260701T041326Z&HW-CC-Expire=86400&HW-CC-Sign=30118473857F66C4A03A1EB05855285C91F04A3D08DB63EE55DB745BD9A0D981)
 
  
  
 
-##### 效果预览
+#### 效果预览
  
 | 申请剪贴板权限 | 配置setMenuOptions |
 | --- | --- |
@@ -29,7 +25,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)：单行文本输入框组件，用于接收并展示输入内容。
 - [Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)：窗口提供管理窗口的一些基础能力，包括对当前窗口的创建、销毁、各属性设置，以及对各窗口间的管理调度。用于生成子窗口形成水印遮罩。
@@ -39,7 +35,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 剪贴板是否存在粘贴内容。
 - 是否拦截点击事件。
@@ -48,24 +44,22 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 长按输入框进行粘贴动作需要校验剪贴板权限。因为输入框上存在遮罩的水印子窗口，导致TextInput组件无法获取到剪贴板内容的权限，因此粘贴内容为空。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **方案一**：若要实现有水印时可粘贴，建议申请剪贴板权限。在使用长按粘贴功能前获取权限。
+> [!NOTE]
+> ohos.permission.READ_PASTEBOARD是受限开放权限。若使用自动签名，需要在权限配置后重新生成自动签名。若使用手动签名，需要申请对应权限。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/M0mIM7v0Sf-EB1cpg5UauQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025553Z&HW-CC-Expire=86400&HW-CC-Sign=84A1DC2FFCA10C16E5BFFBACC6BA156D963B7CB68B0B8DA324D1A964914D27D9)
- 
-ohos.permission.READ_PASTEBOARD是受限开放权限。若使用自动签名，需要在权限配置后重新生成自动签名。若使用手动签名，需要申请对应权限。
- 
 
- 
+  
 权限配置：
-```text
+```json
 "requestPermissions": [
   {
     "name": "ohos.permission.READ_PASTEBOARD",
@@ -80,27 +74,29 @@ ohos.permission.READ_PASTEBOARD是受限开放权限。若使用自动签名，�
 
 - 主页面（Index）：
 ```text
-// 剪贴板权限方式
+<em>// 剪贴板权限方式</em>
 import { abilityAccessCtrl, common, Permissions } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-const permissions: Array = ['ohos.permission.READ_PASTEBOARD'];
+const permissions: Array<Permissions> = ['ohos.permission.READ_PASTEBOARD'];
 
-// 申请权限
-function reqPermissionsFromUser(permissions: Array, context: common.UIAbilityContext): void {
+<em>// 申请权限</em>
+function reqPermissionsFromUser(permissions: Array<Permissions>, context: common.UIAbilityContext): void {
   let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-  // requestPermissionsFromUser会判断权限的授权状态来决定是否唤起弹窗
+ <em> // requestPermissionsFromUser会判断权限的授权状态来决定是否唤起弹窗</em>
   atManager.requestPermissionsFromUser(context, permissions).then((data) => {
-    let grantStatus: Array = data.authResults;
+    let grantStatus: Array<number> = data.authResults;
     let length: number = grantStatus.length;
-    for (let i = 0; i    // 用户授权，可以继续访问目标操作
+    for (let i = 0; i < length; i++) {
+      if (grantStatus[i] === 0) {
+     <em>   // 用户授权，可以继续访问目标操作</em>
       } else {
-        // 用户拒绝授权，提示用户必须授权才能访问当前页面的功能，并引导用户到系统设置中打开相应的权限
+     <em>   // 用户拒绝授权，提示用户必须授权才能访问当前页面的功能，并引导用户到系统设置中打开相应的权限</em>
         return;
       }
     }
-    // 授权成功
+  <em>  // 授权成功</em>
   }).catch((err: BusinessError) => {
     console.error(`Failed to request permissions from user. Code is ${err.code}, message is ${err.message}`);
   });
@@ -109,7 +105,7 @@ function reqPermissionsFromUser(permissions: Array, context: common.UIAbilityCon
 @Entry
 @Component
 struct Scene1 {
-  private context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 获取Context
+  private context = this.getUIContext().getHostContext() as common.UIAbilityContext; <em>// 获取Context</em>
 
   build() {
     Row() {
@@ -154,7 +150,7 @@ struct Scene1 {
 
 - 水印页面（Watermark）：
 ```text
-// 水印页面
+<em>// 水印页面</em>
 @Entry
 @Component
 struct Watermark {
@@ -174,8 +170,13 @@ struct Watermark {
             this.canvas.font = '16vp';
             this.canvas.textAlign = 'center';
             this.canvas.textBaseline = 'middle';
-            // 在这里绘制文字水印，也可以是图片水印
-            for (let i = 0; i      // 此处水印数据是写死的，具体请替换为自己的水印
+         <em>   // 在这里绘制文字水印，也可以是图片水印</em>
+            for (let i = 0; i < this.canvas.width / 120; i++) {
+              this.canvas.translate(120, 0);
+              let j = 0;
+              for (; j < this.canvas.height / 120; j++) {
+                this.canvas.rotate(-Math.PI / 180 * 30);
+           <em>     // 此处水印数据是写死的，具体请替换为自己的水印</em>
                 this.canvas.fillText('test', -60, -60);
                 this.canvas.rotate(Math.PI / 180 * 30);
                 this.canvas.translate(0, 120);
@@ -203,7 +204,7 @@ struct Watermark {
 
  - **方案二**：可以通过配置[setMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#setmenuoptions16)来实现显示子窗水印后TextInput实现粘贴，当TextInput、TextArea可支持拉起[enableAutoFill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#enableautofill11)时，不支持将其对应的文本选择菜单显示在独立窗口中。因为TextInput配置了placeholder触发了自动填充，所以需要将自动填充关闭.enableAutoFill(false)。
 ```text
-// 控制Text菜单显示方式
+<em>// 控制Text菜单显示方式</em>
 import { common } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -214,7 +215,7 @@ struct Scene2 {
   private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
   aboutToAppear(): void {
-    // 优先显示在独立窗口中
+   <em> // 优先显示在独立窗口中</em>
     this.getUIContext()
       .getTextMenuController()
       .setMenuOptions(
@@ -265,7 +266,7 @@ struct Scene2 {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为何长按输入框粘贴后，再生成水印，此时长按输入框可以粘贴内容？
  

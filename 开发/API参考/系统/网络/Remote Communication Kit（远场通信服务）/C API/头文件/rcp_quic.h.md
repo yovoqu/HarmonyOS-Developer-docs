@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/rcp_quic_h
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## rcp_quic.h
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 声明quic协议相关的API。提供基本的函数、结构体和const定义。
  
@@ -26,32 +23,40 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]结构体
+#### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
-| struct  Rcp_QuicSlist | 链表数据结构。 |
-| struct  Rcp_QuicIpAddress | 用于存储IP地址的数据结构。 |
-| struct  Rcp_QuicIoVec | 用于存储二进制内容的数据结构。 |
-| struct  Rcp_QuicStreamData | quic连接中用于接收流式数据的存储结构。 |
+| struct Rcp_QuicSlist | 链表数据结构。 |
+| struct Rcp_QuicIpAddress | 用于存储IP地址的数据结构。 |
+| struct Rcp_QuicIoVec | 用于存储二进制内容的数据结构。 |
+| struct Rcp_QuicStreamData | quic连接中用于接收流式数据的存储结构。 |
  
  
   
 
-##### [h2]宏定义
+#### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
-| RCP_QUIC_IP_MAX_LEN   40 | quic连接的IP地址的最大长度。 |
+| RCP_QUIC_IP_MAX_LEN 40 | quic连接的IP地址的最大长度。 |
  
  
   
 
-##### [h2]类型定义
+#### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -82,7 +87,9 @@
  
   
 
-##### [h2]枚举
+#### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -98,7 +105,9 @@
  
   
 
-##### [h2]函数
+#### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

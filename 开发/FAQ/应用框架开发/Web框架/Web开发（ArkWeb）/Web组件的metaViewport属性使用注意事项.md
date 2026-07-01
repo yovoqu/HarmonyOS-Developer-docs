@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-191
 
-## Web组件的metaViewport属性使用注意事项
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Web组件使用metaViewport属性可以设置meta标签的viewport属性是否可用。该属性默认开启，当网页在平板加载时存在viewport属性不生效的情况。
  
  
 
-##### 解决方案
+#### 解决方案
 
 [metaViewport](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#metaviewport12)设置meta标签的viewport属性是否可用。当属性没有显式调用时，默认支持meta标签的viewport属性。
  
@@ -31,7 +27,7 @@ metaViewport属性用于设置前端网页viewport属性是否可用，如下示
  
 ```text
 Web({
-  // 更改为实际网页或要加载的HTML页面
+ <em> // 更改为实际网页或要加载的HTML页面</em>
   src: 'www.example.com',
   controller: this.controller
 })
@@ -44,7 +40,7 @@ Web({
 this.controller.runJavaScript(`
   let metaViewport = document.querySelector('meta[name="viewport"]');
   if (metaViewport) {
-    // 修改content属性，更新initial-scale的值
+  <em>  // 修改content属性，更新initial-scale的值</em>
     metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.3, minimum-scale=1.0, maximum-scale=4.0, user-scalable=yes');
     console.info('Initial scale changed to 1.3');
   } else {
@@ -70,7 +66,7 @@ struct SettingViewport {
           this.controller.runJavaScript(`
             let metaViewport = document.querySelector('meta[name="viewport"]');
             if (metaViewport) {
-              // 修改content属性，更新initial-scale的值
+           <em>   // 修改content属性，更新initial-scale的值</em>
               metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.3, minimum-scale=1.0, maximum-scale=4.0, user-scalable=yes');
               console.info('Initial scale changed to 1.3');
             } else {
@@ -79,7 +75,7 @@ struct SettingViewport {
           );
         });
       Web({
-        // 更改为实际网页或要加载的HTML页面
+     <em>   // 更改为实际网页或要加载的HTML页面</em>
         src: 'www.example.com',
         controller: this.controller
       })
@@ -95,13 +91,5 @@ struct SettingViewport {
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/UVXrbogpSgWsZ14up8BRBQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025745Z&HW-CC-Expire=86400&HW-CC-Sign=9A8448AA886FBEC2F842CD47125F6A97FC8FF63BC1850F6307F8967EF2FC926B)
- 
-
-使用metaViewport属性需要注意以下事项：
- 
-- 如果设备为2in1，不支持viewport属性。设置为true或者false均不会解析viewport属性，进行默认布局。
-- 如果设备为Tablet，设置为true或false均会解析meta标签viewport-fit属性。当viewport-fit=cover时，可通过CSS属性获取安全区域大小。
-- 当前通过User-Agent中是否含有"Mobile"字段来判断是否开启前端HTML页面中meta标签的viewport属性。当User-Agent中不含有"Mobile"字段时，meta标签中viewport属性默认关闭，此时可通过显式设置metaViewport属性为true来覆盖关闭状态。
-- 使用[zoom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#zoom)的相关方法无法对设置了user-scalable=no的网页生效，可以设置metaViewport为false进行屏蔽，或使用runJavaScript执行JavaScript脚本修改viewport。
+> [!WARNING]
+> 使用metaViewport属性需要注意以下事项： 如果设备为2in1，不支持viewport属性。设置为true或者false均不会解析viewport属性，进行默认布局。 如果设备为Tablet，设置为true或false均会解析meta标签viewport-fit属性。当viewport-fit=cover时，可通过CSS属性获取安全区域大小。 当前通过User-Agent中是否含有"Mobile"字段来判断是否开启前端HTML页面中meta标签的viewport属性。当User-Agent中不含有"Mobile"字段时，meta标签中viewport属性默认关闭，此时可通过显式设置metaViewport属性为true来覆盖关闭状态。 使用 zoom 的相关方法无法对设置了user-scalable=no的网页生效，可以设置metaViewport为false进行屏蔽，或使用runJavaScript执行JavaScript脚本修改viewport。

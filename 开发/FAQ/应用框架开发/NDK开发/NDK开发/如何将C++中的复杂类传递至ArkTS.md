@@ -4,37 +4,30 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-21
 
-## 如何将C++中的复杂类传递至ArkTS
- 
-
-
-##### 问题现象
-
-- HarmonyOS项目中，如何从C++侧向ArkTS侧传递包含子对象和对象数组的复合类型？
-- Native侧导出的多个类中包含相同的方法，如何在Index.d.ts文件以及napi_init.cpp文件中做区分？
-
+#### 问题现象
+1. HarmonyOS项目中，如何从C++侧向ArkTS侧传递包含子对象和对象数组的复合类型？
+2. Native侧导出的多个类中包含相同的方法，如何在Index.d.ts文件以及napi_init.cpp文件中做区分？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [NDK开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-development-overview)是HarmonyOS SDK提供的Native API、相应编译脚本和编译工具链的集合，方便开发者使用C或C++语言实现应用的关键功能。
  
  
 
-##### 解决方案
+#### 解决方案
 
  
 
-##### [h2]场景一：从C++侧向ArkTS侧传递包含子对象和对象数组的复合类型。
+#### 场景一：从C++侧向ArkTS侧传递包含子对象和对象数组的复合类型。
 
 在NDK开发中，当需要从C++向ArkTS传递包含子对象和对象数组的复合类型时，需使用Node-API的对象构建接口，具体示例如下：
- 
-- C++侧传递代码：
+ 1. C++侧传递代码：
 ```text
 #include "napi/native_api.h"
 
-// 创建SubObj对象
+<em>// 创建SubObj对象</em>
 napi_value CreateSubObj(napi_env env, int age) 
 {
     napi_value subObj;
@@ -47,31 +40,79 @@ napi_value CreateSubObj(napi_env env, int age)
     return subObj;
 }
 
-// 创建SuperObj对象
+<em>// 创建SuperObj对象</em>
 static napi_value CreateSuperObj(napi_env env, napi_callback_info info) 
 {
-    // 创建主对象
+   <em> // 创建主对象</em>
     napi_value superObj;
     napi_create_object(env, &superObj);
 
-    // 添加基础属性
+  <em>  // 添加基础属性</em>
     napi_value mainAge;
     napi_create_int32(env, 40, &mainAge);
     napi_set_named_property(env, superObj, "age", mainAge);
 
-    // 添加子对象
+  <em>  // 添加子对象</em>
     napi_value subObj = CreateSubObj(env, 25);
     napi_set_named_property(env, superObj, "subObj", subObj);
 
-    // 创建子对象数组
+   <em> // 创建子对象数组</em>
     napi_value subObjs;
     napi_create_array(env, &subObjs);
 
-    // 向数组添加元素
-    for (int i = 0; i  SuperObj;
+   <em> // 向数组添加元素</em>
+    for (int i = 0; i < 3; i++) {
+        napi_value item = CreateSubObj(env, i + 10);
+        napi_set_element(env, subObjs, i, item);    
+    }
+    napi_set_named_property(env, superObj, "subObjs", subObjs);
+
+    return superObj;
+}
+
+EXTERN_C_START
+static napi_value Init(napi_env env, napi_value exports)
+{
+    napi_property_descriptor desc[] = {
+        { "createSuperObj", nullptr, CreateSuperObj, nullptr, nullptr, nullptr, napi_default, nullptr }
+    };
+    napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
+    return exports;
+}
+EXTERN_C_END
+
+static napi_module demoModule = {
+    .nm_version = 1,
+    .nm_flags = 0,
+    .nm_filename = nullptr,
+    .nm_register_func = Init,
+    .nm_modname = "entry",
+    .nm_priv = ((void*)0),
+    .reserved = { 0 },
+};
+
+extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
+{
+    napi_module_register(&demoModule);
+}
 ```
 
-- ArkTS接收侧代码：
+2. Index.d.ts文件接口声明：
+```text
+export type SubObj = {
+  age: number;
+}
+
+export type SuperObj = {
+  subObj: SubObj;
+  subObjs: SubObj[];
+  age: number;
+}
+
+export const createSuperObj: () => SuperObj;
+```
+
+3. ArkTS接收侧代码：
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -105,15 +146,13 @@ struct Index {
 }
 ```
 
-
  
  
 
-##### [h2]场景二：从C++侧向ArkTS侧导出多个包含相同方法的类。
+#### 场景二：从C++侧向ArkTS侧导出多个包含相同方法的类。
 
 Native侧导出多个包含相同方法的类时，可以分别在每个类中单独实现注册函数用于方法导出，完整示例代码如下：
- 
-- Native侧分别实现注册函数：
+ 1. Native侧分别实现注册函数：
 ```text
 #include "napi/native_api.h"
 #include "hilog/log.h"
@@ -257,7 +296,7 @@ static napi_module demoModule = {
 extern "C" __attribute__((constructor)) void RegisterLibraryModule(void) { napi_module_register(&demoModule); }
 ```
 
-- 在Index.d.ts文件中声明方法：
+2. 在Index.d.ts文件中声明方法：
 ```text
 export class SameClassOne {
   constructor();
@@ -272,7 +311,7 @@ export class SameClassTwo {
 }
 ```
 
-- ArkTS侧调用：
+3. ArkTS侧调用：
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'liblibrary.so';
@@ -304,11 +343,10 @@ export struct MainPage {
 }
 ```
 
-
  
  
 
-##### FAQ
+#### FAQ
 
  
 Q：如何在使用NAPI接口导出两个类的同时定义两个类的继承关系？
@@ -316,7 +354,7 @@ Q：如何在使用NAPI接口导出两个类的同时定义两个类的继承关
 A：当前NAPI未提供实现继承对象的方法。可以参考JavaScript修改原型链的方法，达到类似的效果：
  
 ```text
-// 定义构造函数
+<em>// 定义构造函数</em>
 function Person(name, age) {
     this.name = name
     this.age = age
@@ -329,7 +367,7 @@ Person.prototype.eatting = function () {
     console.info("吃饭")
 }
 
-// 定义学生类
+<em>// 定义学生类</em>
 function Student(name, age, sno, score) {
     this.name = name
     this.age = age
@@ -337,7 +375,7 @@ function Student(name, age, sno, score) {
     this.score = score
 }
 
-// 创建一个父类的实例对象(new Person())用这个实例对象来作为子类的原型对象
+<em>// 创建一个父类的实例对象(new Person())用这个实例对象来作为子类的原型对象</em>
 let p1 = new Person()
 
 Student.prototype = p1
@@ -346,7 +384,7 @@ Student.prototype.studying = function () {
     console.info("学习")
 }
 
-// 实现方法继承
+<em>// 实现方法继承</em>
 let stu1 = new Student("hdc", 21, 111, 100)
-stu1.running() // 跑步
+stu1.running() <em>// 跑步</em>
 ```

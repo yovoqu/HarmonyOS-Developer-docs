@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1074
 
-## 如何在TabBar页签栏添加其他组件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 为了提升用户体验和界面功能性，开发者往往会在TabBar页签栏中添加其他组件（如按钮、图标、通知角标等），以下是在TabBar两侧添加其他组件的常见写法：
  
@@ -19,7 +15,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - [tabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar)：设置TabBar上显示内容。
@@ -31,7 +27,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 本文将基于上述场景，逐一阐述其具体实现方式。
   
@@ -43,18 +39,22 @@
  
  
 - **方案一：TabBar叠加overlay浮层效果。**在当前Tabs组件上，可以叠加按钮或图标作为TabBar的浮层，达到页签栏添加其他组件的效果，原理如下图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/Xb8m0ohnRqesa0j77jq6ew/zh-cn_image_0000002658806493.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=383EB06C24417E7577DA36C83C6E040C967EB9F10D7A6B789CA8F8BA1E9E041C)
 
- 实现步骤如下：
- 
-将左侧的按钮与右侧的图标放置于Flex布局容器中，并设置组件内布局为两端对齐；
-- 为了叠加后TabBar依旧可触发点击效果，需给Flex组件设置属性.hitTestBehavior(HitTestMode.Transparent)，配置浮层不阻塞交互；
-- 将Flex组件通过overlay属性叠加在TabBar上。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/Xb8m0ohnRqesa0j77jq6ew/zh-cn_image_0000002658806493.png?HW-CC-KV=V1&HW-CC-Date=20260701T041158Z&HW-CC-Expire=86400&HW-CC-Sign=A0F986A98AD9F2198410AE9A88A3964296D1F36FE0CBFF6DCDCD61E5336386B1)
 
- 
-实现代码如下：
- 
+
+  实现步骤如下：
+
+1. 将左侧的按钮与右侧的图标放置于Flex布局容器中，并设置组件内布局为两端对齐；
+
+2. 为了叠加后TabBar依旧可触发点击效果，需给Flex组件设置属性.hitTestBehavior(HitTestMode.Transparent)，配置浮层不阻塞交互；
+
+3. 将Flex组件通过overlay属性叠加在TabBar上。
+
+  实现代码如下：
+
+  
 ```text
 import { promptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -91,7 +91,7 @@ struct TabBarOverlay {
     .padding(2);
   }
 
-  // 设置浮层
+<em>  // 设置浮层</em>
   @Builder
   tabOverlay() {
     Flex({
@@ -99,7 +99,7 @@ struct TabBarOverlay {
       direction: FlexDirection.Row,
       alignItems: ItemAlign.Center
     }) {
-      Image($r('sys.media.ohos_ic_public_arrow_left')) // 开发者可根据需求更换其它图片资源
+      Image($r('sys.media.ohos_ic_public_arrow_left'))<em> // 开发者可根据需求更换其它图片资源</em>
         .width(30)
         .height(30)
         .onClick(() => {
@@ -116,7 +116,7 @@ struct TabBarOverlay {
             console.error(`showToast args error code is ${code}, message is ${message}`);
           }
         });
-      Image($r('sys.media.ohos_ic_public_more')) // 开发者可根据需求更换其它图片资源
+      Image($r('sys.media.ohos_ic_public_more'))<em> // 开发者可根据需求更换其它图片资源</em>
         .width(30)
         .height(30)
         .onClick(() => {
@@ -137,7 +137,7 @@ struct TabBarOverlay {
     .padding({ left: 20, right: 20 })
     .width('100%')
     .height(56)
-    .hitTestBehavior(HitTestMode.Transparent); // 配置浮层不阻塞交互
+    .hitTestBehavior(HitTestMode.Transparent);<em> // 配置浮层不阻塞交互</em>
   }
 
   build() {
@@ -166,24 +166,26 @@ struct TabBarOverlay {
   }
 }
 ```
- 
-实现效果如下：
- 
+ 实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/gMzt6KSvQIGZXrky8NG4Fw/zh-cn_image_0000002628567142.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=0311D9996B06B6A2F9475C289EA726347A33F1895AA7CB3FBC1E892FDAD21A55)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/gMzt6KSvQIGZXrky8NG4Fw/zh-cn_image_0000002628567142.png?HW-CC-KV=V1&HW-CC-Date=20260701T041158Z&HW-CC-Expire=86400&HW-CC-Sign=30186D178D2399D672E86150C41438824FEAC811FEA502F53162A6D12073E6F6)
 
- - **方案二：利用Stack组件，在自定义TabBar上堆叠其他组件**。利用堆叠容器，在原本的TabBar基础上放置其他组件，原理如下图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/uo2OLujbSB6LL4IhFAh5zQ/zh-cn_image_0000002658926447.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=6B84E09ED4681914F53270B068672E9C9F086A1502356487172ECEBFD69EDA95)
+- **方案二：利用Stack组件，在自定义TabBar上堆叠其他组件**。利用堆叠容器，在原本的TabBar基础上放置其他组件，原理如下图：
 
- 实现步骤如下：
- 
-设置Stack组件，依次放入Image组件和Tabs组件；
-- 设置Image组件的zIndex值大于Tabs组件。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/uo2OLujbSB6LL4IhFAh5zQ/zh-cn_image_0000002658926447.png?HW-CC-KV=V1&HW-CC-Date=20260701T041158Z&HW-CC-Expire=86400&HW-CC-Sign=E6E2DBD36406F2A95123F462C58C6D469C9CF2F81076B4D51E6AC4842F094B88)
 
- 
-实现代码如下：
- 
+
+  实现步骤如下：
+
+1. 设置Stack组件，依次放入Image组件和Tabs组件；
+
+2. 设置Image组件的zIndex值大于Tabs组件。
+
+  实现代码如下：
+
+  
 ```text
 import { promptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -226,7 +228,7 @@ struct TabBarStack {
 
   build() {
     Stack({ alignContent: Alignment.TopStart }) {
-      Image($r('sys.media.ohos_ic_public_arrow_left')) // 开发者自定义图片资源
+      Image($r('sys.media.ohos_ic_public_arrow_left'))<em> // 开发者自定义图片资源</em>
         .width(32)
         .height(32)
         .offset({ top: 15, left: 16 })
@@ -280,33 +282,36 @@ struct TabBarStack {
         }
         this.selectedIndex = targetIndex;
       })
-      // 设置Tabs层级小于Image组件
+    <em>  // 设置Tabs层级小于Image组件</em>
       .zIndex(-1);
     }.width('100%').height('100%');
   }
 }
 ```
- 
-实现效果如下：
- 
+ 实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/YnFtYNlPTiSM2TY7mNvN8A/zh-cn_image_0000002628407236.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=8AB291657B895D87E52228313F0C0C5CBAC19FEB536ABA77925498F2AA04DAED)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/YnFtYNlPTiSM2TY7mNvN8A/zh-cn_image_0000002628407236.png?HW-CC-KV=V1&HW-CC-Date=20260701T041158Z&HW-CC-Expire=86400&HW-CC-Sign=46427BD64C7297EBB175836D23FCE0B60C45C4FF34535D3622824F3D8C36616D)
 
- 
-更丰富的实现效果请参考：[可滚动Tabs页签栏+更多按钮](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-development-scenarios-for-tabs#section7842176172416)。
- - **方案三：使用Row组件自定义行内布局**。通过Row组件，自行设置TabBar行内组件的组成效果，原理如下图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/orya-JewTKejK4fg7z25pg/zh-cn_image_0000002658806495.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=BFE3EDF484633C15C682AAD74BDF68C09C190A37ACAE0B7EC6236ABE0680018F)
 
- 实现步骤如下：
- 
-使用Row组件作为容器，包裹Scroll和Button两个子组件；
-- 设置Scroll组件的布局权重[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)为1，Button优先占位，Scroll占据剩余宽度；
-- 将自定义的TabBar放入Scroll组件中，使其始终位于左侧滚动区域内，从而实现TabBar页签栏添加其他组件的效果。
+  更丰富的实现效果请参考：[可滚动Tabs页签栏+更多按钮](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-development-scenarios-for-tabs#section7842176172416)。
+- **方案三：使用Row组件自定义行内布局**。通过Row组件，自行设置TabBar行内组件的组成效果，原理如下图：
 
- 
-实现代码如下：
- 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/orya-JewTKejK4fg7z25pg/zh-cn_image_0000002658806495.png?HW-CC-KV=V1&HW-CC-Date=20260701T041158Z&HW-CC-Expire=86400&HW-CC-Sign=107D824092F9DD6139A99FEF405454C2A7112179E3D6C09BA4F7BCC228B1846D)
+
+
+  实现步骤如下：
+
+1. 使用Row组件作为容器，包裹Scroll和Button两个子组件；
+
+2. 设置Scroll组件的布局权重[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)为1，Button优先占位，Scroll占据剩余宽度；
+
+3. 将自定义的TabBar放入Scroll组件中，使其始终位于左侧滚动区域内，从而实现TabBar页签栏添加其他组件的效果。
+
+  实现代码如下：
+
+  
 ```text
 import { promptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -314,7 +319,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct TabBarRow {
-  tabName: Array = ['首页', '商城', '详情'];
+  tabName: Array<string> = ['首页', '商城', '详情'];
   fontColor: string = '#000000';
   @State selectedIndex: number = 0;
   private controller: TabsController = new TabsController();
@@ -370,7 +375,7 @@ struct TabBarRow {
         .scrollable(ScrollDirection.Horizontal)
         .scrollBar(BarState.Off);
 
-        Image($r('sys.media.ohos_ic_public_more')) // 开发者可根据需求更换其它图片资源
+        Image($r('sys.media.ohos_ic_public_more'))<em> // 开发者可根据需求更换其它图片资源</em>
           .width(32)
           .height(32)
           .onClick(() => {
@@ -415,8 +420,7 @@ struct TabBarRow {
   }
 }
 ```
- 
-实现效果如下：
- 
+ 实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5r3vZv0sTVeuJBySXpk4Nw/zh-cn_image_0000002628567146.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=36EA3A10A6EF3673C843969EC55B219671BAC34123D1D68063AB39B0D976C20D)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5r3vZv0sTVeuJBySXpk4Nw/zh-cn_image_0000002628567146.png?HW-CC-KV=V1&HW-CC-Date=20260701T041158Z&HW-CC-Expire=86400&HW-CC-Sign=682E684F5F279D2BD27E81F910D2C76EDE382188130F7222EAB3C6CB281C0C9D)

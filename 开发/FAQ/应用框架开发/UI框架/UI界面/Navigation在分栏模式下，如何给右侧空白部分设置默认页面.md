@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1276
 
-## Navigation在分栏模式下，如何给右侧空白部分设置默认页面
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Navigation在Split模式下，未点击左侧导航栏时，右侧子页显示区显示为空白。当未进行页面路由推送时，如何给右侧的空白部分设置默认展示页面？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的分栏模式由[mode属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#mode9)控制，包括单栏（Stack）、分栏（Split）和自适应（Auto）三个属性。该属性默认为Auto模式，在该模式下会自动监听屏幕属性，当为折叠屏或平板时，默认分栏显示，在折叠状态或普通手机时可为单栏显示。
 - [splitPlaceholder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#splitplaceholder20)：在API20下，Navigation双栏模式支持设置右侧页面显示默认占位页，占位页仅作为UI展示页，不可获焦和响应事件。
@@ -22,11 +18,11 @@ Navigation在Split模式下，未点击左侧导航栏时，右侧子页显示�
  
  
 
-##### 解决方案
+#### 解决方案
 
-- **方案一：push方法推送默认页面。**
-编写默认页面，并重写[onBackPressed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onbackpressed10)返回，当在该页面返回时直接退出软件。
-- Navigation主页执行aboutToAppear，将默认页面加入页面栈进行默认显示。
+- **方案一：push方法推送默认页面。**1. 编写默认页面，并重写[onBackPressed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onbackpressed10)返回，当在该页面返回时直接退出软件。
+
+2. Navigation主页执行aboutToAppear，将默认页面加入页面栈进行默认显示。
 ```text
 import { window } from '@kit.ArkUI';
 
@@ -90,7 +86,7 @@ struct NavigationExample {
   }
 }
 
-// PageOne页面
+<em>// PageOne页面</em>
 @Component
 export struct pageOneTmp {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -104,7 +100,7 @@ export struct pageOneTmp {
   }
 }
 
-// PageTwo页面
+<em>// PageTwo页面</em>
 @Component
 export struct pageTwoTmp {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -118,7 +114,7 @@ export struct pageTwoTmp {
   }
 }
 
-// PageThree页面
+<em>// PageThree页面</em>
 @Component
 export struct pageThreeTmp {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -142,9 +138,9 @@ export struct DefaultPage {
       }.width('100%').height('100%').justifyContent(FlexAlign.Center);
     }.title('DefaultPage')
     .onBackPressed(() => {
-      // 返回true表示自定义返回，能避免返回空白页面。返回false则表示系统默认返回，会返回空白页面。
+    <em>  // 返回true表示自定义返回，能避免返回空白页面。返回false则表示系统默认返回，会返回空白页面。</em>
       try {
-        // 需要导入window
+   <em>     // 需要导入window</em>
         window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
           const errCode: number = err.code;
           if (errCode) {
@@ -168,29 +164,28 @@ export struct DefaultPage {
   }
 }
 ```
- 
- 实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/4r9fWdc1TRWKEo1z7sbb9Q/zh-cn_image_0000002658955337.png?HW-CC-KV=V1&HW-CC-Date=20260701T025655Z&HW-CC-Expire=86400&HW-CC-Sign=9A7017162EA07BDE7E318471AD070A9CED95A9A3C825655926ACED7579E4A4DE)
 
 
- - **方案二：采用API20中的splitPlaceholder属性。**详情参考：[示例14](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例14设置navigation双栏模式)。
+  实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/4r9fWdc1TRWKEo1z7sbb9Q/zh-cn_image_0000002658955337.png?HW-CC-KV=V1&HW-CC-Date=20260701T041141Z&HW-CC-Expire=86400&HW-CC-Sign=CA9112E32D3F4E08661C985892AFF3FAF71BED196C4E7FEE373BBA3B0900CD18)
+
+- **方案二：采用API20中的splitPlaceholder属性。**详情参考：[示例14](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例14设置navigation双栏模式)。
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：API20以下，当采用Auto模式时，如何判断是否需要推送默认显示页面？
  
 A：可以通过以下方式在aboutToAppear中判断是否需要推送默认页面：
- 
-- 通过设备信息@ohos.deviceInfo接口获取设备的[deviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info#常量)类型。
-- 通过屏幕属性@ohos.display的[isFoldable方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displayisfoldable10)返回当前设备是否可折叠的结果。
-
+ 1. 通过设备信息@ohos.deviceInfo接口获取设备的[deviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info#常量)类型。
+2. 通过屏幕属性@ohos.display的[isFoldable方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displayisfoldable10)返回当前设备是否可折叠的结果。
  
  
 
-##### 总结
+#### 总结
 
 实现默认展示页面的方式为，创建一个默认页面，在创建主页时自动推送该默认页面即可，其他关联实现方式参照常见FAQ实现即可。

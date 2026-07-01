@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1432
 
-## 如何在SDK包中获取宿主应用的沉浸式状态
- 
-
-
-##### 问题现象
+#### 问题现象
 
 SDK项目采用HAR包的方式集成到宿主应用中，如何在SDK包中获取宿主应用的沉浸式状态？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [@ohos.window (窗口)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-window)提供了窗口管理器[WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage)，用于管理各个基本窗口单元。同时，可通过[getWindowProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowproperties9)方法获取当前窗口的属性，其中isLayoutFullScreen可以判断窗口是否为沉浸式且处于全屏模式。
  
@@ -22,12 +18,13 @@ SDK项目采用HAR包的方式集成到宿主应用中，如何在SDK包中获�
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 主要思路：HAR通过提供接口的方式，将相关功能模块开放给HAP使用。在HAP包中调用这些接口方法，将所需数据传递至HAR，从而实现数据交互与共享。
-实现步骤：
-通过AppStorage.setAndLink存储WindowStage。可参考[如何在Page中获取WindowStage实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-298)。
-- 在HAR包中定义方法，通过AppStorage.get获取WindowStage，使用getWindowProperties().isLayoutFullScreen获取宿主应用沉浸式状态，通过export[导出类和方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package#导出类和方法)：
+
+  实现步骤：1. 通过AppStorage.setAndLink存储WindowStage。可参考[如何在Page中获取WindowStage实例](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-298)。
+
+2. 在HAR包中定义方法，通过AppStorage.get获取WindowStage，使用getWindowProperties().isLayoutFullScreen获取宿主应用沉浸式状态，通过export[导出类和方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package#导出类和方法)：
 ```text
 import { window } from '@kit.ArkUI';
 
@@ -39,12 +36,13 @@ export function getFullScreenStatus(): string {
   let winStage: window.WindowStage = AppStorage.get('windowStage') as window.WindowStage;
   let isLayoutFullScreen = winStage.getMainWindowSync().getWindowProperties().isLayoutFullScreen;
   console.info(isLayoutFullScreen ? 'isFullScreen' : 'isNotFullScreen');
-  // 返回结果给应用页，如不需要则不返回。在应用侧直接调用该函数。
+ <em> // 返回结果给应用页，如不需要则不返回。在应用侧直接调用该函数。</em>
   return (isLayoutFullScreen ? 'isFullScreen' : 'isNotFullScreen');
 }
 ```
 
-- 在HAP中调用HAR方法，获取HAP窗口沉浸式状态信息，注意代码中SDKName需要替换成HAR包名称。
+
+3. 在HAP中调用HAR方法，获取HAP窗口沉浸式状态信息，注意代码中SDKName需要替换成HAR包名称。
 ```text
 import { PromptAction } from '@kit.ArkUI';
 import { getFullScreenStatus } from 'sdkname';
@@ -53,15 +51,15 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct Index {
-  @State isFullScreen: boolean = false; // 切换屏幕全屏
-  @State state: string = ''; // 存储HAR中获取沉浸式状态
+  @State isFullScreen: boolean = false;<em> // 切换屏幕全屏</em>
+  @State state: string = '';<em> // 存储HAR中获取沉浸式状态</em>
   promptAction: PromptAction = this.getUIContext().getPromptAction();
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
   aboutToAppear(): void {
-    // 通过AppStorage.setAndLink存储WindowStage
+   <em> // 通过AppStorage.setAndLink存储WindowStage</em>
     AppStorage.setAndLink('windowStage', this.context.windowStage);
-    // 进入应用调用HAR方法获取屏幕状态
+   <em> // 进入应用调用HAR方法获取屏幕状态</em>
     this.state = getFullScreenStatus();
     this.promptAction.showToast({
       message: this.state,
@@ -76,10 +74,10 @@ struct Index {
           .fontSize(30)
           .fontWeight(FontWeight.Bold);
         Button('changeFullScreenStatus').onClick(async () => {
-          // 切换屏幕状态
+        <em>  // 切换屏幕状态</em>
           this.isFullScreen = !this.isFullScreen;
           await this.context.windowStage.getMainWindowSync().setWindowLayoutFullScreen(this.isFullScreen);
-          // 调用SDK方法获取屏幕状态
+       <em>   // 调用SDK方法获取屏幕状态</em>
           this.state = getFullScreenStatus();
           this.promptAction.showToast({
             message: this.state,

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-24
 
-## ohpm publish发布SDK报错
- 
-
-
-##### 问题现象
+#### 问题现象
 
 **场景一：**ohpm publish发布SDK报错Invalid OHPM package repository。
  
@@ -17,7 +13,7 @@
 ```text
 Error Message: The "Publish" request to url "https://ohpm.openharmony.cn/ohpm/@lynx%2fprimjs" has failed
 ╰→ Caused by:
-Original Error: HttpCode 400 Invalid OHPM package repository.
+Original Error: HttpCode <span style="color: rgb(0,0,255);">400 </span>Invalid OHPM package repository.
 ```
  
 **场景二：**ohpm publish发布时报错HttpCode 413 Request Entity Too Large。
@@ -25,13 +21,13 @@ Original Error: HttpCode 400 Invalid OHPM package repository.
 报错信息如下：
  
 ```text
-ohpm ERROR: HttpCode 413 Request Entity Too Large.
+ohpm ERROR: HttpCode <span style="color: rgb(0,0,255);">413 </span>Request Entity Too Large.
 ohpm ERROR: Publish failed, detail: The "Publish" request to url "xxxxx" has failed.
 ```
  
  
 
-##### 背景知识
+#### 背景知识
 
 OHPM（OpenHarmony Package Manager）由OpenHarmony三方库中心仓网站、命令行工具、OpenHarmony三方库中心仓仓库三个部分组成，其功能如下：
  
@@ -44,7 +40,7 @@ OHPM（OpenHarmony Package Manager）由OpenHarmony三方库中心仓网站、�
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一：**此错误是因为[oh-package.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5)文件中的repository字段未正确配置，此为开源代码的仓库地址，需要以https|http|ftp|rtsp|mms开头。
 - **场景二：**私仓对SFTP是没有限制的，这个问题一般就是上传文件过大，导致链接的SFTP服务器报错。排查一下部署私仓，是否使用了代理服务器，导致在代理服务器的地方存在对上传文件大小的限制。再检查一下SFTP服务器的配置项，是否有针对上传文件给设置限制。SFTP服务器配置中可能存在对上传文件大小的限制。以下是一些可能的原因：
@@ -58,7 +54,6 @@ OHPM（OpenHarmony Package Manager）由OpenHarmony三方库中心仓网站、�
  
  
 
-##### 总结
-
-- repository仓库地址需要以https|http|ftp|rtsp|mms开头。
-- HttpCode服务器报错码，还没进到ohpm中，优先排查代理服务器，如果有使用类似SFTP传输的，也需要排查SFTP。
+#### 总结
+1. repository仓库地址需要以https|http|ftp|rtsp|mms开头。
+2. HttpCode服务器报错码，还没进到ohpm中，优先排查代理服务器，如果有使用类似SFTP传输的，也需要排查SFTP。

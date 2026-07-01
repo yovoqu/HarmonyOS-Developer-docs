@@ -4,15 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-19
 
-## 项目多人开发时会导致signingConfigs冲突，该如何协调
- 
-
-
-##### 问题现象
+#### 问题现象
 
 多人开发时，build-profile.json5里的签名信息因使用绝对路径上传到git仓库后，其他人下载到本地后使用该签名配置信息无法正常签名，报错如下：
  
-```text
+```json
 hvigor ERROR: Failed :entry:default@SignHap...
 > hvigor ERROR: Unsupported state or unable to authenticate data
 Detail: Signing failed. Reconfigure the signature or clear the E:\work\1200_iabp_harmonyos folder and perform signing again.
@@ -22,7 +18,7 @@ at E:\work\1200_iabp_harmonyos\build-profile.json5
  
  
 
-##### 背景知识
+#### 背景知识
 
 - git多人协作的核心需求。
 分布式架构：git的分布式特性允许每个开发者拥有完整的代码仓库副本，支持离线操作和本地版本控制，降低对中心服务器的依赖。
@@ -37,53 +33,56 @@ at E:\work\1200_iabp_harmonyos\build-profile.json5
  
  
 
-##### 问题定位
+#### 问题定位
 
 多人开发时，将配置好的发布证书签名所在的build-profile.json5文件使用git进行提交，会导致signingConfigs冲突的问题现象发生。
  
  
 
-##### 分析结论
-
-- 根据背景知识，手动签名场景下，每个开发者的本地签名参数因设备差异而不同。
-- 当多人开发时未将build-profile.json5文件中的签名配置信息外置化，配置发布证书签名导致不同设备的storePassword和keyPassword不一样，使得build-profile.json5在不同设备中显示的内容也不同，所以多人开发手动签名后使用git提交build-profile.json5文件就会导致该文件冲突。
-
+#### 分析结论
+1. 根据背景知识，手动签名场景下，每个开发者的本地签名参数因设备差异而不同。
+2. 当多人开发时未将build-profile.json5文件中的签名配置信息外置化，配置发布证书签名导致不同设备的storePassword和keyPassword不一样，使得build-profile.json5在不同设备中显示的内容也不同，所以多人开发手动签名后使用git提交build-profile.json5文件就会导致该文件冲突。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **方式一：**signingConfigs中使用相对路径。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/nixe4B2MSreiff48jsCn_A/zh-cn_image_0000002658808641.png?HW-CC-KV=V1&HW-CC-Date=20260701T025918Z&HW-CC-Expire=86400&HW-CC-Sign=EE7F65A9A5CFC90DE39D800D6A777EB7D3CF8F07D97C37586FE3001BDA4A7D92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/nixe4B2MSreiff48jsCn_A/zh-cn_image_0000002658808641.png?HW-CC-KV=V1&HW-CC-Date=20260701T041019Z&HW-CC-Expire=86400&HW-CC-Sign=D9A1E183F35A61E6E7A7BC67F0251590414D40612E754BE557CB7E7240FAE725)
 
- 
-签名使用相对路径可以做到多人共用签名、git不冲突、可以将团队内设备的udid都添加到该签名中就可以直接安装。但是可能存在的问题：
-签名上传可能有安全性问题。
-- 当新增权限（需要ACL提权的）、新增设备的udid都需要管理该签名的人重签名一份上传，其他人有需要时再重新拉取代码。
 
- 
- - **方式二**：使用自定义构建任务动态修改signingConfigs。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/PiB6U1lvT0W-_YtUhOK5pg/zh-cn_image_0000002628569276.png?HW-CC-KV=V1&HW-CC-Date=20260701T025918Z&HW-CC-Expire=86400&HW-CC-Sign=333FC89104168F02F4A30556B749C0A36A349A7938D6BEF26ACAAE2F7048C6B1)
+  签名使用相对路径可以做到多人共用签名、git不冲突、可以将团队内设备的udid都添加到该签名中就可以直接安装。但是可能存在的问题：1. 签名上传可能有安全性问题。
 
- 这种方式可以将签名配置信息独立出来，git不冲突，每人也可使用自己的签名，流水线构建时使用专属签名即。
- 参考示例1：[动态修改签名和编译配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-config-ohos-sample#section973053620286)。
- 参考示例2：
- 
-签名信息外置化。创建独立配置文件，将material这部分签名配置从build-profile.json5中剥离。
- 新建external-signing-config.json（文件名可自定义），内容示例：[signingConfigs字段示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section153288223224)。
- 将此文件添加到.gitignore，避免敏感信息提交至版本库。
-- 动态加载签名配置。修改hvigorfile.ts，通过自定义构建任务动态读取外部配置文件，在工程级hvigorfile.ts里引入外部json配置（如：external-signing-config.json）。可参考[在hvigorfile.ts中通过overrides关键字导出动态配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-config-ohos-guide#section19588121902)。
- 删除build-profile.json5中的signingConfigs字段，避免本地配置覆盖动态逻辑。
-- 团队协同规范。统一加密材料，团队内部共享同一份证书文件（.p12/.cer等），但各自通过DevEco Studio生成本地加密密码，避免跨设备加密结果差异。
+2. 当新增权限（需要ACL提权的）、新增设备的udid都需要管理该签名的人重签名一份上传，其他人有需要时再重新拉取代码。
+- **方式二**：使用自定义构建任务动态修改signingConfigs。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/PiB6U1lvT0W-_YtUhOK5pg/zh-cn_image_0000002628569276.png?HW-CC-KV=V1&HW-CC-Date=20260701T041019Z&HW-CC-Expire=86400&HW-CC-Sign=70A48DC0565A302B89D8AA3AB58F1BBDE8F6A373967DBE7B96404F96E454DEA0)
 
- 
+
+  这种方式可以将签名配置信息独立出来，git不冲突，每人也可使用自己的签名，流水线构建时使用专属签名即。
+
+  参考示例1：[动态修改签名和编译配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-config-ohos-sample#section973053620286)。
+
+  参考示例2：
+
+1. 签名信息外置化。创建独立配置文件，将material这部分签名配置从build-profile.json5中剥离。
+
+  新建external-signing-config.json（文件名可自定义），内容示例：[signingConfigs字段示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section153288223224)。
+
+  将此文件添加到.gitignore，避免敏感信息提交至版本库。
+
+2. 动态加载签名配置。修改hvigorfile.ts，通过自定义构建任务动态读取外部配置文件，在工程级hvigorfile.ts里引入外部json配置（如：external-signing-config.json）。可参考[在hvigorfile.ts中通过overrides关键字导出动态配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-config-ohos-guide#section19588121902)。
+
+  删除build-profile.json5中的signingConfigs字段，避免本地配置覆盖动态逻辑。
+
+3. 团队协同规范。统一加密材料，团队内部共享同一份证书文件（.p12/.cer等），但各自通过DevEco Studio生成本地加密密码，避免跨设备加密结果差异。
+
  
 - **方式三**：使用自定义构建任务调用签名工具进行命令行签名。准备好HAP签名工具hap_sign_tool.jar，使用命令行对HAP进行签名。（证书文件需自行准备好，参考方式二第3步）参考链接：[对HAP/APP进行签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-building-app#section103321051433)。
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如果忽略build-profile.json5文件，IDE又没有自动初始化build-profile.json5，会直接找不到ProjectStructure的选项。如果追踪build-profile.json5，那不同人在signingConfigs生成密钥时又会有改动。该如何处理？
  

@@ -4,27 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-173
 
-## ArkTS如何解析GeoJSON
- 
-
-
-##### 问题现象
+#### 问题现象
 
 GeoJSON为一个类型不固定结构，属性参数都是可变的。如何实现对GeoJSON的解析。
  
  
 
-##### 背景知识
+#### 背景知识
 
 GeoJSON：是一种对各种地理数据结构进行编码的格式，基于JavaScript对象表示法（JavaScript Object Notation，简称JSON）的地理空间信息数据交换格式。
  
  
 
-##### 解决方案
+#### 解决方案
 
 首先通过JSON.parse将GeoJSON从字符串解析出来，直接解析会报错所以需要解析为一个Record<string, string>对象。再通过递归遍历的方式对Record对象进行遍历，达到解析GeoJSON对象的目的。
  
-```text
+```json
 import { JSON } from '@kit.ArkTS';
 
 function geoJsonAnalysisHandler(geoJsonData: object) {
@@ -82,7 +78,7 @@ struct GeoJsonAnalysis {
     Column() {
       Button('点击测试')
         .onClick(() => {
-          let geoJsonData = JSON.parse(this.geoJsonString) as Record;
+          let geoJsonData = JSON.parse(this.geoJsonString) as Record<string, string>;
           geoJsonAnalysisHandler(geoJsonData);
         });
     }

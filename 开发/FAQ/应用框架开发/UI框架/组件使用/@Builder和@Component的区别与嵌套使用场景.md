@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1657
 
-## @Builder和@Component的区别与嵌套使用场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 场景一：如何使@Builder装饰的自定义构建函数内UI具备生命周期？
 - 场景二：@Builder装饰的自定义构建函数内嵌套@Component自定义组件时，如何传递参数？
@@ -16,7 +12,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 [@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)和[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)的区别总结如下：
   
@@ -32,10 +28,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：如何使@Builder装饰的自定义构建函数内UI具备生命周期？在@Builder函数中嵌套@Component修饰的自定义组件，可以依靠@Component组件的生命周期给PromptAction弹窗增加生命周期函数。
- 
+
+  
 ```text
 import { ComponentContent } from '@kit.ArkUI';
 
@@ -76,7 +73,8 @@ struct Child {
 }
 ```
  实现效果：
- 
+
+  
 ```text
 03-26 17:16:13.614   4363-4363     A03d00/JSAPP                    com.examp...05632611  I     执行了aboutToAppear
 03-26 17:16:13.615   4363-4363     A03d00/JSAPP                    com.examp...05632611  I     执行了onDidBuild
@@ -86,7 +84,8 @@ struct Child {
  
  
 - 场景二：@Builder装饰的自定义构建函数内嵌套@Component自定义组件时，如何传递参数？在V1版本可以通过@Prop接收，V2版本通过@Param接收参数，V1版本完整示例代码如下：
- 
+
+  
 ```text
 import { ComponentContent } from '@kit.ArkUI';
 
@@ -113,7 +112,7 @@ export function childCompTwo(name: string) {
 
 @Component
 struct ChildTwo {
-  @Prop name: string = ''; // 使用@Prop装饰器接收，@Link接收不满足使用限制会报错
+  @Prop name: string = ''; <em>// 使用@Prop装饰器接收，@Link接收不满足使用限制会报错</em>
 
   build() {
     Column() {
@@ -128,13 +127,14 @@ struct ChildTwo {
 }
 ```
  场景二实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/LnclSKPPSLu-Nz3MO5oeUQ/zh-cn_image_0000002628661002.png?HW-CC-KV=V1&HW-CC-Date=20260701T025625Z&HW-CC-Expire=86400&HW-CC-Sign=FD165E30A7E8C24FA70C62F21D9CE9758486704644272F2550FE038DB0CE1197)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/LnclSKPPSLu-Nz3MO5oeUQ/zh-cn_image_0000002628661002.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=B22BAC7A493F3E910114395552805D0F0997E0874B1B4E5DE3DA82B31B3D7466)
 
 
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：@BuilderParam能传递@Component组件吗？
  

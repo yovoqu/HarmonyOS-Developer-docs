@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1468
 
-## OverlayManager实现页面顶部固定公告
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在开发过程中，常需在当前组件上叠加显示遮罩文本或自定义内容（如提示标签、水印、操作浮层等）。虽然Stack组件可通过层级嵌套实现此类效果，但过度使用嵌套结构会导致组件树层级过深，增加渲染开销，影响页面性能。
  
@@ -16,31 +12,30 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 [浮层（OverlayManager）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-overlaymanager)用于在页面（Page）之上展示自定义的UI内容，位于[Dialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#tipsdialog)、[Popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popup)、[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)、[BindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#bindsheet)、[BindContentCover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-modal-transition#bindcontentcover)和[Toast](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opentoast18)等组件之下，展示范围为当前窗口的安全区内，适用于常驻悬浮等场景。
  
 可以通过使用UIContext中的[getOverlayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getoverlaymanager12)方法获取当前UI上下文关联的[OverlayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager)对象，再通过该对象调用对应方法。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/Jm8HERZsRoCvADBtKzei4Q/zh-cn_image_0000002658964567.png?HW-CC-KV=V1&HW-CC-Date=20260701T025713Z&HW-CC-Expire=86400&HW-CC-Sign=8C3F8A16EBE67E6EC334D0A4C34E1509BD14A581F00A0FE1319754C43E782B2E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/Jm8HERZsRoCvADBtKzei4Q/zh-cn_image_0000002658964567.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=FEA011FFE713AD445F35A360B8138492FAC8AFEFA44B3A5B3F995D87C3105399)
 
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用OverlayManager传入[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent#componentcontent-1)添加浮层实现在页面顶部固定公告，示例代码如下：
- 
-- 自定义Params类，实现公告效果时text与offset为必需。
+ 1. 自定义Params类，实现公告效果时text与offset为必需。
 ```text
 export class Params {
   text: string = '';
   offset: Position;
-  overlayContent: ComponentContent[];
+  overlayContent: ComponentContent<Params>[];
   overlayNode: OverlayManager;
 
-  constructor(text: string, overlayContent: ComponentContent[],
+  constructor(text: string, overlayContent: ComponentContent<Params>[],
     overlayNode: OverlayManager, offset: Position) {
     this.text = text;
     this.offset = offset;
@@ -50,7 +45,7 @@ export class Params {
 }
 ```
 
-- 自定义公告组件，此处可自定义固定公告样式，以及设置点击后跳转至详情页并隐藏ComponentContent。
+2. 自定义公告组件，此处可自定义固定公告样式，以及设置点击后跳转至详情页并隐藏ComponentContent。
 ```text
 @Builder
 export function OverlayNode(params: Params) {
@@ -92,25 +87,24 @@ export function OverlayNode(params: Params) {
 }
 ```
 
-- 在aboutToAppear()中初始化ComponentContent，并添加浮层节点。
+3. 在aboutToAppear()中初始化ComponentContent，并添加浮层节点。
 ```text
 aboutToAppear(): void {
   let componentContent = new ComponentContent(
-    this.uiContext, wrapBuilder(OverlayNode), this.params
+    this.uiContext, wrapBuilder<[Params]>(OverlayNode), this.params
   );
   this.overlayNode.addComponentContent(componentContent, 0);
   this.overlayContent.push(componentContent);
 }
 ```
 
-- 在aboutToDisappear()中销毁ComponentContent。
+4. 在aboutToDisappear()中销毁ComponentContent。
 ```text
 aboutToDisappear(): void {
   let componentContent = this.overlayContent.pop();
   this.overlayNode.removeComponentContent(componentContent);
 }
 ```
-
 
  
 完整示例参考如下：
@@ -121,10 +115,10 @@ import { ComponentContent, OverlayManager } from '@kit.ArkUI';
 export class Params {
   text: string = '';
   offset: Position;
-  overlayContent: ComponentContent[];
+  overlayContent: ComponentContent<Params>[];
   overlayNode: OverlayManager;
 
-  constructor(text: string, overlayContent: ComponentContent[],
+  constructor(text: string, overlayContent: ComponentContent<Params>[],
     overlayNode: OverlayManager, offset: Position) {
     this.text = text;
     this.offset = offset;
@@ -178,12 +172,12 @@ struct MainPage {
   componentOffset: Position = { x: 0, y: 1 };
   private uiContext: UIContext = this.getUIContext();
   private overlayNode: OverlayManager = this.uiContext.getOverlayManager();
-  private overlayContent: ComponentContent[] = [];
+  private overlayContent: ComponentContent<Params>[] = [];
   @Provide params: Params =
     new Params(this.text, this.overlayContent, this.overlayNode, this.componentOffset);
   aboutToAppear(): void {
     let componentContent = new ComponentContent(
-      this.uiContext, wrapBuilder(OverlayNode), this.params
+      this.uiContext, wrapBuilder<[Params]>(OverlayNode), this.params
     );
     this.overlayNode.addComponentContent(componentContent, 0);
     this.overlayContent.push(componentContent);
@@ -202,6 +196,6 @@ struct MainPage {
  
  
 
-##### 总结
+#### 总结
 
 想要实现固定公告、悬浮层可以使用overlay属性。使用OverlayManager实现文本浮层比[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack#子组件)组件嵌套方式少了一层Stack节点。使用[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)设置浮层时，浮层中的内容会在页面刷新时销毁并重新创建，存在一定的性能损耗，页面频繁刷新的场景推荐使用ComponentContent方式设置浮层。

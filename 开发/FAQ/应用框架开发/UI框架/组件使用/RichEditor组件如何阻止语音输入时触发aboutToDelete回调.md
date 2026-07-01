@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1339
 
-## RichEditor组件如何阻止语音输入时触发aboutToDelete回调
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用RichEditor富文本输入组件时，使用软键盘的语音输入功能，会触发aboutToDelete回调（用软键盘输入文字则不会回调aboutToDelete），如何阻止aboutToDelete回调？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-richeditor)是支持图文混排和文本交互式编辑的组件，通常用于响应用户对图文混合内容的输入操作，例如可以输入图文的评论区。具体用法参考：[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)。
  
@@ -27,13 +23,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 语音输入功能的实现机制为'先选中文本再替换'，因此系统必然会触发aboutToDelete回调。虽然无法阻止系统调用该回调，但可通过判断回调来源区分语音输入与手动删除操作，从而避免误拦截或错误处理。具体解决方案如下：
- 
-- 由于在语音输入过程中，光标位置不变，因此当前光标位置可以作为区分语音输入和手动Delete的判断条件。
-- 修改事件处理逻辑：当为语音输入时，不执行自定义内容。
-
+ 1. 由于在语音输入过程中，光标位置不变，因此当前光标位置可以作为区分语音输入和手动Delete的判断条件。
+2. 修改事件处理逻辑：当为语音输入时，不执行自定义内容。
  
 ```text
 @Entry
@@ -60,7 +54,7 @@ struct DisableRichEditor {
         .backgroundColor(Color.Yellow)
         .margin({ left: 10, right: 10 })
         .aboutToDelete((value: RichEditorDeleteValue) => {
-          // 在语音输入过程中，光标位置不变，所以可以以此作为判断条件，证明当前正在进行语音输入。
+        <em>  // 在语音输入过程中，光标位置不变，所以可以以此作为判断条件，证明当前正在进行语音输入。</em>
           if (this.controller.getCaretOffset() === value.offset) {
             return false;
           }

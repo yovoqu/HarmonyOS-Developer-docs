@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-70
 
-## 使用@ohos.request的request.agent上传文件，如何获得响应体
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用@ohos.request上传文件，参考[文档中的方式2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-upload-download)编码，无法拿到响应体。
  
@@ -16,59 +12,53 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 上传下载是应用常见功能，常见的办法有几种。
- 
-- 使用@ohos.request。链接：[@ohos.request (上传下载)-数据文件处理-ArkTS API-Basic Services Kit（基础服务）-基础功能-系统 - 华为HarmonyOS开发者](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request)。
-- 使用network kit。链接：[@ohos.net.http (数据请求)-ArkTS API-Network Kit（网络服务）-网络-系统 - 华为HarmonyOS开发者](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http)。
-- 使用RCP（推荐）链接：[上传下载文件-远场通信场景-Remote Communication Kit（远场通信服务）-网络-系统 - 华为HarmonyOS开发者](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-filetransferfast)。
-
+ 1. 使用@ohos.request。链接：[@ohos.request (上传下载)-数据文件处理-ArkTS API-Basic Services Kit（基础服务）-基础功能-系统 - 华为HarmonyOS开发者](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request)。
+2. 使用network kit。链接：[@ohos.net.http (数据请求)-ArkTS API-Network Kit（网络服务）-网络-系统 - 华为HarmonyOS开发者](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http)。
+3. 使用RCP（推荐）链接：[上传下载文件-远场通信场景-Remote Communication Kit（远场通信服务）-网络-系统 - 华为HarmonyOS开发者](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-filetransferfast)。
  
 当前，使用HTTP/HTTPS的端云通信的场景，推荐使用RCP。
  
  
 
-##### 问题定位
+#### 问题定位
 
 由于历史原因，@ohos.request的API设计容易让人困惑：
- 
-- 从命名上看，[onResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#onresponse12)的回调应该是在响应完全接受完毕后触发，实际上为接收完header后触发。
-- onResponse回调入参类型为HttpResponse，但是其中没有Body，仅有header。
-- 从命名上看，[onComplete](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#oncomplete--fail9)是在上传过程彻底完成后的回调，开发者在回调中应该重点关注完成的状态，以及执行必须在上传完毕后要执行的逻辑。
-
+ 1. 从命名上看，[onResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#onresponse12)的回调应该是在响应完全接受完毕后触发，实际上为接收完header后触发。
+2. onResponse回调入参类型为HttpResponse，但是其中没有Body，仅有header。
+3. 从命名上看，[onComplete](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#oncomplete--fail9)是在上传过程彻底完成后的回调，开发者在回调中应该重点关注完成的状态，以及执行必须在上传完毕后要执行的逻辑。
  
 既然onResponse的入参[HttpResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagenthttpresponse12)不含Body，查找文档确认在[onComplete](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#oncompleted10)的回调入参[Progress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentprogress10)中是否有响应体。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/jTT0K2ueSTuMuU9ARACMWw/zh-cn_image_0000002628774288.png?HW-CC-KV=V1&HW-CC-Date=20260701T025810Z&HW-CC-Expire=86400&HW-CC-Sign=22C003272EDF2A52CD34E9FB0E3D98B8FFAC22C15A740AC85B2DC78B435ABF56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/jTT0K2ueSTuMuU9ARACMWw/zh-cn_image_0000002628774288.png?HW-CC-KV=V1&HW-CC-Date=20260701T041417Z&HW-CC-Expire=86400&HW-CC-Sign=34F780AEE9437F058FA23536B112E58F8288271BC4B0BC9C946D47D63A14B001)
 
  
 确认Progress中有响应体。
  
  
 
-##### 分析结论
+#### 分析结论
 
 在onComplete的Progress对象的extra属性中，可以拿到响应体。
  
  
 
-##### 修改建议
+#### 修改建议
 
 经过验证，在onComplete的Progress对象的extra属性中，可以拿到响应体。代码可以参考[on('completed')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#oncompleted10)的示例，打印onComplete的Progress对象拿到extra属性。
  
  
 
-##### 总结
-
-- 使用@ohos.request的request.agent方式上传文件，在onResponse的回调的HttpResponse对象中拿响应头，在onComplete回调的Progress对象中拿响应体。
-- 建议使用RCP处理上传和下载：[上传下载文件-远场通信场景-Remote Communication Kit（远场通信服务）-网络-系统 - 华为HarmonyOS开发者](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-filetransferfast)。
-
+#### 总结
+1. 使用@ohos.request的request.agent方式上传文件，在onResponse的回调的HttpResponse对象中拿响应头，在onComplete回调的Progress对象中拿响应体。
+2. 建议使用RCP处理上传和下载：[上传下载文件-远场通信场景-Remote Communication Kit（远场通信服务）-网络-系统 - 华为HarmonyOS开发者](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-filetransferfast)。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：目前axios三方库是否支持文件上传。
  

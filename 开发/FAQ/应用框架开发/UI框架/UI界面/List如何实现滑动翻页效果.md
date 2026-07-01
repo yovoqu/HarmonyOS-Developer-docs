@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1158
 
-## List如何实现滑动翻页效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 List有无enablePaging类似的方法？Scroll嵌套List后的enablePaging会失效吗？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)列表包含一系列相同宽度的列表项。
 - [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
@@ -30,7 +26,7 @@ List有无enablePaging类似的方法？Scroll嵌套List后的enablePaging会失
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：在外层使用Scroll包裹List组件，用Scroll的enablePaging方法替代。**内层的List不能设置滚动方向上的组件长度**，否则enablePaging方法会失效。示例代码如下：此时List本身是不可滚动的，外层Scroll可以滚动。
 ```text
@@ -61,11 +57,11 @@ struct ScrollSolution {
             });
           }, (item: number) => item.toString());
         }
-        // 上下滚动，不能设置List的高度，否则Scroll的enablePaging会失效
+       <em> // 上下滚动，不能设置List的高度，否则Scroll的enablePaging会失效</em>
         .width('100%');
       }
-      .enablePaging(true) // 滑动翻页
-      .friction(0.8) // 设置摩擦系数
+      .enablePaging(true) <em>// 滑动翻页</em>
+      .friction(0.8)<em> // 设置摩擦系数</em>
       .width('100%')
       .height('100%');
     }.margin('20vp');
@@ -73,11 +69,12 @@ struct ScrollSolution {
 }
 ```
  效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/A9WV98ENTuK_FUzNlmC2tA/zh-cn_image_0000002628569770.png?HW-CC-KV=V1&HW-CC-Date=20260701T025706Z&HW-CC-Expire=86400&HW-CC-Sign=787C341BBA6CD1D3DF20E3E61D947289C14DC9286355EC993883CAB833F669F0)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/A9WV98ENTuK_FUzNlmC2tA/zh-cn_image_0000002628569770.png?HW-CC-KV=V1&HW-CC-Date=20260701T041139Z&HW-CC-Expire=86400&HW-CC-Sign=805B9FC5806C4EEC7599A8D0257732E2195B0E49DDBD51A3815DE4309FDFDE44)
 
 - **方案二**：自定义实现List翻页效果。通过onAreaChange获取List的高度，在onTouch回调中实现滑动翻页逻辑，手指按下时，获取当前List的滚动偏移量，手指抬起时，根据手指滑动方向决定向前或向后滚动一个List高度的距离。示例代码如下：翻页判定条件为手指滑动List的距离超过List高度的三分之一。
-```text
+```json
 @Entry
 @Component
 struct ListSolution {
@@ -86,7 +83,7 @@ struct ListSolution {
   @State centerIndex: number = 0;
   @State listHeight: number = 0;
   @State listWidth: number = 0;
-  @State listOffset: number = 0; // List偏移量
+  @State listOffset: number = 0; <em>// List偏移量</em>
 
   build() {
     Column() {
@@ -103,7 +100,7 @@ struct ListSolution {
           }
           .onClick(() => {
             this.centerIndex = index;
-            // 点击某一项，此项移动至屏幕中间
+          <em>  // 点击某一项，此项移动至屏幕中间</em>
             this.scroller.scrollToIndex(this.centerIndex, true, ScrollAlign.CENTER);
           });
         }, (item: number) => item.toString());
@@ -116,14 +113,36 @@ struct ListSolution {
       })
       .onTouch((event: TouchEvent) => {
         if (event.type === TouchType.Down) {
-          // 记录手指按下时的偏移量
+        <em>  // 记录手指按下时的偏移量</em>
           this.listOffset = this.scroller.currentOffset().yOffset;
           console.info(`this.currentOffset ${this.listOffset}`);
         }
         if (event.type === TouchType.Up || event.type === TouchType.Cancel) {
-          // 滑动距离超过页面三分之一则整页滚动
+        <em>  // 滑动距离超过页面三分之一则整页滚动</em>
           let curOffset: number = this.scroller.currentOffset().yOffset - this.listOffset;
           let targetOffset = this.listOffset;
-          if (Math.abs(curOffset)  0) {
+          if (Math.abs(curOffset) < this.listHeight / 3) {
+            targetOffset = this.listOffset;
+          } else if (curOffset > 0) {
             targetOffset = this.listOffset + this.listHeight;
-          } else if (curOffset
+          } else if (curOffset < 0) {
+            targetOffset = this.listOffset - this.listHeight;
+          }
+          console.info(`targetOffset ${targetOffset} listOffset ${curOffset} `);
+          this.scroller.scrollTo({
+            xOffset: 0,
+            yOffset: targetOffset,
+            animation: true
+          });
+        }
+      })
+      .height('100%')
+      .width('100%');
+    }.margin('20vp');
+  }
+}
+```
+ 效果如下：实现整页滑动以及点击Item自动移动至屏幕中间：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/4dnMsawLQ4uMuGoLTIDynw/zh-cn_image_0000002628409866.png?HW-CC-KV=V1&HW-CC-Date=20260701T041139Z&HW-CC-Expire=86400&HW-CC-Sign=BF74A309E83BC07879CB9A6B584B06C4DCD2203AB0F071BD5B5D3F3C3D66EA2F)

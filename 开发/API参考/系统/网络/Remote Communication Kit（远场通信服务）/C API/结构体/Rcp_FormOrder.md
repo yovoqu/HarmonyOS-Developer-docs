@@ -3,14 +3,11 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___form_order
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## Rcp_FormOrder
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表单发送顺序。key数组的顺序代表表单顺序。
  
@@ -22,11 +19,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,11 +37,15 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]keys
+#### keys
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char * const * Rcp_FormOrder::keys
@@ -52,7 +57,9 @@ const char * const * Rcp_FormOrder::keys
  
   
 
-##### [h2]size
+#### size
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 size_t Rcp_FormOrder::size

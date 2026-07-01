@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-corevisionkit-7001
 
-## Core Vision Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：declare namespace imageSuperResolution 差异内容：declare namespace imageSuperResolution | api/@hms.ai.vision.imageSuperResolution.d.ts |

@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___quic_ipaddress
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## Rcp_QuicIpAddress
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于存储IP地址的数据结构。
  
@@ -22,11 +19,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,11 +36,15 @@
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]ip
+#### ip
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char Rcp_QuicIpAddress::ip[RCP_QUIC_IP_MAX_LEN]

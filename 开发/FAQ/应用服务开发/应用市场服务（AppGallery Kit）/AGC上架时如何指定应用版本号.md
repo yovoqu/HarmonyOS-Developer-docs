@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-40
 
-## AGC上架时如何指定应用版本号
- 
-
-
-##### 问题现象
+#### 问题现象
 
 AGC上架时应该怎样实现指定应用版本号？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [发布HarmonyOS应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-0000002271695230)：完成HarmonyOS应用开发、调试与测试后，开发者即可在AGC正式提交应用上架申请。HarmonyOS应用审核通过上架后，用户可在华为应用市场搜索到该HarmonyOS应用。发布应用时需要配置应用信息、上传软件包、配置版本信息等操作。
 - [维护应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-0000002270829401)：包括[更新应用信息](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-update-0000002271413697)、[升级版本](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-upgrade-0000002236494386)、[回退版本](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-rollback-0000002236334578)、[分阶段发布](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-phased-release-0000002271493785)、[分阶段发布（7天内自动更新）](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-phased-release-7day-0000002279615726)、关联其他平台应用、[下架应用/元服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-remove-0000002274058145)、[删除应用/元服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-delete-0000002271413701)、[查看版本历史记录](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-version-history-0000002236334582)等九种使用场景。
@@ -23,7 +19,7 @@ AGC上架时应该怎样实现指定应用版本号？
  
  
 
-##### 解决方案
+#### 解决方案
 
 在HarmonyOS开发中，应用版本号的起点通常是从1.0.0开始。这是因为从1.0.0作为起始版本号可以帮助开发者明确标识应用的初始发布版本。在后续的版本更新中，版本号可以根据需要增加，以反映新的功能添加、性能优化或bug修复。
  
@@ -31,7 +27,7 @@ AGC上架时应该怎样实现指定应用版本号？
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：app.json5里的versionCode有没有什么限制？
  

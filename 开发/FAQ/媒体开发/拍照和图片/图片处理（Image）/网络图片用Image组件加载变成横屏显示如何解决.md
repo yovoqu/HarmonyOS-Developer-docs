@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-33
 
-## 网络图片用Image组件加载变成横屏显示如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用HarmonyOS系统的Image组件加载部分网络图片时，图片会变成横屏展示，问题代码和截图如下，该如何解决？
  
@@ -21,22 +17,19 @@ Image('图片地址')
  
  
 
-##### 背景知识
-
-- Exif(Exchangeable image file format 可交换图像文件格式)，是一种图像文件格式，EXIF可以附加于JPEG、TIFF、RIFF、RAW等文件之中，为其增加有关数码相机拍摄信息的内容和索引图或图像处理软件的版本信息。
-- [ImageSource.getImageProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#getimageproperty11)：可以通过该接口获取图片中给定索引处图像的指定属性键的值，仅支持JPEG、PNG和HEIF（不同硬件设备支持情况不同）文件，且需要包含Exif信息。其中可以通过supportedFormats属性查询是否支持HEIF格式的Exif读写。
-
+#### 背景知识
+1. Exif(Exchangeable image file format 可交换图像文件格式)，是一种图像文件格式，EXIF可以附加于JPEG、TIFF、RIFF、RAW等文件之中，为其增加有关数码相机拍摄信息的内容和索引图或图像处理软件的版本信息。
+2. [ImageSource.getImageProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#getimageproperty11)：可以通过该接口获取图片中给定索引处图像的指定属性键的值，仅支持JPEG、PNG和HEIF（不同硬件设备支持情况不同）文件，且需要包含Exif信息。其中可以通过supportedFormats属性查询是否支持HEIF格式的Exif读写。
  
  
 
-##### 解决方案
+#### 解决方案
 
 该问题的根本原因是图片里的Exif信息存在旋转90°的信息，HarmonyOS的Image组件会读取图片中的信息并旋转。如果不想旋转需要应用自行进行适配，目前可尝试以下方案适配：
- 
-- 由于Image组件无法拿到图片数据，需要先通过网络请求获取图片，设置传输数据类型expectDataType为arraybuffer，然后使用[createImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource9)转换成image.ImageSource对象；
-- 获取图片Exif信息，可以通过getImageProperty接口 (PropertyKey传入"Orientation"）获取旋转信息。通过判断图片是否要旋转，并将不同返回值的旋转角度返回给Image组件的[orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#orientation14)属性进行旋转或镜像；
+ 1. 由于Image组件无法拿到图片数据，需要先通过网络请求获取图片，设置传输数据类型expectDataType为arraybuffer，然后使用[createImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource9)转换成image.ImageSource对象；
+2. 获取图片Exif信息，可以通过getImageProperty接口 (PropertyKey传入"Orientation"）获取旋转信息。通过判断图片是否要旋转，并将不同返回值的旋转角度返回给Image组件的[orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#orientation14)属性进行旋转或镜像；
 ```text
-// 根据获取到的EXIF方向信息，转换ImageRotateOrientation，使图片显示为正确的方向。
+<em>// 根据获取到的EXIF方向信息，转换ImageRotateOrientation，使图片显示为正确的方向。</em>
 getOrientation(orientation: string): ImageRotateOrientation {
   if (orientation == 'Top-right') {
     return ImageRotateOrientation.UP_MIRRORED;
@@ -60,7 +53,7 @@ getOrientation(orientation: string): ImageRotateOrientation {
 }
 ```
 
-- 若需要将网络图片保存至本地使用，可以下载网络图片获取图片数据后，通过imageSource.createPixelMap接口，转成PixelMap对象，最后将PixelMap对象的图片给到Image组件。
+3. 若需要将网络图片保存至本地使用，可以下载网络图片获取图片数据后，通过imageSource.createPixelMap接口，转成PixelMap对象，最后将PixelMap对象的图片给到Image组件。
 ```text
 requestImageUrl(url: string) {
   http.createHttp().request(url,
@@ -92,7 +85,8 @@ requestImageUrl(url: string) {
 }
 ```
  也可以通过downloadFile方法将图片下载到本地后，创建新PixelMap进行展示。
- 
+
+  
 ```text
 downloadImage() {
   let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
@@ -127,7 +121,8 @@ downloadImage() {
 }
 ```
  完整代码如下：
- 
+
+  
 ```text
 import { http } from '@kit.NetworkKit';
 import { BusinessError, request } from '@kit.BasicServicesKit';
@@ -141,9 +136,9 @@ struct CorrectDisplayOfImage {
   @State rotateOrientation: ImageRotateOrientation = ImageRotateOrientation.UP;
   @State pixelMapImg1: PixelMap | undefined = undefined;
   @State pixelMapImg2: PixelMap | undefined = undefined;
-  imageUrl: string = ''; // 请填写一个具体的网络图片地址
+  imageUrl: string = '';<em> // 请填写一个具体的网络图片地址</em>
 
-  // 根据获取到的EXIF方向信息，转换ImageRotateOrientation，使图片显示为正确的方向。
+ <em> // 根据获取到的EXIF方向信息，转换ImageRotateOrientation，使图片显示为正确的方向。</em>
   getOrientation(orientation: string): ImageRotateOrientation {
     if (orientation == 'Top-right') {
       return ImageRotateOrientation.UP_MIRRORED;
@@ -239,7 +234,7 @@ struct CorrectDisplayOfImage {
       Row() {
         Button('solution1')
           .onClick(() => {
-            this.requestImageUrl(this.imageUrl); // 请填写一个具体的网络图片地址
+            this.requestImageUrl(this.imageUrl);<em> // 请填写一个具体的网络图片地址</em>
           });
         Image(this.pixelMapImg1)
           .objectFit(ImageFit.Contain)
@@ -262,10 +257,9 @@ struct CorrectDisplayOfImage {
 }
 ```
 
-
  
  
 
-##### 总结
+#### 总结
 
 Image在加载图片时受图片的Exif信息的影响，可能会和预期不符，此时需要先读取并分析图片的Exif信息，然后再用正确的属性配置加载图片。

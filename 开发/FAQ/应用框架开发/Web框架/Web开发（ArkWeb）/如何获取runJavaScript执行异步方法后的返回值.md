@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-146
 
-## 如何获取runJavaScript执行异步方法后的返回值
- 
-
-
-##### 问题现象
+#### 问题现象
 
 官方文档中提到[runJavaScript](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)执行异步方法无法获取返回值，该如何解决这个问题？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/B4XjQ3oaQU-T9DFx9Z_K_A/zh-cn_image_0000002659138407.png?HW-CC-KV=V1&HW-CC-Date=20260701T025741Z&HW-CC-Expire=86400&HW-CC-Sign=2B11AC06FAFC53CB2615FBBD937DB98F74E4D2BE03C89B883D00AE425B78DBFD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/B4XjQ3oaQU-T9DFx9Z_K_A/zh-cn_image_0000002659138407.png?HW-CC-KV=V1&HW-CC-Date=20260701T041339Z&HW-CC-Expire=86400&HW-CC-Sign=B04428E8711B64CDBA9F04C3DA1F1810B81945987AD602DCB506CA84EF0EC81B)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [应用侧调用前端页面函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-in-app-frontend-page-function-invoking)：应用侧可以通过[runJavaScript()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)和[runJavaScriptExt()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascriptext10)方法，来调用前端页面的JavaScript相关函数。
 - [前端页面调用应用侧函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-in-page-app-function-invoking)：注册应用侧代码有两种方式，一种在Web组件初始化调用，使用[javaScriptProxy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptproxy)接口；另外一种在Web组件初始化完成后调用，使用[registerJavaScriptProxy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#registerjavascriptproxy)接口。两种方式都需要和[deleteJavaScriptRegister](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#deletejavascriptregister)接口配合使用，防止内存泄漏。
@@ -26,16 +22,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 runJavaScript执行异步方法无法获取返回值的原因如下：
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/BsJsLufXT-ahxaFoVQHMDQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025741Z&HW-CC-Expire=86400&HW-CC-Sign=0ACC53C21860E73A357567BF7FEAC0B18B2092C2CF2256BEA99D35F15C13A317)
- 
-
-runJavaScript本身以异步方式执行，可视为一个异步方法，在当前调用机制下，尚无可行方案直接获取执行异步方法的返回值。
- 
+> [!NOTE]
+> runJavaScript本身以异步方式执行，可视为一个异步方法，在当前调用机制下，尚无可行方案直接获取执行异步方法的返回值。
 
  
 因此我们只能从其他角度加以考虑。
@@ -48,16 +40,18 @@ runJavaScript本身以异步方式执行，可视为一个异步方法，在当�
  
 - index.html示例代码：
 ```text
-
-
-    
-    
-    title
-
-
-Web端页面
-
-
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>title</title>
+</head>
+<body>
+<p>Web端页面</p>
+</body>
+<script>
     function generateAsyncResult(a, b, c) {
        return new Promise((resolve) => {
            setTimeout(() => {
@@ -69,8 +63,8 @@ Web端页面
       const result = await generateAsyncResult(a, b, c)
       javaScriptProxy.syncCallback(result)
     }
-
-
+</script>
+</html>
 ```
 
 - Index.ets示例代码：
@@ -138,6 +132,6 @@ struct Index {
  
  
 
-##### 总结
+#### 总结
 
 由于[runJavaScript](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)调用前端异步方法时无法直接获取其返回结果，可以通过间接方式：由前端在异步结果获取完成后，主动调用应用侧方法，将结果作为参数传递至应用侧。

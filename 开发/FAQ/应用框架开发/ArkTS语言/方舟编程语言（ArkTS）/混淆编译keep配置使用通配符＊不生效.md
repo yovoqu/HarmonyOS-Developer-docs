@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-163
 
-## 混淆编译keep配置使用通配符*不生效
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开启混淆编译后，使用如下混淆配置，生成release包发现混淆未生效。
  
@@ -27,7 +23,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [-keep-file-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep-file-name)指定要保留的文件/文件夹的名称（不需要写文件后缀），支持使用名称类通配符。[-keep](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep)保留指定相对路径filepath中的所有名称（例如变量名、类名、属性名等）不被混淆，./与../为相对于混淆配置文件所在目录，支持使用路径类通配符。
 - [名称类通配符和路径类通配符](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项支持的通配符)：
@@ -43,46 +39,48 @@
  
  
 
-##### 问题定位
+#### 问题定位
+1. [开启源码混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#开启源码混淆)后，分别不使用保留选项（-keep-file-name和-keep）和使用保留选项，使用release模式构建hap包后，[查看混淆效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#查看混淆效果)得到以下结果：不使用保留选项：
 
-- [开启源码混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#开启源码混淆)后，分别不使用保留选项（-keep-file-name和-keep）和使用保留选项，使用release模式构建hap包后，[查看混淆效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#查看混淆效果)得到以下结果：不使用保留选项：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/SbXMDH3BS4SiPkLcJsJntw/zh-cn_image_0000002659138341.png?HW-CC-KV=V1&HW-CC-Date=20260701T025519Z&HW-CC-Expire=86400&HW-CC-Sign=94B73A43D2FA10BB90CBE68CD79418A616203FFE3F1B7C6702AE1CB9B4003A2B)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/SbXMDH3BS4SiPkLcJsJntw/zh-cn_image_0000002659138341.png?HW-CC-KV=V1&HW-CC-Date=20260701T041132Z&HW-CC-Expire=86400&HW-CC-Sign=FFE10B2E83A6F09898368B09320733F8CA81499A83C106D9711E2BD34128356E)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/S3F5FqMVQoafg092VkfdOA/zh-cn_image_0000002629058990.png?HW-CC-KV=V1&HW-CC-Date=20260701T025519Z&HW-CC-Expire=86400&HW-CC-Sign=3AEC61621F28BA9F5C7A5D6D2B13B029E747D074F1443E38DEC3AA4921BD717E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/S3F5FqMVQoafg092VkfdOA/zh-cn_image_0000002629058990.png?HW-CC-KV=V1&HW-CC-Date=20260701T041132Z&HW-CC-Expire=86400&HW-CC-Sign=C793315392AE3D93CDE8964C71A55ECE201F0F1FBEE3894B22E46A2B0E34539C)
 
- 使用保留选项：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/Poqr0JbAQiipLa4toCM-6Q/zh-cn_image_0000002628899072.png?HW-CC-KV=V1&HW-CC-Date=20260701T025519Z&HW-CC-Expire=86400&HW-CC-Sign=62232EC16693568C8588676257C6831F304D4BF6416361CAF985669EEC4B7BBB)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/2s-p-WVeTtCEOV2Q6ldWcw/zh-cn_image_0000002659258283.png?HW-CC-KV=V1&HW-CC-Date=20260701T025519Z&HW-CC-Expire=86400&HW-CC-Sign=AE89D7BA1C3EA33DDC74B8CD43F21F972DCCA6DF9E7E0092FBF0FC0863AAAFFF)
+  使用保留选项：
 
- 对比两者，使用保留选项后，文件夹及文件名被混淆，而变量名、类名、属性名未被混淆，即-keep生效，而-keep-file-name未生效。
-- -keep-file-name指定要保留的文件/文件夹的名称，将-keep-file-name配置修改为名称配置而非路径配置，即将路径../src/main/ets/model/**修改为文件夹名称model和文件名称TestModel：
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/Poqr0JbAQiipLa4toCM-6Q/zh-cn_image_0000002628899072.png?HW-CC-KV=V1&HW-CC-Date=20260701T041132Z&HW-CC-Expire=86400&HW-CC-Sign=9CAAC2AF94A14C383343C4F635437CC8A572350ABF464D3B483F9E705EAF6635)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/2s-p-WVeTtCEOV2Q6ldWcw/zh-cn_image_0000002659258283.png?HW-CC-KV=V1&HW-CC-Date=20260701T041132Z&HW-CC-Expire=86400&HW-CC-Sign=88AAB5793743E9A676337B16442E5D374A9C8E452C9BF696BEE58F6738E066B7)
+
+
+  对比两者，使用保留选项后，文件夹及文件名被混淆，而变量名、类名、属性名未被混淆，即-keep生效，而-keep-file-name未生效。
+2. -keep-file-name指定要保留的文件/文件夹的名称，将-keep-file-name配置修改为名称配置而非路径配置，即将路径../src/main/ets/model/**修改为文件夹名称model和文件名称TestModel：
 ```text
 -keep-file-name
 model
 TestModel
 ```
 
-- 考虑到当文件夹中文件较多时，依次列出所有文件易错且不易读，需要使用通配符。-keep-file-name支持名称类通配符，如使用*Model匹配TestModel等任意以Model结尾的文件：
+3. 考虑到当文件夹中文件较多时，依次列出所有文件易错且不易读，需要使用通配符。-keep-file-name支持名称类通配符，如使用*Model匹配TestModel等任意以Model结尾的文件：
 ```text
 -keep-file-name
 model
 *Model
 ```
 
-
  
  
 
-##### 分析结论
+#### 分析结论
 
 -keep-file-name指定要保留的文件/文件夹的名称，支持使用名称类通配符，不支持相对路径的写法，不支持使用路径类通配符。
  
  
 
-##### 修改建议
+#### 修改建议
 
 根据问题现象中的混淆配置，保留选项的目的是保留src/main/ets/model文件夹中的所有名称，包括文件名、类名、变量名、属性名等不被混淆。
  
@@ -104,7 +102,7 @@ model
  
  
 
-##### 总结
+#### 总结
 
 [保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)写法总结：
   

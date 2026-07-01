@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-108
 
-## socket.TCPSocketServer订阅'connect'事件，off掉之后，重新订阅不生效
- 
-
-
-##### 问题现象
+#### 问题现象
 
 socket.TCPSocketServer订阅'connect'事件，off掉之后，重新订阅，回调方法不生效。问题代码如下：
  
 ```text
-// 开启serverSocket监听
+<em>// 开启serverSocket监听</em>
 const tcpServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
 let bindAddr: socket.NetAddress = {
   address: '::',
   port: 1111,
   family: 25
 };
-// 设置TCPSocketServer连接的其他属性
+<em>// 设置TCPSocketServer连接的其他属性</em>
 const options: socket.TCPExtraOptions = {
   keepAlive: true,
 };
@@ -31,20 +27,20 @@ tcpServer.listen(bindAddr).then(() => {
   console.error(TAG, `server listen error : ${err.message}`);
 });
 
-// 订阅TCPSocketServer的事件
+<em>// 订阅TCPSocketServer的事件</em>
 const connectCallBack = () => {
   console.info('test');
 };
 tcpServer.on('connect', connectCallBack);
 
 tcpServer.off('connect', connectCallBack);
-// 回调不生效了
+<em>// 回调不生效了</em>
 tcpServer.on('connect', connectCallBack);
 ```
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TCPSocketServer.listen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#listen10)：绑定IP地址和端口，端口可以指定或由系统随机分配。监听并接受与此套接字建立的TCPSocket连接。
 - [TCPSocketServer.on('connect')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#onconnect10)：订阅TCPSocketServer的连接事件。
@@ -52,11 +48,11 @@ tcpServer.on('connect', connectCallBack);
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据官网文档[on('connect')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#onconnect10)说明，listen方法调用成功后，才可调用此方法。因此on('connect')重新开启监听之前，重新调用listen并成功即可：
  
-```text
+```json
 import { socket } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { util } from '@kit.ArkTS';
@@ -206,14 +202,14 @@ struct tcpServerTest {
   }
 
   start() {
- // 将url替换成有效的链接资源，例如使用本地环回地址
+ <em>// 将url替换成有效的链接资源，例如使用本地环回地址</em>
     this.webUrl = 'xxx' + this.port.toString();
     let listenAddr: socket.NetAddress = {
       address: '0.0.0.0',
       port: this.port,
       family: 1
     };
-    // listen方法调用成功后，调用on('connect')开启监听
+    <em>// listen方法调用成功后，调用on('connect')开启监听</em>
     tcpServer.listen(listenAddr, (err: BusinessError) => {
       if (err) {
         this.msgHistory += 'listen fail \r\n';
@@ -232,17 +228,17 @@ struct tcpServerTest {
       });
     });
   }
-  // 关闭监听
+  <em>// 关闭监听</em>
   stop() {
     tcpServer.off('connect');
     console.info('close listen connect');
   }
 }
 
-//构造给客户端的应答内容
+<em>//构造给客户端的应答内容</em>
 function buildRespString(content: string) {
   let result: string = '';
-  let bodyContent = `HTTP服务器模拟浏览器发送的请求信息${content}`;
+  let bodyContent = `<html><head><title>HTTP服务器模拟</title></head><body><h1>浏览器发送的请求信息</h1><pre><h2>${content}</h2></pre></body></html>`;
   let textEncoder = new util.TextEncoder();
   let contentBuf = textEncoder.encodeInto(bodyContent);
   result += `HTTP/1.1 200 OK \r\nContent-Type: text/html; charset=utf-8 \r\nContent-Length: ${contentBuf.length} \r\n\r\n${bodyContent}`;

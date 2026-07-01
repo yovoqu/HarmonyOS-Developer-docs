@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-calendar-8
 
-## 如何使用editEvent接口新建日程
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何在系统日历中使用editEvent接口添加日程？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [日程管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/calendarmanager-event-developer)即对这些事件、活动进行规划和控制，详细接口及使用请参考[@ohos.calendarManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-calendarmanager)。
 - editEvent接口通过跳转到日程创建界面创建，入参Event不填日程id，使用Promise异步回调。
@@ -22,11 +18,10 @@
  
  
 
-##### 解决方案
-
-- 申请权限：申请ohos.permission.READ_CALENDAR和ohos.permission.WRITE_CALENDAR权限。
-- 创建全局共享对象：使用日程管理器对象calendarMgr对日历账户进行相关管理操作。
-```text
+#### 解决方案
+1. 申请权限：申请ohos.permission.READ_CALENDAR和ohos.permission.WRITE_CALENDAR权限。
+2. 创建全局共享对象：使用日程管理器对象calendarMgr对日历账户进行相关管理操作。
+```json
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 import {
@@ -75,7 +70,7 @@ export default class EntryAbility extends UIAbility {
       hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
     });
 
-    // 将上下文存储到AppGlobal中
+  <em>  // 将上下文存储到AppGlobal中</em>
     AppGlobal.mContext = this.context;
     const permissions: Permissions[] = ['ohos.permission.READ_CALENDAR', 'ohos.permission.WRITE_CALENDAR'];
     let atManager = abilityAccessCtrl.createAtManager();
@@ -83,7 +78,7 @@ export default class EntryAbility extends UIAbility {
     atManager.requestPermissionsFromUser(this.context, permissions).then((result: PermissionRequestResult) => {
       let resultStr = JSON.stringify(result);
       console.info(`get Permission success, result: ${resultStr}`);
-      // 将calendarManager存储到AppGlobal中
+    <em>  // 将calendarManager存储到AppGlobal中</em>
       AppGlobal.calendarMgr = calendarManager.getCalendarManager(this.context);
     }).catch((error: BusinessError) => {
       console.error(`get Permission error, error. Code: ${error.code}, message: ${error.message}`);
@@ -104,7 +99,7 @@ export default class EntryAbility extends UIAbility {
 };
 ```
 
-- 在获取到calendarMgr对象后，可通过[editEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-calendarmanager#editevent12)接口创建日程。
+3. 在获取到calendarMgr对象后，可通过[editEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-calendarmanager#editevent12)接口创建日程。
 ```text
 import { calendarManager } from '@kit.CalendarKit';
 import { AppGlobal } from '../entryability/EntryAbility';
@@ -164,11 +159,10 @@ struct Index {
 }
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：新增了多条日程，并且回调都是成功的，但系统日历中只显示了一条。
  

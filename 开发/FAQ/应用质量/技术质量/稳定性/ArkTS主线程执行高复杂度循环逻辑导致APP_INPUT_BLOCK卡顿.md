@@ -4,32 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-76
 
-## ArkTS主线程执行高复杂度循环逻辑导致APP_INPUT_BLOCK卡顿
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用在使用过程中出现界面无响应的情况，点击屏幕无法触发任何操作。
  
  
 
-##### 背景知识
+#### 背景知识
 
 在HarmonyOS应用开发中，主线程（UI线程）主要负责UI的构建、刷新以及响应用户的输入事件（如点击、滑动）。
- 
-- **APP_INPUT_BLOCK**：当主线程被某个耗时任务长时间占用（通常超过5秒），导致输入事件（Input Event）积压在队列中无法被及时处理，系统会判定为输入阻塞故障。
-- **ArkTS容器性能**：ArkTS提供了丰富的数组操作方法（如forEach、findIndex等）。如果开发者在处理大量数据时，在主线程中使用嵌套循环（例如在forEach循环内部再次调用findIndex），会导致算法的时间复杂度呈指数级上升（O(N²)）。当数据量达到一定规模时，计算耗时会瞬间阻塞主线程。
-
+ 1. **APP_INPUT_BLOCK**：当主线程被某个耗时任务长时间占用（通常超过5秒），导致输入事件（Input Event）积压在队列中无法被及时处理，系统会判定为输入阻塞故障。
+2. **ArkTS容器性能**：ArkTS提供了丰富的数组操作方法（如forEach、findIndex等）。如果开发者在处理大量数据时，在主线程中使用嵌套循环（例如在forEach循环内部再次调用findIndex），会导致算法的时间复杂度呈指数级上升（O(N²)）。当数据量达到一定规模时，计算耗时会瞬间阻塞主线程。
  
  
 
-##### 问题定位
+#### 问题定位
 
 分析appfreeze日志可以按以下步骤进行：
- 
-- **确认故障类型与时间**：在日志头部确认EVENTNAME为APP_INPUT_BLOCK，并记录TIMESTAMP（例如：2026/01/06-17:45:08）。
- 
+ 1. **确认故障类型与时间**：在日志头部确认EVENTNAME为APP_INPUT_BLOCK，并记录TIMESTAMP（例如：2026/01/06-17:45:08）。
+
+  
 ```text
 DOMAIN = AAFWK
 EVENTNAME = APP_INPUT_BLOCK
@@ -41,34 +35,27 @@ PACKAGE_NAME = com.jd.app.reader.hos
 PROCESS_NAME = com.jd.app.reader.hos
 ```
 
-- **检查主线程当前任务**：
-查找Main handler dump部分，观察Current Running的任务信息。
-**输入**：查看start at时间与故障上报时间Fault time的差值。
-- **输出**：如果差值超过5秒，且task name为uv_io_cb（通常代表JS/ArkTS的回调任务），说明主线程正被该任务阻塞。
+2. **检查主线程当前任务**：
 
- 
- 
+  查找Main handler dump部分，观察Current Running的任务信息。
+**输入**：查看start at时间与故障上报时间Fault time的差值。
+3. **输出**：如果差值超过5秒，且task name为uv_io_cb（通常代表JS/ArkTS的回调任务），说明主线程正被该任务阻塞。
+4. **分析堆栈信息（关键步骤）**：查找Catche stack trace部分，重点关注主线程（Tid与Pid相同）的堆栈。
+
+  例如日志中显示：
+
+  
 ```text
-Current Running: start at 2026-01-06 17:44:59.785...
-Fault time: 2026-01-06 17:45:05...
-// 耗时约6秒
-Current Running: start at 2026-01-06 17:44:59.785, Event { send thread = 20580, send time = 2026-01-06 17:44:59.778, handle time = 2026-01-06 17:44:59.778, trigger time = 2026-01-06 17:44:59.785, task name = uv_io_cb, caller = [ohos_js_environment_impl.cpp(PostTaskToHandler:70)] }
-```
- - **分析堆栈信息（关键步骤）**：查找Catche stack trace部分，重点关注主线程（Tid与Pid相同）的堆栈。
- 例如日志中显示：
- 
-```ts
 #01 at anonymous (bookshelf|src/main/ets/BookShelfModule.ts:766:1)
-#02 pc ... BuiltinStub_ArrayFindIndexStwCopy... // 正在执行查找
+#02 pc ... BuiltinStub_ArrayFindIndexStwCopy... <em>// 正在执行查找</em>
 #04 at anonymous (bookshelf|src/main/ets/BookShelfModule.ts:765:42)
-#05 pc ... BuiltinStub_ArrayForEachStwCopy...   // 正在执行遍历
+#05 pc ... BuiltinStub_ArrayForEachStwCopy...  <em> // 正在执行遍历</em>
 ```
  这表明在BookShelfModule.ts的第764-766行，存在forEach循环内部嵌套findIndex的操作。
-
  
  
 
-##### 分析结论
+#### 分析结论
 
 导致应用出现APP_INPUT_BLOCK的原因是主线程执行了高复杂度的ArkTS业务逻辑。
  
@@ -76,6 +63,6 @@ Current Running: start at 2026-01-06 17:44:59.785, Event { send thread = 20580, 
  
  
 
-##### 修改建议
+#### 修改建议
 
 建议通过优化算法降低时间复杂度，或者将耗时任务移至后台线程处理。

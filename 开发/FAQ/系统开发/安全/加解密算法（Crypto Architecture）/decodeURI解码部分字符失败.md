@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-41
 
-## decodeURI解码部分字符失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 decodeURI解码部分字符失败。
  
@@ -38,13 +34,13 @@ struct FileDemo {
  
 日志信息参考如下：
  
-```text
+```bash
 05-30 13:47:10.873   21059-21059   A03D00/com.cnk...ication/JSAPP  com.cnki....lication  I     decodeURI: resource%3A%2F%2Frawfile%2Fsdym%2Findex.html%23%2Fpages%2Fcommon%2FwebviewH5
 ```
  
  
 
-##### 背景知识
+#### 背景知识
 
 - decodeURI(encodedURI)：其中encodedURI参数：完整的编码统一资源标识符，返回值：一个新字符串，表示给定编码的统一资源标识符（URI）的未编码版本。
 - decodeURIComponent(encodedURI)使用与decodeURI()中描述的相同的解码算法。它解码所有转义序列，包括那些不是由encodeURIComponent创建的转义序列，例如：.-.!~*'()。
@@ -52,7 +48,7 @@ struct FileDemo {
  
  
 
-##### 解决方案
+#### 解决方案
 
 decodeURI()假定输入是完整的URI，因此它不会解码属于URI语法的字符，建议使用decodeURIComponent()方法。
  

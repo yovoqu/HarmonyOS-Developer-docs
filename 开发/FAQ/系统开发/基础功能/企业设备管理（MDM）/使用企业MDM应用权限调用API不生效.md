@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mdm-1
 
-## 使用企业MDM应用权限调用API不生效
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在调试企业MDM权限时，发现使用@ohos.enterprise.applicationManager模块中的applicationManager.addDisallowedRunningBundlesSync接口将应用添加到黑名单时没有生效。权限和黑名单的包名都是正确的，运行时也没有报错，这是什么原因？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [applicationManager.addDisallowedRunningBundlesSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-applicationmanager#applicationmanageradddisallowedrunningbundlessync)接口功能：添加应用至应用运行禁止名单，添加至禁止名单的应用不允许在当前/指定用户下运行。
 - [bm工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)：Bundle Manager（包管理工具，简称bm）是实现应用安装、卸载、更新、查询等功能的工具，bm为开发者提供基本的应用安装包的调试能力。
@@ -22,7 +18,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 检查当前应用是否具备MDM资质，各项权限是否具备。
 - 查看applicationManager.addDisallowedRunningBundlesSync接口的使用说明以及各属性参数的限制。
@@ -30,13 +26,13 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 非权限原因导致，applicationManager.addDisallowedRunningBundlesSync接口的参数appIds数组填入的应是应用ID，而不是应用包名，因此导致添加黑名单未生效。
  
  
 
-##### 修改建议
+#### 修改建议
 
 使用[applicationManager.addDisallowedRunningBundlesSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-applicationmanager#applicationmanageradddisallowedrunningbundlessync)接口添加应用至应用运行禁止名单，其参数appIds数组需要填入应用的ID。可以通过以下方式查询应用ID：
  
@@ -46,7 +42,7 @@
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：MDM应用黑名单接口addDisallowedRunningBundlesSync，加了黑名单之后，用户界面是什么样的？
  

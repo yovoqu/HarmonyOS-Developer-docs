@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-telephony-3
 
-## 调用call.makeCall发生编译告警：The API is not supported on all devices
- 
-
-
-##### 问题现象
+#### 问题现象
 
 调用Telephony Kit（蜂窝通信服务）的[call.makeCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-call#callmakecall7)方法会有编译告警：
  
 ```text
-The API is not supported on all devices. Use the canIUse condition to determine whether the API is supported. ArkTSCheck>
+<span style="color: rgb(0,0,255);">The API is not supported on all devices</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(0,0,255);">Use the canIUse condition to determine whether the API is supported</span><span style="color: rgb(181,106,1);">. </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">ArkTSCheck</span><span style="color: rgb(181,106,1);">></span>
 ```
  
  
 
-##### 背景知识
+#### 背景知识
 
 - SysCap，全称SystemCapability，即系统能力，指操作系统中每一个相对独立的特性，如蓝牙，WIFI，NFC，摄像头等，都是系统能力之一。每个系统能力对应多个API，随着目标设备是否支持该系统能力共同存在或消失。
 - [call.makeCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-call#callmakecall7)使用的系统能力是：SystemCapability.Applications.Contacts。
@@ -26,47 +22,51 @@ The API is not supported on all devices. Use the canIUse condition to determine 
  
  
 
-##### 解决方案
+#### 解决方案
 
 当设备不支持具体的系统能力时就会提示The API is not supported on all devices，该提示不会影响在具备系统能力的设备上运行结果。针对该提示，有两种处理方案：
  
 - **方案一**：调用系统API之前可以先判断是否具备系统能力，可以防止运行时报错。
 ```text
-import { call } from '@kit.TelephonyKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">call </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.TelephonyKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct CallPhoneTest {
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">CallPhoneTest </span><span style="color: rgb(255,0,170);">{</span>
 
-  build() {
-    Row() {
-      Column() {
-        Button('Call Phone')
-          .fontSize(50)
-          .fontWeight(FontWeight.Bold)
-          .onClick(() => {
-            let result: boolean = call.hasVoiceCapability();
-            if (result) {
-              call.makeCall('135****1234', () => {
-              });
-            }
-          });
-      }
-      .width('100%');
-    }
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Call Phone'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            let <span style="color: rgb(0,0,255);">result</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">call</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hasVoiceCapability</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">result</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">call</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">makeCall</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'135****1234'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">              }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - **方案二**：在module.json5可以移除未使用的设备类型。由于DevEco Studio默认创建的项目会包含phone，tablet，2in1三种设备类型。
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/Zl-OxdNuR5uAqvvMjsKl0A/zh-cn_image_0000002628773306.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=34A9796794364AFD414A7766F8EBCE8A286B58887CE67C56C6F5050202C2A9F1)
 
- tablet和2in1不具备SystemCapability.Applications.Contacts能力。
- 所以默认没有修改设备类型时，会提示编译告警。移除下例代码中tablet，2in1后则不会再出现告警：
- 
-```text
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/Zl-OxdNuR5uAqvvMjsKl0A/zh-cn_image_0000002628773306.png?HW-CC-KV=V1&HW-CC-Date=20260701T041440Z&HW-CC-Expire=86400&HW-CC-Sign=8B0B299C1BD8B780DF0B5A48CED2B09D61EEF3173BEEBD3E9A10A4B9B0ADE9F0)
+
+
+  tablet和2in1不具备SystemCapability.Applications.Contacts能力。
+
+  所以默认没有修改设备类型时，会提示编译告警。移除下例代码中tablet，2in1后则不会再出现告警：
+
+  
+```json
 "deviceTypes": [
   "phone",
   "tablet",
@@ -81,7 +81,7 @@ struct CallPhoneTest {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么平板没有SIM卡槽，使用canIUse("SystemCapability.Telephony.CallManager")判断系统能力返回为true?
  

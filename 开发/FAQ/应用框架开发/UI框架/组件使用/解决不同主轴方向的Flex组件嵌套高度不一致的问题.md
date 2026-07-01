@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-716
 
-## 解决不同主轴方向的Flex组件嵌套高度不一致的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 两个不同主轴方向的Flex组件相互嵌套，两个Flex组件的高度不一致。
  
@@ -67,18 +63,18 @@ struct FlexNested {
 问题效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/GeYQxEpiRwKPG8ZSd360aA/zh-cn_image_0000002658794279.png?HW-CC-KV=V1&HW-CC-Date=20260701T025543Z&HW-CC-Expire=86400&HW-CC-Sign=3CE399E3EE64FD7F3ADC15DC04D907C7B0ADD2654F36F14D2D7D85D63557542F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/GeYQxEpiRwKPG8ZSd360aA/zh-cn_image_0000002658794279.png?HW-CC-KV=V1&HW-CC-Date=20260701T041330Z&HW-CC-Expire=86400&HW-CC-Sign=D39D5C0A0F1EDDDEA7ABADD64D0BFA5E0DB617BCE1D7828D26E4C1FEBF560B77)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Flex容器](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)是以弹性方式布局子组件的组件，其主轴不设置长度时默认撑满父容器，可以通过设置主轴长度为auto使Flex自适应子组件布局；当Flex组件参数wrap设置为FlexWrap.Wrap或FlexWrap.WrapReverse时，主轴长度auto的自适应布局会失效，默认撑满父容器。通用事件[onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)或[onSizeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-size-change-event#onsizechange)可以在组件尺寸发生变化时触发。
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 序号 | 解决方案 | 优点 | 缺点 |
 | --- | --- | --- | --- |
@@ -184,7 +180,7 @@ struct FlexSolution1 {
         .borderRadius(24)
         .id('2')
         .onAreaChange((oldValue, newValue) => {
-          // 监听内层Flex组件的高度
+         <em> // 监听内层Flex组件的高度</em>
           this.flexHeight = newValue.height as number;
           console.info(`The height of the inner Flex before the change is ${oldValue.height}.`);
         });
@@ -192,7 +188,7 @@ struct FlexSolution1 {
       .width('92%')
       .backgroundColor('#E5E5EA')
       .margin({ top: 48 })
-      // 动态改变外层Flex组件的高度
+     <em> // 动态改变外层Flex组件的高度</em>
       .height(this.flexHeight)
       .id('1');
     }
@@ -206,11 +202,11 @@ struct FlexSolution2 {
 
   build() {
     NavDestination() {
-      // 外层Flex参数wrap缺省或设置为NoWrap
+    <em>  // 外层Flex参数wrap缺省或设置为NoWrap</em>
       Flex({
         direction: FlexDirection.Column,
         justifyContent: FlexAlign.Start,
-        // 由于wrap缺省，alignContent不生效，交叉轴对齐方式使用alignItems参数
+       <em> // 由于wrap缺省，alignContent不生效，交叉轴对齐方式使用alignItems参数</em>
         alignItems: ItemAlign.Center
       }) {
         Flex({
@@ -252,7 +248,7 @@ struct FlexSolution3 {
 
   build() {
     NavDestination() {
-      // 使用Column、Row组件
+     <em> // 使用Column、Row组件</em>
       Column() {
         Row({ space: 24 }) {
           Button('按钮1')
@@ -311,7 +307,7 @@ struct FlexSolution4 {
             .fontColor('#0A59F7');
         }
         .width('88%')
-        // 内层使用百分比填充
+      <em>  // 内层使用百分比填充</em>
         .height('100%')
         .backgroundColor('#D1D1D6')
         .padding(12)
@@ -319,7 +315,7 @@ struct FlexSolution4 {
         .id('2');
       }
       .width('92%')
-      // 外层设置高度固定
+     <em> // 外层设置高度固定</em>
       .height(65)
       .backgroundColor('#E5E5EA')
       .id('1')
@@ -358,7 +354,7 @@ struct FlexSolution5 {
             .fontColor('#0A59F7');
         }
         .width('88%')
-        // 通过flexGrow设置组件在父容器的剩余空间所占比例
+       <em> // 通过flexGrow设置组件在父容器的剩余空间所占比例</em>
         .flexGrow(1)
         .backgroundColor('#D1D1D6')
         .padding(12)
@@ -366,7 +362,7 @@ struct FlexSolution5 {
         .id('2');
       }
       .width('92%')
-      // 父容器提供有效的高度基准
+     <em> // 父容器提供有效的高度基准</em>
       .height(65)
       .backgroundColor('#E5E5EA')
       .id('1')
@@ -379,7 +375,7 @@ struct FlexSolution5 {
  
  
 
-##### 总结
+#### 总结
  
 | 场景 | 推荐方案 | 理由 |
 | --- | --- | --- |

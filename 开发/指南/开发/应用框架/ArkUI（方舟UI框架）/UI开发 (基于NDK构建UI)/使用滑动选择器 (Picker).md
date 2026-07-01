@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-picker
 
-## 使用滑动选择器 (Picker)
-   
-    
-          
-##### 概述
-     
+#### 概述
+
 从API version 23开始，ArkUI开发框架在NDK接口提供了Picker容器组件。Picker容器组件用于实现用户自定义选项的选择操作，支持滚动选择、触感反馈、循环滚动等功能。Picker组件通过设置选择指示器样式，可以自定义选中项的显示效果，适用于日期选择、时间选择、文本选择等场景。
-     
+
 [创建Picker](#创建picker)后，可以[设置Picker属性](#设置picker属性)，并[监听Picker事件](#监听picker事件)。
-     
+
 使用NDK接口构建UI界面以及NDK基本使用，可以参考[接入ArkTS页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page)。
-    
-    
-          
-##### 创建Picker
-     
+
+
+
+#### 创建Picker
+
 通过调用[createNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#createnode)()得到组件对象指针，节点类型为ARKUI_NODE_PICKER，并设置[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的相关属性，创建一个Picker容器组件。
-    
-    
-          
-##### [h2]基本创建方式
-     
+
+
+
+#### 基本创建方式
+
 以下示例展示了创建Picker组件并设置基本属性的方法。
-     
-```text
+
+```cpp
 static ArkUI_NodeHandle CreatePicker(ArkUI_NativeNodeAPI_1 *api)
 {
     ArkUI_NodeHandle picker = api->createNode(ARKUI_NODE_PICKER);
@@ -57,14 +53,14 @@ static ArkUI_NodeHandle CreatePicker(ArkUI_NativeNodeAPI_1 *api)
     return picker;
 }
 ```
-    
-    
-          
-##### [h2]封装为工具类
-     
+
+
+
+#### 封装为工具类
+
 参考[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page#示例)中列表组件的实现方式，可以将Picker组件常用的属性设置封装到自定义的工具类中方便后续使用。
-     
-```text
+
+```cpp
 class ContainerPickerCanLoopMaker : public BaseNode {
 public:
     static ArkUI_NodeHandle CreateNativeNode();
@@ -184,82 +180,78 @@ private:
     ArkUI_NativeNodeAPI_1 *nodeApi_ = nullptr;
 };
 ```
-    
-    
-          
-##### 设置Picker属性
-    
-    
-          
-##### [h2]设置默认选中项
-     
+
+
+
+#### 设置Picker属性
+
+
+
+#### 设置默认选中项
+
 通过设置[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_PICKER_OPTION_SELECTED_INDEX属性，可以设置Picker组件的默认选中项索引。
-     
-```text
+
+```cpp
 ArkUI_NumberValue selectedIndexValue = {.u32 = index};
 ArkUI_AttributeItem selectedIndexItem = {&selectedIndexValue,
                                          sizeof(selectedIndexValue) / sizeof(ArkUI_NumberValue)};
 nodeApi_->setAttribute(GetHandle(), NODE_PICKER_OPTION_SELECTED_INDEX, &selectedIndexItem);
 ```
-    
-    
-          
-##### [h2]设置触感反馈
-     
+
+
+
+#### 设置触感反馈
+
 通过设置NODE_PICKER_ENABLE_HAPTIC_FEEDBACK属性，可以控制Picker组件是否启用触感反馈。开启后，当用户滚动选择器时，如果系统硬件支持，会产生触感反馈。
-     
+
 使用[ArkUI_NativeNodeAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1)时可直接调用setAttribute。
-     
-```text
+
+```cpp
 ArkUI_NumberValue enableHapticFeedbackValue = {.i32 = enabled ? 1 : 0};
 ArkUI_AttributeItem enableHapticFeedbackItem = {&enableHapticFeedbackValue,
                                                 sizeof(enableHapticFeedbackValue) / sizeof(ArkUI_NumberValue)};
 nodeApi_->setAttribute(GetHandle(), NODE_PICKER_ENABLE_HAPTIC_FEEDBACK, &enableHapticFeedbackItem);
 ```
-     
+
 若使用上文封装的ContainerPickerCanLoopMaker，可调用已封装的接口。
-     
-```text
+
+```cpp
 picker->SetHapticFeedback(K_HAPTIC_FEEDBACK);
 ```
-    
-    
-          
-##### [h2]设置循环滚动
-     
+
+
+
+#### 设置循环滚动
+
 通过设置NODE_PICKER_CAN_LOOP属性，可以控制Picker组件是否支持循环滚动。设置为true时，选择器可以无限循环滚动；设置为false时，滚动到首尾时会停止。
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/_fhdkGaNS7y5sin1KOU1Dw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025428Z&HW-CC-Expire=86400&HW-CC-Sign=EEA050CE1EB9ACC78CE1F667DDB17F94D7F9516ED7F84788410F87C146104FB9)
-       
-       
-如果子组件的个数小于8个，无论设置为true还是false，都不会循环滚动。
-      
-     
-     
+
+> [!NOTE]
+> 如果子组件的个数小于8个，无论设置为true还是false，都不会循环滚动。
+
+
 使用[ArkUI_NativeNodeAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1)时可直接调用setAttribute。
-     
-```text
+
+```cpp
 ArkUI_NumberValue canLoopValue = {.i32 = canLoop ? 1 : 0};
 ArkUI_AttributeItem canLoopItem = {&canLoopValue, sizeof(canLoopValue) / sizeof(ArkUI_NumberValue)};
 nodeApi_->setAttribute(GetHandle(), NODE_PICKER_CAN_LOOP, &canLoopItem);
 ```
-     
+
 若使用上文封装的ContainerPickerCanLoopMaker，可调用已封装的接口。
-     
-```text
+
+```cpp
 picker->SetCanLoop(K_CAN_LOOP);
 ```
-    
-    
-          
-##### [h2]设置选择指示器样式
-     
+
+
+
+#### 设置选择指示器样式
+
 通过设置NODE_PICKER_SELECTION_INDICATOR属性，可以自定义Picker组件的选择指示器样式。选择指示器包括背景样式和分割线样式两部分。
-     
+
 背景样式指示器通过[ArkUI_PickerIndicatorBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatorbackground)结构体设置，包括背景颜色和圆角半径。
-     
-```text
+
+```cpp
 void SetSelectionIndicatorBackground(uint32_t backgroundColor, float cornerRadius = 10.0f)
 {
     if (!IsNotNull(nodeApi_) || !IsNotNull(GetHandle())) {
@@ -280,10 +272,10 @@ void SetSelectionIndicatorBackground(uint32_t backgroundColor, float cornerRadiu
     nodeApi_->setAttribute(GetHandle(), NODE_PICKER_SELECTION_INDICATOR, &selectionIndicatorItem);
 }
 ```
-     
+
 分割线样式指示器通过[ArkUI_PickerIndicatorDivider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatordivider)结构体设置，包括线宽、颜色和边距。
-     
-```text
+
+```cpp
 void SetSelectionIndicatorDivider(uint32_t dividerColor, float strokeWidth = 2.0f, float startMargin = 20.0f,
                                   float endMargin = 20.0f)
 {
@@ -304,49 +296,49 @@ void SetSelectionIndicatorDivider(uint32_t dividerColor, float strokeWidth = 2.0
     nodeApi_->setAttribute(GetHandle(), NODE_PICKER_SELECTION_INDICATOR, &selectionIndicatorItem);
 }
 ```
-     
+
 将背景样式或分割线样式组合到[ArkUI_PickerIndicatorStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatorstyle)结构体中，并设置给Picker组件。
-     
+
 若使用上文封装的ContainerPickerMonthMaker，可调用已封装的接口。
-     
-```text
+
+```cpp
 picker->SetSelectionIndicatorDivider(0xFF0000FF, 2.0f, 20.0f, 20.0f);
 ```
-    
-    
-          
-##### 监听Picker事件
-     
+
+
+
+#### 监听Picker事件
+
 本示例通过[registerNodeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodeevent)注册Picker组件的事件类型[ArkUI_NodeEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeeventtype)，使用ArkUI_NodeEventItem结构体为每个事件指定独立的回调函数。开发者无需额外注册全局回调函数，每个事件项直接绑定回调函数。Picker组件支持的事件如下：
-     
+
 | 枚举 | 说明 | 起始版本 |
 | --- | --- | --- |
 | NODE_PICKER_EVENT_ON_CHANGE | Picker组件中选择某项时触发的事件。 | 23 |
 | NODE_PICKER_EVENT_ON_SCROLL_STOP | Picker组件中选择某项且滚动停止时触发的事件。 | 23 |
-     
-    
-    
-          
-##### [h2]监听选择变化事件
-     
+
+
+
+
+#### 监听选择变化事件
+
 通过[registerNodeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodeevent)注册NODE_PICKER_EVENT_ON_CHANGE事件，使用ArkUI_NodeEventItem结构体指定回调函数，可以监听Picker组件的选择变化。事件回调中会返回选中项的索引值。
-     
-```text
+
+```cpp
 api->registerNodeEvent(picker, NODE_PICKER_EVENT_ON_CHANGE, K_ON_CHANGE_EVENT_ID, nullptr);
 ```
-    
-    
-          
-##### [h2]监听滚动停止事件
-     
+
+
+
+#### 监听滚动停止事件
+
 通过[registerNodeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodeevent)注册NODE_PICKER_EVENT_ON_SCROLL_STOP事件，使用ArkUI_NodeEventItem结构体指定回调函数，可以监听Picker组件滚动停止时的选择变化。与NODE_PICKER_EVENT_ON_CHANGE事件相比，该事件只在滚动停止时触发，适合需要在滚动完成后再处理选择的场景。
-     
-```text
+
+```cpp
 api->registerNodeEvent(picker, NODE_PICKER_EVENT_ON_SCROLL_STOP, K_ON_SCROLL_STOP_EVENT_ID, nullptr);
 ```
-    
-    
-          
-##### 完整示例
-     
+
+
+
+#### 完整示例
+
 [Native_Type_Sample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeType/native_type_sample)

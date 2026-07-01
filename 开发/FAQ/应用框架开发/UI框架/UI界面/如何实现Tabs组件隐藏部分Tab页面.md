@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1220
 
-## 如何实现Tabs组件隐藏部分Tab页面
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Tabs组件怎样实现隐藏部分Tab页面的效果。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)是通过TabContent页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - Tabs组件不支持自定义组件作为子组件，仅可包含子组件[TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)以及渲染控制类型if/else和ForEach。
@@ -22,17 +18,17 @@ Tabs组件怎样实现隐藏部分Tab页面的效果。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：通过if/else控制Tabs页面渲染。
-实现重点如下：
-在渲染过程中需注意渲染的页面位置判定参数的连续性，即下文中tabBuilder(index: number, name: string)组件的index参数需是本页面的位置参数。
-- 跳转到本位置时，采用this.currentIndex===index语句控制当前页面tabBar页高亮显示。
-- 由于页面隐藏后，this.currentIndex的获取方式会保证其总是连续的，所以index参数也必须重设为连续的，否则tabBar会显示异常。
 
- 
- 
-完整示例代码如下：
+  实现重点如下：1. 在渲染过程中需注意渲染的页面位置判定参数的连续性，即下文中tabBuilder(index: number, name: string)组件的index参数需是本页面的位置参数。
+
+2. 跳转到本位置时，采用this.currentIndex===index语句控制当前页面tabBar页高亮显示。
+
+3. 由于页面隐藏后，this.currentIndex的获取方式会保证其总是连续的，所以index参数也必须重设为连续的，否则tabBar会显示异常。
+
+  完整示例代码如下：
 ```text
 @Entry
 @Component
@@ -42,7 +38,7 @@ struct Index {
   private controller: TabsController = new TabsController();
   @State change: boolean = true;
 
-  // tabBar组件
+ <em> // tabBar组件</em>
   @Builder
   tabBuilder(index: number, name: string) {
     RelativeContainer() {
@@ -103,7 +99,7 @@ struct Index {
           }
           .tabBar(this.tabBuilder(4, '页面五'));
         } else {
-          // 当隐藏页面后需要保证TabContent页面的第一个参数Index连续
+         <em> // 当隐藏页面后需要保证TabContent页面的第一个参数Index连续</em>
           TabContent() {
             Text('页面四');
           }
@@ -128,21 +124,20 @@ struct Index {
   }
 }
 ```
- 
- 
-实现效果如下：
- 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/B0H9tl4hQTuOwVqEQXZeMg/zh-cn_image_0000002628594022.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025659Z&HW-CC-Expire=86400&HW-CC-Sign=989B9E52C3B6DC59955E8BCC798B1A7F1AE1957A5988CD983C3C09911B465E34)
 
- - **方案二**：使用ForEach操作数组进行页面部分隐藏。
-实现重点如下：
-将Tabs栏的数据封装在数组中，使用ForEach遍历展示；
-- 操作数组来对Tab页面进行部分隐藏。
+  实现效果如下：
 
- 
- 
-完整示例代码如下：
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/B0H9tl4hQTuOwVqEQXZeMg/zh-cn_image_0000002628594022.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041200Z&HW-CC-Expire=86400&HW-CC-Sign=C37607D6E37719BEE7F038DA390A22C1381E15EFA2DF0C69EDDFF71405ADAE63)
+
+- **方案二**：使用ForEach操作数组进行页面部分隐藏。
+
+  实现重点如下：1. 将Tabs栏的数据封装在数组中，使用ForEach遍历展示；
+
+2. 操作数组来对Tab页面进行部分隐藏。
+
+  完整示例代码如下：
 ```text
 interface Info {
   id: number;
@@ -216,18 +211,18 @@ struct PageTwo {
   }
 }
 ```
+
+
+  实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/BjEo23dsRXmdbpINL8gpXQ/zh-cn_image_0000002628753918.png?HW-CC-KV=V1&HW-CC-Date=20260701T041200Z&HW-CC-Expire=86400&HW-CC-Sign=26DF0295DB8A806E3A4819CBD42807D9823A121C094909F0BB311DABCB8B2F9B)
+
+
  
- 
-实现效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/BjEo23dsRXmdbpINL8gpXQ/zh-cn_image_0000002628753918.png?HW-CC-KV=V1&HW-CC-Date=20260701T025659Z&HW-CC-Expire=86400&HW-CC-Sign=9B38CD9F3A3AFB187106AE7F35206D3B82FE149B8F15F2178C97E038A74DD0C2)
-
- 
- 
- 
-
-##### 常见FAQ
+#### 常见FAQ
 
 Q：利用visibility属性设置页面隐藏时手势滑动会出现空白页面？
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1047
 
-## TextInput如何动态设置下划线颜色
- 
-
-
-##### 问题现象
+#### 问题现象
 
 TextInput设置InputType.NUMBER_DECIMAL类型后，切换焦点，如何解决showUnderline下划线的状态颜色无变化的问题？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)单行文本输入框组件。
 - [showUnderline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#showunderline10)：设置是否开启下划线。
@@ -23,14 +19,12 @@ TextInput设置InputType.NUMBER_DECIMAL类型后，切换焦点，如何解决sh
  
  
 
-##### 解决方案
+#### 解决方案
 
  
 TextInput设置showUnderline下划线只支持InputType.Normal类型，其他类型不生效。可通过outline属性实现动态设置下划线颜色的效果。
- 
-- 创建颜色变量bottomLineColor，设置为outline属性的color。
-- 在onFocus、onBlur设置切换焦点时的颜色即可。
-
+ 1. 创建颜色变量bottomLineColor，设置为outline属性的color。
+2. 在onFocus、onBlur设置切换焦点时的颜色即可。
  
 ```text
 @Entry
@@ -46,17 +40,17 @@ struct TextInputExample {
         .showUnderline(true)
         .borderRadius(0)
         .backgroundColor(Color.White)
-        // 设置下划线
+      <em>  // 设置下划线</em>
         .outline({
           width: { bottom: 1 },
           color: this.bottomLineColor
         })
         .onFocus(() => {
-          // 获焦设置蓝色
+        <em>  // 获焦设置蓝色</em>
           this.bottomLineColor = '#0A59F7';
         })
         .onBlur(() => {
-          // 失焦设置灰
+       <em>   // 失焦设置灰</em>
           this.bottomLineColor = '#F1F3F5';
         })
       TextInput({ placeholder: '提示文本内容' })
@@ -75,4 +69,4 @@ struct TextInputExample {
 运行效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/FXxgLN3bQF6QE5O2UxH0cw/zh-cn_image_0000002658804821.png?HW-CC-KV=V1&HW-CC-Date=20260701T025557Z&HW-CC-Expire=86400&HW-CC-Sign=C4A9FFE35BA3D1AF74AD0A676AFC6012B3A4301D7BC8A1467CF232C4208FFFED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/FXxgLN3bQF6QE5O2UxH0cw/zh-cn_image_0000002658804821.png?HW-CC-KV=V1&HW-CC-Date=20260701T041251Z&HW-CC-Expire=86400&HW-CC-Sign=F87815227CAD6F17E15976A7A3B470979F2744962E449E286FD15EA2A3E1ABA2)

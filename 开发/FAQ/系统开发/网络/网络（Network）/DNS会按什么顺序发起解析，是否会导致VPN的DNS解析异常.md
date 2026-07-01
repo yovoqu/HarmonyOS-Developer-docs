@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-126
 
-## DNS会按什么顺序发起解析，是否会导致VPN的DNS解析异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 启动[VPN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-vpnextension#vpnextensionstartvpnextensionability)，通过[dnsAddresses](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/net-vpnextension#vpn-config参数说明)配置VPN使用的DNS（Address1）服务器，并且设备配置DOH（Address2），当APP使用rcp且设置DNS（Address3）发起HTTP请求时，DNS会按什么顺序发起解析，是否会导致VPN的DNS解析异常。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - DNS（Domain Name System）：域名系统，是互联网的一项服务，它作为将域名转换为IP地址的系统，是网络基础设施的重要组成部分。
 - [DOH（DNS over HTTPS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customdnsconfig#section5676104731714)：配置HTTPS上的DNS（DOH）设置，以加密的HTTPS协议进行DNS解析请求，避免原始DNS协议中用户的DNS解析请求被窃听或者修改的问题，来达到保护用户隐私的目的。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 在VPN连接期间，因为VPN旨在创建一个封闭的网络环境，所有尝试访问网络的请求都将使用VPN提供的DNS服务器进行解析。
  
@@ -30,7 +26,7 @@
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么在设置自定义DNS后，HTTP请求还是会走本地DNS缓存？
  

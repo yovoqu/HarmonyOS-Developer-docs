@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-26
 
-## photoPicker如何筛选某个相册的图片和视频
- 
-
-
-##### 问题现象
+#### 问题现象
 
 目前photoPicker选择图片和视频会获取到所有的相册，如何获取某个相册的图片或者视频？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [PickerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#pickeroptions)：Picker配置选项，其中appAlbumFilters（API23）方法可以指定显示bundle name对应的相册内容。
 - [getAlbums](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getalbums-2)：根据检索选项和相册类型获取相册，AlbumType、AlbumSubtype两个属性在API23支持设置来源相册。
@@ -22,24 +18,20 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 方案一（应用相册）：在使用PhotoPickerComponent时候通过配置PickerOptions的appAlbumFilters选项来筛选指定相册的内容，appAlbumFilters需要设置对应应用的bundle name，可以设置多个应用的bundle name进行显示。示例代码如下：
  
 ```text
-// 选择指定应用的相册的内容(API 23)
-this.pickerOptions.appAlbumFilters = ['xxx']; // 此处需要替换为需要筛选的应用相册的bundlename
+<em>// 选择指定应用的相册的内容(API 23)</em>
+this.pickerOptions.appAlbumFilters = ['xxx']; <em>// 此处需要替换为需要筛选的应用相册的bundlename</em>
 ```
  
  
 方案二（来源相册）：getAlbums获取应用相册，需要设置[AlbumType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#albumtype)为SOURCE，[AlbumSubtype](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#albumsubtype)为SOURCE_GENERIC类型，通过[getAlbums](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getalbums-2)筛选来源相册，然后通过[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets-1)获取对应相册的内容。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/TTxxv84CTuGGH1aAWzJYAQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025735Z&HW-CC-Expire=86400&HW-CC-Sign=FF5C6688D22DE322E9C8904D37473D62049C97A05D29705C1C6FCB0A1ABE5925)
- 
-
-此方案需要申请[ohos.permission.READ_IMAGEVIDEO](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_imagevideo)权限，[申请受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)以后在代码中配置相关权限可参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
- 
+> [!NOTE]
+> 此方案需要申请 ohos.permission.READ_IMAGEVIDEO 权限， 申请受限权限 以后在代码中配置相关权限可参考 声明权限 。
 
  
 示例代码如下：
@@ -49,7 +41,7 @@ async photoPickerByAlbumName() {
   let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
   const phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
   let albunmPredicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
-  albunmPredicates.equalTo(photoAccessHelper.AlbumKeys.ALBUM_NAME, 'Test'); // Test需要替换为需要筛选的相册名字
+  albunmPredicates.equalTo(photoAccessHelper.AlbumKeys.ALBUM_NAME, 'Test'); <em>// Test需要替换为需要筛选的相册名字</em>
   const fetchOps: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
     predicates: albunmPredicates
@@ -60,11 +52,11 @@ async photoPickerByAlbumName() {
     predicates: predicates
   };
   try {
-    let albumFetchResult: photoAccessHelper.FetchResult =
+    let albumFetchResult: photoAccessHelper.FetchResult<photoAccessHelper.Album> =
       await phAccessHelper.getAlbums(photoAccessHelper.AlbumType.SOURCE,
-        photoAccessHelper.AlbumSubtype.SOURCE_GENERIC, fetchOps); // 此处搜索范围是应用创建的相册，开发者可根据实际情况修改type
+        photoAccessHelper.AlbumSubtype.SOURCE_GENERIC, fetchOps); <em>// 此处搜索范围是应用创建的相册，开发者可根据实际情况修改type</em>
     let album: photoAccessHelper.Album = await albumFetchResult.getFirstObject();
-    let photoFetchResult: photoAccessHelper.FetchResult =
+    let photoFetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
       await album.getAssets(fetchOptions);
     let photoAsset: photoAccessHelper.PhotoAsset = await photoFetchResult.getFirstObject();
     this.uri = photoAsset.uri;
@@ -142,7 +134,7 @@ struct PhotoPickerByAlbumName {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     const phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
     let albunmPredicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
-    albunmPredicates.equalTo(photoAccessHelper.AlbumKeys.ALBUM_NAME, 'Test'); // Test需要替换为需要筛选的相册名字
+    albunmPredicates.equalTo(photoAccessHelper.AlbumKeys.ALBUM_NAME, 'Test'); <em>// Test需要替换为需要筛选的相册名字</em>
     const fetchOps: photoAccessHelper.FetchOptions = {
       fetchColumns: [],
       predicates: albunmPredicates
@@ -153,11 +145,11 @@ struct PhotoPickerByAlbumName {
       predicates: predicates
     };
     try {
-      let albumFetchResult: photoAccessHelper.FetchResult =
+      let albumFetchResult: photoAccessHelper.FetchResult<photoAccessHelper.Album> =
         await phAccessHelper.getAlbums(photoAccessHelper.AlbumType.SOURCE,
-          photoAccessHelper.AlbumSubtype.SOURCE_GENERIC, fetchOps); // 此处搜索范围是应用创建的相册，开发者可根据实际情况修改type
+          photoAccessHelper.AlbumSubtype.SOURCE_GENERIC, fetchOps); <em>// 此处搜索范围是应用创建的相册，开发者可根据实际情况修改type</em>
       let album: photoAccessHelper.Album = await albumFetchResult.getFirstObject();
-      let photoFetchResult: photoAccessHelper.FetchResult =
+      let photoFetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
         await album.getAssets(fetchOptions);
       let photoAsset: photoAccessHelper.PhotoAsset = await photoFetchResult.getFirstObject();
       this.uri = photoAsset.uri;
@@ -200,7 +192,7 @@ struct PhotoPickerByAlbumName {
  
 photoPickerByBundleName.ets：
  
-```text
+```json
 import {
   PhotoPickerComponent,
   PickerController,
@@ -218,34 +210,34 @@ import {
 @Entry
 @Component
 struct PhotoPickerComponentDemo {
-  // 组件初始化时设置参数信息。
+  <em>// 组件初始化时设置参数信息。</em>
   pickerOptions: PickerOptions = new PickerOptions();
-  // 组件初始化完成后，可控制组件部分行为。
+  <em>// 组件初始化完成后，可控制组件部分行为。</em>
   @State pickerController: PickerController = new PickerController();
-  // 宫格图内已选择的图片uri数组。
-  @State selectUris: Array = new Array();
-  // 目前选择的图片uri。
+  <em>// 宫格图内已选择的图片uri数组。</em>
+  @State selectUris: Array<string> = new Array<string>();
+  <em>// 目前选择的图片uri。</em>
   @State currentUri: string = '';
-  // 标识当前是否显示大图页面，false表示不显示大图页面，true表示显示大图页面。
+  <em>// 标识当前是否显示大图页面，false表示不显示大图页面，true表示显示大图页面</em><em>。</em>
   @State isBrowserShow: boolean = false;
 
   aboutToAppear() {
-    // 设置picker宫格页可选择的媒体文件类型，这里设置图片和视频类型。
+    <em>// 设置picker宫格页可选择的媒体文件类型，这里设置图片和视频类型。</em>
     this.pickerOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE;
-    // 设置宫格页内资源的最大选择数量，示例设置为5。
+    <em>// 设置宫格页内资源的最大选择数量，示例设置为5。</em>
     this.pickerOptions.maxSelectNumber = 5;
-    // 选择数量达到最大时的提示方式，示例设置为弹窗提示。
+    <em>// 选择数量达到最大时的提示方式，示例设置为弹窗提示。</em>
     this.pickerOptions.maxSelectedReminderMode = ReminderMode.TOAST;
-    // 设置picker页面内是否需要展示搜索框，false为不展示。
+    <em>// 设置picker页面内是否需要展示搜索框，false为不展示。</em>
     this.pickerOptions.isSearchSupported = true;
-    // 将宫格页面内第一个宫格置为拍照按钮，false为不展示拍照按钮。
+    <em>// 将宫格页面内第一个宫格置为拍照按钮，false为不展示拍照按钮。</em>
     this.pickerOptions.isPhotoTakingSupported = true;
-    // 选择指定应用的相册的内容(API 23)
-    this.pickerOptions.appAlbumFilters = ['xxx']; // 此处需要替换为需要筛选的应用相册的bundlename
+    <em>// 选择指定应用的相册的内容(API 23)</em>
+    this.pickerOptions.appAlbumFilters = ['xxx']; <em>// 此处需要替换为需要筛选的应用相册的bundlename</em>
   }
 
-  // 资源被选中回调，返回资源的信息，以及选中方式。
-  // 应用根据自己的业务来决定，资源是否勾选或者是否进入系统相机。
+  <em>// 资源被选中回调，返回资源的信息，以及选中方式。</em>
+  <em>// 应用根据自己的业务来决定，资源是否勾选或者是否进入系统相机。</em>
   private onItemClicked(itemInfo: ItemInfo, clickType: ClickType): boolean {
     if (!itemInfo) {
       return false;
@@ -253,44 +245,44 @@ struct PhotoPickerComponentDemo {
     let type: ItemType | undefined = itemInfo.itemType;
     let uri: string | undefined = itemInfo.uri;
     if (type === ItemType.CAMERA) {
-      // 如果宫格页面第一个宫格的类型为ItemType.CAMERA，则是相机按钮。
-      // 返回true则拉起系统相机；如果返回false应用可以自己拉起相机。
+      <em>// 如果宫格页面第一个宫格的类型为ItemType.CAMERA，则是相机按钮。</em>
+      <em>// 返回true则拉起系统相机；如果返回false应用可以自己拉起相机。</em>
       return true;
     } else {
-      // 如果是选中操作。
+      <em>// 如果是选中操作。</em>
       if (clickType === ClickType.SELECTED) {
-        // 应用做自己的业务处理。
+        <em>// 应用做自己的业务处理。</em>
         if (uri) {
           this.selectUris.push(uri);
           this.pickerOptions.preselectedUris = [...this.selectUris];
         }
-        // 返回true则该宫格响应勾选，否则不响应勾选。
+        <em>// 返回true则该宫格响应勾选，否则不响应勾选。</em>
         return true;
       } else {
-        // 如果是取消选中操作。
-        // 应用做自己的业务处理。
+        <em>// 如果是取消选中操作。</em>
+        <em>// 应用做自己的业务处理。</em>
         if (uri) {
           this.selectUris = this.selectUris.filter((item: string) => {
             return item != uri;
           });
           this.pickerOptions.preselectedUris = [...this.selectUris];
         }
-        // 返回true则该宫格响应取消勾选，否则不响应取消勾选。
+        <em>// 返回true则该宫格响应取消勾选，否则不响应取消勾选。</em>
         return true;
       }
     }
   }
 
-  // 接收到该回调后，便可通过pickerController相关接口向picker发送数据，在此之前不生效。
+ <em> // 接收到该回调后，便可通过pickerController相关接口向picker发送数据，在此之前不生效。</em>
   private onPickerControllerReady(): void {
   }
 
-  // 退出大图时的回调。
+  <em>// 退出大图时的回调。</em>
   private onExitPhotoBrowser(): boolean {
     this.isBrowserShow = false;
     return true;
   }
-  // 大图左右滑动的回调。
+  <em>// 大图左右滑动的回调。</em>
   private onPhotoBrowserChanged(browserItemInfo: BaseItemInfo): boolean {
     this.currentUri = browserItemInfo.uri ?? '';
     return true;
@@ -307,9 +299,9 @@ struct PhotoPickerComponentDemo {
         pickerController: this.pickerController,
       });
 
-      // 这里模拟应用侧底部的选择栏。
+      <em>// 这里模拟应用侧底部的选择栏。</em>
       if (this.isBrowserShow) {
-        // 已选择的图片缩略图。
+        <em>// 已选择的图片缩略图。</em>
         Row() {
           ForEach(this.selectUris, (uri: string) => {
             if (uri === this.currentUri) {
@@ -323,14 +315,14 @@ struct PhotoPickerComponentDemo {
             } else {
               Image(uri).height(50).width(50).onClick(() => {
                 this.pickerController.setData(DataType.SET_SELECTED_URIS, this.selectUris);
-                // 点击底部缩略图，切换大图浏览的照片为点击的缩略图；本示例设置浏览范围为全部，包括图片和视频。
+                <em>// 点击底部缩略图，切换大图浏览的照片为点击的缩略图；本示例设置浏览范围为全部，包括图片和视频。</em>
                 this.pickerController.setPhotoBrowserItem(uri, PhotoBrowserRange.ALL);
               });
             }
           }, (uri: string) => JSON.stringify(uri));
         }.alignSelf(ItemAlign.Center).margin(this.selectUris.length ? 10 : 0);
       } else {
-        // 进入大图，预览已选择的图片。
+        <em>// 进入大图，预览已选择的图片。</em>
         Button('预览')
           .width('33%')
           .alignSelf(ItemAlign.Start)
@@ -338,7 +330,7 @@ struct PhotoPickerComponentDemo {
           .margin(10)
           .onClick(() => {
             if (this.selectUris.length > 0) {
-              // 切换picker组件至大图浏览模式浏览图片。
+              <em>// 切换picker组件至大图浏览模式浏览图片。</em>
               this.pickerController.setPhotoBrowserItem(this.selectUris[0], PhotoBrowserRange.SELECTED_ONLY);
             }
           });
@@ -349,7 +341,7 @@ struct PhotoPickerComponentDemo {
 ```
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：系统中创建了名为Test的相册，为什么点击byAlbumName按钮后还是报错“photo failed with err: System inner fail.”？
  

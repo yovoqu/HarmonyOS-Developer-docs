@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-615
 
-## 如何使bindPopup在组件上下区域不足时可以覆盖组件显示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用bindPopup为组件A绑定Popup气泡时，当绑定的组件A上下方有区域使Popup显示时，Popup会自动优先显示在组件上方或者下方，当上下方没有区域使Popup显示时，Popup会自动显示在组件A左侧或右侧（下述示例中左侧有可用显示区域，因此Popup会自动寻找左侧空白区域显示）。希望的效果是：Popup会自动优先显示在组件A上方或者下方，当上下方无可用区域显示Popup时，Popup会覆盖在组件A上。
  
 未实现时的效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/ez4_hqZPTiKKcUNHOni1Qg/zh-cn_image_0000002658911943.png?HW-CC-KV=V1&HW-CC-Date=20260701T025539Z&HW-CC-Expire=86400&HW-CC-Sign=241E4D432E7106900FD081ABC680EB26577DF3340B89B36CF4E2A80F323486B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/ez4_hqZPTiKKcUNHOni1Qg/zh-cn_image_0000002658911943.png?HW-CC-KV=V1&HW-CC-Date=20260701T041301Z&HW-CC-Expire=86400&HW-CC-Sign=B0A6725825B986F94EE4A03EF89BEAC7E5CA8D72DA6BBA9C52197674BE9940AF)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [bindPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#bindpopup)可以为组件绑定Popup弹窗，由自定义构建函数@Builder构建UI内容，弹出位置由系统决定，优先上下空白区域，其次左右空白区域。通过设置其参数offset可以改变Popup弹窗的偏移量并覆盖到其所绑定的组件上。
 - 通过UIInspector的[createComponentObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiinspector#createcomponentobserver)方法可以绑定指定组件，并设置其[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)，进而获取该组件的布局信息，并通过[getPositionToWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontowindow12)比较Popup和组件A的布局位置。
@@ -28,26 +24,25 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 bindPopup可以使用offset参数实现偏离，当给x轴设置正数偏移量后，Popup会右移并能覆盖组件A。因此，整体思路是设置一个控制bindPopup是否使用offset的状态变量needToMove，当组件A上下方有区域供Popup显示时，needToMove为false，bindPopup不使用偏移量，当Popup只能在左侧显示时，needToMove为true，bindPopup使用偏移量向右移动覆盖组件A，同时根据点击位置调整y轴偏移量使Popup能够跟随点击位置。
  
 偏移量示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/2yUp0XWxTQqzD9BypxF7Uw/zh-cn_image_0000002628392734.png?HW-CC-KV=V1&HW-CC-Date=20260701T025539Z&HW-CC-Expire=86400&HW-CC-Sign=BE02CFD8A877FD7ED5DB482F1ECF6A631F1528CA3A597ACC25B6327059DA72DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/2yUp0XWxTQqzD9BypxF7Uw/zh-cn_image_0000002628392734.png?HW-CC-KV=V1&HW-CC-Date=20260701T041301Z&HW-CC-Expire=86400&HW-CC-Sign=7645E7DE08CF8FADE391780D09CEFDB83602C8F92EBE0E723D4E63A20E0EC84B)
 
  
 其中，nodeWidth为文本框宽度，popupWidth为气泡弹窗宽度，如果需要位移后的气泡弹窗能够在文本框中X方向居中，则X轴需要的偏移量为一半的气泡弹窗宽度+一半的文本框宽度；需要Y轴上出现在点击位置处，则Y轴需要的偏移量为点击处的Y坐标-气泡弹窗的Y坐标。
- 
-- bindPopup通过needToMove决定是否使用偏移量：
+ 1. bindPopup通过needToMove决定是否使用偏移量：
 ```text
 offset: this.needToMove ?
   { x: this.popupWidth / 2 + this.getUIContext().px2vp(this.node?.getMeasuredSize().width) / 2,
     y: this.onClick_y - this.popup_y } : { x: 0, y: 0 }
 ```
 
-- 获取组件A的FrameNode以便获取其布局位置信息。
+2. 获取组件A的FrameNode以便获取其布局位置信息。
 ```text
 function once(type: 'layout', component: CustomComponent, componentId: string, callback: (node: FrameNode) => void) {
   let observer = component.getUIContext().getUIInspector().createComponentObserver(componentId);
@@ -75,35 +70,43 @@ aboutToDisappear(): void {
 }
 ```
 
-- 在bindPopup渲染完成并显示前，会先触发其UI内容的onAppear方法，并且在此方法中，可以通过getPositionToWindow方法获取到Popup节点和组件A节点的显示位置，如果Popup在组件A左侧，则将needToMove设为true，使得bindPopup可以通过offset使Popup覆盖在组件A上。这里的核心是，onAppear方法的触发时间在UI结点布局完成前，因此可以在onAppear方法使用getPositionToWindow得知Popup是否将显示在组件A左侧，getPositionToWindow方法的触发时机又在Popup真正渲染显示前，因此这时改变needToMove的值可以让Popup渲染完成时覆盖在组件A上。
- 触发时机onAppear->getPositionToWindow->Popup真正渲染完成并显示。
- 
+3. 在bindPopup渲染完成并显示前，会先触发其UI内容的onAppear方法，并且在此方法中，可以通过getPositionToWindow方法获取到Popup节点和组件A节点的显示位置，如果Popup在组件A左侧，则将needToMove设为true，使得bindPopup可以通过offset使Popup覆盖在组件A上。这里的核心是，onAppear方法的触发时间在UI结点布局完成前，因此可以在onAppear方法使用getPositionToWindow得知Popup是否将显示在组件A左侧，getPositionToWindow方法的触发时机又在Popup真正渲染显示前，因此这时改变needToMove的值可以让Popup渲染完成时覆盖在组件A上。
+
+  触发时机onAppear->getPositionToWindow->Popup真正渲染完成并显示。
+
+  
 ```text
 .id('popupContent')
 .constraintSize({ maxWidth: 300 })
 .onAppear(() => {
   let popupNode = this.getUIContext().getAttachedFrameNodeById('popupContent');
   if (popupNode && this.node) {
-    if (popupNode.getPositionToWindow().x  {
+    if (popupNode.getPositionToWindow().x <= this.node.getPositionToWindow().x - this.popupWidth) {
+      this.needToMove = true;
+      this.popup_y = popupNode.getPositionToWindow().y;
+    }
+    console.info(`this.needToMove is`, `${this.needToMove}`);
+  }
+})
+.onDisAppear(() => {
   this.needToMove = false;
 });
 ```
 
-
  
 完整示例代码如下：
  
-```text
+```json
 @Entry
 @Component
 struct SplitNav {
-  @Provide stackPath: NavPathStack = new NavPathStack(); // 声明一个pathStack对象
+  @Provide stackPath: NavPathStack = new NavPathStack(); <em>// 声明一个pathStack对象</em>
 
   build() {
     Column() {
       Column()
         .height(1);
-      // 绑定关系
+      <em>// 绑定关系</em>
       Navigation(this.stackPath) {
         Column() {
           Text('点击跳转')
@@ -127,7 +130,7 @@ struct SplitNav {
   @Builder
   getPageContent(name: string) {
     if (name === 'popup') {
-      // 渲染朋友圈组件
+      <em>// 渲染朋友圈组件</em>
       Popup();
     }
   }
@@ -231,9 +234,9 @@ export struct MessageItem {
         onStateChange: (event) => {
           this.showPopup = event.isVisible;
         },
-        // 设置popup与目标的间隙
+        <em>// 设置popup与目标的间隙</em>
         targetSpace: '1vp',
-        // 设置popup组件相对于目标的显示位置
+        <em>// 设置popup组件相对于目标的显示位置</em>
         placement: Placement.Bottom,
         placementOnTop: true,
         arrowPointPosition: ArrowPointPosition.CENTER,
@@ -255,9 +258,9 @@ export struct MessageItem {
 
   @Builder
   getContent(): void {
-    // 行：设置一行几列
+    <em>// 行：设置一行几列</em>
     GridRow({ columns: 5, gutter: { x: 12, y: 20 } }) {
-      // 列：根据一行几个进行排列位置
+     <em> // 列：根据一行几个进行排列位置</em>
       ForEach(this.popupFilterList, (item: string) => {
         GridCol() {
           Column({ space: 4 }) {
@@ -281,7 +284,14 @@ export struct MessageItem {
     .onAppear(() => {
       let popupNode = this.getUIContext().getAttachedFrameNodeById('popupContent');
       if (popupNode && this.node) {
-        if (popupNode.getPositionToWindow().x  {
+        if (popupNode.getPositionToWindow().x <= this.node.getPositionToWindow().x - this.popupWidth) {
+          this.needToMove = true;
+          this.popup_y = popupNode.getPositionToWindow().y;
+        }
+        console.info(`this.needToMove is`, `${this.needToMove}`);
+      }
+    })
+    .onDisAppear(() => {
       this.needToMove = false;
     });
   }

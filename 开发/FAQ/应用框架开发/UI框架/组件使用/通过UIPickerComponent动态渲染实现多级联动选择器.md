@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1099
 
-## 通过UIPickerComponent动态渲染实现多级联动选择器
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过UIPickerComponent动态渲染实现如下多级联动场景：
  
@@ -19,7 +15,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [UIPickerComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component)是从API version 22开始支持的容器，是用于实现用户选择操作的组件。它支持从一组有限的选项中让用户进行单选。支持多个子组件。当多个UIPickerComponent一起使用可应用于时间选择、日期选择、地区选择、状态选择等多种场景。
 - UIPickerComponent支持子组件类型：[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)、[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)和[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)。
@@ -29,7 +25,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：首先创建省市区会用到的数据，通过3个UIPickerComponent组件分别用于选择省市区。当省变动时更新市的数据列，市变动时更新区的数据列。可参考[自定义地区选择器](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component#示例6自定义地区选择器)。
 - **场景二**：创建3个UIPickerComponent组件分别表示年、月、日的选择器。由于日的数量和年/月有关，当年/月出现变化时在onChange方法中根据年/月的值设置日的数据列表，实现日期联动。如果年/月变化导致日超出当月时，设置为当月最后一天。通过[Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor#watch)装饰器监听日期信息是否变化，发生变化将其打印。可参考如下代码：
@@ -37,43 +33,54 @@
 @Entry
 @Component
 struct UIPickerComponentExample1 {
-  yearList: number[] = []; // 年选择器数据
-  monthList: number[] = []; // 月选择器数据
-  dayList31: number[] = []; // 31日数据
-  @State dayList: number[] = []; // 日选择器数据(会根据年月进行设置)
-  @State yearIndex: number = 0; // 年选择器索引
-  @State monthIndex: number = 0; // 月选择器索引
-  @State dayIndex: number = 0; // 日选择器索引
-  @State showDay: boolean = true; // 是否展示日
-  @State @Watch('dateChange') dateText: string = ''; // 选中的日期信息
-  @State isLoop: boolean = true; // 是否循环滚动
+  yearList: number[] = []; <em>// 年选择器数据</em>
+  monthList: number[] = []; <em>// 月选择器数据</em>
+  dayList31: number[] = []; <em>// 31日数据</em>
+  @State dayList: number[] = []; <em>// 日选择器数据(会根据年月进行设置)</em>
+  @State yearIndex: number = 0; <em>// 年选择器索引</em>
+  @State monthIndex: number = 0; <em>// 月选择器索引</em>
+  @State dayIndex: number = 0;<em> // 日选择器索引</em>
+  @State showDay: boolean = true; <em>// 是否展示日</em>
+  @State @Watch('dateChange') dateText: string = ''; <em>// 选中的日期信息</em>
+  @State isLoop: boolean = true; <em>// 是否循环滚动</em>
 
-  // 日期值变化时触发
+ <em> // 日期值变化时触发</em>
   dateChange() {
-    console.info(this.dateText); // 打印选择器日期
+    console.info(this.dateText);<em> // 打印选择器日期</em>
   }
 
-  // 当年月发生改变时修改日选择器数据
+ <em> // 当年月发生改变时修改日选择器数据</em>
   updateDayList() {
     let month = this.monthList[this.monthIndex];
     let year = this.yearList[this.yearIndex];
     let list: number[] = [];
     if (month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12) {
-      list = this.dayList31; // 大月时选择器数据
+      list = this.dayList31;<em> // 大月时选择器数据</em>
     } else if (month === 4 || month === 6 || month === 9 || month === 11) {
-      list = this.dayList31.slice(0, 30); // 小月时选择器数据
+      list = this.dayList31.slice(0, 30); <em>// 小月时选择器数据</em>
     } else if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
-      list = this.dayList31.slice(0, 29); // 闰年2月选择器数据
+      list = this.dayList31.slice(0, 29); <em>// 闰年2月选择器数据</em>
     } else {
-      list = this.dayList31.slice(0, 28); // 平年2月选择器数据
+      list = this.dayList31.slice(0, 28); <em>// 平年2月选择器数据</em>
     }
-    this.dayIndex = (this.dayIndex  // 日超出当月时，设置为当月最后一天
-    this.dayList = list; // 修改选择器日选择器数据
+    this.dayIndex = (this.dayIndex <= list.length - 1) ? this.dayIndex : (list.length - 1);<em> // 日超出当月时，设置为当月最后一天</em>
+    this.dayList = list; <em>// 修改选择器日选择器数据</em>
   }
 
-  // 初始化年月日列表
+ <em> // 初始化年月日列表</em>
   setList() {
-    for (let year = 1900; year  // 初始化日期
+    for (let year = 1900; year <= 2100; year++) {
+      this.yearList.push(year);
+    }
+    for (let month = 1; month <= 12; month++) {
+      this.monthList.push(month);
+    }
+    for (let day = 1; day <= 31; day++) {
+      this.dayList31.push(day);
+    }
+  }
+
+ <em> // 初始化日期</em>
   setDate(date: Date) {
     this.yearIndex = this.yearList.findIndex((year) => {
       return year === date.getFullYear();
@@ -87,9 +94,9 @@ struct UIPickerComponentExample1 {
   }
 
   aboutToAppear(): void {
-    this.setList(); // 初始化年月日的列表数据
-    this.setDate(new Date()); // 初始化选择器日期为当天日期
-    this.updateDayList(); // 更新当月的日列表
+    this.setList(); <em>// 初始化年月日的列表数据</em>
+    this.setDate(new Date());<em> // 初始化选择器日期为当天日期</em>
+    this.updateDayList(); <em>// 更新当月的日列表</em>
     this.dateText = `${this.yearList[this.yearIndex]}年${this.monthList[this.monthIndex]}月` +
       (this.showDay ? `${this.dayList[this.dayIndex]}日` : ``);
   }
@@ -110,7 +117,7 @@ struct UIPickerComponentExample1 {
         })
         .selectionIndicator({ type: PickerIndicatorType.DIVIDER })
         .width('25%')
-        .canLoop(this.isLoop); // 是否循环
+        .canLoop(this.isLoop);<em> // 是否循环</em>
 
         UIPickerComponent({ selectedIndex: this.monthIndex }) {
           ForEach(this.monthList, (month: number) => {
@@ -125,9 +132,9 @@ struct UIPickerComponentExample1 {
         })
         .selectionIndicator({ type: PickerIndicatorType.DIVIDER })
         .width('25%')
-        .canLoop(this.isLoop); // 是否循环
+        .canLoop(this.isLoop); <em>// 是否循环</em>
 
-        if (this.showDay) { // 是否展示日选择器
+        if (this.showDay) {<em> // 是否展示日选择器</em>
           UIPickerComponent({ selectedIndex: this.dayIndex }) {
             ForEach(this.dayList, (day: number) => {
               Text(`${day}日`);
@@ -140,7 +147,7 @@ struct UIPickerComponentExample1 {
           })
           .selectionIndicator({ type: PickerIndicatorType.DIVIDER })
           .width('25%')
-          .canLoop(this.isLoop); // 是否循环
+          .canLoop(this.isLoop);<em> // 是否循环</em>
         }
       };
 
@@ -160,37 +167,50 @@ struct UIPickerComponentExample1 {
 }
 ```
  运行效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/LrhSwS0zSaujmlmgNTLr-g/zh-cn_image_0000002628567342.png?HW-CC-KV=V1&HW-CC-Date=20260701T025559Z&HW-CC-Expire=86400&HW-CC-Sign=AA55138E5C7ECB5D9EBC1DC7A4BC5F9EF53A4B5F9EF18160E52D535543CF3968)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/LrhSwS0zSaujmlmgNTLr-g/zh-cn_image_0000002628567342.png?HW-CC-KV=V1&HW-CC-Date=20260701T041331Z&HW-CC-Expire=86400&HW-CC-Sign=16D9485D8197E08CAC96686DFA7FDDA663723C0F62315CF135F8E7EE94958DAE)
 
 - **场景三**：该场景主要在于根据当前选中的年动态渲染展示的月。当前年为第一年或者最后一年时通过slice截取需要展示的月份，如第一年设置为4月-12月，最后一年设置为1月-4月，中间的其他年设置为1-12月，通过ForEach渲染月选择器的数据列。可参考如下代码：
 ```text
 @Entry
 @Component
 struct UIPickerComponentExample2 {
-  startYear: number = 2020; // 选择器开始年
-  startMonth: number = 4; // 选择器第一年的开始月
-  endYear: number = new Date().getFullYear(); // 选择器结束年
-  endMonth: number = new Date().getMonth() + 1; // 选择器最后一年的结束月
-  yearList: number[] = []; // 年选择器数据
+  startYear: number = 2020;<em> // 选择器开始年</em>
+  startMonth: number = 4;<em> // 选择器第一年的开始月</em>
+  endYear: number = new Date().getFullYear(); <em>// 选择器结束年</em>
+  endMonth: number = new Date().getMonth() + 1;<em> // 选择器最后一年的结束月</em>
+  yearList: number[] = [];<em> // 年选择器数据</em>
   monthList12: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   @State yearIndex: number = 0;
-  @State monthList: number[] = []; // 月选择器数据
+  @State monthList: number[] = [];<em> // 月选择器数据</em>
   @State monthIndex: number = 0;
 
   aboutToAppear(): void {
-    for (let year = this.startYear; year  {
+    for (let year = this.startYear; year <= this.endYear; year++) {
+      this.yearList.push(year);
+    }
+    this.yearIndex = this.yearList.length - 1;
+    this.monthList = this.monthList12.slice(0, this.endMonth);
+    this.monthIndex = this.monthList.length - 1;
+  }
+
+  build() {
+    Column() {
+      Row() {
+        UIPickerComponent({ selectedIndex: this.yearIndex }) {
+          ForEach(this.yearList, (year: number) => {
             Text(`${year}年`);
           });
         }
         .onChange((selectIndex) => {
-          this.monthIndex = 0; // 年变动时月索引设置为0
+          this.monthIndex = 0;<em> // 年变动时月索引设置为0</em>
           if (selectIndex === 0) {
-            this.monthList = this.monthList12.slice(this.startMonth - 1); // 第一年月列表
+            this.monthList = this.monthList12.slice(this.startMonth - 1);<em> // 第一年月列表</em>
           } else if (selectIndex === this.yearList.length - 1) {
-            this.monthList = this.monthList12.slice(0, this.endMonth); // 最后一年月列表
+            this.monthList = this.monthList12.slice(0, this.endMonth);<em> // 最后一年月列表</em>
           } else {
-            this.monthList = this.monthList12; // 正常的12个月
+            this.monthList = this.monthList12; <em>// 正常的12个月</em>
           }
         })
         .selectionIndicator({ type: PickerIndicatorType.DIVIDER })
@@ -217,19 +237,20 @@ struct UIPickerComponentExample2 {
 }
 ```
  运行效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/rWOkDvQmRxeZ7_eScKhX1w/zh-cn_image_0000002658926663.png?HW-CC-KV=V1&HW-CC-Date=20260701T025559Z&HW-CC-Expire=86400&HW-CC-Sign=59D9EC7D4D552ADC465E3EC4D00C7A19BC36AEC15F9B9D5511CDFF03BCAABA6A)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/rWOkDvQmRxeZ7_eScKhX1w/zh-cn_image_0000002658926663.png?HW-CC-KV=V1&HW-CC-Date=20260701T041331Z&HW-CC-Expire=86400&HW-CC-Sign=E5EA11DD243FB48A92E61A415290E531DFE03801F80FD541B9D71D7F06358D44)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：TextPicker组件实现三级联动选择的省市区动画联动出现延迟，省看起来已经选中了，但是市和区会延迟变化，导致返回的值出现延迟。效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/DElOMuoGTc6mIA3zbX3HVw/zh-cn_image_0000002658806703.png?HW-CC-KV=V1&HW-CC-Date=20260701T025559Z&HW-CC-Expire=86400&HW-CC-Sign=EF25D400306905F29DA6A0F4FCCDCC50D5FB0F0811D52FB5DCA4FEB8D5044348)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/DElOMuoGTc6mIA3zbX3HVw/zh-cn_image_0000002658806703.png?HW-CC-KV=V1&HW-CC-Date=20260701T041331Z&HW-CC-Expire=86400&HW-CC-Sign=64DAD8A12BCDB6E033C4DC3CEC791FFF9C3B75EAC6893291CB33D8D78F6E1376)
 
  
 A：TextPicker组件在滚动过程中，选项归位至选中项位置时才会触发[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#onchange18)，此时如果动画还未结束就会出现延迟的情况。可以使用API22新增的UIPickerComponent实现，该组件onChange只需要有选项一半以上进入区域就可以选中，且动画结束较快。具体实现可参考[自定义地区选择器](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component#示例6自定义地区选择器)。

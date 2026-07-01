@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accessorykit-7001
 
-## Accessory Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：declare namespace accessoryAccessManager 差异内容：declare namespace accessoryAccessManager | api/@hms.collaboration.accessoryAccessManager.d.ts |

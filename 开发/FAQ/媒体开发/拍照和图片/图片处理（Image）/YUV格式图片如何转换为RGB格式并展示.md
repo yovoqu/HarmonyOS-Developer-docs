@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-56
 
-## YUV格式图片如何转换为RGB格式并展示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何将YUV格式图片转换为RGB格式并展示？比如YUV422采样格式，NV16或者YUYV存储格式的YUV图片。
  
  
 
-##### 背景知识
+#### 背景知识
 
 **一、YUV简介。**
  
@@ -46,22 +42,24 @@ B = 1.164 * (Y - 16) + 2.016 * (U - 128)
  
  
 
-##### 解决方案
+#### 解决方案
 
 展示YUV格式的图片，首先要确认YUV的采样格式，存储格式，以及YUV与RGB的转换公式。将YUV数据转为RGB数据，再将RGB数据编码为pixelMap。
  
 比如YUV图片是YUV422采样格式，NV16或者YUYV的存储格式，BT601 full range的转换公式。
- 
-- 将YUV数据转为RGB数据，示例代码如下：
+ 1. 将YUV数据转为RGB数据，示例代码如下：
 ```text
-// nv16数据转为rgba数据
+<em>// nv16数据转为rgba数据</em>
 convertNv16ToRgba(nv16Data: Uint8Array, width: number, height: number): Uint8Array {
   const rgbaData = new Uint8Array(width * height * 4);
   const yPlaneSize = width * height;
 
-  for (let i = 0; i // Y分量
+  for (let i = 0; i < width * height; i++) {
+    const row = Math.floor(i / width);
+    const col = i % width;
+    <em>// Y分量</em>
     const y = nv16Data[i];
-    // UV分量 (NV16水平2:1下采样)
+   <em> // UV分量 (NV16水平2:1下采样)</em>
     const uvRow = row;
     const uvCol = Math.floor(col / 2) * 2;
     const uvIndex = yPlaneSize + (uvRow * width) + uvCol;
@@ -74,9 +72,9 @@ convertNv16ToRgba(nv16Data: Uint8Array, width: number, height: number): Uint8Arr
       u = nv16Data[uvIndex - 2];
       v = nv16Data[uvIndex - 1];
     }
-    // 使用查找表快速转换
+   <em> // 使用查找表快速转换</em>
     const rgb = this.fastYuvToRgb(y, u, v);
-    // 填充RGBA
+   <em> // 填充RGBA</em>
     const rgbaIndex = i * 4;
     rgbaData[rgbaIndex] = rgb.b;
     rgbaData[rgbaIndex + 1] = rgb.g;
@@ -86,44 +84,59 @@ convertNv16ToRgba(nv16Data: Uint8Array, width: number, height: number): Uint8Arr
   return rgbaData;
 }
 
-// yuyv数据转为rgba数据
+<em>// yuyv数据转为rgba数据</em>
 convertYuyvToRgba(yuyvArray: Uint8Array, width: number, height: number): Uint8Array {
   const evenWidth = width % 2 === 0 ? width : width + 1;
-  // 创建RGBA缓冲区
+  <em>// 创建RGBA缓冲区</em>
   const rgbaBuffer = new ArrayBuffer(evenWidth * height * 4);
   const rgbaArray = new Uint8Array(rgbaBuffer);
 
-  for (let y = 0; y  // 获取YUYV分量
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < evenWidth; x += 2) {
+      const yuyvIdx = (y * evenWidth + x) * 2;
+     <em> // 获取YUYV分量</em>
       const y1 = yuyvArray[yuyvIdx]; // Y1
       const u = yuyvArray[yuyvIdx + 1]; // U
       const y2 = yuyvArray[yuyvIdx + 2]; // Y2
       const v = yuyvArray[yuyvIdx + 3]; // V
-      // 转换为RGB
+     <em> // 转换为RGB</em>
       const rgb1 = this.fastYuvToRgb(y1, u, v);
       const rgb2 = this.fastYuvToRgb(y2, u, v);
-      // 填入RGBA数组
+     <em> // 填入RGBA数组</em>
       const idx1 = (y * evenWidth + x) * 4;
       const idx2 = (y * evenWidth + x + 1) * 4;
-      if (x  // B
-        rgbaArray[idx1 + 1] = rgb1.g; // G
-        rgbaArray[idx1 + 2] = rgb1.r; // R
-        rgbaArray[idx1 + 3] = 255; // A（完全不透明）
+      if (x < width) {
+        rgbaArray[idx1] = rgb1.b;<em> // B</em>
+        rgbaArray[idx1 + 1] = rgb1.g;<em> // G</em>
+        rgbaArray[idx1 + 2] = rgb1.r;<em> // R</em>
+        rgbaArray[idx1 + 3] = 255;<em> // A（完全不透明）</em>
       }
-      if ((x + 1) /**
- * 快速YUV转RGB (整数运算)
- */
+      if ((x + 1) < width) {
+        rgbaArray[idx2] = rgb2.b;
+        rgbaArray[idx2 + 1] = rgb2.g;
+        rgbaArray[idx2 + 2] = rgb2.r;
+        rgbaArray[idx2 + 3] = 255;
+      }
+    }
+  }
+  return rgbaArray;
+}
+
+<em>/**</em>
+<em> * 快速YUV转RGB (整数运算)</em>
+<em> */</em>
 fastYuvToRgb(y: number, u: number, v: number): rgbInfo {
-  // 使用整数运算的近似公式
+ <em> // 使用整数运算的近似公式</em>
   const c = y - 16;
   const d = u - 128;
   const e = v - 128;
 
-  // 使用整数运算 (乘以1000避免浮点数运算)
+ <em> // 使用整数运算 (乘以1000避免浮点数运算)</em>
   let r = (1164 * c + 1596 * e) / 1000;
   let g = (1164 * c - 392 * d - 812 * e) / 1000;
   let b = (1164 * c + 2016 * d) / 1000;
 
-  // 限制范围
+ <em> // 限制范围</em>
   r = Math.min(255, Math.max(0, Math.round(r)));
   g = Math.min(255, Math.max(0, Math.round(g)));
   b = Math.min(255, Math.max(0, Math.round(b)));
@@ -132,7 +145,7 @@ fastYuvToRgb(y: number, u: number, v: number): rgbInfo {
 }
 ```
 
-- 完整示例代码如下：
+2. 完整示例代码如下：
 ```text
 import { resourceManager } from '@kit.LocalizationKit';
 import { image } from '@kit.ImageKit';
@@ -150,14 +163,17 @@ struct YuvTogrba {
   @State pixelMapYuyv: PixelMap | undefined = undefined;
   private context: Context = this.getUIContext().getHostContext() as Context;
 
-  // nv16数据转为rgba数据
+ <em> // nv16数据转为rgba数据</em>
   convertNv16ToRgba(nv16Data: Uint8Array, width: number, height: number): Uint8Array {
     const rgbaData = new Uint8Array(width * height * 4);
     const yPlaneSize = width * height;
 
-    for (let i = 0; i  // Y分量
+    for (let i = 0; i < width * height; i++) {
+      const row = Math.floor(i / width);
+      const col = i % width;
+     <em> // Y分量</em>
       const y = nv16Data[i];
-      // UV分量 (NV16水平2:1下采样)
+    <em>  // UV分量 (NV16水平2:1下采样)</em>
       const uvRow = row;
       const uvCol = Math.floor(col / 2) * 2;
       const uvIndex = yPlaneSize + (uvRow * width) + uvCol;
@@ -170,9 +186,9 @@ struct YuvTogrba {
         u = nv16Data[uvIndex - 2];
         v = nv16Data[uvIndex - 1];
       }
-      // 使用查找表快速转换
+     <em> // 使用查找表快速转换</em>
       const rgb = this.fastYuvToRgb(y, u, v);
-      // 填充RGBA
+     <em> // 填充RGBA</em>
       const rgbaIndex = i * 4;
       rgbaData[rgbaIndex] = rgb.b;
       rgbaData[rgbaIndex + 1] = rgb.g;
@@ -182,44 +198,59 @@ struct YuvTogrba {
     return rgbaData;
   }
 
-  // yuyv数据转为rgba数据
+ <em> // yuyv数据转为rgba数据</em>
   convertYuyvToRgba(yuyvArray: Uint8Array, width: number, height: number): Uint8Array {
     const evenWidth = width % 2 === 0 ? width : width + 1;
-    // 创建RGBA缓冲区
+   <em> // 创建RGBA缓冲区</em>
     const rgbaBuffer = new ArrayBuffer(evenWidth * height * 4);
     const rgbaArray = new Uint8Array(rgbaBuffer);
 
-    for (let y = 0; y    // 获取YUYV分量
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < evenWidth; x += 2) {
+        const yuyvIdx = (y * evenWidth + x) * 2;
+     <em>   // 获取YUYV分量</em>
         const y1 = yuyvArray[yuyvIdx]; // Y1
         const u = yuyvArray[yuyvIdx + 1]; // U
         const y2 = yuyvArray[yuyvIdx + 2]; // Y2
         const v = yuyvArray[yuyvIdx + 3]; // V
-        // 转换为RGB
+      <em>  // 转换为RGB</em>
         const rgb1 = this.fastYuvToRgb(y1, u, v);
         const rgb2 = this.fastYuvToRgb(y2, u, v);
-        // 填入RGBA数组
+  <em>      // 填入RGBA数组</em>
         const idx1 = (y * evenWidth + x) * 4;
         const idx2 = (y * evenWidth + x + 1) * 4;
-        if (x  // B
-          rgbaArray[idx1 + 1] = rgb1.g; // G
-          rgbaArray[idx1 + 2] = rgb1.r; // R
-          rgbaArray[idx1 + 3] = 255; // A（完全不透明）
+        if (x < width) {
+          rgbaArray[idx1] = rgb1.b;<em> // B</em>
+          rgbaArray[idx1 + 1] = rgb1.g; <em>// G</em>
+          rgbaArray[idx1 + 2] = rgb1.r;<em> // R</em>
+          rgbaArray[idx1 + 3] = 255; <em>// A（完全不透明）</em>
         }
-        if ((x + 1) /**
-   * 快速YUV转RGB (整数运算)
-   */
+        if ((x + 1) < width) {
+          rgbaArray[idx2] = rgb2.b;
+          rgbaArray[idx2 + 1] = rgb2.g;
+          rgbaArray[idx2 + 2] = rgb2.r;
+          rgbaArray[idx2 + 3] = 255;
+        }
+      }
+    }
+    return rgbaArray;
+  }
+
+  <em>/**</em>
+<em>   * 快速YUV转RGB (整数运算)</em>
+<em>   */</em>
   fastYuvToRgb(y: number, u: number, v: number): rgbInfo {
-    // 使用整数运算的近似公式
+  <em>  // 使用整数运算的近似公式</em>
     const c = y - 16;
     const d = u - 128;
     const e = v - 128;
 
-    // 使用整数运算 (乘以1000避免浮点数运算)
+   <em> // 使用整数运算 (乘以1000避免浮点数运算)</em>
     let r = (1164 * c + 1596 * e) / 1000;
     let g = (1164 * c - 392 * d - 812 * e) / 1000;
     let b = (1164 * c + 2016 * d) / 1000;
 
-    // 限制范围
+   <em> // 限制范围</em>
     r = Math.min(255, Math.max(0, Math.round(r)));
     g = Math.min(255, Math.max(0, Math.round(g)));
     b = Math.min(255, Math.max(0, Math.round(b)));
@@ -239,10 +270,10 @@ struct YuvTogrba {
             Button('nv16转rgba')
               .onClick(() => {
                 const resourceMgr: resourceManager.ResourceManager = this.context.resourceManager;
-                let rawBuf = resourceMgr.getRawFileContentSync('test_nv16.yuv'); // 需要替换为rawfile目录下实际nv16存储格式的yuv数据
-                let readBuffer = this.convertNv16ToRgba(rawBuf, 550, 400); // 像素宽高要根据实际的yuv数据填写
+                let rawBuf = resourceMgr.getRawFileContentSync('test_nv16.yuv'); <em>// 需要替换为rawfile目录下实际nv16存储格式的yuv数据</em>
+                let readBuffer = this.convertNv16ToRgba(rawBuf, 550, 400);<em> // 像素宽高要根据实际的yuv数据填写</em>
                 let opts: image.InitializationOptions =
-                  { editable: true, pixelFormat: 3, size: { height: 400, width: 550 } }; // 像素宽高要根据实际的yuv数据填写
+                  { editable: true, pixelFormat: 3, size: { height: 400, width: 550 } }; <em>// 像素宽高要根据实际的yuv数据填写</em>
                 this.pixelMapNv16 = image.createPixelMapSync(readBuffer.buffer, opts);
               })
           }.margin({ right: 5 })
@@ -255,10 +286,10 @@ struct YuvTogrba {
             Button('yuyv转rgba')
               .onClick(() => {
                 const resourceMgr: resourceManager.ResourceManager = this.context.resourceManager;
-                let rawBuf = resourceMgr.getRawFileContentSync('test_yuyv.yuv'); // 需要替换为rawfile目录下实际yuyv存储格式的yuv数据
-                let readBuffer = this.convertYuyvToRgba(rawBuf, 550, 400); // 像素宽高要根据实际的yuv数据填写
+                let rawBuf = resourceMgr.getRawFileContentSync('test_yuyv.yuv');<em> // 需要替换为rawfile目录下实际yuyv存储格式的yuv数据</em>
+                let readBuffer = this.convertYuyvToRgba(rawBuf, 550, 400);<em> // 像素宽高要根据实际的yuv数据填写</em>
                 let opts: image.InitializationOptions =
-                  { editable: true, pixelFormat: 3, size: { height: 400, width: 550 } }; // 像素宽高要根据实际的yuv数据填写
+                  { editable: true, pixelFormat: 3, size: { height: 400, width: 550 } }; <em>// 像素宽高要根据实际的yuv数据填写</em>
                 this.pixelMapYuyv = image.createPixelMapSync(readBuffer.buffer, opts);
               })
           }.margin({ left: 5 })

@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-assetstorekit-7001
 
-## Asset Store Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：asset； API声明：function batchAdd(attributesArray: Array&lt;AssetMap&gt;): Promise&lt;BatchResult&gt;; 差异内容：function batchAdd(attributesArray: Array&lt;AssetMap&gt;): Promise&lt;BatchResult&gt;; | api/@ohos.security.asset.d.ts |

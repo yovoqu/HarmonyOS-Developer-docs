@@ -3,18 +3,16 @@
 更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiretrieval
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
-
-## @ohos.hiviewdfx.hiRetrieval (应用灰度)
- 
 
 本模块提供应用灰度故障维测能力，支持以下故障类型：RSS内存泄漏、ArkTS-OOM、FD内存泄漏、GPU内存泄漏。应用灰度特性是一种运维态功能，用于精准采集故障日志。开发者在端侧集成应用灰度功能后，该应用可参与应用灰度活动。通过云端平台发布应用灰度任务，可圈选部分设备开启故障日志精准采集，帮助开发者快速定位故障。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 import { hiRetrieval } from '@kit.PerformanceAnalysisKit';
@@ -22,7 +20,9 @@ import { hiRetrieval } from '@kit.PerformanceAnalysisKit';
  
   
 
-##### HiRetrievalConfig
+#### HiRetrievalConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 应用灰度活动配置。
  
@@ -41,7 +41,9 @@ import { hiRetrieval } from '@kit.PerformanceAnalysisKit';
  
   
 
-##### hiRetrieval.init
+#### hiRetrieval.init
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 init(): void
  
@@ -80,7 +82,9 @@ try {
  
   
 
-##### hiRetrieval.participate
+#### hiRetrieval.participate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 participate(config: HiRetrievalConfig): void
  
@@ -132,7 +136,9 @@ try {
  
   
 
-##### hiRetrieval.quit
+#### hiRetrieval.quit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 quit(): void
  
@@ -172,7 +178,9 @@ try {
  
   
 
-##### hiRetrieval.isParticipant
+#### hiRetrieval.isParticipant
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isParticipant(): boolean
  
@@ -201,7 +209,9 @@ let isParticipant = hiRetrieval.isParticipant();
  
   
 
-##### hiRetrieval.getLastParticipationTimestamp
+#### hiRetrieval.getLastParticipationTimestamp
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getLastParticipationTimestamp(): number
  
@@ -231,7 +241,9 @@ let ts = hiRetrieval.getLastParticipationTimestamp();
  
   
 
-##### hiRetrieval.run
+#### hiRetrieval.run
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 run(): void
  
@@ -271,7 +283,9 @@ try {
  
   
 
-##### hiRetrieval.getCurrentConfig
+#### hiRetrieval.getCurrentConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getCurrentConfig(): HiRetrievalConfig
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-35
 
-## 元服务如何获取设备ID
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS应用里可以通过获取OAID和ODID获取设备标识，元服务不支持。元服务如何获取设备ID呢？
  
  
 
-##### 背景知识
+#### 背景知识
 
 AAID是应用匿名标识符，标识应用实例，只存在于安装期，长度36位。AAID具有更好的隐私属性。AAID具有以下特性：
  
@@ -31,13 +27,13 @@ ODID：开发者匿名设备标识符，它主要用于开放给开发者的设�
  
  
 
-##### 解决方案
+#### 解决方案
 
 HarmonyOS出于对用户隐私的保护不开放OAID、ODID等，开发者可以获取AAID，不过每次重新安装都会变化，具体可以参考[获取AAID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-get-aaid)。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：开发者需要对比从元服务和应用处获取到的设备唯一标识符来区分不同设备的会话，AAID可以吗？
  

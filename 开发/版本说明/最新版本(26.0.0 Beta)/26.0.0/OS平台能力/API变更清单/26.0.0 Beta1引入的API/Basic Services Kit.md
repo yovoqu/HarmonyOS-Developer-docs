@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-basicserviceskit-7001
 
-## Basic Services Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增错误码 | 类名：PasteData； API声明：addRecord(mimeType: string, value: ValueType): void; 差异内容：NA | 类名：PasteData； API声明：addRecord(mimeType: string, value: ValueType): void; 差异内容：12900002 | api/@ohos.pasteboard.d.ts |

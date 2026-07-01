@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1545
 
-## 如何使用layoutWeight属性设置子元素尺寸权重
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使子组件按一定比例在父容器中进行尺寸分配？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)(value: number | string)：设置组件的布局权重，使组件在父容器（Row/Column/Flex）的主轴方向按照权重分配尺寸。
  
@@ -25,7 +21,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)属性动态调整子元素尺寸占比的核心容器，适用于需要灵活布局的场景，下列方案以[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)、[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)为例，分别展示水平和竖直方向上layoutWeight的分配方法。
  
@@ -41,16 +37,16 @@ struct BottomWithBar {
           Text('左侧');
         }
         .justifyContent(FlexAlign.Center)
-        .height('50%') // 因为是Row()组件。所以设置高度以便观察
+        .height('50%') <em>// 因为是Row()组件。所以设置高度以便观察</em>
         .backgroundColor('#F1F3F5')
-        .layoutWeight(2); // 占据2/3宽度
+        .layoutWeight(2);<em> // 占据2/3宽度</em>
         Row() {
           Text('右侧');
         }
         .justifyContent(FlexAlign.Center)
-        .height('50%') // 因为是Row()组件。所以设置高度以便观察
+        .height('50%') <em>// 因为是Row()组件。所以设置高度以便观察</em>
         .backgroundColor('#E5E5EA')
-        .layoutWeight(1); // 占据1/3宽度
+        .layoutWeight(1);<em> // 占据1/3宽度</em>
       };
     }
     .width('100%')
@@ -59,8 +55,9 @@ struct BottomWithBar {
 }
 ```
  效果图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/8M0zNtbGSnmoNR-LpUc3Mw/zh-cn_image_0000002628609224.png?HW-CC-KV=V1&HW-CC-Date=20260701T025620Z&HW-CC-Expire=86400&HW-CC-Sign=AFF9D9195B4586CBD4AC1DD3FEA2B88DFF4458F565D7B12E002BA41B210C9D41)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/8M0zNtbGSnmoNR-LpUc3Mw/zh-cn_image_0000002628609224.png?HW-CC-KV=V1&HW-CC-Date=20260701T041302Z&HW-CC-Expire=86400&HW-CC-Sign=AE04A62797F04EC9B296EB6EC3AFFF3AEDA001C2B40A3C3FC14F458545CCC714)
 
 - Column容器：**垂直布局**（从上到下），通过layoutWeight设置子元素在**垂直方向**的占比。
 ```text
@@ -74,16 +71,16 @@ struct BottomWithBar2 {
           Text('顶部');
         }
         .justifyContent(FlexAlign.Center)
-        .width('50%') // 因为是Column()组件。所以设置宽度以便观察
+        .width('50%') <em>// 因为是Column()组件。所以设置宽度以便观察</em>
         .backgroundColor('#F1F3F5')
-        .layoutWeight(1); // 占据1/2高度
+        .layoutWeight(1);<em> // 占据1/2高度</em>
         Row() {
           Text('底部');
         }
         .justifyContent(FlexAlign.Center)
-        .width('50%') // 因为是Column()组件。所以设置宽度以便观察
+        .width('50%') <em>// 因为是Column()组件。所以设置宽度以便观察</em>
         .backgroundColor('#E5E5EA')
-        .layoutWeight(1); // 占据1/2高度
+        .layoutWeight(1); <em>// 占据1/2高度</em>
       };
     }
     .width('100%')
@@ -92,14 +89,15 @@ struct BottomWithBar2 {
 }
 ```
  效果图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/UFBDsRhgQdSHozRnvtMC7A/zh-cn_image_0000002628769122.png?HW-CC-KV=V1&HW-CC-Date=20260701T025620Z&HW-CC-Expire=86400&HW-CC-Sign=7DF821A4869086AFC61932631CC6BF9E9B2360F812E445B05EF3B6DE83FD7561)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/UFBDsRhgQdSHozRnvtMC7A/zh-cn_image_0000002628769122.png?HW-CC-KV=V1&HW-CC-Date=20260701T041302Z&HW-CC-Expire=86400&HW-CC-Sign=5B1035F1300A095347366597FDC977DEA0EAA854C16C9BDC46345B9786A2C12E)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何指定组件到屏幕边缘的距离。例如：Row容器中存在左侧Text，右侧TextInput两个子组件，要求左侧Text组件宽度固定，右侧TextInput宽度自适应，并且Text组件距离左边屏幕边缘和TextInput组件距离右侧屏幕边缘的距离均为16vp。
  

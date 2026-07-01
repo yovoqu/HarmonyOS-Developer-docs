@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-25
 
-## 如何添加ACL受限权限
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如果应用涉及获取受限权限，在应用发布上架时，AGC将根据应用的使用场景审核是否可以使用对应的受限权限。如不符合，应用的上架申请将被驳回，审核方式请见[发布HarmonyOS应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-0000002271695230)。
  
  
 
-##### 解决方案
+#### 解决方案
 
 **ACL**，即Access Control List，中文名“**访问控制列表**”。
  
@@ -26,6 +22,6 @@
 - 在调试阶段，ACL权限审核等待期间，可以[创建试用调试Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apply-acl-0000002394212138#section1443958124819)来提前试用申请的权限。试用调试Profile有效期为5天，到期即失效。一个应用/元服务最多支持创建5个试用调试Profile。
 - 在发布阶段，必须根据以下步骤完成受限权限的手动申请：
 申请的Profile文件，将用于后续的应用签名信息配置。应用因特殊场景要求使用受限开放权限，请务必在申请发布Profile“添加Profile页面”时，申请使用相应权限，否则应用将在审核时被驳回。申请Profile的步骤请参考：[申请发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-profile-0000002248341090)。
-- 在AGC侧完成上述配置后，开发者还需要根据实际情况在工程中声明权限。
-在配置文件中[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
-- 如果权限的授权方式为user_grant（用户授权）时，需要通过弹窗[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
+- 在AGC侧完成上述配置后，开发者还需要根据实际情况在工程中声明权限。1. 在配置文件中[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+
+2. 如果权限的授权方式为user_grant（用户授权）时，需要通过弹窗[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-50
 
-## preferences实现数据跨进程读取
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用进程的token数据通过PersistentStorage存储，在卡片进程通过AppStorage获取，获取不到token数据。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [PersistentStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage)是应用程序中的可选单例对象。此对象的作用是持久化存储选定的AppStorage属性，以确保这些属性在应用程序重新启动时的值与应用程序关闭时的值相同。
 - AppStorage是应用全局的UI状态存储，是和应用的进程绑定的。AppStorage支持应用的主线程内多个UIAbility实例间的状态共享。AppStorage是UI相关的数据，需要运行在UI线程，[无法将对象共享到其他线程](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-49)。
@@ -24,111 +20,110 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 AppStorage不适合跨进程共享数据。此场景“应用与卡片之间数据传递”可以基于用户首选项来实现跨进程数据共享。具体实现示例如下：
- 
-- UI进程，Index文件存储首选项值代码如下：
+ 1. UI进程，Index文件存储首选项值代码如下：
 ```text
-import { preferences } from '@kit.ArkData';
-import { BusinessError } from '@kit.BasicServicesKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">preferences </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkData'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-  message: string = '持久化存储';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">持久化存储</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">;</span>
 
-  // 创建一个使用preferences持久化的方法
-  save() {
-    let dataPreferences: preferences.Preferences | null = null;
-    // 通过调用preferences.getPreferences()实现获取一个名为myStore的的首选项对象
-    preferences.getPreferences(this.getUIContext().getHostContext(), 'myStore',
-      (err: BusinessError, val: preferences.Preferences) => {
-        if (err) {
-          console.error('Failed to get preferences. code =', err.code, ', message =', err.message);
-          return;
-        }
-        dataPreferences = val;
-        try {
-          // 通过同步处理dataPreferences.putSync方法存储一个键值对，键为token，值为'123123'
-          dataPreferences.putSync('token', '123123');
-          console.info('Succeeded in putting value of token.');
-          // 数据持久化到存储中
-          dataPreferences?.flushSync();
-          console.info('Succeeded in flushing.');
-        } catch (err) {
-          console.error('Failed to preferences. code =', err.code, ', message =', err.message);
-        }
-      });
-  }
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建一个使用</span><span style="color: rgb(128,128,128);">preferences</span><span style="color: rgb(128,128,128);">持久化的方法</span>
+  <span style="color: rgb(0,0,255);">save</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Preferences </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过调用</span><span style="color: rgb(128,128,128);">preferences.getPreferences()</span><span style="color: rgb(128,128,128);">实现获取一个名为</span><span style="color: rgb(128,128,128);">myStore</span><span style="color: rgb(128,128,128);">的的首选项对象</span>
+    <span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPreferences</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'myStore'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">val</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Preferences</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Failed to get preferences. code ='</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">', message ='</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          return<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+        <span style="color: rgb(0,0,255);">dataPreferences </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">val</span><span style="color: rgb(181,106,1);">;</span>
+        try <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过同步处理</span><span style="color: rgb(128,128,128);">dataPreferences.putSync</span><span style="color: rgb(128,128,128);">方法存储一个键值对，键为</span><span style="color: rgb(128,128,128);">token</span><span style="color: rgb(128,128,128);">，值为</span><span style="color: rgb(128,128,128);">'123123'</span>
+          <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">putSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'token'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'123123'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in putting value of token.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">数据持久化到存储中</span>
+          <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">flushSync</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in flushing.'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Failed to preferences. code ='</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">', message ='</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    RelativeContainer() {
-      Button(this.message)
-        .id('HelloWorld')
-        .fontSize(18)
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          // 数据持久化存储
-          this.save();
-        })
-    }
-    .height('100%')
-    .width('100%')
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'HelloWorld'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">18</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">数据持久化存储</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">save</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
-- 卡片获取首选项值，详情代码如下：
+2. 卡片获取首选项值，详情代码如下：
 ```text
-import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
-import { preferences } from '@kit.ArkData';
-import { BusinessError } from '@kit.BasicServicesKit';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">formBindingData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">FormExtensionAbility</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">formInfo </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.FormKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">preferences </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkData'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-export default class EntryFormAbility extends FormExtensionAbility {
-  // 服务卡片生命周期的一个方法，当服务卡片被添加到前台时触发
-  onAddForm() {
-    let context = this.context;
-    let dataPreferences: preferences.Preferences | null = null;
-    // 调用getPreferences方法同步获取首选项对象
-    preferences.getPreferences(context, 'myStore', (err: BusinessError, val: preferences.Preferences) => {
-      if (err) {
-        console.error('Failed to get preferences. code =', err.code, ', message =', err.message);
-        return;
-      }
-      // 将获取的首选项对象赋值给dataPreferences变量
-      dataPreferences = val;
-      try {
-        // 使用getSync方法同步获取名为token的首选项值，如果找不到该值，则使用default作为默认值。
-        let promise = dataPreferences.getSync('token', 'default');
-        console.info('Succeeded in getting preferences. Data: ', promise);
-      } catch (err) {
-        console.error('Failed to get preferences. code =' + err.code, ', message =', err.message);
-      }
-    });
-    // 创建并返回一个表单绑定数据对象，用于将数据绑定到服务卡片的视图层
-    return formBindingData.createFormBindingData('');
-  }
+export default class <span style="color: rgb(0,0,255);">EntryFormAbility </span>extends <span style="color: rgb(0,0,255);">FormExtensionAbility </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">服务卡片生命周期的一个方法，当服务卡片被添加到前台时触发</span>
+  <span style="color: rgb(0,0,255);">onAddForm</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Preferences </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">调用</span><span style="color: rgb(128,128,128);">getPreferences</span><span style="color: rgb(128,128,128);">方法同步获取首选项对象</span>
+    <span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPreferences</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'myStore'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">val</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">preferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Preferences</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Failed to get preferences. code ='</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">', message ='</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        return<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将获取的首选项对象赋值给</span><span style="color: rgb(128,128,128);">dataPreferences</span><span style="color: rgb(128,128,128);">变量</span>
+      <span style="color: rgb(0,0,255);">dataPreferences </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">val</span><span style="color: rgb(181,106,1);">;</span>
+      try <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">getSync</span><span style="color: rgb(128,128,128);">方法同步获取名为</span><span style="color: rgb(128,128,128);">token</span><span style="color: rgb(128,128,128);">的首选项值，如果找不到该值，则使用</span><span style="color: rgb(128,128,128);">default</span><span style="color: rgb(128,128,128);">作为默认值。</span>
+        let <span style="color: rgb(0,0,255);">promise </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dataPreferences</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'token'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'default'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Succeeded in getting preferences. Data: '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">promise</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Failed to get preferences. code =' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">', message ='</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">创建并返回一个表单绑定数据对象，用于将数据绑定到服务卡片的视图层</span>
+    return <span style="color: rgb(0,0,255);">formBindingData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createFormBindingData</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onAcquireFormState() {
-    // Called to return a {@link FormState} object.
-    return formInfo.FormState.READY;
-  }
-}
+  <span style="color: rgb(0,0,255);">onAcquireFormState</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(128,128,128);">// Called to return a {@link FormState} object.</span>
+    return <span style="color: rgb(0,0,255);">formInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FormState</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READY</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  实现效果：上述代码实现token数据存入myStore文件，文件内容为token的值：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/6BPITkYKRKi3HpYuzLspkw/zh-cn_image_0000002628899082.png?HW-CC-KV=V1&HW-CC-Date=20260701T025728Z&HW-CC-Expire=86400&HW-CC-Sign=5FCD0FA99835E90C24CF6B8A0AEF415CF0D1D365A8E23B6375332834B39D2C08)
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/6BPITkYKRKi3HpYuzLspkw/zh-cn_image_0000002628899082.png?HW-CC-KV=V1&HW-CC-Date=20260701T041346Z&HW-CC-Expire=86400&HW-CC-Sign=5E8F58E738BEE61787994060D1A7E2EC1782FCB7467428D29E8302539E89D481)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：首选项是否可以多进程并发使用？
  

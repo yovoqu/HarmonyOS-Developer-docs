@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1154
 
-## 如何实现基于dialogContent的自定义弹窗的双向数据绑定
- 
-
-
-##### 问题现象
+#### 问题现象
 
 场景一：使用openCustomDialog打开的自定义弹窗中，如何实现弹窗和页面间的双向数据绑定？
  
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [openCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialog12)：创建并弹出dialogContent对应的自定义弹窗，该方法创建弹窗的方式有两种，一种是通过ComponentContent的方式创建弹窗，一种是通过builder的方式创建弹窗。
 - [update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent#update)：该接口属于ComponentContent自带的方法，用于更新通过ComponentContent创建的弹窗。
@@ -29,13 +25,14 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：使用openCustomDialog打开的自定义弹窗中，如何实现弹窗和页面间的双向数据绑定？
 方案一：使用[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)创建弹窗UI。实现弹窗和页面间的双向数据绑定的核心思路是通过共享同一个数据对象Params，并配合ComponentContent中的update()来主动刷新UI。
- 在以下示例中，页面组件创建了一个Params的实例并传递给弹窗的UI内容childCom。
- 
-使用@ObservedV2观察Params的变化并使用@Trace装饰value使其能刷新UI。
+
+  在以下示例中，页面组件创建了一个Params的实例并传递给弹窗的UI内容childCom。
+
+1. 使用@ObservedV2观察Params的变化并使用@Trace装饰value使其能刷新UI。
 ```text
 @ObservedV2
 class SceneOneOptionOneParams {
@@ -45,11 +42,12 @@ class SceneOneOptionOneParams {
 }
 ```
 
-- 页面数据同步到弹窗：更新dialogContent对应的自定义弹窗内容，需要使用update来进行修改。在Params参数类中可以定义一个空的callback函数，在页面组件的aboutToAppear方法中将update赋值给callback，当弹窗中数据进行更新时执行callback函数来更新WrappedBuilder对象封装的builder函数参数。
+
+2. 页面数据同步到弹窗：更新dialogContent对应的自定义弹窗内容，需要使用update来进行修改。在Params参数类中可以定义一个空的callback函数，在页面组件的aboutToAppear方法中将update赋值给callback，当弹窗中数据进行更新时执行callback函数来更新WrappedBuilder对象封装的builder函数参数。
 ```text
 aboutToAppear(): void {
   this.params.callback = () => {
-    this.contentNode.update(this.params); // 用于更新WrappedBuilder对象封装的builder函数参数
+    this.contentNode.update(this.params); <em>// 用于更新WrappedBuilder对象封装的builder函数参数</em>
   };
 }
 ```
@@ -63,9 +61,10 @@ Button('修改value')
   });
 ```
 
-- 弹窗数据同步到页面：弹窗中的TextInput组件通过onChange方法直接将输入值同步给params.value，而页面中的Text组件也通过params.value的值显示，因此实现了弹窗数据同步到页面。
+
+3. 弹窗数据同步到页面：弹窗中的TextInput组件通过onChange方法直接将输入值同步给params.value，而页面中的Text组件也通过params.value的值显示，因此实现了弹窗数据同步到页面。
 ```text
-// TextInput是弹窗中的组件
+<em>// TextInput是弹窗中的组件</em>
 TextInput({
   text: params.value,
   placeholder: '你好'
@@ -80,15 +79,15 @@ TextInput({
 ```
  
 ```text
-// Text是页面中的组件
+<em>// Text是页面中的组件</em>
 Text(`text:${this.params.value}`)
   .margin(10);
 ```
 
 
- 
-完整示例代码如下：
- 
+  完整示例代码如下：
+
+  
 ```text
 import { ComponentContent, UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -105,7 +104,7 @@ function childComOne(params: SceneOneOptionOneParams) {
   Column() {
     Text(`${params.value}`);
 
-    // TextInput是弹窗中的组件
+    <em>// TextInput是弹窗中的组件</em>
     TextInput({
       text: params.value,
       placeholder: '你好'
@@ -134,7 +133,7 @@ function childComOne(params: SceneOneOptionOneParams) {
   .backgroundColor(Color.White);
 }
 
-export function showDialogOne(args: T, contentNode: ComponentContent) {
+export function showDialogOne<T extends object>(args: T, contentNode: ComponentContent<T>) {
   let uiContext = new UIContext();
   let promptActionUI = uiContext.getPromptAction();
   try {
@@ -157,14 +156,14 @@ struct SceneOneOptionOne {
 
   aboutToAppear(): void {
     this.params.callback = () => {
-      this.contentNode.update(this.params); // 用于更新WrappedBuilder对象封装的builder函数参数
+      this.contentNode.update(this.params); <em>// 用于更新WrappedBuilder对象封装的builder函数参数</em>
     };
   }
 
   build() {
     Column() {
       Column() {
-        // Text是页面中的组件
+        <em>// Text是页面中的组件</em>
         Text(`text:${this.params.value}`)
           .margin(10);
 
@@ -181,7 +180,7 @@ struct SceneOneOptionOne {
       Button('打开弹窗')
         .margin(10)
         .onClick(() => {
-          showDialogOne(this.params, this.contentNode);
+          showDialogOne<SceneOneOptionOneParams>(this.params, this.contentNode);
         });
     }
     .width('100%')
@@ -190,8 +189,10 @@ struct SceneOneOptionOne {
   }
 }
 ```
- - 方案二：直接使用builder创建弹窗UI。该方式下由于没有ComponentContent参与无需使用update()强制更新弹窗。完整示例代码如下：
- 
+
+- 方案二：直接使用builder创建弹窗UI。该方式下由于没有ComponentContent参与无需使用update()强制更新弹窗。完整示例代码如下：
+
+  
 ```text
 @ObservedV2
 class Params {
@@ -208,7 +209,7 @@ struct SceneOneOptionTwo {
   childCom(params: Params) {
     Column() {
       Text(`${params.value}`);
-      // TextInput是弹窗中的组件
+      <em>// TextInput是弹窗中的组件</em>
       TextInput({
         text: params.value,
         placeholder: '你好'
@@ -237,7 +238,7 @@ struct SceneOneOptionTwo {
   build() {
     Column() {
       Column() {
-        // Text是页面中的组件
+        <em>// Text是页面中的组件</em>
         Text(`text:${this.params.value}`)
           .margin(10);
         Button('修改value')
@@ -271,16 +272,17 @@ struct SceneOneOptionTwo {
 场景一实现效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/5NxiSQbJRrOxRPQuY_Fauw/zh-cn_image_0000002628569612.png?HW-CC-KV=V1&HW-CC-Date=20260701T025601Z&HW-CC-Expire=86400&HW-CC-Sign=473971E155925D6071DFE566566BE2AD274FF7224265255EE5E1786FD2031B61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/5NxiSQbJRrOxRPQuY_Fauw/zh-cn_image_0000002628569612.png?HW-CC-KV=V1&HW-CC-Date=20260701T041307Z&HW-CC-Expire=86400&HW-CC-Sign=A3A091E1D2CEAA288CB4B13D6D6A9051B3051D84EEF6698D2BE6EB7F655EA55C)
 
  - 场景二：使用bindSheet时，如何实现弹窗和页面间的双向数据绑定？该场景下于场景一中的方案二基本一致，只需要注意builder的使用传递规则即可，完整示例代码如下：
- 
+
+  
 ```text
 @Builder
 export function
 sheetBuilder(items: number[]) {
   Column() {
-    // 自定义滚动容器
+    <em>// 自定义滚动容器</em>
     List({ space: '10vp' }) {
       ForEach(items, (item: number) => {
         ListItem() {
@@ -292,7 +294,7 @@ sheetBuilder(items: number[]) {
     .margin({ top: '10vp' })
     .width('100%')
     .height('900px')
-    // 设置滚动组件的嵌套滚动属性
+    <em>// 设置滚动组件的嵌套滚动属性</em>
     .nestedScroll({
       scrollForward: NestedScrollMode.PARENT_FIRST,
       scrollBackward: NestedScrollMode.SELF_FIRST,
@@ -310,9 +312,9 @@ sheetBuilder(items: number[]) {
 @Entry
 @Component
 struct SceneTwo {
-  // 响应式状态变量：控制Sheet是否显示
+  <em>// 响应式状态变量：控制Sheet是否显示</em>
   @State isShowSheet: boolean = false;
-  // 定义菜单项数据参数
+  <em>// 定义菜单项数据参数</em>
   private items: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   build() {
@@ -321,13 +323,13 @@ struct SceneTwo {
         .onClick(() => {
           this.isShowSheet = !this.isShowSheet;
         })
-        // 绑定Sheet组件：根据isShowSheet状态动态显示，传入参数items组数
+        <em>// 绑定Sheet组件：根据isShowSheet状态动态显示，传入参数items组数</em>
         .bindSheet($$this.isShowSheet, sheetBuilder(this.items), {
-          // Sheet尺寸配置：允许的展开尺寸
+          <em>// Sheet尺寸配置：允许的展开尺寸</em>
           detents: [SheetSize.MEDIUM, SheetSize.LARGE, 600],
-          // 优先显示位置：底部弹出
+          <em>// 优先显示位置：底部弹出</em>
           preferType: SheetType.BOTTOM,
-          // 标题配置：设置Sheet标题
+          <em>// 标题配置：设置Sheet标题</em>
           title: { title: '嵌套滚动场景' },
         });
     }.width('100%').height('100%')
@@ -336,15 +338,16 @@ struct SceneTwo {
 }
 ```
  场景二实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/iibnXt-WRaKnlzMS2ywD_g/zh-cn_image_0000002628409712.png?HW-CC-KV=V1&HW-CC-Date=20260701T025601Z&HW-CC-Expire=86400&HW-CC-Sign=9434EB57BD89CA37EAB1F5AE5D9F0DEA898DA6253A209CDC9A760EC37C434267)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/iibnXt-WRaKnlzMS2ywD_g/zh-cn_image_0000002628409712.png?HW-CC-KV=V1&HW-CC-Date=20260701T041307Z&HW-CC-Expire=86400&HW-CC-Sign=3073795CF3D5A34F2BEFC98A2E2295772704DDEEE4F00E90CF8361A54E6A97E6)
 
 - 场景三：使用@CustomDialog时，如何实现弹窗和页面间的双向数据绑定？详情可参考官方文档：[示例6（使用@Link和@Consume监听数据变化）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#示例6使用link和consume监听数据变化)。
 
  
  
 
-##### 总结
+#### 总结
 
 一般创建弹窗UI的方式有以下三种，分别对应不同的同步弹窗与页面数据的方式：
   

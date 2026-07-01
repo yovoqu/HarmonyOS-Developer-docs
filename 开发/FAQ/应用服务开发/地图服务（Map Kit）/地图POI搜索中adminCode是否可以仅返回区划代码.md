@@ -4,15 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-32
 
-## 地图POI搜索中adminCode是否可以仅返回区划代码
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用地图服务的[POI搜索](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-site-search)时，关键字搜索（[searchByText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#section1117619561413)）和周边搜索（[nearbySearch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#section6315894393)）的搜索结果中，当前返回的adminCode是9位数代码，是否可以仅返回区划代码？
  
-```text
+```json
 "sites": [
   {
     "siteId": "2031343823139177856",
@@ -32,7 +28,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 关键字搜索（searchByText）和周边搜索（nearbySearch）的搜索结果中，[AddressComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site#section1652881563212)描述详细的地址信息。其中adminCode表示行政区划代码。
  

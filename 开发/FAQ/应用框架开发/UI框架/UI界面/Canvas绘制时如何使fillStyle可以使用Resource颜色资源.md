@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-971
 
-## Canvas绘制时如何使fillStyle可以使用Resource颜色资源
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Canvas画布上绘制时，fillStyle用于设置画笔的填充颜色，但fillStyle只接受number或string类型的颜色资源，不接受Resource类型的颜色资源（即\$r('xxx')的引用方式），如何使得fillStyle可以使用引用资源的方式设置颜色？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)是画布组件，规定用于绘制的区域。
 - [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)是画笔，用于绘制内容到Canvas上。[fillStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#fillstyle)是CanvasRenderingContext2D的属性，用于设置画笔的颜色。
@@ -24,14 +20,13 @@
  
  
 
-##### 解决方案
-
-- 在EntryAbility中通过AppStorage存储context，以便调用resourceManager。
-```text
+#### 解决方案
+1. 在EntryAbility中通过AppStorage存储context，以便调用resourceManager。
+```json
 onWindowStageCreate(windowStage: window.WindowStage): void {
   let context = this.context;
   AppStorage.setOrCreate('context', context);
-  // Main window is created, set main page for this ability
+  <em>// Main window is created, set main page for this ability</em>
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
   windowStage.loadContent('pages/Index', (err) => {
@@ -44,14 +39,12 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 }
 ```
 
-- 通过@ohos.resourceManager (资源管理)的getColorSync方法，将\$r('xxx')方式获取的静态颜色资源转变为number类型的颜色值。
+2. 通过@ohos.resourceManager (资源管理)的getColorSync方法，将\$r('xxx')方式获取的静态颜色资源转变为number类型的颜色值。
+> [!NOTE]
+> getColorSync方法不支持dark目录下的深色模式颜色。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/ReFu1QDgQvmrjD_CFbPz0w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025716Z&HW-CC-Expire=86400&HW-CC-Sign=A3C4F0855F0CE3B8703666C74437874AC0BB8099B3D854C580C245B714304316)
- 
-getColorSync方法不支持dark目录下的深色模式颜色。
- 
 
- 
+  
 ```text
 import { common } from '@kit.AbilityKit';
 
@@ -85,7 +78,7 @@ struct FillRect {
 }
 ```
  
-```text
+```json
 {
   "color": [
     {

@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-205
 
-## 基于hvigorfile.ts自定义打包文件名，如何删除同文件夹存在的安装包
- 
-
-
-##### 问题现象
+#### 问题现象
 
 目前使用如下代码在打包时自定义包名，但是由于每次打包的包名都不一样，导致老的包一直存在打包路径下，请问如何能做到删除旧的构建产物？
  
  
 
-##### 背景知识
+#### 背景知识
 
 Hvigor支持灵活定制编译，用户可以在hvigorfile.ts文件中开发[自定义任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-task)和[自定义插件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-plugin)。
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以参考如下代码中的deleteOldApp()方法，在构建之前遍历目标文件夹，删除旧的目标产物。
  
@@ -30,9 +26,9 @@ import { hvigor } from '@ohos/hvigor'
 import * as fs from 'fs';
 import * as path from 'path';
 
-// 定义要删除的文件路径和文件格式
-const dir = 'D:/Program/HarmonyProject/XXXXXX'; // 替换为你的目标路径
-const ext = '.app'; // 要删除的文件格式
+<em>// 定义要删除的文件路径和文件格式</em>
+const dir = 'D:/Program/HarmonyProject/XXXXXX'; <em>// 替换为你的目标路径</em>
+const ext = '.app'; <em>// 要删除的文件格式</em>
 hvigor.afterNodeEvaluate((hvigorNode)=>{
     const context = hvigorNode.getContext(OhosPluginId.OHOS_APP_PLUGIN)
     if (context && context.getBuildProfileOpt) {
@@ -64,7 +60,7 @@ function deleteOldApp(dir: string, ext: string): void {
             console.info(file.name)
             const filePath = path.join(dir, file.name);
             if (file.name.endsWith(ext)) {
-                // 如果是目标文件，删除
+               <em> // 如果是目标文件，删除</em>
                 fs.unlink(filePath, err => {
                     if (err) {
                         console.error(`Error occurred while deleting file ${filePath}:`, err);

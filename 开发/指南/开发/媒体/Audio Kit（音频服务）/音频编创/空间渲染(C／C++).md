@@ -4,106 +4,103 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-space-render
 
-## 空间渲染(C/C++)
-   
-    
 从API version 23开始，[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)给开发者提供空间渲染效果节点[EFFECT_NODE_TYPE_SPACE_RENDER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)，用于实现三维空间音频渲染能力。空间渲染效果节点提供固定摆位、旋转及扩展三种[工作模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-space-render#工作模式)，将音频源在三维空间中进行定位、旋转和扩展处理，助力开发者高效构建沉浸式空间音频体验。
-    
-          
-##### 坐标系说明
-     
+
+
+#### 坐标系说明
+
 空间渲染采用左手坐标系，即伸出左手，用拇指和食指形成一个"L"形。
-     
+
  - 拇指指向右侧表示：X轴正方向。
  - 食指向上表示：Y轴正方向。
  - 其余手指指向前表示：Z轴正方向。
-     
-     
+
+
 坐标系参数说明：
-     
+
  - X坐标：左右方向。负值表示左侧，正值表示右侧。取值范围为[-5.0, 5.0]，单位为米（m）。
  - Y坐标：上下方向。负值表示下方，正值表示上方。取值范围为[-5.0, 5.0]，单位为米（m）。
  - Z坐标：前后方向。负值表示后方，正值表示前方。取值范围为[-5.0, 5.0]，单位为米（m）。
-     
-    
-    
-          
-##### 工作模式
-    
-    
-          
-##### [h2]固定摆位模式
-     
+
+
+
+
+#### 工作模式
+
+
+
+#### 固定摆位模式
+
 固定摆位模式用于将音频源放置在特定空间的固定位置，适用于需要固定音源位置的场景，用户可通过调用[OH_AudioSuiteEngine_SetSpaceRenderPositionParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_setspacerenderpositionparams)对空间渲染节点进行参数配置。固定摆位示意图如下：
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/AN_MI17nSsy3Tqbw3R_wEg/zh-cn_image_0000002659100501.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=72491B8AE2C9E9460D03163FAB8429B804D9857BBC778F2732F526D1E4B7118C)
 
-    
-    
-          
-##### [h2]旋转模式
-     
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/AN_MI17nSsy3Tqbw3R_wEg/zh-cn_image_0000002659100501.png?HW-CC-KV=V1&HW-CC-Date=20260701T041445Z&HW-CC-Expire=86400&HW-CC-Sign=6F7BC78A9DD120FF05971656E857D968E01A188EBC7316F6FB66F235FCB27139)
+
+
+
+
+#### 旋转模式
+
 旋转模式让音频源在指定位置设定单周环绕时间与时针方向进行动态渲染，用户可通过调用[OH_AudioSuiteEngine_SetSpaceRenderRotationParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_setspacerenderrotationparams)对空间渲染节点进行参数配置。旋转模式示意图如下：
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/S7-AOpIuSi69Cxkhq3N1zw/zh-cn_image_0000002628861152.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=BF8EFFC572C6999779BD9089AE384AE6CC6904F5DCDD95D5A4CB6CFE553A9679)
 
-    
-    
-          
-##### [h2]扩展模式
-     
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/S7-AOpIuSi69Cxkhq3N1zw/zh-cn_image_0000002628861152.png?HW-CC-KV=V1&HW-CC-Date=20260701T041445Z&HW-CC-Expire=86400&HW-CC-Sign=A7A1D3D352F9603745EC2985F2722A679A41718D344BD5C09A44737F8DBC8A13)
+
+
+
+
+#### 扩展模式
+
 扩展模式将音频源按照半径和角度进行扩展，用户可通过调用[OH_AudioSuiteEngine_SetSpaceRenderExtensionParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_setspacerenderextensionparams)对空间渲染节点进行参数配置。扩展模式示意图如下：
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/HvPQNi56Q52Soozf3oF9qA/zh-cn_image_0000002659220469.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=DBF5E49C6DE5583C8CF58E951F9A00378FEB5EBCE4CC6DAE993EACAE02AF40DB)
 
-    
-    
-          
-##### 开发基础配置
-     
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/HvPQNi56Q52Soozf3oF9qA/zh-cn_image_0000002659220469.png?HW-CC-KV=V1&HW-CC-Date=20260701T041445Z&HW-CC-Expire=86400&HW-CC-Sign=C6E592C9132BF6B0D87EFDD4E95662BA361930CF59D622770A8C5AA25EBEC370)
+
+
+
+
+#### 开发基础配置
+
 开发者使用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)提供的空间渲染效果节点，需要添加对应的头文件并链接动态库。
-    
-    
-          
-##### [h2]在CMake脚本中链接动态库
-     
+
+
+
+#### 在CMake脚本中链接动态库
+
 ```text
 target_link_libraries(sample PUBLIC libohaudio.so libohaudiosuite.so)
 ```
-    
-    
-          
-##### [h2]添加头文件
-     
+
+
+
+#### 添加头文件
+
 通过引入头文件使用音频编创相关API。
-     
-```text
-#include 
-#include 
-#include 
-#include 
+
+```cpp
+#include <ohaudiosuite/native_audio_suite_base.h>
+#include <ohaudiosuite/native_audio_suite_engine.h>
+#include <ohaudio/native_audiorenderer.h>
+#include <ohaudio/native_audiostreambuilder.h>
 ```
-    
-    
-          
-##### 开发步骤
-    
-    
-          
-##### [h2]接口调用
-     
+
+
+
+#### 开发步骤
+
+
+
+#### 接口调用
+
 详细的API说明请参考[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)。
-    
-    
-          
-##### [h2]空间渲染固定摆位效果
-     
- - 创建引擎和管线。
-       
-```text
+
+
+
+#### 空间渲染固定摆位效果
+1. 创建引擎和管线。
+
+  
+```cpp
 // 示例接口未包含返回值校验，实际使用时请务必添加校验逻辑。
 // 创建引擎。
 OH_AudioSuiteEngine_Create(&g_audioSuiteEngine);
@@ -113,10 +110,12 @@ OH_AudioSuiteEngine_CreatePipeline(g_audioSuiteEngine, &g_audioSuitePipeline,
                                    OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_REALTIME_MODE);
 ```
 
- - 创建输入、输出、空间渲染等节点并连接组网。
-       创建输入节点需要实现自定义回调函数InputNodeWriteDataCallBack，函数类型为[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)，调用[OH_AudioSuiteNodeBuilder_SetRequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setrequestdatacallback)接口设置回调函数。
-       
-```text
+2. 创建输入、输出、空间渲染等节点并连接组网。
+
+  创建输入节点需要实现自定义回调函数InputNodeWriteDataCallBack，函数类型为[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)，调用[OH_AudioSuiteNodeBuilder_SetRequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setrequestdatacallback)接口设置回调函数。
+
+  
+```cpp
 struct AudioDataInfo {
     uint8_t *buffer = nullptr;   // 音频数据。
     int32_t bufferSize = 0;      // 音频数据总大小。
@@ -124,20 +123,25 @@ struct AudioDataInfo {
     int32_t totalReadSize = 0;  // 已读取的音频数据总大小。
 };
 ```
-       
-```text
+
+```cpp
 // 示例接口未包含返回值校验，实际使用时请务必添加校验逻辑。
 // 输入节点请求数据的回调函数。
 static int32_t InputNodeWriteDataCallBack(OH_AudioNode *audioNode, void *userData, void *audioData,
                                           int32_t audioDataSize, bool *finished)
 {
-    if ((audioNode == nullptr) || (userData == nullptr) || (audioData == nullptr) || (audioDataSize (userData);
+    if ((audioNode == nullptr) || (userData == nullptr) || (audioData == nullptr) || (audioDataSize <= 0) ||
+        (finished == nullptr)) {
+        return -1;
+    }
+
+    struct AudioDataInfo *info = static_cast<struct AudioDataInfo *>(userData);
     // 要处理的音频大小。
     int32_t actualDataSize = std::min(audioDataSize, info->bufferSize - info->totalWriteSize);
     // 将PCM音频数据写入audioData。
     if (actualDataSize > 0) {
         std::copy(info->buffer + info->totalWriteSize, info->buffer + info->totalWriteSize + actualDataSize,
-                  static_cast(audioData));
+                  static_cast<uint8_t *>(audioData));
     }
     info->totalWriteSize += actualDataSize;
 
@@ -148,8 +152,8 @@ static int32_t InputNodeWriteDataCallBack(OH_AudioNode *audioNode, void *userDat
     return actualDataSize;
 }
 ```
-       
-```text
+
+```cpp
 // 示例接口未包含返回值校验，实际使用时请务必添加校验逻辑。
 // 创建节点构造器。
 OH_AudioNodeBuilder *nodeBuilder = nullptr;
@@ -162,7 +166,7 @@ OH_AudioSuiteNodeBuilder_SetFormat(nodeBuilder, audioFormatInput);
 OH_AudioSuiteNodeBuilder_SetNodeType(nodeBuilder, OH_AudioNode_Type::INPUT_NODE_TYPE_DEFAULT);
 // 用户可根据自己的音频源情况设置一个或者多个输入节点。
 // 设置第一个音频流的回调。
-void *userData = static_cast(audioInfoForVocals);
+void *userData = static_cast<void *>(audioInfoForVocals);
 OH_AudioSuiteNodeBuilder_SetRequestDataCallback(nodeBuilder, InputNodeWriteDataCallBack, userData);
 // 创建第一个输入节点。
 OH_AudioSuiteEngine_CreateNode(g_audioSuitePipeline, nodeBuilder, &g_inputNodeForVocals);
@@ -172,7 +176,7 @@ OH_AudioSuiteNodeBuilder_Reset(nodeBuilder);
 OH_AudioSuiteNodeBuilder_SetNodeType(nodeBuilder, OH_AudioNode_Type::INPUT_NODE_TYPE_DEFAULT);
 OH_AudioSuiteNodeBuilder_SetFormat(nodeBuilder, audioFormatInput);
 // 设置第二个音频流的回调。
-userData = static_cast(audioInfoForAccompaniment);
+userData = static_cast<void *>(audioInfoForAccompaniment);
 OH_AudioSuiteNodeBuilder_SetRequestDataCallback(nodeBuilder, InputNodeWriteDataCallBack, userData);
 // 创建第二个输入节点。
 OH_AudioSuiteEngine_CreateNode(g_audioSuitePipeline, nodeBuilder, &g_inputNodeForAccompaniment);
@@ -225,16 +229,17 @@ OH_AudioSuiteEngine_ConnectNodes(g_spaceNodeForAccompaniment, g_mixerNode);
 OH_AudioSuiteEngine_ConnectNodes(g_mixerNode, g_outputNode);
 ```
 
- - 在播放器的回调函数中，将处理后的数据复制到OH_AudioRenderer实例的缓冲区中，实现音频播放过程中实时预览。
-       
-```text
+3. 在播放器的回调函数中，将处理后的数据复制到OH_AudioRenderer实例的缓冲区中，实现音频播放过程中实时预览。
+
+  
+```cpp
 // 示例接口未包含返回值校验，实际使用时请务必添加校验逻辑。
 static OH_AudioData_Callback_Result AudioRendererOnWriteData(OH_AudioRenderer *renderer, void *userData,
                                                              void *audioData, int32_t audioDataSize)
 {
     bool finishedFlag = false;
     int32_t writeSize = 0;
-    OH_AudioSuite_Result result = OH_AudioSuiteEngine_RenderFrame(static_cast(userData),
+    OH_AudioSuite_Result result = OH_AudioSuiteEngine_RenderFrame(static_cast<OH_AudioSuitePipeline *>(userData),
                                                                   audioData, audioDataSize, &writeSize, &finishedFlag);
     if (result != OH_AudioSuite_Result::AUDIOSUITE_SUCCESS) {
         // 音频编创渲染失败。
@@ -248,8 +253,8 @@ static OH_AudioData_Callback_Result AudioRendererOnWriteData(OH_AudioRenderer *r
     return AUDIO_DATA_CALLBACK_RESULT_VALID;
 }
 ```
-       
-```text
+
+```cpp
 // 示例接口未包含返回值校验，实际使用时请务必添加校验逻辑。
 // 创建构建器。
 OH_AudioStreamBuilder_Create(&g_rendererBuilder, OH_AudioStream_Type::AUDIOSTREAM_TYPE_RENDERER);
@@ -268,7 +273,7 @@ int32_t frameSize = RENDER_FRAME_DURATION_MS * audioFormatOutput.samplingRate * 
 OH_AudioStreamBuilder_SetFrameSizeInCallback(g_rendererBuilder, frameSize);
 // 配置写入音频数据回调函数。
 OH_AudioStreamBuilder_SetRendererWriteDataCallback(g_rendererBuilder, AudioRendererOnWriteData,
-                                                   static_cast(g_audioSuitePipeline));
+                                                   static_cast<void *>(g_audioSuitePipeline));
 
 // 启动管线。
 OH_AudioSuiteEngine_StartPipeline(g_audioSuitePipeline);
@@ -277,9 +282,10 @@ OH_AudioSuiteEngine_StartPipeline(g_audioSuitePipeline);
 OH_AudioSuiteEngine_StopPipeline(g_audioSuitePipeline);
 ```
 
- - 资源销毁。
-       
-```text
+4. 资源销毁。
+
+  
+```cpp
 // 示例接口未包含返回值校验，实际使用时请务必添加校验逻辑。
 // 销毁流构造器。
 OH_AudioStreamBuilder_Destroy(g_rendererBuilder);
@@ -299,10 +305,9 @@ OH_AudioSuiteEngine_DestroyPipeline(g_audioSuitePipeline);
 OH_AudioSuiteEngine_Destroy(g_audioSuiteEngine);
 ```
 
-     
-    
-    
-          
-##### 完整示例代码
-     
+
+
+
+#### 完整示例代码
+
  - [音频编创示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/HarmonyOS-7.0-beta-20260514/Media/Audio/AudioSuiteSample)

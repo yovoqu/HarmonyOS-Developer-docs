@@ -4,45 +4,37 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-aes-sym-encrypt-decrypt-ccm-new
 
-## 使用AES对称密钥（CCM模式）参数为AeadParamsSpec加解密(ArkTS)
-   
-    
 从API版本26.0.0开始，[AES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#aes)对称密钥（CCM模式）的加解密支持使用AeadParamsSpec参数。
-    
+
 当用户不希望显式保存authTag或用户需要指定authTag的长度时，使用AeadParamsSpec参数。
-    
+
 **密钥生成**
-    
+
 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)、[SymKeyGenerator.generateSymKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesymkey-1)，生成密钥算法为AES、密钥长度为128位的对称密钥（SymKey）。
-    
+
 如何生成AES对称密钥，开发者可参考下文示例，并结合对称密钥生成和转换规格：[AES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#aes)和[随机生成对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-sym-key-randomly)进行理解，参考文档与当前示例可能存在入参差异，请注意区分。
-    
+
 **加密**
-    
- - 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|CCM'，创建对称密钥为AES128、分组模式为CCM的Cipher实例，用于执行加密操作。
- - 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定密钥（SymKey）和CCM模式对应的加密参数（AeadParamsSpec），初始化加密Cipher实例。
- - 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)获取加密后的数据。
-      
-       
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/PNO_SPFETFSt4IQ2WdGX4g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025431Z&HW-CC-Expire=86400&HW-CC-Sign=3B66D4EC53CBEF39CB62B0883FC8A2932E06897DE67CED8A31FE8579D75C279E)
-        
-        当前使用AeadParamsSpec参数，CCM模式下update与doFinal只能调用其中一个进行加密。且每个方法只能调用一次。
-        使用AeadParamsSpec初始化Cipher实例，身份认证标签（authTag）自动拼接在密文后，不需要单独保存。
-        在使用AeadParamsSpec结构的CCM模式下，算法库支持传入4-16字节的tagLen，如果不传默认为12字节。
-    
-    
+1. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|CCM'，创建对称密钥为AES128、分组模式为CCM的Cipher实例，用于执行加密操作。
+2. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定密钥（SymKey）和CCM模式对应的加密参数（AeadParamsSpec），初始化加密Cipher实例。
+3. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)获取加密后的数据。
+
+  
+> [!NOTE]
+> 当前使用AeadParamsSpec参数，CCM模式下update与doFinal只能调用其中一个进行加密。且每个方法只能调用一次。 使用AeadParamsSpec初始化Cipher实例，身份认证标签（authTag）自动拼接在密文后，不需要单独保存。 在使用AeadParamsSpec结构的CCM模式下，算法库支持传入4-16字节的tagLen，如果不传默认为12字节。
+
+
 **解密**
-    
- - 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|CCM'，创建对称密钥为AES128、分组模式为CCM的Cipher实例，用于完成解密操作。
- - 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定密钥（SymKey）和CCM模式对应的解密参数（AeadParamsSpec），初始化解密Cipher实例。
- - 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取解密后的数据。
-    
-    
-          
-##### 示例
-     
+1. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|CCM'，创建对称密钥为AES128、分组模式为CCM的Cipher实例，用于完成解密操作。
+2. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定密钥（SymKey）和CCM模式对应的解密参数（AeadParamsSpec），初始化解密Cipher实例。
+3. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取解密后的数据。
+
+
+#### 示例
+
  - 异步方法示例：
-       
+
+  
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
@@ -86,7 +78,7 @@ async function genSymKeyByData(symKeyData: Uint8Array) {
   return symKey;
 }
 
-export async function main() : Promise {
+export async function main() : Promise<string> {
   try {
     let keyData = new Uint8Array([83, 217, 231, 76, 28, 113, 23, 219, 250, 71, 209, 210, 205, 97, 32, 159]);
     let symKey = await genSymKeyByData(keyData);
@@ -109,7 +101,8 @@ export async function main() : Promise {
 ```
 
  - 同步方法示例：
-       
+
+  
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-811
 
-## 如何解决Stack组件下子组件高度与层级问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Stack组件中如何实现如下两种布局方式：
  
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)：堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件。
 - [zIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-z-order#zindex)：设置组件的堆叠顺序。同一容器中兄弟组件显示层级关系。zIndex值越大，显示层级越高。
@@ -27,7 +23,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 针对问题一：由于Stack通常用于叠加子组件，默认情况下，它的尺寸会适应所有子组件中最大的。可以用onAreaChange监听子组件A高度变化并传递给子组件B，示例代码如下。
 ```text
@@ -70,8 +66,9 @@ struct Page1 {
 }
 ```
  运行效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/MEX3kJS4SnSn-7_EmoBVfA/zh-cn_image_0000002658917115.png?HW-CC-KV=V1&HW-CC-Date=20260701T025548Z&HW-CC-Expire=86400&HW-CC-Sign=843D6A0037B0B0144A5B6B1A3288C3CFBDA6CAB938A43268AE077E382FE12C9E)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/MEX3kJS4SnSn-7_EmoBVfA/zh-cn_image_0000002658917115.png?HW-CC-KV=V1&HW-CC-Date=20260701T041315Z&HW-CC-Expire=86400&HW-CC-Sign=6A6DD3535309CFE8177B71CFB85E7AEAB7E8395F92F1100F9AC5B24C409279A6)
 
 - 针对问题二：可以使用onAreaChange获取组件A和组件B的高度，并且通过组件的高度对比设置对应的zIndex来实现，示例代码如下。
 ```text
@@ -121,5 +118,6 @@ struct Page2 {
 }
 ```
  运行效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/LYlx4f4aQ-6EmfGF89vuew/zh-cn_image_0000002628397894.png?HW-CC-KV=V1&HW-CC-Date=20260701T025548Z&HW-CC-Expire=86400&HW-CC-Sign=30E15E119F1C9E038A251AFD24E145DD6DDB4DEE2A198D8B460B53F79607D6A4)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/LYlx4f4aQ-6EmfGF89vuew/zh-cn_image_0000002628397894.png?HW-CC-KV=V1&HW-CC-Date=20260701T041315Z&HW-CC-Expire=86400&HW-CC-Sign=E49DFC1DDCF337379E24BE7B07BF652A6636D1D668359552DE95F93BB02D2DD9)

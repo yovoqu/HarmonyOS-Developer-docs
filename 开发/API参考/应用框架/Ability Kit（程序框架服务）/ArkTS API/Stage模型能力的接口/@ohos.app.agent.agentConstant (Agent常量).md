@@ -3,18 +3,16 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentconstant
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## @ohos.app.agent.agentConstant (Agent常量)
- 
 
 agentConstant模块提供Agent相关的常量。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { agentConstant } from '@kit.AbilityKit';
@@ -22,7 +20,9 @@ import { agentConstant } from '@kit.AbilityKit';
  
   
 
-##### agentConstant.AgentCardType
+#### agentConstant.AgentCardType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Agent卡片的类型。
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-17
 
-## Profile文件解析与bundleName校验方法
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS的Profile文件能否解析得到bundleName，并且校验Profile文件和bundleName是否匹配。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 在流水线中对HAP包签名请参考[对HAP进行签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-building-app#section103321051433)。
 - HAP包签名工具请参考[应用包签名工具](https://gitcode.com/openharmony/developtools_hapsigner?source_module=search_project#应用包签名工具)。
@@ -24,11 +20,13 @@ HarmonyOS的Profile文件能否解析得到bundleName，并且校验Profile文�
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 直接解析Profile文件获取bundleName：在DevEco Studio\sdk\default\openharmony\toolchains\lib目录下使用hap-sign-tool.jar工具，通过命令行工具解析Profile文件，提取JSON数据后查找bundleName字段：
- 命令行代码如下：
- 
+
+  命令行代码如下：
+
+  
 ```text
 java -jar hap-sign-tool.jar verify-profile -inFile your_profile.p7b
 ```

@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-737
 
-## GestureEvent手势事件坐标之间的区别
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用手势事件时，处理不同的坐标会得到不同的移动效果。GestureEvent手势事件的坐标之间的区别是什么？如何选择正确的坐标？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/v6r4EcgfTsyAykCsqDXSiw/zh-cn_image_0000002658914551.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025545Z&HW-CC-Expire=86400&HW-CC-Sign=847AE06C5C7B0F7A13EF6988E88AE856980403E59805E71283E28018DE4DB56A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/v6r4EcgfTsyAykCsqDXSiw/zh-cn_image_0000002658914551.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041241Z&HW-CC-Expire=86400&HW-CC-Sign=215432DC335C085880DA237ADE0264C3B3874A6E2A22C642046817FC7D6F9F98)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [添加手势响应](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rkts-interaction-development-guide-support-gesture)：当用户的操作符合某个手势的特征时，系统会将其识别为该手势，这一过程称为手势识别。为了响应某一个手势，需在组件上添加对应的手势对象，以便系统可以收集并进行处理。
 - [GestureEvent对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gestureevent对象说明)：继承于[BaseEvent对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-customize-judge#baseevent8)，是HarmonyOS中用于表示手势事件的数据类型对象。这个对象包含了处理手势事件所需的信息，例如事件类型、目标信息等。
@@ -30,7 +26,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 GestureEvent手势事件中涉及的坐标之间的区别主要在于参考系的不同。由于参考系的不同，不同的坐标适用于不同的使用场景，具体如下表所示：
   
@@ -46,34 +42,34 @@ GestureEvent手势事件中涉及的坐标之间的区别主要在于参考系�
 - 使用offsetX/offsetY计算滑动距离的示例可参考[PanGesture实现了单指/双指滑动手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#示例)。
 - 使用displayX/displayY检测滑动手势是否靠近屏幕边缘。关键代码如下：
 ```text
-@Entry
-@Component
-struct EdgeGestureDemo {
-  @State edgeTriggered: boolean = false;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">EdgeGestureDemo </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">edgeTriggered</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Text(this.edgeTriggered ? '触发返回手势' : '从屏幕左边缘右滑')
-        .fontSize(20)
-        .margin(50);
-    }
-    .width('100%')
-    .height('100%')
-    .gesture(
-      PanGesture()
-        .onActionUpdate((event: GestureEvent) => {
-          // 使用displayX检测屏幕边缘，其中数值30和60仅作示例，根据业务实际需要做出调整
-          if (event.fingerList[0].displayX  60 &&
-            event.offsetX > 30) { // 从边缘滑动超过30vp
-            this.edgeTriggered = true;
-          }
-        })
-        .onActionEnd(() => {
-          this.edgeTriggered = false;
-        })
-    );
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">edgeTriggered </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">触发返回手势</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">从屏幕左边缘右滑</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">gesture</span><span style="color: rgb(0,0,255);">(</span>
+      <span style="color: rgb(0,0,255);">PanGesture</span><span style="color: rgb(0,0,255);">()</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionUpdate</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GestureEvent</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">displayX</span><span style="color: rgb(128,128,128);">检测屏幕边缘，其中数值</span><span style="color: rgb(128,128,128);">30</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">60</span><span style="color: rgb(128,128,128);">仅作示例，根据业务实际需要做出调整</span></em>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fingerList</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">displayX </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,0,0);">60 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span>
+            <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offsetX </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{ </span><em>// </em><em><span style="color: rgb(128,128,128);">从边缘滑动超过</span><span style="color: rgb(128,128,128);">30vp</span></em>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">edgeTriggered </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onActionEnd</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">edgeTriggered </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+<span style="color: rgb(0,0,255);">    )</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
@@ -83,6 +79,6 @@ struct EdgeGestureDemo {
  
  
 
-##### 总结
+#### 总结
 
 在实际使用时，可以根据业务场景灵活的选用合适的坐标去实现需要的效果。

@@ -4,16 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-hashmap
 
-## 使用Hashmap完成键值数据的维护
-   
-    
 从API版本26.0.0版本开始，新增高性能哈希表数据结构，适用于单线程场景。
-    
-          
-##### 接口说明
-     
+
+
+#### 接口说明
+
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast)。
-     
+
 | 名称 | 描述 |
 | --- | --- |
 | FAST_ErrorCode HMS_FAST_Hashmap_Create (FAST_HashmapHandle* handle, HMS_FAST_Hashmap_HashFunc hasher, HMS_FAST_Hashmap_KeyEqualFunc equaler) | 创建哈希表实例。 |
@@ -26,14 +23,14 @@
 | void HMS_FAST_Hashmap_Clear (FAST_HashmapHandle handle) | 从哈希表中删除所有元素。 |
 | size_t HMS_FAST_Hashmap_EraseIf (FAST_HashmapHandle handle, HMS_FAST_Hashmap_HookFunc condFunc, void* condCtx, HMS_FAST_Hashmap_HookFunc freeFunc, void* freeCtx) | 删除哈希表中符合输入条件的所有元素，并使用自定义的方式释放其内存。 |
 | void HMS_FAST_Hashmap_Traverse (FAST_HashmapHandle handle, HMS_FAST_Hashmap_HookFunc condFunc, void* condCtx, HMS_FAST_Hashmap_HookFunc workFunc, void* workCtx) | 遍历哈希表，将所有符合输入条件的键值对按自定义的方式修改。 |
-     
-    
-    
-          
-##### 开发步骤
-     
- - 在CMake脚本中链接相关动态库。
-       
+
+
+
+
+#### 开发步骤
+1. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 find_library(
      lib_fast_collection
@@ -42,14 +39,15 @@ find_library(
  target_link_libraries(entry PRIVATE ${lib_fast_collection})
 ```
 
- - 定义哈希值如何计算，键如何比较。
-       
+2. 定义哈希值如何计算，键如何比较。
+
+  
 ```text
 #include "FASTKit/fast_collections_hashmap.h"
 
 // 定义哈希值如何计算，键如何比较
 uint64_t custom_hash_int(const FAST_HashmapKeyPtr key) {
-    static std::hash hasher;
+    static std::hash<int> hasher;
     int* intKey = (int*)key;
     return hasher(*intKey);
 }
@@ -98,10 +96,96 @@ static napi_value RunHashmap(napi_env env, napi_callback_info info)
     const int size = 10;
     int keys[size] = {1,2,3,4,5,6,7,8,9,10};
     int vals[size] = {1,2,3,4,5,6,7,8,9,10};
-    for (int i = 0; i      
-##### 注意事项
-     
- - **内存管理**：HashMap仅存储指针，不负责内存管理。调用者需要自行管理键和值指向的内存，确保在条目生命周期内内存有效。
- - **单线程场景**：此HashMap专为单线程场景设计，不支持多线程并发访问。如需多线程支持，请使用[ConcurrentHashMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-concurrent-hashmap)。
- - **返回值校验**：所有返回FAST_ErrorCode的API都应检查返回值，确保操作成功后再使用输出参数。
- - **回调函数**：Traverse和EraseIf中的回调函数应在内部锁下执行，避免在回调中阻塞或重新进入HashMap API。
+    for (int i = 0; i < size; ++i) {
+        ret = HMS_FAST_Hashmap_Insert(
+            handle,
+            (FAST_HashmapKeyPtr)&(keys[i]),
+            (FAST_HashmapValuePtr)&(vals[i]),
+            nullptr
+        );
+    } // 完成插入后哈希表中应包含 {1: 1, 2: 2, ..., 10: 10}
+    
+    // 使用insert覆写已有的key，如果使用tryInsert则不会覆写
+    int key2 = 1;
+    int val2 = 2;
+    int* originVal0;
+    ret = HMS_FAST_Hashmap_Insert(
+        handle,
+        (FAST_HashmapKeyPtr)&key2,
+        (FAST_HashmapValuePtr)&val2,
+        (FAST_HashmapValuePtr*)&originVal0
+    ); // {1: 2, ...}, 且originVal0 == &vals[0]
+
+    // 键查找对应的值，并将结果保存在输入指针中。开发者需注意在使用此接口时应校验返回值ret，
+    // 如果ret值不等于FAST_ERROR_CODE_SUCCESS，则res获取到的值是无效的
+    int targetKey = 1;
+    int* res;
+    ret = HMS_FAST_Hashmap_Find(
+        handle,
+        (FAST_HashmapKeyPtr)&targetKey,
+        (FAST_HashmapValuePtr*)&res
+    ); // (*res) == 2
+
+    // 键删除哈希表中对应的键值对，并获取关联内存的地址
+    // 可以使用originKey/Val获得预先插入的元素地址，便于内存管理，可以使用nullptr作为入参
+    int* originKey1;
+    int* originVal1;
+    int deleteKey = 1;
+    ret = HMS_FAST_Hashmap_Erase(
+        handle,
+        (FAST_HashmapKeyPtr)&deleteKey,
+        (FAST_HashmapKeyPtr*)&originKey1,
+        (FAST_HashmapValuePtr*)&originVal1
+    ); // originKey1 == &keys[0] && originVal1 == &val2
+
+    // 查询哈希表当前元素个数
+    size_t curSize = HMS_FAST_Hashmap_Size(handle); // curSize == 9
+
+    // 清空哈希表中所有元素
+    HMS_FAST_Hashmap_Clear(handle);
+    curSize = HMS_FAST_Hashmap_Size(handle); // curSize == 0
+
+    for (int i = 0; i < 6; i++) {
+        int* key = new int{i};
+        int* val = new int{i};
+        ret = HMS_FAST_Hashmap_Insert(
+            handle,
+            (FAST_HashmapKeyPtr)key,
+            (FAST_HashmapValuePtr)val,
+            nullptr
+        );
+    } // {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+
+    // 使用Traverse接口对符合custom_modify_cond的元素执行custom_work操作
+    int context = 10;
+    HMS_FAST_Hashmap_Traverse(
+        handle,
+        (HMS_FAST_Hashmap_HookFunc)&custom_modify_cond,
+        nullptr,
+        (HMS_FAST_Hashmap_HookFunc)&custom_work,
+        (void*)&context
+    ); // {0: 10, 1: 11, 2: 12, 3: 13, 4: 14, 5: 15}
+
+    // 使用EraseIf接口删除所有符合custom_erase_cond的键值对并使用custom_free清理相应的内存
+    ret = HMS_FAST_Hashmap_EraseIf(
+        handle,
+        (HMS_FAST_Hashmap_HookFunc)&custom_erase_cond,
+        nullptr,
+        (HMS_FAST_Hashmap_HookFunc)&custom_free,
+        nullptr
+    ); // size == 0 && ret == 6
+
+    // 销毁哈希表
+    HMS_FAST_Hashmap_Destroy(handle);
+    return 0;
+}
+```
+
+
+
+
+#### 注意事项
+1. **内存管理**：HashMap仅存储指针，不负责内存管理。调用者需要自行管理键和值指向的内存，确保在条目生命周期内内存有效。
+2. **单线程场景**：此HashMap专为单线程场景设计，不支持多线程并发访问。如需多线程支持，请使用[ConcurrentHashMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-concurrent-hashmap)。
+3. **返回值校验**：所有返回FAST_ErrorCode的API都应检查返回值，确保操作成功后再使用输出参数。
+4. **回调函数**：Traverse和EraseIf中的回调函数应在内部锁下执行，避免在回调中阻塞或重新进入HashMap API。

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-994
 
-## Popup如何实现点击按钮不关闭气泡，点击按钮外部关闭气泡
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现点击按钮展示气泡，点击按钮不关闭气泡，仍保持展示状态，但是点击非按钮区域关闭气泡？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [bindPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#bindpopup)为组件绑定Popup气泡，并设置气泡内容、交互逻辑和显示状态。参数show控制气泡显示状态。Popup气泡必须等待页面全部构建完成才能展示，因此show不能在页面构建中设置为true，否则会导致Popup气泡显示位置及形状错误。
 - [onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)触摸事件由手指在组件上按下、滑动或抬起时触发。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 Popup气泡弹出时，默认有遮罩层（即参数mask默认为true），且页面有操作时气泡自动关闭（即参数autoCancel默认为true）。因此在点击按钮弹出气泡后，遮罩层覆盖整个页面，再次点击按钮，触发气泡自动关闭。
  
@@ -51,11 +47,11 @@ struct PopupForClickButtonNotClose {
         })
         .onTouch((e) => {
           e.stopPropagation();
-        }) // 阻止事件传递,避免气泡有关闭再打开的效果
+        }) <em>// 阻止事件传递,避免气泡有关闭再打开的效果</em>
         .bindPopup(this.handlePopup, {
           builder: this.popupBuilder,
           placement: Placement.Bottom,
-          enableArrow: false, // 气泡弹出时不显示箭头
+          enableArrow: false, <em>// 气泡弹出时不显示箭头</em>
           targetSpace: '15vp',
           mask: false,
           autoCancel: false,

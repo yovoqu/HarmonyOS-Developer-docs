@@ -4,21 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-13
 
-## PhotoPicker组件如何进入或退出大图预览模式
- 
-
-
-##### 问题现象
-
-- PhotoPicker组件如何实现点击缩略图后进入大图模式，自定义按钮如何进入或退出大图预览？
-- PhotoPicker组件点击缩略图进入预览界面，当PhotoPicker组件存在尺寸限制时，预览界面大小被限制为PhotoPicker组件的尺寸，体验不佳，想实现全屏预览的效果，当前效果如下。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/FHkS3W6oRsOwUD0KffeNMQ/zh-cn_image_0000002659138387.png?HW-CC-KV=V1&HW-CC-Date=20260701T025734Z&HW-CC-Expire=86400&HW-CC-Sign=2777B1F42AA00D324DDD81C71078DFF15494992CCDAAE8ADBDBC355673CCE5A2)
-
+#### 问题现象
+1. PhotoPicker组件如何实现点击缩略图后进入大图模式，自定义按钮如何进入或退出大图预览？
+2. PhotoPicker组件点击缩略图进入预览界面，当PhotoPicker组件存在尺寸限制时，预览界面大小被限制为PhotoPicker组件的尺寸，体验不佳，想实现全屏预览的效果，当前效果如下。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/FHkS3W6oRsOwUD0KffeNMQ/zh-cn_image_0000002659138387.png?HW-CC-KV=V1&HW-CC-Date=20260701T041344Z&HW-CC-Expire=86400&HW-CC-Sign=0F16224F626B7EFB859FB705349FEF68F1450BAD9BCC3A501BE1F08B84606104)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - PhotoPicker组件[PhotoPickerComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#photopickercomponent)，通过此组件，应用无需申请权限，即可实现媒体文件选择功能。可设置onEnterPhotoBrowser点击进入大图时产生的回调事件，将大图相关信息报告给应用；onExitPhotoBrowser退出大图时产生的回调事件，将大图相关信息报告给应用。
 - [PhotoPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker)：当应用需要读取用户图片时，开发者可以在应用界面中嵌入PhotoPicker组件，在用户选择所需要的图片资源后，直接返回该图片资源，而不需要授予应用读取图片文件的权限，即可完成图片或视频文件的访问和读取。
@@ -28,15 +22,16 @@
  
  
 
-##### 解决方案
-
-- PhotoPicker组件自定义按钮进入或退出大图预览可参考以下方案。
+#### 解决方案
+1. PhotoPicker组件自定义按钮进入或退出大图预览可参考以下方案。
 **方案一**：单选模式设置pickerOptions实现。当设置选择模式[SelectMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#selectmode)为单选模式，可通过[SingleSelectionMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#singleselectionmode18)选择单选模式设置类型，默认为大图预览模式。完整开发步骤可参考[使用PhotoPicker组件访问图片/视频](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker)。
-- **方案二**：多选模式实现大图预览的进入与退出。若开发者需要自定义组件实现大图预览与退出，可以通过设置PickerController中的[setPhotoBrowserItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#setphotobrowseritem)进行大图预览，并且可以通过[setPhotoBrowserUIElementVisibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#setphotobrowseruielementvisibility13)来控制大图预览外的组件元素（返回按钮和勾选框）是否展示。
- 通过设置PickerController中的[exitPhotoBrowser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#exitphotobrowser13)向picker组件发送通知并退出大图预览模式。完整开发步骤可参考[完整示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker#完整示例)。
- 
+2. **方案二**：多选模式实现大图预览的进入与退出。若开发者需要自定义组件实现大图预览与退出，可以通过设置PickerController中的[setPhotoBrowserItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#setphotobrowseritem)进行大图预览，并且可以通过[setPhotoBrowserUIElementVisibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#setphotobrowseruielementvisibility13)来控制大图预览外的组件元素（返回按钮和勾选框）是否展示。
+
+  通过设置PickerController中的[exitPhotoBrowser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#exitphotobrowser13)向picker组件发送通知并退出大图预览模式。完整开发步骤可参考[完整示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker#完整示例)。
+
+  
 ```text
-// 进入大图，预览已选择的图片。
+<em>// 进入大图，预览已选择的图片。</em>
 Button('预览')
   .width('33%')
   .alignSelf(ItemAlign.Center)
@@ -50,7 +45,7 @@ Button('预览')
 ```
  
 ```text
-// 退出大图预览
+<em>// 退出大图预览</em>
 Button("退出大图")
   .width('33%')
   .alignSelf(ItemAlign.Center)
@@ -61,18 +56,18 @@ Button("退出大图")
   });
 ```
 
+3. PhotoPicker组件点击缩略图进入预览界面，界面大小被限制可参考以下方案。点击缩略图进入和退出预览界面时，会触发onEnterPhotoBrowser和onExitPhotoBrowser的回调，应用可在此时设置和取消PhotoPicker组件的宽高为全屏大小，达到全屏预览的效果。示例如下：
 
- - PhotoPicker组件点击缩略图进入预览界面，界面大小被限制可参考以下方案。点击缩略图进入和退出预览界面时，会触发onEnterPhotoBrowser和onExitPhotoBrowser的回调，应用可在此时设置和取消PhotoPicker组件的宽高为全屏大小，达到全屏预览的效果。示例如下：
- 
+  
 ```text
-// 进入大图的回调。
+<em>// 进入大图的回调。</em>
 private onEnterPhotoBrowser(): boolean {
   this.isBrowserShow = true;
   this.isFullShow = '100%';
   return true;
 }
 
-// 退出大图的回调。
+<em>// 退出大图的回调。</em>
 private onExitPhotoBrowser(): boolean {
   this.isBrowserShow = false;
   this.isFullShow = '50%';
@@ -97,11 +92,10 @@ PhotoPickerComponent({
   .height(this.isFullShow);
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用PhotoPickerComponent组件，在2in1设备上图片列表为什么没有按照1:1缩放展示？
  

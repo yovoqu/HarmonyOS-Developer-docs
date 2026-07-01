@@ -4,14 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-specific-metadata
 
-## 使用ImageSource获取专有元数据
-   
-    
 从API version 23开始，支持使用ImageSource获取GIF、HEIFS、DNG、WebP、PNG、JFIF、TIFF、AVIS多种图像格式的专有元数据。
-    
-          
-##### 支持的元数据类别
-     
+
+
+#### 支持的元数据类别
+
 | 元数据类别 | MetadataType | 返回字段 | 起始API版本 | 典型信息 |
 | --- | --- | --- | --- | --- |
 | GIF | GIF_METADATA | GifMetadata | 26.0.0 | 帧延迟时长、循环次数、画布尺寸等。 |
@@ -22,34 +19,34 @@
 | JFIF | JFIF_METADATA | JfifMetadata | 26.0.0 | 像素密度、渐进编码等。 |
 | TIFF | TIFF_METADATA | TiffMetadata | 26.0.0 | 分辨率、色度坐标、压缩方式等。 |
 | AVIS | AVIS_METADATA | AvisMetadata | 26.0.0 | 帧延迟时长等。 |
-     
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/yI32-0nRRWu-Y5oHdAGRpw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025438Z&HW-CC-Expire=86400&HW-CC-Sign=1FB21F9651D809AAE252BF41D7CAC7FC921545AA31EA5D307549555BFC188420)
-       
-       
+
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/yI32-0nRRWu-Y5oHdAGRpw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T041445Z&HW-CC-Expire=86400&HW-CC-Sign=B83AF5636EDD22A4911C0E893591D982D8DF50E145E0E4A36AF48C9C06584E77)
+
+
 HeifsMetadata自API version 23起可用，其中heifsCanvasWidth、heifsCanvasHeight、heifsUnclampedDelayTime三个属性为API版本26.0.0新增。
-      
-     
-    
-    
-          
-##### 相关接口
-     
+
+
+
+
+
+#### 相关接口
+
 | 接口 | 说明 |
 | --- | --- |
-| readImageMetadata | 读取图像源的元数据，使用propertyKeys指定元数据字段。          从API version 23开始支持。 |
-| readImageMetadataByType | 读取图像源的元数据，使用metadataTypes指定元数据类型。          从API version 24开始支持。 |
-     
-    
-    
-          
-##### 开发步骤
-     
+| readImageMetadata | 读取图像源的元数据，使用propertyKeys指定元数据字段。 从API version 23开始支持。 |
+| readImageMetadataByType | 读取图像源的元数据，使用metadataTypes指定元数据类型。 从API version 24开始支持。 |
+
+
+
+
+#### 开发步骤
+
 获取图片专有元数据相关API的详细介绍请参见[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)和[Metadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-metadata)。
-     
- - 全局导入Image模块，根据实际需求导入对应的Kit模块。
-       
+1. 全局导入Image模块，根据实际需求导入对应的Kit模块。
+
+  
 ```ArkTS
 // 导入相关模块。
 import { image } from '@kit.ImageKit';
@@ -59,12 +56,14 @@ import { fileIo } from '@kit.CoreFileKit';
 import { resourceManager } from '@kit.LocalizationKit';
 ```
 
- - 参考[使用ImageSource完成图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)创建ImageSource实例。
- - 读取专有元数据。
-       使用[readImageMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#readimagemetadata23)接口，通过指定属性键（propertyKeys）读取对应格式的专有元数据。以读取GIF元数据中的帧延迟时长为例：
-       
+2. 参考[使用ImageSource完成图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)创建ImageSource实例。
+3. 读取专有元数据。
+
+  使用[readImageMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#readimagemetadata23)接口，通过指定属性键（propertyKeys）读取对应格式的专有元数据。以读取GIF元数据中的帧延迟时长为例：
+
+  
 ```ArkTS
-async readImageMetadata(imageSource: image.ImageSource | undefined) : Promise {
+async readImageMetadata(imageSource: image.ImageSource | undefined) : Promise<image.ImageMetadata | undefined> {
   if (imageSource == undefined) {
     console.error('imageSource is undefined.');
     return undefined;
@@ -84,10 +83,11 @@ async readImageMetadata(imageSource: image.ImageSource | undefined) : Promise {
   }
 }
 ```
-       使用[readImageMetadataByType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#readimagemetadatabytype24)接口，通过指定[MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#metadatatype13)枚举值读取对应格式的专有元数据。以读取GIF元数据为例：
-       
+使用[readImageMetadataByType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#readimagemetadatabytype24)接口，通过指定[MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#metadatatype13)枚举值读取对应格式的专有元数据。以读取GIF元数据为例：
+
+  
 ```ArkTS
-async readImageMetadataByType(imageSource: image.ImageSource | undefined) : Promise {
+async readImageMetadataByType(imageSource: image.ImageSource | undefined) : Promise<image.ImageMetadata | undefined> {
   if (imageSource == undefined) {
     console.error('imageSource is undefined.');
     return undefined;
@@ -108,9 +108,11 @@ async readImageMetadataByType(imageSource: image.ImageSource | undefined) : Prom
 }
 ```
 
- - 释放imageSource。
-       确认imageSource的异步方法已经执行完成，不再使用该变量后，可按需手动调用下面方法释放。
-       
+4. 释放imageSource。
+
+  确认imageSource的异步方法已经执行完成，不再使用该变量后，可按需手动调用下面方法释放。
+
+  
 ```ArkTS
 async release(pixelMap: image.PixelMap | undefined, imageSource: image.ImageSource | undefined) {
   await pixelMap?.release();
@@ -120,12 +122,11 @@ async release(pixelMap: image.PixelMap | undefined, imageSource: image.ImageSour
 }
 ```
 
-     
-    
-    
-          
-##### 注意事项
-     
+
+
+
+#### 注意事项
+
  - 如果图片中不包含目标元数据，返回字段为undefined，使用前请进行空值判断。
  - 读取图片文件需要读取权限，请确保应用已声明并获取相应权限。
  - 多帧图片（如GIF）读取时，index不能小于0或超过帧数范围，否则会导致读取失败。

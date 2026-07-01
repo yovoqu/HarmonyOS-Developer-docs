@@ -4,46 +4,34 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-aes-sym-encrypt-decrypt-xts
 
-## 使用AES对称密钥（XTS模式）加解密(ArkTS)
-   
-    
 从API版本26.0.0开始，[AES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#aes)对称密钥加解密支持使用XTS分组模式。
-    
+
 **密钥生成**
-    
+
 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)、[SymKeyGenerator.generateSymKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesymkey-1)，生成密钥算法为AES、密钥长度为256位的对称密钥（SymKey）。
-    
+
 如何生成AES对称密钥，开发者可参考下文示例，并结合对称密钥生成和转换规格：[AES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#aes)和[随机生成对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-sym-key-randomly)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。
-    
-     
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/3T8OSxYAT4-Gh4HErCIV2Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025431Z&HW-CC-Expire=86400&HW-CC-Sign=8D8873CF848D737B745682FC26EE70C0991271C767B5B99B6A76F14CC55E9D42)
-      
-      
-AES对称密钥（XTS模式）加解密时，对称密钥长度需要是标准AES密钥的2倍。且只支持创建AES-128、AES-256的cipher实例进行加解密。
-      
-示例代码中创建AES256的对称密钥，AES128的cipher实例进行加解密。
-     
-    
-    
+
+> [!NOTE]
+> AES对称密钥（XTS模式）加解密时，对称密钥长度需要是标准AES密钥的2倍。且只支持创建AES-128、AES-256的cipher实例进行加解密。 示例代码中创建AES256的对称密钥，AES128的cipher实例进行加解密。
+
+
 **加密**
-    
- - 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|XTS'，创建对称密钥类型为AES128、分组模式为XTS的Cipher实例，用于完成加密操作。
- - 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定加密密钥（SymKey）和XTS模式对应的加密参数（IvParamsSpec），初始化加密Cipher实例。
- - 当加密内容长度较短时，可以直接调用 [Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1) 而无需调用update，以获取加密后的数据。
-    
-    
+1. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|XTS'，创建对称密钥类型为AES128、分组模式为XTS的Cipher实例，用于完成加密操作。
+2. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定加密密钥（SymKey）和XTS模式对应的加密参数（IvParamsSpec），初始化加密Cipher实例。
+3. 当加密内容长度较短时，可以直接调用 [Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1) 而无需调用update，以获取加密后的数据。
+
 **解密**
-    
- - 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|XTS'，创建对称密钥类型为AES128、分组模式为XTS的Cipher实例，用于完成解密操作。
- - 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定解密密钥（SymKey）和XTS模式对应的解密参数（IvParamsSpec），初始化解密Cipher实例。
- - 当解密内容长度较短时，可以省略调用update，直接调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取解密后的数据。
-    
-    
-          
-##### 示例
-     
+1. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'AES128|XTS'，创建对称密钥类型为AES128、分组模式为XTS的Cipher实例，用于完成解密操作。
+2. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定解密密钥（SymKey）和XTS模式对应的解密参数（IvParamsSpec），初始化解密Cipher实例。
+3. 当解密内容长度较短时，可以省略调用update，直接调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取解密后的数据。
+
+
+#### 示例
+
  - 异步方法示例：
-       
+
+  
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
@@ -81,7 +69,7 @@ async function decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText:
   return decryptData;
 }
 
-export async function aesXTS() : Promise {
+export async function aesXTS() : Promise<string> {
   try {
     let symGenerator = cryptoFramework.createSymKeyGenerator('AES256')
     let symKey = await symGenerator.generateSymKey()
@@ -104,7 +92,8 @@ export async function aesXTS() : Promise {
 ```
 
  - 同步方法示例：
-       
+
+  
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';

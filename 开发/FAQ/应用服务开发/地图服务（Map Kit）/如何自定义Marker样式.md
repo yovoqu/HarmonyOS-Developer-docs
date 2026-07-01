@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-50
 
-## 如何自定义Marker样式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Map Kit添加Marker标记时，默认为固定样式，如何根据不同的业务场景，添加自定义的Marker样式？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
 - [getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)：以当前canvas指定区域内的像素创建PixelMap对象。
@@ -23,12 +19,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方式一：替换Marker标记为本地图片。配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中icon参数为本地图片，图片文件存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。
- 
+
+  
 ```text
-// 替换icon为图片类型
+<em>// 替换icon为图片类型</em>
 let markerOptions1: mapCommon.MarkerOptions = {
   position: {
     latitude: 31.984410259206815,
@@ -43,7 +40,7 @@ let markerOptions1: mapCommon.MarkerOptions = {
   clickable: true,
   draggable: true,
   flat: false,
-  // 图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径
+  <em>// 图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径</em>
   icon: 'test.png'
 };
 try {
@@ -55,9 +52,10 @@ try {
 ```
 
 - 方式二：替换Marker标记为自定义Builder内容。通过@Builder设计自定义Marker的UI组件样式，然后配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中iconBuilder为@Builder装饰的组件。参见[自定义组件实现Marker图标](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-marker#section1885775613279)。
- 
+
+  
 ```text
-// 替换Marker为Builder样式
+<em>// 替换Marker为Builder样式</em>
 let markerOptions2: mapCommon.MarkerOptions = {
   position: {
     latitude: 31.994410259206815,
@@ -85,9 +83,10 @@ try {
 ```
 
 - 方式三：替换Marker标记为自定义画布内容。通过[OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)绘制自定义画布内容，使用[getPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getpixelmap)接口转换为PixelMap格式图片，配置[mapCommon.MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中icon参数为转换后的PixelMap图片。
- 
+
+  
 ```text
-// 替换Marker为Canvas样式
+<em>// 替换Marker为Canvas样式</em>
 let canvas: image.PixelMap = await this.CanvasIcon();
 let markerOptions3: mapCommon.MarkerOptions = {
   position: {
@@ -113,15 +112,17 @@ try {
 }
 ```
 
-- 方式四：替换Marker标记为网络图片。
-通过[request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request)访问网络图片。
-- 通过[image.createImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource9-2)将获取的网络图片buffer创建图片源实例。
-- 通过[createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#createpixelmap7)将图片转换为PixelMap格式图片。
-- 配置mapCommon.MarkerOptions中icon参数为转换后的PixelMap图片。
+- 方式四：替换Marker标记为网络图片。1. 通过[request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request)访问网络图片。
 
- 
+2. 通过[image.createImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource9-2)将获取的网络图片buffer创建图片源实例。
+
+3. 通过[createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#createpixelmap7)将图片转换为PixelMap格式图片。
+
+4. 配置mapCommon.MarkerOptions中icon参数为转换后的PixelMap图片。
+
+  
 ```text
-// 替换Marker为网络图片样式
+<em>// 替换Marker为网络图片样式</em>
 try {
   this.imageMap = await this.getPicture();
 } catch (e) {
@@ -151,12 +152,13 @@ try {
   console.error(`Failed to create the marker, code is：${e.code}, message is ${e.message}`);
 }
 ```
- 
+
+
  
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/TOaO_ZMIRrWbiSdFRgvqyQ/zh-cn_image_0000002628394396.png?HW-CC-KV=V1&HW-CC-Date=20260701T025843Z&HW-CC-Expire=86400&HW-CC-Sign=50C0511488C273FDC110A0F12589A8999BC5E9AA5EC7DB12F9F346D3A02A7458)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/TOaO_ZMIRrWbiSdFRgvqyQ/zh-cn_image_0000002628394396.png?HW-CC-KV=V1&HW-CC-Date=20260701T041109Z&HW-CC-Expire=86400&HW-CC-Sign=525FD6D689A0A0CE4F4BA8DBC8E83B895386D233D3A237C6250CC83D41189317)
 
  
 完整代码：
@@ -173,7 +175,7 @@ import { display } from '@kit.ArkUI';
 struct CustomMarker {
   private mapOptions?: mapCommon.MapOptions;
   private mapController?: map.MapComponentController;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   private marker1?: map.Marker;
   private marker2?: map.Marker;
   private marker3?: map.Marker;
@@ -189,7 +191,7 @@ struct CustomMarker {
   async aboutToAppear() {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-    // 地图初始化参数
+    <em>// 地图初始化参数</em>
     this.mapOptions = {
       position: {
         target: {
@@ -202,7 +204,7 @@ struct CustomMarker {
     this.callback = async (err, mapController) => {
       if (!err) {
         this.mapController = mapController;
-        // 替换icon为图片类型
+        <em>// 替换icon为图片类型</em>
         let markerOptions1: mapCommon.MarkerOptions = {
           position: {
             latitude: 31.984410259206815,
@@ -217,7 +219,7 @@ struct CustomMarker {
           clickable: true,
           draggable: true,
           flat: false,
-          // 图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径
+          <em>// 图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径</em>
           icon: 'test.png'
         };
         try {
@@ -227,7 +229,7 @@ struct CustomMarker {
           console.error(`Failed to create the marker, code is：${e.code}, message is ${e.message}`);
         }
 
-        // 替换Marker为Builder样式
+        <em>// 替换Marker为Builder样式</em>
         let markerOptions2: mapCommon.MarkerOptions = {
           position: {
             latitude: 31.994410259206815,
@@ -253,7 +255,7 @@ struct CustomMarker {
           console.error(`Failed to create the marker, code is：${e.code}, message is ${e.message}`);
         }
 
-        // 替换Marker为Canvas样式
+        <em>// 替换Marker为Canvas样式</em>
         let canvas: image.PixelMap = await this.CanvasIcon();
         let markerOptions3: mapCommon.MarkerOptions = {
           position: {
@@ -278,7 +280,7 @@ struct CustomMarker {
           console.error(`Failed to create the marker, code is：${e.code}, message is ${e.message}`);
         }
 
-        // 替换Marker为网络图片样式
+        <em>// 替换Marker为网络图片样式</em>
         try {
           this.imageMap = await this.getPicture();
         } catch (e) {
@@ -313,9 +315,9 @@ struct CustomMarker {
     };
   }
 
-  // 获取网络图片
-  async getPicture(): Promise {
-    // 请填写一个具体的网络图片地址
+  <em>// 获取网络图片</em>
+  async getPicture(): Promise<image.PixelMap> {
+    <em>// 请填写一个具体的网络图片地址</em>
     return new Promise(async (resolve, reject) => {
       http.createHttp().request('xxx.xxx.xxx',
         async (error: BusinessError, data: http.HttpResponse) => {
@@ -326,9 +328,9 @@ struct CustomMarker {
           if (200 === data.responseCode) {
             console.info('get network picture success:');
             const imageData: ArrayBuffer = data.result as ArrayBuffer;
-            // 通过ArrayBuffer创建图片源实例
+            <em>// 通过ArrayBuffer创建图片源实例</em>
             const imageSource: image.ImageSource = image.createImageSource(imageData);
-            // 通过属性创建PixelMap
+            <em>// 通过属性创建PixelMap</em>
             let imageMap = await imageSource.createPixelMap(this.decodingOptions);
             resolve(imageMap);
           } else {
@@ -338,12 +340,12 @@ struct CustomMarker {
     });
   }
 
-  // 绘制Canvas图形
-  async CanvasIcon(): Promise {
+  <em>// 绘制Canvas图形</em>
+  async CanvasIcon(): Promise<image.PixelMap> {
     let offCanvas: OffscreenCanvas = new OffscreenCanvas(60, 60);
     let settings: RenderingContextSettings = new RenderingContextSettings(true);
     let offContext = offCanvas.getContext('2d', settings);
-    // 绘制圆形
+    <em>// 绘制圆形</em>
     offContext.fillStyle = 0xff990000;
     offContext.beginPath();
     offContext.arc(30, 30, 30, 0, 6.28);
@@ -351,7 +353,7 @@ struct CustomMarker {
     offContext.fill();
     offContext.save();
 
-    // 在圆形内绘制文本，文本信息为clusterItems的第一个聚合点的经度
+    <em>// 在圆形内绘制文本，文本信息为clusterItems的第一个聚合点的经度</em>
     offContext.font = '16vp sans-serif';
     offContext.textAlign = 'center';
     offContext.textBaseline = 'middle';
@@ -362,7 +364,7 @@ struct CustomMarker {
     return iconPixelMap;
   }
 
-  // 创建自定义组件
+  <em>// 创建自定义组件</em>
   @Builder
   renderBuilder() {
     Stack({ alignContent: Alignment.Center }) {

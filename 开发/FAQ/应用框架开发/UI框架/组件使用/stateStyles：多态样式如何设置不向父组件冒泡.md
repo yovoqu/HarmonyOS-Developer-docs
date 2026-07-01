@@ -4,16 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-960
 
-## stateStyles：多态样式如何设置不向父组件冒泡
- 
-
-
-##### 问题现象
+#### 问题现象
 
 stateStyles多态样式，父组件和子组件都设置了stateStyles，子组件满足stateStyles状态时，父组件也同样满足，也会跟着改变，效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/4di7X4KHS9uk_7HWjoHGpw/zh-cn_image_0000002658920893.png?HW-CC-KV=V1&HW-CC-Date=20260701T025554Z&HW-CC-Expire=86400&HW-CC-Sign=756A502853D2D383ADE0C3C7180EAFD3C11A6659DDC0D1E82D7F3FDDBE8D7ABF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/4di7X4KHS9uk_7HWjoHGpw/zh-cn_image_0000002658920893.png?HW-CC-KV=V1&HW-CC-Date=20260701T041256Z&HW-CC-Expire=86400&HW-CC-Sign=73BB512747D41E6D196B934C5C3855969D8C9821D0DDBAA513F3D23FF3663FE3)
 
  
 - 蓝色背景为父组件，绿色背景为子组件。
@@ -27,7 +23,7 @@ stateStyles多态样式，父组件和子组件都设置了stateStyles，子组�
  
  
 
-##### 背景知识
+#### 背景知识
 
 [stateStyles](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-statestyles)：多态样式，可以依据组件的内部状态的不同，快速设置不同样式。ArkUI提供以下六种状态：
  
@@ -45,7 +41,7 @@ stateStyles多态样式，父组件和子组件都设置了stateStyles，子组�
  
  
 
-##### 解决方案
+#### 解决方案
 
 在子组件绑定[onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)回调，并在回调中通过stopPropagation方法阻止按下的事件传递到父组件，父组件不会变为按压态。
  
@@ -108,11 +104,11 @@ struct StateStylesDemo {
 按压子组件后，不会触发父组件stateStles的按压设置效果，效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/lWV5eyYfR7ujuFci2rDBpw/zh-cn_image_0000002658800931.png?HW-CC-KV=V1&HW-CC-Date=20260701T025554Z&HW-CC-Expire=86400&HW-CC-Sign=A60C3EE21C42C25EC95F7DB8C5C0349328B690510F0AEB2498CA2C87BA4BC8B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/lWV5eyYfR7ujuFci2rDBpw/zh-cn_image_0000002658800931.png?HW-CC-KV=V1&HW-CC-Date=20260701T041256Z&HW-CC-Expire=86400&HW-CC-Sign=C8EFEEC6C59CCC2183C66E1D286FF382D656EA434AE5201503D4B7C69B918A76)
 
  
  
 
-##### 总结
+#### 总结
 
 stopPropagation干预事件冒泡时，应注意对同一事件的不同类型（如Down/Move/Up）采用一致的规则，避免上层节点仅接收到部分类型事件，导致事件不闭环的情况，例如当节点仅接收到Down事件，而未接收到Up事件，这会影响节点上的事件完整性（对于指向性按下操作类交互产生的事件，确保事件的完整性是必要的）。

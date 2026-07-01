@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1655
 
-## 如何将自定义弹窗Builder作为变量传递实现弹窗控制器
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现类似于CustomDialogController的控制器，可以传递一个@Builder，去加载自定义弹窗。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/G1rhRRYZQCS_Z_l3CJTwyw/zh-cn_image_0000002659020193.png?HW-CC-KV=V1&HW-CC-Date=20260701T025727Z&HW-CC-Expire=86400&HW-CC-Sign=35ABD1F24FCE61DDA4132189283290671704D371219A5522D28B2F87C56E8CD6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/G1rhRRYZQCS_Z_l3CJTwyw/zh-cn_image_0000002659020193.png?HW-CC-KV=V1&HW-CC-Date=20260701T041207Z&HW-CC-Expire=86400&HW-CC-Sign=5C06B2B02B8207C0A915DBD55603537A2EC56528D01CDC8501451C58111D50B1)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [@Builder装饰器：自定义构建函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)：@Builder装饰的函数也称为“自定义构建函数”。
 - [wrapBuilder：封装全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder)：可以使用wrapBuilder封装全局@Builder。
@@ -32,21 +28,20 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 @Builder装饰器修饰函数不支持传递函数方法，但可以通过WrappedBuilder包装类将@Builder的函数包装，之后将WrappedBuilder对象当作变量进行传递。
  
 开发步骤如下：
- 
-- 自定义控制器类，用于创建弹窗、打开弹窗、更新弹窗内容、关闭弹窗等操作。
+ 1. 自定义控制器类，用于创建弹窗、打开弹窗、更新弹窗内容、关闭弹窗等操作。
 ```text
 class CustomDialogController {
   private uiContext: UIContext;
   private promptDialog: PromptAction;
-  private contentNode: ComponentContent;
+  private contentNode: ComponentContent<object>;
   params?: Params;
 
-  constructor(uiContext: UIContext, builder: WrappedBuilder, params?: Params) {
+  constructor(uiContext: UIContext, builder: WrappedBuilder<[]>, params?: Params) {
     this.uiContext = uiContext;
     this.promptDialog = this.uiContext.getPromptAction();
     this.params = params;
@@ -68,13 +63,13 @@ class CustomDialogController {
 }
 ```
 
-- 自定义@Builder，用于显示自定义弹窗内容，更新弹窗内容，关闭弹窗。
+2. 自定义@Builder，用于显示自定义弹窗内容，更新弹窗内容，关闭弹窗。
 ```text
 @Builder
 function dialogBuilder(controller?: CustomDialogController) {
   Column() {
     Row() {
-      // 实际使用时可替换为实际图片
+  <em>    // 实际使用时可替换为实际图片</em>
       Image($r('app.media.img'))
         .width(80)
         .height(80);
@@ -90,7 +85,7 @@ function dialogBuilder(controller?: CustomDialogController) {
           .fontSize(10)
           .margin({ right: 15 });
         Row() {
-          // 实际使用时可替换为实际图片
+      <em>    // 实际使用时可替换为实际图片</em>
           Image($r('app.media.img_2'))
             .backgroundColor('#f1f3f5')
             .onClick(() => {
@@ -103,7 +98,7 @@ function dialogBuilder(controller?: CustomDialogController) {
             .height(20);
           Text(`${controller!.params?.content}`)
             .margin({ left: 10 });
-          // 实际使用时可替换为实际图片
+     <em>     // 实际使用时可替换为实际图片</em>
           Image($r('app.media.img_1'))
             .backgroundColor('#f1f3f5')
             .margin({ left: 10 })
@@ -159,7 +154,7 @@ function dialogBuilder(controller?: CustomDialogController) {
 }
 ```
 
-- 页面初始化弹窗控制器并使用。
+3. 页面初始化弹窗控制器并使用。
 ```text
 @Entry
 @Component
@@ -184,7 +179,6 @@ struct CustomDialogPageExample {
 }
 ```
 
-
  
 完整示例参考如下：
  
@@ -203,10 +197,10 @@ class Params {
 class CustomDialogController {
   private uiContext: UIContext;
   private promptDialog: PromptAction;
-  private contentNode: ComponentContent;
+  private contentNode: ComponentContent<object>;
   params?: Params;
 
-  constructor(uiContext: UIContext, builder: WrappedBuilder, params?: Params) {
+  constructor(uiContext: UIContext, builder: WrappedBuilder<[]>, params?: Params) {
     this.uiContext = uiContext;
     this.promptDialog = this.uiContext.getPromptAction();
     this.params = params;
@@ -251,7 +245,7 @@ struct CustomDialogPageExample {
 function dialogBuilder(controller?: CustomDialogController) {
   Column() {
     Row() {
-      // 实际使用时可替换为实际图片
+   <em>   // 实际使用时可替换为实际图片</em>
       Image($r('app.media.img'))
         .width(80)
         .height(80);
@@ -267,7 +261,7 @@ function dialogBuilder(controller?: CustomDialogController) {
           .fontSize(10)
           .margin({ right: 15 });
         Row() {
-          // 实际使用时可替换为实际图片
+      <em>    // 实际使用时可替换为实际图片</em>
           Image($r('app.media.img_2'))
             .backgroundColor('#f1f3f5')
             .onClick(() => {
@@ -280,7 +274,7 @@ function dialogBuilder(controller?: CustomDialogController) {
             .height(20);
           Text(`${controller!.params?.content}`)
             .margin({ left: 10 });
-          // 实际使用时可替换为实际图片
+       <em>   // 实际使用时可替换为实际图片</em>
           Image($r('app.media.img_1'))
             .backgroundColor('#f1f3f5')
             .margin({ left: 10 })

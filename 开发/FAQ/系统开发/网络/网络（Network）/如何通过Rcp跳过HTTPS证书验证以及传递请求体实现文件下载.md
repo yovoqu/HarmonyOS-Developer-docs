@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-127
 
-## 如何通过Rcp跳过HTTPS证书验证以及传递请求体实现文件下载
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在下载文件时使用HTTPS请求，需要通过请求体（Request Body）传递参数给服务端。服务端根据请求体参数鉴权通过后，将文件通过响应体返回给客户端。
  
@@ -16,7 +12,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-kit-guide)提供请求网络数据的功能，当前包含以下能力：
  
@@ -28,15 +24,13 @@
  
  
 
-##### 解决方案
-
-- 通过RCP请求，跳过证书验证、传递请求体获取文件的数据。
-- 通过DocumentViewPicker将获取到的文件数据保存到本地。
-
+#### 解决方案
+1. 通过RCP请求，跳过证书验证、传递请求体获取文件的数据。
+2. 通过DocumentViewPicker将获取到的文件数据保存到本地。
  
 示例代码如下：
  
-```text
+```json
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { picker } from '@kit.CoreFileKit';
@@ -67,9 +61,9 @@ struct Index {
       let reqBody = response.body;
       const documentSaveOptions = new picker.DocumentSaveOptions();
       documentSaveOptions.newFileNames = [fileName];
-      let uris: Array = [];
+      let uris: Array<string> = [];
       const documentViewPicker = new picker.DocumentViewPicker();
-      documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array) => {
+      documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array<string>) => {
         if (documentSaveResult.length === 0) {
           console.error('未保存任何文件');
           return;

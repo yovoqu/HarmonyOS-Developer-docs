@@ -4,78 +4,57 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-80
 
-## In-house应用发布指导和常见问题分析
- 
-
-
-##### 问题现象
+#### 问题现象
 
 一般来讲，HarmonyOS应用需要上架应用市场才可以进行安装。对于仅在企业内部分发的应用，如何实现不上架应用市场也能分发？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [发布In-house应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-harmonyos-inhouserelease-0000001756878768)不属于标准的发布方案，仅允许部分特殊场景的开发者申请。
  
 通过此方式分发，必须使用专用的组织内部发布证书和组织内部发布Profile来编译打包HarmonyOS应用，然后将应用包及应用描述文件上传到您的服务器或第三方云上，用户按指定方式直接下载安装即可。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/W25HGi96SVanklwlXvD5Ig/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025903Z&HW-CC-Expire=86400&HW-CC-Sign=713B42A3F7C9114A7CC31C88C71A0E0D85FB1CC19451598DE325BE3CDE7228BE)
- 
-
-使用In-house发布前，您需要分别完成账号和应用权限申请。我们将审核贵公司提交的申请信息，并确认非公开发布、定向应用发布、指定设备发布均无法满足您的需求。根据您提交的企业资质和申请理由，华为应用市场保留拒绝您申请的权利。
- 
+> [!NOTE]
+> 使用In-house发布前，您需要分别完成账号和应用权限申请。我们将审核贵公司提交的申请信息，并确认非公开发布、定向应用发布、指定设备发布均无法满足您的需求。根据您提交的企业资质和申请理由，华为应用市场保留拒绝您申请的权利。
 
  
  
 
-##### 解决方案
+#### 解决方案
+1. 完成账号的注册和实名认证，获取分发资格。详细的操作步骤可参考[准备工作](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section6267104872410)。
+> [!NOTE]
+> 为避免权限冲突，需要重新申请In-house账号，不可与用于上架应用市场的普通开发者账号混用。 In-house账号用于调试或发布In-house应用，不可用于调试或发布需上架华为应用市场的应用。
 
-- 完成账号的注册和实名认证，获取分发资格。详细的操作步骤可参考[准备工作](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section6267104872410)。
+2. 申请[In-house发布证书](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-cert-0000002248337770)和[In-house发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-profile-0000002283340021)。
+3. [编译打包应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section16967123194110)。
+> [!NOTE]
+> In-house应用仅支持编译HAP和应用内HSP包。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/puLZ8E8rRVS4Fr5vWOsFWA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025903Z&HW-CC-Expire=86400&HW-CC-Sign=C5131A6A3C153DF50E95C7B44E174235D235176F3DB35227EA520E511C2BA2E9)
- 
-为避免权限冲突，需要重新申请In-house账号，不可与用于上架应用市场的普通开发者账号混用。
- In-house账号用于调试或发布In-house应用，不可用于调试或发布需上架华为应用市场的应用。
-- 申请[In-house发布证书](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-cert-0000002248337770)和[In-house发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-profile-0000002283340021)。
-- [编译打包应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section16967123194110)。
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/lD34E7QaQEip7FIAWDSDUQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025903Z&HW-CC-Expire=86400&HW-CC-Sign=C5E632051844B7927B070CB194A0D41AD123D0BD03C7A1C14959ECE249925CF0)
- 
-In-house应用仅支持编译HAP和应用内HSP包。
-- [构建Deeplink实现下载应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section74503017418)。
+4. [构建Deeplink实现下载应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section74503017418)。
 将编译得到的各个HAP/HSP包上传至您的服务器或第三方云上，获取HAP/HSP包下载URL，下载URL建议以“https”开头。
-- 基于应用信息生成应用描述文件。
-- 将生成的应用描述文件上传至您的服务器或第三方云上，并获取该文件的下载URL。
-- 将应用描述文件URL构建成Deeplink用于下载应用。
+5. 基于应用信息生成应用描述文件。
+6. 将生成的应用描述文件上传至您的服务器或第三方云上，并获取该文件的下载URL。
+7. 将应用描述文件URL构建成Deeplink用于下载应用。
+> [!NOTE]
+> Deeplink仅支持页面点击行为触发拉起，不支持地址栏输入Deeplink拉起或HTML头文件自动拉起。 仅支持华为浏览器拉起，且从华为浏览器拉起的所有行为，均需判断是否有用户点击行为，确认用户点击才允许拉起。 Deeplink格式：store://enterprise/manifest?url=https://xxx.xxx/xxx.json5。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/LFexgXzNQ-u2pFGD0bKcTw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025903Z&HW-CC-Expire=86400&HW-CC-Sign=B67436C0A5D9166D90C51DF7E20A593E5BDBC0BF627E2B7023275CAAFCF2A34B)
- 
-Deeplink仅支持页面点击行为触发拉起，不支持地址栏输入Deeplink拉起或HTML头文件自动拉起。
- 仅支持华为浏览器拉起，且从华为浏览器拉起的所有行为，均需判断是否有用户点击行为，确认用户点击才允许拉起。
- Deeplink格式：store://enterprise/manifest?url=https://xxx.xxx/xxx.json5。
-- 服务器提供应用描述文件和安装包的https下载链接，并且下载链接中的域名不支持IP地址。
-- 应用描述文件和安装包的下载链接，均需要支持通过HEAD方式请求返回文件大小。
-- 自签证书需安装对应的CA证书，且有效期不超过13个月，超期请及时更换。
-- 服务器需支持分片下载能力。
-
- 
-
-- 使用过程中可以参考[下载错误码](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section13508931122415)和[安装错误码](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section1569344319598)进行问题分析。
-
+8. 服务器提供应用描述文件和安装包的https下载链接，并且下载链接中的域名不支持IP地址。
+9. 应用描述文件和安装包的下载链接，均需要支持通过HEAD方式请求返回文件大小。
+10. 自签证书需安装对应的CA证书，且有效期不超过13个月，超期请及时更换。
+11. 服务器需支持分片下载能力。
+1. 使用过程中可以参考[下载错误码](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section13508931122415)和[安装错误码](https://developer.huawei.com/consumer/cn/doc/app/agc-help-inhouse-0000002281532696#section1569344319598)进行问题分析。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：应用无法安装，提示：安装包解析失败，无法验证应用。请联系开发者获取更多帮助（错误码：99999），如何排查？
  
 A：可以通过以下两点进行分析：
- 
-- 检查描述文件的JSON格式是否有误，确保文件内容是JSON格式，无额外字符或者字段。
-- 检查packageHash值是否正确，确保使用certutil -hashfile PATH SHA256获取，其中PATH表示包路径。
-
+ 1. 检查描述文件的JSON格式是否有误，确保文件内容是JSON格式，无额外字符或者字段。
+2. 检查packageHash值是否正确，确保使用certutil -hashfile PATH SHA256获取，其中PATH表示包路径。
  
 Q：In-house应用，已配置icons链接，为什么下载的时候显示还是默认图标？
  

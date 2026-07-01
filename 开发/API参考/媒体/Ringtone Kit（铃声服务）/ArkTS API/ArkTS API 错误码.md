@@ -3,22 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone
-
 **支持设备：** Phone | Tablet
 
-## ArkTS API 错误码
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/1orcXiViRf6x1i_qpxSddw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025453Z&HW-CC-Expire=86400&HW-CC-Sign=BA5747E9170DED738FBB5790086254E0C3D29F33513C284E22DFB774FA99688D)
- 
- 
-以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-  
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
   
 
-##### 1011600001 用户取消
+#### 1011600001 用户取消
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -38,7 +32,9 @@ User canceled.
  
   
 
-##### 1011600002 文件不存在
+#### 1011600002 文件不存在
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -58,7 +54,9 @@ The media file is not found.
  
   
 
-##### 1011600003 弹出框错误
+#### 1011600003 弹出框错误
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -78,7 +76,9 @@ Failed to show the dialog box.
  
   
 
-##### 1011600004 调用系统接口失败
+#### 1011600004 调用系统接口失败
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -98,7 +98,9 @@ Failed to call the system API.
  
   
 
-##### 1011699999 系统内部错误
+#### 1011699999 系统内部错误
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  

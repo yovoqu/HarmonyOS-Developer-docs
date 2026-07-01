@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-liveviewkit-7001
 
-## Live View Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：LiveView； API声明：lifeCycleMode?: LifeCycleMode; 差异内容：lifeCycleMode?: LifeCycleMode; | api/@hms.core.liveview.liveViewManager.d.ts |

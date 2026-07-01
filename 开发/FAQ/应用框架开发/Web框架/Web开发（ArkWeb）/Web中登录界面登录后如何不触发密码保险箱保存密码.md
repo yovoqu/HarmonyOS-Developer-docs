@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-188
 
-## Web中登录界面登录后如何不触发密码保险箱保存密码
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Web中登录界面，登录成功后，会触发弹出密码保险箱，提示保存密码，如何设置可以让密码保险箱不弹出？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/fBhVULwuQ3SlB9TnYtAffQ/zh-cn_image_0000002659258401.png?HW-CC-KV=V1&HW-CC-Date=20260701T025745Z&HW-CC-Expire=86400&HW-CC-Sign=DFD9306A1EB7AD6B2114469E75F57131FEFFB95E729255C64AFF42ABAE8FAD7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/fBhVULwuQ3SlB9TnYtAffQ/zh-cn_image_0000002659258401.png?HW-CC-KV=V1&HW-CC-Date=20260701T041335Z&HW-CC-Expire=86400&HW-CC-Sign=5CFA4555EF36A22787E2C0448A591F15BF4A99AC171067485EFAB0CFC460CB30)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 网页触发密码保险箱规格：
  
@@ -28,7 +24,7 @@ Web中登录界面，登录成功后，会触发弹出密码保险箱，提示�
  
  
 
-##### 解决方案
+#### 解决方案
 
 解决方案有3种：
  
@@ -58,43 +54,49 @@ struct LoginDemo1 {
 }
 ```
  login.html：
- 
+
+  
 ```text
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+</head>
+<body>
+<h2>欢迎登录</h2>
+<form id="loginForm" autocomplete="on">
+    <label for="username">用户名：</label><br>
+    <input type="text" id="username" name="username" required><br><br>
 
+    <label for="password">密码：</label><br>
+    <input type="password" id="password" name="password" required><br><br>
 
-    
-    登录界面
+    <button type="submit">登录</button>
+</form>
 
-
-欢迎登录
-
-    用户名：
-    
-
-    密码：
-    
-
-    登录
-
-
+<script>
     document.getElementById('loginForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      // 这里登录逻辑
-      // ....
-      // 跳转至首页
+      <em>// 这里登录逻辑</em>
+<em>      // ....</em>
+<em>      // 跳转至首页</em>
       window.location.href = './index.html';
     });
-
-
+</script>
+</body>
+</html>
 ```
  index.html：
- 
+
+  
 ```text
-
-
-    
-    首页
-    
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <style>
         body {
           font-family: Arial, sans-serif;
           background-color: #f0f2f5;
@@ -109,12 +111,12 @@ struct LoginDemo1 {
           color: #333;
           text-align: center;
         }
-    
-
-
-Hello World
-
-
+    </style>
+</head>
+<body>
+<h1>Hello World</h1>
+</body>
+</html>
 ```
 
 - **方案三**：密码input框type类型不要使用type="password"，设置为type="text"，登录后不会密码保险箱提示保存密码。这种方案会导致input框不能使用password类型，需要开发过程中自己实现密码框，成本较高，且对于密码安全存在一定风险。
@@ -128,7 +130,7 @@ struct LoginDemo2 {
 
   build() {
     Column() {
-      // src须替换为真实url
+     <em> // src须替换为真实url</em>
       Web({ src: 'https://***', controller: this.controller })
         .javaScriptAccess(true)
         .fileAccess(true)
@@ -143,33 +145,37 @@ struct LoginDemo2 {
 }
 ```
  login.html：
- 
+
+  
 ```text
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+</head>
+<body>
+<h2>欢迎登录</h2>
+<form id="loginForm" autocomplete="on">
+    <label for="username">用户名：</label><br>
+    <input type="text" id="username" name="username" required><br><br>
 
+    <label for="password">密码：</label><br>
+    <em><!--  密码框type不使用password，改成text，避免触发密码保险箱  --></em>
+    <input type="text" id="password" name="password" required><br><br>
 
-    
-    登录界面
+    <button type="submit">登录</button>
+</form>
 
-
-欢迎登录
-
-    用户名：
-    
-
-    密码：
-    
-    
-
-    登录
-
-
+<script>
     document.getElementById('loginForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      // 这里登录逻辑
-      // ....
-      // 跳转至首页
+     <em> // 这里登录逻辑</em>
+<em>      // ....</em>
+<em>      // 跳转至首页</em>
       window.location.href = './index.html';
     });
-
-
+</script>
+</body>
+</html>
 ```

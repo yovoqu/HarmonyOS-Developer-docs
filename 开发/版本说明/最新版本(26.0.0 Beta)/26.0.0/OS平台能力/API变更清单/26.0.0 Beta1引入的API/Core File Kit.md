@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-corefilekit-7001
 
-## Core File Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：OpenMode； API声明：const UNCACHE = 0o10000000000; 差异内容：const UNCACHE = 0o10000000000; | api/@ohos.file.fs.d.ts |

@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-scenariofusionkit-7001
 
-## Scenario Fusion Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增错误码 | 类名：FunctionalButtonController； API声明：onShare(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController; 差异内容：NA | 类名：FunctionalButtonController； API声明：onShare(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController; 差异内容：1007601001 | api/@hms.core.atomicserviceComponent.atomicserviceUi.d.ets |

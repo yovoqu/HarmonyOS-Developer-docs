@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-113
 
-## Web加载视频布局异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 加载视频完成前下半部分会被遮挡，加载完成再展示全部。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - iframe标签：用于在网页中嵌入另一个网页或资源。其默认行为是根据内容自动调整大小，除非设置了固定宽高或通过CSS限制了尺寸。
 - video标签：HTML5中用于嵌入视频内容的标签，支持自动播放、全屏、尺寸控制等属性。
@@ -24,25 +20,22 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 在使用iframe加载video时，iframe没有设置宽高，video加载完成后超过iframe的宽高就会撑开，导致页面异常。
- 
-- 通过[DevEco Testing](https://developer.huawei.com/consumer/cn/download/)的UIViewer查看页面布局，确认使用iframe嵌入的页面。
-- 对比两个iframe中的video组件的宽高。确认video组件宽高没有设置固定值。
-
+ 1. 通过[DevEco Testing](https://developer.huawei.com/consumer/cn/download/)的UIViewer查看页面布局，确认使用iframe嵌入的页面。
+2. 对比两个iframe中的video组件的宽高。确认video组件宽高没有设置固定值。
  
  
 
-##### 分析结论
+#### 分析结论
 
 视频在加载完成后改变了自身尺寸，而iframe未对其内容的大小变化进行有效限制。因此，iframe自动扩展以适应内容，导致外部页面布局异常。
  
  
 
-##### 修改建议
-
-- 使用ArkWeb加载iframe页面：
+#### 修改建议
+1. 使用ArkWeb加载iframe页面：
 ```text
 import { webview } from '@kit.ArkWeb';
 
@@ -61,45 +54,49 @@ struct WebComponent {
 }
 ```
 
-- 设置iframe内video的固定尺寸：
+2. 设置iframe内video的固定尺寸：
 ```text
-
-
-    
-    
-    
-    Video
-
-
-    
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video</title>
+</head>
+<style>
+    <!--  CSS样式设置  -->
     video {
       width: 100%;
       height: 300px;
       object-fit: contain;
     }
-
-
-    
-        
-        
-            
-        
-    
-
-
+</style>
+<body>
+    <div>
+        <!--  内联样式设置  -->
+        <video width="100%" height="300px" controls>
+            <source src="根据实际需要添加mp4格式的视频地址" type="video/mp4">
+        </video>
+    </div>
+</body>
+</html>
 ```
 
-- 限制iframe的最大尺寸：
+3. 限制iframe的最大尺寸：
 ```text
-
-
-    
-    
-    
-    Iframe
-
-
-    
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Iframe</title>
+</head>
+<style>
+    <!--  CSS样式设置  -->
     iframe {
         width: 100%;
         height: 300px;
@@ -107,6 +104,17 @@ struct WebComponent {
         max-height: 300px;
         overflow: hidden;
     }
+</style>
+<body>
+<!--  内联样式设置  -->
+<iframe src="./iframeVideo.html"
+        frameborder="0"
+        width="100%"
+        height="300px"
+        style="max-width: 100%; max-height: 300px; overflow: hidden;"
+        allowfullscreen="allowfullscreen">
 
-
+</iframe>
+</body>
+</html>
 ```

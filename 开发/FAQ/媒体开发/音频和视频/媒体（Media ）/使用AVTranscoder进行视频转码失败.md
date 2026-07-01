@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-25
 
-## 使用AVTranscoder进行视频转码失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发过程中，使用AVTranscoder进行视频转码时，会出现转码失败的场景，如何解决？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [AVTranscoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avtranscoder)主要用于将已压缩编码的视频文件按照指定参数转换为另一种格式的视频。
 - 支持修改源视频文件的编码参数（格式、码率）和封装格式。源视频的音视频编码和封装格式为系统AVCodec支持的解码和解封装格式，目标视频的音视频编码和封装格式为系统AVCodec支持的编码和封装格式，详情可以参考[AVCodec支持的格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats)。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 下面列举转码过程中，常见的一些错误场景。
  
@@ -39,13 +35,13 @@ IO错误原因通常有：
 - 目标文件格式错误，当前输出视频文件仅支持mp4，可参考[AVTranscoderConfig.fileFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avtranscoderconfig12)参数说明，核心代码如下，完整代码可[参考官网](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avtranscoder-for-transcodering)。
 ```text
 private avConfig: media.AVTranscoderConfig = {
-  audioBitrate: 100000, // 音频比特率。
-  audioCodec: media.CodecMimeType.AUDIO_AAC, // 音频编码格式。
-  fileFormat: media.ContainerFormatType.CFT_MPEG_4, // 封装格式。
-  videoBitrate: 200000, // 视频比特率。
-  videoCodec: media.CodecMimeType.VIDEO_AVC, // 视频编码格式。
-  videoFrameWidth: 640, // 视频分辨率的宽为640。
-  videoFrameHeight: 480, // 视频分辨率的高为480。
+  audioBitrate: 100000, <em>// 音频比特率。</em>
+  audioCodec: media.CodecMimeType.AUDIO_AAC, <em>// 音频编码格式。</em>
+  fileFormat: media.ContainerFormatType.CFT_MPEG_4, <em>// 封装格式。</em>
+  videoBitrate: 200000, <em>// 视频比特率。</em>
+  videoCodec: media.CodecMimeType.VIDEO_AVC, <em>// 视频编码格式。</em>
+  videoFrameWidth: 640, <em>// 视频分辨率的宽为640。</em>
+  videoFrameHeight: 480, <em>// 视频分辨率的高为480。</em>
 };
 ```
 
@@ -66,21 +62,23 @@ private avConfig: media.AVTranscoderConfig = {
 #755 SignedError: IO error happened due to Prepare.
 ```
  此错误通常是由于目标视频宽、高分辨率大于源视频宽、高，或设置为奇数导致，可以通过[AVTranscoderConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avtranscoderconfig12)配置合适的视频的宽高分辨率（不配置默认采用源视频的宽高）：
- 
+
+  
 ```text
 private avConfig: media.AVTranscoderConfig = {
-  audioBitrate: 100000, // 音频比特率。
-  audioCodec: media.CodecMimeType.AUDIO_AAC, // 音频编码格式。
-  fileFormat: media.ContainerFormatType.CFT_MPEG_4, // 封装格式。
-  videoBitrate: 200000, // 视频比特率。
-  videoCodec: media.CodecMimeType.VIDEO_AVC, // 视频编码格式。
-  videoFrameWidth: 640, // 视频分辨率的宽为640。
-  videoFrameHeight: 480, // 视频分辨率的高为480。
+  audioBitrate: 100000,<em> // 音频比特率。</em>
+  audioCodec: media.CodecMimeType.AUDIO_AAC, <em>// 音频编码格式。</em>
+  fileFormat: media.ContainerFormatType.CFT_MPEG_4, <em>// 封装格式。</em>
+  videoBitrate: 200000, <em>// 视频比特率。</em>
+  videoCodec: media.CodecMimeType.VIDEO_AVC, <em>// 视频编码格式。</em>
+  videoFrameWidth: 640, <em>// 视频分辨率的宽为640。</em>
+  videoFrameHeight: 480,<em> // 视频分辨率的高为480。</em>
 };
 ```
 
 - **场景三**：用户媒体相册里的文件怎么转码，需要复制到沙箱再转码吗？
-用户使用[photoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)选择视频文件获取uri后，可通过[fs.opensync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)获取源视频文件fd后直接转码，不用复制到沙箱再转，示例代码如下，完整代码可[参考官网](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avtranscoder-for-transcodering)。
+
+  用户使用[photoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)选择视频文件获取uri后，可通过[fs.opensync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsopensync)获取源视频文件fd后直接转码，不用复制到沙箱再转，示例代码如下，完整代码可[参考官网](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avtranscoder-for-transcodering)。
 ```text
 async picture() {
   let PhotoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
@@ -89,7 +87,7 @@ async picture() {
   let photoPicker = new photoAccessHelper.PhotoViewPicker();
   let pathDir = this.context?.filesDir;
   photoPicker.select(PhotoSelectOptions).then((PhotoSelectResult: photoAccessHelper.PhotoSelectResult) => {
-    let photouri: Array = PhotoSelectResult.photoUris;
+    let photouri: Array<string> = PhotoSelectResult.photoUris;
     let file = fs.openSync(photouri[0], fs.OpenMode.READ_ONLY);
     let file2 = fs.openSync(pathDir + '/h264_1280_720.mp4', fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
     this.filePath = pathDir + '/h264_1280_720.mp4';
@@ -106,7 +104,7 @@ async picture() {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：是否支持MOV格式视频转码？
  

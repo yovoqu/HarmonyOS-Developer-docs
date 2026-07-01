@@ -4,28 +4,22 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-527
 
-## 如何实现滑块移动并跟随滑块进度显示不同的内容UI
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现带刻度滑动进度条在滑动过程中，滑动到不同的刻度值位置，跟随显示不同的UI，并且显示内容可以自定义？
  
  
 
-##### 背景知识
+#### 背景知识
 
 可以根据滑块[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)来实现该滑动功能，并使用[showSteps](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#showsteps)属性显示刻度值。
  
  
 
-##### 解决方案
-
-- 按照滑块的大小设置一个跟随的透明滑块，跟Slider滑块动作保持一致。
-- 滑块跟随Slider滑块运动，计算滑块在屏幕中的位置。
-- 将Popup绑定到Stack滑块，跟随Slider滑块运动。
-
+#### 解决方案
+1. 按照滑块的大小设置一个跟随的透明滑块，跟Slider滑块动作保持一致。
+2. 滑块跟随Slider滑块运动，计算滑块在屏幕中的位置。
+3. 将Popup绑定到Stack滑块，跟随Slider滑块运动。
  
 参考以下demo:
  
@@ -41,13 +35,13 @@ struct SliderPage {
   private slideWidth: number = 340;
   private slideStepSize: number = 5;
   private blockSize: number = 32;
-  // 需要将app.media.background替换为实际资源值。
+ <em> // 需要将app.media.background替换为实际资源值。</em>
   private imgArr: string[] =
     ['app.media.background', 'app.media.background', 'app.media.background', 'app.media.background',
       'app.media.background', 'app.media.background',
       'app.media.background', 'app.media.background', 'app.media.background', 'app.media.background'];
 
-  // 滑块跟随Slider滑块运动，计算滑块在屏幕中的位置
+ <em> // 滑块跟随Slider滑块运动，计算滑块在屏幕中的位置</em>
   private showTip(value: number) {
     this.isTipShow = true;
     let percent = Number((value / 100).toFixed(2));
@@ -55,7 +49,7 @@ struct SliderPage {
       Math.round(this.getUIContext().px2vp(this.beginX)) + (this.slideWidth - 8) * percent + (0.8 - percent) * 5;
   }
 
-  // popup构造器定义弹框内容
+ <em> // popup构造器定义弹框内容</em>
   @Builder
   popupBuilder() {
     Column() {
@@ -72,19 +66,19 @@ struct SliderPage {
   build() {
     Column() {
       if (this.isTipShow) {
-        // 按照滑块的大小设置一个跟随的透明滑块，跟Slider滑块动作保持一致，设置当前块的大小保持跟Slider滑块大小一致，代码如下：
+       <em> // 按照滑块的大小设置一个跟随的透明滑块，跟Slider滑块动作保持一致，设置当前块的大小保持跟Slider滑块大小一致，代码如下：</em>
         Stack() {
         }
         .width(this.blockSize)
         .height(this.blockSize)
-        // tipsOffset：Slider滑块位置的横坐标，offsetY：Slider滑块位置的纵坐标
+        <em>// tipsOffset：Slider滑块位置的横坐标，offsetY：Slider滑块位置的纵坐标</em>
         .position({ x: this.tipsOffset, y: this.offsetY })
-        // 将Popup绑定到Stack滑块，跟随Slider滑块运动
+       <em> // 将Popup绑定到Stack滑块，跟随Slider滑块运动</em>
         .bindPopup(true, {
           builder: this.popupBuilder,
           placement: Placement.Bottom,
           mask: false,
-          // 指向绑定的组件
+        <em>  // 指向绑定的组件</em>
           arrowOffset: 0,
           popupColor: Color.White,
           enableArrow: true,

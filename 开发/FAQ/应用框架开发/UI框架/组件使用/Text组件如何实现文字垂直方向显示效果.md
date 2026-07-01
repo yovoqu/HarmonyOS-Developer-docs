@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1128
 
-## Text组件如何实现文字垂直方向显示效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 页面文字需要垂直方向显示，使用Text组件怎样实现这种效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)：显示一段文本的组件。
 - [@BuilderParam装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam)：引用@Builder函数。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 针对Text组件如何实现文字垂直方向显示，有以下解决方案：
  
@@ -33,10 +29,10 @@ class Tmp {
 }
 
 
-// 封装一个方法
+<em>// 封装一个方法</em>
 @Builder
 function overBuilder(params: Tmp) {
-  // 用ForEach()方法对Text组件文本内容进行遍历，再使用.split('')属性对文本内容进行分割
+ <em> // 用ForEach()方法对Text组件文本内容进行遍历，再使用.split('')属性对文本内容进行分割</em>
   ForEach(params.label.split(''), (item: string) => {
     Text(item)
       .fontSize(30);
@@ -62,4 +58,4 @@ struct VerticalDemo {
 ```
 
 - 方案二：通过设置Text组件宽度width与字号一致的方式实现，可参考[如何实现文本竖向排列](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-91)。效果如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/x49-xND9QSa7ohmsIVdfSQ/zh-cn_image_0000002628569422.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=E7C76ED70A2C869192FC98DD642F5B3ABECD38CEC27EC4A51CC6C7C2013A4F10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/x49-xND9QSa7ohmsIVdfSQ/zh-cn_image_0000002628569422.png?HW-CC-KV=V1&HW-CC-Date=20260701T041252Z&HW-CC-Expire=86400&HW-CC-Sign=9F89EC1A83BA767E5CFC8280B13A6119FA720701ED5376C7875DD5CA7058101E)

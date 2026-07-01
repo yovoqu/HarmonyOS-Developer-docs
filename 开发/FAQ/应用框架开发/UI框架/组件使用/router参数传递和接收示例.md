@@ -4,21 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1528
 
-## router参数传递和接收示例
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用router进行页面路由跳转时，数据从页面一传输到页面二后，有以下常见问题：
- 
-- 无法获取参数。
-- 参数里封装了函数，却无法调用。
-
+ 1. 无法获取参数。
+2. 参数里封装了函数，却无法调用。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)通过[pushUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl)、[replaceUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)、[pushNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute)、[replaceNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)四种方式跳转并传递参数页面。
  
@@ -26,9 +20,9 @@
 - pushUrl与replaceUrl描述页面信息的参数为[RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions)，传递参数结构形式为：
 ```text
 {
-  url: 'page/onePage', // 传递的方式，必填参数
-  params: Object, // 传递的数据，必填参数
-  recoverable: true // 页面是否可恢复，该参数为非必填参数，默认为true
+  url: 'page/onePage', <em>// 传递的方式，必填参数</em>
+  params: Object, <em>// 传递的数据，必填参数</em>
+  recoverable: true <em>// 页面是否可恢复，该参数为非必填参数，默认为true</em>
 }
 ```
 
@@ -37,16 +31,15 @@
 - pushNamedRoute与replaceNamedRoute描述页面信息的参数为[NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10)，传递参数结构形式为：
 ```text
 {
-  name: 'Welcome', // 传递的方式，必填参数
-  params: Object, // 传递的数据，必填参数
-  recoverable: true // 页面是否可恢复，该参数为非必填参数，默认为true
+  name: 'Welcome', <em>// 传递的方式，必填参数</em>
+  params: Object, <em>// 传递的数据，必填参数</em>
+  recoverable: true <em>// 页面是否可恢复，该参数为非必填参数，默认为true</em>
 }
 ```
  
+> [!NOTE]
+> params不支持传递方法和系统返回的复杂对象。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/Jza3-69WQ2GGYgRhnpXO2A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025619Z&HW-CC-Expire=86400&HW-CC-Sign=EC411EF8A6E2739D490C7182DF4AA558CAD97781D01A9FC3D27DC646D82F9F8C)
- 
-params不支持传递方法和系统返回的复杂对象。
 
  
  
@@ -54,19 +47,17 @@ params不支持传递方法和系统返回的复杂对象。
  
  
 
-##### 问题定位
+#### 问题定位
 
 对于跳转后调用方法失败的问题，需先确认params传递的数据类型是否合法，特别注意params参数不能传递方法和系统接口返回的复杂对象，仅能包含基础类型的数据；
  
 若无法获取参数，可以按照以下步骤进行定位：
- 
-- 首先确定页面跳转时params参数是否为空或有效；
-- 其次，确保正确获取params参数，接收params参数的变量类型与params类型必须一致。
-
+ 1. 首先确定页面跳转时params参数是否为空或有效；
+2. 其次，确保正确获取params参数，接收params参数的变量类型与params类型必须一致。
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 当跳转传递的参数不为空时，考虑创建的params是否有效并检查params传递的类型情况。若params也没有问题，则考虑接收参数的问题；以pushUrl为例，参考以下形式：
 ```text
@@ -81,13 +72,13 @@ this.getUIContext().getRouter().pushUrl({
  
  
 
-##### 修改建议
+#### 修改建议
 
 完整参数传递代码如下：
  
 - 页面一：
 ```text
-// 定义公共参数类
+<em>// 定义公共参数类</em>
 export class InfoTmp {
   age: number = 0;
 }
@@ -97,7 +88,7 @@ export class ParamInfo {
   info: InfoTmp = new InfoTmp();
 }
 
-// 通过this.getUIContext().getRouter().pushUrl跳转至目标页携带params参数
+<em>// 通过this.getUIContext().getRouter().pushUrl跳转至目标页携带params参数</em>
 @Entry
 @Component
 struct Index {
@@ -137,19 +128,19 @@ struct Index {
 ```text
 import { ParamInfo } from './Index';
 
-// 在second页面中接收传递过来的参数
+<em>// 在second页面中接收传递过来的参数</em>
 @Entry
 @Component
 struct Second {
   @State params: ParamInfo = this.getUIContext().getRouter().getParams() as ParamInfo;
 
   aboutToAppear(): void {
-    // 方案一
-    let params = (this.getUIContext().getRouter().getParams() as Record);
+    <em>// 方案一</em>
+    let params = (this.getUIContext().getRouter().getParams() as Record<string, object>);
     let name = params.name;
     let info = params.info;
     console.info(`Succeeded in completing PlanOne. params:{name: ${name}, info: ${info}}. `);
-    // 方案二
+    <em>// 方案二</em>
     let paramInfo: ParamInfo = this.getUIContext().getRouter().getParams() as ParamInfo;
     console.info(`Succeeded in completing PlanTwo. params:{name: ${paramInfo.name}, info.age: ${paramInfo.info.age}}. `);
   }
@@ -179,7 +170,7 @@ struct Second {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：params是否支持抽象类的传递？
  
@@ -203,7 +194,7 @@ A：router.getParams()获取的是路由记录中的只读参数副本，参数�
 ```text
 this.getUIContext().getRouter().pushUrl({
   url: 'pages/Page',
-  params: {} // 若不传递参数，传空对象，覆盖旧对象。
+  params: {} <em>// 若不传递参数，传空对象，覆盖旧对象。</em>
 });
 ```
  

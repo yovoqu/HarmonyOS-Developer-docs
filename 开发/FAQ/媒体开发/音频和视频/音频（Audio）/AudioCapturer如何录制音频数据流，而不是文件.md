@@ -4,32 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-61
 
-## AudioCapturer如何录制音频数据流，而不是文件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 怎么采集录音数据流，如何避免不断的写入文件，浪费性能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [AudioCapturer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer)是音频采集器，用于录制PCM（Pulse Code Modulation）音频数据。调用前需要申请麦克风权限ohos.permission.MICROPHONE，申请方式参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
  
  
 
-##### 解决方案
-
-- 定义[Queue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-queue)队列用于缓存音频数据。
-- 通过[AudioCapturer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer)录音时，在回调函数[on('readData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer#onreaddata11)中不断的将音频数据存入队列。
-- 在需要使用音频数据的时候，从队列中读取数据。
-
+#### 解决方案
+1. 定义[Queue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-queue)队列用于缓存音频数据。
+2. 通过[AudioCapturer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer)录音时，在回调函数[on('readData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer#onreaddata11)中不断的将音频数据存入队列。
+3. 在需要使用音频数据的时候，从队列中读取数据。
  
 示例代码如下：
  
-```text
+```json
 import { audio } from '@kit.AudioKit';
 import { abilityAccessCtrl, common } from '@kit.AbilityKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
@@ -37,16 +31,16 @@ import { Queue } from '@kit.ArkTS';
 
 
 let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000, // 采样率。
-  channels: audio.AudioChannel.CHANNEL_2, // 通道。
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
+  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000, <em>// 采样率。</em>
+  channels: audio.AudioChannel.CHANNEL_2, <em>// 通道。</em>
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, <em>// 采样格式。</em>
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// 编码格式。</em>
 };
 
 
 let audioCapturerInfo: audio.AudioCapturerInfo = {
-  source: audio.SourceType.SOURCE_TYPE_MIC, // 音源类型：Mic音频源。根据业务场景配置，参考SourceType。
-  capturerFlags: 0 // 音频采集器标志。
+  source: audio.SourceType.SOURCE_TYPE_MIC, <em>// 音源类型：Mic音频源。根据业务场景配置，参考SourceType。</em>
+  capturerFlags: 0 <em>// 音频采集器标志。</em>
 };
 
 
@@ -58,12 +52,12 @@ export struct AudioCapturerDataDemo {
   capturerDemo = new CapturerDemo(this.context, audioStreamInfo, audioCapturerInfo);
 
 
-  async aboutToAppear(): Promise {
-    await this.atManager.requestPermissionsFromUser(this.context, ['ohos.permission.MICROPHONE']); //权限申请
+  async aboutToAppear(): Promise<void> {
+    await this.atManager.requestPermissionsFromUser(this.context, ['ohos.permission.MICROPHONE']); <em>//权限申请</em>
   }
 
 
-  async aboutToDisappear(): Promise {
+  async aboutToDisappear(): Promise<void> {
     await this.capturerDemo.stop();
     await this.capturerDemo.release();
   }
@@ -96,7 +90,7 @@ class CapturerDemo {
   audioStreamInfo: audio.AudioStreamInfo;
   audioCapturerInfo: audio.AudioCapturerInfo;
   context: common.UIAbilityContext;
-  bufferQueue = new Queue();
+  bufferQueue = new Queue<ArrayBuffer>();
   audioCapturer?: audio.AudioCapturer;
 
 
@@ -108,17 +102,17 @@ class CapturerDemo {
   }
 
 
-  // 初始化
+  /<em>/ 初始化</em>
   async init() {
     let audioCapturerOptions: audio.AudioCapturerOptions = {
       streamInfo: this.audioStreamInfo,
       capturerInfo: this.audioCapturerInfo
     };
     try {
-      this.audioCapturer = await audio.createAudioCapturer(audioCapturerOptions); // 创建AudioCapturer实例。
+      this.audioCapturer = await audio.createAudioCapturer(audioCapturerOptions); <em>// 创建AudioCapturer实例。</em>
       console.info(`createAudioCapturer success`);
       this.audioCapturer.on('readData', (buffer: ArrayBuffer) => {
-        this.bufferQueue.add(buffer.slice(0)); //录音数据入队列
+        this.bufferQueue.add(buffer.slice(0)); <em>//录音数据入队列</em>
       });
     } catch (err) {
       console.error(`createAudioCapturer failed, code is ${err.code}, message is ${err.message}`);
@@ -126,10 +120,10 @@ class CapturerDemo {
   }
 
 
-  // 开始一次音频采集。
+  <em>// 开始一次音频采集</em>。
   async start() {
     try {
-      this.bufferQueue = new Queue();
+      this.bufferQueue = new Queue<ArrayBuffer>();
       await this.audioCapturer?.start();
       console.info(`start success`);
     } catch (err) {
@@ -138,11 +132,11 @@ class CapturerDemo {
   }
 
 
-  // 停止采集。
+ <em> // 停止采集。</em>
   async stop() {
     try {
       await this.audioCapturer?.stop();
-      this.handleAudioData(); //根据业务，处理音频数据
+      this.handleAudioData();<em> //根据业务，处理音频数据</em>
       console.info(`stop success`);
     } catch (err) {
       console.error(`Capturer stop failed. ${JSON.stringify(err)}`);
@@ -150,7 +144,7 @@ class CapturerDemo {
   }
 
 
-  // 销毁实例，释放资源。
+<em>  // 销毁实例，释放资源。</em>
   async release() {
     try {
       await this.audioCapturer?.release();
@@ -162,7 +156,7 @@ class CapturerDemo {
 
 
   handleAudioData() {
-    // 以下示例将bufferQueue数据保存到文件，根据业务需要调整
+  <em>  // 以下示例将bufferQueue数据保存到文件，根据业务需要调整</em>
     let filePath = this.context.cacheDir + '/StarWars10s-2C-48000-4SW.pcm';
     let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
     let offset = 0;

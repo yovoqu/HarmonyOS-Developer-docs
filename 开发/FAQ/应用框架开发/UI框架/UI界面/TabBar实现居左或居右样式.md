@@ -4,28 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1636
 
-## TabBar实现居左或居右样式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用Tabs组件时，为了提升界面的整洁度与美观性，建议将TabBar放置在页面顶部，并根据内容对齐方式选择左对齐或右对齐，避免两侧出现不必要的空白区域。如何实现这种布局效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs)组件可以在一个页面内实现不同内容视图的切换，同时提供导航栏页签的UI实现。**在API15或以上版本**，Tabs组件新增[TabOptions参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#tabsoptions15)，其中的barModifier参数用于设置TabBar的通用属性，可以控制TabBar的页签布局；而在低于API15的版本中，Tabs组件本身**不提供方法使TabBar导航页签栏居左显示**。
 - [Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)：用于界面层叠布局的容器组件。
 - [position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#position)：设置组件相对于父组件内容区的位置。
 - 自定义页签可以利用容器组件的排列方式实现TabBar居左显示，以下提供两种方法：
 将页签按Row（横向从左往右）的方向放置在弹性布局[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-flex-layout)容器内，利用Flex容器实现TabBar居左的效果。Flex容器内子元素的布局方向如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/9FZjSuz1QGyFWdgbD-GMlw/zh-cn_image_0000002658976865.png?HW-CC-KV=V1&HW-CC-Date=20260701T025644Z&HW-CC-Expire=86400&HW-CC-Sign=BBFD669F67795E29E09F29D71FFDE339FA86BEF641C867011E9D63D52ECB9843)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/9FZjSuz1QGyFWdgbD-GMlw/zh-cn_image_0000002658976865.png?HW-CC-KV=V1&HW-CC-Date=20260701T041144Z&HW-CC-Expire=86400&HW-CC-Sign=A7D18ABDF5C589EBCFD7D4A94FCFCB9FEE0891F03A63BC8B4226353E2E65D3E2)
 
- 因此使用Flex容器实现问题描述中的期望目标可以拆解成如下结构：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/w9dCYC8MTwu2DPAtLUObvw/zh-cn_image_0000002658856923.png?HW-CC-KV=V1&HW-CC-Date=20260701T025644Z&HW-CC-Expire=86400&HW-CC-Sign=114CCB198590E61824140A633A6039DC48F612FCFA6F169435722A1F5296E94F)
+
+  因此使用Flex容器实现问题描述中的期望目标可以拆解成如下结构：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/w9dCYC8MTwu2DPAtLUObvw/zh-cn_image_0000002658856923.png?HW-CC-KV=V1&HW-CC-Date=20260701T041144Z&HW-CC-Expire=86400&HW-CC-Sign=7FA10F551F5FFE01EA44A3B7E91789E9B94779FD74FBCE95E389C133DA8122C7)
 
 - 通过横向的Scroll组件实现自定义TabBar。
 
@@ -33,30 +31,30 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 TabBar实现居左或居右样式实现方案如下：
   
 | 实现场景 | 实现方式 | 实现方法 | 适用场景 |
-| 左 | 右 |
+| 实现场景 | 左 | 实现方式 | 右 | 适用场景 |
 | barModifier参数实现 | barModifier参数 | 设置align属性为Alignment.Start，并设置Tabs属性barMode为BarMode.Scrollable。 | 设置align属性为Alignment.End，并设置Tabs属性barMode为BarMode.Scrollable。 | 仅需简单对齐，无需深度定制样式。 |
 | 滚动容器实现 | Scroll | Scroll设置宽度，Scroll外部Row的reverse属性设置为false。 | Scroll设置宽度，Scroll外部Row的reverse属性设置为true。 | 放置较多的页签数量。 |
 | 行列与堆叠容器实现 | Flex | 放入Flex容器中，direction属性设置为FlexDirection.Row。 | 放入Flex容器中，direction属性设置为FlexDirection.RowReverse。 | 放置较少的页签数量。 |
-| Stack | 放入Stack容器中，alignContent属性设置为Alignment.TopStart，每个页签通过position设置偏移值。 | 放入Stack容器中，alignContent属性设置为Alignment.TopEnd，每个页签通过position设置偏移值。 |
+| 行列与堆叠容器实现 | Stack | 放入Stack容器中，alignContent属性设置为Alignment.TopStart，每个页签通过position设置偏移值。 | 放入Stack容器中，alignContent属性设置为Alignment.TopEnd，每个页签通过position设置偏移值。 | 放置较少的页签数量。 |
  
  
 TabBar实现居左或居右的方式类似，本文以居左为例。
  
 - **方案一：使用barModifier参数，设置TabBar布局（仅适用于API15及以上版本）**。在Tabs组件的TabOptions参数配置barModifier，设置align属性为Alignment.Start，并设置Tabs属性barMode为BarMode.Scrollable，实现页签在页面顶部居左显示。如果设置为Alignment.End，实现居右对齐。
- 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/QlEhWrrVQdSTkutB85Y_7Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025644Z&HW-CC-Expire=86400&HW-CC-Sign=F308806B55C30DD8B382F336FEC8021F4D3308BFFB0C982D21F8CDFF3AA080C8)
- 
-align属性仅在BarMode.Scrollable模式下生效，且Tabs为横向时还需[nonScrollableLayoutStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#scrollablebarmodeoptions10对象说明)未设置或设置为异常值时才能生效。
- 
+  
+> [!TIP]
+> align属性仅在BarMode.Scrollable模式下生效，且Tabs为横向时还需 nonScrollableLayoutStyle 未设置或设置为异常值时才能生效。
 
- 示例代码如下：
- 
+
+  示例代码如下：
+
+  
 ```text
 import { CommonModifier } from '@kit.ArkUI';
 
@@ -94,7 +92,7 @@ struct LeftTabBar {
   }
 
   aboutToAppear(): void {
-    // 设置TabBar页签居左显示
+   <em> // 设置TabBar页签居左显示</em>
     this.tabBarModifier.align(Alignment.Start);
   }
 
@@ -115,7 +113,7 @@ struct LeftTabBar {
       }, (item: number) => item.toString());
     }
     .width('100%')
-    // 必须设置barMode为BarMode.Scrollable，barModifier参数才能生效
+  <em>  // 必须设置barMode为BarMode.Scrollable，barModifier参数才能生效</em>
     .barMode(BarMode.Scrollable)
     .onChange((index: number) => {
       this.currentIndex = index;
@@ -124,16 +122,17 @@ struct LeftTabBar {
 }
 ```
  也可参考官网Tabs组件的[示例16（页签对齐布局）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例16页签对齐布局)，示例包含了barModifier的各种设置效果。其中，点击按钮**Alignment.Start**后，实现了TabBar居左的效果。
- 参考图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/XQWh0A3cRzWQ94bzxR9m0Q/zh-cn_image_0000002628617652.png?HW-CC-KV=V1&HW-CC-Date=20260701T025644Z&HW-CC-Expire=86400&HW-CC-Sign=CBCF836E9D9F8061BAF6D71902263394FAF8BDC301DC96751CCD983ABCD7E800)
 
-- **方案二：Scroll容器实现自定义TabBar居左样式。**
-自定义TabBar样式。
-- TabBar放置在Scroll中，Scroll设置50%宽度，Scroll外部Row的reverse属性设置为false，可实现居左对齐。如果设置reverse为true，可实现居右对齐。
+  参考图如下：
 
- 
-示例代码如下：
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/XQWh0A3cRzWQ94bzxR9m0Q/zh-cn_image_0000002628617652.png?HW-CC-KV=V1&HW-CC-Date=20260701T041144Z&HW-CC-Expire=86400&HW-CC-Sign=B137896DE4CBE4894A8AAC3A5842755A87315A69A1D4DEF645A1985AE8882DD6)
+
+- **方案二：Scroll容器实现自定义TabBar居左样式。**1. 自定义TabBar样式。
+
+2. TabBar放置在Scroll中，Scroll设置50%宽度，Scroll外部Row的reverse属性设置为false，可实现居左对齐。如果设置reverse为true，可实现居右对齐。
+
+  示例代码如下：
 ```text
 @Entry
 @Component
@@ -237,20 +236,19 @@ struct LeftTabBar2 {
   }
 }
 ```
- 
- 
-参考图如下：
- 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/XRaOcX6ZT0-1oxzKdXO14w/zh-cn_image_0000002628777550.png?HW-CC-KV=V1&HW-CC-Date=20260701T025644Z&HW-CC-Expire=86400&HW-CC-Sign=45981FD493F120F232A4BA58DAD4A9C93A742918A74A565E54B3A7D392F954F4)
 
- - **方案三：行列与堆叠容器实现自定义TabBar居左样式**。实现方式参考demo[基于Tabs组件实现常见导航样式](https://gitee.com/harmonyos_samples/multi-tab-navigation)。
-**Flex容器实现自定义TabBar居左样式。**
-自定义TabBar样式。
-- 将自定义的页签样式放入Flex容器中，direction属性设置为FlexDirection.Row，使得自定义的TabBar从左往右排列，如果设置为FlexDirection.RowReverse，实现TabBar居右设置。
+  参考图如下：
 
- 
-示例代码如下：
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/XRaOcX6ZT0-1oxzKdXO14w/zh-cn_image_0000002628777550.png?HW-CC-KV=V1&HW-CC-Date=20260701T041144Z&HW-CC-Expire=86400&HW-CC-Sign=CBDAE5D2D8AF14D33BEF10D19C7DE43F83D430DCC382044AD067113C18FE62C6)
+
+- **方案三：行列与堆叠容器实现自定义TabBar居左样式**。实现方式参考demo[基于Tabs组件实现常见导航样式](https://gitee.com/harmonyos_samples/multi-tab-navigation)。
+**Flex容器实现自定义TabBar居左样式。**1. 自定义TabBar样式。
+
+2. 将自定义的页签样式放入Flex容器中，direction属性设置为FlexDirection.Row，使得自定义的TabBar从左往右排列，如果设置为FlexDirection.RowReverse，实现TabBar居右设置。
+
+  示例代码如下：
 ```text
 @Entry
 @Component
@@ -324,21 +322,20 @@ struct LeftTabBar3 {
   }
 }
 ```
- 
- 
-参考图如下：
- 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/DqnmvhzbQDy-wsaKbwpIzg/zh-cn_image_0000002658976867.png?HW-CC-KV=V1&HW-CC-Date=20260701T025644Z&HW-CC-Expire=86400&HW-CC-Sign=284009F596EC9FEF734BAE04377E8901ECFFA2D2F310F10BB365D095EC2FB5E8)
 
- 
- 
-- **Stack容器实现自定义TabBar居左样式。**
-自定义TabBar样式。
-- 将自定义的页签样式放入Stack容器中，alignContent属性设置为Alignment.TopStart，每个页签通过position设置偏移值，使得TabBar左对齐。如果设置为Alignment.TopEnd，实现居右对齐。
+  参考图如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/DqnmvhzbQDy-wsaKbwpIzg/zh-cn_image_0000002658976867.png?HW-CC-KV=V1&HW-CC-Date=20260701T041144Z&HW-CC-Expire=86400&HW-CC-Sign=E54A8CB430B0AED6015BB18A85104F25995320AE1722716515FE36242F7F1F7B)
+
 
  
-示例代码如下：
+- **Stack容器实现自定义TabBar居左样式。**1. 自定义TabBar样式。
+
+2. 将自定义的页签样式放入Stack容器中，alignContent属性设置为Alignment.TopStart，每个页签通过position设置偏移值，使得TabBar左对齐。如果设置为Alignment.TopEnd，实现居右对齐。
+
+  示例代码如下：
 ```text
 @Entry
 @Component
@@ -346,7 +343,7 @@ struct LeftTabBar4 {
   private controller: TabsController = new TabsController();
   @State currentIndex: number = 0;
   private tabList: string[] = ['首页', '发现', '消息', '我的'];
-  private tabWidth: number = 60; // 每个页签的固定宽度
+  private tabWidth: number = 60; <em>// 每个页签的固定宽度</em>
 
   @Builder
   tabBuilder(title: string, targetIndex: number) {
@@ -363,7 +360,7 @@ struct LeftTabBar4 {
         .backgroundColor(this.currentIndex === targetIndex ? Color.White : '#00000000')
         .borderRadius('50vp');
     }
-    .position({ x: targetIndex * this.tabWidth + 26, y: 16 }) // 按索引计算left值
+    .position({ x: targetIndex * this.tabWidth + 26, y: 16 })<em> // 按索引计算left值</em>
     .width(this.tabWidth)
     .height(40)
     .onClick(() => {
@@ -373,7 +370,7 @@ struct LeftTabBar4 {
 
   build() {
     Column() {
-      // 自定义TabBar容器
+     <em> // 自定义TabBar容器</em>
       Stack({ alignContent: Alignment.TopStart }) {
         Column()
           .width(`${this.tabWidth * this.tabList.length + 20}`)
@@ -387,7 +384,7 @@ struct LeftTabBar4 {
             bottomRight: 50
           })
           .position({ x: 16, y: 14 });
-        // 页签容器（宽度=页签数量*单个宽度）
+       <em> // 页签容器（宽度=页签数量*单个宽度）</em>
         Row() {
           ForEach(this.tabList, (item: string, index: number) => {
             this.tabBuilder(item, index);
@@ -418,25 +415,25 @@ struct LeftTabBar4 {
   }
 }
 ```
+
+
+  参考图如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/-aqycpF9SvqYel0Ms1Nxww/zh-cn_image_0000002658856925.png?HW-CC-KV=V1&HW-CC-Date=20260701T041144Z&HW-CC-Expire=86400&HW-CC-Sign=03F91DBEAF9B29B72568C451100A9DE255F37BAE70BBCB4C1B41FF054AA404F2)
+
+
  
  
-参考图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/-aqycpF9SvqYel0Ms1Nxww/zh-cn_image_0000002658856925.png?HW-CC-KV=V1&HW-CC-Date=20260701T025644Z&HW-CC-Expire=86400&HW-CC-Sign=06E2570E4C21A174EEC8EDE8575D4E34EAF8AA346E24599C2F78D1D4CE1F318E)
-
- 
- 
- 
- 
-
-##### 总结
+#### 总结
 
 使用Tabs组件自带的TabsOptions属性可以轻松设置TabBar居左样式，但自定义页签更具灵活性，实现了TabBar与Tabs组件解耦，使得TabBar右侧可以添加其他组件。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何让设置vertical为true的TabBar顶部对齐？
  
@@ -454,11 +451,11 @@ Tabs({
   barModifier: new CommonModifier().align(Alignment.Start).margin({ left: 16 })
 }) {
   TabContent() {
-    // TabContent内容
+    <em>// TabContent内容</em>
   }
   .tabBar(BottomTabBarStyle.of('', `页签1`).labelStyle({ font: { size: 16 } }).padding({ left: 16 }));
-  // 其他TabContent
-  // ...
+  <em>// 其他TabContent</em>
+<em>  // ...</em>
 }
 .width('100%')
 .barMode(BarMode.Scrollable);

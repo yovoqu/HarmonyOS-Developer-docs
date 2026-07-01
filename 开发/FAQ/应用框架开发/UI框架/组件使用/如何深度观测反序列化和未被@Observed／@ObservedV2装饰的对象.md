@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1113
 
-## 如何深度观测反序列化和未被@Observed/@ObservedV2装饰的对象
- 
-
-
-##### 问题现象
+#### 问题现象
 
 场景一：JSON字符串使用JSON.parse转换为对象，该对象为嵌套类型的对象，直接修改该对象的属性时，无法刷新页面。
  
@@ -18,20 +14,18 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 状态管理V2版本可以用[UIUtils.makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)，状态管理V1版本API19以后可以用[UIUtils.makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)实现对未被@Observed/@ObservedV2装饰的对象、系统返回的对象、interface等数据的深度监听。适用情况可参考官网[makeObserved概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved#概述)：
- 
-- class的定义在三方包中：开发者无法手动对class中需要观察的属性加上@Trace标签，可以使用makeObserved使得当前对象可以被观察。
-- 当前类的成员属性不能被修改：因为@Trace观察类属性会动态修改类的属性，这个行为在@Sendable装饰的class中是不被允许的，此时可以使用makeObserved（@Sendable装饰的类型不支持makeV1Observed）。
-- interface或者JSON.parse返回的匿名对象：这类场景往往没有明确的class声明，开发者无法使用@Trace标记当前属性可以被观察，此时可以使用makeObserved。
-
+ 1. class的定义在三方包中：开发者无法手动对class中需要观察的属性加上@Trace标签，可以使用makeObserved使得当前对象可以被观察。
+2. 当前类的成员属性不能被修改：因为@Trace观察类属性会动态修改类的属性，这个行为在@Sendable装饰的class中是不被允许的，此时可以使用makeObserved（@Sendable装饰的类型不支持makeV1Observed）。
+3. interface或者JSON.parse返回的匿名对象：这类场景往往没有明确的class声明，开发者无法使用@Trace标记当前属性可以被观察，此时可以使用makeObserved。
  
 相较于UIUtils.makeObserved的[限制条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved#限制条件)，UIUtils.makeV1Observed限制条件可参考官网链接：[makeV1Observed概述与限制条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage#makev1observed)。
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 场景 | 问题现象 | 解决方案 |
 | --- | --- | --- |
@@ -42,13 +36,13 @@
  
  
 
-##### [h2]场景一
+#### 场景一
 
 JSON字符串使用JSON.parse转换为对象，该对象为嵌套类型的对象，直接修改该对象的属性时，无法刷新页面。
  
 - 方案一：参考[makeObserved的入参为JSON.parse的返回值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved#makeobserved的入参为jsonparse的返回值)，可以将未使用new创建的对象转化为可深度观测的对象。
 - 方案二：状态管理V1可以使用makeV1Observed方法代替@Observed装饰器，该方案下即使不是通过new创建的也可以进行深度观测。每一层嵌套对象需要单独使用makeV1Observed方法进行转化，并且每一层嵌套对象需要封装在一个子组件中并用@ObjectLink接收。完整示例参考如下：
-```text
+```json
 import { UIUtils } from '@kit.ArkUI';
 
 class Father {
@@ -98,11 +92,19 @@ const sonObj: string = `[
 @Entry
 @Component
 struct SceneOneOptionTwo {
-  @State sonArr: Son[] = JSON.parse(sonObj) as Son[]; // 未通过new的方式构造实例
+  @State sonArr: Son[] = JSON.parse(sonObj) as Son[]; <em>// 未通过new的方式构造实例</em>
 
   aboutToAppear(): void {
-    // makeV1Observed不会递归执行，仅会将第一层包装成V1的状态变量，需要手动递归。
-    for (let i = 0; i  {
+    <em>// makeV1Observed不会递归执行，仅会将第一层包装成V1的状态变量，需要手动递归。</em>
+    for (let i = 0; i < this.sonArr.length; i++) {
+      this.sonArr[i] = UIUtils.makeV1Observed(this.sonArr[i]);
+      this.sonArr[i].father = UIUtils.makeV1Observed(this.sonArr[i].father);
+    }
+  }
+
+  build() {
+    Column() {
+      ForEach(this.sonArr, (item: Son) => {
         SceneOneOptionTwoSon({ son: item });
         Blank()
           .height(50);
@@ -149,16 +151,14 @@ struct SceneOneOptionTwoFather {
  
  
 
-##### [h2]场景二
+#### 场景二
 
 被@Sendable装饰器装饰的多线程共享数据无法被@Observed/@ObservedV2装饰器装饰，无法刷新页面。
  
 - 方案一：参考[makeObserved和@Sendable装饰的class配合使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved#makeobserved和sendable装饰的class配合使用)，可以实现在子线程做大数据处理，在UI线程做ViewModel的显示和观察数据的需求。
+> [!NOTE]
+> 数据的构建和处理可以在子线程中完成，但有观察能力的数据不能传给子线程，只有在主线程里才可以操作可观察的数据。 makeObserved的返回值不可直接传给子线程。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/Zi8WX1MQSrekyuxpJhnA4A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=593F0287F77D74A201F17327F3096E6EB8D6C69EB52A9ED3F37BA111D028AB56)
- 
-数据的构建和处理可以在子线程中完成，但有观察能力的数据不能传给子线程，只有在主线程里才可以操作可观察的数据。
- makeObserved的返回值不可直接传给子线程。
 - 方案二：将@Sendable数据与深度观测的数据分开管理。以状态管理V2为例，分别创建两个相同属性的类，一个采用@Sendable装饰，用于并发数据传递，另一个采用@ObservedV2装饰，用于UI刷新。完整示例代码如下：
 ```text
 @Sendable
@@ -177,16 +177,16 @@ export class StockViewModel {
   @Trace name: string = '';
   @Trace code: string = '';
 
-  /* 一次性批量更新，避免多次触发 */
+  <em>/* 一次性批量更新，避免多次触发 */</em>
   updateFrom(data: StockData) {
     this.name = data.name;
     this.code = data.code;
   }
 
-  /*监听多个字段变化 */
+  <em>/*监听多个字段变化 */</em>
   @Monitor('name', 'code')
   onStockChanged() {
-    console.info(`股票变更: ${this.name} ${this.code}`); // 这里可以触发额外业务逻辑，比如重新请求详情接口
+    console.info(`股票变更: ${this.name} ${this.code}`); <em>// 这里可以触发额外业务逻辑，比如重新请求详情接口</em>
   }
 }
 
@@ -200,7 +200,7 @@ struct SceneTwoOptionTwo {
       Text(`方案一：${this.view1.name}`);
       Button('Sendable对象更新到ObservedV2对象上')
         .onClick(() => {
-          // 直接改即可，响应式照常工作
+          <em>// 直接改即可，响应式照常工作</em>
           this.view1.updateFrom(new StockData('HK', '00700'));
         });
       Button('修改ObservedV2对象刷新UI')
@@ -216,13 +216,13 @@ struct SceneTwoOptionTwo {
  
  
 
-##### [h2]场景三
+#### 场景三
 
 详情可参考官方文档：[makeObserved和collections.Array/Set/Map配合使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved#makeobserved和collectionsarraysetmap配合使用)。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：场景一中是否还有其它方案能避免JSON.parse转换的对象无法深度观测的问题？
  
@@ -234,7 +234,7 @@ A：UIUtils.makeObserved能递归代理所有层级的属性变化，确保任�
  
  
 
-##### 总结
+#### 总结
 
 根据以上背景知识与常见场景，makeObserved与makeV1Observed的使用限制与对比如下：
   

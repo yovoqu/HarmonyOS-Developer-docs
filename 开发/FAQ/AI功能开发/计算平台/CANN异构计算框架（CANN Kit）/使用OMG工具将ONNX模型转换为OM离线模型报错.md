@@ -4,15 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-cann-kit-2
 
-## 使用OMG工具将ONNX模型转换为OM离线模型报错
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用OMG工具将ONNX模型转换为OM离线模型报错，命令执行部分日志如下：
  
-```text
+```cpp
 W/AI_FMK (16075): ops_kernel_ store_manager.cpp DlopenComputeLibrary(41)::"dlopen so failed: libai_npucore_itf.so: cannot open shared object file:No such file or directory"
 I/AI_FMK (16075): ops_kernel_store_manager.cpp DlCloseComputeLibrary(83)::"handle is null, not need to close library" 
 I/AI_FMK (16075): model_util.cpp BuildOrigin2IRGraph(229)::"Modelutil::BuildOrigin2IRGraph from file" 
@@ -29,7 +25,7 @@ E/OMG_TOOL (16075): main.cpp main(21)::"OMG generate offline model failed. Pleas
  
 当前目录下check_result.json文件的部分信息如下：
  
-```text
+```json
 {"name": "/quant1/Constant", "result": "success", "type": "Constant" },
   {"name": "/quant1/Constant_1", "result": "success", "type": "Constant" },
   {"cause": [{ "code": 1, "message": "The type: QuantizeLinear is not supported." }], "name": "/quant1/QuantizeLinear", "result": "failed", "type": "QuantizeLinear"},
@@ -62,7 +58,7 @@ E/OMG_TOOL (16075): main.cpp main(21)::"OMG generate offline model failed. Pleas
  
  
 
-##### 背景知识
+#### 背景知识
 
 - ONNX（开放神经网络交换格式，Open Neural Network Exchange）是一种用于表示深度学习和机器学习模型的标准。ONNX提供标准的算子、方法和数据类型，用于表示计算图模型。算法模型可以表示为有向无环图，其中节点（Node）代表算子，边代表数据的流向。同时，ONNX也支持算子扩展，以支持自定义的计算方法。
 - [CANN](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-introduction)（Compute Architecture for Neural Networks）是华为面向AI推出的端云一致的异构计算架构。在HarmonyOS设备上，CANN Kit面向Kirin芯片平台为各种人工智能模型和算法提供统一的接入和运行环境。开发者的应用程序使用CANN Kit的API和开发者数据，在设备端实现智能推理、模型训练以及模型优化等操作，充分发挥设备的本地智能处理能力。
@@ -72,31 +68,29 @@ E/OMG_TOOL (16075): main.cpp main(21)::"OMG generate offline model failed. Pleas
  
  
 
-##### 问题定位
-
-- 根据以下执行日志，可得知OMG命令转换离线模型失败，更多的信息需要查看预检查报告，即check_result.json文件信息。
-```text
+#### 问题定位
+1. 根据以下执行日志，可得知OMG命令转换离线模型失败，更多的信息需要查看预检查报告，即check_result.json文件信息。
+```cpp
 E/OMG_TOOL (16075): main.cpp main(21)::"OMG generate offline model failed. Please see the log or pre-checking report for more details."
 ```
 
-- 根据当前转换目录下生成的check_result.json文件内的以下报错信息可知，该ONNX模型使用了QuantizeLinear和DequantizeLinear这2个ONNX的量化算子，当前HarmonyOS 5.0的CANN Kit仅支持官网提供的量化方案：[模型轻量化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-lightweight-tool-instructions)。
-```text
+2. 根据当前转换目录下生成的check_result.json文件内的以下报错信息可知，该ONNX模型使用了QuantizeLinear和DequantizeLinear这2个ONNX的量化算子，当前HarmonyOS 5.0的CANN Kit仅支持官网提供的量化方案：[模型轻量化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-lightweight-tool-instructions)。
+```json
 {"cause":[{"code":1,"message":"The type: QuantizeLinear is not supported."}],"name":"/quant1/QuantizeLinear","result":"failed","type":"QuantizeLinear"}
 ···
 {"cause":[{"code":1,"message":"The type: DequantizeLinear is not supported."}],"name":"/backbone/conv1/DequantizeLinear_1","result":"failed","type":"DequantizeLinear"}
 ```
 
-
  
  
 
-##### 分析结论
+#### 分析结论
 
 该模型使用了HarmonyOS 5.0当前不支持的ONNX量化算子，导致模型转换时报错。
  
  
 
-##### 修改建议
+#### 修改建议
 
 使用HarmonyOS 5.0提供的[轻量化工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-lightweight-tool-instructions)对该ONNX模型进行模型轻量化优化之后，再根据官方文档进行[模型转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-model-conversion)。
  

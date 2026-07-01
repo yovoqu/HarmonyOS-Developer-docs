@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-38
 
-## 使用PixelMap高效完成一张图片裁剪为多个部分
- 
-
-
-##### 问题现象
+#### 问题现象
 
 服务器返回给端侧一张大图和多组图像裁剪坐标，页面根据图像坐标裁剪出小图进行展示。该行为需要将一张大图裁剪为多张小图，使用常规方案（[使用PixelMap图像变换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-transformation)拷贝图片后裁剪）处理10张小图约耗时2S，页面会长时间保持loading状态。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage#pixelmap)图像像素类，用于读取或写入图像数据以及获取图像信息。
 - [PixelMap.crop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#crop9)根据输入的尺寸对图片进行裁剪，会对PixelMap自身进行修改。
@@ -23,26 +19,26 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 由于PixelMap.crop方法操作PixelMap自身而不是返回副本，一张图裁剪为多张小图时，需要将原图拷贝后再剪切的方式处理，大量的复制拷贝增加了处理耗时，参考[PixelMap深拷贝案例](https://gitee.com/harmonyos_samples/image-depth-copy)。实现逻辑如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/hfc8SHdGRNWiitTi5-kYmQ/zh-cn_image_0000002658911815.png?HW-CC-KV=V1&HW-CC-Date=20260701T025819Z&HW-CC-Expire=86400&HW-CC-Sign=7BFD05EE61CA357548A308E753B7B9F415B3E9101884A577E5CF7B74C9ADB4A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/hfc8SHdGRNWiitTi5-kYmQ/zh-cn_image_0000002658911815.png?HW-CC-KV=V1&HW-CC-Date=20260701T041036Z&HW-CC-Expire=86400&HW-CC-Sign=1572D440E8A6A8C734EC9DD50708BE2E96D77FE6603CD82300E8700A907D46BD)
 
  
 实现一张图片的高效裁剪，可以使用PixelMap.readPixels，传入area参数仅读取裁剪范围，再使用writePixels写入新图片。此时仅复制了必须的裁剪结果数据，降低大量复制消耗并且可以省略复制后的裁剪步骤，操作示意图及步骤如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/SpDVVciwRdy6p8QmvNPt3Q/zh-cn_image_0000002628392608.png?HW-CC-KV=V1&HW-CC-Date=20260701T025819Z&HW-CC-Expire=86400&HW-CC-Sign=343A52799FDEFDC57A02A0198FD561C2358D3125B032A3CAAE3226F745A17B67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/SpDVVciwRdy6p8QmvNPt3Q/zh-cn_image_0000002628392608.png?HW-CC-KV=V1&HW-CC-Date=20260701T041036Z&HW-CC-Expire=86400&HW-CC-Sign=349364285812C271FCA73ACC347F8EA855AA4E42FBDA8BC610A321E1DA196D1B)
 
- 
-- 获取需要裁剪的PixelMap通过readPixels读取裁剪区域数据。
-- 使用writePixels将读取到的数据写入空白PixelMap，生成小图。
-裁剪逻辑代码：
+ 1. 获取需要裁剪的PixelMap通过readPixels读取裁剪区域数据。
+2. 使用writePixels将读取到的数据写入空白PixelMap，生成小图。
+
+  裁剪逻辑代码：
 ```text
 static async cropImage(pixelMap: image.PixelMap, x: number, y: number, width: number,
-  height: number): Promise {
+  height: number): Promise<PixelMap> {
   let region: image.Region = { x: x, y: y, size: { height: height, width: width } };
   const area: image.PositionArea = {
     pixels: new ArrayBuffer(pixelMap.getPixelBytesNumber()),
@@ -54,7 +50,7 @@ static async cropImage(pixelMap: image.PixelMap, x: number, y: number, width: nu
 
   const opts: image.InitializationOptions = {
     editable: true,
-    // readPixelsSync使用的是BGRA_8888,转换时设置RGBA_8888
+    <em>// readPixelsSync使用的是BGRA_8888,转换时设置RGBA_8888</em>
     pixelFormat: image.PixelMapFormat.RGBA_8888,
     size: { height: height, width: width }
   };
@@ -77,7 +73,7 @@ static async cropImage(pixelMap: image.PixelMap, x: number, y: number, width: nu
 }
 ```
 
-- 通过demo进行性能对比，将图片裁剪为多张100*100的小图时，使用writePixels裁剪小图比拷贝裁剪小图的性能提升约7倍。完整代码示例如下：
+3. 通过demo进行性能对比，将图片裁剪为多张100*100的小图时，使用writePixels裁剪小图比拷贝裁剪小图的性能提升约7倍。完整代码示例如下：
 ```text
 import { image } from '@kit.ImageKit';
 import { BusinessError, systemDateTime } from '@kit.BasicServicesKit';
@@ -86,13 +82,13 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 const MAX_PICK_COUNT = 1;
 
-// 图片选择类
+<em>// 图片选择类</em>
 export class PickerUtil {
-  static async photoSelect(): Promise {
+  static async photoSelect(): Promise<image.PixelMap | null> {
     return PickerUtil.photoSelectWithLimit(MAX_PICK_COUNT);
   }
 
-  static async photoSelectWithLimit(count: number): Promise {
+  static async photoSelectWithLimit(count: number): Promise<image.PixelMap | null> {
     try {
       let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
       photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
@@ -114,8 +110,8 @@ export class PickerUtil {
     }
   }
 
-  // 压缩图片
-  private static async readImageToCache(path: string): Promise {
+ <em> // 压缩图片</em>
+  private static async readImageToCache(path: string): Promise<image.PixelMap> {
     let readFile = fs.openSync(path, fs.OpenMode.READ_ONLY);
     try {
       let imageSource: image.ImageSource = image.createImageSource(readFile.fd);
@@ -129,11 +125,11 @@ export class PickerUtil {
   }
 }
 
-// 图片裁剪类
+<em>// 图片裁剪类</em>
 export class ImageUtil {
-  // 像素读取方式实现裁剪
+  <em>// 像素读取方式实现裁剪</em>
   static async cropImage(pixelMap: image.PixelMap, x: number, y: number, width: number,
-    height: number): Promise {
+    height: number): Promise<PixelMap> {
     let region: image.Region = { x: x, y: y, size: { height: height, width: width } };
     const area: image.PositionArea = {
       pixels: new ArrayBuffer(pixelMap.getPixelBytesNumber()),
@@ -145,7 +141,7 @@ export class ImageUtil {
 
     const opts: image.InitializationOptions = {
       editable: true,
-      // readPixelsSync使用的是BGRA_8888,转换时设置RGBA_8888
+      <em>// readPixelsSync使用的是BGRA_8888,转换时设置RGBA_8888</em>
       pixelFormat: image.PixelMapFormat.RGBA_8888,
       size: { height: height, width: width }
     };
@@ -167,16 +163,16 @@ export class ImageUtil {
     return snapshot;
   }
 
-  // copy方式实现裁剪
+ <em> // copy方式实现裁剪</em>
   static async cropImageWithCopy(pixelMap: image.PixelMap, x: number, y: number, width: number,
-    height: number): Promise {
+    height: number): Promise<PixelMap> {
     let region: image.Region = { x: x, y: y, size: { height: height, width: width } };
     let copy = await ImageUtil.copyPixelMap(pixelMap);
     await copy.crop(region);
     return copy;
   }
 
-  static async copyPixelMap(pixelMap: PixelMap): Promise {
+  static async copyPixelMap(pixelMap: PixelMap): Promise<PixelMap> {
     const imageInfo: image.ImageInfo = await pixelMap.getImageInfo();
     const buffer: ArrayBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
     await pixelMap.readPixelsToBuffer(buffer);
@@ -232,7 +228,31 @@ struct Index {
       let cropImages: image.PixelMap[] = [];
 
       let start = systemDateTime.getTime();
-      for (let i = 0; i  {
+      for (let i = 0; i < count; i++) {
+        copyImages.push(await ImageUtil.cropImageWithCopy(pixel, x + i * 100, y + i * 100, subWidth, subHeight));
+      }
+      this.copyTime = systemDateTime.getTime() - start;
+
+      start = systemDateTime.getTime();
+      for (let i = 0; i < count; i++) {
+        cropImages.push(await ImageUtil.cropImage(pixel, x + i * 100, y + i * 100, subWidth, subHeight));
+      }
+      this.cropTime = systemDateTime.getTime() - start;
+
+      this.copyImages = copyImages;
+      this.cropImages = cropImages;
+    } catch (e) {
+      console.error('error:', e);
+    }
+  }
+
+  build() {
+    RelativeContainer() {
+      Scroll() {
+        Column() {
+          Text(`拷贝裁剪耗时${this.copyTime}`)
+          Grid() {
+            ForEach(this.copyImages, (image: image.PixelMap) => {
               GridItem() {
                 Image(image)
                   .width(80)

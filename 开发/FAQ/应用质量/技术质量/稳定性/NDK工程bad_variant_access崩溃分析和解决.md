@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-70
 
-## NDK工程bad_variant_access崩溃分析和解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS NDK工程运行出现崩溃，报错信息如下：
  
@@ -26,12 +22,12 @@ Thread name:m.example.application
  
  
 
-##### 背景知识
+#### 背景知识
 
 在C++17中引入了一个非常有用的类型std::variant，使用前需要包含头文件：
  
 ```text
-#include 
+#include <variant>
 ```
  
 std::variant是一个类型安全的联合体，可以存储固定集合中的任意类型的值。这使得std::variant成为处理那些可能需要存储不同类型数据的情况的理想选择。
@@ -44,23 +40,23 @@ std::variant与union联合体很像，主要区别如下：
  
  
 
-##### 问题定位
+#### 问题定位
 
 从崩溃信息中terminating due to uncaught exception of type std::bad_variant_access: bad_variant_access可以看到主要原因在于访问std::variant的时候出的问题。于是全局搜索使用std::variant变量的地方，查看使用方法发现在使用variant的地方没有进行保护，导致出现类型转换错误的时候出现崩溃，示例如下：
  
 ```text
-using VarObject = std::variant;
+using VarObject = std::variant<int, std::string, MyClass>;
 VarObject v1 = 42;
 VarObject v2 = "Hello";
 VarObject v3 = MyClass(100);
 ...
-auto a = std::get(v2); // 转换错误，发生崩溃
+auto a = std::get<MyClass>(v2); // 转换错误，发生崩溃
 ...
 ```
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 当使用std::get&lt;T&gt;访问std::variant时，如果当前存储的类型与请求的类型不匹配，会抛出std::bad_variant_access异常。
 - std::variant的std::get&lt;T&gt;在类型不匹配时抛出的异常（std::bad_variant_access），如果未使用try-catch捕获，异常会向上传播到未被捕获的异常处理程序，触发std::terminate，导致程序终止（表现为“崩溃”）。
@@ -68,49 +64,53 @@ auto a = std::get(v2); // 转换错误，发生崩溃
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **方案一：预先检查类型。**使用std::holds_alternative&lt;T&gt;检查当前存储的类型：
- 
+
+  
 ```text
-if (std::holds_alternative(v)) {
-    auto s = std::get(v); // 安全访问
+if (std::holds_alternative<MyClass>(v)) {
+    auto s = std::get<MyClass>(v); <em>// 安全访问</em>
 } else {
-    // 处理其他类型
+   <em> // 处理其他类型</em>
 }
 ```
 
 - **方案二：使用std::get_if安全获取指针。**std::get_if返回指针，类型不匹配时返回nullptr：
- 
+
+  
 ```text
-if (auto* p = std::get_if(&v3)) {
+if (auto* p = std::get_if<MyClass>(&v3)) {
     p->Print();
 } else {
-    // 处理其他类型
+   <em> // 处理其他类型</em>
 }
 ```
 
 - **方案三：使用std::visit统一处理所有类型。**通过访问者模式处理所有可能的类型，避免直接访问错误类型：
- 
+
+  
 ```text
 std::visit([](auto&& arg) {
-    using T = std::decay_t;
-    if constexpr (std::is_same_v) {
-        // 处理MyClass
+    using T = std::decay_t<decltype(arg)>;
+    if constexpr (std::is_same_v<T, MyClass>) {
+       <em> // 处理MyClass</em>
         arg.Print();
-    } else if constexpr (std::is_same_v) {
-        // 处理String
+    } else if constexpr (std::is_same_v<T, std::string>) {
+      <em>  // 处理String</em>
         OH_LOG_INFO(LOG_APP, "MyClass visit is String %{public}s.", arg.c_str());
     } else {
-        // 处理其他类型
+     <em>   // 处理其他类型</em>
     }
 }, v3);
 ```
 
 - **方案四：异常处理（不推荐作为首选方案）**使用try-catch捕获异常：
- 
+
+  
 ```text
 try {
-    std::get(v3).Print(); // 输出: MyClass: 100
+    std::get<MyClass>(v3).Print(); <em>// 输出: MyClass: 100</em>
 } catch (...) {}
 ```

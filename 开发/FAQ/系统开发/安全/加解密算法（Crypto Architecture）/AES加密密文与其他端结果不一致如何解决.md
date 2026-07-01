@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-61
 
-## AES加密密文与其他端结果不一致如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 采用和其他端一致的密钥参数使用AES算法加密，结果与其他端加密结果不一致，导致服务端无法实现解密，以AES的GCM模式为例。
  
@@ -29,7 +25,7 @@ function genGcmParamsSpec() {
   let tagBlob: cryptoFramework.DataBlob = {
     data: dataTag
   };
-  // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中
+ <em> // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中</em>
   let gcmParamsSpec: cryptoFramework.GcmParamsSpec = {
     iv: ivBlob,
     aad: { data: new Uint8Array() },
@@ -39,12 +35,12 @@ function genGcmParamsSpec() {
   return gcmParamsSpec;
 }
 let gcmParams = genGcmParamsSpec();
-// 加密消息
+<em>// 加密消息</em>
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES256|GCM|NoPadding');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, gcmParams);
   let encryptUpdate = cipher.updateSync(plainText);
-  // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。
+ <em> // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。</em>
   gcmParams.authTag = cipher.doFinalSync(null);
   return encryptUpdate;
 }
@@ -134,7 +130,7 @@ public class Main {
  
  
 
-##### 背景知识
+#### 背景知识
 
 [AES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#aes)：AES是一种典型的对称密钥加密算法，算法库提供7种加密模式：ECB、CBC、OFB、CFB、CTR、GCM和CCM。
  
@@ -142,27 +138,23 @@ public class Main {
  
  
 
-##### 问题定位
+#### 问题定位
 
 HarmonyOS端的加密结果与其他端不一致，常见原因包含参数不一致、加密模式影响等，可结合加密模式与使用参数进行排查：
- 
-- 检查两端所使用的明文与加密参数是否一致，包括填充模式、密钥、加解密参数等。
-- 检查数据的编码格式处理方法是否一致，检查对象包含明文、加密密文结果以及密钥参数等，检查转码方式包含Base64编解码、16进制转换等是否两端一致。
-- 结合加密模式查看加密结果处理方式是否正确，如doFinal方法GCM模式返回的结果包含authTag，服务端的结果是否为仅密文格式。
-
+ 1. 检查两端所使用的明文与加密参数是否一致，包括填充模式、密钥、加解密参数等。
+2. 检查数据的编码格式处理方法是否一致，检查对象包含明文、加密密文结果以及密钥参数等，检查转码方式包含Base64编解码、16进制转换等是否两端一致。
+3. 结合加密模式查看加密结果处理方式是否正确，如doFinal方法GCM模式返回的结果包含authTag，服务端的结果是否为仅密文格式。
  
  
 
-##### 分析结论
-
-- 确认双端均采用GCM模式进行加密，密钥和加密参数一致，填充模式不一致，由于GCM加密模式下不需要对明文进行填充，不影响加密结果。
-- 编码方式选择一致，加密结果均采用Base64编码方式处理。
-- HarmonyOS端的结果为update方法返回结果进行Base64编码处理的内容，仅包含密文，而服务端执行结果默认包含密文和authTag，因此结果不一致。
-
+#### 分析结论
+1. 确认双端均采用GCM模式进行加密，密钥和加密参数一致，填充模式不一致，由于GCM加密模式下不需要对明文进行填充，不影响加密结果。
+2. 编码方式选择一致，加密结果均采用Base64编码方式处理。
+3. HarmonyOS端的结果为update方法返回结果进行Base64编码处理的内容，仅包含密文，而服务端执行结果默认包含密文和authTag，因此结果不一致。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 方式一：本示例中加密数据量小，可直接调用cipher.doFinal方法加密，无需在调用前使用update方法，加密结果包含密文和authTag。
 - 方式二：数据量大使用update方法的场景下，将update和doFinal方法返回的结果进行拼接，然后通过Base64编码即可获得与服务端相同的加密结果，示例参考如下：
@@ -181,7 +173,7 @@ function genGcmParamsSpec() {
   let tagBlob: cryptoFramework.DataBlob = {
     data: dataTag
   };
-  // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中
+<em>  // GCM的authTag在加密时从doFinal结果中获取，在解密时填入init函数的params参数中</em>
   let gcmParamsSpec: cryptoFramework.GcmParamsSpec = {
     iv: ivBlob,
     aad: { data: new Uint8Array() },
@@ -193,13 +185,13 @@ function genGcmParamsSpec() {
 
 let gcmParams = genGcmParamsSpec();
 
-// 加密消息
+<em>// 加密消息</em>
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES256|GCM|NoPadding');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, gcmParams);
   let encryptUpdate = cipher.updateSync(plainText);
-  // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。
-  // 数据量小直接调用doFinal，返回结果通过Base64编码与其他端一致
+<em>  // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。</em>
+<em>  // 数据量小直接调用doFinal，返回结果通过Base64编码与其他端一致</em>
   gcmParams.authTag = cipher.doFinalSync(null);
   return encryptUpdate;
 }
@@ -220,7 +212,7 @@ export function aesMain() {
   let encryptText = encryptMessage(symKey, plainText);
   let encBuffer: ArrayBuffer = new ArrayBuffer(encryptText.data.length + gcmParams.authTag?.data.length);
   let encResult: Uint8Array = new Uint8Array(encBuffer);
-  // 密文与authTag拼接，通过Base64编码即为其他端一致格式
+<em>  // 密文与authTag拼接，通过Base64编码即为其他端一致格式</em>
   encResult.set(encryptText.data, 0);
   encResult.set(gcmParams.authTag.data, encryptText.data.length);
   let base64 = new util.Base64Helper();
@@ -246,6 +238,6 @@ struct Index {
  
  
 
-##### 总结
+#### 总结
 
 对于GCM模式的对称加密：一次加密流程中，如果将每一次update和doFinal的结果拼接起来，会得到“密文+authTag”。如果doFinal的data参数传入null，则doFinal的结果仅包含authTag。

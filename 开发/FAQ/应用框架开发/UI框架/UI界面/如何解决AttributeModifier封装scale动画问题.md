@@ -4,102 +4,98 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1523
 
-## 如何解决AttributeModifier封装scale动画问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - **问题一**：使用AttributeModifier封装组件的弹出和消失动画，在实际使用过程中无动画效果。
 ```text
-class FrameWorkAnimation implements AttributeModifierCommonAttribute> {
-  @Track scaleDialog: number = 1
+class <span style="color: rgb(0,0,255);">FrameWorkAnimation </span>implements <span style="color: rgb(0,0,255);">AttributeModifier</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">CommonAttribute</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(0,0,255);">scaleDialog</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span>
 
-  // 弹窗退出时的动画
-  exitShowDialog(context: UIContext, onFinish: () => void) {
-    this.scaleDialog = 1.0
-    // 弹窗展示时的帧动画
-    context.keyframeAnimateTo({
-      iterations: 1, onFinish: () => {
-        onFinish()
-      }
-    }, [{
-      duration: 500,
-      event: () => {
-        this.scaleDialog = 0.5;
-      }
-    }]);
-  }
+  <em>// </em><em><span style="color: rgb(128,128,128);">弹窗退出时的动画</span></em>
+  <span style="color: rgb(0,0,255);">exitShowDialog</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1.0</span>
+    <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">弹窗展示时的帧动画</span></em>
+    <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">keyframeAnimateTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">iterations</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(0,0,255);">()</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">500</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.5</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  // 开始展示弹窗
-  startShowDialog(context: UIContext) {
-    this.scaleDialog = 0
-    setTimeout(() => {
-      // 弹窗展示时的帧动画
-      context.keyframeAnimateTo({ iterations: 1 }, [
-        {
-          duration: 500,
-          event: () => {
-            this.scaleDialog = 1.0;
-          }
-        }
-      ]);
-    }, 200)
-  }
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始展示弹窗</span></em>
+  <span style="color: rgb(0,0,255);">startShowDialog</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span>
+    <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      <em>// </em><em><span style="color: rgb(128,128,128);">弹窗展示时的帧动画</span></em>
+      <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">keyframeAnimateTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iterations</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span>
+        <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">500</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1.0</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span>
+      <span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  applyNormalAttribute(instance: CommonAttribute): void {
-    instance.scale({
-      x: this.scaleDialog,
-      y: this.scaleDialog,
-      centerX: '50%',
-      centerY: '50%',
-    })
-  }
-}
+  <span style="color: rgb(0,0,255);">applyNormalAttribute</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CommonAttribute</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">instance</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">centerX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">centerY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - **问题二**：为什么CommonModifier重写的onAppear和onDisAppear没有被调用，如何使其跟随绑定组件的生命周期调用？
 ```text
-export class FrameWorkAnimation extends CommonModifier {
-  scaleDialog: number = 0
-  private uiContext?: UIContext
+export class <span style="color: rgb(0,0,255);">FrameWorkAnimation </span>extends <span style="color: rgb(0,0,255);">CommonModifier </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">scaleDialog</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span>
+  private <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">UIContext</span>
 
-  constructor(uiContext: UIContext) {
-    super();
-    this.uiContext = uiContext
-  }
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    super<span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">uiContext</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onAppear(event: () => void): CommonAttribute {
-    console.info('FrameWorkAnimation onAppear', event)
-    return super.onAppear(event)
-  }
+  <span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CommonAttribute </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'FrameWorkAnimation onAppear'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">)</span>
+    return super<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  onDisAppear(event: () => void): CommonAttribute {
-    console.info('FrameWorkAnimation onDisAppear', event)
-    return super.onDisAppear(event)
-  }
-}
+  <span style="color: rgb(0,0,255);">onDisAppear</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CommonAttribute </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'FrameWorkAnimation onDisAppear'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">)</span>
+    return super<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDisAppear</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/saGXa9f8SqSqLjOd3Hp2cg/zh-cn_image_0000002628606986.png?HW-CC-KV=V1&HW-CC-Date=20260701T025656Z&HW-CC-Expire=86400&HW-CC-Sign=192566C71EA4D2AB6DB31D88FE45C488C5B155652858039CDC164B225E02C23C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/saGXa9f8SqSqLjOd3Hp2cg/zh-cn_image_0000002628606986.png?HW-CC-KV=V1&HW-CC-Date=20260701T041209Z&HW-CC-Expire=86400&HW-CC-Sign=D0327473B9CE37EAAA02DFBA0C81A1F989AD51B8C51637DD21137661D7F2D1A9)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [AttributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifiert)支持自定义class实现动态设置组件的属性，但不支持封装[animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-animatorproperty)属性。组件的布局类属性（如scale、rotate等）变化时的动画效果，无法用AttributeModifier封装。
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 问题一分析：调用FrameWorkAnimation的startShowDialog、exitShowDialog方法后会改变scaleDialog值，再通过scale属性控制组件的缩放实现动画效果，但是scale属于animation一类属性，AttributeModifier不支持封装。
 - 问题二分析：FrameWorkAnimation重写了onAppear、onDisAppear方法，希望组件在创建和消失时调用。组件的生命周期是在运行时由开发框架在特定的时间进行调用。而AttributeModifier是一种属性修饰器，用于动态修改组件属性，在组件中使用AttributeModifier时，其onAppear等事件并不会跟随组件生命周期，而是作用于AttributeModifier本身。
@@ -107,66 +103,64 @@ export class FrameWorkAnimation extends CommonModifier {
  
  
 
-##### 分析结论
-
-- AttributeModifier不支持封装组件的scale属性，所以无法实现动画效果。
-- AttributeModifier的onAppear、onDisAppear只作用于自身，不会跟随被绑定的组件生命周期。
-
+#### 分析结论
+1. AttributeModifier不支持封装组件的scale属性，所以无法实现动画效果。
+2. AttributeModifier的onAppear、onDisAppear只作用于自身，不会跟随被绑定的组件生命周期。
  
  
 
-##### 修改建议
+#### 修改建议
 
 不用AttributeModifier封装，直接使用class封装startShowDialog、exitShowDialog方法，在组件尾部直接调用scale方法，在startShowDialog中修改scaleDialog后，变化同步至scale，实现动画效果。通过export关键字可将封装的class导出，即可在别的文件中调用。
  
 ```text
-// 动画封装类
-export class AnimateTest {
-  @Track scaleDialog: number;
+<em>// </em><em><span style="color: rgb(128,128,128);">动画封装类</span></em>
+export class <span style="color: rgb(0,0,255);">AnimateTest </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Track </span><span style="color: rgb(0,0,255);">scaleDialog</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(num: number) {
-    this.scaleDialog = num;
-  }
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">num</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">num</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  // 缩小按钮的帧动画
-  startAnimate(context: UIContext) {
-    context.keyframeAnimateTo({ iterations: 1 }, [
-      {
-        duration: 500,
-        event: () => {
-          this.scaleDialog = 0.5;
-        }
-      }
-    ]);
-  }
-}
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缩小按钮的帧动画</span></em>
+  <span style="color: rgb(0,0,255);">startAnimate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">UIContext</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">keyframeAnimateTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iterations</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span>
+      <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">500</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.5</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span>
+    <span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct AttributeModifierAnimateDemo {
-  @State message: string = 'Button';
-  @State animate: AnimateTest = new AnimateTest(3);
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">AttributeModifierAnimateDemo </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Button'</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">AnimateTest </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">AnimateTest</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Button(this.message)
-        .backgroundColor('#0A59F7')
-        .width(70)
-        .height(100)
-        .scale({
-          // 监听动画类中scaleDialog变化来缩放
-          x: this.animate.scaleDialog,
-          y: this.animate.scaleDialog,
-          centerX: '50%',
-          centerY: '50%'
-        })
-        .onClick(() => {
-          this.message = 'Button2';
-          let context = this.getUIContext();
-          // 开始动画
-          this.animate.startAnimate(context);
-        });
-    }.height('100%').width('100%').justifyContent(FlexAlign.Center);
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'#0A59F7'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">70</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">监听动画类中</span><span style="color: rgb(128,128,128);">scaleDialog</span><span style="color: rgb(128,128,128);">变化来缩放</span></em>
+          <span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scaleDialog</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">centerX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'50%'</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">centerY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'50%'</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'Button2'</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始动画</span></em>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">startAnimate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

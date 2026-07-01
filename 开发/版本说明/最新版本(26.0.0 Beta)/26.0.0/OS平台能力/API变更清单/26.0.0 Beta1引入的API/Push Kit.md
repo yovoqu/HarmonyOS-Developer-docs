@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-pushkit-7001
 
-## Push Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | API废弃版本变更 | 类名：global； API声明：export default class VoIPExtensionAbility 差异内容：NA | 类名：global； API声明：export default class VoIPExtensionAbility 差异内容：26.0.0 | api/@hms.core.push.VoIPExtensionAbility.d.ts |

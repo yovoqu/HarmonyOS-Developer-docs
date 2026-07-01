@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-dataaugmentationkit-7001
 
-## Data Augmentation Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：knowledgeProcessor； API声明：interface ChatLLM 差异内容：interface ChatLLM | api/@hms.data.knowledgeProcessor.d.ts |

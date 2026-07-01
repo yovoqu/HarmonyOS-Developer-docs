@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1579
 
-## 如何解决单个状态变量绑定多个@Watch监听器时部分监听器失效的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在HarmonyOS开发中，当一个状态变量@State绑定了两个@Watch监听器时，观察到其中一个监听器生效，而另一个监听器未生效。
  
@@ -20,12 +16,12 @@
 struct S20250403171354570182 {
   @State @Watch('change1') @Watch('change2') num: number = 0;
 
-  // 监听不生效
+<em>  // 监听不生效</em>
   change1() {
     console.info('watch1 ');
   }
 
-  // 监听生效
+<em>  // 监听生效</em>
   change2() {
     console.info('watch2');
   }
@@ -53,17 +49,17 @@ struct S20250403171354570182 {
 change1()函数未执行，change2()函数被执行，问题现象如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/HmJfKy9DQr2m8Y_x7NAZlw/zh-cn_image_0000002628770192.png?HW-CC-KV=V1&HW-CC-Date=20260701T025621Z&HW-CC-Expire=86400&HW-CC-Sign=B87F99AAF9A01CAE6E4571DABAEAB7A2D5446EF6AA8C68F1F9ACDE07554722A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/HmJfKy9DQr2m8Y_x7NAZlw/zh-cn_image_0000002628770192.png?HW-CC-KV=V1&HW-CC-Date=20260701T041317Z&HW-CC-Expire=86400&HW-CC-Sign=743D8022D81871F5077481285A195E564516078F9577D1EBC0A2A7286657138B)
 
  
  
 
-##### 解决方案
+#### 解决方案
 
 状态变量的变化无法被多个[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)监听器同时监听。因此，需要将所有需要在状态变量变化时执行的操作合并到一个@Watch回调方法中，删除多余的@Watch和回调方法。
  
  
 
-##### 总结
+#### 总结
 
 多个@Watch不能用于一个状态变量，如果使用多个会导致后面的监听器覆盖前面，导致出现多余的代码。如果想要使用一个监听器监听多个变量可以使用状态管理V2中的[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)装饰器，其差异详见官方文档[@Monitor与@Watch对比](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#monitor与watch对比)。

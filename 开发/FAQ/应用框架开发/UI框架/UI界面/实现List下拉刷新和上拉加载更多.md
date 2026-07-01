@@ -4,28 +4,28 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1195
 
-## 实现List下拉刷新和上拉加载更多
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在List组件中，如何实现下拉刷新和上拉加载的功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [PullToRefresh](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fpulltorefresh)是一款OpenHarmony环境下可用的下拉刷新、上拉加载组件。支持设置内置动画的各种属性，支持设置自定义动画，支持lazyForEach的数据作为数据源。PullToRefresh使用限制：
- 
-目前只支持List、Scroll、Tabs、Grid和WaterFlow系统容器组件。
-- 暂不支持设置系统容器组件的弹簧效果和阴影效果，使用时需要将系统组件edgeEffect属性的值设置为(EdgeEffect.None)。
-- 暂不支持页面触底时自动触发上拉加载功能。
-- 暂不支持在页面数据不满一屏时触发上拉加载功能。
-- 暂不支持通过代码的方式去触发下拉刷新功能。
-- 暂不支持在下拉刷新动画结束时提供手势结束的回调。
 
- - [Refresh：](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)可以进行页面下拉操作并显示刷新动效的容器组件。
+1. 目前只支持List、Scroll、Tabs、Grid和WaterFlow系统容器组件。
+
+2. 暂不支持设置系统容器组件的弹簧效果和阴影效果，使用时需要将系统组件edgeEffect属性的值设置为(EdgeEffect.None)。
+
+3. 暂不支持页面触底时自动触发上拉加载功能。
+
+4. 暂不支持在页面数据不满一屏时触发上拉加载功能。
+
+5. 暂不支持通过代码的方式去触发下拉刷新功能。
+
+6. 暂不支持在下拉刷新动画结束时提供手势结束的回调。
+- [Refresh：](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)可以进行页面下拉操作并显示刷新动效的容器组件。
 - [List组件：](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)列表包含一系列相同宽度的列表项。
 - [Button组件：](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-button)按钮组件通常用于响应用户的点击操作，其类型包括胶囊按钮、圆形按钮、普通按钮、圆角矩形按钮。Button作为容器使用时可以通过添加子组件实现包含文字、图片等元素的按钮。
 - [$$运算符：](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)$$运算符为系统组件提供TS变量的引用，使得TS变量和系统组件的内部状态保持同步。
@@ -33,11 +33,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：实现List滚动吸顶并下拉刷新，且下拉刷新的位置在吸顶的下方，上拉可以加载更多。在目录“entry/src/oh-package.json5”文件中配置PullToRefresh依赖，本示例PullToRefresh三方库版本为2.1.2：
- 
-```text
+
+  
+```json
 {
   "name": "entry",
   "version": "1.0.0",
@@ -51,7 +52,8 @@
 }
 ```
  完整示例参考如下：
- 
+
+  
 ```text
 import { PullToRefresh } from '@ohos/pulltorefresh';
 
@@ -60,8 +62,8 @@ import { PullToRefresh } from '@ohos/pulltorefresh';
 struct ListStickyHeaderOne {
   scroller: Scroller = new Scroller();
   private tabscroller: Scroller = new Scroller();
-  @State itemData: Array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  tabTitles: Array = ['Tab1', 'Tab2', 'Tab3'];
+  @State itemData: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  tabTitles: Array<string> = ['Tab1', 'Tab2', 'Tab3'];
 
   @Builder
   private getListView() {
@@ -83,8 +85,8 @@ struct ListStickyHeaderOne {
       scrollBackward: NestedScrollMode.SELF_FIRST
     })
     .backgroundColor('#ffffffff')
-    // .divider({ strokeWidth: 1, color: 0x222222 })
-    .edgeEffect(EdgeEffect.None); // 必须设置列表为滑动到边缘无效果
+  <em>  // .divider({ strokeWidth: 1, color: 0x222222 })</em>
+    .edgeEffect(EdgeEffect.None); <em>// 必须设置列表为滑动到边缘无效果</em>
   }
 
   @Builder
@@ -97,10 +99,10 @@ struct ListStickyHeaderOne {
           customList: () => {
             this.getListView();
           },
-          // 可选项，下拉刷新回调
+       <em>   // 可选项，下拉刷新回调</em>
           onRefresh: () => {
-            return new Promise((resolve) => {
-              // 模拟网络请求操作，请求网络2秒后得到数据，通知组件，变更列表数据
+            return new Promise<string>((resolve) => {
+<em>              // 模拟网络请求操作，请求网络2秒后得到数据，通知组件，变更列表数据</em>
               setTimeout(() => {
                 resolve('刷新成功');
                 let num = this.itemData.length;
@@ -108,9 +110,9 @@ struct ListStickyHeaderOne {
               }, 500);
             });
           },
-          // 可选项，上拉加载更多回调
+        <em>  // 可选项，上拉加载更多回调</em>
           onLoadMore: () => {
-            return new Promise((resolve) => {
+            return new Promise<string>((resolve) => {
               setTimeout(() => {
                 resolve('');
                 let num = this.itemData.length;
@@ -145,7 +147,8 @@ struct ListStickyHeaderOne {
 ```
 
 - **场景二**：通过点击按钮实现List列表下拉刷新。可以使用[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定Refresh组件参数refreshing，点击按钮手动控制组件刷新状态实现。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -159,13 +162,13 @@ struct RefreshExample {
         Button('开始刷新')
           .margin(16)
           .onClick(() => {
-            // 手动开始刷新
+        <em>    // 手动开始刷新</em>
             this.isRefreshing = true;
           });
         Button('结束刷新')
           .margin(16)
           .onClick(() => {
-            // 手动停止刷新
+        <em>    // 手动停止刷新</em>
             this.isRefreshing = false;
           });
       };
@@ -187,7 +190,7 @@ struct RefreshExample {
         };
       }
       .onRefreshing(() => {
-        // 2秒后自动结束刷新
+    <em>    // 2秒后自动结束刷新</em>
         setTimeout(() => {
           this.isRefreshing = false;
         }, 2000);
@@ -199,7 +202,8 @@ struct RefreshExample {
 ```
 
 - **场景三**：在List嵌套List场景下实现外层List的下拉刷新，内层List的上拉加载更多。可以在外层List使用Refresh组件实现上拉刷新，内层List使用PullToRefresh进行下拉加载，PullToRefresh依赖配置同场景一。
- 
+
+  
 ```text
 import { PullToRefresh, PullToRefreshConfigurator } from '@ohos/pulltorefresh';
 
@@ -209,7 +213,7 @@ const tabsList = ['能源', '化工', '塑料', '化纤', '聚氨酯'];
 struct Index {
   private refreshScroller: Scroller = new Scroller();
   private refreshConfigurator: PullToRefreshConfigurator = new PullToRefreshConfigurator();
-  @State list: Array =
+  @State list: Array<string> =
     ['a', 'b', 'c', 'd', 'e', 'f', 'a1', 'b1', 'c1', 'd1', 'e1', 'f1'];
 
   aboutToAppear(): void {
@@ -245,20 +249,20 @@ struct Index {
   build() {
     Column({ space: 10 }) {
       PullToRefresh({
-        // 必传项，列表组件所绑定的数据
+      <em>  // 必传项，列表组件所绑定的数据</em>
         data: $list,
         refreshConfigurator: this.refreshConfigurator,
-        // 必传项，需绑定传入主体布局内的列表或宫格组件
+     <em>   // 必传项，需绑定传入主体布局内的列表或宫格组件</em>
         scroller: this.refreshScroller,
-        // 必传项，自定义主体布局，内部有列表或宫格组件
+       <em> // 必传项，自定义主体布局，内部有列表或宫格组件</em>
         customList: () => {
-          // 一个用@Builder修饰过的UI方法
+     <em>     // 一个用@Builder修饰过的UI方法</em>
           this.getListView();
         },
-        // 可选项，上拉加载更多回调
+     <em>   // 可选项，上拉加载更多回调</em>
         onLoadMore: () => {
-          return new Promise((resolve) => {
-            // 模拟网络请求操作，请求网络2秒后得到数据，通知组件，变更列表数据
+          return new Promise<string>((resolve) => {
+        <em>    // 模拟网络请求操作，请求网络2秒后得到数据，通知组件，变更列表数据</em>
             setTimeout(() => {
               resolve('加载更多');
               this.list.push('a2');
@@ -380,7 +384,7 @@ struct KeyboadPage {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：页面的数据已经全部加载完成时，如何结束上拉加载的状态？
  

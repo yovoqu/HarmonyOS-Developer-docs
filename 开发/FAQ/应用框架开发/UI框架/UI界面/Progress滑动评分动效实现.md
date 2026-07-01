@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-823
 
-## Progress滑动评分动效实现
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何自定义图案实现滑动评分的动效？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [自定义内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier)支持通过样式builder自定义特定组件的内容区。
 - [Progress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-progress)进度条组件，用于显示内容加载或操作处理等进度。
@@ -23,16 +19,15 @@
  
  
 
-##### 解决方案
-
-- 自定义评分样式。
+#### 解决方案
+1. 自定义评分样式。
 ```text
-//自定义评分样式
-class MyProgressModifier implements ContentModifier {
+<em>//自定义评分样式</em>
+class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
   color: ResourceColor = Color.White;
   outerRadius: number = 500;
   innerRadius: number;
-  idList: Array = ['1', '3', '5', '7', '9'];
+  idList: Array<string> = ['1', '3', '5', '7', '9'];
 
   constructor(color: ResourceColor, outerRadius: number) {
     this.color = color;
@@ -40,7 +35,7 @@ class MyProgressModifier implements ContentModifier {
     this.innerRadius = outerRadius * sin(18) / cos(36);
   }
 
-  // 绘制五角星路径的字符串
+ <em> // 绘制五角星路径的字符串</em>
   paintingPath(startX: number, startY: number, isHalf: boolean = false, isLeft: boolean = true) {
     let point1: string = `${startX} ${startY}`;
     let point3: string = `${startX - this.outerRadius * cos(18)} ${startY - (sin(18) - 1) * this.outerRadius}`;
@@ -66,17 +61,17 @@ class MyProgressModifier implements ContentModifier {
     return `M${point6} L${point7} L${point8} L${point9} L${point10} L${point1} `;
   }
 
-  applyContent(): WrappedBuilder {
+  applyContent(): WrappedBuilder<[ProgressConfiguration]> {
     return wrapBuilder(myProgress);
   }
 }
 ```
 
-- 通过Path路径绘制评分左/右图案，用于表示0.5评分。
+2. 通过Path路径绘制评分左/右图案，用于表示0.5评分。
 ```text
 @Builder
 function leftStar(config: ProgressConfiguration, value: number) {
-  // 绘制左半部分
+ <em> // 绘制左半部分</em>
   Path()
     .width('100px')
     .height('100%')
@@ -90,7 +85,7 @@ function leftStar(config: ProgressConfiguration, value: number) {
 
 @Builder
 function rightStar(config: ProgressConfiguration, value: number) {
-  // 绘制右半部分
+ <em> // 绘制右半部分</em>
   Path()
     .width('100px')
     .height('100%')
@@ -103,12 +98,12 @@ function rightStar(config: ProgressConfiguration, value: number) {
 }
 ```
 
-- 手势滑动时相关属性变动处理，并渲染页面。
+3. 手势滑动时相关属性变动处理，并渲染页面。
 ```text
 Progress({ value: this.currentValue, total: 10 })
-  .contentModifier(this.modifier) // 自定义评分栏
+  .contentModifier(this.modifier) <em>// 自定义评分栏</em>
   .gesture(
-    // 滑动手势x发生变化时修改评分
+   <em> // 滑动手势x发生变化时修改评分</em>
     PanGesture()
       .onActionStart((event: GestureEvent) => {
         this.progressX = event.fingerList[0].localX;
@@ -121,22 +116,21 @@ Progress({ value: this.currentValue, total: 10 })
   );
 ```
 
-
  
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/bNMhR760Q5mFgeksBd0EGA/zh-cn_image_0000002658917665.png?HW-CC-KV=V1&HW-CC-Date=20260701T025710Z&HW-CC-Expire=86400&HW-CC-Sign=078CF195F5674DF957B3A1FC1EFABD7BC276C39436E81A6F176DDC4A11FCB3E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/bNMhR760Q5mFgeksBd0EGA/zh-cn_image_0000002658917665.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=CD1CB7E96BF96F0D81A933F8655C7CC183421EFCF6C18359D263FAF4748166FB)
 
  
 完整代码：
 ```text
-//自定义评分样式
-class MyProgressModifier implements ContentModifier {
+<em>//自定义评分样式</em>
+class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
   color: ResourceColor = Color.White;
   outerRadius: number = 500;
   innerRadius: number;
-  idList: Array = ['1', '3', '5', '7', '9'];
+  idList: Array<string> = ['1', '3', '5', '7', '9'];
 
   constructor(color: ResourceColor, outerRadius: number) {
     this.color = color;
@@ -144,7 +138,7 @@ class MyProgressModifier implements ContentModifier {
     this.innerRadius = outerRadius * sin(18) / cos(36);
   }
 
-  // 绘制五角星路径的字符串
+ <em> // 绘制五角星路径的字符串</em>
   paintingPath(startX: number, startY: number, isHalf: boolean = false, isLeft: boolean = true) {
     let point1: string = `${startX} ${startY}`;
     let point3: string = `${startX - this.outerRadius * cos(18)} ${startY - (sin(18) - 1) * this.outerRadius}`;
@@ -170,14 +164,14 @@ class MyProgressModifier implements ContentModifier {
     return `M${point6} L${point7} L${point8} L${point9} L${point10} L${point1} `;
   }
 
-  applyContent(): WrappedBuilder {
+  applyContent(): WrappedBuilder<[ProgressConfiguration]> {
     return wrapBuilder(myProgress);
   }
 }
 
 @Builder
 function leftStar(config: ProgressConfiguration, value: number) {
-  // 绘制左半部分
+ <em> // 绘制左半部分</em>
   Path()
     .width('100px')
     .height('100%')
@@ -191,7 +185,7 @@ function leftStar(config: ProgressConfiguration, value: number) {
 
 @Builder
 function rightStar(config: ProgressConfiguration, value: number) {
-  // 绘制右半部分
+<em>  // 绘制右半部分</em>
   Path()
     .width('100px')
     .height('100%')
@@ -225,17 +219,17 @@ function myProgress(config: ProgressConfiguration) {
 @Entry
 @Component
 struct CustomRating {
-  @State currentValue: number = 0; // 评分
+  @State currentValue: number = 0;<em> // 评分</em>
   modifier = new MyProgressModifier('#F7CE00', 80);
-  progressX: number = 0; // 单位vp
+  progressX: number = 0; <em>// 单位vp</em>
   context: UIContext = this.getUIContext();
 
   build() {
     Column() {
       Progress({ value: this.currentValue, total: 10 })
-        .contentModifier(this.modifier) // 自定义评分栏
+        .contentModifier(this.modifier)<em> // 自定义评分栏</em>
         .gesture(
-          // 滑动手势x发生变化时修改评分
+         <em> // 滑动手势x发生变化时修改评分</em>
           PanGesture()
             .onActionStart((event: GestureEvent) => {
               this.progressX = event.fingerList[0].localX;
@@ -265,6 +259,6 @@ function sin(d: number) {
  
  
 
-##### 总结
+#### 总结
 
 ContentModifier组件的属性类，用来区别不同组件自定义内容区后所需要的不同信息，支持ButtonConfiguration、CheckBoxConfiguration、DataPanelConfiguration、ProgressConfiguration等，偏向于特定组件自定义定制化，可以根据应用场景灵活运用。

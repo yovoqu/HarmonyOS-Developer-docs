@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-33
 
-## AGC审核驳回：在同意隐私政策前，应用获取了用户的个人信息
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用开发完毕后提交上架，应用市场反馈“在用户同意隐私政策前，您的应用获取了用户的个人信息（xxx），不符合相关法律法规要求。修改建议：请在用户同意隐私政策后，再申请获取用户个人信息及权限。”如何解决该问题？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [应用权限管控概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-permission-mgmt-overview)：根据授权方式的不同，权限类型可分为以下两种：
 [system_grant（系统授权）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all)：不会涉及用户或设备的敏感权限；系统会在用户安装应用时，自动把相应权限授予给应用。
@@ -28,36 +24,27 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 在HarmonyOS开发中，系统和用户授权的权限需要开发者完成以下准备操作：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/QN-mw0g3RuC91-FsI2X1JQ/zh-cn_image_0000002658793877.png?HW-CC-KV=V1&HW-CC-Date=20260701T025859Z&HW-CC-Expire=86400&HW-CC-Sign=06F449C856E0D29056632C3DAB9DC7AB7DAD65CF7712BA6E0DA5DD7D94B20AF5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/QN-mw0g3RuC91-FsI2X1JQ/zh-cn_image_0000002658793877.png?HW-CC-KV=V1&HW-CC-Date=20260701T041113Z&HW-CC-Expire=86400&HW-CC-Sign=96C1E99994502F5C38DD38207E472FAE0CC2549B6A6389B8B1B6DB8BEAE4D63F)
 
- 
-- **权限声明**：开发者需在应用的配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中声明所需的系统授权权限。
-
-
-- **隐私声明**：
+ 1. **权限声明**：开发者需在应用的配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中声明所需的系统授权权限。
+1. **隐私声明**：
 **权限说明：** 在隐私政策中明示应用需要获取的所有权限，例如：本应用需要网络权限（ohos.permission.INTERNET）以加载在线内容。
-- **首次启动弹窗：** 应用首次运行时需通过弹窗[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)展示隐私政策，用户同意隐私政策前应用不应该有任何调用权限API的行为。
-
- 
-若未在隐私政策中提前向用户声明用到的权限，或是声明了权限但未在用户点击同意后就获取信息，那将会被应用市场驳回：“在用户同意隐私政策前，您的应用获取了用户的个人信息（xxx），不符合相关法律法规要求”。
- - **动态申请权限（仅用户授权权限需要）**
+2. **首次启动弹窗：** 应用首次运行时需通过弹窗[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)展示隐私政策，用户同意隐私政策前应用不应该有任何调用权限API的行为。
+3. **动态申请权限（仅用户授权权限需要）**
 **首次弹窗：** 系统自动弹出授权对话框，用户可选择允许或拒绝。
-- **拒绝处理：** 如果用户拒绝授权，应用将无法再次通过requestPermissionsFromUser()拉起弹框。用户需要在系统设置中手动授权。应用也可以通过调用[requestPermissionOnSetting()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissiononsetting12)，直接拉起权限设置弹框，引导用户授权。
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/3_vrNbE5QImzuaxSDKo8fg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025859Z&HW-CC-Expire=86400&HW-CC-Sign=E888A88400904EAB1BF5F06B67E74D9F7F2E7199C2D277A33B2003D032C2EC08)
- 
-需要在module.json5中配置对应权限，配置权限详细代码请见：[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+4. **拒绝处理：** 如果用户拒绝授权，应用将无法再次通过requestPermissionsFromUser()拉起弹框。用户需要在系统设置中手动授权。应用也可以通过调用[requestPermissionOnSetting()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissiononsetting12)，直接拉起权限设置弹框，引导用户授权。
+> [!NOTE]
+> 需要在module.json5中配置对应权限，配置权限详细代码请见： 声明权限 。
 
  
  
- 
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用的是系统授权权限，而且在隐私政策中说明了权限与使用场景，用户同意前也没有提前获取数据，为什么应用市场还是驳回了：在同意隐私政策前，应用获取了用户的个人信息？
  
@@ -73,6 +60,6 @@ A：由于弹窗将隐私政策的勾选遮盖，导致无法确认其默认勾�
  
  
 
-##### 总结
+#### 总结
 
 开发者需在配置文件中正确声明系统授权权限，并在隐私政策中透明化处理。对于低敏感权限（如网络），系统自动授予，但仍需遵循最小化原则和用户告知义务；对于高敏感权限（如位置），在低敏感权限的基础上还需要弹窗给用户进行动态权限申请。

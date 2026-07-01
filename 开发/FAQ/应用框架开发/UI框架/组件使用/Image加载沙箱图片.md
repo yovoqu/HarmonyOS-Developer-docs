@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-849
 
-## Image加载沙箱图片
- 
-
-
-##### 问题现象
+#### 问题现象
 
 利用文件下载把网络图片下载到沙箱目录后，使用Image组件直接加载沙箱路径图片却无法显示，该如何解决？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [加载图片资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display#加载图片资源)：Image支持加载存档图、多媒体像素图和可绘制描述符三种类型。
 - [文件下载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-upload-download)：应用可以从网络服务器下载网络资源文件到本地应用文件目录。
@@ -26,7 +22,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 Image组件不能直接传入应用沙箱路径，需要传入应用沙箱URI。在下载完成后不要把filePath直接赋值给downloadImage，而是需要转换。
  
@@ -45,7 +41,7 @@ struct Index2 {
 
   build() {
     Column({ space: 30 }) {
-      // 这里直接加载无法显示
+    <em>  // 这里直接加载无法显示</em>
       Image(this.downloadImage)
         .width(100);
       Button('Download Image')
@@ -53,7 +49,7 @@ struct Index2 {
           try {
             let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
             let filesDir = context.cacheDir;
-            // 将字符串/xxx.png拼接到filesDir路径末尾，表示在应用缓存文件路径下创建一个名为xxx.png的文件
+        <em>    // 将字符串/xxx.png拼接到filesDir路径末尾，表示在应用缓存文件路径下创建一个名为xxx.png的文件</em>
             let filePath = filesDir + '/xxx.png';
             let res = fs.accessSync(filePath);
             if (res) {
@@ -62,7 +58,7 @@ struct Index2 {
               });
             } else {
               request.downloadFile(context, {
-                // 此处地址实际使用过程中替换为真实地址
+             <em>   // 此处地址实际使用过程中替换为真实地址</em>
                 url: 'XXX.XXX.png',
                 filePath: filePath
               }).then((downloadTask: request.DownloadTask) => {
@@ -89,7 +85,7 @@ struct Index2 {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么不推荐使用'file://'进行路径拼接？
  

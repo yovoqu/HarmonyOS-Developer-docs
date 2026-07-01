@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-689
 
-## 如何实现含有emoji表情的渐变色文字
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在输入框组件上直接设置文字渐变色会影响emoji的展示，是否有其他方案实现含有emoji表情的渐变色文字？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/dI9iNzTHQ3S_LHDxR4pKXA/zh-cn_image_0000002628554748.png?HW-CC-KV=V1&HW-CC-Date=20260701T025715Z&HW-CC-Expire=86400&HW-CC-Sign=8C319B8FC679DB970833AE9E961046AB65BE45E030714017BC2ED85A8BE21869)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/dI9iNzTHQ3S_LHDxR4pKXA/zh-cn_image_0000002628554748.png?HW-CC-KV=V1&HW-CC-Date=20260701T041201Z&HW-CC-Expire=86400&HW-CC-Sign=3634492EC1BF41BDF4DDE14F61BE11997EF2BA79D587CFC431469873EFD1D842)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color)：设置组件的颜色渐变效果。可以参照[官网](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-385)实现文字渐变色设置。
 - [onDidInsert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#ondidinsert12)：在输入完成时，触发该回调。
@@ -31,256 +27,254 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-实现思路：把需要设置渐变色的文字按照类型进行拆分，一类是需要设置渐变色的文字类型，另一类是不需要设置渐变色的emoji表情；在TextInput输入时根据输入的字符判断其类型，放入不同的分类，最后循环展示两类文字即可。
-- 定义文字类型。
+实现思路：把需要设置渐变色的文字按照类型进行拆分，一类是需要设置渐变色的文字类型，另一类是不需要设置渐变色的emoji表情；在TextInput输入时根据输入的字符判断其类型，放入不同的分类，最后循环展示两类文字即可。1. 定义文字类型。
 ```text
-class TextType {
-  content: string = '';
-  // 1代表普通文字 2代表emoji
-  type: number = 1;
-}
+class <span style="color: rgb(0,0,255);">TextType </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// 1</span><span style="color: rgb(128,128,128);">代表普通文字</span><span style="color: rgb(128,128,128);"> 2</span><span style="color: rgb(128,128,128);">代表</span><span style="color: rgb(128,128,128);">emoji</span></em>
+  <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
-- 判断单个字符是否是emoji。
+2. 判断单个字符是否是emoji。
 ```text
-// 判断单个字符是否为emoji
-function isEmojiCharacter(char: string): boolean {
-  const codePoint = char.codePointAt(0);
-  if (codePoint === undefined) {
-    return false;
-  }
-  // 常见emoji的Unicode范围参考
-  return (
-    (codePoint >= 0x1F600 && codePoint = 0x1F64F) || // Emoticons
-      (codePoint >= 0x1F300 && codePoint = 0x1F5FF) || // Misc Symbols and Pictographs
-      (codePoint >= 0x1F680 && codePoint = 0x1F6FF) || // Transport and Map
-      (codePoint >= 0x1F700 && codePoint = 0x1F77F) || // Alchemical Symbols
-      (codePoint >= 0x1F780 && codePoint = 0x1F7FF) || // Geometric Shapes Extended
-      (codePoint >= 0x1F800 && codePoint = 0x1F8FF) || // Supplemental Arrows-C
-      (codePoint >= 0x1F900 && codePoint = 0x1F9FF) || // Supplemental Symbols and Pictographs
-      (codePoint >= 0x1FA00 && codePoint = 0x1FA6F) || // Chess Symbols
-      (codePoint >= 0x1FA70 && codePoint = 0x1FAFF) || // Symbols and Pictographs Extended-A
-      (codePoint >= 0x2600 && codePoint = 0x26FF) || // Misc Symbols
-      (codePoint >= 0x2700 && codePoint = 0x27BF) || // Dingbats
-      (codePoint >= 0xFE00 && codePoint = 0xFE0F) || // Variation Selectors
-      (codePoint >= 0x1F1E6 && codePoint = 0x1F1FF)
-  );
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">判断单个字符是否为</span><span style="color: rgb(128,128,128);">emoji</span></em>
+function <span style="color: rgb(0,0,255);">isEmojiCharacter</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">char</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
+  const <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">char</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">codePointAt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">=== </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    return false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">常见</span><span style="color: rgb(128,128,128);">emoji</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">Unicode</span><span style="color: rgb(128,128,128);">范围参考</span></em>
+  return <span style="color: rgb(0,0,255);">(</span>
+<span style="color: rgb(0,0,255);">    (</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F600 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F64F) </span><span style="color: rgb(181,106,1);">|| </span><em>// Emoticons</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F300 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F5FF) </span><span style="color: rgb(181,106,1);">|| </span><em>// Misc Symbols and Pictographs</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F680 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F6FF) </span><span style="color: rgb(181,106,1);">|| </span><em><span style="color: rgb(128,128,128);">// Transport and Map</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F700 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F77F) </span><span style="color: rgb(181,106,1);">|| </span><em>// Alchemical Symbols</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F780 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F7FF) </span><span style="color: rgb(181,106,1);">||</span><em> </em><em><span style="color: rgb(128,128,128);">// Geometric Shapes Extended</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F800 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F8FF) </span><span style="color: rgb(181,106,1);">|| </span><em>// Supplemental Arrows-C</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F900 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F9FF) </span><span style="color: rgb(181,106,1);">|| </span><em><span style="color: rgb(128,128,128);">// Supplemental Symbols and Pictographs</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1FA00 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1FA6F) </span><span style="color: rgb(181,106,1);">|| </span><em>// Chess Symbols</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1FA70 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1FAFF) </span><span style="color: rgb(181,106,1);">||</span><em> </em><em><span style="color: rgb(128,128,128);">// Symbols and Pictographs Extended-A</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x2600 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x26FF) </span><span style="color: rgb(181,106,1);">|| </span><em><span style="color: rgb(128,128,128);">// Misc Symbols</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x2700 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x27BF) </span><span style="color: rgb(181,106,1);">|| </span><em>// Dingbats</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0xFE00 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0xFE0F) </span><span style="color: rgb(181,106,1);">|| </span><em><span style="color: rgb(128,128,128);">// Variation Selectors</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F1E6 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F1FF)</span>
+<span style="color: rgb(0,0,255);">  )</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
-- 输入框输入根据不同的类型进行处理。
+3. 输入框输入根据不同的类型进行处理。
 ```text
-TextInput({ placeholder: '请输入内容' })
-  .margin({ top: 16 })
-  .onDidInsert((value: InsertValue) => {
-    let tmpType: number = 0;
-    if (containsEmoji(value.insertValue)) {
-      tmpType = 2;
-    } else {
-      tmpType = 1;
-    }
-    if (this.textInputs.length == 0) {
-      this.textInputs.push({ 'content': value.insertValue, 'type': tmpType });
-    } else {
-      let lastInput = this.textInputs[this.textInputs.length - 1];
+<span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请输入内容</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDidInsert</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">InsertValue</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">tmpType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">containsEmoji</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">lastInput </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-      if (lastInput.type === tmpType) {
-        lastInput = { 'content': lastInput.content + value.insertValue, 'type': tmpType };
-        this.textInputs.pop();
-        this.textInputs.push(lastInput);
-      } else {
-        this.textInputs.push({ 'content': value.insertValue, 'type': tmpType });
-      }
-    }
-  })
-  .onDidDelete((value: DeleteValue) => {
-    if (this.textInputs.length = 0) {
-      return;
-    }
-    let tmpType: number = 0;
-    if (containsEmoji(value.deleteValue)) {
-      tmpType = 2;
-    } else {
-      tmpType = 1;
-    }
-    let lastInput = this.textInputs[this.textInputs.length - 1];
-    let newContent = lastInput.content.substring(0, lastInput.content.length - value.deleteValue.length);
-    if (newContent.length > 0) {
-      lastInput = { 'content': newContent, 'type': tmpType };
-      this.textInputs.pop();
-      this.textInputs.push(lastInput);
-    } else {
-      this.textInputs.pop();
-    }
-  });
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">tmpType</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">lastInput </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDidDelete</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DeleteValue</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    let <span style="color: rgb(0,0,255);">tmpType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">containsEmoji</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deleteValue</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    let <span style="color: rgb(0,0,255);">lastInput </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">newContent </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">substring</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deleteValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newContent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">lastInput </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">newContent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
-- 根据不同的文字类型展示不同的内容。
+4. 根据不同的文字类型展示不同的内容。
 ```text
-ForEach(this.textInputs, (item: TextType) => {
-  if (item.type == 1) {
-    Row() {
-      Text(item.content)
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .blendMode(BlendMode.DST_IN, BlendApplyType.OFFSCREEN);
-    }
-    .linearGradient({
-      direction: GradientDirection.Right,
-      colors: [['#FFF563FF', 0.0], ['#FF0253EB', 0.2], ['#FF0253EB', 0.5], ['#FF26ECFF', 0.9]]
-    })
-    .blendMode(BlendMode.SRC_OVER, BlendApplyType.OFFSCREEN);
-  } else {
-    Row() {
-      Text(item.content)
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold);
-    };
-  }
-});
+<span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextType</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">blendMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BlendMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DST_IN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">BlendApplyType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OFFSCREEN</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linearGradient</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GradientDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Right</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">colors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[[</span><span style="color: rgb(255,0,170);">'#FFF563FF'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'#FF0253EB'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'#FF0253EB'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.5</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'#FF26ECFF'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.9</span><span style="color: rgb(0,0,255);">]]</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">blendMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BlendMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SRC_OVER</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">BlendApplyType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OFFSCREEN</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
-
 
  
  
 完整示例参考如下：
  
 ```text
-@Entry
-@Component
-struct LinearGradientAndEmoji {
-  @State textInputs: TextType[] = [];
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">LinearGradientAndEmoji </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextType</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        ForEach(this.textInputs, (item: TextType) => {
-          if (item.type == 1) {
-            Row() {
-              Text(item.content)
-                .fontSize(50)
-                .fontWeight(FontWeight.Bold)
-                .blendMode(BlendMode.DST_IN, BlendApplyType.OFFSCREEN);
-            }
-            .linearGradient({
-              direction: GradientDirection.Right,
-              colors: [['#FFF563FF', 0.0], ['#FF0253EB', 0.2], ['#FF0253EB', 0.5], ['#FF26ECFF', 0.9]]
-            })
-            .blendMode(BlendMode.SRC_OVER, BlendApplyType.OFFSCREEN);
-          } else {
-            Row() {
-              Text(item.content)
-                .fontSize(50)
-                .fontWeight(FontWeight.Bold);
-            };
-          }
-        });
-      };
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Flex</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">wrap</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">FlexWrap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Wrap </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">TextType</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(0,0,255);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">blendMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BlendMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DST_IN</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">BlendApplyType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OFFSCREEN</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">linearGradient</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">direction</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">GradientDirection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Right</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">colors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[[</span><span style="color: rgb(255,0,170);">'#FFF563FF'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'#FF0253EB'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.2</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'#FF0253EB'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.5</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'#FF26ECFF'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.9</span><span style="color: rgb(0,0,255);">]]</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+            <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">blendMode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">BlendMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SRC_OVER</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">BlendApplyType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OFFSCREEN</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">item</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(0,0,255);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-      TextInput({ placeholder: '请输入内容' })
-        .margin({ top: 16 })
-        .onDidInsert((value: InsertValue) => {
-          let tmpType: number = 0;
-          if (containsEmoji(value.insertValue)) {
-            tmpType = 2;
-          } else {
-            tmpType = 1;
-          }
-          if (this.textInputs.length == 0) {
-            this.textInputs.push({ 'content': value.insertValue, 'type': tmpType });
-          } else {
-            let lastInput = this.textInputs[this.textInputs.length - 1];
+      <span style="color: rgb(0,0,255);">TextInput</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">placeholder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">请输入内容</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">16 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDidInsert</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">InsertValue</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          let <span style="color: rgb(0,0,255);">tmpType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">containsEmoji</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+            let <span style="color: rgb(0,0,255);">lastInput </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
 
-            if (lastInput.type === tmpType) {
-              lastInput = { 'content': lastInput.content + value.insertValue, 'type': tmpType };
-              this.textInputs.pop();
-              this.textInputs.push(lastInput);
-            } else {
-              this.textInputs.push({ 'content': value.insertValue, 'type': tmpType });
-            }
-          }
-        })
-        .onDidDelete((value: DeleteValue) => {
-          if (this.textInputs.length = 0) {
-            return;
-          }
-          let tmpType: number = 0;
-          if (containsEmoji(value.deleteValue)) {
-            tmpType = 2;
-          } else {
-            tmpType = 1;
-          }
-          let lastInput = this.textInputs[this.textInputs.length - 1];
-          let newContent = lastInput.content.substring(0, lastInput.content.length - value.deleteValue.length);
-          if (newContent.length > 0) {
-            lastInput = { 'content': newContent, 'type': tmpType };
-            this.textInputs.pop();
-            this.textInputs.push(lastInput);
-          } else {
-            this.textInputs.pop();
-          }
-        });
-    }
-    .padding(16)
-    .width('100%')
-    .height('100%');
-  }
-}
+            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">tmpType</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">lastInput </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">insertValue</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onDidDelete</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DeleteValue</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            return<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          let <span style="color: rgb(0,0,255);">tmpType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">containsEmoji</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deleteValue</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          let <span style="color: rgb(0,0,255);">lastInput </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">newContent </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">substring</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deleteValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">newContent</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">lastInput </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(255,0,170);">'content'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">newContent</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'type'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">tmpType </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">lastInput</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textInputs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">pop</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-class TextType {
-  content: string = '';
-  // 1代表普通文字 2代表emoji
-  type: number = 1;
-}
-// 判断单个字符是否为emoji
-function isEmojiCharacter(char: string): boolean {
-  const codePoint = char.codePointAt(0);
-  if (codePoint === undefined) {
-    return false;
-  }
-  // 常见emoji的Unicode范围参考
-  return (
-    (codePoint >= 0x1F600 && codePoint = 0x1F64F) || // Emoticons
-      (codePoint >= 0x1F300 && codePoint = 0x1F5FF) || // Misc Symbols and Pictographs
-      (codePoint >= 0x1F680 && codePoint = 0x1F6FF) || // Transport and Map
-      (codePoint >= 0x1F700 && codePoint = 0x1F77F) || // Alchemical Symbols
-      (codePoint >= 0x1F780 && codePoint = 0x1F7FF) || // Geometric Shapes Extended
-      (codePoint >= 0x1F800 && codePoint = 0x1F8FF) || // Supplemental Arrows-C
-      (codePoint >= 0x1F900 && codePoint = 0x1F9FF) || // Supplemental Symbols and Pictographs
-      (codePoint >= 0x1FA00 && codePoint = 0x1FA6F) || // Chess Symbols
-      (codePoint >= 0x1FA70 && codePoint = 0x1FAFF) || // Symbols and Pictographs Extended-A
-      (codePoint >= 0x2600 && codePoint = 0x26FF) || // Misc Symbols
-      (codePoint >= 0x2700 && codePoint = 0x27BF) || // Dingbats
-      (codePoint >= 0xFE00 && codePoint = 0xFE0F) || // Variation Selectors
-      (codePoint >= 0x1F1E6 && codePoint = 0x1F1FF)
-  );
-}
+class <span style="color: rgb(0,0,255);">TextType </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// 1</span><span style="color: rgb(128,128,128);">代表普通文字</span><span style="color: rgb(128,128,128);"> 2</span><span style="color: rgb(128,128,128);">代表</span><span style="color: rgb(128,128,128);">emoji</span></em>
+  <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">判断单个字符是否为</span><span style="color: rgb(128,128,128);">emoji</span></em>
+function <span style="color: rgb(0,0,255);">isEmojiCharacter</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">char</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
+  const <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">char</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">codePointAt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">=== </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    return false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">常见</span><span style="color: rgb(128,128,128);">emoji</span><span style="color: rgb(128,128,128);">的</span><span style="color: rgb(128,128,128);">Unicode</span><span style="color: rgb(128,128,128);">范围参考</span></em>
+  return <span style="color: rgb(0,0,255);">(</span>
+<span style="color: rgb(0,0,255);">    (</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F600 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F64F) </span><span style="color: rgb(181,106,1);">|| </span><em><span style="color: rgb(128,128,128);">// Emoticons</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F300 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F5FF) </span><span style="color: rgb(181,106,1);">|| </span><em>// Misc Symbols and Pictographs</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F680 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F6FF) </span><span style="color: rgb(181,106,1);">|| </span><em>// Transport and Map</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F700 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F77F) </span><span style="color: rgb(181,106,1);">||</span><em> </em><em><span style="color: rgb(128,128,128);">// Alchemical Symbols</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F780 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F7FF) </span><span style="color: rgb(181,106,1);">||</span><em> </em><em><span style="color: rgb(128,128,128);">// Geometric Shapes Extended</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F800 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F8FF) </span><span style="color: rgb(181,106,1);">|| </span><em>// Supplemental Arrows-C</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F900 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F9FF) </span><span style="color: rgb(181,106,1);">||</span><em> </em><em><span style="color: rgb(128,128,128);">// Supplemental Symbols and Pictographs</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1FA00 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1FA6F) </span><span style="color: rgb(181,106,1);">|| </span><em>// Chess Symbols</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1FA70 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1FAFF) </span><span style="color: rgb(181,106,1);">||</span><em> </em><em><span style="color: rgb(128,128,128);">// Symbols and Pictographs Extended-A</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x2600 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x26FF) </span><span style="color: rgb(181,106,1);">||</span><em> </em><em><span style="color: rgb(128,128,128);">// Misc Symbols</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x2700 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x27BF) </span><span style="color: rgb(181,106,1);">|| </span><em>// Dingbats</em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0xFE00 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0xFE0F) </span><span style="color: rgb(181,106,1);">||</span><em> </em><em><span style="color: rgb(128,128,128);">// Variation Selectors</span></em>
+      <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F1E6 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codePoint </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x1F1FF)</span>
+<span style="color: rgb(0,0,255);">  )</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-// 判断字符串是否包含emoji
-function containsEmoji(inputString: string): boolean {
-  for (let i = 0; i  inputString.length; i++) {
-    // 考虑代理对的情况（Surrogate Pairs），emoji可能由两个代码单元组成
-    const char = inputString[i];
-    // 如果当前字符是高位代理，则与下一个字符（低位代理）组合判断
-    if (isHighSurrogate(char.charCodeAt(0)) && i + 1  inputString.length) {
-      const combinedChar = char + inputString[i + 1];
-      if (isEmojiCharacter(combinedChar)) {
-        return true;
-      }
-      i++; // 跳过下一个字符，因为已经组合处理
-    } else {
-      if (isEmojiCharacter(char)) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">判断字符串是否包含</span><span style="color: rgb(128,128,128);">emoji</span></em>
+function <span style="color: rgb(0,0,255);">containsEmoji</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">inputString</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
+  for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">inputString</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">考虑代理对的情况（</span><span style="color: rgb(128,128,128);">Surrogate Pairs</span><span style="color: rgb(128,128,128);">），</span><span style="color: rgb(128,128,128);">emoji</span><span style="color: rgb(128,128,128);">可能由两个代码单元组成</span></em>
+    const <span style="color: rgb(0,0,255);">char </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">inputString</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">如果当前字符是高位代理，则与下一个字符（低位代理）组合判断</span></em>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isHighSurrogate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">char</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">charCodeAt</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">inputString</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      const <span style="color: rgb(0,0,255);">combinedChar </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">char </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">inputString</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isEmojiCharacter</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">combinedChar</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+        return true<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">跳过下一个字符，因为已经组合处理</span></em>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isEmojiCharacter</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">char</span><span style="color: rgb(0,0,255);">)) </span><span style="color: rgb(255,0,170);">{</span>
+        return true<span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+<span style="color: rgb(255,0,170);">  }</span>
+  return false<span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-// 判断是否为高位代理（High Surrogate）
-function isHighSurrogate(codeUnit: number): boolean {
-  return codeUnit >= 0xD800 && codeUnit = 0xDBFF;
-}
+<em>// </em><em><span style="color: rgb(128,128,128);">判断是否为高位代理（</span><span style="color: rgb(128,128,128);">High Surrogate</span><span style="color: rgb(128,128,128);">）</span></em>
+function <span style="color: rgb(0,0,255);">isHighSurrogate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">codeUnit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(255,0,170);">{</span>
+  return <span style="color: rgb(0,0,255);">codeUnit </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0xD800 </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">codeUnit </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0xDBFF</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

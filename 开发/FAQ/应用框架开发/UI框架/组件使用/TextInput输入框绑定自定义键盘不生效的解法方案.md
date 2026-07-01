@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1649
 
-## TextInput输入框绑定自定义键盘不生效的解法方案
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用customKeyboard属性绑定不同的自定义键盘到输入框时不生效，问题代码如下：
  
@@ -57,7 +53,7 @@ struct TextInputClearFocusExample {
 
   build() {
     Column({ space: 10 }) {
-      TextInput({ placeholder: 'input your word...' }) // 绑定自定义键盘
+      TextInput({ placeholder: 'input your word...' }) <em>// 绑定自定义键盘</em>
         .customKeyboard(this.index === 0 ? this.keyboard() : (this.index === 1 ? this.keyboard1() : this.keyboard2()))
         .margin(10)
         .border({ width: 1 })
@@ -84,18 +80,18 @@ struct TextInputClearFocusExample {
 问题现象见下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/749RjSjeTLqK1LwSYIbA8g/zh-cn_image_0000002628660998.png?HW-CC-KV=V1&HW-CC-Date=20260701T025625Z&HW-CC-Expire=86400&HW-CC-Sign=F2CD5FD4999CA3FADAEF5A83ACB73052DF2A8ABFDFDF39CAB7EDF5B5645A4F6F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/749RjSjeTLqK1LwSYIbA8g/zh-cn_image_0000002628660998.png?HW-CC-KV=V1&HW-CC-Date=20260701T041251Z&HW-CC-Expire=86400&HW-CC-Sign=74A32E7D31B48FBF4E7E0BBE522C0BEE1A4AF8C373604AAFFBF4A382BA4E39F7)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)是单行文本输入框组件，常用于响应用户的输入操作，比如手机号输入，表单的输入等。组件的[customKeyboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#customkeyboard10)属性可以设置自定义键盘。
  
  
 
-##### 解决方案
+#### 解决方案
 
 [customKeyboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#customkeyboard10)属性不支持使用响应式，将三元表达式替换为正常的if-else语句可以正常绑定不同的自定义键盘。示例代码如下：
  
@@ -145,17 +141,17 @@ struct TextInputClearFocusExample {
   build() {
     Column() {
       if (this.index === 0) {
-        TextInput({ placeholder: 'input your word...' }) // 绑定自定义键盘
+        TextInput({ placeholder: 'input your word...' }) <em>// 绑定自定义键盘</em>
           .customKeyboard(this.keyboard())
           .margin(10)
           .height('48vp');
       } else if (this.index === 1) {
-        TextInput({ placeholder: 'input your word...' }) // 绑定自定义键盘
+        TextInput({ placeholder: 'input your word...' }) /<em>/ 绑定自定义键盘</em>
           .customKeyboard(this.keyboard1())
           .margin(10)
           .height('48vp');
       } else {
-        TextInput({ placeholder: 'input your word...' }) // 绑定自定义键盘
+        TextInput({ placeholder: 'input your word...' }) <em>// 绑定自定义键盘</em>
           .customKeyboard(this.keyboard2())
           .margin(10)
           .height('48vp');
@@ -184,7 +180,7 @@ struct TextInputClearFocusExample {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：在[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)中使用[.customKeyboard()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#customkeyboard10)方法自定义了键盘，请问如何触发TextInput的onSubmit事件？
  

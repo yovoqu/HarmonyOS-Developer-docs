@@ -4,49 +4,45 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-22
 
-## HarmonyOS蓝牙通信是否支持GAIA协议
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS蓝牙通信是否支持GAIA协议，请介绍一下当前支持的蓝牙协议？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [蓝牙](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-overview)是一种无线通信技术，在通信过程中，蓝牙设备会发送和接收数据包，并且使用不同的蓝牙协议来控制通信流程和数据传输。
  
 - GAIA（Generic Application Interface Architecture）：应用层协议，它依赖于多种传输协议，包括RFCOMM、SPP和GATT，支持RFCOMM和SPP并不一定支持GAIA。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/2oyUYTRLQ1CIZjCdy9eGIA/zh-cn_image_0000002658971843.png?HW-CC-KV=V1&HW-CC-Date=20260701T025802Z&HW-CC-Expire=86400&HW-CC-Sign=37B44CDC8CF9A59DD23ED4F86DDD19F933F678B4884E7059F6B549FA2F9F07FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/2oyUYTRLQ1CIZjCdy9eGIA/zh-cn_image_0000002658971843.png?HW-CC-KV=V1&HW-CC-Date=20260701T041431Z&HW-CC-Expire=86400&HW-CC-Sign=E6A160C35BFC4DAFE6EF260C72E930BDE4B83F33AA3AC280BE05F7CF21946542)
 
 - RFCOMM（Radio Frequency Communication）：是一种基于串口仿真的协议，常用于模拟RS232串口通信，支持点对点通信，适合简单的数据传输。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/jLMz213JQbm6eg3t5RhCiQ/zh-cn_image_0000002658851889.png?HW-CC-KV=V1&HW-CC-Date=20260701T025802Z&HW-CC-Expire=86400&HW-CC-Sign=CAF16938529CBD899FCF247FD8644149039D5781C05EDD24FD347B245CA8799E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/jLMz213JQbm6eg3t5RhCiQ/zh-cn_image_0000002658851889.png?HW-CC-KV=V1&HW-CC-Date=20260701T041431Z&HW-CC-Expire=86400&HW-CC-Sign=17D2FE1CE0EC844E1882CFC9B396F8A717133D2414EC214CC1ED5428C9020D22)
 
 - SPP（SERIAL PORT PROFILE）：基于RFCOMM协议，用于实现蓝牙设备间的串口通信。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/dcej_5EwSRmq0pns4HmZ5w/zh-cn_image_0000002628612626.png?HW-CC-KV=V1&HW-CC-Date=20260701T025802Z&HW-CC-Expire=86400&HW-CC-Sign=1FB0DA17783F0082DC14C2C826158DB43C0D831A25E3CDADDA6BA4E708A4DF50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/dcej_5EwSRmq0pns4HmZ5w/zh-cn_image_0000002628612626.png?HW-CC-KV=V1&HW-CC-Date=20260701T041431Z&HW-CC-Expire=86400&HW-CC-Sign=942881443E2D9F1D73EC9CD8595935147B0556200722F98EE1FA51E8495D872E)
 
 - A2DP（Advanced Audio Distribution）：高级音频分发协议，旨在实现高质量音频数据的无线传输。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/R1Y-3aS5So6NSZmToI3c1w/zh-cn_image_0000002628772528.png?HW-CC-KV=V1&HW-CC-Date=20260701T025802Z&HW-CC-Expire=86400&HW-CC-Sign=9082F525D9B1BEF638AACA1020C7E98C67EC1010AC923855BAE913BC142BF056)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/R1Y-3aS5So6NSZmToI3c1w/zh-cn_image_0000002628772528.png?HW-CC-KV=V1&HW-CC-Date=20260701T041431Z&HW-CC-Expire=86400&HW-CC-Sign=3AFEE76607ED3B86DD7639FFAF1D8F59A5DA3C41E085FDDB447A62B0A1F977D9)
 
 - BLE（Bluetooth Low Energy）：低功耗蓝牙，是一种能够在低功耗情况下进行通信的蓝牙技术。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/jrLn_U1LRAilX_5Ryjrg5g/zh-cn_image_0000002658971847.png?HW-CC-KV=V1&HW-CC-Date=20260701T025802Z&HW-CC-Expire=86400&HW-CC-Sign=AC05A8C867708D3C754921B727D2B85EED81AEA101660221A979265C0C3890E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/jrLn_U1LRAilX_5Ryjrg5g/zh-cn_image_0000002658971847.png?HW-CC-KV=V1&HW-CC-Date=20260701T041431Z&HW-CC-Expire=86400&HW-CC-Sign=404B26A026B50BD1EF0B4B37E12D4ACD5730819D696DF728C9CE6E5E54E9CF16)
 
 - HFP（Hands-Free）：蓝牙技术中用于实现免提通话的核心协议。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/DfNiDu_SRr6YzICQEGku6g/zh-cn_image_0000002658851891.png?HW-CC-KV=V1&HW-CC-Date=20260701T025802Z&HW-CC-Expire=86400&HW-CC-Sign=161910BD0D63DB990E95A1C350EF5956ACEE6B8613D6A5D43790425DE2108B72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/DfNiDu_SRr6YzICQEGku6g/zh-cn_image_0000002658851891.png?HW-CC-KV=V1&HW-CC-Date=20260701T041431Z&HW-CC-Expire=86400&HW-CC-Sign=267317D2254B6BA03914CE3C20AB485E710CAB6DB329079027BE89FD5E419917)
 
 
  
  
 
-##### 解决方案
+#### 解决方案
 
 HarmonyOS系统不支持GAIA蓝牙协议，当前支持包括高级音频分发协议（A2DP）、低功耗蓝牙（BLE）、免提协议（HFP）及串口协议（SPP）在内的多种蓝牙协议[API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/connectivity-arkts)。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：蓝牙socket支持L2CAP方案吗？
  

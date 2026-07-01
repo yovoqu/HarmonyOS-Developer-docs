@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1590
 
-## 如何在页面间进行数据共享和UI同步更新
- 
-
-
-##### 问题现象
+#### 问题现象
 
 父子组件间数据双向同步时，可以将需要共享的数据作为子组件的入参传入，子组件通过[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)/[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)/[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)等装饰器接收，从而实现数据的传递与共享。如果需要进行页面间的数据共享和UI的同步更新，该如何实现呢？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)是页面级的UI状态存储，通过@Entry装饰器接收的参数可以在页面内共享同一个LocalStorage实例。
 - [AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)是与应用进程绑定的全局UI状态存储中心，由UI框架在应用启动时创建，将UI状态数据存储于运行内存，实现应用级全局状态共享。
@@ -23,10 +19,9 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-- **方案一**：创建可观测的全局单例对象，将数据初始化保存在单例中，在需要使用数据的地方引入，实现一处修改，所有使用数据的地方同步刷新UI。以简易通讯录为例：
-创建单例。
+- **方案一**：创建可观测的全局单例对象，将数据初始化保存在单例中，在需要使用数据的地方引入，实现一处修改，所有使用数据的地方同步刷新UI。以简易通讯录为例：1. 创建单例。
 ```text
 @ObservedV2
 export class OptionTwoDetail {
@@ -66,19 +61,19 @@ export class OptionTwoCommonModel {
   }
 
 
-  // 替换通讯录
+ <em> // 替换通讯录</em>
   init(users: OptionTwoUsers) {
     this.users.userArr = users.userArr;
   }
 
 
-  // 增加联系人
+<em>  // 增加联系人</em>
   add(detail: OptionTwoDetail) {
     this.users.userArr.push(detail);
   }
 
 
-  // 返回通讯录单例
+ <em> // 返回通讯录单例</em>
   getUser() {
     return this.users;
   }
@@ -89,7 +84,8 @@ export class OptionTwoCommonModel {
 }
 ```
 
-- 创建主页面。
+
+2. 创建主页面。
 ```text
 import { OptionTwoCommonModel, OptionTwoUsers, OptionTwoDetail } from './OptionTwoSingleViewModel';
 
@@ -140,7 +136,8 @@ struct OptionTwoPageA {
 }
 ```
 
-- 创建详情页面，获取单例对象并实现数据修改。
+
+3. 创建详情页面，获取单例对象并实现数据修改。
 ```text
 import { OptionTwoCommonModel, OptionTwoUsers } from './OptionTwoSingleViewModel';
 
@@ -148,13 +145,13 @@ import { OptionTwoCommonModel, OptionTwoUsers } from './OptionTwoSingleViewModel
 @Entry
 @ComponentV2
 struct OptionTwoPageB {
-  @Local user: OptionTwoUsers = OptionTwoCommonModel.instance.getUser(); // 获取单例User
+  @Local user: OptionTwoUsers = OptionTwoCommonModel.instance.getUser(); <em>// 获取单例User</em>
   @Local userIndex: number = 0;
 
 
   aboutToAppear(): void {
     let param = this.getUIContext().getRouter().getParams() as Param;
-    this.userIndex = param.index; // 获取点击跳转item的索引位置
+    this.userIndex = param.index; <em>// 获取点击跳转item的索引位置</em>
   }
 
 
@@ -173,7 +170,7 @@ struct OptionTwoPageB {
         text: this.user.userArr[this.userIndex].callNumber!!,
         placeholder: '请输入电话号码'
       })
-        .width('90%'); // 未限制只能输入数字，可自行添加限制
+        .width('90%'); <em>// 未限制只能输入数字，可自行添加限制</em>
       Button('修改完成点击返回')
         .margin({ top: 20 })
         .onClick(() => {
@@ -191,8 +188,9 @@ class Param {
 }
 ```
 
-- 在项目的“entry/src/main/resources/base/profile/main_pages.json”中配置路由。
-```text
+
+4. 在项目的“entry/src/main/resources/base/profile/main_pages.json”中配置路由。
+```json
 {
   "src": [
     "pages/OptionTwo/OptionTwoPageA",
@@ -205,9 +203,7 @@ class Param {
 
 
  
- 
-- **方案二**：状态管理V1可以使用LocalStorage和AppStorage实现页面间的数据共享，案例可以参考官网示例：[将LocalStorage实例从UIAbility共享到一个或多个页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#将localstorage实例从uiability共享到一个或多个页面)。状态管理V2可以配合[@ObservedV2和@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)实现深层嵌套数据的同步和UI刷新。以简易通讯录为例：
-使用@ObservedV2和@Trace实现深度观测。
+- **方案二**：状态管理V1可以使用LocalStorage和AppStorage实现页面间的数据共享，案例可以参考官网示例：[将LocalStorage实例从UIAbility共享到一个或多个页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#将localstorage实例从uiability共享到一个或多个页面)。状态管理V2可以配合[@ObservedV2和@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)实现深层嵌套数据的同步和UI刷新。以简易通讯录为例：1. 使用@ObservedV2和@Trace实现深度观测。
 ```text
 @ObservedV2
 export class OptionThreeDetail {
@@ -234,7 +230,8 @@ export class OptionThreeUser {
 }
 ```
 
-- 创建主页面，通过AppStorageV2.connect储存通讯录数据并实现双向绑定。
+
+2. 创建主页面，通过AppStorageV2.connect储存通讯录数据并实现双向绑定。
 ```text
 import { OptionThreeUser, OptionThreeDetail } from './OptionThreeViewModel';
 import { AppStorageV2 } from '@kit.ArkUI';
@@ -286,7 +283,8 @@ struct OptionThreePageA {
 }
 ```
 
-- 创建详情页面，同样通过AppStorageV2.connect实现双向绑定，实现数据修改时同步到主页面。
+
+3. 创建详情页面，同样通过AppStorageV2.connect实现双向绑定，实现数据修改时同步到主页面。
 ```text
 import { OptionThreeUser } from './OptionThreeViewModel';
 import { AppStorageV2 } from '@kit.ArkUI';
@@ -301,7 +299,7 @@ struct OptionThreePageB {
 
   aboutToAppear(): void {
     let param = this.getUIContext().getRouter().getParams() as Param;
-    this.userIndex = param.index; // 获取点击跳转item的索引位置
+    this.userIndex = param.index; <em>// 获取点击跳转item的索引位置</em>
   }
 
 
@@ -320,7 +318,7 @@ struct OptionThreePageB {
         text: this.user.userArr[this.userIndex].callNumber!!,
         placeholder: '请输入电话号码'
       })
-        .width('90%'); // 未限制只能输入数字，可自行添加限制
+        .width('90%'); <em>// 未限制只能输入数字，可自行添加限制</em>
       Button('修改完成点击返回')
         .margin({ top: 20 })
         .onClick(() => {
@@ -338,8 +336,9 @@ class Param {
 }
 ```
 
-- 在项目的“entry/src/main/resources/base/profile/main_pages.json”中配置路由。
-```text
+
+4. 在项目的“entry/src/main/resources/base/profile/main_pages.json”中配置路由。
+```json
 {
   "src": [
     "pages/OptionTwo/OptionTwoPageA",
@@ -352,16 +351,15 @@ class Param {
 
 
  
- 
 方案一和方案二实现效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/_lxPs6JISn6UWNxuYI6Ltg/zh-cn_image_0000002628610308.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025701Z&HW-CC-Expire=86400&HW-CC-Sign=0264601719D448AF7E99F5A68548463D75E87D1B2F8A441FF8A764EEFC79E632)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/_lxPs6JISn6UWNxuYI6Ltg/zh-cn_image_0000002628610308.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041158Z&HW-CC-Expire=86400&HW-CC-Sign=A217B6BAE4752B0BF70BF0DA4560CF7D425C44D4672D87ACF0C8FB6D34662364)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：除了状态管理是否还有其它实现页面间数据共享的方式？
  

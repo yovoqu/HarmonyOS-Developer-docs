@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-testkit-7001
 
-## Test Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 删除错误码 | 类名：Driver； API声明：drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise&lt;void&gt;; 差异内容：401 | 类名：Driver； API声明：drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise&lt;void&gt;; 差异内容：NA | api/@ohos.UiTest.d.ts |

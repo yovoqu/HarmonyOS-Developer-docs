@@ -4,26 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-30
 
-## DevEco Studio无法启动
- 
+#### 问题现象
+1. 下载安装DevEco Studio for Mac(x86) 5.0.3.600之后，打开报错如下：DevEco-Studio已损坏，无法打开。
+2. DevEco Studio NEXT Developer Beta1安装到了win10后无法新建工程、文件等，新建窗口打开后是空白的窗体。重复安装几次，都是同样现象。电脑硬件配置是8G内存。
+3. DevEco Studio软件安装后无法进入，弹出错误弹窗。Windows系统报错如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/9RfIwasgQyeR-2NNdMFSsA/zh-cn_image_0000002658924303.png?HW-CC-KV=V1&HW-CC-Date=20260701T041016Z&HW-CC-Expire=86400&HW-CC-Sign=775B60CEB23641D81C63E2BF3FD807F6B1A19AE028CB2CFA167166275EED38BA)
 
 
-##### 问题现象
+  macOS系统报错如下：
 
-- 下载安装DevEco Studio for Mac(x86) 5.0.3.600之后，打开报错如下：DevEco-Studio已损坏，无法打开。
-- DevEco Studio NEXT Developer Beta1安装到了win10后无法新建工程、文件等，新建窗口打开后是空白的窗体。重复安装几次，都是同样现象。电脑硬件配置是8G内存。
-- DevEco Studio软件安装后无法进入，弹出错误弹窗。Windows系统报错如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/9RfIwasgQyeR-2NNdMFSsA/zh-cn_image_0000002658924303.png?HW-CC-KV=V1&HW-CC-Date=20260701T025910Z&HW-CC-Expire=86400&HW-CC-Sign=BA782447074DE0BCF31CA2CCA4CE0BB472353DAC8CCDF4C63816E2431838CDD9)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/yydHXuZpRbO1qrlJTDvlKQ/zh-cn_image_0000002658804359.png?HW-CC-KV=V1&HW-CC-Date=20260701T041016Z&HW-CC-Expire=86400&HW-CC-Sign=2F4DE2D24CF0245BC0EE8CBCA7C11A0D9308B7EFBFB7A30CEF15757FDE6CBBD7)
 
- macOS系统报错如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/yydHXuZpRbO1qrlJTDvlKQ/zh-cn_image_0000002658804359.png?HW-CC-KV=V1&HW-CC-Date=20260701T025910Z&HW-CC-Expire=86400&HW-CC-Sign=A90746465E63C10BD227AAD370E762E18E6691F7B63C4DFD056D1C729644EB0A)
 
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/SJVoIg1-T_mXe_ojQq2Ihg/zh-cn_image_0000002628564994.png?HW-CC-KV=V1&HW-CC-Date=20260701T025910Z&HW-CC-Expire=86400&HW-CC-Sign=8D9C7B3E94CBC7D4D68155A679D4F2429228BB8C48582009FEB690686BED6471)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/SJVoIg1-T_mXe_ojQq2Ihg/zh-cn_image_0000002628564994.png?HW-CC-KV=V1&HW-CC-Date=20260701T041016Z&HW-CC-Expire=86400&HW-CC-Sign=8C6C2D50B836967872A44CD8E39267153EA223A65DB9EBB3A9A28A00B7C4F552)
 
-- 无法启动，报错信息如下：
+4. 无法启动，报错信息如下：
 ```text
 Translated Report (Full Report Below)
 -------------------------------------
@@ -79,10 +78,9 @@ Application Specific Backtrace 0:
 19 libsystem_pthread.dylib 0x00007ff81c45cf6b thread_start + 15
 ```
 
-
-- 电脑之前下载了5.0.5.200版本的“DevEco-Studio”，没分配模拟器的权限，卸载后，安装910版本的IDE，打开的时候弹框：没权限打开应用程序“DevEco-Studio”。
-- Mac电脑上，点击DevEco Studio图标启动时直接崩溃，崩溃日志中会出现一行报错信息"System Integrity Protection:disabled"。
-- 异常断电后打开IDE，弹框报错Error sending command line to existing instance，打开项目报错信息如下：
+1. 电脑之前下载了5.0.5.200版本的“DevEco-Studio”，没分配模拟器的权限，卸载后，安装910版本的IDE，打开的时候弹框：没权限打开应用程序“DevEco-Studio”。
+2. Mac电脑上，点击DevEco Studio图标启动时直接崩溃，崩溃日志中会出现一行报错信息"System Integrity Protection:disabled"。
+3. 异常断电后打开IDE，弹框报错Error sending command line to existing instance，打开项目报错信息如下：
 ```text
 java.io.UncheckedIOException: com.intellij.util.io.CorruptedException: file[6658].child[14][#48385] is out of valid/allocated id range (1..48384] -> VFS is corrupted (was IDE forcibly terminated?)
    at com.intellij.openapi.vfs.newvfs.persistent.FSRecordsImpl.lambda$static$0(FSRecordsImpl.java:134)
@@ -154,15 +152,15 @@ Caused by: com.intellij.util.io.CorruptedException: file[6658].child[14][#48385]
    ... 51 more
 ```
  DevEco Studio突然无法打开，弹框报错信息如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/1XSfrhdcSHCVNvslPjzCDA/zh-cn_image_0000002628405090.png?HW-CC-KV=V1&HW-CC-Date=20260701T025910Z&HW-CC-Expire=86400&HW-CC-Sign=E9C319598B8603DC5F23CA4C59557FE0DF5CC5559689BB7F3DA06B25CBB721D1)
 
-- DevEco Studio无法正常打开项目。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/1XSfrhdcSHCVNvslPjzCDA/zh-cn_image_0000002628405090.png?HW-CC-KV=V1&HW-CC-Date=20260701T041016Z&HW-CC-Expire=86400&HW-CC-Sign=5602D7CD9B610ACC0F919CE9D874D0A49B3DB625F1CEE48C088AEFD84BE73D94)
 
+4. DevEco Studio无法正常打开项目。
  
  
 
-##### 背景知识
+#### 背景知识
 
 HUAWEI DevEco Studio是基于IntelliJ IDEA Community开源版本打造，为运行在HarmonyOS系统上的应用和元服务提供一站式的开发平台。
  
@@ -170,61 +168,57 @@ SIP是macOS的一项安全功能，旨在防止对关键系统文件和资源的
  
  
 
-##### 问题定位
-
-- 旧版DevEco-Studio是否卸载干净。
-- 检查registry界面中是否取消勾选jcef.sandbox.enable选项。
-- 是否修改了JetBrain的启动脚本。
-- 检查macOS系统SIP是否处于关闭状态。
-- 请检查电脑中是否安装了JetBrains破解软件。
-- 是否是意外退出导致缓存文件受损。
-- 排查是否有内部加密软件。
-- 检查是否有多个DevEco Studio版本，多个版本互相影响导致。
-
+#### 问题定位
+1. 旧版DevEco-Studio是否卸载干净。
+2. 检查registry界面中是否取消勾选jcef.sandbox.enable选项。
+3. 是否修改了JetBrain的启动脚本。
+4. 检查macOS系统SIP是否处于关闭状态。
+5. 请检查电脑中是否安装了JetBrains破解软件。
+6. 是否是意外退出导致缓存文件受损。
+7. 排查是否有内部加密软件。
+8. 检查是否有多个DevEco Studio版本，多个版本互相影响导致。
  
  
 
-##### 分析结论
+#### 分析结论
 
 可能的原因多样，主要为以下多个方面：
- 
-- 安装过程异常导致DevEco Studio异常。或者由于命令行工具没有足够的App管理权限导致。
-- DevEco Studio部分设置错误，比如jcef.sandbox.enable被取消勾选。
-- 修改了JetBrains的启动脚本，导致DevEco Studio使用此脚本时出现不可知的问题。
-- "System Integrity Protection: disabled"，这个报错表示系统完整性保护（SIP）已被禁用，macOS 12.3版本之后，如果SIP（System Integrity Protection）处于关闭状态，则启动IDE时会自动闪退崩溃。
-- 电脑中安装了JetBrains破解软件。
-- 意外退出导致VFS（虚拟文件系统）中文件受损。
-- 内部加密软件修改PC设备的IP地址，导致DevEco Studio出现不可知的问题。
-- 安装多个DevEco Studio版本后，多个缓存配置会影响其使用。
-
+ 1. 安装过程异常导致DevEco Studio异常。或者由于命令行工具没有足够的App管理权限导致。
+2. DevEco Studio部分设置错误，比如jcef.sandbox.enable被取消勾选。
+3. 修改了JetBrains的启动脚本，导致DevEco Studio使用此脚本时出现不可知的问题。
+4. "System Integrity Protection: disabled"，这个报错表示系统完整性保护（SIP）已被禁用，macOS 12.3版本之后，如果SIP（System Integrity Protection）处于关闭状态，则启动IDE时会自动闪退崩溃。
+5. 电脑中安装了JetBrains破解软件。
+6. 意外退出导致VFS（虚拟文件系统）中文件受损。
+7. 内部加密软件修改PC设备的IP地址，导致DevEco Studio出现不可知的问题。
+8. 安装多个DevEco Studio版本后，多个缓存配置会影响其使用。
  
  
 
-##### 修改建议
+#### 修改建议
+1. 安装过程异常导致DevEco Studio异常，或者由于命令行工具没有足够的App管理权限导致。
+重新安装DevEco Studio。卸载之后、重新安装之前，需要删除缓存文件：
 
-- 安装过程异常导致DevEco Studio异常，或者由于命令行工具没有足够的App管理权限导致。
-重新安装DevEco Studio。卸载之后、重新安装之前，需要删除缓存文件： 
 | 系统 | 默认路径 |
+
 | --- | --- |
+
 | MacOS | /Users/您的用户名/Library/Application Support/Huawei/DevEcoStudio5.0<br/>/Users/您的用户名/Library/Logs/Huawei/DevEcoStudio5.0<br/>/Users/您的用户名/Library/Caches/Huawei/DevEcoStudio5.0 |
+
 | Windows | C:\Program Files\Huawei\DevEco Studio<br/>C:\Users\您的用户名\AppData\Local\Huawei\DevEcoStudio5.0 |
-- 命令行工具没有足够的App管理权限导致。打开应用，然后在“系统设置->隐私与安全性->安全性”，在提示“已阻止使用DevEco-Studio”附近，点击“仍要打开”。然后在终端执行如下命令：sudo xattr -d com.apple.quarantine /Applications/DevEco-Studio.app
-
- - help->find action，输入registry，点击生成registry界面；registry界面中取消勾选jcef.sandbox.enable选项。
-- 删除JetBrain的启动脚本。
+2. 命令行工具没有足够的App管理权限导致。打开应用，然后在“系统设置->隐私与安全性->安全性”，在提示“已阻止使用DevEco-Studio”附近，点击“仍要打开”。然后在终端执行如下命令：sudo xattr -d com.apple.quarantine /Applications/DevEco-Studio.app
+3. help->find action，输入registry，点击生成registry界面；registry界面中取消勾选jcef.sandbox.enable选项。
+4. 删除JetBrain的启动脚本。
 打开/Users/{USER_NAME}/Library/LaunchAgents/jetbrains.vmoptions.plist。
-- 删除所有launch setenv *_OPTIONS。
-- 保存并关闭文件。
-- 重启DevEco Studio。
-
- - 开启SIP。
+5. 删除所有launch setenv *_OPTIONS。
+6. 保存并关闭文件。
+7. 重启DevEco Studio。
+8. 开启SIP。
 先重启电脑，在开机时一直按住Command+R进入Recovery模式。
-- 进入Recovery模式后打开终端，终端输入命令csrutil enable开启SIP后重启电脑。
-- 如果第一步不生效，尝试修改boot-args配置。打开终端命令行，输入sudo nvram boot-args="ipc_control_port_options=0"，设置完成后重启电脑。
-
- - 需要删除启动脚本（/Users/{USER_NAME}/Library/LaunchAgents/jetbrains.vmoptions.plist）或者删除/Users/{USER_NAME}/Library/LaunchAgents路径下的文件。
-- 关闭IDE重启电脑，一般IDE发现缓存的VFS损坏，则会进行重新缓存，等待缓存完成即可。
-- 卸载内部加密软件或恢复PC设备之前的IP地址。
-- 只保留一个DevEco版本，删除所有缓存文件。
+9. 进入Recovery模式后打开终端，终端输入命令csrutil enable开启SIP后重启电脑。
+10. 如果第一步不生效，尝试修改boot-args配置。打开终端命令行，输入sudo nvram boot-args="ipc_control_port_options=0"，设置完成后重启电脑。
+11. 需要删除启动脚本（/Users/{USER_NAME}/Library/LaunchAgents/jetbrains.vmoptions.plist）或者删除/Users/{USER_NAME}/Library/LaunchAgents路径下的文件。
+12. 关闭IDE重启电脑，一般IDE发现缓存的VFS损坏，则会进行重新缓存，等待缓存完成即可。
+13. 卸载内部加密软件或恢复PC设备之前的IP地址。
+14. 只保留一个DevEco版本，删除所有缓存文件。
 macOS系统默认缓存文件地址：/Users/您的用户名/Library/Application Support/Huawei/DevEcoStudio5.0、/Users/您的用户名/Library/Logs/Huawei/DevEcoStudio5.0、/Users/您的用户名/Library/Caches/Huawei/DevEcoStudio5.0。
-- Windows系统默认缓存文件地址：C:\Program Files\Huawei\DevEco Studio、C:\Users\您的用户名\AppData\Local\Huawei\DevEcoStudio5.0。
+15. Windows系统默认缓存文件地址：C:\Program Files\Huawei\DevEco Studio、C:\Users\您的用户名\AppData\Local\Huawei\DevEcoStudio5.0。

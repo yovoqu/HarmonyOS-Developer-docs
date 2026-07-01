@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-45
 
-## AudioRenderer如何根据进度条位置跳转播放
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用AudioRenderer播放音频时，不支持类似AVPlayer的seek接口，无法直接跳转到指定播放位置。如何实现拖动进度条，AudioRenderer跳转到对应位置播放？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)是音频渲染器，用于播放PCM（Pulse Code Modulation）音频数据。
 - 可以通过[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#onchange)事件监听[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)组件滑动时的进度值变化。
@@ -22,9 +18,8 @@
  
  
 
-##### 解决方案
-
-- 在Slider拖动过程中，通过[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#onchange)事件监听滑动的进度值value，根据value计算对齐字节后的播放偏移量offset。
+#### 解决方案
+1. 在Slider拖动过程中，通过[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#onchange)事件监听滑动的进度值value，根据value计算对齐字节后的播放偏移量offset。
 ```text
 Slider({
   min: 0,
@@ -47,7 +42,7 @@ Slider({
   });
 ```
 
-- 调用setReadOffset函数，更新音频读取位置readOffset，调用[flush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#flush11)接口清空数据缓冲区，AudioRenderer会通过on('writeData')回调重新读取数据。
+2. 调用setReadOffset函数，更新音频读取位置readOffset，调用[flush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#flush11)接口清空数据缓冲区，AudioRenderer会通过on('writeData')回调重新读取数据。
 ```text
 setReadOffset(offset: number) {
   this.readOffset = offset;
@@ -55,12 +50,12 @@ setReadOffset(offset: number) {
 }
 ```
 
-- 在[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)回调中，offset为读取文件的起点，通过将readOffset赋值给offset，实现从进度条拖动位置开始播放音频的功能。
+3. 在[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)回调中，offset为读取文件的起点，通过将readOffset赋值给offset，实现从进度条拖动位置开始播放音频的功能。
 ```text
 this.renderer.on('writeData', (buffer: ArrayBuffer) => {
   let lastLen = this.fileSize - this.readOffset;
   let readLen = lastLen >= buffer.byteLength ? buffer.byteLength : lastLen;
-  // 读取数据
+<em>  // 读取数据</em>
   fileIo.readSync(this.playFile?.fd, buffer, { offset: this.readOffset, length: readLen });
   this.readOffset += readLen;
   if (this.readOffset >= this.fileSize) {
@@ -68,7 +63,6 @@ this.renderer.on('writeData', (buffer: ArrayBuffer) => {
   }
 });
 ```
-
 
  
 完整示例如下：
@@ -231,7 +225,7 @@ struct DragSlider {
     this.renderer.on('writeData', (buffer: ArrayBuffer) => {
       let lastLen = this.fileSize - this.readOffset;
       let readLen = lastLen >= buffer.byteLength ? buffer.byteLength : lastLen;
-      // 读取数据
+     <em> // 读取数据</em>
       fileIo.readSync(this.playFile?.fd, buffer, { offset: this.readOffset, length: readLen });
       this.readOffset += readLen;
       if (this.readOffset >= this.fileSize) {
@@ -251,7 +245,7 @@ struct DragSlider {
     }
     let contact = context.getHostContext() as Context;
     let pathDir = contact.filesDir;
-    // 需确保沙箱中有此文件
+  <em>  // 需确保沙箱中有此文件</em>
     let filePath = pathDir + `/test.pcm`;
     if (this.playFile?.path !== filePath) {
       if (this.playFile) {

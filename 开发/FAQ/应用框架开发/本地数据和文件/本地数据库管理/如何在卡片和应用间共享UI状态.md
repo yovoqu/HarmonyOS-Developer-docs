@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-66
 
-## 如何在卡片和应用间共享UI状态
- 
-
-
-##### 问题现象
+#### 问题现象
 
 以计数器为例，在应用内和卡片中的计数可以同步增加或减少。如何在卡片和应用间共享UI状态？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Form Kit（卡片开发服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/formkit-overview)提供了一种在桌面、锁屏等系统应用上嵌入显示应用信息的开发框架和API，可以将应用内用户关注的重要信息或常用操作抽取到服务卡片（简称“卡片”）上，通过将卡片添加到桌面、锁屏等系统应用上，以达到信息展示、服务直达的便捷体验效果。
 - [@ohos.commonEventManager (公共事件模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commoneventmanager)提供了公共事件相关的能力，包括发布公共事件、订阅公共事件、以及退订公共事件。
@@ -24,13 +20,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 **解决方案一：**
  
 由于卡片与应用属于不同进程，所以选择使用commonEventManager公共事件模块，分别在主应用端和卡片端发布、订阅公共事件，实现UI状态共享。
- 
-- 创建src/main/ets/utils/SubscriberClass.ets，将其作为工具类，提供订阅和发布公共事件方法。
+ 1. 创建src/main/ets/utils/SubscriberClass.ets，将其作为工具类，提供订阅和发布公共事件方法。
 ```text
 import commonEventManager from '@ohos.commonEventManager';
 
@@ -48,15 +43,15 @@ class SubscriberClass {
 
 
   subscribe(eventType: string, callback: (event: string) => void) {
-    // 1.创建订阅者
+ <em>   // 1.创建订阅者</em>
     commonEventManager.createSubscriber({ events: [eventType] }, (err, data) => {
       if (err) {
         return console.info('logData:', '创建订阅者失败');
       }
-      // 2.data是订阅者
+    <em>  // 2.data是订阅者</em>
       this.subscriber = data;
       if (this.subscriber) {
-        // 3.订阅事件
+      <em>  // 3.订阅事件</em>
         commonEventManager.subscribe(this.subscriber, (err, data) => {
           if (err) {
             return console.info('logData:', '订阅者事件失败');
@@ -74,7 +69,7 @@ class SubscriberClass {
 export const subscriberClass = new SubscriberClass();
 ```
 
-- 在主应用的aboutToAppear方法中订阅来自卡片发布的事件，同时分别在新增和减少按钮的点击事件中发布应用内数量变更事件。
+2. 在主应用的aboutToAppear方法中订阅来自卡片发布的事件，同时分别在新增和减少按钮的点击事件中发布应用内数量变更事件。
 ```text
 import { subscriberClass } from '../utils/SubscriberClass';
 
@@ -86,7 +81,7 @@ struct Index {
 
 
   aboutToAppear(): void {
-    // 订阅来自卡片发布的事件
+  <em>  // 订阅来自卡片发布的事件</em>
     subscriberClass.subscribe('appUpdate', (event) => {
       this.count = Number(event);
     });
@@ -100,9 +95,9 @@ struct Index {
       Button('-')
         .width(80)
         .onClick(() => {
-          // 减少计数器
+       <em>   // 减少计数器</em>
           this.count--;
-          // 发布事件
+        <em>  // 发布事件</em>
           subscriberClass.publish('cardUpdate', this.count.toString());
         });
 
@@ -113,9 +108,9 @@ struct Index {
       Button('+')
         .width(80)
         .onClick(() => {
-          // 增加计数器
+       <em>   // 增加计数器</em>
           this.count++;
-          // 发布事件
+      <em>    // 发布事件</em>
           subscriberClass.publish('cardUpdate', this.count.toString());
         });
     }.width('100%').height('100%').justifyContent(FlexAlign.Center);
@@ -123,8 +118,8 @@ struct Index {
 }
 ```
 
-- 在卡片生命周期EntryFormAbility的onAddForm生命周期和onFormEvent生命周期分别订阅和发布公共事件。
-```text
+3. 在卡片生命周期EntryFormAbility的onAddForm生命周期和onFormEvent生命周期分别订阅和发布公共事件。
+```json
 import { formBindingData, FormExtensionAbility, formInfo, formProvider } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
 import { subscriberClass } from '../utils/SubscriberClass';
@@ -139,10 +134,10 @@ interface Param {
 
 export default class EntryFormAbility extends FormExtensionAbility {
   onAddForm(want: Want) {
-    // Called to return a FormBindingData object.
+    <em>// Called to return a FormBindingData object.</em>
     let formData = '';
     let formId: string = want.parameters![formInfo.FormParam.IDENTITY_KEY] as string;
-    // 订阅公共事件
+   <em> // 订阅公共事件</em>
     subscriberClass.subscribe('cardUpdate', (event) => {
       formProvider.updateForm(formId, formBindingData.createFormBindingData({
         count: event
@@ -154,21 +149,23 @@ export default class EntryFormAbility extends FormExtensionAbility {
   }
 
 
+
+
   onCastToNormalForm(formId: string) {
-    // Called when the form provider is notified that a temporary form is successfully
-    // converted to a normal form.
+   <em> // Called when the form provider is notified that a temporary form is successfully</em>
+<em>    // converted to a normal form.</em>
     console.info('onCastToNormalForm', formId);
   }
 
 
   onUpdateForm(formId: string) {
-    // Called to notify the form provider to update a specified form.
+  <em>  // Called to notify the form provider to update a specified form.</em>
     console.info('onUpdateForm', formId);
   }
 
 
   onFormEvent(formId: string, message: string) {
-    // Called when a specified message event defined by the form provider is triggered.
+   <em> // Called when a specified message event defined by the form provider is triggered.</em>
     console.info('onFormEvent', formId);
     // 发布公共事件
     let param = JSON.parse(message) as Param;
@@ -177,7 +174,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
   onRemoveForm(formId: string) {
-    // Called to notify the form provider that a specified form has been destroyed.
+    <em>// Called to notify the form provider that a specified form has been destroyed.</em>
     console.info('onRemoveForm', formId);
   }
 
@@ -189,7 +186,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
 };
 ```
 
-- 在卡片页面接收来自应用的数据，并通过postCardAction事件发布计数器数据变化。
+4. 在卡片页面接收来自应用的数据，并通过postCardAction事件发布计数器数据变化。
 ```text
 const localStorage = new LocalStorage();
 
@@ -240,7 +237,6 @@ struct WidgetCard {
 }
 ```
 
-
  
  
 **解决方案二：**
@@ -248,8 +244,7 @@ struct WidgetCard {
 当主应用需要将数据同步至卡片时，在主应用中可通过[formProvider.getPublishedRunningFormInfos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formprovidergetpublishedrunningforminfos20)接口首先获取设备上当前应用程序所有已经加载到桌面的卡片信息，然后通过[formProvider.updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口对指定的卡片进行更新；
  
 当卡片需要将数据同步至主应用时，与方案一一致，通过[postCardAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-postcardaction)的message事件触发卡片onFormEvent生命周期，然后发布公共事件。
- 
-- 创建src/main/ets/utils/SubscriberClass.ets，并将其作为工具类。
+ 1. 创建src/main/ets/utils/SubscriberClass.ets，并将其作为工具类。
 ```text
 import commonEventManager from '@ohos.commonEventManager';
 
@@ -267,15 +262,15 @@ class SubscriberClass {
 
 
   subscribe(eventType: string, callback: (event: string) => void) {
-    // 1.创建订阅者
+  <em>  // 1.创建订阅者</em>
     commonEventManager.createSubscriber({ events: [eventType] }, (err, data) => {
       if (err) {
         return console.info('logData:', '创建订阅者失败');
       }
-      // 2.data是订阅者
+     <em> // 2.data是订阅者</em>
       this.subscriber = data;
       if (this.subscriber) {
-        // 3.订阅事件
+      <em>  // 3.订阅事件</em>
         commonEventManager.subscribe(this.subscriber, (err, data) => {
           if (err) {
             return console.info('logData:', '订阅者事件失败');
@@ -293,8 +288,8 @@ class SubscriberClass {
 export const subscriberClass = new SubscriberClass();
 ```
 
-- 在主应用的aboutToAppear方法中订阅来自卡片发布的事件，同时获取当前设备当前应用已上桌的卡片，过滤出需要更新的卡片信息。对计数器的值使用@Watch进行监听，当发送变化时，通过updateForm方法更新卡片。
-```text
+2. 在主应用的aboutToAppear方法中订阅来自卡片发布的事件，同时获取当前设备当前应用已上桌的卡片，过滤出需要更新的卡片信息。对计数器的值使用@Watch进行监听，当发送变化时，通过updateForm方法更新卡片。
+```json
 import { subscriberClass } from '../utils/SubscriberClass';
 import { formBindingData, formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -308,16 +303,16 @@ struct Index {
 
 
   aboutToAppear(): void {
-    // 订阅来自卡片发布的事件
+   <em> // 订阅来自卡片发布的事件</em>
     subscriberClass.subscribe('appUpdate', (event) => {
       this.count = Number(event);
     });
 
 
-    // 获取已上桌的卡片
+  <em>  // 获取已上桌的卡片</em>
     formProvider.getPublishedRunningFormInfos().then((data: formInfo.RunningFormInfo[]) => {
       console.info(`formProvider getPublishedRunningFormInfos, data: ${JSON.stringify(data)}`);
-      // 过滤出需要同步更新的卡片，可以根据卡片名称
+      <em>// 过滤出需要同步更新的卡片，可以根据卡片名称</em>
       this.updateForms = data.filter((item) => item.formName === 'widget');
     }).catch((error: BusinessError) => {
       console.error(`promise error, code: ${error.code}, message: ${error.message})`);
@@ -332,7 +327,7 @@ struct Index {
       Button('-')
         .width(80)
         .onClick(() => {
-          // 减少计数器
+      <em>    // 减少计数器</em>
           this.count--;
         });
 
@@ -343,18 +338,18 @@ struct Index {
       Button('+')
         .width(80)
         .onClick(() => {
-          // 增加计数器
+      <em>    // 增加计数器</em>
           this.count++;
         });
     }.width('100%').height('100%').justifyContent(FlexAlign.Center);
   }
 
 
-  // 计数器变化监听
+  <em>// 计数器变化监听</em>
   countChange() {
-    // 遍历卡片
+ <em>   // 遍历卡片</em>
     this.updateForms.forEach((item) => {
-      // 值更新
+   <em>   // 值更新</em>
       formProvider.updateForm(item.formId, formBindingData.createFormBindingData({
         count: this.count
       }), (error: BusinessError) => {
@@ -369,8 +364,8 @@ struct Index {
 }
 ```
 
-- 在卡片生命周期EntryFormAbility的onFormEvent生命周期发布公共事件，无需像步骤一那样订阅发布事件。
-```text
+3. 在卡片生命周期EntryFormAbility的onFormEvent生命周期发布公共事件，无需像步骤一那样订阅发布事件。
+```json
 import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
 import { subscriberClass } from '../utils/SubscriberClass';
@@ -383,9 +378,11 @@ interface Param {
 }
 
 
+
+
 export default class EntryFormAbility extends FormExtensionAbility {
   onAddForm(want: Want) {
-    // Called to return a FormBindingData object.
+   <em> // Called to return a FormBindingData object.</em>
     let formId: string = want.parameters![formInfo.FormParam.IDENTITY_KEY] as string;
     console.info('onAddForm', formId);
     const formData = '';
@@ -394,40 +391,40 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
   onCastToNormalForm(formId: string) {
-    // Called when the form provider is notified that a temporary form is successfully
-    // converted to a normal form.
+  <em>  // Called when the form provider is notified that a temporary form is successfully</em>
+<em>    // converted to a normal form.</em>
     console.info('onCastToNormalForm', formId);
   }
 
 
   onUpdateForm(formId: string) {
-    // Called to notify the form provider to update a specified form.
+   <em> // Called to notify the form provider to update a specified form.</em>
     console.info('onUpdateForm', formId);
   }
 
 
   onFormEvent(formId: string, message: string) {
-    // Called when a specified message event defined by the form provider is triggered.
+   <em> // Called when a specified message event defined by the form provider is triggered.</em>
     let param = JSON.parse(message) as Param;
     subscriberClass.publish('appUpdate', param.count.toString());
   }
 
 
   onRemoveForm(formId: string) {
-    // Called to notify the form provider that a specified form has been destroyed.
+  <em>  // Called to notify the form provider that a specified form has been destroyed.</em>
     console.info('onRemoveForm', formId);
   }
 
 
   onAcquireFormState(want: Want) {
-    // Called to return a {@link FormState} object.
+  <em>  // Called to return a {@link FormState} object.</em>
     console.info('onAcquireFormState', want.bundleName);
     return formInfo.FormState.READY;
   }
 };
 ```
 
-- 在卡片页面接收来自应用的数据，并通过postCardAction事件发布计数器数据变化。
+4. 在卡片页面接收来自应用的数据，并通过postCardAction事件发布计数器数据变化。
 ```text
 const localStorage = new LocalStorage();
 
@@ -478,10 +475,9 @@ struct WidgetCard {
 }
 ```
 
-
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：通过AppStorage为何无法在应用与卡片间共享UI状态？
  
@@ -493,7 +489,7 @@ A：FormExtensionAbility创建后10秒内无操作将会被清理。如果FormEx
  
  
 
-##### 总结
+#### 总结
 
 - 解决方案一通过公共事件模块实现卡片和应用间共享UI状态，该方法在主应用和卡片间实现方式统一，方案简洁，但是当卡片进程消亡后，主应用无法再同步数据至卡片。
 - 解决方案二为了对方案一进行改进，在主应用同步数据至卡片时采用调用卡片更新接口的方式进行实现。而该方案当主应用从任务列表清除再冷启动时，无法同步卡片最后更新的数据，需要考虑采用持久化方案。

@@ -3,18 +3,16 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectextensioninfo8h
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## OH_AbilityRuntime_ModularObjectExtensionInfo*
- 
 
 ```text
 typedef struct OH_AbilityRuntime_ModularObjectExtensionInfo* OH_AbilityRuntime_ModObjExtensionInfoHandle
 ```
   
 
-##### 概述
+#### 概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示单个ModularObjectExtensionAbility的信息句柄。该句柄指向一个ModularObjectExtensionAbility的完整信息，包含启动模式、进程模式、线程模式、组件名称（[AbilityBase_Element](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilitybase-element)）以及禁用状态等属性。
  

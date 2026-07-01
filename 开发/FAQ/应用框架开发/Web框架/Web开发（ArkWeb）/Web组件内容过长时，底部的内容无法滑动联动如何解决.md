@@ -4,18 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-133
 
-## Web组件内容过长时，底部的内容无法滑动联动如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当Web组件内容过长时，出现了布局问题，底部固定栏文字超出屏幕范围并被截断，该如何解决？
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/ol8t07AtRMOEWeuYtJ57LA/zh-cn_image_0000002628899132.png?HW-CC-KV=V1&HW-CC-Date=20260701T025739Z&HW-CC-Expire=86400&HW-CC-Sign=E4E077633898C8022C24C91228A22785F3E2668A3E56E0D6BBD054424A9E98BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/ol8t07AtRMOEWeuYtJ57LA/zh-cn_image_0000002628899132.png?HW-CC-KV=V1&HW-CC-Date=20260701T041336Z&HW-CC-Expire=86400&HW-CC-Sign=E08FFDDF7CA0683AE21B1FBDAC9C99F61E0D29480A91FF5DD0EA76726DF09D37)
 
  
 示例代码：
@@ -53,15 +49,15 @@ struct WebScroll {
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/3gqa3tqzQAqkmrpvo0ctJw/zh-cn_image_0000002659138401.png?HW-CC-KV=V1&HW-CC-Date=20260701T025739Z&HW-CC-Expire=86400&HW-CC-Sign=B6305AE747C757C886F214D304B2156981F9B5CFA1E32FC8423B71515BE7280F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/3gqa3tqzQAqkmrpvo0ctJw/zh-cn_image_0000002659138401.png?HW-CC-KV=V1&HW-CC-Date=20260701T041336Z&HW-CC-Expire=86400&HW-CC-Sign=549708288DDDB65152190D704F2FFC6D325E20EDA0C9D3E9847B7A90238DA401)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)：可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
 - [Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)：提供具有网页显示能力的Web组件。
@@ -70,25 +66,25 @@ struct WebScroll {
  
  
 
-##### 问题定位
+#### 问题定位
 
 针对布局问题，首先分析组件的层级结构：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/WTH7xHS2SlK5-gn738pXzQ/zh-cn_image_0000002629059050.png?HW-CC-KV=V1&HW-CC-Date=20260701T025739Z&HW-CC-Expire=86400&HW-CC-Sign=52A6A292E6EA640A7A862ED102E9C968353FBAAC77B3A9ABBDEFC12DAB18D191)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/WTH7xHS2SlK5-gn738pXzQ/zh-cn_image_0000002629059050.png?HW-CC-KV=V1&HW-CC-Date=20260701T041336Z&HW-CC-Expire=86400&HW-CC-Sign=D919D34FA904DA4CF5C91B219811B0A7455C8A5565A7E8ACADD15C13673CA1F1)
 
  
 当未指定高度时，Column、Scroll组件的默认高度、宽度均是100%。
  
  
 
-##### 分析结论
+#### 分析结论
 
 Scroll组件和标题文字已经占据了全部屏幕内容控件，导致底部固定栏文字的位置超过了屏幕内容区域范围，扩展到屏幕底部安全区域。
  
  
 
-##### 修改建议
+#### 修改建议
 
 layoutWeight属性可以实现高度自适应效果，如果父容器尺寸确定时，设置了layoutWeight属性且layoutWeight属性生效值大于0的子元素会从主轴剩余空间中按照各自所设置的权重占比分配尺寸，忽略元素本身尺寸设置，自适应占满剩余空间。将Scroll组件设置layoutWeight(1)即可自适应高度解决此问题。
  

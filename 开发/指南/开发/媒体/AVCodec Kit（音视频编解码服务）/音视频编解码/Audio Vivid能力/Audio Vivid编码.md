@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audiovivid-audioencoder
 
-## Audio Vivid编码
- 
-
 Audio Vivid格式的码流可以保存音频对象的位置、增益等信息，在需要改变音频对象的位置、音量增益的场景，从API版本26.0.0开始可以使用Audio Vivid编码。此处的音频对象是指被感知为一个整体的声音或由一个声源发出的独立于环境的声音。
  
 详细的API请参考[AudioCodec模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audiocodec)。
@@ -38,7 +35,7 @@ Audio Vivid编码当前支持的规格如下表所示。
 如果传入的码率与表格的对不上，则会向下自适应为表格的码率。如果小于最低码率，则自适应为最低码率。
   
 
-##### 在CMake脚本中链接到动态库
+#### 在CMake脚本中链接到动态库
 
 ```text
 target_link_libraries(sample PUBLIC
@@ -49,21 +46,21 @@ libnative_media_acodec.so libnative_media_avdemuxer.so libnative_media_avsource.
  
   
 
-##### 添加头文件
+#### 添加头文件
 
 ```text
 // 头文件。
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
+#include <multimedia/player_framework/native_avcodec_audiocodec.h>
+#include <multimedia/native_audio_channel_layout.h>
+#include <multimedia/player_framework/native_avcapability.h>
+#include <multimedia/player_framework/native_avcodec_base.h>
+#include <multimedia/player_framework/native_avformat.h>
+#include <multimedia/player_framework/native_avbuffer.h>
 ```
  
   
 
-##### 定义相关实例
+#### 定义相关实例
 
 - 定义编码输出数据结构体，该结构体会在[AudioVividEncoder类](#audiovividencoder类)里使用，用于传递编码输出的数据、数据长度、pts信息。
 
@@ -84,11 +81,11 @@ struct AudioVividEncoderOutputData {
 struct AudioVividEncoderContext {
     std::mutex inputMutex;
     std::condition_variable inputCond;
-    std::queue inputBufferIndices;
-    std::queue inputBufferQueue;
+    std::queue<uint32_t> inputBufferIndices;
+    std::queue<OH_AVBuffer *> inputBufferQueue;
     std::mutex outputMutex;
     std::condition_variable outputCond;
-    std::queue outputQueue;
+    std::queue<AudioVividEncoderOutputData> outputQueue;
     bool eos = false;
     int32_t errorCode = 0;
 };
@@ -96,7 +93,7 @@ struct AudioVividEncoderContext {
  
   
 
-##### AudioVividEncoder类
+#### AudioVividEncoder类
 
 - 该类调用Audio Vivid编码的ndk接口，使用该类调用Audio Vivid编码流程更加简便。具体参考[开发步骤](#开发步骤)。
 
@@ -228,7 +225,31 @@ int32_t AudioVividEncoder::Configure()
     OH_AVFormat_SetIntValue(format, OH_MD_KEY_AUD_SAMPLE_RATE, sampleRate_);
     OH_AVFormat_SetLongValue(format, OH_MD_KEY_BITRATE, 128000);
 
-    // mc模式下（声道数 > 2 且 声道数  0 且 声道数 + 对象数 (userData);
+    // mc模式下（声道数 > 2 且 声道数 <= 16），以下key必填。
+    OH_AVFormat_SetIntValue(format, OH_MD_KEY_AUDIO_VIVID_SIGNAL_FORMAT, OH_AUDIO_VIVID_SIGNAL_FORMAT_MC);
+    OH_AVFormat_SetIntValue(format, OH_MD_KEY_AUDIO_SAMPLE_FORMAT, SAMPLE_S24LE);
+    OH_AVFormat_SetIntValue(format, OH_MD_KEY_AUD_SAMPLE_RATE, sampleRate_);
+    OH_AVFormat_SetLongValue(format, OH_MD_KEY_CHANNEL_LAYOUT, channelLayout_);
+    OH_AVFormat_SetLongValue(format, OH_MD_KEY_BITRATE, 128000);
+
+    // mix模式（对象数 > 0 且 声道数 + 对象数 <= 16）。
+    OH_AVFormat_SetIntValue(format, OH_MD_KEY_AUDIO_VIVID_SIGNAL_FORMAT, OH_AUDIO_VIVID_SIGNAL_FORMAT_MIX);  // 必填
+    OH_AVFormat_SetIntValue(format, OH_MD_KEY_AUDIO_SAMPLE_FORMAT, SAMPLE_S24LE);  // 必填
+    OH_AVFormat_SetIntValue(format, OH_MD_KEY_AUD_SAMPLE_RATE, sampleRate_);  // 必填
+    OH_AVFormat_SetLongValue(format, OH_MD_KEY_AUDIO_SOUNDBED_LAYOUT, channelLayout_);  // 选填，有声床时填
+    OH_AVFormat_SetLongValue(format, OH_MD_KEY_AUDIO_SOUNDBED_BITRATE, 128000);  // 选填，有声床时填
+    OH_AVFormat_SetIntValue(format, OH_MD_KEY_AUDIO_OBJECT_NUMBER, 2);  // 选填，有对象时填
+    OH_AVFormat_SetLongValue(format, OH_MD_KEY_AUDIO_OBJECT_BITRATE, 64000);  // 选填，有对象时填
+```
+ 
+- SetCallback()函数实现，该函数用于设置Audio Vivid编码器获取输入buffer、输出buffer的回调函数。当Audio Vivid有输入空buffer时会调用onNeedInputBuffer回调函数，Audio Vivid有输出数据的时候调用onNewOutputBuffer回调函数。
+
+ 
+```text
+int32_t AudioVividEncoder::SetCallback()
+{
+    auto onError = [](OH_AVCodec *codec, int32_t errorCode, void *userData) {
+        AudioVividEncoderContext *context = static_cast<AudioVividEncoderContext *>(userData);
         context->errorCode = errorCode;
         context->outputCond.notify_all();
         AVCODEC_SAMPLE_LOGE("Encoder error: %{public}d", errorCode);
@@ -237,14 +258,14 @@ int32_t AudioVividEncoder::Configure()
         AVCODEC_SAMPLE_LOGI("Encoder format change");
     };
     auto onNeedInputBuffer = [](OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData) {
-        AudioVividEncoderContext *context = static_cast(userData);
-        std::unique_lock lock(context->inputMutex);
+        AudioVividEncoderContext *context = static_cast<AudioVividEncoderContext *>(userData);
+        std::unique_lock<std::mutex> lock(context->inputMutex);
         context->inputBufferIndices.push(index);
         context->inputBufferQueue.push(buffer);
         context->inputCond.notify_all();
     };
     auto onNewOutputBuffer = [](OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData) {
-        AudioVividEncoderContext *context = static_cast(userData);
+        AudioVividEncoderContext *context = static_cast<AudioVividEncoderContext *>(userData);
         AudioVividEncoderOutputData outputData;
         OH_AVCodecBufferAttr attr;
         OH_AVBuffer_GetBufferAttr(buffer, &attr);
@@ -258,7 +279,7 @@ int32_t AudioVividEncoder::Configure()
             memcpy(outputData.encodedData, encodedAddr, attr.size);
         }
         {
-            std::unique_lock lock(context->outputMutex);
+            std::unique_lock<std::mutex> lock(context->outputMutex);
             context->outputQueue.push(outputData);
             context->outputCond.notify_all();
         }
@@ -301,7 +322,7 @@ int32_t AudioVividEncoder::Start()
 ```text
 void AudioVividEncoder::UpdateMetadata(uint8_t *metadata, int32_t metadataSize)
 {
-    std::lock_guard lock(metadataMutex_);
+    std::lock_guard<std::mutex> lock(metadataMutex_);
     if (currentMetadata_) {
         delete[] currentMetadata_;
     }
@@ -321,7 +342,14 @@ void AudioVividEncoder::UpdateMetadata(uint8_t *metadata, int32_t metadataSize)
 int32_t AudioVividEncoder::PushInputBuffer(
     uint8_t *pcmData, int32_t pcmSize, uint8_t *metadata, int32_t metadataSize, int64_t presentationTimeUs)
 {
-    if (encoder_ == nullptr || pcmData == nullptr || pcmSize  lock(context_.inputMutex);
+    if (encoder_ == nullptr || pcmData == nullptr || pcmSize <= 0) {
+        AVCODEC_SAMPLE_LOGE("Invalid parameters: encoder=%{public}s, pcmData=%{public}s, pcmSize=%{public}d",
+            encoder_ ? "valid" : "null",
+            pcmData ? "valid" : "null",
+            pcmSize);
+        return -1;
+    }
+    std::unique_lock<std::mutex> lock(context_.inputMutex);
     if (context_.inputBufferIndices.empty()) {
         context_.inputCond.wait_for(lock, std::chrono::milliseconds(100), [this] { // 等100ms输入。
             return !context_.inputBufferIndices.empty() || context_.eos;
@@ -343,7 +371,7 @@ int32_t AudioVividEncoder::PushInputBuffer(
         pcmSize = capacity;
     }
     memcpy(bufferAddr, pcmData, pcmSize);
-    OH_AVCodecBufferAttr attr = {static_cast(presentationTimeUs), pcmSize, 0, AVCODEC_BUFFER_FLAGS_NONE};
+    OH_AVCodecBufferAttr attr = {static_cast<int32_t>(presentationTimeUs), pcmSize, 0, AVCODEC_BUFFER_FLAGS_NONE};
     OH_AVBuffer_SetBufferAttr(buffer, &attr);
     if (metadata && metadataSize > 0) {
         AttachMetadataToBuffer(buffer, metadata, metadataSize);
@@ -377,7 +405,7 @@ void AudioVividEncoder::AttachMetadataToBuffer(OH_AVBuffer *buffer, uint8_t *met
 ```text
 AudioVividEncoderOutputData *AudioVividEncoder::GetOutputBuffer()
 {
-    std::unique_lock lock(context_.outputMutex);
+    std::unique_lock<std::mutex> lock(context_.outputMutex);
     // 等待100ms。
     context_.outputCond.wait_for(lock, std::chrono::milliseconds(100),
         [this] { return !context_.outputQueue.empty() || context_.eos; });
@@ -395,7 +423,7 @@ AudioVividEncoderOutputData *AudioVividEncoder::GetOutputBuffer()
 ```text
 void AudioVividEncoder::FreeOutputBuffer()
 {
-    std::unique_lock lock(context_.outputMutex);
+    std::unique_lock<std::mutex> lock(context_.outputMutex);
     if (!context_.outputQueue.empty()) {
         AudioVividEncoderOutputData &data = context_.outputQueue.front();
         if (data.encodedData) {
@@ -424,8 +452,8 @@ int32_t AudioVividEncoder::Stop()
         AVCODEC_SAMPLE_LOGE("Stop encoder failed, ret: %{public}d", ret);
         return -1;
     }
-    context_.inputBufferIndices = std::queue();
-    context_.inputBufferQueue = std::queue();
+    context_.inputBufferIndices = std::queue<uint32_t>();
+    context_.inputBufferQueue = std::queue<OH_AVBuffer *>();
     AVCODEC_SAMPLE_LOGI("AudioVivid encoder stopped");
     return 0;
 }
@@ -443,7 +471,7 @@ int32_t AudioVividEncoder::Release()
         encoder_ = nullptr;
     }
     {
-        std::unique_lock lock(context_.outputMutex);
+        std::unique_lock<std::mutex> lock(context_.outputMutex);
         while (!context_.outputQueue.empty()) {
             AudioVividEncoderOutputData &data = context_.outputQueue.front();
             if (data.encodedData) {
@@ -465,9 +493,9 @@ int32_t AudioVividEncoder::Release()
  
   
 
-##### 开发步骤
+#### 开发步骤
+1. 创建Audio Vivid编码器。
 
-- 创建Audio Vivid编码器。
   
 ```text
 // 创建编码器。
@@ -493,7 +521,8 @@ int32_t AudioVividEncoder::Release()
     encoderOutputThread_ = std::thread(&AudioVividPlaybackManager::EncoderOutputThread, this);
 ```
 
-- 配置Audio Vivid编码参数。
+2. 配置Audio Vivid编码参数。
+
   
 ```text
 ret = encoder_.Config(SAMPLE_RATE, PCM_CHANNEL_COUNT, CHANNEL_LAYOUT, BITRATE);
@@ -503,7 +532,8 @@ ret = encoder_.Config(SAMPLE_RATE, PCM_CHANNEL_COUNT, CHANNEL_LAYOUT, BITRATE);
     }
 ```
 
-- 开始Audio Vivid编码。
+3. 开始Audio Vivid编码。
+
   
 ```text
 ret = encoder_.Start();
@@ -513,13 +543,15 @@ ret = encoder_.Start();
     }
 ```
 
-- 创建Audio Vivid编码的输入线程。
+4. 创建Audio Vivid编码的输入线程。
+
   
 ```text
 // 创建编码输入输出线程。
     encoderInputThread_ = std::thread(&AudioVividPlaybackManager::EncoderInputThread, this);
 ```
    编码输入程的实现。该线程从文件里面读取pcm数据放到pcmBuffer，然后送给Audio Vivid编码器。实际使用时可以把写入pcmBuffer的数据换成需要的。
+
   
 ```text
 void AudioVividPlaybackManager::EncoderInputThread()
@@ -529,7 +561,7 @@ void AudioVividPlaybackManager::EncoderInputThread()
     while (!shouldStop_.load()) {
         size_t queueSize = 0;
         {
-            std::lock_guard lock(decodedQueueMutex_);
+            std::lock_guard<std::mutex> lock(decodedQueueMutex_);
             queueSize = decodedDataQueue_.size();
         }
         if (queueSize >= MAX_DECODED_QUEUE_SIZE) {
@@ -537,7 +569,20 @@ void AudioVividPlaybackManager::EncoderInputThread()
             continue;
         }
         int32_t bytesRead = pcmReader_.Read(pcmBuffer, BYTES_PER_PCM_FRAME);
-        if (bytesRead  lock(metadataMutex_);
+        if (bytesRead <= 0) {
+            if (pcmReader_.IsEOF()) {
+                pcmReader_.Reset();
+                AVCODEC_SAMPLE_LOGI("PCM file looped, restarting from beginning");
+            }
+            continue;
+        }
+        memset(encoderBuffer, 0, BYTES_PER_FRAME);
+        memcpy(encoderBuffer, pcmBuffer, bytesRead);
+        int64_t pts = presentationTimeUs_.fetch_add(FRAME_SIZE * 1000000 / SAMPLE_RATE); // 1000000：1s转为us。
+        uint8_t *metadata = nullptr;
+        int32_t metadataSize = 0;
+        {
+            std::lock_guard<std::mutex> lock(metadataMutex_);
             if (currentMetadata_ && currentMetadataSize_ > 0) {
                 metadata = currentMetadata_;
                 metadataSize = currentMetadataSize_;
@@ -554,12 +599,14 @@ void AudioVividPlaybackManager::EncoderInputThread()
 }
 ```
 
-- 创建Audio Vivid编码的输出线程。
+5. 创建Audio Vivid编码的输出线程。
+
   
 ```text
 encoderOutputThread_ = std::thread(&AudioVividPlaybackManager::EncoderOutputThread, this);
 ```
    编码输出线程的实现。当Audio Vivid有编码输出时，该线程会获取编码输出的数据，放入outputData里。
+
   
 ```text
 void AudioVividPlaybackManager::EncoderOutputThread()
@@ -585,7 +632,8 @@ void AudioVividPlaybackManager::EncoderOutputThread()
 }
 ```
 
-- 停止和释放实例。
+6. 停止和释放实例。
+
   
 ```text
 encoder_.GetContext()->inputCond.notify_all();

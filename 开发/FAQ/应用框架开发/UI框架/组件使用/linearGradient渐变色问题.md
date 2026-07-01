@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1179
 
-## linearGradient渐变色问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用linearGradient设置颜色渐变，当色值设为00时透明度未生效。
  
@@ -38,7 +34,7 @@ struct Page1 {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color#lineargradient)设置组件的颜色渐变效果，支持方向控制和多颜色配置。
 - colors参数的约束：[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)表示填充的颜色，number表示指定颜色所处的位置，取值范围为[0,1.0]，0表示需要设置渐变色的容器的开始处，1.0表示容器的结尾处。想要实现多个颜色渐变效果时，多个数组中number参数建议递增设置，如后一个数组number参数比前一个数组number小的话，按照等于前一个数组number的值处理。
@@ -58,7 +54,7 @@ struct Page1 {
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 选择适当的颜色纯度和透明度是确保linearGradient渐变效果明显的关键。纯度较高且透明度适中的颜色组合更容易产生明显的渐变效果。
 - 透明度为0时，由于数值解析机制导致0x00前缀透明度失效，所以0x00的写法不支持，建议使用#00333333写法。
@@ -97,27 +93,33 @@ struct Page2 {
   }
 }
 ```
- 
- 如下图示例：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/rVJIhBqZT7WEHuKC4v_Clw/zh-cn_image_0000002658832207.png?HW-CC-KV=V1&HW-CC-Date=20260701T025603Z&HW-CC-Expire=86400&HW-CC-Sign=71DE3BF3101B388B351CAE3D4EF89167EF24C917E13C68526274BFABE64B0631)
+
+
+  如下图示例：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/rVJIhBqZT7WEHuKC4v_Clw/zh-cn_image_0000002658832207.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=F051ECB389F737C81E8A16404924CCDC77E6D35C30B06873F99B6AF98A3E0E0B)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：linearGradient如何设置渐变方向和多颜色配置？
  
 A：以下两个案例介绍linearGradient的使用语法：
  
 - 案例一：linearGradient({angle: 0, colors: [[0xff0000, 0.0], [0xffe096, 1.0]]})angle表示线性渐变的起始角度，角度为0度时渐变方向为从下往上（即0点方向）；
- colors为指定渐变色颜色和其对应的百分比位置的数组，其中0xff0000表示起始位置颜色，0xffe096为结束的位置颜色，中间即为0xff0000到0xffe096渐变颜色。
+
+  colors为指定渐变色颜色和其对应的百分比位置的数组，其中0xff0000表示起始位置颜色，0xffe096为结束的位置颜色，中间即为0xff0000到0xffe096渐变颜色。
 - 案例二：linearGradient({direction: GradientDirection.Left, repeating: true, colors: [[0xff0000, 0.0], [0x0000ff, 0.3], [0xffff00, 0.5]]})direction表示线性渐变的方向，GradientDirection.Left表示线性渐变方向为从右向左；
- repeating设置为true表示渐变的颜色重复着色；
- colors起始位置颜色为0xff0000，0.3即30%位置处的颜色为0x0000ff，0-0.3之间的区域是0xff0000到0x0000ff渐变颜色；
- 数组末尾元素百分比位置为0.5，小于1满足重复着色效果，所以0.5-1为重复着色渐变效果。
+
+  repeating设置为true表示渐变的颜色重复着色；
+
+  colors起始位置颜色为0xff0000，0.3即30%位置处的颜色为0x0000ff，0-0.3之间的区域是0xff0000到0x0000ff渐变颜色；
+
+  数组末尾元素百分比位置为0.5，小于1满足重复着色效果，所以0.5-1为重复着色渐变效果。
 
  
 Q：如何使用linearGradient实现颜色在透明度上的渐变效果？

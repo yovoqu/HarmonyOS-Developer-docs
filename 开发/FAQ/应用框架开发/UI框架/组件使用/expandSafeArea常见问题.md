@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1103
 
-## expandSafeArea常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 安全区域是指页面的显示区域，默认情况下开发者开发的界面都布局在安全区域内，不与系统设置的避让区比如状态栏、导航栏区域重叠。如果希望组件内容可以拓展到非安全区域实现沉浸式效果，可以给组件设置expandSafeArea属性扩展其绘制区域至安全区外。expandSafeArea的部分使用场景和常见问题有哪些？
   
@@ -25,7 +21,7 @@
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/BhgClmQqReSuszF6vqYcfg/zh-cn_image_0000002628567378.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=C5EDB78EB7B66163876C1B5F4F4A37A681749D516A130C82D9291F1C198A09A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/BhgClmQqReSuszF6vqYcfg/zh-cn_image_0000002628567378.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=8ADF0849B0033B9F787C699A10E801308784631C85266CAF19D0AF28EBCA5BF2)
 
  
 示例代码如下：
@@ -59,7 +55,7 @@ struct Index {
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/45iF1t4HQ-m2jRaQ2IlR4g/zh-cn_image_0000002658926689.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=36E821B599AA527F275D3F91830AF1A729B7E344DE7FD5FF85D3F6A925A23C38)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/45iF1t4HQ-m2jRaQ2IlR4g/zh-cn_image_0000002658926689.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=BFA40E618618A5E66337047CA92AA7E81FBC6E960FBD5DFE8F353347F48A2661)
 
  
 灰色为TabContent背景色。
@@ -114,7 +110,7 @@ struct TabsExample {
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/70dmeXCwS660RIrqqTxJEg/zh-cn_image_0000002658806737.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=BC1FCDBD3B8ECBB299BA01F0C49F2D74AB1E2E6E93C876BA2009E609D8CCE8A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/70dmeXCwS660RIrqqTxJEg/zh-cn_image_0000002658806737.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=1F386AB6FA647FC750B62DB0D6EC9DE683BF60AF1E2909066836A9C3D9D5A965)
 
  
 示例代码如下：
@@ -147,7 +143,7 @@ struct Index4 {
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/5vBOEs9kTkGimSI3UuIoyw/zh-cn_image_0000002628407484.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=08E42DB7A0F0CBCAD7CD9773DBCE244016CC805F53178094983BE9A6C6900AEC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/5vBOEs9kTkGimSI3UuIoyw/zh-cn_image_0000002628407484.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=88510E17D0CD0314B5E9A0DAC573775D36344611C511FC50BB5D3CB2E932E653)
 
  
 示例代码如下：
@@ -182,7 +178,7 @@ struct Index6 {
 问题效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/mokrO4xDRuaea4zfeN9LfA/zh-cn_image_0000002628567380.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=F396A37E495A7A9E3A6357E18A91E107AAC848CF107E3F2DE646C1072A33723C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/mokrO4xDRuaea4zfeN9LfA/zh-cn_image_0000002628567380.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=F701FB17C3E43512BE326552A16256FDD90AC1D12F2B548DACFC52A10071EF09)
 
  
 其中，灰色为Canvas背景色，已经扩展至底部导航条，但fillRect方法绘制的黑色矩形与底部导航条仍有一定距离。
@@ -230,7 +226,7 @@ struct CanvasExample {
 ```
  
 
-##### 背景知识
+#### 背景知识
 
 - [expandSafeArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#expandsafearea)控制组件扩展其安全区域。
 设置expandSafeArea属性进行组件绘制扩展时，建议组件尺寸不要设置固定宽高（百分比除外），当设置固定宽高（包括设置'auto'）时，扩展安全区域的方向只支持[SafeAreaEdge.TOP, SafeAreaEdge.START]，扩展后的组件尺寸保持不变。
@@ -240,21 +236,25 @@ struct CanvasExample {
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：横屏下组件没有规避挖孔区域。横屏状态下，挖孔区域处于屏幕左侧或右侧，属于安全区域，此时边缘组件默认情况下会被挖孔区域遮挡。
- 如果希望边缘组件避让挖孔区域，需要在模块的module.json5文件中配置metadata，完成配置后，边缘组件会避让挖孔区域，效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/awA60FSBQYGJc4Jis603lw/zh-cn_image_0000002658926693.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=9577DDFCDC2FF0C1CEA83FD600C794C08EE969B8063AA0639509B120086B0079)
 
- module.json5文件如下：
- 
+  如果希望边缘组件避让挖孔区域，需要在模块的module.json5文件中配置metadata，完成配置后，边缘组件会避让挖孔区域，效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/awA60FSBQYGJc4Jis603lw/zh-cn_image_0000002658926693.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=4637D3FC93B4DED1E345B9B8906746B57572A196EC283AE33498A90B73B5CEB9)
+
+
+  module.json5文件如下：
+
+  
 ```ArkTS
 {
   "module": {
     "metadata": [
       {
-        "name": "avoid_cutout", // 设置挖空区避让
+        "name": "avoid_cutout", /<em>/ 设置挖空区避让</em>
         "value": "true"
       }
     ],
@@ -307,10 +307,13 @@ struct CanvasExample {
   }
 }
 ```
- 
- 如果希望在避让的基础上，背景内容可以扩展到挖孔区域，需要给组件设置expandSafeArea属性，并向types参数中添加CUTOUT。
- 示例代码如下：
- 
+
+
+  如果希望在避让的基础上，背景内容可以扩展到挖孔区域，需要给组件设置expandSafeArea属性，并向types参数中添加CUTOUT。
+
+  示例代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -334,13 +337,16 @@ struct Index2 {
   }
 }
 ```
- 
- 实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/151bpS6ZQbSWeQ_OMlw6Bw/zh-cn_image_0000002658806739.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=D86A0EE6833623A80C6B1406BB3A688E81A8C0CC061CC85D06B2E3B1FD4177F2)
+
+
+  实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/151bpS6ZQbSWeQ_OMlw6Bw/zh-cn_image_0000002658806739.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=EEB4888A020D525C60751C7AA1E0A1E97B8F3CAFED4C1798D7E2E62F78501CE3)
 
 - 场景二：TabContent设置expandSafeArea属性无法扩展至非安全区域。Tabs组件本身虽然不是滚动类组件，但其子组件TabContent是通过放置在一个Swiper中实现的，因此如果需要让某个TabContent可以扩展至状态栏，需要按照组件嵌套关系，将当前节点到滚动类祖先容器间所有直接节点设置expandSafeArea属性。如下代码所示，需要同时给Tabs组件，TabContent组件和TabContent内容的根节点设置expandSafeArea属性。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -383,15 +389,19 @@ struct TabsExample {
   }
 }
 ```
- 
- 效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/7GxtnE7wSBSaUnDLyhcINQ/zh-cn_image_0000002628407486.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=1FF07278DFB402DBCA5599E9812EE007F701886ED5B21F9AC3056800234293A0)
+
+
+  效果图如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/7GxtnE7wSBSaUnDLyhcINQ/zh-cn_image_0000002628407486.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=1EE72DA5FD5BB1461F4ABD54B049EB9B9689513E4B3EFBDF8C50F5F3749234B1)
 
 - 场景三：使用expandSafeArea实现沉浸式，原有UI比例发生变化。
 示例一：组件使用百分比高度时，由于状态栏高度与导航栏高度不一，拓展内容后会导致原有的UI比例发生变化。解决方案：expandSafeArea的作用是扩展组件绘制区域至安全区外，它只负责延伸绘制内容，不负责保持原有比例，如果希望保持原有UI比例，建议使用setWindowLayoutFullScreen实现沉浸式，将窗口设为全屏后，页面的容器范围也变成了全屏，如果Row组件的高度设为50%，即为整个屏幕高度的50%。
- 示例代码如下：
- 
+
+  示例代码如下：
+
+  
 ```text
 import { window } from '@kit.ArkUI';
 
@@ -433,20 +443,25 @@ struct Index5 {
   }
 }
 ```
- 
- 效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/dkXEmrVSRW-8JGH_56-VTA/zh-cn_image_0000002628567384.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=4C549314CB8057AAE917053A8E2CB8A9D4E89C95A4C6104AB44DE2F3E009220A)
+
+
+  效果图如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/dkXEmrVSRW-8JGH_56-VTA/zh-cn_image_0000002628567384.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=790BCC4F049D8DC829B1BDDD5F4E4E6B23ABFB4B5D8E72121C3C0EEC61DBDE56)
 
 - 示例二：组件使用固定高度时，使用expandSafeArea拓展到顶部，中间出现空白。设置expandSafeArea属性进行组件绘制扩展时，建议组件尺寸不要设置固定宽高（百分比除外），当设置固定宽高（包括设置'auto'）时，扩展安全区域的方向只支持[SafeAreaEdge.TOP, SafeAreaEdge.START]，扩展后的组件尺寸保持不变。设置百分比高度时，组件是延伸至非安全区域，设置固定高度时，组件相当于是移动并填满非安全区域而非扩展内容至非安全区域。
- 解决方案：将组件高度设置为百分比高度。
+
+  解决方案：将组件高度设置为百分比高度。
 
  
  
 - 场景四：给Canvas组件设置expandSafeArea属性，Canvas绘制内容无法扩展至底部导航条。解决方案：将Canvs的高度设置为固定高度，具体值为屏幕高度，即上述示例代码中的this.screenHeight。
- 实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/HLxS9-O0RXGA8dzvW4Swkw/zh-cn_image_0000002658926697.png?HW-CC-KV=V1&HW-CC-Date=20260701T025600Z&HW-CC-Expire=86400&HW-CC-Sign=7AF8493EF836F501654E0479FB364BF8190207A9FF86CEC83767A0BA10BC7DC8)
+
+  实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/HLxS9-O0RXGA8dzvW4Swkw/zh-cn_image_0000002658926697.png?HW-CC-KV=V1&HW-CC-Date=20260701T041254Z&HW-CC-Expire=86400&HW-CC-Sign=E4B0FA0944D88CB20C7522BD110C1D8965E972C2E6524CD2AC355CFBCE0922EF)
 
 
  
@@ -478,7 +493,7 @@ windowStage.getMainWindow((err: BusinessError, data) => {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：expandSafeArea属性的参数中，TOP、BOTTOM、START、END，是相对什么的？会受手机横竖屏的影响吗？
  

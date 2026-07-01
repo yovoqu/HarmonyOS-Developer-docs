@@ -3,18 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-image-super-resolution-api
-
 **支持设备：** Phone | PC/2in1 | Tablet
-
-## imageSuperResolution（图像超分）
- 
 
 图像超分支持对输入的低分辨率图像进行超分辨率重建，使图像更加清晰。适用于提升图片质量、修复老照片等场景。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { imageSuperResolution } from '@kit.CoreVisionKit';
@@ -22,7 +20,9 @@ import { imageSuperResolution } from '@kit.CoreVisionKit';
  
   
 
-##### ISPResponse
+#### ISPResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 图像超分处理响应类。
  
@@ -41,7 +41,9 @@ import { imageSuperResolution } from '@kit.CoreVisionKit';
  
   
 
-##### ImageSRAnalyzer
+#### ImageSRAnalyzer
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 图像超分分析器类。
  
@@ -55,7 +57,9 @@ import { imageSuperResolution } from '@kit.CoreVisionKit';
  
   
 
-##### [h2]ImageSRAnalyzer.create
+#### ImageSRAnalyzer.create
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 create(): Promise&lt;ImageSRAnalyzer&gt;
  
@@ -85,7 +89,7 @@ create(): Promise&lt;ImageSRAnalyzer&gt;
  
 **示例：**
  
-```text
+```json
 import { imageSuperResolution } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -103,7 +107,9 @@ async function createImageSRAnalyzer() {
  
   
 
-##### [h2]ImageSRAnalyzer.process
+#### ImageSRAnalyzer.process
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 process(request: visionBase.Request): Promise&lt;ISPResponse&gt;
  
@@ -140,7 +146,7 @@ process(request: visionBase.Request): Promise&lt;ISPResponse&gt;
  
 **示例：**
  
-```text
+```json
 import { imageSuperResolution, visionBase } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -222,7 +228,9 @@ struct Page {
  
   
 
-##### [h2]ImageSRAnalyzer.destroy
+#### ImageSRAnalyzer.destroy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 destroy(): Promise&lt;void&gt;
  

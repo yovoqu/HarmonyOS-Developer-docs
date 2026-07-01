@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1110
 
-## NavDestination生命周期使用常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 设置NavDestination生命周期时，可能会遇到以下问题：
  
@@ -20,7 +16,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：路由导航的根视图容器。
 - [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)：子页面的根容器，用于显示Navigation的内容区。
@@ -35,16 +31,18 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：NavDestination生命周期不执行。
 **情景一**：NavDestination的onPageHide和onPageShow不执行。NavDestination是Navigation容器的子组件，不是独立页面，整个Navigation对应1个@Entry页面，内部跳转仅切换NavDestination组件，页面栈未发生改变，故不触发onPageHide和onPageShow。若需要监听其显示和隐藏，可以使用其自有事件[onShown](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onshown10)和[onHidden](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onhidden10)。
 - **情景二**：Navigation内部嵌套NavDestination，生命周期不执行。[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件必须配合Navigation使用，作为Navigation目的页面的根节点，单独使用只能作为普通容器组件，不具备路由相关属性能力。Navigation和NavDestination的配合使用可参考[Navigation页面路由的示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-jump#示例)。
 
  - **场景二**：NavDestinationMode.DIALOG模式不触发onHidden和onShown。DIALOG模式进出路由栈不影响下层NavDestination的可见性（onShown、onHidden等生命周期）。
- 
+
+  
 **方案一**：使用onActive和onInactive感知下层NavDestination状态。从API17开始，NavDestination新增了onActive和onInactive回调，用于感知NavDestination的激活态和非激活态。
- 
+
+  
 ```text
 .onActive(() => {
   promptAction.openToast({ message: 'onActive触发了' });
@@ -55,7 +53,8 @@
 ```
 
 - **方案二**：使用无感监听感知下层NavDestination状态。当页面切换时，会触发监听NavDestination组件的状态变化，并返回组件信息[NavDestinationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-observer#navdestinationinfo)。通过NavDestinationInfo的name和state可以监听指定NavDestination组件的状态。
- 
+
+  
 ```text
 aboutToAppear(): void {
   uiObserver.on('navDestinationUpdate', (info: NavDestinationInfo) => {
@@ -166,11 +165,13 @@ struct DialogNav {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/NBtX6De-QWCrTo1MpmYo4Q/zh-cn_image_0000002658806747.png?HW-CC-KV=V1&HW-CC-Date=20260701T025726Z&HW-CC-Expire=86400&HW-CC-Sign=16D53FB5894A0E14D3C9826961C86EAA209BD8CA376BF8976766919606983766)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/NBtX6De-QWCrTo1MpmYo4Q/zh-cn_image_0000002658806747.png?HW-CC-KV=V1&HW-CC-Date=20260701T041140Z&HW-CC-Expire=86400&HW-CC-Sign=818304E13F6406FD997368CFB1707E741B09E297891F38C40DFA9D47E2DC0029)
 
  - **场景三**：申请权限弹窗触发onHidden和onShown。权限弹窗属于全局模态组件，会强制覆盖当前页面。当弹窗显示时，当前NavDestination页面会触发onHidden（页面被遮挡）和onInactive（失去焦点）。弹窗关闭后，页面重新可见并激活，触发onShown和onActive回调。
- onWillShow仅在页面即将通过路由操作进入前台时触发。权限弹窗的显示/隐藏不涉及路由栈的变化（页面未离开导航栈），因此不会触发路由相关的生命周期onWillShow回调。
- 
+
+  onWillShow仅在页面即将通过路由操作进入前台时触发。权限弹窗的显示/隐藏不涉及路由栈的变化（页面未离开导航栈），因此不会触发路由相关的生命周期onWillShow回调。
+
+  
 ```text
 import { abilityAccessCtrl, common, Context, bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -206,11 +207,11 @@ struct PermissionPage {
 struct Page {
   @Consume('pageInfo') pageInfo: NavPathStack;
 
-  // 检查权限
-  async checkPermissionGrant(permission: Permissions): Promise {
+ <em> // 检查权限</em>
+  async checkPermissionGrant(permission: Permissions): Promise<abilityAccessCtrl.GrantStatus> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     let grantStatus: abilityAccessCtrl.GrantStatus = abilityAccessCtrl.GrantStatus.PERMISSION_DENIED;
-    // 获取应用程序的accessTokenID。
+  <em>  // 获取应用程序的accessTokenID。</em>
     let tokenId: number = 0;
     try {
       let bundleInfo: bundleManager.BundleInfo =
@@ -221,7 +222,7 @@ struct Page {
       const err: BusinessError = error as BusinessError;
       console.error(`Failed to get bundle info for self, code: ${err.code}, message: ${err.message}`);
     }
-    // 校验应用是否被授予权限。
+   <em> // 校验应用是否被授予权限。</em>
     try {
       grantStatus = await atManager.checkAccessToken(tokenId, permission);
     } catch (error) {
@@ -231,25 +232,25 @@ struct Page {
     return grantStatus;
   }
 
-  // 检查位置定位权限，若未授权则开启二次授权
-  async checkPermissions(): Promise {
-    // 获取精确定位权限状态。
+ <em> // 检查位置定位权限，若未授权则开启二次授权</em>
+  async checkPermissions(): Promise<void> {
+  <em>  // 获取精确定位权限状态。</em>
     let grantStatus1: boolean =
       await this.checkPermissionGrant('ohos.permission.LOCATION') === abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED;
-    // 获取模糊定位权限状态。
+ <em>   // 获取模糊定位权限状态。</em>
     let grantStatus2: boolean = await this.checkPermissionGrant('ohos.permission.APPROXIMATELY_LOCATION') ===
       abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED;
-    // 精确定位、模糊定位均授权
+  <em>  // 精确定位、模糊定位均授权</em>
     if (grantStatus1 && grantStatus2) {
       promptAction.openToast({ message: '用户已授权' });
     } else {
-      // 进行二次授权
+   <em>   // 进行二次授权</em>
       await this.requestPermissionSecond();
     }
   }
 
-  // 申请权限
-  async requestPermission(): Promise {
+ <em> // 申请权限</em>
+  async requestPermission(): Promise<void> {
     let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     atManager.requestPermissionsFromUser(context,
@@ -270,8 +271,8 @@ struct Page {
       });
   }
 
-  // 二次授权
-  async requestPermissionSecond(): Promise {
+<em>  // 二次授权</em>
+  async requestPermissionSecond(): Promise<void> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     atManager.requestPermissionOnSetting(context,
@@ -319,8 +320,9 @@ struct Page {
 }
 ```
  在module.json5中声明所需权限：
- 
-```text
+
+  
+```json
 "requestPermissions": [
   {
     "name": "ohos.permission.INTERNET"
@@ -348,18 +350,21 @@ struct Page {
 ],
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/F5EeRKi-SBmG4EokPZZE-w/zh-cn_image_0000002628407494.png?HW-CC-KV=V1&HW-CC-Date=20260701T025726Z&HW-CC-Expire=86400&HW-CC-Sign=6D24B9599F3C7DAD65083E747A33D1C03CD245FD910598EBFD9440922E6D429F)
 
- 日志如下所示：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/2Xg3cYd1Q7q25XU-e9yzxA/zh-cn_image_0000002628567390.png?HW-CC-KV=V1&HW-CC-Date=20260701T025726Z&HW-CC-Expire=86400&HW-CC-Sign=FF1F3AA2F83A6A31308326112066BA4F6AA5E3FB2D08533090375AAFA20D854D)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/F5EeRKi-SBmG4EokPZZE-w/zh-cn_image_0000002628407494.png?HW-CC-KV=V1&HW-CC-Date=20260701T041140Z&HW-CC-Expire=86400&HW-CC-Sign=D16495EC056FC898E382E3263EBA6D60A26535645701D1D74AD33DDBAE6EE1C4)
 
 
+  日志如下所示：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/2Xg3cYd1Q7q25XU-e9yzxA/zh-cn_image_0000002628567390.png?HW-CC-KV=V1&HW-CC-Date=20260701T041140Z&HW-CC-Expire=86400&HW-CC-Sign=23A690F9049E748336B913F99537C602DCFF67C38818006997325700263AF9CF)
+
+
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何感知自定义组件的销毁？
  

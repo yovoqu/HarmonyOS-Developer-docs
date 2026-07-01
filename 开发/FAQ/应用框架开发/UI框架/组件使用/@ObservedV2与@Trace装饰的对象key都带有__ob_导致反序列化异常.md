@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1587
 
-## @ObservedV2与@Trace装饰的对象key都带有__ob_导致反序列化异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 @ObservedV2与@Trace装饰的对象key都带有__ob_导致反序列化出现异常，无法反序列化。
  
@@ -23,7 +19,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 状态管理V2装饰器会为装饰的变量生成getter和setter方法，同时为原有变量名添加__ob_的前缀，出于性能考虑，官方提供的[getTarget接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-gettarget)并不支持获取@ObservedV2与@Trace装饰的原对象，详情请参考官方文档：[获取状态管理V2代理前的原始对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-gettarget#获取状态管理v2代理前的原始对象)。
 - @ObservedV2的类实例无法直接使用JSON.parse反序列化获得（直接使用JSON.parse反序列化获得的对象无法观察属性变化），详情请参考[使用限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#使用限制)。
@@ -31,12 +27,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 __ob_前缀无法避免，且前缀不影响对象属性的getter和setter方法使用。如果涉及序列化与反序列化，可通过如下示例方法，将前缀去除。
  
 - **方案一**：创建一个新的类，类中属性名和原来的对象相同，用原来对象的值来初始化新类的对象。
-```text
+```json
 @ObservedV2
 class FormDataClassV2 {
   @Trace name: string = '默认名称';
@@ -75,7 +71,7 @@ struct FormDataClassPage {
 
  
 - **方案二**：序列化后__ob_前缀会导致反序列化异常，可以考虑采用修改序列化后的字符串的方式，去除__ob_前缀。实现方式如下：
-```text
+```json
 @ObservedV2
 class FormDataClassV2 {
   @Trace name: string = '默认名称';
@@ -106,7 +102,7 @@ struct FormDataClassPage {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何获取@ObservedV2与@Trace装饰的原始对象？
  

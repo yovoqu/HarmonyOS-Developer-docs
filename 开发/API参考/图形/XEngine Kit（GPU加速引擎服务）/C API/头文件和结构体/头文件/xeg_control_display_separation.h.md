@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-control-display-separation
-
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-## xeg_control_display_separation.h
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 XEngine控显分离API接口。
  
@@ -26,11 +23,15 @@ XEngine控显分离API接口。
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
   
 
-##### [h2]枚举
+#### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,7 +40,9 @@ XEngine控显分离API接口。
  
   
 
-##### [h2]类型定义
+#### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -52,7 +55,9 @@ XEngine控显分离API接口。
  
   
 
-##### [h2]函数
+#### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

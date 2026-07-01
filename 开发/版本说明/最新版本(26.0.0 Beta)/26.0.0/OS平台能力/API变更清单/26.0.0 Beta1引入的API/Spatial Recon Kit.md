@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-spatialreconkit-7001
 
-## Spatial Recon Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：declare namespace spatialImage 差异内容：declare namespace spatialImage | api/@hms.graphics.spatialImage.d.ts |

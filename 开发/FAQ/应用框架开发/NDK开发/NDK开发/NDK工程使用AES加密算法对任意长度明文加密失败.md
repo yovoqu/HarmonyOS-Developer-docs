@@ -4,35 +4,37 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-6
 
-## NDK工程使用AES加密算法对任意长度明文加密失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用密钥管理服务开发，参考[加解密(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-ndk)中的样例，发现如下情况加密会失败：
  
 ```text
-// 待加密内容，如下，能够加密成功
+<em>// 待加密内容，如下，能够加密成功</em>
 char tmpInData[] = "AES_ECB_INDATA_1";
 
-// 修改为其他值，比如下面，加密就会失败
+<em>// 修改为其他值，比如下面，加密就会失败</em>
 char tmpInData[] = "Hello World!";
 char tmpInData[] = "abc";
 ```
  
 加密成功日志如下：
  
-```text
+```bash
 04-18 16:06:52.181   55304-55304   A03200/com.exa...cation/MY_TAG  com.examp...lication  I     Success,  ohResult.errorCode=0, tmpInData=AES_ECB_INDATA_1.
 ```
  
 加密失败日志如下：
  
-```text
+```bash
 04-18 16:04:11.635   54249-54249   C02F06/com.exa...lication/HUKS  com.examp...lication  I      HksReadRequestReply[84]: reply get errMsgLen = 145
-04-18 16:04:11.635   54249-54249   C02F06/com.exa...lication/HUKS  com.examp...lication  E     [HksLog]: g_errMsg [ TeecRequestCmdInner[315]: invoke km command failed, cmd = 5, ret = 0xfffffffd, retOrigin = 4 
-##### 背景知识
+04-18 16:04:11.635   54249-54249   C02F06/com.exa...lication/HUKS  com.examp...lication  E     [HksLog]: g_errMsg [ TeecRequestCmdInner[315]: invoke km command failed, cmd = 5, ret = 0xfffffffd, retOrigin = 4 <HksServiceFinish[2008] <HksIpcServiceUpdOrFin[830]]
+04-18 16:04:11.635   54249-54249   C02F06/com.exa...lication/HUKS  com.examp...lication  E      HksClientFinish[789]: HksParamSet send fail, ret = -3
+04-18 16:04:11.635   54249-54249   A03200/com.exa...cation/MY_TAG  com.examp...lication  I     Failed,  ohResult.errorCode=401, tmpInData=Hello World!.
+```
+ 
+ 
+
+#### 背景知识
 
 - [AES（Advanced Encryption Standard）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#aes)是最常见的对称加密算法。AES是一种分组加密算法，其加密/解密的基本单位是一个固定大小16字节（128位）的数据块，如果明文长度不是块大小的整数倍，通常需要填充补齐，否则加密无法进行。
 - 在AES算法中，IV（Initialization Vector，初始化向量）是一个关键的安全参数，主要用于CBC(Cipher Block Chaining)、CTR(Counter)等分组加密模式中，确保即使相同的明文多次加密，也会生成不同的密文，从而增强安全性。算法中常见设置IV_SIZE=16也是因为AES的块大小是16字节，IV数组必须和块大小一致。
@@ -48,7 +50,7 @@ NoPadding：不做任何填充，分组加密时要求明文必须是数据块�
  
  
 
-##### 问题定位
+#### 问题定位
 
 加密失败错误码401为参数错误：
  
@@ -57,15 +59,13 @@ OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT = 401
 ```
  
 针对问题现象进行分析：
- 
-- 字符串本身没有区别，唯一不同的是长度的差异；
-- 尝试修改字符串的长度，长度等于16字节，长度大于16字节，长度小于16字节；
-- 发现字符串长度等于16字节时可以正常加密，长度大于16字节，长度小于16字节均会加密失败。因此怀疑是跟明文长度和补位有关系。
-
+ 1. 字符串本身没有区别，唯一不同的是长度的差异；
+2. 尝试修改字符串的长度，长度等于16字节，长度大于16字节，长度小于16字节；
+3. 发现字符串长度等于16字节时可以正常加密，长度大于16字节，长度小于16字节均会加密失败。因此怀疑是跟明文长度和补位有关系。
  
  
 
-##### 分析结论
+#### 分析结论
 
 查看用例中：
  
@@ -74,7 +74,7 @@ static const uint32_t IV_SIZE = 16;
 static uint8_t IV[IV_SIZE] = { 0 };
 
 static struct OH_Huks_Param g_genEncDecParams[] = {
-  // ...
+ <em> // ...</em>
   {
         .tag = OH_HUKS_TAG_PADDING,
         .uint32Param = OH_HUKS_PADDING_NONE
@@ -86,7 +86,7 @@ OH_HUKS_TAG_PADDING补位标签设置的参数为OH_HUKS_PADDING_NONE，表明�
  
  
 
-##### 修改建议
+#### 修改建议
 
 查看[HuksTypeApi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi)中，填充算法类型枚举值：OH_HUKS_PADDING_NONE表示不使用填充算法，OH_HUKS_PADDING_PKCS7表示使用PKCS7填充算法。
  
@@ -94,7 +94,7 @@ OH_HUKS_TAG_PADDING补位标签设置的参数为OH_HUKS_PADDING_NONE，表明�
  
 ```text
 static const uint32_t IV_SIZE = 16;
-static uint8_t IV[IV_SIZE] = {0}; // this is a test value, for real use the iv should be different every time.
+static uint8_t IV[IV_SIZE] = {0}; <em>// this is a test value, for real use the iv should be different every time.</em>
 static struct OH_Huks_Param g_genEncDecParams[] = {
     {.tag = OH_HUKS_TAG_ALGORITHM, .uint32Param = OH_HUKS_ALG_AES},
     {.tag = OH_HUKS_TAG_PURPOSE, .uint32Param = OH_HUKS_KEY_PURPOSE_ENCRYPT | OH_HUKS_KEY_PURPOSE_DECRYPT},
@@ -110,7 +110,7 @@ static struct OH_Huks_Param g_encryptParams[] = {
     {.tag = OH_HUKS_TAG_IV,
      .blob = {
          .size = IV_SIZE,
-         .data = (uint8_t *)IV // this is a test value, for real use the iv should be different every time.
+         .data = (uint8_t *)IV <em>// this is a test value, for real use the iv should be different every time.</em>
      }}};
 static struct OH_Huks_Param g_decryptParams[] = {
     {.tag = OH_HUKS_TAG_ALGORITHM, .uint32Param = OH_HUKS_ALG_AES},
@@ -121,6 +121,6 @@ static struct OH_Huks_Param g_decryptParams[] = {
     {.tag = OH_HUKS_TAG_IV,
      .blob = {
          .size = IV_SIZE,
-         .data = (uint8_t *)IV // this is a test value, for real use the iv should be different every time.
+         .data = (uint8_t *)IV<em> // this is a test value, for real use the iv should be different every time.</em>
      }}};
 ```

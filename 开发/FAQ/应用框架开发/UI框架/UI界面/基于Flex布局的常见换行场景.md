@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1199
 
-## 基于Flex布局的常见换行场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Flex布局中子元素的换行是布局开发中常见的问题，针对不同的需求，可采用不同的换行策略。本文将结合实际场景，由浅入深地介绍几种常见的换行场景及其解决方案。
  
  
 
-##### [h2]场景一：基础网格布局
+#### 场景一：基础网格布局
 
 如何实现子元素宽度不固定且能自动换行的基础网格布局？
   
@@ -25,20 +21,21 @@ Flex布局中子元素的换行是布局开发中常见的问题，针对不同�
  
  
 
-##### [h2]场景二：智能自适应布局
+#### 场景二：智能自适应布局
 
 在实际开发中，我们常面对更复杂的布局需求，往往需要根据内容或容器状态动态决定是否换行。下面列举常见的两种情况：
  
 - 单行自适应问题：如何实现子元素少时Flex组件宽度自适应（不占满整行）？如图所示，当子元素较多时，Flex组件同时设置FlexWrap.Wrap和width('auto')后，换行场景可以正常实现，但是子元素少时，Flex宽度会默认占用一整行，不会根据子元素内容自适应宽度。该如何解决？
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/h1qO3lxRTYir1lFFuOzGtA/zh-cn_image_0000002658832827.png?HW-CC-KV=V1&HW-CC-Date=20260701T025726Z&HW-CC-Expire=86400&HW-CC-Sign=FC21B6E0D933D5EFF72F153F0952B49A351D5B140800F7BD1F8A530082A14757)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/h1qO3lxRTYir1lFFuOzGtA/zh-cn_image_0000002658832827.png?HW-CC-KV=V1&HW-CC-Date=20260701T041155Z&HW-CC-Expire=86400&HW-CC-Sign=9060DE9E8BA9F57091FC26C584130CAD9EF2FBF80128CC631B9F21FD69B2E750)
 
 - 阈值控制换行：如何基于剩余空间计算实现精准的换行策略？如图所示，当输入框可用空间充足时，让输入框与标签同行并自适应占满剩余宽度；当可用空间不足时，自动将输入框换到下一行并占满整行宽度。
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)是以弹性方式布局子组件的容器组件，能够高效地排列、对齐子元素并分配剩余空间。
 - [FlexOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)对象用于设置子组件的排列对齐方式，主轴的方向[FlexDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexdirection)、换行方式[FlexWrap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexwrap)。主轴长度可设置为[width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#width)('auto')使Flex自适应子组件布局。
@@ -47,7 +44,7 @@ Flex布局中子元素的换行是布局开发中常见的问题，针对不同�
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 使用场景 | 场景特点 | 推荐方案 | 技术要点 |
 | --- | --- | --- | --- |
@@ -57,7 +54,8 @@ Flex布局中子元素的换行是布局开发中常见的问题，针对不同�
  
  
 - 基础网格布局。
-使用弹性布局(Flex)可以实现子元素不固定的网格布局，只需按实际需求设置以下参数即可：
+
+  使用弹性布局(Flex)可以实现子元素不固定的网格布局，只需按实际需求设置以下参数即可：
 FlexDirection.Row（默认值）：主轴为水平方向，子元素从起始端沿着水平方向开始排布。
 - FlexWrap.Wrap：允许换行，每一行子元素按照主轴方向排列。
 
@@ -68,13 +66,13 @@ FlexDirection.Row（默认值）：主轴为水平方向，子元素从起始端
 @Entry
 @Component
 struct FlexPage {
-  // 模拟图标数据（宽度不一致）
+ <em> // 模拟图标数据（宽度不一致）</em>
   @State iconLabels: string[] = [];
-  private xCount: number = 0; // 计数器
+  private xCount: number = 0; <em>// 计数器</em>
 
   build() {
     Column() {
-      // 核心Flex容器（自动换行）
+     <em> // 核心Flex容器（自动换行）</em>
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
         ForEach(this.iconLabels, (label: string) => {
           Text(label)
@@ -114,10 +112,11 @@ struct FlexPage {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/b7zQ3h-WSySsX-2klWTVIw/zh-cn_image_0000002628593586.png?HW-CC-KV=V1&HW-CC-Date=20260701T025726Z&HW-CC-Expire=86400&HW-CC-Sign=BD2D733E48B4254B5D68FE4FC172383867C45C098E02FCB291122653FD51B08A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/b7zQ3h-WSySsX-2klWTVIw/zh-cn_image_0000002628593586.png?HW-CC-KV=V1&HW-CC-Date=20260701T041155Z&HW-CC-Expire=86400&HW-CC-Sign=210C13FB636BDA0DF2BD41F68163012A4DD0189F2FD3073E9CABC7FE3F2AA916)
 
  - 单行自适应问题。
-当Flex子组件较多，需要使用换行参数（将wrap设置为FlexWrap.Wrap）时，主轴长度auto的自适应布局会失效，默认撑满父容器。所以要解决问题可以控制Flex组件的换行规则：当内容不超过一行时设置为FlexWrap.NoWrap，超过一行设置为FlexWrap.Wrap。
+
+  当Flex子组件较多，需要使用换行参数（将wrap设置为FlexWrap.Wrap）时，主轴长度auto的自适应布局会失效，默认撑满父容器。所以要解决问题可以控制Flex组件的换行规则：当内容不超过一行时设置为FlexWrap.NoWrap，超过一行设置为FlexWrap.Wrap。
 步骤1：根据当前布局计算出Flex组件中一行可用的最大宽度。通过measureText得到文本占用的宽度，从而计算文本框占用的宽度。
 - 步骤2：当全部文本框占用的宽度加起来未超过一行就将Flex设置为FlexWrap.NoWrap；如果前几个文本框累计宽度超过一行，则无需计算后续文本框，直接将Flex设置为FlexWrap.Wrap。
 
@@ -139,29 +138,29 @@ struct FlexPageSample {
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
-      data.setWindowLayoutFullScreen(true); // 设置沉浸式布局
-      let properties = data.getWindowProperties(); // 获取当前窗口的属性
-      let windowWidth = properties.windowRect.width; // 获取当前窗口宽度
-      this.flexWidth = windowWidth - this.uiContext.vp2px(20 * 2); // 计算Flex组件的最大宽度，单位px
+      data.setWindowLayoutFullScreen(true);<em> // 设置沉浸式布局</em>
+      let properties = data.getWindowProperties();<em> // 获取当前窗口的属性</em>
+      let windowWidth = properties.windowRect.width;<em> // 获取当前窗口宽度</em>
+      this.flexWidth = windowWidth - this.uiContext.vp2px(20 * 2);<em> // 计算Flex组件的最大宽度，单位px</em>
       this.setFlexWrap(this.textList);
     });
   }
 
-  // 设置是否换行
+ <em> // 设置是否换行</em>
   setFlexWrap(textList: string[]) {
-    this.isWarp = false; // 默认不换行
-    let lineWidth = this.flexWidth - this.uiContext.px2vp(6 * 2); // Flex组件一行的最大宽度，单位px
-    let countWidth = 0; // 文本框占用的的宽度
+    this.isWarp = false; <em>// 默认不换行</em>
+    let lineWidth = this.flexWidth - this.uiContext.px2vp(6 * 2);<em> // Flex组件一行的最大宽度，单位px</em>
+    let countWidth = 0;<em> // 文本框占用的的宽度</em>
     textList.forEach((item) => {
       if (this.isWarp === false) {
-        // 计算文本的宽度
+      <em>  // 计算文本的宽度</em>
         let textWidth = this.measureUtils.measureText({
           textContent: item,
-          fontSize: 12 // 文本字体大小
+          fontSize: 12<em> // 文本字体大小</em>
         });
-        // 累计文本框占用宽度，文本宽度+2*文本框左右内边距+2*文本框左右外边距
+      <em>  // 累计文本框占用宽度，文本宽度+2*文本框左右内边距+2*文本框左右外边距</em>
         countWidth = countWidth + textWidth + this.uiContext.vp2px(2 * 12 + 2 * 3);
-        // 超过每行最大宽度，设置为换行
+       <em> // 超过每行最大宽度，设置为换行</em>
         if (countWidth >= lineWidth) {
           this.isWarp = true;
         }
@@ -175,7 +174,7 @@ struct FlexPageSample {
         Text(`计算首行能否放下全部文本，是否需要换行`);
         Flex({
           justifyContent: FlexAlign.Start,
-          wrap: this.isWarp ? FlexWrap.Wrap : FlexWrap.NoWrap, // 根据状态变量设置是否换行
+          wrap: this.isWarp ? FlexWrap.Wrap : FlexWrap.NoWrap,<em> // 根据状态变量设置是否换行</em>
           direction: FlexDirection.Row
         }) {
           ForEach(this.textList, (item: string) => {
@@ -186,12 +185,12 @@ struct FlexPageSample {
               .borderRadius(4)
               .textOverflow({ overflow: TextOverflow.Ellipsis })
               .ellipsisMode(EllipsisMode.END)
-              .margin(3) // 文本框外边距3
-              .padding({ left: 12, right: 12 }) // 文本框左右内边距12
+              .margin(3) <em>// 文本框外边距3</em>
+              .padding({ left: 12, right: 12 }) <em>// 文本框左右内边距12</em>
               .height(32);
           });
         }
-        .padding(6) // Flex组件内边距6
+        .padding(6) <em>// Flex组件内边距6</em>
         .backgroundColor('#ffffff')
         .width('auto');
       }.width('100%')
@@ -213,7 +212,7 @@ struct FlexPageSample {
       left: 20,
       right: 20,
       bottom: 20
-    }) // 左右内边距20
+    }) <em>// 左右内边距20</em>
     .height('100%')
     .width('100%')
     .backgroundColor('#f1f3f5');
@@ -224,12 +223,13 @@ struct FlexPageSample {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/qUmTSVDkSESXleC12a1FIQ/zh-cn_image_0000002628753478.png?HW-CC-KV=V1&HW-CC-Date=20260701T025726Z&HW-CC-Expire=86400&HW-CC-Sign=D5DC0314DED0AECF3C919A312A7B0E6E34579DC17041545401E27BF10D657911)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/qUmTSVDkSESXleC12a1FIQ/zh-cn_image_0000002628753478.png?HW-CC-KV=V1&HW-CC-Date=20260701T041155Z&HW-CC-Expire=86400&HW-CC-Sign=FE28242F205DEEB91A8941AC890CBA24E18C29878DD5A57B8EC8AB25EA23B987)
 
  
  
 - 阈值控制换行。在Flex布局中，若前面的子元素（如文本框）与最后一个子元素（输入框）的类型不一致，最后一个子元素在特定条件下需要换行。为了实现智能的响应式布局，可以通过精确计算前方所有元素的实际占用宽度，判断容器的剩余空间是否足以容纳该输入框，从而决定其是否换行。
- 
+
+  
 步骤1：计算标签占用宽度和剩余空间：
 - 步骤2：根据剩余空间决定输入框的布局方式，以150vp为阈值：
 剩余空间大于150vp：输入框在当前行显示，宽度等于剩余空间。
@@ -246,15 +246,15 @@ import { LengthMetrics, MeasureUtils, UIContext, window } from '@kit.ArkUI';
 export struct InputTag {
   @Link value: string[];
   @State inputVal: string = '';
-  // input组件的宽度
+<em>  // input组件的宽度</em>
   @Link remainingSpaceVp: number;
-  // 父组件传递的计算函数
+ <em> // 父组件传递的计算函数</em>
   private onTagsChanged?: () => void;
-  @Link lineWidth: number; // 改为@Link修饰符
+  @Link lineWidth: number; <em>// 改为@Link修饰符</em>
   flexWidth: number = 0;
 
   aboutToAppear() {
-    // 初始计算
+   <em> // 初始计算</em>
     if (this.onTagsChanged) {
       this.onTagsChanged();
     }
@@ -268,7 +268,7 @@ export struct InputTag {
           wrap: FlexWrap.Wrap,
           space: { main: LengthMetrics.vp(6), cross: LengthMetrics.vp(6) }
         }) {
-          // 渲染已有tag
+        <em>  // 渲染已有tag</em>
           ForEach(this.value, (tag: string) => {
             Text(tag)
               .fontSize(12)
@@ -277,9 +277,9 @@ export struct InputTag {
               .borderRadius(4)
               .padding({ left: 8, right: 8 });
           });
-          // 根据剩余空间决定输入框的布局方式
+         <em> // 根据剩余空间决定输入框的布局方式</em>
           TextInput({ text: this.inputVal })
-          // 剩余空间大于lineWidth占用剩余空间，小于lineWidth占用一整行
+         <em> // 剩余空间大于lineWidth占用剩余空间，小于lineWidth占用一整行</em>
             .width((this.remainingSpaceVp >= this.lineWidth) ? this.remainingSpaceVp - 30 : '100%')
             .height(24)
             .padding({ left: 5, right: 0 })
@@ -301,26 +301,26 @@ export struct InputTag {
 @Entry
 @Component
 struct InputTagPage {
-  // 容器宽度相关
+<em>  // 容器宽度相关</em>
   private containerWidth: number = 0;
   flexWidth: number = 0;
   private uiContext: UIContext = this.getUIContext();
   private measureUtils: MeasureUtils = this.uiContext.getMeasureUtils();
   @State value: string[] = ['文本'];
   @State remainingSpaceVp: number = 0;
-  @State lineWidth: number = 150; // 添加状态变量
-  @State customLineWidth: string = '150'; // 用于输入框的状态
+  @State lineWidth: number = 150;<em> // 添加状态变量</em>
+  @State customLineWidth: string = '150';<em> // 用于输入框的状态</em>
 
   aboutToAppear(): void {
-    // 获取窗口宽度
+  <em>  // 获取窗口宽度</em>
     window.getLastWindow(this.getUIContext().getHostContext(), (err, data) => {
       data.setWindowLayoutFullScreen(true);
       let properties = data.getWindowProperties();
       let windowWidth = properties.windowRect.width;
-      // 计算Flex容器的实际宽度
+     <em> // 计算Flex容器的实际宽度</em>
       this.flexWidth = windowWidth - this.uiContext.vp2px(14 * 2) - this.uiContext.vp2px(5 * 2);
       this.containerWidth = this.flexWidth;
-      // 初始计算
+    <em>  // 初始计算</em>
       this.calculateLayout();
     });
   }
@@ -329,38 +329,41 @@ struct InputTagPage {
     this.calculateLayout();
   }
 
-  // 动态计算标签占用宽度和剩余空间
+<em>  // 动态计算标签占用宽度和剩余空间</em>
   calculateLayout() {
-    const tagSpacing = 6; // tag之间的间距
-    const tagPadding = 8 * 2; // tag左右padding各8vp
+    const tagSpacing = 6;<em> // tag之间的间距</em>
+    const tagPadding = 8 * 2;<em> // tag左右padding各8vp</em>
     let currentLineWidth = 0;
-    // 计算当前行已使用的宽度
-    for (let i = 0; i  // 测量文本宽度
+   <em> // 计算当前行已使用的宽度</em>
+    for (let i = 0; i < this.value.length; i++) {
+      const tag = this.value[i];
+     <em> // 测量文本宽度</em>
       const textWidth = this.measureUtils.measureText({
         textContent: tag,
         fontSize: 12
       });
-      // 计算tag总宽度：文本宽度+padding+可能的间距
+    <em>  // 计算tag总宽度：文本宽度+padding+可能的间距</em>
       const tagTotalWidth = textWidth + this.uiContext.vp2px(tagPadding);
       if (currentLineWidth === 0) {
-        // 第一个元素，不加间距
+       <em> // 第一个元素，不加间距</em>
         currentLineWidth = tagTotalWidth;
       } else {
-        // 检查当前行是否能放下这个tag
-        if (currentLineWidth + this.uiContext.vp2px(tagSpacing) + tagTotalWidth  // 能放下，添加到当前行
+       <em> // 检查当前行是否能放下这个tag</em>
+        if (currentLineWidth + this.uiContext.vp2px(tagSpacing) + tagTotalWidth <= this.containerWidth) {
+         <em> // 能放下，添加到当前行</em>
           currentLineWidth += this.uiContext.vp2px(tagSpacing) + tagTotalWidth;
         } else {
-          // 放不下，开始新的一行
+        <em>  // 放不下，开始新的一行</em>
           currentLineWidth = tagTotalWidth;
           this.containerWidth = this.flexWidth;
         }
       }
     }
-    // 计算剩余空间（转换为vp单位）
+   <em> // 计算剩余空间（转换为vp单位）</em>
     this.remainingSpaceVp = this.uiContext.px2vp(this.containerWidth - currentLineWidth);
   }
 
-  // 更新lineWidth的函数
+ <em> // 更新lineWidth的函数</em>
   updateLineWidth() {
     const width = parseInt(this.customLineWidth);
     if (!isNaN(width) && width > 0) {
@@ -374,7 +377,7 @@ struct InputTagPage {
       InputTag({
         value: $value,
         remainingSpaceVp: this.remainingSpaceVp,
-        lineWidth: $lineWidth, // 传递lineWidth参数
+        lineWidth: $lineWidth, <em>// 传递lineWidth参数</em>
         flexWidth: this.flexWidth
       });
 
@@ -388,7 +391,7 @@ struct InputTagPage {
             this.calculateLayout();
           });
 
-        // 添加避让长度输入框
+       <em> // 添加避让长度输入框</em>
         TextInput({ text: this.customLineWidth, placeholder: '避让长度' })
           .width(100)
           .height(40)
@@ -426,4 +429,4 @@ struct InputTagPage {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/sxu-JgVNRG-oAmMO26wynA/zh-cn_image_0000002658952791.png?HW-CC-KV=V1&HW-CC-Date=20260701T025726Z&HW-CC-Expire=86400&HW-CC-Sign=39061C0FDBA3839A86EEC7898E39731A2535BD2A19CEF81BF4443C0F6C4DB3FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/sxu-JgVNRG-oAmMO26wynA/zh-cn_image_0000002658952791.png?HW-CC-KV=V1&HW-CC-Date=20260701T041155Z&HW-CC-Expire=86400&HW-CC-Sign=CAC6086A4D3C60A15111A122657FD7A6BD12D665093F40450159A0276A684C31)

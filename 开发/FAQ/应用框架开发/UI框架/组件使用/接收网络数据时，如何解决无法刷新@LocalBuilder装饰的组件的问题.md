@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1623
 
-## 接收网络数据时，如何解决无法刷新@LocalBuilder装饰的组件的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 已采用@ObservedV2/@Trace修饰嵌套类和UIUtils.makeObserved对接收的数据转化为可深度观测的状态变量的情况下，目前this.person在aboutToAppear中的修改，以及后续onClick中的修改中，无法触发LocalBuilder中UI刷新。什么原因导致的无法刷新，且应该如何实现LocalBuilder中UI刷新？
  
@@ -23,7 +19,7 @@ export struct Index {
   @Local person: Person = new Person()
 
   aboutToAppear(): void {
-    // 模拟发送接口请求数据
+    <em>// 模拟发送接口请求数据</em>
     setTimeout(() => {
       this.person = UIUtils.makeObserved(
         {
@@ -72,12 +68,12 @@ class Person {
 截图如下，渲染结果值依然为初始值，没有变化，点击change也没有变化。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/6HK55yvRS7yKdomD7z43Hg/zh-cn_image_0000002628777468.png?HW-CC-KV=V1&HW-CC-Date=20260701T025624Z&HW-CC-Expire=86400&HW-CC-Sign=53BB070A1523DBD5D33D99279EA0ECAB46F8BB21FEA55F43D3E0A5193B47F24C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/6HK55yvRS7yKdomD7z43Hg/zh-cn_image_0000002628777468.png?HW-CC-KV=V1&HW-CC-Date=20260701T041324Z&HW-CC-Expire=86400&HW-CC-Sign=F9B628D379DE3AFEBB55193CF781984527F0DDF11A71FD6B4181F7D0DC418F7B)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [@LocalBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder)：自定义构建函数按引用/回调传递参数，且传递的参数为状态变量时，可以触发@LocalBuilder自定义构建函数内的UI刷新。参数传递规则详见：[按回调传递参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder#按回调传递参数)、[按引用传递参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder#按引用传递参数)、[按值传递参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder#按值传递参数)。
 - [@ObservedV2和@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)：该装饰器可以使类中的属性具有深度观测的能力，对于深层次嵌套类的监听，详见[嵌套类场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#嵌套类场景)。
@@ -86,38 +82,31 @@ class Person {
  
  
 
-##### 问题定位
+#### 问题定位
 
 网络数据接收UI不刷新一般可参考以下方案排查：
+ 1. 是否使用@Observed/@ObservedV2装饰要监听的类。由问题代码可知，需要监听的是Bag类中属性对应的UI刷新，已经使用@ObservedV2装饰器装饰Bag类，并用@Trace装饰器装饰需要监听的属性。该项排查内容无问题。
+2. 使用的是状态管理V2下的@ObservedV2装饰器的情况下是否满足其使用的限制条件，详见[概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#概述)、[使用限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#使用限制)等。由问题代码可知，代码中接收数据时，并没有通过new操作符重新构造，而是通过字面量直接赋值。但是，由于使用了makeObserved方法将字面量转换为了可深度观测的状态变量。该项排查内容无问题。
  
-- 是否使用@Observed/@ObservedV2装饰要监听的类。由问题代码可知，需要监听的是Bag类中属性对应的UI刷新，已经使用@ObservedV2装饰器装饰Bag类，并用@Trace装饰器装饰需要监听的属性。该项排查内容无问题。
-- 使用的是状态管理V2下的@ObservedV2装饰器的情况下是否满足其使用的限制条件，详见[概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#概述)、[使用限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#使用限制)等。由问题代码可知，代码中接收数据时，并没有通过new操作符重新构造，而是通过字面量直接赋值。但是，由于使用了makeObserved方法将字面量转换为了可深度观测的状态变量。该项排查内容无问题。
+> [!NOTE]
+> 接收网络返回的数据时，返回的是一整个类的序列化字符串。通过JSON.parse()进行反序列化后整体赋值给this.person，或类似字面量方式整体赋值给this.person时，由于该方式没有通过new操作符创建为状态变量，所以修改后无法刷新UI。需要用makeObserved等方法转换为可深度观测的状态变量。
 
- 
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/DgpX6wKQSSeUPFWmdQkgog/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025624Z&HW-CC-Expire=86400&HW-CC-Sign=8A35CAFA7DE19A022861DFA8A7A13510E0D9F53AC47D97C2B84391178876363A)
- 
-
-接收网络返回的数据时，返回的是一整个类的序列化字符串。通过JSON.parse()进行反序列化后整体赋值给this.person，或类似字面量方式整体赋值给this.person时，由于该方式没有通过new操作符创建为状态变量，所以修改后无法刷新UI。需要用makeObserved等方法转换为可深度观测的状态变量。
- 
-
- 
-- 代码中存在@LocalBuilder装饰的自定义构建函数，需要判断是否是值传递导致的UI不刷新。从问题代码中可以看到，@LocalBuilder自定义构建函数内传递的参数是Bag类型，实际调用时是直接传递的Bag类：this.person.mine。使用的是引用传递的方式，所以当this.person修改时，没有触发UI刷新。该项排查内容存在问题。
-- 未使用ForEach等渲染组件，所以不是键值问题导致的UI不刷新。ForEach键值渲染不刷新问题，详见官方文档：[ForEach：循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)。该项排查内容无问题。
-
+1. 代码中存在@LocalBuilder装饰的自定义构建函数，需要判断是否是值传递导致的UI不刷新。从问题代码中可以看到，@LocalBuilder自定义构建函数内传递的参数是Bag类型，实际调用时是直接传递的Bag类：this.person.mine。使用的是引用传递的方式，所以当this.person修改时，没有触发UI刷新。该项排查内容存在问题。
+2. 未使用ForEach等渲染组件，所以不是键值问题导致的UI不刷新。ForEach键值渲染不刷新问题，详见官方文档：[ForEach：循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)。该项排查内容无问题。
  
  
 
-##### 分析结论
+#### 分析结论
 
 问题代码中，@LocalBuilder自定义构建函数使用了值传递的方式，导致了UI不刷新。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 方案一：采用引用传递或回调传递的方式刷新UI。通过引用传参的方式向this.myBuilder内部传递参数，促使@LocalBuilder自定义构建函数内部UI刷新。接收数据时，可以采用UIUtils.makeObserved观测返回的类，直接返回一个可观测的状态变量，此时可不用@ObservedV2对原class进行观测声明。引用传递完整示例代码如下：
- 
+
+  
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -127,7 +116,7 @@ export struct refreshIndex {
   @Local person: Person = new Person();
 
   aboutToAppear(): void {
-    // 模拟发送接口请求数据，并返回可观测数据
+    <em>// 模拟发送接口请求数据，并返回可观测数据</em>
     setTimeout(() => {
       this.person = UIUtils.makeObserved(
         {
@@ -149,7 +138,7 @@ export struct refreshIndex {
 
   build() {
     Column() {
-      // @LocalBuilder引用传参，同步修改
+      <em>// @LocalBuilder引用传参，同步修改</em>
       this.myBuilder({
         size: this.person.mine.size,
         color: this.person.mine.color
@@ -177,7 +166,8 @@ class Bag {
 ```
 
 - 方案二：使用值传递时，通过@ObservedV2和@Trace修饰的状态变量的特性，刷新UI。
-该方式使用的@ObservedV2和@Trace装饰器的特性刷新@LocalBuilder自定义构建函数内的UI，详见：[@Builder函数联合V2装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#builder函数联合v2装饰器)。完整示例代码如下：
+
+  该方式使用的@ObservedV2和@Trace装饰器的特性刷新@LocalBuilder自定义构建函数内的UI，详见：[@Builder函数联合V2装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#builder函数联合v2装饰器)。完整示例代码如下：
 ```text
 @Entry
 @ComponentV2
@@ -185,7 +175,7 @@ export struct refreshIndex {
   @Local person: Person = new Person();
 
   aboutToAppear(): void {
-    // 模拟发送接口请求数据，此时由于返回的值不是可观测的类，所以不能用方案一中的方法直接替换this.person，替换后会变成普通字面量。
+    <em>// 模拟发送接口请求数据，此时由于返回的值不是可观测的类，所以不能用方案一中的方法直接替换this.person，替换后会变成普通字面量。</em>
     setTimeout(() => {
       this.person.mine.size = '大2';
       this.person.mine.color = '蓝色2';
@@ -225,16 +215,16 @@ class Bag {
   @Trace color: string = '初始color红色';
 }
 ```
+
+
+  
+> [!NOTE]
+> 方案二中，当类的属性过多时，按照属性进行赋值修改，会比较麻烦，可将属性的修改封装进函数内，由于本示例属性较少，未进行封装。
+
+
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/dOpfxUQjR4miouVyyoRNhw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025624Z&HW-CC-Expire=86400&HW-CC-Sign=2FB34498A726E12BBE4C5AA1AB855F9C383AAB0CBA3DF05C057CCBDF00215B4E)
- 
-方案二中，当类的属性过多时，按照属性进行赋值修改，会比较麻烦，可将属性的修改封装进函数内，由于本示例属性较少，未进行封装。
-
- 
- 
-
-##### 总结
+#### 总结
 
 以上方案通过V2版本的状态管理器特性以及引用传递/回调传递的方式实现@LocalBuilder自定义构建函数内UI刷新。

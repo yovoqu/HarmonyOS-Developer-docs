@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1253
 
-## Text组件滚动虚化样式实现
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在多行文本场景下，用户通常需要滚动文本块进行阅读。为了美观，滚动的过程如何添加边缘虚化样式呢？
  
 预期效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/4s28f7LDSWeeNwaDEoRU5A/zh-cn_image_0000002628595510.png?HW-CC-KV=V1&HW-CC-Date=20260701T025643Z&HW-CC-Expire=86400&HW-CC-Sign=F7216CF0059BD1CF35D3E9F52919038B300E2157BE26D13509997A9FB7C22821)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/4s28f7LDSWeeNwaDEoRU5A/zh-cn_image_0000002628595510.png?HW-CC-KV=V1&HW-CC-Date=20260701T041147Z&HW-CC-Expire=86400&HW-CC-Sign=E3587F96565A6ED2907FA995F992DBD0DD01C00FC0BB35CC833CE399514D967D)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)：显示一段文本的组件。可以包含Span、ImageSpan、SymbolSpan和ContainerSpan子组件。
 - [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)：可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
@@ -31,14 +27,16 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. 实现可拖动Text组件：为了使Text组件可拖动，可以使用Scroll组件嵌套Text组件。原理如下：
 
-- 实现可拖动Text组件：为了使Text组件可拖动，可以使用Scroll组件嵌套Text组件。原理如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/XxIwcXKxTy-3avwp1a-8ng/zh-cn_image_0000002628755404.png?HW-CC-KV=V1&HW-CC-Date=20260701T025643Z&HW-CC-Expire=86400&HW-CC-Sign=D2DD734175C3D33911A8FA7EF92C9B8CD63DB1032F4EA3D98AFACAECCDF52EC5)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/XxIwcXKxTy-3avwp1a-8ng/zh-cn_image_0000002628755404.png?HW-CC-KV=V1&HW-CC-Date=20260701T041147Z&HW-CC-Expire=86400&HW-CC-Sign=920675BC332101F3B095DE1EE80BD88433001E1441028A734B6B98BF3DEA7C1D)
 
- 在Text组件中文本量较大的情况下，如果设置了宽度，Text组件会自动拉高，将所有文字展示出来。同时，背景知识板块中提到：**当子组件的布局尺寸超过父组件的尺寸时**，Scroll组件内容可以滚动，因此可以给Scroll组件设置固定高度，且该高度要小于Text组件高度。
- 
+
+  在Text组件中文本量较大的情况下，如果设置了宽度，Text组件会自动拉高，将所有文字展示出来。同时，背景知识板块中提到：**当子组件的布局尺寸超过父组件的尺寸时**，Scroll组件内容可以滚动，因此可以给Scroll组件设置固定高度，且该高度要小于Text组件高度。
+
+  
 ```text
 @Entry
 @Component
@@ -71,24 +69,32 @@ struct TextScrollBlurStyleOne {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/DGKi2wARRfiScCRtSgfs8A/zh-cn_image_0000002658954727.png?HW-CC-KV=V1&HW-CC-Date=20260701T025643Z&HW-CC-Expire=86400&HW-CC-Sign=A807D89C93304D45168EE4FD82E8C70E2012505ECC9D9CA1AAF363B3EA874E09)
 
-- 滑动时添加边缘虚化样式：
-**方案一**：Text组件没有直接设置边缘虚化的属性，因此该效果需要自定义实现。边缘虚化原理如下：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/Jk6UMYKcSLODf3G0suKoEw/zh-cn_image_0000002658834767.png?HW-CC-KV=V1&HW-CC-Date=20260701T025643Z&HW-CC-Expire=86400&HW-CC-Sign=4181CD3697F5A6947EF0E93ADC93C58FF503BF336CC6C9B39261A981FE9E81C4)
-
- 在Scroll组件的上下两侧分别添加两个Row组件，并将它们设置成渐变白色（图示为了清晰，把渐变白变成了黑白渐变色）。
- 判断滑动的位置：
   
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/DGKi2wARRfiScCRtSgfs8A/zh-cn_image_0000002658954727.png?HW-CC-KV=V1&HW-CC-Date=20260701T041147Z&HW-CC-Expire=86400&HW-CC-Sign=E014F6280B1F3FFEB182F8D67AF7C6624C832067F2B5F7B3BE5FEF155CF42FCF)
+
+2. 滑动时添加边缘虚化样式：
+**方案一**：Text组件没有直接设置边缘虚化的属性，因此该效果需要自定义实现。边缘虚化原理如下：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/Jk6UMYKcSLODf3G0suKoEw/zh-cn_image_0000002658834767.png?HW-CC-KV=V1&HW-CC-Date=20260701T041147Z&HW-CC-Expire=86400&HW-CC-Sign=4A8D45DAB5BBDC1A120AE35233B6068CE1E1BF1F1288F904BD63262D07442378)
+
+
+  在Scroll组件的上下两侧分别添加两个Row组件，并将它们设置成渐变白色（图示为了清晰，把渐变白变成了黑白渐变色）。
+
+  判断滑动的位置：
+
 | 场景 | 判断条件 | 上方Row组件 | 下方Row组件 |
+
 | --- | --- | --- | --- |
+
 | 尚未滑动 | 没有Y轴方向上的偏移量 | 不展示 | 展示 |
+
 | 滑至底部 | isAtEnd()接口返回值 | 展示 | 不展示 |
+
 | 滑动中 | 有Y轴方向上的偏移量且不等于Scroll组件高度 | 展示 | 展示 |
- 
- 完整示例参考如下：
- 
+
+  完整示例参考如下：
+
+  
 ```text
 @Entry
 @Component
@@ -160,11 +166,13 @@ struct TextScrollBlurStyleTwo {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/H915me-gSS-14zSRBoG8mg/zh-cn_image_0000002628595512.png?HW-CC-KV=V1&HW-CC-Date=20260701T025643Z&HW-CC-Expire=86400&HW-CC-Sign=5FAA41ADEA773C2F708D60146A83EE3535EF9BC679A231DE8D3052C035979DD7)
 
-- **方案二**：添加属性fadingEdge(true, { fadingEdgeLength: LengthMetrics.vp(20) })。
-完整示例参考如下：
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/H915me-gSS-14zSRBoG8mg/zh-cn_image_0000002628595512.png?HW-CC-KV=V1&HW-CC-Date=20260701T041147Z&HW-CC-Expire=86400&HW-CC-Sign=5E32BAB9AA3D9E30B3AB0A324DB9C6BE94E3359E850F54DAA5B235268EBF317B)
+
+3. **方案二**：添加属性fadingEdge(true, { fadingEdgeLength: LengthMetrics.vp(20) })。
+
+  完整示例参考如下：
 ```text
 import { LengthMetrics } from '@kit.ArkUI';
 

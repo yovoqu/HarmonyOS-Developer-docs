@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-619
 
-## ForEach循环渲染中组件UI刷新异常问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 ForEach循环渲染中当数据发生变化UI会出现异常展示，问题如下：
  
@@ -29,7 +25,7 @@ export class TestClass {
 @Entry
 @Component
 struct Index {
-  @State arrData: Array =
+  @State arrData: Array<TestClass> =
     [new TestClass('label1', 'value1'), new TestClass('label2', 'value2'), new TestClass('label3', 'value3')];
 
 
@@ -51,7 +47,7 @@ struct Index {
         .margin({ top: 10 })
         .onClick(() => {
           this.arrData = [];
-          // 未改变label值，UI未刷新
+       <em>   // 未改变label值，UI未刷新</em>
           this.arrData =
             [new TestClass('label1', 'value11'), new TestClass('label2', 'value21'),
               new TestClass('label3', 'value631')];
@@ -62,7 +58,7 @@ struct Index {
         .margin({ top: 10 })
         .onClick(() => {
           this.arrData = [];
-          // 改变了label值，UI刷新
+        <em>  // 改变了label值，UI刷新</em>
           this.arrData =
             [new TestClass('label4', 'value12'), new TestClass('label5', 'value22'),
               new TestClass('label6', 'value32')];
@@ -87,12 +83,12 @@ class TestItem {
 @Entry
 @Component
 struct ListTestPage {
-  @State testArray: Array = [];
+  @State testArray: Array<TestItem> = [];
 
 
-  // 删除数组项
-  changeArray(testArray: Array, index: number): Array {
-    if (testArray.length = testArray.length) {
+  <em>// 删除数组项</em>
+  changeArray(testArray: Array<TestItem>, index: number): Array<TestItem> {
+    if (testArray.length <= 0 || index < 0 || index >= testArray.length) {
       return testArray;
     }
     return testArray.filter((_, i) => i !== index);
@@ -118,7 +114,7 @@ struct ListTestPage {
       .margin({ top: 30 });
 
 
-      // 添加按钮
+    <em>  // 添加按钮</em>
       Row() {
         Button('添加列表数量');
       }
@@ -147,7 +143,7 @@ struct ListTestPage {
         .onChange((value: string) => {
           itemBean.content = value;
         })
-        .defaultFocus(false); // 弹出软键盘
+        .defaultFocus(false); <em>// 弹出软键盘</em>
       Text('删除')
         .visibility(index >= 2 ? Visibility.Visible : Visibility.None)
         .onClick(() => {
@@ -159,7 +155,7 @@ struct ListTestPage {
 ```
 
 - 问题三：当数据源的数组项为对象数据类型，并且只修改某个数组项的属性值时UI未刷新，问题代码如下：
-```text
+```json
 class TestClass {
   label: string;
   value: string;
@@ -175,7 +171,7 @@ class TestClass {
 @Entry
 @Component
 struct Index {
-  @State arrData: Array =
+  @State arrData: Array<TestClass> =
     [new TestClass('name1', 'value1'), new TestClass('name2', 'value2'), new TestClass('name3', 'value3')];
 
 
@@ -203,7 +199,7 @@ struct Index {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-foreach)接口基于数组类型数据来进行循环渲染，需要与容器组件配合使用，且接口返回的组件应当是允许包含在ForEach父容器组件中的子组件。
 - 被状态变量装饰器装饰的变量称为状态变量，使普通变量具备状态属性。当状态变量改变时，会触发其直接绑定的UI组件渲染更新，但并不是状态变量的所有更改都会引起UI的刷新，只有可以被框架观察到的修改才会引起UI刷新，具体可参考[观察变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state#观察变化)。
@@ -212,10 +208,10 @@ struct Index {
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 问题一：当ForEach组件进行非初次渲染时，ForEach会根据传入的键值进行匹配，如果没有匹配到相同的键值则会创建一个新的组件，而当键值已存在则不会创建新的组件，转而直接渲染该键值所对应的组件，由于代码中设置label为keyGenerator，且点击按钮1时label值并未发生变化，从而导致了数据变化了但是UI并没有刷新。当出现上述问题，需要给ForEach的键值传入可变参数，修改如下：
-```text
+```json
 export class TestClass {
   label: string;
   value: string;
@@ -231,7 +227,7 @@ export class TestClass {
 @Entry
 @Component
 struct S_20250318164735110531 {
-  @State arrData: Array =
+  @State arrData: Array<TestClass> =
     [new TestClass('label1', 'value1'), new TestClass('label2', 'value2'), new TestClass('label3', 'value3')];
 
 
@@ -253,7 +249,7 @@ struct S_20250318164735110531 {
         .margin({ top: 10 })
         .onClick(() => {
           this.arrData = [];
-          // 未改变label值，UI未刷新
+      <em>    // 未改变label值，UI未刷新</em>
           this.arrData =
             [new TestClass('label1', 'value11'), new TestClass('label2', 'value21'),
               new TestClass('label3', 'value631')];
@@ -264,7 +260,7 @@ struct S_20250318164735110531 {
         .margin({ top: 10 })
         .onClick(() => {
           this.arrData = [];
-          // 改变了label值，UI刷新
+        <em>  // 改变了label值，UI刷新</em>
           this.arrData =
             [new TestClass('label4', 'value12'), new TestClass('label5', 'value22'),
               new TestClass('label6', 'value32')];
@@ -286,7 +282,7 @@ class TestItemOne {
 
 
   constructor(id: number) {
-    // 构造时传入不同的id
+ <em>   // 构造时传入不同的id</em>
     this.id = id;
   }
 }
@@ -295,12 +291,12 @@ class TestItemOne {
 @Entry
 @Component
 struct OptionOne {
-  @State testArray: Array = [];
+  @State testArray: Array<TestItemOne> = [];
 
 
-  // 删除数组项
-  changeArray(testArray: Array, index: number): Array {
-    if (testArray.length = testArray.length) {
+<em>  // 删除数组项</em>
+  changeArray(testArray: Array<TestItemOne>, index: number): Array<TestItemOne> {
+    if (testArray.length <= 0 || index < 0 || index >= testArray.length) {
       return testArray;
     }
     return testArray.filter((_, i) => i !== index);
@@ -326,7 +322,7 @@ struct OptionOne {
       .margin({ top: 30 });
 
 
-      // 添加按钮
+    <em>  // 添加按钮</em>
       Row() {
         Button('添加列表数量');
       }
@@ -334,7 +330,7 @@ struct OptionOne {
       .borderRadius(4)
       .alignItems(VerticalAlign.Center)
       .onClick(() => {
-        // 构造时传入不同的id，此处以数组的长度作为数组最后一项的id，从而保证每个对象的id都不一致，从而刷新ForEach
+       <em> // 构造时传入不同的id，此处以数组的长度作为数组最后一项的id，从而保证每个对象的id都不一致，从而刷新ForEach</em>
         this.testArray.push(new TestItemOne(this.testArray.length));
       });
     }
@@ -368,7 +364,7 @@ struct OptionOne {
 ```
 
 - 问题三：由于数据源为复杂数据类型，ArkUI框架无法监听到@State装饰器修饰的数据源数组中的嵌套属性变化，从而无法触发ForEach的重新渲染，可通过@Observed+@ObjectLink或ObservedV2+@Trace。由于@ObjectLink只能修饰被@Observed装饰的类实例，所以需要在子组件声明类实例，在父组件声明对象数组并进行循环渲染，可参考[数据源数组项子属性变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach#数据源数组项子属性变化)，这种实现方式相对复杂因此建议采用结合ObservedV2和@Trace装饰器的方式来实现ForEach循环渲染，示例代码如下：
-```text
+```json
 @ObservedV2
 class TestClass {
   @Trace label: string;
@@ -385,7 +381,7 @@ class TestClass {
 @Entry
 @Component
 struct Index {
-  @State arrData: Array =
+  @State arrData: Array<TestClass> =
     [new TestClass('name1', 'value1'), new TestClass('name2', 'value2'), new TestClass('name3', 'value3')];
 
 
@@ -413,14 +409,12 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么使用ForEach渲染列表，编辑列表中的某个属性，界面显示不会实时变化？
  
 A：有如下原因：
- 
-- 属性变化需要用这两种装饰器：
+ 1. 属性变化需要用这两种装饰器：
 在V1中，@Observed与@ObjectLink装饰器用于观察类对象及其嵌套属性的变化，但V1只能观察对象的最外层属性。嵌套对象的属性需要通过自定义组件和@ObjectLink观察。此外，V1中提供了@Track装饰器实现对属性级别变化的精确控制。
-- 在V2中，结合使用@ObservedV2和@Trace，可以高效实现类对象及其嵌套属性的深度观察，省去对自定义组件的依赖，简化开发流程。同时，@Trace装饰器具备精确更新能力，替代V1中的@Track，实现更高效的UI刷新控制。
-
- - ForEach中的第三个参数keyGenerator使用不恰当，数据源数组项发生变化时，如果键值生成函数中的返回值没有发生改变，不会触发UI实时刷新。
+2. 在V2中，结合使用@ObservedV2和@Trace，可以高效实现类对象及其嵌套属性的深度观察，省去对自定义组件的依赖，简化开发流程。同时，@Trace装饰器具备精确更新能力，替代V1中的@Track，实现更高效的UI刷新控制。
+3. ForEach中的第三个参数keyGenerator使用不恰当，数据源数组项发生变化时，如果键值生成函数中的返回值没有发生改变，不会触发UI实时刷新。

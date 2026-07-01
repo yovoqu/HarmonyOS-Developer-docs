@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-41
 
-## 如何将图片转为base64后再解码显示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 业务诉求：将图片转成Base64后存入数据库，再从数据库中读取解码后进行图片展示，期望提供从选择图片到转换为Base64编码，再从Base64解码后显示图片的示例。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 从图库选择图片可以使用[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)来实现。
 - ImageKit的[createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#createpixelmap7)接口提供了创建PixelMap的能力。
@@ -23,15 +19,19 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 从选择图片到转换为Base64编码可参考以下流程：1.从图库选择图片得到图片数组的uris，结合fileIo和ImageKit将uris转换为ImageSource后，通过createPixelMap接口获取到图片的PixelMap。
- 2.将PixelMap转换为ArrayBuffer后，再通过Base64Helper的encodeToString接口即可转换为Base64编码的字符串。
+
+  2.将PixelMap转换为ArrayBuffer后，再通过Base64Helper的encodeToString接口即可转换为Base64编码的字符串。
 - 从Base64编码再转换为图片显示可参考以下流程：1.通过Base64Helper.decodeSync函数将PixelMap转换为ArrayBuffer。
- 2.通过image.createPixelMap还原成图片PixelMap。
- PixelMap的对象，可以通过ArkUI的Image组件直接展示，可参考如下完整代码示例：
- 
-```text
+
+  2.通过image.createPixelMap还原成图片PixelMap。
+
+  PixelMap的对象，可以通过ArkUI的Image组件直接展示，可参考如下完整代码示例：
+
+  
+```json
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
@@ -47,7 +47,7 @@ struct Index {
   @State targetPixelMap: image.PixelMap | null = null;
 
 
-  // 从相册选择图片并进行预览
+ <em> // 从相册选择图片并进行预览</em>
   selectPhoto() {
     try {
       let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
@@ -58,7 +58,7 @@ struct Index {
         let result = JSON.stringify(photoSelectResult);
         console.info(`PhotoViewPicker.select successfully, PhotoSelectResult uri: ${result}`);
         let uri = photoSelectResult.photoUris[0];
-        // 获取到图片或者视频文件的URI后进行文件读取等操作
+     <em>   // 获取到图片或者视频文件的URI后进行文件读取等操作</em>
         let file: fs.File | null = null;
         try {
           file = fs.openSync(uri, fs.OpenMode.READ_ONLY);
@@ -68,7 +68,7 @@ struct Index {
           let readBuffer: ArrayBuffer = new ArrayBuffer(num);
           this.originalPixelMap.readPixelsToBufferSync(readBuffer);
           let utilBase64Helper = new util.Base64Helper();
-          // 获取到图片Base64字符串
+       <em>   // 获取到图片Base64字符串</em>
           this.imageBase64Str = utilBase64Helper.encodeToStringSync(new Uint8Array(readBuffer));
           imageSourceApi.release();
           this.base64ToPixmap();
@@ -76,7 +76,7 @@ struct Index {
           let err: BusinessError = e as BusinessError;
           console.error(`PhotoViewPicker failed with err: ${err.code}, ${err.message}`);
         } finally {
-          // 释放资源
+        <em>  // 释放资源</em>
           if (file !== null) {
             fs.closeSync(file.fd);
           }
@@ -91,7 +91,7 @@ struct Index {
   }
 
 
-  // 将Base64编码的字符串转换为PixelMap
+  <em>// 将Base64编码的字符串转换为PixelMap</em>
   base64ToPixmap() {
     try {
       let utilBase64Helper = new util.Base64Helper();
@@ -133,13 +133,13 @@ struct Index {
  
  
 
-##### 总结
+#### 总结
 
-- PixelMap文件转Base64。
-通过Image模块的createImageSource方法从ArrayBuffer中构造出ImageSource实例，然后通过ImageSource的createPixelMap方法创建一个PixelMap实例。
-- 将PixelMap编码成Uint8Array数据可以通过util.Base64Helper()，Base64Helper类提供Base64编解码和Base64URL编解码功能，使用encodeSync方法通过输入参数编码后输出Uint8Array对象。
-- 将Uint8Array数据转换成Base64类型HarmonyOS的util工具函数提供了Base64Helper类，Base64Helper类中的encodeToStringSync方法可以将Uint8Array转换为Base64编码。如果要保证Base64编码后的结果仍能够解码成原始的图片文件，请直接使用Base64Helper类进行二进制数据转换操作，避免增加图片编解码相关操作。
+- PixelMap文件转Base64。1. 通过Image模块的createImageSource方法从ArrayBuffer中构造出ImageSource实例，然后通过ImageSource的createPixelMap方法创建一个PixelMap实例。
 
- - Base64转PixelMap。
-将Base64类型数据解析成ArrayBuffer类型，同样可以通过Base64Helper类中的decodeSync方法将Base64数据解析成Uint8Array类型数据，然后将Uint8Array类型数据转换成ArrayBuffer数据可以直接访问Uint8Array的buffer属性。
-- 创建InitializationOptions对象用于配置新PixelMap，并使用image.createPixelMapSync使用解码后的数据创建新的PixelMap。
+2. 将PixelMap编码成Uint8Array数据可以通过util.Base64Helper()，Base64Helper类提供Base64编解码和Base64URL编解码功能，使用encodeSync方法通过输入参数编码后输出Uint8Array对象。
+
+3. 将Uint8Array数据转换成Base64类型HarmonyOS的util工具函数提供了Base64Helper类，Base64Helper类中的encodeToStringSync方法可以将Uint8Array转换为Base64编码。如果要保证Base64编码后的结果仍能够解码成原始的图片文件，请直接使用Base64Helper类进行二进制数据转换操作，避免增加图片编解码相关操作。
+- Base64转PixelMap。1. 将Base64类型数据解析成ArrayBuffer类型，同样可以通过Base64Helper类中的decodeSync方法将Base64数据解析成Uint8Array类型数据，然后将Uint8Array类型数据转换成ArrayBuffer数据可以直接访问Uint8Array的buffer属性。
+
+2. 创建InitializationOptions对象用于配置新PixelMap，并使用image.createPixelMapSync使用解码后的数据创建新的PixelMap。

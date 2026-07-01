@@ -4,24 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1190
 
-## Checkbox更改样式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Checkbox组件在交互的过程中有默认样式，但根据界面设计需求，往往需要更改Checkbox的样式使界面更统一或更具辨识度。
  
 - 场景一：如何自定义边框的宽度？效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uS_ewSytQOK2aM1BiWKmhg/zh-cn_image_0000002658952183.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=F6FB6A6362E216B453E3CB0DA7A20674F3AD4A859735671774C2DB30D7AC3DE2)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uS_ewSytQOK2aM1BiWKmhg/zh-cn_image_0000002658952183.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=3AB89B38671A9A528A58DFC29A2D7EC506A00FF3F20C8C6BB2BF70276DDB139C)
 
 - 场景二：如何修改Checkbox未选择状态时的背景？
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Checkbox](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox)：提供多选框组件，通常用于某选项的打开或关闭。
 - [contentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox#contentmodifier12)：定制Checkbox内容区的方法。设置该属性时，会导致其他属性设置失效。
@@ -31,12 +28,13 @@ Checkbox组件在交互的过程中有默认样式，但根据界面设计需求
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：通过contentModifier属性自定义圆形选择框样式，使用Circle组件重绘选择框，设置strokeWidth属性可修改边框宽度。示例代码如下：
- 
+
+  
 ```text
-class MyCheckboxStyle implements ContentModifier {
+class MyCheckboxStyle implements ContentModifier<CheckBoxConfiguration> {
   selectedColor: ResourceColor = '#0A59F7';
   cx: number = 100;
   cy: number = 100;
@@ -53,7 +51,7 @@ class MyCheckboxStyle implements ContentModifier {
   }
 
 
-  applyContent(): WrappedBuilder {
+  applyContent(): WrappedBuilder<[CheckBoxConfiguration]> {
     return wrapBuilder(buildCheckbox);
   }
 }
@@ -70,7 +68,7 @@ struct CheckboxDemo {
       Text(`复选框状态${this.checkSelect ? '（ 选中 ）' : '（ 非选中 ）'}`).margin({ bottom: 10 });
       Checkbox({ name: '复选框状态', group: 'checkboxGroup' })
         .select($$this.checkSelect)
-        .contentModifier(new MyCheckboxStyle('#0A59F7', 100, 120, 100, 80)) // 自定义选择框样式
+        .contentModifier(new MyCheckboxStyle('#0A59F7', 100, 120, 100, 80)) /<em>/ 自定义选择框样式</em>
         .onChange((value: boolean) => {
           console.info(`Checkbox change is${value}`);
         });
@@ -89,24 +87,27 @@ function buildCheckbox(config: CheckBoxConfiguration) {
     .fill(config.selected ? (config.contentModifier as MyCheckboxStyle).selectedColor : Color.White)
     .width(50)
     .height(50)
-    .strokeWidth(5) // 设置边框宽度
-    .stroke('#000') // 设置边框颜色
+    .strokeWidth(5) <em>// 设置边框宽度</em>
+    .stroke('#000') /<em>/ 设置边框颜色</em>
     .onClick(() => {
       config.triggerChange(!config.selected);
     });
 }
 ```
- 
- 示例代码运行效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/7Z-TqdAZQtiQVcg0QNUqHw/zh-cn_image_0000002628592970.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=9AADBD8E1E6097DB0014FB113B3CBF3886F85B5B124B80A25DE83FAD90CB80B7)
+
+
+  示例代码运行效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/7Z-TqdAZQtiQVcg0QNUqHw/zh-cn_image_0000002628592970.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=A3BED27F7C6478FBCDB8AA0D4B640E878BADF5D4BCC42950038F6E716ABF77A9)
 
 
  
 - 场景二：通过contentModifier属性自定义圆形选择框样式，传入未选中时的默认背景图片，在点击事件中对当前背景图片进行取反，且使用CheckBoxConfiguration的triggerChange方法触发多选框选中状态变化从而实现背景的修改。示例代码如下：
- 
+
+  
 ```text
-class MyCheckboxStyleTwo implements ContentModifier {
+class MyCheckboxStyleTwo implements ContentModifier<CheckBoxConfiguration> {
   selectedColor: Resource;
 
 
@@ -115,7 +116,7 @@ class MyCheckboxStyleTwo implements ContentModifier {
   }
 
 
-  applyContent(): WrappedBuilder {
+  applyContent(): WrappedBuilder<[CheckBoxConfiguration]> {
     return wrapBuilder(buildCheckboxTwo);
   }
 }
@@ -128,7 +129,7 @@ struct ModifierCheckBoxTwo {
     Row() {
       Column() {
         Checkbox({ name: '复选框状态', group: 'checkboxGroup' })
-          .contentModifier(new MyCheckboxStyleTwo($r('app.media.green'))) // 自定义选择框样式，根据具体场景传入默认背景
+          .contentModifier(new MyCheckboxStyleTwo($r('app.media.green'))) <em>// 自定义选择框样式，根据具体场景传入默认背景</em>
           .onChange((value: boolean) => {
             console.info(`Checkbox change is${value}`);
           });
@@ -147,31 +148,33 @@ function buildCheckboxTwo(config: CheckBoxConfiguration) {
     Flex({ justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
     }
     .onClick(() => {
-      // 对当前背景图片进行取反操作
+     <em> // 对当前背景图片进行取反操作</em>
       (config.contentModifier as MyCheckboxStyleTwo).selectedColor =
-        !config.selected ? $r('app.media.startIcon') : $r('app.media.background'); // 根据具体场景加载资源
-      // 判断多选框的选择状态
+        !config.selected ? $r('app.media.startIcon') : $r('app.media.background'); <em>// 根据具体场景加载资源</em>
+   <em>   // 判断多选框的选择状态</em>
       config.triggerChange(!config.selected);
     })
     .width(50)
     .height(50)
     .borderRadius(5)
     .backgroundImageSize({ width: '100%', height: '100%' })
-    // 示例效果：未选中状态时的背景图片为绿色图片，经过自定义后未选中状态时的背景图片为蓝色图片
-    .backgroundImage((config.contentModifier as MyCheckboxStyleTwo).selectedColor); // 设置背景，根据具体场景加载资源
+    /<em>/ 示例效果：未选中状态时的背景图片为绿色图片，经过自定义后未选中状态时的背景图片为蓝色图片</em>
+    .backgroundImage((config.contentModifier as MyCheckboxStyleTwo).selectedColor);<em> // 设置背景，根据具体场景加载资源</em>
   };
 }
 ```
- 
- 示例代码运行效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/nFBnrP4vRWiHUkLpXoeiAw/zh-cn_image_0000002658832225.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=A38830E6FDEB9EEF7023C5DC11A264A7DC1D3308AACA58CAC2092C0D15C8D51E)
+
+
+  示例代码运行效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/nFBnrP4vRWiHUkLpXoeiAw/zh-cn_image_0000002658832225.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=0446B44AFDA117E4CADAAEBA50A9E705DEE6BE209A7D2695DC21FF431EF1DD3F)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
  
 Q：如何为Checkbox组件设置选中颜色？

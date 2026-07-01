@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-94
 
-## 试用调试Profile如何申请及注意事项
- 
-
-
-##### 问题现象
+#### 问题现象
 
 申请试用调试Profile时，系统会弹窗，但是弹窗消失后找不到申请的入口，是否操作有误？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 应用开发过程中如果需要使用ACL权限，需要在AGC申请权限[申请ACL权限](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apply-acl-0000002394212138)，AGC会根据应用的使用场景审核是否可以使用对应的权限。
 - 申请ACL权限需要审核，在审核过程中可以[创建试用调试Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apply-acl-0000002394212138#section1443958124819)。
@@ -22,15 +18,13 @@
  
  
 
-##### 解决方案
-
-- 申请试用调试Profile时，系统弹窗如下：
-- 点击弹窗中的“Profile页面”会跳转到新的链接，根据链接提示可完成试用Profile的申请：
-
+#### 解决方案
+1. 申请试用调试Profile时，系统弹窗如下：
+2. 点击弹窗中的“Profile页面”会跳转到新的链接，根据链接提示可完成试用Profile的申请：
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么找不到申请试用调试Profile的申请入口？
  

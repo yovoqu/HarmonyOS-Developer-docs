@@ -4,52 +4,38 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-threading-model-15
 
-## 主动取消TaskPool任务的实现
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Page页面中使用多个taskpool.execute或taskpool.executePeriodically创建异步任务后，无法主动取消已启动的任务，导致资源浪费或逻辑异常。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - Taskpool是HarmonyOS系统提供的多线程任务池模块，用于在后台线程执行耗时操作。通过taskpool.execute()可执行一次性任务，taskpool.executePeriodically()可执行周期性任务。
 - 从API Version 18起，Task类新增了taskId属性，支持通过任务ID在任意线程中取消任务。而在API Version 18以下，必须持有原始taskpool.Task实例才能调用cancel()方法。
 
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/kt_dUVPMTEyDshO6gNDCIA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025523Z&HW-CC-Expire=86400&HW-CC-Sign=4D077B625FB803BAE0E544465BE1EF83031C30A82143BA457A63393778882B7B)
- 
-
-参考文档：[多线程任务取消指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-cancel-task)。
- 
-参考文档：[TaskPool API 参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool)。
- 
+> [!NOTE]
+> 参考文档： 多线程任务取消指南 。 参考文档： TaskPool API 参考 。
 
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：API Version 18及以上——使用任务ID取消任务（推荐）。步骤说明：
- 
-启动任务时记录任务ID。使用taskpool.execute()或taskpool.executePeriodically()启动任务时，会返回一个Task实例，其taskId属性为唯一标识。
-- 通过taskpool.cancel()方法取消任务。在任意线程中调用taskpool.cancel(taskId)，即可取消对应任务。
 
- 
+1. 启动任务时记录任务ID。使用taskpool.execute()或taskpool.executePeriodically()启动任务时，会返回一个Task实例，其taskId属性为唯一标识。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/nLHq_VnjSfuCaReihdYBEg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025523Z&HW-CC-Expire=86400&HW-CC-Sign=1BFDA6F37A12BD8059395399F39B537FEE05429CF6187491FC161E24D81E994D)
- 
+2. 通过taskpool.cancel()方法取消任务。在任意线程中调用taskpool.cancel(taskId)，即可取消对应任务。
 
-取消后任务不会立即终止。
- 
-取消任务后，任务还会在子线程中继续运行，而且任务存在阻塞的话会一直占用子线程，例如以下示例代码，为了防止while造成死循环而导致子线程占用，需在执行体内部主动检查isCanceled()状态，主动跳出任务，以实现优雅退出，释放子线程资源。
- 
+  
+> [!NOTE]
+> 取消后任务不会立即终止。 取消任务后，任务还会在子线程中继续运行，而且任务存在阻塞的话会一直占用子线程，例如以下示例代码，为了防止while造成死循环而导致子线程占用，需在执行体内部主动检查isCanceled()状态，主动跳出任务，以实现优雅退出，释放子线程资源。
 
- 
+
+  
 ```text
 @Concurrent
 function printArgs(args: number): number {
@@ -85,25 +71,22 @@ function concurrentFuncAfterEighteen() {
   }, 1000);
 }
 ```
- - **方案二**：API Version 18以下——使用Task实例引用取消任务。步骤说明：
- 
-保存Task实例的引用。在启动任务时，必须将返回的Task实例保存在变量中，不能丢弃。
-- 调用taskpool.cancel()方法取消任务。在任意线程中调用taskpool.cancel(task实例)，即可取消对应任务。
 
- 
+- **方案二**：API Version 18以下——使用Task实例引用取消任务。步骤说明：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/g4Qimb1iT26X0FNasq6U7w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025523Z&HW-CC-Expire=86400&HW-CC-Sign=92AABB3DEFF019213631B43A046D07126507B79CCDBABBFCE7F43D3178853D03)
- 
+1. 保存Task实例的引用。在启动任务时，必须将返回的Task实例保存在变量中，不能丢弃。
 
-取消后需在任务体中检查状态。
- 
-与高版本一致，需在任务函数内部定期调用isCanceled()检查是否被取消。
- 
+2. 调用taskpool.cancel()方法取消任务。在任意线程中调用taskpool.cancel(task实例)，即可取消对应任务。
 
- 
+  
+> [!NOTE]
+> 取消后需在任务体中检查状态。 与高版本一致，需在任务函数内部定期调用isCanceled()检查是否被取消。
+
+
+  
 ```text
 function concurrentFuncBeforeEighteen() {
-  let task: taskpool.Task = new taskpool.Task(printArgs, 100); // 100: test number
+  let task: taskpool.Task = new taskpool.Task(printArgs, 100);<em> // 100: test number</em>
   taskpool.execute(task).catch((err: BusinessError) => {
     hilog.error(0x0000, 'testTag', 'taskpool catch err: ' + err.message);
   });
@@ -117,9 +100,9 @@ function concurrentFuncBeforeEighteen() {
   }, 1000);
 }
 ```
- 
-完整示例参考如下：
- 
+ 完整示例参考如下：
+
+  
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -160,7 +143,7 @@ function concurrentFuncAfterEighteen() {
 }
 
 function concurrentFuncBeforeEighteen() {
-  let task: taskpool.Task = new taskpool.Task(printArgs, 100); // 100: test number
+  let task: taskpool.Task = new taskpool.Task(printArgs, 100); <em>// 100: test number</em>
   taskpool.execute(task).catch((err: BusinessError) => {
     hilog.error(0x0000, 'testTag', 'taskpool catch err: ' + err.message);
   });
@@ -194,11 +177,12 @@ struct cancelTaskPool {
   }
 }
 ```
- 
+
+
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么取消任务后任务还在执行？
  

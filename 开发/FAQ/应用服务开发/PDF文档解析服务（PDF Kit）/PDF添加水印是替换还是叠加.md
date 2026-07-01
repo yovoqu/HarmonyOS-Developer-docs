@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-20
 
-## PDF添加水印是替换还是叠加
- 
-
-
-##### 问题现象
+#### 问题现象
 
 PDF添加水印、背景、前景方法的行为是替换还是叠加？
  
  
 
-##### 解决方案
+#### 解决方案
 
 水印、背景、前景均以独立图层叠加到原始文档上。
  

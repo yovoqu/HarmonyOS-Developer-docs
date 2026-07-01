@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-34
 
-## 使用AudioCapturer录制音频时报错6800301该如何处理
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用AudioCapturer录制音频时会发生报错，错误码为6800301，错误示例代码如下：
  
@@ -18,13 +14,13 @@ Create AudioCapturer failed, error: {"code":6800301}
  
  
 
-##### 背景知识
+#### 背景知识
 
 [AudioCapturer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer)：用于音频输入的API，仅支持PCM格式，需要应用持续读取音频数据进行工作。使用AudioCapturer录制音频涉及到AudioCapturer实例的创建、音频采集参数的配置、采集的开始与停止、资源的释放等。可以使用on('stateChange')方法可以监听AudioCapturer的状态变化，每个状态对应值与说明见[AudioState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiostate8)。
  
  
 
-##### 问题定位
+#### 问题定位
 
 错误码6800301是系统内部错误，包含系统处理异常、权限校验异常、参数校验异常、状态检查异常以及焦点抢占失败等。
  
@@ -37,29 +33,29 @@ Create AudioCapturer failed, error: {"code":6800301}
  
  
 
-##### 分析结论
+#### 分析结论
 
 如下图所示，如果权限没有正确申请，则会导致权限校验异常造成报错，这里取消了麦克风权限导致报错：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/Aq6YUIQ7STuNif_2EWKDzw/zh-cn_image_0000002658791891.png?HW-CC-KV=V1&HW-CC-Date=20260701T025823Z&HW-CC-Expire=86400&HW-CC-Sign=638E01AA8A8A38B00BC9185CEABE240566B7690F17CBFA827358277A9979E60B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/Aq6YUIQ7STuNif_2EWKDzw/zh-cn_image_0000002658791891.png?HW-CC-KV=V1&HW-CC-Date=20260701T041052Z&HW-CC-Expire=86400&HW-CC-Sign=4BB72B0FB4DFDBA0C5DFE844E36703C6917F1A35E11717A4F6D8B44F51532131)
 
  
 如下图所示，如果参数配置不正确，则会导致参数校验异常造成报错，音频采集参数的详细信息可以查看[AudioStreamInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreaminfo8)，这里配置了错误的采样率导致报错：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/4hCixKyCT8-aDwJBtk_sPw/zh-cn_image_0000002628552524.png?HW-CC-KV=V1&HW-CC-Date=20260701T025823Z&HW-CC-Expire=86400&HW-CC-Sign=1CE2EA4815C10BE04C40C58A6183F313183435F2E5AFA51DD9ECE7565889DE61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/4hCixKyCT8-aDwJBtk_sPw/zh-cn_image_0000002628552524.png?HW-CC-KV=V1&HW-CC-Date=20260701T041052Z&HW-CC-Expire=86400&HW-CC-Sign=7B56EB2696479ECC3579B8CEF8C3E97B2A72AEECC90396DE79E325A4E9BBB250)
 
  
 如下图所示，如果没有进行正确的初始化，则会导致状态检查异常造成系统报错，这里初始化步骤在申请权限之前导致报错：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/j3Cml7jXT-C1kR2dpG0-oA/zh-cn_image_0000002658911835.png?HW-CC-KV=V1&HW-CC-Date=20260701T025823Z&HW-CC-Expire=86400&HW-CC-Sign=6F09D3D51E2F6B6786C9C604CEC1838003F5427F20AED55888B7EBD932B68401)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/j3Cml7jXT-C1kR2dpG0-oA/zh-cn_image_0000002658911835.png?HW-CC-KV=V1&HW-CC-Date=20260701T041052Z&HW-CC-Expire=86400&HW-CC-Sign=5C8021E7A5858533D0E8D16BAE75A2B34A2FFD2317703BCAA05E06D4995E7D2F)
 
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **申请麦克风权限**：申请麦克风权限方式参考[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)，如果用户拒绝了权限申请，则需要去设置里另外开启，另外在module.json5文件里也要申请相关权限。
 - **配置正确的参数**：配置音频采集参数时应当注意相应参数范围，音频采集参数的详细信息可以查看[AudioStreamInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreaminfo8)。
@@ -71,7 +67,7 @@ Create AudioCapturer failed, error: {"code":6800301}
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：AudioCapturer录制音频过程中，麦克风权限被禁止，此时AudioState状态为多少？
  

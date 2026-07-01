@@ -3,22 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-antifraudpicker
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## AntifraudPicker（反诈选择器）
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/PtHdo1AiTkuqfgCXIqVVzg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025448Z&HW-CC-Expire=86400&HW-CC-Sign=3B7EBAB0087B1879D69820EFEBBA1771B9BD0B14FAE5593F31BC31A6FDD0BE8F)
- 
- 
-以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-  
+> [!NOTE]
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
 
   
 
-##### 201 权限校验失败
+#### 201 权限校验失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -38,7 +32,9 @@ Permission denied.
  
   
 
-##### 401 参数检查失败
+#### 401 参数检查失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
  
@@ -58,7 +54,9 @@ Parameter error.
  
   
 
-##### 1017100001 未知异常
+#### 1017100001 未知异常
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -78,7 +76,9 @@ Unknown error.
  
   
 
-##### 1017100002 不支持的设备类型
+#### 1017100002 不支持的设备类型
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -98,7 +98,9 @@ The device type is not supported.
  
   
 
-##### 1017600001 未知异常
+#### 1017600001 未知异常
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -118,7 +120,9 @@ Unknown error.
  
   
 
-##### 1017600002 不支持的设备类型
+#### 1017600002 不支持的设备类型
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -138,7 +142,9 @@ The device type is not supported.
  
   
 
-##### 1017600003 参数检查失败
+#### 1017600003 参数检查失败
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  

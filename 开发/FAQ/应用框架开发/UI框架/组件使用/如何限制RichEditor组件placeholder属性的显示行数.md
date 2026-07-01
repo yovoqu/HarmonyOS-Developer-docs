@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-729
 
-## 如何限制RichEditor组件placeholder属性的显示行数
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用RichEditor组件时，当无输入时的提示文本过长时，会多行显示，如何将提示文本限制为一行，并且超出部分省略？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/jcwmUJ2xRYyPT0O_HLOXTA/zh-cn_image_0000002628555222.png?HW-CC-KV=V1&HW-CC-Date=20260701T025544Z&HW-CC-Expire=86400&HW-CC-Sign=EE6727E37521DCE1C435C86D58380B7EF056A45C9DA94A8579A537CA525A8CEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/jcwmUJ2xRYyPT0O_HLOXTA/zh-cn_image_0000002628555222.png?HW-CC-KV=V1&HW-CC-Date=20260701T041320Z&HW-CC-Expire=86400&HW-CC-Sign=94BF69DEE56D7A3BD0B885044D5DEDD54FDF64B495847E8F858371F322248286)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)是支持图文混排和文本交互式编辑的组件，其属性[placeholder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#placeholder12)能够设置无输入时的提示文本，并且能够设定提示文本的字体样式和字体颜色。
  
  
 
-##### 解决方案
+#### 解决方案
 
 RichEditor组件的placeholder属性只支持设置文本的字体样式，没有设置显示行数的方法，因此建议可以使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)组件和[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件模仿出placeholder效果，具体实现如下：
  
@@ -55,9 +51,10 @@ struct LimitRichEditorPlaceholder {
           .width(300)
           .height(300);
 
-        Text(`${!this.flag && (this.controller.getSpans()).length  // 设置文本框宽度
-          .maxLines(1) // 限制显示为一行
-          .textOverflow({ overflow: TextOverflow.Ellipsis }) // 超出部分不显示
+        Text(`${!this.flag && (this.controller.getSpans()).length < 1 ? this.tips : ''}`)
+          .width(250)<em> // 设置文本框宽度</em>
+          .maxLines(1)<em> // 限制显示为一行</em>
+          .textOverflow({ overflow: TextOverflow.Ellipsis })<em> // 超出部分不显示</em>
           .border({ width: 5 })
           .hitTestBehavior(HitTestMode.Transparent)
           .fontColor(Color.Gray)

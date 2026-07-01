@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1075
 
-## Select如何自定义按钮样式和内容
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Select按钮如何实现以下场景：
  
@@ -19,7 +15,7 @@ Select按钮如何实现以下场景：
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Select](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select)下拉按钮组件，提供下拉选择菜单，让用户在多个选项间选择。[selected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#selected18)属性可以设置下拉菜单初始选项的索引。[value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#value18)设置下拉按钮的文本内容。选中菜单项后，按钮文本将自动更新为选中的菜单项文本。selected和value设置的属性均支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)、[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding)双向绑定。
 - 从API20开始可以通过[textModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#textmodifier20)定制Select按钮文本样式，以及通过[arrowModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#arrowmodifier20)定制Select按钮下拉箭头图标样式。
@@ -30,11 +26,10 @@ Select按钮如何实现以下场景：
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：API20以后可以参考官方API示例中[设置Select中文本和箭头样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#示例6设置select中文本和箭头样式)。如果是API20以前可参考场景二中第二种方式。
-- **场景二**：由于API20版本Select组件按钮部分只能设置文本和下拉箭头样式，无法直接修改Select按钮内容，但是可以设置[menuAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#menualign18)让下拉框相对Select按钮居中。如果需要Select按钮内容居中，有以下两种方式可以实现类似的效果。
-通过给Select组件添加Padding属性，设置相同的左右内边距，让文本和图标显示在Select中间，但是在文本较长时使用容易让文本显示不全。
+- **场景二**：由于API20版本Select组件按钮部分只能设置文本和下拉箭头样式，无法直接修改Select按钮内容，但是可以设置[menuAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#menualign18)让下拉框相对Select按钮居中。如果需要Select按钮内容居中，有以下两种方式可以实现类似的效果。1. 通过给Select组件添加Padding属性，设置相同的左右内边距，让文本和图标显示在Select中间，但是在文本较长时使用容易让文本显示不全。
 ```text
 @Entry
 @Component
@@ -50,7 +45,7 @@ struct Center1 {
         .width('70%')
         .selected(0)
         .value('aaa')
-        .padding({ left: 90, right: 90 }) // 设置左右边距，按钮内容实现居中
+        .padding({ left: 90, right: 90 }) <em>// 设置左右边距，按钮内容实现居中</em>
         .space(0)
         .menuAlign(MenuAlignType.CENTER);
     }
@@ -60,15 +55,17 @@ struct Center1 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/CPIRjD56RH6mxGCdppR4-w/zh-cn_image_0000002658926449.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=BB1360E71260D4B9A9554047E50964BEAA413BAB89BD38B5ECCBC0751AA22511)
 
-- 自定义Select内容区。通过将原本的Select按钮设置为纯透明，在Select组件之上添加Row组件设置相同的宽高（[onSizeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-size-change-event#onsizechange)事件获取原Select宽高），对Row设置hitTestBehavior(HitTestMode.None)让事件可透传到Select（子组件也需添加）。自定义Row组件中的内容，实现Select组件按钮内容居中的效果。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/CPIRjD56RH6mxGCdppR4-w/zh-cn_image_0000002658926449.png?HW-CC-KV=V1&HW-CC-Date=20260701T041248Z&HW-CC-Expire=86400&HW-CC-Sign=77FF9E0AD0066956DDA80C43A6E9F156FA9CDB410F4C7CDE912315F8913F2BF3)
+
+
+2. 自定义Select内容区。通过将原本的Select按钮设置为纯透明，在Select组件之上添加Row组件设置相同的宽高（[onSizeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-size-change-event#onsizechange)事件获取原Select宽高），对Row设置hitTestBehavior(HitTestMode.None)让事件可透传到Select（子组件也需添加）。自定义Row组件中的内容，实现Select组件按钮内容居中的效果。
 ```text
 @Entry
 @Component
 struct Center2 {
-  @State selectValue: string = '未选择'; // Select的值
+  @State selectValue: string = '未选择';<em> // Select的值</em>
   @State selectWidth: number = 0;
   @State selectHeight: number = 0;
   selectItems: SelectOption[] = [
@@ -87,7 +84,7 @@ struct Center2 {
           .opacity(0)
           .menuAlign(MenuAlignType.CENTER)
           .onSizeChange((oldSize, newSize) => {
-            // 获取Select组件宽高
+          <em>  // 获取Select组件宽高</em>
             this.selectWidth = newSize.width as number;
             this.selectHeight = newSize.height as number;
             console.info('W：', this.selectWidth);
@@ -98,17 +95,17 @@ struct Center2 {
             .maxLines(1)
             .textOverflow({ overflow: TextOverflow.Ellipsis })
             .hitTestBehavior(HitTestMode.None)
-            .constraintSize({ maxWidth: this.selectWidth - 40, maxHeight: '100%' }); // 选择的文本
-          SymbolGlyph($r('sys.symbol.arrowtriangle_down_fill')).hitTestBehavior(HitTestMode.None).width(20); // 下拉箭头
+            .constraintSize({ maxWidth: this.selectWidth - 40, maxHeight: '100%' }); <em>// 选择的文本</em>
+          SymbolGlyph($r('sys.symbol.arrowtriangle_down_fill')).hitTestBehavior(HitTestMode.None).width(20); <em>// 下拉箭头</em>
         }
         .padding(10)
-        .width(this.selectWidth) // 根据Select组件设置宽
-        .height(this.selectHeight) // 根据Select组件设置高
-        .borderRadius(20) // 设置圆角
-        .justifyContent(FlexAlign.Center) // 内容居中
-        .hitTestBehavior(HitTestMode.None) // 设置事件透传
+        .width(this.selectWidth) <em>// 根据Select组件设置宽</em>
+        .height(this.selectHeight)<em> // 根据Select组件设置高</em>
+        .borderRadius(20)<em> // 设置圆角</em>
+        .justifyContent(FlexAlign.Center)<em> // 内容居中</em>
+        .hitTestBehavior(HitTestMode.None) <em>// 设置事件透传</em>
         .stateStyles({
-          // 设置正常状态和按压状态颜色
+         <em> // 设置正常状态和按压状态颜色</em>
           normal: {
             .backgroundColor('#f1f3f5');
           },
@@ -124,19 +121,19 @@ struct Center2 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/mRHYCQc-Rjy4JgFa2OW_SA/zh-cn_image_0000002628407238.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=90E03F4CAB6A4346084AC3881CE177EDA7A3A96321C59DA6C5F2192FD989B303)
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/mRHYCQc-Rjy4JgFa2OW_SA/zh-cn_image_0000002628407238.png?HW-CC-KV=V1&HW-CC-Date=20260701T041248Z&HW-CC-Expire=86400&HW-CC-Sign=6ADA810ABC5FBC9643A3E4B2DBEE33C0010ABCFB565EEEEB6D96C630A1CE1EB1)
 
- - **场景三**：API20以后也可以通过textModifier和arrowModifier自定义内容样式，把文本和下拉箭头改为透明。再通过Row自定义内容在原Select组件上层，参考场景二的第二种方式将Text改为TextArea。在输入框onChange事件中匹配内容对应的索引，并修改Select中的索引，让输入内容可以修改下拉框中的选项。实现既可输入内容也能在下拉菜单中选择。
+- **场景三**：API20以后也可以通过textModifier和arrowModifier自定义内容样式，把文本和下拉箭头改为透明。再通过Row自定义内容在原Select组件上层，参考场景二的第二种方式将Text改为TextArea。在输入框onChange事件中匹配内容对应的索引，并修改Select中的索引，让输入内容可以修改下拉框中的选项。实现既可输入内容也能在下拉菜单中选择。
 ```text
 import { SymbolGlyphModifier, TextModifier } from '@kit.ArkUI';
 
 @Entry
 @Component
 struct TextInputSelect {
-  @State selectValue: string = ''; // 文本输入框内容
-  @State selectIndex: number = -1; // 当前Select索引
+  @State selectValue: string = ''; <em>// 文本输入框内容</em>
+  @State selectIndex: number = -1;<em> // 当前Select索引</em>
   @State selectWidth: number = 0;
   @State selectHeight: number = 0;
   selectItems: SelectOption[] = [
@@ -145,11 +142,11 @@ struct TextInputSelect {
     { value: 'ccc', icon: $r('app.media.startIcon') },
     { value: 'ddd', icon: $r('app.media.startIcon') }
   ];
-  textModifier: TextModifier = new TextModifier(); // 自定义Select文本样式
-  symbolGlyphModifier: SymbolGlyphModifier = new SymbolGlyphModifier(); // 自定义Select下拉箭头样式
+  textModifier: TextModifier = new TextModifier(); <em>// 自定义Select文本样式</em>
+  symbolGlyphModifier: SymbolGlyphModifier = new SymbolGlyphModifier(); <em>// 自定义Select下拉箭头样式</em>
 
   aboutToAppear(): void {
-    // 文本和下拉箭头设置为纯透明
+   <em> // 文本和下拉箭头设置为纯透明</em>
     this.textModifier.fontColor('#00000000');
     this.symbolGlyphModifier.fontColor(['#00000000']);
   }
@@ -171,32 +168,32 @@ struct TextInputSelect {
             console.info('W：', this.selectWidth);
             console.info('H：', this.selectHeight);
           });
-        // 自定义Select内容
+      <em>  // 自定义Select内容</em>
         Row() {
-          // 文本输入框
+      <em>    // 文本输入框</em>
           TextArea({ placeholder: '请选择', text: $$this.selectValue })
             .backgroundColor('#00000000')
             .selectionMenuHidden(true)
             .hitTestBehavior(HitTestMode.Transparent)
             .layoutWeight(1)
             .onChange(() => {
-              // 匹配当前输入框内容对应的索引
+          <em>    // 匹配当前输入框内容对应的索引</em>
               this.selectIndex = this.selectItems.findIndex((item) => {
                 return item.value === this.selectValue;
               });
               console.info(`当前索引值：${this.selectIndex}`);
             });
-          // 自定义下拉按钮
+        <em>  // 自定义下拉按钮</em>
           Row() {
             Text('显示菜单');
             SymbolGlyph($r('sys.symbol.chevron_down'));
           }.margin({ right: 10 })
-          .hitTestBehavior(HitTestMode.None); // 设置透传
+          .hitTestBehavior(HitTestMode.None);<em> // 设置透传</em>
         }
         .width(this.selectWidth)
         .height(this.selectHeight)
         .borderRadius(20)
-        .hitTestBehavior(HitTestMode.None); // 设置透传
+        .hitTestBehavior(HitTestMode.None);<em> // 设置透传</em>
       };
     }
     .height('100%')
@@ -205,14 +202,15 @@ struct TextInputSelect {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/CV-5O8VxScusqf2Mz3RnCQ/zh-cn_image_0000002658806501.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=30C903E7202579AD590996C6BB19AA220B1DDAD203B1C707C95A2E011CD393F6)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/CV-5O8VxScusqf2Mz3RnCQ/zh-cn_image_0000002658806501.png?HW-CC-KV=V1&HW-CC-Date=20260701T041248Z&HW-CC-Expire=86400&HW-CC-Sign=D01D8E8BAB76D2B6A3E02B252AC1C9D2C126C1A6D20637E3BF9BD0A18179270B)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：在字体大小一致的前提下，Select组件中显示的文本相较Text组件中的文本，视觉上更为粗重。
  

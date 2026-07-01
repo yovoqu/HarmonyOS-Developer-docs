@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1239
 
-## 实现热启动跳转至指定Navigation组件页面
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过卡片热启动应用，如何跳转至指定的Navigation路由栈中的页面。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [组件导航（Navigation）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)：主要用于实现页面间以及组件内部的页面跳转，支持在不同组件间传递跳转参数，提供灵活的跳转栈操作。
 - [@ohos.events.emitter模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter)：提供事件发送和处理的能力，包括持续订阅、单次订阅、取消订阅和发送事件到事件队列。
@@ -24,15 +20,15 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-- **方案一**：作为Navigation的根页面，首页不会被销毁，且页面上含有NavPathStack变量，可以进行页面跳转操作。通过在页面生命周期函数中发布事件通知首页，进行页面跳转操作。热启动的示例代码如下：
-热启动：在被拉起方UIAbility的[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)方法中（若UIAbility文件无此方法，则自行增加即可），通过[EventHub.emit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub#eventhubemit)触发事件
+- **方案一**：作为Navigation的根页面，首页不会被销毁，且页面上含有NavPathStack变量，可以进行页面跳转操作。通过在页面生命周期函数中发布事件通知首页，进行页面跳转操作。热启动的示例代码如下：1. 热启动：在被拉起方UIAbility的[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)方法中（若UIAbility文件无此方法，则自行增加即可），通过[EventHub.emit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub#eventhubemit)触发事件
 ```text
 this.context.eventHub.emit('navigation', want.parameters?.path?.toString());
 ```
 
-- 在Navigation的根页面通过[EventHub.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub#eventhubon)订阅事件，跳转指定页面。
+
+2. 在Navigation的根页面通过[EventHub.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub#eventhubon)订阅事件，跳转指定页面。
 ```text
 aboutToAppear(): void {
   this.getUIContext().getHostContext()?.eventHub.on('navigation', (path: string) => {
@@ -48,9 +44,7 @@ aboutToAppear(): void {
 
  
  
- 
-- **方案二**：封装NavPathStack，在onNewWant生命周期中通过getAllPathName获取栈中所有NavDestination页面的名称，判断当前页面是否为目标页面，再决定是否用NavPathStack将目标页面push至栈顶。
-封装全局的NavPathStack变量。RouterModule.ets文件。
+- **方案二**：封装NavPathStack，在onNewWant生命周期中通过getAllPathName获取栈中所有NavDestination页面的名称，判断当前页面是否为目标页面，再决定是否用NavPathStack将目标页面push至栈顶。1. 封装全局的NavPathStack变量。RouterModule.ets文件。
 ```text
 export class RouterModule {
   private static pathStack: NavPathStack = new NavPathStack();
@@ -65,10 +59,11 @@ export class RouterModule {
 }
 ```
 
-- 在被拉起方UIAbility的[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)方法中（若UIAbility文件无此方法，则自行增加即可），执行判断和跳转操作。
+
+2. 在被拉起方UIAbility的[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)方法中（若UIAbility文件无此方法，则自行增加即可），执行判断和跳转操作。
 ```text
 const pathStack = RouterModule.getRouterStatic();
-let param = want.parameters as Record;
+let param = want.parameters as Record<string, Object>;
 let backPage = param.message as string;
 if (pathStack.getAllPathName().slice().pop() === backPage) {
   return;
@@ -79,35 +74,33 @@ pathStack.pushPath(pathInfo);
 
 
  
- 
 完整示例如下：
  
 新增工程项目后，此时存在一个entry类型的HAP包（作为拉起方），再新增一个feature类型的HAP（被拉起方）。参考不同类型[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)的说明。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/7ndlKcceTkC8OSr-vNdqcg/zh-cn_image_0000002628755346.png?HW-CC-KV=V1&HW-CC-Date=20260701T025718Z&HW-CC-Expire=86400&HW-CC-Sign=CAB568E4BFCCC3948B1BB2EEDCDC98D0D8A3353D7B450B88F4655FF6F91A4708)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/7ndlKcceTkC8OSr-vNdqcg/zh-cn_image_0000002628755346.png?HW-CC-KV=V1&HW-CC-Date=20260701T041217Z&HW-CC-Expire=86400&HW-CC-Sign=D5A463B7012A3E24EDF36B919CD9EEBA2A4E8A92A2132524B98792B7B066594F)
 
- 
-- 拉起方（entry模块）的示例代码如下，请根据实际的HAP信息更新want参数：
-```text
+ 1. 拉起方（entry模块）的示例代码如下，请根据实际的HAP信息更新want参数：
+```json
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-const BUNDLE_NAME: string = 'com.example.NewWantDemo'; // 在应用app.json5文件中'bundleName'节点获得
-const ABILITY_NAME: string = 'TargetAbility'; // 在HAP包的对应Ability文件中获得
+const BUNDLE_NAME: string = 'com.example.NewWantDemo'; <em>// 在应用app.json5文件中'bundleName'节点获得</em>
+const ABILITY_NAME: string = 'TargetAbility'; <em>// 在HAP包的对应Ability文件中获得</em>
 
 @Entry
 @Component
 struct HAPRouterDemo {
-  private context?: common.UIAbilityContext; // 创建context实例
+  private context?: common.UIAbilityContext;<em> // 创建context实例</em>
 
   aboutToAppear(): void {
-    this.context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 获取当前页面关联的UIAbilityContext
+    this.context = this.getUIContext().getHostContext() as common.UIAbilityContext;<em> // 获取当前页面关联的UIAbilityContext</em>
   }
 
   jumpHap() {
     if (this.context) {
-      // 启动Ability，拉起HAP模块的UIAbility实例
+      <em>// 启动Ability，拉起HAP模块的UIAbility实例</em>
       this.context.startAbility({
         bundleName: BUNDLE_NAME,
         abilityName: ABILITY_NAME,
@@ -136,7 +129,7 @@ struct HAPRouterDemo {
 }
 ```
 
-- 被拉起方（target模块）的示例代码如下：
+2. 被拉起方（target模块）的示例代码如下：
 ```text
 import { RouterModule } from './RouterModule';
 
@@ -198,14 +191,13 @@ struct NavDesPage {
 }
 ```
 
-- 按照方案的描述修改被拉起方的UIAbility文件（示例中为TargetAbility.ets）的onNewWant方法（若UIAbility文件无此方法，则参照背景知识中介绍自行增加onNewWant即可）。
-- 分别编译target模块和entry模块，再运行entry模块即可。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/OZI4r7oaTAykKC3RFz4Czw/zh-cn_image_0000002658954667.png?HW-CC-KV=V1&HW-CC-Date=20260701T025718Z&HW-CC-Expire=86400&HW-CC-Sign=8DC845CF059AB6518E176357B7636A69A1615CD45BDC3FA974740631FF33205F)
-
+3. 按照方案的描述修改被拉起方的UIAbility文件（示例中为TargetAbility.ets）的onNewWant方法（若UIAbility文件无此方法，则参照背景知识中介绍自行增加onNewWant即可）。
+4. 分别编译target模块和entry模块，再运行entry模块即可。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/OZI4r7oaTAykKC3RFz4Czw/zh-cn_image_0000002658954667.png?HW-CC-KV=V1&HW-CC-Date=20260701T041217Z&HW-CC-Expire=86400&HW-CC-Sign=45A6A0DC3F7D3CB1E65490A720A8495AB0218AB08FB875A95CE739F3A69EB95E)
 
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：热启动，如何每次启动都重新打开目标页面？
  
@@ -213,7 +205,7 @@ A：可通过上述两种方案getAllPathName获取到栈中所有NavDestination
  
 ```text
 const pathStack = RouterModule.getRouterStatic();
-let param = want.parameters as Record;
+let param = want.parameters as Record<string, Object>;
 let targetPage = param.message as string;
 const isPageBInStack = pathStack.getAllPathName().indexOf(targetPage) !== -1;
 if (isPageBInStack) {

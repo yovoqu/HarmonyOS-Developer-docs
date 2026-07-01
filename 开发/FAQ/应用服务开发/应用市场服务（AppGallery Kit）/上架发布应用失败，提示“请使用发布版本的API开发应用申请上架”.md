@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-10
 
-## 上架发布应用失败，提示“请使用发布版本的API开发应用申请上架”
- 
-
-
-##### 问题现象
+#### 问题现象
 
 提交应用并上架发布应用被拒，报错信息提示如下：
  
@@ -16,25 +12,25 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 完成HarmonyOS应用开发、调试与测试后，您便可以在AGC正式提交应用上架申请。HarmonyOS应用审核通过上架后，用户可在华为应用市场搜索到您的HarmonyOS应用。
  
  
 
-##### 问题定位
+#### 问题定位
 
 检查应用上架是否使用发布版本的API。
  
  
 
-##### 分析结论
+#### 分析结论
 
 应用上架未使用发布版本的API。
  
  
 
-##### 修改建议
+#### 修改建议
 
 检查app包内pack.info文件中的releaseType是否为Release，若不是的话升级IDE版本，使用Release版本的IDE重新打包app。
  

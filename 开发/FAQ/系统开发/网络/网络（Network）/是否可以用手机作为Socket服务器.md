@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-138
 
-## 是否可以用手机作为Socket服务器
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在开启本地Socket服务后，是否可以用手机作为Socket服务器？
  
  
 
-##### 解决方案
+#### 解决方案
 
 - [Socket 连接](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/socket-connection)：Socket连接主要是通过Socket进行数据传输，支持TCP/UDP/Multicast/TLS协议。
 - 基本概念：

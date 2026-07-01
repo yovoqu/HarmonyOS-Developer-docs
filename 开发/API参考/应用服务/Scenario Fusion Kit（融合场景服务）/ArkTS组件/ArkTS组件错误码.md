@@ -3,11 +3,7 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion
-
 **支持设备：** Phone | PC/2in1 | Tablet | TV
-
-## ArkTS组件错误码
- 
 
 ArkTS组件错误码由通用错误码、语言基础类库错误码、依赖kit错误码和特有错误码组成。
  
@@ -27,16 +23,14 @@ ArkTS组件错误码由通用错误码、语言基础类库错误码、依赖kit
  
 [REST API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-server-error-code)
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/4PTbYKWFRVi9ferAOJ-GLQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025455Z&HW-CC-Expire=86400&HW-CC-Sign=3ABB5981519EB6A3AA27C912B7322F7DADCFD623510A0D5320B1E5E633B64783)
- 
- 
-以下仅介绍本模块特有错误码。
-  
+> [!NOTE]
+> 以下仅介绍本模块特有错误码。
 
   
 
-##### 10004 系统内部异常
+#### 10004 系统内部异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
  
@@ -56,7 +50,9 @@ Internal error.
  
   
 
-##### 10006 获取分享数据失败
+#### 10006 获取分享数据失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
  
@@ -76,7 +72,9 @@ Failed to get data.
  
   
 
-##### 10008 调用方非元服务
+#### 10008 调用方非元服务
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
  
@@ -96,7 +94,9 @@ Not atomic service.
  
   
 
-##### 1007601001 无效的分享参数值
+#### 1007601001 无效的分享参数值
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
  

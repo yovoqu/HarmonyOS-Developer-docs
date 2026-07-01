@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-69
 
-## request.uploadFile多文件上传的特点
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用request.uploadFile接口上传多个文件以及注意事项有哪些？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [request.uploadFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestuploadfile9-1)创建并启动一个上传任务，需要[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)权限。
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用[request.uploadFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestuploadfile9-1)接口上传文件时，通过设置[UploadConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#uploadconfig)中的files参数即可实现多文件上传。上传多个文件时会发起多次请求，每个文件上传完都会触发一次[on('headerReceive')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#onheaderreceive7)响应事件。
  

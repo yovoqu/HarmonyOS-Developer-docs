@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1076
 
-## @Monitor使用限制及常见问题介绍
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 场景一：状态管理V1迁移V2时，@Monitor代替@Watch导致动画失效。
 ```text
@@ -49,14 +45,15 @@ struct SceneOne {
 }
 ```
  场景一问题现象：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/zHMdk31TSkikwTI4MTiBig/zh-cn_image_0000002628567148.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=C5343F6F9832829695EF8ACBE4B4F0C3C0CEBB456A614E3BB61684F1C1C48F1B)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/zHMdk31TSkikwTI4MTiBig/zh-cn_image_0000002628567148.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=B43B76CB2A8F316A742921E5F504AA4111E0B0C3DF267A2CD2D19B906FA01FEF)
 
 
  
  
 - 场景二：没有被@Trace修饰属性也会一起被@Monitor监听。
-```text
+```json
 @ObservedV2
 class Book {
   @Trace num: number = 0;
@@ -96,7 +93,8 @@ struct SceneTwo {
 }
 ```
  场景二问题现象（Book的name属性未被@Trace修饰，但是一起被@Monitor监听到变化前后的值）：
- 
+
+  
 ```text
 03-10 11:23:55.890   36164-36164   A03D00/com.exa...ication/JSAPP  com.examp...lication  I     监听book.num属性的变化，变之前的值：0，变后的值：1。
 03-10 11:23:55.890   36164-36164   A03D00/com.exa...ication/JSAPP  com.examp...lication  I     监听book.name属性的变化，变之前的值："时间简史"，变后的值："时间简史1"。
@@ -129,7 +127,7 @@ struct SceneThree {
       .width('100%');
     }
     .onReady(() => {
-      // 模拟从其它NavDestination页面获取的参数，初始化本页面参数
+     <em> // 模拟从其它NavDestination页面获取的参数，初始化本页面参数</em>
       this.message = 'Hello World!';
       this.isChange = false;
     });
@@ -137,19 +135,20 @@ struct SceneThree {
 }
 ```
  场景三问题现象：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/qm-jJ4xYSbyXNrdLBc0wCA/zh-cn_image_0000002658926453.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=34ED393871F68CEB5B61640979E226A0DAE97B5167A80DC6F29B454E8AFC3969)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/qm-jJ4xYSbyXNrdLBc0wCA/zh-cn_image_0000002658926453.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=37496D2EE7C65FF5C5A25CDBAADF0D9331CB1AD7AC081B1D15515EB8CBFC1F73)
 
 
  
 
-##### 背景知识
+#### 背景知识
 
 [@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)：作为状态管理V2版本的装饰器，用于增强状态管理框架对状态变量变化的监听能力，当监听的对象是V2装饰器装饰的状态变量时，状态变量的改变可以触发@Monitor装饰的函数执行。该装饰器存在一些官方的使用限制，详见官网：[概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#概述)、[限制条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#限制条件)以及[常见问题场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#常见问题)。
  
  
 
-##### 解决方案
+#### 解决方案
 
 针对问题现象中的场景，解决方案一览表格如下：
   
@@ -161,7 +160,8 @@ struct SceneThree {
  
  
 - 场景一：状态管理V1迁移V2时，@Monitor代替@Watch导致动画失效。@Monitor与@Watch分别是状态管理V2与状态管理V1的监听装饰器。其底层差异详见官方文档：[V1的@Watch和V2的@Monitor差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-update-difference#v1的watch和v2的monitor差异)。使用功能差异详见：[@Monitor与@Watch对比](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#monitor与watch对比)。由于@Monitor是异步执行，所以与[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animation)存在冲突。为了实现状态管理V2与animateTo等动效的同步刷新，开发者可以使用applySync/flushUpdates/flushUIUpdates接口。完整示例代码如下：
- 
+
+  
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -204,14 +204,17 @@ struct SceneOne {
   }
 }
 ```
- 
- 场景一实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/d5ZlYvB3RKCifC-UOLYXyQ/zh-cn_image_0000002628407240.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=581174030DC8A6A73489109811FAB6E85F4C744E48AB05D13E89F09727E8A2C7)
+
+
+  场景一实现效果：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/d5ZlYvB3RKCifC-UOLYXyQ/zh-cn_image_0000002628407240.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=0CEA9E21247A31ACA309536FD9094787166C2AD877010DF876AC0177E12B5DBE)
 
 - 场景二：没有被@Trace修饰属性也会一起被@Monitor监听。
-@Monitor暂无对入参做编译时的校验，当同时入参多个变量，且变量中存在状态变量与普通变量同时修改时，@Monitor会同时监听到普通变量的变化。应当正确传入@Monitor入参，不传入非状态变量，避免造成功能异常或行为表现不符合预期。完整示例代码如下：
-```text
+
+  @Monitor暂无对入参做编译时的校验，当同时入参多个变量，且变量中存在状态变量与普通变量同时修改时，@Monitor会同时监听到普通变量的变化。应当正确传入@Monitor入参，不传入非状态变量，避免造成功能异常或行为表现不符合预期。完整示例代码如下：
+```json
 @ObservedV2
 class Book {
   @Trace num: number = 0;
@@ -225,7 +228,7 @@ struct SceneTwo {
   @Local book: Book = new Book();
 
 
-  // 正常触发监听
+  <em>// 正常触发监听</em>
   @Monitor('book.num')
   changeNum(monitor: IMonitor) {
     monitor.dirty.forEach((path: string) => {
@@ -234,7 +237,7 @@ struct SceneTwo {
   }
 
 
-  // 不会触发监听
+  <em>// 不会触发监听</em>
   @Monitor('book.name')
   changeName(monitor: IMonitor) {
     monitor.dirty.forEach((path: string) => {
@@ -262,19 +265,20 @@ struct SceneTwo {
 ```
 
 - 场景三：在onReady中初始化的值会在@Monitor之后被篡改，怎么做到不被篡改？@Monitor在状态变量初始化完成后生效。而onReady执行时机与@Monitor的初始化监听存在交叉，导致onReady中的赋值初始化操作会触发@Monitor回调，造成非预期的修改。此时只需要设置隔离即可，完整示例代码如下：
- 
+
+  
 ```text
 @Entry
 @ComponentV2
 struct SceneThree {
   @Local message: string = '';
   @Local isChange: boolean = true;
-  isInitialization: boolean = true; // 设置初始化判断参数
+  isInitialization: boolean = true; <em>// 设置初始化判断参数</em>
 
 
   @Monitor('isChange')
   change() {
-    // 是初始化时，跳过后续修改
+   <em> // 是初始化时，跳过后续修改</em>
     if (this.isInitialization) {
       return;
     }
@@ -295,23 +299,25 @@ struct SceneThree {
       .width('100%');
     }
     .onReady(() => {
-      // 模拟从其它NavDestination页面获取的参数，初始化本页面参数
+     <em> // 模拟从其它NavDestination页面获取的参数，初始化本页面参数</em>
       this.message = 'Hello World!';
       this.isChange = false;
     });
   }
 }
 ```
- 
- 场景三实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/sXo81LYXS8CPp4DQnDUXpg/zh-cn_image_0000002658806507.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=66ABB3D1551C38357206ADADBCFEEE7AA07EC4E6ED8307F26C28EF1C42F85694)
+
+
+  场景三实现效果：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/sXo81LYXS8CPp4DQnDUXpg/zh-cn_image_0000002658806507.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=8C3EB22695094A36387945C87A516A8EFA390CB2EFEDABABF8E57AC0CF96627F)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：@Monitor装饰器如何监听AppStorage变化？
  
@@ -328,10 +334,8 @@ A：当@Monitor监听整个数组时，更改数组的某一项不会被监听�
 Q：通过@Monitor无法监听类属性的变化？
  
 A：请检查是否出现以下情况导致监听失效：
- 
-- 检查类是否被@ObservedV2/@Trace装饰，没有被@Trace装饰的属性无法被@Monitor监听。
-- 检查被@ObservedV2/@Trace装饰的类是否通过new操作符创建，没有被new操作符创建的实例无法被@Monitor监听。
-
+ 1. 检查类是否被@ObservedV2/@Trace装饰，没有被@Trace装饰的属性无法被@Monitor监听。
+2. 检查被@ObservedV2/@Trace装饰的类是否通过new操作符创建，没有被new操作符创建的实例无法被@Monitor监听。
  
 Q：@Monitor无法监听class中static修饰的变量吗？
  

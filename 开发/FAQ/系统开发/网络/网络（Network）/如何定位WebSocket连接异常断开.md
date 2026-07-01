@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-132
 
-## 如何定位WebSocket连接异常断开
- 
-
-
-##### 问题现象
+#### 问题现象
 
 场景一：在建立WebSocket连接时失败。
  
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - **心跳机制**：WebSocket默认开启心跳检测，需要服务器对客户端发送的Ping帧回复Pong，否则客户端会自动断开连接，默认超时时间为30s，可参考使用WebSocket访问网络[场景介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/websocket-connection#场景介绍)的说明事项。
 - **wireshark**：一款强大的网络协议分析工具，用于捕获和分析网络数据包，帮助用户深入理解和调试网络通信问题。
@@ -27,15 +23,13 @@
  
  
 
-##### 问题定位
-
-- 开启[on('open')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#onopen)、[on('close')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#onclose)、[on('error')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#onerror)监听事件，并在回调事件内打印日志，以提供报错信息。
-- 确认连接断开的时间规律，分析hilog日志及网络数据包：
-
+#### 问题定位
+1. 开启[on('open')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#onopen)、[on('close')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#onclose)、[on('error')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#onerror)监听事件，并在回调事件内打印日志，以提供报错信息。
+2. 确认连接断开的时间规律，分析hilog日志及网络数据包：
  
 - WebSocket在连接过程中断开，未正常建立连接，搜索Lws client connection error关键词，判断连接失败原因，比如：
 Lws client connection error conn fail: 110中的110在网络通信中代表连接超时，需要检查网络连接是否正常、服务器地址是否可达等问题。
-```text
+```cpp
 01-17 17:08:34.585   44111-44643   C015B0/om.test...cket/NETSTACK  com.test....bsocket  I     [websocket_exec.cpp:466] lws callback reason is 1
 01-17 17:08:34.585   44111-44643   C015B0/om.test...cket/NETSTACK  com.test....bsocket  I     [websocket_exec.cpp:332] Lws client connection error conn fail: 110
 ...
@@ -43,7 +37,7 @@ Lws client connection error conn fail: 110中的110在网络通信中代表连�
 ```
 
 - Lws client connection error Timed out waiting SSL表示SSL认证卡住，需要检查服务地址是ws还是wss，服务器证书是否有效、SSL\TLS协议是否一致等问题。
-```text
+```cpp
 01-17 16:55:05.609   35392-35392   C015B0/om.test...cket/NETSTACK  com.test....bsocket  I     [websocket_exec.cpp:723] ConnectCallback connect success
 ...
 01-17 16:55:20.650   35392-35878   C015B0/om.test...cket/NETSTACK  com.test....bsocket  I     [websocket_exec.cpp:466] lws callback reason is 1
@@ -54,7 +48,7 @@ Lws client connection error conn fail: 110中的110在网络通信中代表连�
 
  - WebSocket在连接成功后，固定时长断开。比如连接总是运行60s、30s后断开，检查客户端和服务器设置的心跳超时时间：
 客户端会自动启用心跳机制，默认30s发送Ping帧，当客户端收到服务端响应的Pong帧，维持连接。lws callback reason is 9代表客户端已接收到Pong帧数据包：
-```text
+```cpp
 01-17 15:33:35.384   49856-50626   C015B0/om.test...cket/NETSTACK  com.test....bsocket  I     [websocket_exec.cpp:555] PingInterval is 30,  PongTimeout is 30
 ...
 01-17 16:46:55.036   49856-30249   C015B0/om.test...cket/NETSTACK  com.test....bsocket  I     [websocket_exec.cpp:466] lws callback reason is 10
@@ -64,7 +58,7 @@ Lws client connection error conn fail: 110中的110在网络通信中代表连�
 ```
 
 - 当网络抖动等原因，服务器未回复Pong帧导致心跳检测失败，客户端自动关闭连接，触发on('close')事件，回调的error message为The link is down。
-```text
+```cpp
 01-17 18:45:37.620   16507-51025   C015B0/om.test...cket/NETSTACK  com.test....bsocket  I     [websocket_exec.cpp:466] lws callback reason is 10
 01-17 18:46:07.619   16507-51025   C015B0/om.test...cket/NETSTACK  com.test....bsocket  I     [websocket_exec.cpp:466] lws callback reason is 75
 01-17 18:46:07.619   16507-51025   C015B0/om.test...cket/NETSTACK  com.test....bsocket  E     [websocket_exec.cpp:427] The link is down, onError
@@ -74,19 +68,18 @@ Lws client connection error conn fail: 110中的110在网络通信中代表连�
 
 
  - WebSocket在连接成功后，随机断开。抓包分析TCP交互，在wireshark中使用ip.src == [服务器ip地址] || ip.dst == [服务器ip地址]过滤数据包，率先发送[FIN, ACK]数据包的为主动断开方。比如下图为101.201.**.**服务端主动断开连接，再结合业务日志分析具体的断开原因。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/UasGFTf_SAWnR23YhVnVEQ/zh-cn_image_0000002658970475.png?HW-CC-KV=V1&HW-CC-Date=20260701T025757Z&HW-CC-Expire=86400&HW-CC-Sign=18F03FF4A25353E574ED5A086719052E3585C3808661116CED644664A07779C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/UasGFTf_SAWnR23YhVnVEQ/zh-cn_image_0000002658970475.png?HW-CC-KV=V1&HW-CC-Date=20260701T041437Z&HW-CC-Expire=86400&HW-CC-Sign=D5B9EEA3F2866E19B2C9F962123F73A1E3BE845B9C3736C599AFEF41C7E8471F)
 
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 WebSocket连接异常断开通常有多种原因，需要结合hilog日志及网络数据包分析断开原因。通常60s固定时长断开为客户端心跳机制主动断开，需要检查网络链路是否通畅及服务器是否回复Pong帧。
  
  
 
-##### 修改建议
-
-- 如果服务器自行实现了心跳检测，不会回复Pong帧，可以将[WebSocketRequestOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#websocketrequestoptions)的pingInterval参数置为0，关闭客户端默认的心跳检测。
-- 如果是网络抖动导致的连接失败或随机断开，参考[如何优化WebSocket长连接在弱网环境下的重连效率与心跳机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-84)。
+#### 修改建议
+1. 如果服务器自行实现了心跳检测，不会回复Pong帧，可以将[WebSocketRequestOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#websocketrequestoptions)的pingInterval参数置为0，关闭客户端默认的心跳检测。
+2. 如果是网络抖动导致的连接失败或随机断开，参考[如何优化WebSocket长连接在弱网环境下的重连效率与心跳机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-84)。

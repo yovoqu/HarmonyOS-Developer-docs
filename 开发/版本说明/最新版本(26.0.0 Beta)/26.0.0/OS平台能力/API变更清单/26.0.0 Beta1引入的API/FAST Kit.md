@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-fastkit-7001
 
-## FAST Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：declare namespace mathPrediction 差异内容：declare namespace mathPrediction | api/@hms.fast.mathPrediction.d.ts |

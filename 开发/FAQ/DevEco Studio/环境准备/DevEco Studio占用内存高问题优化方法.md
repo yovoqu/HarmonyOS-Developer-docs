@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-37
 
-## DevEco Studio占用内存高问题优化方法
- 
-
-
-##### 问题现象
+#### 问题现象
 
 DevEco Studio内存占用很高，影响电脑其他软件的运行和操作，有哪些优化手段？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - HUAWEI DevEco Studio是基于IntelliJ IDEA Community开源版本打造，面向HarmonyOS应用/元服务开发场景的一站式集成开发环境。提供AI辅助编程、编译构建、UI实时预览、代码调试、性能调优、模拟器等功能，帮助开发者高效开发HarmonyOS应用/元服务。详细介绍参考[官方文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tools-overview)。
 - DevEco Studio是基于IntelliJ IDEA开发的，而IDEA是运行在Java虚拟机之上的应用程序。
@@ -24,7 +20,7 @@ DevEco Studio内存占用很高，影响电脑其他软件的运行和操作，�
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 调整DevEco Studio虚拟机内存参数，手动限制其内存上限。具体操作：打开Help > Edit Custom VM Options，添加或修改-Xmx参数（例如：-Xmx2048m），根据物理内存调整数值（建议不超过总内存的1/3）。
 - 关闭冗余插件。具体操作：在File > Settings > Plugins > Installed中关闭不需要的插件。

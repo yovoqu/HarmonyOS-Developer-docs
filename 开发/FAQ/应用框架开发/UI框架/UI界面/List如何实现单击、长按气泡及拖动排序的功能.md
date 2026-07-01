@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1106
 
-## List如何实现单击、长按气泡及拖动排序的功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在List列表中如何实现单击功能，长按显示气泡Popup功能，以及拖动时气泡隐藏，列表自动排序功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 在List组件下使用ForEach/LazyForEach/Repeat，并设置[onMove](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-sorting#onmove20)事件回调，每次迭代生成一个ListItem时，可以使能[拖拽排序](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach#拖拽排序)。在API20拖拽事件回调，新增拖拽发生时产生的回调[ItemDragEventHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-sorting#itemdrageventhandler20)，用于响应不同的拖拽操作。
 - [触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch)是所有手势组成的基础。触摸操作的触发状态类型[TouchType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#touchtype)主要有Down，Move，Up，Cancel。通过Down和Up之间的时间差可以判断短按/长按以实现不同的功能。
@@ -23,35 +19,38 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据问题中提到的功能可知，实现该功能需要使用到能判断单击/长按的事件监听，而onClick只能监听用户点击过程中抬起的操作，无法判断是否长按。所以这里使用onTouch监听触摸事件，计算按下和抬起的时间差，如果小于长按时间就算作触发点击功能。
  
 List组件下使用ForEach，通过设置onMove事件可以实现列表拖拽排序。在API20中可以设置拖拽过程中（长按、开始拖拽、拖拽时经过其他组件、拖拽结束）产生的事件回调。让长按显示气泡，开始拖拽隐藏气泡。
  
-- **方案一（API20及以上）：**
-使用onTouch事件判断单击。
+- **方案一（API20及以上）：**1. 使用onTouch事件判断单击。
 ```text
 .onTouch((e) => {
-  // 获取当前按下的时间戳
+  <em>// 获取当前按下的时间戳</em>
   if (e.type === TouchType.Down) {
     this.startTime = Date.now();
     console.info(`按下时的时间：${this.startTime}`);
   }
-  // 超过500ms当作长按
-  if (e.type === TouchType.Up && Date.now() - this.startTime = 500) {
+  <em>// 超过500ms当作长按</em>
+  if (e.type === TouchType.Up && Date.now() - this.startTime < 500) {
+    this.prompt.openToast({ message: `你点击了${item.id}` });
+    console.info(`触发单击${(Date.now() - this.startTime) / 1000}s`);
+  } else if (e.type === TouchType.Up && Date.now() - this.startTime >= 500) {
     console.info(`触发长按${(Date.now() - this.startTime) / 1000}s`);
   }
 })
 ```
 
-- 通过给渲染列表项的ForEach添加onMove事件，通过API20的接口实现列表拖拽排序，并设置长按显示气泡，拖拽后气泡隐藏。
+
+2. 通过给渲染列表项的ForEach添加onMove事件，通过API20的接口实现列表拖拽排序，并设置长按显示气泡，拖拽后气泡隐藏。
 ```text
 .onMove((from: number, to: number) => {
   let tmp = this.list.splice(from, 1);
   this.list.splice(to, 0, tmp[0]);
 }, {
-  // 长按显示气泡
+  <em>// 长按显示气泡</em>
   onLongPress: (index: number) => {
     if (this.list[index].showPopup === true) {
       this.list[index].showPopup = false;
@@ -60,7 +59,7 @@ List组件下使用ForEach，通过设置onMove事件可以实现列表拖拽排
       this.list[index].showPopup = true;
     }
   },
-  // 列表项开始拖拽，隐藏气泡
+  <em>// 列表项开始拖拽，隐藏气泡</em>
   onDragStart: (index: number) => {
     this.list[index].showPopup = false;
   }
@@ -68,16 +67,16 @@ List组件下使用ForEach，通过设置onMove事件可以实现列表拖拽排
 ```
 
 
- 
-以下为完整代码：
- 
-```text
+  以下为完整代码：
+
+  
+```json
 import { PromptAction } from '@ohos.arkui.UIContext';
 
 @Observed
 export class Item {
   id: number = 0;
-  showPopup: boolean = false; // 气泡是否展示
+  showPopup: boolean = false; <em>// 气泡是否展示</em>
 
   constructor(id: number, showPopup: boolean) {
     this.id = id;
@@ -93,7 +92,15 @@ struct Page1 {
   prompt: PromptAction = this.getUIContext().getPromptAction();
 
   aboutToAppear(): void {
-    for (let index = 1; index  {
+    for (let index = 1; index <= 20; index++) {
+      this.list[index - 1] = new Item(index, false);
+    }
+  }
+
+  build() {
+    Column() {
+      List({ space: 10 }) {
+        ForEach(this.list, (item: Item, index: number) => {
           ListItem() {
             CustomItem({
               item: item, callBack: () => {
@@ -104,13 +111,16 @@ struct Page1 {
           .borderRadius(20)
           .backgroundColor('#f1f3f5')
           .onTouch((e) => {
-            // 获取当前按下的时间戳
+            <em>// 获取当前按下的时间戳</em>
             if (e.type === TouchType.Down) {
               this.startTime = Date.now();
               console.info(`按下时的时间：${this.startTime}`);
             }
-            // 超过500ms当作长按
-            if (e.type === TouchType.Up && Date.now() - this.startTime = 500) {
+            <em>// 超过500ms当作长按</em>
+            if (e.type === TouchType.Up && Date.now() - this.startTime < 500) {
+              this.prompt.openToast({ message: `你点击了${item.id}` });
+              console.info(`触发单击${(Date.now() - this.startTime) / 1000}s`);
+            } else if (e.type === TouchType.Up && Date.now() - this.startTime >= 500) {
               console.info(`触发长按${(Date.now() - this.startTime) / 1000}s`);
             }
           })
@@ -120,7 +130,7 @@ struct Page1 {
             let tmp = this.list.splice(from, 1);
             this.list.splice(to, 0, tmp[0]);
           }, {
-            // 长按显示气泡
+            <em>// 长按显示气泡</em>
             onLongPress: (index: number) => {
               if (this.list[index].showPopup === true) {
                 this.list[index].showPopup = false;
@@ -129,7 +139,7 @@ struct Page1 {
                 this.list[index].showPopup = true;
               }
             },
-            // 列表项开始拖拽，隐藏气泡
+            <em>// 列表项开始拖拽，隐藏气泡</em>
             onDragStart: (index: number) => {
               this.list[index].showPopup = false;
             }
@@ -179,9 +189,11 @@ export struct CustomItem {
   }
 }
 ```
- - **方案二：**可以在onTouch触摸回调中按下时添加定时器，抬起时间隔小于500ms或者滑动，取消定时器不显示气泡。参考代码如下：
- 
-```text
+
+- **方案二：**可以在onTouch触摸回调中按下时添加定时器，抬起时间隔小于500ms或者滑动，取消定时器不显示气泡。参考代码如下：
+
+  
+```json
 import { PromptAction } from '@kit.ArkUI';
 import { CustomItem, Item } from './Page1';
 
@@ -197,7 +209,15 @@ struct Demo {
   prompt: PromptAction = this.getUIContext().getPromptAction();
 
   aboutToAppear(): void {
-    for (let index = 1; index  {
+    for (let index = 1; index <= 20; index++) {
+      this.list[index - 1] = new Item(index, false);
+    }
+  }
+
+  build() {
+    Column() {
+      List({ space: 10 }) {
+        ForEach(this.list, (item: Item, index: number) => {
           ListItem() {
             CustomItem({
               item: item, callBack: () => {
@@ -208,12 +228,12 @@ struct Demo {
           .borderRadius(20)
           .backgroundColor('#f1f3f5')
           .onTouch((e) => {
-            // 获取当前按下的时间戳
+            <em>// 获取当前按下的时间戳</em>
             if (e.type === TouchType.Down) {
               this.isMove = false;
               this.startTime = Date.now();
               this.startY = e.touches[0].y;
-              // 定时器，按下后500ms显示气泡
+             <em> // 定时器，按下后500ms显示气泡</em>
               this.pressId = setTimeout(() => {
                 if (this.list[index].showPopup === true) {
                   this.list[index].showPopup = false;
@@ -224,10 +244,11 @@ struct Demo {
                 }
               }, 500);
             }
-            // 低于500ms当作点击
+            <em>// 低于500ms当作点击</em>
             if (e.type === TouchType.Up) {
               let time = Date.now();
-              if (time - this.startTime // 清掉显示气泡的定时器
+              if (time - this.startTime < 500) {
+                <em>// 清掉显示气泡的定时器</em>
                 clearTimeout(this.pressId);
                 if (this.isMove === false) {
                   this.prompt.openToast({ message: `你点击了${item.id}` });
@@ -235,7 +256,7 @@ struct Demo {
                 }
               }
             }
-            // 滑动不显示气泡，y方向滑动距离超过10当作滑动
+            <em>// 滑动不显示气泡，y方向滑动距离超过10当作滑动</em>
             if (e.type === TouchType.Move && Math.abs(e.touches[0].y - this.startY) > 10) {
               this.isMove = true;
               console.info('触发滑动');
@@ -264,4 +285,4 @@ struct Demo {
 以下为效果展示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/2Rr1VAuMSu-5A1qiqYOOVA/zh-cn_image_0000002628407488.png?HW-CC-KV=V1&HW-CC-Date=20260701T025725Z&HW-CC-Expire=86400&HW-CC-Sign=8856F0F61085CC2485798E8A6B91A774A9549E034F2A2F215C4D8F1A5743EA18)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/2Rr1VAuMSu-5A1qiqYOOVA/zh-cn_image_0000002628407488.png?HW-CC-KV=V1&HW-CC-Date=20260701T041139Z&HW-CC-Expire=86400&HW-CC-Sign=38405CD5AC7A813F08F4323BE31B152D8C5343A55A967266E27888060367FBED)

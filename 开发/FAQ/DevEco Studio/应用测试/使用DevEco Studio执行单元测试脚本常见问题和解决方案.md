@@ -4,15 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-40
 
-## 使用DevEco Studio执行单元测试脚本常见问题和解决方案
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - **问题一：**单元测试debug运行时卡住：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/nLz4lqgbRti9HPyfF2yehg/zh-cn_image_0000002658928867.png?HW-CC-KV=V1&HW-CC-Date=20260701T025923Z&HW-CC-Expire=86400&HW-CC-Sign=7A3632C0128F03715E65FC06C526B85247C7D9FF1DDB2CFACB6447D7F4885452)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/nLz4lqgbRti9HPyfF2yehg/zh-cn_image_0000002658928867.png?HW-CC-KV=V1&HW-CC-Date=20260701T041011Z&HW-CC-Expire=86400&HW-CC-Sign=1A4EC1FF97CAB20FA7A2286AB2BCEE3479D216B1042D7FFEB147E36A4EB21107)
 
 - **问题二：**使用Instrument Test调用getContext()报错"Error in xxx, Parameter error. The context is invalid."。
 - **问题三：**在UI测试框架中如何通过resourceManager来获得string.json里的内容？
@@ -26,13 +23,15 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **问题一解决方案：**单击工具栏help->Show Log in Explorer，跳转到previewer.log所在路径，找到previewer.log并打开，发现报错提示"module name not exist"：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/zX1d0l5KRcGqk6w4dIQ-yg/zh-cn_image_0000002628409652.png?HW-CC-KV=V1&HW-CC-Date=20260701T025923Z&HW-CC-Expire=86400&HW-CC-Sign=17DCC6224A085B6A6276994E7D8C21246D1C9B3D7B8F4C7F3B77C1E742DDEEBF)
 
- 即用户引用了不存在的模块，建议用户排查工程中引用的模块，把报错模块的编译产物删除，再重新编译。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/zX1d0l5KRcGqk6w4dIQ-yg/zh-cn_image_0000002628409652.png?HW-CC-KV=V1&HW-CC-Date=20260701T041011Z&HW-CC-Expire=86400&HW-CC-Sign=540073A3B17DAF11D06C5888180AE0277908E5778653EAB340FC9F5025ECFA6F)
+
+
+  即用户引用了不存在的模块，建议用户排查工程中引用的模块，把报错模块的编译产物删除，再重新编译。
 - **问题二解决方案：**在测试脚本中，直接使用getContext()会报错"Error in xxx, Parameter error. The context is invalid."。可以通过[AbilityDelegator.getAppContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitydelegator#getappcontext9)获取应用的Context。
 - **问题三解决方案：**可以基于问题二的解决方案，获取到应用的Context，通过Context获取[resourceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)，参考[getStringValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getstringvalue9)的用法即可。
 - **问题四解决方案：**IDE新建工程目录后会在oh-package.json5文件自动生成配套@ohos/hypium的具体版本号，hypium和工具链没有强配套关系，不需要写到工具配套里去。
@@ -40,10 +39,14 @@
 - **问题六解决方案：**请使用DevEco Studio 6.0.1 Release Build Version:6.0.1.260及之后的版本。
 - **问题七解决方案：**请使用DevEco Studio 6.0.2 Release Build Version:6.0.2.640及之后的版本，且配套的@ohos/hypium需为"1.0.25"及之后的版本。
 - **问题八解决方案：**方案一：在DevEco Studio中Run/Debug Configurations中修改用例执行超时配置参数，避免用例执行超时。
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/ase82nQ6RZSLw9QEyNb4NA/zh-cn_image_0000002658808913.png?HW-CC-KV=V1&HW-CC-Date=20260701T025923Z&HW-CC-Expire=86400&HW-CC-Sign=8E25EA623CBC5617A5D9615054921C114E50F9A6C661A0192F9B2BB9AAAC040C)
 
- 方案二：用例执行超时时长配置参考以下命令，timeout为测试用例执行的超时时间，正整数（单位ms），如不设置默认为5000ms：hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s timeout 15000。
- 同时要确保用例代码逻辑正确，即使断言失败场景也能保证用例执行结束，这可以避免用例因未及时执行到done函数而导致的超时错误。
- 注：以上方案只支持Instrument Test测试用例，Local Test测试用例不支持修改超时时间。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/ase82nQ6RZSLw9QEyNb4NA/zh-cn_image_0000002658808913.png?HW-CC-KV=V1&HW-CC-Date=20260701T041011Z&HW-CC-Expire=86400&HW-CC-Sign=7E3A834956F0E6190D8AEF945A914974516257D01870685684D684D0AE1671D7)
+
+
+  方案二：用例执行超时时长配置参考以下命令，timeout为测试用例执行的超时时间，正整数（单位ms），如不设置默认为5000ms：hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s timeout 15000。
+
+  同时要确保用例代码逻辑正确，即使断言失败场景也能保证用例执行结束，这可以避免用例因未及时执行到done函数而导致的超时错误。
+
+  注：以上方案只支持Instrument Test测试用例，Local Test测试用例不支持修改超时时间。
 - **问题九解决方案：**在Instrument Test中执行用例，src/ohosTest/module.json5中同样需要申请相关权限。具体可参考[在配置文件中声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions#在配置文件中声明权限)。

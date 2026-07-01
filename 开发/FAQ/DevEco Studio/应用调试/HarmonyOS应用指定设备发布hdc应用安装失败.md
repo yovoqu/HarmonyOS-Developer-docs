@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-71
 
-## HarmonyOS应用指定设备发布hdc应用安装失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 创建HarmonyOS应用指定设备发布版本后，通过hdc安装应用失败。
  
  
 
-##### 背景知识
+#### 背景知识
 
 使用指定设备发布，您可以将应用发布上传至您的服务器或者第三方云上，团队参与测试的人员可以将应用下载到授权的设备上测试。您可以更灵活发布版本和限定测试范围，助您提前发现问题，及时修复问题和优化版本体验。详细操作步骤参考：[指定设备发布](https://developer.huawei.com/consumer/cn/doc/app/agc-help-internal-test-0000002270709477)。
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 检查版本创建流程是否符合[测试流程](https://developer.huawei.com/consumer/cn/doc/app/agc-help-internal-test-guide-0000002295325149)，比如：是否使用了发布证书、是否把调试设备UDID注册到AGC设备列表、申请的Profile是否为指定设备发布的Profile（详细流程请见：[申请指定设备发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-internal-test-0000002270709477)）。
 - 检查IDE工程中**Signing Configs**页签下，配置的密钥库文件、密钥别名、密钥密码、证书文件以及Profile文件是否为正确文件的路径。
@@ -29,19 +25,19 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 如果证书或者Profile配置错误，hdc在安装应用包时会因为签名校验不通过或者设备的UDID和Profile中的UDID匹配不上导致安装失败。
  
  
 
-##### 修改建议
+#### 修改建议
 
 根据[测试流程](https://developer.huawei.com/consumer/cn/doc/app/agc-help-internal-test-guide-0000002295325149)创建版本，确保流程无误。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：指定设备发布的包，Profile文件里已经注册了模拟器的UDID，但是点击安装在模拟器的应用后，应用又立马退出，请问是什么原因呢？
  

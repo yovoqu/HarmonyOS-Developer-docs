@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-49
 
-## 3DES加密实现兼容java的解密
- 
-
-
-##### 问题现象
+#### 问题现象
 
 ArkTS中使用3DES加密算法加密的数据在java侧无法解密，如何解决该问题。
  
  
 
-##### 背景知识
+#### 背景知识
 
 3DES算法的加解密过程分别是对明文/密文数据进行三次DES加密或解密，得到相应的密文或明文。
  
@@ -22,7 +18,7 @@ ArkTS中使用3DES加密算法加密的数据在java侧无法解密，如何解�
  
  
 
-##### 解决方案
+#### 解决方案
 
 ArkTS在生成密文后，需要使用base64的util.Type.BASIC生成无换行符的字符串后传递到java侧进行解密。提供ArkTS代码和java代码。
  
@@ -55,13 +51,13 @@ struct Index {
   }
 }
 
-/**
- * 加密消息
- *
- * @param symKey symKey
- * @param plainText plainText
- * @returns 加密后的内容
- */
+<em>/**</em>
+<em> * 加密消息</em>
+<em> *</em>
+<em> * @param symKey symKey</em>
+<em> * @param plainText plainText</em>
+<em> * @returns 加密后的内容</em>
+<em> */</em>
 async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('3DES192|ECB|PKCS7');
   await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, null);
@@ -69,11 +65,11 @@ async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: 
   return encryptData;
 }
 
-/**
- * 通过key data值获取symKey
- * @param symKeyData keyData
- * @returns void
- */
+<em>/**</em>
+<em> * 通过key data值获取symKey</em>
+<em> * @param symKeyData keyData</em>
+<em> * @returns void</em>
+<em> */</em>
 async function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
   let symGenerator = cryptoFramework.createSymKeyGenerator('3DES192');
@@ -82,11 +78,11 @@ async function genSymKeyByData(symKeyData: Uint8Array) {
   return symKey;
 }
 
-/**
- * 将uint8转换为 string值
- * @param uint Uint8Array值
- * @returns string值
- */
+<em>/**</em>
+<em> * 将uint8转换为 string值</em>
+<em> * @param uint Uint8Array值</em>
+<em> * @returns string值</em>
+<em> */</em>
 function uint8ToString(uint: Uint8Array): string {
   let base64Helper = new util.Base64Helper();
   let result = base64Helper.encodeToStringSync(uint, util.Type.BASIC);
@@ -95,21 +91,21 @@ function uint8ToString(uint: Uint8Array): string {
 
 }
 
-/**
- * 3DES_ECB模式加密
- */
+<em>/**</em>
+<em> * 3DES_ECB模式加密</em>
+<em> */</em>
 export async function encrypt_3DES() {
-  // 此处填写实际值
+ <em> // 此处填写实际值</em>
   let keyData =
     new Uint8Array([238, 249, 61, 55, 128, 220, 183, 224, 139, 253, 248, 239, 239, 41, 71, 25, 235, 206, 230, 162, 249,
       27, 234, 114]);
-  // 获取symKey
+  <em>// 获取symKey</em>
   let symKey = await genSymKeyByData(keyData);
-  // 待加密的信息
+ <em> // 待加密的信息</em>
   let message = 'This is a test';
-  // 将待加密的信息转换为plainText
+ <em> // 将待加密的信息转换为plainText</em>
   let plainText: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(message, 'utf-8').buffer) };
-  // 生成加密后的密文
+ <em> // 生成加密后的密文</em>
   let encryptText = await encryptMessagePromise(symKey, plainText);
   console.info('encrypt:', uint8ToString(encryptText.data));
 }
@@ -127,28 +123,28 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class Triple_DES {
-    // key值
+   <em> // key值</em>
     private static String keyString="7vk9N4Dct+CL/fjv7ylHGevO5qL5G+py";
-    // 待解密的字符串信息
+   <em> // 待解密的字符串信息</em>
     private static String encryptData="7hp/cpn6R+5adY0ALFfktw==";
 
-    /**
-     * 获取解密密钥
-     *
-     * @return SecretKey
-     */
+   <em> /**</em>
+<em>     * 获取解密密钥</em>
+<em>     *</em>
+<em>     * @return SecretKey</em>
+<em>     */</em>
     public static SecretKey makePrivateKey(){
         byte[] keyBytes = Base64.decodeBase64(keyString);
         return new SecretKeySpec(keyBytes, "DESede");
     }
 
-    /**
-     * 解密
-     */
+  <em>  /**</em>
+<em>     * 解密</em>
+<em>     */</em>
     public static String decrypt(SecretKey key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        Cipher cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding"); // 注意：ECB模式不安全，推荐使用CBC模式并传入IV
+        Cipher cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding"); <em>// 注意：ECB模式不安全，推荐使用CBC模式并传入IV</em>
         cipher.init(Cipher.DECRYPT_MODE, key);
-        String encryptedData = encryptData; // 加密后的数据，通常是Base64编码的字符串
+        String encryptedData = encryptData;<em> // 加密后的数据，通常是Base64编码的字符串</em>
         byte[] encryptedBytes = Base64.decodeBase64(encryptedData);
         byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
         return new String(decryptedBytes);

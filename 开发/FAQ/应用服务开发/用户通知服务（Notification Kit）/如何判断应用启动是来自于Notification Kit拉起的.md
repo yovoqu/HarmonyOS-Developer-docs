@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-19
 
-## 如何判断应用启动是来自于Notification Kit拉起的
- 
-
-
-##### 问题现象
+#### 问题现象
 
 希望在无需特殊设置uri的情况下，能够判断出这次启动是来自Notification Kit拉起的。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [LaunchParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilityconstant#launchparam)：启动参数，主要包括Ability启动原因以及上次退出原因。
 - [Params](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantconstant#params):[Want.parameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want#want)字段常用的系统预置关键字。开发者可以通过这些预置关键字设置或获取应用跳转等场景中额外携带的参数信息。
@@ -22,11 +18,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)处理通知跳转事件时，可使用[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)或[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)的[LaunchParam.launchReasonMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilityconstant#launchparam)字段是否为'ReasonMessage_Notification'判断。
  
-```text
+```json
 onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   try {
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
@@ -36,14 +32,14 @@ onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
 
   if (launchParam.launchReasonMessage === 'ReasonMessage_Notification') {
-    // 识别为被通知拉起
+ <em>   // 识别为被通知拉起</em>
     console.info('被拉起原因：通知');
   }
 }
 
 onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   if (launchParam.launchReasonMessage === 'ReasonMessage_Notification') {
-    // 识别为被通知拉起
+   <em> // 识别为被通知拉起</em>
     console.info('被拉起原因：通知');
   }
 }
@@ -53,7 +49,7 @@ onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
  
 EntryAbility:
  
-```text
+```json
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -70,14 +66,14 @@ export default class EntryAbility extends UIAbility {
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
 
     if (launchParam.launchReasonMessage === 'ReasonMessage_Notification') {
-      // 识别为被通知拉起
+   <em>   // 识别为被通知拉起</em>
       console.info('被拉起原因：通知');
     }
   }
 
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     if (launchParam.launchReasonMessage === 'ReasonMessage_Notification') {
-      // 识别为被通知拉起
+    <em>  // 识别为被通知拉起</em>
       console.info('被拉起原因：通知');
     }
   }
@@ -87,7 +83,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
+  <em>  // Main window is created, set main page for this ability</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -100,17 +96,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+ <em>   // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-    // Ability has brought to foreground
+ <em>   // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-    // Ability has back to background
+  <em>  // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }
@@ -155,15 +151,15 @@ struct Index {
     });
   }
 
-  async publishWantNotification(): Promise {
+  async publishWantNotification(): Promise<void> {
     let wantAgentObj: WantAgent;
     let wantAgentInfo: wantAgent.WantAgentInfo = {
       wants: [
         {
-          bundleName: 'com.example.notificationtest', // 自己项目的包名
+          bundleName: 'com.example.notificationtest', <em>// 自己项目的包名</em>
           abilityName: 'EntryAbility',
           parameters: {
-            targetPage: 'Index' // 添加目标页面参数
+            targetPage: 'Index'<em> // 添加目标页面参数</em>
           }
         }
       ],
@@ -179,7 +175,7 @@ struct Index {
       hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in getting want agent.');
       wantAgentObj = data;
 
-      // 构造NotificationRequest对象
+  <em>    // 构造NotificationRequest对象</em>
       let notificationRequest: notificationManager.NotificationRequest = {
         id: this.notificationId,
         notificationSlotType: notificationManager.SlotType.SOCIAL_COMMUNICATION,

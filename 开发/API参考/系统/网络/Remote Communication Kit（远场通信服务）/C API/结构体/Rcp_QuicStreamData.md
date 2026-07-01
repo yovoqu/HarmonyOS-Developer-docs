@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___quic_stream_data
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## Rcp_QuicStreamData
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 quic连接中用于接收流式数据的存储结构。
  
@@ -22,11 +19,15 @@ quic连接中用于接收流式数据的存储结构。
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,11 +38,15 @@ quic连接中用于接收流式数据的存储结构。
  
   
 
-##### 结构体成员变量说明
+#### 结构体成员变量说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]iov
+#### iov
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_QuicIoVec* Rcp_QuicStreamData::iov
@@ -53,7 +58,9 @@ Rcp_QuicIoVec* Rcp_QuicStreamData::iov
  
   
 
-##### [h2]iovLen
+#### iovLen
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t Rcp_QuicStreamData::iovLen
@@ -65,7 +72,9 @@ uint32_t Rcp_QuicStreamData::iovLen
  
   
 
-##### [h2]fin
+#### fin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool Rcp_QuicStreamData::fin

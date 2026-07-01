@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-97
 
-## Wi-Fi始终连接，如何感知Wi-Fi本身从无网络到有网络的状态
- 
-
-
-##### 问题现象
+#### 问题现象
 
 手机连接到未认证的Wi-Fi，认证后无法感知到认证成功，即网络连接成功。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 设备从无网络到有网络会触发netAvailable事件、netCapabilitiesChange事件和netConnectionPropertiesChange事件。
 - 设备从有网络到无网络状态会触发netLost事件。
@@ -23,7 +19,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 实测该场景不会发送[netAvailable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetavailable)或[netLost](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetlost)事件。
 - 需要监听[netCapabilitiesChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetcapabilitieschange)事件，判断connection.NetCapabilityInfo中的[NetCap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#netcap)类型。若包含NET_CAPABILITY_PORTAL=17（还没有认证时会返回），则表示还没有进行认证，当前网络不可用。
@@ -33,48 +29,48 @@
  
 完整示例参考如下：
  
-```text
-import { connection } from '@kit.NetworkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+```json
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">connection </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.NetworkKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-let netCon: connection.NetConnection = connection.createNetConnection();
+let <span style="color: rgb(255,255,255);">netCon</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NetConnection </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createNetConnection</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Connection {
-  aboutToAppear(): void {
-    // 先使用register接口注册订阅事件
-    netCon.register((error: BusinessError) => {
-      console.error(JSON.stringify(error));
-    });
-  }
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Connection </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">void </span><span style="color: rgb(181,106,1);">{</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">先使用</span><span style="color: rgb(128,128,128);">register</span><span style="color: rgb(128,128,128);">接口注册订阅事件</span></em>
+    <span style="color: rgb(255,255,255);">netCon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">register</span><span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  build() {
-    Column() {
-      Text('开始检测网络状态')
-        .onClick(() => {
-          // 订阅网络丢失事件
-          netCon.on('netLost', (data: connection.NetHandle) => {
-            console.info(`网络丢失: ${data.netId}`);
-          });
-          // 订阅网络能力变化事件
-          netCon.on('netCapabilitiesChange', (data: connection.NetCapabilityInfo) => {
-            console.info(`订阅网络能力变化: ${data.netCap.bearerTypes}`);
-          });
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">开始检测网络状态</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">订阅网络丢失事件</span></em>
+          <span style="color: rgb(255,255,255);">netCon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'netLost'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NetHandle</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">网络丢失</span><span style="color: rgb(132,63,161);">: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">netId</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">订阅网络能力变化事件</span></em>
+          <span style="color: rgb(255,255,255);">netCon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'netCapabilitiesChange'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NetCapabilityInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">订阅网络能力变化</span><span style="color: rgb(132,63,161);">: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">netCap</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">bearerTypes</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          // 订阅网络可用事件
-          netCon.on('netAvailable', (data: connection.NetHandle) => {
-            console.info(`网络可用: ${data.netId}`);
-          });
-        })
-    }
-  }
-}
+       <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">订阅网络可用事件</span></em>
+          <span style="color: rgb(255,255,255);">netCon</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'netAvailable'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">connection</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NetHandle</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(132,63,161);">网络可用</span><span style="color: rgb(132,63,161);">: </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">netId</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">  }</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：开发预下载的功能，需要判断当前app的网络请求为闲时进行下载，是否有相关API可以进行判断？
  

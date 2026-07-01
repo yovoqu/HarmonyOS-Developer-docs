@@ -4,70 +4,66 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1221
 
-## setCurrentTime方法指定Video组件开始播放位置偶现其它帧闪烁的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 进入一个页面时想让Video组件从一个指定的时间开始播放，比如第10秒，设置了参数this.controller.setCurrentTime(AppStorage.get('currentTime'),SeekMode.ClosestKeyframe)偶尔会出现定位不准，展示了视频第一帧的情况。已知在onStart中调用setCurrentTime一定会出现第一帧，在onPrepare中开始调用setCurrentTime偶尔会出现第一帧。是什么原因造成的该情况，如何避免？
  
 问题代码示例参考如下：
  
 ```text
-@Entry
-@Component
-struct VideoExamplePage {
-  previewUri: Resource = $r('app.media.startIcon');
-  curRate: PlaybackSpeed = PlaybackSpeed.Speed_Forward_1_00_X;
-  isAutoPlay: boolean = true;
-  showControls: boolean = true;
-  controller: VideoController = new VideoController();
-  @State totalTime: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">VideoExamplePage </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">previewUri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">curRate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PlaybackSpeed </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">PlaybackSpeed</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Speed_Forward_1_00_X</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">isAutoPlay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">showControls</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VideoController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">VideoController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">totalTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Video({
-        src: $rawfile('videoTest.mp4'), // 替换已有视频资源
-        currentProgressRate: this.curRate,
-        controller: this.controller
-      })
-        .width('100%')
-        .height(600)
-        .autoPlay(this.isAutoPlay)
-        .controls(this.showControls)
-        .onPrepared((error?: DurationObject) => {
-          if (error != undefined) {
-            console.error(`onPrepared is ${error.duration}`);
-            this.totalTime = error.duration;
-            this.controller.setCurrentTime(10, SeekMode.Accurate); // 从第十秒开始播放
-          }
-        });
-      Row() {
-        Button('setTime')
-          .onClick(() => {
-            this.controller.setCurrentTime(10, SeekMode.Accurate); // 精准跳转到视频的10s位置
-          })
-          .margin(2);
-      };
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Video</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'videoTest.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">替换已有视频资源</span></em>
+        <span style="color: rgb(0,0,255);">currentProgressRate</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curRate</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">600</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAutoPlay</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controls</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showControls</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onPrepared</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DurationObject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error </span><span style="color: rgb(181,106,1);">!= </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onPrepared is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setCurrentTime</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">SeekMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Accurate</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">从第十秒开始播放</span></em>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'setTime'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setCurrentTime</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">SeekMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Accurate</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精准跳转到视频的</span><span style="color: rgb(128,128,128);">10s</span><span style="color: rgb(128,128,128);">位置</span></em>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-interface DurationObject {
-  duration: number;
-}
+interface <span style="color: rgb(0,0,255);">DurationObject </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/yjlbN-ovRH-ttrtEV6i_Jg/zh-cn_image_0000002658953229.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025605Z&HW-CC-Expire=86400&HW-CC-Sign=A0076AFDAE0EB37B83F5EED027BE8C2BB1977D3557C703F3D01474A0C44F9EF8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/yjlbN-ovRH-ttrtEV6i_Jg/zh-cn_image_0000002658953229.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041255Z&HW-CC-Expire=86400&HW-CC-Sign=874B8822678B2C766600ABD3F10AE81F5C9E0EC6D83F253EF61256FFED398B4A)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Video组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#video-1)中[onPrepared事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#onprepared)是视频准备完成时触发的事件，[onStart事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#onstart)是视频开始播放时触发的事件。
 - [VideoController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videocontroller)是Video组件的控制器，其中[setCurrentTime方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#setcurrenttime8)可以指定视频播放的进度位置，并指定跳转模式。
@@ -75,81 +71,79 @@ interface DurationObject {
  
  
 
-##### 问题定位
+#### 问题定位
 
 由于Video组件的跳转和播放都是在后台线程里进行，所以当视频自动播放时与跳转事件存在执行先后顺序的冲突。
  
  
 
-##### 分析结论
+#### 分析结论
 
 视频的play播放和seek跳转都是在后台线程里进行，由于冲突导致定位跳转过程中会偶现原位置的下一帧图片。
  
  
 
-##### 修改建议
+#### 修改建议
 
 取消自动播放，在onPrepare事件里先设置跳转，再进行播放，来代替[autoPlay(true)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#autoplay)自动播放。
- 
-- 设置autoPlay(true)修改为autoPlay(false)。
-- onPrepared事件修改参考如下：
+ 1. 设置autoPlay(true)修改为autoPlay(false)。
+2. onPrepared事件修改参考如下：
 ```text
-.onPrepared((error?: DurationObject) => {
-  if (error != undefined) {
-    console.info(`onPrepared is ${error.duration}`);
-    this.totalTime = error.duration;
-    this.controller.setCurrentTime(10, SeekMode.Accurate); // 从第十秒开始播放
-    this.controller.start();
-  }
-})
+<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onPrepared</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DurationObject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error </span><span style="color: rgb(181,106,1);">!= </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onPrepared is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setCurrentTime</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">SeekMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Accurate</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">从第十秒开始播放</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 ```
-
 
  
 完整示例参考如下：
  
 ```text
-@Entry
-@Component
-struct VideoExamplePage {
-  previewUri: Resource = $r('app.media.startIcon');
-  curRate: PlaybackSpeed = PlaybackSpeed.Speed_Forward_1_00_X;
-  isAutoPlay: boolean = false;
-  showControls: boolean = true;
-  controller: VideoController = new VideoController();
-  @State totalTime: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">VideoExamplePage </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">previewUri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">curRate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PlaybackSpeed </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">PlaybackSpeed</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Speed_Forward_1_00_X</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">isAutoPlay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">showControls</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VideoController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">VideoController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">totalTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Video({
-        src: $rawfile('example.mp4'), // 替换已有视频资源
-        currentProgressRate: this.curRate,
-        controller: this.controller
-      })
-        .width('100%')
-        .height(600)
-        .controls(this.showControls)
-        .onPrepared((error?: DurationObject) => {
-          if (error != undefined) {
-            console.info(`onPrepared is ${error.duration}`);
-            this.totalTime = error.duration;
-            this.controller.setCurrentTime(10, SeekMode.Accurate); // 从第十秒开始播放
-            this.controller.start();
-          }
-        })
-        .autoPlay(this.isAutoPlay);
-      Row() {
-        Button('setTime')
-          .onClick(() => {
-            this.controller.setCurrentTime(10, SeekMode.Accurate); // 精准跳转到视频的10s位置
-          })
-          .margin(2);
-      };
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Video</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'example.mp4'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">替换已有视频资源</span></em>
+        <span style="color: rgb(0,0,255);">currentProgressRate</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curRate</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">600</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controls</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showControls</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onPrepared</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DurationObject</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error </span><span style="color: rgb(181,106,1);">!= </span>undefined<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`onPrepared is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">totalTime </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setCurrentTime</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">SeekMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Accurate</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">从第十秒开始播放</span></em>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">start</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">autoPlay</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isAutoPlay</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'setTime'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setCurrentTime</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">SeekMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Accurate</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">精准跳转到视频的</span><span style="color: rgb(128,128,128);">10s</span><span style="color: rgb(128,128,128);">位置</span></em>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">2</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-interface DurationObject {
-  duration: number;
-}
+interface <span style="color: rgb(0,0,255);">DurationObject </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

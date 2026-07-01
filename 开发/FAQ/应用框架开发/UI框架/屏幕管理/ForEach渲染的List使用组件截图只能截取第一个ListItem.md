@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-592
 
-## ForEach渲染的List使用组件截图只能截取第一个ListItem
- 
-
-
-##### 问题现象
+#### 问题现象
 
 给List中每一个ListItem绑定id，使用componentSnapshot进行组件截图，id发生变化后还是只截到第一个ListItem。
  
@@ -20,31 +16,31 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct ListScreenshot {
-  @State imageUrl: Resource = $r('app.media.img_1'); // 替换已有图片资源
-  @State studyPath: Resource = $r('app.media.img_2'); // 替换已有图片资源
+  @State imageUrl: Resource = $r('app.media.img_1');<em> // 替换已有图片资源</em>
+  @State studyPath: Resource = $r('app.media.img_2');<em> // 替换已有图片资源</em>
   @State currentImage: string = '1';
   @State currentIndex: number = 0;
   @State secondImageUrl: string = '';
   @State secondStudyPath: string = '';
 
   async screenshot() {
-    // 1.截图
+    <em>// 1.截图</em>
     const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.currentImage);
-    // 2.获取图片二进制数据
+    <em>// 2.获取图片二进制数据</em>
     const imagePacker = image.createImagePacker();
-    // format图片类型quality图片质量，原图100
+   <em> // format图片类型quality图片质量，原图100</em>
     const arrayBuffer = await imagePacker.packToData(pixelMap, { format: 'image/png', quality: 98 });
-    // 3.存储在应用下
+    <em>// 3.存储在应用下</em>
     const ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
     const path = ctx.cacheDir + '/' + Date.now() + '.jpg';
-    // 打开一个未创建的图片，让它具备创建和读写能力
+    <em>// 打开一个未创建的图片，让它具备创建和读写能力</em>
     const file = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
     if (this.currentImage == '0') {
       this.secondImageUrl = fileUri.getUriFromPath(path);
     } else {
       this.secondStudyPath = fileUri.getUriFromPath(path);
     }
-    // 写入沙箱
+    <em>// 写入沙箱</em>
     fileIo.writeSync(file.fd, arrayBuffer);
     fileIo.closeSync(file.fd);
   }
@@ -54,7 +50,7 @@ struct ListScreenshot {
       List() {
         ForEach([this.imageUrl, this.studyPath], (item: string, index: number) => {
           ListItem() {
-            // 上部分
+            <em>// 上部分</em>
             Column() {
               Image(item)
                 .width(240)
@@ -86,10 +82,10 @@ struct ListScreenshot {
 
       Button('截图')
         .onClick(() => {
-          // 截图方法
+          <em>// 截图方法</em>
           this.screenshot();
         });
-      // 展示保存在沙箱图片
+      <em>// 展示保存在沙箱图片</em>
       Row() {
         Image(this.secondImageUrl)
           .width(100)
@@ -108,12 +104,12 @@ struct ListScreenshot {
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/62X6GF0CTracjME-MiSvDg/zh-cn_image_0000002628552408.png?HW-CC-KV=V1&HW-CC-Date=20260701T025626Z&HW-CC-Expire=86400&HW-CC-Sign=E7AC93F55CF64874B8017D6FB198C50E140F205DFD3A47E565B37ED237AD02CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/62X6GF0CTracjME-MiSvDg/zh-cn_image_0000002628552408.png?HW-CC-KV=V1&HW-CC-Date=20260701T041229Z&HW-CC-Expire=86400&HW-CC-Sign=48F4E73B34E9556C465B95B8AFFA41AF0BDB7A2FC498E3F3FE53513DA264F99E)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [组件截图componentSnapshot.get](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentsnapshot#get12)：获取已加载的组件的截图，传入组件的组件标识，找到对应组件进行截图。
 - [组件标识](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id)：id为组件的唯一标识，在整个应用内唯一，唯一性由使用者保证。
@@ -122,24 +118,23 @@ struct ListScreenshot {
  
  
 
-##### 问题定位
+#### 问题定位
 
 分析问题代码，发现所有ListItem绑定的id都是this.currentImage，该状态变量在ForEach循环渲染时，不会根据不同的ListItem变化，而是赋予所有的ListItem相同的值。所以组件id重复。
  
  
 
-##### 分析结论
+#### 分析结论
 
 由于组件id重复，this.currentImage值变化后组件id依然重复，导致根据组件id截图时只截取第一个绑定该id的ListItem组件。
  
  
 
-##### 修改建议
-
-- 根据ForEach的创建规律，每个ListItem组件的索引是唯一的，所以将ListItem组件id修改为索引值：
+#### 修改建议
+1. 根据ForEach的创建规律，每个ListItem组件的索引是唯一的，所以将ListItem组件id修改为索引值：
 ```text
 ListItem() {
-  // 上部分
+  <em>// 上部分</em>
   Column() {
     Image(item)
       .width(240)
@@ -152,16 +147,15 @@ ListItem() {
   .width(240)
   .backgroundColor(Color.White);
 }
-.id(index.toString()) // 用变量控制
+.id(index.toString()) <em>// 用变量控制</em>
 .margin({ right: 20 });
 ```
 
-- 重写截图方法，当显示当前ListItem时，截取对应的图片：
+2. 重写截图方法，当显示当前ListItem时，截取对应的图片：
 ```text
-// 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id
+<em>// 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id</em>
 const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.currentIndex.toString());
 ```
-
 
  
 完整代码如下：
@@ -174,31 +168,31 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct ListScreenshot {
-  @State imageUrl: Resource = $r('app.media.startIcon'); // 可替换为其它图片
-  @State studyPath: Resource = $r('app.media.background'); // 可替换为其它图片
+  @State imageUrl: Resource = $r('app.media.startIcon'); <em>// 可替换为其它图片</em>
+  @State studyPath: Resource = $r('app.media.background'); <em>// 可替换为其它图片</em>
   @State currentImage: string = '1';
   @State currentIndex: number = 0;
   @State secondImageUrl: string = '';
   @State secondStudyPath: string = '';
 
   async screenshot() {
-    // 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id
+    <em>// 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id</em>
     const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.currentIndex.toString());
-    // 2.获取图片二进制数据
+    <em>// 2.获取图片二进制数据</em>
     const imagePacker = image.createImagePacker();
-    // format图片类型quality图片质量，原图100
+    <em>// format图片类型quality图片质量，原图100</em>
     const arrayBuffer = await imagePacker.packToData(pixelMap, { format: 'image/png', quality: 98 });
-    // 3.存储在应用下
+    <em>// 3.存储在应用下</em>
     const ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
     const path = ctx.cacheDir + '/' + Date.now() + '.jpg';
-    // 打开一个未创建的图片，让它具备创建和读写能力
+    <em>// 打开一个未创建的图片，让它具备创建和读写能力</em>
     const file = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
     if (this.currentImage == '0') {
       this.secondImageUrl = fileUri.getUriFromPath(path);
     } else {
       this.secondStudyPath = fileUri.getUriFromPath(path);
     }
-    // 写入沙箱
+    <em>// 写入沙箱</em>
     fileIo.writeSync(file.fd, arrayBuffer);
     fileIo.closeSync(file.fd);
   }
@@ -208,7 +202,7 @@ struct ListScreenshot {
       List() {
         ForEach([this.imageUrl, this.studyPath], (item: string, index: number) => {
           ListItem() {
-            // 上部分
+            <em>// 上部分</em>
             Column() {
               Image(item)
                 .width(240)
@@ -221,7 +215,7 @@ struct ListScreenshot {
             .width(240)
             .backgroundColor(Color.White);
           }
-          .id(index.toString()) // 用变量控制
+          .id(index.toString()) <em>// 用变量控制</em>
           .margin({ right: 20 });
         });
       }
@@ -240,10 +234,10 @@ struct ListScreenshot {
 
       Button('截图')
         .onClick(() => {
-          // 截图方法
+          <em>// 截图方法</em>
           this.screenshot();
         });
-      // 展示保存在沙箱图片
+      <em>// 展示保存在沙箱图片</em>
       Row() {
         Image(this.secondImageUrl)
           .width(100)
@@ -261,6 +255,6 @@ struct ListScreenshot {
  
  
 
-##### 总结
+#### 总结
 
 该问题的本质是组件的id冲突导致依据组件id截图时，只能截取到第一个ListItem，重新赋予不同id即可解决。

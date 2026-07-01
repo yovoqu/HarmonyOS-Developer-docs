@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-601
 
-## Scroll组件如何自动滚动到指定位置
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Scroll组件中数据量较大时，滑动到指定页面效率较低，如何实现在进入Scroll列表后，能够自动滚动到指定位置？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)是滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
  
@@ -28,12 +24,12 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：单层列表的快速定位。
 使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
 ```text
-// scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
+<em>// scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。</em>
 sceneOne() {
   this.scroller.scrollTo({ xOffset: 700, yOffset: 700 });
 }
@@ -41,18 +37,18 @@ sceneOne() {
 
 - 使用scrollBy，设置dx，dy滑动指定距离。
 ```text
-// scene2:使用scrollBy，设置dx，dy滑动指定距离。
+<em>// scene2:使用scrollBy，设置dx，dy滑动指定距离。</em>
 sceneTwo() {
-  this.scroller.scrollBy(700, 700); // dx=700,dy=700
+  this.scroller.scrollBy(700, 700);<em> // dx=700,dy=700</em>
 }
 ```
 
 - 使用scrollToIndex，通过设置其中的参数value，options来实现滑动到指定位置的效果。
 ```text
-// scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。
+<em>// scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。</em>
 sceneThree() {
   this.scroller.scrollToIndex(1, false, ScrollAlign.START, {
-    extraOffset: { value: 80, unit: 0 } // 设置额外偏移量
+    extraOffset: { value: 80, unit: 0 }<em> // 设置额外偏移量</em>
   });
 }
 ```
@@ -68,20 +64,20 @@ struct ListExample {
   private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   private scroller: Scroller = new Scroller();
 
-  // scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
+ <em> // scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。</em>
   sceneOne() {
     this.scroller.scrollTo({ xOffset: 700, yOffset: 700 });
   }
 
-  // scene2:使用scrollBy，设置dx，dy滑动指定距离。
+  <em>// scene2:使用scrollBy，设置dx，dy滑动指定距离。</em>
   sceneTwo() {
-    this.scroller.scrollBy(700, 700); // dx=700,dy=700
+    this.scroller.scrollBy(700, 700); <em>// dx=700,dy=700</em>
   }
 
-  // scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。
+ <em> // scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。</em>
   sceneThree() {
     this.scroller.scrollToIndex(1, false, ScrollAlign.START, {
-      extraOffset: { value: 80, unit: 0 } // 设置额外偏移量
+      extraOffset: { value: 80, unit: 0 } <em>// 设置额外偏移量</em>
     });
   }
 
@@ -131,16 +127,17 @@ struct ListExample {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/7Kslhxg7RKOxzjWntOQ1xQ/zh-cn_image_0000002658911917.png?HW-CC-KV=V1&HW-CC-Date=20260701T025538Z&HW-CC-Expire=86400&HW-CC-Sign=A226F03E28054AF1E00155379473D62B289073D5B76E6D99B5D51886BB05FB3D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/7Kslhxg7RKOxzjWntOQ1xQ/zh-cn_image_0000002658911917.png?HW-CC-KV=V1&HW-CC-Date=20260701T041247Z&HW-CC-Expire=86400&HW-CC-Sign=60EDC15C9AF77867E96C9728FE6D909E43CF43629D5198215D61D7C5E9B88382)
 
  - **场景二**：多层级分组结构，精准跳转至某个特定的分组中的某一项。使用scrollToItemInGroup定位到分组列表中指定分组内的目标项。
- 
+
+  
 ```text
 @Entry
 @Component
 struct ListItemGroupExample {
   listScroller: ListScroller = new ListScroller();
-  //列表数据
+<em>  //列表数据</em>
   private timeTable: TimeTable[] = [
     {
       title: '星期一',
@@ -221,7 +218,7 @@ struct ListItemGroupExample {
         })
         .onClick(() => {
           try {
-            //使用scrollToItemInGroup定位到分组列表中指定分组内的目标项
+       <em>     //使用scrollToItemInGroup定位到分组列表中指定分组内的目标项</em>
             this.listScroller.scrollToItemInGroup(2, 1);
           } catch (error) {
             console.error(`error: ${error}`);
@@ -243,14 +240,15 @@ interface TimeTable {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/6pbb4W2BTAqjQLwRo5ikfA/zh-cn_image_0000002628392708.png?HW-CC-KV=V1&HW-CC-Date=20260701T025538Z&HW-CC-Expire=86400&HW-CC-Sign=BFB54391148C4F8A7E4DF0512485A9650F4D1D61E2C0481DBDB52A9162AC6581)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/6pbb4W2BTAqjQLwRo5ikfA/zh-cn_image_0000002628392708.png?HW-CC-KV=V1&HW-CC-Date=20260701T041247Z&HW-CC-Expire=86400&HW-CC-Sign=750C70975BC399000B6D3D447761C3352EDE1A840B6F09395FBBDD89C8902379)
 
 
  
  
 
-##### 总结
+#### 总结
  
 | 方法名称 | 适用场景 | 核心特点 |
 | --- | --- | --- |

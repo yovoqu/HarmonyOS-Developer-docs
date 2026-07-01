@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-34
 
-## AVPlayer播放网络视频流的相关问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用AVPlayer播放网络视频流时会存在一些支持以及能力问题。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avplayer)主要工作是将Audio/Video媒体资源（比如mp4/mp3/mkv/mpeg-ts等）转码为可供渲染的图像和可听见的音频模拟信号，并通过输出设备进行播放。AVPlayer提供功能完善的一体化播放能力，应用只需要提供流媒体来源，不负责数据解析和解码就可达成播放效果。
  
@@ -22,7 +18,7 @@ AVPlayer播放网络视频和直播流等流媒体时可以参考相关文档：
  
  
 
-##### 解决方案
+#### 解决方案
 
 **场景一**：使用AVPlayer播放网络视频URL一边缓冲一边播放时，下载的数据是否会经过华为云端？
  

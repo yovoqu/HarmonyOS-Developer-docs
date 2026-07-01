@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1202
 
-## Checkbox多选、反选、全选场景实现方案
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在ArkUI框架的应用开发过程中，实现多选功能是常见的交互需求。开发过程中通常面临以下具体场景：
  
@@ -19,7 +15,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Checkbox](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox)：提供多选框组件，通常用于某选项的打开或关闭。
 - [LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)：在大量子组件的场景下，LazyForEach与缓存列表项、动态预加载、组件复用等方法配合使用，可以进一步提升滑动帧率并降低应用内存占用。
@@ -29,11 +25,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：ArkUI中的Checkbox组件支持多选功能，通过[select](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox#select18)属性绑定选中状态，并使用[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox#onchange18)事件监听状态变化，从而实现多选操作并获取选中数据。示例代码可参考：[获取多选框选中信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox#示例5获取多选框选中信息)。
 - **场景二**：通过遍历数据列表，将每个Checkbox绑定的item.name状态值进行取反。@ObservedV2和@Trace建立的响应式链路捕获这个取反操作，并据此更新对应Checkbox的选中状态，从而实现一键反选功能。
-```text
+```json
 @ObservedV2
 class Person {
   @Trace public name: boolean;
@@ -47,7 +43,7 @@ class Person {
 
 @ObservedV2
 class Info {
-  // 存储Person对象的数组
+ <em> // 存储Person对象的数组</em>
   personList: Person[] = [];
 
   constructor() {
@@ -59,12 +55,12 @@ class Info {
 @Entry
 @Component
 struct CheckboxPage1 {
-  // 创建Info实例作为组件状态
+ <em> // 创建Info实例作为组件状态</em>
   info: Info = new Info();
 
   build() {
     Column() {
-      // 反选按钮
+     <em> // 反选按钮</em>
       Button() {
         Text('反选')
           .fontColor(Color.White);
@@ -73,20 +69,25 @@ struct CheckboxPage1 {
       .height(30)
       .margin(10)
       .onClick(() => {
-        // 实现反选功能
-        for (let i = 0; i  // 使用List组件显示复选框列表
+      <em>  // 实现反选功能</em>
+        for (let i = 0; i < this.info.personList.length; i++) {
+          this.info.personList[i].name = !this.info.personList[i].name;
+        }
+      });
+
+     <em> // 使用List组件显示复选框列表</em>
       List({ space: 5, initialIndex: 0 }) {
         ForEach(this.info.personList, (item: Person) => {
           ListItem() {
             Flex() {
-              // Checkbox组件，显示选择状态
+           <em>   // Checkbox组件，显示选择状态</em>
               Checkbox({ name: item.value.toString() })
                 .selectedColor('#027cff')
                 .shape(CheckBoxShape.ROUNDED_SQUARE)
                 .unselectedColor('#027cff')
                 .select(item.name)
                 .onChange((value: boolean) => {
-                  // 复选框状态改变时更新Person对象的name属性
+                <em>  // 复选框状态改变时更新Person对象的name属性</em>
                   item.name = value;
                 })
                 .width(18)
@@ -108,19 +109,24 @@ struct CheckboxPage1 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/EL5Fh-F1SKCIPHPxGiv8aA/zh-cn_image_0000002628753480.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=B059D6DE9C19E937B0DE8E243ABDA7E40EC07250F19DD698BB42E6087A019C12)
 
-- **场景三**：在实现全选功能时，可充分利用CheckboxGroup组件控制全选或者不全选的特性。下面提供两种实现方案，可按需参考使用： 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/EL5Fh-F1SKCIPHPxGiv8aA/zh-cn_image_0000002628753480.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=66486196DB8153AD3946DD6ADD9140C742B1203D18F16BA474C930493E1EC1BF)
+
+- **场景三**：在实现全选功能时，可充分利用CheckboxGroup组件控制全选或者不全选的特性。下面提供两种实现方案，可按需参考使用：
+
 | 方案 | 适用场景 | 优点 | 缺点 |
+
 | --- | --- | --- | --- |
+
 | 方案一：CheckboxGroup+LazyForEach | 适用于长列表，如商品列表、文件列表等。 | 代码结构清晰，易于维护。 | 需要自定义数据源类。初始实现稍复杂。 |
+
 | 方案二：CheckboxGroup+分组控制 | 适用于分组数据，如章节下的题目、分类下的子项等。 | 支持分组选择。 | 状态同步逻辑需手动处理。数据绑定较为繁琐。 |
- 
- 
+
+  
 **方案一**：通过CheckboxGroup的[selectAll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkboxgroup#selectall)属性绑定全选状态，并利用LazyForEach动态渲染列表。全选按钮点击时，更新数据源中所有项的选中状态，并刷新UI。参考示例见官网：[示例4（设置全选）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkboxgroup#示例4设置全选)。
 - **方案二**：同样是CheckboxGroup，可通过全局全选按钮控制所有分组，每个分组再独立控制其内部选项，实现分组全选功能。
-```text
+```json
 interface GroupData {
   groupName: string;
   items: string[];
@@ -130,14 +136,14 @@ interface GroupData {
 @Entry
 @Component
 struct CheckboxPage2 {
-  // 数据源
-  groupDataList: Array = [
+ <em> // 数据源</em>
+  groupDataList: Array<GroupData> = [
     { groupName: '第一章', items: ['1.1', '1.2', '1.3', '1.4'], isGlobalSelectedAll: false },
     { groupName: '第二章', items: ['2.1', '2.2', '2.3'], isGlobalSelectedAll: false }
   ];
   @State isGroupAllSelected: boolean[] = [false, false];
   @State isGlobalSelectedAll: boolean = false;
-  @State selectedItems: Array> = [[], []];
+  @State selectedItems: Array<Array<string>> = [[], []];
 
   @Builder
   buildGroupSection(data: GroupData, index: number) {
@@ -152,7 +158,7 @@ struct CheckboxPage2 {
           for (let item of this.groupDataList) {
             this.isGlobalSelectedAll = (this.isGlobalSelectedAll && item.isGlobalSelectedAll);
           }
-          // 保存当前分组所选数据
+      <em>    // 保存当前分组所选数据</em>
           this.selectedItems[index] = event.name;
         });
       Text(data.groupName).fontSize(14).lineHeight(20).fontColor('#182431').fontWeight(500);
@@ -182,6 +188,21 @@ struct CheckboxPage2 {
           .selectedColor('#007DFF')
           .shape(CheckBoxShape.ROUNDED_SQUARE)
           .onClick(() => {
-            // 点击全选按钮，改变每个CheckBoxGroup选择状态
+        <em>    // 点击全选按钮，改变每个CheckBoxGroup选择状态</em>
             this.isGlobalSelectedAll = !this.isGlobalSelectedAll;
-            for (let i = 0; i
+            for (let i = 0; i < this.isGroupAllSelected.length; i++) {
+              this.isGroupAllSelected[i] = !this.isGroupAllSelected[i];
+              this.isGroupAllSelected[i] = this.isGlobalSelectedAll;
+            }
+          });
+        Text('全选');
+      };
+    }
+    .padding(16);
+  }
+}
+```
+ 效果预览：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/U8OJgDf_SiKMfBxYycK75g/zh-cn_image_0000002658952793.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=DD6BDE59F6768AD5E6EE4F104D8D1FEA5AA7367882532CC9331B2EEF05CD9FE5)

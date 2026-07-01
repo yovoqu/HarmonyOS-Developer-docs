@@ -4,45 +4,41 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-22
 
-## Hypium连接设备提示“选中设备中包含不兼容的设备”
- 
-
-
-##### 问题现象
+#### 问题现象
 
 手机连接上电脑，执行hdc list targets可以识别到设备，但使用Hypium的UiViewer功能时提示“选中设备中包含不兼容的设备！”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/c65j7pmoRUawFCTCvap8Lw/zh-cn_image_0000002658928763.png?HW-CC-KV=V1&HW-CC-Date=20260701T025922Z&HW-CC-Expire=86400&HW-CC-Sign=19CF023A3C747F6D99CDBF78944A5ED1779D1C02059EABE34AB0387A4EF1D109)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/c65j7pmoRUawFCTCvap8Lw/zh-cn_image_0000002658928763.png?HW-CC-KV=V1&HW-CC-Date=20260701T041010Z&HW-CC-Expire=86400&HW-CC-Sign=40247513421A06E030E47C5786B0EAFE0000ABFE9124C1BDE89F47B9AC824C5F)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [DevEco Testing Hypium](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section16890204264419)插件中内置了UiViewer功能，能够对设备当前页面的控件元素进行解析并展示。UiViewer功能目前分为4个界面：设备选择界面、单设备控件查看界面、单设备投屏界面、双设备投屏界面。
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 检查hdc、Hypium插件、设备驱动程序已正确安装。执行hdc list targets查看设备是否能够被正确识别。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/hL0YFx_jRvShy_NJSnXE6Q/zh-cn_image_0000002658808817.png?HW-CC-KV=V1&HW-CC-Date=20260701T025922Z&HW-CC-Expire=86400&HW-CC-Sign=262A3CF9B212B45A87B943A080C2BC0045B0FA239741A93D59CB625FB71F82BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/hL0YFx_jRvShy_NJSnXE6Q/zh-cn_image_0000002658808817.png?HW-CC-KV=V1&HW-CC-Date=20260701T041010Z&HW-CC-Expire=86400&HW-CC-Sign=BA9F4507EB23ED408D2E14BC700387F9935610E2B208047A5605127BA5333FE1)
 
 - 执行hdc shell uitest --version命令，查看版本号是否大于4.1.4.0。如下图显示的4.0.4.0版本不支持UiViewer查看设备。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/CFOZtL_vSmemejjWXBTNow/zh-cn_image_0000002628409550.png?HW-CC-KV=V1&HW-CC-Date=20260701T025922Z&HW-CC-Expire=86400&HW-CC-Sign=22055D55AE0D96F94C6826E405A3DFBDEF310345430DF8A7F64E4756548F48C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/CFOZtL_vSmemejjWXBTNow/zh-cn_image_0000002628409550.png?HW-CC-KV=V1&HW-CC-Date=20260701T041010Z&HW-CC-Expire=86400&HW-CC-Sign=432E580A5CF5BE225499812FC0A70872C001169184EAF365E759FBD763DE9635)
 
 - 执行hdc -v命令，查看版本号是否在3.0.0及以上。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/j8i286g1SS6Bi5uopVXMww/zh-cn_image_0000002628569448.png?HW-CC-KV=V1&HW-CC-Date=20260701T025922Z&HW-CC-Expire=86400&HW-CC-Sign=BDC5987BDB3B3BAB909106FF5CB06DD21938137F63B2DFD07592F4CAAFE4B1DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/j8i286g1SS6Bi5uopVXMww/zh-cn_image_0000002628569448.png?HW-CC-KV=V1&HW-CC-Date=20260701T041010Z&HW-CC-Expire=86400&HW-CC-Sign=EA64DADBA438FCA8A3D34FDEFE5B63A97D45D0CE5E2A74BEC863A3A03EEC8DBD)
 
 - 检查Hypium插件是否为6.0.0 Release及以上版本：打开Pycharm，点击File -> Settings -> Plugins进行查看。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/oOzE5hHiRz2ZImMgjz8pbw/zh-cn_image_0000002658928765.png?HW-CC-KV=V1&HW-CC-Date=20260701T025922Z&HW-CC-Expire=86400&HW-CC-Sign=D4DCD6555E4585910D7E93851147CAC9D1757E25B27F5D30E0377D80D7C4B8FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/oOzE5hHiRz2ZImMgjz8pbw/zh-cn_image_0000002658928765.png?HW-CC-KV=V1&HW-CC-Date=20260701T041010Z&HW-CC-Expire=86400&HW-CC-Sign=903533F9178416809934C0C365A7018474509B5CAFE4000C7FCEE5ACFE368811)
 
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 Hypium连接设备提示“选中设备中包含不兼容的设备”可能有以下原因：
  
@@ -53,7 +49,7 @@ Hypium连接设备提示“选中设备中包含不兼容的设备”可能有�
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 查看获取到系统uitest的版本结果，如果小于4.1.4.0版本，需要升级手机系统，手机设置页面检查更新，具体版本请查看[各版本支持设备型号清单](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/support-device)。如遇版本无法升级，可以[新建工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)进行申请。手机系统升级对应IDE也需要升级，IDE和手机ROM需要配套使用。详情请参考HarmonyOS套件配套信息[所有HarmonyOS版本](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-allversion)。
 - 查看获取到hdc的版本结果，如果低于3.0.0版本，需要参考[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)的内容进行hdc版本的升级。
@@ -63,7 +59,7 @@ Hypium连接设备提示“选中设备中包含不兼容的设备”可能有�
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：DevEco Testing Hypium调试脚本时，报错：ohos.exception.OHOSRpcPortNotFindError: [Environment-0303026] BIN(ABC) RPC listening。
  

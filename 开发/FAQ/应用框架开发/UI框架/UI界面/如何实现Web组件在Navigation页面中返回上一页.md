@@ -4,21 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-768
 
-## 如何实现Web组件在Navigation页面中返回上一页
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Navigation导航的页面中使用Web组件加载H5页面时，如何实现以下功能：
- 
-- Web组件和Navigation导航共用一个返回按钮。
-- 侧边返回H5页面的上一页。
-
+ 1. Web组件和Navigation导航共用一个返回按钮。
+2. 侧边返回H5页面的上一页。
  
  
 
-##### 背景知识
+#### 背景知识
 
 在HarmonyOS中，通过[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)对象控制Web组件，实现返回H5页面中上一页的功能，通常需要对返回操作进行拦截后自定义内容，以下是可能会涉及到的组件属性：
  
@@ -32,7 +26,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 在默认的返回按钮accessBackward中添加Web组件的onBackPressed判断，即判断当前Web页面内容是否可后退。如果可以后退，则调用Web的backward()返回上一个Web页面内容；如果不可后退，则调用Navigation的pop()返回Navigation的上一个页面。请参考[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-prepare)配置网络权限。
  
@@ -53,7 +47,7 @@ struct NavigationExample {
           .height(40)
           .margin(20)
           .onClick(() => {
-            this.pageInfos.pushPath({ name: 'pageOne' }); // 将name指定的NavDestination页面信息入栈
+            this.pageInfos.pushPath({ name: 'pageOne' }); <em>// 将name指定的NavDestination页面信息入栈</em>
           });
       };
     }
@@ -80,7 +74,7 @@ export struct PageOne {
   build() {
     NavDestination() {
       Column() {
-        // 'www.xxx.com'更换为目标网址
+     <em>   // 'www.xxx.com'更换为目标网址</em>
         Web({ src: 'www.xxx.com', controller: this.controller });
       }
       .width('100%')
@@ -88,8 +82,8 @@ export struct PageOne {
     }
     .title('pageOne')
     .onBackPressed(() => {
-      if (this.controller.accessBackward()) { // 判断web页面是否可以后退
-        this.controller.backward(); // web页面后退
+      if (this.controller.accessBackward()) { <em>// 判断web页面是否可以后退</em>
+        this.controller.backward(); <em>// web页面后退</em>
         return true;
       } else {
         this.pageInfos.pop();
@@ -120,7 +114,7 @@ router_map.json文件配置如下：
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：弹窗如何拦截侧边返回？
  

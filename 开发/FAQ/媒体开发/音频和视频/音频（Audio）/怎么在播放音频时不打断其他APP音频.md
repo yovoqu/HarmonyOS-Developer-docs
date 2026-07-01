@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-65
 
-## 怎么在播放音频时不打断其他APP音频
- 
-
-
-##### 问题现象
+#### 问题现象
 
 播放音频时，会暂停后台音乐播放，如何降低其他APP音量或者与其他音频同时播放？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 系统预设了默认的[音频焦点](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency#音频焦点)策略，根据音频流的类型及启动的先后顺序，对所有播放和录制音频流进行统一管理。
 - 应用可利用[音频会话管理（AudioSessionManager）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-session-management)提供的接口，通过AudioSession主动管理应用内音频流的焦点，自定义本应用音频流的焦点策略。
@@ -22,13 +18,16 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：应用可通过配置合适的音频流类型[StreamUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#streamusage)，根据系统默认的音频焦点策略，达到降低音量或同时播放的效果。
- 例如先播放STREAM_USAGE_MUSIC音乐音频，后播STREAM_USAGE_NAVIGATION导航音频可实现降低先播音频音量效果，详情可参考[系统默认焦点策略表](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-focus-management#section17923135513547)。
+
+  例如先播放STREAM_USAGE_MUSIC音乐音频，后播STREAM_USAGE_NAVIGATION导航音频可实现降低先播音频音量效果，详情可参考[系统默认焦点策略表](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-focus-management#section17923135513547)。
 - **方案二**：当系统默认焦点策略不满足应用焦点需求时，可通过[音频会话（AudioSession）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency#音频会话audiosession)自定义本应用的焦点策略。
- 系统预设四种并发模式可按需选择：
- 
+
+  系统预设四种并发模式可按需选择：
+
+  
 默认模式（CONCURRENCY_DEFAULT）：即系统默认的音频焦点策略。
 - 并发模式（CONCURRENCY_MIX_WITH_OTHERS）：和其他音频流并发。
 - 降低音量模式（CONCURRENCY_DUCK_OTHERS）：和其他音频流并发，并且降低其他音频流的音量。
@@ -37,21 +36,21 @@
  
 详细使用步骤可参考官网[使用AudioSession管理应用音频焦点(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-session-management)或者[使用AudioSession管理应用音频焦点(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-session)。
  
-```text
+```json
 import { audio } from '@kit.AudioKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let audioRenderer: audio.AudioRenderer;
 let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, // 采样率。
-  channels: audio.AudioChannel.CHANNEL_1, // 通道。
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
+  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, <em>// 采样率。</em>
+  channels: audio.AudioChannel.CHANNEL_1, <em>// 通道。</em>
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, <em>// 采样格式。</em>
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// 编码格式。</em>
 };
 let audioRendererInfo: audio.AudioRendererInfo = {
-  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
-  rendererFlags: 0 // 音频渲染器标志。
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, <em>// 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。</em>
+  rendererFlags: 0 <em>// 音频渲染器标志。</em>
 };
 let audioRendererOptions: audio.AudioRendererOptions = {
   streamInfo: audioStreamInfo,
@@ -68,15 +67,15 @@ let strategy: audio.AudioSessionStrategy = {
 @Component
 export struct AudioSessionDemo {
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  audioData: Uint8Array = generateTestPCM(); // 测试PCM数据，按需替换为其他音频数据源
+  audioData: Uint8Array = generateTestPCM(); <em>// 测试PCM数据，按需替换为其他音频数据源</em>
   writeOffset = 0;
 
-  async aboutToAppear(): Promise {
+  async aboutToAppear(): Promise<void> {
     audioRenderer = await audio.createAudioRenderer(audioRendererOptions);
-    await this.init(); //初始化
+    await this.init(); <em>//初始化</em>
   }
 
-  async aboutToDisappear(): Promise {
+  async aboutToDisappear(): Promise<void> {
     try {
       await audioSessionManager.deactivateAudioSession();
     } catch (error) {
@@ -138,7 +137,8 @@ export struct AudioSessionDemo {
       }
       let bufferView = new Uint8Array(buffer);
       let writeLen = Math.min(buffer.byteLength, this.audioData.byteLength - this.writeOffset);
-      if (writeLen //归零循环播放，测试用
+      if (writeLen <= 0) {
+        this.writeOffset = 0; <em>//归零循环播放，测试用</em>
         console.info('Play Done');
         return audio.AudioDataCallbackResult.INVALID;
       }
@@ -169,7 +169,7 @@ function generateTestPCM(): Uint8Array {
   const noteDuration = 0.5;
   const amplitude = 0.35;
 
-  const freqMap: Record = {
+  const freqMap: Record<number, number> = {
     1: 523.25, // C5
     2: 587.33, // D5
     3: 659.25, // E5
@@ -184,12 +184,23 @@ function generateTestPCM(): Uint8Array {
     5, 5, 4, 4, 3, 3, 2, 0
   ];
 
-  const samplesPerNote = Math.floor(sampleRate * noteDuration); // 4000
-  const totalSamples = samplesPerNote * melody.length; // 96,000
-  const buffer = new ArrayBuffer(totalSamples * 2); // 192,000 bytes
+  const samplesPerNote = Math.floor(sampleRate * noteDuration); <em>// 4000</em>
+  const totalSamples = samplesPerNote * melody.length;<em> // 96,000</em>
+  const buffer = new ArrayBuffer(totalSamples * 2);<em> // 192,000 bytes</em>
   const view = new DataView(buffer);
 
   let idx = 0;
   for (const note of melody) {
     const freq = note ? freqMap[note] : 0;
-    for (let i = 0; i
+    for (let i = 0; i < samplesPerNote; i++) {
+      const t = i / sampleRate;
+      const wave = freq ? amplitude * Math.sin(2 * Math.PI * freq * t) : 0;
+      const sample = Math.round(wave * 32767);
+      const clamped = Math.max(-32768, Math.min(32767, sample));
+      view.setInt16(idx * 2, clamped, true);
+      idx++;
+    }
+  }
+  return new Uint8Array(buffer);
+}
+```

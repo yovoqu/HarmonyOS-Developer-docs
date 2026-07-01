@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-3
 
-## 在预览模式下，如何一键删除所有PDF标注
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS官方文档当前只支持指定页面和标注进行对应的删除操作，没有一键删除所有PDF标注的API可供使用。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [PDF Kit（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-kit-guide)包含[pdfService能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfservice-implements)和[PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)。其中[PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)提供了文档预览功能，如：PDF文档预览、高亮显示、搜索关键字、[批注](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-annotation)等场景。
   
@@ -26,16 +22,14 @@ HarmonyOS官方文档当前只支持指定页面和标注进行对应的删除�
  
  
 
-##### 解决方案
-
-- 确保在工程目录“src/main/resources/rawfile”里存在需要被批注的文档。
-- 使能删除线、高亮等批注能力。
-- 获取原始PDF批注数量，后续删除自己添加的批注，从此索引开始。
-- 注册监听批注事件，当添加批注时，对批注数进行加1操作，记录后续需要删除的批注数量。
-- 监听选中的批注信息，可以校验需要被删除批注的首索引。
-- 加载PdfView组件进行预览，在沙箱内进行批注添加删除处理。
-- 保存修改后的文档，并记录相关日志。
-
+#### 解决方案
+1. 确保在工程目录“src/main/resources/rawfile”里存在需要被批注的文档。
+2. 使能删除线、高亮等批注能力。
+3. 获取原始PDF批注数量，后续删除自己添加的批注，从此索引开始。
+4. 注册监听批注事件，当添加批注时，对批注数进行加1操作，记录后续需要删除的批注数量。
+5. 监听选中的批注信息，可以校验需要被删除批注的首索引。
+6. 加载PdfView组件进行预览，在沙箱内进行批注添加删除处理。
+7. 保存修改后的文档，并记录相关日志。
  
 完整示例参考如下：
  
@@ -44,7 +38,7 @@ import { fileIo } from '@kit.CoreFileKit';
 import { pdfViewManager, pdfService, PdfView } from '@kit.PDFKit';
 import { common } from '@kit.AbilityKit';
 
-// 循环添加删除批注
+<em>// 循环添加删除批注</em>
 @Entry
 @Component
 struct delAnnotation {
@@ -56,13 +50,26 @@ struct delAnnotation {
   private rawAnnotationsLen: number[] = [];
 
   delAllAnn() {
-    for (let pageIndex = 0; pageIndex   // 获取沙箱目录
+    for (let pageIndex = 0; pageIndex < this.manualAnnNumRecord.length; pageIndex++) {
+      let pageAnnNum = this.manualAnnNumRecord[pageIndex];
+      let pageAnnStartIndex = this.rawAnnotationsLen[pageIndex];
+      for (let delCnt = 0; delCnt < pageAnnNum; delCnt++) {
+        this.controller.deleteSelectedAnnotation(pageAnnStartIndex, pageIndex);
+        console.info('delCnt is %d, pageIndex is %d, current manualAnnNumRecord is %d, pageAnnStartIndex is %d, ' +
+          'pageAnnStartIndex is %d', delCnt, pageIndex, this.manualAnnNumRecord[pageIndex], pageAnnStartIndex);
+        this.manualAnnNumRecord[pageIndex]--;
+      }
+    }
+  }
+
+  aboutToAppear(): void {
+  <em>  // 获取沙箱目录</em>
     let dir: string = this.context.filesDir;
-    let filePath: string = dir + '/test.pdf'; // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
+    let filePath: string = dir + '/test.pdf'; <em>// 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改</em>
     try {
       let res = fileIo.accessSync(filePath);
       if (!res) {
-        // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
+      <em>  // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改</em>
         let content: Uint8Array = this.context.resourceManager.getRawFileContentSync('test.pdf');
         let fdSand =
           fileIo.openSync(filePath, fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC);
@@ -73,14 +80,15 @@ struct delAnnotation {
       console.error('pdf file access error' + error.message);
     }
 
-    // 获取原始pdf批注数量，后续删除自己添加的批注，从此索引开始
+  <em>  // 获取原始pdf批注数量，后续删除自己添加的批注，从此索引开始</em>
     let loadResult = this.pdfDocument.loadDocument(filePath);
     if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
       let pageCount: number = this.pdfDocument.getPageCount();
-      for (let pageIndex = 0; pageIndex    // 初始化手动标注数量
+      for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
+     <em>   // 初始化手动标注数量</em>
         this.manualAnnNumRecord[pageIndex] = 0;
         let page: pdfService.PdfPage = this.pdfDocument.getPage(pageIndex);
-        let annotations: Array = page.getAnnotations();
+        let annotations: Array<pdfService.PdfAnnotation> = page.getAnnotations();
         this.rawAnnotationsLen[pageIndex] = annotations.length;
         page.release();
         console.info('pageIndex is %d, raw_annotations_len is %d.', pageIndex, this.rawAnnotationsLen[pageIndex]);
@@ -91,22 +99,30 @@ struct delAnnotation {
     }
 
     (async () => {
-      // 该监听方法只能在文档加载前调用一次
+    <em>  // 该监听方法只能在文档加载前调用一次</em>
       this.controller.registerPageCountChangedListener((pageCount: number) => {
         console.info('page count is %s', pageCount.toString());
       });
       let loadResult: pdfService.ParseResult = await this.controller.loadDocument(filePath);
-      // 注意：这里刚加载文档，请不要在这里立即设置PDF文档的预览方式
+   <em>   // 注意：这里刚加载文档，请不要在这里立即设置PDF文档的预览方式</em>
       if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
-        // 添加删除线批注
+   <em>     // 添加删除线批注</em>
         this.controller.enableAnnotation(pdfViewManager.SupportedAnnotationType.STRIKETHROUGH, 0xFFFF0000);
       }
     })();
-    // 注册监听批注事件
+ <em>   // 注册监听批注事件</em>
     this.controller.registerAnnotationChangedListener((annotationChange: pdfViewManager.AnnotationChangedParam) => {
       if (annotationChange.controlType === 0) {
-        // ADD-0, MOD-1, DEL-2
-        for (let i = 0; i   // 监听选中的批注信息
+      <em>  // ADD-0, MOD-1, DEL-2</em>
+        for (let i = 0; i < annotationChange.pageIndexArray.length; i++) {
+          this.manualAnnNumRecord[annotationChange.pageIndexArray[i]]++;
+          console.info('annotationChange, pageIndex is %d, manualAnnNumRecord is %d',
+            annotationChange.pageIndexArray[i], this.manualAnnNumRecord[annotationChange.pageIndexArray[i]]);
+        }
+      }
+      console.info('annotation controlType is %s', this.annotationControlType[annotationChange.controlType]);
+    });
+  <em>  // 监听选中的批注信息</em>
     this.controller.registerAnnotationSelectedListener((annot: pdfViewManager.SelectedAnnotation | undefined) => {
       console.info('annotation index %d, page index %d', annot?.annotationIndex, annot?.pageIndex);
     });
@@ -114,7 +130,7 @@ struct delAnnotation {
 
   build() {
     Column() {
-      // 加载PdfView组件进行预览
+  <em>    // 加载PdfView组件进行预览</em>
       PdfView({
         controller: this.controller,
         pageFit: pdfService.PageFit.FIT_WIDTH,
@@ -131,14 +147,14 @@ struct delAnnotation {
       .padding(5)
       .margin(5)
       .onClick(() => {
-        this.delAllAnn(); // 删除新增的所有批注
+        this.delAllAnn(); <em>// 删除新增的所有批注</em>
       })
 
-      // 点击后调用saveDocument保存修改后的PDF，记录日志。
+    <em>  // 点击后调用saveDocument保存修改后的PDF，记录日志。</em>
       Button('保存文件')
         .onClick(async () => {
           let dir: string = this.context.filesDir;
-          let savePath = dir + '/test.pdf'; // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
+          let savePath = dir + '/test.pdf'; <em>// 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改</em>
           let result: number = await this.controller.saveDocument(savePath);
           console.info('savePdfDocument %s!', result ? 'success' : 'fail');
         })

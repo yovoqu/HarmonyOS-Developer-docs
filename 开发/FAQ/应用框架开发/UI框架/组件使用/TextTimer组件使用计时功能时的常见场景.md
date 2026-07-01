@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1533
 
-## TextTimer组件使用计时功能时的常见场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 TextTimer组件使用计时功能时遇到的常见场景如下。
  
@@ -19,7 +15,7 @@ TextTimer组件使用计时功能时遇到的常见场景如下。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextTimer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-texttimer)：文本计时器组件，常用于倒计时、运动计时等场景。当时间文本发生变化时会触发[onTimer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-texttimer#ontimer)事件，该事件可以获取到当前时间戳和计时器经过的时间（单位ms），锁屏状态和应用后台状态下不会触发该事件。
 - [TextTimerController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-texttimer#texttimercontroller)：TextTimer组件的控制器，用于控制文本计时器。一个TextTimer组件仅支持绑定一个控制器，组件创建完成后相关指令才能被调用。相关指令有start、pause、reset，分别控制开始、停止、重置。
@@ -29,35 +25,42 @@ TextTimer组件使用计时功能时遇到的常见场景如下。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 问题一：由于aboutToAppear执行的时机在组件出现之前，而TextTimerController控制器的指令需要在组件创建完成之后才能调用，所以直接在aboutToAppear中调用start不会启动计时器，导致了start未生效。可以让计时器的启动与自身生命周期onAppear绑定，参考官网示例[创建之后立即执行计时](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-texttimer#示例4创建之后立即执行计时)。
 - 问题二：由于规格限制，TextTimer组件中的onTimer事件在锁屏状态和应用后台状态下不会触发。如果想要在后台情况下知道计时已结束，可以自定义计时器。方案如下：通过设置[setInterval](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-timer#setinterval)定时器，每隔很短的时间获取一次当前时间戳，计算当前到结束的差值可以得到当前剩余时间，实现计时效果。计时过程以及结束可以自行添加操作。
- 参考代码如下：
- 
+
+  参考代码如下：
+
+  
 ```text
 @Entry
 @Component
 struct Index {
-  @State timeNum: number = 60000; // 单位ms
+  @State timeNum: number = 60000; <em>// 单位ms</em>
   @State timeEnd: number = 0;
   timeId: number = -1;
 
   build() {
     Column({ space: 10 }) {
-      Text(`${Math.floor(this.timeNum / 1000)}.${this.timeNum / 10 % 100  {
-          if (this.timeId === -1) { // 防止重复执行
-            this.timeEnd = Date.now() + this.timeNum; // 设置结束时间
+      Text(`${Math.floor(this.timeNum / 1000)}.${this.timeNum / 10 % 100 < 10 ? 0 : ''}${Math.floor(this.timeNum / 10 %
+        100)}s`)
+        .fontSize($r('app.float.page_text_font_size'))
+        .fontWeight(FontWeight.Bold);
+      Button('开始计时')
+        .onClick(() => {
+          if (this.timeId === -1) { <em>// 防止重复执行</em>
+            this.timeEnd = Date.now() + this.timeNum; <em>// 设置结束时间</em>
             this.timeId = setInterval(() => {
-              if (Date.now() // 当前时间未到结束时间
-                this.timeNum = this.timeEnd - Date.now(); // 获取计时剩余时间，单位ms
-                // 添加执行过程中的操作
+              if (Date.now() < this.timeEnd) { <em>// 当前时间未到结束时间</em>
+                this.timeNum = this.timeEnd - Date.now(); <em>// 获取计时剩余时间，单位ms</em>
+                <em>// 添加执行过程中的操作</em>
                 console.info(`${this.timeNum}`);
               } else {
-                clearInterval(this.timeId); // 停止计时器
+                clearInterval(this.timeId); <em>// 停止计时器</em>
                 this.timeId = -1;
-                // 添加执行结束的操作
-                this.timeNum = 0; // 到达结束时间，剩余时间0
+                <em>// 添加执行结束的操作</em>
+                this.timeNum = 0; <em>// 到达结束时间，剩余时间0</em>
                 console.info(`计时结束`);
               }
             }, 10);
@@ -85,33 +88,35 @@ struct Index {
 }
 ```
  运行效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/1hmczSkeRzmFLhYC04YAkw/zh-cn_image_0000002628766890.png?HW-CC-KV=V1&HW-CC-Date=20260701T025619Z&HW-CC-Expire=86400&HW-CC-Sign=194161F0F78CA6FC6892A5898176CE038B7B0AE1F5762A52741A3A598C632CAC)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/1hmczSkeRzmFLhYC04YAkw/zh-cn_image_0000002628766890.png?HW-CC-KV=V1&HW-CC-Date=20260701T041252Z&HW-CC-Expire=86400&HW-CC-Sign=6EAEE5B1A52F97E46D10E0132434B7A44323A65C51D725C7708159AA6671C91A)
 
 - 问题三：TextTimer组件后台停止前台恢复可以通过计时器控制器的指令实现。将控制器导出，在EntryAbility.ets文件中使用。当应用进入后台触发onBackground时使用pause指令停止计时器，进入前台时根据上一次后台前计时器的状态判断是否调用start指令让计时器继续计时。参考代码如下：
- 
+
+  
 ```ArkTS
-// EntryAbility.ets下相关代码
-// 进入前台时触发
+<em>// EntryAbility.ets下相关代码</em>
+<em>// 进入前台时触发</em>
 onForeground(): void {
   console.info('应用进入前台');
   if (textTimerInfo.inProgress) {
-    textTimerInfo.textTimerController.start(); // 如果原本是计时状态,进入前台开始计时
+    textTimerInfo.textTimerController.start(); <em>// 如果原本是计时状态,进入前台开始计时</em>
   }
 }
 
-// 进入后台时触发
+<em>// 进入后台时触发</em>
 onBackground(): void {
   console.info('应用进入后台');
-  textTimerInfo.textTimerController.pause(); // 进入后台时停止计时
+  textTimerInfo.textTimerController.pause(); <em>// 进入后台时停止计时</em>
 }
 ```
  
 ```ArkTS
-// Page2.ets
+<em>// Page2.ets</em>
 class TextTimerInfo {
-  textTimerController: TextTimerController; // 计时器控制器
-  inProgress: boolean; // 计时器原本是否在计时
+  textTimerController: TextTimerController; <em>// 计时器控制器</em>
+  inProgress: boolean; <em>// 计时器原本是否在计时</em>
 
   constructor(textTimerController: TextTimerController, inProgress: boolean) {
     this.textTimerController = textTimerController;
@@ -119,7 +124,7 @@ class TextTimerInfo {
   }
 }
 
-export const textTimerInfo: TextTimerInfo = new TextTimerInfo(new TextTimerController(), false); // 导出计时器的信息
+export const textTimerInfo: TextTimerInfo = new TextTimerInfo(new TextTimerController(), false); <em>// 导出计时器的信息</em>
 
 @Entry
 @Component
@@ -147,14 +152,15 @@ struct Page2 {
 }
 ```
  运行效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/64z6YEa1SuKUYM0jsfduNw/zh-cn_image_0000002658966221.png?HW-CC-KV=V1&HW-CC-Date=20260701T025619Z&HW-CC-Expire=86400&HW-CC-Sign=A445EBE892626ABB3B6A36170BE95C062DA99DBA6E87B7A18350695AE61BBCDE)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/64z6YEa1SuKUYM0jsfduNw/zh-cn_image_0000002658966221.png?HW-CC-KV=V1&HW-CC-Date=20260701T041252Z&HW-CC-Expire=86400&HW-CC-Sign=43DF16F240BF84738C9DC4B8349FB917B05B0E81128769047E129DDB97814113)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：TextTimer组件在修改count变量后立刻调用start方法无法开始计时。
  

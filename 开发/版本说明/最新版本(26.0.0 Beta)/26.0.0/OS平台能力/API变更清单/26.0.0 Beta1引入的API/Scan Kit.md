@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-scankit-7001
 
-## Scan Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：scanCore； API声明：function isDefaultScanSupported(): boolean; 差异内容：function isDefaultScanSupported(): boolean; | api/@hms.core.scan.scanCore.d.ts |

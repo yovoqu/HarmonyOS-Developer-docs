@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1477
 
-## 状态变量随滚动重复赋值引起UI不刷新
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Scroll组件onDidScroll事件回调中更改状态变量UI未刷新，滚动到底部时UI才更新。
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/vxDWhN0DRFK1gjJSI0s0Nw/zh-cn_image_0000002628605360.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025713Z&HW-CC-Expire=86400&HW-CC-Sign=2340CB80FE173AED82A88817C7BFFC103D0A7F7390A1F1754168F254859027FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/vxDWhN0DRFK1gjJSI0s0Nw/zh-cn_image_0000002628605360.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041222Z&HW-CC-Expire=86400&HW-CC-Sign=00B45329C3DEB8DAB102C54677B486D7925FB20EEE4C87E8AD59B857C7C12713)
 
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Z-kW0u9TRC-A7QUV3rB6ZQ/zh-cn_image_0000002658844617.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025713Z&HW-CC-Expire=86400&HW-CC-Sign=C42746D0B36871893956E678461B4BEC9662B1D5A194E2F6A80BCE7F50B7603E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Z-kW0u9TRC-A7QUV3rB6ZQ/zh-cn_image_0000002658844617.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041222Z&HW-CC-Expire=86400&HW-CC-Sign=678875F098BDCF178697B7821F81D739EBAC66619DFAC57472A17EFBB916BAB0)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#ondidscroll12)事件，滚动组件滑动时触发，可根据滚动偏移量计算滚动进度。
 - [onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)事件，组件区域变化时触发该回调。仅会响应由布局变化所导致的组件大小、位置发生变化时的回调。
@@ -37,9 +33,8 @@
  
  
 
-##### 问题定位
-
-- 代码中定义了rollingProgress是滚动进度状态变量，并在onAreaChange事件中初始化该变量。在onDidScroll中打印该状态变量的值，可知该状态变量的值会随滚动改变。
+#### 问题定位
+1. 代码中定义了rollingProgress是滚动进度状态变量，并在onAreaChange事件中初始化该变量。在onDidScroll中打印该状态变量的值，可知该状态变量的值会随滚动改变。
 ```text
 .onAreaChange((oldValue: Area, newValue: Area) => {
   this.textHeight = newValue.height as number
@@ -56,8 +51,7 @@
 })
 ```
 
-
-- 给该状态变量添加@Watch装饰器可知，每次滚动后该状态变量被赋值为初始值，可知onAreaChange重复触发。
+1. 给该状态变量添加@Watch装饰器可知，每次滚动后该状态变量被赋值为初始值，可知onAreaChange重复触发。
 ```text
 @State @Watch('change') rollingProgress: number = 0
 change() {
@@ -65,19 +59,18 @@ change() {
 }
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/8dIsFVNGSRi4fmyn6ME8Ww/zh-cn_image_0000002628765252.png?HW-CC-KV=V1&HW-CC-Date=20260701T025713Z&HW-CC-Expire=86400&HW-CC-Sign=BBAA6F79AA2F622BF9D119CAA19DEF7EA3668557395A468F1426FCF1AED25A3B)
-
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/8dIsFVNGSRi4fmyn6ME8Ww/zh-cn_image_0000002628765252.png?HW-CC-KV=V1&HW-CC-Date=20260701T041222Z&HW-CC-Expire=86400&HW-CC-Sign=B880B2339380FFDEEC0DE181A81BF9E777C8BC3B3538FEDCF488118221CD1A7D)
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 滚动引起组件位置变化，组件位置变化时，[onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)事件的回调会被触发，导致滚动进度状态变量被重新初始化，进而导致UI不刷新的问题。建议改用[onSizeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-size-change-event#onsizechange)事件，onSizeChange事件仅会响应由布局变化所导致的组件尺寸发生变化时的回调，不会随滚动触发。
  
  
 
-##### 修改建议
+#### 修改建议
 
 将onAreaChange改为onSizeChange。
  
@@ -90,12 +83,12 @@ export function readPageBuilder() {
   ReadPage();
 }
 
-// 定义常量类，存放滚动区域的高度
+<em>// 定义常量类，存放滚动区域的高度</em>
 class CommonConstants {
   static readonly SCROLL_HEIGHT = 640;
 }
 
-// 定义标题组件
+<em>// 定义标题组件</em>
 @Component
 struct Title {
   @Prop leftIcon: Resource | undefined = undefined;
@@ -141,7 +134,7 @@ struct Title {
   }
 }
 
-// 定义主页面样式
+<em>// 定义主页面样式</em>
 @Entry
 @Component
 struct ReadPage {
@@ -246,7 +239,7 @@ struct ReadPage {
     .hideTitleBar(true)
     .backgroundColor('#F1F3F5');
   }
-  // 读取文本文章
+ <em> // 读取文本文章</em>
   private readText(path: string) {
     let context = this.getUIContext().getHostContext() as Context;
     let fileName: string = path;
@@ -255,7 +248,7 @@ struct ReadPage {
       this.currentText = this.textBuffer;
     });
   }
-  // 解码二进制数据
+ <em> // 解码二进制数据</em>
   private uint8ArrayToString(u8Array: Uint8Array): string {
     let desString = '';
     if (u8Array && u8Array.length > 0) {
@@ -278,12 +271,12 @@ export function readPageBuilder() {
   ReadPage();
 }
 
-// 定义常量类，存放滚动区域的高度
+<em>// 定义常量类，存放滚动区域的高度</em>
 class CommonConstants {
   static readonly SCROLL_HEIGHT = 640;
 }
 
-// 定义标题组件
+<em>// 定义标题组件</em>
 @Component
 struct Title {
   @Prop leftIcon: Resource | undefined = undefined;
@@ -329,7 +322,7 @@ struct Title {
   }
 }
 
-// 定义主页面样式
+<em>// 定义主页面样式</em>
 @Entry
 @Component
 struct ReadPage {
@@ -434,7 +427,7 @@ struct ReadPage {
     .hideTitleBar(true)
     .backgroundColor('#F1F3F5');
   }
-  // 读取文本文章
+<em>  // 读取文本文章</em>
   private readText(path: string) {
     let context = this.getUIContext().getHostContext() as Context;
     let fileName: string = path;
@@ -443,7 +436,7 @@ struct ReadPage {
       this.currentText = this.textBuffer;
     });
   }
-  // 解码二进制数据
+ <em> // 解码二进制数据</em>
   private uint8ArrayToString(u8Array: Uint8Array): string {
     let desString = '';
     if (u8Array && u8Array.length > 0) {

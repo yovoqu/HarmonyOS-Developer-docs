@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-53
 
-## PersistentStorage、Preferences、键值型数据库、关系型数据库的区别及适用场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 PersistentStorage、用户首选项（Preferences）、键值型数据库（KV-Store）、关系型数据库（RelationalStore）都是用于持久化存储数据的机制，但适用场景和特点有所不同，用户在使用时该如何选择？
  
  
 
-##### 解决方案
+#### 解决方案
 
 [PersistentStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage#从appstorage中访问persistentstorage初始化的属性)、[用户首选项（Preferences）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences)、[键值型数据库（KV-Store）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-kv-store)、[关系型数据库（RelationalStore）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-rdb-store)适用场景如下：
   

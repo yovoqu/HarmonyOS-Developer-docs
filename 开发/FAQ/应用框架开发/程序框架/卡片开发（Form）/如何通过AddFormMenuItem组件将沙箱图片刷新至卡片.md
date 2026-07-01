@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-form-17
 
-## 如何通过AddFormMenuItem组件将沙箱图片刷新至卡片
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在主应用中使用FormMenu组件，实现卡片添加至桌面操作。如何在添加卡片时，将沙箱图片刷新至卡片进行展示？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [FormMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-formmenu)组件封装了一个“添加至桌面”菜单，用于实现应用内长按组件生成“添加至桌面”菜单，点击该菜单，触发卡片添加至桌面操作。通过桌面访问该应用快捷卡片，可以直接访问该组件功能。在应用使用过程中，该组件作为留存和复访入口，可吸引用户将功能快捷添加到桌面。
 - 在卡片上通常需要展示本地图片或从网络上下载的图片，获取本地图片和网络图片需要通过FormExtensionAbility来实现，[示例代码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-image-update)介绍了如何在卡片上显示本地图片和网络图片。
@@ -22,11 +18,10 @@
  
  
 
-##### 解决方案
-
-- 在主应用中将resource目录中图片保存至沙箱，并根据沙箱中图片路径读取，获取文件的fd。构造传递给卡片的数据，需注意传递对象的key要与卡片页面一致。
+#### 解决方案
+1. 在主应用中将resource目录中图片保存至沙箱，并根据沙箱中图片路径读取，获取文件的fd。构造传递给卡片的数据，需注意传递对象的key要与卡片页面一致。
 ```ArkTS
-//Index.ets
+<em>//Index.ets</em>
 import { common } from '@kit.AbilityKit';
 import { fileIo, fileUri } from '@kit.CoreFileKit';
 import { AddFormMenuItem } from '@kit.ArkUI';
@@ -36,14 +31,14 @@ import { JSON } from '@kit.ArkTS';
 
 @ObservedV2
 export class CardModel {
-  // 需注意，采用状态变量监控后，实际属性key会发生变化
+ <em> // 需注意，采用状态变量监控后，实际属性key会发生变化</em>
   @Trace cardID: string = '';
   @Trace cardTitle: string = '';
   imageBackgroundPath_Square: string = '';
-  // 卡片需要显示图片场景, 必须和下列字段formImages 中的key fileName 相同。
+ <em> // 卡片需要显示图片场景, 必须和下列字段formImages 中的key fileName 相同。</em>
   imgName: string = 'fileName';
-  // 卡片需要显示图片场景, 必填字段(formImages 不可缺省或改名), fileName 对应 fd
-  formImages: Record = {};
+ <em> // 卡片需要显示图片场景, 必填字段(formImages 不可缺省或改名), fileName 对应 fd</em>
+  formImages: Record<string, number> = {};
 }
 
 @Entry
@@ -57,7 +52,7 @@ struct Index {
     try {
       const sandboxPath = this.context.filesDir + '/test.png';
       const resourceManager = this.context.resourceManager;
-      // 加载media目录下的test图片
+      <em>// 加载media目录下的test图片</em>
       const fileContent = resourceManager.getMediaContentSync($r('app.media.test').id);
 
       let file = fileIo.openSync(sandboxPath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
@@ -72,7 +67,7 @@ struct Index {
     }
   }
 
-  async getImageFd(imagePath: string): Promise {
+  async getImageFd(imagePath: string): Promise<number> {
     try {
       let file = fileIo.openSync(imagePath, fileIo.OpenMode.READ_ONLY);
       return file.fd;
@@ -83,17 +78,17 @@ struct Index {
   }
 
   async aboutToAppear() {
-    // 保存图片
+   <em> // 保存图片</em>
     await this.saveResourceToSandbox();
     this.newCard.cardID = '1';
     this.newCard.cardTitle = '测试';
 
-    // 图片
+   <em> // 图片</em>
     let fileName = 'file' + Date.now();
-    let imgMap: Record = {};
+    let imgMap: Record<string, number> = {};
     this.newCard.imgName = fileName;
     this.newCard.formImages = imgMap;
-    // 获取图片fd
+   <em> // 获取图片fd</em>
     imgMap[fileName] = await this.getImageFd(this.newCard.imageBackgroundPath_Square);
     console.info('构造卡片初始化数据', JSON.stringify(this.newCard));
   }
@@ -103,7 +98,7 @@ struct Index {
     Menu() {
       AddFormMenuItem(
         {
-          // 应用包名 需要更换自己的
+         <em> // 应用包名 需要更换自己的</em>
           bundleName: 'com.zwl.myapplication',
           abilityName: 'EntryFormAbility',
           parameters: {
@@ -117,7 +112,7 @@ struct Index {
           formBindingData: formBindingData.createFormBindingData(this.newCard),
           callback: (error, formId) => {
             console.info('AddCardMenu', `callback info：error = ${JSON.stringify(error)}, formId = ${formId}`);
-            // 更新桌面卡片后 关闭文件
+          <em>  // 更新桌面卡片后 关闭文件</em>
             fileIo.closeSync(this.newCard.formImages[this.newCard.imgName]);
             if (error?.code === 0) {
               console.info('AddCardMenu', "添加至桌面成功");
@@ -134,7 +129,7 @@ struct Index {
     Row() {
       Column() {
         if (this.imageLoaded) {
-          Image(fileUri.getUriFromPath(this.newCard.imageBackgroundPath_Square))   // 自定义图片
+          Image(fileUri.getUriFromPath(this.newCard.imageBackgroundPath_Square))  <em> // 自定义图片</em>
             .id(this.newCard.cardID)
             .width(200)
             .height(200)
@@ -150,7 +145,7 @@ struct Index {
 }
 ```
 
-- 在卡片接收来自主应用传递的数据，并渲染展示。
+2. 在卡片接收来自主应用传递的数据，并渲染展示。
 ```text
 let local = new LocalStorage();
 @Entry(local)

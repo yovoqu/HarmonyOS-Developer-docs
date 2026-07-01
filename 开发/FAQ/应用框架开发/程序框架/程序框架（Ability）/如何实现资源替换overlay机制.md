@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-164
 
-## 如何实现资源替换overlay机制
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS如何实现资源替换的静态overlay以及动态overlay？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [overlay机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access#overlay机制)：overlay是一种资源替换机制，针对不同品牌、产品的显示风格，开发者可以在不重新打包HAP的情况下，通过配置和使用overlay资源包，实现应用界面风格变换。overlay资源包只包含资源文件、资源索引文件和配置文件。
 - 静态overlay机制：在应用安装时已确定的资源包（如主题、图标、多语言文本等）。这些资源包作为HAP（Harmony Ability Package）的一部分被固化到应用中，初始状态（启用/禁用）在安装时设定。
@@ -26,7 +22,7 @@ HarmonyOS如何实现资源替换的静态overlay以及动态overlay？
  
  
 
-##### 解决方案
+#### 解决方案
  
 |    | 动态overlay | 静态overlay |
 | --- | --- | --- |
@@ -34,15 +30,14 @@ HarmonyOS如何实现资源替换的静态overlay以及动态overlay？
 | 核心API | ResourceManager.addResource/removeResource | overlay.setOverlayEnabled |
 | 应用场景 | 静态资源定制（多语言、主题）。 | 动态UI交互（导航菜单、浮动面板）。 |
  
- 
-- 利用静态overlay机制实现资源替换：
-主应用EntryAbility中使能静态overlay：
+1. 利用静态overlay机制实现资源替换：
+- 主应用EntryAbility中使能静态overlay：
 ```ArkTS
-// EntryAbility.ets文件
+<em>// EntryAbility.ets文件</em>
 onCreate(): void {
   this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
-  // 系统默认使能，这里可以不设置
+ <em> // 系统默认使能，这里可以不设置</em>
   overlay.setOverlayEnabled('staticOverlay', true, (err) => {
     if (err) {
       hilog.error(DOMAIN, 'testTag', 'err code: ' + err.code + ' ' + 'message:' + err.message);
@@ -53,9 +48,10 @@ onCreate(): void {
 }
 ```
 
-- 主应用Index页面中使用Resource目录下的“bg.png”文件:
+
+2. 主应用Index页面中使用Resource目录下的“bg.png”文件:
 ```ArkTS
-// Index.ets
+<em>// Index.ets</em>
 @Entry
 @Component
 struct Index {
@@ -76,18 +72,23 @@ struct Index {
 }
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/-W2u7NBjTiuRuUpetMfciA/zh-cn_image_0000002658870847.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=97A3CDE1D0C09F113EE91C85A814ADEBE8E3C1AF8E14F75D57246C3E6E75DBB4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/-W2u7NBjTiuRuUpetMfciA/zh-cn_image_0000002658870847.png?HW-CC-KV=V1&HW-CC-Date=20260701T041356Z&HW-CC-Expire=86400&HW-CC-Sign=B25757254EF4437C95D80C003E941AA9A0912821F50B47F887B1A1D4FA08CDCD)
 
-- 创建静态overlay资源包staticOverlay.hsp，Resource目录中也有“bg.png”文件，路径和entry相同：
+
+3. 创建静态overlay资源包staticOverlay.hsp，Resource目录中也有“bg.png”文件，路径和entry相同：
 [使用DevEco Studio创建HSP模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hsp#section7717162312546)，和正常创建HSP步骤一致，不再赘述。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/e2T2ysWyTu2yoWMH4YK0pw/zh-cn_image_0000002628791472.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=D1F80376FA92C7A30F452849D44338D65643727F8D9012B85118324E1924D8DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/e2T2ysWyTu2yoWMH4YK0pw/zh-cn_image_0000002628791472.png?HW-CC-KV=V1&HW-CC-Date=20260701T041356Z&HW-CC-Expire=86400&HW-CC-Sign=81BB0A484C138259C0C2FCF58C7A2B21F118688D5DCF31F37ADCC4AA8BBEE7F5)
 
-- staticOverlay.hsp中module.json5配置：targetModuleName和targetPriority标签需要单独设置。
- targetModuleName：字符串类型，指定要overlay的应用中的目标moduleName，这里需要替换Entry的资源，所以设置为Entry的moduleName。
- targetPriority：整数类型，指定overlay优先级。
- 
-```text
-// staticOverlay module.json5
+
+4. staticOverlay.hsp中module.json5配置：targetModuleName和targetPriority标签需要单独设置。
+
+  targetModuleName：字符串类型，指定要overlay的应用中的目标moduleName，这里需要替换Entry的资源，所以设置为Entry的moduleName。
+
+  targetPriority：整数类型，指定overlay优先级。
+
+  
+```json
+<em>// staticOverlay module.json5</em>
 {
   "module": {
     "name": "staticOverlay",
@@ -105,29 +106,29 @@ struct Index {
 ```
 
 
- - 编译静态overlay资源包staticOverlay.hsp：由于静态overlay需要替换实现主Entry包中的资源，所以需要注意的是，要在DevEco Studio上Run->Edit Configurations中选中entry包进行勾选“Deploy Multi Hap/Hsp Packages”选项，打包编译时会将静态资源包编译到应用HAP中：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/5uZEZOz2QmuW7bGADrYWxg/zh-cn_image_0000002658990787.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=8AE948EF35BAB510BA26AFB3A2F48C34157C864E0F87681106B2F2EEF188B3AA)
+5. 编译静态overlay资源包staticOverlay.hsp：由于静态overlay需要替换实现主Entry包中的资源，所以需要注意的是，要在DevEco Studio上Run->Edit Configurations中选中entry包进行勾选“Deploy Multi Hap/Hsp Packages”选项，打包编译时会将静态资源包编译到应用HAP中：
 
- 执行编译后，在静态资源包这里会看到编译生成了编译产物：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/iFf1imkYTMCiu47YmINL2w/zh-cn_image_0000002628631570.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=2B9C4C046D20A5B1A99FABB5E20B42AFA12002D211CD33DFED512A68CFA23961)
-
-- 最终，应用安装后的效果为：
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/QiUMoQ2fQbuJ2d-cqiTTYQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=B5CA2DF5161C47C57DB3658929CA92881A79A2B6C9B108D73BD14025ACC70456)
- 
-staticOverlay包中“bg.png”资源替换了entry包中的“bg.png”，资源文件的路径、名称要和被替换包中资源文件一致。
- 
-
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/c30IytwuT22qtBM8mkEldw/zh-cn_image_0000002658870849.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=6FE6C94B0469A442F601CD47A8CE13830566D506BF901D86A57FD4647E8661D8)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/5uZEZOz2QmuW7bGADrYWxg/zh-cn_image_0000002658990787.png?HW-CC-KV=V1&HW-CC-Date=20260701T041356Z&HW-CC-Expire=86400&HW-CC-Sign=CC635C302808A59A3D59FA2881AB1DD6A8C36F9A234582343B7D87259115A141)
 
 
- - 利用动态overlay机制实现资源替换：
-主应用Index页面中使用Resource目录下的“bg.png”文件:
+  执行编译后，在静态资源包这里会看到编译生成了编译产物：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/iFf1imkYTMCiu47YmINL2w/zh-cn_image_0000002628631570.png?HW-CC-KV=V1&HW-CC-Date=20260701T041356Z&HW-CC-Expire=86400&HW-CC-Sign=C29C955E7183CB364841264CE982BBB624D2DCA28C2EC5FEB7BA7216A94D44FA)
+
+
+6. 最终，应用安装后的效果为：
+> [!NOTE]
+> staticOverlay包中“bg.png”资源替换了entry包中的“bg.png”，资源文件的路径、名称要和被替换包中资源文件一致。
+
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/c30IytwuT22qtBM8mkEldw/zh-cn_image_0000002658870849.png?HW-CC-KV=V1&HW-CC-Date=20260701T041356Z&HW-CC-Expire=86400&HW-CC-Sign=02D719AC80EB2DA7E1752F7FDA7C63F7B564142F0B957FAF2B828E228124ADBB)
+
+- 利用动态overlay机制实现资源替换：1. 主应用Index页面中使用Resource目录下的“bg.png”文件:
 ```ArkTS
-// Index1.ets
+<em>// Index1.ets</em>
 import { common } from '@kit.AbilityKit';
 
 @Entry
@@ -150,8 +151,8 @@ struct Index1 {
             this.context.resourceManager.addResource(path);
             this.image = this.context.resourceManager.getDrawableDescriptor($r('app.media.bg').id).getPixelMap();
           } catch (error) {
-            let code: number = (error as BusinessError).code;
-            let message: string = (error as BusinessError).message;
+            let code: number = (error as BusinessError<number>).code;
+            let message: string = (error as BusinessError<string>).message;
             console.error(`addResource failed, error code: ${code}, message: ${message}.`);
           }
       })
@@ -162,15 +163,17 @@ struct Index1 {
 }
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/_pHPye5jRxqwov6_oslYJQ/zh-cn_image_0000002628791474.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=EDEC9ABBCE1A59920F33A17769A636128B4BA74AC8B0F2386BFC2E59FD20F719)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/_pHPye5jRxqwov6_oslYJQ/zh-cn_image_0000002628791474.png?HW-CC-KV=V1&HW-CC-Date=20260701T041356Z&HW-CC-Expire=86400&HW-CC-Sign=DF5661DEB15FB97A13CBE4126D8F496746BB96A089E3040AD2B0D9275C48B6BA)
 
-- 创建动态overlay资源包dynamicOverlay.hsp，Resource目录中也有“bg.png”文件，路径和entry相同：
+
+2. 创建动态overlay资源包dynamicOverlay.hsp，Resource目录中也有“bg.png”文件，路径和entry相同：
 使用DevEco Studio创建HSP，和正常创建HSP步骤一致，不再赘述。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/DnkwvWiuT36ZOm5q7YvfeA/zh-cn_image_0000002658990789.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=444EA69EC2D23AE620D47C65C3D228178C88B158B71C3014B6F8986F7377D3E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/DnkwvWiuT36ZOm5q7YvfeA/zh-cn_image_0000002658990789.png?HW-CC-KV=V1&HW-CC-Date=20260701T041356Z&HW-CC-Expire=86400&HW-CC-Sign=BB1BBFD7928C5EC0DAF87D4411B701C05044F7ACE4CDF857BE31705FEB8D0905)
 
-- dynamicOverlay.hsp中module.json5配置：（动态overlay不需要配置targetModuleName和targetPriority标签）。
-```text
-// dynamicOverlay module.json5
+
+3. dynamicOverlay.hsp中module.json5配置：（动态overlay不需要配置targetModuleName和targetPriority标签）。
+```json
+<em>// dynamicOverlay module.json5</em>
 {
   "module": {
     "name": "dynamicOverlay",
@@ -186,6 +189,7 @@ struct Index1 {
 ```
 
 
- - 编译动态overlay资源包dynamicOverlay.hsp，和上述静态overlay资源包编译步骤一致，不再赘述。
-- 应用安装后，点击图标运行效果预览：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/yKBNxOVFTzqMrkuwVnrndg/zh-cn_image_0000002628631572.png?HW-CC-KV=V1&HW-CC-Date=20260701T025527Z&HW-CC-Expire=86400&HW-CC-Sign=B0F4D1370662DB707B28C155ECB1FF46DEB581885BFB1DB42E218F0B869E0FDE)
+4. 编译动态overlay资源包dynamicOverlay.hsp，和上述静态overlay资源包编译步骤一致，不再赘述。
+
+5. 应用安装后，点击图标运行效果预览：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/yKBNxOVFTzqMrkuwVnrndg/zh-cn_image_0000002628631572.png?HW-CC-KV=V1&HW-CC-Date=20260701T041356Z&HW-CC-Expire=86400&HW-CC-Sign=68E48BDF390351E6823798D362AA042620B362DFD8C6BD587021AEE72E27B507)

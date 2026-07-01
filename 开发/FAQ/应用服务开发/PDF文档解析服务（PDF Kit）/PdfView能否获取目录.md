@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-5
 
-## PdfView能否获取目录
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现PDF预览的时候需要展示所有的目录？PdfView能否获取目录信息？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [PDF Kit（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-kit-guide)包含pdfService和PdfView组件。差异可以参照[pdfService与PdfView能力比较](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-introduction#pdfservice与pdfview能力比较)。
  
@@ -24,13 +20,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 PDF展示目录其实是PDF书签功能，PdfView目前不支持该能力，需要使用pdfService添加、查询书签，两者具体区别参考[pdfService与PdfView能力比较](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-introduction#pdfservice与pdfview能力比较)，使用示例如下：
- 
-- 本地PDF文件复制到沙箱目录，在项目rawfile文件夹下添加test.pdf（本示例以多页PDF为例）：
+ 1. 本地PDF文件复制到沙箱目录，在项目rawfile文件夹下添加test.pdf（本示例以多页PDF为例）：
 ```text
-public async copyFile(fileName: string): Promise {
+public async copyFile(fileName: string): Promise<void> {
   return new Promise((resolve, reject) => {
     let filePath = this.context.filesDir + '/' + fileName;
     try {
@@ -59,13 +54,13 @@ public async copyFile(fileName: string): Promise {
 }
 ```
 
-- 给PDF增加书签（若原PDF自带书签可忽略步骤）：
+2. 给PDF增加书签（若原PDF自带书签可忽略步骤）：
 ```text
 private createBookmarks() {
-  // 创建书签
+ <em> // 创建书签</em>
   let mark1: pdfService.Bookmark = this.pdfDocument.createBookmark();
   let mark2: pdfService.Bookmark = this.pdfDocument.createBookmark();
-  // 设置书签的跳转信息
+<em>  // 设置书签的跳转信息</em>
   let destInfo: pdfService.DestInfo = mark1.getDestInfo();
   destInfo.fitMode = pdfService.FitMode.FIT_MODE_XYZ;
   destInfo.pageIndex = 1;
@@ -73,25 +68,25 @@ private createBookmarks() {
   destInfo.top = 30;
   destInfo.zoom = 1.5;
   mark1.setDestInfo(destInfo);
-  // 设置书签内容及样式
+ <em> // 设置书签内容及样式</em>
   let bookInfo: pdfService.BookmarkInfo = mark1.getBookmarkInfo();
   bookInfo.title = '这里是跳到第一页的书签';
   bookInfo.titleColor = 12;
   bookInfo.isBold = true;
   bookInfo.isItalic = true;
   mark1.setBookmarkInfo(bookInfo);
-  // 把创建的书签插入到PDF页面
+ <em> // 把创建的书签插入到PDF页面</em>
   this.pdfDocument.insertBookmark(mark1, null, 1);
   this.pdfDocument.insertBookmark(mark2, mark1, 1);
-  // 设置保存文档沙箱路径并保存
+ <em> // 设置保存文档沙箱路径并保存</em>
   this.outPdfPath = this.context.filesDir + '/testAddBookmark.pdf';
   let result = this.pdfDocument.saveDocument(this.outPdfPath);
   hilog.info(0x0000, 'PdfPage', 'saveAddBookmark %{public}s!', result ? 'success' : 'fail');
 }
 ```
 
-- 完整示例如下：
-```text
+3. 完整示例如下：
+```json
 import { pdfService } from '@kit.PDFKit';
 import { fileIo } from '@kit.CoreFileKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -110,10 +105,10 @@ struct PdfGetDirectory {
         .width(200)
         .margin({ top: 100 })
         .onClick(async () => {
-          await this.copyFile('test.pdf'); // 此处仅为示例，请开发者替换为实际使用的文件。
+          await this.copyFile('test.pdf'); <em>// 此处仅为示例，请开发者替换为实际使用的文件。</em>
           let loadResult = this.pdfDocument.loadDocument(this.filePath, '');
           if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
-            // 创建书签
+           <em> // 创建书签</em>
             this.createBookmarks();
           }
         });
@@ -121,7 +116,7 @@ struct PdfGetDirectory {
         .width(200)
         .margin({ top: 100 })
         .onClick(() => {
-          // 确保加载的是保存了书签的文件
+       <em>   // 确保加载的是保存了书签的文件</em>
           let loadResult = this.pdfDocument.loadDocument(this.outPdfPath, '');
           if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
             this.verifyBookmarks();
@@ -134,10 +129,10 @@ struct PdfGetDirectory {
     .height('100%');
   }
   private createBookmarks() {
-    // 创建书签
+  <em>  // 创建书签</em>
     let mark1: pdfService.Bookmark = this.pdfDocument.createBookmark();
     let mark2: pdfService.Bookmark = this.pdfDocument.createBookmark();
-    // 设置书签的跳转信息
+  <em>  // 设置书签的跳转信息</em>
     let destInfo: pdfService.DestInfo = mark1.getDestInfo();
     destInfo.fitMode = pdfService.FitMode.FIT_MODE_XYZ;
     destInfo.pageIndex = 1;
@@ -145,23 +140,23 @@ struct PdfGetDirectory {
     destInfo.top = 30;
     destInfo.zoom = 1.5;
     mark1.setDestInfo(destInfo);
-    // 设置书签内容及样式
+   <em> // 设置书签内容及样式</em>
     let bookInfo: pdfService.BookmarkInfo = mark1.getBookmarkInfo();
     bookInfo.title = '这里是跳到第一页的书签';
     bookInfo.titleColor = 12;
     bookInfo.isBold = true;
     bookInfo.isItalic = true;
     mark1.setBookmarkInfo(bookInfo);
-    // 把创建的书签插入到PDF页面
+   <em> // 把创建的书签插入到PDF页面</em>
     this.pdfDocument.insertBookmark(mark1, null, 1);
     this.pdfDocument.insertBookmark(mark2, mark1, 1);
-    // 设置保存文档沙箱路径并保存
+  <em>  // 设置保存文档沙箱路径并保存</em>
     this.outPdfPath = this.context.filesDir + '/testAddBookmark.pdf';
     let result = this.pdfDocument.saveDocument(this.outPdfPath);
     hilog.info(0x0000, 'PdfPage', 'saveAddBookmark %{public}s!', result ? 'success' : 'fail');
   }
   private verifyBookmarks() {
-    // 重新加载并验证书签
+ <em>   // 重新加载并验证书签</em>
     let loadResult = this.pdfDocument.loadDocument(this.outPdfPath, '');
     if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
       let rootBookmark = this.pdfDocument.getRootBookmarks();
@@ -172,7 +167,7 @@ struct PdfGetDirectory {
       }
     }
   }
-  public async copyFile(fileName: string): Promise {
+  public async copyFile(fileName: string): Promise<void> {
     return new Promise((resolve, reject) => {
       let filePath = this.context.filesDir + '/' + fileName;
       try {
@@ -202,11 +197,10 @@ struct PdfGetDirectory {
 }
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：pdfService和PdfView一起使用对内存会有影响吗？
  

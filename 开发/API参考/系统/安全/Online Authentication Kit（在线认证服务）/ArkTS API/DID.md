@@ -3,11 +3,7 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api
-
 **支持设备：** Phone | Tablet
-
-## DID
- 
 
 DID（Decentralized Identifier，去中心化身份）能力。
  
@@ -16,7 +12,9 @@ DID提供基于W3C DID标准的身份认证和可验证凭证管理能力，支�
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | Tablet
 
 ```text
 import { did } from '@kit.OnlineAuthenticationKit';
@@ -24,7 +22,9 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### KeyAlgo
+#### KeyAlgo
+
+**支持设备：** Phone | Tablet
 
 密钥算法枚举，用于DID密钥生成。
  
@@ -48,7 +48,9 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### AuthType
+#### AuthType
+
+**支持设备：** Phone | Tablet
 
 认证器认证类型枚举，包括PIN码、指纹、3D人脸。
  
@@ -69,7 +71,9 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### KeyPurpose
+#### KeyPurpose
+
+**支持设备：** Phone | Tablet
 
 密钥用途枚举。
  
@@ -91,7 +95,9 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### CredentialType
+#### CredentialType
+
+**支持设备：** Phone | Tablet
 
 凭证类型枚举。
  
@@ -113,7 +119,9 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### CryptoScheme
+#### CryptoScheme
+
+**支持设备：** Phone | Tablet
 
 加密方案枚举。
  
@@ -133,7 +141,9 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### ApprovalScheme
+#### ApprovalScheme
+
+**支持设备：** Phone | Tablet
 
 批准方案枚举。
  
@@ -152,7 +162,9 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### AuthMode
+#### AuthMode
+
+**支持设备：** Phone | Tablet
 
 认证模式枚举。
  
@@ -171,7 +183,9 @@ import { did } from '@kit.OnlineAuthenticationKit';
  
   
 
-##### KeyConfig
+#### KeyConfig
+
+**支持设备：** Phone | Tablet
 
 DID密钥生成配置。
  
@@ -191,7 +205,9 @@ DID密钥生成配置。
  
   
 
-##### AuthenticatorConfig
+#### AuthenticatorConfig
+
+**支持设备：** Phone | Tablet
 
 认证器配置。
  
@@ -212,7 +228,9 @@ DID密钥生成配置。
  
   
 
-##### GenerateKeyRequest
+#### GenerateKeyRequest
+
+**支持设备：** Phone | Tablet
 
 DID密钥生成请求。
  
@@ -234,7 +252,9 @@ DID密钥生成请求。
  
   
 
-##### GenerateKeyResponse
+#### GenerateKeyResponse
+
+**支持设备：** Phone | Tablet
 
 DID密钥生成响应。
  
@@ -256,7 +276,9 @@ DID密钥生成响应。
  
   
 
-##### DidKey
+#### DidKey
+
+**支持设备：** Phone | Tablet
 
 DID密钥信息。
  
@@ -276,7 +298,9 @@ DID密钥信息。
  
   
 
-##### ImportDidRequest
+#### ImportDidRequest
+
+**支持设备：** Phone | Tablet
 
 DID导入请求。
  
@@ -299,7 +323,9 @@ DID导入请求。
  
   
 
-##### SignRequest
+#### SignRequest
+
+**支持设备：** Phone | Tablet
 
 数据签名请求。
  
@@ -319,7 +345,9 @@ DID导入请求。
  
   
 
-##### SignResponse
+#### SignResponse
+
+**支持设备：** Phone | Tablet
 
 数据签名响应。
  
@@ -339,7 +367,9 @@ DID导入请求。
  
   
 
-##### QueryDidConfig
+#### QueryDidConfig
+
+**支持设备：** Phone | Tablet
 
 DID查询配置。
  
@@ -360,7 +390,9 @@ DID查询配置。
  
   
 
-##### QueryDidRequest
+#### QueryDidRequest
+
+**支持设备：** Phone | Tablet
 
 DID查询请求。
  
@@ -380,7 +412,9 @@ DID查询请求。
  
   
 
-##### QueryDidResponse
+#### QueryDidResponse
+
+**支持设备：** Phone | Tablet
 
 DID查询响应。
  
@@ -401,7 +435,9 @@ DID查询响应。
  
   
 
-##### EncryptConfig
+#### EncryptConfig
+
+**支持设备：** Phone | Tablet
 
 加密方案配置。
  
@@ -423,7 +459,9 @@ DID查询响应。
  
   
 
-##### ApprovalData
+#### ApprovalData
+
+**支持设备：** Phone | Tablet
 
 批准数据。
  
@@ -443,7 +481,9 @@ DID查询响应。
  
   
 
-##### DecryptConfig
+#### DecryptConfig
+
+**支持设备：** Phone | Tablet
 
 解密方案配置。
  
@@ -464,7 +504,9 @@ DID查询响应。
  
   
 
-##### ApprovalConfig
+#### ApprovalConfig
+
+**支持设备：** Phone | Tablet
 
 批准配置。
  
@@ -485,7 +527,9 @@ DID查询响应。
  
   
 
-##### CredentialDisplayConfig
+#### CredentialDisplayConfig
+
+**支持设备：** Phone | Tablet
 
 凭证显示配置。
  
@@ -506,7 +550,9 @@ DID查询响应。
  
   
 
-##### AuthConfig
+#### AuthConfig
+
+**支持设备：** Phone | Tablet
 
 认证配置。
  
@@ -525,7 +571,9 @@ DID查询响应。
  
   
 
-##### CredentialSecurityConfig
+#### CredentialSecurityConfig
+
+**支持设备：** Phone | Tablet
 
 凭证安全配置。
  
@@ -546,7 +594,9 @@ DID查询响应。
  
   
 
-##### ImportDigitalCredentialRequest
+#### ImportDigitalCredentialRequest
+
+**支持设备：** Phone | Tablet
 
 数字凭证导入请求。
  
@@ -571,7 +621,9 @@ DID查询响应。
  
   
 
-##### ImportDigitalCredentialResponse
+#### ImportDigitalCredentialResponse
+
+**支持设备：** Phone | Tablet
 
 数字凭证导入响应。
  
@@ -590,7 +642,9 @@ DID查询响应。
  
   
 
-##### HolderConfig
+#### HolderConfig
+
+**支持设备：** Phone | Tablet
 
 持有者配置。
  
@@ -610,7 +664,9 @@ DID查询响应。
  
   
 
-##### CredentialFilter
+#### CredentialFilter
+
+**支持设备：** Phone | Tablet
 
 数字凭证过滤条件。
  
@@ -634,7 +690,9 @@ DID查询响应。
  
   
 
-##### PresentDisplayConfig
+#### PresentDisplayConfig
+
+**支持设备：** Phone | Tablet
 
 出示显示配置。
  
@@ -655,7 +713,9 @@ DID查询响应。
  
   
 
-##### GetDigitalCredentialRequest
+#### GetDigitalCredentialRequest
+
+**支持设备：** Phone | Tablet
 
 获取数字凭证请求。
  
@@ -681,7 +741,9 @@ DID查询响应。
  
   
 
-##### QueryDigitalCredentialResponse
+#### QueryDigitalCredentialResponse
+
+**支持设备：** Phone | Tablet
 
 查询数字凭证响应。
  
@@ -700,7 +762,9 @@ DID查询响应。
  
   
 
-##### GetDigitalCredentialResponse
+#### GetDigitalCredentialResponse
+
+**支持设备：** Phone | Tablet
 
 获取数字凭证响应。
  
@@ -720,7 +784,9 @@ DID查询响应。
  
   
 
-##### generateKey
+#### generateKey
+
+**支持设备：** Phone | Tablet
 
 generateKey(context: common.Context, generateKeyRequest: GenerateKeyRequest): Promise&lt;GenerateKeyResponse&gt;
  
@@ -798,7 +864,9 @@ try {
  
   
 
-##### importDid
+#### importDid
+
+**支持设备：** Phone | Tablet
 
 importDid(context: common.Context, importDidRequest: ImportDidRequest): Promise&lt;void&gt;
  
@@ -844,7 +912,7 @@ importDid(context: common.Context, importDidRequest: ImportDidRequest): Promise&
  
 **示例：**
  
-```text
+```json
 import { did } from '@kit.OnlineAuthenticationKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -876,7 +944,9 @@ try {
  
   
 
-##### queryDid
+#### queryDid
+
+**支持设备：** Phone | Tablet
 
 queryDid(context: common.Context, queryDidRequest: QueryDidRequest): Promise&lt;QueryDidResponse&gt;
  
@@ -948,7 +1018,9 @@ try {
  
   
 
-##### deleteDid
+#### deleteDid
+
+**支持设备：** Phone | Tablet
 
 deleteDid(context: common.Context, did: string): Promise&lt;void&gt;
  
@@ -1011,7 +1083,9 @@ try {
  
   
 
-##### sign
+#### sign
+
+**支持设备：** Phone | Tablet
 
 sign(context: common.Context, signRequest: SignRequest): Promise&lt;SignResponse&gt;
  
@@ -1081,7 +1155,9 @@ try {
  
   
 
-##### importDigitalCredential
+#### importDigitalCredential
+
+**支持设备：** Phone | Tablet
 
 importDigitalCredential(context: common.Context, importDigitalCredentialRequest: ImportDigitalCredentialRequest): Promise&lt;ImportDigitalCredentialResponse&gt;
  
@@ -1127,7 +1203,7 @@ importDigitalCredential(context: common.Context, importDigitalCredentialRequest:
  
 **示例：**
  
-```text
+```json
 import { did } from '@kit.OnlineAuthenticationKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1167,7 +1243,9 @@ try {
  
   
 
-##### queryDigitalCredential
+#### queryDigitalCredential
+
+**支持设备：** Phone | Tablet
 
 queryDigitalCredential(context: common.Context, did?: string, credentialId?: string): Promise&lt;QueryDigitalCredentialResponse&gt;
  
@@ -1230,7 +1308,9 @@ try {
  
   
 
-##### deleteDigitalCredential
+#### deleteDigitalCredential
+
+**支持设备：** Phone | Tablet
 
 deleteDigitalCredential(context: common.Context, did?: string, credentialId?: string): Promise&lt;void&gt;
  
@@ -1294,7 +1374,9 @@ try {
  
   
 
-##### getDigitalCredential
+#### getDigitalCredential
+
+**支持设备：** Phone | Tablet
 
 getDigitalCredential(context: common.Context, getDigitalCredentialRequest: GetDigitalCredentialRequest): Promise&lt;GetDigitalCredentialResponse&gt;
  

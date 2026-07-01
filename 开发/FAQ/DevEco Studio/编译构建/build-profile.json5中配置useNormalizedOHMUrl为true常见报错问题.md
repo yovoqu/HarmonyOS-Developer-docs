@@ -4,24 +4,22 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-225
 
-## build-profile.json5中配置useNormalizedOHMUrl为true常见报错问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 场景一：编译报错：Failed to resolve OhmUrl. Failed to get a resolved OhmUrl for hvigor_ignore_xxxxx imported by XXX.
 - 场景二：编译报错：The useNormalizedOHMUrl settings of packages xxx and the project useNormalizedOHMUrl: xxx do not match.
 - 场景三：编译报错：ohpm ERROR: local dependency xxx found in "oh-package.json5" does not match the actual name xxx of its oh-package.json5.
- ohpm ERROR: Install failed, detail: There are some dependency names that are inconsistent with the actual package names.
+
+  ohpm ERROR: Install failed, detail: There are some dependency names that are inconsistent with the actual package names.
 - 场景四：编译报错：ERROR: 00309001 ArkTS Compiler Error.
- Error Message: Cannot import files outside of the current module using relative paths.
+
+  Error Message: Cannot import files outside of the current module using relative paths.
 - 场景五：编译报错：Bytecode HARs:xxx库名 not supported when useNormalizedOHMUrl is not true.
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 在工程级build-profile.json5文件中，[strictMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section13181758123312)用于定义严格模式，含有useNormalizedOHMUrl、caseSensitiveCheck等配置字段。
  
@@ -31,7 +29,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：参考官方文档：[编译报错“Failed to get a resolved OhmUrl by filepath xx”](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-faqs#section16345217154214)中的场景五。
 - 场景二：参考官方文档：[编译报错“The useNormalizedOHMUrl settings of packages xxx and the project useNormalizedOHMUrl: xxx do not match”](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-faqs#section1585241711814)。

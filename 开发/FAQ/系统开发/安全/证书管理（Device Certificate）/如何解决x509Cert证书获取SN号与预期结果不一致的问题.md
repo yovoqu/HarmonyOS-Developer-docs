@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-certificate-3
 
-## 如何解决x509Cert证书获取SN号与预期结果不一致的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 x509Cert证书获取SN号与预期结果不一致是什么原因？
  
@@ -20,7 +16,7 @@ import { BusinessError } from '@ohos.base';
 
 
 function getCertDetails() {
-  // 证书二进制数据，需业务自行赋值，下为示例，代码运行需要自行填充
+ <em> // 证书二进制数据，需业务自行赋值，下为示例，代码运行需要自行填充</em>
   let certData = '-----BEGIN CERTIFICATE-----\r\n' +
       'MIIDTjCCAjagAwIBAgIBBDANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290\n' +
       'IENBMB4XDTI0MDMxOTAyMDQwMVoXDTM0MDMxNzAyMDQwMVowEjEQMA4GA1UEAwwH\n' +
@@ -43,10 +39,10 @@ function getCertDetails() {
       '-----END CERTIFICATE-----';
   let encodingBlob: cert.EncodingBlob = {
     data: stringToUint8Array(certData),
-    // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER
+   <em> // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER</em>
     encodingFormat: cert.EncodingFormat.FORMAT_PEM
   };
-  // 创建X509Cert实例
+ <em> // 创建X509Cert实例</em>
   cert.createX509Cert(encodingBlob, (error, x509Cert) => {
     if (error) {
       hilog.error(0x0000, 'test', `errMsg: ${error.message}`);
@@ -63,11 +59,31 @@ function getCertDetails() {
   });
 }
 
-// string转Uint8Array
+<em>// string转Uint8Array</em>
 function stringToUint8Array(str: string): Uint8Array {
-  let arr: Array = [];
-  for (let i = 0, j = str.length; i 
-##### 背景知识
+  let arr: Array<number> = [];
+  for (let i = 0, j = str.length; i < j; i++) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+```
+ 
+预期结果：
+ 
+```bash
+2911000000000006
+```
+ 
+实际结果：
+ 
+```bash
+2959146430159126534
+```
+ 
+ 
+
+#### 背景知识
 
 - 创建X509证书对象：[cert.createX509Cert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatex509cert)。
 - 获取X509证书序列号：[x509Cert.getCertSerialNumber()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#getcertserialnumber10)。
@@ -75,31 +91,28 @@ function stringToUint8Array(str: string): Uint8Array {
  
  
 
-##### 问题定位
-
-- 获取的SN号不符合预期数据，可以先打印证书的所有数据。
-- 可以看到证书信息Certificate:下有个Serial Number参数，此为需要获取的数据。
-- 可以看到数据是Serial Number: 2959146430159126534 (0x2911000000000006)，有2个数据，前面为输出结果数据，后面为预期数据且有0x开头，说明预期数据是16进制的SN号数据。
-```text
+#### 问题定位
+1. 获取的SN号不符合预期数据，可以先打印证书的所有数据。
+2. 可以看到证书信息Certificate:下有个Serial Number参数，此为需要获取的数据。
+3. 可以看到数据是Serial Number: 2959146430159126534 (0x2911000000000006)，有2个数据，前面为输出结果数据，后面为预期数据且有0x开头，说明预期数据是16进制的SN号数据。
+```bash
 Certificate:
  Data:
      Version: 3 (0x2)
      Serial Number: 2959146430159126534 (0x2911000000000006)
 ```
 
-
-- 最终可以确认getCertSerialNumber()获取的是前面的10进制数据，而预期获取的是后面的16进制数据。
-
+1. 最终可以确认getCertSerialNumber()获取的是前面的10进制数据，而预期获取的是后面的16进制数据。
  
  
 
-##### 分析结论
+#### 分析结论
 
 getCertSerialNumber()获取的是前面的10进制数据，而预期获取的是后面的16进制数据，想要获取到预期数据需要进行进制转换。
  
  
 
-##### 修改建议
+#### 修改建议
 
 使用x509Cert.getCertSerialNumber()方法获取SN号时，用toString(16)方法将数据转换为16进制。
  
@@ -116,7 +129,7 @@ struct X509Cert {
   @State sn: string = '';
 
   getCertDetails() {
-    // 证书二进制数据，需业务自行赋值，下为占位格式示例，代码运行需要自行填充
+   <em> // 证书二进制数据，需业务自行赋值，下为占位格式示例，代码运行需要自行填充</em>
     let certData = '-----BEGIN CERTIFICATE-----\r\n' +
       'MIIDTjCCAjagAwIBAgIBBDANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290\n' +
       'IENBMB4XDTI0MDMxOTAyMDQwMVoXDTM0MDMxNzAyMDQwMVowEjEQMA4GA1UEAwwH\n' +
@@ -139,10 +152,10 @@ struct X509Cert {
       '-----END CERTIFICATE-----';
     let encodingBlob: cert.EncodingBlob = {
       data: this.stringToUint8Array(certData),
-      // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER
+    <em>  // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER</em>
       encodingFormat: cert.EncodingFormat.FORMAT_PEM
     };
-    // 创建X509Cert实例
+   <em> // 创建X509Cert实例</em>
     cert.createX509Cert(encodingBlob, (error, x509Cert) => {
       if (error) {
         hilog.error(0x0000, 'test', 'createX509Cert failed, errCode: ' + error.code + ', errMsg: ' + error.message);
@@ -161,10 +174,20 @@ struct X509Cert {
     });
   }
 
-  // string转Uint8Array
+ <em> // string转Uint8Array</em>
   stringToUint8Array(str: string): Uint8Array {
-    let arr: Array = [];
-    for (let i = 0, j = str.length; i  {
+    let arr: Array<number> = [];
+    for (let i = 0, j = str.length; i < j; i++) {
+      arr.push(str.charCodeAt(i));
+    }
+    return new Uint8Array(arr);
+  }
+
+  build() {
+    Column({ space: 20 }) {
+      Text('点击获取SN')
+        .fontSize(30)
+        .onClick(() => {
           this.getCertDetails();
         });
       Text(this.sn)
@@ -179,6 +202,6 @@ struct X509Cert {
  
  
 
-##### 总结
+#### 总结
 
 对于获取X509Cert对象的某一条数据，不符合预期结果时，可以将X509Cert对象的所有数据都打印出来，查看数据进行比对分析。

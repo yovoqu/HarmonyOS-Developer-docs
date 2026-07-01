@@ -4,30 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-animation
 
-## 设置窗口动效 (ArkTS)
-   
-    
-          
-##### 场景介绍
-     
+#### 场景介绍
+
 窗口动效是指窗口在显示、隐藏、切换过程中的过渡动画效果。为了让这些过程更加自然流畅，避免界面切换过于突兀，系统提供了过渡动画支持。同时，为满足开发者的自定义需求，系统还提供了自定义设置窗口动效的能力。
-     
+
 以下为支持设置自定义窗口动效的几种典型场景：
-     
+
  - [设置应用内UIAbility组件启动淡入淡出动效](#设置应用内uiability组件启动淡入淡出动效)
  - [设置主窗口销毁时的转场动画](#设置主窗口销毁时的转场动画)
-     
-    
-    
-          
-##### 设置应用内UIAbility组件启动淡入淡出动效
-     
+
+
+
+
+#### 设置应用内UIAbility组件启动淡入淡出动效
+
 在使用[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-2)接口拉起同一应用内其他UIAbility组件时，可以通过[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)中[WindowCreateParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#windowcreateparams20)配置窗口的启动动画。
-     
+
 目前支持将窗口启动动画配置为淡入淡出动效[FADE_IN_OUT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#animationtype20)。
-     
+
 示例代码如下：
-     
+
 ```text
 import { Want, StartOptions, common } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -82,20 +78,20 @@ struct Index {
   }
 }
 ```
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/p7IVUNfIRRCplNQD-u3bcw/zh-cn_image_0000002659220079.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025430Z&HW-CC-Expire=86400&HW-CC-Sign=D277F6D5260DE9B75877E5A358C1362A93FE55921CC33FA62C51DA5701BC7A60)
 
-    
-    
-          
-##### 设置主窗口销毁时的转场动画
-     
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/p7IVUNfIRRCplNQD-u3bcw/zh-cn_image_0000002659220079.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041458Z&HW-CC-Expire=86400&HW-CC-Sign=431A66D24DC88BAB19C9E9481680C2DA5C205C3F2874967E21816B4CB88144AD)
+
+
+
+
+#### 设置主窗口销毁时的转场动画
+
 在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下，应用使用[getWindowTransitionAnimation()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowtransitionanimation20)获取主窗口转场的动画配置，当前转场动画配置不符合业务诉求时，可以使用[setWindowTransitionAnimation()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowtransitionanimation20)接口配置窗口转场时的动画，当前仅支持配置窗口销毁时的转场动画。
-     
+
 示例代码如下：
-     
-```text
+
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -103,7 +99,7 @@ import { window } from '@kit.ArkUI';
 const DOMAIN = 0x0000;
 
 export default class EntryAbility extends UIAbility {
-  async onWindowStageCreate(windowStage: window.WindowStage): Promise {
+  async onWindowStageCreate(windowStage: window.WindowStage): Promise<void> {
     try {
       // 获取主窗口
       const windowClass = await windowStage.getMainWindow();
@@ -161,6 +157,6 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/4EwjZ7gBTP6KK9exVZEYUg/zh-cn_image_0000002628700884.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025430Z&HW-CC-Expire=86400&HW-CC-Sign=458E61DE524F3A6AF1184354727CC24390FCF66DBE83596C8CA5FD9A67B036DE)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/4EwjZ7gBTP6KK9exVZEYUg/zh-cn_image_0000002628700884.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041458Z&HW-CC-Expire=86400&HW-CC-Sign=8FECBF58906DD47FC4095D9EE01DE901163EA76ABF836008CDF9CD01E597BD55)

@@ -4,35 +4,29 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-image-component
 
-## 显示图片（Image）
-   
-    
 从API version 12开始，ArkUI开发框架在NDK接口提供了Image组件，用于在应用中显示图片。Image组件支持多种图片格式，包括png、jpg、jpeg、bmp、webp、heif、SVG等格式，支持多种图片来源（本地资源、网络图片、PixelMap等）和丰富的图片处理功能（缩放、插值、填充颜色、颜色滤镜等）。开发者可以在Native层创建Image组件并设置各种属性，实现高性能的图片展示效果，以及与ArkTS侧Image组件相同的显示效果，ArkTS开发指导请参考[显示图片 (Image)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display)。
-    
-          
-##### 约束与限制
-     
- - **线程安全**：所有UI相关接口必须在主线程调用，多线程操作可能导致应用崩溃。
- - **组件挂载**：组件创建后需要通过[addChild](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addchild)添加到父节点才能显示。
- - **图片路径**：       
-        本地图片需使用完整路径或相对路径。
- - 网络图片需申请ohos.permission.INTERNET权限。
-       
- - **资源释放**：释放组件时需要调用[disposeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#disposenode)来避免内存泄漏。
- - **同步加载**：不建议在图片加载较长时间时使用同步加载，会导致页面无法响应。
-     
-    
-    
-          
-##### 前置条件
-     
+
+
+#### 约束与限制
+1. **线程安全**：所有UI相关接口必须在主线程调用，多线程操作可能导致应用崩溃。
+2. **组件挂载**：组件创建后需要通过[addChild](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addchild)添加到父节点才能显示。
+3. **图片路径**：       
+本地图片需使用完整路径或相对路径。
+4. 网络图片需申请ohos.permission.INTERNET权限。
+5. **资源释放**：释放组件时需要调用[disposeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#disposenode)来避免内存泄漏。
+6. **同步加载**：不建议在图片加载较长时间时使用同步加载，会导致页面无法响应。
+
+
+
+#### 前置条件
+
 在开始使用Image组件前，需要先完成以下准备工作：
-     
- - 创建Native C++工程：在DevEco Studio中创建Native C++模板项目。
- - 接入ArkTS页面：按照[接入ArkTS页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page)完成Native组件到ArkTS页面的挂载配置。
- - 添加依赖：打开native工程的src/main/cpp/CMakeLists.txt，在target_link_libraries依赖中添加libace_ndk.z.so、libace_napi.z.so以及日志依赖libhilog_ndk.z.so。
-       
-```text
+1. 创建Native C++工程：在DevEco Studio中创建Native C++模板项目。
+2. 接入ArkTS页面：按照[接入ArkTS页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page)完成Native组件到ArkTS页面的挂载配置。
+3. 添加依赖：打开native工程的src/main/cpp/CMakeLists.txt，在target_link_libraries依赖中添加libace_ndk.z.so、libace_napi.z.so以及日志依赖libhilog_ndk.z.so。
+
+  
+```cpp
 cmake_minimum_required(VERSION 3.5.0)
 project(ImageExample)
 
@@ -57,61 +51,32 @@ target_link_libraries(entry PUBLIC
 )
 ```
 
- - 添加头文件引用。
-       
+4. 添加头文件引用。
+
+  
 ```text
-#include 
-#include 
-#include 
-#include 
+#include <arkui/native_node.h>
+#include <arkui/native_type.h>
+#include <arkui/native_interface.h>
+#include <hilog/log.h>
 ```
 
- - 准备图片资源：准备需要显示的图片文件，Image组件支持多种图片来源，以下介绍常用的资源准备方式。
-       
-        使用rawfile资源
-       
-       
-将图片文件放到entry/src/main/resources/rawfile/目录下，在代码中使用相对路径引用。
-       
-```text
-// 设置图片源
-ArkUI_AttributeItem srcItem = {nullptr, 0, "entry/resources/rawfile/startIcon.png"};
-nativeNodeApi->setAttribute(image, NODE_IMAGE_SRC, &srcItem);
-```
-       
- - 使用网络图片
-       
-       
-在entry/src/main/module.json5中添加网络权限，在代码中直接使用网络URL。
-       
-```text
-{
-  "module": {
-    "requestPermissions": [
-      {
-        "name": "ohos.permission.INTERNET"
-      }
-    ]
-  }
-}
-```
-       
-```text
-ArkUI_AttributeItem srcItem = {nullptr, 0, "https://xxx.jpg"};
-nativeNodeApi->setAttribute(image, NODE_IMAGE_SRC, &srcItem);
-```
-     
-    
-    
-          
-##### 创建Image组件
-    
-    
-          
-##### [h2]创建并初始化Image组件
-     
+5. 准备图片资源：准备需要显示的图片文件，Image组件支持多种图片来源，以下介绍常用的资源准备方式。
+
+  
+使用rawfile资源
+6. 使用网络图片
+
+
+
+#### 创建Image组件
+
+
+
+#### 创建并初始化Image组件
+
 在使用Image组件之前，需要先获取nativeNodeApi，然后使用[createNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#createnode)接口创建Image组件。
-     
+
 ```text
 // 获取ArkUI nativeNodeApi
 ArkUI_NativeNodeAPI_1* nativeNodeApi = nullptr;
@@ -128,13 +93,13 @@ if (image == nullptr) {
     return;
 }
 ```
-    
-    
-          
-##### [h2]设置图片源
-     
+
+
+
+#### 设置图片源
+
 Image组件支持通过字符串路径或[DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor)对象设置图片源。
-     
+
 ```text
 // 方式一：通过字符串路径设置图片源
 // 支持本地路径、网络地址、资源路径等
@@ -146,17 +111,17 @@ nativeNodeApi->setAttribute(image, NODE_IMAGE_SRC, &srcItem);
 // ArkUI_AttributeItem srcItem = {.object = drawableDescriptor};
 // nativeNodeApi->setAttribute(image, NODE_IMAGE_SRC, &srcItem);
 ```
-    
-    
-          
-##### 设置图片属性
-    
-    
-          
-##### [h2]Image属性
-     
+
+
+
+#### 设置图片属性
+
+
+
+#### Image属性
+
 Image独有属性如下，具体说明请参考[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的枚举定义。
-     
+
 | 属性名 | 说明 | 起始版本 |
 | --- | --- | --- |
 | NODE_IMAGE_SRC | 支持字符串路径或DrawableDescriptor。 | 12 |
@@ -184,53 +149,53 @@ Image独有属性如下，具体说明请参考[ArkUI_NodeAttributeType](https:/
 | NODE_IMAGE_CONTENT_TRANSITION | 图片内容变换动画。 | 21 |
 | NODE_IMAGE_ALT_PLACEHOLDER | 加载过程中显示的占位图。 | 22 |
 | NODE_IMAGE_ALT_ERROR | 加载失败时显示的占位图。 | 22 |
-     
-    
-    
-          
-##### [h2]设置图片缩放类型
-     
+
+
+
+
+#### 设置图片缩放类型
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_OBJECT_FIT属性设置图片在容器中的缩放方式。
-     
+
 ```text
 // 设置图片缩放类型
 ArkUI_NumberValue objectFitValue[] = {{.i32 = ARKUI_OBJECT_FIT_CONTAIN}};
 ArkUI_AttributeItem objectFitItem = {objectFitValue, 1};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_OBJECT_FIT, &objectFitItem);
 ```
-    
-    
-          
-##### [h2]设置图片插值效果
-     
+
+
+
+#### 设置图片插值效果
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_INTERPOLATION属性设置图片插值效果。
-     
+
 ```text
 // 设置图片插值效果
 ArkUI_NumberValue interpolationValue[] = {{.i32 = ARKUI_IMAGE_INTERPOLATION_HIGH}};
 ArkUI_AttributeItem interpolationItem = {interpolationValue, 1};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_INTERPOLATION, &interpolationItem);
 ```
-    
-    
-          
-##### [h2]设置图片重复样式
-     
+
+
+
+#### 设置图片重复样式
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_OBJECT_REPEAT属性设置图片重复样式。
-     
+
 ```text
 // 设置图片重复样式
 ArkUI_NumberValue repeatValue[] = {{.i32 = ARKUI_IMAGE_REPEAT_NONE}};
 ArkUI_AttributeItem repeatItem = {repeatValue, 1};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_OBJECT_REPEAT, &repeatItem);
 ```
-    
-    
-          
-##### [h2]设置图片填充颜色
-     
+
+
+
+#### 设置图片填充颜色
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_FILL_COLOR属性设置SVG图片填充颜色。
-     
+
 ```text
 // 设置图片填充颜色（0xARGB格式）
 // 例如：0xFFFF0000表示红色
@@ -238,64 +203,64 @@ ArkUI_NumberValue fillColorValue[] = {{.u32 = 0xFF007DFF}};
 ArkUI_AttributeItem fillColorItem = {fillColorValue, 1};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_FILL_COLOR, &fillColorItem);
 ```
-    
-    
-          
-##### [h2]设置占位图
-     
+
+
+
+#### 设置占位图
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_ALT属性设置占位图。
-     
+
 ```text
 // 设置加载失败时的占位图
 ArkUI_AttributeItem altItem = {nullptr, 0, "/data/storage/el2/base/haps/entry/files/placeholder.png"};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_ALT, &altItem);
 ```
-    
-    
-          
-##### [h2]设置图片解码尺寸
-     
+
+
+
+#### 设置图片解码尺寸
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_SOURCE_SIZE属性设置图片解码尺寸。
-     
+
 ```text
 // 设置图片解码尺寸（单位：px）
 ArkUI_NumberValue sourceSizeValue[] = {{.i32 = 200}, {.i32 = 200}};
 ArkUI_AttributeItem sourceSizeItem = {sourceSizeValue, 2};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_SOURCE_SIZE, &sourceSizeItem);
 ```
-    
-    
-          
-##### [h2]设置图片渲染模式
-     
+
+
+
+#### 设置图片渲染模式
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_RENDER_MODE属性设置图片渲染模式。
-     
+
 ```text
 // 设置图片渲染模式
 ArkUI_NumberValue renderModeValue[] = {{.i32 = ARKUI_IMAGE_RENDER_MODE_ORIGINAL}};
 ArkUI_AttributeItem renderModeItem = {renderModeValue, 1};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_RENDER_MODE, &renderModeItem);
 ```
-    
-    
-          
-##### [h2]设置同步加载
-     
+
+
+
+#### 设置同步加载
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_SYNC_LOAD属性设置图片的同步或异步加载方式。
-     
+
 ```text
 // 设置同步加载
 ArkUI_NumberValue syncLoadValue[] = {{.i32 = 1}};
 ArkUI_AttributeItem syncLoadItem = {syncLoadValue, 1};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_SYNC_LOAD, &syncLoadItem);
 ```
-    
-    
-          
-##### [h2]设置图片颜色滤镜
-     
+
+
+
+#### 设置图片颜色滤镜
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_COLOR_FILTER属性设置图片颜色滤镜。
-     
+
 ```text
 // 设置颜色滤镜（5x4矩阵，共20个浮点数）
 // 矩阵格式：每行5个元素分别表示 R、G、B、A 的系数和偏移量
@@ -325,32 +290,32 @@ ArkUI_NumberValue colorFilterValue[20] = {
 ArkUI_AttributeItem colorFilterItem = {colorFilterValue, 20};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_COLOR_FILTER, &colorFilterItem);
 ```
-    
-    
-          
-##### [h2]设置图片显示方向
-     
+
+
+
+#### 设置图片显示方向
+
 通过[ArkUI_NodeAttributeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeattributetype)中的NODE_IMAGE_ORIENTATION属性设置图片显示方向。
-     
+
 ```text
 // 设置图片显示方向
 ArkUI_NumberValue orientationValue[] = {{.i32 = ARKUI_ORIENTATION_UP}};
 ArkUI_AttributeItem orientationItem = {orientationValue, 1};
 nativeNodeApi->setAttribute(image, NODE_IMAGE_ORIENTATION, &orientationItem);
 ```
-    
-    
-          
-##### 监听图片事件
-     
+
+
+
+#### 监听图片事件
+
 通过注册全局事件接收器接收所有节点事件，并在具体节点上通过[ArkUI_NodeEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeeventtype)中的NODE_IMAGE_ON_COMPLETE，NODE_IMAGE_ON_ERROR，NODE_IMAGE_ON_SVG_PLAY_FINISH和NODE_IMAGE_ON_DOWNLOAD_PROGRESS接口来注册特定事件来实现图片事件的监听。
-    
-    
-          
-##### [h2]注册全局事件接收器
-     
+
+
+
+#### 注册全局事件接收器
+
 在处理图片事件之前，需要先通过[registerNodeEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodeeventreceiver)接口注册全局事件接收器。
-     
+
 ```text
 // 全局事件接收器函数
 void GlobalEventReceiver(ArkUI_NodeEvent* event)
@@ -377,13 +342,13 @@ void GlobalEventReceiver(ArkUI_NodeEvent* event)
 // 注册全局事件接收器
 nativeNodeApi->registerNodeEventReceiver(GlobalEventReceiver);
 ```
-    
-    
-          
-##### [h2]监听图片加载完成事件
-     
+
+
+
+#### 监听图片加载完成事件
+
 在图片节点上使用[registerNodeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodeevent)接口注册加载NODE_IMAGE_ON_COMPLETE完成事件，当图片加载成功后触发该事件，事件回调中可获取图片尺寸信息。
-     
+
 ```text
 // 图片加载完成事件处理
 void HandleImageComplete(ArkUI_NodeEvent* event)
@@ -410,13 +375,13 @@ void HandleImageComplete(ArkUI_NodeEvent* event)
 // 注册图片加载完成事件
 nativeNodeApi->registerNodeEvent(image, NODE_IMAGE_ON_COMPLETE, 0, nullptr);
 ```
-    
-    
-          
-##### [h2]监听图片加载失败事件
-     
+
+
+
+#### 监听图片加载失败事件
+
 在图片节点上使用[registerNodeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodeevent)接口注册加载NODE_IMAGE_ON_ERROR失败事件，当图片加载失败时触发该事件，事件回调中可获取错误码信息。
-     
+
 ```text
 // 图片加载失败事件处理
 void HandleImageError(ArkUI_NodeEvent* event)
@@ -435,13 +400,13 @@ void HandleImageError(ArkUI_NodeEvent* event)
 // 注册图片加载失败事件
 nativeNodeApi->registerNodeEvent(image, NODE_IMAGE_ON_ERROR, 0, nullptr);
 ```
-    
-    
-          
-##### [h2]监听SVG播放完成事件
-     
+
+
+
+#### 监听SVG播放完成事件
+
 在图片节点上使用[registerNodeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodeevent)接口注册NODE_IMAGE_ON_SVG_PLAY_FINISH播放完成事件，当SVG动画播放结束时触发该事件。
-     
+
 ```text
 // SVG播放完成事件处理
 void HandleSvgPlayFinish(ArkUI_NodeEvent* event)
@@ -452,13 +417,13 @@ void HandleSvgPlayFinish(ArkUI_NodeEvent* event)
 // 注册SVG播放完成事件
 nativeNodeApi->registerNodeEvent(image, NODE_IMAGE_ON_SVG_PLAY_FINISH, 0, nullptr);
 ```
-    
-    
-          
-##### [h2]注销事件监听
-     
+
+
+
+#### 注销事件监听
+
 当不再需要监听图片事件时，需要注销在节点上注册的事件以及全局事件接收器。
-     
+
 ```text
 // 注销事件监听
 nativeNodeApi->unregisterNodeEvent(image, NODE_IMAGE_ON_COMPLETE);
@@ -468,13 +433,13 @@ nativeNodeApi->unregisterNodeEvent(image, NODE_IMAGE_ON_SVG_PLAY_FINISH);
 // 注销全局事件接收器
 nativeNodeApi->unregisterNodeEventReceiver();
 ```
-    
-    
-          
-##### 完整示例
-     
+
+
+
+#### 完整示例
+
 以下示例展示了如何创建一个包含多种图片属性的完整UI界面。示例代码的目录结构及其文件说明如下：
-     
+
 ```ArkTS
 .
 |—— cpp
@@ -496,12 +461,13 @@ nativeNodeApi->unregisterNodeEventReceiver();
 |    |—— rawfile
 |         |—— startIcon.png              // 图片资源文件
 ```
-     
+
 具体开发步骤如下：
-     
- - 在ArkTS页面上声明占位组件
-       在ArkTS页面上声明用于Native页面挂载的占位组件，并在页面创建时通知Native侧创建图片界面。
-       
+1. 在ArkTS页面上声明占位组件
+
+  在ArkTS页面上声明用于Native页面挂载的占位组件，并在页面创建时通知Native侧创建图片界面。
+
+  
 ```ArkTS
 // entry/src/main/ets/pages/Index.ets
 import nativeNode from 'libentry.so';
@@ -542,18 +508,22 @@ build() {
 }
 ```
 
- - 提供NAPI桥接方法
-       声明Native模块的ArkTS接口，并在NAPI层实现与Native侧的桥接，使ArkTS层能够调用Native代码创建和管理图片组件。
-       **接口声明**
-       
+2. 提供NAPI桥接方法
+
+  声明Native模块的ArkTS接口，并在NAPI层实现与Native侧的桥接，使ArkTS层能够调用Native代码创建和管理图片组件。
+
+  **接口声明**
+
+  
 ```ts
 // entry/src/main/cpp/types/libentry/Index.d.ts
 export const createNativeRoot: (content: Object) => void;
 export const destroyNativeRoot: () => void;
 ```
-       **NAPI初始化**
-       
-```text
+**NAPI初始化**
+
+  
+```cpp
 // entry/src/main/cpp/napi_init.cpp
 #include "napi/native_api.h"
 #include "NativeEntry.h"
@@ -591,19 +561,22 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 }
 ```
 
- - 实现Native入口
-       实现Native模块的入口函数，处理来自ArkTS侧的NodeContent和节点操作请求，包括创建图片界面和销毁界面的逻辑。
-       **NativeEntry.h**
-       
+3. 实现Native入口
+
+  实现Native模块的入口函数，处理来自ArkTS侧的NodeContent和节点操作请求，包括创建图片界面和销毁界面的逻辑。
+
+  **NativeEntry.h**
+
+  
 ```text
 // entry/src/main/cpp/NativeEntry.h
 #ifndef NATIVE_ENTRY_H
 #define NATIVE_ENTRY_H
 
-#include 
-#include 
-#include 
-#include 
+#include <arkui/native_node.h>
+#include <arkui/native_node_napi.h>
+#include <arkui/native_interface.h>
+#include <js_native_api.h>
 
 namespace NativeModule {
 
@@ -664,9 +637,10 @@ napi_value DestroyNativeRoot(napi_env env, napi_callback_info info);
 
 #endif // NATIVE_ENTRY_H
 ```
-       **NativeEntry.cpp**
-       
-```text
+**NativeEntry.cpp**
+
+  
+```cpp
 // entry/src/main/cpp/NativeEntry.cpp
 #include "NativeEntry.h"
 #include "ImageExample.h"
@@ -703,32 +677,36 @@ napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
 } // namespace NativeModule
 ```
 
- - 显示并设置图片
-       实现Image组件的具体功能，创建包含多个Image组件的示例界面，演示图片源设置、缩放类型、插值效果、填充颜色、占位图等属性的配置方法。
-       **ImageExample.h**
-       
+4. 显示并设置图片
+
+  实现Image组件的具体功能，创建包含多个Image组件的示例界面，演示图片源设置、缩放类型、插值效果、填充颜色、占位图等属性的配置方法。
+
+  **ImageExample.h**
+
+  
 ```text
 // entry/src/main/cpp/ImageExample.h
 #ifndef IMAGE_EXAMPLE_H
 #define IMAGE_EXAMPLE_H
 
-#include 
+#include <arkui/native_node.h>
 
 // 创建图片示例界面
 ArkUI_NodeHandle CreateImageExample();
 
 #endif // IMAGE_EXAMPLE_H
 ```
-       **ImageExample.cpp**
-       
-```text
+**ImageExample.cpp**
+
+  
+```cpp
 // entry/src/main/cpp/ImageExample.cpp
 #include "ImageExample.h"
 #include "NativeEntry.h"
-#include 
-#include 
-#include 
-#include 
+#include <arkui/native_node.h>
+#include <arkui/native_type.h>
+#include <arkui/native_interface.h>
+#include <hilog/log.h>
 
 // 日志标签
 #undef LOG_DOMAIN
@@ -888,6 +866,7 @@ ArkUI_NodeHandle CreateImageExample()
 }
 ```
 
- - 效果预览
-       
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/Wffys-IeTSy_rt8Tto_mXw/zh-cn_image_0000002628700738.png?HW-CC-KV=V1&HW-CC-Date=20260701T025428Z&HW-CC-Expire=86400&HW-CC-Sign=0D854BBF4E0FEAF2ABE0F6F6D0151C92636268DD6DB7BB2CC8A56C0F5BBA709E)
+5. 效果预览
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/Wffys-IeTSy_rt8Tto_mXw/zh-cn_image_0000002628700738.png?HW-CC-KV=V1&HW-CC-Date=20260701T041457Z&HW-CC-Expire=86400&HW-CC-Sign=E1F8D958540F2F1CE0AD9E17C741806156BF301EA7E6DC41B1D94C3317A1DC7A)

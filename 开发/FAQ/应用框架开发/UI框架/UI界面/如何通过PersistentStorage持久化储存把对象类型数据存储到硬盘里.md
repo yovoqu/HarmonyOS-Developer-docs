@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-507
 
-## 如何通过PersistentStorage持久化储存把对象类型数据存储到硬盘里
- 
-
-
-##### 问题现象
+#### 问题现象
 
 PersistentStorage本身不支持对象或者数组类型的存储，如何处理数据才能满足存储的条件，实现对象和数组类型的存储？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)：应用全局的UI状态存储，是和应用的进程绑定的，由UI框架在应用程序启动时创建，为应用程序UI状态属性提供中央存储。
 - [PersistentStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage)：持久化存储选定的AppStorage属性，以确保这些属性在应用程序重新启动时的值与应用程序关闭时的值相同。
@@ -24,11 +20,12 @@ PersistentStorage本身不支持对象或者数组类型的存储，如何处理
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：储存没有方法的对象数组。对于没有方法的类，把数组数据通过JSON.stringify()转换为字符串，然后再进行存储。读取的时候，直接用JSON.parse()解析后进行使用即可。
- 
-```text
+
+  
+```json
 class SceneOneStudent {
   name: string;
   age: number;
@@ -45,15 +42,15 @@ PersistentStorage.persistProp('studentArr',
 @Entry
 @Component
 struct SceneOne {
-  @State studentArr: Array = [];
-  @StorageLink('studentArr') @Watch('onStrChange') studentArrStr: string = ' '; // 获取对象数组序列化字符串
+  @State studentArr: Array<SceneOneStudent> = [];
+  @StorageLink('studentArr') @Watch('onStrChange') studentArrStr: string = ' '; <em>// 获取对象数组序列化字符串</em>
 
   onStrChange() {
     this.studentArr = JSON.parse(this.studentArrStr);
   }
 
   aboutToAppear(): void {
-    // 组件初始化时不会触发Watch事件，通过aboutToAppear事件来初始化数组
+   <em> // 组件初始化时不会触发Watch事件，通过aboutToAppear事件来初始化数组</em>
     this.studentArr = JSON.parse(this.studentArrStr);
   }
 
@@ -81,8 +78,9 @@ struct SceneOne {
 ```
 
 - **场景二**：储存自带方法的对象数组。对于有方法函数的类，需要先把字符串转成数据数组，然后调用类的构造函数利用每个数据创建出一个对象，这样创建的对象才有原型链，才能调用对应的方法。
- 
-```text
+
+  
+```json
 class SceneTwoStudent {
   name: string;
   age: number;
@@ -103,18 +101,18 @@ PersistentStorage.persistProp('studentArr',
 @Entry
 @Component
 struct SceneTwo {
-  @State studentArr: Array = [];
-  @StorageLink('studentArr') @Watch('onStrChange') studentArrStr: string = ' '; // 获取对象数组序列化的字符串
+  @State studentArr: Array<SceneTwoStudent> = [];
+  @StorageLink('studentArr') @Watch('onStrChange') studentArrStr: string = ' '; <em>// 获取对象数组序列化的字符串</em>
 
   onStrChange() {
-    const dataArr: Array = JSON.parse(this.studentArrStr); // 转化为对象数组
-    this.studentArr = dataArr.map((item: SceneTwoStudent) => new SceneTwoStudent(item.name, item.age)); // 重新构造对象数组
+    const dataArr: Array<SceneTwoStudent> = JSON.parse(this.studentArrStr);<em> // 转化为对象数组</em>
+    this.studentArr = dataArr.map((item: SceneTwoStudent) => new SceneTwoStudent(item.name, item.age));<em> // 重新构造对象数组</em>
   }
 
   aboutToAppear(): void {
-    // 组件初始化时不会触发Watch事件，通过aboutToAppear事件来初始化数组
-    const dataArr: Array = JSON.parse(this.studentArrStr); // 转化为对象数组
-    this.studentArr = dataArr.map((item: SceneTwoStudent) => new SceneTwoStudent(item.name, item.age)); // 重新构造对象数组
+   <em> // 组件初始化时不会触发Watch事件，通过aboutToAppear事件来初始化数组</em>
+    const dataArr: Array<SceneTwoStudent> = JSON.parse(this.studentArrStr); <em>// 转化为对象数组</em>
+    this.studentArr = dataArr.map((item: SceneTwoStudent) => new SceneTwoStudent(item.name, item.age));<em> // 重新构造对象数组</em>
   }
 
   build() {
@@ -148,6 +146,6 @@ struct SceneTwo {
  
  
 
-##### 总结
+#### 总结
 
 想通过PersistentStorage把元素为对象的数组数据存储到硬盘中，需要用JSON.stringify()将对象转换为字符串，然后再进行存储。使用时根据类中是否包含方法对数据进行不同处理，对于没有方法的数据类，用JSON.parse()解析后使用即可；对于有方法的类，需要调用类的构造方法生成对象后，对象才能调用对应的方法，否则大概率会出现应用崩溃的情况。

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-service-14
 
-## 使用Vibrator模块intensity参数调节振幅
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现设备在不同场景下设置不同的振动效果？例如：设备的按键可以设置不同强度和不同时长的振动。
  
  
 
-##### 背景知识
+#### 背景知识
 
 当设备需要设置不同的振动效果时，可以调用[@ohos.vibrator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator)的[VibratePreset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator#vibratepreset9)模块，设置振动强度参数intensity调节振幅，详情可参考[振动开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vibrator-guidelines)。
  
@@ -26,22 +22,18 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 控制设备上的振动器，需要先申请权限[ohos.permission.VIBRATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionvibrate)，具体配置方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/e9v5H9WvSXSoUo0vqD333A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025813Z&HW-CC-Expire=86400&HW-CC-Sign=AFB67A6BF55984A498F46593D2DF757C9863D659ADDF5E516FF485710EF646D8)
- 
-
-Usage振动使用场景类型为默认“unknown”时，受系统触感开关管控，关闭时不振动。
- 
+> [!NOTE]
+> Usage振动使用场景类型为默认“unknown”时，受系统触感开关管控，关闭时不振动。
 
  
  
 可通过如下方案设置振幅，示例代码如下：
  
-```text
+```json
 import { vibrator } from '@kit.SensorServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -56,14 +48,14 @@ struct VibratorDemo {
             let ret = vibrator.isHdHapticSupported();
             console.info(`isHdHapticSupported result is ${ret}`);
             if (ret) {
-              // 需要在module.json5中添加权限"ohos.permission.VIBRATE"
+             <em> // 需要在module.json5中添加权限"ohos.permission.VIBRATE"</em>
               vibrator.startVibration({
                 type: 'preset',
                 count: 20,
                 intensity: 100,
                 effectId: 'haptic.effect.hard',
               }, {
-                // 可定义振动使用场景
+               <em> // 可定义振动使用场景</em>
                 usage: 'unknown'
               }, (error: BusinessError) => {
                 if (error) {

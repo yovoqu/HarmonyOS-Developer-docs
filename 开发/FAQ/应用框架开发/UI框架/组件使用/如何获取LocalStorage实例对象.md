@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1258
 
-## 如何获取LocalStorage实例对象
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在组件中创建LocalStorage实例的情况下，其他组件如何获取该组件的LocalStorage实例？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/3RMSyjMWSviXUcb_J3CWvg/zh-cn_image_0000002658955245.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025607Z&HW-CC-Expire=86400&HW-CC-Sign=472B827A34B618E5C750EEA8723281E9E27D71924456D7D4ACBCCCB5A4907214)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/3RMSyjMWSviXUcb_J3CWvg/zh-cn_image_0000002658955245.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041312Z&HW-CC-Expire=86400&HW-CC-Sign=2F21BDCF2B6008A58B10F6E841156316C082DC75034E81225238DE8D7A527635)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)是页面级的UI状态存储，通过@Entry装饰器接收的参数可以在页面内共享同一个LocalStorage实例。LocalStorage中，[@LocalStorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#localstoragelink)装饰的变量能够与LocalStorage中给定属性建立双向同步关系。
 - [export](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp#导出类和方法)导出方法和import导入方法可以将对象、变量等传递给其他组件。
@@ -30,37 +26,40 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：通过export将Storage实例导出。在模块化清晰、单向访问的场景，可以通过export将组件中创建的Storage实例导出，在其他组件用import导入，即可使其他组件直接访问Storage对象，并且可以通过应用逻辑方式修改数据，这种方法简单易用并且在性能上相比于使用@LocalStorageLink有一定优势，适用于工具箱之类的小型项目。
- 组件导出Storage：
- 
+
+  组件导出Storage：
+
+  
 ```text
-let para: Recordstring, number> = { 'propA': 47 };
+let <span style="color: rgb(255,255,255);">para</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">'propA'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">47 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-const storage: LocalStorage = new LocalStorage(para);
+const <span style="color: rgb(255,255,255);">storage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">LocalStorage </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">LocalStorage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">para</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-export { storage };
+export <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">storage </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
 ```
  其他组件接收Storage实例，并通过应用逻辑方式修改数据。
- 
-```text
-import { storage } from './LocalStorageFatherOne';
 
-@Entry
-@Component
-export struct LocalStorageChildOne {
-  @State link1: SubscribedAbstractPropertynumber> = storage.link('propA');
+  
+```json
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">storage </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./LocalStorageFatherOne'</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Text('子组件linkChild：' + JSON.stringify(this.link1.get()))
-        .onClick(() => {
-          this.link1.set(this.link1.get() + 1);
-        });
-    }.width('100%').height('100%').justifyContent(FlexAlign.Center);
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">LocalStorageChildOne </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SubscribedAbstractProperty</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(255,255,255);">storage</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">link</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'propA'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">子组件</span><span style="color: rgb(132,63,161);">linkChild</span><span style="color: rgb(132,63,161);">：</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">()))</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 
@@ -69,53 +68,57 @@ export struct LocalStorageChildOne {
 
  
 - **方案三**：通过状态变量在父子组件之间传递Storage。当父子组件之间需要频繁地交互LocalStorage中的数据时，就可以使用状态变量传递LocalStorage实例，此时子组件只需要接收父组件的实例，可以避免数据混淆，便于数据分类，适用于表单系统等场景。
- 父组件：
- 
+
+  父组件：
+
+  
 ```text
-import { LocalStorageChildTwo } from './LocalStorageChildTwo';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">LocalStorageChildTwo </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'./LocalStorageChildTwo'</span><span style="color: rgb(181,106,1);">;</span>
 
-// 创建新实例并使用给定对象初始化
-let para: Recordstring, number> = { 'propA': 47 };
-let storage: LocalStorage = new LocalStorage(para);
+<em>// </em><em><span style="color: rgb(128,128,128);">创建新实例并使用给定对象初始化</span></em>
+let <span style="color: rgb(255,255,255);">para</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Record</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(132,63,161);">'propA'</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">47 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">storage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">LocalStorage </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">LocalStorage</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">para</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct LocalStorageFatherTwo {
-  @State storageFather: LocalStorage = storage;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">LocalStorageFatherTwo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">storageFather</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">LocalStorage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">storage</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 15 }) {
-      // @Component子组件自动获得对LocalStorage实例的访问权限。
-      LocalStorageChildTwo({ storageChild: this.storageFather });
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">15 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <em>  <span style="color: rgb(128,128,128);">// @Component</span><span style="color: rgb(128,128,128);">子组件自动获得对</span><span style="color: rgb(128,128,128);">LocalStorage</span><span style="color: rgb(128,128,128);">实例的访问权限。</span></em>
+      <span style="color: rgb(0,0,255);">LocalStorageChildTwo</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">storageChild</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">storageFather </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  在需要获取LocalStorage实例的组件中，通过@Link装饰器将storageChild属性链接到父组件的LocalStorage实例，并且使用this.storageChild.link('propA')将link1状态链接到LocalStorage中名为propA的属性。为Text组件添加onClick事件处理程序，在每次点击时，都将更新link1的值，实现状态的共享和更新。
- 子组件：
- 
-```text
-@Component
-export struct LocalStorageChildTwo {
-  @Link storageChild: LocalStorage;
-  @State link1: SubscribedAbstractPropertynumber> = this.storageChild.link('propA');
 
-  build() {
-    Column() {
-      Text('子组件linkChild：' + JSON.stringify(this.link1.get()))
-        .onClick(() => {
-          this.link1.set(this.link1.get() + 1);
-        });
-    }.width('100%').height('100%').justifyContent(FlexAlign.Center);
-  }
-}
+  子组件：
+
+  
+```json
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">LocalStorageChildTwo </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Link </span><span style="color: rgb(255,255,255);">storageChild</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">LocalStorage</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">SubscribedAbstractProperty</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">number</span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> = </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">storageChild</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">link</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'propA'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">子组件</span><span style="color: rgb(132,63,161);">linkChild</span><span style="color: rgb(132,63,161);">：</span><span style="color: rgb(132,63,161);">' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">()))</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">link1</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">get</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：LocalStorage实例在文件根目录进行初始化，其生命周期会跟随页面的生命周期吗？
  
@@ -131,7 +134,7 @@ A：LocalStorage是页面级存储，getShared()接口仅能获取当前Stage通
  
  
 
-##### 总结
+#### 总结
 
 关于子组件如何获取LocalStorage实例，本文一共提供了三种方案。
   

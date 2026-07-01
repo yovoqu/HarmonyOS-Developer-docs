@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1311
 
-## 模拟实现Swiper
- 
-
-
-##### 问题现象
+#### 问题现象
 
 怎么模拟实现Swiper：当手指滑动屏幕时，可根据滑动方向实现轮播效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-list)是列表组件，适合用于呈现同类数据类型或数据类型集。
  
@@ -26,7 +22,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - Swiper滑动一页的宽度为Swiper组件自身的宽度：可以通过滑动手势[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)监听List的滑动方向和距离，每滑一次更新显示相应Item，模拟实现Swiper，代码如下：
 ```text
@@ -54,20 +50,32 @@ struct ListSwiper {
           };
         }, (item: string) => item);
       }
-      .listDirection(Axis.Horizontal) // 排列方向
+      .listDirection(Axis.Horizontal) <em>// 排列方向</em>
       .scrollBar(BarState.Off)
       .friction(0.6)
       .enableScrollInteraction(false)
       .gesture(
-        // 绑定滑动手势
+      <em>  // 绑定滑动手势</em>
         PanGesture()
-        // 当触发滑动手势时，根据回调函数修改组件的布局位置信息
+       <em> // 当触发滑动手势时，根据回调函数修改组件的布局位置信息</em>
           .onActionUpdate((event: GestureEvent | undefined) => {
             if (event) {
-              if (this.currentIndex === this.arr.length - 1 && event.offsetX  {
+              if (this.currentIndex === this.arr.length - 1 && event.offsetX < 0) {
+                this.offsetX = 0;
+              }
+              this.offsetX = this.offsetX + this.preOffsetX - event.offsetX;
+              this.scroller.scrollTo({ xOffset: this.offsetX, yOffset: 0 });
+              this.preOffsetX = event.offsetX;
+            }
+          })
+          .onActionEnd((event: GestureEvent | undefined) => {
             const length = this.arr.length;
             if (event) {
-              if (event.offsetX  0) {
+              if (event.offsetX < 0) {
+                this.currentIndex = this.currentIndex === length - 1 ? 0 : this.currentIndex + 1;
+                this.scroller.scrollToIndex(this.currentIndex);
+              }
+              if (event.offsetX > 0) {
                 this.currentIndex = this.currentIndex === 0 ? this.currentIndex = length - 1 : this.currentIndex - 1;
                 this.scroller.scrollToIndex(this.currentIndex);
               }
@@ -87,12 +95,14 @@ struct ListSwiper {
 }
 ```
  代码运行效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/atWodRI1QzKD-_SUFlcDvw/zh-cn_image_0000002628599030.png?HW-CC-KV=V1&HW-CC-Date=20260701T025610Z&HW-CC-Expire=86400&HW-CC-Sign=2738DAF286B975CAF34CCC01A3B309F1632E0C84F97A099C93B2D09FD5905FBC)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/atWodRI1QzKD-_SUFlcDvw/zh-cn_image_0000002628599030.png?HW-CC-KV=V1&HW-CC-Date=20260701T041325Z&HW-CC-Expire=86400&HW-CC-Sign=8C19E057C681168D3A159C847B0950BF5E758A6C40D0DF1E49C806E2B208AD90)
 
 - Swiper滑动一页的宽度为子组件宽度中的最大值：SwiperDisplayMode枚举说明中表示AUTO_LINEAR类型（Swiper滑动一页的宽度为视窗内最左侧子组件的宽度）从API10开始支持，从API12开始不再维护，建议使用Scroller.scrollTo代替。目前未能完全使用Scroll替代Swiper功能，仅提供两种场景的实现方式。
 - 方式一：通过使用scrollTo，搭配gesture手势，只能实现手动轮播，且循环衔接效果差。代码如下：
- 
+
+  
 ```text
 @Entry
 @Component
@@ -126,19 +136,31 @@ struct ListSwiper1 {
           };
         }, (item: string) => item);
       }
-      .listDirection(Axis.Horizontal) // 排列方向
+      .listDirection(Axis.Horizontal) <em>// 排列方向</em>
       .scrollBar(BarState.Off)
       .friction(0.6)
       .enableScrollInteraction(false)
       .gesture(
-        // 绑定滑动手势
+      <em>  // 绑定滑动手势</em>
         PanGesture()
           .onActionUpdate((event: GestureEvent | undefined) => {
             if (event) {
-              if (this.currentIndex === this.arr.length - 1 && event.offsetX  {
+              if (this.currentIndex === this.arr.length - 1 && event.offsetX < 0) {
+                this.offsetX = 0;
+              }
+              this.offsetX = this.offsetX + this.preOffsetX - event.offsetX;
+              this.scroller.scrollTo({
+                xOffset: this.offsetX,
+                yOffset: 0
+              });
+              this.preOffsetX = event.offsetX;
+            }
+          })
+          .onActionEnd((event: GestureEvent | undefined) => {
             const LENGTH = this.arr.length;
             if (event) {
-              if (event.offsetX  0.5) {
+              if (event.offsetX < 0) {
+                if ((-event.offsetX / this.itemWidth) > 0.5) {
                   this.currentIndex = this.currentIndex === LENGTH - 1 ? 0 : this.currentIndex + 1;
                   this.moveLength = this.currentIndex * (this.itemWidth + this.spaceInfo);
                 }
@@ -170,11 +192,13 @@ struct ListSwiper1 {
 }
 ```
  实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/9pJZHwRVT1-6FeePpqlRaw/zh-cn_image_0000002628758928.png?HW-CC-KV=V1&HW-CC-Date=20260701T025610Z&HW-CC-Expire=86400&HW-CC-Sign=C16F4B56F3CD2A9F0FCC9EE34721E42CE231EAB6E75AEE418C7FAECCBCE829BE)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/9pJZHwRVT1-6FeePpqlRaw/zh-cn_image_0000002628758928.png?HW-CC-KV=V1&HW-CC-Date=20260701T041325Z&HW-CC-Expire=86400&HW-CC-Sign=507C582497BF7AE777BA6E39165F47667AA52A8E9E93D341884492163BFDB702)
 
 - 方式二：通过scrollBy可以实现自动循环轮播但未能同时实现手动轮播，[scrollBy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollby9)为滑动指定距离。代码如下：
- 
+
+  
 ```text
 @ObservedV2
 class HeadItemInfo {
@@ -193,7 +217,12 @@ struct ListSwiper2 {
   spaceInfo = 20;
 
   aboutToAppear(): void {
-    for (let index = 0; index  {
+    for (let index = 0; index < 10; index++) {
+      let item = new HeadItemInfo();
+      item.title = index.toString();
+      this.headList.push(item);
+    }
+    this.intervalNum = setInterval(() => {
       this.showNext();
     }, 2000);
   }
@@ -248,5 +277,6 @@ struct ListSwiper2 {
 }
 ```
  实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/467wZqcRTI-VgyzIP1L9Cw/zh-cn_image_0000002658958253.png?HW-CC-KV=V1&HW-CC-Date=20260701T025610Z&HW-CC-Expire=86400&HW-CC-Sign=AAE0E22C9489E33AC6BE985A909CEA64FA97ECB5B4371F7E4EF7291B09BEE552)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/467wZqcRTI-VgyzIP1L9Cw/zh-cn_image_0000002658958253.png?HW-CC-KV=V1&HW-CC-Date=20260701T041325Z&HW-CC-Expire=86400&HW-CC-Sign=EC24B4BA353B881D22983C82D03241E7711B075381817FB22B7E7ECA46DA7A2D)

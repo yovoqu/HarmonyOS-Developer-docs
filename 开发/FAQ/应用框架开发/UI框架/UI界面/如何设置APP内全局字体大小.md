@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-890
 
-## 如何设置APP内全局字体大小
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在文本量多而杂的场景下，单独给每个Text文本设置字体大小效率不高，有什么方法能够设置APP内的全局字体大小？以便统一设置字体大小，提高效率。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [动态属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier)是动态设置组件的属性，支持开发者在属性设置时使用if/else语法，且根据需要使用多态样式设置属性。其属性方法[AttributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifiert)支持在当前组件上动态设置属性方法。
 - [Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)文本组件中的[fontSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontsize)属性可以设置字体大小，[fontFamily](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontfamily)属性可以设置字体列表。
@@ -23,13 +19,14 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方案一：通过preferences调节应用内全局字体大小。自定义PreferencesUtil类，通过其提供的创建、保存和查询的数据，将读取到的数据保存到页面带有@State的变量中，通过状态变量对文本字体大小进行设置。具体应用可以参考官网[使用preferences实现应用内字体大小调节功能](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_NEXT-SetAppFontSize)。
 - 方案二：通过动态属性设置全局字体大小。使用动态属性，自定义class实现AttributeModifier接口，设定好Text需要的fontSize后在页面调用，实现字体大小统一修改。
- 
+
+  
 ```text
-class MyTextModifier implements AttributeModifier {
+class MyTextModifier implements AttributeModifier<TextAttribute> {
   public isDark: boolean = false;
 
 
@@ -70,14 +67,17 @@ struct Index {
   }
 }
 ```
- 
- 效果预览图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/Udxo0wgMRTmdPLxxNz4Paw/zh-cn_image_0000002658798907.png?HW-CC-KV=V1&HW-CC-Date=20260701T025646Z&HW-CC-Expire=86400&HW-CC-Sign=B572ECACAF5FF9645C84C1D315E11A3B21B143E3268884F4B1ED9CC7A70E7EFE)
+
+
+  效果预览图：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/Udxo0wgMRTmdPLxxNz4Paw/zh-cn_image_0000002658798907.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=8750E3285AB5DEEC73E85F5DDCCA2D250221124579FBC5F2001845B8E8F67665)
 
 - 方案三：使用ApplicationContext接口实现设置应用内全局字体大小。通过setFontSizeScale方法设置应用字体的全局缩放比例：在entryability/EntryAbility中调用ApplicationContext接口，并使用setFontSizeScale方法，即可设置应用内全局字体比例大小。页面代码为默认Hello World页面，EntryAbility示例代码如下：
- 
-```text
+
+  
+```json
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -105,7 +105,7 @@ export default class EntryAbility extends UIAbility {
 
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
+   <em> // Main window is created, set main page for this ability</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
 
@@ -116,32 +116,35 @@ export default class EntryAbility extends UIAbility {
       }
       hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
     });
-    // 设置全局的字体大小
+    <em>// 设置全局的字体大小</em>
     let applicationContext = this.context.getApplicationContext();
-    applicationContext.setFontSizeScale(2); // 将应用字体设置为2倍大小
+    applicationContext.setFontSizeScale(2); <em>// 将应用字体设置为2倍大小</em>
   }
 
 
+
+
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+   <em> // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
 
   onForeground(): void {
-    // Ability has brought to foreground
+   <em> // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
 
   onBackground(): void {
-    // Ability has back to background
+   <em> // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };
 ```
  Page页面示例代码如下：
- 
+
+  
 ```text
 @Entry
 @Component
@@ -168,21 +171,26 @@ struct Page {
   }
 }
 ```
- 
- 效果预览图：
- 正常字体大小：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/N1XF72zjTkioxksGqImqmA/zh-cn_image_0000002628559546.png?HW-CC-KV=V1&HW-CC-Date=20260701T025646Z&HW-CC-Expire=86400&HW-CC-Sign=DD89ED40D39B7A71F267ED824F0319841BD515BFA75B6D24468CBF571A2B23A4)
-
- 设置setFontSizeScale(2)方法的字体大小：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/-q6lWHN_SDSVp3EJ65gD7Q/zh-cn_image_0000002658918857.png?HW-CC-KV=V1&HW-CC-Date=20260701T025646Z&HW-CC-Expire=86400&HW-CC-Sign=1954735E5DEDF7423E111D553BDCA55DCF2AE62C0621D14987FC2607BCAF67B0)
 
 
+  效果预览图：
+
+  正常字体大小：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/N1XF72zjTkioxksGqImqmA/zh-cn_image_0000002628559546.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=C667C264E3CDFA6031FAA170E7076AE3145767B12429AF4E127450966AFB26A1)
+
+
+  设置setFontSizeScale(2)方法的字体大小：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/-q6lWHN_SDSVp3EJ65gD7Q/zh-cn_image_0000002658918857.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=269814E4E47A69003C8AB66F9CE64F568C4F847298F4D737A2ECC8E8467517DC)
+
+
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：关于getContext().getApplicationContext().setFont("fontName")方法，经测试，设置一次之后再设置就会无效，不能进行动态修改。
  
@@ -195,15 +203,13 @@ A：目前需要单独对每个Text组件设置属性。可通过动态属性[At
 Q：setFontSizeScale是否有生效范围？
  
 A：ApplicationContext.setFontSizeScale该设置会应用于：
- 
-- 应用程序的所有页面。
-- 所有文本控件（如Text、Label等）。
-- 自定义组件中的文本。系统组件中若可将字体大小作为参数传入时，该组件会自行控制字体大小，不受setFontSizeScale控制。
-
+ 1. 应用程序的所有页面。
+2. 所有文本控件（如Text、Label等）。
+3. 自定义组件中的文本。系统组件中若可将字体大小作为参数传入时，该组件会自行控制字体大小，不受setFontSizeScale控制。
  
  
 
-##### 总结
+#### 总结
  
 | 方案 | 适用场景 |
 | --- | --- |

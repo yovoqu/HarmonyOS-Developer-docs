@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-24
 
-## 接入AVSession后播控中心没有显示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 音视频应用接入本地媒体会话（AVSession）后，在播控中心没有显示。
  
  
 
-##### 解决方案
+#### 解决方案
 
 播控中心的正常展示需要音视频应用正确接入媒体会话。‘
  

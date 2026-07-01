@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1001
 
-## 如何在AlertDialog中根据数组动态生成多个按钮
- 
-
-
-##### 问题现象
+#### 问题现象
 
 AlertDialog是否支持在弹窗内显示一个已经定义好的数组，例如list=[0,1,2,3]，使每个数组元素单独作为按钮显示在弹窗内。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/WxAz6bGER3qUwVI-3tJ7ew/zh-cn_image_0000002658923989.png?HW-CC-KV=V1&HW-CC-Date=20260701T025717Z&HW-CC-Expire=86400&HW-CC-Sign=7F24EEC17D91D8790F45A1F1E3452C5D3974A4687E9A358B3C4A5F67738FC8F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/WxAz6bGER3qUwVI-3tJ7ew/zh-cn_image_0000002658923989.png?HW-CC-KV=V1&HW-CC-Date=20260701T041157Z&HW-CC-Expire=86400&HW-CC-Sign=820D408AD2C467C339FE11B481A37B0318B665073EBD8D26BF5FFABA118A670E)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [AlertDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#alertdialog)是操作确认类弹出框，触发一个将产生严重后果的不可逆操作时，如删除、重置、取消编辑、停止等。
 - 通过[AlertDialogParamWithOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#alertdialogparamwithoptions10对象说明)中的buttonDirection属性可控制按钮的排布方向，按钮排布方向默认为DialogButtonDirection.AUTO。建议3个以上按钮使用Auto模式（两个以上按钮会切换为纵向模式，通常能显示更多按钮）。非Auto模式下，3个以上按钮可能会显示不全，超出显示范围的按钮会被截断。
@@ -30,11 +26,10 @@ AlertDialog是否支持在弹窗内显示一个已经定义好的数组，例如
  
  
 
-##### 解决方案
+#### 解决方案
 
 总体思路如下：通过实现AlertDialog的[AlertDialogButtonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box#alertdialogbuttonoptions10对象说明)接口，定义一个CustomAlertDialogButtonOptions类，并通过自定义的函数将普通数组转化为AlertDialog的AlertDialogParamWithOptions需要的类型即可实现需求。
- 
-- 实现AlertDialog的AlertDialogButtonOptions接口，命名为CustomAlertDialogButtonOptions。
+ 1. 实现AlertDialog的AlertDialogButtonOptions接口，命名为CustomAlertDialogButtonOptions。
 ```text
 class CustomAlertDialogButtonOptions implements AlertDialogButtonOptions {
   value: string = '保存';
@@ -45,13 +40,18 @@ class CustomAlertDialogButtonOptions implements AlertDialogButtonOptions {
 }
 ```
 
-- 定义函数，根据初始的数组，把每个元素的类型转为CustomAlertDialogButtonOptions类型，并在action回调中根据元素下标处理逻辑。
+2. 定义函数，根据初始的数组，把每个元素的类型转为CustomAlertDialogButtonOptions类型，并在action回调中根据元素下标处理逻辑。
 ```text
 setDialogButtonWithList(list: number[]): CustomAlertDialogButtonOptions[] {
   let tempList: CustomAlertDialogButtonOptions[] = [];
-  for (let index = 0; index  {
+  for (let index = 0; index < list.length; index++) {
+    const element = list[index];
+    tempList.push({
+      value: element.toString(),
+      buttonIndex: index,
+      action: () => {
         switch (index) {
-          // 根据index做对应的逻辑处理
+      <em>    // 根据index做对应的逻辑处理</em>
           case 0:
             this.title = '选中了第一项';
             break;
@@ -73,7 +73,6 @@ setDialogButtonWithList(list: number[]): CustomAlertDialogButtonOptions[] {
 }
 ```
 
-
  
 完整示例参考如下：
  
@@ -90,11 +89,22 @@ class CustomAlertDialogButtonOptions implements AlertDialogButtonOptions {
 struct AlertDialogExample {
   private list: number[] = [];
   @State title: string = '';
-// 模拟数据源
+<em>// 模拟数据源</em>
   aboutToAppear(): void {
-    for (let index = 0; index  {
+    for (let index = 0; index < 4; index++) {
+      this.list.push(index);
+    }
+  }
+  setDialogButtonWithList(list: number[]): CustomAlertDialogButtonOptions[] {
+    let tempList: CustomAlertDialogButtonOptions[] = [];
+    for (let index = 0; index < list.length; index++) {
+      const element = list[index];
+      tempList.push({
+        value: element.toString(),
+        buttonIndex: index,
+        action: () => {
           switch (index) {
-            // 根据index做对应的逻辑处理
+        <em>    // 根据index做对应的逻辑处理</em>
             case 0:
               this.title = '选中了第一项';
               break;

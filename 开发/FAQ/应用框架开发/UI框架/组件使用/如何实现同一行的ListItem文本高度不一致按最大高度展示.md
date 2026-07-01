@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-570
 
-## 如何实现同一行的ListItem文本高度不一致按最大高度展示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在同一行中有多个ListItem时，ListItem中显示的文本高度不一致，导致各ListItem高度不一致，由于文本的长度不确定，无法通过设置height属性来固定ListItem的高度。
  
 问题图预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/uIjKX91rRZOf6R2uDe8LVQ/zh-cn_image_0000002628392150.png?HW-CC-KV=V1&HW-CC-Date=20260701T025536Z&HW-CC-Expire=86400&HW-CC-Sign=FF931BEFF7C58C75E610F997425C92D9DA3B91D2662447FB3257AF7A5FA6FA23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/uIjKX91rRZOf6R2uDe8LVQ/zh-cn_image_0000002628392150.png?HW-CC-KV=V1&HW-CC-Date=20260701T041306Z&HW-CC-Expire=86400&HW-CC-Sign=83C211FB467EBC43FADF3F0DD39AA2BF3D0694F30AD90565AC2DCDA90EE7F26D)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [List组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)为列表组件，包含相同宽度的列表项，适合连续、多行呈现同类数据，可通过属性设置为多列。可以通过[onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)获取各ListItem的组件区域变化前后的值，如组件高度。
 - [Flex组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)为弹性容器组件，可通过修改[FlexOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)的wrap和alignItems的参数，配合子组件的宽度，设置子组件多行多列显示，实现与List、Grid相似的布局。
@@ -28,7 +24,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：使用Flex容器组件，修改FlexOptions的wrap和alignItems的参数，实现多行多列显示，且子组件在交叉轴方向拉伸填充。示例代码如下：
 ```text
@@ -58,7 +54,7 @@ const ARR: Area[] = [
   new Area('酉阳土家族苗族自治县'), new Area('彭水苗族土家族自治县'),
 ];
 
-// 元素子组件
+<em>// 元素子组件</em>
 @Component
 struct TextComponentOne {
   content: string = '';
@@ -83,8 +79,8 @@ struct Index {
     Scroll() {
       Flex({
         justifyContent: FlexAlign.Center,
-        wrap: FlexWrap.Wrap, // Flex容器的元素多行/列排布
-        alignItems: ItemAlign.Stretch, // 元素在Flex容器中，交叉轴方向拉伸填充
+        wrap: FlexWrap.Wrap, <em>// Flex容器的元素多行/列排布</em>
+        alignItems: ItemAlign.Stretch, <em>// 元素在Flex容器中，交叉轴方向拉伸填充</em>
         space: {
           cross: { value: 0, unit: LengthUnit.VP }
         }
@@ -93,7 +89,7 @@ struct Index {
           Column() {
             TextComponentOne({ content: item.name });
           }
-          // 格式、宽度、圆角等属性需在Flex元素设置，若设置在元素子组件内，交叉轴防线拉伸填充可能不生效
+         <em> // 格式、宽度、圆角等属性需在Flex元素设置，若设置在元素子组件内，交叉轴防线拉伸填充可能不生效</em>
           .justifyContent(item.name.length >= 9 ? FlexAlign.Start : FlexAlign.Center)
           .width('30%')
           .border({ width: 0, radius: 7 })
@@ -112,15 +108,20 @@ struct Index {
 }
 ```
  修正效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/mQr62QeMS0mLmPQLtmohnw/zh-cn_image_0000002658791433.png?HW-CC-KV=V1&HW-CC-Date=20260701T025536Z&HW-CC-Expire=86400&HW-CC-Sign=4F7FF8F5FD4C22D884A26C350ABB8022313D7090A599EEC52CE2A19C57AC74EB)
 
-- **方案二**：通过onAreaChange获取各ListItem高度并判断行内最大高度，通过状态变量变化和if/else条件语句，刷新页面布局，将组件高度设置为行内最大高度。
-计算每个ListItem的高度，并判断同一行中所有ListItem的最大高度。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/mQr62QeMS0mLmPQLtmohnw/zh-cn_image_0000002658791433.png?HW-CC-KV=V1&HW-CC-Date=20260701T041306Z&HW-CC-Expire=86400&HW-CC-Sign=55268725AA018A9F96776D146897609D4E26516548DCCFF072CEDFD63FCA7BAB)
+
+- **方案二**：通过onAreaChange获取各ListItem高度并判断行内最大高度，通过状态变量变化和if/else条件语句，刷新页面布局，将组件高度设置为行内最大高度。1. 计算每个ListItem的高度，并判断同一行中所有ListItem的最大高度。
 ```text
-// 判断行内高度的最大值，并将arr中的元素的高度设置为高度最大值
+<em>// 判断行内高度的最大值，并将arr中的元素的高度设置为高度最大值</em>
 reSetHeightSize() {
-  for (let i = 0; i  a - b);
+  for (let i = 0; i < this.arr.length; i += 3) {
+    let arrTmp: number[] = [];
+    arrTmp.push(this.arr[i].heightSize);
+    arrTmp.push(this.arr[i + 1].heightSize);
+    arrTmp.push(this.arr[i + 2].heightSize);
+    arrTmp.sort((a, b) => a - b);
     let maxHeight = Math.max(...arrTmp);
     this.arr[i].heightSize = maxHeight;
     this.arr[i + 1].heightSize = maxHeight;
@@ -129,8 +130,9 @@ reSetHeightSize() {
 }
 ```
 
-- 首次布局时，通过onAreaChange收集并计算ListItem高度。
-```text
+
+2. 首次布局时，通过onAreaChange收集并计算ListItem高度。
+```json
 @Builder
 ListItemChangeRegion() {
   List({ space: 8 }) {
@@ -138,7 +140,7 @@ ListItemChangeRegion() {
       ListItem() {
         TextComponentTwo({ content: item.name })
           .onAreaChange((oldValue: Area, newValue: Area) => {
-            // 遍历全部ListItem并收集高度后，调用reSetHeightSize方法计算各行的最大高度，并再完成遍历后改变状态变量isBoolean的值，UI渲染改变
+           <em> // 遍历全部ListItem并收集高度后，调用reSetHeightSize方法计算各行的最大高度，并再完成遍历后改变状态变量isBoolean的值，UI渲染改变</em>
             this.arr[index].heightSize = newValue.height as number;
             if (this.flags === this.arr.length - 1) {
               this.isBoolean = false;
@@ -154,8 +156,9 @@ ListItemChangeRegion() {
 }
 ```
 
-- 二次布局时，设置组件高度为行内最大高度。
-```text
+
+3. 二次布局时，设置组件高度为行内最大高度。
+```json
 @Builder
 ListItemSameHeight() {
   List({ space: 8 }) {
@@ -169,22 +172,23 @@ ListItemSameHeight() {
 }
 ```
 
-- 使用条件语句if和状态变量isBoolean，通过判断状态变量的值的变化，重新对布局进行刷新。
+
+4. 使用条件语句if和状态变量isBoolean，通过判断状态变量的值的变化，重新对布局进行刷新。
 ```text
 if (this.isBoolean) {
-  // 首次布局，组件区域变化触发onRegionOneChange回调，收集并计算ListItem高度
+ <em> // 首次布局，组件区域变化触发onRegionOneChange回调，收集并计算ListItem高度</em>
   this.ListItemChangeRegion();
 } else {
-  // isBoolean值发生改变，重新布局进入else语句，此时，各ListItem的高度已是行内的最大高度值
+ <em> // isBoolean值发生改变，重新布局进入else语句，此时，各ListItem的高度已是行内的最大高度值</em>
   this.ListItemSameHeight();
 }
 ```
 
 
- 
-完整示例参考如下：
- 
-```text
+  完整示例参考如下：
+
+  
+```json
 class RegionOne {
   name: string = '';
   heightSize: number = 0;
@@ -212,7 +216,7 @@ const ARR: RegionOne[] = [
   new RegionOne('酉阳土家族苗族自治县'), new RegionOne('彭水苗族土家族自治县'),
 ];
 
-// 元素子组件
+<em>// 元素子组件</em>
 @Component
 struct TextComponentTwo {
   content: string = '';
@@ -245,9 +249,14 @@ struct Page {
   private flags: number = 0;
   @State private isBoolean: boolean = true;
 
-  // 判断行内高度的最大值，并将arr中的元素的高度设置为高度最大值
+ <em> // 判断行内高度的最大值，并将arr中的元素的高度设置为高度最大值</em>
   reSetHeightSize() {
-    for (let i = 0; i  a - b);
+    for (let i = 0; i < this.arr.length; i += 3) {
+      let arrTmp: number[] = [];
+      arrTmp.push(this.arr[i].heightSize);
+      arrTmp.push(this.arr[i + 1].heightSize);
+      arrTmp.push(this.arr[i + 2].heightSize);
+      arrTmp.sort((a, b) => a - b);
       let maxHeight = Math.max(...arrTmp);
       this.arr[i].heightSize = maxHeight;
       this.arr[i + 1].heightSize = maxHeight;
@@ -262,7 +271,7 @@ struct Page {
         ListItem() {
           TextComponentTwo({ content: item.name })
             .onAreaChange((oldValue: Area, newValue: Area) => {
-              // 遍历全部ListItem并收集高度后，调用reSetHeightSize方法计算各行的最大高度，并再完成遍历后改变状态变量isBoolean的值，UI渲染改变
+            <em>  // 遍历全部ListItem并收集高度后，调用reSetHeightSize方法计算各行的最大高度，并再完成遍历后改变状态变量isBoolean的值，UI渲染改变</em>
               this.arr[index].heightSize = newValue.height as number;
               if (this.flags === this.arr.length - 1) {
                 this.isBoolean = false;
@@ -292,10 +301,10 @@ struct Page {
   build() {
     Column() {
       if (this.isBoolean) {
-        // 首次布局，组件区域变化触发onRegionOneChange回调，收集并计算ListItem高度
+      <em>  // 首次布局，组件区域变化触发onRegionOneChange回调，收集并计算ListItem高度</em>
         this.ListItemChangeRegion();
       } else {
-        // isBoolean值发生改变，重新布局进入else语句，此时，各ListItem的高度已是行内的最大高度值
+     <em>   // isBoolean值发生改变，重新布局进入else语句，此时，各ListItem的高度已是行内的最大高度值</em>
         this.ListItemSameHeight();
       }
     }
@@ -305,17 +314,16 @@ struct Page {
   }
 }
 ```
+ 效果预览：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/mYNezj4ERNOZvcRnuZJ2wg/zh-cn_image_0000002628552046.png?HW-CC-KV=V1&HW-CC-Date=20260701T041306Z&HW-CC-Expire=86400&HW-CC-Sign=8E9DDABC887245BBDAB8E844659A0FA7A3BE50A645A379E4E674C834809F6AD0)
+
+
  
-效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/mYNezj4ERNOZvcRnuZJ2wg/zh-cn_image_0000002628552046.png?HW-CC-KV=V1&HW-CC-Date=20260701T025536Z&HW-CC-Expire=86400&HW-CC-Sign=C29253259760A4110080AA83F32BE40DCAA133F1B7B82E9E177E327E79018327)
-
- 
- 
- 
-
-##### 总结
+#### 总结
 
 - 行内各元素高度不同，要使元素高度按行内最大高度展示，推荐使用Flex容器组件，通过改变wrap和alignItems的参数，配合设置元素宽度实现。
 - 若场景需要使用List组件，则可以通过onAreaChange获取组件高度，自定义方法判断和记录行内组件最大高度，并改变状态变量的值触发UI渲染改变，将组件的高度设置为行内组件的最大高度。当元素数量较多时，此方案可能出现性能问题。

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-800
 
-## 自定义Progress样式的常见场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现以下几种样式的Progress进度条：
  
@@ -20,7 +16,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Progress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-progress)：进度条组件，用于显示内容加载或操作处理等进度。[value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-progress#value)可指定当前进度值。设置小于0的数值时置为0，设置大于total的数值时置为total。
 - [ProgressType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-progress#progresstype8枚举说明)可以设置进度条样式。ProgressType类型包括：ProgressType.Linear（线性样式）、ProgressType.Ring（环形无刻度样式）、ProgressType.ScaleRing（环形有刻度样式）、ProgressType.Eclipse（圆形样式）和ProgressType.Capsule（胶囊样式）。
@@ -30,7 +26,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以采用如下不同的方案实现自定义Progress的样式：
  
@@ -47,10 +43,17 @@ struct CustomProgressExample1 {
       Progress({
         value: this.value
       })
-        .contentModifier(new MyProgressModifier1()); // 绑定自定义进度条
+        .contentModifier(new MyProgressModifier1());<em> // 绑定自定义进度条</em>
       Button('进度减少10')
         .onClick(() => {
-          if (this.value - 10  {
+          if (this.value - 10 < 0) {
+            this.value = 0;
+          } else {
+            this.value -= 10;
+          }
+        });
+      Button('进度增加10')
+        .onClick(() => {
           if (this.value + 10 > 100) {
             this.value = 100;
           } else {
@@ -63,14 +66,14 @@ struct CustomProgressExample1 {
   }
 }
 
-export class MyProgressModifier1 implements ContentModifier {
+export class MyProgressModifier1 implements ContentModifier<ProgressConfiguration> {
   context: CanvasRenderingContext2D;
 
   constructor() {
     this.context = new CanvasRenderingContext2D(new RenderingContextSettings(true));
   }
 
-  applyContent(): WrappedBuilder {
+  applyContent(): WrappedBuilder<[ProgressConfiguration]> {
     return wrapBuilder(myProgress1);
   }
 }
@@ -83,12 +86,12 @@ export function myProgress1(config: ProgressConfiguration) {
         let context = (config.contentModifier as MyProgressModifier1).context;
         context.lineWidth = 40;
         context.lineCap = 'butt';
-        // 先画一个完整的灰色圆环作为背景
+      <em>  // 先画一个完整的灰色圆环作为背景</em>
         context.strokeStyle = '#e5e5ea';
-        context.arc(150, 150, 75, Math.PI * (-0.5), Math.PI * (1.5)); // 绘制完整圆环
+        context.arc(150, 150, 75, Math.PI * (-0.5), Math.PI * (1.5));<em> // 绘制完整圆环</em>
         context.stroke();
         context.beginPath();
-        // 再画金色部分作为进度
+      <em>  // 再画金色部分作为进度</em>
         context.strokeStyle = '#f3cb5d';
         context.arc(150, 150, 75, Math.PI * (-0.5), Math.PI * (-0.5 + config.value / config.total * 2));
         context.stroke();
@@ -100,8 +103,9 @@ export function myProgress1(config: ProgressConfiguration) {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/GEiHX9AKTTaKkHsIBSwSOA/zh-cn_image_0000002628557788.png?HW-CC-KV=V1&HW-CC-Date=20260701T025547Z&HW-CC-Expire=86400&HW-CC-Sign=45AE4CC69FA97D9051EECB8A53891B41603A4AD166C5F54BF5DC92AA56BE3249)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/GEiHX9AKTTaKkHsIBSwSOA/zh-cn_image_0000002628557788.png?HW-CC-KV=V1&HW-CC-Date=20260701T041328Z&HW-CC-Expire=86400&HW-CC-Sign=1E8A8D78D675AAEF783DBF18E7311CB46E3CB5B65B8BA9D056C64377D09440B6)
 
 - **场景二**：阶段进度条。同样是自定义内容区，但是是使用多个基础组件组合实现自定义进度条。在布局组件中通过相对定位的方式将多个阶段图标设置在相应的进度对应的位置，在下层添加线性渐变的组件实现进度条功能（如果需要可设置多个阶段的颜色）。
 ```text
@@ -129,14 +133,26 @@ struct CustomProgressExample2 {
         });
       Button('进度减少')
         .onClick(() => {
-          if (this.value - 1  {
+          if (this.value - 1 < 1) {
+            this.value = 1;
+          } else {
+            this.value--;
+          }
+        });
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
+
+export class MyProgressModifier2 implements ContentModifier<ProgressConfiguration> {
   textList: string[] = [];
 
   constructor(textList: string[]) {
     this.textList = textList;
   }
 
-  applyContent(): WrappedBuilder {
+  applyContent(): WrappedBuilder<[ProgressConfiguration]> {
     return wrapBuilder(myProgress2);
   }
 }
@@ -145,20 +161,24 @@ struct CustomProgressExample2 {
 export function myProgress2(config: ProgressConfiguration) {
   Stack() {
     ForEach((config.contentModifier as MyProgressModifier2).textList, (item: string, index: number) => {
-      // 阶段进度条上的点
+    <em>  // 阶段进度条上的点</em>
       Row() {
         Circle({ width: 5, height: 5 }).fill('#ffffff');
       }
       .borderRadius('50%')
       .width(10)
       .height(10)
-      .backgroundColor(index   // 阶段描述
+      .backgroundColor(index < config.value ? '#86b0ff' : '#e5e5ea')
+      .justifyContent(FlexAlign.Center)
+      .position({ x: -5 + index * 240 / (config.total - 1) })
+      .zIndex(2);
+    <em>  // 阶段描述</em>
       Text(item)
         .position({ x: -10 + index * 240 / (config.total - 1), y: 15 })
         .fontSize(10)
         .fontColor('#ea000000');
     });
-    // 阶段进度条
+   <em> // 阶段进度条</em>
     Row()
       .width('100%')
       .height(10)
@@ -175,8 +195,9 @@ export function myProgress2(config: ProgressConfiguration) {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/vvhGHc1fRXur2km-EmlYSg/zh-cn_image_0000002658917105.png?HW-CC-KV=V1&HW-CC-Date=20260701T025547Z&HW-CC-Expire=86400&HW-CC-Sign=0C30AA90CD3DAB86ABCCB78C8190775BBD212448176C34BF54E6FB2ED95CCA35)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/vvhGHc1fRXur2km-EmlYSg/zh-cn_image_0000002658917105.png?HW-CC-KV=V1&HW-CC-Date=20260701T041328Z&HW-CC-Expire=86400&HW-CC-Sign=A4A326641B21B90A9DA989ACD05A76F2F63B4D489ACEDEE90790A5E1B78884CE)
 
 - **场景三**：弧形进度条。不仅可以使用contentModifier方法自定义内容区，还可以通过通用属性[drawModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawmodifier)绘制组件内容。在绘制内容接口中获取[DrawContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#drawcontext)对象，再通过该对象中[canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#canvas)方法获取用于绘制的画布实例。通过[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的接口绘制内容到画布，从而实现自定义进度条样式。该方案可以在组件基础上添加前景保留原本的内容。
 ```text
@@ -185,11 +206,11 @@ import { drawing } from '@kit.ArkGraphics2D';
 @Entry
 @Component
 struct CustomProgressExample3 {
-  @State num: number = 50; // Progress进度值
-  @State modifier: MyProgressDrawModifier = new MyProgressDrawModifier(this.getUIContext()); //
+  @State num: number = 50; <em>// Progress进度值</em>
+  @State modifier: MyProgressDrawModifier = new MyProgressDrawModifier(this.getUIContext()); <em>//</em>
 
   aboutToAppear(): void {
-    this.modifier.value = this.num; // 初始化绘制时的进度值
+    this.modifier.value = this.num; <em>// 初始化绘制时的进度值</em>
     this.modifier.total = 100;
   }
 
@@ -201,7 +222,12 @@ struct CustomProgressExample3 {
         .drawModifier(this.modifier);
       Button('进度减少')
         .onClick(() => {
-          if (this.modifier.value - 10  // 同步绘制的进度值到Progress组件
+          if (this.modifier.value - 10 < 0) {
+            this.modifier.value = 0;
+          } else {
+            this.modifier.value -= 10;
+          }
+          this.num = this.modifier.value;<em> // 同步绘制的进度值到Progress组件</em>
         });
       Button('进度增加')
         .onClick(() => {
@@ -219,8 +245,8 @@ struct CustomProgressExample3 {
 }
 
 export class MyProgressDrawModifier extends DrawModifier {
-  value: number = 0; // 绘制时的进度值
-  total: number = 0; // 绘制时的最大值
+  value: number = 0; <em>// 绘制时的进度值</em>
+  total: number = 0;<em> // 绘制时的最大值</em>
   uiContext: UIContext;
 
   constructor(uiContext: UIContext) {
@@ -228,105 +254,106 @@ export class MyProgressDrawModifier extends DrawModifier {
     this.uiContext = uiContext;
   }
 
-  // 自定义绘制内容，会替换组件原本绘制的内容
+ <em> // 自定义绘制内容，会替换组件原本绘制的内容</em>
   drawContent(drawContext: DrawContext): void {
-    let canvas = drawContext.canvas; // 获取绘制内容时的画布
-    let pen = new drawing.Pen(); // 创建画笔对象
-    pen.setStrokeWidth(this.uiContext.vp2px(40)); // 设置绘制时的线宽
+    let canvas = drawContext.canvas; <em>// 获取绘制内容时的画布</em>
+    let pen = new drawing.Pen();<em> // 创建画笔对象</em>
+    pen.setStrokeWidth(this.uiContext.vp2px(40));<em> // 设置绘制时的线宽</em>
     pen.setColor({
-      // 设置绘制时的颜色，进度条背景
+    <em>  // 设置绘制时的颜色，进度条背景</em>
       alpha: 255,
       red: 241,
       green: 243,
       blue: 245
     });
-    let path = new drawing.Path(); // 创建路径，背景路径
+    let path = new drawing.Path();<em> // 创建路径，背景路径</em>
     path.addArc({
-      // 弧形进度条背景路径
+     <em> // 弧形进度条背景路径</em>
       left: this.uiContext.vp2px(20),
       top: this.uiContext.vp2px(20),
       right: this.uiContext.vp2px(180),
       bottom: this.uiContext.vp2px(180)
     }, -180, 180);
-    canvas.attachPen(pen); // 绑定画笔到画布
-    canvas.drawPath(path); // 绘制弧形进度条背景
+    canvas.attachPen(pen); <em>// 绑定画笔到画布</em>
+    canvas.drawPath(path);<em> // 绘制弧形进度条背景</em>
 
     pen.setColor({
-      // 修改绘制时的颜色，用于绘制进度条进度
+  <em>    // 修改绘制时的颜色，用于绘制进度条进度</em>
       alpha: 255,
       red: 134,
       green: 176,
       blue: 255
     });
-    let path2 = new drawing.Path(); // 进度条进度的路径
+    let path2 = new drawing.Path(); <em>// 进度条进度的路径</em>
     path2.addArc({
       left: this.uiContext.vp2px(20),
       top: this.uiContext.vp2px(20),
       right: this.uiContext.vp2px(180),
       bottom: this.uiContext.vp2px(180)
     }, -180, this.value / this.total * 180);
-    canvas.attachPen(pen); // pen的效果修改后重新绑定
-    canvas.drawPath(path2); // 绘制进度
-    canvas.detachPen(); // 画笔与画布解绑
+    canvas.attachPen(pen); <em>// pen的效果修改后重新绑定</em>
+    canvas.drawPath(path2); <em>// 绘制进度</em>
+    canvas.detachPen(); <em>// 画笔与画布解绑</em>
 
-    let font = new drawing.Font(); // 字型对象
-    font.setSize(50); // 设置字体大小，单位px
-    let text = `${this.value}/100`; // 进度值文本
+    let font = new drawing.Font(); <em>// 字型对象</em>
+    font.setSize(50); <em>// 设置字体大小，单位px</em>
+    let text = `${this.value}/100`;<em> // 进度值文本</em>
     let width = font.measureText(text, 0);
     let textBlob = drawing.TextBlob.makeFromString(text, font);
-    canvas.drawTextBlob(textBlob, this.uiContext.vp2px(100) - width / 2, this.uiContext.vp2px(90)); // 绘制进度的文本
+    canvas.drawTextBlob(textBlob, this.uiContext.vp2px(100) - width / 2, this.uiContext.vp2px(90)); <em>// 绘制进度的文本</em>
   }
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/0jBMeGkiQHO4znTX369WZg/zh-cn_image_0000002628397884.png?HW-CC-KV=V1&HW-CC-Date=20260701T025547Z&HW-CC-Expire=86400&HW-CC-Sign=10470E2FE2C615AFEB5A7393E274A1A89DBCAE373AEC645BBB32C6D1310F6A89)
 
-- **场景四**：方形环绕的进度条。除了如上三个场景中的方案，还可以直接通过组件模仿进度条效果，从而实现自定义Proress。
-直接使用画布组件自定义进度条，参考[如何实现圆角矩形进度条](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-785)。
-- 通过[Polyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline)（折线绘制组件）设置不同进度下坐标点的位置，实现环绕内容的方形进度条。如下是通过折线组件实现。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/0jBMeGkiQHO4znTX369WZg/zh-cn_image_0000002628397884.png?HW-CC-KV=V1&HW-CC-Date=20260701T041328Z&HW-CC-Expire=86400&HW-CC-Sign=922D3900D212C48DCE956EC1F8981989C98A3D06189EDCD482667DC1CBA83FE2)
 
- 
+- **场景四**：方形环绕的进度条。除了如上三个场景中的方案，还可以直接通过组件模仿进度条效果，从而实现自定义Proress。1. 直接使用画布组件自定义进度条，参考[如何实现圆角矩形进度条](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-785)。
+
+2. 通过[Polyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline)（折线绘制组件）设置不同进度下坐标点的位置，实现环绕内容的方形进度条。如下是通过折线组件实现。
+
+  
 ```text
 @Entry
 @Component
 struct CustomProgressExample4 {
   componentWidth: number = 300;
   componentHeight: number = 600;
-  stroke: number = 10; // 折线进度条的宽度
+  stroke: number = 10;<em> // 折线进度条的宽度</em>
   polylineWidth: number = this.componentWidth - this.stroke;
   polylineHeight: number = this.componentHeight - this.stroke;
-  @State @Watch('setPoints') value: number = 0; // 进度值，变动会修改折线的坐标点
-  @State points: number[][] = []; // 折线坐标点
-  total: number = 2 * (this.componentWidth + this.componentHeight) - 4 * this.stroke; // 折线进度条最大值
+  @State @Watch('setPoints') value: number = 0; <em>// 进度值，变动会修改折线的坐标点</em>
+  @State points: number[][] = [];<em> // 折线坐标点</em>
+  total: number = 2 * (this.componentWidth + this.componentHeight) - 4 * this.stroke; <em>// 折线进度条最大值</em>
 
   setPoints() {
-    if (this.value // 进度未超过左下角
+    if (this.value < this.polylineWidth / 2) { <em>// 进度未超过左下角</em>
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [this.polylineWidth / 2 - this.value, this.polylineHeight]
       ];
-    } else if (this.value // 进度在组件左边
+    } else if (this.value < this.componentWidth / 2 + this.componentHeight) { <em>// 进度在组件左边</em>
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [0, this.polylineHeight],
         [0, this.polylineHeight + this.polylineWidth / 2 - this.value]
       ];
-    } else if (this.value //进度在组件顶部
+    } else if (this.value < this.polylineWidth * 3 / 2 + this.componentHeight) { <em>//进度在组件顶部</em>
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [0, this.polylineHeight],
         [0, 0],
         [this.value - this.polylineWidth / 2 - this.polylineHeight, 0]
       ];
-    } else if (this.value //进度在组件右侧
+    } else if (this.value < this.polylineWidth * 3 / 2 + this.componentHeight * 2) { <em>//进度在组件右侧</em>
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [0, this.polylineHeight],
         [0, 0],
         [this.polylineWidth, 0],
         [this.polylineWidth, this.value - this.polylineWidth / 2 * 3 - this.polylineHeight]];
-    } else { // 进度超过右下角
+    } else { <em>// 进度超过右下角</em>
       this.points = [
         [this.polylineWidth / 2, this.polylineHeight],
         [0, this.polylineHeight],
@@ -341,7 +368,7 @@ struct CustomProgressExample4 {
     Column({ space: 10 }) {
       Text(this.value + '/' + this.total);
       Stack() {
-        Polyline() // 折线作为环绕组件的进度条
+        Polyline() <em>// 折线作为环绕组件的进度条</em>
           .width(this.polylineWidth)
           .height(this.polylineHeight)
           .fillOpacity(0)
@@ -355,7 +382,16 @@ struct CustomProgressExample4 {
       Button('进度开始增加')
         .onClick(() => {
           let id = setInterval(() => {
-            if (this.value + 10  {
+            if (this.value + 10 < this.total) {
+              this.value += 10;
+            } else {
+              this.value = this.total;
+              clearInterval(id);
+            }
+          }, 10);
+        });
+      Button('重置')
+        .onClick(() => {
           this.value = 0;
         });
     }
@@ -364,17 +400,16 @@ struct CustomProgressExample4 {
   }
 }
 ```
+ 效果预览：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/5umxYWifQY-UnDXX6_2apQ/zh-cn_image_0000002658797153.png?HW-CC-KV=V1&HW-CC-Date=20260701T041328Z&HW-CC-Expire=86400&HW-CC-Sign=98A3FD832C87000816F28DDD8DFE1AA54CFB41B50530094C54AE4A1B05642927)
+
+
  
-效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/5umxYWifQY-UnDXX6_2apQ/zh-cn_image_0000002658797153.png?HW-CC-KV=V1&HW-CC-Date=20260701T025547Z&HW-CC-Expire=86400&HW-CC-Sign=9795E99BC7A8BFCDCCB98C0703DEFDA1AFE75FED66C8BE625C1D3887560658AA)
-
- 
- 
- 
-
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何实现垂直的进度条？
  

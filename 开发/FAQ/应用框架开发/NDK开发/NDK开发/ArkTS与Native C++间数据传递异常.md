@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-1
 
-## ArkTS与Native C++间数据传递异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在ArkTS与Native C++通过Node-API接口进行数据传递时，经常会遇到一些数据传递前后不一致甚至报错的问题，如：
  
@@ -30,7 +26,7 @@ C03F00/ArkCompiler com.examp...lication E RangeError: The newByteLength is out o
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [支持的Node-API接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-data-types-interfaces#支持的node-api接口)：HarmonyOS Node-API接口在Node.js提供的模块基础上扩展，支持的数据类型和相关接口的用法及示例可参考文档。
 - [使用Node-API接口进行线程安全开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-thread-safety)：创建一个线程安全的JavaScript函数。主要用于在多个线程之间共享和调用，而不会出现竞争条件或死锁，确保多个线程之间的通信和同步操作正确无误。
@@ -39,10 +35,11 @@ C03F00/ArkCompiler com.examp...lication E RangeError: The newByteLength is out o
  
  
 
-##### 问题定位
+#### 问题定位
 
 - **场景一**：C++侧获取不到ArkTS传入的string，可能导致的原因有两种：
- 
+
+  
 参数传入的string的内容是否为空。
 - string的长度特别长。
 
@@ -57,7 +54,7 @@ C03F00/ArkCompiler com.examp...lication E RangeError: The newByteLength is out o
  
  
 
-##### 分析结论
+#### 分析结论
 
 - **场景一**：ArkTS传入的字符串长度超过限制，无法通过napi_get_value_string_utf8传递，该接口获取字符大小由底层内存决定，Node-API无法设置和更改。
 - **场景二**：
@@ -69,7 +66,7 @@ external_arraybuffer不会拷贝内存，而是复用Node-API模块内存块，�
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **场景一**：传输长string时，建议以Buffer传递，通过napi_get_buffer_info来获取从TS层传来的Buffer，再转成string。
 - **场景二**：

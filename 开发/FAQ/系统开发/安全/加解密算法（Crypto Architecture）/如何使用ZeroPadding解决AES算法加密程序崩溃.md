@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-35
 
-## 如何使用ZeroPadding解决AES算法加密程序崩溃
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用AES算法的CBC模式加密，执行doFinalSync程序崩溃，问题代码如下：
  
@@ -44,7 +40,7 @@ Stacktrace:
  
  
 
-##### 背景知识
+#### 背景知识
 
 [AES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#aes)（Advanced Encryption Standard），最常见的对称加密算法。
  
@@ -54,22 +50,20 @@ Stacktrace:
  
  
 
-##### 问题定位
-
-- 检查秘钥是否正确。
-- 检查明文是否符合要求，确保明文中不包含汉字。
-- 检查加密算法的填充模式以及明文的长度。
-
+#### 问题定位
+1. 检查秘钥是否正确。
+2. 检查明文是否符合要求，确保明文中不包含汉字。
+3. 检查加密算法的填充模式以及明文的长度。
  
  
 
-##### 分析结论
+#### 分析结论
 
 使用AES算法的CBC模式加密，由于最后一组明文不足128位，没有对明文进行填充导致崩溃。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 问题代码中填充模式选择NoPadding，不会对明文进行填充，所以当最后一组不足128位，导致程序崩溃，可以选择PKCS5和PKCS7进行填充。
 - 如果需要ZeroPadding，需要开发者手动对密文进行填充，密文填充的示例代码如下：
@@ -99,7 +93,7 @@ function genIvParamsSpec() {
 let iv = genIvParamsSpec();
 
 
-// 加密消息。
+<em>// 加密消息。</em>
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES128|CBC|NoPadding');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, iv);
@@ -108,7 +102,7 @@ function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramewo
 }
 
 
-// 解密消息。
+<em>// 解密消息。</em>
 function decryptMessage(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('AES128|CBC|NoPadding');
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, iv);
@@ -127,9 +121,9 @@ function genSymKeyByData(symKeyData: Uint8Array) {
 
 
 function stringPadding(str: string) {
-  // 获取字符串长度
+ <em> // 获取字符串长度</em>
   let len = str.length;
-  // 填充字符串到128位的整数倍
+ <em> // 填充字符串到128位的整数倍</em>
   if (len % 16 !== 0) {
     str = str.padEnd(len + 16 - (len % 16), '0');
   }
@@ -197,7 +191,7 @@ struct Index {
             .type(InputType.Normal)
             .borderRadius('8')
             .onChange((value: string) => {
-              // ZeroPadding不支持输入中文文本，请输入英文格式文本
+             <em> // ZeroPadding不支持输入中文文本，请输入英文格式文本</em>
               this.inputMessage = value;
             })
             .onDidDelete((info: DeleteValue) => {
@@ -271,7 +265,7 @@ struct Index {
  
  
 
-##### 总结
+#### 总结
 
 算法库当前提供了[AES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#aes)加解密常用的7种加密模式：ECB、CBC、OFB、CFB、CTR、GCM和CCM。由于AES为分组加密算法，分组长度为128位。如果最后一组明文可能不足128位（16字节），可以通过不同的填充模式进行数据填充。
  

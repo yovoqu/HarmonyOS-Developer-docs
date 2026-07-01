@@ -4,36 +4,35 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-64
 
-## HAP包在真机上安装失败如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - **问题一**：报9568263错误。
-在AGC中配置了真机的udid，并应用了更新后的p7b文件、证书文件进行sign后重新打包，使用hdc命令始终无法安装新HAP包。其他机器均正常安装。
+
+  在AGC中配置了真机的udid，并应用了更新后的p7b文件、证书文件进行sign后重新打包，使用hdc命令始终无法安装新HAP包。其他机器均正常安装。
 ```text
 [Info]App install path:xxx.hap, queuesize:0, msg:error: failed to install bundle. code:9568263 error: install version downgrade.
 ```
- 
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/iTdWl79-TTm6Eoxn9vSk-Q/zh-cn_image_0000002628569312.png?HW-CC-KV=V1&HW-CC-Date=20260701T025919Z&HW-CC-Expire=86400&HW-CC-Sign=67872DDE9CCB6A6842B63869951ABF1C75CC53FB6C93A981A9BA325D1697C980)
+
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/iTdWl79-TTm6Eoxn9vSk-Q/zh-cn_image_0000002628569312.png?HW-CC-KV=V1&HW-CC-Date=20260701T041012Z&HW-CC-Expire=86400&HW-CC-Sign=6A7EBABFA4F28BBB1D0E1A25B4FA049C2D001B43B0497B8FE6B5155C65B9EA58)
 
 
  
  
 - **问题二**：报9568283错误。
-先安装老包，修改build-profile.json5中的API版本后，再安装新包，报错如下:
+
+  先安装老包，修改build-profile.json5中的API版本后，再安装新包，报错如下:
 ```text
-Install Failed: error: failed to install bundle.
-code:9568283
-error: install releaseType compatible not same.
+<span style="color: rgb(0,0,255);">Install </span><span style="color: rgb(181,106,1);">Failed</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">failed to install bundle</span><span style="color: rgb(181,106,1);">.</span>
+<span style="color: rgb(0,0,255);">code</span><span style="color: rgb(181,106,1);">:</span><span style="color: rgb(255,0,0);">9568283</span>
+<span style="color: rgb(181,106,1);">error</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">install releaseType compatible not same</span><span style="color: rgb(181,106,1);">.</span>
 ```
 
 
  
 
-##### 背景知识
+#### 背景知识
 
 - [HAP打包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)相关指导请参见官网指南。
 - [hdc命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)如何清除应用数据请参见官网指南。
@@ -44,18 +43,17 @@ error: install releaseType compatible not same.
  
  
 
-##### 问题定位
+#### 问题定位
 
-- **问题一**：
-查看日志返回的错误信息code:9568263 error: install version downgrade。正在安装的应用的版本号versionCode小于系统已安装的该应用的版本号。
-- 如何修改应用的版本号versionCode。Stage模型修改app.json5中的versionCode字段。
+- **问题一**：1. 查看日志返回的错误信息code:9568263 error: install version downgrade。正在安装的应用的版本号versionCode小于系统已安装的该应用的版本号。
 
- - **问题二**：检查修改API版本前后的两个包对应的打包产物的versionCode、apiReleaseType、minAPIVersion、targetAPIVersion的一致性。打包产物查看路径：工程目录“build/default/outputs/default/”，找到对应.hap包后，打开module.json文件可核对相关字段。
+2. 如何修改应用的版本号versionCode。Stage模型修改app.json5中的versionCode字段。
+- **问题二**：检查修改API版本前后的两个包对应的打包产物的versionCode、apiReleaseType、minAPIVersion、targetAPIVersion的一致性。打包产物查看路径：工程目录“build/default/outputs/default/”，找到对应.hap包后，打开module.json文件可核对相关字段。
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 - **问题一**：由报错信息可以看到是待安装应用的版本号小于已安装的同应用的版本号。
 - **问题二**：由于只修改了API版本号，两个版本的versionCode相同，但apiReleaseType、minAPIVersion、targetAPIVersion两个产物中的值不都分别一致，导致报错。
@@ -63,19 +61,19 @@ error: install releaseType compatible not same.
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **问题一：**
-桌面直接卸载原版本应用（PC/2in1设备需要确保所有用户下都卸载完成，手机/平板侧需要关注隐私空间和主用户下是否卸载完成），重新执行安装。
-手机界面直接卸载应用。
-- 重新执行hdc install命令。
 
- 
- 
-使用命令卸载工具再重装。
- 
-- 切换到可执行hdc命令目录下，一般是DevEco Studio工具的SDK目录toolchains中会有hdc.exe的可执行文件。
-- 先执行hdc shell bm dump -a &lt;应用bundleName&gt;检查下看是否之前的包还存在，如果存在就执行hdc uninstall &lt;应用bundleName&gt;卸载。
-- 重新执行hdc install命令。
+  桌面直接卸载原版本应用（PC/2in1设备需要确保所有用户下都卸载完成，手机/平板侧需要关注隐私空间和主用户下是否卸载完成），重新执行安装。1. 手机界面直接卸载应用。
 
- - **问题二：**修改app.json5中的versionCode值，使新包中的值大于老包中的值。
+2. 重新执行hdc install命令。
+
+  使用命令卸载工具再重装。
+
+1. 切换到可执行hdc命令目录下，一般是DevEco Studio工具的SDK目录toolchains中会有hdc.exe的可执行文件。
+
+2. 先执行hdc shell bm dump -a &lt;应用bundleName&gt;检查下看是否之前的包还存在，如果存在就执行hdc uninstall &lt;应用bundleName&gt;卸载。
+
+3. 重新执行hdc install命令。
+- **问题二：**修改app.json5中的versionCode值，使新包中的值大于老包中的值。

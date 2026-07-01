@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1172
 
-## 如何根据API版本动态增加Image组件的属性
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何根据不同的API版本动态设置Image组件的属性？如：orientation属性在API 14及以上版本上生效，如何动态添加此属性？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [deviceInfo (设备信息)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info)：获取终端设备信息，其中sdkApiVersion表示系统软件API版本。
 - [attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)：动态属性设置，支持开发者在属性设置时使用if/else语法，且根据需要使用多态样式设置属性。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以通过获取[deviceInfo.sdkApiVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info#常量)判断当前系统的API版本再使用[动态属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)设置需要的属性，如：
  
@@ -39,14 +35,14 @@ struct Index {
 
 
   aboutToAppear(): void {
-    // 设置动态属性判断的API版本
+  <em>  // 设置动态属性判断的API版本</em>
     this.modifierImg.sdkApiVersionInfo = deviceInfo.sdkApiVersion;
   }
 
 
   build() {
     Flex({justifyContent: FlexAlign.Center}) {
-      // 加载的图片请替换为实际项目所需图片资源
+    <em>  // 加载的图片请替换为实际项目所需图片资源</em>
       Image($r('app.media.img'))
         .width(100)
         .height(100)
@@ -60,12 +56,12 @@ struct Index {
 通过判断API版本动态设置orientation属性：
  
 ```text
-export class ImageModifier implements AttributeModifier {
-  // 可以实现一个Modifier，定义私有的成员变量，外部可动态修改
+export class ImageModifier implements AttributeModifier<ImageAttribute> {
+  <em>// 可以实现一个Modifier，定义私有的成员变量，外部可动态修改</em>
   sdkApiVersionInfo: number = 12;
   applyNormalAttribute(instance: ImageAttribute): void {
-    if (deviceInfo.sdkApiVersion >= 14) { // 支持业务逻辑实现
-      // 属性变化触发apply函数时，变化前已设置并且变化后未设置的属性会恢复为默认值
+    if (deviceInfo.sdkApiVersion >= 14) {<em> // 支持业务逻辑实现</em>
+    <em>  // 属性变化触发apply函数时，变化前已设置并且变化后未设置的属性会恢复为默认值</em>
       instance.orientation(ImageRotateOrientation.RIGHT);
     }
   }
@@ -77,10 +73,10 @@ export class ImageModifier implements AttributeModifier {
 系统API版本小于API 14：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/E3_a5plyS_CmlVYoInbEIg/zh-cn_image_0000002628569782.png?HW-CC-KV=V1&HW-CC-Date=20260701T025603Z&HW-CC-Expire=86400&HW-CC-Sign=35F177EC22BCA24A6B58D599DDE5AE0F39EA173999D7330575FF3656E3E92630)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/E3_a5plyS_CmlVYoInbEIg/zh-cn_image_0000002628569782.png?HW-CC-KV=V1&HW-CC-Date=20260701T041311Z&HW-CC-Expire=86400&HW-CC-Sign=07A27E19E82D8ECFE74288F719321660906C174C57A2F595352F4EE4E630024E)
 
  
 系统API版本大于API 14：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/9UnMBnl2SYyIVU1wgt_lqA/zh-cn_image_0000002628409878.png?HW-CC-KV=V1&HW-CC-Date=20260701T025603Z&HW-CC-Expire=86400&HW-CC-Sign=DFB6A4445386CF8FC6C900D2EA02DF53D3DD02E3219AB7B708B2AEF8D800D03F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/9UnMBnl2SYyIVU1wgt_lqA/zh-cn_image_0000002628409878.png?HW-CC-KV=V1&HW-CC-Date=20260701T041311Z&HW-CC-Expire=86400&HW-CC-Sign=7B95C34B706F43176374968F51E26891FAE25E7DC8DD14963455DF96D54D1812)

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-43
 
-## BLE蓝牙重连异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 代码里实现有连接设备流程和重新连接流程，正常连接流程和重连的流程代码逻辑一致，正常连接流程，通信是没有问题的，但是重连通信一直报BussinessError 2900099：Operation failed这个错误。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [getServices](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#getservices)：client获取server端支持的所有服务能力，即服务发现流程。使用Callback异步回调。
  
@@ -30,32 +26,29 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 分析hilog日志，从日志发现在重新连接流程时，有方法调用不合理的情况：
- 
-- setCharacteristicChangeNotification和getServices一直在循环调用，且getServices在setCharacteristicChangeNotification之后调用，而正常流程是先调用getServices之后才能调用setCharacteristicChangeNotification。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/y4xxYOZyTueIsNOTfHQOww/zh-cn_image_0000002658972619.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=0C205FABA4816232CB83E549CE38118E1B0CDD897349132B996ED7A02B74D844)
-
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/P7K8QV6XTVK9H2MMj9gZWg/zh-cn_image_0000002628613410.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=5468C4F3B6487FEE9C580E7EBEAB361FCC9992BC1ED1FED9F1F8D0DE7CF999EA)
-
-- writeCharacteristicValue没有在setCharacteristicChangeNotification异步回调回来之后再调用。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/FDXvqRBKS--LV7I5NYrScw/zh-cn_image_0000002658852667.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=29B0496B6766675FA88F01574737E9330EAC71C11542A2BA5178E6AEDAA95AC3)
+ 1. setCharacteristicChangeNotification和getServices一直在循环调用，且getServices在setCharacteristicChangeNotification之后调用，而正常流程是先调用getServices之后才能调用setCharacteristicChangeNotification。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/y4xxYOZyTueIsNOTfHQOww/zh-cn_image_0000002658972619.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=41EE5AEBB094E33924D33057B79971DCB05FF4AAF70E72506666B87C33B80434)
 
 
- 
- 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/P7K8QV6XTVK9H2MMj9gZWg/zh-cn_image_0000002628613410.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=B77822B09DBBFC49B2555196C6B3D4BEDE1150DC47056A5BDC2AC301245620AF)
 
-##### 分析结论
-
-- 从日志分析是setCharacteristicChangeNotification和getServices/writeCharacteristicValue这两个接口存在调用阻塞，没有在异步回调回来之后再调用，导致报错2900099，需要排查方法调用是否存在问题。
-- setCharacteristicChangeNotification和getServices一直在循环调用，可能是每次重连GATT设备时都重新创建gattClient对象，未调用[close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#close-1)销毁之前创建的gattClient对象，导致调用方法多次重复订阅。
+2. writeCharacteristicValue没有在setCharacteristicChangeNotification异步回调回来之后再调用。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/FDXvqRBKS--LV7I5NYrScw/zh-cn_image_0000002658852667.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=EC7B74251D8B882E891D16CA07EACC3C9890BD7A7D8E4140132280F0DE85E3EC)
 
  
  
 
-##### 修改建议
+#### 分析结论
+1. 从日志分析是setCharacteristicChangeNotification和getServices/writeCharacteristicValue这两个接口存在调用阻塞，没有在异步回调回来之后再调用，导致报错2900099，需要排查方法调用是否存在问题。
+2. setCharacteristicChangeNotification和getServices一直在循环调用，可能是每次重连GATT设备时都重新创建gattClient对象，未调用[close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#close-1)销毁之前创建的gattClient对象，导致调用方法多次重复订阅。
+ 
+ 
+
+#### 修改建议
 
 排查问题代码，发现是代码中的重新连接流程有问题，会在每次重连GATT设备时都重新创建gattClient对象，而之前创建的gattClient对象未调用close销毁。可以考虑如下修改建议：
  

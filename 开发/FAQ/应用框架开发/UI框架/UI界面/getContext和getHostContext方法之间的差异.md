@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1550
 
-## getContext和getHostContext方法之间的差异
- 
-
-
-##### 问题现象
+#### 问题现象
 
 API参考文档中说明getContext方法从API version 18开始弃用，建议使用UIContext中的getHostContext替代。在使用过程中发现，将返回值类型注解为Context时编译报错，请问两者有什么差异？
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 对比维度 | getContext | getHostContext |
 | --- | --- | --- |

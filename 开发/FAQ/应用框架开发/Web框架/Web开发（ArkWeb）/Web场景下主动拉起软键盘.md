@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-127
 
-## Web场景下主动拉起软键盘
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Web组件加载H5页面，H5页面中有input输入框，如何实现刚进入H5页面就直接拉起软键盘？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onPageEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onpageend)：网页加载完成时触发该回调，且只在主frame触发，iframe或者frameset的内容加载时不会触发此回调。
 - [@ohos.inputMethod (输入法框架)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod)：本模块主要面向普通前台应用（备忘录、信息、设置等系统应用与三方应用），提供对输入法（输入法应用）的控制、管理能力，包括显示/隐藏输入法软键盘、切换输入法、获取所有输入法列表等等。
@@ -22,7 +18,7 @@ Web组件加载H5页面，H5页面中有input输入框，如何实现刚进入H5
  
  
 
-##### 解决方案
+#### 解决方案
 
 H5页面有输入框时，可以在Web的onPageEnd回调中使用@ohos.inputMethod (输入法框架)框架的[showTextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#showtextinput10)方法实现页面加载时主动使输入框获焦并拉起键盘，inputMethod.TextConfig可以设置键盘的编辑框样式，attach方法将自绘控件与输入法绑定。
  
@@ -84,37 +80,41 @@ struct WebComponent {
 HTML示例代码如下：
  
 ```text
-
-
-    
-    
-    Document
-
-
-H5侧
-
-    
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>H5侧</h1>
+<div>
+    <input id="myInput" type="text" value="" style="margin:10px 0" onload/><br/>
+</div>
+</body>
+<script>
     function test() {
        document.getElementById("myInput").focus();
     }
-    // 加载时立即执行此函数
+   <em> // 加载时立即执行此函数</em>
     document.addEventListener('DOMContentLoaded', test);
-
-
+</script>
+</html>
+<style>
     body {
         width:100%;
         height:auto;
         margin:50px auto;
         text-align:center;
     }
-
+</style>
 ```
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：滚动时如何收起键盘？
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-16
 
-## HarmonyOS是否支持通过蓝牙连接第三方设备的音频模块
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS是否支持通过蓝牙连接第三方设备音频模块，是否有相关的接口能力？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [@ohos.bluetooth.hfp (蓝牙hfp模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-hfp)提供了访问蓝牙呼叫接口的方法。HFP协议定义了设备间语音交互的标准化流程，在HFP协议中存在两种角色：
 AG：音源设备，负责音频传输，联系人信息发送，通话控制等。
@@ -25,7 +21,7 @@ AG：音源设备，负责音频传输，联系人信息发送，通话控制等
  
  
 
-##### 解决方案
+#### 解决方案
 
 需要确认对端设备是否支持HFP协议，可通过[hfp.createHfpAgProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-hfp#hfpcreatehfpagprofile)创建[HandsFreeAudioGatewayProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-hfp#handsfreeaudiogatewayprofile)后，连接到对应的profile进行开发。
  
@@ -33,7 +29,7 @@ AG：音源设备，负责音频传输，联系人信息发送，通话控制等
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：参考上述方案进行开发，可以配对成功，但为什么连接的时候提示2900099？
  

@@ -4,31 +4,28 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-770
 
-## 解决LazyForEach懒加载数据UI渲染失败的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用LazyForEach从提供的数据源中按需迭代数据时，数据发生了变化，但是UI未自动渲染，导致数据与页面展示不一致。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)从提供的数据源中按需迭代数据，并在每次迭代过程中创建相应的组件，可以保证数据加载以及绘制的流畅度，提升使用体验。LazyForEach依赖生成的键值判断是否刷新子组件，若键值不发生改变，则无法触发LazyForEach刷新对应的子组件。
  
  
 
-##### 解决方案
+#### 解决方案
 
  
 
-##### [h2]场景一：外层组件高度问题导致渲染失败。
+#### 场景一：外层组件高度问题导致渲染失败。
 
 - **原因：** 懒加载外层组件如果未设置高度，可能导致框架无法判断哪些组件需要显示或缓存，导致渲染失败。同时外层组件的高度只有在小于数据的总高度，且小于屏幕的高度时，懒加载才会生效。
 - **修改方式：** 为外层组件设置合适的固定高度。
-示例代码如下：
+
+  示例代码如下：
 ```text
 List() {
   ListItemGroup() {
@@ -41,7 +38,7 @@ List() {
           .backgroundColor(Color.Green)
         })
       }
-      // 为外层组件添加高度
+     <em> // 为外层组件添加高度</em>
       .height(300)
     }
   }
@@ -52,11 +49,12 @@ List() {
  
  
 
-##### [h2]场景二：错误键值导致渲染异常。
+#### 场景二：错误键值导致渲染异常。
 
 - **原因：** LazyForEach依赖唯一键值来标识组件，若键值重复，会导致组件渲染异常。
 - **修改方式：** 使用自定义keyGenerator函数，确保每个数据项生成唯一键值。比如生成键值时添加Math.random或Date.now信息。示例代码如下：
- 
+
+  
 ```text
 List() {
   LazyForEach(this.data, (index: number) => {
@@ -64,7 +62,7 @@ List() {
       Text(`index = ${index}`)
         .reuseId('article')
     }
-    // 需确保每个index值唯一
+    <em>// 需确保每个index值唯一</em>
   }, (index: number) => index.toString())
 }
 ```
@@ -73,17 +71,16 @@ List() {
  
  
 
-##### [h2]场景三：没有重建数据项导致渲染失败。
+#### 场景三：没有重建数据项导致渲染失败。
 
 - **原因：** 在数据变化时，需重建数据项，更新index索引。
 - **修改方式：** 构造reloadData方法，在改变数据项后调用，重建后面的数据项。详细可参考：[渲染结果非预期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach#渲染结果非预期)。
 
  
 完整代码示例如下：
- 
-- LazyForEach的数据源需要实现IDataSource接口。
+ 1. LazyForEach的数据源需要实现IDataSource接口。
 ```text
-class BasicDataSource  implements IDataSource {
+class BasicDataSource<T>  implements IDataSource {
   private listeners: DataChangeListener[] = [];
   private originDataArray: T[] = [];
 
@@ -96,7 +93,15 @@ class BasicDataSource  implements IDataSource {
   }
 
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener) = 0) {
+    if (this.listeners.indexOf(listener) < 0) {
+      console.info('add listener');
+      this.listeners.push(listener);
+    };
+  }
+
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    const pos = this.listeners.indexOf(listener);
+    if (pos >= 0) {
       console.info('remove listener');
       this.listeners.splice(pos, 1);
     };
@@ -139,8 +144,8 @@ class BasicDataSource  implements IDataSource {
   }
 }
 
-// LazyForEach的数据源需要实现IDataSource接口
-export class DataSource extends BasicDataSource {
+<em>// LazyForEach的数据源需要实现IDataSource接口</em>
+export class DataSource extends BasicDataSource<number> {
   private dataArray: number[] = [];
 
   public getAllData(): number[] {
@@ -162,26 +167,38 @@ export class DataSource extends BasicDataSource {
 }
 ```
 
-- 加载数据，渲染UI。
+2. 加载数据，渲染UI。
 ```text
 import { DataSource } from '../models/DataSource';
 
 @Entry
 @Component
 struct Index {
-  // LazyForEach的数据源需要实现IDataSource接口，DataSource为自定义类，已实现IDataSource接口
+  <em>// LazyForEach的数据源需要实现IDataSource接口，DataSource为自定义类，已实现IDataSource接口</em>
   @State data: DataSource = new DataSource();
 
-  // 构造数据
+ <em> // 构造数据</em>
   aboutToAppear(): void {
-    for (let i = 0; i  {
+    for (let i = 0; i < 50; i++) {
+      this.data.pushData(i);
+    };
+  }
+
+  build() {
+    Column() {
+      Row() {
+        List() {
+          ListItemGroup() {
+            ListItem() {
+              List() {
+                LazyForEach(this.data, (index: number) => {
                   ListItem() {
                     Text(`index = ${index}`)
                   }
                   .backgroundColor(Color.Green)
                 })
               }
-              // 为外层组件添加高度
+              <em>// 为外层组件添加高度</em>
               .height(300)
             }
           }
@@ -195,7 +212,7 @@ struct Index {
               Text(`index = ${index}`)
                 .reuseId('article')
             }
-            // 需确保每个index值唯一
+            <em>// 需确保每个index值唯一</em>
           }, (index: number) => index.toString())
         }
         .cachedCount(10)
@@ -214,11 +231,10 @@ struct Index {
 }
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：LazyForEach是否适用所有组件实现懒加载？
  

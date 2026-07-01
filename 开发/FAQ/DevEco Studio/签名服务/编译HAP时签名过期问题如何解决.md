@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-27
 
-## 编译HAP时签名过期问题如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 本地调试时，DevEco编译HAP有如下报错：
  
@@ -22,7 +18,7 @@ Detail: Please check the message from tools.hvigor ERROR: BUILD FAILED in 4 s 59
  
  
 
-##### 背景知识
+#### 背景知识
 
 针对开发调试场景，DevEco Studio为开发者提供了[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section18815157237)方案，帮助开发者高效进行调试。也可以选择[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)方式生成调试签名。
  
@@ -32,18 +28,16 @@ Detail: Please check the message from tools.hvigor ERROR: BUILD FAILED in 4 s 59
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据报错信息判断问题原因是签名过期，需要重新签名，具体步骤如下：
- 
-- 在File-Project Structure-Signing Configs下查看证书存储路径(Certpath file(*.cer))。
-- 进入证书存储路径，将过期的证书删除，废除过期的证书和Profile，用原有的csr和p12重新申请证书和Profile。
-- 本地调试时，在适用自动签名的场景，可以在Signing Configs页面勾选Automatically generate signature完成[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section18815157237)，其余需要手动签名的场景，需要去官网生成新的证书并更换证书。
-
+ 1. 在File-Project Structure-Signing Configs下查看证书存储路径(Certpath file(*.cer))。
+2. 进入证书存储路径，将过期的证书删除，废除过期的证书和Profile，用原有的csr和p12重新申请证书和Profile。
+3. 本地调试时，在适用自动签名的场景，可以在Signing Configs页面勾选Automatically generate signature完成[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section18815157237)，其余需要手动签名的场景，需要去官网生成新的证书并更换证书。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：打包报错提示“hap-sign-tool:error:invalid CEN header (bad signature)”。
  

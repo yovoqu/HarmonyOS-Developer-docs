@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1658
 
-## 使用状态管理V2实现Navigation页面路由
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Navigation结合V2状态管理如何实现页面跳转和传参？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：路由导航的根视图容器。
 - [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)：显示Navigation的内容区。
@@ -25,7 +21,7 @@ Navigation结合V2状态管理如何实现页面跳转和传参？
  
  
 
-##### 解决方案
+#### 解决方案
 
 **方案一：通过onReady实现路由跳转。**
  
@@ -126,12 +122,12 @@ struct ProviderPage {
 
 @ComponentV2
 struct ConsumerChildPage {
-  // 通过绑定同样的key获取其最近父节点的@Provider的数据
+ <em> // 通过绑定同样的key获取其最近父节点的@Provider的数据</em>
   @Consumer('pageInfos') pageInfos: NavPathStack = new NavPathStack();
   @Local params: string = '';
 
   aboutToAppear(): void {
-    // getParamByIndex通过页面在路由栈中的索引位置获取参数（索引从栈底开始计算）
+   <em> // getParamByIndex通过页面在路由栈中的索引位置获取参数（索引从栈底开始计算）</em>
     this.params = this.pageInfos.getParamByIndex(this.pageInfos.getAllPathName().length - 1) as string;
   }
 
@@ -173,8 +169,8 @@ class ParamData {
 @Entry
 @ComponentV2
 struct AppStorageV2Page {
-  // 将key为NavPathStack，value为new NavPathStack()的键值对存入内存中，并赋值给pageInfos
-  @Local pageInfos: NavPathStack = AppStorageV2.connect(NavPathStack, () => new NavPathStack())!;
+<em>  // 将key为NavPathStack，value为new NavPathStack()的键值对存入内存中，并赋值给pageInfos</em>
+  @Local pageInfos: NavPathStack = AppStorageV2.connect<NavPathStack>(NavPathStack, () => new NavPathStack())!;
   @Local params: ParamData = new ParamData('使用V2传递的参数');
 
   @Builder
@@ -185,8 +181,8 @@ struct AppStorageV2Page {
   }
 
   aboutToAppear(): void {
-    // AppStorageV2只支持class类型，否则会抛出运行时报错
-    // 将key为ParamData，value为this.params的键值对存入内存
+ <em>   // AppStorageV2只支持class类型，否则会抛出运行时报错</em>
+<em>    // 将key为ParamData，value为this.params的键值对存入内存</em>
     AppStorageV2.connect(ParamData, () => this.params);
   }
 
@@ -208,9 +204,9 @@ struct AppStorageV2Page {
 
 @ComponentV2
 struct AppStorageV2ChildPage {
-  // key为NavPathStack已经在AppStorageV2中，将值返回给pageInfos
+ <em> // key为NavPathStack已经在AppStorageV2中，将值返回给pageInfos</em>
   @Local pageInfos: NavPathStack = AppStorageV2.connect(NavPathStack) as NavPathStack;
-  // key为ParamData已经在AppStorageV2中，将值返回给params
+ <em> // key为ParamData已经在AppStorageV2中，将值返回给params</em>
   @Local params: ParamData = AppStorageV2.connect(ParamData) as ParamData;
 
   build() {
@@ -235,11 +231,11 @@ struct AppStorageV2ChildPage {
 以上示例效果图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/j6Qa6nbNToq4DlyD_Jy0OQ/zh-cn_image_0000002659060263.png?HW-CC-KV=V1&HW-CC-Date=20260701T025727Z&HW-CC-Expire=86400&HW-CC-Sign=EFF294AF0FA1B8D6700045F4848FA92A8623838666DB29A3D63D3AA4770D3B1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/j6Qa6nbNToq4DlyD_Jy0OQ/zh-cn_image_0000002659060263.png?HW-CC-KV=V1&HW-CC-Date=20260701T041152Z&HW-CC-Expire=86400&HW-CC-Sign=2E2F86B2F256757D1B6269BF05CB4B0734C39696755FEDDE24B72A3B823795D2)
 
  
 
-##### 总结
+#### 总结
  
 | 实现方案 | 适用场景 |
 | --- | --- |

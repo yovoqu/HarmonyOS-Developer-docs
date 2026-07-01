@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-converter-h
-
 **支持设备：** Phone | PC/2in1 | Tablet
 
-## native_audio_converter.h
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet
 
 声明输入音频格式、输出音频格式底层数据结构和格式转换接口的定义。
  
@@ -26,48 +23,60 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### [h2]结构体
+#### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_AudioConverter_Format | OH_AudioConverter_Format | 定义音频转换器的数据结构，用于描述音频格式。 |
-| OH_AudioConverterStruct | OH_AudioConverter | 声明音频格式转换器。  音频转换器的句柄用于执行与音频转换器相关的功能。 |
+| OH_AudioConverterStruct | OH_AudioConverter | 声明音频格式转换器。 音频转换器的句柄用于执行与音频转换器相关的功能。 |
  
  
   
 
-##### [h2]枚举
+#### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_AudioConverter_Result | OH_AudioConverter_Result | 定义函数执行的返回结果。 |
-| OH_AudioConverter_InputStatus | OH_AudioConverter_InputStatus | 定义回调函数OH_AudioConverter_RequestDataCallback提供的输入音频数据的状态。转换器使用此状态来确定如何处理后续的转换逻辑。例如，继续提取数据，暂停或清除缓存数据。  注意：即使回调返回AUDIOCONVERTER_INPUT_DATA_FINISHED，也必须重复调用OH_AudioConverter_Process，直到OH_AudioConverter_Process返回AUDIOCONVERTER_SUCCESS，并且outputSize=0（表示所有缓存数据均已处理完成）。 |
+| OH_AudioConverter_InputStatus | OH_AudioConverter_InputStatus | 定义回调函数OH_AudioConverter_RequestDataCallback提供的输入音频数据的状态。转换器使用此状态来确定如何处理后续的转换逻辑。例如，继续提取数据，暂停或清除缓存数据。 注意：即使回调返回AUDIOCONVERTER_INPUT_DATA_FINISHED，也必须重复调用OH_AudioConverter_Process，直到OH_AudioConverter_Process返回AUDIOCONVERTER_SUCCESS，并且outputSize=0（表示所有缓存数据均已处理完成）。 |
  
  
   
 
-##### [h2]函数
+#### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_AudioConverter_Result OH_AudioConverter_Create(const OH_AudioConverter_Format* inputFormat, const OH_AudioConverter_Format* outputFormat, OH_AudioConverter** converter) | - | 创建音频转换器。 |
 | void OH_AudioConverter_Destroy(OH_AudioConverter* converter) | - | 请求释放转换器。 |
-| typedef int32_t (*OH_AudioConverter_RequestDataCallback)(void* userData, const void** outInputData, OH_AudioConverter_InputStatus* outStatus) | OH_AudioConverter_RequestDataCallback | 请求数据的回调函数。转换器在OH_AudioConverter_Process期间调用此回调函数以主动请求输入音频数据。  调用者必须填充输出参数（outInputData，outStatus），并返回通过回调函数读取的数据大小。  单个回调返回的最大数据大小为400KB。  outInputData指向的内存必须保持有效，直到OH_AudioConverter_Process返回处理完成为止。 |
+| typedef int32_t (*OH_AudioConverter_RequestDataCallback)(void* userData, const void** outInputData, OH_AudioConverter_InputStatus* outStatus) | OH_AudioConverter_RequestDataCallback | 请求数据的回调函数。转换器在OH_AudioConverter_Process期间调用此回调函数以主动请求输入音频数据。 调用者必须填充输出参数（outInputData，outStatus），并返回通过回调函数读取的数据大小。 单个回调返回的最大数据大小为400KB。 outInputData指向的内存必须保持有效，直到OH_AudioConverter_Process返回处理完成为止。 |
 | OH_AudioConverter_Result OH_AudioConverter_SetInputCallback(OH_AudioConverter* converter, OH_AudioConverter_RequestDataCallback callback, void* userData) | - | 设置转换器请求数据回调函数。此函数绑定音频转换器的输入数据回调函数。回调函数由OH_AudioConverter_Process调用，获取输入音频数据并进行处理。 |
 | OH_AudioConverter_Result OH_AudioConverter_Process(OH_AudioConverter* converter, void* outputData, int32_t outputCapacity, int32_t* outputSize) | - | 执行音频格式转换处理函数。该函数执行音频转换过程，将输入音频转换为目标格式，需要注意：该函数必须在OH_AudioConverter_SetInputCallback之后调用，并且最终转换结果写入的输出缓冲区必须由调用方分配和管理。 |
  
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### [h2]OH_AudioConverter_Result
+#### OH_AudioConverter_Result
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum OH_AudioConverter_Result
@@ -94,7 +103,9 @@ enum OH_AudioConverter_Result
  
   
 
-##### [h2]OH_AudioConverter_InputStatus
+#### OH_AudioConverter_InputStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum OH_AudioConverter_InputStatus
@@ -117,11 +128,15 @@ enum OH_AudioConverter_InputStatus
  
   
 
-##### 函数说明
+#### 函数说明
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### [h2]OH_AudioConverter_Create()
+#### OH_AudioConverter_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioConverter_Result OH_AudioConverter_Create(const OH_AudioConverter_Format* inputFormat, const OH_AudioConverter_Format* outputFormat, OH_AudioConverter** converter)
@@ -131,27 +146,8 @@ OH_AudioConverter_Result OH_AudioConverter_Create(const OH_AudioConverter_Format
  
 创建音频转换器。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/HAeYmNG4S_uI6J9HT8-Vgg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025452Z&HW-CC-Expire=86400&HW-CC-Sign=4AD424BECCCC3B277D42D386C643166F44181B92553B8ECDFAC73459F26EE54C)
- 
- 
-- 此函数创建的转换器实例必须通过[OH_AudioConverter_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-converter-h#oh_audioconverter_destroy)的显式方式销毁。
-- 支持的音频格式规范（适用于输入/输出）：
- 该转换器仅支持PCM（脉冲编码调制）音频格式。
-- 支持采样率：8000 Hz、11025 Hz、12000 Hz、16000 Hz、22050 Hz、24000 Hz、32000 Hz、44100 Hz、48000 Hz、
- 64000 Hz、88200 Hz、96000 Hz、176400 Hz和192000 Hz。
-- 支持声道布局：CH_LAYOUT_MONO、CH_LAYOUT_STEREO、CH_LAYOUT_STEREO_DOWNMIX、
- CH_LAYOUT_2POINT1、CH_LAYOUT_3POINT0、CH_LAYOUT_SURROUND、CH_LAYOUT_3POINT1、CH_LAYOUT_4POINT0、CH_LAYOUT_QUAD_SIDE、
- CH_LAYOUT_QUAD、CH_LAYOUT_2POINT0POINT2、CH_LAYOUT_4POINT1、CH_LAYOUT_5POINT0、CH_LAYOUT_5POINT0_BACK、
- CH_LAYOUT_2POINT1POINT2、CH_LAYOUT_3POINT0POINT2、CH_LAYOUT_5POINT1、CH_LAYOUT_5POINT1_BACK、CH_LAYOUT_6POINT0、
- CH_LAYOUT_3POINT1POINT2、CH_LAYOUT_6POINT0_FRONT、CH_LAYOUT_HEXAGONAL、CH_LAYOUT_6POINT1、CH_LAYOUT_6POINT1_BACK、
- CH_LAYOUT_6POINT1_FRONT、CH_LAYOUT_7POINT0、CH_LAYOUT_7POINT0_FRONT、CH_LAYOUT_7POINT1、CH_LAYOUT_OCTAGONAL、
- CH_LAYOUT_5POINT1POINT2、CH_LAYOUT_7POINT1_WIDE和CH_LAYOUT_7POINT1_WIDE_BACK。
-- 支持采样格式（位深）：SAMPLE_U8 （Unsigned 8位 PCM）、
- SAMPLE_S16LE（Short 16位小端 PCM）、SAMPLE_S24LE（Short 24位小端 PCM）、
- SAMPLE_S32LE（Short 32位小端 PCM）和SAMPLE_F32LE（Float 32位小端 PCM）。
-
-  
+> [!NOTE]
+> 此函数创建的转换器实例必须通过 OH_AudioConverter_Destroy 的显式方式销毁。 支持的音频格式规范（适用于输入/输出）： 该转换器仅支持PCM（脉冲编码调制）音频格式。 支持采样率：8000 Hz、11025 Hz、12000 Hz、16000 Hz、22050 Hz、24000 Hz、32000 Hz、44100 Hz、48000 Hz、 64000 Hz、88200 Hz、96000 Hz、176400 Hz和192000 Hz。 支持声道布局：CH_LAYOUT_MONO、CH_LAYOUT_STEREO、CH_LAYOUT_STEREO_DOWNMIX、 CH_LAYOUT_2POINT1、CH_LAYOUT_3POINT0、CH_LAYOUT_SURROUND、CH_LAYOUT_3POINT1、CH_LAYOUT_4POINT0、CH_LAYOUT_QUAD_SIDE、 CH_LAYOUT_QUAD、CH_LAYOUT_2POINT0POINT2、CH_LAYOUT_4POINT1、CH_LAYOUT_5POINT0、CH_LAYOUT_5POINT0_BACK、 CH_LAYOUT_2POINT1POINT2、CH_LAYOUT_3POINT0POINT2、CH_LAYOUT_5POINT1、CH_LAYOUT_5POINT1_BACK、CH_LAYOUT_6POINT0、 CH_LAYOUT_3POINT1POINT2、CH_LAYOUT_6POINT0_FRONT、CH_LAYOUT_HEXAGONAL、CH_LAYOUT_6POINT1、CH_LAYOUT_6POINT1_BACK、 CH_LAYOUT_6POINT1_FRONT、CH_LAYOUT_7POINT0、CH_LAYOUT_7POINT0_FRONT、CH_LAYOUT_7POINT1、CH_LAYOUT_OCTAGONAL、 CH_LAYOUT_5POINT1POINT2、CH_LAYOUT_7POINT1_WIDE和CH_LAYOUT_7POINT1_WIDE_BACK。 支持采样格式（位深）：SAMPLE_U8 （Unsigned 8位 PCM）、 SAMPLE_S16LE（Short 16位小端 PCM）、SAMPLE_S24LE（Short 24位小端 PCM）、 SAMPLE_S32LE（Short 32位小端 PCM）和SAMPLE_F32LE（Float 32位小端 PCM）。
 
  
 **起始版本：** 26.0.0
@@ -169,12 +165,14 @@ OH_AudioConverter_Result OH_AudioConverter_Create(const OH_AudioConverter_Format
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioConverter_Result | AUDIOCONVERTER_SUCCESS：创建格式转换器成功，可以正常执行后续流程。  AUDIOCONVERTER_ERROR_INVALID_PARAM：函数输入参数无效，需要检查传入的格式转换器指针是否非nullptr。  AUDIOCONVERTER_ERROR_UNSUPPORTED_FORMAT：音频输入/输出格式组合不支持，输入或输出格式超出允许范围，需要检查配置的音频格式。  AUDIOCONVERTER_ERROR_SYSTEM：系统错误，需要检查是否使用已销毁的格式转换器执行格式转换。 |
+| OH_AudioConverter_Result | AUDIOCONVERTER_SUCCESS：创建格式转换器成功，可以正常执行后续流程。 AUDIOCONVERTER_ERROR_INVALID_PARAM：函数输入参数无效，需要检查传入的格式转换器指针是否非nullptr。 AUDIOCONVERTER_ERROR_UNSUPPORTED_FORMAT：音频输入/输出格式组合不支持，输入或输出格式超出允许范围，需要检查配置的音频格式。 AUDIOCONVERTER_ERROR_SYSTEM：系统错误，需要检查是否使用已销毁的格式转换器执行格式转换。 |
  
  
   
 
-##### [h2]OH_AudioConverter_Destroy()
+#### OH_AudioConverter_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 void OH_AudioConverter_Destroy(OH_AudioConverter* converter)
@@ -195,7 +193,9 @@ void OH_AudioConverter_Destroy(OH_AudioConverter* converter)
  
   
 
-##### [h2]OH_AudioConverter_RequestDataCallback()
+#### OH_AudioConverter_RequestDataCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef int32_t (*OH_AudioConverter_RequestDataCallback)(void* userData, const void** outInputData, OH_AudioConverter_InputStatus* outStatus
@@ -232,7 +232,9 @@ typedef int32_t (*OH_AudioConverter_RequestDataCallback)(void* userData, const v
  
   
 
-##### [h2]OH_AudioConverter_SetInputCallback()
+#### OH_AudioConverter_SetInputCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioConverter_Result OH_AudioConverter_SetInputCallback(OH_AudioConverter* converter, OH_AudioConverter_RequestDataCallback callback, void* userData
@@ -258,12 +260,14 @@ OH_AudioConverter_Result OH_AudioConverter_SetInputCallback(OH_AudioConverter* c
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioConverter_Result | AUDIOCONVERTER_SUCCESS：设置输入回调函数成功，可以正常执行后续流程。  AUDIOCONVERTER_ERROR_INVALID_PARAM：函数输入参数无效，需要检查传入的格式转换器指针是否非nullptr。  AUDIOCONVERTER_ERROR_NOT_INITIALIZED：格式转换器未初始化，需要检查当前格式转换器是否有效。  AUDIOCONVERTER_ERROR_CALLBACK_INVALID：回调函数无效，需要检查输入回调函数返回数据量是否在允许范围内。  AUDIOCONVERTER_ERROR_CALLBACK_NOT_SET：回调函数未设置，需要检查回调函数指针是否非空。  AUDIOCONVERTER_ERROR_SYSTEM：系统错误，需要检查是否使用已销毁的格式转换器执行格式转换。 |
+| OH_AudioConverter_Result | AUDIOCONVERTER_SUCCESS：设置输入回调函数成功，可以正常执行后续流程。 AUDIOCONVERTER_ERROR_INVALID_PARAM：函数输入参数无效，需要检查传入的格式转换器指针是否非nullptr。 AUDIOCONVERTER_ERROR_NOT_INITIALIZED：格式转换器未初始化，需要检查当前格式转换器是否有效。 AUDIOCONVERTER_ERROR_CALLBACK_INVALID：回调函数无效，需要检查输入回调函数返回数据量是否在允许范围内。 AUDIOCONVERTER_ERROR_CALLBACK_NOT_SET：回调函数未设置，需要检查回调函数指针是否非空。 AUDIOCONVERTER_ERROR_SYSTEM：系统错误，需要检查是否使用已销毁的格式转换器执行格式转换。 |
  
  
   
 
-##### [h2]OH_AudioConverter_Process()
+#### OH_AudioConverter_Process()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioConverter_Result OH_AudioConverter_Process(OH_AudioConverter* converter, void* outputData, int32_t outputCapacity, int32_t* outputSize
@@ -290,4 +294,4 @@ OH_AudioConverter_Result OH_AudioConverter_Process(OH_AudioConverter* converter,
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_AudioConverter_Result | AUDIOCONVERTER_SUCCESS：PCM音频数据格式转换成功，可以正常执行后续流程。  AUDIOCONVERTER_ERROR_INVALID_PARAM：函数输入参数无效，需要检查传入的格式转换器指针是否非nullptr。  AUDIOCONVERTER_ERROR_NOT_INITIALIZED：格式转换器未初始化，需要检查当前格式转换器是否有效。  AUDIOCONVERTER_ERROR_CALLBACK_INVALID：输入回调函数无效，需要检查输入回调函数返回数据量是否在允许范围内。  AUDIOCONVERTER_ERROR_CALLBACK_NOT_SET：回调函数未设置，需要检查回调函数是否已成功设置并且函数指针是否非空。  AUDIOCONVERTER_ERROR_BUFFER_TOO_SMALL：输出缓冲区容量不足，需要检查设置的存储输出数据的缓冲区容量是否足够存放一帧输出数据。  AUDIOCONVERTER_ERROR_SYSTEM：系统错误，需要检查是否使用已销毁的格式转换器执行格式转换。 |
+| OH_AudioConverter_Result | AUDIOCONVERTER_SUCCESS：PCM音频数据格式转换成功，可以正常执行后续流程。 AUDIOCONVERTER_ERROR_INVALID_PARAM：函数输入参数无效，需要检查传入的格式转换器指针是否非nullptr。 AUDIOCONVERTER_ERROR_NOT_INITIALIZED：格式转换器未初始化，需要检查当前格式转换器是否有效。 AUDIOCONVERTER_ERROR_CALLBACK_INVALID：输入回调函数无效，需要检查输入回调函数返回数据量是否在允许范围内。 AUDIOCONVERTER_ERROR_CALLBACK_NOT_SET：回调函数未设置，需要检查回调函数是否已成功设置并且函数指针是否非空。 AUDIOCONVERTER_ERROR_BUFFER_TOO_SMALL：输出缓冲区容量不足，需要检查设置的存储输出数据的缓冲区容量是否足够存放一帧输出数据。 AUDIOCONVERTER_ERROR_SYSTEM：系统错误，需要检查是否使用已销毁的格式转换器执行格式转换。 |

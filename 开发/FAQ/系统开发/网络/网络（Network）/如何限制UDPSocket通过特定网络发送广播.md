@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-96
 
-## 如何限制UDPSocket通过特定网络发送广播
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用UDPSocket发送广播，发现广播是通过蜂窝网络发出去的，如何限制UDPSocket只通过WiFi网络发送广播？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [@ohos.net.socket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket)模块提供利用Socket进行数据传输的能力，支持TCPSocket、UDPSocket、WebSocket和TLSSocket，仅可发送string、ArrayBuffer类型的数据。
 - 广播地址：向同一子网所有主机发送数据的IP地址，其主机位全为1。比如192.168.43.0/24子网中的直接广播地址是192.168.43.255，受限广播地址为255.255.255.255。
@@ -22,23 +18,22 @@
  
  
 
-##### 解决方案
-
-- 将[UdpExtraOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#udpextraoptions)的broadcast参数设置为true开启广播功能：
-```text
+#### 解决方案
+1. 将[UdpExtraOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#udpextraoptions)的broadcast参数设置为true开启广播功能：
+```json
 let udpExtraOptions: socket.UDPExtraOptions = {
   receiveBufferSize: 8192,
   sendBufferSize: 8192,
   reuseAddress: false,
   socketTimeout: 6000,
-  broadcast: true // 开启广播
+  broadcast: true <em>// 开启广播</em>
 };
 this.udpClient.bind({ address: '0.0.0.0', port: 8000, family: 1 } as socket.NetAddress, (error: Error) => {
   if (error) {
     console.error(`udp client bind fail: ${JSON.stringify(error)}`);
     return;
   }
-  // 注意setExtraOptions需要在bind成功之后设置
+<em>  // 注意setExtraOptions需要在bind成功之后设置</em>
   this.udpClient.setExtraOptions(udpExtraOptions, (err: BusinessError) => {
     if (err) {
       console.error(`setExtraOptions fail: ${JSON.stringify(err)}`);
@@ -50,9 +45,9 @@ this.udpClient.bind({ address: '0.0.0.0', port: 8000, family: 1 } as socket.NetA
 });
 ```
 
-- 使用[connection.getAllNets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetallnets)获取所有处于连接状态的网络句柄。并将网络句柄传入[connection.getNetCapabilities](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetnetcapabilities)接口，在回调函数中通过bearerTypes字段判断网络类型，筛选出所需的WiFi句柄。
-- 用WiFi句柄调用bindSocket将TCPSocket或UDPSocket绑定到当前网络：
-```text
+2. 使用[connection.getAllNets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetallnets)获取所有处于连接状态的网络句柄。并将网络句柄传入[connection.getNetCapabilities](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetnetcapabilities)接口，在回调函数中通过bearerTypes字段判断网络类型，筛选出所需的WiFi句柄。
+3. 用WiFi句柄调用bindSocket将TCPSocket或UDPSocket绑定到当前网络：
+```json
 bindSocket2BearType(socketParam: socket.TCPSocket | socket.UDPSocket, bearType: connection.NetBearType) {
   if (!bearType) {
     return;
@@ -62,7 +57,19 @@ bindSocket2BearType(socketParam: socket.TCPSocket | socket.UDPSocket, bearType: 
     if (error) {
       console.error(`getAllNets failed: ${JSON.stringify(error)}`);
     }
-    for (let index = 0; index  {
+    for (let index = 0; index < netHandles.length; index++) {
+      try {
+        let data = connection.getNetCapabilitiesSync(netHandles[index]);
+        console.info(`Succeeded to get data: ${JSON.stringify(data)} `);
+        if (bearType === data.bearerTypes[0]) {
+          netHandle = netHandles[index];
+        }
+      } catch (error) {
+        console.error(`failed to get net capabilities. Code:${error.code}, message:${error.message}`);
+      }
+    }
+    if (netHandle) {
+      (netHandle as connection.NetHandle).bindSocket(socketParam, (error: BusinessError, data: void) => {
         if (error) {
           console.error(`failed to bind socket. Code:${error.code}, message:${error.message}`);
         } else {
@@ -76,10 +83,10 @@ bindSocket2BearType(socketParam: socket.TCPSocket | socket.UDPSocket, bearType: 
 }
 ```
 
-- 向广播地址发送数据：
-```text
+4. 向广播地址发送数据：
+```json
 let netAddress: socket.NetAddress = {
-  address: this.broadcastIp, // 广播地址
+  address: this.broadcastIp,<em> // 广播地址</em>
   port: this.broadcastPort
 };
 let sendOptions: socket.UDPSendOptions = {
@@ -95,11 +102,10 @@ this.udpClient.send(sendOptions, (err: BusinessError) => {
 });
 ```
 
-
  
 包含接收端的完整示例如下：
  
-```text
+```json
 import { connection, socket } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { util } from '@kit.ArkTS';
@@ -108,8 +114,8 @@ import { util } from '@kit.ArkTS';
 @Component
 struct SocketSendBySpecificNet {
   private udpClient: socket.UDPSocket = socket.constructUDPSocketInstance();
-  private broadcastIp: string = '255.255.255.255'; // 广播地址，可以是子网广播地址比如192.168.43.255或受限广播地址255.255.255.255
-  private broadcastPort: number = 18256; // 广播包端口，需要双方协商
+  private broadcastIp: string = '255.255.255.255';<em> // 广播地址，可以是子网广播地址比如192.168.43.255或受限广播地址255.255.255.255</em>
+  private broadcastPort: number = 18256; <em>// 广播包端口，需要双方协商</em>
 
   aboutToAppear(): void {
     let udpExtraOptions: socket.UDPExtraOptions = {
@@ -117,14 +123,14 @@ struct SocketSendBySpecificNet {
       sendBufferSize: 8192,
       reuseAddress: false,
       socketTimeout: 6000,
-      broadcast: true // 开启广播
+      broadcast: true <em>// 开启广播</em>
     };
     this.udpClient.bind({ address: '0.0.0.0', port: 8000, family: 1 } as socket.NetAddress, (error: Error) => {
       if (error) {
         console.error(`udp client bind fail: ${JSON.stringify(error)}`);
         return;
       }
-      // 注意setExtraOptions需要在bind成功之后设置
+    <em>  // 注意setExtraOptions需要在bind成功之后设置</em>
       this.udpClient.setExtraOptions(udpExtraOptions, (err: BusinessError) => {
         if (err) {
           console.error(`setExtraOptions fail: ${JSON.stringify(err)}`);
@@ -145,7 +151,19 @@ struct SocketSendBySpecificNet {
       if (error) {
         console.error(`getAllNets failed: ${JSON.stringify(error)}`);
       }
-      for (let index = 0; index  {
+      for (let index = 0; index < netHandles.length; index++) {
+        try {
+          let data = connection.getNetCapabilitiesSync(netHandles[index]);
+          console.info(`Succeeded to get data: ${JSON.stringify(data)} `);
+          if (bearType === data.bearerTypes[0]) {
+            netHandle = netHandles[index];
+          }
+        } catch (error) {
+          console.error(`failed to get net capabilities. Code:${error.code}, message:${error.message}`);
+        }
+      }
+      if (netHandle) {
+        (netHandle as connection.NetHandle).bindSocket(socketParam, (error: BusinessError, data: void) => {
           if (error) {
             console.error(`failed to bind socket. Code:${error.code}, message:${error.message}`);
           } else {
@@ -162,7 +180,7 @@ struct SocketSendBySpecificNet {
     Column({ space: 24 }) {
       Button('Socket通过特定网络发送广播').onClick(() => {
         let netAddress: socket.NetAddress = {
-          address: this.broadcastIp, // 广播地址
+          address: this.broadcastIp,<em> // 广播地址</em>
           port: this.broadcastPort
         };
         let sendOptions: socket.UDPSendOptions = {
@@ -202,7 +220,7 @@ struct SocketSendBySpecificNet {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：bindSocket是否支持多次调用绑定多个Socket？
  

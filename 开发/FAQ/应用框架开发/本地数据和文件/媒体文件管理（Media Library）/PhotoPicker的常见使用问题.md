@@ -4,22 +4,16 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-27
 
-## PhotoPicker的常见使用问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS为开发者提供了PhotoViewPicker接口和PhotoPickerComponent组件，开发者可以使用这两种方式拉起媒体文件选择器，让用户自行选择媒体文件资源。本文总结了一些PhotoPicker的常见使用问题如下：
- 
-- PhotoViewPicker和PhotoPickerComponent的区别是什么，如何选择？
-- PhotoPickerComponent存在哪些限制？
-- 使用Picker完成图片选择后返回的uri如何使用，直接使用该uri上传报错如何处理？
-
+ 1. PhotoViewPicker和PhotoPickerComponent的区别是什么，如何选择？
+2. PhotoPickerComponent存在哪些限制？
+3. 使用Picker完成图片选择后返回的uri如何使用，直接使用该uri上传报错如何处理？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [使用Picker选择媒体库资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)：当用户需要分享图片、视频等文件时，开发者可以通过特定接口拉起系统图库，让用户自行选择待分享的资源，完成分享。此接口本身无需申请权限，目前适用于界面UIAbility，使用窗口组件触发。
  
@@ -27,37 +21,39 @@ HarmonyOS为开发者提供了PhotoViewPicker接口和PhotoPickerComponent组件
  
  
 
-##### 解决方案
+#### 解决方案
+1. PhotoViewPicker和PhotoPickerComponent是HarmonyOS为开发者提供的选取图库媒体文件资源的两种方式，两者差异及适用场景如下：
 
-- PhotoViewPicker和PhotoPickerComponent是HarmonyOS为开发者提供的选取图库媒体文件资源的两种方式，两者差异及适用场景如下： 
 | 对比维度 | PhotoViewPicker | PhotoPickerComponent |
+
 | --- | --- | --- |
+
 | 本质类型 | 系统接口（@ohos.photoAccess.photoAccessHelper） | 嵌入式组件（@ohos.file.PhotoPickerComponent） |
+
 | 调用方式 | 异步拉起系统相册界面 | 直接嵌入应用布局 |
+
 | 界面交互 | 跳转至独立系统相册界面 | 内嵌在当前应用页面 |
+
 | 可配置项 | PhotoSelectOptions | PickerOptions |
+
 | 定制化能力 | 使用固定系统界面 | 可深度集成到自定义 UI（支持背景色/勾选框样式等配置） |
+
 | 适用场景 | 需系统级相册界面 要求文件类型过滤 需重复选择同一文件 | 避免页面跳转的沉浸式体验 需与自定义 UI 深度集成 简化交互流程（如勾选后直接编辑） |
-
-
-- PhotoPickerComponent组件使用存在限制如下：
+1. PhotoPickerComponent组件使用存在限制如下：
 不支持嵌套使用，用户使用PhotoPickerComponent选中媒体文件后，系统会将媒体文件的uri授权给应用，如果此时在Picker上方存在可点击事件，可能会对用户安全造成影响，因此PhotoPickerComponent上方覆盖设置了overlay属性的组件，将导致PhotoPickerComponent无法接受手势事件。
-- PhotoPickerComponent不支持[同层渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-same-layer)。
-- PhotoPickerComponent不支持在[@ohos.inputMethod (输入法框架)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod)中使用。
-
- 
-
-- 使用Picker完成图片选择后，会直接返回该图片资源，系统出于安全考虑不允许直接对其进行上传，必须先存到沙箱，所以需要使用[copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopyfilesync)接口把文件资源读取到自己的沙箱目录中再进行操作。图库拷贝到沙箱参考代码：
-```text
-async copyFile2Sandbox(filePathString: string): Promise {
+2. PhotoPickerComponent不支持[同层渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-same-layer)。
+3. PhotoPickerComponent不支持在[@ohos.inputMethod (输入法框架)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod)中使用。
+1. 使用Picker完成图片选择后，会直接返回该图片资源，系统出于安全考虑不允许直接对其进行上传，必须先存到沙箱，所以需要使用[copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fscopyfilesync)接口把文件资源读取到自己的沙箱目录中再进行操作。图库拷贝到沙箱参考代码：
+```json
+async copyFile2Sandbox(filePathString: string): Promise<boolean> {
   let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
   let resFile: fileIo.File | undefined;
   try {
     resFile = fileIo.openSync(filePathString, fileIo.OpenMode.READ_ONLY);
-    // 创建临时文件目录
+  <em>  // 创建临时文件目录</em>
     let dateStr = (new Date().getTime()).toString();
     let newPath = context.cacheDir + `/${dateStr + resFile.name}`;
-    // 拷贝系统图库图片到沙箱
+   <em> // 拷贝系统图库图片到沙箱</em>
     fileIo.copyFileSync(resFile.fd, newPath);
     return true;
   } catch (error) {
@@ -71,8 +67,9 @@ async copyFile2Sandbox(filePathString: string): Promise {
 }
 ```
  此示例以PhotoPickerComponent为例，PhotoViewPicker同理，完整代码如下：
- 
-```text
+
+  
+```json
 import { common } from '@kit.AbilityKit';
 import { fileIo } from '@kit.CoreFileKit';
 import {
@@ -90,25 +87,25 @@ import {
 @Entry
 @Component
 struct Index {
-  // 组件初始化完成后，可控制组件部分行为。
+<em>  // 组件初始化完成后，可控制组件部分行为。</em>
   @State pickerController: PickerController = new PickerController();
-  // 组件初始化时设置参数信息。
+ <em> // 组件初始化时设置参数信息。</em>
   pickerOptions: PickerOptions = new PickerOptions();
-  // 目前选择的图片。
+<em>  // 目前选择的图片。</em>
   currentUri: string = '';
 
 
   aboutToAppear() {
-    // 设置picker宫格页数据类型
-    this.pickerOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; // 只显示图片
-    // 最大选择数量。
+  <em>  // 设置picker宫格页数据类型</em>
+    this.pickerOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE; <em>// 只显示图片</em>
+ <em>   // 最大选择数量。</em>
     this.pickerOptions.maxSelectNumber = 1;
-    // 超出最大选择数量时。
+ <em>   // 超出最大选择数量时。</em>
     this.pickerOptions.maxSelectedReminderMode = ReminderMode.TOAST;
   }
 
 
-  // 资源被选中回调，返回资源的信息，以及选中方式。
+ <em> // 资源被选中回调，返回资源的信息，以及选中方式。</em>
   private onItemClicked(itemInfo: ItemInfo, clickType: ClickType): boolean {
     if (!itemInfo) {
       return false;
@@ -116,11 +113,11 @@ struct Index {
     let type: ItemType | undefined = itemInfo.itemType;
     let uri: string | undefined = itemInfo.uri;
     if (type === ItemType.CAMERA) {
-      // 点击相机item。
-      return true; // 返回true则拉起系统相机，若应用需要自行处理则返回false。
+    <em>  // 点击相机item。</em>
+      return true; <em>// 返回true则拉起系统相机，若应用需要自行处理则返回false。</em>
     } else {
       if (clickType === ClickType.SELECTED) {
-        // 应用做自己的业务处理。
+  <em>      // 应用做自己的业务处理。</em>
         if (uri) {
           this.copyFile2Sandbox(uri)
             .then((result: boolean) => {
@@ -131,20 +128,20 @@ struct Index {
               }
             });
         }
-        return true; // 返回true则勾选，否则则不响应勾选。
+        return true; <em>// 返回true则勾选，否则则不响应勾选。</em>
       }
       return true;
     }
   }
-  async copyFile2Sandbox(filePathString: string): Promise {
+  async copyFile2Sandbox(filePathString: string): Promise<boolean> {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     let resFile: fileIo.File | undefined;
     try {
       resFile = fileIo.openSync(filePathString, fileIo.OpenMode.READ_ONLY);
-      // 创建临时文件目录
+     <em> // 创建临时文件目录</em>
       let dateStr = (new Date().getTime()).toString();
       let newPath = context.cacheDir + `/${dateStr + resFile.name}`;
-      // 拷贝系统图库图片到沙箱
+     <em> // 拷贝系统图库图片到沙箱</em>
       fileIo.copyFileSync(resFile.fd, newPath);
       return true;
     } catch (error) {
@@ -156,6 +153,8 @@ struct Index {
       }
     }
   }
+
+
 
 
   build() {
@@ -178,11 +177,10 @@ struct Index {
 }
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：PhotoViewPicker在@ohos.file.picker中跟@ohos.file.photoAccessHelper都存在，两个包下的PhotoViewPicker有什么区别？
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-89
 
-## Http请求失败后是否需要主动销毁HttpRequest对象
- 
-
-
-##### 问题现象
+#### 问题现象
 
 网络请求失败后，HttpRequest对象是否需要手动销毁，还是会自动销毁？
  
  
 
-##### 解决方案
+#### 解决方案
 
 在ArkTS中，HttpRequest对象通常不需要[手动销毁](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#destroy)，因为框架会通过垃圾回收机制自动管理其内存。然而，在某些特殊情况下，可能需要手动进行资源释放或执行类似销毁的操作，例如以下几种情况：
  

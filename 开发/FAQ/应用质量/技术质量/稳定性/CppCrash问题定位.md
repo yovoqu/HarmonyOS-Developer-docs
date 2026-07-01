@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-10
 
-## CppCrash问题定位
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用在使用过程中或者在执行稳定性测试时，应用出现闪退或上报CppCrash异常。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - CppCrash进程崩溃检测基于操作系统信号机制，目前支持的崩溃信号参考[Cpp Crash（进程崩溃）检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines)。
 - CppCrash日志规格可以参考[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#日志规格)说明。
@@ -22,15 +18,14 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
  
 
-##### [h2]场景一
-
-- 从faultlogger目录下获取CppCrash故障日志。查看故障原因和异常信息Reason。
-- 故障信号是SIGSEGV。
-异常信息为空。从栈顶往下分析，跳过libace_ndk.z.so等公共基础库，发生异常的so库解析崩溃堆栈后结合代码进行分析。
+#### 场景一
+1. 从faultlogger目录下获取CppCrash故障日志。查看故障原因和异常信息Reason。
+2. 故障信号是SIGSEGV。
+- 异常信息为空。从栈顶往下分析，跳过libace_ndk.z.so等公共基础库，发生异常的so库解析崩溃堆栈后结合代码进行分析。
 ```text
 Uid:20020197
 Process name:com.hx.example
@@ -39,7 +34,7 @@ Reason:Signal:SIGSEGV(SEGV_MAPERR)@0xffab14aa14a914c0
 Fault thread info:
 Tid:62538, Name:com.hx.example
 #00 pc 00000000000296e4 /system/lib64/libace_ndk.z.so(ArkUI_AccessibilityProvider::SendAccessibilityAsyncEvent(ArkUI_AccessibilityEventInfo*, void (*)(int))+32)(42521ecd5a913b6984e2ff754dc45cf0)
-#01 pc 000000000020295c /data/storage/el1/bundle/libs/arm64/libflutter.so(cd0979aaa7458f05c7c4cfb0d8928c90c484e393) // 异常so库
+#01 pc 000000000020295c /data/storage/el1/bundle/libs/arm64/libflutter.so(cd0979aaa7458f05c7c4cfb0d8928c90c484e393) <em>// 异常so库</em>
 #02 pc 0000000000789730 /data/storage/el1/bundle/libs/arm64/libflutter.so(cd0979aaa7458f05c7c4cfb0d8928c90c484e393)
 #03 pc 0000000000221170 /data/storage/el1/bundle/libs/arm64/libflutter.so(cd0979aaa7458f05c7c4cfb0d8928c90c484e393)
 #04 pc 0000000000016db4 /system/lib64/platformsdk/libuv.so(uv__async_io+352)(25c5e130ae25e495771607adc70da044)
@@ -47,7 +42,8 @@ Tid:62538, Name:com.hx.example
 #06 pc 000000000001739c /system/lib64/platformsdk/libuv.so(uv_run+408)(25c5e130ae25e495771607adc70da044)
 ```
 
-- 异常信息是：Signal:SIGSEGV(SEGV_MAPERR)@000000000000000000 probably caused by NULL pointer dereference。无效内存访问，需要栈顶so库解析崩溃栈后结合代码进行具体分析。
+
+3. 异常信息是：Signal:SIGSEGV(SEGV_MAPERR)@000000000000000000 probably caused by NULL pointer dereference。无效内存访问，需要栈顶so库解析崩溃栈后结合代码进行具体分析。
 ```text
 Uid:20020157
 Process name:com.hx.example
@@ -63,7 +59,8 @@ Tid:18211, Name:1.ui
 #05 pc 000000000056901c /data/storage/el1/bundle/libs/arm64/libsunloginclient.so(16409f4ecdc715f04b938e5ce840a0c704acac30)
 ```
 
-- 异常信息是：SIGSEGV(SEGV_ACCERR)@0x0000000000000000 current thread stack low address = 0x0000000000000000, probably caused by stack-buffer-overflow，堆栈缓冲区溢出。堆栈中有大量重复调用，排查是否递归调用未能终止导致栈内存溢出，需要栈顶so库解析崩溃栈后结合代码进行具体分析。
+
+4. 异常信息是：SIGSEGV(SEGV_ACCERR)@0x0000000000000000 current thread stack low address = 0x0000000000000000, probably caused by stack-buffer-overflow，堆栈缓冲区溢出。堆栈中有大量重复调用，排查是否递归调用未能终止导致栈内存溢出，需要栈顶so库解析崩溃栈后结合代码进行具体分析。
 ```text
 Uid:20020180
 Process name:com.hx.example
@@ -73,32 +70,31 @@ Fault thread info:
 Tid:1773, Name:Chrome_IOThread
 #00 pc 0000000003e15da8 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(content::BrowserThread::CurrentlyOn(content::BrowserThread::ID)+4)(061948a4140de9d4f304c80724508f0147d74f83)
 #01 pc 0000000004e74c6c /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(ArkWeb_HttpBodyStream_::OnReadComplete(char*, int)+76)(061948a4140de9d4f304c80724508f0147d74f83)
-#02 pc 0000000002865b94 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::OnStreamReadAsync(scoped_refptr, scoped_refptr, int)+36)(061948a4140de9d4f304c80724508f0147d74f83)
-#03 pc 0000000002865b30 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::ReadAsync(void*, int, scoped_refptr)+388)(061948a4140de9d4f304c80724508f0147d74f83)
-#04 pc 0000000002865c28 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::Read(void*, int, scoped_refptr)+112)(061948a4140de9d4f304c80724508f0147d74f83)
+#02 pc 0000000002865b94 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::OnStreamReadAsync(scoped_refptr<net::WrappedIOBuffer>, scoped_refptr<CefPostDataStreamReadCallback>, int)+36)(061948a4140de9d4f304c80724508f0147d74f83)
+#03 pc 0000000002865b30 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::ReadAsync(void*, int, scoped_refptr<CefPostDataStreamReadCallback>)+388)(061948a4140de9d4f304c80724508f0147d74f83)
+#04 pc 0000000002865c28 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::Read(void*, int, scoped_refptr<CefPostDataStreamReadCallback>)+112)(061948a4140de9d4f304c80724508f0147d74f83)
 #05 pc 0000000004e745ac /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(ArkWeb_HttpBodyStream_::Read(void*, long) const+124)(061948a4140de9d4f304c80724508f0147d74f83)
 #06 pc 00000000000318b8 /data/storage/el1/bundle/libs/arm64/libwindvane.so(c7fcd317362718625bc274826f4e4217942fa164)
 // ...
 #247 pc 0000000004e74c84 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(ArkWeb_HttpBodyStream_::OnReadComplete(char*, int)+100)(061948a4140de9d4f304c80724508f0147d74f83)
-#248 pc 0000000002865b94 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::OnStreamReadAsync(scoped_refptr, scoped_refptr, int)+36)(061948a4140de9d4f304c80724508f0147d74f83)
-#249 pc 0000000002865b30 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::ReadAsync(void*, int, scoped_refptr)+388)(061948a4140de9d4f304c80724508f0147d74f83)
-#250 pc 0000000002865c28 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::Read(void*, int, scoped_refptr)+112)(061948a4140de9d4f304c80724508f0147d74f83)
+#248 pc 0000000002865b94 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::OnStreamReadAsync(scoped_refptr<net::WrappedIOBuffer>, scoped_refptr<CefPostDataStreamReadCallback>, int)+36)(061948a4140de9d4f304c80724508f0147d74f83)
+#249 pc 0000000002865b30 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::ReadAsync(void*, int, scoped_refptr<CefPostDataStreamReadCallback>)+388)(061948a4140de9d4f304c80724508f0147d74f83)
+#250 pc 0000000002865c28 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::Read(void*, int, scoped_refptr<CefPostDataStreamReadCallback>)+112)(061948a4140de9d4f304c80724508f0147d74f83)
 #251 pc 0000000004e745ac /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(ArkWeb_HttpBodyStream_::Read(void*, long) const+124)(061948a4140de9d4f304c80724508f0147d74f83)
 #252 pc 00000000000318b8 /data/storage/el1/bundle/libs/arm64/libwindvane.so(c7fcd317362718625bc274826f4e4217942fa164)
 #253 pc 0000000004e74c84 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(ArkWeb_HttpBodyStream_::OnReadComplete(char*, int)+100)(061948a4140de9d4f304c80724508f0147d74f83)
-#254 pc 0000000002865b94 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::OnStreamReadAsync(scoped_refptr, scoped_refptr, int)+36)(061948a4140de9d4f304c80724508f0147d74f83)
-#255 pc 0000000002865b30 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::ReadAsync(void*, int, scoped_refptr)+388)(061948a4140de9d4f304c80724508f0147d74f83)
+#254 pc 0000000002865b94 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::OnStreamReadAsync(scoped_refptr<net::WrappedIOBuffer>, scoped_refptr<CefPostDataStreamReadCallback>, int)+36)(061948a4140de9d4f304c80724508f0147d74f83)
+#255 pc 0000000002865b30 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(CefPostDataStreamImpl::ReadAsync(void*, int, scoped_refptr<CefPostDataStreamReadCallback>)+388)(061948a4140de9d4f304c80724508f0147d74f83)
 ```
 
 
- 
- 
- 
+  
 
-##### [h2]场景二
+  #### 场景二
 
-- 从faultlogger目录下获取CppCrash故障日志。查看故障原因和异常信息Reason。
-- 故障信号是SIGABRT(SI_TKILL)。
+1. 从faultlogger目录下获取CppCrash故障日志。查看故障原因和异常信息Reason。
+
+2. 故障信号是SIGABRT(SI_TKILL)。
 异常信息为空。从崩溃堆栈中可以看出，libestarx_sdk.so调用了abort函数退出进程。
 ```text
 Reason:Signal:SIGABRT(SI_TKILL)@0x01317be700007163 from:29027:20020199
@@ -106,7 +102,34 @@ Reason:Signal:SIGABRT(SI_TKILL)@0x01317be700007163 from:29027:20020199
    Tid:29027, Name:XXXXXX
    #00 pc 0000000000199168 /system/lib/ld-musl-aarch64.so.1(raise+228)(2869c16473050fa2addbe1ee1a3d23c3)
    #01 pc 0000000000146464 /system/lib/ld-musl-aarch64.so.1(abort+20)(2869c16473050fa2addbe1ee1a3d23c3)
-   #02 pc 00000000001182e0 /data/storage/el1/bundle/libs/arm64/libestarx_sdk.so(02a23a55c2e05b8f6f1993b0e68e0c2cc61294c7) (panda::JsiRuntimeCallInfo*)+212)(edf034e044dbf26f955142c343577527)
+   #02 pc 00000000001182e0 /data/storage/el1/bundle/libs/arm64/libestarx_sdk.so(02a23a55c2e05b8f6f1993b0e68e0c2cc61294c7) <---- 调用abort的so库
+   #03 pc 0000000000117d20 /data/storage/el1/bundle/libs/arm64/libestarx_sdk.so(02a23a55c2e05b8f6f1993b0e68e0c2cc61294c7)
+```
+
+
+3. 异常信息是：terminating due to uncaught exception of type XXXX。未处理抛出的异常，跳过ld-musl-aarch64.so和libc++.so等公共基础库，找到异常的抛出位置结合代码进行具体分析。
+```text
+Uid:20020169
+Process name:com.hx.example
+Process life time:18446744073709547675s
+Reason:Signal:SIGABRT(SI_TKILL)@0x01317bc900000a02 from:2562:20020169
+LastFatalMessage:terminating due to uncaught exception of type std::__h::system_error: random_device got an unexpected error: Bad file descriptor
+Fault thread info:
+Tid:2562, Name:线程名
+#00 pc 0000000000199e1c /system/lib/ld-musl-aarch64.so.1(raise+228)(6b9883f518515f73e093bce9a89a2548)
+#01 pc 0000000000146f8c /system/lib/ld-musl-aarch64.so.1(abort+20)(6b9883f518515f73e093bce9a89a2548)
+#02 pc 00000000000adc34 /system/lib64/libc++.so(7817a009937816a1f11f1e7673c1e796f9d24b58)
+#03 pc 00000000000971f8 /system/lib64/libc++.so(7817a009937816a1f11f1e7673c1e796f9d24b58)
+#04 pc 00000000000acef8 /system/lib64/libc++.so(7817a009937816a1f11f1e7673c1e796f9d24b58)
+#05 pc 00000000000afeb8 /system/lib64/libc++.so(7817a009937816a1f11f1e7673c1e796f9d24b58)
+#06 pc 00000000000afe34 /system/lib64/libc++.so(__cxa_throw+124)(7817a009937816a1f11f1e7673c1e796f9d24b58)
+#07 pc 00000000000d1aa4 /system/lib64/libc++.so(std::__h::__throw_system_error(int, char const*)+96)(7817a009937816a1f11f1e7673c1e796f9d24b58)
+#08 pc 00000000000d277c /system/lib64/libc++.so(std::__h::random_device::operator()()+168)(7817a009937816a1f11f1e7673c1e796f9d24b58)
+#09 pc 0000000000015dec /system/lib64/libhuaweiid_native_base.z.so(HMS::HuaweiId::SystemUtil::get_random(unsigned int, unsigned int) (.cfi)+84)(ebd50acd72f8ae96c384ac230dfaab8a) <-- 异常抛出位置
+#10 pc 0000000000010acc /system/lib64/libhuaweiid_native_base.z.so(HMS::HuaweiId::HiAppEventUtils::GenerateTransId() (.cfi)+184)(ebd50acd72f8ae96c384ac230dfaab8a)
+#11 pc 0000000000010c08 /system/lib64/libhuaweiid_native_base.z.so(HMS::HuaweiId::HiAppEventUtils::BuildEventKey(int) (.cfi)+52)(ebd50acd72f8ae96c384ac230dfaab8a)
+#12 pc 0000000000029b98 /system/lib64/module/hms/core/libauthentication.z.so(HMS::HuaweiId::NapiAccountCapabilityScheduler::ExecuteCommonRequest(napi_env__*, napi_callback_info__*, bool)+1848)(1e1a51499a827de407d5f0af2731db35)
+#13 pc 000000000003ec44 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+212)(edf034e044dbf26f955142c343577527)
 #14 pc 0000000000405b2c /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
 #15 at getQuickLoginAnonymousPhone (XXXX|4.0.4|src/main/ets/quickLogin/QuickLoginService.ts:39:1)
 #16 at quickLoginInit (XXXX|4.0.4|src/main/ets/quickLogin/QuickLoginService.ts:18:1)
@@ -114,8 +137,10 @@ Reason:Signal:SIGABRT(SI_TKILL)@0x01317be700007163 from:29027:20020199
 #18 at anonymous (XXXX|2.2.2|src/main/ets/entryability/BasicEntryAbility.ts:0:1)
 ```
 
-- 异常信息是：CFI check failed. Function Address:XXXX0IStandardAudioManagerListener。从崩溃堆栈中可以看出，libohaudio.so库的CFI check失败，从而调用abort函数退出。
- 
+
+4. 异常信息是：CFI check failed. Function Address:XXXX0IStandardAudioManagerListener。从崩溃堆栈中可以看出，libohaudio.so库的CFI check失败，从而调用abort函数退出。
+
+  
 ```text
 Process name:com.hx.example
 Process life time:167s
@@ -132,8 +157,10 @@ Tid:41489, Name:OS_IPC_3_41489
 #06 pc 000000000002dc80 /system/lib64/ndk/libohaudio.so(OHOS::AudioStandard::OHAudioRendererCallback::OnInterrupt(OHOS::AudioStandard::InterruptEvent const&)+64)(00623ec2147353a07695f57818234421)
 ```
 
-- 异常信息是：ecma_vm cannot run in multi-thread! thread:XXXX currentThread:XXXX。JavaScript是单线程的，对JS对象的操作必须在创建该对象的原始线程上进行。
- 
+
+5. 异常信息是：ecma_vm cannot run in multi-thread! thread:XXXX currentThread:XXXX。JavaScript是单线程的，对JS对象的操作必须在创建该对象的原始线程上进行。
+
+  
 ```text
 Process name:com.hx.example
 Process life time:18446744073709544401s
@@ -150,8 +177,10 @@ Tid:51605, Name:com.hx.example
 #06 pc 000000000021a818 /data/storage/el1/bundle/libs/arm64/libssound.so
 ```
 
-- 异常信息是：resolveBufferCallback get hsp buffer failed, hsp path:/data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit/ets/modules.abc, errorMsg:hap path error: /data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit.hsp。从异常信息可以看出，应用崩溃和[Wallet Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-introduction)有关。
- 
+
+6. 异常信息是：resolveBufferCallback get hsp buffer failed, hsp path:/data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit/ets/modules.abc, errorMsg:hap path error: /data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit.hsp。从异常信息可以看出，应用崩溃和[Wallet Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-introduction)有关。
+
+  
 ```text
 Process name:com.hx.example
 Process life time:18446744073709167786s
@@ -166,8 +195,10 @@ Tid:33496, Name:com.hx.example
 #04 pc 0000000000581c5c /system/lib64/platformsdk/libark_jsruntime.so(92357ecadd291684f42e892cef654d36)
 ```
 
-- 异常信息是：Assertion failed: xxx (xxx)。例如：Assertion failed: handle->flags & UV_HANDLE_CLOSING (/home/lwf/deps/libuv-1.51.0/src/unix/core.c: uv__finish_close: 314)，应用so库执行了函数uv__finish_close中的断言检查，断言条件handle->flags & UV_HANDLE_CLOSING失败，其作用是检测句柄（handle）是否关闭。
- 
+
+7. 异常信息是：Assertion failed: xxx (xxx)。例如：Assertion failed: handle->flags & UV_HANDLE_CLOSING (/home/lwf/deps/libuv-1.51.0/src/unix/core.c: uv__finish_close: 314)，应用so库执行了函数uv__finish_close中的断言检查，断言条件handle->flags & UV_HANDLE_CLOSING失败，其作用是检测句柄（handle）是否关闭。
+
+  
 ```text
 Reason:Signal:SIGABRT(SI_TKILL)@0x01317b5100007e2e from:32302:20020049
 LastFatalMessage:Assertion failed: handle->flags & UV_HANDLE_CLOSING (/home/lwf/deps/libuv-1.51.0/src/unix/core.c: uv__finish_close: 314)
@@ -184,8 +215,10 @@ Tid:32754, Name:com.hx.example
 #08 pc 00000000001d0a2c /system/lib/ld-musl-aarch64.so.1(start+240)(52299a28d60f0bb4073bd788bc023a3a)
 ```
 
-- 异常信息是：[napi_fatal_error] FATAL ERROR: (null) init failed，致命错误，初始化失败。napi_fatal_error函数作用是在致命错误时终止进程，libbdmssdk.so主动调用该函数退出进程。
- 
+
+8. 异常信息是：[napi_fatal_error] FATAL ERROR: (null) init failed，致命错误，初始化失败。napi_fatal_error函数作用是在致命错误时终止进程，libbdmssdk.so主动调用该函数退出进程。
+
+  
 ```text
 Reason:Signal:SIGABRT(SI_TKILL)@0x01317bf60000994d from:39245:20020214
 LastFatalMessage:[napi_fatal_error] FATAL ERROR: (null) init failed
@@ -199,14 +232,13 @@ Tid:56980, Name:OS_TaskWorker
 ```
 
 
- 
- 
- 
+  
 
-##### [h2]场景三
+  #### 场景三
 
-- 从faultlogger目录下获取CppCrash故障日志。查看故障原因和异常信息Reason。
-- 故障信号是SIGTRAP(TRAP_BRKPT)。
+1. 从faultlogger目录下获取CppCrash故障日志。查看故障原因和异常信息Reason。
+
+2. 故障信号是SIGTRAP(TRAP_BRKPT)。
 异常信息为空。
 ```text
 Process name:com.hx.example
@@ -223,8 +255,10 @@ Tid:61493, Name:Chrome_IOThread
 #06 pc 000000000339efb0 /data/storage/el1/bundle/arkwebcore/libs/arm64/libarkweb_engine.so(1c5060d089c8b433e6e7b62c61a1fe8c83459e22)
 ```
 
-- 异常信息是：Failed to unwind stack, try to get unreliable call stack from #02 by reparsing thread stack。表示业务代码运行时改写了原本保存函数调用信息的栈内存，导致无法成功回溯调用栈。因为调用栈可能不是一个完整的函数调用链路，需要结合业务代码分析其中的调用链路。详情参考[栈覆盖故障场景日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#栈覆盖故障场景日志规格)。
- 
+
+3. 异常信息是：Failed to unwind stack, try to get unreliable call stack from #02 by reparsing thread stack。表示业务代码运行时改写了原本保存函数调用信息的栈内存，导致无法成功回溯调用栈。因为调用栈可能不是一个完整的函数调用链路，需要结合业务代码分析其中的调用链路。详情参考[栈覆盖故障场景日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#栈覆盖故障场景日志规格)。
+
+  
 ```text
 Process life time:21s
 Reason:Signal:SIGTRAP(TRAP_BRKPT)@0x0000005c90a9e294 
@@ -241,20 +275,19 @@ Tid:31390, Name:com.hx.example
 ```
 
 
- 
- 
- 
+  
 
-##### [h2]场景四
+  #### 场景四
 
-- 从faultlogger目录下获取CppCrash故障日志。查看故障原因和异常信息Reason。
-- 故障信号是SIGBUS，内存访问错误。
+1. 从faultlogger目录下获取CppCrash故障日志。查看故障原因和异常信息Reason。
+
+2. 故障信号是SIGBUS，内存访问错误。
 ```text
 Reason:Signal:SIGBUS(BUS_ADRALN)@0x6b6b79c57033cdae 
 Fault thread info:
 Tid:31380, Name:com.hx.example
 #00 pc 6b6b79c57033cdae Not mapped
-#01 pc 0000000000a60cfc /system/lib64/ndk/libjsvm.so(v8impl::(anonymous namespace)::FunctionCallbackWrapper::Invoke(v8::FunctionCallbackInfo const&)+148)
+#01 pc 0000000000a60cfc /system/lib64/ndk/libjsvm.so(v8impl::(anonymous namespace)::FunctionCallbackWrapper::Invoke(v8::FunctionCallbackInfo<v8::Value> const&)+148)
 #02 pc 000000000076ac5c /system/lib64/ndk/libv8_shared.so(5b2ac1695b5376e6271d4d967cc3bda2dc6d7772)
 #03 pc 000000000076a810 /system/lib64/ndk/libv8_shared.so(5b2ac1695b5376e6271d4d967cc3bda2dc6d7772)
 #04 pc 000000000076a2a4 /system/lib64/ndk/libv8_shared.so(5b2ac1695b5376e6271d4d967cc3bda2dc6d7772)
@@ -262,23 +295,23 @@ Tid:31380, Name:com.hx.example
 ```
 
 
- 
- 
+  
 
-##### 分析结论
+  #### 分析结论
 
- 
+  
 
-##### [h2]场景一
+  #### 场景一
 
-- 异常信息为空。无效内存访问导致闪退。
+  
+异常信息为空。无效内存访问导致闪退。
 - 异常信息是：Signal:SIGSEGV(SEGV_MAPERR)@000000000000000000 probably caused by NULL pointer dereference。无效内存访问，访问空指针。
 - 异常信息是：SIGSEGV(SEGV_ACCERR)@0x0000000000000000 current thread stack low address = 0x0000000000000000, probably caused by stack-buffer-overflow。递归调用未能终止导致栈内存溢出。
 
  
  
 
-##### [h2]场景二
+#### 场景二
 
 - 异常信息为空。so库主动调用abort函数退出进程。
 - 异常信息是：terminating due to uncaught exception of type XXXX。未处理抛出的异常导致应用闪退。
@@ -286,13 +319,14 @@ Tid:31380, Name:com.hx.example
 - 异常信息是：ecma_vm cannot run in multi-thread! thread:XXXX currentThread:XXXX。存在多线程安全问题导致应用闪退。
 - 异常信息是：resolveBufferCallback get hsp buffer failed, hsp path:/data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit/ets/modules.abc, errorMsg:hap path error: /data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit.hsp。平板设备不支持[Wallet Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-introduction)导致应用在平板上打开闪退。
 - 异常信息是：Assertion failed: xxx (xxx)。断言失败错误，断言条件为false时，进程会直接终止。
- 例：Assertion failed: handle->flags & UV_HANDLE_CLOSING (/home/lwf/deps/libuv-1.51.0/src/unix/core.c: uv__finish_close: 314)。断言handle->flags & UV_HANDLE_CLOSING失败，表示句柄flags是关闭状态，说明应用在句柄关闭时执行非法操作，例如重复调用关闭接口或访问已失效句柄。
+
+  例：Assertion failed: handle->flags & UV_HANDLE_CLOSING (/home/lwf/deps/libuv-1.51.0/src/unix/core.c: uv__finish_close: 314)。断言handle->flags & UV_HANDLE_CLOSING失败，表示句柄flags是关闭状态，说明应用在句柄关闭时执行非法操作，例如重复调用关闭接口或访问已失效句柄。
 - 异常信息是：[napi_fatal_error] FATAL ERROR: (null) init failed。应用进程初始化失败，主动调用napi_fatal_error函数退出进程。
 
  
  
 
-##### [h2]场景三
+#### 场景三
 
 - 异常信息为空。栈顶so库触发软件断点信号导致应用闪退。
 - 异常信息是：Failed to unwind stack, try to get unreliable call stack from #02 by reparsing thread stack。栈顶so库触发软件断点信号导致应用闪退。
@@ -300,17 +334,17 @@ Tid:31380, Name:com.hx.example
  
  
 
-##### [h2]场景四
+#### 场景四
 
 栈顶so库尝试访问未对齐的内存地址导致应用闪退。
  
  
 
-##### 修改建议
+#### 修改建议
 
  
 
-##### [h2]场景一
+#### 场景一
 
 - 异常信息为空。如果发生异常的so库是flutter等三方库，可以尝试升级三方库版本解决。其他情况由异常so库使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码进行分析。
 - 异常信息是：Signal:SIGSEGV(SEGV_MAPERR)@000000000000000000 probably caused by NULL pointer dereference。栈顶so库使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码进行分析，排查是否访问了空指针，在访问变量前进行非空校验。
@@ -319,7 +353,7 @@ Tid:31380, Name:com.hx.example
  
  
 
-##### [h2]场景二
+#### 场景二
 
 - 异常信息为空。使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码分析调用abort函数是否正常。
 - 异常信息是：terminating due to uncaught exception of type XXXX。使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码进行分析，在抛出异常的位置使用try-catch捕获并处理异常。
@@ -327,13 +361,14 @@ Tid:31380, Name:com.hx.example
 - 异常信息是：ecma_vm cannot run in multi-thread! thread:XXXX currentThread:XXXX。启用[方舟多线程检测](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ark-runtime-detection#section7199344111510)，运行或调试当前应用，当程序出现多线程安全问题时，会弹出Crash log信息。点击信息中的链接，可以跳转至引起多线程安全问题的代码处。
 - 异常信息是：resolveBufferCallback get hsp buffer failed, hsp path:/data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit/ets/modules.abc, errorMsg:hap path error: /data/storage/el1/bundle/com.huawei.hmos.walletkit/walletKit/walletKit.hsp。在使用钱包服务前需要判断当前设备是否支持NFC能力，将NFC能力加入[自定义syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#加入自定义syscap)中。
 - 异常信息是：Assertion failed: xxx (xxx)。检查代码运行时的断言条件，修复业务逻辑异常。
- 例：Assertion failed: handle->flags & UV_HANDLE_CLOSING (/home/lwf/deps/libuv-1.51.0/src/unix/core.c: uv__finish_close: 314)。业务逻辑中避免调用正在关闭的句柄。
+
+  例：Assertion failed: handle->flags & UV_HANDLE_CLOSING (/home/lwf/deps/libuv-1.51.0/src/unix/core.c: uv__finish_close: 314)。业务逻辑中避免调用正在关闭的句柄。
 - 异常信息是：[napi_fatal_error] FATAL ERROR: (null) init failed。使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码分析调用napi_fatal_error函数原因并修改。
 
  
  
 
-##### [h2]场景三
+#### 场景三
 
 - 异常信息为空。栈顶so库使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码进行分析。
 - 异常信息是：Failed to unwind stack, try to get unreliable call stack from #02 by reparsing thread stack。栈顶so库使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码分析具体的调用链路。
@@ -341,6 +376,6 @@ Tid:31380, Name:com.hx.example
  
  
 
-##### [h2]场景四
+#### 场景四
 
 栈顶so库使用[hstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码进行分析。

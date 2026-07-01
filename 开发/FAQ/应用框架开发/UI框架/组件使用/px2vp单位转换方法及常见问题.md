@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-753
 
-## px2vp单位转换方法及常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用px单位进行UI开发时，发现不同设备上实际显示尺寸与设计稿预期效果存在偏差。由于px是物理像素的绝对单位，而不同设备的屏幕像素密度（DPI）不同，导致固定px值的元素在高密度屏幕上显示过小，在低密度屏幕上显示过大。
  
@@ -16,7 +12,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 像素单位：ArkUI为开发者提供4种像素单位，采用**vp为基准数据单位**。
   
@@ -30,7 +26,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - vp是HarmonyOS的长度单位，它转换跟设备的屏幕像素密度有关。**vp具体计算公式为：vp=px/(DPI/160)**。在实际宽度为1440px的屏幕上，1vp约等于3px。
 - 使用getUIContext获取UIContext实例，再使用UIContext下的vp2px/px2vp/fp2px/px2fp/lpx2px/px2lpx调用绑定实例的接口。
@@ -108,12 +104,12 @@ struct Example {
 运行结果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/TpQVK61dQYGGRO3tIVA7mA/zh-cn_image_0000002628555366.png?HW-CC-KV=V1&HW-CC-Date=20260701T025545Z&HW-CC-Expire=86400&HW-CC-Sign=5C2C480B4CD01BBCA4927694D4945E074597B7932CD89492F8B2B0CF519FDBFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/TpQVK61dQYGGRO3tIVA7mA/zh-cn_image_0000002628555366.png?HW-CC-KV=V1&HW-CC-Date=20260701T041255Z&HW-CC-Expire=86400&HW-CC-Sign=F532093F0A5525987289D81CE6EBFA2F7B1D6ECDC6CE2D12A8DDFA7DDAA5D8A9)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：既然推荐使用vp，那lpx和designWidth有什么用？
  

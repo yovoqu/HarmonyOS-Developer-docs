@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-threading-model-14
 
-## ThreadWorker调用postMessage时序列化数据失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 ThreadWorker调用postMessage时序列化数据失败，报错日志如下：
  
@@ -43,7 +39,7 @@ export class IMTask {
   }
 }
 
-// socketManager.ets
+<em>// socketManager.ets</em>
 private seqNum: number = 0
 getSeqNum() {
   return this.seqNum++
@@ -54,33 +50,32 @@ imWorkStage.postMessage(new IMTask(PbLoginCmdID.CID_PBLOGIN_SECRET_REQ,pubKey,fa
  
  
 
-##### 背景知识
+#### 背景知识
 
 - worker的主要作用是为应用程序提供一个多线程的运行环境，实现应用程序执行过程与宿主线程分离。通过在后台线程运行脚本处理耗时操作，避免计算密集型或高延迟任务阻塞宿主线程。具体接口信息及使用方法详情请见[worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)。
 - [序列化支持类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker#序列化支持类型)包括：1.除Symbol之外的基础类型、Date、String、RegExp、Array、Map、Set、ArrayBuffer、TypedArray。
- 
-2.Object（仅限简单对象，比如通过"{}"或者"new Object"创建，普通对象仅支持传递属性，不支持传递其原型及方法）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/JvkRzGqBRdGVCoXMo3V8Jg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025523Z&HW-CC-Expire=86400&HW-CC-Sign=A8DFAD8A6A1F93C1C079C464F4D08E006D7DB38546D7052AD1708220D387CF49)
- 
-传递通过自定义class创建出来的Object时，不会发生序列化错误，但是自定义class的属性（如Function）无法通过序列化传递。
+  2.Object（仅限简单对象，比如通过"{}"或者"new Object"创建，普通对象仅支持传递属性，不支持传递其原型及方法）。
+> [!NOTE]
+> 传递通过自定义class创建出来的Object时，不会发生序列化错误，但是自定义class的属性（如Function）无法通过序列化传递。
+
 
  
  
 
-##### 问题定位
+#### 问题定位
 
 根据报错信息可知对象序列化失败，检查imWorkStage.postMessage的参数类型是否是支持的类型以及序列化方式是否正确。
  
  
 
-##### 分析结论
+#### 分析结论
 
 imWorkStage.postMessage的参数类型为Object，此Object不会发生序列化错误，但是其对象的属性如data无法通过序列化传递。
  
  
 
-##### 修改建议
+#### 修改建议
 
 可将imWorkStage.postMessage的参数对象先转换成json字符串，再转换成Uint8Array类型。参考代码如下：
  
@@ -118,22 +113,22 @@ export struct SocketManager {
     let imWorkStage = new worker.ThreadWorker("entry/ets/workers/Worker.ets");
     try {
       imWorkStage.postMessage(byteArray);
-      // 宿主线程接收worker线程信息
+     <em> // 宿主线程接收worker线程信息</em>
       imWorkStage.onmessage = (e: MessageEvents): void => {
-        // data：worker线程发送的信息
+       <em> // data：worker线程发送的信息</em>
         let textDecoder = util.TextDecoder.create('utf-8');
         let uint8Array = new Uint8Array(e.data);
         let decodeResult:string = textDecoder.decodeToString(uint8Array);
         console.info("main thread data is  " + decodeResult);
         this.message=decodeResult;
-        // 销毁Worker对象
+       <em> // 销毁Worker对象</em>
         imWorkStage.terminate();
       };
-      // 在调用terminate后，执行onexit
+     <em> // 在调用terminate后，执行onexit</em>
       imWorkStage.onexit = () => {
         console.info("main thread terminate");
       };
-      // 监听Worker错误
+     <em> // 监听Worker错误</em>
       imWorkStage.onAllErrors = (err: ErrorEvent) => {
         console.error("main error message " + err.message);
       };
@@ -175,7 +170,7 @@ export class IMTask {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用taskpool执行异步函数时，报函数参数无法序列化错误：
  

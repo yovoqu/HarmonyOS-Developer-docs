@@ -4,31 +4,24 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1080
 
-## Text组件实现长按全选内容并弹出自定义菜单
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何对Text组件绑定长按手势，实现文本内容全选并弹出自定义菜单的功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件用于显示一段文本的组件，可以包含文字、图片等。该组件提供了[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#bindselectionmenu11)接口用于设置自定义选择菜单。bindSelectionMenu长按响应时长为600ms，长按达到时长后弹出自定义菜单。为了触发组件长按手势，可为组件绑定[LongPressGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture)事件，触发长按手势的最少手指数为1，最短长按时间若不设置，默认值为500毫秒。即达到500毫秒或者自定义时间时，会触发手势回调。
  
  
 
-##### 解决方案
-
-- 通过bindSelectionMenu设置自定义菜单选项，同时注意如下关键点：
+#### 解决方案
+1. 通过bindSelectionMenu设置自定义菜单选项，同时注意如下关键点：
 设置spanType为TextSpanType.DEFAULT，响应多种文本类型。
-- 设置responseType为TextResponseType.DEFAULT，所有选中场景都触发自定义菜单。
-- 自定义菜单关闭时，取消选中区域。
-
- - 通过LongPressGesture触发长按手势回调，将选中区域设置为所有文本。
-
+2. 设置responseType为TextResponseType.DEFAULT，所有选中场景都触发自定义菜单。
+3. 自定义菜单关闭时，取消选中区域。
+4. 通过LongPressGesture触发长按手势回调，将选中区域设置为所有文本。
  
 代码实现如下：
  
@@ -39,29 +32,29 @@ struct TextExample {
   optionsPopup: string[] = ['搜索', '复制', '粘贴'];
   controller: TextController = new TextController();
   options: TextOptions = { controller: this.controller };
-  @State start: number = -1; // 选中区域开始光标
-  @State end: number = -1; // 选中区域结束光标
+  @State start: number = -1;<em> // 选中区域开始光标</em>
+  @State end: number = -1; <em>// 选中区域结束光标</em>
 
   build() {
     Column() {
       Column() {
         Text(undefined, this.options) {
-          // 将Text内容设置为字图混合形式
+        <em>  // 将Text内容设置为字图混合形式</em>
           Span('Hello World')
             .fontSize(36)
-          ImageSpan(\$r('app.media.startIcon'))
+          ImageSpan($r('app.media.startIcon'))
             .width('120px')
             .height('120px')
             .objectFit(ImageFit.Fill)
             .verticalAlign(ImageSpanAlignment.CENTER);
         }
-        .selection(this.start, this.end) // 选中区域
-        .copyOption(CopyOptions.InApp) // 设置可复制
-        .bindSelectionMenu(TextSpanType.DEFAULT, this.LongPressTextCustomMenu, TextResponseType.DEFAULT) // 自定义菜单
+        .selection(this.start, this.end) /<em>/ 选中区域</em>
+        .copyOption(CopyOptions.InApp) <em>// 设置可复制</em>
+        .bindSelectionMenu(TextSpanType.DEFAULT, this.LongPressTextCustomMenu, TextResponseType.DEFAULT) <em>// 自定义菜单</em>
         .gesture(
           LongPressGesture({ duration: 300 })
             .onAction(() => {
-              // 调整选中区域，全选文本
+            <em>  // 调整选中区域，全选文本</em>
               this.start = 0;
               this.end = 12;
             })
@@ -77,22 +70,48 @@ struct TextExample {
     .height('100%');
   }
 
-  // 自定义菜单
+  <em>// 自定义菜单</em>
   @Builder
   LongPressTextCustomMenu() {
     Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.SpaceEvenly, alignItems: ItemAlign.Center }) {
       ForEach(this.optionsPopup, (item: string, index) => {
         Text(item).height('100%')
           .onClick(() => {
-            // 取消选中
+          <em>  // 取消选中</em>
             this.start = -1;
             this.end = -1;
-            // 关闭自定义菜单
+            <em>// 关闭自定义菜单</em>
             this.controller.closeSelectionMenu();
           });
-        // 设置间隔
-        if (index 
-##### 常见FAQ
+        <em>// 设置间隔</em>
+        if (index < this.optionsPopup.length - 1) {
+          Divider().height(10).vertical(true);
+        }
+      });
+    }
+    .width(150)
+    .height(40)
+    .padding(10)
+    .shadow({
+      radius: 20,
+      color: '#f3f5f7',
+      offsetX: 0,
+      offsetY: 10
+    })
+    .borderRadius(20)
+  }
+}
+```
+ 
+ 
+运行效果如下：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/8HXqunwxT3SsNLDzm9PzcQ/zh-cn_image_0000002628407342.png?HW-CC-KV=V1&HW-CC-Date=20260701T041253Z&HW-CC-Expire=86400&HW-CC-Sign=55F4B13F0E155C37B1F10DC500DA38C3EEF4D92CC8A6CBF7206CE037FFAB0231)
+
+ 
+
+#### 常见FAQ
 
 Q：为什么不使用onAppear做弹出菜单前的全选或者onDisappear做关闭菜单后的取消选中操作？
  

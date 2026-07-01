@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-21
 
-## DevEco Studio启动项目报错Project sync failed
- 
-
-
-##### 问题现象
+#### 问题现象
 
 DevEco Studio启动项目报错如下：
  
@@ -18,7 +14,7 @@ Project sync failed. Basic functionality (e.g. editing, debugging) will not work
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 工程项目目录参考：[ArkTS工程目录结构（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-with-ets-stage#arkts工程目录结构stage模型)。
 - 配置代理参考：[配置Proxy代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section10369436568)。
@@ -26,7 +22,7 @@ Project sync failed. Basic functionality (e.g. editing, debugging) will not work
  
  
 
-##### 问题定位
+#### 问题定位
 
 该报错常见的场景如下：
  
@@ -37,7 +33,7 @@ Project sync failed. Basic functionality (e.g. editing, debugging) will not work
  
  
 
-##### 分析结论
+#### 分析结论
 
 - **场景一**：打开的项目路径不正确。
 - **场景二**：网络连接有失败。
@@ -46,7 +42,7 @@ Project sync failed. Basic functionality (e.g. editing, debugging) will not work
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **场景一**：确认打开的项目路径是否正确，项目的子目录应当是AppScope和hvigor等这些目录。注意如果打开的是项目的父目录，会导致无法正确识别项目工程，产生如上报错。
 - **场景二**：确认是否是代理问题导致网络连接失败。一般来说，如果使用的是个人或家庭网络，是不需要配置代理信息的，部分企业网络受限的情况下，才需要配置代理信息。开发环境问题可以参考官方文档：[诊断开发环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section1912218441119)。代理配置可以参考：[配置代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config)。

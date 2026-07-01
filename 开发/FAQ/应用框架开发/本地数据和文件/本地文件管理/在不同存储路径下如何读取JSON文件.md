@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-69
 
-## 在不同存储路径下如何读取JSON文件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在APP开发中，需要使用JSON文件保存信息到本地或者服务器，如何在如下场景去读取JSON文件？
  
@@ -19,7 +15,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [util.json](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-json)：提供了将JSON文本转换为JSON对象或值，以及将对象转换为JSON文本等功能。
 - [requestInStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#requestinstream10-1)：根据URL地址和相关配置项，发起HTTP网络请求并返回流式响应，使用callback方式作为异步方法。
@@ -29,13 +25,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 读取JSON文件主要是读取文件二进制数据转为JSON字符串或者直接读取JSON字符串，然后解析对象数据。
  
 模拟JSON文件，放在rawfile目录下或者沙箱filesDir目录下，定义数据类型，示例代码如下：
  
-```text
+```json
 {
   "CityCodeList":  [
     {
@@ -55,9 +51,9 @@
 ```
  
 ```text
-// 定义数据类
+<em>// 定义数据类</em>
 export class CityCode {
-  cityCodeList: Array = [];
+  cityCodeList: Array<CityCodeBean> = [];
 }
 
 export class CityCodeBean {
@@ -67,8 +63,9 @@ export class CityCodeBean {
 ```
  
 - 场景一：读取放在工程rawfile目录下的JSON文件，并解析为对象。通过getRawFileContentSync读取文件，返回二进制数据。转字符串后，通过JSON.parse解析为对象。示例代码如下：
- 
-```text
+
+  
+```json
 getRawFileJsonData() {
   let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
   let value: Uint8Array = context.resourceManager.getRawFileContentSync('testData.json');
@@ -80,13 +77,14 @@ getRawFileJsonData() {
 ```
 
 - 场景二：读取放在沙箱目录下的JSON文件，并解析为对象。通过[fs.readTextSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fsreadtextsync)读取文件，返回字符串文本数据，通过JSON.parse解析为对象。示例代码如下：
- 
-```text
+
+  
+```json
 getLocationFileJsonData() {
-  // 读取文件，解析为对象
+  <em>// 读取文件，解析为对象</em>
   let context = this.getUIContext().getHostContext() as common.Context;
   let pathDir = context.filesDir;
-  let filePath = pathDir + '/testData.json';// 需要先把测试数据放入沙箱filesDir目录下
+  let filePath = pathDir + '/testData.json';<em>// 需要先把测试数据放入沙箱filesDir目录下</em>
   try {
     let cityStr = fs.readTextSync(filePath);
     let cityObj: ESObject = JSON.parse(cityStr);
@@ -99,9 +97,10 @@ getLocationFileJsonData() {
 ```
 
 - 场景三：读取通过网络接口返回的JSON文件。先使用[requestInStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#requestinstream10-1)获取文本，再通过httpRequest.on('dataReceive',()=>{})流式获取数据，httpRequest.on('dataEnd',()=>{})整合文本内容转化JSON数据。
- 
-```text
-async httpGetJsonFile(): Promise {
+
+  
+```json
+async httpGetJsonFile(): Promise<object> {
   return new Promise((resolve: Function) => {
     let res = new ArrayBuffer(0);
     let httpRequest = http.createHttp();
@@ -127,7 +126,7 @@ async httpGetJsonFile(): Promise {
         hilog.error(0x0000, 'testTag', `error: ${(err as BusinessError).code} ${(err as BusinessError).message}`);
       }
     });
-    httpRequest.requestInStream('json文件的网络地址', // 后台服务器地址
+    httpRequest.requestInStream('json文件的网络地址', <em>// 后台服务器地址</em>
       {
         method: http.RequestMethod.GET,
         header: {
@@ -149,7 +148,7 @@ async httpGetJsonFile(): Promise {
  
 三个场景的完整代码示例如下：
  
-```text
+```json
 import { buffer, util } from '@kit.ArkTS';
 import { common } from '@kit.AbilityKit';
 import json from '@ohos.util.json';
@@ -158,9 +157,9 @@ import fs from '@ohos.file.fs';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-// 定义数据类
+<em>// 定义数据类</em>
 export class CityCode {
-  cityCodeList: Array = [];
+  cityCodeList: Array<CityCodeBean> = [];
 }
 
 export class CityCodeBean {
@@ -172,14 +171,14 @@ export class CityCodeBean {
 struct Index {
   @State message: string = 'Hello World';
 
-  // 读取文件，解析为对象
+  <em>// 读取文件，解析为对象</em>
   aboutToAppear(): void {
     this.getRawFileJsonData();
     this.getLocationFileJsonData();
     this.httpGetJsonFile();
   }
 
-  // 场景一：读取放在工程rawfile目录下的JSON文件，并解析为对象。
+  <em>// 场景一：读取放在工程rawfile目录下的JSON文件，并解析为对象。</em>
   getRawFileJsonData() {
     let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
     let value: Uint8Array = context.resourceManager.getRawFileContentSync('testData.json');
@@ -189,12 +188,12 @@ struct Index {
     console.info('getRawFileJsonData：', JSON.stringify(cityInfoList));
   }
 
-  // 场景二：读取放在沙箱目录下的JSON文件，并解析为对象。
+  <em>// 场景二：读取放在沙箱目录下的JSON文件，并解析为对象。</em>
   getLocationFileJsonData() {
-    // 读取文件，解析为对象
+    <em>// 读取文件，解析为对象</em>
     let context = this.getUIContext().getHostContext() as common.Context;
     let pathDir = context.filesDir;
-    let filePath = pathDir + '/testData.json';// 需要先把测试数据放入沙箱filesDir目录下
+    let filePath = pathDir + '/testData.json';<em>// 需要先把测试数据放入沙箱filesDir目录下</em>
     try {
       let cityStr = fs.readTextSync(filePath);
       let cityObj: ESObject = JSON.parse(cityStr);
@@ -205,8 +204,8 @@ struct Index {
     }
   }
 
-  // 场景三：读取通过网络接口返回的JSON文件。
-  async httpGetJsonFile(): Promise {
+  <em>// 场景三：读取通过网络接口返回的JSON文件。</em>
+  async httpGetJsonFile(): Promise<object> {
     return new Promise((resolve: Function) => {
       let res = new ArrayBuffer(0);
       let httpRequest = http.createHttp();
@@ -232,7 +231,7 @@ struct Index {
           hilog.error(0x0000, 'testTag', `error: ${(err as BusinessError).code} ${(err as BusinessError).message}`);
         }
       });
-      httpRequest.requestInStream('json文件的网络地址', // 后台服务器地址
+      httpRequest.requestInStream('json文件的网络地址', <em>// 后台服务器地址</em>
         {
           method: http.RequestMethod.GET,
           header: {

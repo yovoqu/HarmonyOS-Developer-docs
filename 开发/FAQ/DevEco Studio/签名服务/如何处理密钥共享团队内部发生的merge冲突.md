@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-20
 
-## 如何处理密钥共享团队内部发生的merge冲突
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Git管理代码仓库时，为了统一管理测试签名，方便团队协作，签名材料统一提交到Git仓库上。但在实际项目开发过程中，因为各个开发成员本地的storePassword、keyPassword会发生变化，导致成员之间的配置文件（build-profile.json5）有差异，每次提交代码，会提示merge冲突，提交或合并代码很不方便。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [手动配置签名信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)：针对应用/元服务的签名，开发者可选择手动签名对应用/元服务进行签名。
 - 在开发测试阶段，开发团队成员会使用各自的自动化签名工具，从而导致成员之间的配置文件（build-profile.json5）有差异，因此可以统一使用同一份签名文件的拷贝，进行手动配置签名。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 在build-profile.json5中签名文件的地址配置相对路径，并将对应的签名文件放到项目中相应的路径下。
 - 将build-profile.json5文件中“material”字段上传Git仓库，团队同步使用即可。
@@ -32,8 +28,8 @@
 文件目录参考：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/3oStiGpaTV6FA94GwFCyaQ/zh-cn_image_0000002628409370.png?HW-CC-KV=V1&HW-CC-Date=20260701T025918Z&HW-CC-Expire=86400&HW-CC-Sign=C0F639E626B361BB0363951EAA2AC4EC15384253C7CC9BB00EDC7B612B71BA4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/3oStiGpaTV6FA94GwFCyaQ/zh-cn_image_0000002628409370.png?HW-CC-KV=V1&HW-CC-Date=20260701T041019Z&HW-CC-Expire=86400&HW-CC-Sign=A29B2A2220341751269003719657084D48967A221585CE873910144EFC286D6C)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/uexS35cESj26W8h4P0KPKw/zh-cn_image_0000002658928593.png?HW-CC-KV=V1&HW-CC-Date=20260701T025918Z&HW-CC-Expire=86400&HW-CC-Sign=7610082CD0320A4B4CF59A42FFF3105813BF2564D2A432CDA7EF8CB4D3CEBE93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/uexS35cESj26W8h4P0KPKw/zh-cn_image_0000002658928593.png?HW-CC-KV=V1&HW-CC-Date=20260701T041019Z&HW-CC-Expire=86400&HW-CC-Sign=D2E9F67C63EA16DBE43FAA69A17B67A469198AF05923CC2376E5A5FEA7CC2960)

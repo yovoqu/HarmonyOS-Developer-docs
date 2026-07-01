@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-64
 
-## AudioSession音频会话未停用影响其他应用音频
- 
-
-
-##### 问题现象
+#### 问题现象
 
 AudioSession音频会话激活时，会影响其他应用音频播放效果，如何处理？
  
  
 
-##### 解决方案
+#### 解决方案
 
 应用可通过[isAudioSessionActivated](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#isaudiosessionactivated12)查询音频会话是否已激活，会话激活状态和是否有音乐播放没有关系。
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1032
 
-## 实现HSL颜色模型与HEX颜色模型互相转换
- 
-
-
-##### 问题现象
+#### 问题现象
 
 给定HSL颜色模型值，如何将其转换为HEX颜色模型的值？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - HSL：HSL将颜色分解为三个参数。
 色相（Hue）：颜色的类型（如红、蓝、绿等），用0°~360°表示。
@@ -26,81 +22,93 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 定义ColorModel类：
  
 ```text
 export class RgbType {
-  // 红色分量，范围为0-255
+ <em> // 红色分量，范围为0-255</em>
   red: number = 0;
-  // 绿色分量，范围为0-255
+<em>  // 绿色分量，范围为0-255</em>
   green: number = 0;
-  // 蓝色分量，范围为0-255
+<em>  // 蓝色分量，范围为0-255</em>
   blue: number = 0;
 }
 
 export class HslType {
-  // 色相，范围为0-360
+  <em>// 色相，范围为0-360</em>
   hue: number = 0;
-  // 饱和度，范围为0-100
+ <em> // 饱和度，范围为0-100</em>
   saturation: number = 0;
-  // 亮度，范围为0-100
+ <em> // 亮度，范围为0-100</em>
   lightness: number = 0;
 }
 ```
  
 在ColorUtils类中实现HSL颜色模型与HEX颜色模型互相转换：
  
-- 实现HSL转换HEX：
-先将HSL饱和度和亮度百分比转换为小数，计算RGB值。
-- 再把RGB值转换为HEX值。
+- 实现HSL转换HEX：1. 先将HSL饱和度和亮度百分比转换为小数，计算RGB值。
 
- - 实现HEX转换HSL：
-先将HEX值转为RGB整数。
-- 再将得到的值归一化为[0,1]范围的浮点数计算HSL值。
+2. 再把RGB值转换为HEX值。
+- 实现HEX转换HSL：1. 先将HEX值转为RGB整数。
 
- 
+2. 再将得到的值归一化为[0,1]范围的浮点数计算HSL值。
+
  
 ```text
 import { HslType, RgbType } from '../model/ColorModel';
 
-// 将HSL颜色模型转换为HEX颜色模型
+<em>// 将HSL颜色模型转换为HEX颜色模型</em>
 export function hslToHex(hue: number, saturation: number, lightness: number): string {
-  // 将HSL转换为RGB
+ <em> // 将HSL转换为RGB</em>
   const rgb: RgbType = hslToRgb(hue, saturation, lightness);
-  // 返回HEX颜色值
+  <em>// 返回HEX颜色值</em>
   return rgbToHex(rgb.red, rgb.green, rgb.blue);
 }
 
-// 将HSL颜色值转换为RGB颜色格式
+<em>// 将HSL颜色值转换为RGB颜色格式</em>
 function hslToRgb(hue: number, saturation: number, lightness: number): RgbType {
   let red: number, green: number, blue: number;
-  // 将饱和度和亮度从百分比转换为小数
+ <em> // 将饱和度和亮度从百分比转换为小数</em>
   saturation /= 100;
   lightness /= 100;
 
   if (saturation === 0) {
-    // 无饱和度，返回灰色
+   <em> // 无饱和度，返回灰色</em>
     red = Math.round(lightness * 255);
     green = Math.round(lightness * 255);
     blue = Math.round(lightness * 255);
   } else {
-    // 辅助函数：根据HSL值计算RGB值，处理不同的色相区间
+   <em> // 辅助函数：根据HSL值计算RGB值，处理不同的色相区间</em>
     const convertHueToRgb = (baseValue: number, brightnessMultiplier: number, hueFraction: number): number => {
-      // 确保hueFraction在0到1之间
-      if (hueFraction  1) {
+      <em>// 确保hueFraction在0到1之间</em>
+      if (hueFraction < 0) {
+        hueFraction += 1;
+      }
+      if (hueFraction > 1) {
         hueFraction -= 1;
       }
-      // 第一个区间
-      if (hueFraction  // 第二个区间
-      if (hueFraction  // 第三个区间
-      if (hueFraction  // 第四个区间
+    <em>  // 第一个区间</em>
+      if (hueFraction < 1 / 6) {
+        return baseValue + (brightnessMultiplier - baseValue) * 6 * hueFraction;
+      }
+     <em> // 第二个区间</em>
+      if (hueFraction < 1 / 2) {
+        return brightnessMultiplier;
+      }
+     <em> // 第三个区间</em>
+      if (hueFraction < 2 / 3) {
+        return baseValue + (brightnessMultiplier - baseValue) * (2 / 3 - hueFraction) * 6;
+      }
+     <em> // 第四个区间</em>
       return baseValue;
     };
-    // 根据亮度计算中间值brightnessMultiplier和baseValue
+   <em> // 根据亮度计算中间值brightnessMultiplier和baseValue</em>
     const brightnessMultiplier =
-      lightness  // 计算RGB值
+      lightness < 0.5 ? lightness * (1 + saturation) : lightness + saturation - lightness * saturation;
+    const baseValue = 2 * lightness - brightnessMultiplier;
+   <em> // 计算RGB值</em>
     red = Math.round(convertHueToRgb(baseValue, brightnessMultiplier, hue / 360 + 1 / 3) * 255);
     green = Math.round(convertHueToRgb(baseValue, brightnessMultiplier, hue / 360) * 255);
     blue = Math.round(convertHueToRgb(baseValue, brightnessMultiplier, hue / 360 - 1 / 3) * 255);
@@ -112,70 +120,79 @@ function hslToRgb(hue: number, saturation: number, lightness: number): RgbType {
   };
 }
 
-// 将RGB颜色值转换为十六进制格式
+<em>// 将RGB颜色值转换为十六进制格式</em>
 function rgbToHex(red: number, green: number, blue: number): string {
-  return '#' + ((1 // 将十六进制颜色值转换为HSL颜色格式
+  return '#' + ((1 << 24) + (red << 16) + (green << 8) + blue).toString(16).slice(1);
+}
+
+<em>// 将十六进制颜色值转换为HSL颜色格式</em>
 export function hexToHsl(hex: string): HslType | null {
-  // 将HEX类型颜色转为RGB类型
+ <em> // 将HEX类型颜色转为RGB类型</em>
   let rgb = hexToRgb(hex);
   if (rgb === null) {
     return null;
   }
-  // 将RGB类型颜色转为HSL类型
+  <em>// 将RGB类型颜色转为HSL类型</em>
   return rgbToHsl(rgb.red, rgb.green, rgb.blue);
 }
 
-// 将十六进制颜色字符串转换为RGB对象
+<em>// 将十六进制颜色字符串转换为RGB对象</em>
 export function hexToRgb(hex: string): RgbType | null {
-  // 使用正则表达式匹配十六进制颜色字符串
+ <em> // 使用正则表达式匹配十六进制颜色字符串</em>
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (result) {
-    // 将匹配的十六进制值转换为十进制RGB值
+    <em>// 将匹配的十六进制值转换为十进制RGB值</em>
     return {
       red: parseInt(result[1], 16),
       green: parseInt(result[2], 16),
       blue: parseInt(result[3], 16)
     };
   } else {
-    // 如果输入无效，返回null
+    <em>// 如果输入无效，返回null</em>
     return null;
   }
 }
 
-// 将RGB颜色值转换为HSL颜色对象
+<em>// 将RGB颜色值转换为HSL颜色对象</em>
 function rgbToHsl(red: number, green: number, blue: number): HslType {
-  // 将RGB值归一化到0-1范围
+ <em> // 将RGB值归一化到0-1范围</em>
   red /= 255;
   green /= 255;
   blue /= 255;
-  // 计算最大值和最小值
+ <em> // 计算最大值和最小值</em>
   let max = Math.max(red, green, blue);
   let min = Math.min(red, green, blue);
-  // 计算亮度lightness
+ <em> // 计算亮度lightness</em>
   let hue: number = (max + min) / 2;
   let saturation: number = (max + min) / 2;
   let lightness: number = (max + min) / 2;
 
   if (max === min) {
-    // 如果最大值和最小值相等，色相和饱和度为0
+    <em>// 如果最大值和最小值相等，色相和饱和度为0</em>
     hue = 0;
     saturation = 0;
   } else {
-    let difference = max - min; // 计算色差
-    // 计算饱和度saturation
+    let difference = max - min;<em> // 计算色差</em>
+   <em> // 计算饱和度saturation</em>
     saturation = lightness > 0.5 ? difference / (2 - max - min) : difference / (max + min);
-    // 计算色相hue
+   <em> // 计算色相hue</em>
     if (max === red) {
-      hue = (green - blue) / difference + (green // 将色相转换为度数
+      hue = (green - blue) / difference + (green < blue ? 6 : 0);
+    } else if (max === green) {
+      hue = (blue - red) / difference + 2;
+    } else {
+      hue = (red - green) / difference + 4;
+    }
+    hue *= 60; <em>// 将色相转换为度数</em>
   }
-  // 返回HSL值，四舍五入后返回
+ <em> // 返回HSL值，四舍五入后返回</em>
   return { hue: Math.round(hue), saturation: Math.round(saturation * 100), lightness: Math.round(lightness * 100) };
 }
 ```
  
 运行示例参考如下：
  
-```text
+```json
 import { hexToHsl, hslToHex } from '../Utils/ColorUtils';
 
 @Entry
@@ -201,7 +218,7 @@ struct ColorPage {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：将HEX转为HSL后，再将HSL转回HEX颜色值与初始不一致。
  

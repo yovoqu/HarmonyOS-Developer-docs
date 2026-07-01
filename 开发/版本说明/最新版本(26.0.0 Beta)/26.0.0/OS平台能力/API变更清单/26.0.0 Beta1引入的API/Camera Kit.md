@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-camerakit-7001
 
-## Camera Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增错误码 | 类名：CameraManager； API声明：setTorchMode(mode: TorchMode): void; 差异内容：NA | 类名：CameraManager； API声明：setTorchMode(mode: TorchMode): void; 差异内容：7400101 | api/@ohos.multimedia.camera.d.ts |

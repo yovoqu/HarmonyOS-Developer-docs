@@ -4,15 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-threading-model-10
 
-## 冷启动产生ArkCompiler错误日志
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用冷启动会产生ArkCompiler错误日志，应用可以正常编译并运行，报错如下：
  
-```ts
+```bash
 07-14 23:03:42.131   C03F00/com.example.demo/ArkCompiler  E     ReferenceError: Observed is not defined
                                                                at func_main_0 (phone|ui|1.0.0|src/main/ets/dialog/components/CommonDialogView.ts:31:2)
 07-14 23:03:42.131   C03F00/com.example.demo/ArkCompiler  E     ReferenceError: Observed is not defined
@@ -81,24 +77,24 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 ArkTS提供了[TaskPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)与[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)两种多线程并发方案，TaskPool与Worker两种多线程并发能力均是基于Actor并发模型实现的。Worker主、子线程通过收发消息进行通信；TaskPool基于Worker做了更多场景化的功能封装，例如支持任务组TaskGroup、任务优先级设置、取消任务等功能，且可以根据任务数量进行自动的扩容与缩容，还可以根据任务优先级进行任务调度。
  
  
 
-##### 问题定位
+#### 问题定位
 
 排查是否在子线程中加载UI属性，导致UI装饰器或状态变量即使没有被显式调用也可能会被解析执行，访问时会抛出异常。
  
  
 
-##### 分析结论
+#### 分析结论
 
 在子线程中加载了UI属性，标记了Observed装饰器的类无法在子线程中初始化，会影响到同一个文件里的其他类的初始化，但是不影响正常编译。
  
  
 
-##### 修改建议
+#### 修改建议
 
 将[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)、[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)等UI装饰器或状态变量和其他的类分开，具体参考：[根据业务场景合理划分项目结构，避免在子线程中直接或间接引入UI](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-taskpool_usage_specifications_and_faqs#section88003418524)的正例部分。

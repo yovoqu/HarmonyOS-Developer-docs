@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-151
 
-## 点击PC端应用右上角的X按钮（关闭按钮），确认关闭前的回调处理事件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS PC端应用右上角的X按钮（关闭按钮）点击关闭之前增加一个二次确认弹窗，这个X按钮的点击事件在哪里添加呢？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [onPrepareToTerminate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onpreparetoterminate10)当UIAbility即将关闭前，系统触发该回调，用于在UIAbility正式关闭前执行其他操作。开发者可以在该回调中返回true阻拦此次关闭，然后在合适时机主动调用[terminateSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)接口关闭。例如，询问用户是否确认关闭UIAbility，再主动销毁UIAbility。
  
@@ -26,7 +22,7 @@ HarmonyOS PC端应用右上角的X按钮（关闭按钮）点击关闭之前增�
  
  
 
-##### 解决方案
+#### 解决方案
 
 [onPrepareToTerminate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onpreparetoterminate10)当UIAbility即将关闭前，系统触发该回调，用于在UIAbility正式关闭前执行其他操作。开发者可以在该回调中返回true阻拦此次关闭，然后在合适时机主动调用[terminateSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)接口关闭。该接口仅在2in1设备上生效，且需要应用申请ohos.permission.PREPARE_APP_TERMINATE权限。
  
@@ -34,17 +30,21 @@ HarmonyOS PC端应用右上角的X按钮（关闭按钮）点击关闭之前增�
  
 - 在module.json5配置文件中声明[ohos.permission.PREPARE_APP_TERMINATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionprepare_app_terminate)权限。
 - EntryAbility.ets文件中添加onPrepareToTerminate回调事件，代码如下所示：
-```text
+```json
 import { ConfigurationConstant, UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 
 
+
+
 const DOMAIN = 0x0000;
 
 
+
+
 export default class EntryAbility extends UIAbility {
-  //当前window对象
+ <em> //当前window对象</em>
   private currentWindowStage: window.WindowStage | null = null;
 
 
@@ -62,7 +62,7 @@ export default class EntryAbility extends UIAbility {
 
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
+   <em> // Main window is created, set main page for this ability</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
 
@@ -82,27 +82,27 @@ export default class EntryAbility extends UIAbility {
 
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+   <em> // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
 
   onForeground(): void {
-    // Ability has brought to foreground
+   <em> // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
 
   onBackground(): void {
-    // Ability has back to background
+   <em> // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 
 
   onPrepareToTerminate(): boolean {
-    // 开发者定义预关闭动作
+    <em>// 开发者定义预关闭动作</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onPrepareToTerminate');
-    // 例如关闭应用之前弹窗提示是否关闭app
+   <em> // 例如关闭应用之前弹窗提示是否关闭app</em>
     if (this.currentWindowStage !== null) {
       this.currentWindowStage?.getMainWindowSync().getUIContext().getPromptAction().showDialog({
         title: '提示',
@@ -124,12 +124,12 @@ export default class EntryAbility extends UIAbility {
             duration: 2000
           });
         } else {
-          // 确认关闭
+     <em>     // 确认关闭</em>
           this.context.terminateSelf();
         }
       });
     }
-    return true; // 已定义预关闭操作后，返回true表示UIAbility取消关闭
+    return true; <em>// 已定义预关闭操作后，返回true表示UIAbility取消关闭</em>
   }
 };
 ```

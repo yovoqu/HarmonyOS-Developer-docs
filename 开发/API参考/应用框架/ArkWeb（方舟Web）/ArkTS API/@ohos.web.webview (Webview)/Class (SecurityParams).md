@@ -3,24 +3,18 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-securityparams
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## Class (SecurityParams)
- 
 
 安全特性选项配置。该类提供了一组布尔开关，用于控制 ArkWeb 内核中特定 Web 功能的启用状态。通过关闭业务非必需的高风险模块（如 JIT编译、WebAssembly、WebGL 等），可减小攻击面、降低潜在漏洞利用风险。所有属性均为可选，默认 false（不禁用），请根据具体业务场景按需配置。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/BpiaCQIITTSV-urAdw6LAQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025447Z&HW-CC-Expire=86400&HW-CC-Sign=28661B30FCBE8058FE54E9950F725D0BAA3F5A327814402E4430D93F12CAE2E6)
- 
- 
-示例效果请以真机运行为准。
-  
+> [!NOTE]
+> 示例效果请以真机运行为准。
 
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { webview } from '@kit.ArkWeb';
@@ -28,7 +22,9 @@ import { webview } from '@kit.ArkWeb';
  
   
 
-##### 属性
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **起始版本：** 26.0.0
  

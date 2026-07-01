@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-87
 
-## 实现手机端搭建HTTP服务端供电脑浏览器访问
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现一个基于HarmonyOS API的HTTP服务器？
  
  
 
-##### 背景知识
+#### 背景知识
 
 HarmonyOS没有提供HTTP服务端的实现接口，但是因为HTTP协议是基于TCP的，可以通过TCPSocketServer类用API接口，加上HTTP协议的格式，打造一个简单的HTTP服务端。
  
  
 
-##### 解决方案
+#### 解决方案
 
 用TCPSocket在服务端开启TCP监听，启动服务器来监听指定端口，接收客户端连接。当客户端发送消息时，服务器接收并返回响应。停止服务器时关闭连接监听，释放资源。
  
@@ -29,7 +25,7 @@ import { socket } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { util } from '@kit.ArkTS';
 
-// 全局变量
+<em>// 全局变量</em>
 let tcpServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
 
 @Entry
@@ -38,7 +34,7 @@ struct Index {
   @State port: number = 8080;
   @State running: boolean = false;
   @State msgHistory: string = '';
-  // 监听的ip地址，此处地址实际使用过程中替换为真实地址
+ <em> // 监听的ip地址，此处地址实际使用过程中替换为真实地址</em>
   @State webUrl: string = 'xx.xx.xx';
   scroller: Scroller = new Scroller();
 
@@ -102,7 +98,7 @@ struct Index {
     .padding(10);
   }
 
-  // 开启服务
+  <em>// 开启服务</em>
   startServer() {
     let listenAddr: socket.NetAddress = {
       address: '0.0.0.0',
@@ -118,7 +114,7 @@ struct Index {
       this.msgHistory += 'listen success \r\n';
     });
 
-    // 连接后得到了clientSocket对象，然后继续订阅clientSocket对象的收到客户端消息事件
+   <em> // 连接后得到了clientSocket对象，然后继续订阅clientSocket对象的收到客户端消息事件</em>
     tcpServer.on('connect', (clientSocket: socket.TCPSocketConnection) => {
       clientSocket.on('message', (msgInfo: socket.SocketMessageInfo) => {
         let requestMsg = buf2String(msgInfo.message);
@@ -134,24 +130,24 @@ struct Index {
   }
 }
 
-// 构造给客户端的应答内容
+<em>// 构造给客户端的应答内容</em>
 function buildRespString(content: string) {
   let result: string = '';
-  let bodyContent = '';
-  bodyContent += '';
-  bodyContent += '';
+  let bodyContent = '<html>';
+  bodyContent += '<head>';
+  bodyContent += '<title>';
   bodyContent += 'HTTP服务器模拟';
-  bodyContent += '';
-  bodyContent += '';
-  bodyContent += '';
-  bodyContent += '';
+  bodyContent += '</title>';
+  bodyContent += '</head>';
+  bodyContent += '<body>';
+  bodyContent += '<h1>';
   bodyContent += '浏览器发送的请求信息';
-  bodyContent += '';
-  bodyContent += '';
+  bodyContent += '</h1>';
+  bodyContent += '<pre><h2>';
   bodyContent += content;
-  bodyContent += '';
-  bodyContent += '';
-  bodyContent += '';
+  bodyContent += '</h2></pre>';
+  bodyContent += '</body>';
+  bodyContent += '</html>';
 
   let textEncoder = new util.TextEncoder();
   let contentBuf = textEncoder.encodeInto(bodyContent);
@@ -165,7 +161,7 @@ function buildRespString(content: string) {
   return result;
 }
 
-// ArrayBuffer转字符串
+<em>// ArrayBuffer转字符串</em>
 function buf2String(buf: ArrayBuffer): string {
   const msgArray = new Uint8Array(buf);
   const textDecoder = util.TextDecoder.create('utf-8');
@@ -175,18 +171,18 @@ function buf2String(buf: ArrayBuffer): string {
  
  
 
-##### 总结
+#### 总结
 
 HarmonyOS API10提供了TCPSocketServer类，包含了如下几个关键接口：
  
 - 监听方法，绑定IP地址和端口，端口可以指定或由系统随机分配。成功调用该方法后，[TCPSocketServer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#tcpsocketserver10)对象监听并接收与此套接字建立的TCPSocket连接。
 ```text
-listen(address: NetAddress): Promise
+listen(address: NetAddress): Promise<void>
 ```
 
 - 订阅TCPSocketServer的连接事件，在新的客户端套接字连接上以后，会触发callback回调，在回调中包含TCPSocketConnection对象，该对象就表示TCPSocket客户端与服务端的连接。
 ```text
-on(type: 'connect', callback: Callback): void
+on(type: 'connect', callback: Callback<TCPSocketConnection>): void
 ```
 
 
@@ -195,11 +191,11 @@ TCPSocketConnection是服务端和客户端通讯的基础。
  
 - 提供了发送数据到客户端的方法：
 ```text
-send(options: TCPSendOptions): Promise
+send(options: TCPSendOptions): Promise<void>
 ```
 
 - 订阅客户端消息接收的事件：
 ```text
-on(type: 'message', callback: Callback): void
+on(type: 'message', callback: Callback<SocketMessageInfo>): void
 ```
  在这个事件的callback回调里，包含了SocketMessageInfo参数，该参数的属性message就是客户端发送过来的消息。

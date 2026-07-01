@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1441
 
-## 关于Span减少字体大小无法自适应缩放的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Text中使用了多个Span，每个Span使用不同的颜色，希望这个组件宽度不超过一个固定值，当超过时，通过减小字体大小来进行自适应。目前给Text组件设置minFontSize不起作用，有什么方案能够实现自适应？
  
@@ -43,12 +39,12 @@ struct NavigationPage {
 异常效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/bW1SNaz8S8OC-yA8mEGZAw/zh-cn_image_0000002658843523.png?HW-CC-KV=V1&HW-CC-Date=20260701T025616Z&HW-CC-Expire=86400&HW-CC-Sign=81A9B217103BEBC1D4E4E1BC132B5D3EC650CD989915E62DD87556C50D6DF930)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/bW1SNaz8S8OC-yA8mEGZAw/zh-cn_image_0000002658843523.png?HW-CC-KV=V1&HW-CC-Date=20260701T041258Z&HW-CC-Expire=86400&HW-CC-Sign=000208385C858A8EBB1E73ED581D36FBAB08DE53561F8986A335467E002E5A73)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Text组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)：显示一段文本的组件，包含Span子组件。除支持通用属性，还支持minFontSize、maxFontSize等属性。
 - [Span组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span)：作为Text组件的子组件，用于显示行内文本的组件。支持继承的属性仅包括：fontColor、fontSize、fontStyle、fontWeight、decoration、letterSpacing、textCase、fontfamily、textShadow。
@@ -56,14 +52,14 @@ struct NavigationPage {
  
  
 
-##### 解决方案
+#### 解决方案
 
 Span组件本身是行内元素，默认情况下它的宽度是由其内容自动撑开的，不能直接设置宽度，会一直撑开到撑满父组件为止，建议换成Text组件。
  
 代码如下：
  
 ```text
-// @Extend(Text)可以支持Text的私有属性minFontSize
+<em>// @Extend(Text)可以支持Text的私有属性minFontSize</em>
 @Extend(Text)
 function fancy() {
   .maxLines(1)

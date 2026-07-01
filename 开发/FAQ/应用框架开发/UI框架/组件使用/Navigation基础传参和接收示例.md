@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1098
 
-## Navigation基础传参和接收示例
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - **场景一**：页面间参数传递和接收如何实现？
 - **场景二**：如何获取pop、popToName、popToIndex传入的result参数？
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：路由导航的根视图容器。
 - [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)：子页面的根容器，用于显示Navigation的内容区。
@@ -33,18 +29,18 @@
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 实现场景 | 实现方案 | 方案对比 |
 | --- | --- | --- |
 | 场景一：页面间参数传递和接收的实现。 | 参数传递 | 通过pushPath、pushPathByName、pushDestination、pushDestinationByName等方法实现。 | / |
-| 参数接收 | 方案一：通过onReady获取参数。 | 页面首次加载完成时触发，并获取参数。 |
-| 方案二：使用getParamByIndex获取参数。 | 任意时机主动调用。 |
+| 场景一：页面间参数传递和接收的实现。 | 参数接收 | 方案一：通过onReady获取参数。 | 页面首次加载完成时触发，并获取参数。 |
+| 参数接收 | 方案二：使用getParamByIndex获取参数。 | 任意时机主动调用。 |
 | 场景二：获取pop、popToName、popToIndex传入的result参数。 | 方案一：使用onPop回调获取参数。 | 若使用popToName()跨级返回，中间页面的onPop不会触发。 |
-| 方案二：使用onResult回调获取参数。 | 只要页面返回到当前页面即触发，无论通过逐级返回还是跨级跳转。 |
+| 场景二：获取pop、popToName、popToIndex传入的result参数。 | 方案二：使用onResult回调获取参数。 | 只要页面返回到当前页面即触发，无论通过逐级返回还是跨级跳转。 |
 | 场景三：判断参数的来源页面和传递方式。 | 方法：自定义参数标记。 | / |
 | 场景四：在POP_TO_SINGLETON模式下实现传参和接收。 | 方案一：使用onNewParam更新参数。 | 仅单向传递（发送页→目标页）。 |
-| 方案二：使用事件通信机制（Emitter）实现参数传递和接收。 | 支持双向通信（任意线程/组件间互发）。 |
+| 场景四：在POP_TO_SINGLETON模式下实现传参和接收。 | 方案二：使用事件通信机制（Emitter）实现参数传递和接收。 | 支持双向通信（任意线程/组件间互发）。 |
  
  
 - **场景一**：页面间参数传递和接收的实现。
@@ -57,7 +53,8 @@ this.pageInfo.pushPath(info);
 
 - 参数接收：
 **方案一**：通过onReady获取参数。onReady可获取[NavDestinationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#navdestinationcontext11)上下文信息，其中pathInfo包含页面传递的数据。
- 
+
+  
 ```text
 .onReady((context: NavDestinationContext) => {
   this.pageInfo = context.pathStack;
@@ -66,7 +63,8 @@ this.pageInfo.pushPath(info);
 ```
 
 - **方案二**：使用getParamByIndex获取参数。getParamByIndex通过页面在路由栈中的索引位置获取参数（索引从栈底开始计算）。getParamByName通过页面名称获取所有同名页面的参数，返回一个参数数组。若页面栈中目标页面唯一或已知位置，直接通过索引获取更高效。
- 
+
+  
 ```text
 this.params2 = this.pageInfo.getParamByIndex(this.pageInfo.getAllPathName().length - 1) as NavParams;
 ```
@@ -74,23 +72,23 @@ this.params2 = this.pageInfo.getParamByIndex(this.pageInfo.getAllPathName().leng
 
  
  - **场景二**：获取pop、popToName、popToIndex传入的result参数。
-**方案一**：使用onPop回调获取参数。
-在发送页面添加onPop回调接收结果：
+**方案一**：使用onPop回调获取参数。1. 在发送页面添加onPop回调接收结果：
 ```text
 this.pageInfo.pushPathByName('PageC', null, (popInfo: PopInfo) => {
   this.params = popInfo.result as NavParams;
 }, false);
 ```
 
-- 在目标页面通过pop()设置result参数:
+
+2. 在目标页面通过pop()设置result参数:
 ```text
 this.params = new NavParams('PageC的数据', 'PageC', 'pop');
 this.pageInfo.pop(this.params, false);
 ```
 
+- **方案二**：使用onResult回调获取参数。onResult是NavDestination组件用于接收页面返回数据的回调方法，在NavDestination中声明onResult回调并接收数据：
 
- - **方案二**：使用onResult回调获取参数。onResult是NavDestination组件用于接收页面返回数据的回调方法，在NavDestination中声明onResult回调并接收数据：
- 
+  
 ```text
 .onResult((result: ESObject) => {
   this.params = result as NavParams;
@@ -99,14 +97,16 @@ this.pageInfo.pop(this.params, false);
 
 
  - **场景三**：判断参数的来源页面和传递方式。方法：自定义参数标记。
- 在传参时添加标识字段，用于识别页面来源和传递方式。
- 
+
+  在传参时添加标识字段，用于识别页面来源和传递方式。
+
+  
 ```text
-// 自定义参数标记
+<em>// 自定义参数标记</em>
 export class NavParams {
-  data: string; // 传递数据
-  sourcePage: string; // 页面来源标记
-  sourceMethod: string; // 页面传递方式
+  data: string; <em>// 传递数据</em>
+  sourcePage: string; <em>// 页面来源标记</em>
+  sourceMethod: string; <em>// 页面传递方式</em>
   constructor(data: string, sourcePage: string, sourceMethod: string) {
     this.data = data;
     this.sourcePage = sourcePage;
@@ -116,17 +116,18 @@ export class NavParams {
 ```
 
 - **场景四**：在POP_TO_SINGLETON模式下实现传参和接收。onReady仅在页面首次创建并完成初始化时触发一次。当使用POP_TO_SINGLETON模式时，如果目标页面已在路由栈中存在，则不会触发onReady。
- 
+
+  
 **方案一**：使用onNewParam更新参数。从API19开始NavDestination新增onNewParam，用于处理单实例页面被重新激活时的参数更新。
- 
+
+  
 ```text
 .onNewParam((param: string) => {
   this.param1 = param;
 });
 ```
 
-- **方案二**：使用事件通信机制（Emitter）实现参数传递和接收。
-发送页面传递参数：
+- **方案二**：使用事件通信机制（Emitter）实现参数传递和接收。1. 发送页面传递参数：
 ```text
 this.pageInfo.pushPath({ name: 'ReceivePageA', param: this.data },
   { launchMode: LaunchMode.POP_TO_SINGLETON, animated: true });
@@ -134,7 +135,8 @@ let eventData: emitter.EventData = { data: { 'param': this.data } };
 emitter.emit('params', eventData);
 ```
 
-- 接收页面获取参数：
+
+2. 接收页面获取参数：
 ```text
 aboutToAppear(): void {
   emitter.on('params', (eventData: emitter.EventData) => {
@@ -152,15 +154,14 @@ aboutToDisappear(): void {
 
  
  
- 
 场景一、二、三完整示例参考如下：
  
 ```text
-// 自定义参数标记
+<em>// 自定义参数标记</em>
 export class NavParams {
-  data: string; // 传递数据
-  sourcePage: string; // 页面来源标记
-  sourceMethod: string; // 页面传递方式
+  data: string;<em> // 传递数据</em>
+  sourcePage: string; <em>// 页面来源标记</em>
+  sourceMethod: string;<em> // 页面传递方式</em>
   constructor(data: string, sourcePage: string, sourceMethod: string) {
     this.data = data;
     this.sourcePage = sourcePage;
@@ -360,7 +361,7 @@ struct PageC {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/7nIjv8p9S0WTm0PMexoPNA/zh-cn_image_0000002658806699.png?HW-CC-KV=V1&HW-CC-Date=20260701T025559Z&HW-CC-Expire=86400&HW-CC-Sign=9DDF9F53AE3AE22DFB9AA69CB24762B09A28E830352BFF7A6D2B877E666A9F35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/7nIjv8p9S0WTm0PMexoPNA/zh-cn_image_0000002658806699.png?HW-CC-KV=V1&HW-CC-Date=20260701T041244Z&HW-CC-Expire=86400&HW-CC-Sign=BA3B44838769D7EC24E4B8B8E86CEBD01776CAD2E3C7063CEC221865788EF331)
 
  
 场景四完整示例参考如下：
@@ -481,12 +482,12 @@ struct ReceivePageB {
 效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/Hjta7fnERTivv--waEsIyQ/zh-cn_image_0000002628407446.png?HW-CC-KV=V1&HW-CC-Date=20260701T025559Z&HW-CC-Expire=86400&HW-CC-Sign=88667B9A99C0FA31E15CA6F1879F69F868855B3A3DC88F962A8694BA004F86D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/Hjta7fnERTivv--waEsIyQ/zh-cn_image_0000002628407446.png?HW-CC-KV=V1&HW-CC-Date=20260701T041244Z&HW-CC-Expire=86400&HW-CC-Sign=FB2A55ACC4DFFC133C549AC4B6E52BF802685E16EB3C5D1B05B74AE2DA1E77D5)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Navigation获取页面参数的getParamByName方法为什么返回值是数组？
  
@@ -497,20 +498,20 @@ Q：路由传参时，使用instanceof做类型判断存在安全隐患，有哪
 A：使用泛型方式判断：
  
 ```text
-// 定义参数类型
+<em>// 定义参数类型</em>
 export class NavParam {
   data: string;
   constructor(data: string) {
     this.data = data;
   }
 }
-// 使用泛型来构建buildFunction
+<em>// 使用泛型来构建buildFunction</em>
 @Builder
-export function PageBuilder(name: string, param: T) {
+export function PageBuilder<T extends NavParam>(name: string, param: T) {
   Page();
 }
-// ...
-// 路由参数处理
+<em>// ...</em>
+<em>// 路由参数处理</em>
 const param = this.pageInfo.getParamByIndex(this.pageInfo.getAllPathName().length - 1) as NavParam;
-// ...
+<em>// ...</em>
 ```

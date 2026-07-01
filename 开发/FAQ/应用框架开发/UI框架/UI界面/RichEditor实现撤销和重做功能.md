@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1048
 
-## RichEditor实现撤销和重做功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现RichEditor撤销和重做的功能。
  
  
 
-##### 背景知识
+#### 背景知识
 
 富文本编辑器[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)，是支持图文混排和文本交互式编辑的组件
  
@@ -22,27 +18,25 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 要实现编辑器撤销和重做的功能，本质上是要在做输入操作时记录包括内容、光标位置等信息，从而可以在撤销和重做的时候可以恢复原状。因此需要对输入操作进行改造，基于输入命令二次封装，增加undo函数撤销输入的内容同时恢复光标位置，同时我们还需要用栈来记录历史的操作信息。下面是一些核心的步骤：
- 
-- 抽象EditorCommand类，封装了execute方法以及undo方法。
-- 实现InsertTextCommand输入文本类，execute方法内执行controller.addTextSpan输入内容，同时记录光标位置。
-- 实现一个EditorHistoryManager类，内部维护撤销栈undoStack和重做栈redoStack，每次编辑器正常输入时会往undoStack插入一个EditorCommand实例，并执行实例的execute方法输入内容，同时清空redoStack。
-- 当执行撤销时，将undoStack栈从顶部依次弹出实例；同时执行每个实例的undo方法让内容还原以及使光标恢复，并将弹出的元素推入redoStack。
-- 当执行重做时，将redoStack栈从顶部依次弹出实例；同时执行每个实例的redo方法让内容还原以及使光标恢复，并将弹出的元素推入undoStack。
-
+ 1. 抽象EditorCommand类，封装了execute方法以及undo方法。
+2. 实现InsertTextCommand输入文本类，execute方法内执行controller.addTextSpan输入内容，同时记录光标位置。
+3. 实现一个EditorHistoryManager类，内部维护撤销栈undoStack和重做栈redoStack，每次编辑器正常输入时会往undoStack插入一个EditorCommand实例，并执行实例的execute方法输入内容，同时清空redoStack。
+4. 当执行撤销时，将undoStack栈从顶部依次弹出实例；同时执行每个实例的undo方法让内容还原以及使光标恢复，并将弹出的元素推入redoStack。
+5. 当执行重做时，将redoStack栈从顶部依次弹出实例；同时执行每个实例的redo方法让内容还原以及使光标恢复，并将弹出的元素推入undoStack。
  
 具体代码如下：
  
-```text
-// 1. 抽象命令基类
+```json
+<em>// 1. 抽象命令基类</em>
 export abstract class EditorCommand {
   abstract execute(controller: RichEditorController);
   abstract undo(controller: RichEditorController);
 }
 
-// 2. 插入文本命令类
+<em>// 2. 插入文本命令类</em>
 export class InsertTextCommand extends EditorCommand {
   private text: string;
   private prevOffset: number | null = 0;
@@ -56,7 +50,7 @@ export class InsertTextCommand extends EditorCommand {
   }
 
   execute(controller: RichEditorController) {
-    // 移动到插入位置并插入文本
+   <em> // 移动到插入位置并插入文本</em>
     this.prevOffset = controller.getCaretOffset();
     this.options.offset = this.prevOffset;
     controller.addTextSpan(this.text, this.options);
@@ -64,17 +58,17 @@ export class InsertTextCommand extends EditorCommand {
   }
 
   undo(controller: RichEditorController) {
-    // 计算要删除的范围
+   <em> // 计算要删除的范围</em>
     const start = this.prevOffset;
     const end = this.curOffset;
-    // 删除插入的文本
+   <em> // 删除插入的文本</em>
     controller.deleteSpans({ start: start, end: end });
-    // 恢复原始光标位置
+   <em> // 恢复原始光标位置</em>
     controller.setCaretOffset(start);
   }
 }
 
-// 历史输入管理类
+<em>// 历史输入管理类</em>
 @ObservedV2
 export class EditorHistoryManager {
   @Trace private undoStack: EditorCommand[] = [];
@@ -96,13 +90,13 @@ export class EditorHistoryManager {
     return this.redoStack.length > 0;
   }
 
-  // 执行新命令
+  <em>// 执行新命令</em>
   executeCommand(command: EditorCommand) {
     command.execute(this.controller);
     this.undoStack.push(command);
-    // 清空重做栈
+  <em>  // 清空重做栈</em>
     this.redoStack = [];
-    // 控制历史记录大小
+   <em> // 控制历史记录大小</em>
     this.trimHistory();
   }
 
@@ -176,6 +170,6 @@ struct Index {
  
  
 
-##### 总结
+#### 总结
 
 通过封装输入命令，以及维护undo撤销栈和redo重做栈，我们就可以实现编辑器的撤销和重做。

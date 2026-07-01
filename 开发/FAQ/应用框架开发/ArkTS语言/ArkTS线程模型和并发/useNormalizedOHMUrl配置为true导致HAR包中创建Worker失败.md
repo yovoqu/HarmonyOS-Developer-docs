@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-threading-model-9
 
-## useNormalizedOHMUrl配置为true导致HAR包中创建Worker失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在entry模块调用harA的文件，harA中用@标识加载harB的Worker文件，运行闪退。
  
@@ -31,7 +27,7 @@ Error message:Cannot find module '@normalized:N&&&harB/src/main/ets/workers/Work
  
  
 
-##### 背景知识
+#### 背景知识
 
 使用Worker模块具体功能时，须先构造Worker实例对象，其构造函数与API版本相关，且构造函数需要传入Worker线程文件的路径（scriptURL）。参考[文件路径注意事项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction#文件路径注意事项)：
  
@@ -41,52 +37,44 @@ Stage模型下加载HAR中Worker线程文件存在以下两种情况：
 - 相对路径加载形式：本地HAR加载该包内的Worker线程文件，加载路径规则：创建Worker对象所在文件与Worker线程文件的相对路径。
 
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/7ImyMjz8Rtai04hRm9fwbw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025522Z&HW-CC-Expire=86400&HW-CC-Sign=495387336E88B8D99DB43C596305A8FF2439ADC225107FC617E5190DC8C45838)
- 
-
-当开启useNormalizedOHMUrl（即将工程目录中与entry同级别的应用级[build-profile.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app)文件中[strictMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section13181758123312)属性的useNormalizedOHMUrl字段配置为true）或HAR包会被打包成三方包使用时，则HAR包中使用Worker仅支持通过相对路径的加载形式创建。
- 
+> [!NOTE]
+> 当开启useNormalizedOHMUrl（即将工程目录中与entry同级别的应用级 build-profile.json5 文件中 strictMode 属性的useNormalizedOHMUrl字段配置为true）或HAR包会被打包成三方包使用时，则HAR包中使用Worker仅支持通过相对路径的加载形式创建。
 
  
  
 
-##### 问题定位
-
-- 根据报错信息创建Worker过程中路径不正确，对比文件路径注意事项中加载HAR中Worker线程文件场景，当开启useNormalizedOHMUrl或HAR包会被打包成三方包使用时，HAR包中使用Worker仅支持通过相对路径的加载形式创建。
-- 若使用相对路径加载Worker，检查创建Worker实例的文件与Worker文件本身是否在同一包内。
-
+#### 问题定位
+1. 根据报错信息创建Worker过程中路径不正确，对比文件路径注意事项中加载HAR中Worker线程文件场景，当开启useNormalizedOHMUrl或HAR包会被打包成三方包使用时，HAR包中使用Worker仅支持通过相对路径的加载形式创建。
+2. 若使用相对路径加载Worker，检查创建Worker实例的文件与Worker文件本身是否在同一包内。
  
  
 
-##### 分析结论
+#### 分析结论
 
 工程级build-profile.json5配置useNormalizedOHMUrl为true，仅支持通过相对路径的加载形式创建。创建Worker对象所在文件与Worker线程文件不在同一包内，导致用相对路径加载Worker无法识别。
  
  
 
-##### 修改建议
+#### 修改建议
 
 当useNormalizedOHMUrl设置为true时需满足以下两个条件：
- 
-- 使用相对路径引用Worker文件。
-- 创建Worker对象所在文件与Worker线程文件需在同一个包内。
-
+ 1. 使用相对路径引用Worker文件。
+2. 创建Worker对象所在文件与Worker线程文件需在同一个包内。
  
 - 在harB包Worker文件同一包内创建工具类，使用相对路径引用Worker文件，封装常用方法。
 ```ArkTS
 import { worker } from '@kit.ArkTS';
 
 export class WorkerUtil {
-  // 在worker文件同一包内创建实例
+ <em> // 在worker文件同一包内创建实例</em>
   private testWorker: worker.ThreadWorker = new worker.ThreadWorker('../workers/WorkerTest.ets');
 
   postMsg(args: Object) {
     try {
-      // 使用实例发送消息
+    <em>  // 使用实例发送消息</em>
       this.testWorker.postMessage(args);
     } catch (error) {
-      // Implement error handling.
+    <em>  // Implement error handling.</em>
     }
   }
 }
@@ -125,7 +113,7 @@ export struct MainPage {
           .fontSize($r('app.float.page_text_font_size'))
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-            // 创建harB的工具类WorkerUtil实例
+          <em>  // 创建harB的工具类WorkerUtil实例</em>
             let workerUtil: WorkerUtil = new WorkerUtil();
             workerUtil.postMsg(1);
           })
@@ -141,12 +129,12 @@ export struct MainPage {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：在项目中引入ijkplayer实现录屏功能，引入ijkplayer本地HAR包后，编译时提示useNormalizedOHMUrl is not true，将该属性设置为true时，再打开项目时，整个项目直接出现白屏，无法进入到首页。报错信息如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/8XfbqsF4TOanDbuTjAqkyg/zh-cn_image_0000002659138347.png?HW-CC-KV=V1&HW-CC-Date=20260701T025522Z&HW-CC-Expire=86400&HW-CC-Sign=3DA1B0A4258936853B72B45C9B89F2AD1CED7825304F60231F19A83B42B822FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/8XfbqsF4TOanDbuTjAqkyg/zh-cn_image_0000002659138347.png?HW-CC-KV=V1&HW-CC-Date=20260701T041128Z&HW-CC-Expire=86400&HW-CC-Sign=7B647EC9102678366AA8B10216584E7A54FD0B513D2DEB8569D2E62F74360520)
 
  
 A：根据报错信息分析得出是Worker路径不对，Worker使用有这样一个限制，当开启useNormalizedOHMUrl（在工程目录中与entry同级别的应用级build-profile.json5文件中，将strictMode属性下的useNormalizedOHMUrl字段配置为true）或HAR包被打包成三方包使用时，HAR包中使用Worker仅支持通过相对路径的加载形式创建。可参考Worker线程文件路径注意事项。

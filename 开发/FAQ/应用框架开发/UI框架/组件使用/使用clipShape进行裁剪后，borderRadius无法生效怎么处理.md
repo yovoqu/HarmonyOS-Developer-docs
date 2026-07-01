@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1485
 
-## 使用clipShape进行裁剪后，borderRadius无法生效怎么处理
- 
-
-
-##### 问题现象
+#### 问题现象
 
 对容器组件使用clipShape进行裁剪后，再使用borderRadius对被裁剪容器设置圆角时无法生效，问题代码与问题效果图如下：
  
@@ -36,12 +32,12 @@ struct IrregularShape {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/M-zYC77FSLaR9zuPWpq4Sw/zh-cn_image_0000002658965027.png?HW-CC-KV=V1&HW-CC-Date=20260701T025617Z&HW-CC-Expire=86400&HW-CC-Sign=7B656D70BA4F3DCE03CA032C6530842D856A6EAF495F874D3660E161A697EF39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/M-zYC77FSLaR9zuPWpq4Sw/zh-cn_image_0000002658965027.png?HW-CC-KV=V1&HW-CC-Date=20260701T041257Z&HW-CC-Expire=86400&HW-CC-Sign=F7145BB87F1773603A82878084B41A4CF2E52FAA51A37264013666E139FB8AE5)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - **设置组件圆角的方法。**
 [borderRadius](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderradius)：borderRadius属性用于设置组件边框的圆角，可以同时设置四个角，也可以分别对四个角的圆角大小进行设置。为了避免子组件尺寸大于组件，导致子组件覆盖圆角，可以搭配属性[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip12)使用。
@@ -58,52 +54,52 @@ Path是绘制组件，通过设置路径绘制出所需的形状，其填充区�
  
  
 
-##### 解决方案
+#### 解决方案
 
 borderRadius属性从规格上是相对于组件的大小而言的，当组件同时设置borderRadius和clipShape时，borderRadius会首先生效，对整个组件设置圆角效果，然后clipShape裁剪效果会覆盖borderRadius的圆角效果，导致borderRadius不生效。
  
 - **方案一：对裁剪的组件设置圆角。**使用clipShape对组件进行裁剪时，根据需求，对需设置为圆角的角进行圆角裁剪处理。被裁剪的组件可以是容器组件（如Column、Row等）或Image组件。
- 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/ziJ60I8DR1yDolYh38t2NQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025617Z&HW-CC-Expire=86400&HW-CC-Sign=924C03FAA14EB5985EEAEE4D504935A9201EBB5685B4F896F06E5015F0AD567D)
- 
-不能设置两次clipShape属性进行多次裁剪，否则最后一个clipShape的裁剪将会覆盖前面的clipShape裁剪。
- 
+  
+> [!NOTE]
+> 不能设置两次clipShape属性进行多次裁剪，否则最后一个clipShape的裁剪将会覆盖前面的clipShape裁剪。
 
- 以下示例对Image组件设置clipShape属性，使用PathShape形状描述组件被裁剪后的形状。
- 
+
+  以下示例对Image组件设置clipShape属性，使用PathShape形状描述组件被裁剪后的形状。
+
+  
 ```text
 import { PathShape } from '@kit.ArkUI';
 
 @Entry
 @Component
 struct ClipFilletCorner {
-  // 定义PathShape绘制的路线
+  <em>// 定义PathShape绘制的路线</em>
   /*
-    绘制原始图形，即不裁剪，绘制路线的单位为px，宽高默认单位为vp，可以按需要使用像素单位转换方法进行转换
+   <em> 绘制原始图形，即不裁剪，绘制路线的单位为px，宽高默认单位为vp，可以按需要使用像素单位转换方法进行转换</em>
    */
   commands1: string =
     `M0 0 L${this.getUIContext().vp2px(300)} 0 L${this.getUIContext().vp2px(300)} ${this.getUIContext()
       .vp2px(200)} L0 ${this.getUIContext().vp2px(200)} Z`;
   /*
-    将图片裁剪为三角形
-    * commands的命令M是定义绘制的起点，如M0 0是定义点(0, 0)为绘制起点
-    * commands的命令L是绘制当前点到指定点的直线，如L600 0是绘制当前点到(600, 0)的直线
-    * commands的命令Z是指绘制当前点到起点的直线并结束绘制
+    <em>将图片裁剪为三角形</em>
+    * <em>commands的命令M是定义绘制的起点，如M0 0是定义点(0, 0)为绘制起点</em>
+    *<em> commands的命令L是绘制当前点到指定点的直线，如L600 0是绘制当前点到(600, 0)的直线</em>
+    * <em>commands的命令Z是指绘制当前点到起点的直线并结束绘制</em>
    */
   commands2: string = 'M0 0 L600 0 L600 300 Z';
   /*
-    将图片裁剪为带圆角的不规则图形
-    * commands的命令H是绘制当前点到对应x坐标的点的水平线，如M0 100 H300是绘制从(0, 100)到(300, 100)的水平线
-    * commands的命令V是绘制当前点到对应y坐标的点的垂直线，如M100 0 V300是绘制从(100, 0)到(100, 300)的垂直线
-    * commands的命令S是绘制当前点到终点的二次贝塞尔曲线，前两个值是设置控制点，后两个值是曲线终点
+    <em>将图片裁剪为带圆角的不规则图形</em>
+<em>    </em>*<em> commands的命令H是绘制当前点到对应x坐标的点的水平线，如M0 100 H300是绘制从(0, 100)到(300, 100)的水平线</em>
+<em>    </em>*<em> commands的命令V是绘制当前点到对应y坐标的点的垂直线，如M100 0 V300是绘制从(100, 0)到(100, 300)的垂直线</em>
+<em>    </em>*<em> commands的命令S是绘制当前点到终点的二次贝塞尔曲线，前两个值是设置控制点，后两个值是曲线终点</em>
    */
   commands3: string = 'M0 100 S0 0 100 0 H300 S400 0 400 100 V300 S400 400 300 400 H200Z';
   @State shapeNum: number = 1;
 
   build() {
     Column() {
-      // 待裁剪图片
+     <em> // 待裁剪图片</em>
       Image($r('app.media.startIcon'))
         .height(200)
         .width(300)
@@ -113,7 +109,7 @@ struct ClipFilletCorner {
         .clipShape(new PathShape().commands(this.shapeNum === 1 ? this.commands1 :
           (this.shapeNum === 2 ? this.commands2 : this.commands3)));
 
-      // 定义命令控制器
+      <em>// 定义命令控制器</em>
       Row() {
         Button('Original')
           .type(ButtonType.Capsule)
@@ -148,25 +144,27 @@ struct ClipFilletCorner {
 }
 ```
  效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/HsFqjAG_RSSLvJPr2GDogw/zh-cn_image_0000002628605822.png?HW-CC-KV=V1&HW-CC-Date=20260701T025617Z&HW-CC-Expire=86400&HW-CC-Sign=1A29E2118D3760ABF8E95878B6843312A4E3DAB2F1219AE740DA693D44FB7407)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/HsFqjAG_RSSLvJPr2GDogw/zh-cn_image_0000002628605822.png?HW-CC-KV=V1&HW-CC-Date=20260701T041257Z&HW-CC-Expire=86400&HW-CC-Sign=76F9E94F38F810B53D258755C7FA0E3324FEEE8602EE9863ABBF0441B3D1265E)
 
 - **方案二：绘制带圆角的组件**。
-某些场景下可能需要绘制出带有圆角或其他形状的图形，此时可以使用Path组件进行绘制。
+
+  某些场景下可能需要绘制出带有圆角或其他形状的图形，此时可以使用Path组件进行绘制。
 ```text
 @Entry
 @Component
 struct PathFilletCorner {
   build() {
     Column() {
-      // 绘制上一示例的带圆角的不规则图形
+      <em>// 绘制上一示例的带圆角的不规则图形</em>
       Path()
         .fill('rgba(10, 89, 247, 0.3)')
         .stroke('#0A59F7')
-        // 命令与上一示例的commands3相同
+        <em>// 命令与上一示例的commands3相同</em>
         .commands('M0 100 S0 0 100 0 H300 S400 0 400 100 V300 S400 400 300 400 H200Z');
 
-      // 绘制带圆角的三角形
+      <em>// 绘制带圆角的三角形</em>
       Path()
         .fill('rgba(0, 0, 0, 0.2)')
         .stroke('#0A59F7')
@@ -179,16 +177,18 @@ struct PathFilletCorner {
   }
 }
 ```
- 
- 效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/U_WXhFW3Re6t7EGfSHtoGA/zh-cn_image_0000002658845075.png?HW-CC-KV=V1&HW-CC-Date=20260701T025617Z&HW-CC-Expire=86400&HW-CC-Sign=8BF1871EFA3E88DDBE000C345766AE3BF4795C879E7A9C17CE3CC6829AADDD52)
+
+
+  效果图如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/U_WXhFW3Re6t7EGfSHtoGA/zh-cn_image_0000002658845075.png?HW-CC-KV=V1&HW-CC-Date=20260701T041257Z&HW-CC-Expire=86400&HW-CC-Sign=721195706B9065EEC505E91B0ED126BA3491C6540BDECB398321BE281CAE517E)
 
 
  
  
 
-##### 总结
+#### 总结
 
 - 当对组件进行圆角设置时，可以使用borderRadius属性。
 - 当需要对裁剪后的组件进行圆角设置时，borderRadius属性的效果会被覆盖，可以在使用clipShape对组件进行裁剪时，使用PathShape形状按需要进行形状和圆角的裁剪。

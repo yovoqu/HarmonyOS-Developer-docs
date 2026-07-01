@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-1
 
-## PC打开应用布局异常
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当应用在直板手机查看时，布局显示正常；从PC设备打开应用，布局会出现截断、错位、遮挡等异常现象。
  
  
 
-##### 背景知识
+#### 背景知识
 
 一多适配布局方面提供的两种布局方式：
  
@@ -30,27 +26,22 @@
  
  
 
-##### 问题定位
-
-- 需要确认页面布局异常是留白较多，内容稀疏的问题，还是布局错乱的问题。如果是页面留白较多的问题，建议检查页面自适应组件是否设置了[自适应布局能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-adaptive-layout)，若有相关组件属性设置则说明仅采用了自适应布局组件进行了部分布局适配。
-- 仅使用自适应布局会导致页面尺寸过大时，留白较多等问题；此时需要搭配响应式布局来解决留白过多的问题。
-- 如果页面布局错乱，可能是未采用响应式布局。
+#### 问题定位
+1. 需要确认页面布局异常是留白较多，内容稀疏的问题，还是布局错乱的问题。如果是页面留白较多的问题，建议检查页面自适应组件是否设置了[自适应布局能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-adaptive-layout)，若有相关组件属性设置则说明仅采用了自适应布局组件进行了部分布局适配。
+2. 仅使用自适应布局会导致页面尺寸过大时，留白较多等问题；此时需要搭配响应式布局来解决留白过多的问题。
+3. 如果页面布局错乱，可能是未采用响应式布局。
 建议检查代码在UIAbility的onWindowStageCreate生命周期回调中，是否通过窗口对象获取启动时的应用窗口宽度并注册回调函数监听窗口尺寸变化。[可参考官网响应式布局断点案例](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section1532120147301)。
-- 由于监听窗口尺寸变化有多种方式，我们还需要确认代码中是否有采用[媒体查询](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section1950102518311)来进行监听应用窗口尺寸变化。
-- 还需确定的是，代码是否采用了[栅格布局](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section1061332817545)来进行布局适配。
-
- 
- 
- 
-
-##### 分析结论
-
-- 仅采用自适应布局组件进行开发，会导致页面在PC窗口下显示内容稀疏，留白过多的问题。
-- 未采用响应式布局，会导致页面位置错乱，组件拉伸，变形等问题。
-
+4. 由于监听窗口尺寸变化有多种方式，我们还需要确认代码中是否有采用[媒体查询](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section1950102518311)来进行监听应用窗口尺寸变化。
+5. 还需确定的是，代码是否采用了[栅格布局](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section1061332817545)来进行布局适配。
  
  
 
-##### 修改建议
+#### 分析结论
+1. 仅采用自适应布局组件进行开发，会导致页面在PC窗口下显示内容稀疏，留白过多的问题。
+2. 未采用响应式布局，会导致页面位置错乱，组件拉伸，变形等问题。
+ 
+ 
+
+#### 修改建议
 
 推荐采用自适应布局结合响应式布局，采用具有自适应能力的组件结合windowSizeChange方法监听窗口尺寸变化，或者采用响应式布局中的媒体查询和栅格布局并结合断点功能一起使用，来实现不同的布局效果。不同断点下页面组件采用不同的尺寸和布局方式。具体示例可参考：[响应式布局](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout)。

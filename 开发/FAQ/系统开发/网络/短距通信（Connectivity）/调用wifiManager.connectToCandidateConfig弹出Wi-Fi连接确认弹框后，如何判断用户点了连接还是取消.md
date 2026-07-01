@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-17
 
-## 调用wifiManager.connectToCandidateConfig弹出Wi-Fi连接确认弹框后，如何判断用户点了连接还是取消
- 
-
-
-##### 问题现象
+#### 问题现象
 
 调用wifiManager.connectToCandidateConfig接口后，会出现一个系统弹框提示用户是否连接候选WLAN，如何监听用户点了连接还是取消。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [wifiManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager)模块主要提供WLAN基础功能（无线接入、无线加密、无线漫游等）、P2P（peer-to-peer）服务的基础功能和WLAN消息通知的相应服务，让应用可以通过WLAN和其他设备互联互通。
 - [wifiManager.connectToCandidateConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagerconnecttocandidateconfig)接口支持应用连接到自己添加的候选网络。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 API20提供最新的API接口[wifiManager.connectToCandidateConfigWithUserAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagerconnecttocandidateconfigwithuseraction20)，应用使用该接口连接到自己添加的候选网络时，会提示用户是否信任并建立连接，并使用Promise异步回调用户响应结果。
  

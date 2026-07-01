@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-9
 
-## PDF Kit提供的PDF转图片的多个API有什么区别
- 
-
-
-##### 问题现象
+#### 问题现象
 
 PDF Kit中的pdfService和pdfViewManager都提供了PDF转图片的API，它们有什么区别？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/UKySx82uTYa5UeuPwm8QUA/zh-cn_image_0000002628554246.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025837Z&HW-CC-Expire=86400&HW-CC-Sign=4BAA44EF87F6105F74DC872FE9DE70D93151B3B5395A045B9CC7BBC0BD61EE59)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/UKySx82uTYa5UeuPwm8QUA/zh-cn_image_0000002628554246.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041055Z&HW-CC-Expire=86400&HW-CC-Sign=67D71BAF8773AAE3434B76A6A4A6A3E36034E63694052DF0D1B3084CB28C74D3)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - pdfService（PDF服务）提供PDF转图片的API如下：
 [convertToImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#section1029783924311)：转换PDF文档为图片。
@@ -36,7 +32,7 @@ PDF Kit中的pdfService和pdfViewManager都提供了PDF转图片的API，它们�
  
  
 
-##### 解决方案
+#### 解决方案
 
 PDF Kit提供的PDF转图片的多个API使用场景不同，功能及注意事项见下表：
   
@@ -52,7 +48,7 @@ PDF Kit提供的PDF转图片的多个API使用场景不同，功能及注意事�
  
 完整示例参考如下：
  
-```text
+```json
 import { common } from '@kit.AbilityKit';
 import { pdfService, pdfViewManager } from '@kit.PDFKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
@@ -68,7 +64,7 @@ struct Index {
   aboutToAppear(): void {
     let context = this.uiContext.getHostContext() as common.UIAbilityContext;
     let dir: string = context.filesDir;
-    // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档
+  <em>  // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档</em>
     this.filePath = dir + '/test.pdf';
     let res = fs.accessSync(this.filePath);
     if (!res) {
@@ -113,7 +109,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release(); // 释放
+                imagePacker.release();<em> // 释放</em>
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -142,7 +138,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release(); // 释放
+                imagePacker.release();<em> // 释放</em>
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -177,7 +173,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release(); // 释放
+                imagePacker.release();<em> // 释放</em>
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -227,7 +223,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release(); // 释放
+                imagePacker.release();<em> // 释放</em>
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -255,7 +251,7 @@ struct Index {
               let packOpts: image.PackingOption = { format: 'image/png', quality: 100 };
               const imagePacker: image.ImagePacker = image.createImagePacker();
               await imagePacker.packToFile(this.pixelMap, file.fd, packOpts).finally(() => {
-                imagePacker.release(); // 释放
+                imagePacker.release(); <em>// 释放</em>
               });
             } catch (e) {
               console.error('fs.openSync failed error is : ', JSON.stringify(e));
@@ -281,10 +277,10 @@ struct Index {
 效果预览图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/C3ap7lbWSUmOoTSa4Js9Iw/zh-cn_image_0000002658913563.png?HW-CC-KV=V1&HW-CC-Date=20260701T025837Z&HW-CC-Expire=86400&HW-CC-Sign=983E4B82F5F1D40A3661D834D5110B6769057EF10BAD84E4B2B7B60E687FFD9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/C3ap7lbWSUmOoTSa4Js9Iw/zh-cn_image_0000002658913563.png?HW-CC-KV=V1&HW-CC-Date=20260701T041055Z&HW-CC-Expire=86400&HW-CC-Sign=5BE112F7DE49CA5B89CF371F012CBF86B7246C987E2D70CE460C18384CCD58B7)
 
  
 参考Device File Browser[操作步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-device-file-explorer#section165192211111)查看生成的图片：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/-UDndPQdRPO6uIakQ-VUEw/zh-cn_image_0000002628394350.png?HW-CC-KV=V1&HW-CC-Date=20260701T025837Z&HW-CC-Expire=86400&HW-CC-Sign=5ABFC130DFC2B026ECF0D723E133D0D579C46610563D009CBD901464F28099A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/-UDndPQdRPO6uIakQ-VUEw/zh-cn_image_0000002628394350.png?HW-CC-KV=V1&HW-CC-Date=20260701T041055Z&HW-CC-Expire=86400&HW-CC-Sign=EE94C5893EE812617361DFE1AEFABC5F675C21D9A6D5BBE1CD4AE1B0680E6AC3)

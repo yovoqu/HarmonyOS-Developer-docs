@@ -4,24 +4,18 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-2
 
-## Preview Kit（文件预览服务）使用指南和注意事项
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在HarmonyOS应用开发中，开发者经常需要实现各种文件的预览功能，包括：
- 
-- 本地存储的文件预览。
-- 应用资源目录（rawfile）中的文件预览。
-- 网络文件的下载与预览。
-
+ 1. 本地存储的文件预览。
+2. 应用资源目录（rawfile）中的文件预览。
+3. 网络文件的下载与预览。
  
 如何利用HarmonyOS提供的filePreview服务统一实现这些不同来源文件的预览，是开发者面临的一个常见需求。
  
  
 
-##### 背景知识
+#### 背景知识
 
 HarmonyOS提供了[Preview Kit（文件预览服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-kit-guide)框架，这是一个用于文件预览的统一接口服务。
  
@@ -31,29 +25,29 @@ HarmonyOS提供了[Preview Kit（文件预览服务）](https://developer.huawei
  
  
 
-##### 解决方案
+#### 解决方案
+1. 本地文件指存储在应用沙箱目录或公共目录中的文件。
+- 公共目录中的文件预览，见[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section144826162913)接口示例代码；
 
-- 本地文件指存储在应用沙箱目录或公共目录中的文件。
-公共目录中的文件预览，见[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section144826162913)接口示例代码；
-- 沙箱目录文件预览，代码示例如下：
-```text
+2. 沙箱目录文件预览，代码示例如下：
+```json
 previewLocalFile() {
   try {
     const filePath = `${this.context.filesDir}/sample.pdf`;
-    // 检查文件是否存在
+  <em>  // 检查文件是否存在</em>
     const isExist = fs.accessSync(filePath);
     if (!isExist) {
       console.error('本地文件不存在，请确保文件已放置到应用目录');
       return;
     }
-    // 构建PreviewInfo
+ <strong>   // 构建PreviewInfo</strong>
     let uri = fileUri.getUriFromPath(filePath);
     let fileInfo: filePreview.PreviewInfo = {
       title: 'sample.pdf',
       uri: uri,
       mimeType: 'application/pdf',
     };
-    // 打开文件预览
+   <em> // 打开文件预览</em>
     filePreview.openPreview(this.context, fileInfo).then(() => {
       console.info('Succeeded in opening preview');
     }).catch((err: BusinessError) => {
@@ -66,16 +60,16 @@ previewLocalFile() {
 ```
 
 
- - rawfile文件预览：预览时需要先将rawfile导入至沙箱路径。代码示例如下：
-```text
+3. rawfile文件预览：预览时需要先将rawfile导入至沙箱路径。代码示例如下：
+```json
 previewRawFile() {
   try {
-    // 预览rawfile文件,需要将文件复制到沙箱目录
+   <em> // 预览rawfile文件,需要将文件复制到沙箱目录</em>
     let filePath = `${this.context.filesDir}/sample.pdf`;
     const resourceMgr = this.context.resourceManager;
     resourceMgr.getRawFileContent('sample.pdf', (err, value) => {
       let myBuffer: ArrayBufferLike = value.buffer;
-      // 创建sample.pdf沙箱路径，并写入数据
+    <em>  // 创建sample.pdf沙箱路径，并写入数据</em>
       let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
       fs.writeSync(file.fd, myBuffer);
       fs.close(file);
@@ -86,7 +80,7 @@ previewRawFile() {
       uri: uri,
       mimeType: 'application/pdf',
     };
-    // 打开文件预览
+   <em> // 打开文件预览</em>
     filePreview.openPreview(this.context, fileInfo).then(() => {
       console.info('Succeeded in opening preview');
     }).catch((err: BusinessError) => {
@@ -98,7 +92,8 @@ previewRawFile() {
 }
 ```
 
-- 网络文件预览：需要将网络文件先下载到本地，再进行本地文件预览。代码示例如下：
+
+4. 网络文件预览：需要将网络文件先下载到本地，再进行本地文件预览。代码示例如下：
 ```text
 previewNetworkFile() {
   // url需替换为实际可用的pdf url
@@ -155,8 +150,9 @@ previewNetworkFile() {
 }
 ```
 
-- 完整代码示例如下：
-```text
+
+5. 完整代码示例如下：
+```json
 import { fileUri, fileIo as fs } from '@kit.CoreFileKit';
 import { filePreview } from '@kit.PreviewKit';
 import { BusinessError, request } from '@kit.BasicServicesKit';
@@ -170,7 +166,7 @@ struct Index {
   previewLocalFile() {
     try {
       const filePath = `${this.context.filesDir}/sample.pdf`;
-      // 检查文件是否存在
+     <em> // 检查文件是否存在</em>
       const isExist = fs.accessSync(filePath);
       if (!isExist) {
         console.error('本地文件不存在，请确保文件已放置到应用目录');
@@ -183,7 +179,7 @@ struct Index {
         uri: uri,
         mimeType: 'application/pdf',
       };
-      // 打开文件预览
+    <em>  // 打开文件预览</em>
       filePreview.openPreview(this.context, fileInfo).then(() => {
         console.info('Succeeded in opening preview');
       }).catch((err: BusinessError) => {
@@ -197,12 +193,12 @@ struct Index {
 
   previewRawFile() {
     try {
-      // 预览rawfile文件,需要将文件复制到沙箱目录
+    <em>  // 预览rawfile文件,需要将文件复制到沙箱目录</em>
       let filePath = `${this.context.filesDir}/sample.pdf`;
       const resourceMgr = this.context.resourceManager;
       resourceMgr.getRawFileContent('sample.pdf', (err, value) => {
         let myBuffer: ArrayBufferLike = value.buffer;
-        // 创建sample.pdf沙箱路径，并写入数据
+       <em> // 创建sample.pdf沙箱路径，并写入数据</em>
         let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
         fs.writeSync(file.fd, myBuffer);
         fs.close(file);
@@ -213,7 +209,7 @@ struct Index {
         uri: uri,
         mimeType: 'application/pdf',
       };
-      // 打开文件预览
+     <em> // 打开文件预览</em>
       filePreview.openPreview(this.context, fileInfo).then(() => {
         console.info('Succeeded in opening preview');
       }).catch((err: BusinessError) => {
@@ -226,14 +222,14 @@ struct Index {
 
 
   previewNetworkFile() {
-    // url需替换为实际可用的pdf url
+   <em> // url需替换为实际可用的pdf url</em>
     const url = 'https://****.com/test.pdf';
     let filePath = `${this.context.filesDir}/sample.pdf`;
     try {
-      // 网络文件下载到本地
+   <em>   // 网络文件下载到本地</em>
       let res = fs.accessSync(filePath);
       if (res) {
-        // 本地文件存在，则直接调用预览方法
+       <em> // 本地文件存在，则直接调用预览方法</em>
         console.info('file exists and ViewFile');
         let uri = fileUri.getUriFromPath(filePath);
         let fileInfo: filePreview.PreviewInfo = {
@@ -241,19 +237,19 @@ struct Index {
           uri: uri,
           mimeType: 'application/pdf',
         };
-        // 打开文件预览
+     <em>   // 打开文件预览</em>
         filePreview.openPreview(this.context, fileInfo).then(() => {
           console.info('Succeeded in opening preview');
         }).catch((err: BusinessError) => {
           console.error(`Failed to open preview, err.code = ${err.code}, err.message = ${err.message}`);
         });
       } else {
-        // 文件下载到本地
+       <em> // 文件下载到本地</em>
         request.downloadFile(this.context, {
           url: url,
           filePath: filePath
         }).then((downloadTask: request.DownloadTask) => {
-          // 下载完成回调
+         <em> // 下载完成回调</em>
           downloadTask.on('complete', () => {
             console.info('download complete');
             let uri = fileUri.getUriFromPath(filePath);
@@ -262,7 +258,7 @@ struct Index {
               uri: uri,
               mimeType: 'application/pdf',
             };
-            // 打开文件预览
+           <em> // 打开文件预览</em>
             filePreview.openPreview(this.context, fileInfo).then(() => {
               console.info('Succeeded in opening preview');
             }).catch((err: BusinessError) => {
@@ -314,10 +310,10 @@ struct Index {
 ```
 
 
- 
-注意事项：
- 
-- 当前Preview Kit仅支持跳出应用进行文件的预览，暂不支持应用内预览。
+  注意事项：
+
+  
+当前Preview Kit仅支持跳出应用进行文件的预览，暂不支持应用内预览。
 - Office类型文档预览借助WPS提供的能力来实现，在预览文档类型文件时会存在“WPS提供技术支持”、“使用WPS Office打开”等相关字样。
 - 当前Preview Kit暂不支持安全定制能力，包括禁止截录屏、屏蔽其他应用打开入口、屏蔽分享入口等安全预览能力。
 - 当前Preview Kit需要调用方存在对应uri的转授权能力，从而让预览获得该文件的访问权限来正常读取文件，具体问题可以参考[使用DocumentViewPicker拿到的uri通过openPreview打开显示预览失败](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-faq-2)。
@@ -327,7 +323,7 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：模拟器是否支持Preview Kit文件预览？
  
@@ -339,13 +335,11 @@ A：预览mp4文件时，mimeType参数需要为video/mp4，见[文件预览支�
  
  
 
-##### 总结
+#### 总结
 
 [Preview Kit（文件预览服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-kit-guide)为文件预览提供了统一的解决方案：
- 
-- **统一接口**：无论文件来源如何，都可使用filePreview.[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section144826162913)接口。
-- **格式丰富**：支持常见办公文档、图片、文本等格式。
-- **权限管理**：需要确保应用有相应文件的访问权限。
-
+ 1. **统一接口**：无论文件来源如何，都可使用filePreview.[openPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts#section144826162913)接口。
+2. **格式丰富**：支持常见办公文档、图片、文本等格式。
+3. **权限管理**：需要确保应用有相应文件的访问权限。
  
 实际开发中应根据具体场景选择合适的预览方式，并处理好错误情况和用户权限问题。对于敏感文件，还应该增加额外的安全验证机制。

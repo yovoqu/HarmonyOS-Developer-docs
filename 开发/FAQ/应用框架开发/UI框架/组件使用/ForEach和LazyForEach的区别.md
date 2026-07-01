@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1291
 
-## ForEach和LazyForEach的区别
- 
-
-
-##### 问题现象
+#### 问题现象
 
 ForEach和LazyForEach有什么区别，在具体场景下应该怎么选择？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)：ForEach接口基于数组循环渲染，需要与容器组件配合使用，且接口返回的组件应当是允许包含在ForEach父容器组件中的子组件。
 - [LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)：LazyForEach从数据源中按需迭代数据，并在每次迭代时创建相应组件。
@@ -22,7 +18,7 @@ ForEach和LazyForEach有什么区别，在具体场景下应该怎么选择？
  
  
 
-##### 解决方案
+#### 解决方案
 
 ForEach和LazyForEach是两种不同的迭代模式，核心区别在于执行时机和数据处理方式。以下从多个维度对比两者的差异，并分析各自的适用场景。
  
@@ -38,7 +34,7 @@ ForEach和LazyForEach是两种不同的迭代模式，核心区别在于执行�
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：ForEach遍历大概25000条数据，耗时2秒多，导致页面卡住，如何解决？
  
@@ -46,7 +42,7 @@ A：在初始化渲染时，ForEach会加载数据源的所有数据，导致页
  
  
 
-##### 总结
+#### 总结
  
 | 场景类型 | ForEach | LazyForEach |
 | --- | --- | --- |

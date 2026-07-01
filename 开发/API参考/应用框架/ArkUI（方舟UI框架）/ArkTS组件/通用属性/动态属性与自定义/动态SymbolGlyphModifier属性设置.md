@@ -1,6 +1,6 @@
 # 动态SymbolGlyphModifier属性设置
 
-更新时间：2026-06-13 03:51:30（官网已下线）
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -97,4 +97,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/935gZxyWQM-WL7TpTjEUXA/zh-cn_image_0000002656349669.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=4AE1D04B98519DA289C30735A8A1AB8065C60B1EB488711CC0542A53E322AD93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/CR1H4uQaQYOGpgLEysrY8A/zh-cn_image_0000002628862310.png?HW-CC-KV=V1&HW-CC-Date=20260701T040945Z&HW-CC-Expire=86400&HW-CC-Sign=D2C6EB04F740523E67EB62A083B87979F464CE3F1ED34946D2409A634EBCEB22)

@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-38
 
-## 如何优化OHAudio音频播放卡顿的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用OHAudio native播放单声道采样为8000的单声道音频PCM，出现卡顿现象。
  
@@ -29,7 +25,7 @@ int32_t writeAudioData(OH_AudioRenderer* renderer, void* context, void* buffer, 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [OHAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback)是系统在API version 10中引入的一套C API，此API在设计上实现归一，同时支持普通音频通路和低时延通路。仅支持PCM格式，适用于依赖Native层实现音频输出功能的场景。
  
@@ -41,19 +37,19 @@ int32_t writeAudioData(OH_AudioRenderer* renderer, void* context, void* buffer, 
  
  
 
-##### 问题定位
+#### 问题定位
 
 检查OH_AudioData_Callback_Result (*OH_AudioRenderer_OnWriteDataCallback)(OH_AudioRenderer* renderer, void* userData,void* audioData, int32_t audioDataSize)回调中往audioData中所填待播放数据长度是否是audioDataSize。
  
  
 
-##### 分析结论
+#### 分析结论
 
 缓存区间长度audioDataSize较大导致往audioData中所填待播放数据长度小于audioDataSize。过大的buffer会导致声音延迟增加，或者在所填充数据不足audioDataSize时出现噪音。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 可以通过调用OH_AudioStreamBuilder_SetFrameSizeInCallback将audioDataSize设为20ms音频数据对应的帧长。保证往audioData中填满audioDataSize长度的待播放数据，否则会导致音频服务播放杂音。
 - 在使用OH_AudioRenderer_OnWriteDataCallback写入音频数据时，如果无法填满回调所需长度的数据，返回AUDIO_DATA_CALLBACK_RESULT_INVALID，系统不会处理该段音频数据，然后再次向应用请求数据，确认数据填满后返回AUDIO_DATA_CALLBACK_RESULT_VALID。

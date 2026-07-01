@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-15
 
-## 如何实现PC登录流程的窗口变化效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现PC登录流程的窗口变化效果？期待的效果是：启动应用时，先出现一个用于登录的小窗，窗口没有标题栏，登录后变为全屏具有标题栏的主界面。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - module.json5配置文件中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)中的startWindowIcon和startWindowBackground分别设置应用启动页的图标和背景颜色。
 - [resize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#resize9-1)用于调整窗口大小。
@@ -25,12 +21,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
- 
-- 将module.json5配置文件中abilities标签的startWindowIcon设置为透明图片，startWindowBackground设置为透明背景。这一步可以隐藏应用启动时系统自带的启动页，直接显示用于登录的小窗。
-- 在EntryAbility.ets文件中的onWindowStageCreate方法中通过resize将窗口尺寸设为小尺寸，并通过moveWindowTo实现居中放置；loadContent执行后通过setWindowDecorVisible和setWindowTitleButtonVisible将标题栏设为隐藏状态。这一步可以初始化窗口形态，用于实现登录用的小窗。
-```text
+1. 将module.json5配置文件中abilities标签的startWindowIcon设置为透明图片，startWindowBackground设置为透明背景。这一步可以隐藏应用启动时系统自带的启动页，直接显示用于登录的小窗。
+2. 在EntryAbility.ets文件中的onWindowStageCreate方法中通过resize将窗口尺寸设为小尺寸，并通过moveWindowTo实现居中放置；loadContent执行后通过setWindowDecorVisible和setWindowTitleButtonVisible将标题栏设为隐藏状态。这一步可以初始化窗口形态，用于实现登录用的小窗。
+```json
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { display, window } from '@kit.ArkUI';
@@ -61,7 +56,7 @@ export default class EntryAbility extends UIAbility {
       display.getDefaultDisplaySync().height / 2 - 250, (err) => {
         console.info(`want: ${err}`);
       });
-    // Main window is created, set main page for this ability
+  <em>  // Main window is created, set main page for this ability</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -76,23 +71,23 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+   <em> // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-    // Ability has brought to foreground
+  <em>  // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-    // Ability has back to background
+ <em>   // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };
 ```
 
-- 登录后恢复标题栏并将窗口设为全屏。这一步用于实现主界面的全屏窗口。
+3. 登录后恢复标题栏并将窗口设为全屏。这一步用于实现主界面的全屏窗口。
 ```text
 import { window } from '@kit.ArkUI';
 
@@ -113,7 +108,7 @@ struct Index {
         })
         .onClick(() => {
           let windowStage = AppStorage.get('windowStage') as window.WindowStage;
-          let windowClass: window.Window = windowStage.getMainWindowSync(); // 获取应用主窗口
+          let windowClass: window.Window = windowStage.getMainWindowSync(); <em>// 获取应用主窗口</em>
           windowClass.setWindowDecorVisible(true);
           windowClass.setWindowTitleButtonVisible(true, true, true);
           windowClass.maximize(window.MaximizePresentation.FOLLOW_APP_IMMERSIVE_SETTING);
@@ -126,7 +121,7 @@ struct Index {
 }
 ```
 
-- 登录后显示主页面。
+4. 登录后显示主页面。
 ```text
 @Entry
 @Component

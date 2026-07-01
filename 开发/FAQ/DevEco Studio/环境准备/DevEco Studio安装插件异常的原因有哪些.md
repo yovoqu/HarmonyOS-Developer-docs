@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-44
 
-## DevEco Studio安装插件异常的原因有哪些
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 仓库插件地址问题：
 场景一：在DevEco Studio插件市场，通过管理插件存储库添加JetBrains插件市场地址，连接失败。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/FsMHMOO0QFWiZ_GBq1CvWg/zh-cn_image_0000002628405438.png?HW-CC-KV=V1&HW-CC-Date=20260701T025911Z&HW-CC-Expire=86400&HW-CC-Sign=8C7829D198D993FDFDC7969F1E9A6165020AEDA77A9FB1BE38722AAA2D18296D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/FsMHMOO0QFWiZ_GBq1CvWg/zh-cn_image_0000002628405438.png?HW-CC-KV=V1&HW-CC-Date=20260701T041016Z&HW-CC-Expire=86400&HW-CC-Sign=2451B013689FF487DC542BA66A40E9E57E3B655687DDAF8C973A9EDF2EC86EBE)
 
 
  - 账号登录问题：
 场景二：正常安装插件后，在DevEco Studio找不到插件图标，无法使用。
 - 场景三：DevEco Studio插件市场为空，无法安装插件。问题现象：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/GechVyAgTla3TeOzGjD9WQ/zh-cn_image_0000002658924645.png?HW-CC-KV=V1&HW-CC-Date=20260701T025911Z&HW-CC-Expire=86400&HW-CC-Sign=9FC3AB7250CEA9AC2051F4F82C0B5B7651BF5DD5579AF2364F3DC13AF58EB054)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/GechVyAgTla3TeOzGjD9WQ/zh-cn_image_0000002658924645.png?HW-CC-KV=V1&HW-CC-Date=20260701T041016Z&HW-CC-Expire=86400&HW-CC-Sign=FDA7E0D4B38913CB067655FA7E7594549C9D33FA7D2C258F36EECB7559F8D0E2)
 
 
  - 兼容性问题：
@@ -32,13 +28,13 @@ Plugin 'xxx' is not compatible with the current version of the IDE, because it r
  
  
 
-##### 背景知识
+#### 背景知识
 
 DevEco Studio支持安装插件优化开发体验，插件安装可以参考官网文档：[安装插件](https://developer.huawei.com/consumer/cn/doc/start/components-integration-deveco-0000002218625313#section9664156162113)。
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 仓库插件地址问题：
 场景一：通过报错图可以看到开发者手动配置了JetBrains插件市场地址，而当前JetBrains插件市场地址无需配置，手动配置会报错。
@@ -54,7 +50,7 @@ DevEco Studio支持安装插件优化开发体验，插件安装可以参考官�
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 仓库插件地址问题：
 场景一：当前JetBrains插件市场地址无需配置，手动配置会报错。
@@ -70,7 +66,7 @@ DevEco Studio支持安装插件优化开发体验，插件安装可以参考官�
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 仓库插件地址问题：
 场景一：当前JetBrains插件市场地址无需配置，打开Marketplace默认为JetBrains插件市场。在插件市场进入设置（齿轮按钮）下的HTTP Proxy Settings，勾选Auto-detect proxy settings即可连接。

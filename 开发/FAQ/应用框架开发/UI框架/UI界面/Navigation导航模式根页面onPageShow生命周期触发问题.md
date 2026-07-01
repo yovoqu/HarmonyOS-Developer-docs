@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-514
 
-## Navigation导航模式根页面onPageShow生命周期触发问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当采用Navigation导航时，软件切换后台再切换回前台或手机黑屏重新打开后，会触发子页面的aboutToAppear()事件。
  
@@ -88,22 +84,22 @@ export struct MainPage {
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/WudotJI3Rd6ZPx90_nzQ-A/zh-cn_image_0000002628548522.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025657Z&HW-CC-Expire=86400&HW-CC-Sign=4118EF770904BB828D797D3259FB4B92151458B59490593474A32E465BE35C36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/WudotJI3Rd6ZPx90_nzQ-A/zh-cn_image_0000002628548522.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041141Z&HW-CC-Expire=86400&HW-CC-Sign=2DB17CD0D8DF453BA3D4D4052E807437625113D37E45D990B5D9FC7767192139)
 
  
  
 
-##### 效果预览
+#### 效果预览
 
 退出到后台，重新进入页面后不会重新创建子页面。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/96gUA8x0SECKVfr4bsiw7w/zh-cn_image_0000002658907837.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025657Z&HW-CC-Expire=86400&HW-CC-Sign=295E2643444F5640CFBCF63B22462504FE8444D5D7086B8F7FD89A6A2B8C782B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/96gUA8x0SECKVfr4bsiw7w/zh-cn_image_0000002658907837.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041141Z&HW-CC-Expire=86400&HW-CC-Sign=F1A39A4F5D36C2212C587DC0B37399295611C57E871436450D2F083197D2AE3A)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Navigation导航](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：官方推荐的路由导航方式，支持更丰富的动效、一次开发多端部署能力和更灵活的栈操作。在进行路由导航时需要与[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)搭配使用。其中Navigation作为page页面的根容器，NavDestination子页面为Navigation的内容展示区。
  
@@ -115,11 +111,11 @@ export struct MainPage {
  
  
 
-##### 问题定位
+#### 问题定位
+1. 由问题描述中展示的现象可知：当页面隐藏后台，再显示的时候触发了NavDestination页面的[aboutToAppear()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)事件，重新创建了子页面。
+2. 问题代码中，能让子页面重新创建的代码是Navigation根页面的onPageShow()事件的将子页面推送入栈操作。将问题代码中根页面onPageShow()事件修改如下：
 
-- 由问题描述中展示的现象可知：当页面隐藏后台，再显示的时候触发了NavDestination页面的[aboutToAppear()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)事件，重新创建了子页面。
-- 问题代码中，能让子页面重新创建的代码是Navigation根页面的onPageShow()事件的将子页面推送入栈操作。将问题代码中根页面onPageShow()事件修改如下：
- 
+  
 ```text
 onPageShow(): void {
   setTimeout(() => {
@@ -128,7 +124,6 @@ onPageShow(): void {
   console.info('执行了根页面的onPageShow事件！');
 }
 ```
-
 
  
 对应用进行隐藏/显示操作，并查看打印日志：
@@ -145,13 +140,13 @@ onPageShow(): void {
  
  
 
-##### 分析结论
+#### 分析结论
 
 由于Navigation路由的底层逻辑为：NavDestination子页面实际是Navigation根页面的展示区域，是父子组件关系（本质是在一个页面内）。这种独特的导航方式导致，当NavDestination子页面显示在最上层时，前后台切换，看似只会触发该NavDestination子页面的显隐事件，实际也会触发Navigation所在的根页面的显隐事件。
  
  
 
-##### 修改建议
+#### 修改建议
 
 由于应用的显隐操作并不会触发aboutToAppear()，所以将Navigation根页面的onPageShow()事件更换为aboutToAppear()事件，核心修改如下：
  
@@ -164,8 +159,7 @@ aboutToAppear(): void {
 ```
  
 完整示例参考如下：
- 
-- Index.ets主页面。
+ 1. Index.ets主页面。
 ```text
 @Entry
 @Component
@@ -194,7 +188,7 @@ struct Index {
 }
 ```
 
-- MainPage.ets子页面。
+2. MainPage.ets子页面。
 ```text
 @Builder
 export function MainPageBuilder() {
@@ -231,30 +225,24 @@ export struct MainPage {
 }
 ```
 
-
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/oqsaEASBSdq-rF15LpbJZA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025657Z&HW-CC-Expire=86400&HW-CC-Sign=4E14F80D80CE757866BDB430715F08E54E111497EDFDEA5CE44352DCF1F2D802)
- 
-
-路由配置参考官网链接：[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation#系统路由表)。
- 
+> [!NOTE]
+> 路由配置参考官网链接： 系统路由表 。
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么每次页面切到后台，再切到前台，都会刷新页面？
  
 A：请排查刷新的页面是属于Navigation路由或者是router路由：
  
 - router路由时，每个页面都是@Entry修饰的页面：刷新的方法调用被写在了页面的onPageShow()事件中，onPageShow()事件在每次页面进入前台时都会触发。如果仅需要页面第一次进入时调用刷新方法，建议将页面刷新方法调用写在页面的aboutToAppear()事件中。
-- Navigation路由时，分两种情况：
-NavDestination子页面在顶层显示，触发了Navigation页面的onPageShow()刷新事件。此时可参照本文修改建议，将刷新事件放置在Navigation页面的aboutToAppear()事件中。
-- NavDestination子页面在顶层显示，触发了NavDestination页面的[onShown()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onshown10)刷新事件：onShown()事件在每次NavDestination子页面显隐时都会触发。如果仅需要子页面第一次进入时调用刷新方法，建议将子页面刷新方法调用写在页面的aboutToAppear()或[onReady()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onready11)事件中。
+- Navigation路由时，分两种情况：1. NavDestination子页面在顶层显示，触发了Navigation页面的onPageShow()刷新事件。此时可参照本文修改建议，将刷新事件放置在Navigation页面的aboutToAppear()事件中。
 
- 
+2. NavDestination子页面在顶层显示，触发了NavDestination页面的[onShown()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onshown10)刷新事件：onShown()事件在每次NavDestination子页面显隐时都会触发。如果仅需要子页面第一次进入时调用刷新方法，建议将子页面刷新方法调用写在页面的aboutToAppear()或[onReady()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onready11)事件中。
+
  
 Q：Navigation导航时如何监听根页面的显隐事件？
  

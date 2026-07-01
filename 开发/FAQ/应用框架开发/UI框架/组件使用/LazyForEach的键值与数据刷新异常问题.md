@@ -4,18 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-828
 
-## LazyForEach的键值与数据刷新异常问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在List、Grid等存在大量子组件的场景下，常使用LazyForEach进行数据懒加载渲染。但通常因使用错误，遇到UI刷新异常的问题，针对UI刷新异常，可以考虑从键值方面进行排查。
  
 - 场景一：LazyForEach显示的数据混乱。列表滑动时显示的列表项顺序混乱，数据显示重复。问题代码如下：
- 
+
+  
 ```text
-// 代码中引入的MyDataSource在解决方案中说明
+<em>// 代码中引入的MyDataSource在解决方案中说明</em>
 import { MyDataSource } from '../common/data';
 
 class Product {
@@ -35,11 +32,21 @@ class Product {
 @Entry
 @Component
 struct KeyDemoOne {
-  private data: MyDataSource = new MyDataSource();
+  private data: MyDataSource<Product> = new MyDataSource<Product>();
 
   aboutToAppear(): void {
-    // 请求数据模拟
-    for (let i = 0; i  {
+   <em> // 请求数据模拟</em>
+    for (let i = 0; i < 100; i++) {
+      let str: string = (i % 2 == 0) ? '限部分商品使用' : '全场可用';
+      let product: Product = new Product(i, `满${i * 10}元立减`, str, `${i}天内有效`);
+      this.data.pushData(product);
+    }
+  }
+
+  build() {
+    Column() {
+      List({ space: 10 }) {
+        LazyForEach(this.data, (item: Product) => {
           ListItem() {
             Row() {
               Column() {
@@ -86,9 +93,10 @@ struct KeyDemoOne {
 ```
 
 - 场景二：LazyForEach修改数据后UI不刷新。修改数据源中的数据项后，数据的修改在UI中未刷新，显示的还是初始的数据。问题代码如下：
- 
+
+  
 ```text
-// 代码中引入的MyDataSource在解决方案中说明
+<em>// 代码中引入的MyDataSource在解决方案中说明</em>
 import { MyDataSource } from '../common/data';
 
 class Product {
@@ -110,11 +118,12 @@ class Product {
 @Entry
 @Component
 struct KeyDemoTwo {
-  private data: MyDataSource = new MyDataSource();
+  private data: MyDataSource<Product> = new MyDataSource<Product>();
 
   aboutToAppear(): void {
-    // 请求数据模拟
-    for (let i = 0; i // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值
+    <em>// 请求数据模拟</em>
+    for (let i = 0; i < 100; i++) {
+      let id = i.toString(); <em>// 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值</em>
       let str: string = (i % 2 == 0) ? '限部分商品使用' : '全场可用';
       let product: Product = new Product(i, `满${i * 10}元立减`, str, `${i}天内有效`, id);
       this.data.pushData(product);
@@ -169,7 +178,7 @@ struct KeyDemoTwo {
               .backgroundColor('#f1f2f3');
             };
           };
-        }, (item: Product) => item.id); // 使用唯一值作为键值
+        }, (item: Product) => item.id); <em>// 使用唯一值作为键值</em>
       };
     }
     .width('100%')
@@ -183,7 +192,7 @@ struct KeyDemoTwo {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)：列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
 - [LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)：LazyForEach从数据源中按需迭代数据，并在每次迭代时创建相应组件。当LazyForEach用于滚动容器时，框架会根据滚动容器可视区域按需创建组件，当组件滑出可视区域外时，框架会销毁并回收组件以降低内存占用。
@@ -196,13 +205,11 @@ struct KeyDemoTwo {
  
  
 
-##### 问题定位
+#### 问题定位
 
 对于LazyForEach使用过程中常见的UI刷新异常，可以考虑先从键值方面进行排查，主要排查：
- 
-- 键值生成函数是否设置，设置是否合理。
-- 键值是否具有唯一性和一致性。
-
+ 1. 键值生成函数是否设置，设置是否合理。
+2. 键值是否具有唯一性和一致性。
  
 场景一：在UI更新时，如果出现重复的键值，框架可能无法正常工作。在问题代码中，使用了title属性作为键值，键值不唯一导致数据渲染混乱。
  
@@ -210,16 +217,17 @@ struct KeyDemoTwo {
  
  
 
-##### 分析结论
+#### 分析结论
 
 在LazyForEach中使用重复的键值，可能会导致框架无法正常工作，数据渲染混乱。当修改数据时，若对应的键值未发生变化，也会导致组件不刷新。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 场景一：LazyForEach显示的数据混乱。方案：使用唯一的值作为键值，保障每个列表项的键值不同。
- 
+
+  
 ```text
 import { MyDataSource } from '../common/data';
 
@@ -242,11 +250,12 @@ class Product {
 @Entry
 @Component
 struct KeyDemoOne {
-  private data: MyDataSource = new MyDataSource();
+  private data: MyDataSource<Product> = new MyDataSource<Product>();
 
   aboutToAppear(): void {
-    // 请求数据模拟
-    for (let i = 0; i  // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值
+  <em>  // 请求数据模拟</em>
+    for (let i = 0; i < 100; i++) {
+      let id = i.toString();<em> // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值</em>
       let str: string = (i % 2 == 0) ? '限部分商品使用' : '全场可用';
       let product: Product = new Product(i, `满${i * 10}元立减`, str, `${i}天内有效`, id);
       this.data.pushData(product);
@@ -292,7 +301,7 @@ struct KeyDemoOne {
               .backgroundColor('#f1f2f3');
             };
           };
-        }, (item: Product) => item.id); // 使用唯一值作为键值
+        }, (item: Product) => item.id);<em> // 使用唯一值作为键值</em>
       };
     }
     .width('100%')
@@ -303,7 +312,8 @@ struct KeyDemoOne {
 ```
 
 - 场景二：LazyForEach修改数据后UI不刷新。方案：针对问题场景，可以考虑将修改的属性作为键值的一部分，实际业务中可以根据情况设置合理的键值。
- 
+
+  
 ```text
 import { MyDataSource } from '../common/data';
 
@@ -326,12 +336,13 @@ class Product {
 @Entry
 @Component
 struct KeyDemoTwo {
-  private data: MyDataSource = new MyDataSource();
+  private data: MyDataSource<Product> = new MyDataSource<Product>();
   private counter: number = 0;
 
   aboutToAppear(): void {
-    // 请求数据模拟
-    for (let i = 0; i  // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值
+  <em>  // 请求数据模拟</em>
+    for (let i = 0; i < 100; i++) {
+      let id = i.toString();<em> // 设置一个唯一的id，实际业务中可以使用其他唯一值作为键值</em>
       let str: string = (i % 2 == 0) ? '限部分商品使用' : '全场可用';
       let product: Product = new Product(i, `满${i * 10}元立减`, str, `${i}天内有效`, id);
       this.data.pushData(product);
@@ -386,7 +397,7 @@ struct KeyDemoTwo {
               .backgroundColor('#f1f2f3');
             };
           };
-        }, (item: Product) => item.id + item.title); // 可以根据实际业务设置，让键值随数据修改变化
+        }, (item: Product) => item.id + item.title);<em> // 可以根据实际业务设置，让键值随数据修改变化</em>
       };
     }
     .width('100%')
@@ -396,9 +407,10 @@ struct KeyDemoTwo {
 }
 ```
  示例中使用的LazyForEach的数据源，根据实际业务需要在指定目录下定义（例如entry/src/main/ets/common/data.ets）：
- 
+
+  
 ```text
-class BasicDataSource implements IDataSource {
+class BasicDataSource<T> implements IDataSource {
   private listeners: DataChangeListener[] = [];
   private originDataArray: T[] = [];
 
@@ -411,7 +423,15 @@ class BasicDataSource implements IDataSource {
   }
 
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener) = 0) {
+    if (this.listeners.indexOf(listener) < 0) {
+      console.info('add listener');
+      this.listeners.push(listener);
+    }
+  }
+
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    const pos = this.listeners.indexOf(listener);
+    if (pos >= 0) {
       console.info('remove listener');
       this.listeners.splice(pos, 1);
     }
@@ -454,8 +474,8 @@ class BasicDataSource implements IDataSource {
   }
 }
 
-// LazyForEach的数据源需要实现IDataSource接口
-export class MyDataSource extends BasicDataSource {
+<em>// LazyForEach的数据源需要实现IDataSource接口</em>
+export class MyDataSource<T> extends BasicDataSource<T> {
   private dataArray: T[] = [];
 
   public setData(data: T, index: number): void {
@@ -488,6 +508,6 @@ export class MyDataSource extends BasicDataSource {
  
  
 
-##### 总结
+#### 总结
 
 LazyForEach依赖唯一键值来标识组件。不管是原来的数据数组中key值不唯一还是增删修改数组后key值不唯一，都会导致组件渲染异常。异常的表现在item缺失，重复等。

@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-35
 
-## DevEco Studio无法识别到连接的真机可能是哪些原因
- 
-
-
-##### 问题现象
+#### 问题现象
 
 DevEco Studio识别不到连接的真机。
  
  
 
-##### 背景知识
+#### 背景知识
 
 在本地真机中运行HarmonyOS应用/元服务的操作方法一致，可以采用[使用USB连接方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device#section171436512424)或者[无线调试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device#section9315596477)的连接方式。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：命令行执行hdc list targets -v，返回"[Empty]"：可以参照文档解决：[真机设备连接后，执行“hdc list targets”命令结果为"[Empty]"](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-32)。
 - **场景二**：命令行执行hdc list targets -v，返回"Offline unknown"，这通常意味着设备虽然连接到了电脑，但是hdc工具无法与设备建立有效的通信。从以下方面进行排查：

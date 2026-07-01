@@ -4,15 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-15
 
-## 人脸活体检测结果mPixelMap的获取
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用人脸活体检测时，配置routeMode为back模式获取结果后，callback里取到的回调result里没有mPixelMap。
  
-```text
+```json
 interactiveLiveness.startLivenessDetection(routerOptions,
   (err: BusinessError, result: interactiveLiveness.InteractiveLivenessResult | undefined) => {
     if (err.code !== 0 && !result) {
@@ -25,7 +21,7 @@ interactiveLiveness.startLivenessDetection(routerOptions,
     imagePackerApi.packing(this.result?.mPixelMap, packOpts).then((data: ArrayBuffer) => {
       let buf: buffer.Buffer = buffer.from(data);
       this.base64 = 'data:image/jpeg;base64,' + buf.toString('base64', 0, buf.length);
-      let parmDic: Map = new Map();
+      let parmDic: Map<string, string> = new Map();
       parmDic['WsType'] = '2';
       parmDic['states'] = 'success';
       parmDic['FacePhoto'] = this.base64;
@@ -42,19 +38,19 @@ interactiveLiveness.startLivenessDetection(routerOptions,
 ```
  
 
-##### 背景知识
+#### 背景知识
 
 人脸活体检测API中[InteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section173751154134515)为返回人脸活体检测结果的相关参数，其中包含mPixelMap对象，该对象表示检测成功后返回最具有活体特征的图片，类型为[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。
  
  
 
-##### 解决方案
+#### 解决方案
 
 [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)对象不是标准的JS对象，而是HarmonyOS提供的图像对象，所以无法使用JSON.stringify打印，可以通过[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件验证是否可以正确显示图片。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：HarmonyOS提供的活体检测能力，是否会输出照片？
  
@@ -71,10 +67,8 @@ A：当前活体检测检测成功之后会返回最具有活体特征的图片�
 Q：活体检测返回的图片，人脸部分是蓝色的，后端无法识别，是什么原因？
  
 A：出现偏蓝的情况可能是因为光线、相机曝光等原因导致的，可以尝试以下方法解决：
- 
-- 调整光线：将环境光线调整到适宜的亮度，避免过暗或过亮的情况。
-- 调整相机曝光：可以尝试调整相机曝光参数，使得拍摄的图片更加清晰明亮。
-
+ 1. 调整光线：将环境光线调整到适宜的亮度，避免过暗或过亮的情况。
+2. 调整相机曝光：可以尝试调整相机曝光参数，使得拍摄的图片更加清晰明亮。
  
 Q：[getInteractiveLivenessResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section19136935154313)和[startLivenessDetection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness#section887319119114)都可以获取检测结果，一个是Promise回调一个是使用callback回调获取检测结果，有什么区别？
  

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-555
 
-## CustomDialog动态设置宽高
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何动态修改弹出框的样式，如宽、高等？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 自定义弹窗[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)通过CustomDialogController类显示自定义弹窗，弹窗在初始化时通过入参CustomDialogControllerOptions配置参数。自定义弹窗的所有参数，不支持动态刷新，如CustomDialogControllerOptions可设置弹窗的宽高等参数，但设置之后不可改变。
 - [ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)实现组件内容的实体封装，其对象支持在非UI组件中创建与传递，便于开发者对弹窗类组件进行解耦封装。
@@ -25,7 +21,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：一个CustomDialogController类对应一个CustomDialog弹窗，由于CustomDialogController内部参数不支持动态刷新，可通过创建新的CustomDialogController实例实现动态修改弹窗样式的效果。
 ```text
@@ -55,14 +51,14 @@ struct CustomDialogUser {
   dialogController: CustomDialogController | null = null;
 
   aboutToAppear(): void {
-    this.createDialogCtl(300); // 创建CustomDialogController对象，宽度300
+    this.createDialogCtl(300);<em> // 创建CustomDialogController对象，宽度300</em>
   }
 
   aboutToDisappear() {
-    this.dialogController = null; // 将dialogController置空
+    this.dialogController = null; <em>// 将dialogController置空</em>
   }
 
-  // 创建宽度不同的新弹窗
+ <em> // 创建宽度不同的新弹窗</em>
   createDialogCtl(width: number): void {
     this.dialogController = new CustomDialogController({
       builder: CustomDialogExample(),
@@ -86,7 +82,7 @@ struct CustomDialogUser {
         });
       Button('change')
         .onClick(() => {
-          this.createDialogCtl(150); // 创建新的CustomDialogController对象，宽度150
+          this.createDialogCtl(150);<em> // 创建新的CustomDialogController对象，宽度150</em>
         });
     }.width('100%').margin({ top: 16 });
   }
@@ -96,7 +92,7 @@ struct CustomDialogUser {
 使用限制：实际是创建了新弹窗，所以修改样式后需要先关闭弹窗再重新打开弹窗才有效。
 - 样式修改的范围：[CustomDialogControllerOptions对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions对象说明)支持的参数均可修改，如width、maskColor、offset等。
 - 效果如下：点击change按钮后，创建了一个新的弹窗，改变了原弹窗的宽度。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/YssehmbETMG1842IJsRxAw/zh-cn_image_0000002628551602.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025645Z&HW-CC-Expire=86400&HW-CC-Sign=AC48E7EAA7120D7F986EA50FA30FA9B384A1A5A2DAB4F47B3DA16E9F5F1B6966)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/YssehmbETMG1842IJsRxAw/zh-cn_image_0000002628551602.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041138Z&HW-CC-Expire=86400&HW-CC-Sign=394EDC1B62548E2CB6925A11D2A80B2B92DD4ED0C8453C0B4BE389FEAE0C2A0B)
 
 
  - **方案二**：使用ComponentContent封装弹窗的UI，使用PromptAction控制弹窗的显隐，使用ComponentContent的update方法更新弹窗，实现动态修改弹窗样式的效果。
@@ -127,13 +123,13 @@ struct ComponentContentDemo {
         .onClick(() => {
           let uiContext = this.getUIContext();
           let promptAction = uiContext.getPromptAction();
-          // 自定义弹窗的内容
-          let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText),
+        <em>  // 自定义弹窗的内容</em>
+          let contentNode = new ComponentContent<ParamsInterface>(uiContext, wrapBuilder<[ParamsInterface]>(buildText),
             { text: 'old style' });
           promptAction.openCustomDialog(contentNode);
           setTimeout(() => {
             contentNode.update({ text: 'new style' });
-          }, 2000); // 2秒后自动更新弹窗内容文本
+          }, 2000);<em> // 2秒后自动更新弹窗内容文本</em>
         });
     }.width('100%').height('100%').margin({ top: 16 });
   }
@@ -142,7 +138,7 @@ struct ComponentContentDemo {
  
 可以在弹窗展示的过程中动态修改样式，只要update方法支持传递的参数均可用于动态修改样式。
 - 效果如下：在弹窗显示的过程中，更新弹窗的文字。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/D-RpiaMpSLOs8qW5wltXXQ/zh-cn_image_0000002628391704.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025645Z&HW-CC-Expire=86400&HW-CC-Sign=DC967ADEC7878509A8E3FAEBA3E93C073F0E9728291953692A7F5D845B62B721)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/D-RpiaMpSLOs8qW5wltXXQ/zh-cn_image_0000002628391704.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041138Z&HW-CC-Expire=86400&HW-CC-Sign=CEB5342415B9DBFCF4A5E3D7D02D61DF8B9E39F1B894CFBAD9A3B531B8E5D2C3)
 
 
  - **方案三**：和方案二一样使用PromptAction显示弹窗，使用updateCustomDialog更新弹窗样式，但目前仅支持更新alignment、offset、autoCancel、maskColor四种属性。使用方法可参考[updateCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#updatecustomdialog12)下方的代码示例。
@@ -150,7 +146,7 @@ struct ComponentContentDemo {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：CustomDialog的offset能不能响应式更新？
  

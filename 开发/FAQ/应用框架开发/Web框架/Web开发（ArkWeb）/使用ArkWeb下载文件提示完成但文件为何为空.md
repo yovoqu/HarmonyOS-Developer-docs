@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-137
 
-## 使用ArkWeb下载文件提示完成但文件为何为空
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用ArkWeb下载文件时，下载代理提示已下载完成，并且有实际下载内容，但是保存文件时为空。
  
@@ -27,16 +23,16 @@ struct WebComponent {
     Column() {
       Button('setDownloadDelegate')
         .onClick(() => {
-          // 下载开始前通知给用户，用户需要在此接口中调用WebDownloadItem.start("xxx")并提供下载路径，否则下载会一直处于PENDING状态。
+         <em> // 下载开始前通知给用户，用户需要在此接口中调用WebDownloadItem.start("xxx")并提供下载路径，否则下载会一直处于PENDING状态。</em>
           this.delegate.onBeforeDownload((webDownloadItem: webview.WebDownloadItem) => {
             console.info('EntryAbility: will start a download.');
             const documentSaveOptions = new picker.DocumentSaveOptions();
             documentSaveOptions.newFileNames =
               ['fileName_' + (new Date()).getTime() + '.txt'];
             documentSaveOptions.fileSuffixChoices = ['.txt'];
-            let uris: Array = [];
+            let uris: Array<string> = [];
             let documentViewPicker = new picker.DocumentViewPicker();
-            documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array) => {
+            documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array<string>) => {
               uris = documentSaveResult;
               if (0 == uris.length) {
                 return;
@@ -68,18 +64,18 @@ struct WebComponent {
 日志打印下载完成：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/kJbZyg25QASBHQFyRLwZ_A/zh-cn_image_0000002659138403.png?HW-CC-KV=V1&HW-CC-Date=20260701T025740Z&HW-CC-Expire=86400&HW-CC-Sign=E4655EA2F02E11B10EE0386F052B3D01B52ACF21FE2839A04F8E26884A3FEA7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/kJbZyg25QASBHQFyRLwZ_A/zh-cn_image_0000002659138403.png?HW-CC-KV=V1&HW-CC-Date=20260701T041338Z&HW-CC-Expire=86400&HW-CC-Sign=94BDA49F2CBEC297AE482F63DB51C833BE875D08D70B784623B954F829D7B656)
 
  
 实际下载文件为空：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/w9S2x46ITpOqFYW700zT7Q/zh-cn_image_0000002629059052.png?HW-CC-KV=V1&HW-CC-Date=20260701T025740Z&HW-CC-Expire=86400&HW-CC-Sign=CAB102DD16BC643B3CFF6D952DF36FFE0A3EEBAE067EDE613DBCFEC77529323C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/w9S2x46ITpOqFYW700zT7Q/zh-cn_image_0000002629059052.png?HW-CC-KV=V1&HW-CC-Date=20260701T041338Z&HW-CC-Expire=86400&HW-CC-Sign=9EE3E7933F9854DB4CA940CD311EF3DC4BA755D4B8C6A2C0BA87BFE32E503668)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [监听页面触发的下载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-download#监听页面触发的下载)：通过[setDownloadDelegate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setdownloaddelegate11)向Web组件注册一个DownloadDelegate来监听页面触发的下载任务。资源由Web组件进行下载，Web组件会通过DownloadDelegate将下载的进度通知给应用。
 - [@ohos.file.picker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker)：选择器(Picker)是一个封装DocumentViewPicker、AudioViewPicker、PhotoViewPicker的API模块，具有选择与保存的能力。
@@ -88,30 +84,29 @@ struct WebComponent {
  
  
 
-##### 问题定位
+#### 问题定位
 
-- 确认文件是否由webDownloadItem.start下载生成：
-在picker选择器后打断点执行，发现在webDownloadItem.start执行之前，手机中已经生成文件。由此判断，此时文件并非由webDownloadItem.start下载，而是picker选择器创建的空文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/hwD9uWrdQdSHKpmp9IR63A/zh-cn_image_0000002659258355.png?HW-CC-KV=V1&HW-CC-Date=20260701T025740Z&HW-CC-Expire=86400&HW-CC-Sign=0B20937E0AB3202FBBECA85943CEA4D0AF25AEBEEBF856968B17C1AE57876D81)
-
-- 添加URI转换const uri = new fileUri.FileUri\(uris\[0\]\);，文件下载成功。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/DMFHFeJuSzmvKGr_tHT4Dw/zh-cn_image_0000002628899136.png?HW-CC-KV=V1&HW-CC-Date=20260701T025740Z&HW-CC-Expire=86400&HW-CC-Sign=2A21E3B236C9903DB9759A80A62750EFAEC0222AFF595D19B2AC72017486A9A2)
+- 确认文件是否由webDownloadItem.start下载生成：1. 在picker选择器后打断点执行，发现在webDownloadItem.start执行之前，手机中已经生成文件。由此判断，此时文件并非由webDownloadItem.start下载，而是picker选择器创建的空文件。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/hwD9uWrdQdSHKpmp9IR63A/zh-cn_image_0000002659258355.png?HW-CC-KV=V1&HW-CC-Date=20260701T041338Z&HW-CC-Expire=86400&HW-CC-Sign=CA1E084A4789EE4542EBEBE32D342D271AC36E6B9E02E6F5107D3A26D840FD0C)
 
 
- - 验证非当前HAP包名的文件夹是否可以作为文件下载路径：选择非当前HAP包名的文件夹进行下载，此时文件无法下载。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/BKVgcbAHSP-sqm_PDLxH3g/zh-cn_image_0000002659138405.png?HW-CC-KV=V1&HW-CC-Date=20260701T025740Z&HW-CC-Expire=86400&HW-CC-Sign=87B0DB9524A170192DCADBAB5D03EB6725A9FDF70009AB362486F73F59E2ABBD)
+2. 添加URI转换const uri = new fileUri.FileUri\(uris\[0\]\);，文件下载成功。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/DMFHFeJuSzmvKGr_tHT4Dw/zh-cn_image_0000002628899136.png?HW-CC-KV=V1&HW-CC-Date=20260701T041338Z&HW-CC-Expire=86400&HW-CC-Sign=C5973CA42E27B09C3160C23EEA48C6D52677F6046987F1E7ADD5BBB062FAA824)
+
+- 验证非当前HAP包名的文件夹是否可以作为文件下载路径：选择非当前HAP包名的文件夹进行下载，此时文件无法下载。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/BKVgcbAHSP-sqm_PDLxH3g/zh-cn_image_0000002659138405.png?HW-CC-KV=V1&HW-CC-Date=20260701T041338Z&HW-CC-Expire=86400&HW-CC-Sign=72CF0554AFA4ACB2F375288BD3301DA86D995229D51FD5524FB0BEF116AED8A8)
 
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 未设置picker选择器配置DocumentSaveOptions的pickerMode时，pickerMode = picker.DocumentPickerMode.DEFAULT，此时选择指定目录，会在目录下生成空文件，适合需要生成文件再进行数据写入的场景。
  
  
 
-##### 修改建议
+#### 修改建议
 
 修改picker选择器配置DocumentSaveOptions的pickerMode文档保存选项为picker.DocumentPickerMode.DOWNLOAD，选择器自动返回当前HAP包名的文件夹。修改后代码如下：
  
@@ -130,16 +125,16 @@ struct WebComponent {
     Column() {
       Button('setDownloadDelegate')
         .onClick(() => {
-          // 下载开始前通知给用户，用户需要在此接口中调用WebDownloadItem.start("xxx")并提供下载路径，否则下载会一直处于PENDING状态。
+        <em>  // 下载开始前通知给用户，用户需要在此接口中调用WebDownloadItem.start("xxx")并提供下载路径，否则下载会一直处于PENDING状态。</em>
           this.delegate.onBeforeDownload((webDownloadItem: webview.WebDownloadItem) => {
             console.info('EntryAbility: will start a download.');
             const documentSaveOptions = new picker.DocumentSaveOptions();
-            // 修改pickerMode为DOWNLOAD，删除newFileNames和fileSuffixChoices，设置为DOWNLOAD时，配置的参数newFileNames和fileSuffixChoices将不会生效
+           <em> // 修改pickerMode为DOWNLOAD，删除newFileNames和fileSuffixChoices，设置为DOWNLOAD时，配置的参数newFileNames和fileSuffixChoices将不会生效</em>
             documentSaveOptions.pickerMode = picker.DocumentPickerMode.DOWNLOAD;
-            let uris: Array = [];
+            let uris: Array<string> = [];
             let documentViewPicker = new picker.DocumentViewPicker();
-            documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array) => {
-              // 固定返回当前HAP包名的文件夹
+            documentViewPicker.save(documentSaveOptions).then((documentSaveResult: Array<string>) => {
+            <em>  // 固定返回当前HAP包名的文件夹</em>
               uris = documentSaveResult;
               if (0 == uris.length) {
                 return;
@@ -150,7 +145,7 @@ struct WebComponent {
               if (!uriString) {
                 return;
               }
-              // 添加文件路径转换
+            <em>  // 添加文件路径转换</em>
               const uri = new fileUri.FileUri(uriString);
               webDownloadItem.start(uri.path + '/fileName_' + (new Date()).getTime() + '.txt');
               console.info(`EntryAbility: download to ${uri.path}`);
@@ -164,13 +159,13 @@ struct WebComponent {
       Button('startDownload')
         .onClick(() => {
           try {
-            // 运行时需替换为实际的链接
+           <em> // 运行时需替换为实际的链接</em>
             this.controller.startDownload('XXX');
           } catch (error) {
             console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
           }
         });
-      // 运行时需替换为实际的链接
+     <em> // 运行时需替换为实际的链接</em>
       Web({ src: 'XXX', controller: this.controller }).fileAccess(false).geolocationAccess(false);
     };
   }
@@ -179,7 +174,7 @@ struct WebComponent {
  
  
 
-##### 总结
+#### 总结
 
 使用选择器选择下载路径时，需要注意DocumentSaveOptions的pickerMode选项：
  

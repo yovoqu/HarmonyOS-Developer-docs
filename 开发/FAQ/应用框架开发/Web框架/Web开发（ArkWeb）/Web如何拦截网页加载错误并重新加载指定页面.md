@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-167
 
-## Web如何拦截网页加载错误并重新加载指定页面
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Web中加载H5页面时，若页面加载出错，如何拦截错误、切换页面，并触发重新加载H5页面？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onErrorReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onerrorreceive)：网页资源加载遇到错误或无网络时会触发该回调；
 - [javaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptproxy)：提供了从前端页面调用应用侧ArkTS功能的通道。
@@ -22,11 +18,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. ArkTS侧实现加载H5页面的功能，并通过javaScriptProxy接口给H5注入对应的对象和方法，以便H5侧能调用；
+2. 使用ArkWeb的onErrorReceive回调拦截网页加载错误，在该回调中加载本地H5页面；代码如下：
 
-- ArkTS侧实现加载H5页面的功能，并通过javaScriptProxy接口给H5注入对应的对象和方法，以便H5侧能调用；
-- 使用ArkWeb的onErrorReceive回调拦截网页加载错误，在该回调中加载本地H5页面；代码如下：
- 
+  
 ```text
 import { webview } from '@kit.ArkWeb';
 
@@ -84,20 +80,30 @@ struct WebRefreshDemo {
 }
 ```
 
-- 在加载的本地H5侧调用该重新加载的方法，加载目标网页地址，H5代码如下：
+3. 在加载的本地H5侧调用该重新加载的方法，加载目标网页地址，H5代码如下：
 ```text
-
-
-    
-    当前无网络连接，请点击空白处刷新页面
-
-
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover"/>
+<body>
+<div class="main-page" onclick="refresh()">
+    <div>
+![](./errorImg.png)
+</div>
+    <div><span class="refresh-text">当前无网络连接，请点击空白处刷新页面</span></div>
+</div>
+</body>
+</html>
+<script>
     function refresh() {
       console.info('refresh')
       return window.WebManager.refresh()
     }
+</script>
 
 
+<style>
     * {
         margin: 0;
         padding: 0;
@@ -128,17 +134,15 @@ struct WebRefreshDemo {
        font-size: 14px;
        line-height: 16px;
     }
-
+</style>
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/vKLm_-N5T1WzOiJMZCKdNw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025743Z&HW-CC-Expire=86400&HW-CC-Sign=AA142EC3DF3AD84188EEBB8A797BF0A0C32DA800FEBE2BE2185B4EDFD93B46F2)
- 
-访问在线网页时需添加网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+> [!NOTE]
+> 访问在线网页时需添加网络权限： ohos.permission.INTERNET ，具体申请方式请参考 声明权限 。
 
  
  
 
-##### 总结
+#### 总结
 
 在网页资源加载遇到问题时，可以通过onErrorReceive回调拦截到网页资源加载错误，在该回调中实现重新加载页面，或引导用户稍后尝试等功能。

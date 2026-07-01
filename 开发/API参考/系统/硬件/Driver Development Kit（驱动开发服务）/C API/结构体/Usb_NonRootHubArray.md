@@ -3,18 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk-usb-nonroothubarray
-
 **支持设备：** PC/2in1
-
-## Usb_NonRootHubArray
- 
 
 ```text
 typedef struct Usb_NonRootHubArray {...} Usb_NonRootHubArray
 ```
   
 
-##### 概述
+#### 概述
+
+**支持设备：** PC/2in1
 
 非根集线器列表，用于存放[OH_Usb_GetNonRootHubs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-api-h#oh_usb_getnonroothubs)接口获取到的非根集线器设备ID列表和数量。
  
@@ -26,11 +24,15 @@ typedef struct Usb_NonRootHubArray {...} Usb_NonRootHubArray
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** PC/2in1
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

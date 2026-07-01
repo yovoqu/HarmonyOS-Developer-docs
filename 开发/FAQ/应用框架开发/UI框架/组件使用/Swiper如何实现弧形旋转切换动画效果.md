@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-848
 
-## Swiper如何实现弧形旋转切换动画效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通常Swiper组件，提供平面滑动轮播显示的效果，如何通过Swiper组件实现对子组件弧形旋转切换动画效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Swiper组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)：滑块视图容器组件，它提供了子组件滑动轮播显示的能力。
 - [customContentTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#customcontenttransition12)：用于实现自定义的过渡动画效果，该属性允许开发者通过回调函数动态控制轮播切换过程中的动画细节，特别是可结合进度参数进行精细化动画控制。
@@ -24,11 +20,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 Swiper组件要实现弧形旋转切换动画效果，可以使用customContentTransition来自定义过渡动画。轮播切换过程中，动态设置子组件的透明度（opacity）、缩放比例（scale）、平移（translate）、堆叠顺序（zIndex）和旋转（rotate）属性，实现弧形旋转切换动画。
- 
-- 给Swiper子组件设置旋转等属性：
+ 1. 给Swiper子组件设置旋转等属性：
 ```text
 Text(item.toString())
   .width('100%')
@@ -36,7 +31,7 @@ Text(item.toString())
   .fontSize(50)
   .textAlign(TextAlign.Center)
   .backgroundColor('#0A59F7')
-  // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等
+<em>  // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等</em>
   .opacity(this.opacityList[index])
   .scale({ x: this.scaleList[index], y: this.scaleList[index] })
   .translate({
@@ -45,26 +40,27 @@ Text(item.toString())
   })
   .zIndex(this.zIndexList[index])
   .rotate({
-    angle: this.angleList[index], // 设定旋转角度
+    angle: this.angleList[index], <em>// 设定旋转角度</em>
   });
 ```
 
-- 给Swiper组件设置页面切换动画属性customContentTransition，在页面切换时逐帧触发回调，在回调中设置子组件的旋转等属性值：
+2. 给Swiper组件设置页面切换动画属性customContentTransition，在页面切换时逐帧触发回调，在回调中设置子组件的旋转等属性值：
 ```text
 .customContentTransition({
-  // 页面移除视窗时超时1000ms下渲染树
+ <em> // 页面移除视窗时超时1000ms下渲染树</em>
   timeout: 1000,
-  // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画
+ <em> // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画</em>
   transition: (proxy: SwiperContentTransitionProxy) => {
-    if (proxy.position = this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
-      // 同组页面往左滑或往右完全滑出视窗外时，重置属性值
+    if (proxy.position <= proxy.index % this.DISPLAY_COUNT ||
+      proxy.position >= this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
+    <em>  // 同组页面往左滑或往右完全滑出视窗外时，重置属性值</em>
       this.opacityList[proxy.index] = 1.0;
       this.scaleList[proxy.index] = 1.0;
       this.translateList[proxy.index] = 0.0;
       this.zIndexList[proxy.index] = 0;
       this.angleList[proxy.index] = 0;
     } else {
-      // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，页面靠拢并透明缩放的自定义切换动画
+   <em>   // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，页面靠拢并透明缩放的自定义切换动画</em>
       if (proxy.index % this.DISPLAY_COUNT === 0) {
         this.opacityList[proxy.index] = 1 - proxy.position / this.DISPLAY_COUNT;
         this.scaleList[proxy.index] =
@@ -80,8 +76,8 @@ Text(item.toString())
       }
       this.zIndexList[proxy.index] = -1;
     }
-    if (proxy.position  -1) {
-      // 当前页向左滑出或上一页向右滑入
+    if (proxy.position < 0 && proxy.position > -1) {
+    <em>  // 当前页向左滑出或上一页向右滑入</em>
       this.angleList[proxy.index] = proxy.position * 60;
       this.opacityList[proxy.index] = 1 + proxy.position;
     }
@@ -89,11 +85,10 @@ Text(item.toString())
 })
 ```
 
-
  
 完整代码如下：
  
-```text
+```json
 import { window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -112,7 +107,7 @@ struct SwiperArcPage {
   @State zIndexList: number[] = [];
   @State angleList: number[] = [];
 
-  setWindowFull() { // 设置沉浸式
+  setWindowFull() {<em> // 设置沉浸式</em>
     let windowClass: window.Window | undefined = undefined;
     try {
       let promise = window.getLastWindow(this.context);
@@ -124,14 +119,14 @@ struct SwiperArcPage {
           hilog.error(0x0000, 'testTag',
             'Failed to set the window layout to full-screen mode. Cause:' + JSON.stringify(err));
         });
-        //状态栏隐藏
+      <em>  //状态栏隐藏</em>
         windowClass.setSpecificSystemBarEnabled('status', true).then(() => {
           hilog.info(0x0000, 'testTag', 'Succeeded in setting the status bar to be invisible.');
         }).catch((err: BusinessError) => {
           hilog.error(0x0000, 'testTag', `Failed to set the status bar to be invisible. Code is ${err.code},
           message is ${err.message}`);
         });
-        //导航条隐藏
+     <em>   //导航条隐藏</em>
         windowClass.setSpecificSystemBarEnabled('navigationIndicator', false).then(() => {
           hilog.info(0x0000, 'testTag', 'Succeed in setting the system bar to be invisible');
         }).catch((err: BusinessError) => {
@@ -147,14 +142,28 @@ struct SwiperArcPage {
   }
 
   aboutToAppear(): void {
-    for (let i = 0; i  {
+    for (let i = 0; i < this.swiperItems.length; i++) {
+      this.opacityList.push(1.0);
+      this.scaleList.push(1.0);
+      this.translateList.push(0.0);
+      this.zIndexList.push(0);
+      this.angleList.push(0);
+    }
+    this.context = this.getUIContext().getHostContext() as common.Context;
+    this.setWindowFull();
+  }
+
+  build() {
+    Column() {
+      Swiper() {
+        ForEach(this.swiperItems, (item: number, index: number) => {
           Text(item.toString())
             .width('100%')
             .height('100%')
             .fontSize(50)
             .textAlign(TextAlign.Center)
             .backgroundColor('#0A59F7')
-            // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等
+          <em>  // 自定义动画变化透明度、缩放页面、抵消系统默认位移、渲染层级等</em>
             .opacity(this.opacityList[index])
             .scale({ x: this.scaleList[index], y: this.scaleList[index] })
             .translate({
@@ -163,7 +172,7 @@ struct SwiperArcPage {
             })
             .zIndex(this.zIndexList[index])
             .rotate({
-              angle: this.angleList[index], // 设定旋转角度
+              angle: this.angleList[index],<em> // 设定旋转角度</em>
             });
         });
       }
@@ -172,19 +181,20 @@ struct SwiperArcPage {
       .indicator(false)
       .displayCount(this.DISPLAY_COUNT, true)
       .customContentTransition({
-        // 页面移除视窗时超时1000ms下渲染树
+      <em>  // 页面移除视窗时超时1000ms下渲染树</em>
         timeout: 1000,
-        // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画
+     <em>   // 对视窗内所有页面逐帧回调transition，在回调中修改opacity、scale、translate、zIndex等属性值，实现自定义动画</em>
         transition: (proxy: SwiperContentTransitionProxy) => {
-          if (proxy.position = this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
-            // 同组页面往左滑或往右完全滑出视窗外时，重置属性值
+          if (proxy.position <= proxy.index % this.DISPLAY_COUNT ||
+            proxy.position >= this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
+         <em>   // 同组页面往左滑或往右完全滑出视窗外时，重置属性值</em>
             this.opacityList[proxy.index] = 1.0;
             this.scaleList[proxy.index] = 1.0;
             this.translateList[proxy.index] = 0.0;
             this.zIndexList[proxy.index] = 0;
             this.angleList[proxy.index] = 0;
           } else {
-            // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，页面靠拢并透明缩放的自定义切换动画
+        <em>    // 同组页面往右滑且未滑出视窗外时，对同组中左右两个页面，逐帧根据position修改属性值，页面靠拢并透明缩放的自定义切换动画</em>
             if (proxy.index % this.DISPLAY_COUNT === 0) {
               this.opacityList[proxy.index] = 1 - proxy.position / this.DISPLAY_COUNT;
               this.scaleList[proxy.index] =
@@ -200,15 +210,15 @@ struct SwiperArcPage {
             }
             this.zIndexList[proxy.index] = -1;
           }
-          if (proxy.position  -1) {
-            // 当前页向左滑出或上一页向右滑入
+          if (proxy.position < 0 && proxy.position > -1) {
+          <em>  // 当前页向左滑出或上一页向右滑入</em>
             this.angleList[proxy.index] = proxy.position * 60;
             this.opacityList[proxy.index] = 1 + proxy.position;
           }
         }
       })
       .onContentDidScroll((selectedIndex: number, index: number, position: number, mainAxisLength: number) => {
-        // 监听Swiper页面滑动事件，在该回调中可以实现自定义导航点切换动画等
+     <em>   // 监听Swiper页面滑动事件，在该回调中可以实现自定义导航点切换动画等</em>
         console.info(`onContentDidScroll selectedIndex: ${selectedIndex}, index: ${index}, position: ${position}, mainAxisLength: ${mainAxisLength}`);
       })
     }
@@ -221,4 +231,4 @@ struct SwiperArcPage {
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/TOOSinGlTeWi2vu_pB1Xtg/zh-cn_image_0000002658917859.png?HW-CC-KV=V1&HW-CC-Date=20260701T025550Z&HW-CC-Expire=86400&HW-CC-Sign=CA87E8324469DF9705BA91A2E632F8CF3747F6D7DDB474AC8751C2A904B9A548)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/TOOSinGlTeWi2vu_pB1Xtg/zh-cn_image_0000002658917859.png?HW-CC-KV=V1&HW-CC-Date=20260701T041249Z&HW-CC-Expire=86400&HW-CC-Sign=652C9995592D3D29C2C6161EA758E5EE78ECB3117004E25D459ECFD3F0CF0D72)

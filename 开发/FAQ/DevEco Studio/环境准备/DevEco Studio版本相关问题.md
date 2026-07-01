@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-43
 
-## DevEco Studio版本相关问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发者对DevEco Studio版本更新说明，推荐版本，在线更新，版本兼容性等存在疑问。
  
  
 
-##### 解决方案
+#### 解决方案
 
 DevEco Studio版本相关的常见问题和答复可以参考如下：
   

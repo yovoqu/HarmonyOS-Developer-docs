@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-76
 
-## 跨HAP包页面跳转方案
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在多HAP场景中，开发者需要实现跨HAP模块的页面跳转。Navigation路由操作不支持从一个HAP跳转到另一个HAP的页面，会抛出跳转失败的错误。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [多HAP场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package#开发)是指在HarmonyOS中使用多个应用包（一个entry包和多个feature包）来实现复杂应用的开发方式。这种开发模式允许将复杂应用拆分成多个模块，每个模块可以独立开发、测试和更新，提高了开发效率和维护性。
  
@@ -22,31 +18,30 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. 在项目中创建targetHap：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/3zXsLf2NQ3W1Qc0APqA8hQ/zh-cn_image_0000002628628222.png?HW-CC-KV=V1&HW-CC-Date=20260701T041351Z&HW-CC-Expire=86400&HW-CC-Sign=BA56A6EAEEA0A8B863BFAA34D2C83ED182CE9FEF6B244DEE370DC955B492C064)
 
-- 在项目中创建targetHap：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/3zXsLf2NQ3W1Qc0APqA8hQ/zh-cn_image_0000002628628222.png?HW-CC-KV=V1&HW-CC-Date=20260701T025518Z&HW-CC-Expire=86400&HW-CC-Sign=6CBDB8F33C0CF752778BFDFFC7CC5C6E9016FDA902D2F475158FC62527B2E92C)
-
-- 在entry模块中使用startAbility拉起targetHap模块的实例，需要配置bundleName和Ability名称，并在被拉起的HAP中配置期望打开的页面即可。发起侧示例代码如下：
-```text
+2. 在entry模块中使用startAbility拉起targetHap模块的实例，需要配置bundleName和Ability名称，并在被拉起的HAP中配置期望打开的页面即可。发起侧示例代码如下：
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
-const BUNDLE_NAME: string = 'com.example.jumphap'; // 在应用app.json5文件中"bundleName"节点获得
-const ABILITY_NAME: string = 'TargetHapAbility'; // 在HAP包的对应Ability文件中获得
+const BUNDLE_NAME: string = 'com.example.jumphap'; <em>// 在应用app.json5文件中"bundleName"节点获得</em>
+const ABILITY_NAME: string = 'TargetHapAbility'; <em>// 在HAP包的对应Ability文件中获得</em>
 
 @Entry
 @Component
 struct Index {
-  private context?: common.UIAbilityContext; // 创建context实例
+  private context?: common.UIAbilityContext; <em>// 创建context实例</em>
 
   aboutToAppear(): void {
-    this.context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 获取当前页面关联的UIAbilityContext
+    this.context = this.getUIContext().getHostContext() as common.UIAbilityContext; <em>// 获取当前页面关联的UIAbilityContext</em>
   }
 
   jumpHap() {
     if (this.context) {
-      // 启动Ability，拉起HAP模块的UIAbility实例
+      <em>// 启动Ability，拉起HAP模块的UIAbility实例</em>
       this.context.startAbility({
         bundleName: BUNDLE_NAME,
         abilityName: ABILITY_NAME
@@ -69,22 +64,21 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-          this.jumpHap(); // 点击跳转
+          this.jumpHap(); <em>// 点击跳转</em>
         });
     };
   }
 }
 ```
 
-- 进入“Run”>“Edit Configurations”>“Run/Debug Configuration”，勾选主模块的Deploy Multi Hap/Hsp选框下的Deploy Multi Hap/Hsp Packages和All Modules选项，即可运行验证。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/RnYEKFvpRBev40imTl02Dg/zh-cn_image_0000002658867501.png?HW-CC-KV=V1&HW-CC-Date=20260701T025518Z&HW-CC-Expire=86400&HW-CC-Sign=64536463976071BF15D1E00AFAC03C04D2292210118F0152D21AA27BE66C5FE9)
+3. 进入“Run”>“Edit Configurations”>“Run/Debug Configuration”，勾选主模块的Deploy Multi Hap/Hsp选框下的Deploy Multi Hap/Hsp Packages和All Modules选项，即可运行验证。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/RnYEKFvpRBev40imTl02Dg/zh-cn_image_0000002658867501.png?HW-CC-KV=V1&HW-CC-Date=20260701T041351Z&HW-CC-Expire=86400&HW-CC-Sign=24F65ECB23054A18B72714A8514189474D53781EE3895F6759528F03BD5E6DD6)
 
-- 若是有多模块页面跳转的需求，建议还是使用静态库HAR或动态库HSP，尽量避免涉及多HAP之间的页面跳转。
-
+4. 若是有多模块页面跳转的需求，建议还是使用静态库HAR或动态库HSP，尽量避免涉及多HAP之间的页面跳转。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：feature类型的HAP包支持导出组件或者接口给其他模块使用吗？
  

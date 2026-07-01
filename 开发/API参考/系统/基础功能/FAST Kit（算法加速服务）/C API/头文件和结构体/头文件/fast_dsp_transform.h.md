@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-dsp-transform-8h
-
 **支持设备：** Phone | PC/2in1 | Tablet
 
-## fast_dsp_transform.h
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet
 
 提供高性能数字信号处理（DSP）变换函数，包括FFT（快速傅里叶变换）、IFFT（逆快速傅里叶变换）等。
  
@@ -26,11 +23,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 
-##### [h2]类型定义
+#### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,7 +40,9 @@
  
   
 
-##### [h2]常量
+#### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,7 +51,9 @@
  
   
 
-##### [h2]函数
+#### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

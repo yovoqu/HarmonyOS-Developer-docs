@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-notificationkit-7001
 
-## Notification Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：export interface UserGrantSetting 差异内容：export interface UserGrantSetting | api/notification/NotificationCommonDef.d.ts |

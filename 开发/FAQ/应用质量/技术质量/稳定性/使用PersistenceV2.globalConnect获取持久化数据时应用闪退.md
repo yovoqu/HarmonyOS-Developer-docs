@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-61
 
-## 使用PersistenceV2.globalConnect获取持久化数据时应用闪退
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用PersistenceV2持久化UI数据，应用第一次启动正常，更新持久化数据后退出应用，同时关闭后台，二次启动应用时闪退，报jscrash异常，代码崩溃在使用PersistenceV2.globalConnect获取持久化数据的地方，错误日志如下：
  
@@ -26,59 +22,59 @@ Error message:For 'User' key: Error: The type of target 'object' mismatches the 
 问题代码示例参考如下：
  
 ```text
-import { PersistenceV2, Type } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">PersistenceV2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Type </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@ComponentV2
-struct Index {
-  @Local user: User = PersistenceV2.globalConnect({ type: User, defaultCreator: () => new User() })!;
-  build() {
-    Column({ space: 20 }) {
-      Text('获取新数据')
-        .width('25%')
-        .borderRadius(10)
-        .onClick(() => {
-          this.getNewAddressAndName();
-        })
-    }
-    .justifyContent(FlexAlign.Center)
-    .height('100%')
-    .width('100%')
-  }
-  private async getNewAddressAndName() {
-    this.user.config!.address = 'www.example.com';
-    this.user.config!.name = '';
-    console.info(`user.config!.address: ${this.user.config!.address}`)
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">user</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">User </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">PersistenceV2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">globalConnect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">User</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">defaultCreator</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> new <span style="color: rgb(0,0,255);">User</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">!;</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">获取新数据</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'25%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getNewAddressAndName</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  private async <span style="color: rgb(0,0,255);">getNewAddressAndName</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(255,255,255);">address </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'www.example.com'</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`user.config!.address: </span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@ObservedV2
-export class Config {
-  @Trace
-  public address: Resource | string | undefined;
+<span style="color: rgb(181,106,1);">@ObservedV2</span>
+export class <span style="color: rgb(0,0,255);">Config </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Trace</span>
+  public <span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(181,106,1);">;</span>
 
-  @Trace
-  public name: Resource | string | undefined;
-}
+  <span style="color: rgb(181,106,1);">@Trace</span>
+  public <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Resource </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(181,106,1);">undefined</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@ObservedV2
-export class User {
-  constructor() {
-    const config = new Config();
-    config.address = $r('app.media.default');
-    config.name = '华为用户';
-    this.config = config;
-  }
+<span style="color: rgb(181,106,1);">@ObservedV2</span>
+export class <span style="color: rgb(0,0,255);">User </span><span style="color: rgb(181,106,1);">{</span>
+  constructor<span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    const <span style="color: rgb(255,255,255);">config </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Config</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">address </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.default'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">华为用户</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">config </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  @Type(Config)
-  @Trace
-  public config: Config;
-}
+  <span style="color: rgb(181,106,1);">@Type</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Config</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">@Trace</span>
+  public <span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Config</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
  
 
-##### 背景知识
+#### 背景知识
 
 [PersistenceV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)：为了增强状态管理框架对持久化存储UI的能力，开发者可以使用PersistenceV2存储持久化的数据。PersistenceV2是应用程序中的可选单例对象。
  
@@ -86,83 +82,82 @@ export class User {
  
  
 
-##### 问题定位
-
-- 根据错误信息"The type mismatches when use the key 'User' in storage"可以判断错误是User类型不匹配问题导致的。
-- 由于User是自己定义的一个类，需要排查User类中各成员变量是否存在类型不匹配的情况，逐一排查User类中各成员变量的类型，发现address成员是联合类型：private address: Resource | string | undefined。
-- 排查address成员在代码中的赋值逻辑，发现初始化的时候赋的是Resource类型值：
+#### 问题定位
+1. 根据错误信息"The type mismatches when use the key 'User' in storage"可以判断错误是User类型不匹配问题导致的。
+2. 由于User是自己定义的一个类，需要排查User类中各成员变量是否存在类型不匹配的情况，逐一排查User类中各成员变量的类型，发现address成员是联合类型：private address: Resource | string | undefined。
+3. 排查address成员在代码中的赋值逻辑，发现初始化的时候赋的是Resource类型值：
 ```text
-config.address = $r('app.media.default')；
+<span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">address </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.media.default'</span><span style="color: rgb(255,0,170);">)</span>；
 ```
  后续运行过程中又被赋了string类型值：
- 
+
+  
 ```text
-config.address = 'www.example.com';
+<span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">address </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'www.example.com'</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
-- PersistenceV2存储数据的时候会记录某个变量首次存储时的类型，但会存储最新的变量值，因为address变量首次赋值的Resource类型，因此PersistenceV2会认为address变量为Resource类型，但后续address变量有被赋了string类型值，导致应用二次启动获取持久化数据反序列化的过程中类型不匹配，从而导致应用闪退。
-
+4. PersistenceV2存储数据的时候会记录某个变量首次存储时的类型，但会存储最新的变量值，因为address变量首次赋值的Resource类型，因此PersistenceV2会认为address变量为Resource类型，但后续address变量有被赋了string类型值，导致应用二次启动获取持久化数据反序列化的过程中类型不匹配，从而导致应用闪退。
  
  
 
-##### 分析结论
+#### 分析结论
 
 使用PersistenceV2存储持久化的数据时，被持久化的对象不建议使用联合类型，避免应用运行过程中给联合类型的对象赋了不同类型的值而导致反序列化失败。
  
  
 
-##### 修改建议
+#### 修改建议
 
 将User中的address成员改成string类型，不再使用联合类型，应用运行过程中该成员只用于存储string类型的值。
  
 ```text
-import { PersistenceV2, Type } from '@kit.ArkUI';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">PersistenceV2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">Type </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkUI'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@ComponentV2
-struct Index {
-  @Local user: User = PersistenceV2.globalConnect({ type: User, defaultCreator: () => new User() })!;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@ComponentV2</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Local </span><span style="color: rgb(255,255,255);">user</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">User </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">PersistenceV2</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">globalConnect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">User</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">defaultCreator</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> new <span style="color: rgb(0,0,255);">User</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">!;</span>
 
-  build() {
-    Column({ space: 20 }) {
-      Text('获取新数据')
-        .width('25%')
-        .borderRadius(10)
-        .onClick(() => {
-          this.getNewAddressAndName();
-        });
-    }
-    .justifyContent(FlexAlign.Center)
-    .height('100%')
-    .width('100%');
-  }
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">获取新数据</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'25%'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">10</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getNewAddressAndName</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  private async getNewAddressAndName() {
-    this.user.config!.address = 'www.example.com';
-    this.user.config!.name = '';
-    console.info(`user.config!.address: ${this.user.config!.address}`);
-  }
-}
+  private async <span style="color: rgb(0,0,255);">getNewAddressAndName</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(255,255,255);">address </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'www.example.com'</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`user.config!.address: </span><span style="color: rgb(181,106,1);">${</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">user</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">!.</span><span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@ObservedV2
-export class Config {
-  @Trace
-  public address: string = '';
-  @Trace
-  public name: string = '';
-}
+<span style="color: rgb(181,106,1);">@ObservedV2</span>
+export class <span style="color: rgb(0,0,255);">Config </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(181,106,1);">@Trace</span>
+  public <span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@Trace</span>
+  public <span style="color: rgb(255,255,255);">name</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">''</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@ObservedV2
-export class User {
-  constructor() {
-    const config = new Config();
-    config.address = 'init address';
-    config.name = 'name test';
-    this.config = config;
-  }
+<span style="color: rgb(181,106,1);">@ObservedV2</span>
+export class <span style="color: rgb(0,0,255);">User </span><span style="color: rgb(181,106,1);">{</span>
+  constructor<span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    const <span style="color: rgb(255,255,255);">config </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Config</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">address </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'init address'</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">name </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'name test'</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">config </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
 
-  @Type(Config)
-  @Trace
-  public config: Config;
-}
+  <span style="color: rgb(181,106,1);">@Type</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">Config</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">@Trace</span>
+  public <span style="color: rgb(255,255,255);">config</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">Config</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

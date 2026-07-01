@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-123
 
-## 目标IP是公司内网，请求失败，异常信息：Couldn't connect to server
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用真机调试应用，请求公司内网IP，连接失败，异常信息：Couldn't connect to server。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 若请求发送或接收的数据量较少，可使用[request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request)，若是大文件的上传或者下载，且关注数据发送和接收进度，可使用HTTP请求流式传输[requestInStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#requestinstream10)。
 - [Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-introduction)提供请求网络数据的功能，当前包含“HTTP请求能力”和“URPC（Unified Remote Procedure Call）高性能rpc通信库”等能力。
@@ -23,7 +19,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 检查手机是否能成功请求到普通外网地址，确认可以；确认结果说明已声明“ohos.permission.INTERNET”权限。
 - 在与手机连接的电脑上请求相同的IP地址是否可以请求成功，确认可以；确认结果说明请求IP地址正确、可达。
@@ -33,18 +29,18 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 手机WiFi与请求IP不在同一局域网，导致无路由转发请求到目标IP。
  
  
 
-##### 修改建议
+#### 修改建议
 
 使用电脑开启的热点，确保连接的WiFi与请求目标URL在同一网段。
  
  
 
-##### 总结
+#### 总结
 
 想要通过连接公司WiFi请求公司内网地址成功，需要确保连接的WiFi与请求目标URL在同一网段。

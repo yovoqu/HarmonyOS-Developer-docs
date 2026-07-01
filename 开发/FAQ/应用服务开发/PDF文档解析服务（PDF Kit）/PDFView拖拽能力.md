@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-14
 
-## PDFView拖拽能力
- 
-
-
-##### 问题现象
+#### 问题现象
 
 PC项目中需要通过PDFView预览PDF文件时，用鼠标拖拽不生效，如何实现拖拽行为？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [enablePageDrag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#section1587210185315)支持设置页面是否支持拖拽。
   
@@ -26,7 +22,7 @@ PC项目中需要通过PDFView预览PDF文件时，用鼠标拖拽不生效，�
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用enablePageDrag接口，设置verticalEnabled和horizontalEnabled属性为true。
  
@@ -47,9 +43,9 @@ struct PdfDemo {
   private context = this.getUIContext().getHostContext() as Context;
   private loadResult: pdfService.ParseResult = pdfService.ParseResult.PARSE_ERROR_FORMAT;
 
-  async aboutToAppear(): Promise {
+  async aboutToAppear(): Promise<void> {
     try {
-      // 确保rawfile目录下有pdf文件
+      <em>// 确保rawfile目录下有pdf文件</em>
       await this.copyRawFileToSdcard(this.context, 'testDemo.pdf');
       promptAction.openToast({ message: '全部拷贝完成' });
       const filePath = `${this.context.filesDir}/testDemo.pdf`;
@@ -86,11 +82,11 @@ struct PdfDemo {
     }
   }
 
-  // 拷贝pdf文件到应用沙箱目录
-  private copyRawFileToSdcard(context: common.Context, pdfName: string): Promise {
+  <em>// 拷贝pdf文件到应用沙箱目录</em>
+  private copyRawFileToSdcard(context: common.Context, pdfName: string): Promise<void> {
     return new Promise((resolve) => {
       let destRoot = context.filesDir;
-      // rawfile下的文件名
+      <em>// rawfile下的文件名</em>
       let srcFileName = pdfName;
       let destFilePath = `${destRoot}/${srcFileName}`;
       context.resourceManager.getRawFileContent(srcFileName, (error: BusinessError, data: Uint8Array) => {
@@ -110,17 +106,13 @@ struct PdfDemo {
 }
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/8pji-mzUT72EMb-ayoKPIw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025837Z&HW-CC-Expire=86400&HW-CC-Sign=E0CF1BB1E1365F70AC670F78C533C3015B4CEB99E731C92BA1DD958547EDD27B)
- 
-
-需要确保在工程目录“src/main/resources/rawfile”里存在testDemo.pdf文档，并且拷贝testDemo.pdf文档到沙箱目录。
- 
+> [!NOTE]
+> 需要确保在工程目录“src/main/resources/rawfile”里存在testDemo.pdf文档，并且拷贝testDemo.pdf文档到沙箱目录。
 
  
  
 
-##### 总结
+#### 总结
 
 enablePageDrag接口主要场景在PC上，按住一个页面移动鼠标，可以拖动页面。
  

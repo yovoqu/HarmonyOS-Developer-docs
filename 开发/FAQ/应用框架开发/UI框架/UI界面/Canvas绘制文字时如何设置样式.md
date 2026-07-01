@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1012
 
-## Canvas绘制文字时如何设置样式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Canvas提供了绘制文字的API，开发者在使用fillText绘制文字时会遇到以下场景：
  
@@ -20,7 +16,7 @@ Canvas提供了绘制文字的API，开发者在使用fillText绘制文字时会
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)：提供画布组件，用于自定义绘制图形，开发者使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
 - [font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#font)：设置文本绘制中的字体样式，此属性为只写属性，API version 20及以后支持注册过的自定义字体。
@@ -32,13 +28,14 @@ Canvas提供了绘制文字的API，开发者在使用fillText绘制文字时会
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：设置字体常规样式。Canvas提供了fillText和strokeText两个API分别用于绘制填充类文本和绘制描边类文本，另外提供了font属性来设置字体样式，其语法如下：ctx.font = 'font-style font-weight font-size font-family'。具体示例可以参照官网[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#font)属性。
 - **场景二**：绘制自定义字体。
-在API version 20及以后版本Canvas支持使用自定义字体绘制，有以下两种方式：
-直接调用字体引擎的[fontCollection.loadFontSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#loadfontsync)接口来注册，示例可以参照官网[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#font)属性。
-- 通过ArkUI的异步接口[this.uiContext.getFont().registerFont](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-font#registerfont)注册：
+
+  在API version 20及以后版本Canvas支持使用自定义字体绘制，有以下两种方式：1. 直接调用字体引擎的[fontCollection.loadFontSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#loadfontsync)接口来注册，示例可以参照官网[font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#font)属性。
+
+2. 通过ArkUI的异步接口[this.uiContext.getFont().registerFont](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-font#registerfont)注册：
 ```text
 @Entry
 @Component
@@ -49,7 +46,7 @@ struct CanvasCustomFont {
   aboutToAppear(): void {
     this.getUIContext().getFont().registerFont({
       familyName: 'customFont',
-      familySrc: $rawfile('customFont.ttf') // rawfile目录下自定义字体，开发者可以自行替换
+      familySrc: $rawfile('customFont.ttf') <em>// rawfile目录下自定义字体，开发者可以自行替换</em>
     });
   }
 
@@ -74,15 +71,15 @@ struct CanvasCustomFont {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/89IAV_sVSG-JoiZ3x_8Gkw/zh-cn_image_0000002658804045.png?HW-CC-KV=V1&HW-CC-Date=20260701T025718Z&HW-CC-Expire=86400&HW-CC-Sign=DB0AE393F43F7CA051ED4053A7B92319CBE3A0B8B60062B577E2ECC5C6B69E32)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/89IAV_sVSG-JoiZ3x_8Gkw/zh-cn_image_0000002658804045.png?HW-CC-KV=V1&HW-CC-Date=20260701T041137Z&HW-CC-Expire=86400&HW-CC-Sign=077E21401E2E046CEB8C41B03454FB293943430E593A0D6458924FAD06B8816C)
 
 
- 
- 
  
 - **场景三**：绘制渐变色字体。Canvas提供了createLinearGradient、createRadialGradient和createConicGradient接口用于创建渐变色，创建完成后可以使用fillStyle或者strokeStyle来指定绘制的填充色和线条颜色。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -97,22 +94,22 @@ struct CanvasGradFont {
         .height('100%')
         .onReady(() => {
           this.context.font = '150px sans-serif';
-          // 创建一个线性渐变
+       <em>   // 创建一个线性渐变</em>
           let grad = this.context.createLinearGradient(50, 0, 300, 100);
           grad.addColorStop(0.0, '#f88b57');
           grad.addColorStop(0.4, '#aee4a0');
           grad.addColorStop(0.7, '#c4d1ec');
           grad.addColorStop(0.9, '#c08dcc');
-          // 后续fill相关绘制都会使用该线性渐变
+      <em>    // 后续fill相关绘制都会使用该线性渐变</em>
           this.context.fillStyle = grad;
           this.context.fillText('Hello World!', 60, 100);
 
-          // 创建一个径向渐变
+        <em>  // 创建一个径向渐变</em>
           let radialGrad = this.context.createRadialGradient(200, 200, 50, 200, 200, 200);
           radialGrad.addColorStop(0.0, 'rgb(39,135,217)');
           radialGrad.addColorStop(0.5, 'rgb(255,238,240)');
           radialGrad.addColorStop(1.0, 'rgb(112,112,112)');
-          // 后续stroke相关绘制都会使用该径向渐变
+     <em>     // 后续stroke相关绘制都会使用该径向渐变</em>
           this.context.strokeStyle = radialGrad;
           this.context.strokeText('Hello World!', 60, 200);
         });
@@ -124,13 +121,15 @@ struct CanvasGradFont {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/f--kYWcRRh-eXlM3Qje_Xg/zh-cn_image_0000002628404776.png?HW-CC-KV=V1&HW-CC-Date=20260701T025718Z&HW-CC-Expire=86400&HW-CC-Sign=F10C496A0D75C70606CE9D965345B489E4E0120FAD5DDED4C8787B392F950EDC)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/f--kYWcRRh-eXlM3Qje_Xg/zh-cn_image_0000002628404776.png?HW-CC-KV=V1&HW-CC-Date=20260701T041137Z&HW-CC-Expire=86400&HW-CC-Sign=4A71B7A63D1D306835D28AC426DE1299575624ED14E42D8E219C72E544E2EEC8)
 
 
  
 - **场景四**：设置字体阴影。通过设置shadowBlur和shadowColor属性可以增加阴影设置效果，以此来实现文字阴影效果。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -146,7 +145,7 @@ struct CanvasShadowFont {
         .onReady(() => {
           this.context.font = '150px sans-serif';
           this.context.fillText('Hello World!', 60, 100);
-          // 设置阴影样式
+      <em>    // 设置阴影样式</em>
           this.context.shadowBlur = 30;
           this.context.shadowColor = 'rgb(0,0,0)';
           this.context.fillText('Hello World!', 60, 200);
@@ -159,16 +158,16 @@ struct CanvasShadowFont {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/iR4FpS6zRp2F2OBOTzQyVQ/zh-cn_image_0000002628564682.png?HW-CC-KV=V1&HW-CC-Date=20260701T025718Z&HW-CC-Expire=86400&HW-CC-Sign=115F3C9CDAC120CAC9011BE1C5C2A1E8E004B211E6DA79C9B6FCF2562A1D23E5)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/iR4FpS6zRp2F2OBOTzQyVQ/zh-cn_image_0000002628564682.png?HW-CC-KV=V1&HW-CC-Date=20260701T041137Z&HW-CC-Expire=86400&HW-CC-Sign=9FB129D1BE32427058D755C46DE1B3BD235BB2F36637CC3E26AE954B0FC812C5)
 
 
  
  
 
-##### 总结
+#### 总结
 
 Canvas提供了绘制文字的API，其文字样式主要受到font、fillStyle和strokeStyle属性影响：
- 
-- font属性可设置font-style、font-weight、font-size和font-family这四个文字属性，其中font-family可以指定字体系列。除了系统提供的sans-serif、serif和monospace，还支持设置自定义字体。
-- fillStyle和strokeStyle属性用于设置Canvas绘制的填充色和线条颜色，设置以后对后续的fill和stroke操作生效，由于字体绘制是通过fillText和strokeText实现的，因此也可以通过fillStyle和strokeStyle实现渐变色和阴影效果。
+ 1. font属性可设置font-style、font-weight、font-size和font-family这四个文字属性，其中font-family可以指定字体系列。除了系统提供的sans-serif、serif和monospace，还支持设置自定义字体。
+2. fillStyle和strokeStyle属性用于设置Canvas绘制的填充色和线条颜色，设置以后对后续的fill和stroke操作生效，由于字体绘制是通过fillText和strokeText实现的，因此也可以通过fillStyle和strokeStyle实现渐变色和阴影效果。

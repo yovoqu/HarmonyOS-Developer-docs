@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1060
 
-## 如何在Canvas上实现涂抹效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在移动应用开发中，屏幕涂抹交互（如签名、涂鸦、擦除）是提升用户体验的关键功能。HarmonyOS的Canvas组件结合触摸事件监听与手势识别，为开发者提供了低门槛、高性能的2D图形绘制能力。本文将通过以下常见应用场景，详解如何在Canvas上实现涂抹效果：
  
@@ -19,7 +15,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)：提供画布组件，用于自定义绘制图形，开发者使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
 - [lineTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#lineto)：从当前点到指定点进行路径连接。
@@ -30,10 +26,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：结合手势或者事件实现路径绘制。Canvas组件可以绑定触摸事件和滑动手势来获取手指按压时的坐标，在事件触发过程中可以根据event对象获取到在屏幕上触摸的点，再结合Canvas的lineTo方法就可以把手指移动过程中的路径给记录下来，达到手指滑动屏幕就绘制的效果。
- 
+
+  
 onTouch实现如下：
 ```text
 @Entry
@@ -54,21 +51,21 @@ struct CanvasTouch {
           this.context.strokeStyle = '#0000ff';
         })
         .onTouch((event: TouchEvent) => {
-          // 获取到触摸的坐标点
+         <em> // 获取到触摸的坐标点</em>
           let x = event.touches[0].x;
           let y = event.touches[0].y;
           if (event.type == TouchType.Down) {
-            // 手指按下时画布移动到当前坐标点
+          <em>  // 手指按下时画布移动到当前坐标点</em>
             this.context.beginPath();
             this.context.moveTo(x, y);
           }
           if (event.type === TouchType.Move) {
-            // 手指移动时画布用线条连接到当前坐标点
+          <em>  // 手指移动时画布用线条连接到当前坐标点</em>
             this.context.lineTo(x, y);
             this.context.stroke();
           }
           if (event.type === TouchType.Up) {
-            // 手指抬起时生成闭合路径
+           <em> // 手指抬起时生成闭合路径</em>
             this.context.closePath();
           }
         })
@@ -102,19 +99,19 @@ struct CanvasPanGesture {
             .onActionStart((event: GestureEvent) => {
               let x = event.fingerList[0].localX;
               let y = event.fingerList[0].localY;
-              // 手指按下时画布移动到当前坐标点
+          <em>    // 手指按下时画布移动到当前坐标点</em>
               this.context.beginPath();
               this.context.moveTo(x, y);
             })
             .onActionUpdate((event: GestureEvent) => {
               let x = event.fingerList[0].localX;
               let y = event.fingerList[0].localY;
-              // 手指移动时画布用线条连接到当前坐标点
+           <em>   // 手指移动时画布用线条连接到当前坐标点</em>
               this.context.lineTo(x, y);
               this.context.stroke();
             })
             .onActionEnd(() => {
-              // 手指抬起时生成闭合路径
+             <em> // 手指抬起时生成闭合路径</em>
               this.context.closePath();
             })
         )
@@ -123,14 +120,17 @@ struct CanvasPanGesture {
   }
 }
 ```
- 
- 实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/1ZVYwS3VSRqmwaKrt3eYHQ/zh-cn_image_0000002658926415.png?HW-CC-KV=V1&HW-CC-Date=20260701T025722Z&HW-CC-Expire=86400&HW-CC-Sign=BBCECD5DC8D6335AAAFE18E504845FF63B191CF4422AD2D78ABA2FEDB26F1247)
+
+
+  实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/1ZVYwS3VSRqmwaKrt3eYHQ/zh-cn_image_0000002658926415.png?HW-CC-KV=V1&HW-CC-Date=20260701T041157Z&HW-CC-Expire=86400&HW-CC-Sign=540A752F67BCC439D5567C00B39FDC2F83AE3B3B04BDC0A68E93BA8F4965EA4F)
 
 
  - 场景二：撤销绘制的路径。在一些签名场景，如果用户绘制错误需要重新绘制，直接使用clearRect方法清空画布体验不够友好，需要仅撤销最新的绘制路径，这时可以使用数组来存储绘制过程中的路径，然后点击撤销时移除最新路径，最后重绘剩余路径，这样即可实现撤销绘制功能。示例代码参考如下：
- 
+
+  
 ```text
 interface Point {
   x: number;
@@ -166,7 +166,7 @@ struct CanvasCancelDraw {
           let x = event.touches[0].x;
           let y = event.touches[0].y;
           if (event.type == TouchType.Down) {
-            // 按下时新建一条路径
+          <em>  // 按下时新建一条路径</em>
             const path = new DrawingPath();
             path.points.push({ x: x, y: y });
             this.paths.push(path);
@@ -174,7 +174,7 @@ struct CanvasCancelDraw {
             this.context.moveTo(x, y);
           }
           if (event.type === TouchType.Move) {
-            // 移动时把当前的坐标点放入最新的路径中
+           <em> // 移动时把当前的坐标点放入最新的路径中</em>
             this.paths[this.paths.length - 1].points.push({ x: x, y: y });
             this.context.lineTo(x, y);
             this.context.stroke();
@@ -195,10 +195,42 @@ struct CanvasCancelDraw {
         Button('撤销')
           .layoutWeight(1)
           .onClick(() => {
-            if (this.paths.length   // 重绘保存的路径
+            if (this.paths.length < 1) {
+              return;
+            }
+            this.paths.pop()!!;
+            this.context.clearRect(0, 0, this.context.width, this.context.height);
+          <em>  // 重绘保存的路径</em>
             this.paths.forEach((path) => {
-              if (path.points.length 在一些绘图场景，可能需要在原有的线条基础上进行擦除而不是撤销，这时就需要globalCompositeOperation实现。Canvas是增量绘制，在原有的基础上进行擦除，可以通过设置globalCompositeOperation属性为destination-out来实现，示例代码参考如下：
- 
+              if (path.points.length < 1) {
+                return;
+              }
+              this.context.beginPath();
+              this.context.moveTo(path.points[0].x, path.points[0].y);
+              for (let i = 0; i < path.points.length; i++) {
+                this.context.lineTo(path.points[i].x, path.points[i].y);
+                this.context.stroke();
+              }
+              this.context.closePath();
+            });
+          });
+      }.width('100%')
+      .justifyContent(FlexAlign.Center)
+      .margin(20);
+    }.padding(16);
+  }
+}
+```
+
+
+  实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/kVQLFwoCRM2cvByE4spNeA/zh-cn_image_0000002628407212.png?HW-CC-KV=V1&HW-CC-Date=20260701T041157Z&HW-CC-Expire=86400&HW-CC-Sign=39B21A586BD452AC7F238342B84A3B405C2A6761096B2C6CD8872884D1F1F406)
+
+- 场景三：擦除部分绘制内容。在一些绘图场景，可能需要在原有的线条基础上进行擦除而不是撤销，这时就需要globalCompositeOperation实现。Canvas是增量绘制，在原有的基础上进行擦除，可以通过设置globalCompositeOperation属性为destination-out来实现，示例代码参考如下：
+
+  
 ```text
 @Entry
 @Component
@@ -213,7 +245,7 @@ struct CanvasEraseDraw {
         .width('100%')
         .height('570vp')
         .borderRadius(16)
-        .backgroundColor(\$r('sys.color.comp_background_focus'))
+        .backgroundColor($r('sys.color.comp_background_focus'))
         .onReady(() => {
           this.context.lineWidth = 10;
           this.context.strokeStyle = '#0000ff';
@@ -258,16 +290,18 @@ struct CanvasEraseDraw {
   }
 }
 ```
- 
- 实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/H90Iu-kDQxSd_taClv0bAg/zh-cn_image_0000002658806469.png?HW-CC-KV=V1&HW-CC-Date=20260701T025722Z&HW-CC-Expire=86400&HW-CC-Sign=0AF90A30B0C5961A75D9843FE7242DD6D77550AC54E51E4634409062AD2F536E)
+
+
+  实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/H90Iu-kDQxSd_taClv0bAg/zh-cn_image_0000002658806469.png?HW-CC-KV=V1&HW-CC-Date=20260701T041157Z&HW-CC-Expire=86400&HW-CC-Sign=38FDF6905CFC0E0C74A25719B95F6BFB15CC94D5C286CF20CBB9E63EEFBE51C8)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：涂抹过程中存在“不跟手”情况如何解决？
  

@@ -4,15 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-accessibility-status-missing-check
 
-## @correctness/accessibility-status-missing-check
- 
-
 在无障碍场景开发中，须通过[accessibilityRole](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-accessibility#accessibilityrole18)声明组件的类型标识，如“按钮”、“编辑框”。
  
 
-##### 规则配置
+#### 规则配置
 
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -23,13 +20,13 @@
  
  
 
-##### 选项
+#### 选项
 
 该规则无需配置额外选项。
  
  
 
-##### 正例
+#### 正例
 
 ```text
 @Entry
@@ -50,7 +47,7 @@ struct AccessibilityStatusMissingPositive {
  
  
 
-##### 反例
+#### 反例
 
 ```text
 @Entry
@@ -70,10 +67,10 @@ struct AccessibilityStatusMissingNegative {
  
  
 
-##### 规则集
+#### 规则集
 
 ```text
-plugin:@correctness/all
+<span style="color: rgb(80,160,79);">plugin:@correctness/all</span>
 ```
  
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1139
 
-## Tabs索引持久化储存的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Tabs组件，点击页签导航栏可以展示对应的TabContent页面，需要实现下次登录时，自动打开退出时最后点击的TabContent页面。
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/OWPzTpa6RACP12EbtpDgPA/zh-cn_image_0000002628409704.png?HW-CC-KV=V1&HW-CC-Date=20260701T025601Z&HW-CC-Expire=86400&HW-CC-Sign=A588933F5848D356E87D9C7A7208AAB2FD4654BFD9EB508086EAB213DAD4E342)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/OWPzTpa6RACP12EbtpDgPA/zh-cn_image_0000002628409704.png?HW-CC-KV=V1&HW-CC-Date=20260701T041250Z&HW-CC-Expire=86400&HW-CC-Sign=E1A7387DA7E61A7D7C1231DE6CB8AE3E6DB006F4B449DC7CBA353D634CAC13A0)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#接口)不支持自定义组件作为子组件，仅可包含子组件TabContent，以及渲染控制类型if/else和ForEach，并且if/else和ForEach下也仅支持TabContent，不支持自定义组件。参数[TabsOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#tabsoptions15)类型包含四个元素，其中index参数可以根据页签的索引位置，设置创建Tabs组件时显示的页签，默认为0。
 - [首选项模块（Preferences）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#preferences)可以提供Key-Value键值型数据的处理接口，实现对轻量级数据的查询、修改和持久化功能。
@@ -30,10 +26,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. 创建用户首选项对象。用户首选项实现指南详见[通过用户首选项实现数据持久化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences)。
 
-- 创建用户首选项对象。用户首选项实现指南详见[通过用户首选项实现数据持久化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences)。
-
+  
 ```text
 import { preferences } from '@kit.ArkData';
 
@@ -61,9 +57,10 @@ let preferenceUtilsObject: PreferencesUtil = new PreferencesUtil();
 export default preferenceUtilsObject;
 ```
 
-- 应用启动时获取储存的用户首选项。
+2. 应用启动时获取储存的用户首选项。
 
-```text
+  
+```json
 onCreate(): void {
   try {
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
@@ -75,8 +72,9 @@ onCreate(): void {
 }
 ```
 
-- 通过onChange方法获取点击页签的实时索引位置，并储存。通过aboutToAppear方法，在页面显示前获取上一次退出Tabs页面的索引位置。
+3. 通过onChange方法获取点击页签的实时索引位置，并储存。通过aboutToAppear方法，在页面显示前获取上一次退出Tabs页面的索引位置。
 
+  
 ```text
 import preferenceUtilsObject from '../pages/Preferences';
 
@@ -150,10 +148,9 @@ struct Index {
 }
 ```
 
-
  
  
 
-##### 总结
+#### 总结
 
 官方提供的数据持久化方式有通过用户首选项实现数据持久化、通过键值型数据库实现数据持久化、通过关系型数据库实现数据持久化、通过向量数据库实现数据持久化四种方式，一般存储简单的数据采用第一种用户首选项方式。在应用启动时，获取储存的数据，赋值给Tabs显示默认页面即可。

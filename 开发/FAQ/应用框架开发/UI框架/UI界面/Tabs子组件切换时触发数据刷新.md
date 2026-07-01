@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1476
 
-## Tabs子组件切换时触发数据刷新
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在实际开发过程中，切换Tabs时通常会涉及内容视图的数据刷新。以下是常见的Tabs页面刷新场景：
  
@@ -18,7 +14,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - [TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)：仅在Tabs中使用，对应一个切换页签的内容视图。
@@ -31,7 +27,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 场景 | 方案 |
 | --- | --- |
@@ -41,13 +37,13 @@
  
 场景一：Tabs每次切换时，目标TabContent页面都请求数据刷新页面。
  
-- 方案一：使用emitter发送切换信息，TabContent接收到消息后执行请求数据、刷新页面等操作。
-在Tabs组件的onAnimationStart回调中，通过全局事件发射器emitter.emit发送页签切换事件。
-- 在TabContent子组件通过emitter.on订阅事件，接收到事件时执行请求数据、刷新页面等操作。
+- 方案一：使用emitter发送切换信息，TabContent接收到消息后执行请求数据、刷新页面等操作。1. 在Tabs组件的onAnimationStart回调中，通过全局事件发射器emitter.emit发送页签切换事件。
 
- 
-TabEmitterPage.ets代码如下：
- 
+2. 在TabContent子组件通过emitter.on订阅事件，接收到事件时执行请求数据、刷新页面等操作。
+
+  TabEmitterPage.ets代码如下：
+
+  
 ```text
 import { emitter } from '@kit.BasicServicesKit';
 
@@ -70,18 +66,18 @@ struct TabEmitterPage {
 
   refreshTabContent(index: number) {
     if (index === 0) {
-      // 事件携带的数据
+     <em> // 事件携带的数据</em>
       let eventData: emitter.EventData = {
         data: {}
       };
-      // 通过emitter.emit('refreshTableOne')发送指定的事件
+    <em>  // 通过emitter.emit('refreshTableOne')发送指定的事件</em>
       emitter.emit('refreshTableOne', eventData);
     } else if (index === 1) {
-      // 事件携带的数据
+     <em> // 事件携带的数据</em>
       let eventData: emitter.EventData = {
         data: {}
       };
-      // 通过emitter.emit('refreshTableTwo')发送指定的事件
+     <em> // 通过emitter.emit('refreshTableTwo')发送指定的事件</em>
       emitter.emit('refreshTableTwo', eventData);
     }
   }
@@ -107,8 +103,8 @@ struct TabEmitterPage {
       if (index === targetIndex) {
         return;
       }
-      this.selectedIndex = targetIndex; // selectedIndex控制自定义TabBar内Text颜色切换
-      this.refreshTabContent(targetIndex); // 在切换动画启动时发送刷新事件
+      this.selectedIndex = targetIndex;<em> // selectedIndex控制自定义TabBar内Text颜色切换</em>
+      this.refreshTabContent(targetIndex); <em>// 在切换动画启动时发送刷新事件</em>
     }).width('100%').height('100%');
   }
 }
@@ -118,7 +114,7 @@ struct EmitterContentOne {
   @State counter: number = 0;
 
   aboutToAppear(): void {
-    // Tabs子组件通过emitter.on持续订阅该事件去刷新数据
+   <em> // Tabs子组件通过emitter.on持续订阅该事件去刷新数据</em>
     emitter.on('refreshTableOne', () => {
       this.counter += 1;
     });
@@ -138,7 +134,7 @@ struct EmitterContentTwo {
   @State text: string = 'A';
 
   aboutToAppear(): void {
-    // Tabs子组件通过emitter.on持续订阅该事件去刷新数据
+    <em>// Tabs子组件通过emitter.on持续订阅该事件去刷新数据</em>
     emitter.on('refreshTableTwo', () => {
       this.text += 'A';
     });
@@ -153,20 +149,21 @@ struct EmitterContentTwo {
   }
 }
 ```
- - 方案二：Tabs通过@Provider向TabContent子组件的@Consumer传递页签切换信息，TabContent监听页签切换信息并执行请求数据、刷新页面等操作。
-在Tabs组件中，使用@Provide('refreshNumber')将当前切换的页签索引作为共享状态进行发布。在onAnimationStart回调中更新该状态值，实现状态同步。
-- TabContent子组件通过@Consume('refreshNumber')获取该共享状态，并通过[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)监听refreshNumber的变化，当refreshNumber与自身对应的页签索引一致时，执行请求数据、刷新页面等操作。
 
- 
-ConsumerPage.ets代码如下：
- 
+- 方案二：Tabs通过@Provider向TabContent子组件的@Consumer传递页签切换信息，TabContent监听页签切换信息并执行请求数据、刷新页面等操作。1. 在Tabs组件中，使用@Provide('refreshNumber')将当前切换的页签索引作为共享状态进行发布。在onAnimationStart回调中更新该状态值，实现状态同步。
+
+2. TabContent子组件通过@Consume('refreshNumber')获取该共享状态，并通过[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)监听refreshNumber的变化，当refreshNumber与自身对应的页签索引一致时，执行请求数据、刷新页面等操作。
+
+  ConsumerPage.ets代码如下：
+
+  
 ```text
 @Entry
 @Component
 struct ConsumerPage {
   fontColor: string = '#182431';
   selectedFontColor: string = '#007DFF';
-  @Provide('refreshNumber') refreshNumber: number = 0; // 记录要刷新的子页
+  @Provide('refreshNumber') refreshNumber: number = 0; <em>// 记录要刷新的子页</em>
   @State selectedIndex: number = 0;
 
   @Builder
@@ -201,8 +198,8 @@ struct ConsumerPage {
         console.info(`onAnimationStart ${index} ${targetIndex}`);
         return;
       }
-      this.selectedIndex = targetIndex; // selectedIndex控制自定义TabBar内Text颜色切换
-      this.refreshNumber = targetIndex; // 更新目标页签，触发刷新
+      this.selectedIndex = targetIndex;<em> // selectedIndex控制自定义TabBar内Text颜色切换</em>
+      this.refreshNumber = targetIndex;<em> // 更新目标页签，触发刷新</em>
     })
     .width('100%')
     .height('100%');
@@ -211,15 +208,15 @@ struct ConsumerPage {
 
 @Component
 struct ConsumerContentOne {
-  index: number = 0; // 记录当前子页的页签序号
+  index: number = 0;<em> // 记录当前子页的页签序号</em>
   @State counter: number = 0;
   @Consume('refreshNumber') @Watch('refresh') refreshNumber: number;
 
   refresh() {
-    // 目标页签是当前子页
+<em>    // 目标页签是当前子页</em>
     if (this.index === this.refreshNumber) {
-      // 在此进行网络请求
-      this.counter += 1; // 刷新数据
+     <em> // 在此进行网络请求</em>
+      this.counter += 1;<em> // 刷新数据</em>
     }
   }
 
@@ -230,15 +227,15 @@ struct ConsumerContentOne {
 
 @Component
 struct ConsumerContentTwo {
-  index: number = 0; // 记录当前子页的页签序号
+  index: number = 0; <em>// 记录当前子页的页签序号</em>
   @State text: string = 'A';
   @Consume('refreshNumber') @Watch('refresh') refreshNumber: number;
 
   refresh() {
-    // 目标页签是当前子页
+  <em>  // 目标页签是当前子页</em>
     if (this.index === this.refreshNumber) {
-      // 在此进行网络请求
-      this.text += 'A'; // 刷新数据
+    <em>  // 在此进行网络请求</em>
+      this.text += 'A'; <em>// 刷新数据</em>
     }
   }
 
@@ -247,26 +244,28 @@ struct ConsumerContentTwo {
   }
 }
 ```
- 
+
+
  
 场景二：TabContent仅在首次显示时请求数据并刷新页面，后续切换回该TabContent时不再重复请求。
  
 - 方案一：在场景一的方案一基础上，在TabContent子组件添加一个是否已请求数据的标识。在首次请求并完成数据加载后，将该标识设置为false，后续切换时不触发请求。
 - 方案二：在场景一的方案一基础上，在TabContent子组件添加一个是否已请求数据的标识。在首次请求并完成数据加载后，将该标识设置为false，以避免后续切换时重复请求。示例如下：对ConsumerPage.ets中的ConsumerContentTwo组件做如下修改后，则该子组件只会刷新一次。
- 
+
+  
 ```text
 @Component
 export struct ConsumerContentTwo {
   enableFresh: boolean = true;
-  index: number = 0; // 记录当前子页的页签序号
+  index: number = 0; <em>// 记录当前子页的页签序号</em>
   @State text: string = 'A';
   @Consume('refreshNumber') @Watch('refresh') refreshNumber: number;
 
   refresh() {
-    // 目标页签是当前子页
+ <em>   // 目标页签是当前子页</em>
     if (this.enableFresh && this.index === this.refreshNumber) {
-      // 在此进行网络请求
-      this.text += 'A'; // 刷新数据
+     <em> // 在此进行网络请求</em>
+      this.text += 'A'; <em>// 刷新数据</em>
       this.enableFresh = false;
     }
   }
@@ -282,7 +281,7 @@ export struct ConsumerContentTwo {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Tab中其嵌套Web页面，在Web页面的onPageShow添加页面刷新不生效？
  

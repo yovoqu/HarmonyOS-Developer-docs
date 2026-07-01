@@ -4,56 +4,48 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-38
 
-## BLE蓝牙连接类问题定位定界指导
- 
-
-
-##### 问题现象
+#### 问题现象
 
 本文就BLE蓝牙连接类问题进行定位定界指导，连接类问题可以具体表现为：
- 
-- 蓝牙无法连接设备。
-- 蓝牙连接后异常断开。
-
+ 1. 蓝牙无法连接设备。
+2. 蓝牙连接后异常断开。
  
  
 
-##### 背景知识
+#### 背景知识
 
 **蓝牙全场景流程图：**
  
 首先需要了解BLE蓝牙的业务流程，确定上述故障场景可能发生的阶段：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/fLgBSMUBRCqkAs6u3om_VA/zh-cn_image_0000002658972601.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=EE5B4986D61B903E46FD567398B565A2D2A80C71E0EBFC2C0FFDD2ECB3BA72A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/fLgBSMUBRCqkAs6u3om_VA/zh-cn_image_0000002658972601.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=4F69A1BFC3FFD911578505463308608CE0262151344621834B8E030C580B39F5)
 
- 
-- 由上图可知，蓝牙无法连接设备主要发生在广播/扫描阶段和连接阶段，连接后断开问题主要发生在业务交互和蓝牙断开阶段。
-- 针对无法连接设备的场景，对于广播/扫描阶段的排查步骤，请参考[蓝牙BLE扫描无法获取设备](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-23)进行交叉验证，本文主要介绍针对连接阶段、业务交互阶段、断开阶段的排查步骤。
-
+ 1. 由上图可知，蓝牙无法连接设备主要发生在广播/扫描阶段和连接阶段，连接后断开问题主要发生在业务交互和蓝牙断开阶段。
+2. 针对无法连接设备的场景，对于广播/扫描阶段的排查步骤，请参考[蓝牙BLE扫描无法获取设备](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-23)进行交叉验证，本文主要介绍针对连接阶段、业务交互阶段、断开阶段的排查步骤。
  
 **蓝牙连接阶段流程图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/WHPr9LTER92l9gTpNFve1g/zh-cn_image_0000002628613388.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=6CE556A4A6AC0FF2BF11F5CD596816F115F10445B195604DB5A5CD8217439E8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/WHPr9LTER92l9gTpNFve1g/zh-cn_image_0000002628613388.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=7EC1716AB062EB841BCFD0EC2436B72E0A7F345DF71907BBCDFAE6919C731706)
 
  
 **业务交互与连接维护阶段流程图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/vKFtOiL0SkWX0-RmQwE-gg/zh-cn_image_0000002658852649.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=094CA5C33BFD1967BB4E09716D246AC30D104F35199A0EDD76DF34A6ADC0BB61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/vKFtOiL0SkWX0-RmQwE-gg/zh-cn_image_0000002658852649.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=45B48D752EE4147FC95C31EAA591130D08D87B53775FE6C93F4A4DD45F0FD16A)
 
  
 **业务交互与连接维护阶段时序逻辑：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/BCPqpSqdRCGC5qIJYv89vQ/zh-cn_image_0000002628773286.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=7003F33176119CB7BFB98EDCB80DA86FEC863C2B1221DE298E7A65421640A150)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/BCPqpSqdRCGC5qIJYv89vQ/zh-cn_image_0000002628773286.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=D9F32AF0222502CF391CB7419DC95BEEFDB792AD4F4D8AE9EA10BF6CDBFC2B9D)
 
  
 **蓝牙断连流程图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/I6xkdDbFTiOgu8HJwfCiDg/zh-cn_image_0000002658972603.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=1D12AC72514D0C9C2703DE636FCA22255056D16D6DBCA73D45B3499A6CC9FB03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/I6xkdDbFTiOgu8HJwfCiDg/zh-cn_image_0000002658972603.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=A36D9FA3586184C93298574C18C3001A943E0B6581B65A2419A79FC2FB3738BA)
 
  
 **蓝牙无法连接设备问题分析流程（连接阶段）：**
@@ -61,29 +53,25 @@
 基于蓝牙连接阶段流程图，给出蓝牙连接阶段排查流程：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/raH9IMuyTnutopeVQsirEQ/zh-cn_image_0000002628613392.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=87098091FA356BFD07D834D2DA8CC2C37C6A7253EBCE40922874323EBAA65491)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/raH9IMuyTnutopeVQsirEQ/zh-cn_image_0000002628613392.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=4B3B42019FB1AAD7C20595FD99D20F23EC0E9AC46AA275A5E0B506E1B5BB0F79)
 
- 
-- 首先根据Hilog日志和HCI日志排查是否正常连接（若连接失败，后续的服务发现和鉴权环节将无法正常进行），此时建连失败主要由未接收到广播包、信道强干扰导致。
-- 此处的连接属于底层的物理链路连接，并不是应用层面的连接，还需要经过鉴权、服务发现等流程，应用层才会正常连接（通常表现为UI显示已连接、可进行业务交互）。
-- 若连接正常，优先根据Hilog和HCI日志排查发现服务流程（大多数无法连接问题都集中在发现服务阶段）。
-- 对于涉及配对的蓝牙设备（如蓝牙车钥匙等），若连接和发现服务正常，需要查看HCI日志排查身份验证（鉴权）是否通过（该过程在Hilog日志中体现较少，从HCI日志可更直观的排查）。
-- 由于鉴权失败会直接导致蓝牙断连（可根据下方的断连reason code反向验证是由于鉴权失败导致的断连），若鉴权成功，则仅凭Hilog和HCI日志无法继续排查，需要抓取空口日志和蓝牙芯片日志进一步分析。
-
+ 1. 首先根据Hilog日志和HCI日志排查是否正常连接（若连接失败，后续的服务发现和鉴权环节将无法正常进行），此时建连失败主要由未接收到广播包、信道强干扰导致。
+2. 此处的连接属于底层的物理链路连接，并不是应用层面的连接，还需要经过鉴权、服务发现等流程，应用层才会正常连接（通常表现为UI显示已连接、可进行业务交互）。
+3. 若连接正常，优先根据Hilog和HCI日志排查发现服务流程（大多数无法连接问题都集中在发现服务阶段）。
+4. 对于涉及配对的蓝牙设备（如蓝牙车钥匙等），若连接和发现服务正常，需要查看HCI日志排查身份验证（鉴权）是否通过（该过程在Hilog日志中体现较少，从HCI日志可更直观的排查）。
+5. 由于鉴权失败会直接导致蓝牙断连（可根据下方的断连reason code反向验证是由于鉴权失败导致的断连），若鉴权成功，则仅凭Hilog和HCI日志无法继续排查，需要抓取空口日志和蓝牙芯片日志进一步分析。
  
 **蓝牙连接后断开问题分析流程：**
  
 由蓝牙断开流程图可知，蓝牙断开时必然会输出对应的断连Hilog日志，且该日志中会写明连接错误码reason code，因此定界流程如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/JPVhqPufRQ2GWRBktbhuVA/zh-cn_image_0000002658852651.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=FD49FA3CFDE33E29E148E2B5F0967EE63BACE4ACD45D5D58C2A79CDE9B8821AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/JPVhqPufRQ2GWRBktbhuVA/zh-cn_image_0000002658852651.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=0B8E585FDF8BBB8C6A03170F0ECBC9E641E2CA20018BDA16B161E931CB46CCCF)
 
- 
-- 根据断连日志中打印的reason code，结合下方的reason code对照表，预分析结论。
-- 部分场景中，发生断连的时间点附近会打印应用调用的蓝牙接口报错日志，可以参考[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)辅助定界。此外，还可能打印应用主动调用断连方法的Hilog日志（该方法由应用自己实现和封装），也可以作为定界依据。
-- 若Hilog日志中的上述日志不足以确定根因，需要进一步查看HCI日志，结合上述业务交互流程图和时序逻辑，确定根因。
-- “BLE蓝牙连接后断开”故障场景下，HCI日志主要排查业务交互阶段，即MTU协商、GATT服务发现、特征获取等。下方提供了常用的HCI日志排查关键字。
-
+ 1. 根据断连日志中打印的reason code，结合下方的reason code对照表，预分析结论。
+2. 部分场景中，发生断连的时间点附近会打印应用调用的蓝牙接口报错日志，可以参考[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)辅助定界。此外，还可能打印应用主动调用断连方法的Hilog日志（该方法由应用自己实现和封装），也可以作为定界依据。
+3. 若Hilog日志中的上述日志不足以确定根因，需要进一步查看HCI日志，结合上述业务交互流程图和时序逻辑，确定根因。
+4. “BLE蓝牙连接后断开”故障场景下，HCI日志主要排查业务交互阶段，即MTU协商、GATT服务发现、特征获取等。下方提供了常用的HCI日志排查关键字。
  
 **reason code对照表如下所示：**
   
@@ -188,10 +176,9 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
-- **案例一（蓝牙连接后断开）**： 使用蓝牙车钥匙连接车辆后断开。
-查看Hilog日志，搜索断连关键词“gatt_client.*Disconnect|HwBleHciDisconnectionCompEvt|connectionState:3|ATT protocol channel|gatt_client.*close”：
+- **案例一（蓝牙连接后断开）**： 使用蓝牙车钥匙连接车辆后断开。1. 查看Hilog日志，搜索断连关键词“gatt_client.*Disconnect|HwBleHciDisconnectionCompEvt|connectionState:3|ATT protocol channel|gatt_client.*close”：
 ```text
 01-06 07:05:23.248 I C00104/bluetooth_service/bt_btm: [17]HwBleHciDisconnectionCompEvt
 01-06 07:05:23.248 I C00104/bluetooth_service/bt_btm: [17]HwBleHciDisconnectionCompEvt status 0x0, handle 0x42, reason 0x13
@@ -200,13 +187,13 @@
 01-06 07:05:23.311 I C00101/[应用包名]/bt_napi_gatt_client_callback: (OnConnectionStateChangedWithReason:62)connectionState:3, disconnectReason:2, ret:0
 ```
 
-- 日志中显示断连原因编码reason 0x13，查看连接错误码得知，该问题由对端设备断开导致，确认为对端问题，具体断连原因通过Hilog日志无法定位，需要进一步分析HCI日志中的交互信息，发现断连HCI日志显示，当前全信道干扰达-110dBm，属于严重干扰：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/0FjidIQaQV2Glsu2BkstwA/zh-cn_image_0000002628773288.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=E743AD54DC00C5E9773233F9A811B24E03527C4AE4EF9A0D75E703D10BAAF56C)
 
-- 过高的干扰强度使BLE物理层解调成功率急剧下降，导致HCI指令和数据帧大量丢失，这也是断连HCI日志前5秒没有任何其他HCI日志的原因，对端不断重传未被确认的数据包，超过重传次数后，协议栈会判定链路异常并断开。
+2. 日志中显示断连原因编码reason 0x13，查看连接错误码得知，该问题由对端设备断开导致，确认为对端问题，具体断连原因通过Hilog日志无法定位，需要进一步分析HCI日志中的交互信息，发现断连HCI日志显示，当前全信道干扰达-110dBm，属于严重干扰：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/0FjidIQaQV2Glsu2BkstwA/zh-cn_image_0000002628773288.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=74DF266DA3CEAD86E6F175E3C99F79364B4CEEF883B08F7FDC00636958729D47)
 
- - **案例二（蓝牙无法连接设备）**： 车机APP一直显示蓝牙车钥匙连接中。
-查看Hilog日志和HCI日志，蓝牙正常连接。
+
+3. 过高的干扰强度使BLE物理层解调成功率急剧下降，导致HCI指令和数据帧大量丢失，这也是断连HCI日志前5秒没有任何其他HCI日志的原因，对端不断重传未被确认的数据包，超过重传次数后，协议栈会判定链路异常并断开。
+- **案例二（蓝牙无法连接设备）**： 车机APP一直显示蓝牙车钥匙连接中。1. 查看Hilog日志和HCI日志，蓝牙正常连接。
 ```text
 01-19 13:47:40.928 I C00102/bluetooth_service/bt_server_device_manager: [19](SetDeviceRetentionFlag)realMacAddr: [对端MAC地址], randomMacAddr: [生成的随机地址], isRetention: 1
 01-19 13:47:40.928 I C00102/bluetooth_service/bt_service_common_state: [19](AddServerDeviceList)add devices, addr: [对端MAC地址]
@@ -214,21 +201,22 @@
 01-19 13:47:40.928  I C00101/com.huawei.hmos.walletservice/bt_napi_gatt_client_callback: (OnConnectionStateChangedWithReason:62)connectionState:1, disconnectReason:-1, ret:0
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/xZRaOKczS8-5pm8pVKMLCQ/zh-cn_image_0000002658972605.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=EF919DF7B9BE2DCAC4F7A2F288F25B571ED5C9A28C5C70D107A9231C7344D3E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/xZRaOKczS8-5pm8pVKMLCQ/zh-cn_image_0000002658972605.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=F3A8F90C22AB087FE1BBE8CDC5F5FC491D614D3DEB7C68FB8127D7CAC36D4A34)
 
-- Hilog日志中搜索发现服务关键字，发现服务启动10秒后显示超时，查看HCI日志，发现服务流程持续近20秒，耗时过长且远超应用层10秒的阈值，进一步分析本端发包迅速，接收对端数据包越耗时1秒，时间较长：
+
+2. Hilog日志中搜索发现服务关键字，发现服务启动10秒后显示超时，查看HCI日志，发现服务流程持续近20秒，耗时过长且远超应用层10秒的阈值，进一步分析本端发包迅速，接收对端数据包越耗时1秒，时间较长：
 ```text
 01-19 13:47:42.971  I C00101/com.huawei.hmos.walletservice/bt_napi_gatt_client: (GetServices:436)enter
 ...
 01-19 13:47:52.978  E C00101/com.huawei.hmos.walletservice/bt_fwk_gatt_client: (GetServices:521)timeout
 ```
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/r6M3taTBTweuKdsTBemgNg/zh-cn_image_0000002628613396.png?HW-CC-KV=V1&HW-CC-Date=20260701T025804Z&HW-CC-Expire=86400&HW-CC-Sign=52700AA194C36DB841FB6E3C594325E65CD6BDB5B143E0315AD83339301E1819)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/r6M3taTBTweuKdsTBemgNg/zh-cn_image_0000002628613396.png?HW-CC-KV=V1&HW-CC-Date=20260701T041430Z&HW-CC-Expire=86400&HW-CC-Sign=3D21D3D57B082732436E5619BA9EB6416540652CF4F3AD0F1D7AD5F5702B44BD)
 
+- **案例三（蓝牙无法连接设备）**：Hilog查看连接状态，发现连接状态connectionState由0（未连接）转至1（已连接）期间，就调用了发现服务，且有蓝牙服务子系统错误码2900099（操作失败）：
 
- - **案例三（蓝牙无法连接设备）**：Hilog查看连接状态，发现连接状态connectionState由0（未连接）转至1（已连接）期间，就调用了发现服务，且有蓝牙服务子系统错误码2900099（操作失败）：
- 
-```text
+  
+```cpp
 [napi_bluetooth_gatt_client_callback.cpp (OnConnectionStateChanged:55)]connectionState:0, ret:0
 [napi_bluetooth_utils.cpp (GetCallbackErrorValue:37) ]errCode: 2900099
 errCodegetServices: 2900099, errMessage: BussinessError 2900099: Operation failed
@@ -240,7 +228,7 @@ errCodegetServices: 2900099, errMessage: BussinessError 2900099: Operation faile
  
  
 
-##### 分析结论
+#### 分析结论
 
 **案例一**：对端设备主动断开，具体表现为信道严重干扰的情况下，HCI指令数据包丢失严重，对端多次重传未响应，断开连接。
  
@@ -250,7 +238,7 @@ errCodegetServices: 2900099, errMessage: BussinessError 2900099: Operation faile
  
  
 
-##### 修改建议
+#### 修改建议
 
 **案例一**：应用适当延长强干扰网络下的重传次数和超时阈值，实时监控信道环境，若信道忙，则应增加提示弹窗。
  

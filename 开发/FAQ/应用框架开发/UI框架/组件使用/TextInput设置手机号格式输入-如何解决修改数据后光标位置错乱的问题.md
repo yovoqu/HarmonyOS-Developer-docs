@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-719
 
-## TextInput设置手机号格式输入-如何解决修改数据后光标位置错乱的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS系统使用TextInput输入手机号，通过onChange函数实现手机号格式344划分，但在实际使用过程中，存在两个问题：
  
@@ -19,32 +15,32 @@ HarmonyOS系统使用TextInput输入手机号，通过onChange函数实现手机
 当前效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/X9F05EM9R7Wi2xT7xq7bMg/zh-cn_image_0000002658794575.png?HW-CC-KV=V1&HW-CC-Date=20260701T025543Z&HW-CC-Expire=86400&HW-CC-Sign=4868886B160ECD716A30C0204E7DC15B3C8CF4EC3E4ACBE547ADAD7FE870355C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/X9F05EM9R7Wi2xT7xq7bMg/zh-cn_image_0000002658794575.png?HW-CC-KV=V1&HW-CC-Date=20260701T041251Z&HW-CC-Expire=86400&HW-CC-Sign=6BD235D98A74D0F915936B46001AA95E9381A3ECEF44977C3F0AB20D9968FDC7)
 
  
 针对号码123/4567/8910，删除了7和8之间的空格，TextInput空格先被删除，之后value值刷新，展示：123/4567/8910，光标位于末尾。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/rjp-5Xc7SHmvDZzYrXsUUg/zh-cn_image_0000002628555208.png?HW-CC-KV=V1&HW-CC-Date=20260701T025543Z&HW-CC-Expire=86400&HW-CC-Sign=FE435E0279EA96DA9241F70EFB955A4AD73216096F7F3B9D09901DCA1F0BFC86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/rjp-5Xc7SHmvDZzYrXsUUg/zh-cn_image_0000002628555208.png?HW-CC-KV=V1&HW-CC-Date=20260701T041251Z&HW-CC-Expire=86400&HW-CC-Sign=637C04EEE82574CAFBA4C7AA7A179FD9847573BA44E2256103D8729C9F5D8A6A)
 
  
 预期效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/VRVn8rm4Ste9DzqRjaRpdw/zh-cn_image_0000002658914529.png?HW-CC-KV=V1&HW-CC-Date=20260701T025543Z&HW-CC-Expire=86400&HW-CC-Sign=2DE9B6D8ACD212C7A75BE30A48E6DF26B71EC6854052383C2BE90B2659A3CDD1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/VRVn8rm4Ste9DzqRjaRpdw/zh-cn_image_0000002658914529.png?HW-CC-KV=V1&HW-CC-Date=20260701T041251Z&HW-CC-Expire=86400&HW-CC-Sign=9A63E9087394534FB3F6BC774C5E78FB6547517869CBFABE0CED56A3AC53C238)
 
  
 针对号码123/4567/8910，删除了7和8之间的空格，实际删除数字7，展示：123/4568/910，光标在数字6后面。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/kGsL-WIATLCHVY37itlqIg/zh-cn_image_0000002628395304.png?HW-CC-KV=V1&HW-CC-Date=20260701T025543Z&HW-CC-Expire=86400&HW-CC-Sign=A1A02A51C3E001D263F6796AAF8C81EFB5C29FED7DEA24A6AE91D75A8B9095AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/kGsL-WIATLCHVY37itlqIg/zh-cn_image_0000002628395304.png?HW-CC-KV=V1&HW-CC-Date=20260701T041251Z&HW-CC-Expire=86400&HW-CC-Sign=254FBDA69519CFF34FE652E5B462CA23956CE46AE26E6BC26AC66C8CB3B69CCA)
 
  
 删除数字6，展示123/4578/910，光标位于数字5后面。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)是一种单行文本输入框组件。当输入内容发生变化时，会触发该组件的[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#onchange)回调函数，当输入完成时，会触发[onDidInsert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#ondidinsert12)回调函数，当删除完成时，会触发[onDidDelete](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#ondiddelete12)回调函数。
 - [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)是一种支持图文混排和文本交互式编辑的组件。
@@ -52,19 +48,19 @@ HarmonyOS系统使用TextInput输入手机号，通过onChange函数实现手机
  
  
 
-##### 问题定位
+#### 问题定位
 
 onChange函数的规格为value值变化后执行，所以删除空格、删除数字或者添加数字等编辑操作改变value值，导致数据需要重新格式化，也就是重新赋值，此时光标会位于输入值的末尾。
  
  
 
-##### 分析结论
+#### 分析结论
 
 在value值变化前就将展示结果和光标位置获取到，之后再进行赋值以及光标位置定位就可以了。
  
  
 
-##### 修改建议
+#### 修改建议
 
 按照定位思路，在value值变化前通过onDidInsert和onDidDelete回调函数计算出预期展示结果以及光标位置进行赋值。
  
@@ -74,7 +70,7 @@ insertNumber(value: RichEditorInsertValue) {
   let realOffset = this.getRealOffset(value.insertOffset, true);
   this.originalPhoneNumber = this.originalPhoneNumber.substring(0, realOffset) + value.insertValue +
   this.originalPhoneNumber.substring(realOffset);
-  // 最长11位
+ <em> // 最长11位</em>
   this.originalPhoneNumber = this.originalPhoneNumber.substring(0, 11);
   this.controller.addTextSpan(this.getSpacePhoneNumber(), { style: this.phoneNumberStyle });
   let caretOffset = this.getCaretOffset(realOffset, true);
@@ -116,7 +112,7 @@ struct Index {
     let realOffset = this.getRealOffset(value.insertOffset, true);
     this.originalPhoneNumber = this.originalPhoneNumber.substring(0, realOffset) + value.insertValue +
     this.originalPhoneNumber.substring(realOffset);
-    // 最长11位
+  <em>  // 最长11位</em>
     this.originalPhoneNumber = this.originalPhoneNumber.substring(0, 11);
     this.controller.addTextSpan(this.getSpacePhoneNumber(), { style: this.phoneNumberStyle });
     let caretOffset = this.getCaretOffset(realOffset, true);
@@ -199,6 +195,6 @@ struct Index {
  
  
 
-##### 总结
+#### 总结
 
 上述场景主要关键点在于重新赋值后光标位置处理以及展示效果，针对常规输入删除场景，使用TextInput就可以满足大部分输入框需求，但也存在一些特殊格式要求的输入场景，会对展示内容进行UI重组，那么推荐使用RichEditor具有更高的灵活性。

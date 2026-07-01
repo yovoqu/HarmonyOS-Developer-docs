@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-697
 
-## PC端启动应用默认全屏模式显示，非悬浮窗模式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 启动应用时默认全屏模式显示，期望在PC端启动时为悬浮窗模式。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - supportWindowMode：应用配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)的[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)中有属性supportWindowMode，用于标识当前UIAbility组件所支持的窗口模式，但不支持根据设备设置窗口模式。
 - [setSupportedWindowModes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setsupportedwindowmodes15)：针对平板或2in1设备，windowStage.setSupportedWindowModes可以用于设置主窗的窗口支持模式。
@@ -24,26 +20,24 @@
  
  
 
-##### 问题定位
-
-- 确认配置文件module.json5中是否配置supportWindowMode为fullscreen。
-- 确认是否有使用setSupportedWindowModes设置主窗的窗口支持模式SupportWindowMode.FLOATING。
-- 确认是否有调用windowClass.recover将主窗口切换为悬浮窗口。
-
+#### 问题定位
+1. 确认配置文件module.json5中是否配置supportWindowMode为fullscreen。
+2. 确认是否有使用setSupportedWindowModes设置主窗的窗口支持模式SupportWindowMode.FLOATING。
+3. 确认是否有调用windowClass.recover将主窗口切换为悬浮窗口。
  
  
 
-##### 分析结论
+#### 分析结论
 
 由于配置文件module.json5中配置的supportWindowMode不支持根据设备设置窗口模式，未使用setSupportedWindowModes设置主窗的窗口支持模式SupportWindowMode.FLOATING，且未调用windowClass.recover，故在PC上无法设置为悬浮窗模式。
  
  
 
-##### 修改建议
+#### 修改建议
 
 可以在onWindowStageCreate生命周期接口中，判断设备类型为2in1时使用setSupportedWindowModes设置其主窗支持悬浮窗模式，并调用windowClass.recover将主窗口切换为悬浮窗口。示例代码如下：
  
-```text
+```json
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -67,17 +61,17 @@ export default class EntryAbility extends UIAbility {
 
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
+   <em> // Main window is created, set main page for this ability</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
 
-    // 获取设备类型
+<em>    // 获取设备类型</em>
     let deviceType = deviceInfo.deviceType;
     // setSupportedWindowModes的系统能力为SystemCapability.Window.SessionManager，调用canIUse确认当前支持该系统能力
     let isLocationAvailable = canIUse('SystemCapability.Window.SessionManager');
     if (isLocationAvailable && deviceType === '2in1') {
       try {
-        // 设置主窗口支持悬浮窗模式和全屏模式
+     <em>   // 设置主窗口支持悬浮窗模式和全屏模式</em>
         let promise = windowStage.setSupportedWindowModes([
           bundleManager.SupportWindowMode.FLOATING,
           bundleManager.SupportWindowMode.FULL_SCREEN
@@ -91,7 +85,7 @@ export default class EntryAbility extends UIAbility {
         console.error(`Failed to set window support modes. Cause code: ${exception.code}, message: ${exception.message}`);
       }
       windowStage.getMainWindow().then((data: window.Window) => {
-        // 调用recover接口，将主窗口切换为悬浮窗模式
+     <em>   // 调用recover接口，将主窗口切换为悬浮窗模式</em>
         data.recover().then(() => {
           console.info('recover success.');
         }).catch((err: BusinessError) => {
@@ -112,19 +106,19 @@ export default class EntryAbility extends UIAbility {
 
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+    <em>// Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
 
   onForeground(): void {
-    // Ability has brought to foreground
+   <em> // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
 
   onBackground(): void {
-    // Ability has back to background
+   <em> // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };

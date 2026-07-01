@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-threading-model-8
 
-## 应用启动框架AppStartup中任务启动的单例对象和EntryAbility中的不一致
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用启动框架AppStartup对HSP模块下的单例进行启动任务初始化，生成的单例对象和在EntryAbility中再次获取的单例对象地址值不一样，不是一个对象。相关日志如下：
  
@@ -19,7 +15,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 由上日志可知：应用启动框架AppStartup进行启动任务与主线程EntryAbility是不同线程，在ArkTS中线程模型使用的[Actor模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview#actor模型)，不同线程之间内存空间隔离。
  

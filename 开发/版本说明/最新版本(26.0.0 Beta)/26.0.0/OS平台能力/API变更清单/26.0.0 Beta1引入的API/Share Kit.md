@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-sharekit-7001
 
-## Share Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：harmonyShare； API声明：interface CoordinateInfo 差异内容：interface CoordinateInfo | api/@hms.collaboration.harmonyShare.d.ts |

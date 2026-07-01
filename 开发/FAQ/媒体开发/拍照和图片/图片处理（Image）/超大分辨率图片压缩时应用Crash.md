@@ -4,25 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-45
 
-## 超大分辨率图片压缩时应用Crash
- 
-
-
-##### 问题现象
+#### 问题现象
 
 超大分辨率（30648X12480）图片可在图库中正常显示，但压缩时应用直接Crash，如何实现超大分辨率的图片压缩？
  
  
 
-##### 背景知识
+#### 背景知识
 
 图片压缩是指把原始图片处理为指定大小以内的图片。目前图片压缩支持jpeg、webp、png格式。超大分辨率图片在压缩过程中通过[packToData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtodata13)编码存在[内存泄漏](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arkts-memory-leak-analysis)问题，需要在解码前对图片进行优化处理，通过[DecodingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptions7)中的desiredSize属性提前设置缩小后的分辨率，可以提高压缩效率并且避免内存溢出。
  
  
 
-##### 问题定位
-
-- 根据如下代码进行图片压缩：
+#### 问题定位
+1. 根据如下代码进行图片压缩：
 ```text
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 const resourceMgr: resourceManager.ResourceManager = context.resourceManager;
@@ -40,28 +35,28 @@ resourceMgr.getRawFileContent('XXXXXX.jpg').then((fileData: Uint8Array) => {
 })
 ```
 
-- 压缩小分辨率图片时可以正常压缩图片，功能无异常；
-- 压缩超大分辨率（30648X12480）图片，当[PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption)参数中的quality设置为0时，输出最低质量图片，应用仍然Crash；
-- 分析日志，写入数据超出最大值“write data:[29144176] out of max size:[26214400].”；
-- [DevEco Profiler工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler)分析，packToData压缩图片时内存溢出。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/M052Yb-YRZqvLpQrfKSk6Q/zh-cn_image_0000002658791873.png?HW-CC-KV=V1&HW-CC-Date=20260701T025819Z&HW-CC-Expire=86400&HW-CC-Sign=759A87A35BA1AE508FCFBC0EBE22EEEB744B7FEC0C3D576F3EBD80642AFF40B5)
+2. 压缩小分辨率图片时可以正常压缩图片，功能无异常；
+3. 压缩超大分辨率（30648X12480）图片，当[PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption)参数中的quality设置为0时，输出最低质量图片，应用仍然Crash；
+4. 分析日志，写入数据超出最大值“write data:[29144176] out of max size:[26214400].”；
+5. [DevEco Profiler工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler)分析，packToData压缩图片时内存溢出。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/M052Yb-YRZqvLpQrfKSk6Q/zh-cn_image_0000002658791873.png?HW-CC-KV=V1&HW-CC-Date=20260701T041039Z&HW-CC-Expire=86400&HW-CC-Sign=3A2DFFA42C189346BE4595E606537803F4F7AA50CBCC3E638B2BDD38E46064CE)
 
- PrivateDirty持续增长，存在内存泄漏风险。
 
+  PrivateDirty持续增长，存在内存泄漏风险。
  
  
 
-##### 分析结论
+#### 分析结论
 
 超大分辨率图片通过packToData编码时存在内存溢出问题，需要在解码前对图片进行优化处理，通过desiredSize属性提前设置缩小后的分辨率，避免内存溢出且提高压缩效率。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/MXoCPiNzSzqfHPDHMouZgQ/zh-cn_image_0000002628552504.png?HW-CC-KV=V1&HW-CC-Date=20260701T025819Z&HW-CC-Expire=86400&HW-CC-Sign=09E4E088846A2BC7DC1331D68A87A9FCC824A23E8F4F62E1DDD3D525E9B52DF5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/MXoCPiNzSzqfHPDHMouZgQ/zh-cn_image_0000002628552504.png?HW-CC-KV=V1&HW-CC-Date=20260701T041039Z&HW-CC-Expire=86400&HW-CC-Sign=B1A5206E09DD954B5E233624B7165928D6474B78BBB9933967AA37C071F3B7D7)
 
  
  
 
-##### 修改建议
+#### 修改建议
 
 使用packToData对超大分辨率图片进行编码时需要设置desiredSize属性提前缩小图片分辨率，代码示例如下：
  

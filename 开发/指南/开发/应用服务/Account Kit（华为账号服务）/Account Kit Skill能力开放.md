@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-skill
 
-## Account Kit Skill能力开放
- 
- 
-
-##### 概述
+#### 概述
 
 Account Kit接入Skills，旨在帮助开发者快速集成Account Kit开放能力。开放Skills包含客户端与服务端两部分，可自动生成客户端页面代码与服务端接口工程，支持端到端验证，有效简化接入流程、降低开发成本。
  
   
 
-##### [h2]能力覆盖范围
+#### 能力覆盖范围
 
 - **华为账号一键登录Skill**：帮助开发者快速接入华为账号一键登录能力。其中：
 [客户端Skill](https://matrix.openharmony.cn/#/skillSquare/details?id=6a215e9b8428f219b71f84a2)负责生成 ArkTS 华为账号一键登录页面、配置工程依赖与添加权限，并实现页面跳转逻辑。
@@ -24,21 +20,15 @@ Account Kit接入Skills，旨在帮助开发者快速集成Account Kit开放能�
  
   
 
-##### 快速开始
-
-- 下载并配置Skill：请在[能力覆盖范围](#能力覆盖范围)章节中点击对应Skill的超链接进行下载，并放到AI编码工具（如OpenCode、Claude Code等）的Skill配置目录下（不同工具规范不一致，按工具要求处理）。
-- 配置MCP（服务端Skill无需此项配置）：在AI编码工具的配置文件中（不同工具配置文件名称不一致，按工具要求处理）添加如下deveco-mcp配置项，更多详情请参考[DevEco Toolbox](https://github.com/open-deveco/deveco-toolbox)。
-
+#### 快速开始
+1. 下载并配置Skill：请在[能力覆盖范围](#能力覆盖范围)章节中点击对应Skill的超链接进行下载，并放到AI编码工具（如OpenCode、Claude Code等）的Skill配置目录下（不同工具规范不一致，按工具要求处理）。
+2. 配置MCP（服务端Skill无需此项配置）：在AI编码工具的配置文件中（不同工具配置文件名称不一致，按工具要求处理）添加如下deveco-mcp配置项，更多详情请参考[DevEco Toolbox](https://github.com/open-deveco/deveco-toolbox)。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/Pmp9zOGESaCiBwSyp_z-3Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025440Z&HW-CC-Expire=86400&HW-CC-Sign=15A05CDD2F89EDF3272EA778EC1CE77A4698637F93506EAAB7750205BF6BDCEC)
- 
- 
-务必将DEVECO_PATH项的值替换为本地DevEco Studio的路径（无需到bin目录），同时本地环境变量中要有node，以确保npx命令能够执行。AI编码工具启动时会自动执行npx命令，加载或更新对应的mcp，若环境变量中无node，将会导致命令无法执行，mcp不会生效，当生成代码后存在编译报错时，需要手动进行修复。
-  
+> [!NOTE]
+> 务必将DEVECO_PATH项的值替换为本地DevEco Studio的路径（无需到bin目录），同时本地环境变量中要有node，以确保npx命令能够执行。AI编码工具启动时会自动执行npx命令，加载或更新对应的mcp，若环境变量中无node，将会导致命令无法执行，mcp不会生效，当生成代码后存在编译报错时，需要手动进行修复。
 
  
-```text
+```json
 "deveco-mcp": {
    "command": [
       "npx",
@@ -56,14 +46,12 @@ Account Kit接入Skills，旨在帮助开发者快速集成Account Kit开放能�
 ```
  
 **验证是否生效：**
- 
-- 确定SKill是否生效：打开AI编码工具，输入"帮我接入华为账号一键登录"。如果Skill已生效，会进行前置检查并遵循接入步骤执行，而不是直接开始编码。
-- 确定MCP是否生效：打开AI编码工具，输入/mcps，如果MCP已生效，deveco-mcp会变成Connected状态。
-
+ 1. 确定SKill是否生效：打开AI编码工具，输入"帮我接入华为账号一键登录"。如果Skill已生效，会进行前置检查并遵循接入步骤执行，而不是直接开始编码。
+2. 确定MCP是否生效：打开AI编码工具，输入/mcps，如果MCP已生效，deveco-mcp会变成Connected状态。
  
   
 
-##### 使用方式
+#### 使用方式
 
 在AI编码工具中通过关键词或Skill名称触发，以华为账号一键登录客户端Skill为例
  
@@ -79,7 +67,7 @@ Account Kit接入Skills，旨在帮助开发者快速集成Account Kit开放能�
  
   
 
-##### 注意事项
+#### 注意事项
 
 - 客户端Skill生成的代码需在ArkTS工程中运行，当前仅支持ArkTS开发框架。
 - 请务必在集成发布前，在测试环境中充分验证所生成代码的正确性与安全性。
@@ -88,7 +76,7 @@ Account Kit接入Skills，旨在帮助开发者快速集成Account Kit开放能�
  
   
 
-##### 免责声明
+#### 免责声明
 
 为保障平台及开发者双方的合法权益，特此声明如下：
  

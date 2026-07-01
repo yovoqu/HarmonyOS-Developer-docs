@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-modular-object-extension-manager-h
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## modular_object_extension_manager.h
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 声明用于管理ModularObjectExtensionAbility的接口，包括查询ModularObjectExtensionAbility信息、连接与断开连接等能力。开发者可以通过本模块提供的接口查询当前应用内所有已注册的ModularObjectExtensionAbility的信息（包括启动模式、进程模式、线程模式、组件名称及禁用状态等），并根据需要建立或断开与ModularObjectExtensionAbility的通信连接。
  
@@ -26,11 +23,15 @@
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]结构体
+#### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -40,7 +41,9 @@
  
   
 
-##### [h2]枚举
+#### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -51,7 +54,9 @@
  
   
 
-##### [h2]函数
+#### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -68,11 +73,15 @@
  
   
 
-##### 枚举类型说明
+#### 枚举类型说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]OH_AbilityRuntime_LaunchMode
+#### OH_AbilityRuntime_LaunchMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AbilityRuntime_LaunchMode
@@ -92,7 +101,9 @@ enum OH_AbilityRuntime_LaunchMode
  
   
 
-##### [h2]OH_AbilityRuntime_ProcessMode
+#### OH_AbilityRuntime_ProcessMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AbilityRuntime_ProcessMode
@@ -113,7 +124,9 @@ enum OH_AbilityRuntime_ProcessMode
  
   
 
-##### [h2]OH_AbilityRuntime_ThreadMode
+#### OH_AbilityRuntime_ThreadMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AbilityRuntime_ThreadMode
@@ -134,11 +147,15 @@ enum OH_AbilityRuntime_ThreadMode
  
   
 
-##### 函数说明
+#### 函数说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]OH_AbilityRuntime_GetModularObjectExtensionInfoLaunchMode()
+#### OH_AbilityRuntime_GetModularObjectExtensionInfoLaunchMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoLaunchMode(OH_AbilityRuntime_ModObjExtensionInfoHandle extensionInfo, OH_AbilityRuntime_LaunchMode *launchMode)
@@ -162,12 +179,14 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoLaunchMo
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或launchMode为空。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或launchMode为空。 |
  
  
   
 
-##### [h2]OH_AbilityRuntime_GetModularObjectExtensionInfoProcessMode()
+#### OH_AbilityRuntime_GetModularObjectExtensionInfoProcessMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoProcessMode(OH_AbilityRuntime_ModObjExtensionInfoHandle extensionInfo, OH_AbilityRuntime_ProcessMode *processMode)
@@ -191,12 +210,14 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoProcessM
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或processMode为空。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或processMode为空。 |
  
  
   
 
-##### [h2]OH_AbilityRuntime_GetModularObjectExtensionInfoThreadMode()
+#### OH_AbilityRuntime_GetModularObjectExtensionInfoThreadMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoThreadMode(OH_AbilityRuntime_ModObjExtensionInfoHandle extensionInfo, OH_AbilityRuntime_ThreadMode *threadMode)
@@ -220,12 +241,14 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoThreadMo
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或threadMode为空。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或threadMode为空。 |
  
  
   
 
-##### [h2]OH_AbilityRuntime_GetModularObjectExtensionInfoElementName()
+#### OH_AbilityRuntime_GetModularObjectExtensionInfoElementName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoElementName(OH_AbilityRuntime_ModObjExtensionInfoHandle extensionInfo, AbilityBase_Element *element)
@@ -249,12 +272,14 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoElementN
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或element为空。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或element为空。 |
  
  
   
 
-##### [h2]OH_AbilityRuntime_GetModularObjectExtensionInfoDisableState()
+#### OH_AbilityRuntime_GetModularObjectExtensionInfoDisableState()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoDisableState(OH_AbilityRuntime_ModObjExtensionInfoHandle extensionInfo, bool *isDisabled)
@@ -278,12 +303,14 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModularObjectExtensionInfoDisableS
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或isDisabled为空。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID extensionInfo或isDisabled为空。 |
  
  
   
 
-##### [h2]OH_AbilityRuntime_AcquireSelfModularObjectExtensionInfos()
+#### OH_AbilityRuntime_AcquireSelfModularObjectExtensionInfos()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_AcquireSelfModularObjectExtensionInfos(OH_AbilityRuntime_AllModObjExtensionInfosHandle *outOwnedAllExtensionInfos)
@@ -308,12 +335,14 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_AcquireSelfModularObjectExtensionInfo
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID outOwnedAllExtensionInfos为空。  ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED 设备不支持该操作。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID outOwnedAllExtensionInfos为空。 ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED 设备不支持该操作。 |
  
  
   
 
-##### [h2]OH_AbilityRuntime_ReleaseAllExtensionInfos()
+#### OH_AbilityRuntime_ReleaseAllExtensionInfos()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ReleaseAllExtensionInfos(OH_AbilityRuntime_AllModObjExtensionInfosHandle *allExtensionInfos)
@@ -336,7 +365,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ReleaseAllExtensionInfos(OH_AbilityRu
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID allExtensionInfos为空。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID allExtensionInfos为空。 |
  
  
 **参考：**
@@ -345,7 +374,9 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ReleaseAllExtensionInfos(OH_AbilityRu
  
   
 
-##### [h2]OH_AbilityRuntime_GetCountFromAllModObjExtensionInfos()
+#### OH_AbilityRuntime_GetCountFromAllModObjExtensionInfos()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_GetCountFromAllModObjExtensionInfos(OH_AbilityRuntime_AllModObjExtensionInfosHandle allExtensionInfos, size_t *count)
@@ -369,12 +400,14 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetCountFromAllModObjExtensionInfos(O
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID allExtensionInfos或count为空。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID allExtensionInfos或count为空。 |
  
  
   
 
-##### [h2]OH_AbilityRuntime_GetModObjExtensionInfoByIndex()
+#### OH_AbilityRuntime_GetModObjExtensionInfoByIndex()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModObjExtensionInfoByIndex(OH_AbilityRuntime_AllModObjExtensionInfosHandle allExtensionInfos, size_t index, OH_AbilityRuntime_ModObjExtensionInfoHandle *extensionInfo)
@@ -399,4 +432,4 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetModObjExtensionInfoByIndex(OH_Abil
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回特定的错误码。  ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。  ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID allExtensionInfos或extensionInfo为空，  或index大于等于集合中ModularObjectExtensionAbility信息数量。 |
+| AbilityRuntime_ErrorCode | 返回特定的错误码。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR 接口调用成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID allExtensionInfos或extensionInfo为空， 或index大于等于集合中ModularObjectExtensionAbility信息数量。 |

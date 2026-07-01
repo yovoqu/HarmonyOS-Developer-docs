@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1405
 
-## TextInput背景设置
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发者在使用TextInput组件时，对背景的设置有以下几个经典场景，分别该如何实现？
  
@@ -20,7 +16,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)：单行文本输入框组件。
 - [backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)：设置组件背景色。
@@ -29,13 +25,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：可以通过将其背景色设置为backgroundColor('#00000000')或者backgroundColor(Color.Transparent)来实现。
+> [!NOTE]
+> 去除TextInput默认背景色也可使用此方案。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/GF3avSY2Sj-LRKeoCydkDw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025649Z&HW-CC-Expire=86400&HW-CC-Sign=30D6F52EE7308A4A8B892AFBAF8F78FE4B60002259F59D2E5CA239B52EEEA7A6)
- 
-去除TextInput默认背景色也可使用此方案。
 - **场景二**：动态设置组件的属性实现改变背景色的效果。详情可参考[示例1（组件绑定Modifier切换背景颜色）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#示例1组件绑定modifier切换背景颜色)。
 - **场景三**：将TextInput组件放在一个Column组件里，通过设置Column的背景色来填充TextInput组件外部的背景色。
 ```text
@@ -53,7 +48,7 @@ struct Index {
           .backgroundColor('#5AADA0')
       }
       .width('86%')
-      .backgroundColor('#0A59F7') // 设置Column的背景色来填充TextInput组件外部的背景色。
+      .backgroundColor('#0A59F7') <em>// 设置Column的背景色来填充TextInput组件外部的背景色。</em>
     }
     .width('100%')
     .height('100%')
@@ -62,8 +57,9 @@ struct Index {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/8uLXNX2lQeKBIZAGAxcBVQ/zh-cn_image_0000002628763136.png?HW-CC-KV=V1&HW-CC-Date=20260701T025649Z&HW-CC-Expire=86400&HW-CC-Sign=E7BCEA15EA46FB20E83C6366BF0BFF47C5FBB91B379114F6C614BCD36C8CF8F5)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/8uLXNX2lQeKBIZAGAxcBVQ/zh-cn_image_0000002628763136.png?HW-CC-KV=V1&HW-CC-Date=20260701T041146Z&HW-CC-Expire=86400&HW-CC-Sign=AC7BA3826E83B8C092C1E4617E9738F78B76BDA9F63494978F874BE24081A200)
 
 - **场景四**：在TextInput组件的onChange方法中使用if/else判断是否有输入内容，如果有输入内容则将其背景修改为对应颜色。
 ```text
@@ -88,7 +84,7 @@ struct Scene2 {
         .backgroundColor(this.color)
         .onChange((value: string) => {
           this.text = value;
-          if (this.text.length > 0) {  // 判断是否有内容输入，大于零则有，否则没有
+          if (this.text.length > 0) { <em> // 判断是否有内容输入，大于零则有，否则没有</em>
             this.color = '#ff0fe7d5';
           } else {
             this.color = '#fdecc949';
@@ -99,14 +95,15 @@ struct Scene2 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/iUW2h004SIO1Xiz-iltGHQ/zh-cn_image_0000002658962451.png?HW-CC-KV=V1&HW-CC-Date=20260701T025649Z&HW-CC-Expire=86400&HW-CC-Sign=04BC70DBEE5E3061628849CC4C6A14D43A76457EEA8073470B68B3CEF9CE6E16)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/iUW2h004SIO1Xiz-iltGHQ/zh-cn_image_0000002658962451.png?HW-CC-KV=V1&HW-CC-Date=20260701T041146Z&HW-CC-Expire=86400&HW-CC-Sign=64AFF0AB5F064E6A90DAA552D854DA65B0DDDF79B2C2551F36B40934CE23DB56)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用多态样式动态修改TextInput组件背景色，为什么没有效果？
  

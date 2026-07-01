@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1178
 
-## 如何封装Popup组件到SDK
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何将Popup组件封装到har包中，以便在项目中统一使用。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-popup)：Popup属性可绑定在组件上显示气泡弹窗提示，设置弹窗内容、交互逻辑和显示状态。主要用于屏幕录制、信息弹出提醒等显示状态。
 - [openPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openpopup18)：创建并弹出以content作为内容的Popup弹窗，使用该接口时，若未传入有效的target，则无法弹出Popup弹窗。
@@ -23,11 +19,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 可以使用[openPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openpopup18)方法为指定组件弹出气泡。示例代码如下：
- 
-- har包封装：
+ 1. har包封装：
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { ComponentContent, TargetInfo, PromptAction } from '@kit.ArkUI';
@@ -35,9 +30,9 @@ import { ComponentContent, TargetInfo, PromptAction } from '@kit.ArkUI';
 
 export class PromptActionClass {
   private promptAction: PromptAction | null = null;
-  private contentNode: ComponentContent | null = null; // popup弹框组件内容
+  private contentNode: ComponentContent<Object> | null = null; <em>// popup弹框组件内容</em>
   private options: PopupCommonOptions | null = null;
-  private target: TargetInfo | null = null; // 目标组件信息
+  private target: TargetInfo | null = null; <em>// 目标组件信息</em>
   private isPartialUpdate: boolean = false;
 
 
@@ -46,7 +41,7 @@ export class PromptActionClass {
   }
 
 
-  public setContentNode(node: ComponentContent) {
+  public setContentNode(node: ComponentContent<Object>) {
     this.contentNode = node;
   }
 
@@ -66,7 +61,7 @@ export class PromptActionClass {
   }
 
 
-  // 打开popup
+ <em> // 打开popup</em>
   public openPopup() {
     if (this.promptAction != null) {
       this.promptAction.openPopup(this.contentNode, this.target, this.options)
@@ -80,7 +75,7 @@ export class PromptActionClass {
   }
 
 
-  // 关闭popup
+  <em>// 关闭popup</em>
   public closePopup() {
     if (this.promptAction != null) {
       this.promptAction.closePopup(this.contentNode)
@@ -94,7 +89,7 @@ export class PromptActionClass {
   }
 
 
-  // 更新popup
+ <em> // 更新popup</em>
   public updatePopup(options: PopupCommonOptions) {
     if (this.promptAction != null) {
       this.promptAction.updatePopup(this.contentNode, options, this.isPartialUpdate)
@@ -109,20 +104,20 @@ export class PromptActionClass {
 }
 ```
 
-- 在entry包的oh-package.json5中声明har包：
-```text
+2. 在entry包的oh-package.json5中声明har包：
+```json
 "dependencies": {
   "custompopupsdk": 'file:../CustomPopupSDK'
 },
 ```
 
-- entry包使用：
+3. entry包使用：
 ```text
 import { PromptActionClass } from 'custompopupsdk';
 import { ComponentContent, PromptAction } from '@kit.ArkUI';
 
 
-// 用于传递参数
+<em>// 用于传递参数</em>
 class Params {
   title: string = '';
   text: string = '';
@@ -138,7 +133,7 @@ class Params {
 }
 
 
-// popup内容
+<em>// popup内容</em>
 @Builder
 function buildText(params: Params) {
   Row() {
@@ -165,7 +160,7 @@ function buildText(params: Params) {
 
           Image($rawfile('xmark.svg')).width(18).height(18)
             .onClick(() => {
-              // 关闭popup
+             <em> // 关闭popup</em>
               params.promptActionClass.closePopup();
             })
             .margin({
@@ -189,6 +184,8 @@ function buildText(params: Params) {
       .height(62)
 
 
+
+
       Row() {
         Text('Update')
           .fontSize(14)
@@ -196,7 +193,7 @@ function buildText(params: Params) {
           .fontWeight(500)
           .lineHeight(19)
           .onClick(() => {
-            // 更新popup内容样式
+           <em> // 更新popup内容样式</em>
             params.promptActionClass.updatePopup({
               enableArrow: false,
             });
@@ -233,10 +230,10 @@ struct Index {
   private uiContext: UIContext = this.getUIContext();
   private promptAction: PromptAction = this.uiContext.getPromptAction();
   private promptActionClass: PromptActionClass = new PromptActionClass();
-  private targetId: string | number = 0; // 目标组件id
-  private contentNode: ComponentContent =
+  private targetId: string | number = 0; <em>// 目标组件id</em>
+  private contentNode: ComponentContent<Object> =
     new ComponentContent(this.uiContext, wrapBuilder(buildText),
-      new Params(this.title, this.text, this.promptActionClass)); // 初始化自定义popup组件
+      new Params(this.title, this.text, this.promptActionClass)); <em>// 初始化自定义popup组件</em>
   private options: PopupCommonOptions = { enableArrow: true, autoCancel: false };
 
 
@@ -247,7 +244,7 @@ struct Index {
         Text('给文本三加气泡')
           .fontColor('#0A59F7')
           .onClick(() => {
-            // 指定弹出组件ID
+           <em> // 指定弹出组件ID</em>
             let targetId = 'column3';
             if (targetId == undefined) {
               this.targetId = 0;
@@ -259,7 +256,7 @@ struct Index {
             this.promptActionClass.setOptions(this.options);
             this.promptActionClass.setIsPartialUpdate(false);
             this.promptActionClass.setTarget({ id: this.targetId });
-            // 打开popup
+        <em>    // 打开popup</em>
             this.promptActionClass.openPopup();
           })
       }
@@ -283,7 +280,7 @@ struct Index {
         Text('给文本二加气泡')
           .fontColor('#0A59F7')
           .onClick(() => {
-            // 指定组件ID
+        <em>    // 指定组件ID</em>
             let targetId = 'column2';
             if (targetId == undefined) {
               this.targetId = 0;
@@ -318,7 +315,7 @@ struct Index {
         Text('给文本一加气泡')
           .fontColor('#0A59F7')
           .onClick(() => {
-            // 指定组件ID
+          <em>  // 指定组件ID</em>
             let targetId = 'column1';
             if (targetId == undefined) {
               this.targetId = 0;
@@ -351,5 +348,6 @@ struct Index {
 }
 ```
  运行效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/rt4dDRK1RYSW5vRafu5NIw/zh-cn_image_0000002628592954.png?HW-CC-KV=V1&HW-CC-Date=20260701T025603Z&HW-CC-Expire=86400&HW-CC-Sign=224816B3379A28C6DF7C63B48FBF2475AB3BA4617EA5445CCF70FD583F1C808E)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/rt4dDRK1RYSW5vRafu5NIw/zh-cn_image_0000002628592954.png?HW-CC-KV=V1&HW-CC-Date=20260701T041310Z&HW-CC-Expire=86400&HW-CC-Sign=229911A1BE8B3B9A01EA61D47D8C434270697348136944D918C74EEE0BC6561E)

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-26
 
-## AVMetadata的avQueueImage属性是否对图片大小有限制
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用接入AVSession场景下，设置通用元数据时，设置歌单封面图avQueueImage属性对图片的大小是否有限制。
  
  
 
-##### 解决方案
+#### 解决方案
 
 创建[AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession)后，可以在设置元数据（[AVMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avmetadata10)）时设置歌单封面图（avQueueImage）。avQueueImage属性接受图片像素数据（[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)）或者图片本地或网络uri路径地址（string）作为参数。
  

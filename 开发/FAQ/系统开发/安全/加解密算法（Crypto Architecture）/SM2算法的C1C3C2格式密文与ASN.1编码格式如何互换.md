@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-31
 
-## SM2算法的C1C3C2格式密文与ASN.1编码格式如何互换
- 
-
-
-##### 问题现象
+#### 问题现象
 
 服务端使用SM2算法加密后的密文格式为C1C3C2，使用ArkTS语言无法解密；同时ArkTS语言加密的SM2密文，服务端无法解密。C1C3C2格式密文如何与ArkTS生成的ASN.1编码格式密文互相转换？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [SM2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-encrypt-decrypt-spec#sm2)为非对称加密算法，加密长度需要在固定长度进行。算法库目前支持以GM/T 0009-2012定义的格式加密或解密数据。
 - SM2非对称加密的结果由C1、C2、C3三部分组成：其中C1是根据生成的随机数计算出的椭圆曲线点，C2是密文数据，C3是通过指定的摘要算法计算的值。
@@ -31,7 +27,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据以上的分析，用户可根据其他存量程序的方案选择以下合适的方法进行适配，即密文长度需要调整到固定长度，拼接顺序要符合标准。
  
@@ -55,7 +51,7 @@ let C1y = spec.yCoordinate.toString(16).padStart(64, '0');
 let C2 = buffer.from(spec.cipherTextData).toString('hex');
 let C3 = buffer.from(spec.hashData).toString('hex');
 
-// 拼接C1C2C3, 若要加前缀04表示C1未压缩
+<em>// 拼接C1C2C3, 若要加前缀04表示C1未压缩</em>
 let result = '04' + C1x + C1y + C3 + C2;
 ```
  
@@ -79,7 +75,7 @@ function genData(result: string): cryptoFramework.DataBlob {
     cipherTextData: new Uint8Array(buffer.from(C2, 'hex').buffer),
     hashData: new Uint8Array(buffer.from(C3, 'hex').buffer),
   };
-  // 此处的data可直接使用cryptoFramework进行SM2解密。
+  <em>// 此处的data可直接使用cryptoFramework进行SM2解密。</em>
   let data = cryptoFramework.SM2CryptoUtil.genCipherTextBySpec(spec, 'C1C3C2');
   return data;
 }
@@ -116,7 +112,7 @@ function doEncryptByCommonKey2(data: string): string {
   let C2 = buffer.from(spec.cipherTextData).toString('hex');
   let C3 = buffer.from(spec.hashData).toString('hex');
 
-  // 拼接C1C2C3, 若要加前缀04表示C1未压缩
+ <em> // 拼接C1C2C3, 若要加前缀04表示C1未压缩</em>
   let result = '04' + C1x + C1y + C3 + C2;
   console.info('doEncryptByCommonKey result:' + result);
   return result;
@@ -137,7 +133,7 @@ function genData(result: string): cryptoFramework.DataBlob {
     cipherTextData: new Uint8Array(buffer.from(C2, 'hex').buffer),
     hashData: new Uint8Array(buffer.from(C3, 'hex').buffer),
   };
-  // 此处的data可直接使用cryptoFramework进行SM2解密。
+  <em>// 此处的data可直接使用cryptoFramework进行SM2解密。</em>
   let data = cryptoFramework.SM2CryptoUtil.genCipherTextBySpec(spec, 'C1C3C2');
   return data;
 }
@@ -192,7 +188,7 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何从ASN1 DER格式的签名数据获取SM2签名后数据的r和s部分，组成64字节数据？
  
@@ -206,6 +202,6 @@ A：错误码[17630001](https://developer.huawei.com/consumer/cn/doc/harmonyos-r
  
  
 
-##### 总结
+#### 总结
 
 存量加解密方式中通常使用固定长度非压缩格式密文进行加解密，与ArkTS进行交互需要转化成国密标准的ASN.1格式SM2密文；同样，与存量加解密方式交互需要转化成非压缩格式进行兼容。

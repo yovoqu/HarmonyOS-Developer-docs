@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-25
 
-## 如何屏蔽“当前WLAN不可上网，是否继续使用此WLAN”弹窗
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用[connectToCandidateConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagerconnecttocandidateconfig)接口连接外设热点时，如果外设热点无法访问外部网络（如ap配网时），此时会提示“当前WLAN不可上网，是否继续使用此WLAN”弹窗。如果点击不使用，则有一定的概率出现指令下发失败现象，请问如何屏蔽此场景下的弹窗？
  
  
 
-##### 背景知识
+#### 背景知识
 
 “当前WLAN不可上网，是否继续使用此WLAN”弹窗中的业务逻辑如下：
  
@@ -24,13 +20,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 此类弹窗属于系统弹窗，不支持应用屏蔽。由于弹窗中的操作不影响用户Wi-Fi网络的实际连接，只会决定其网络连接是默认走蜂窝网络，还是Wi-Fi网络。因此，并不会对用户的使用有影响。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：手动连接无网Wi-Fi，不会弹出“当前WLAN不可上网，是否继续使用此WLAN”弹窗。
  

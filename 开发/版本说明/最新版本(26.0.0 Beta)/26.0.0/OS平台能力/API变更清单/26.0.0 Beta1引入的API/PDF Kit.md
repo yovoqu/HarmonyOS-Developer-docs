@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-pdfkit-7001
 
-## PDF Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 删除错误码 | 类名：PdfDocument； API声明：loadDocument(path: string, password?: string, onProgress?: (progress: number) => number): ParseResult; 差异内容：401 | 类名：PdfDocument； API声明：loadDocument(path: string, password?: string, onProgress?: (progress: number) => number): ParseResult; 差异内容：NA | api/@hms.officeservice.pdfservice.d.ts |

@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-backgroundtaskskit-7001
 
-## Background Tasks Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增错误码 | 类名：backgroundTaskManager； API声明：function stopBackgroundRunning(context: Context, callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：backgroundTaskManager； API声明：function stopBackgroundRunning(context: Context, callback: AsyncCallback&lt;void&gt;): void; 差异内容：201 | api/@ohos.resourceschedule.backgroundTaskManager.d.ts |

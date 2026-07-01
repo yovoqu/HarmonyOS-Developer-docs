@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-614
 
-## 使用Canvas绘制阅读页，并实现文字选中与评论功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 利用Canvas绘制阅读页面，并且支持文字选中弹出菜单，支持点击查看评论，该场景如何实现？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [DrawingRenderingContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawingrenderingcontext)：DrawingRenderingContext对象与Canvas组件绑定后，可在Canvas组件上进行绘制，绘制对象可以是形状、文本、图片等。
 - [@ohos.graphics.text (文本模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text)：提供一系列用于文本布局和字体管理的编程接口。
@@ -23,11 +19,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 该场景可以利用Canvas结合文本模块绘制出段落，然后在Canvas上绑定长按手势实现文字选中以及单击手势实现查看评论，具体步骤如下：
- 
-- 页面初始化时，拆分文本段落。
+ 1. 页面初始化时，拆分文本段落。
 ```text
 aboutToAppear(): void {
   this.initParagraph();
@@ -88,10 +83,10 @@ initParagraph() {
 }
 ```
 
-- 绘制文本以及可点击的矩形用于查看评论。
+2. 绘制文本以及可点击的矩形用于查看评论。
 ```text
 repaint() {
-  // 绘制背景
+  <em>// 绘制背景</em>
   let brush = new drawing.Brush();
   brush.setColor({
     red: 255,
@@ -101,13 +96,13 @@ repaint() {
   });
   this.ctx.canvas.drawBackground(brush);
   this.ctx.canvas.detachBrush();
-  // 绘制文本
+<em>  // 绘制文本</em>
   this.paragraphs.filter(item => item.content.length > 1).forEach(item => {
     item.paragraph.paint(this.ctx.canvas, 0, this.scrollOffset + item.y);
-    // 绘制评论
+  <em>  // 绘制评论</em>
     this.paintArgs(item);
   });
-  // 绘制高亮选中文本
+ <em> // 绘制高亮选中文本</em>
   brush.setColor({
     red: 255,
     green: 255,
@@ -128,9 +123,9 @@ repaint() {
 }
 ```
 
-- 绑定长按手势，通过isShowPopup变量控制是否弹出选中菜单。
+3. 绑定长按手势，通过isShowPopup变量控制是否弹出选中菜单。
 ```text
-// 长按手势
+<em>// 长按手势</em>
 LongPressGesture({ fingers: 1 })
   .onAction(event => {
     this.getCaretInfo(this.uiCtx.vp2px(event.fingerList[0].localX),
@@ -153,14 +148,47 @@ LongPressGesture({ fingers: 1 })
   }),
 ```
 
-- 绑定单击手势，通过isShowSheet变量控制是否弹出评论模态框。
+4. 绑定单击手势，通过isShowSheet变量控制是否弹出评论模态框。
 ```text
-// 单击手势
+<em>// 单击手势</em>
 TapGesture({ fingers: 1, count: 1 })
   .onAction(event => {
-    if (event.fingerList.length  {
-      return item.x = item.y &&
-        eventY // 这里文本仅演示使用
+    if (event.fingerList.length <= 0) {
+      return;
+    }
+    let eventX = this.uiCtx.vp2px(event.fingerList[0].localX);
+    let eventY = this.uiCtx.vp2px(event.fingerList[0].localY) - this.scrollOffset;
+    let clickParagraph = this.paragraphs.filter((item) => {
+      return item.x <= eventX && eventX <= item.x + item.paragraph.getMaxWidth() && eventY >= item.y &&
+        eventY <= item.y + item.paragraph.getHeight();
+    });
+    if (clickParagraph.length <= 0) {
+      console.info('没有点击在任何段落上');
+      return;
+    }
+    if (clickParagraph[0].x + clickParagraph[0].arguments.x <= eventX &&
+      eventX <= clickParagraph[0].x + clickParagraph[0].arguments.x + clickParagraph[0].arguments.width &&
+      clickParagraph[0].y + clickParagraph[0].arguments.y <= eventY &&
+      eventY <= clickParagraph[0].y + clickParagraph[0].arguments.y + clickParagraph[0].arguments.height
+    ) {
+      this.clickArgument = clickParagraph[0].arguments;
+      this.isShowSheet = true;
+    } else {
+      console.info('没有点击在评论上');
+    }
+  })
+```
+
+ 
+ 
+完整示例参考如下：
+ 
+```text
+import { LengthMetricsUnit, window } from '@kit.ArkUI';
+import { common2D, drawing, text } from '@kit.ArkGraphics2D';
+
+
+<em>// 这里文本仅演示使用</em>
 const CONTENT: string =
   `明月出天山，苍茫云海间\n` +
     `长风几万里，吹度玉门关\n` +
@@ -228,7 +256,12 @@ class CaretInfo {
 
   lessThan(another: CaretInfo) {
     return !(this.listItemIndex > another.listItemIndex) &&
-      (this.listItemIndex // 文本信息
+      (this.listItemIndex < another.listItemIndex || this.caretIndex < another.caretIndex);
+  }
+}
+
+
+<em>// 文本信息</em>
 class TextInfo {
   index: number;
   itemRect: common2D.Rect;
@@ -250,7 +283,53 @@ class TextInfo {
 
 
   getPosition(isEnd: boolean = true, uiCtx: UIContext): Position | undefined {
-    if (this.textRects.length  {
+    if (this.textRects.length <= 0) {
+      return;
+    }
+    if (isEnd) {
+      return {
+        x: uiCtx.px2vp(this.itemRect.left + this.textRects[this.textRects.length - 1].right) - 10,
+        y: uiCtx.px2vp(this.itemRect.top + this.textRects[this.textRects.length - 1].top)
+      };
+    } else {
+      return {
+        x: uiCtx.px2vp(this.itemRect.left + this.textRects[0].left +
+          (this.textRects[0].left == 0 ? uiCtx.vp2px(16) * 2 : 0)) - 10,
+        y: uiCtx.px2vp(this.itemRect.top + this.textRects[0].top)
+      };
+    }
+  }
+}
+
+
+@Entry
+@Component
+struct CanvasDrawParagraph {
+  private ctx = new DrawingRenderingContext(LengthMetricsUnit.PX);
+  private paragraphs: ParagraphInfo[] = [];
+  private scrollOffset: number = 0;
+  private lastScrollOffset: number = 0;
+  private selectedParagraphIndex: number = -1;
+  private textInfos: TextInfo[] = [];
+  private TOP_HEIGHT: number = 0;
+  private caret1: CaretInfo = new CaretInfo();
+  private caret2: CaretInfo = new CaretInfo();
+  private uiCtx: UIContext = this.getUIContext();
+  @State isShowPopup: boolean = false;
+  @State isShowSheet: boolean = false;
+  @State clickArgument?: Argument = undefined;
+  @State targetPopupInfo: TargetInfo = {
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0
+  };
+
+
+  @Builder
+  popupBuilder() {
+    Row({ space: 10 }) {
+      ForEach([0, 1, 2, 3], (item: number) => {
         Text(`菜单${item}`);
       });
     };
@@ -327,7 +406,7 @@ class TextInfo {
 
 
   repaint() {
-    // 绘制背景
+   <em> // 绘制背景</em>
     let brush = new drawing.Brush();
     brush.setColor({
       red: 255,
@@ -337,13 +416,13 @@ class TextInfo {
     });
     this.ctx.canvas.drawBackground(brush);
     this.ctx.canvas.detachBrush();
-    // 绘制文本
+   <em> // 绘制文本</em>
     this.paragraphs.filter(item => item.content.length > 1).forEach(item => {
       item.paragraph.paint(this.ctx.canvas, 0, this.scrollOffset + item.y);
-      // 绘制评论
+     <em> // 绘制评论</em>
       this.paintArgs(item);
     });
-    // 绘制高亮选中文本
+  <em>  // 绘制高亮选中文本</em>
     brush.setColor({
       red: 255,
       green: 255,
@@ -364,7 +443,7 @@ class TextInfo {
   }
 
 
-  // 绘制评论数气泡
+  <em>// 绘制评论数气泡</em>
   paintArgs(paragraph: ParagraphInfo) {
     let pen = new drawing.Pen();
     pen.setColor({
@@ -387,19 +466,98 @@ class TextInfo {
   getTextIndex(x: number, y: number, paragraph: text.Paragraph) {
     let lineCount = paragraph.getLineCount();
     let lineNum: number = -1;
-    for (let i = 0; i = lineMetrics.topHeight && y   // 获取文本度量
+    for (let i = 0; i < lineCount; i++) {
+      let lineMetrics = paragraph.getLineMetrics(i)!;
+      if (y >= lineMetrics.topHeight && y <= lineMetrics.topHeight + lineMetrics.height) {
+        lineNum = i;
+        break;
+      }
+    }
+  <em>  // 获取文本度量</em>
     let line = paragraph.getLineMetrics(lineNum)!;
     let textIndex: number = -1;
     if (x >= (line.left + line.width)) {
       return line.endIndex + 1;
     }
-    for (let i = line.startIndex; i  item.rect);
+    for (let i = line.startIndex; i < line.endIndex; i++) {
+      let rects = this.getRectForRange(i, line.endIndex, paragraph);
+      if (x < rects[0].left) {
+        textIndex = i - 1;
+        break;
+      }
+    }
+    return textIndex;
+  }
+
+
+  getCaretInfo(x: number, y: number, info: CaretInfo, isLongGesture = false): void {
+    info.listItemIndex = this.getSelectedIndex(y);
+    let paragraph = this.paragraphs[info.listItemIndex].paragraph;
+    let itemRect: common2D.Rect = {
+      left: this.paragraphs[info.listItemIndex].x,
+      top: this.paragraphs[info.listItemIndex].y + this.scrollOffset,
+      right: this.paragraphs[info.listItemIndex].x + paragraph.getMaxWidth(),
+      bottom: this.paragraphs[info.listItemIndex].y + this.scrollOffset + paragraph.getHeight()
+    };
+    let textIndex = this.getTextIndex(x - itemRect.left, y - itemRect.top, paragraph);
+    info.caretIndex = isLongGesture ? 0 : textIndex;
+  }
+
+
+  getRectForRange(start: number, end: number, paragraph: text.Paragraph) {
+    return paragraph.getRectsForRange({ start: start, end: end }, text.RectWidthStyle.TIGHT, text.RectHeightStyle.TIGHT)
+      .map(item => item.rect);
   }
 
 
   getTextInfos(start: CaretInfo, end: CaretInfo) {
     this.textInfos = [];
-    for (let i = start.listItemIndex; i  item.y + this.scrollOffset && y  {
+    for (let i = start.listItemIndex; i <= end.listItemIndex; i++) {
+      let paragraph = this.paragraphs[i].paragraph;
+      let itemRect: common2D.Rect = {
+        left: this.paragraphs[i].x,
+        top: this.paragraphs[i].y + this.scrollOffset,
+        right: this.paragraphs[i].x + paragraph.getMaxWidth(),
+        bottom: this.paragraphs[i].y + this.scrollOffset + paragraph.getHeight()
+      };
+      let startIndex = start.listItemIndex == i ? start.caretIndex : 0;
+      let endIndex = end.listItemIndex == i ? end.caretIndex : this.paragraphs[i].content.length;
+      let rects = this.getRectForRange(startIndex, endIndex, paragraph);
+      this.textInfos.push(new TextInfo(i, itemRect, rects, startIndex, endIndex, this.scrollOffset));
+    }
+    if (this.textInfos.length <= 0) {
+      return;
+    }
+    let startCaretPosition = this.textInfos[0].getPosition(false, this.uiCtx);
+    let endCaretPosition = this.textInfos[this.textInfos.length - 1].getPosition(true, this.uiCtx);
+    if (startCaretPosition) {
+      start.position = startCaretPosition;
+    }
+    if (endCaretPosition) {
+      end.position = endCaretPosition;
+    }
+    this.repaint();
+  }
+
+
+  getSelectedIndex(y: number) {
+    let item: ParagraphInfo;
+    for (let i = 0; i < this.paragraphs.length; i++) {
+      item = this.paragraphs[i];
+      if (y > item.y + this.scrollOffset && y <= item.y + this.scrollOffset + item.paragraph.getHeight()) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+
+  build() {
+    RelativeContainer() {
+      Stack() {
+        Canvas(this.ctx)
+          .bindSheet($$this.isShowSheet, this.commandBuilder(this.clickArgument!))
+          .onReady(() => {
             let preHeight = 0;
             this.paragraphs.forEach(item => {
               item.paragraph.layoutSync(this.ctx.size.width);
@@ -418,12 +576,12 @@ class TextInfo {
                 }
               }
             });
-            // 绘制
+        <em>    // 绘制</em>
             this.repaint();
           })
           .gesture(
             GestureGroup(GestureMode.Exclusive,
-              // 滑动手势
+             <em> // 滑动手势</em>
               PanGesture({ fingers: 1, direction: PanDirection.Vertical })
                 .onActionStart(() => {
                   this.lastScrollOffset = this.scrollOffset;
@@ -432,7 +590,7 @@ class TextInfo {
                   this.scrollOffset = this.lastScrollOffset + this.uiCtx.vp2px(event.offsetY);
                   this.repaint();
                 }),
-              // 长按手势
+           <em>   // 长按手势</em>
               LongPressGesture({ fingers: 1 })
                 .onAction(event => {
                   this.getCaretInfo(this.uiCtx.vp2px(event.fingerList[0].localX),
@@ -453,12 +611,72 @@ class TextInfo {
                   this.isShowPopup = true;
                   this.repaint();
                 }),
-              // 单击手势
+         <em>     // 单击手势</em>
               TapGesture({ fingers: 1, count: 1 })
                 .onAction(event => {
-                  if (event.fingerList.length  {
-                    return item.x = item.y &&
-                      eventY  {
+                  if (event.fingerList.length <= 0) {
+                    return;
+                  }
+                  let eventX = this.uiCtx.vp2px(event.fingerList[0].localX);
+                  let eventY = this.uiCtx.vp2px(event.fingerList[0].localY) - this.scrollOffset;
+                  let clickParagraph = this.paragraphs.filter((item) => {
+                    return item.x <= eventX && eventX <= item.x + item.paragraph.getMaxWidth() && eventY >= item.y &&
+                      eventY <= item.y + item.paragraph.getHeight();
+                  });
+                  if (clickParagraph.length <= 0) {
+                    console.info('没有点击在任何段落上');
+                    return;
+                  }
+                  if (clickParagraph[0].x + clickParagraph[0].arguments.x <= eventX &&
+                    eventX <= clickParagraph[0].x + clickParagraph[0].arguments.x + clickParagraph[0].arguments.width &&
+                    clickParagraph[0].y + clickParagraph[0].arguments.y <= eventY &&
+                    eventY <= clickParagraph[0].y + clickParagraph[0].arguments.y + clickParagraph[0].arguments.height
+                  ) {
+                    this.clickArgument = clickParagraph[0].arguments;
+                    this.isShowSheet = true;
+                  } else {
+                    console.info('没有点击在评论上');
+                  }
+                })
+            )
+          );
+
+
+        Text()
+          .width(this.targetPopupInfo.width)
+          .height(this.targetPopupInfo.height)
+          .position({ x: this.targetPopupInfo.x, y: this.targetPopupInfo.y })
+          .bindPopup(this.isShowPopup!!, {
+            builder: this.popupBuilder(),
+          });
+
+
+        this.caretBuilder(this.caret1);
+        this.caretBuilder(this.caret2);
+      };
+
+
+    };
+  }
+
+
+  @Builder
+  caretBuilder(info: CaretInfo) {
+    Column() {
+      Column()
+        .width(1)
+        .height(20)
+        .backgroundColor('#f00');
+      Column()
+        .width(20)
+        .aspectRatio(1)
+        .borderRadius(10)
+        .backgroundColor('#0f0');
+    }
+    .position(info.position)
+    .gesture(
+      PanGesture()
+        .onActionStart(() => {
 
 
         })

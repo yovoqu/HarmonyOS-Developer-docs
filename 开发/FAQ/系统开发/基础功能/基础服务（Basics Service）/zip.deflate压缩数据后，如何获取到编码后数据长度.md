@@ -4,104 +4,100 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-42
 
-## zip.deflate压缩数据后，如何获取到编码后数据长度
- 
-
-
-##### 问题现象
+#### 问题现象
 
 zip.deflate压缩数据后调用zStream.totalOut，编码后zStream的totalOut都没有发生改变，一直都是0，应该怎么获取到编码后数据长度？
  
 ```text
-import { zlib } from '@kit.BasicServicesKit';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">zlib </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-async function getTotalOutOfzStream() {
-  let str = 'hello world!';
-  let arrayBufferIn = new ArrayBuffer(str.length);
-  let byteArray = new Uint8Array(arrayBufferIn);
-  for (let i = 0, j = str.length; i  j; i++) {
-    byteArray[i] = str.charCodeAt(i)
-  }
-  let arrayBufferOut = new ArrayBuffer(100);
-  let zStream: zlib.ZStream = {
-    nextIn: arrayBufferIn,
-    availableIn: arrayBufferIn.byteLength,
-    nextOut: arrayBufferOut,
-    availableOut: arrayBufferOut.byteLength,
-    totalOut: 0
-  };
-  try {
-    let zip = zlib.createZipSync();
-    await zip.deflateInit(zStream, zlib.CompressLevel.COMPRESS_LEVEL_BEST_SPEED)
-    await zip.deflate(zStream, zlib.CompressFlushMode.FINISH)
+async function <span style="color: rgb(0,0,255);">getTotalOutOfzStream</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">str </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'hello world!'</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">arrayBufferIn </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">byteArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arrayBufferIn</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">j </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">j</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">byteArray</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">charCodeAt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  let <span style="color: rgb(255,255,255);">arrayBufferOut </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">zStream</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ZStream </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">nextIn</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferIn</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">availableIn</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferIn</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">nextOut</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferOut</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">availableOut</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferOut</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">totalOut</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  try <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">zip </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createZipSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    await <span style="color: rgb(255,255,255);">zip</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deflateInit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">zStream</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CompressLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">COMPRESS_LEVEL_BEST_SPEED</span><span style="color: rgb(255,0,170);">)</span>
+    await <span style="color: rgb(255,255,255);">zip</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deflate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">zStream</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CompressFlushMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FINISH</span><span style="color: rgb(255,0,170);">)</span>
 
-    // 使用zStream获取totalOut
-    let totalOut = zStream.totalOut
-    console.info(`The total out of zStream is ` + totalOut)
-  } catch (e) {
-    console.error(e)
-  }
-}
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">zStream</span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">totalOut</span></em>
+    let <span style="color: rgb(255,255,255);">totalOut </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">zStream</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">totalOut</span>
+<span style="color: rgb(255,255,255);">    console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`The total out of zStream is ` </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">totalOut</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">)</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
  
 
-##### 解决方案
+#### 解决方案
 
 每次操作完成，需要重新getZStream()获取最新状态，参考：[压缩与解压](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deflate-and-inflate#接口说明)。
  
 ```text
-import { zlib } from '@kit.BasicServicesKit';
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">zlib </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-async function getTotalOutOfzStream() {
-  let str = 'hello world!';
-  let arrayBufferIn = new ArrayBuffer(str.length);
-  let byteArray = new Uint8Array(arrayBufferIn);
-  for (let i = 0, j = str.length; i  j; i++) {
-    byteArray[i] = str.charCodeAt(i);
-  }
-  let arrayBufferOut = new ArrayBuffer(100);
-  let zStream: zlib.ZStream = {
-    nextIn: arrayBufferIn,
-    availableIn: arrayBufferIn.byteLength,
-    nextOut: arrayBufferOut,
-    availableOut: arrayBufferOut.byteLength,
-    totalOut: 0
-  };
-  try {
-    let zip = zlib.createZipSync();
-    await zip.deflateInit(zStream, zlib.CompressLevel.COMPRESS_LEVEL_BEST_SPEED);
-    await zip.deflate(zStream, zlib.CompressFlushMode.FINISH);
+async function <span style="color: rgb(0,0,255);">getTotalOutOfzStream</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+  let <span style="color: rgb(255,255,255);">str </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'hello world!'</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">arrayBufferIn </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">byteArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">arrayBufferIn</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">j </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">j</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">byteArray</span><span style="color: rgb(255,0,170);">[</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">str</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">charCodeAt</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">i</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+  let <span style="color: rgb(255,255,255);">arrayBufferOut </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">100</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">zStream</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">ZStream </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">nextIn</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferIn</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">availableIn</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferIn</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">nextOut</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferOut</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">availableOut</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">arrayBufferOut</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(255,255,255);">totalOut</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">0</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+  try <span style="color: rgb(181,106,1);">{</span>
+    let <span style="color: rgb(255,255,255);">zip </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createZipSync</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+    await <span style="color: rgb(255,255,255);">zip</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deflateInit</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">zStream</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CompressLevel</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">COMPRESS_LEVEL_BEST_SPEED</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    await <span style="color: rgb(255,255,255);">zip</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">deflate</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">zStream</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">zlib</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">CompressFlushMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">FINISH</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    // 重新getZStream()获取最新状态，然后获取totalOut
-    let totalOut = (await zip.getZStream()).totalOut;
-    console.info('The total out of zStream is ' + totalOut);
-  } catch (e) {
-    console.error(e);
-  }
-}
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重新</span><span style="color: rgb(128,128,128);">getZStream()</span><span style="color: rgb(128,128,128);">获取最新状态，然后获取</span><span style="color: rgb(128,128,128);">totalOut</span></em>
+    let <span style="color: rgb(255,255,255);">totalOut </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">(</span>await <span style="color: rgb(255,255,255);">zip</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getZStream</span><span style="color: rgb(255,0,170);">())</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">totalOut</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'The total out of zStream is ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">totalOut</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">e</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 
-@Entry
-@Component
-struct Index {
-  message: string = 'Hello World';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'Hello World'</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize($r('app.float.page_text_font_size'))
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          getTotalOutOfzStream();
-        });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'HelloWorld'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'app.float.page_text_font_size'</span><span style="color: rgb(255,0,170);">))</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(255,255,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,255,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center </span><span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">        }</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">getTotalOutOfzStream</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```

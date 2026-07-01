@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1262
 
-## RichEditor自定义菜单文本复制
- 
-
-
-##### 问题现象
+#### 问题现象
 
 RichEditor自定义菜单中如何实现复制功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)：支持图文混排和文本交互式编辑的组件。
 - [bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#bindselectionmenu)：设置自定义选择菜单。
@@ -25,15 +21,13 @@ RichEditor自定义菜单中如何实现复制功能？
  
  
 
-##### 解决方案
+#### 解决方案
 
 实现步骤如下：
- 
-- 使用@Builder创建一个自定义菜单组件，实现复制按钮。
-- 为自定义菜单组件的复制按钮添加onClick事件，判断按钮为复制时，使用getSpans获取选择的span信息，判断span信息的类型，过滤出纯文本，并复制。
-- 将复制的纯文本添加进剪贴板。
-- 使用bindSelectionMenu属性绑定RichEditor自定义菜单组件。
-
+ 1. 使用@Builder创建一个自定义菜单组件，实现复制按钮。
+2. 为自定义菜单组件的复制按钮添加onClick事件，判断按钮为复制时，使用getSpans获取选择的span信息，判断span信息的类型，过滤出纯文本，并复制。
+3. 将复制的纯文本添加进剪贴板。
+4. 使用bindSelectionMenu属性绑定RichEditor自定义菜单组件。
  
 代码如下：
  
@@ -65,7 +59,7 @@ struct RichEditorExample {
   }
 
 
-  // 自定义菜单
+  <em>// 自定义菜单</em>
   @Builder
   LongPressTextCustomMenu() {
     Row() {
@@ -89,10 +83,10 @@ struct RichEditorExample {
                 }
               });
               let pasteboardData = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, this.textContent);
-              // 获取系统剪贴板对象
+            <em>  // 获取系统剪贴板对象</em>
               let systemPasteboard = pasteboard.getSystemPasteboard();
-              systemPasteboard.setData(pasteboardData); // 将数据放入剪贴板
-              systemPasteboard.getData().then((data) => { // 读取剪贴板内容
+              systemPasteboard.setData(pasteboardData); <em>// 将数据放入剪贴板</em>
+              systemPasteboard.getData().then((data) => { <em>// 读取剪贴板内容</em>
                 if (data) {
                   this.getUIContext().getPromptAction().showToast({ message: '复制成功' });
                 } else {
@@ -100,14 +94,39 @@ struct RichEditorExample {
                 }
               });
             }
-            // 取消选中
+            <em>// 取消选中</em>
             this.start = -1;
             this.end = -1;
-            // 关闭自定义菜单
+            <em>// 关闭自定义菜单</em>
             this.controller.closeSelectionMenu();
           });
-        // 设置间隔
-        if (index // 自定义菜单
+     <em>   // 设置间隔</em>
+        if (index < this.optionsPopup.length - 1) {
+          Divider().height(10).vertical(true);
+        }
+      });
+    }
+
+
+    .backgroundColor(Color.White)
+    .shadow({
+      radius: 10,
+      color: '#ffe0dede',
+      offsetY: 20
+    })
+    .borderRadius(25);
+  }
+
+
+  build() {
+    Column() {
+      RichEditor({ controller: this.controller })
+        .height(200)
+        .margin({ top: 80 })
+        .width('100%')
+        .copyOptions(CopyOptions.LocalDevice)
+        .bindSelectionMenu(RichEditorSpanType.DEFAULT, this.LongPressTextCustomMenu,
+          RichEditorResponseType.DEFAULT) <em>// 自定义菜单</em>
         .onSelect((value: RichEditorSelection) => {
           this.start = value.selection[0];
           this.end = value.selection[1];
@@ -122,7 +141,7 @@ struct RichEditorExample {
                 fontSize: 30
               }
             });
-          // 在实际使用时可替换为需要的图片
+         <em> // 在实际使用时可替换为需要的图片</em>
           this.controller.addImageSpan($r('app.media.startIcon'),
             {
               imageStyle:
@@ -143,4 +162,4 @@ struct RichEditorExample {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/KGP7XVAtR-aIqAMM7n2BCQ/zh-cn_image_0000002658955327.png?HW-CC-KV=V1&HW-CC-Date=20260701T025649Z&HW-CC-Expire=86400&HW-CC-Sign=18A52661F717077782F267B3E23085E72814BD1D68B401D905A2301C37111D4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/KGP7XVAtR-aIqAMM7n2BCQ/zh-cn_image_0000002658955327.png?HW-CC-KV=V1&HW-CC-Date=20260701T041143Z&HW-CC-Expire=86400&HW-CC-Sign=7C5B04BA38E718DB0BB3DC63A8953FCC97807875C78F69B1A216CF17BC1CFD9E)

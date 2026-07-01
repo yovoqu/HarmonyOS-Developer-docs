@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-19
 
-## 如何解决使用ohpm发布包到私仓报404错误
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用ohpm publish发布包到私仓，出现了404报错信息。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/KQKWGviSS2y01N_78032yw/zh-cn_image_0000002658808989.png?HW-CC-KV=V1&HW-CC-Date=20260701T025924Z&HW-CC-Expire=86400&HW-CC-Sign=5D1E81FA45765D48E9E4B2CD041CC4C900EC3D9ADF35EDD897C76DEBE0649BAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/KQKWGviSS2y01N_78032yw/zh-cn_image_0000002658808989.png?HW-CC-KV=V1&HW-CC-Date=20260701T041007Z&HW-CC-Expire=86400&HW-CC-Sign=13C94FAB12406ACB8CFDD05A535257CD2BDA019C81B7F41A98BA5526F961677B)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [ohpm](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-cli)作为OpenHarmony三方库的包管理工具，支持OpenHarmony共享包的发布、安装和依赖管理。
 - [发布共享包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-har-publish)。
@@ -27,7 +23,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 检查publish_registry配置。
 - 检查公钥配置。
@@ -38,30 +34,29 @@
  
  
 
-##### 分析结论
+#### 分析结论
 
 包名中含有字符'/'，Nginx配置错误，导致在私仓服务器路由匹配失败。
  
  
 
-##### 修改建议
+#### 修改建议
 
 根据定位思路，按照如下步骤进行检查：
- 
-- 检查ohpm配置文件.ohpmrc中是否正确配置了publish_registry。ohpm-repo私仓管理地址配置参照publish\_registry=http://localhost:8089/repos/ohpm。
-- 如果使用证书认证，确保通过ssh-keygen工具生成的公私钥文件是成对的。确保在ohpm-repo私仓管理界面配置公钥信息，在ohpm的配置文件.ohpmrc中配置publish_id、publish_registry和key_path等参数。
-- 从ohpm-repo 2.1.0和ohpm 1.6.0版本起，开始支持AccessToken。如果当前工具版本不支持该功能，可能会导致404错误，需要升级相应的软件。
-- 确保网络连接正常，避免因网络问题导致的错误。
-- 检查包名中是否带有组织名，即含有字符'/'。ohpm在publish/unpublish时，对于带组织的包名会先进行url encode。即@test/ohpmhsplib-->@test%2fohpmhsplib，再使用encode后的包名作为请求的路径参数。该请求经Nginx转发后，又被decode成了@test/ohpmhsplib，导致在私仓服务器路由匹配失败。推荐Nginx配置如下：
-```text
+ 1. 检查ohpm配置文件.ohpmrc中是否正确配置了publish_registry。ohpm-repo私仓管理地址配置参照publish\_registry=http://localhost:8089/repos/ohpm。
+2. 如果使用证书认证，确保通过ssh-keygen工具生成的公私钥文件是成对的。确保在ohpm-repo私仓管理界面配置公钥信息，在ohpm的配置文件.ohpmrc中配置publish_id、publish_registry和key_path等参数。
+3. 从ohpm-repo 2.1.0和ohpm 1.6.0版本起，开始支持AccessToken。如果当前工具版本不支持该功能，可能会导致404错误，需要升级相应的软件。
+4. 确保网络连接正常，避免因网络问题导致的错误。
+5. 检查包名中是否带有组织名，即含有字符'/'。ohpm在publish/unpublish时，对于带组织的包名会先进行url encode。即@test/ohpmhsplib-->@test%2fohpmhsplib，再使用encode后的包名作为请求的路径参数。该请求经Nginx转发后，又被decode成了@test/ohpmhsplib，导致在私仓服务器路由匹配失败。推荐Nginx配置如下：
+```json
 server {
      listen 8081;
      server_name localhost;
 
-     #charset koi8-r;
-     #access_log logs/host.access.log main;
-     # $request_uri: /repos/ohpm/@test%2fohpmhsplib
-     # $uri: /repos/ohpm/@test/ohpmhsplib
+<em>     #charset koi8-r;</em>
+<em>     #access_log logs/host.access.log main;</em>
+<em>     # $request_uri: /repos/ohpm/@test%2fohpmhsplib</em>
+<em>     # $uri: /repos/ohpm/@test/ohpmhsplib</em>
      location / {
          set $lb_upstream 127.0.0.1:8088;
          set $backend_uri $request_uri;
@@ -83,7 +78,7 @@ server {
          proxy_pass http://$lb_upstream$backend_uri;
          proxy_redirect off;
      }
-     # 新增配置
+     <em># 新增配置</em>
      location /repos/ohpm {
          set $lb_upstream 127.0.0.1:8088;
 
@@ -104,11 +99,10 @@ server {
  }
 ```
 
-
  
  
 
-##### 总结
+#### 总结
 
 ohpm在publish/unpublish时报错是因为无法找到对应的路径。主要从以下几个方面进行排查解决：
  

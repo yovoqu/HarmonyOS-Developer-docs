@@ -4,18 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1059
 
-## @Param和@Once相较于@Prop、@Link的使用场景及优势
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 场景一：父组件传入子组件的变量不是状态变量时，如何刷新子组件内@Param装饰的参数？问题代码如下：
 ```text
 @Entry
 @ComponentV2
 struct SceneOne {
-  // 点击的次数
+ <em> // 点击的次数</em>
   count: number = 0;
 
 
@@ -23,7 +19,7 @@ struct SceneOne {
     Column({ space: 5 }) {
       Button('父组件改变初始数据')
         .onClick(() => {
-          // 对数据源的更改不会同步给子组件
+       <em>   // 对数据源的更改不会同步给子组件</em>
           this.count++;
         });
       Column({ space: 20 }) {
@@ -48,10 +44,12 @@ struct SceneOneChild {
   }
 }
 ```
- 
- 场景一问题现象如下（当传递普通变量时，在父组件修改不会触发子组件刷新）：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/v5LoB_--RQW1UMhxBSI7-Q/zh-cn_image_0000002658806467.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=9C7AAE01A0F3D71250AFCE4788A13C3D83C1089C04081465C1E401595253293F)
+
+
+  场景一问题现象如下（当传递普通变量时，在父组件修改不会触发子组件刷新）：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/v5LoB_--RQW1UMhxBSI7-Q/zh-cn_image_0000002658806467.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=3810E76EB515DE3964BE3A264B6A819B1E12A15DFA400F75F77287479FF4B062)
 
 - 场景二：如何将V1的@Prop、@Link迁移至V2的@Param？
 - 场景三：状态管理V1中由于@State、@Prop、@Link、@Provide等装饰器均能接收参数，当多人协作开发时，复用他人组件的过程中若存在过多的参数，应该如何分辨哪些@State、@Provide装饰的参数需要传递？问题代码如下：
@@ -59,7 +57,7 @@ struct SceneOneChild {
 @Entry
 @Component
 struct Index {
-  // 已知需要传递三个参数需要传递给子组件
+<em>  // 已知需要传递三个参数需要传递给子组件</em>
   @State countOne: number = 999;
   @State countTwo: number = 999;
   @State countThree: number = 999;
@@ -74,11 +72,11 @@ struct Index {
           this.countThree++;
         });
       Column({ space: 20 }) {
-        /**
-         * linkCount、propCount分别采用@Link、@Prop装饰器装饰，则表示需要通过外部传参，
-         * 假设this.countTwo需要传递给propCount，this.countThree需要传递给linkCount，
-         * 在未被明确告知this.countOne需要传递给谁的情况下，this.countOne存在以下几种可能：
-         */
+       <em> /**</em>
+<em>         * linkCount、propCount分别采用@Link、@Prop装饰器装饰，则表示需要通过外部传参，</em>
+<em>         * 假设this.countTwo需要传递给propCount，this.countThree需要传递给linkCount，</em>
+<em>         * 在未被明确告知this.countOne需要传递给谁的情况下，this.countOne存在以下几种可能：</em>
+<em>         */</em>
         Child({
           countOne: this.countOne,
           propCount: this.countTwo,
@@ -133,7 +131,7 @@ struct Child {
  
  
 
-##### 背景知识
+#### 背景知识
 
 状态管理V2中组件内状态变量装饰器，相较于状态管理V1中组件内状态变量装饰器更加注重本地初始化数据和传入数据的限制与区分：
  
@@ -144,7 +142,7 @@ struct Child {
  
  
 
-##### 解决方案
+#### 解决方案
 
 问题现象中的场景与解决方案总结如下：
   
@@ -156,16 +154,17 @@ struct Child {
  
  
 - 场景一：父组件传入子组件的变量不是状态变量时，如何刷新子组件内@Param装饰的参数。该场景下存在两种解决方案：
- 
-方案一：通过其它状态变量的改变强制刷新子组件内普通变量。
-- 方案二：将普通变量的数据封装到@ObservedV2装饰的类里，通过@Trace刷新子组件UI。
+
+1. 方案一：通过其它状态变量的改变强制刷新子组件内普通变量。
+
+2. 方案二：将普通变量的数据封装到@ObservedV2装饰的类里，通过@Trace刷新子组件UI。
 ```text
 @Entry
 @ComponentV2
 struct SceneOne {
-  count: number = 0; // 声明为普通变量
-  @Local localCount: number = 0; // 声明为状态变量
-  test: Test = new Test(); // 声明为普通变量，内部count被@Trace修饰，可刷新子组件UI
+  count: number = 0; <em>// 声明为普通变量</em>
+  @Local localCount: number = 0; <em>// 声明为状态变量</em>
+  test: Test = new Test(); <em>// 声明为普通变量，内部count被@Trace修饰，可刷新子组件UI</em>
 
 
   build() {
@@ -177,12 +176,12 @@ struct SceneOne {
           this.test.count++;
         });
       Column({ space: 20 }) {
-        // 方式一：通过其它状态变量的改变强制刷新子组件内count变化
+       <em> // 方式一：通过其它状态变量的改变强制刷新子组件内count变化</em>
         SceneOneChild({
           count: this.count,
           localCount: this.localCount
         });
-        // 方式二：将count数据封装到@ObservedV2/@Trace装饰的类里
+      <em>  // 方式二：将count数据封装到@ObservedV2/@Trace装饰的类里</em>
         SceneOneChildTwo({
           test: this.test
         });
@@ -227,25 +226,27 @@ class Test {
   @Trace count: number = 0;
 }
 ```
- 
- 场景一实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/dnySUttZTjay0ndOuWHIbg/zh-cn_image_0000002628567114.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=539EDC644733713838240A6329CDE04B2CAE56B40FEA41D1025A684E1F95BD79)
 
 
- 
+  场景一实现效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/dnySUttZTjay0ndOuWHIbg/zh-cn_image_0000002628567114.png?HW-CC-KV=V1&HW-CC-Date=20260701T041239Z&HW-CC-Expire=86400&HW-CC-Sign=6D7C51F1F8EB755900B854122C4B5254B61D8C127CE7FD3D6497FB3F04278AE8)
+
+
  
  
 - 场景二：V1版@Prop、@Link迁移至V2版@Param的方案。@Param与@Prop、@Link的差异与迁移方案详见官网：[@Prop->@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-migration-inner-component#prop---param)、[@Link->@Param/@Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-migration-inner-component#link---paramevent)。
-- 场景三：使用状态管理V2区分需要传递的参数与不需要传递的参数。
-如场景二的官网示例中由于@Param装饰的状态变量必须先本地初始化，所以需要先在子组件内为@Param赋予初值，若希望实现子组件@Param与@Link一样只能通过外部传参初始化时，需要搭配@Require装饰器一起使用。
-- 若希望实现类似@State装饰的状态变量，既可以只接收一次外部传入的数据，又可以本地修改，需要在@Param的基础上加上@Once处理。完整示例代码如下：
- 
+- 场景三：使用状态管理V2区分需要传递的参数与不需要传递的参数。1. 如场景二的官网示例中由于@Param装饰的状态变量必须先本地初始化，所以需要先在子组件内为@Param赋予初值，若希望实现子组件@Param与@Link一样只能通过外部传参初始化时，需要搭配@Require装饰器一起使用。
+
+2. 若希望实现类似@State装饰的状态变量，既可以只接收一次外部传入的数据，又可以本地修改，需要在@Param的基础上加上@Once处理。完整示例代码如下：
+
+  
 ```text
 @Entry
 @ComponentV2
 struct SceneThree {
-  // 需要传递的三个参数
+<em>  // 需要传递的三个参数</em>
   @Local countOne: number = 999;
   @Local countTwo: number = 999;
   @Local countThree: number = 999;
@@ -260,11 +261,11 @@ struct SceneThree {
           this.countThree++;
         });
       Column({ space: 20 }) {
-        /**
-         * 状态管理V2中只有被@Param装饰器装饰的变量可以进行外部传参初始化
-         * 未被@Param装饰器装饰的变量，localCount、count、providerCount均不能通过外部传入参数初始化
-         * 有效的区分了哪些参数需要外部传入初始化，哪些参数不需要外部传入初始化。
-         */
+       <em> /**</em>
+<em>         * 状态管理V2中只有被@Param装饰器装饰的变量可以进行外部传参初始化</em>
+<em>         * 未被@Param装饰器装饰的变量，localCount、count、providerCount均不能通过外部传入参数初始化</em>
+<em>         * 有效的区分了哪些参数需要外部传入初始化，哪些参数不需要外部传入初始化。</em>
+<em>         */</em>
         SceneThreeChild({
           countOne: this.countOne,
           countTwo: this.countTwo,
@@ -286,8 +287,8 @@ struct SceneThreeChild {
   @Local localCount: number = 0;
   count: number = 0;
   @Provider('providerCount') providerCount: number = 0;
-  @Param @Once countOne: number = 0; // 代表需要外部传参一次，且可以本地修改，类似V1版本中的@State/@Provide可以外部初始化一次
-  @Param @Require countTwo: number; // 搭配@Event实现类似@Prop/@Link功能，并且不能本地修改该变量
+  @Param @Once countOne: number = 0; <em>// 代表需要外部传参一次，且可以本地修改，类似V1版本中的@State/@Provide可以外部初始化一次</em>
+  @Param @Require countTwo: number;<em> // 搭配@Event实现类似@Prop/@Link功能，并且不能本地修改该变量</em>
   @Param countThree: number = 0;
   @Event change: () => void = () => {
   };
@@ -316,9 +317,8 @@ struct SceneThreeChild {
 
 
  
- 
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用@CustomDialog装饰器装饰自定义组件，在该组件中使用@Param后报错。
  
@@ -331,14 +331,12 @@ A：@Link不支持本地初始化，必须通过外部传入初始化。
 Q：@Param装饰器处理外部输入时出现了错误，该如何排查？
  
 A：参考排查如下：
- 
-- 检查输入参数类型：确保传递给@Param装饰器的参数类型与预期一致。不匹配的数据类型可能会导致运行时错误。
-- 验证参数值的有效性：确保所有通过@Param装饰器传递的参数值都是有效的，并且符合业务逻辑的要求。
-
+ 1. 检查输入参数类型：确保传递给@Param装饰器的参数类型与预期一致。不匹配的数据类型可能会导致运行时错误。
+2. 验证参数值的有效性：确保所有通过@Param装饰器传递的参数值都是有效的，并且符合业务逻辑的要求。
  
  
 
-##### 总结
+#### 总结
 
 @Link、@Prop与@Param分别为状态管理V1和状态管理V2的主要接收参数的装饰器，其差异与对比如下：
   

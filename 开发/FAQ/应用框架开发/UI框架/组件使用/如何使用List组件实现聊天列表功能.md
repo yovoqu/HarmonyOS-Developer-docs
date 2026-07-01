@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1519
 
-## 如何使用List组件实现聊天列表功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 聊天列表是即时通讯中比较重要的功能，如何使用List组件实现聊天列表功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-list)组件应用于多种场景，如商品展示、聊天页面、发票页面等。[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)应用于对状态变量的监听，如果需要关注某个状态变量的值是否改变，可以使用@Watch为状态变量设置回调函数。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：**收到新数据时从底部开始显示**。
 **实现原理：** 使用[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)监听数据源的变化，当数据源变化时，若List不在最底部显示，则将List自动滚到最底部。
@@ -28,7 +24,7 @@
 ```text
 @Component
 struct Chat {
-  // 这个列表代表聊天内容，每次发送和接收消息时，把聊天内容加入这个列表。当监听到列表发生变化时，执行函数scrollerBottom，把list滑动到最底部。
+  <em>// 这个列表代表聊天内容，每次发送和接收消息时，把聊天内容加入这个列表。当监听到列表发生变化时，执行函数scrollerBottom，把list滑动到最底部。</em>
   @Prop @Watch('scrollerBottom') list: string[] = [];
   scroller: Scroller = new Scroller();
 
@@ -37,7 +33,7 @@ struct Chat {
   }
 
   build() {
-    // initialIndex代表列表生成时，从第几个索引值开始展示，选择最后一个索引值，就实现了显示最底部的消息。scroller代表绑定滚动事件，配合List监听，实现发送和接收消息，都能滚动到最底部。
+    <em>// initialIndex代表列表生成时，从第几个索引值开始展示，选择最后一个索引值，就实现了显示最底部的消息。scroller代表绑定滚动事件，配合List监听，实现发送和接收消息，都能滚动到最底部。</em>
     List({ initialIndex: this.list.length - 1, scroller: this.scroller }) {
       ForEach(this.list, (item: string) => {
         ListItem() {
@@ -84,21 +80,23 @@ struct ListChat {
 ```
 
 - **效果图：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/J-_5ct6UTX6zSbMg1ZTeng/zh-cn_image_0000002658846237.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=745DA7F1B8597CB6D52233C1D8FE1AE4636A9B5CD7E1EAC7CBBA8C322B676E95)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/J-_5ct6UTX6zSbMg1ZTeng/zh-cn_image_0000002658846237.png?HW-CC-KV=V1&HW-CC-Date=20260701T041302Z&HW-CC-Expire=86400&HW-CC-Sign=14EDD3E9B91C81AAFA06C8596667948730A0495EB2D949C33F89AA5544300E6C)
 
 
  - **场景二**：**消息列表从底部开始加载，点击按钮回到最新位置**。
 **实现原理：** 将List组件的[stackFromEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#stackfromend19)属性设置为true可以实现列表从底部开始布局加载，给[scrollEdge](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrolledge)绑定List底部边界，实现跳转回到最新位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/M859cH-URXmig28lzdTJcA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=AF0D7D5C43C92B48AD52993BBF4488A7EDE36DEC53BA8B80B1AA71298FCBD57A)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/M859cH-URXmig28lzdTJcA/notice_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T041302Z&HW-CC-Expire=86400&HW-CC-Sign=B93C23E104CA1E5B1A2D2183BDF1B30637B01BC8930705BBDE94EBA34D63FE82)
  
-属性stackFromEnd从API version 19开始支持使用。
+
+  属性stackFromEnd从API version 19开始支持使用。
 - **示例代码：**
 ```text
 @Entry
 @Component
 struct ListBottom {
-  @State listContent: Array = ['旧消息'];
+  @State listContent: Array<string> = ['旧消息'];
   listScroller: ListScroller = new ListScroller();
 
   build() {
@@ -119,7 +117,7 @@ struct ListBottom {
       }
       .width('100%')
       .height('82%')
-      .stackFromEnd(true) // 设置为true表示列表从底部开始布局
+      .stackFromEnd(true) <em>// 设置为true表示列表从底部开始布局</em>
       .alignListItem(ListItemAlign.Center)
       .scrollBar(BarState.Off)
 
@@ -133,7 +131,7 @@ struct ListBottom {
 
         Button('回到最新位置')
           .onClick(() => {
-            this.listScroller.scrollEdge(Edge.Bottom); // 将列表滚动到底部边界位置
+            this.listScroller.scrollEdge(Edge.Bottom); <em>// 将列表滚动到底部边界位置</em>
           })
           .width('100%')
           .margin({top:8,bottom:20})
@@ -151,14 +149,14 @@ struct ListBottom {
 ```
 
 - **效果图：**
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/sHiaTu25TnaS9EUBS-KNpQ/zh-cn_image_0000002628766878.png?HW-CC-KV=V1&HW-CC-Date=20260701T025618Z&HW-CC-Expire=86400&HW-CC-Sign=E131F51CB8B23EE24F140B54F6FED35CD7D6514DC0AA40968F3573D1B321496E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/sHiaTu25TnaS9EUBS-KNpQ/zh-cn_image_0000002628766878.png?HW-CC-KV=V1&HW-CC-Date=20260701T041302Z&HW-CC-Expire=86400&HW-CC-Sign=774112C61832FFAD3EF8C4AB8EC8107A0BD5D82F5561DE1E76ABB884CC6059A9)
 
 
  
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何解决插入图片发生闪烁问题？
  

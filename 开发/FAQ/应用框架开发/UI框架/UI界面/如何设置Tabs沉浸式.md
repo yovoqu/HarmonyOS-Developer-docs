@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1584
 
-## 如何设置Tabs沉浸式
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用Tabs组件构建页面时，如何实现沉浸式效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。从API version 11开始，支持安全区域避让特性，其expandSafeArea属性的默认值为expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])。
 - [background](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#background10)：设置组件背景。从API version 20开始，新增了背景向父组件的安全区扩展的能力。
@@ -26,7 +22,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 对Tabs设置沉浸式方案如下： 
 | 实现场景 | 实现方案 | 实现方法 | 实现效果 | 适用场景 |
@@ -38,7 +34,8 @@
  
  
 - **方案一：设置背景沉浸。**对Tabs组件设置background属性，将组件背景扩展至避让区，页面布局仍在安全区内。代码如下：
- 
+
+  
 ```text
 @Entry
 @Component
@@ -84,14 +81,16 @@ struct BackgroundPage {
 }
 ```
  参考图如下所示：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/UuOsAO9aSxSY3UYmZ22zvA/zh-cn_image_0000002658849563.png?HW-CC-KV=V1&HW-CC-Date=20260701T025719Z&HW-CC-Expire=86400&HW-CC-Sign=8CCB16441113E4DE7B1EF2D3698AAD5E64F0480E74DE92A8A7C01F7EC3C6E7A8)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/UuOsAO9aSxSY3UYmZ22zvA/zh-cn_image_0000002658849563.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=21E60738F2B3B6A11CC98AD489CD9B29F0C0E021574ECE8E41DB5BB77A430038)
 
 
  
  
 - **方案二：安全区域拓展实现沉浸式。**Tabs的expandSafeArea属性具有默认值，默认对底部导航条实现沉浸式效果，本文设置expandSafeArea属性为expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])，将组件的安全区域延伸至状态栏和导航条区域，同时保持子组件在安全区内布局，对子组件TabContent设置expandSafeArea时，可实现对指定页签内容实现沉浸式。代码如下：
- 
+
+  
 ```text
 @Entry
 @Component
@@ -141,18 +140,20 @@ struct ExpandPage {
 }
 ```
  参考图如下所示：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/zt5kIqiYRoOklZ-n6sfRDw/zh-cn_image_0000002628770198.png?HW-CC-KV=V1&HW-CC-Date=20260701T025719Z&HW-CC-Expire=86400&HW-CC-Sign=93C9105CB95BC5C9207B78C34AB25CDB2BD4FEC79E888A110543991370FA06C3)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/zt5kIqiYRoOklZ-n6sfRDw/zh-cn_image_0000002628770198.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=8D82DB04E4F998F651F3DD4BF42110125BD688D20AFB3F500BF9AD73E4BCC5AA)
 
 - **方案三：设置页面沉浸。**对Tabs组件设置ignoreLayoutSafeArea属性并设置高度为LayoutPolicy.matchParent，页面背景与布局均扩展至顶部状态栏和底部导航条。代码如下：
- 
+
+  
 ```text
 @Entry
 @Component
 struct IgnorePage {
-  @StorageLink('statusBarHeight') statusBarHeight: number = AppStorage.get('statusBarHeight') || 0;
+  @StorageLink('statusBarHeight') statusBarHeight: number = AppStorage.get<number>('statusBarHeight') || 0;
   @StorageLink('navigationIndicatorHeight') navigationIndicatorHeight: number =
-    AppStorage.get('navigationIndicatorHeight') || 0;
+    AppStorage.get<number>('navigationIndicatorHeight') || 0;
 
   build() {
     Column() {
@@ -205,10 +206,11 @@ struct IgnorePage {
 }
 ```
  若页面内容与避让区发生冲突时，需进行避让处理：
- 
-如上代码，若需页签栏的内容扩张至导航条区域，开发者可根据需求控制padding属性。
-- 在EntryAbility文件中实现避让区高度的获取与保存，并监听安全区变化。代码如下：
-```text
+
+1. 如上代码，若需页签栏的内容扩张至导航条区域，开发者可根据需求控制padding属性。
+
+2. 在EntryAbility文件中实现避让区高度的获取与保存，并监听安全区变化。代码如下：
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { display, window } from '@kit.ArkUI';
@@ -224,15 +226,15 @@ export default class EntryAbility extends UIAbility {
         return;
       }
       hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
-      // 获取避让区信息并保存
+     <em> // 获取避让区信息并保存</em>
       let windowClass = windowStage.getMainWindowSync();
       let type = window.AvoidAreaType.TYPE_SYSTEM;
       let avoidArea = windowClass.getWindowAvoidArea(type);
       let typeNavigation = window.AvoidAreaType.TYPE_NAVIGATION_INDICATOR;
       let avoidAreaNavigation = windowClass.getWindowAvoidArea(typeNavigation);
-      let statusBarHeight = avoidArea.topRect.height; // 获取状态栏区域高度
-      let navigationIndicatorHeight = avoidAreaNavigation.bottomRect.height; // 获取导航条区域高度
-      let displayClass = display.getDefaultDisplaySync(); // 获取屏幕实例
+      let statusBarHeight = avoidArea.topRect.height; <em>// 获取状态栏区域高度</em>
+      let navigationIndicatorHeight = avoidAreaNavigation.bottomRect.height;<em> // 获取导航条区域高度</em>
+      let displayClass = display.getDefaultDisplaySync(); <em>// 获取屏幕实例</em>
       displayClass.getCutoutInfo((err: BusinessError, data: display.CutoutInfo) => {
         if (err.code) {
           console.error(`Failed to get cutoutInfo. Code: ${err.code}, message: ${err.message}`);
@@ -240,9 +242,9 @@ export default class EntryAbility extends UIAbility {
         }
         console.info(`Succeeded in getting cutoutInfo. data: ${data}`);
       });
-      AppStorage.setOrCreate('statusBarHeight', statusBarHeight); // 保存状态栏区域的高度
-      AppStorage.setOrCreate('navigationIndicatorHeight', navigationIndicatorHeight); // 保存底部导航条区域的高度
-      // 监听安全区变化
+      AppStorage.setOrCreate('statusBarHeight', statusBarHeight); <em>// 保存状态栏区域的高度</em>
+      AppStorage.setOrCreate('navigationIndicatorHeight', navigationIndicatorHeight); <em>// 保存底部导航条区域的高度</em>
+     <em> // 监听安全区变化</em>
       windowClass.on('avoidAreaChange', (data) => {
         if (data.type === window.AvoidAreaType.TYPE_SYSTEM) {
           AppStorage.setOrCreate('statusBarHeight', data.area.topRect.height);
@@ -255,12 +257,13 @@ export default class EntryAbility extends UIAbility {
 };
 ```
  参考图如下所示：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/R1krGLJZT36lGoXu_qMXGA/zh-cn_image_0000002658969521.png?HW-CC-KV=V1&HW-CC-Date=20260701T025719Z&HW-CC-Expire=86400&HW-CC-Sign=8060FC7BBC5A4DAA8DBD8271CC63654E5B6CF7568413309A08C6EBA3EA735387)
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/R1krGLJZT36lGoXu_qMXGA/zh-cn_image_0000002658969521.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=D341D67112EB47C13828323499C81678ABA55F369026326BA1401D9C22D4C5AC)
 
- - **方案四：设置窗口沉浸。**调用aboutToAppear，在执行build()函数前，设置主窗为沉浸式布局，可实现对整个应用实现沉浸式效果。代码如下：
- 
+- **方案四：设置窗口沉浸。**调用aboutToAppear，在执行build()函数前，设置主窗为沉浸式布局，可实现对整个应用实现沉浸式效果。代码如下：
+
+  
 ```text
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@ohos.base';
@@ -268,9 +271,9 @@ import { BusinessError } from '@ohos.base';
 @Entry
 @Component
 struct WindowPage {
-  @StorageLink('statusBarHeight') statusBarHeight: number = AppStorage.get('statusBarHeight') || 0;
+  @StorageLink('statusBarHeight') statusBarHeight: number = AppStorage.get<number>('statusBarHeight') || 0;
   @StorageLink('navigationIndicatorHeight') navigationIndicatorHeight: number =
-    AppStorage.get('navigationIndicatorHeight') || 0;
+    AppStorage.get<number>('navigationIndicatorHeight') || 0;
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext().getHostContext(), (err: BusinessError, windowClass: window.Window) => {
@@ -329,15 +332,17 @@ struct WindowPage {
 }
 ```
  避让操作与方案三类似，不再赘述。
- 参考图如下所示：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/Eo6c8OhjS9KtsSzEDimp1A/zh-cn_image_0000002628610302.png?HW-CC-KV=V1&HW-CC-Date=20260701T025719Z&HW-CC-Expire=86400&HW-CC-Sign=C9E157A99629D75218C87582E694553CEE9ABA19AFCD199B032A28104779FB28)
+
+  参考图如下所示：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/Eo6c8OhjS9KtsSzEDimp1A/zh-cn_image_0000002628610302.png?HW-CC-KV=V1&HW-CC-Date=20260701T041213Z&HW-CC-Expire=86400&HW-CC-Sign=43D0CC988D7BE621BB1B6A81F554D01D3AE05CC60C1E40038E5BCFF91D1995A7)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：设置沉浸式时，如何将TabBar隐藏？
  

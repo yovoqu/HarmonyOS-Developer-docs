@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-17
 
-## 如何实现MapComponent地图占满屏幕
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用expandSafeArea拓展地图容器的可布局区域，地图未沉浸式占满屏幕，如何实现地图沉浸式占满屏幕？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [MapComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent)：本模块提供Map组件，通过简单的方式提供直观的地图服务。
 - [expandSafeArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#expandsafearea)：安全区域是指页面的显示区域，默认情况下开发者开发的界面都布局在安全区域内，不与系统设置的避让区比如状态栏、导航栏区域重叠。
@@ -25,16 +21,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用expandSafeArea拓展地图容器的可布局区域，通过getDefaultDisplaySync获取屏幕高度，然后配置到height，调节容器高度。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/LmszgqpMR7uCKz7XVjv-Cg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025840Z&HW-CC-Expire=86400&HW-CC-Sign=CB378D04EAE2EDBEC92A2FE109E92AF1AAB141FC8C247EF412B8491CA9FB5DE1)
- 
-
-地图组件在[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)后才可以正常加载地图信息。
- 
+> [!NOTE]
+> 地图组件在 开通地图服务 后才可以正常加载地图信息。
 
  
 ```text
@@ -46,7 +38,7 @@ import { display } from '@kit.ArkUI';
 @Component
 struct HuaweiMapDemo {
   private mapOptions?: mapCommon.MapOptions;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   private mapController?: map.MapComponentController;
   private mapEventManager?: map.MapEventManager;
   @State mapHeight: number = 0;
@@ -54,7 +46,7 @@ struct HuaweiMapDemo {
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-    // 地图初始化参数，设置地图中心点坐标及层级
+   <em> // 地图初始化参数，设置地图中心点坐标及层级</em>
     this.mapOptions = {
       position: {
         target: {
@@ -65,10 +57,10 @@ struct HuaweiMapDemo {
       }
     };
 
-    // 地图初始化的回调
+   <em> // 地图初始化的回调</em>
     this.callback = async (err, mapController) => {
       if (!err) {
-        // 获取地图的控制器类，用来操作地图
+      <em>  // 获取地图的控制器类，用来操作地图</em>
         this.mapController = mapController;
         this.mapEventManager = this.mapController.getEventManager();
         this.mapEventManager.on("mapLoad", () => {
@@ -79,7 +71,7 @@ struct HuaweiMapDemo {
 
   build() {
     Stack() {
-      // 调用MapComponent组件初始化地图
+   <em>   // 调用MapComponent组件初始化地图</em>
       MapComponent({ mapOptions: this.mapOptions, mapCallback: this.callback })
         .width('100%')
         .height(this.mapHeight)
@@ -92,7 +84,7 @@ struct HuaweiMapDemo {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么只使用expandSafeArea不能直接将地图布满屏幕？
  

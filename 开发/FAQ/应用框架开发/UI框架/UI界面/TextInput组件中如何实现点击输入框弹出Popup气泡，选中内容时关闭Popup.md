@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1460
 
-## TextInput组件中如何实现点击输入框弹出Popup气泡，选中内容时关闭Popup
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用TextInput组件时，如何实现编辑状态打开Popup且使用键盘输入不关闭，点击Popup气泡中内容并填充至TextInput中时，关闭Popup？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)：TextInput是输入框组件，用于响应用户输入，比如评论区的输入、聊天框的输入、表格的输入等，也可以结合其它组件构建功能页面，例如登录注册页面。具体用法请参考[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)。
 - [onEditChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#oneditchange8)：输入状态变化时，触发该回调。有光标时为编辑态，无光标时为非编辑态。
@@ -24,7 +20,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 在TextInput的onEditChange事件中进行判断，处于编辑状态时，Popup弹出，退出编辑状态时，Popup关闭。
 - 使用Emitter订阅事件，当点击Popup中的值时，给message进行赋值并且关闭Popup，退出TextInput的编辑状态。
@@ -33,7 +29,7 @@
 运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/3OYxNvWuTM2DHEvzli7hSQ/zh-cn_image_0000002658964561.png?HW-CC-KV=V1&HW-CC-Date=20260701T025708Z&HW-CC-Expire=86400&HW-CC-Sign=FB49CA1D155D7A9D18F7B57A6FECDEAEC11FA748B7D84AE80E17AB98AEF97E56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/3OYxNvWuTM2DHEvzli7hSQ/zh-cn_image_0000002658964561.png?HW-CC-KV=V1&HW-CC-Date=20260701T041146Z&HW-CC-Expire=86400&HW-CC-Sign=0961CD302553BAAFB6080E985574E7A246FBE0CF8FED80A28F8248186A67C12A)
 
  
 完整示例参考如下：
@@ -47,14 +43,14 @@ struct bindPopupDemo {
   @State message: string = '';
   @State customPopup: boolean = false;
   controller: TextInputController = new TextInputController();
-  // 定义一个eventId为1的事件，事件优先级为Low。
+ <em> // 定义一个eventId为1的事件，事件优先级为Low。</em>
   private event: emitter.InnerEvent = {
     eventId: 1,
     priority: emitter.EventPriority.LOW
   };
 
   aboutToAppear(): void {
-    // 收到eventId为1的事件后执行回调函数。
+<em>    // 收到eventId为1的事件后执行回调函数。</em>
     emitter.on(this.event, data => {
       this.message = data.data!['message'];
       this.customPopup = false;
@@ -63,7 +59,7 @@ struct bindPopupDemo {
   };
 
   aboutToDisappear(): void {
-    // 取消eventId为1的事件。
+  <em>  // 取消eventId为1的事件。</em>
     emitter.off(this.event.eventId);
   };
 
@@ -78,7 +74,7 @@ struct bindPopupDemo {
               message: '内容一'
             }
           };
-          // 发送eventId为1的事件，事件内容为eventData。
+       <em>   // 发送eventId为1的事件，事件内容为eventData。</em>
           emitter.emit(this.event, eventData);
         })
         .margin({
@@ -112,7 +108,7 @@ struct bindPopupDemo {
         .layoutWeight(1)
         .enableAutoFill(false)
         .alignSelf(ItemAlign.Center)
-        // 实现气泡弹窗。
+       <em> // 实现气泡弹窗。</em>
         .bindPopup(this.customPopup, {
           builder: this.popupBuilder,
           placement: Placement.BottomLeft,
@@ -123,7 +119,7 @@ struct bindPopupDemo {
           showInSubWindow: false,
           targetSpace: 15
         })
-        // 当输入框编辑态改变时，处于编辑态时气泡出现。
+       <em> // 当输入框编辑态改变时，处于编辑态时气泡出现。</em>
         .onEditChange((isEditing: boolean) => {
           this.customPopup = isEditing;
         })

@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-uidesignkit-7001
 
-## UI Design Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：export interface BuilderOptions 差异内容：export interface BuilderOptions | api/@hms.hds.hdsBaseComponent.d.ets |

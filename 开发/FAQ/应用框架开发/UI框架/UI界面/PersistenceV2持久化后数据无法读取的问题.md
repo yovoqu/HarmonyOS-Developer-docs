@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1084
 
-## PersistenceV2持久化后数据无法读取的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 **场景一**：PersistenceV2.connect/PersistenceV2.globalConnect执行在loadContent方法之前，导致再次进入应用持久化数据读取失败，每次都会重新创建新的数据的问题。
  
@@ -46,33 +42,38 @@ struct PageOne {
 场景一问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/l2Nc72wYQVetsJ67VBOX0g/zh-cn_image_0000002628407346.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=5A3748471E82F94E0E08A4C452875AD9D39111AC34F28C3ADD6B3AC2B3188C81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/l2Nc72wYQVetsJ67VBOX0g/zh-cn_image_0000002628407346.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=161307450A7930182E54C1383568935666737DC2B5BDB54AFE5A2FF0683AFE75)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [PersistenceV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)提供状态变量持久化能力，开发者可以通过connect或者globalConnect绑定同一个key，在状态变量变化和应用冷启动时，实现持久化能力。与状态管理V1版本的[PersistentStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage)一致，必须要在EntryAbility.ets文件中的[loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#loadcontent9)之后调用。其它PersistenceV2使用详情可查看官方文档：[PersistenceV2使用限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2#使用限制)。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：PersistenceV2.connect/PersistenceV2.globalConnect执行在loadContent方法之前，导致再次进入应用持久化数据读取失败，每次都会重新创建新的数据的问题。
-问题排查方案（以PersistenceV2.connect为例）：
-检查是否本地持久化成功，若是没有持久化成功导致的读取失效，建议按照背景知识中的PersistenceV2使用限制检查是否存在使用错误的情况。
-- 若本地存在持久化的数据，检查EntryAbility.ets文件内是否将PersistenceV2.connect写在了windowStage.loadContent方法之前。修改在windowStage.loadContent方法之后调用PersistenceV2.connect即可。
-- 若无法直接判断PersistenceV2.connect是否在EntryAbility.ets中的windowStage.loadContent方法之前调用。使用Debug调试，分别将PersistenceV2.connect方法与EntryAbility.ets内windowStage.loadContent方法设置断点，查看PersistenceV2.connect与windowStage.loadContent执行顺序。
+问题排查方案（以PersistenceV2.connect为例）：1. 检查是否本地持久化成功，若是没有持久化成功导致的读取失效，建议按照背景知识中的PersistenceV2使用限制检查是否存在使用错误的情况。
 
- - 若是存在第3点的情况，无法直接判断PersistenceV2.connect是否在EntryAbility.ets中的windowStage.loadContent方法之前调用。经过Debug调试，又确实是在windowStage.loadContent方法之前调用了PersistenceV2.connect。可以参考以下常见问题场景进行修改： 
+2. 若本地存在持久化的数据，检查EntryAbility.ets文件内是否将PersistenceV2.connect写在了windowStage.loadContent方法之前。修改在windowStage.loadContent方法之后调用PersistenceV2.connect即可。
+
+3. 若无法直接判断PersistenceV2.connect是否在EntryAbility.ets中的windowStage.loadContent方法之前调用。使用Debug调试，分别将PersistenceV2.connect方法与EntryAbility.ets内windowStage.loadContent方法设置断点，查看PersistenceV2.connect与windowStage.loadContent执行顺序。
+- 若是存在第3点的情况，无法直接判断PersistenceV2.connect是否在EntryAbility.ets中的windowStage.loadContent方法之前调用。经过Debug调试，又确实是在windowStage.loadContent方法之前调用了PersistenceV2.connect。可以参考以下常见问题场景进行修改：
+
 | 场景一细分场景 | 场景描述 | 解决方案 |
+
 | --- | --- | --- |
+
 | 问题场景一 | 例如封装了一个AccountUtil管理类来管理PersistenceV2本地持久化（AccountUtil中初始化PersistenceV2.connect方法），且在EntryAbility.ets文件内通过import方法将导入了该管理类的实例或者依赖该管理类的实例。那么在导入的过程中就会初始化AccountUtil实例，也就会导致PersistenceV2.connect在windowStage.loadContent方法之前调用。 | 不要直接导入整个PersistenceV2的管理类，建议在使用时初始化该管理实例即可。若需要在EntryAbility.ets内使用本地持久化的数据，可以调用PersistenceV2.connect方法获取临时变量即可。 |
+
 | 问题场景二 | 存在多个模块时，通过import { xxx } from 'commonlib'的方式在EntryAbility.ets中导入了“xxx”实例，若PersistenceV2的管理类存在于commonlib模块中，且同时在“commonlib/src/Index.ets”文件中与“xxx”实例一起导出，也会导致PersistenceV2的管理类提前创建。 | EntryAbility.ets内取消import { xxx } from 'commonlib'的导出方式，使用import { xxx } from 'commonlib/src/main/ets/util/xxx'的方式导入，避免执行commonlib模块中的Index.ets文件。保留在EntryAbility.ets内import { xxx } from 'commonlib'的导出方式，取消在与“xxx”相同包中的“commonlib/src/Index.ets”文件中导出PersistenceV2.connect所在的管理类。或者将该管理类写在与“xxx”不同的包中，避免被优先创建。 |
 
  - **场景二**：在使用PersistenceV2进行本地数据存储时，再次进入应用部分属性读取失败的问题。导致该问题的原因是读取数据时由于value属性是可选属性，导致未能准确读取。
- 
+
+  
 **方案一**：为保存的类增加一个constructor构建函数。
 ```text
 import { PersistenceV2 } from '@kit.ArkUI';
@@ -82,7 +83,7 @@ class OptionOneSample {
   @Trace value?: string;
   @Trace num: number = 0;
 
-  // 构建函数赋值
+  <em>// 构建函数赋值</em>
   constructor(value: string, num: number) {
     this.value = value;
     this.num = num;
@@ -109,8 +110,9 @@ struct OptionOne {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/np-RleA2Q9C2ABzZcKSsRg/zh-cn_image_0000002628567244.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=836002C5E72D732FF15AF3E82850980DBF96A510471C1FB18E5C64BA87590656)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/np-RleA2Q9C2ABzZcKSsRg/zh-cn_image_0000002628567244.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=98542EBBE287BA87857FC1FA971A521A1EC88E90B7A75B5739060D56EC19F000)
 
 - **方案二**：为value属性添加一个初始值。
 ```text
@@ -118,7 +120,7 @@ import { PersistenceV2 } from '@kit.ArkUI';
 
 @ObservedV2
 class OptionTwoSample {
-  @Trace value: string = ''; // 赋初始值
+  @Trace value: string = ''; <em>// 赋初始值</em>
   @Trace num: number = 0;
 }
 
@@ -142,15 +144,16 @@ struct OptionTwo {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/6IZF0-HHRlikSN9U4tUasA/zh-cn_image_0000002658926557.png?HW-CC-KV=V1&HW-CC-Date=20260701T025724Z&HW-CC-Expire=86400&HW-CC-Sign=43A9D76DDDCE187ECB0FC8771D8DC1FB808834802FFD1036B2EC5D8BCDE538AA)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/6IZF0-HHRlikSN9U4tUasA/zh-cn_image_0000002658926557.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=0D93FEE905270A121ADC85F99F705D70B4CAD94E42E45A785FE6FFB60A67DC2F)
 
 
  
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：PersistenceV2持久化class中基本类型的数组需要加@Type吗？
  

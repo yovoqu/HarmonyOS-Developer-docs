@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-180
 
-## String的静态方法详解
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在开发HarmonyOS应用时，开发者需根据字符编码生成字符串，或处理包含转义字符的模板字符串。若不了解String.fromCharCode()、String.fromCodePoint()和String.raw()三个静态方法的使用场景与差异，容易导致字符生成错误或模板字符串处理异常。
  
  
 
-##### 背景知识
+#### 背景知识
 
 在JavaScript中，String是一个内置对象，提供一系列静态方法用于处理字符与字符串。在HarmonyOS应用开发中，基于JS语言的ArkTS（ArkUI TypeScript）同样支持这些方法。
  
@@ -25,137 +21,135 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. 使用String.fromCharCode()生成基础字符。当需要根据Unicode码点（0–65535）生成字符串时，使用String.fromCharCode()。
 
-- 使用String.fromCharCode()生成基础字符。当需要根据Unicode码点（0–65535）生成字符串时，使用String.fromCharCode()。
- 
+  
 ```text
-// 生成字母'A'和'Z'
-const charA = String.fromCharCode(65);
-const charZ = String.fromCharCode(90);
+<em>// </em><em><span style="color: rgb(128,128,128);">生成字母</span><span style="color: rgb(128,128,128);">'A'</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">'Z'</span></em>
+const <span style="color: rgb(0,0,255);">charA </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCharCode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">65</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+const <span style="color: rgb(0,0,255);">charZ </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCharCode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-hilog.info(0x0000, 'testTag', charA);
-hilog.info(0x0000, 'testTag', charZ);
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">charA</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">charZ</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-// 生成数字'0'到'9'
-const digits: string[] = [];
-for (let i = 48; i = 57; i++) {
-  digits.push(String.fromCharCode(i));
-}
-hilog.info(0x0000, 'testTag', digits.join(''));
+<em>// </em><em><span style="color: rgb(128,128,128);">生成数字</span><span style="color: rgb(128,128,128);">'0'</span><span style="color: rgb(128,128,128);">到</span><span style="color: rgb(128,128,128);">'9'</span></em>
+const <span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">48</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">57</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCharCode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">join</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
+> [!NOTE]
+> 适用场景：处理ASCII或基本拉丁字符，不涉及Emoji或特殊符号。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/Jo9gY-oDRr6G_mk2MgBJEw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025521Z&HW-CC-Expire=86400&HW-CC-Sign=D26D4C88E05E452F2EB11DC150E226F39B114647852F1FC77696D0E0DDFBDFD1)
- 
-适用场景：处理ASCII或基本拉丁字符，不涉及Emoji或特殊符号。
-- 使用String.fromCodePoint()支持完整Unicode。当需要处理超出16位范围的Unicode字符（如：、、）时，必须使用String.fromCodePoint()。
- 
+2. 使用String.fromCodePoint()支持完整Unicode。当需要处理超出16位范围的Unicode字符（如：、、）时，必须使用String.fromCodePoint()。
+
+  
 ```text
-// 生成地球Emoji
-const earth = String.fromCodePoint(0x1F30D);
-hilog.info(0x0000, 'testTag', earth);
+<em>// </em><em><span style="color: rgb(128,128,128);">生成地球</span><span style="color: rgb(128,128,128);">Emoji</span><span style="color: rgb(128,128,128);"></span></em>
+const <span style="color: rgb(0,0,255);">earth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCodePoint</span><span style="color: rgb(0,0,255);">(0x1F30D)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">earth</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-// 生成程序员Emoji
-const programmer = String.fromCodePoint(0x1F469, 0x200D, 0x1F4BB);
-hilog.info(0x0000, 'testTag', programmer);
+<em>// </em><em><span style="color: rgb(128,128,128);">生成程序员</span><span style="color: rgb(128,128,128);">Emoji</span><span style="color: rgb(128,128,128);"></span><span style="color: rgb(128,128,128);"></span></em>
+const <span style="color: rgb(0,0,255);">programmer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCodePoint</span><span style="color: rgb(0,0,255);">(0x1F469</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x200D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x1F4BB)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">programmer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-// 生成家庭Emoji
-const family = String.fromCodePoint(0x1F468, 0x200D, 0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466);
-hilog.info(0x0000, 'testTag', family);
+<em>// </em><em><span style="color: rgb(128,128,128);">生成家庭</span><span style="color: rgb(128,128,128);">Emoji</span><span style="color: rgb(128,128,128);"></span><span style="color: rgb(128,128,128);"></span><span style="color: rgb(128,128,128);"></span><span style="color: rgb(128,128,128);"></span></em>
+const <span style="color: rgb(0,0,255);">family </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCodePoint</span><span style="color: rgb(0,0,255);">(0x1F468</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x200D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x1F469</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x200D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x1F467</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x200D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x1F466)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">family</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
+> [!NOTE]
+> String.fromCharCode()对于代理对（如0xD83D和0xDCCD）会返回错误字符，而fromCodePoint()可正确处理。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/DFbQ6clNRb-4uJcvjpADFg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025521Z&HW-CC-Expire=86400&HW-CC-Sign=2212CFB7D51AF38BF6841DCD0AC687CA79BAF4D439265530E2B5E9AD31565097)
- 
-String.fromCharCode()对于代理对（如0xD83D和0xDCCD）会返回错误字符，而fromCodePoint()可正确处理。
-- 使用String.raw()获取原始模板字符串。当需要在模板字符串中保留原始的转义字符（如\n、\t、\\）时，应使用String.raw()。
- 
+3. 使用String.raw()获取原始模板字符串。当需要在模板字符串中保留原始的转义字符（如\n、\t、\\）时，应使用String.raw()。
+
+  
 ```text
-// 普通模板字符串：转义字符会被解析
-const normalStr = `第一行\n第二行`;
-hilog.info(0x0000, 'testTag', normalStr);
+<em>// </em><em><span style="color: rgb(128,128,128);">普通模板字符串：转义字符会被解析</span></em>
+const <span style="color: rgb(0,0,255);">normalStr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">第一行</span><span style="color: rgb(255,0,170);">\n</span><span style="color: rgb(255,0,170);">第二行</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">normalStr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-// 使用String.raw()：转义字符作为字面量保留
-const rawStr = String.raw`第一行\n第二行`;
-hilog.info(0x0000, 'testTag', rawStr);
+<em>// </em><em><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">String.raw()</span><span style="color: rgb(128,128,128);">：转义字符作为字面量保留</span></em>
+const <span style="color: rgb(0,0,255);">rawStr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">raw</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">第一行</span><span style="color: rgb(255,0,170);">\n</span><span style="color: rgb(255,0,170);">第二行</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">rawStr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-// 处理路径字符串（避免反斜杠被转义）
-const filePath = String.raw`C:\Users\John\Documents`;
-hilog.info(0x0000, 'testTag', filePath);
+<em>// </em><em><span style="color: rgb(128,128,128);">处理路径字符串（避免反斜杠被转义）</span></em>
+const <span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">raw</span><span style="color: rgb(255,0,170);">`C:\Users\John\Documents`</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/U6nE1vLeSVuzw2I1EKbWQA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025521Z&HW-CC-Expire=86400&HW-CC-Sign=B280641429130EE8F6D3D58742631EBD920CE56FF8310D86E6C504D6C3474A48)
- 
-适用场景：构建正则表达式、路径字符串、日志格式、多行文本模板等需要保留转义字符的场景。
+> [!NOTE]
+> 适用场景：构建正则表达式、路径字符串、日志格式、多行文本模板等需要保留转义字符的场景。
 
  
 完整示例参考如下：
  
 ```text
-import hilog from '@ohos.hilog';
+import <span style="color: rgb(0,0,255);">hilog </span>from <span style="color: rgb(255,0,170);">'@ohos.hilog'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct StringStaticMethod {
-  build() {
-    Column() {
-      Button('fromCharCode')
-        .onClick(() => {
-          // 生成字母'A'和'Z'
-          const charA = String.fromCharCode(65);
-          const charZ = String.fromCharCode(90);
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">StringStaticMethod </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'fromCharCode'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">生成字母</span><span style="color: rgb(128,128,128);">'A'</span><span style="color: rgb(128,128,128);">和</span><span style="color: rgb(128,128,128);">'Z'</span></em>
+          const <span style="color: rgb(0,0,255);">charA </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCharCode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">65</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          const <span style="color: rgb(0,0,255);">charZ </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCharCode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          hilog.info(0x0000, 'testTag', charA);
-          hilog.info(0x0000, 'testTag', charZ);
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">charA</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">charZ</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          // 生成数字'0'到'9'
-          const digits: string[] = [];
-          for (let i = 48; i = 57; i++) {
-            digits.push(String.fromCharCode(i));
-          }
-          hilog.info(0x0000, 'testTag', digits.join(''));
-        }).margin({ bottom: 10 });
-      Button('fromCodePoint')
-        .onClick(() => {
-          // 生成地球Emoji
-          const earth = String.fromCodePoint(0x1F30D);
-          hilog.info(0x0000, 'testTag', earth);
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">生成数字</span><span style="color: rgb(128,128,128);">'0'</span><span style="color: rgb(128,128,128);">到</span><span style="color: rgb(128,128,128);">'9'</span></em>
+          const <span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
+          for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">48</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">57</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCharCode</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">digits</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">join</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'fromCodePoint'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <em>// </em><em><span style="color: rgb(128,128,128);">生成地球</span><span style="color: rgb(128,128,128);">Emoji</span><span style="color: rgb(128,128,128);"></span></em>
+          const <span style="color: rgb(0,0,255);">earth </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCodePoint</span><span style="color: rgb(0,0,255);">(0x1F30D)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">earth</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          // 生成程序员Emoji
-          const programmer = String.fromCodePoint(0x1F469, 0x200D, 0x1F4BB);
-          hilog.info(0x0000, 'testTag', programmer);
+         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">生成程序员</span><span style="color: rgb(128,128,128);">Emoji</span><span style="color: rgb(128,128,128);"></span><span style="color: rgb(128,128,128);"></span></em>
+          const <span style="color: rgb(0,0,255);">programmer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCodePoint</span><span style="color: rgb(0,0,255);">(0x1F469</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x200D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x1F4BB)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">programmer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          // 生成家庭Emoji
-          const family = String.fromCodePoint(0x1F468, 0x200D, 0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466);
-          hilog.info(0x0000, 'testTag', family);
-        }).margin({ bottom: 10 });
-      Button('String.raw')
-        .onClick(() => {
-          // 普通模板字符串：转义字符会被解析
-          const normalStr = `第一行\n第二行`;
-          hilog.info(0x0000, 'testTag', normalStr);
+         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">生成家庭</span><span style="color: rgb(128,128,128);">Emoji</span><span style="color: rgb(128,128,128);"></span><span style="color: rgb(128,128,128);"></span><span style="color: rgb(128,128,128);"></span><span style="color: rgb(128,128,128);"></span></em>
+          const <span style="color: rgb(0,0,255);">family </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fromCodePoint</span><span style="color: rgb(0,0,255);">(0x1F468</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x200D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x1F469</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x200D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x1F467</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x200D</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">0x1F466)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">family</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'String.raw'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">普通模板字符串：转义字符会被解析</span></em>
+          const <span style="color: rgb(0,0,255);">normalStr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">第一行</span><span style="color: rgb(255,0,170);">\n</span><span style="color: rgb(255,0,170);">第二行</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">normalStr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          // 使用String.raw()：转义字符作为字面量保留
-          const rawStr = String.raw`第一行\n第二行`;
-          hilog.info(0x0000, 'testTag', rawStr);
+         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">使用</span><span style="color: rgb(128,128,128);">String.raw()</span><span style="color: rgb(128,128,128);">：转义字符作为字面量保留</span></em>
+          const <span style="color: rgb(0,0,255);">rawStr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">raw</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(255,0,170);">第一行</span><span style="color: rgb(255,0,170);">\n</span><span style="color: rgb(255,0,170);">第二行</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">rawStr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          // 处理路径字符串（避免反斜杠被转义）
-          const filePath = String.raw`C:\Users\John\Documents`;
-          hilog.info(0x0000, 'testTag', filePath);
-        });
-    }.width('100%')
-    .height('100%')
-    .alignItems(HorizontalAlign.Center)
-    .justifyContent(FlexAlign.Center);
-  }
-}
+         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">处理路径字符串（避免反斜杠被转义）</span></em>
+          const <span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">String</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">raw</span><span style="color: rgb(255,0,170);">`C:\Users\John\Documents`</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">hilog</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(0x0000</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'testTag'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：String.fromCharCode()和String.fromCodePoint()有什么区别？
  
@@ -171,7 +165,7 @@ A：String.raw()是一个静态方法，用于创建“原始模板字符串”�
  
  
 
-##### 总结
+#### 总结
 
 掌握String.fromCharCode()、String.fromCodePoint()和String.raw()三个静态方法，是编写高质量、跨平台兼容的HarmonyOS应用开发中不可或缺的能力。
  
@@ -180,8 +174,5 @@ A：String.raw()是一个静态方法，用于创建“原始模板字符串”�
 - 使用raw()保留模板字符串中的转义字符。
 
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/UoWfuG1DRIm0lTVkeq6FLQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025521Z&HW-CC-Expire=86400&HW-CC-Sign=84261F3067ED7B3C1811224CB13D0E3255BAACF218A8EAE3D17CA9FE24238155)
- 
-
-举一反三：在处理国际化文本、日志输出、配置文件生成等场景时，可灵活结合这三个方法，提升代码可读性与健壮性。
+> [!NOTE]
+> 举一反三：在处理国际化文本、日志输出、配置文件生成等场景时，可灵活结合这三个方法，提升代码可读性与健壮性。

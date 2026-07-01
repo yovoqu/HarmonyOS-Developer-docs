@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-58
 
-## 使用Testing API的更新测试版本接口，报错204144691
- 
-
-
-##### 问题现象
+#### 问题现象
 
 调用[更新测试版本](https://developer.huawei.com/consumer/cn/doc/app/agc-help-test-api-modify-test-version-0000002271160657)接口时，报错204144691。
  
@@ -18,7 +14,7 @@
 {
   "ret":
   {
-    "code": 204144691,
+    "code": <span style="color: rgb(0,0,255);">204144691</span>,
     "msg": "[amis] update version information failed, additional msg is [[AppGalleryConnectAppMetaInfoService]Harmony test apiLevel check failed, support apiLevel at least 10]"
   }
 }
@@ -26,7 +22,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 调用提交审核接口报错：
  

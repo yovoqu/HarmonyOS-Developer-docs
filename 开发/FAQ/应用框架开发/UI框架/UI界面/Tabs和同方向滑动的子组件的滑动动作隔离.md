@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1310
 
-## Tabs和同方向滑动的子组件的滑动动作隔离
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何设置在横向拖动子组件中的第三方图标时，禁止触发Tabs的切换功能。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/IkeT1TvPRI69HfQ4YYKeEQ/zh-cn_image_0000002658838299.png?HW-CC-KV=V1&HW-CC-Date=20260701T025712Z&HW-CC-Expire=86400&HW-CC-Sign=0DAC69A43D2C3CC979510C7C921E49400C828243072BB000BB0876F744D02C9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/IkeT1TvPRI69HfQ4YYKeEQ/zh-cn_image_0000002658838299.png?HW-CC-KV=V1&HW-CC-Date=20260701T041145Z&HW-CC-Expire=86400&HW-CC-Sign=A132A27772BF2494F8EE4207807D84C11CFD48834D154B7BC1EAB679314118C2)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [!!双向绑定语法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding)：在状态管理V2中，提供!!语法糖统一处理双向绑定。
 - [Tabs.scrollable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#scrollable)：设置是否可以通过滑动页面进行页面切换。
@@ -28,23 +24,21 @@
  
  
 
-##### 解决方案
-
-- 该方案基于@ohos/mpchart，执行ohpm i @ohos/mpchart命令安装MPChart三方库。
-- 使用!!语法，把判断Tabs是否可以通过滑动页面进行页面切换的isAllowScroll属性，在主页面和子组件中关联。
-- 子组件中图表触摸时，设置isAllowScroll属性为false，触摸结束手指抬起时，设置isAllowScroll属性为true。
-
+#### 解决方案
+1. 该方案基于@ohos/mpchart，执行ohpm i @ohos/mpchart命令安装MPChart三方库。
+2. 使用!!语法，把判断Tabs是否可以通过滑动页面进行页面切换的isAllowScroll属性，在主页面和子组件中关联。
+3. 子组件中图表触摸时，设置isAllowScroll属性为false，触摸结束手指抬起时，设置isAllowScroll属性为true。
  
 ```text
 import {
-  JArrayList, // 工具类：数据集合
-  EntryOhos,// 图表数据结构基础类
-  LineDataSet, //线形图数据集合
-  ILineDataSet, // 线形图数据集合的操作类
-  LineData, //线形图数据包
-  LineChart, // 线形图图表类
-  LineChartModel,// 线形图配置构建类
-  MarkerView, //图例形状
+  JArrayList, <em>// 工具类：数据集合</em>
+  EntryOhos,<em>/</em><em>/ 图表数据结构基础类</em>
+  LineDataSet, <em>//线形图数据集合</em>
+  ILineDataSet,<em> // 线形图数据集合的操作类</em>
+  LineData, <em>//线形图数据包</em>
+  LineChart, <em>// 线形图图表类</em>
+  LineChartModel,<em>// 线形图配置构建类</em>
+  MarkerView, <em>//图例形状</em>
 } from '@ohos/mpchart';
 
 
@@ -60,7 +54,7 @@ struct Index {
 
 
   private model: LineChartModel = new LineChartModel();
-  // 构造数据选择监听器
+ <em> // 构造数据选择监听器</em>
 
 
   @Builder tabBuilder(index: number, name: string) {
@@ -117,6 +111,8 @@ struct Index {
 }
 
 
+
+
 @ComponentV2
 struct Star {
   private model: LineChartModel = new LineChartModel();
@@ -124,23 +120,23 @@ struct Star {
   @Event $isAllowScroll: (val: boolean) => void = () => {};
 
 
-  // 图表数据初始化
+<em>  // 图表数据初始化</em>
   aboutToAppear() {
 
 
-    // 初始化图表配置构建类
+  <em>  // 初始化图表配置构建类</em>
     this.model = new LineChartModel();
     this.model.setDragEnabled(true);
     this.model.setScaleEnabled(true);
-    // 为图表设置markerView
+   <em> // 为图表设置markerView</em>
     let normalMarker = new MarkerView();
     this.model.setMarker(normalMarker);
-    // 也可设置定义图表MarkerView
-    // 生成图表数据
+    <em>// 也可设置定义图表MarkerView</em>
+<em>    // 生成图表数据</em>
     let lineData: LineData = this.getLineData();
-    // 将数据与图表配置类绑定
+    <em>// 将数据与图表配置类绑定</em>
     this.model.setData(lineData);
-    // 设置图表最大的X轴显示范围，如不设置，则默认显示全部数据
+   <em> // 设置图表最大的X轴显示范围，如不设置，则默认显示全部数据</em>
     this.model.setVisibleXRangeMaximum(20);
   }
 
@@ -149,8 +145,12 @@ struct Star {
 
 
     let start: number = 1;
-    let values: JArrayList = new JArrayList();
-    for (let i = start; i  = new JArrayList();
+    let values: JArrayList<EntryOhos> = new JArrayList<EntryOhos>();
+    for (let i = start; i < 30; i++) {
+      values.add(new EntryOhos(i, i));
+    }
+    let dataSet = new LineDataSet(values, 'DataSet');
+    let dataSetList: JArrayList<ILineDataSet> = new JArrayList<ILineDataSet>();
     dataSetList.add(dataSet);
 
 

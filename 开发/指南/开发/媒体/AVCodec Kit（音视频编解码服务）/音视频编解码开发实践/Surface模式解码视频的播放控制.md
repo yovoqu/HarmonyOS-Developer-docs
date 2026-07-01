@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding-play-remote
 
-## Surface模式解码视频的播放控制
- 
- 
-
-##### 概述
+#### 概述
 
 开发者在开发影视、会议和直播等应用时，通常需要使用视频解码能力实现高性能的播放和视频处理功能。
  
@@ -29,51 +25,52 @@
  
   
 
-##### 视频播放
+#### 视频播放
 
   
 
-##### [h2]场景描述
+#### 场景描述
 
 视频解码播放是将视频文件内压缩的数据通过解码还原为可视的图像，并进行渲染显示。视频解码常用于高清播放和低延时播放，也是视频编辑播放（如添加滤镜、水印）、实时弹幕叠加以及高级色彩处理等操作的基础。相较于直接使用AVPlayer进行播放（可参考[基于AVPlayer基础播控实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-basic-control)），解码播放支持更多的视频格式和画面处理能力。
  
   
 
-##### [h2]实现原理
+#### 实现原理
 
 Surface模式视频解码播放是通过调用系统AVCodec模块的能力实现的。通过解封装视频文件，解码视频和音频数据进行送显和播放，具体流程如下：
+ 1. 选择视频进行播放后，使用视频文件初始化解封装器。
+2. 获取在XComponent初始化时OnSurfaceCreate回调中返回的NativeWindow。
+3. 初始化解码器，设置NativeWindow等参数后启动解码器。
+4. 创建解码输入和输出子线程，启动解码播放流程。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/EgJMeih9RKW_UJadvAqABA/zh-cn_image_0000002628701292.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=C37E42B163A0EC525747834354E0B7BC4EB192EC1A72F8C14E5B4E113D11B674)
+
+5. 输入子线程通过[OH_AVCodecCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-codecbase-oh-avcodeccallback)中的OnNeedInputBuffer异步回调函数指针获取可用的AVBuffer后，从解封装器中读取视频数据提交给解码器，实现向解码器输入待解码的视频数据。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/WCo2QcTjTdK1VPirPbRGoQ/zh-cn_image_0000002659100519.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=65A0826EE873A927B62F1A82EAA98947ADFF0700A82C3A2F8BE072FDA0904517)
+
+6. 解码输出子线程通过OnNeedOutputBuffer拿到解码后的帧数据，进行[音画同步](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization)处理后，通知解码器在Surface上完成渲染。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/bYpVBd9qT2Ok5d5NuMGdaw/zh-cn_image_0000002628861172.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=E52F4D7D4FAA68EB5D1A0D6A77BE52A229BE70927368F1CDFEB301CBE4507649)
+
  
-- 选择视频进行播放后，使用视频文件初始化解封装器。
-- 获取在XComponent初始化时OnSurfaceCreate回调中返回的NativeWindow。
-- 初始化解码器，设置NativeWindow等参数后启动解码器。
-- 创建解码输入和输出子线程，启动解码播放流程。
-  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/EgJMeih9RKW_UJadvAqABA/zh-cn_image_0000002628701292.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=DA70CBF1BB18FB4CDC78E5E377451C8F223A3E494E1125D6D5796C09736AFDD9)
-
-- 输入子线程通过[OH_AVCodecCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-codecbase-oh-avcodeccallback)中的OnNeedInputBuffer异步回调函数指针获取可用的AVBuffer后，从解封装器中读取视频数据提交给解码器，实现向解码器输入待解码的视频数据。
-  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/WCo2QcTjTdK1VPirPbRGoQ/zh-cn_image_0000002659100519.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=7C8D92C37712B93207973AFC7283370C7AF2F5D67AD132E42748FE09AEBDD545)
-
-- 解码输出子线程通过OnNeedOutputBuffer拿到解码后的帧数据，进行[音画同步](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization)处理后，通知解码器在Surface上完成渲染。
-  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/bYpVBd9qT2Ok5d5NuMGdaw/zh-cn_image_0000002628861172.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=56D71681C938C6FEEEC2FEF02CF69A4BE6C55837094A75EB3EE56924596DE11A)
-
-
- 
   
 
-##### [h2]开发步骤
+#### 开发步骤
+1. 创建解封装器、解码器等解码资源。
 
-- 创建解封装器、解码器等解码资源。
   
 ```text
 int32_t Player::Init(SampleInfo &info)
 {
     // ...
     // Create decode sources pointer.
-    videoDecoder_ = std::make_unique();
-    audioDecoder_ = std::make_unique();
-    demuxer_ = std::make_unique();
+    videoDecoder_ = std::make_unique<VideoDecoder>();
+    audioDecoder_ = std::make_unique<AudioDecoder>();
+    demuxer_ = std::make_unique<Demuxer>();
 
     // Create demuxer by video info.
     int32_t ret = demuxer_->Create(videoInfo_);
@@ -87,7 +84,8 @@ int32_t Player::Init(SampleInfo &info)
 }
 ```
 
-- 根据视频信息设置解码参数，以视频参数为例。
+2. 根据视频信息设置解码参数，以视频参数为例。
+
   
 ```text
 int32_t Player::CreateVideoDecoder()
@@ -105,7 +103,8 @@ int32_t Player::CreateVideoDecoder()
 }
 ```
 
-- 启动解码器，创建解码输入、输出子线程，开始解码视频进行播放。
+3. 启动解码器，创建解码输入、输出子线程，开始解码视频进行播放。
+
   
 ```text
 int32_t Player::Start()
@@ -119,15 +118,16 @@ int32_t Player::Start()
         isStarted_ = true;
         isPause_ = false;
         // Create video decode input and output sub thread.
-        videoDecInputThread_ = std::make_unique(&Player::VideoDecInputThread, this);
-        videoDecOutputThread_ = std::make_unique(&Player::VideoDecOutputThread, this);
+        videoDecInputThread_ = std::make_unique<std::thread>(&Player::VideoDecInputThread, this);
+        videoDecOutputThread_ = std::make_unique<std::thread>(&Player::VideoDecOutputThread, this);
         // ...
     }
     // ...
 }
 ```
 
-- 输入子线程从解封装器读取数据，送入解码器进行解码。
+4. 输入子线程从解封装器读取数据，送入解码器进行解码。
+
   
 ```text
 void Player::VideoDecInputThread()
@@ -141,7 +141,7 @@ void Player::VideoDecInputThread()
         // ...
         // read sample from demuxer.
         int32_t ret = demuxer_->ReadSample(demuxer_->GetVideoTrackId(),
-                                           reinterpret_cast(bufferInfo.buffer), bufferInfo.attr);
+                                           reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer), bufferInfo.attr);
         CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "ReadSample failed, thread out");
         // ...
         // push the buffer to the decoder.
@@ -152,7 +152,8 @@ void Player::VideoDecInputThread()
 }
 ```
 
-- 输出子线程从解码器拿到解码后的帧数据，处理后进行送显。
+5. 输出子线程从解码器拿到解码后的帧数据，处理后进行送显。
+
   
 ```text
 void Player::VideoDecOutputThread()
@@ -172,7 +173,8 @@ void Player::VideoDecOutputThread()
 }
 ```
 
-- 调用[OH_VideoDecoder_RenderOutputBufferAtTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_renderoutputbufferattime)接口通知解码器在指定时间内完成在输出Surface上的渲染。
+6. 调用[OH_VideoDecoder_RenderOutputBufferAtTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_renderoutputbufferattime)接口通知解码器在指定时间内完成在输出Surface上的渲染。
+
   
 ```text
 int32_t VideoDecoder::RenderOutputBuffer(uint32_t bufferIndex, bool render)
@@ -182,7 +184,7 @@ int32_t VideoDecoder::RenderOutputBuffer(uint32_t bufferIndex, bool render)
     // Check if render.
     if (render) {
         // Get timestamp for render time.
-        int64_t renderTimestamp = std::chrono::duration_cast(
+        int64_t renderTimestamp = std::chrono::duration_cast<std::chrono::nanoseconds>(
             std::chrono::high_resolution_clock::now().time_since_epoch()).count();
         // Notify video decode to render by surface.
         ret = OH_VideoDecoder_RenderOutputBufferAtTime(decoder_, bufferIndex, renderTimestamp);
@@ -195,51 +197,48 @@ int32_t VideoDecoder::RenderOutputBuffer(uint32_t bufferIndex, bool render)
 }
 ```
 
-
  
   
 
-##### 全屏播放
+#### 全屏播放
 
   
 
-##### [h2]场景描述
+#### 场景描述
 
 全屏播放是指在播放视频时，应用页面仅显示视频画面和控件，隐藏其它组件。视频通常会进入横屏状态显示，提供沉浸式播放体验。
  
   
 
-##### [h2]实现原理
+#### 实现原理
 
 全屏播放通过UI侧的能力实现，主要流程如下。
- 
-- 应用切换全屏状态后，更新相应的状态变量。
-- 该状态变量的@Watch监听方法，会根据当前状态，设置窗口旋转模式和沉浸式布局。
-- UI组件调整尺寸和位置，实现全屏页面布局。
-  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/0M3Y-jPvSJCOcO1zsBEyDg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=12C35BB80E846949482F443841FB552964814E9F27BDA986D01A48CBB3E77F1E)
- 
- 在Native侧可通过[OH_NativeWindow_NativeWindowSetScalingModeV2()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-external-window-h#oh_nativewindow_nativewindowsetscalingmodev2)接口设置XComponent的画面渲染缩放模式，通过设置[OHScalingModeV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-external-window-h#ohscalingmodev2)参数可选择按视频比例缩放画面播放或拉伸缩放以匹配视频窗口大小。
-  
+ 1. 应用切换全屏状态后，更新相应的状态变量。
+2. 该状态变量的@Watch监听方法，会根据当前状态，设置窗口旋转模式和沉浸式布局。
+3. UI组件调整尺寸和位置，实现全屏页面布局。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/IHZnMREDTTqZkhZpnRIO9Q/zh-cn_image_0000002659220487.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=BEC26152DC08D0BB8B3D5B4921EA2A53AD169C5D3CF6597F90BEB231D9F2D734)
+> [!NOTE]
+> 在Native侧可通过 OH_NativeWindow_NativeWindowSetScalingModeV2() 接口设置XComponent的画面渲染缩放模式，通过设置 OHScalingModeV2 参数可选择按视频比例缩放画面播放或拉伸缩放以匹配视频窗口大小。
 
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/IHZnMREDTTqZkhZpnRIO9Q/zh-cn_image_0000002659220487.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=EF316343C85655AEC7D66C7F1F67C5A33395D9E97E0F0643C3953DB793861566)
 
  
   
 
-##### [h2]开发步骤
+#### 开发步骤
+1. 定义全屏状态的状态变量，并绑定监听方法。
 
-- 定义全屏状态的状态变量，并绑定监听方法。
   
 ```text
 // The horizontal full-screen playback state flag.
 @Watch('fullScreenSet') @Link isFullScreen: boolean;
 ```
 
-- 状态变量变化后，绑定的监听方法会根据当前状态设置窗口属性。
+2. 状态变量变化后，绑定的监听方法会根据当前状态设置窗口属性。
+
   
 ```text
 fullScreenSet() {
@@ -259,7 +258,8 @@ fullScreenSet() {
 }
 ```
 
-- 以XComponent组件为例，组件高度会根据状态变量进行调整，实现全屏播放。
+3. 以XComponent组件为例，组件高度会根据状态变量进行调整，实现全屏播放。
+
   
 ```text
 XComponent({
@@ -271,42 +271,42 @@ XComponent({
   .height(this.isFullScreen ? NORMAL_SIZE : FULL_SIZE)
 ```
 
-
  
   
 
-##### 暂停与继续播放
+#### 暂停与继续播放
 
   
 
-##### [h2]场景描述
+#### 场景描述
 
 暂停和继续播放是视频播放中的常见场景。暂停播放会使视频画面停止变化，内部解码器会停止解码数据和渲染画面。继续播放则是恢复解码器的解码流程，视频继续播放。
  
   
 
-##### [h2]实现原理
+#### 实现原理
 
 暂停播放通过阻塞输入和输出子线程实现。阻塞后输入子线程停止提交数据到解码器，输出子线程停止向Surface提供视频帧数据，达到暂停播放的效果。继续播放则是取消输入和输出子线程的阻塞状态，从而恢复播放状态。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/zETBEwRHSbCxKRc5dDCwNA/zh-cn_image_0000002628701294.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=2034805EFDEDEFBCEE734E2006147DCDDD33C09A71D51C2263461AEA4B57FD9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/zETBEwRHSbCxKRc5dDCwNA/zh-cn_image_0000002628701294.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=562BDAC2D4ACD0A18C54E7841E3A125238FC41DC7F9DDE5EF72D7EC3C8A6468D)
 
  
   
 
-##### [h2]开发步骤
+#### 开发步骤
+1. 解码输入和输出子线程均会执行条件变量 wait 操作，并在该操作内部判断当前是否处于暂停状态。
 
-- 解码输入和输出子线程均会执行条件变量 wait 操作，并在该操作内部判断当前是否处于暂停状态。
   
 ```text
 // Use condition to wait for decoder requests for data.
-std::unique_lock lock(videoDecContext_->inputMutex);
+std::unique_lock<std::mutex> lock(videoDecContext_->inputMutex);
 videoDecContext_->inputCond.wait(
     lock, [this]() { return !isPause_ && (!isStarted_ || !videoDecContext_->inputBufferInfoQueue.empty()); });
 ```
 
-- 暂停播放时应用会同步设置暂停状态，并停止音频播放。
+2. 暂停播放时应用会同步设置暂停状态，并停止音频播放。
+
   
 ```text
 int32_t Player::Pause()
@@ -322,7 +322,8 @@ int32_t Player::Pause()
 }
 ```
 
-- 继续播放会取消暂停状态，唤醒等待在条件变量上的子线程并继续播放音频。
+3. 继续播放会取消暂停状态，唤醒等待在条件变量上的子线程并继续播放音频。
+
   
 ```text
 int32_t Player::Resume()
@@ -345,59 +346,46 @@ int32_t Player::Resume()
 }
 ```
 
-
  
   
 
-##### 跳转播放
+#### 跳转播放
 
   
 
-##### [h2]场景描述
+#### 场景描述
 
 跳转播放是指在视频连续播放的过程中，跳转到进度条上的其它位置进行播放。跳转过程中，解码器会清空当前缓存数据，并在跳转位置重新读取数据进行解码。
  
   
 
-##### [h2]实现原理
+#### 实现原理
 
 跳转播放通过解封装器的跳转功能实现，具体步骤如下。
- 
-- 使用解封装器的[OH_AVDemuxer_SeekToTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avdemuxer-h#oh_avdemuxer_seektotime)方法，跳转到指定时间的上一个关键帧。
-  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/-n6u40IhR3OoQd-Ni2M0xA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=42B1A942E3F44AE110CC3215207EDDC7A41488046676142D3D849BCCE5DB892F)
- 
- 
-关键帧（I帧）：是视频编码中的重要组成部分，它是一个完整的图像帧，能够独立解码。除I帧外还有前向预测帧（P帧）和双向预测帧（B帧）。
-- 前向预测帧（P帧）：依赖前面的I帧或P帧生成图像，存储的是与前一帧相比的变化量。
-- 双向预测帧（B帧）：参考前后的I帧或P帧生成图形，存储的是与前一帧和后一帧的相比的变化量。
+ 1. 使用解封装器的[OH_AVDemuxer_SeekToTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avdemuxer-h#oh_avdemuxer_seektotime)方法，跳转到指定时间的上一个关键帧。
 
   
+> [!NOTE]
+> 关键帧（I帧）：是视频编码中的重要组成部分，它是一个完整的图像帧，能够独立解码。除I帧外还有前向预测帧（P帧）和双向预测帧（B帧）。 前向预测帧（P帧）：依赖前面的I帧或P帧生成图像，存储的是与前一帧相比的变化量。 双向预测帧（B帧）：参考前后的I帧或P帧生成图形，存储的是与前一帧和后一帧的相比的变化量。
 
- - 阻塞解码输入和输出子线程，暂停解码。
-- 清空待送入解码器的数据和已解码完成待送显的数据。
-- 使用视频解码的[OH_VideoDecoder_Flush()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_flush)方法和音频解码的[OH_AudioCodec_Flush()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-audiocodec-h#oh_audiocodec_flush)方法，清除编码器中的缓存的输入和输出数据。
-- 取消解码子线程的阻塞，在跳转位置重新解码播放。
+2. 阻塞解码输入和输出子线程，暂停解码。
+3. 清空待送入解码器的数据和已解码完成待送显的数据。
+4. 使用视频解码的[OH_VideoDecoder_Flush()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_flush)方法和音频解码的[OH_AudioCodec_Flush()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-audiocodec-h#oh_audiocodec_flush)方法，清除编码器中的缓存的输入和输出数据。
+5. 取消解码子线程的阻塞，在跳转位置重新解码播放。
+ 
+> [!NOTE]
+> 除跳转到指定时间的上一个关键帧外，也可以选择其它跳转模式（例如跳转到下一个关键帧），具体可参考 OH_AVSeekMode 。
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/0JUx7W4ASnyNW1JnrqqVNg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=F76515755F6FB36968804831FDC62BCE2C976E0581ACA4ADA72084A83FF68B1F)
- 
- 
-除跳转到指定时间的上一个关键帧外，也可以选择其它跳转模式（例如跳转到下一个关键帧），具体可参考[OH_AVSeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-base-h#oh_avseekmode)。
-  
-
- 
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/9DryfATbRnGJc3pPmarRgQ/zh-cn_image_0000002659100521.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=363C12AE6DBEA49942AE7AA6AAEC5A6CAD00481BC75F673F303FBEE00F2280D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/9DryfATbRnGJc3pPmarRgQ/zh-cn_image_0000002659100521.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=D89075AA35F4867EF9E6306CABD9013BF259E9C98F7F1F123923C115E1C9DC23)
 
  
   
 
-##### [h2]开发步骤
+#### 开发步骤
+1. 解封装器seek到指定时间点的前一个关键帧。
 
-- 解封装器seek到指定时间点的前一个关键帧。
   
 ```text
 int32_t Demuxer::Seek(int64_t position)
@@ -413,7 +401,8 @@ int32_t Demuxer::Seek(int64_t position)
 }
 ```
 
-- 刷新解码器，清空缓存，再进行解码播放。
+2. 刷新解码器，清空缓存，再进行解码播放。
+
   
 ```text
 int32_t Player::Seek(int64_t desTime)
@@ -435,12 +424,13 @@ int32_t Player::Seek(int64_t desTime)
 }
 ```
 
-- 视频解码器flush之后需要重新传入PPS/SPS，这里解封装器seek后读取的第一份数据包含了PPS/SPS信息，传入解码器即可。
+3. 视频解码器flush之后需要重新传入PPS/SPS，这里解封装器seek后读取的第一份数据包含了PPS/SPS信息，传入解码器即可。
+
   
 ```text
 // read sample from demuxer.
 int32_t ret = demuxer_->ReadSample(demuxer_->GetVideoTrackId(),
-                                   reinterpret_cast(bufferInfo.buffer), bufferInfo.attr);
+                                   reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer), bufferInfo.attr);
 CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "ReadSample failed, thread out");
 // ...
 // push the buffer to the decoder.
@@ -448,48 +438,43 @@ ret = videoDecoder_->PushInputBuffer(bufferInfo);
 CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "Push data failed, thread out");
 ```
   
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/4SeRkjFfSoinsPAEAVBU5g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=B6812D8816FFFBA93DCCC943B1BF14824445290593452C275E1EEAF830F0E0F9)
- 
- PPS：图像参数集 (Picture Parameter Set)，包含了一帧或多帧图像的公共编码参数。
- SPS：序列参数集 (Sequence Parameter Set)，包含了一整个视频序列的全局信息。这些信息在整个序列播放期间基本不变，解码器需要用它们来初始化
+> [!NOTE]
+> PPS：图像参数集 (Picture Parameter Set)，包含了一帧或多帧图像的公共编码参数。 SPS：序列参数集 (Sequence Parameter Set)，包含了一整个视频序列的全局信息。这些信息在整个序列播放期间基本不变，解码器需要用它们来初始化
 
  
   
 
-##### 循环播放
+#### 循环播放
 
   
 
-##### [h2]场景描述
+#### 场景描述
 
 循环播放是指当前视频播放结束后重新回到视频开头播放，以达到连续播放同一视频的效果。
  
   
 
-##### [h2]实现原理
+#### 实现原理
 
 循环播放需要在视频播放到最后一帧后，继续从第一帧开始播放，具体流程如下。
- 
-- 当输入子线程从解封装器拿到的AVBuffer的[OH_AVCodecBufferFlags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avbuffer-info-h#oh_avcodecbufferflags)为AVCODEC_BUFFER_FLAGS_EOS，代表该buffer数据为结束帧。
-- 使用解封装器seek到首帧，即时间点为0的位置。
-- 从解封装器中拿到首帧数据，实现循环播放。
-
+ 1. 当输入子线程从解封装器拿到的AVBuffer的[OH_AVCodecBufferFlags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avbuffer-info-h#oh_avcodecbufferflags)为AVCODEC_BUFFER_FLAGS_EOS，代表该buffer数据为结束帧。
+2. 使用解封装器seek到首帧，即时间点为0的位置。
+3. 从解封装器中拿到首帧数据，实现循环播放。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/el6ViI3PTP2tBuMOF-kw7Q/zh-cn_image_0000002628861174.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=819CC2F6D5944C6D18A3688CCE1A69A8419C65A0890DE44264ACA9CEA1166746)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/el6ViI3PTP2tBuMOF-kw7Q/zh-cn_image_0000002628861174.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=4A6FCBA8009F4D5F5E2928969ADBDE7F712960169D14479A3BA95E572CB30CAF)
 
  
   
 
-##### [h2]开发步骤
+#### 开发步骤
+1. 解码输入子线程从解封装器拿到视频结束帧后，seek到首帧进行解码。
 
-- 解码输入子线程从解封装器拿到视频结束帧后，seek到首帧进行解码。
   
 ```text
 // read sample from demuxer.
 int32_t ret = demuxer_->ReadSample(demuxer_->GetVideoTrackId(),
-                                   reinterpret_cast(bufferInfo.buffer), bufferInfo.attr);
+                                   reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer), bufferInfo.attr);
 CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "ReadSample failed, thread out");
 // Check if the buffer flag include eos.
 if (bufferInfo.attr.flags & AVCODEC_BUFFER_FLAGS_EOS) {
@@ -499,59 +484,59 @@ if (bufferInfo.attr.flags & AVCODEC_BUFFER_FLAGS_EOS) {
     ret = demuxer_->Seek(0); // Seek to the first frame.
     CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "Loop failed, thread out");
     // Read first frame data from demuxer.
-    ret = demuxer_->ReadSample(demuxer_->GetVideoTrackId(), reinterpret_cast(bufferInfo.buffer),
+    ret = demuxer_->ReadSample(demuxer_->GetVideoTrackId(), reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer),
                                bufferInfo.attr);
     CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "ReadSample failed, thread out");
 }
 ```
 
-- 拿到音频结束帧后，等待视频解码器解帧结束后，重新读取首帧数据。
+2. 拿到音频结束帧后，等待视频解码器解帧结束后，重新读取首帧数据。
+
   
 ```text
 // Read sample from demuxer.
 int32_t ret = demuxer_->ReadSample(demuxer_->GetAudioTrackId(),
-                                   reinterpret_cast(bufferInfo.buffer), bufferInfo.attr);
+                                   reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer), bufferInfo.attr);
 CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "ReadSample failed, thread out");
 // Check if the buffer flag include eos.
 while (bufferInfo.attr.flags & AVCODEC_BUFFER_FLAGS_EOS) {
     // Wait the video thread seek to first frame.
-    std::unique_lock lock(audioDecContext_->endMutex);
+    std::unique_lock<std::mutex> lock(audioDecContext_->endMutex);
     isAudioWaitSeek_.store(true);
     audioDecContext_->endCond.wait(lock);
     int32_t ret = demuxer_->ReadSample(demuxer_->GetAudioTrackId(),
-                                       reinterpret_cast(bufferInfo.buffer), bufferInfo.attr);
+                                       reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer), bufferInfo.attr);
     CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "ReadSample failed, thread out");
 }
 isAudioWaitSeek_.store(false);
 ```
 
-
  
   
 
-##### 倍速播放
+#### 倍速播放
 
   
 
-##### [h2]场景描述
+#### 场景描述
 
 在解码播放逻辑中，倍速功能通常基于解码数据输出模块的渲染逻辑来实现。与直接使用播放器的倍速功能相比，基于底层解码的自定义方案支持更精细的速度控制（如0.1倍速微调），满足不同的应用场景。
  
   
 
-##### [h2]实现原理
+#### 实现原理
 
 先设置音频播放速度，音频帧渲染速度变化后，视频帧根据[音画同步](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization)功能，进行同步追帧，实现倍速播放效果。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/P8viE3bqT2aYAyQ_tl0sZQ/zh-cn_image_0000002659220489.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=EAABB8E5C4A54F7184BB2A4F2A84D643AF72D086FBD82BF9C76DB6D49A595D90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/P8viE3bqT2aYAyQ_tl0sZQ/zh-cn_image_0000002659220489.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=16E339726B89C34462544F8B121DC85D63C77F08D1B06899F9A625081FCBDB29)
 
  
   
 
-##### [h2]开发步骤
+#### 开发步骤
+1. 设置音频播放速度并通过赋值传递给视频解码模块。
 
-- 设置音频播放速度并通过赋值传递给视频解码模块。
   
 ```text
 void Player::SetSpeed(float speed)
@@ -565,11 +550,19 @@ void Player::SetSpeed(float speed)
 }
 ```
 
-- 输出子线程通过音画同步功能进行追帧。可参考音画同步的[开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization#section640118113514)。
+2. 输出子线程通过音画同步功能进行追帧。可参考音画同步的[开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization#section640118113514)。
+
   
 ```text
 // video buffer is too late, drop it
-if (waitTimeUs  WAIT_TIME_US_THRESHOLD) {
+if (waitTimeUs < WAIT_TIME_US_THRESHOLD_WARNING) {
+    dropFrame = true;
+    MEDIA_LOGW("VD buffer is too late");
+} else {
+    MEDIA_LOGW("VD buffer is too early waitTimeUs: %{public}ld", waitTimeUs);
+    // [0, ), render it with waitTimeUs, max 1s
+    // [-40,0), render it
+    if (waitTimeUs > WAIT_TIME_US_THRESHOLD) {
         waitTimeUs = WAIT_TIME_US_THRESHOLD;
     }
     // per frame render time reduced by 33ms
@@ -583,38 +576,35 @@ if (waitTimeUs > 0) {
 }
 ```
 
-
  
   
 
-##### 切换视频播放
+#### 切换视频播放
 
   
 
-##### [h2]场景描述
+#### 场景描述
 
 切换视频是视频播放场景中一种常见的交互方式。切换视频会结束当前视频的解码流程和播放，并使用切换后的视频进行解码播放。
  
   
 
-##### [h2]实现原理
+#### 实现原理
 
 切换视频播放需要先释放当前视频的解码资源，再使用切换后的视频重新初始化，具体如下。
- 
-- 设置结束状态，结束解码输入和输出子线程，停止当前视频的解码操作。
-- 释放当前视频的解码资源，包括解码器和解封装器。
-- 使用切换后的视频重新创建解码资源和解码子线程，具体请参考视频播放章节的[实现原理](#视频播放实现原理)。
-
+ 1. 设置结束状态，结束解码输入和输出子线程，停止当前视频的解码操作。
+2. 释放当前视频的解码资源，包括解码器和解封装器。
+3. 使用切换后的视频重新创建解码资源和解码子线程，具体请参考视频播放章节的[实现原理](#视频播放实现原理)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/SbHVJvjeQJShyodh-rc-xw/zh-cn_image_0000002628701296.png?HW-CC-KV=V1&HW-CC-Date=20260701T025437Z&HW-CC-Expire=86400&HW-CC-Sign=F9A4762575F82DD1E775F636C79D5A0935D32271B174AE8BA6605F3797440473)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/SbHVJvjeQJShyodh-rc-xw/zh-cn_image_0000002628701296.png?HW-CC-KV=V1&HW-CC-Date=20260701T041444Z&HW-CC-Expire=86400&HW-CC-Sign=F00EDC6DFCF9B49B2AB9F4C695DB47D9FC50A29B8EBF968239354550C3D066E9)
 
  
   
 
-##### [h2]开发步骤
+#### 开发步骤
+1. 释放当前视频的解码器、子线程等资源。
 
-- 释放当前视频的解码器、子线程等资源。
   
 ```text
 void Player::Release()
@@ -646,11 +636,10 @@ void Player::Release()
 }
 ```
 
-- 释放完成后通过切换后的视频创建资源，详见视频播放章节的[开发步骤](#视频播放开发步骤)。
-
+2. 释放完成后通过切换后的视频创建资源，详见视频播放章节的[开发步骤](#视频播放开发步骤)。
  
   
 
-##### 示例代码
+#### 示例代码
 
 [基于Surface模式进行视频播放控制](https://gitcode.com/HarmonyOS_Samples/DecodePlayControl)

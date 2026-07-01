@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-9
 
-## rcp怎么在请求和拦截器中增加query参数
- 
-
-
-##### 问题现象
+#### 问题现象
 
 rcp请求过程中，如何增加query参数，以及在请求拦截场景，如何在拦截器中增加query参数？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [拦截器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-interceptconfig)：使用拦截器可以便捷地对HTTP的请求与响应进行修改，您可以创建拦截器链，按需定制一组拦截器对网络请求/响应进行修改。[Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-api)模块提供了拦截器能力，在[SessionConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section18613443123412)中添加[Interceptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section1385412349596)参数，传入自定义的拦截器，即可在HTTP请求和响应的过程中添加拦截器功能。
 - [addQueryValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uri#addqueryvalue12)在当前URI对象上添加查询参数后返回新的URI对象，保持原有URI对象不变。
@@ -22,103 +18,103 @@ rcp请求过程中，如何增加query参数，以及在请求拦截场景，如
  
  
 
-##### 解决方案
+#### 解决方案
 
 在rcp请求时，使用[uri.URI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uri#uri)接口输入请求资源地址构建URI类，使用addQueryValue接口添加参数。在拦截场景中，新建一个自定义的拦截器，拦截器中使用addQueryValue接口添加参数，自定义拦截器传入SessionConfiguration中，在创建rcp会话时，作为入参传入，具体示例代码如下：
  
-```text
-import uri from '@ohos.uri';
-import { rcp } from '@kit.RemoteCommunicationKit';
-import { common } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { url } from '@kit.ArkTS';
+```json
+import <span style="color: rgb(0,0,255);">uri </span>from <span style="color: rgb(255,0,170);">'@ohos.uri'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">rcp </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.RemoteCommunicationKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">url </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
 
-// 模拟拦截器开关
-export class InterceptorSwitch {
-  isNeedInterceptor: boolean = true;
+<em>// </em><em><span style="color: rgb(128,128,128);">模拟拦截器开关</span></em>
+export class <span style="color: rgb(0,0,255);">InterceptorSwitch </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">isNeedInterceptor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
 
-  public constructor(isNeedInterceptor: boolean) {
-    this.isNeedInterceptor = isNeedInterceptor;
-  }
-}
+  public constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">isNeedInterceptor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isNeedInterceptor </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">isNeedInterceptor</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-// 定义RequestUrlChangeInterceptor拦截器
-export class RequestUrlChangeInterceptor implements rcp.Interceptor {
-  private readonly interceptorSwitch: InterceptorSwitch;
+<em>// </em><em><span style="color: rgb(128,128,128);">定义</span><span style="color: rgb(128,128,128);">RequestUrlChangeInterceptor</span><span style="color: rgb(128,128,128);">拦截器</span></em>
+export class <span style="color: rgb(0,0,255);">RequestUrlChangeInterceptor </span>implements <span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Interceptor </span><span style="color: rgb(255,0,170);">{</span>
+  private readonly <span style="color: rgb(0,0,255);">interceptorSwitch</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">InterceptorSwitch</span><span style="color: rgb(181,106,1);">;</span>
 
-  constructor(interceptorSwitch: InterceptorSwitch) {
-    this.interceptorSwitch = interceptorSwitch;
-  }
+  constructor<span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">interceptorSwitch</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">InterceptorSwitch</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interceptorSwitch </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">interceptorSwitch</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  // 自定义请求处理逻辑
-  async intercept(context: rcp.RequestContext, next: rcp.RequestHandler): Promisercp.Response> {
-    if (this.interceptorSwitch.isNeedInterceptor) {
-      console.info('[RequestUrlChangeInterceptor]: Network need Interceptor');
-      console.info('[RequestUrlChangeInterceptor] href: ' + context.request.url.href);
-      let uriBuilder = new uri.URI(context.request.url.href);
-      let finalUrl = uriBuilder.addQueryValue('r', '0').toString();
-      console.log('[RequestUrlChangeInterceptor] finalUrl: ' + finalUrl);
-      context.request.url = url.URL.parseURL(finalUrl);
-    } else {
-      console.info('[RequestUrlChangeInterceptor]: Network do not need Interceptor');
-    }
-    return next.handle(context);
-  }
-}
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">自定义请求处理逻辑</span></em>
+  async <span style="color: rgb(0,0,255);">intercept</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RequestContext</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">next</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">RequestHandler</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Response</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">interceptorSwitch</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isNeedInterceptor</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[RequestUrlChangeInterceptor]: Network need Interceptor'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[RequestUrlChangeInterceptor] href: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">href</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">uriBuilder </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">URI</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">href</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">finalUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">uriBuilder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addQueryValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'r'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'0'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[RequestUrlChangeInterceptor] finalUrl: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">finalUrl</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">URL</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">parseURL</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">finalUrl</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'[RequestUrlChangeInterceptor]: Network do not need Interceptor'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    return <span style="color: rgb(0,0,255);">next</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">handle</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Entry
-@Component
-struct Index {
-  context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  savePath = this.context.filesDir;
-  needInterceptor = new InterceptorSwitch(true);
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">savePath </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">needInterceptor </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">InterceptorSwitch</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    RelativeContainer() {
-      Button('RCP Add Query Value')
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          let downloadUrl: string = '';
-          try {
-            // 下载链接需根据自身业务自行配置
-            downloadUrl = this.context.resourceManager.getStringSync($r('app.string.download_url').id);
-          } catch (error) {
-            console.error(`getStringSync failed, error code: ${error.code}, message: ${error.message}.`);
-          }
-          if (downloadUrl === '') {
-            return;
-          }
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">RelativeContainer</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'RCP Add Query Value'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignRules</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">VerticalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">middle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">anchor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'__container__'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">align</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center </span><span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          let <span style="color: rgb(0,0,255);">downloadUrl</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+          try <span style="color: rgb(255,0,170);">{</span>
+          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">下载链接需根据自身业务自行配置</span></em>
+            <span style="color: rgb(0,0,255);">downloadUrl </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getStringSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.string.download_url'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`getStringSync failed, error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">, message: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">downloadUrl </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            return<span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
 
-          let uriBuilder = new uri.URI(downloadUrl);
-          let finalUrl = uriBuilder.addQueryValue('pid', 'ImgRaw');
-          let finalUrlStr = finalUrl.toString();
-          console.log('Hello World: ' + finalUrlStr);
-          let downloadToFile: rcp.DownloadToFile = {
-            kind: 'folder',
-            path: this.savePath // 请根据自身业务选择合适的路径
-          } as rcp.DownloadToFile;
+          let <span style="color: rgb(0,0,255);">uriBuilder </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">URI</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">downloadUrl</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">finalUrl </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">uriBuilder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addQueryValue</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pid'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'ImgRaw'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">finalUrlStr </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">finalUrl</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Hello World: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">finalUrlStr</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">downloadToFile</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DownloadToFile </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">kind</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'folder'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">path</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">savePath </span><em>// </em><em><span style="color: rgb(128,128,128);">请根据自身业务选择合适的路径</span></em>
+          <span style="color: rgb(255,0,170);">} </span>as <span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DownloadToFile</span><span style="color: rgb(181,106,1);">;</span>
 
-          const sessionConfig: rcp.SessionConfiguration = {
-            interceptors: [
-              new RequestUrlChangeInterceptor(this.needInterceptor),
-            ],
-          };
-          const session = rcp.createSession(sessionConfig);
-          session.downloadToFile(finalUrlStr, downloadToFile).then((response) => {
-            if (response) {
-              console.info(`Succeeded in getting the url ${JSON.stringify(response.request.url)}`);
-            }
-          }).catch((err: BusinessError) => {
-            console.error(`DownloadToFile failed, the error message is ${JSON.stringify(err)}`);
-          });
-        });
-    }
-    .height('100%')
-    .width('100%');
-  }
-}
+          const <span style="color: rgb(0,0,255);">sessionConfig</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">SessionConfiguration </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">interceptors</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>
+              new <span style="color: rgb(0,0,255);">RequestUrlChangeInterceptor</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">needInterceptor</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+          const <span style="color: rgb(0,0,255);">session </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">rcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSession</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">sessionConfig</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">session</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">downloadToFile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">finalUrlStr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">downloadToFile</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`Succeeded in getting the url </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">response</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">request</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">url</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`DownloadToFile failed, the error message is </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

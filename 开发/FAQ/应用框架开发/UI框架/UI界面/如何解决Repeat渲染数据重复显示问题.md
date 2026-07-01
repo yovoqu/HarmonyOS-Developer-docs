@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-609
 
-## 如何解决Repeat渲染数据重复显示问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Repeat实现列表功能，加载新数据会出现重复显示问题，一般有下面几种问题场景：
   
@@ -17,18 +13,16 @@
 | 场景一 | 滑动加载新数据，在aboutToAppear方法里处理数据逻辑，导致数据重复。 |
 | 场景二 | Repeat与@Builder混用场景下，传参错误，导致数据重复。 |
  
- 
-- 场景一：滑动加载新数据，在aboutToAppear方法里处理数据逻辑，问题如图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/GBAzmQXnR2qYjXAwAbVT0A/zh-cn_image_0000002658911937.png?HW-CC-KV=V1&HW-CC-Date=20260701T025719Z&HW-CC-Expire=86400&HW-CC-Sign=1DE025606F65B4059EEAF9B27AAFA782928B994D8ED6BB9CB9E766834A2716C4)
+1. 场景一：滑动加载新数据，在aboutToAppear方法里处理数据逻辑，问题如图所示：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/GBAzmQXnR2qYjXAwAbVT0A/zh-cn_image_0000002658911937.png?HW-CC-KV=V1&HW-CC-Date=20260701T041210Z&HW-CC-Expire=86400&HW-CC-Sign=A2AE1C7F2D9C32F1B075935237088F3A6AE95691B82BDFC8613BCF7BAEECF104)
 
-- 场景二：进行Repeat与@Builder混用场景下，传参使用错误，导致数据重复，问题如图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/TCJa9uevSEKaL_f7It-E_A/zh-cn_image_0000002628392728.png?HW-CC-KV=V1&HW-CC-Date=20260701T025719Z&HW-CC-Expire=86400&HW-CC-Sign=FF10B4C559FDE10DD96CD668BAB28973D34FEA342215F00B3282E8B1CE2EAC9A)
-
+2. 场景二：进行Repeat与@Builder混用场景下，传参使用错误，导致数据重复，问题如图所示：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/TCJa9uevSEKaL_f7It-E_A/zh-cn_image_0000002628392728.png?HW-CC-KV=V1&HW-CC-Date=20260701T041210Z&HW-CC-Expire=86400&HW-CC-Sign=EBB306AF289F4C079180A18412B5D6032D4FAEBD1DA6EF95177C51E00FD53904)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)根据容器组件的有效加载范围（屏幕可视区域+预加载区域）加载子组件。当容器滑动/数组改变时，Repeat会根据父容器组件的布局过程重新计算有效加载范围，并管理列表子组件节点的创建与销毁。Repeat通过组件节点更新/复用从而优化性能表现。
 - [节点更新复用能力说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#节点更新复用能力说明)：当滚动容器组件滑动/数组改变时，Repeat将失效的子组件节点（离开容器组件的显示区域和预加载区域）加入空闲节点缓存池中，即断开组件节点与页面组件树的连接但不销毁节点。在需要生成新的组件时，对缓存池里的组件节点进行复用。
@@ -37,11 +31,12 @@
  
  
 
-##### 问题定位
+#### 问题定位
+1. 场景一：根据问题代码分析，数据更新是在子组件的aboutToAppear方法里完成的，aboutToAppear在组件被创建时触发，之后不会再触发。因为Repeat提供了节点复用的能力，后续加载的是之前复用的节点，不会走aboutToAppear方法，导致数据没有更新。
 
-- 场景一：根据问题代码分析，数据更新是在子组件的aboutToAppear方法里完成的，aboutToAppear在组件被创建时触发，之后不会再触发。因为Repeat提供了节点复用的能力，后续加载的是之前复用的节点，不会走aboutToAppear方法，导致数据没有更新。
- 问题代码如下：
- 
+  问题代码如下：
+
+  
 ```text
 @ComponentV2
 struct LowCodeTitleView{
@@ -50,7 +45,7 @@ struct LowCodeTitleView{
   @Local changes:string = ''
 
   aboutToAppear(): void {
-    this.changes = this.ids // 数据更新是在子组件的aboutToAppear方法里完成的
+    this.changes = this.ids <em>// </em><em>数据更新是在子组件的aboutToAppear方法里完成的</em>
   }
 
   build() {
@@ -63,16 +58,17 @@ struct LowCodeTitleView{
 @Entry
 @ComponentV2
 struct Index {
-  @Local dataArr: Array = [];
+  @Local dataArr: Array<string> = [];
   aboutToAppear(): void {
-    for (let i = 0; i // 为数组添加一些数据
+    for (let i = 0; i < 50; i++) {
+      this.dataArr.push(`data_${i}`); <em>// 为数组添加一些数据</em>
     }
   }
   build() {
     RelativeContainer() {
       List({ space: 3 }) {
-        Repeat(this.dataArr)
-          .each((ri: RepeatItem) => {
+        Repeat<string>(this.dataArr)
+          .each((ri: RepeatItem<string>) => {
             ListItem() {
               LowCodeTitleView({
                 ids:ri.item
@@ -89,47 +85,24 @@ struct Index {
 }
 ```
 
+1. 场景二：根据问题代码分析：
 
-- 场景二：根据问题代码分析：
- 
+  
 首页展示正常，说明节点创建操作正常。
-- 当滚动容器组件滑动/数组改变时，Repeat将失效的子组件节点（离开有效加载范围）加入空闲节点缓存池中，即断开组件节点与页面组件树的连接但不销毁节点。在需要生成新的组件时，对缓存池里的组件节点进行复用。下滑后发现节点与历史出现的节点重复，说明节点复用时异常，推测传参的方式或类型不符合要求。
-- [Repeat与Builder混用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#repeat与builder混用)章节中描述：当Repeat与@Builder混用时，必须将RepeatItem类型整体进行传参，组件才能监听到数据变化，如果只传递RepeatItem.item或RepeatItem.index，将会出现UI渲染异常。
-- 基于以上可确认问题原因在于组件imageItemView的传参有误。
-
- 
-问题代码如下：
- 
-```text
-List({ space: 10 }) {
-  Repeat(this.imageList)
-    .each((ri: RepeatItem) => {
-      ListItem() {
-        this.imageItemView(ri.item);
-      };
-    })
-    .key((item: ItemDataV2) => item.id.toString())
-    .templateId((item: ItemDataV2) => {
-      return item.type;
-    })
-    .virtualScroll({ totalCount: this.imageList.length });
-}
-```
- 
+2. 当滚动容器组件滑动/数组改变时，Repeat将失效的子组件节点（离开有效加载范围）加入空闲节点缓存池中，即断开组件节点与页面组件树的连接但不销毁节点。在需要生成新的组件时，对缓存池里的组件节点进行复用。下滑后发现节点与历史出现的节点重复，说明节点复用时异常，推测传参的方式或类型不符合要求。
+3. [Repeat与Builder混用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat#repeat与builder混用)章节中描述：当Repeat与@Builder混用时，必须将RepeatItem类型整体进行传参，组件才能监听到数据变化，如果只传递RepeatItem.item或RepeatItem.index，将会出现UI渲染异常。
+4. 基于以上可确认问题原因在于组件imageItemView的传参有误。
  
  
 
-##### 分析结论
-
-- 场景一：Repeat提供了节点复用的能力，节点复用的时候没有办法重走aboutToAppear，导致复用组件的数据没有及时刷新。需要把要更新的数据放在数据源里，通过数据源变化来触发Repeat刷新。
-- 场景二：UI渲染异常根源在于Repeat与@Builder混用时传参错误，必须将RepeatItem类型整体进行传参而不是只传递RepeatItem.item或RepeatItem.index。
-
+#### 分析结论
+1. 场景一：Repeat提供了节点复用的能力，节点复用的时候没有办法重走aboutToAppear，导致复用组件的数据没有及时刷新。需要把要更新的数据放在数据源里，通过数据源变化来触发Repeat刷新。
+2. 场景二：UI渲染异常根源在于Repeat与@Builder混用时传参错误，必须将RepeatItem类型整体进行传参而不是只传递RepeatItem.item或RepeatItem.index。
  
  
 
-##### 修改建议
-
-- 场景一：
+#### 修改建议
+1. 场景一：
 方案一：由于复用时aboutToAppear方法不会执行，无法在aboutToAppear里更新数据源，因此可以考虑通过Repeat直接监听数据源变化触发刷新，示例代码如下：
 ```text
 class Title {
@@ -144,7 +117,7 @@ class Title {
 
 @ComponentV2
 struct LowCodeTitleView {
-  @Param title: Title = new Title(0, '标题内容'); // 数据从父组件传递给子组件，不走aboutToAppear
+  @Param title: Title = new Title(0, '标题内容');<em> </em><em>// 数据从父组件传递给子组件，不走aboutToAppear</em>
 
   build() {
     Column() {
@@ -156,18 +129,19 @@ struct LowCodeTitleView {
 @Entry
 @ComponentV2
 struct RepeatLoadDataDemo {
-  @Local dataArr: Array = [];
+  @Local dataArr: Array<Title> = [];
 
   aboutToAppear(): void {
-    for (let i = 0; i  // 为数组添加一些数据
+    for (let i = 0; i < 50; i++) {
+      this.dataArr.push(new Title(i, '标题内容'));<em> </em><em>// 为数组添加一些数据</em>
     }
   }
 
   build() {
     RelativeContainer() {
       List({ space: 3 }) {
-        Repeat(this.dataArr) // 把更新的数据放在数据源里
-          .each((ri: RepeatItem) => {
+        Repeat<Title>(this.dataArr) <em>// 把更新的数据放在数据源里</em>
+          .each((ri: RepeatItem<Title>) => {
             ListItem() {
               LowCodeTitleView({
                 title: ri.item
@@ -185,13 +159,12 @@ struct RepeatLoadDataDemo {
 }
 ```
 
-- 方案二：可以使用LazyForEach结合@Reusable实现列表组件的组件复用，在节点复用的时候使用aboutToReuse生命周期触发节点触发更新数据，参考链接示例代码：[列表滚动配合LazyForEach使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable#列表滚动配合lazyforeach使用)。在API 18后，Repeat提供了关闭自身复用的能力，详细参考：[VirtualScrollOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscrolloptions)；配合[@ReusableV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2)装饰的组件使用，复用的时候也可以触发组件的aboutToReuse生命周期函数。
+2. 方案二：可以使用LazyForEach结合@Reusable实现列表组件的组件复用，在节点复用的时候使用aboutToReuse生命周期触发节点触发更新数据，参考链接示例代码：[列表滚动配合LazyForEach使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable#列表滚动配合lazyforeach使用)。在API 18后，Repeat提供了关闭自身复用的能力，详细参考：[VirtualScrollOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscrolloptions)；配合[@ReusableV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2)装饰的组件使用，复用的时候也可以触发组件的aboutToReuse生命周期函数。
+1. 场景二：上述问题代码中this.imageItemView(ri.item)传参存在问题，必须将RepeatItem类型整体进行传参，应该改为this.imageItemView(ri)。
 
- 
+  示例代码如下：
 
-- 场景二：上述问题代码中this.imageItemView(ri.item)传参存在问题，必须将RepeatItem类型整体进行传参，应该改为this.imageItemView(ri)。
- 示例代码如下：
- 
+  
 ```text
 @ObservedV2
 export class ItemDataV2 {
@@ -217,24 +190,24 @@ export class ItemDataV2 {
 @Entry
 @ComponentV2
 struct RepeatDemo {
-  @Local imageList: Array = this.getFirstPageData();
+  @Local imageList: Array<ItemDataV2> = this.getFirstPageData();
 
-  // 模拟的第一页的数据
-  getFirstPageData(): Array {
-    let imageList: Array = [];
+ <em> // 模拟的第一页的数据</em>
+  getFirstPageData(): Array<ItemDataV2> {
+    let imageList: Array<ItemDataV2> = [];
     imageList.push(...getItemData(2, 10));
     return imageList;
   }
 
   build() {
     Column() {
-      Button('addItem').onClick(() => { // 点击按钮添加一页的数据
+      Button('addItem').onClick(() => { <em>// 点击按钮添加一页的数据</em>
         this.addTestData();
       });
 
       List({ space: 10 }) {
-        Repeat(this.imageList)
-          .each((ri: RepeatItem) => {
+        Repeat<ItemDataV2>(this.imageList)
+          .each((ri: RepeatItem<ItemDataV2>) => {
             ListItem() {
               this.imageItemView(ri);
             };
@@ -256,7 +229,7 @@ struct RepeatDemo {
     }.expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM]);
   }
 
-  // 添加一页的数据
+ <em> // 添加一页的数据</em>
   addTestData(): void {
     let count = this.imageList.length;
     let moreArr: ItemDataV2[] = getItemData(count, 10);
@@ -264,7 +237,7 @@ struct RepeatDemo {
   }
 
   @Builder
-  imageItemView(ri: RepeatItem) {
+  imageItemView(ri: RepeatItem<ItemDataV2>) {
     Stack() {
       Image(ri.item.img)
         .objectFit(ImageFit.Cover)
@@ -282,9 +255,29 @@ struct RepeatDemo {
   }
 }
 
-let swiperImg: Array = [\$r('app.media.backImage')]; // 背景图
+let swiperImg: Array<Resource> = [$r('app.media.backImage')]; <em>// </em><em>背景图</em>
 
-// 创建模拟的数据
+<em>// </em><em>创建模拟的数据</em>
 function getItemData(start: number, count: number): ItemDataV2[] {
   let arr: ItemDataV2[] = [];
-  for (let i = 0; i
+  for (let i = 0; i < count; i++) {
+    let imageIndex = i % swiperImg.length;
+    arr.push(new ItemDataV2(i + start, (i + start).toString(), swiperImg[imageIndex]));
+  }
+  return arr;
+}
+```
+
+ 
+代码效果如下图：
+ 
+场景一：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/ws6m880aRqCcCEYmWhlYYw/zh-cn_image_0000002658791999.png?HW-CC-KV=V1&HW-CC-Date=20260701T041210Z&HW-CC-Expire=86400&HW-CC-Sign=1E7BD3B9487C1A1267588C34752F72E0254AB172937088F142A743A77C63345B)
+
+ 
+场景二：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/OHNdULY7THCFk4aznGuIYw/zh-cn_image_0000002628552620.png?HW-CC-KV=V1&HW-CC-Date=20260701T041210Z&HW-CC-Expire=86400&HW-CC-Sign=D7FD2796E15EA0F8C6CE94226404EF29B201B0F11652B3B939A8B49D1E8BF09D)

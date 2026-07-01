@@ -4,26 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-564
 
-## Image组件加载在线图片报错
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Image组件加载在线图片失败，可能是什么原因导致的？如何解决？
  
  
 
-##### 背景知识
+#### 背景知识
 
 在应用中经常会需要显示一些图片，例如：按钮中的icon、网络图片、本地图片等。在应用中显示图片需要使用Image组件实现，Image支持多种图片格式，包括png、jpg、bmp、svg、gif和heif，具体用法请参考[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件。
  
  
 
-##### 问题定位
-
-- 使用网络图片时，需要申请权限ohos.permission.INTERNET，检查module.json5是否有如下配置。
-```text
+#### 问题定位
+1. 使用网络图片时，需要申请权限ohos.permission.INTERNET，检查module.json5是否有如下配置。
+```json
 "requestPermissions": [
   {
     "name": "ohos.permission.INTERNET"
@@ -31,8 +26,8 @@ Image组件加载在线图片失败，可能是什么原因导致的？如何解
 ]
 ```
 
-- 确保图片能在互联网上访问，可以在浏览器中访问图片以确保图片有效。
-- 给Image组件添加onError方法，根据错误日志定位可能的原因：
+2. 确保图片能在互联网上访问，可以在浏览器中访问图片以确保图片有效。
+3. 给Image组件添加onError方法，根据错误日志定位可能的原因：
 ```text
 Image('https://example.com/example.png').width(100)
   .onError((error: ImageError) => {
@@ -40,31 +35,28 @@ Image('https://example.com/example.png').width(100)
   })
 ```
 
-
  
  
 
-##### 分析结论
+#### 分析结论
 
 Image组件加载网络图片报错，可能有以下原因：
- 
-- 没有申请ohos.permission.INTERNET权限。
-- 图片本身无法在互联网访问，比如只有在特定网络或者VPN场景才能访问。
-- 图片链接存在非法字符，比如url存在空格没有转义：
+ 1. 没有申请ohos.permission.INTERNET权限。
+2. 图片本身无法在互联网访问，比如只有在特定网络或者VPN场景才能访问。
+3. 图片链接存在非法字符，比如url存在空格没有转义：
 ```text
 [ImageError] http task of url xxx.jpg response code 0, msg from netStack: URL using bad/illegal format or missing URL
 ```
 
-- 图片在服务端可能加了限制，可能是SSL证书、referer、User-Agent等：
+4. 图片在服务端可能加了限制，可能是SSL证书、referer、User-Agent等：
 ```text
 [ImageError] http task of url xxx.jpg failed, response code 403
 ```
 
-
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 若图片链接存在非法字符，比如空格，可以转义下url：
 ```text
@@ -76,8 +68,7 @@ Image('https://xxx x.png'.replace(' ', '%20')).width(100);
 Image(encodeURI('https://xxx x中文.png')).width(100);
 ```
 
-- 若图片存在SSL证书、referer、User-Agent等限制，可以用如下方式解决：
-可以把图片下载之后再显示，参考示例如下。
+- 若图片存在SSL证书、referer、User-Agent等限制，可以用如下方式解决：1. 可以把图片下载之后再显示，参考示例如下。
 ```text
 import { http } from '@kit.NetworkKit';
 import { image } from '@kit.ImageKit';
@@ -87,7 +78,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct Page {
   @State pixelMap: PixelMap | undefined = undefined;
-  imgUrl: string = 'https://xxx/xxx.jpg'; // 替换在线url图片
+  imgUrl: string = 'https://xxx/xxx.jpg'; <em>// 替换在线url图片</em>
 
   build() {
     Column() {
@@ -97,20 +88,20 @@ struct Page {
           console.error('error:', error.message);
         });
       Button('下载图片').onClick(() => {
-        // 请求头
-        let header: Record = {
+        <em>// 请求头</em>
+        let header: Record<string, string | number> = {
           'userAgent': 'Mozilla/5.0'
         };
         http.createHttp().request(
-          // 在线图片url
+          <em>// 在线图片url</em>
           this.imgUrl,
-          // 发起请求可选参数的类型和取值范围
+          <em>// 发起请求可选参数的类型和取值范围</em>
           {
             expectDataType: http.HttpDataType.ARRAY_BUFFER,
             header: header
           }
         ).then(async (res) => {
-          // 将图片资源转为像素图（PixelMap）
+          <em>// 将图片资源转为像素图（PixelMap）</em>
           this.pixelMap = await image.createImageSource(res.result as ArrayBuffer).createPixelMap();
         }).catch((err: BusinessError) => {
           console.error(`Failed to request. Code is ${err.code}, message is ${err.message}`);
@@ -125,20 +116,21 @@ struct Page {
 }
 ```
 
-- 配合服务端添加请求头。由于Image组件暂时不支持添加自定义的请求头，推荐使用[三方库ImageKnife](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fimageknife/v/3.2.7)的参数headerOption设置请求头：
+
+2. 配合服务端添加请求头。由于Image组件暂时不支持添加自定义的请求头，推荐使用[三方库ImageKnife](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fimageknife/v/3.2.7)的参数headerOption设置请求头：
 ```text
 import { ImageKnifeComponent, ImageKnifeOption } from '@ohos/imageknife';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { rcp } from '@kit.RemoteCommunicationKit';
 
-// 自定义下载方法
+<em>// 自定义下载方法</em>
 @Concurrent
-async function custom(context: Context, src: string | PixelMap | Resource): Promise {
+async function custom(context: Context, src: string | PixelMap | Resource): Promise<ArrayBuffer | undefined> {
   return new Promise((resolve, reject) => {
     if (typeof src === 'string') {
       const sessionConfig: rcp.SessionConfiguration = {
         headers: {
-          // 添加需要的header'userAgent': 'customAgent',
+          <em>// 添加需要的header'userAgent': 'customAgent',</em>
         },
       };
       const session = rcp.createSession(sessionConfig);
@@ -161,7 +153,7 @@ async function custom(context: Context, src: string | PixelMap | Resource): Prom
 @Component
 struct Index {
   @State optionErr: ImageKnifeOption = {
-    loadSrc: 'https://xxx/xxx.jpg', // 替换在线url图片
+    loadSrc: 'https://xxx/xxx.jpg', <em>// 替换在线url图片</em>
     customGetImage: custom
   };
 

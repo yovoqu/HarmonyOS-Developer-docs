@@ -4,126 +4,117 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-46
 
-## AES加密如何使用ISO7816-4PADDING进行填充
- 
-
-
-##### 问题现象
+#### 问题现象
 
 AES加密无法在CBC模式下用ISO7816-4PADDING进行填充，CBC模式下填充模式为[NoPadding|PKCS5|PKCS7]。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - AES为分组加密算法，分组长度为128位。在实际应用中，最后一组明文可能不足128位（16字节），此时可以通过不同的[填充模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#填充模式)进行数据填充。
 - 不同分组模式支持的填充模式如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/zrcFZv-2SCGKCOMsUt6Olg/zh-cn_image_0000002628609218.png?HW-CC-KV=V1&HW-CC-Date=20260701T025748Z&HW-CC-Expire=86400&HW-CC-Sign=63CDB2B34F78D5B68A22D6AA64854AD3315386AE46B7838C10826B5A49E521CA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/zrcFZv-2SCGKCOMsUt6Olg/zh-cn_image_0000002628609218.png?HW-CC-KV=V1&HW-CC-Date=20260701T041421Z&HW-CC-Expire=86400&HW-CC-Sign=7CFB3825F76A7045CC02AF3D98293041EFDED8EAAFECA9796D9B5B8EE34A471C)
 
 - 使用算法库CBC的NoPadding填充，依据业务自行对数据进行ISO7816-4PADDING填充和校验。
 - ISO 7816-4是智能卡通信的国际标准，其中定义了一种特殊的数据填充（Padding）机制，用于将数据块扩展到特定长度；这种填充方案确保数据在传输或加密时符合块大小要求，同时保持数据完整性。
-- ISO 7816-4填充的核心规则：
-添加固定标记：在数据末尾添加第一个字节0x80（二进制1000 0000）。
-- 补零：随后添加0x00直到数据块长度达到目标大小。
+- ISO 7816-4填充的核心规则：1. 添加固定标记：在数据末尾添加第一个字节0x80（二进制1000 0000）。
+
+2. 补零：随后添加0x00直到数据块长度达到目标大小。
 
  
  
- 
 
-##### 解决方案
+#### 解决方案
 
 当前HarmonyOS Crypto Architecture Kit（加解密算法框架服务）提供的对称算法仅支持PKCS7和NoPadding填充算法，以下介绍如何基于Crypto Architecture Kit实现ISO 7816-4填充的AES算法。
  
 加密实现思路：
- 
-- 对明文进行ISO 7816-4填充。
-- 对填充后的数据进行AES-CBC加密，指定填充为NoPadding，得到密文。
-
+ 1. 对明文进行ISO 7816-4填充。
+2. 对填充后的数据进行AES-CBC加密，指定填充为NoPadding，得到密文。
  
 解密实现思路：
- 
-- 对密文进行AES-CBC解密，指定填充为NoPadding。
-- 对解密的数据进行ISO 7816-4去填充，得到真正的明文。
-
+ 1. 对密文进行AES-CBC解密，指定填充为NoPadding。
+2. 对解密的数据进行ISO 7816-4去填充，得到真正的明文。
  
 代码示例如下：
  
 - ISO7816_4_PADDING函数实现ISO 7816-4填充算法。
 ```text
-async function ISO7816_4_PADDING(addPadding: boolean, data: Uint8Array): PromiseUint8Array> {
-  let blockSize = 16;
-  try {
-    if (addPadding == true) {
-      let paddingLen = blockSize - (data.length % blockSize);
-      let cipherText = new Uint8Array(data.length + paddingLen);
-      cipherText.set(data);
-      cipherText[data.length] = 0x08;
-      for (let i = 1; i  paddingLen; i++) {
-        cipherText[data.length + i] = 0x00;
-      }
-      return cipherText;
-    } else {
-      if (data.length == 0 || data.length % blockSize != 0) {
-        throw new TypeError("invalid len!");
-      }
-      let i = 0;
-      for (i = 0; i  blockSize; i++) {
-        if (data[data.length - 1 - i] != 0x00) {
-          break;
-        }
-      }
-      if (i == blockSize || data[data.length - 1 - i] != 0x08) {
-        throw new TypeError("invalid padding!");
-      }
-      return data.slice(0, data.length - 1 - i);
-    }
-  } catch (error) {
-    console.error(error, `error code: ${error.code}`);
-    return new Uint8Array([]);
-  }
-}
+async function <span style="color: rgb(0,0,255);">ISO7816_4_PADDING</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">addPadding</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">blockSize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">;</span>
+  try <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">addPadding </span><span style="color: rgb(181,106,1);">== </span>true<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">paddingLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">blockSize </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">% </span><span style="color: rgb(0,0,255);">blockSize</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">cipherText </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">paddingLen</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x08</span><span style="color: rgb(181,106,1);">;</span>
+      for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">paddingLen</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x00</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      return <span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">% </span><span style="color: rgb(0,0,255);">blockSize </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        throw new <span style="color: rgb(0,0,255);">TypeError</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"invalid len!"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+      for <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">blockSize</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">0x00) </span><span style="color: rgb(255,0,170);">{</span>
+          break<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">blockSize </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">0x08) </span><span style="color: rgb(255,0,170);">{</span>
+        throw new <span style="color: rgb(0,0,255);">TypeError</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"invalid padding!"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      return <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  } </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - aes_enc_with_ISO7816_4PADDING实现ISO 7816-4填充的AES-CBC加密算法。
 ```text
-async function aes_enc_with_ISO7816_4PADDING(key: Uint8Array, iv: Uint8Array, plaintext: Uint8Array): PromiseUint8Array> {
-  try {
-    let ivParam: cryptoFramework.IvParamsSpec = { iv: { data: iv }, algName: 'IvParamsSpec' };
-    let cipherAlg = 'AES' + key.length * 8;
-    let keyGen = cryptoFramework.createSymKeyGenerator(cipherAlg);
-    let symKey = keyGen.convertKeySync({ data: key });
-    let plaintextWithPadding = await ISO7816_4_PADDING(true, plaintext);
+async function <span style="color: rgb(0,0,255);">aes_enc_with_ISO7816_4PADDING</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plaintext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  try <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">ivParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IvParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'IvParamsSpec' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">cipherAlg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'AES' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">keyGen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSymKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cipherAlg</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">keyGen</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertKeySync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">key </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">plaintextWithPadding </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">ISO7816_4_PADDING</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plaintext</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    let cipher = cryptoFramework.createCipher("AES|CBC|NoPadding");
-    cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, ivParam);
-    let ciphertext = await cipher.doFinal({ data: plaintextWithPadding });
-    return ciphertext.data;
-  } catch (error) {
-    console.error(error, `error code: ${error.code}`);
-    return new Uint8Array([]);
-  }
-}
+    let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"AES|CBC|NoPadding"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ENCRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ivParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">ciphertext </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">plaintextWithPadding </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">ciphertext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 - aes_dec_with_ISO7816_4PADDING实现ISO 7816-4填充的AES-CBC解密算法。
 ```text
-async function aes_dec_with_ISO7816_4PADDING(key: Uint8Array, iv: Uint8Array, ciphertext: Uint8Array): PromiseUint8Array> {
-  try {
-    let ivParam: cryptoFramework.IvParamsSpec = { iv: { data: iv }, algName: 'IvParamsSpec' };
-    let cipherAlg = 'AES' + key.length * 8;
-    let keyGen = cryptoFramework.createSymKeyGenerator(cipherAlg);
-    let symKey = keyGen.convertKeySync({ data: key });
+async function <span style="color: rgb(0,0,255);">aes_dec_with_ISO7816_4PADDING</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ciphertext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  try <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">ivParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IvParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'IvParamsSpec' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">cipherAlg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'AES' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">keyGen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSymKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cipherAlg</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">keyGen</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertKeySync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">key </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    let cipher = cryptoFramework.createCipher("AES|CBC|NoPadding");
-    cipher.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, ivParam);
-    let tmpData = await cipher.doFinal({ data: ciphertext });
+    let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"AES|CBC|NoPadding"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DECRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ivParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">tmpData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ciphertext </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    return await ISO7816_4_PADDING(false, tmpData.data);
-  } catch (error) {
-    console.error(error, `error code: ${error.code}`);
-    return new Uint8Array([]);
-  }
-}
+    return await <span style="color: rgb(0,0,255);">ISO7816_4_PADDING</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">tmpData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
 
@@ -131,116 +122,116 @@ async function aes_dec_with_ISO7816_4PADDING(key: Uint8Array, iv: Uint8Array, ci
 完整示例参考如下：
  
 ```text
-import { cryptoFramework } from '@kit.CryptoArchitectureKit';
-import { util } from '@kit.ArkTS';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">cryptoFramework </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CryptoArchitectureKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">util </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Crypto {
-  build() {
-    Column() {
-      Text('点击开始')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .onClick(() => {
-          test();
-        })
-    }
-    .height('100%')
-    .width('100%')
-    .justifyContent(FlexAlign.Center)
-    .alignItems(HorizontalAlign.Center)
-  }
-}
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Crypto </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">点击开始</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">50</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Bold</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-//ISO7816_4_PADDING函数实现ISO 7816-4填充算法：
-async function ISO7816_4_PADDING(addPadding: boolean, data: Uint8Array): PromiseUint8Array> {
-  let blockSize = 16;
-  try {
-    if (addPadding == true) {
-      let paddingLen = blockSize - (data.length % blockSize);
-      let cipherText = new Uint8Array(data.length + paddingLen);
-      cipherText.set(data);
-      cipherText[data.length] = 0x08;
-      for (let i = 1; i  paddingLen; i++) {
-        cipherText[data.length + i] = 0x00;
-      }
-      return cipherText;
-    } else {
-      if (data.length == 0 || data.length % blockSize != 0) {
-        throw new TypeError("invalid len!");
-      }
-      let i = 0;
-      for (i = 0; i  blockSize; i++) {
-        if (data[data.length - 1 - i] != 0x00) {
-          break;
-        }
-      }
-      if (i == blockSize || data[data.length - 1 - i] != 0x08) {
-        throw new TypeError("invalid padding!");
-      }
-      return data.slice(0, data.length - 1 - i);
-    }
-  } catch (error) {
-    console.error(error, `error code: ${error.code}`);
-    return new Uint8Array([]);
-  }
-}
+<em>//ISO7816_4_PADDING</em><em><span style="color: rgb(128,128,128);">函数实现</span><span style="color: rgb(128,128,128);">ISO 7816-4</span><span style="color: rgb(128,128,128);">填充算法：</span></em>
+async function <span style="color: rgb(0,0,255);">ISO7816_4_PADDING</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">addPadding</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">blockSize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">16</span><span style="color: rgb(181,106,1);">;</span>
+  try <span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">addPadding </span><span style="color: rgb(181,106,1);">== </span>true<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">paddingLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">blockSize </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">% </span><span style="color: rgb(0,0,255);">blockSize</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">cipherText </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">paddingLen</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">set</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x08</span><span style="color: rgb(181,106,1);">;</span>
+      for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">paddingLen</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">0x00</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      return <span style="color: rgb(0,0,255);">cipherText</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">% </span><span style="color: rgb(0,0,255);">blockSize </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        throw new <span style="color: rgb(0,0,255);">TypeError</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"invalid len!"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      let <span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+      for <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">blockSize</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">0x00) </span><span style="color: rgb(255,0,170);">{</span>
+          break<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">i </span><span style="color: rgb(181,106,1);">== </span><span style="color: rgb(0,0,255);">blockSize </span><span style="color: rgb(181,106,1);">|| </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">] </span><span style="color: rgb(181,106,1);">!= </span><span style="color: rgb(0,0,255);">0x08) </span><span style="color: rgb(255,0,170);">{</span>
+        throw new <span style="color: rgb(0,0,255);">TypeError</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"invalid padding!"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      return <span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">slice</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(255,0,0);">1 </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">i</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  } </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-// aes_enc_with_ISO7816_4PADDING实现ISO 7816-4填充的AES-CBC加密算法：
-async function aes_enc_with_ISO7816_4PADDING(key: Uint8Array, iv: Uint8Array, plaintext: Uint8Array): PromiseUint8Array> {
-  try {
-    let ivParam: cryptoFramework.IvParamsSpec = { iv: { data: iv }, algName: 'IvParamsSpec' };
-    let cipherAlg = 'AES' + key.length * 8;
-    let keyGen = cryptoFramework.createSymKeyGenerator(cipherAlg);
-    let symKey = keyGen.convertKeySync({ data: key });
-    let plaintextWithPadding = await ISO7816_4_PADDING(true, plaintext);
+<em>// aes_enc_with_ISO7816_4PADDING</em><em><span style="color: rgb(128,128,128);">实现</span><span style="color: rgb(128,128,128);">ISO 7816-4</span><span style="color: rgb(128,128,128);">填充的</span><span style="color: rgb(128,128,128);">AES-CBC</span><span style="color: rgb(128,128,128);">加密算法：</span></em>
+async function <span style="color: rgb(0,0,255);">aes_enc_with_ISO7816_4PADDING</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plaintext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  try <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">ivParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IvParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'IvParamsSpec' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">cipherAlg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'AES' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">keyGen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSymKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cipherAlg</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">keyGen</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertKeySync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">key </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">plaintextWithPadding </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">ISO7816_4_PADDING</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">plaintext</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    let cipher = cryptoFramework.createCipher("AES|CBC|NoPadding");
-    cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, ivParam);
-    let ciphertext = await cipher.doFinal({ data: plaintextWithPadding });
-    return ciphertext.data;
-  } catch (error) {
-    console.error(error, `error code: ${error.code}`);
-    return new Uint8Array([]);
-  }
-}
+    let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"AES|CBC|NoPadding"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ENCRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ivParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">ciphertext </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">plaintextWithPadding </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return <span style="color: rgb(0,0,255);">ciphertext</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-//aes_dec_with_ISO7816_4PADDING实现ISO 7816-4填充的AES-CBC解密算法：
-async function aes_dec_with_ISO7816_4PADDING(key: Uint8Array, iv: Uint8Array, ciphertext: Uint8Array): PromiseUint8Array> {
-  try {
-    let ivParam: cryptoFramework.IvParamsSpec = { iv: { data: iv }, algName: 'IvParamsSpec' };
-    let cipherAlg = 'AES' + key.length * 8;
-    let keyGen = cryptoFramework.createSymKeyGenerator(cipherAlg);
-    let symKey = keyGen.convertKeySync({ data: key });
+<em>//aes_dec_with_ISO7816_4PADDING</em><em><span style="color: rgb(128,128,128);">实现</span><span style="color: rgb(128,128,128);">ISO 7816-4</span><span style="color: rgb(128,128,128);">填充的</span><span style="color: rgb(128,128,128);">AES-CBC</span><span style="color: rgb(128,128,128);">解密算法：</span></em>
+async function <span style="color: rgb(0,0,255);">aes_dec_with_ISO7816_4PADDING</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ciphertext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Promise</span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  try <span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">ivParam</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">IvParamsSpec </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">algName</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'IvParamsSpec' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">cipherAlg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'AES' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">key</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(255,0,0);">8</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">keyGen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createSymKeyGenerator</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cipherAlg</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">symKey </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">keyGen</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">convertKeySync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">key </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    let cipher = cryptoFramework.createCipher("AES|CBC|NoPadding");
-    cipher.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, ivParam);
-    let tmpData = await cipher.doFinal({ data: ciphertext });
+    let <span style="color: rgb(0,0,255);">cipher </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">createCipher</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"AES|CBC|NoPadding"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">initSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">cryptoFramework</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CryptoMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">DECRYPT_MODE</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">symKey</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">ivParam</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">tmpData </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">cipher</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">doFinal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ciphertext </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-    return await ISO7816_4_PADDING(false, tmpData.data);
-  } catch (error) {
-    console.error(error, `error code: ${error.code}`);
-    return new Uint8Array([]);
-  }
-}
+    return await <span style="color: rgb(0,0,255);">ISO7816_4_PADDING</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">tmpData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">data</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">`error code: </span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">code</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    return new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([])</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
 
-async function test() {
-  let message = 'This is a test';
-  let keyData = new Uint8Array([83, 217, 231, 76, 28, 113, 23, 219, 250, 71, 209, 210, 205, 97, 32, 159]);
-  let iv = new Uint8Array([82, 216, 231, 76, 28, 113, 23, 219, 250, 71, 209, 210, 205, 97, 32, 159]);
-  let textEncoder = util.TextEncoder.create("utf-8");
-  let array: Uint8Array = textEncoder.encodeInto(message);
-  let encUint8Array = await aes_enc_with_ISO7816_4PADDING(keyData, iv, array);
+async function <span style="color: rgb(0,0,255);">test</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+  let <span style="color: rgb(0,0,255);">message </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">'This is a test'</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">keyData </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(255,0,0);">83</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">217</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">231</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">76</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">28</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">113</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">23</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">219</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">250</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">71</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">209</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">210</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">205</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">97</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">159</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">iv </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(0,0,255);">([</span><span style="color: rgb(255,0,0);">82</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">216</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">231</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">76</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">28</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">113</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">23</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">219</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">250</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">71</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">209</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">210</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">205</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">97</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">32</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">159</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">textEncoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">"utf-8"</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">array</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">textEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeInto</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">encUint8Array </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">aes_enc_with_ISO7816_4PADDING</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  let decUint8Array = await aes_dec_with_ISO7816_4PADDING(keyData, iv, encUint8Array);
-  let textDecoderOptions: util.TextDecoderOptions = {
-    fatal: false,
-    ignoreBOM: true
-  };
-  let textDecoder = util.TextDecoder.create('utf-8', textDecoderOptions);
-  let res = textDecoder.decodeToString(decUint8Array);
-  console.info(`res:${res}`);
-}
+  let <span style="color: rgb(0,0,255);">decUint8Array </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(0,0,255);">aes_dec_with_ISO7816_4PADDING</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">keyData</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">iv</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">encUint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">textDecoderOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextDecoderOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">fatal</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">ignoreBOM</span><span style="color: rgb(181,106,1);">: </span>true
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'utf-8'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">textDecoderOptions</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(0,0,255);">res </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">decUint8Array</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">`res:</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">`</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

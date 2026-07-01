@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1183
 
-## 实现Text组件和TextInput组件可以切换的堆叠布局
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现Text组件和TextInput组件的堆叠布局？可以相互切换，同时TextInput组件展示时，要展示焦点，同时拉起键盘。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)：单行文本输入框组件。
 - [@ohos.inputMethod (输入法框架)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod)：本模块主要面向普通前台应用（备忘录、信息、设置等系统应用与第三方应用），提供对输入法（输入法应用）的控制、管理能力，包括显示/隐藏输入法软键盘、切换输入法、获取所有输入法列表等等。
@@ -24,7 +20,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过Stack容器实现Text组件和TextInput组件堆叠布局，通过配置[focusControl.requestFocus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus#requestfocus9)来指定组件获取焦点，切换时通过[showTextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#showtextinput10-1)和[stopInputSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#stopinputsession9-1)实现键盘的弹起和退出。
  
@@ -58,10 +54,10 @@ struct StackTextInput {
             .width('50%')
             .height(50)
             .onClick(() => {
-              // 可以通过配置focusControl.requestFocus使指定组件获取焦点
+           <em>   // 可以通过配置focusControl.requestFocus使指定组件获取焦点</em>
               focusControl.requestFocus('textInput');
               this.isEditing = true;
-              // 拉起键盘
+           <em>   // 拉起键盘</em>
               let inputMethodController = inputMethod.getController();
               inputMethodController.showTextInput();
             })
@@ -72,7 +68,7 @@ struct StackTextInput {
       .justifyContent(FlexAlign.Center)
       .onClick(() => {
         this.isEditing = false;
-        // 退出键盘
+      <em>  // 退出键盘</em>
         let inputMethodController = inputMethod.getController();
         inputMethodController.stopInputSession();
       })

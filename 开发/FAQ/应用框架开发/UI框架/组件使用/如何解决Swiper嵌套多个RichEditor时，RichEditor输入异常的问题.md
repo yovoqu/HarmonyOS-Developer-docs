@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1238
 
-## 如何解决Swiper嵌套多个RichEditor时，RichEditor输入异常的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Swiper存在多个页面，每个页面都有一个RichEditor，可横向滑动，想要实现Swiper外的addTextSpan或者addImageSpan按钮给当前Swiper页面的RichEditor添加内容的功能。目前无论滑动到哪一个Swiper页面，添加的内容都只能给到最后一个Swiper页面的RichEditor。
  
@@ -72,20 +68,20 @@ struct Index {
 问题现象如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/_GskKKw1QsWQf2Pam_Kp-Q/zh-cn_image_0000002658834705.png?HW-CC-KV=V1&HW-CC-Date=20260701T025606Z&HW-CC-Expire=86400&HW-CC-Sign=0AD5B77BD0DB7BA747B6AAB82E33DC04CD5F036EB4EFF9C3A406CA138595462A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/_GskKKw1QsWQf2Pam_Kp-Q/zh-cn_image_0000002658834705.png?HW-CC-KV=V1&HW-CC-Date=20260701T041315Z&HW-CC-Expire=86400&HW-CC-Sign=654A0B85588F2673C8562B37CD208F41D88E0917A9AE10CA66BAD77F30088A61)
 
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/kwysqM2WSF2at1AwAECAjw/zh-cn_image_0000002628595450.png?HW-CC-KV=V1&HW-CC-Date=20260701T025606Z&HW-CC-Expire=86400&HW-CC-Sign=AC957D4F7F7D459940B478CBF49ABCA623447AB2E6BB6F8E4F0DF8F742489420)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/kwysqM2WSF2at1AwAECAjw/zh-cn_image_0000002628595450.png?HW-CC-KV=V1&HW-CC-Date=20260701T041315Z&HW-CC-Expire=86400&HW-CC-Sign=A000D935827F3F91486DDB7FED92D43564F002F473F2AD60AFC013E927E422F8)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)：滑块视图容器，提供子组件滑动轮播显示的能力。
  
@@ -93,26 +89,49 @@ struct Index {
  
  
 
-##### 解决方案
+#### 解决方案
 
 问题的关键在于多个RichEditor之间不能共用同一个RichEditorController，所以实现方式如下：
- 
-- 根据Swiper页面数量也就是RichEditor数量，创建相同数量的RichEditorController。
+ 1. 根据Swiper页面数量也就是RichEditor数量，创建相同数量的RichEditorController。
 ```text
 @State controllerList: RichEditorController[] = [];
 ```
  
 ```text
-// 每一个Swiper页面有一个RichEditor组件，所以需要设置相同数量的RichEditorController
+<em>// 每一个Swiper页面有一个RichEditor组件，所以需要设置相同数量的RichEditorController</em>
 aboutToAppear(): void {
-  for (let index = 0; index // 每一个Swiper页面有一个RichEditor组件，所以需要设置相同数量的RichEditorController
+  for (let index = 0; index < this.list.length; index++) {
+    this.controllerList.push(new RichEditorController());
+  }
+}
+```
+
+2. ForEach的索引index唯一，借助该特性实现每一个数组内的RichEditorController与RichEditor一一对应即可。
+```text
+@Entry
+@Component
+struct SwiperInput {
+  private swiperController: SwiperController = new SwiperController();
+  @State controllerList: RichEditorController[] = [];
+  @State list: string[] = ['', '', ''];
+  index: number = 0;
+
+  <em>// 每一个Swiper页面有一个RichEditor组件，所以需要设置相同数量的RichEditorController</em>
   aboutToAppear(): void {
-    for (let index = 0; index  {
+    for (let index = 0; index < this.list.length; index++) {
+      this.controllerList.push(new RichEditorController());
+    }
+  }
+
+  build() {
+    Column() {
+      Swiper(this.swiperController) {
+        ForEach(this.list, (item: string, index: number) => {
           Column() {
-            // ForEach的索引index唯一，每一个RichEditor拥有一个controllerList中专属的RichEditorController
+           <em> // ForEach的索引index唯一，每一个RichEditor拥有一个controllerList中专属的RichEditorController</em>
             RichEditor({ controller: this.controllerList[index] })
               .onReady(() => {
-                // 不同RichEditor采用对应的RichEditorController控制
+               <em> // 不同RichEditor采用对应的RichEditorController控制</em>
                 this.controllerList[index].addImageSpan($r('app.media.startIcon'),
                   {
                     imageStyle: { size: ['57px', '57px'] }

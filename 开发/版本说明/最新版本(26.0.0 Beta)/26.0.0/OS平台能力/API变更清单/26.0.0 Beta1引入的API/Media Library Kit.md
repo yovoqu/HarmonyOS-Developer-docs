@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-medialibrarykit-7001
 
-## Media Library Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：PickerController； API声明：completed(): Promise&lt;CompletedResult&gt;; 差异内容：completed(): Promise&lt;CompletedResult&gt;; | api/@ohos.file.PhotoPickerComponent.d.ets |

@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-account-4
 
-## oauth-login.cloud.huawei.com域名ip不固定的原因
- 
-
-
-##### 问题现象
+#### 问题现象
 
 华为的oauth-login.cloud.huawei.com域名IP不固定的原因是什么？这个域名是CDN域名吗？
  
  
 
-##### 背景知识
+#### 背景知识
 
 该域名oauth-login.cloud.huawei.com是华为账号服务提供对外API接口的域名。具体参见：[基于OAuth 2.0开放鉴权](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/open-platform-oauth-0000001053629189)。
  
  
 
-##### 解决方案
+#### 解决方案
 
 oauth-login.cloud.huawei.com域名的IP地址不固定，主要是因为该域名是通过CDN（Content Delivery Network，内容分发网络）服务来提供访问的。
  
@@ -28,7 +24,7 @@ oauth-login.cloud.huawei.com域名的IP地址不固定，主要是因为该域�
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何使用该域名对应的IP配置白名单？
  

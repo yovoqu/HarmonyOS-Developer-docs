@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mediakit-7001
 
-## Media Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：media； API声明：function createMediaSourceWithFd(fdSrc: AVFileDescriptor): MediaSource \| undefined; 差异内容：function createMediaSourceWithFd(fdSrc: AVFileDescriptor): MediaSource \| undefined; | api/@ohos.multimedia.media.d.ts |

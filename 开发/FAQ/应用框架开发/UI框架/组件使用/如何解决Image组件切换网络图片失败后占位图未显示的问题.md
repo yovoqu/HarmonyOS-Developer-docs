@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-847
 
-## 如何解决Image组件切换网络图片失败后占位图未显示的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如下图，在切换网络图片时，若目标图片加载失败，界面不会更新为占位图，而是继续显示之前已加载成功的图片。
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/yTYD4vWRQqWEml43Hsbdpw/zh-cn_image_0000002658797917.png?HW-CC-KV=V1&HW-CC-Date=20260701T025550Z&HW-CC-Expire=86400&HW-CC-Sign=39FB0E8CE850C6E4CD05A4C13D0D826F3BF40A9B17B19C1185D73567B544AE77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/yTYD4vWRQqWEml43Hsbdpw/zh-cn_image_0000002658797917.png?HW-CC-KV=V1&HW-CC-Date=20260701T041314Z&HW-CC-Expire=86400&HW-CC-Sign=88688D09B7A56E981F08D9CAD81AFAD046E978F012FCF94C07DC64C3B849F9C4)
 
  
 问题代码如下：
@@ -30,20 +26,20 @@ struct Page {
       Image(this.imageUrl)
         .width(200)
         .height(200)
-        // 本地资源自行替换
+       <em> // 本地资源自行替换</em>
         .alt($r('app.media.startIcon'));
       Button('加载正常图片')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-          // 网络路径需自行替换
+        <em>  // 网络路径需自行替换</em>
           this.imageUrl = 'XXX.XXX.png';
         });
       Button('加载其他图片')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-          // 网络路径需自行替换
+        <em>  // 网络路径需自行替换</em>
           this.imageUrl = 'XXX.XXX.png';
         });
     }
@@ -55,29 +51,26 @@ struct Page {
 ```
  
 
-##### 背景知识
+#### 背景知识
 
 - [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)为图片组件，常用于在应用中显示图片，引用方式请参考[加载图片资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display#加载图片资源)。
+> [!NOTE]
+> src由有效值（可正常解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，组件保持显示此前成功加载的图片内容，不进行清除或重置操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/IKIiyeiCQouLkISx5HPWuA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025550Z&HW-CC-Expire=86400&HW-CC-Sign=875800EC5E9508918B93B64898C06498B0D1D9CDB7DFA21330BAF9CF6E56B793)
- 
-src由有效值（可正常解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，组件保持显示此前成功加载的图片内容，不进行清除或重置操作。
 - [alt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#alt)设置图片加载过程中显示的占位图，可以在图片内容尚未加载完成或加载失败时，临时显示的替代图像。
 - 在Image组件上可以绑定[onError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#onerror9)事件，当图片加载异常时触发该回调。
 
  
  
 
-##### 解决方案
+#### 解决方案
 
  
 方案一：对于API22及以后的版本可以设置alt属性实现图片加载过程中和图片加载失败时显示指定图片，具体案例可以查看[使用alt属性实现设置加载失败中图片和加载失败时图片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#示例28使用alt属性实现设置加载失败中图片和加载失败时图片)。
  
 方案二：对于API22以前的版本，由于该问题是由于Image组件在成功加载当前图片后，若将其路径更新为无效值（包括空值），组件不会自动触发重新渲染，导致界面仍保留已加载的图片，占位图因此无法显示。可以参考以下方案达到预期的效果：
- 
-- 为Image组件添加onError事件回调，用于监听图片加载失败的情况。
-- 在onError回调函数中，将图片源替换为占位图的路径，从而实现显示默认占位图的效果。
-
+ 1. 为Image组件添加onError事件回调，用于监听图片加载失败的情况。
+2. 在onError回调函数中，将图片源替换为占位图的路径，从而实现显示默认占位图的效果。
  
 参考代码如下：
  
@@ -95,21 +88,21 @@ struct Index {
         .onError((err: ImageError) => {
           console.error(`${err.message}`);
           console.error(`${err.error?.code}`);
-          // 本地资源自行替换
+        <em>  // 本地资源自行替换</em>
           this.imageUrl = $r('app.media.startIcon');
         });
       Button('加载正常图片')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-          // 网络路径需自行替换
+        <em>  // 网络路径需自行替换</em>
           this.imageUrl = 'XXX.XXX.png';
         });
       Button('加载失败显示占位图')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-          // 网络路径需自行替换
+        <em>  // 网络路径需自行替换</em>
           this.imageUrl = 'XXX.XXX.png';
         });
     }
@@ -123,4 +116,4 @@ struct Index {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/AtfnSPl9TfyNFUlzYIX0TQ/zh-cn_image_0000002628558548.png?HW-CC-KV=V1&HW-CC-Date=20260701T025550Z&HW-CC-Expire=86400&HW-CC-Sign=72ACBC0CA83FA73C19AC3E5A242D48FB9B1AA5EE059A9EA9540B4BD7441E2CE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/AtfnSPl9TfyNFUlzYIX0TQ/zh-cn_image_0000002628558548.png?HW-CC-KV=V1&HW-CC-Date=20260701T041314Z&HW-CC-Expire=86400&HW-CC-Sign=3C6D778F79EA890C973458FECF1047AF3EBBAA44E23E25C2B2C57A3CCF750B2D)

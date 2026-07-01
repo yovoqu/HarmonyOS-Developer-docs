@@ -4,37 +4,31 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1355
 
-## LazyForEach删除数据出错
- 
-
-
-##### 问题现象
+#### 问题现象
 
 LazyForEach删除数据时结果非预期效果，出现删除后数据混乱、分组数据全部删除会有遗漏等问题。
  
  
 
-##### 背景知识
+#### 背景知识
 
 [LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)是对数组类型数据进行迭代渲染，并在每次迭代过程中创建相应组件的接口。其数据源需要实现IDataSource，用于管理listener监听，以及通知LazyForEach数据更新。
  
  
 
-##### 解决方案
+#### 解决方案
 
 LazyForEach删除数据时，组件需要重新加载所有子组件，否则删除后会出现数据混乱等问题。
  
 具体删除步骤如下：
- 
-- 先通过索引值删除数组dataArray对应下标数据。
-- 然后调用listener.onDataDelete方法通知LazyForEach有数据删除。
-- 最后调用listener.onDataReloaded方法通知LazyForEach需要重建所有子节点。
-
+ 1. 先通过索引值删除数组dataArray对应下标数据。
+2. 然后调用listener.onDataDelete方法通知LazyForEach有数据删除。
+3. 最后调用listener.onDataReloaded方法通知LazyForEach需要重建所有子节点。
  
 核心代码如下所示：
  
 ```text
-// 数据源删除方法实现代码
+<em>// 数据源删除方法实现代码</em>
 class MyDataSource implements IDataSource {
   public totalCount(): number {
     return this.dataArray.length;
@@ -45,26 +39,26 @@ class MyDataSource implements IDataSource {
   };
 
   registerDataChangeListener(): void {
-    // ...
+   <em> // ...</em>
   };
 
   unregisterDataChangeListener(): void {
-    // ...
+   <em> // ...</em>
   };
 
   private listeners: DataChangeListener[] = [];
   private dataArray: string[] = [];
 
   public deleteData(index: number): void {
-    // 通过索引值删除数组对应数据
+  <em>  // 通过索引值删除数组对应数据</em>
     this.dataArray.splice(index, 1);
-    // 通知LazyForEach组件需要在index对应索引处删除该子组件
+   <em> // 通知LazyForEach组件需要在index对应索引处删除该子组件</em>
     this.listeners.forEach(listener => {
       listener.onDataDelete(index);
     });
   };
 
-  // 通知LazyForEach组件需要重载所有子组件
+ <em> // 通知LazyForEach组件需要重载所有子组件</em>
   notifyDataReload(): void {
     this.listeners.forEach(listener => {
       listener.onDataReloaded();
@@ -73,8 +67,8 @@ class MyDataSource implements IDataSource {
 };
 ```
  
-```text
-// 删除操作示例代码
+```json
+<em>// 删除操作示例代码</em>
 @Component
 struct MyComponent {
   private data: MyDataSource = new MyDataSource();
@@ -83,7 +77,7 @@ struct MyComponent {
     List({ space: 3 }) {
       LazyForEach(this.data, (item: string, index: number) => {
         ListItem() {
-          // ...
+        <em>  // ...</em>
         }
         .onClick(() => {
           this.data.deleteData(index);
@@ -97,7 +91,7 @@ struct MyComponent {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：调用onDatasetChange接口时报错onDatasetChange cannot be used with other interface是什么原因？
  

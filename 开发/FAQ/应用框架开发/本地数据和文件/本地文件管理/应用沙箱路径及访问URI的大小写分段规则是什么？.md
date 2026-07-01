@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-49
 
-## 应用沙箱路径及访问URI的大小写分段规则是什么？ 
- 
-
 **问题描述**
  
 应用沙箱路径及访问URI的大小写分段规则是什么？

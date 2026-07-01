@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-24
 
-## 如何为AI合成的媒体文件添加隐式标识
- 
-
-
-##### 问题现象
+#### 问题现象
 
 根据HarmonyOS应用上架要求，对于人工智能合成的内容，需要在合成内容的文件元数据中添加隐式标识。如何为人工智能合成的媒体文件（图片、音频、视频）添加文件隐式标识。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 文件元数据指的是按照特定编码格式嵌入到文件头部的描述性信息，用于记录文件来源、属性、用途、版权等信息。
 - 依照《人工智能生成合成内容标识方法》的规定，服务提供者需要在生成合成内容的文件元数据中添加隐式标识。具体可参考：[添加生成合成内容文件元数据隐式标识的具体方法是什么](https://developer.huawei.com/consumer/cn/doc/app/50111-10#h1-1755913342929-0)。
@@ -24,24 +20,23 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 对于音视频媒体文件可以使用ffmpeg工具为音视频文件添加元数据，在HarmonyOS中可以使用三方库[@ohos/mp4parser(V2.0.7)](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmp4parser)调用ffmpeg命令为音视频文件添加隐式标识。对于图片文件，通过[modifyImageProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#modifyimageproperty11)接口将隐式元数据标识添加到图片的EXIF属性UserComment中。
- 
-- 对于人工智能合成的音频（m4a, mp3）以及视频文件(mp4, mkv)，直接使用三方库[@ohos/mp4parser(V2.0.7)](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmp4parser)调用ffmpeg命令添加文件隐式标识。参考代码如下：
+ 1. 对于人工智能合成的音频（m4a, mp3）以及视频文件(mp4, mkv)，直接使用三方库[@ohos/mp4parser(V2.0.7)](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmp4parser)调用ffmpeg命令添加文件隐式标识。参考代码如下：
 ```text
 const AV_AIGC_METADATA =
   '{"Label":"value1","ContentProducer":"value2","ProduceID":"value3","ReservedCode1":"value4","ContentPropagator":"value5","PropagateID":"value6","ReservedCode2":"value7"}';
 
 
-/**
- *
- * @param inputPath 输入音视频文件的沙箱路径（无隐式标识）
- * @param outputPath 输出文件的沙箱路径（添加隐式标识）
- * @param aigcMetadata 需要写入的AIGC文件元数据
- * @returns
- */
-async function addAIGC4AVFile(inputPath: string, outputPath: string, aigcMetadata: string): Promise {
+<em>/**</em>
+<em> *</em>
+<em> * @param inputPath 输入音视频文件的沙箱路径（无隐式标识）</em>
+<em> * @param outputPath 输出文件的沙箱路径（添加隐式标识）</em>
+<em> * @param aigcMetadata 需要写入的AIGC文件元数据</em>
+<em> * @returns</em>
+<em> */</em>
+async function addAIGC4AVFile(inputPath: string, outputPath: string, aigcMetadata: string): Promise<void> {
   let callback: ICallBack = {
     callBackResult: (code: number) => {
       if (code === 0) {
@@ -57,17 +52,17 @@ async function addAIGC4AVFile(inputPath: string, outputPath: string, aigcMetadat
 }
 ```
 
-- 对于人工智能合成的图片文件（jpg、png），通过[modifyImageProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#modifyimageproperty11)接口添加文件隐式标识到图片的EXIF属性UserComment中。参考代码如下：
-```text
+2. 对于人工智能合成的图片文件（jpg、png），通过[modifyImageProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#modifyimageproperty11)接口添加文件隐式标识到图片的EXIF属性UserComment中。参考代码如下：
+```json
 const IMAGE_AIGC_METADATA =
   '{"AIGC":{"Label":"value1","ContentProducer":"value2","ProduceID":"value3","ReservedCode1":"value4","ContentPropagator":"value5","PropagateID":"value6","ReservedCode2":"value7"}}';
 
 
-/**
- *
- * @param imageFilePath 输入图片文件的沙箱路径
- * @param aigcMetadata 需要写入的AIGC文件元数据
- */
+<em>/**</em>
+<em> *</em>
+<em> * @param imageFilePath 输入图片文件的沙箱路径</em>
+<em> * @param aigcMetadata 需要写入的AIGC文件元数据</em>
+<em> */</em>
 async function addAIGC4ImageFile(imageFilePath: string, aigcMetadata: string) {
   let imageSource: image.ImageSource | undefined;
   try {
@@ -82,12 +77,11 @@ async function addAIGC4ImageFile(imageFilePath: string, aigcMetadata: string) {
 }
 ```
 
-
  
  
 完整参考代码如下：
  
-```text
+```json
 import { ICallBack, MP4Parser } from '@ohos/mp4parser';
 import image from '@ohos.multimedia.image';
 import { fileIo } from '@kit.CoreFileKit';
@@ -97,14 +91,14 @@ const AV_AIGC_METADATA =
   '{"Label":"value1","ContentProducer":"value2","ProduceID":"value3","ReservedCode1":"value4","ContentPropagator":"value5","PropagateID":"value6","ReservedCode2":"value7"}';
 
 
-/**
- *
- * @param inputPath 输入音视频文件的沙箱路径（无隐式标识）
- * @param outputPath 输出文件的沙箱路径（添加隐式标识）
- * @param aigcMetadata 需要写入的AIGC文件元数据
- * @returns
- */
-async function addAIGC4AVFile(inputPath: string, outputPath: string, aigcMetadata: string): Promise {
+<em>/**</em>
+<em> *</em>
+<em> * @param inputPath 输入音视频文件的沙箱路径（无隐式标识）</em>
+<em> * @param outputPath 输出文件的沙箱路径（添加隐式标识）</em>
+<em> * @param aigcMetadata 需要写入的AIGC文件元数据</em>
+<em> * @returns</em>
+<em> */</em>
+async function addAIGC4AVFile(inputPath: string, outputPath: string, aigcMetadata: string): Promise<void> {
   let callback: ICallBack = {
     callBackResult: (code: number) => {
       if (code === 0) {
@@ -124,11 +118,11 @@ const IMAGE_AIGC_METADATA =
   '{"AIGC":{"Label":"value1","ContentProducer":"value2","ProduceID":"value3","ReservedCode1":"value4","ContentPropagator":"value5","PropagateID":"value6","ReservedCode2":"value7"}}';
 
 
-/**
- *
- * @param imageFilePath 输入图片文件的沙箱路径
- * @param aigcMetadata 需要写入的AIGC文件元数据
- */
+<em>/**</em>
+<em> *</em>
+<em> * @param imageFilePath 输入图片文件的沙箱路径</em>
+<em> * @param aigcMetadata 需要写入的AIGC文件元数据</em>
+<em> */</em>
 async function addAIGC4ImageFile(imageFilePath: string, aigcMetadata: string) {
   let imageSource: image.ImageSource | undefined;
   try {
@@ -171,7 +165,7 @@ struct Index {
           let context = this.getUIContext().getHostContext() as Context;
           const inputPath = context.filesDir + '/input.mp4';
           const outputPath = context.filesDir + '/output.mp4';
-          await copyFile2Sandbox('input.mp4', inputPath, context); // input.mp4为rawfile文件，根据实际使用的文件替换
+          await copyFile2Sandbox('input.mp4', inputPath, context); <em>// input.mp4为rawfile文件，根据实际使用的文件替换</em>
           await addAIGC4AVFile(inputPath, outputPath, AV_AIGC_METADATA);
         });
 
@@ -183,7 +177,7 @@ struct Index {
           let context = this.getUIContext().getHostContext() as Context;
           const inputPath = context.filesDir + '/input.m4a';
           const outputPath = context.filesDir + '/output.m4a';
-          await copyFile2Sandbox('input.m4a', inputPath, context); // input.m4a为rawfile文件，根据实际使用的文件替换
+          await copyFile2Sandbox('input.m4a', inputPath, context); <em>// input.m4a为rawfile文件，根据实际使用的文件替换</em>
           await addAIGC4AVFile(inputPath, outputPath, AV_AIGC_METADATA);
         });
 
@@ -194,7 +188,7 @@ struct Index {
         .onClick(async () => {
           let context = this.getUIContext().getHostContext() as Context;
           const inputPath = context.filesDir + '/image.jpg';
-          await copyFile2Sandbox('image.jpg', inputPath, context); // image.jpg为rawfile文件，根据实际使用的文件替换
+          await copyFile2Sandbox('image.jpg', inputPath, context);<em> // image.jpg为rawfile文件，根据实际使用的文件替换</em>
           await addAIGC4ImageFile(inputPath, IMAGE_AIGC_METADATA);
         });
     }

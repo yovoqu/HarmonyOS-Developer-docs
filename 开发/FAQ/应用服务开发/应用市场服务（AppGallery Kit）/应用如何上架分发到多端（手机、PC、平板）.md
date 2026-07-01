@@ -4,39 +4,35 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-27
 
-## 应用如何上架分发到多端（手机、PC、平板）
- 
-
-
-##### 问题现象
+#### 问题现象
 
 同一个应用如何上架分发到手机、PC、平板多端设备，工程代码和AppGallery Connect侧如何配置？
  
  
 
-##### 背景知识
+#### 背景知识
 
 一个应用需要在多个设备上提供同样的内容，则需要适配不同的屏幕尺寸和硬件，开发成本较高。HarmonyOS系统面向多终端提供了“[一次开发，多端部署](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-overview)”（简称为“一多”）的能力，让开发者可以基于一套设计，高效构建多端可运行的应用。
  
  
 
-##### 解决方案
+#### 解决方案
 
 应用上架时，需根据软件包中声明的设备（即module.json5配置文件中“[deviceTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#devicetypes标签)”标签的枚举值）勾选对应的支持设备，确保软件包中声明的设备范围大于等于AppGallery Connect上勾选的支持设备范围。提交审核时会进行校验，如果AppGallery Connect上勾选的支持设备范围大于软件包内声明时，会提示上传的软件包与声明支持设备不一致，将无法提交审核。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Ehv8_3eVT5-qchxjCVeVLA/zh-cn_image_0000002658913803.png?HW-CC-KV=V1&HW-CC-Date=20260701T025859Z&HW-CC-Expire=86400&HW-CC-Sign=411C3C0D7FCFB2950EE7D2DC6923B11F0BA9958F252593F7A8775F66F7C811F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Ehv8_3eVT5-qchxjCVeVLA/zh-cn_image_0000002658913803.png?HW-CC-KV=V1&HW-CC-Date=20260701T041118Z&HW-CC-Expire=86400&HW-CC-Sign=D96662F0917CA2D2889844BAD8D3AE197F6AD0E9FA71272FBF400BD5219D9ADD)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/bwztXZdmRlmSbUZ2-zfDtw/zh-cn_image_0000002658793861.png?HW-CC-KV=V1&HW-CC-Date=20260701T025859Z&HW-CC-Expire=86400&HW-CC-Sign=1C5D059AB830C2ED84AE3566398E1048B61E69A83EEB767BA3BE8C92FBEF64A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/bwztXZdmRlmSbUZ2-zfDtw/zh-cn_image_0000002658793861.png?HW-CC-KV=V1&HW-CC-Date=20260701T041118Z&HW-CC-Expire=86400&HW-CC-Sign=DAF979ADD2523974A9C09D3FBE549AB88C526E0BB325D4C78507B447FA9FE97F)
 
  
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：AppGallery Connect应用信息中的支持设备勾选分发的规则有哪些需要注意？
  

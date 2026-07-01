@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-126
 
-## Web组件上PDF的预览下载以及常见问题定位解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何通过Web组件实现预览和下载PDF文件？遇到PDF预览相关的问题应该如何定位解决？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-web)组件支持在网页中预览PDF。应用通过[WebOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)的src参数和[loadUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载PDF文档。具体场景包括：网络PDF文档、应用沙箱内PDF文档和本地PDF文档。
 - [PDF文件预览参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-pdf-preview#通过配置pdf文件预览参数控制打开预览时页面状态)：通过配置PDF文件预览参数，控制打开预览时页面状态。
@@ -31,13 +27,14 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **关于预览：**PDF预览页面会根据用户操作使用window.localStorage记录侧导航栏的展开状态，因此需要开启文档对象模型存储[domStorageAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#domstorageaccess)权限。
- 当前主要包含三种PDF文档加载预览场景：
- 
-加载预览网络PDF文档，本场景需在module.json5中配置网络访问权限[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，添加方法请参考[在配置文件中声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions#在配置文件中声明权限)。
-对于可以直接在网页上展示的PDF文档链接，使用如下方法进行展示：
+
+  当前主要包含三种PDF文档加载预览场景：
+
+  
+加载预览网络PDF文档，本场景需在module.json5中配置网络访问权限[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，添加方法请参考[在配置文件中声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions#在配置文件中声明权限)。1. 对于可以直接在网页上展示的PDF文档链接，使用如下方法进行展示：
 ```text
 import { webview } from '@kit.ArkWeb';
 
@@ -45,7 +42,7 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct OnlinePdf {
   controller: webview.WebviewController = new webview.WebviewController();
-  url: string = 'www.example.com/test.pdf'; // 使用时需要替换成真实的在线URL
+  url: string = 'www.example.com/test.pdf'; <em>// 使用时需要替换成真实的在线URL</em>
 
   build() {
     Column() {
@@ -61,7 +58,8 @@ struct OnlinePdf {
 }
 ```
 
-- 对于那种打开后自动进行下载的PDF文档链接，需要将在线文档下载到本地沙箱，再通过Web进行预览，参考如下demo：
+
+2. 对于那种打开后自动进行下载的PDF文档链接，需要将在线文档下载到本地沙箱，再通过Web进行预览，参考如下demo：
 ```text
 import { webview } from '@kit.ArkWeb';
 
@@ -75,7 +73,7 @@ struct DownloadUrlPreview {
   build() {
     Column() {
       Web({
-        src: 'xxx.com/xxx.pdf', // 需要替换为那种打开后自动下载PDF文档的链接
+        src: 'xxx.com/xxx.pdf',<em> // 需要替换为那种打开后自动下载PDF文档的链接</em>
         controller: this.controller
       })
         .fileAccess(true)
@@ -84,24 +82,24 @@ struct DownloadUrlPreview {
         .onControllerAttached(() => {
           try {
             this.delegate.onBeforeDownload((webDownloadItem: webview.WebDownloadItem) => {
-              // 传入本地沙箱路径并开始下载
+             <em> // 传入本地沙箱路径并开始下载</em>
               webDownloadItem.start(this.cacheDir + '/' + webDownloadItem.getSuggestedFileName());
             });
             this.delegate.onDownloadUpdated((webDownloadItem: webview.WebDownloadItem) => {
-              // 下载任务进度和速度监测处理
+            <em>  // 下载任务进度和速度监测处理</em>
               console.info(`download update guid: ${webDownloadItem.getGuid()}`);
             });
             this.delegate.onDownloadFailed((webDownloadItem: webview.WebDownloadItem) => {
-              // 下载任务失败处理
+            <em>  // 下载任务失败处理</em>
               console.error(`download failed guid: ${webDownloadItem.getGuid()}`);
             });
             this.delegate.onDownloadFinish((webDownloadItem: webview.WebDownloadItem) => {
-              // 下载成功通过Web重新加载本地文件打开预览
+            <em>  // 下载成功通过Web重新加载本地文件打开预览</em>
               this.controller.loadUrl(`file://${this.cacheDir}/` + webDownloadItem.getSuggestedFileName());
             });
             this.controller.setDownloadDelegate(this.delegate);
           } catch (error) {
-            // 异常处理
+            <em>// 异常处理</em>
             console.error(
               `ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
           }
@@ -111,8 +109,7 @@ struct DownloadUrlPreview {
 }
 ```
 
-
- - 加载预览应用沙箱内PDF文档，本场景需要开启文件系统的[fileAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#fileaccess)权限。
+- 加载预览应用沙箱内PDF文档，本场景需要开启文件系统的[fileAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#fileaccess)权限。
 ```text
 import { webview } from '@kit.ArkWeb';
 
@@ -144,7 +141,7 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct LocalFilePdf {
   controller: webview.WebviewController = new webview.WebviewController();
-  url: string | Resource = $rawfile('test.pdf'); // 也可以替换成：'resource://rawfile/test.pdf'
+  url: string | Resource = $rawfile('test.pdf'); <em>// 也可以替换成：'resource://rawfile/test.pdf'</em>
 
   build() {
     Column() {
@@ -172,7 +169,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct LoadUrlDemo {
   controller: webview.WebviewController = new webview.WebviewController();
-  url: string | Resource = $rawfile('test.pdf'); // 也可以替换成：'resource://rawfile/test.pdf'
+  url: string | Resource = $rawfile('test.pdf'); <em>// 也可以替换成：'resource://rawfile/test.pdf'</em>
 
   build() {
     Column() {
@@ -185,7 +182,7 @@ struct LoadUrlDemo {
           }
         });
       Web({
-        src: $rawfile('test2.pdf'), // 使用时需要替换成真实的URL
+        src: $rawfile('test2.pdf'),<em> // 使用时需要替换成真实的URL</em>
         controller: this.controller
       })
         .domStorageAccess(true)
@@ -220,14 +217,16 @@ struct EndParamDemo {
 }
 ```
  - **关于下载**：使用[startDownload()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#startdownload11)接口发起一个下载。具体步骤如下：
- 
-向Web注册一个监听类，设置保存路径，初始化并调用WebDownloadItem接口；
-- 调用startDownload下载PDF文件；
-- 通过loadUrl接口加载下载到沙箱的PDF文件。
 
- 
-示例代码如下：
- 
+1. 向Web注册一个监听类，设置保存路径，初始化并调用WebDownloadItem接口；
+
+2. 调用startDownload下载PDF文件；
+
+3. 通过loadUrl接口加载下载到沙箱的PDF文件。
+
+  示例代码如下：
+
+  
 ```text
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -250,7 +249,7 @@ struct DownloadDemo {
             this.myText = '已开启监听';
             this.delegate.onBeforeDownload((webDownloadItem: webview.WebDownloadItem) => {
               console.info('will start a download.');
-              // 传入一个下载路径，并开始下载，如果传入一个不存在的路径，则会下载到默认/data/storage/el2/base/cache/web/目录。
+             <em> // 传入一个下载路径，并开始下载，如果传入一个不存在的路径，则会下载到默认/data/storage/el2/base/cache/web/目录。</em>
               webDownloadItem.start(this.webCacheDir + webDownloadItem.getSuggestedFileName());
             });
             this.delegate.onDownloadUpdated((webDownloadItem: webview.WebDownloadItem) => {
@@ -273,7 +272,7 @@ struct DownloadDemo {
       Button('开始下载')
         .onClick(() => {
           try {
-            // 开发者需要替换为自己想要下载的内容的地址。
+           <em> // 开发者需要替换为自己想要下载的内容的地址。</em>
             this.controller.startDownload('xxx.com/xxx.pdf');
           } catch (error) {
             console.error(
@@ -299,9 +298,9 @@ struct DownloadDemo {
   }
 }
 ```
- 
-对于一些加载比较慢的网页PDF文件，可以通过[prefetchPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#prefetchpage10)方法在onPageEnd阶段进行预下载，当真正去加载下一个页面的时候，如果预加载已经成功，则相当于直接从缓存中加载页面资源，速度更快。参考如下demo：
- 
+ 对于一些加载比较慢的网页PDF文件，可以通过[prefetchPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#prefetchpage10)方法在onPageEnd阶段进行预下载，当真正去加载下一个页面的时候，如果预加载已经成功，则相当于直接从缓存中加载页面资源，速度更快。参考如下demo：
+
+  
 ```text
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -310,7 +309,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct PrefetchDemo {
   prefetchUrl: string =
-    'www.example.com/xxx.pdf'; // 网络PDF文件路径
+    'www.example.com/xxx.pdf'; <em>// 网络PDF文件路径</em>
   private controller: WebviewController = new webview.WebviewController();
 
   build() {
@@ -342,25 +341,27 @@ struct PrefetchDemo {
   }
 }
 ```
- - **关于常见问题****：**
-**预览失败，加载白屏/无法加载：**
-首先检查是否开启文档对象模型存储[domStorageAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#domstorageaccess)和网络访问权限[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)。
-- 搜索Web组件的src参数和loadUrl()接口，检查传入的URL是否正确。
-- 将对应的链接复制到浏览器，检查是否能正常打开，对于那种打开时自动下载文件的链接，需要将在线文档下载到本地沙箱，再通过Web进行预览，详情参考本文关于预览中的加载网络PDF文档。
-- 检查手机设置中是否开启了[坚盾守护模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-secure-shield-mode)，开启会导致PDF文件预览白屏，因此需要关闭手机设置中的坚盾守护模式。
-- Web加载一个内含PDF的HTML页面，其他平台加载正常而HarmonyOS异常，对于这种场景，很可能是业务侧进行了限制，通常是通过User-Agent进行的判断，对于这种场景，规避方案是通过手动修改User-Agent来走其他平台下的业务逻辑，但是更推荐通过[User-Agent识别HarmonyOS](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent#如何通过user-agent来识别harmonyos操作系统中不同设备)并进行业务侧的适配。
 
- - **页面展示问题：**
-常见问题为如何隐藏下载按钮、侧边导航窗口、背景色修改以及页面缩放等。对于这一类问题，可以通过配置对应的[PDF文件预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-pdf-preview#通过配置pdf文件预览参数控制打开预览时页面状态)参数来解决；
-- 对于预览本地PDF场景，通过\$rawfile('test.pdf')这种方式加载的PDF文件无法添加预览参数，需要通过'resource://rawfile/test.pdf#toolbar=0&navpanes=0'这种方式来加载并添加预览参数。
+- **关于常见问题****：**
+**预览失败，加载白屏/无法加载：**1. 首先检查是否开启文档对象模型存储[domStorageAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#domstorageaccess)和网络访问权限[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)。
 
- - **滚动事件监听失败：**Web组件的[onScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onscroll9)事件无法监控到Web组件加载的PDF的滑动，因为目前PDF是以插件的形式在Web中加载的，暂不支持监听滚动条（监听不到活动位移），可以通过Web组件的onOverScroll通知网页过度滚动的偏移量的回调判断PDF是否到达顶端，底端。
+2. 搜索Web组件的src参数和loadUrl()接口，检查传入的URL是否正确。
+
+3. 将对应的链接复制到浏览器，检查是否能正常打开，对于那种打开时自动下载文件的链接，需要将在线文档下载到本地沙箱，再通过Web进行预览，详情参考本文关于预览中的加载网络PDF文档。
+
+4. 检查手机设置中是否开启了[坚盾守护模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-secure-shield-mode)，开启会导致PDF文件预览白屏，因此需要关闭手机设置中的坚盾守护模式。
+
+5. Web加载一个内含PDF的HTML页面，其他平台加载正常而HarmonyOS异常，对于这种场景，很可能是业务侧进行了限制，通常是通过User-Agent进行的判断，对于这种场景，规避方案是通过手动修改User-Agent来走其他平台下的业务逻辑，但是更推荐通过[User-Agent识别HarmonyOS](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent#如何通过user-agent来识别harmonyos操作系统中不同设备)并进行业务侧的适配。
+- **页面展示问题：**1. 常见问题为如何隐藏下载按钮、侧边导航窗口、背景色修改以及页面缩放等。对于这一类问题，可以通过配置对应的[PDF文件预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-pdf-preview#通过配置pdf文件预览参数控制打开预览时页面状态)参数来解决；
+
+2. 对于预览本地PDF场景，通过\$rawfile('test.pdf')这种方式加载的PDF文件无法添加预览参数，需要通过'resource://rawfile/test.pdf#toolbar=0&navpanes=0'这种方式来加载并添加预览参数。
+- **滚动事件监听失败：**Web组件的[onScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onscroll9)事件无法监控到Web组件加载的PDF的滑动，因为目前PDF是以插件的形式在Web中加载的，暂不支持监听滚动条（监听不到活动位移），可以通过Web组件的onOverScroll通知网页过度滚动的偏移量的回调判断PDF是否到达顶端，底端。
 
  
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用Web预览PDF时，如何判断PDF文件是否是最后一页或者滑动到底部？
  
@@ -435,7 +436,7 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct Base64Demo {
   controller: webview.WebviewController = new webview.WebviewController();
-  pdfStr: string = 'data:application/pdf;base64,xxx'; // 使用时将xxx替换为PDF的base64格式数据
+  pdfStr: string = 'data:application/pdf;base64,xxx'; <em>// 使用时将xxx替换为PDF的base64格式数据</em>
 
   build() {
     Column() {
@@ -462,7 +463,7 @@ import { webview } from '@kit.ArkWeb';
 @Component
 struct LoadProgressDemo {
   controller: webview.WebviewController = new webview.WebviewController();
-  // 创建变量表示进度值
+ <em> // 创建变量表示进度值</em>
   @State value: number = 0;
 
   build() {
@@ -512,7 +513,7 @@ struct TitleDemo {
       .height(40);
 
       Web({
-        src: 'xxx.com/xxx.pdf', // 运行时替换成真实的地址
+        src: 'xxx.com/xxx.pdf',<em> // 运行时替换成真实的地址</em>
         controller: this.webviewController,
       })
         .width('100%')

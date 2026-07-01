@@ -4,21 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-13
 
-## RCP下载文件，会重复回调同一个进度，如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用RCP接口下载文件，onDownloadProgress会重复回调同一个进度，导致业务逻辑重复执行。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/xAp6MeWZTcmQX1CeCQ6QYg/zh-cn_image_0000002628612488.png?HW-CC-KV=V1&HW-CC-Date=20260701T025759Z&HW-CC-Expire=86400&HW-CC-Sign=5FB0A6B05BE7E5C03E70F29AF9C33687E19272A71BF6D7FA57C52B5CF15E645D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/xAp6MeWZTcmQX1CeCQ6QYg/zh-cn_image_0000002628612488.png?HW-CC-KV=V1&HW-CC-Date=20260701T041440Z&HW-CC-Expire=86400&HW-CC-Sign=060F529E01F84A64E4432D0DA3821832BBAD855A34781D22D91D77B7D1B7AA80)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 通过[downloadToFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section16508121443318)接口下载文件，会在[onDownloadProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section832314187551)回调中返回当前下载进度，该接口需要配置ohos.permission.INTERNET权限，如果使用[PathPreference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section828055885811)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO权限。
 - [onHeaderReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section13232139165012)回调中可以通过content-length获取下载文件的总长度。
@@ -27,12 +23,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：5.0系统版本，onDownloadProgress存在冗余回调bug，5.1及以上系统版本已经修复该问题，可升级系统至5.1以上版本。
 - **方案二**：业务侧可通过文件总大小和当前已接收的文件大小计算下载进度：
- 
-```text
+
+  
+```json
 import rcp from '@hms.collaboration.rcp';
 
 @Entry
@@ -42,7 +39,7 @@ struct Index {
   @State totalData: number = 0;
   @State progress: number = 0;
   @State enableDownload: boolean = true;
-  // 需要替换成实际的url
+ <em> // 需要替换成实际的url</em>
   downloadUrl: string = '';
 
   build() {
@@ -57,7 +54,7 @@ struct Index {
           this.enableDownload = false;
           this.curValue = 0;
           this.progress = 0;
-          // 下载文件数据
+     <em>     // 下载文件数据</em>
           this.startDownload(this.downloadUrl);
         })
         .enabled(this.enableDownload);
@@ -67,9 +64,9 @@ struct Index {
     .width('100%');
   }
 
-  // 下载文件
+ <em> // 下载文件</em>
   startDownload(url: string) {
-    // 响应数据处理
+   <em> // 响应数据处理</em>
     const eventsHandler: rcp.HttpEventsHandler = {
       onHeaderReceive: (headers: rcp.ResponseHeaders) => {
         this.totalData = Number(headers['content-length']);
@@ -79,17 +76,17 @@ struct Index {
         this.progress = (this.curValue / this.totalData) * 100;
         console.info('Download progress:', this.curValue, 'of', this.totalData);
       },
-      // 数据完成接收监听
+    <em>  // 数据完成接收监听</em>
       onDataEnd: () => {
         console.info('Data transfer complete');
         this.enableDownload = true;
       },
-      // 取消数据接收监听
+    <em>  // 取消数据接收监听</em>
       onCanceled: () => {
         console.info('Request/response canceled');
       },
     };
-    // 建立session对象
+   <em> // 建立session对象</em>
     let session = rcp.createSession({
       requestConfiguration: {
         tracing: {

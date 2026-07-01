@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-universalkeystorekit-7001
 
-## Universal Keystore Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增错误码 | 类名：huks； API声明：function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：huks； API声明：function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback&lt;void&gt;): void; 差异内容：12000011,12000020,12000021,12000023,12000024,12000026 | api/@ohos.security.huks.d.ts |

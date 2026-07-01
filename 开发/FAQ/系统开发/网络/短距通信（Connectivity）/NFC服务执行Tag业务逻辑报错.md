@@ -4,31 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-41
 
-## NFC服务执行Tag业务逻辑报错
- 
-
-
-##### 问题现象
+#### 问题现象
 
 NFC服务在获取IsoDep类型的NFC Tag对象并与标签建立连接时报错。
  
 报错信息如下：
  
-```text
+```bash
 Tag running state is abnormal in service
 ```
  
  
 
-##### 背景知识
-
-- NFC服务通过tag.getIsoDep(tagInfo: TagInfo)方法可获取IsoDep类型Tag对象，通过该对象可访问支持IsoDep技术类型的Tag。
-- 上述方法的入参是包含Tag技术类型和相关参数，从tag.getTagInfo(want: Want)获取。
-
+#### 背景知识
+1. NFC服务通过tag.getIsoDep(tagInfo: TagInfo)方法可获取IsoDep类型Tag对象，通过该对象可访问支持IsoDep技术类型的Tag。
+2. 上述方法的入参是包含Tag技术类型和相关参数，从tag.getTagInfo(want: Want)获取。
  
  
 
-##### 问题定位
+#### 问题定位
 
 该报错信息与该[错误码文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc#section3100201-nfc服务读写tag错误)中的错误信息一致。因此可按照文档中给出的可能原因及处理步骤进行排查
  
@@ -45,21 +39,19 @@ Tag running state is abnormal in service
  
  
 
-##### 分析结论
+#### 分析结论
 
 读取到的标签不支持IsoDep类型，由于Tag参数值和实际调用函数要求不匹配，所以当使用getIsoDep()方法并连接时会导致报错。
  
  
 
-##### 修改建议
-
-- 当读取到NFC标签卡片后，通过该标签的TagInfo对象判断该标签是否支持IsoDep技术类型，以防止Tag参数值和后续实际调用的getIsoDep()函数要求不匹配，从而导致报错。具体判断逻辑代码可参考[NFC标签读写开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nfc-tag-access-guide#开发步骤)中的示例代码。
-- 更换为支持IsoDep技术类型的NFC标签卡片。
-
+#### 修改建议
+1. 当读取到NFC标签卡片后，通过该标签的TagInfo对象判断该标签是否支持IsoDep技术类型，以防止Tag参数值和后续实际调用的getIsoDep()函数要求不匹配，从而导致报错。具体判断逻辑代码可参考[NFC标签读写开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nfc-tag-access-guide#开发步骤)中的示例代码。
+2. 更换为支持IsoDep技术类型的NFC标签卡片。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用多个SDK开发，在每个SDK中均使用[tag.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)订阅NFC Tag读卡事件，只有最后一次监听生效，如何让每个SDK都能处理NFC数据？
  

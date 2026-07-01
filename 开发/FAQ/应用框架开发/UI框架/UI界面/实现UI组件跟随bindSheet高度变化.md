@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1087
 
-## 实现UI组件跟随bindSheet高度变化
- 
-
-
-##### 问题现象
+#### 问题现象
 
 屏幕底部有一个按钮，当出现半模态组件时，需要将该按钮向上移动，以避让半模态组件。在半模态组件高度动态变化（非手势触发）的情况下，该按钮应始终与半模态组件保持固定距离，并实现平滑跟随效果。如何实现这一功能？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [bindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition)：用于实现半模态弹窗功能。通过将该方法绑定到组件上，点击组件后即可显示半模态页面。
 - [SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)：bindSheet的配置选项，支持对半模态弹窗进行定制。其中，detentSelection属性可用于动态切换弹窗的高度，onHeightDidChange属性可用于监听弹窗高度的变化。
@@ -23,11 +19,10 @@
  
  
 
-##### 解决方案
-
-- 在Text组件上绑定点击事件，用于动态控制半模态弹窗的显示与隐藏。同时，通过按钮的margin属性与属性动画，实现按钮在弹窗出现或隐藏时的平滑跟随效果。
-- 构建一个“切换”按钮，点击该按钮时通过修改SheetOptions中的detentSelection值，动态调整半模态弹窗的高度。同时结合按钮的margin属性与animateTo属性动画，实现按钮随弹窗高度变化的平滑跟随。
-- 通过SheetOptions的onHeightDidChange回调监听半模态弹窗的高度变化，获取手势操作时每一帧的高度值，并据此动态设置按钮的margin，从而实现按钮对弹窗高度变化的实时跟随。
+#### 解决方案
+1. 在Text组件上绑定点击事件，用于动态控制半模态弹窗的显示与隐藏。同时，通过按钮的margin属性与属性动画，实现按钮在弹窗出现或隐藏时的平滑跟随效果。
+2. 构建一个“切换”按钮，点击该按钮时通过修改SheetOptions中的detentSelection值，动态调整半模态弹窗的高度。同时结合按钮的margin属性与animateTo属性动画，实现按钮随弹窗高度变化的平滑跟随。
+3. 通过SheetOptions的onHeightDidChange回调监听半模态弹窗的高度变化，获取手势操作时每一帧的高度值，并据此动态设置按钮的margin，从而实现按钮对弹窗高度变化的实时跟随。
 ```text
 import { curves, LengthUnit } from '@kit.ArkUI';
 
@@ -107,9 +102,9 @@ export struct BindSheetAnimateDemo {
           showClose: false,
           mode: SheetMode.EMBEDDED,
           preferType: SheetType.BOTTOM,
-          scrollSizeMode: ScrollSizeMode.CONTINUOUS, // 半模态面板在滑动过程中持续更新内容显示区域。
+          scrollSizeMode: ScrollSizeMode.CONTINUOUS, <em>// 半模态面板在滑动过程中持续更新内容显示区域。</em>
           onHeightDidChange: (height) => {
-            // 手动调整半模态高度时，保持跟随
+          <em>  // 手动调整半模态高度时，保持跟随</em>
             this.marginVal = this.getUIContext().px2vp(height);
           }
         })

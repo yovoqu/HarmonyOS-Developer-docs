@@ -4,27 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-670
 
-## 如何实现基于StyledString的气泡动态适配
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何根据StyledString文本高度动态调整气泡的高度？
  
  
 
-##### 效果预览
+#### 效果预览
 
 可以看到气泡大小会跟随StyledString而变化。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/2cEfcK1WT8GXWfg-lwesmQ/zh-cn_image_0000002628394678.png?HW-CC-KV=V1&HW-CC-Date=20260701T025541Z&HW-CC-Expire=86400&HW-CC-Sign=117F4449EB828BDE561743775DFF650DCC1CFE828A54A461048B73AF6686DA66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/2cEfcK1WT8GXWfg-lwesmQ/zh-cn_image_0000002628394678.png?HW-CC-KV=V1&HW-CC-Date=20260701T041307Z&HW-CC-Expire=86400&HW-CC-Sign=1B0528C091B77E6CDD56968183EF21C0A56EC4F64D09765AB862FF8F34120EB3)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [StyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#styledstring)对象支持灵活设置文本样式，可通过TextController的[setStyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#setstyledstring12)方法与Text组件绑定，也可通过RichEditor组件的控制器方法与RichEditor组件关联。
 - [objectFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#objectfit)方法用于设置图片的填充效果。
@@ -32,14 +28,14 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 气泡高度的动态调整可通过Column自适应Text内容实现，StyledString提供样式化文本内容，其高度由Text组件渲染后自动传递给Column。
  
 ```text
 @Builder
 function bubbleBackgroundOne() {
-  Image($r('app.media.backgroundcolorgray')) // 此处'backgroundcolorgray'仅作示例，请开发者自行替换。
+  Image($r('app.media.backgroundcolorgray')) <em>// 此处'backgroundcolorgray'仅作示例，请开发者自行替换。</em>
     .objectFit(ImageFit.Fill)
     .width('100%')
     .height('100%');
@@ -61,7 +57,7 @@ struct StyledStringDemo {
   build() {
     Row() {
       Column() {
-        // 显示属性字符串
+    <em>    // 显示属性字符串</em>
         Text(undefined, { controller: this.controller1 });
         Text(undefined, { controller: this.controller2 });
         Text('测试')

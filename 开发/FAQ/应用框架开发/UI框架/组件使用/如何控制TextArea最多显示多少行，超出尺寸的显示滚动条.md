@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-604
 
-## 如何控制TextArea最多显示多少行，超出尺寸的显示滚动条
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用TextArea实现默认一行，最多展示四行，超出尺寸显示滚动条的文本输入效果？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/VlYN90_eSjKIbXHxNQtRwg/zh-cn_image_0000002658911935.png?HW-CC-KV=V1&HW-CC-Date=20260701T025538Z&HW-CC-Expire=86400&HW-CC-Sign=A0CC4EEA4E8D714F511E1D8AAB6BED7B6B2FF5E9AF07B770DC16F939083A52A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/VlYN90_eSjKIbXHxNQtRwg/zh-cn_image_0000002658911935.png?HW-CC-KV=V1&HW-CC-Date=20260701T041310Z&HW-CC-Expire=86400&HW-CC-Sign=BED74673A7F8063FA49B3F44E9A87A59321A9D80E46906208A3144E99911A8A1)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea)：多行文本输入框组件，当输入的文本内容超过组件宽度时会自动换行显示。
 - [lineSpacing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#linespacing20)：设置文本的行间距。当不配置LineSpacingOptions时，首行上方和尾行下方默认会有行间距。
@@ -31,7 +27,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据TextArea的height和lineHeight可以计算出TextArea能容纳多少行文本。当文本总高度超过TextArea的height时，就会显示滚动条。根据公式来计算文本行高和文本框高度的关系，代码如下：
 ```text
@@ -78,8 +74,7 @@ struct TextAreaDemo {
  
  
 
-##### 总结
-
-- 由于文本间默认会有一定的间距，而且无法消除，所以TextArea的height需要比文本的fontSize的四倍还要多出一些，才能刚好只能显示四行。
-- lineHeight控制每一行文本的高度，这个值必须大于等于fontSize。否则会出现文字重叠。
-- lineSpacing默认为0，如果设置了lineSpacing值，就需要把lineSpacing值也计算进去。
+#### 总结
+1. 由于文本间默认会有一定的间距，而且无法消除，所以TextArea的height需要比文本的fontSize的四倍还要多出一些，才能刚好只能显示四行。
+2. lineHeight控制每一行文本的高度，这个值必须大于等于fontSize。否则会出现文字重叠。
+3. lineSpacing默认为0，如果设置了lineSpacing值，就需要把lineSpacing值也计算进去。

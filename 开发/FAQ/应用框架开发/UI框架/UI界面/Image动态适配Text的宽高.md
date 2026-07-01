@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1236
 
-## Image动态适配Text的宽高
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现图标自适应文本框的尺寸变化，使Image组件动态适配Text组件的宽高。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [组件区域变化事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event)onAreaChange会在组件显示的尺寸、位置等发生变化时触发，返回目标元素位置信息变化情况。
 - [resizable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#resizable11)可以设置图像拉伸时可调整大小的图像选项。拉伸对拖拽缩略图以及占位图有效。
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过onAreaChange监听Text的变化，并设置图片组件的resizable属性，设置顶部、右侧、底部、左侧的距离，使其边缘部分在图片拉伸时不会发生变化，仅图片中央区域被拉伸，从而动态调整Image的大小位置等。
  
@@ -49,7 +45,7 @@ struct TextView {
           left: '5vp',
           right: '5vp'
         });
-      Image($r('app.media.img1')) // 图片资源文件需自行替换
+      Image($r('app.media.img1'))<em> // 图片资源文件需自行替换</em>
         .width(this.textWidth)
         .resizable({
           slice: {
@@ -69,4 +65,4 @@ struct TextView {
 实现效果如下：增大Text文本，图片对应变大。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/T98JJAIsSe-NqXsXxVy14w/zh-cn_image_0000002628753944.png?HW-CC-KV=V1&HW-CC-Date=20260701T025712Z&HW-CC-Expire=86400&HW-CC-Sign=158EBF99497FE635120054DB2903E2AAD545CF1A19332E3CA24ADA23C0BE1338)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/T98JJAIsSe-NqXsXxVy14w/zh-cn_image_0000002628753944.png?HW-CC-KV=V1&HW-CC-Date=20260701T041139Z&HW-CC-Expire=86400&HW-CC-Sign=4AA7179D787218D9DB0C89ED81F05198F8334937DD26F4DCB6E94755B442A676)

@@ -4,25 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-50
 
-## 开启HWAsan监测后应用崩溃如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 未开启HWAsan监测时，应用正常运行，开启HWAsan监测后，应用崩溃闪退。
  
  
 
-##### 背景知识
+#### 背景知识
 
 HWAsan是Hardware-Assisted Address Sanitizer的简称，它是Clang LLVM提供的一套内存错误检测系统，用来检测C/C++中常见的内存访问错误，相比之前的Asan（Address Sanitizer），HWAsan在性能、内存上有不小提升，依赖于编译器的Address Tagging特性，该特性允许应用程序自定义数据存储到虚拟地址的最高8位，当CPU操作该虚拟地址时会自动忽略它。详见：[使用HWAsan检测内存错误](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-hwasan-detection)。
  
  
 
-##### 问题定位
-
-- 查看asan日志。
+#### 问题定位
+1. 查看asan日志。
 ```text
 Device info:HUAWEI Mate 60 Pro
 Build info:ALN-AL00 5.0.0.150(SP8C00E150R4P30log)
@@ -53,7 +48,7 @@ allocated here:
     #5 0x26bfd64954  ([anon:ArkTS Heapnon movable space]+0x64954)
 ```
 
-- 点击asan日志中的链接即可跳转至引起内存错误的代码处。
+2. 点击asan日志中的链接即可跳转至引起内存错误的代码处。
 ```text
 static napi_value TcpInitCmdSocket(napi_env env, napi_callback_info info) 
 {
@@ -81,11 +76,10 @@ void tcp_cmd_create(TcpCmdContext *ctx, char *ip, int port)
 }
 ```
  定位到ctx->client = client，排查上下文代码发现调用了napi_create_int64，在HWAsan的运行环境中，napi_create_int64创建指针给JS调用，后续使用ctx的地址发生偏移导致运行崩溃。
-
  
  
 
-##### 分析结论
+#### 分析结论
 
 - ArkTS的Number类型基于IEEE 754双精度浮点数标准，仅能精确表示53位二进制整数。
 - 未开启HWAsan时：系统仅使用40位地址空间，此时地址值在Number的安全范围内（2^40≈1.1×10^12<<2^53），转换后不会丢失高位。
@@ -94,12 +88,12 @@ void tcp_cmd_create(TcpCmdContext *ctx, char *ip, int port)
  
  
 
-##### 修改建议
+#### 修改建议
 
 将代码段中的napi_create_int64改成napi_create_bigint_int64。JavaScript的BigInt支持任意位数的整数表示，通过napi_create_bigint_int64接口可直接将64位地址转换为BigInt，避免精度丢失。
  
  
 
-##### 总结
+#### 总结
 
 Number类型的精度限制与64位地址的冲突，根据地址位数是否超出Number安全范围，选择对应接口。

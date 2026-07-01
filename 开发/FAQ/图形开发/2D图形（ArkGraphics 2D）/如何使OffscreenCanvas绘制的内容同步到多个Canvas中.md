@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-40
 
-## 如何使OffscreenCanvas绘制的内容同步到多个Canvas中
- 
-
-
-##### 问题现象
+#### 问题现象
 
 父子自定义组件中都存在Canvas画布，如何能够绘制一次内容使其同步在这些Canvas画布中？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/_lI9ezk6S92ruVfctqOBbw/zh-cn_image_0000002628393364.png?HW-CC-KV=V1&HW-CC-Date=20260701T025836Z&HW-CC-Expire=86400&HW-CC-Sign=5913050279B6AECE4FBE7B092131FDCC7448B6D5984C5B74C993CCC8EC2A9CB1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/_lI9ezk6S92ruVfctqOBbw/zh-cn_image_0000002628393364.png?HW-CC-KV=V1&HW-CC-Date=20260701T041026Z&HW-CC-Expire=86400&HW-CC-Sign=9835FE9043F87919D6256A6479E88D515359D71728A00F7F15C2E8868369F001)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)是画布组件，提供了一个用于绘制内容的区域。
 - [OffscreenCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas)是用于离屏绘制的画笔，可以在一个类中创建并绘制内容，然后在自定义组件中通过[getImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#getimagedata)将绘制的内容传递到不同Canvas上。
@@ -31,9 +27,8 @@
  
  
 
-##### 解决方案
-
-- 创建一个类，包含OffscreenCanvas的初始化及绘制方法。该类通过@Observed装饰，使得绘制的内容可以传递到不同组件中的Canvas上。
+#### 解决方案
+1. 创建一个类，包含OffscreenCanvas的初始化及绘制方法。该类通过@Observed装饰，使得绘制的内容可以传递到不同组件中的Canvas上。
 ```text
 import { LengthMetricsUnit } from '@kit.ArkUI';
 
@@ -67,14 +62,12 @@ class DemoLayer {
 }
 ```
 
-- 通过类的实例，将绘制的内容传递给不同Canvas的画笔。
+2. 通过类的实例，将绘制的内容传递给不同Canvas的画笔。
+> [!NOTE]
+> 在Index中是直接通过点击操作执行的putImageData，在DemoItem中则是通过@Watch的回调执行的putImageData。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/8EKrVIGAS0uX3ZyzJTADJA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025836Z&HW-CC-Expire=86400&HW-CC-Sign=96A3D179DE42D0A84B301EE002301A84839FE3B04BA139A1C70DEB69691FCFB7)
- 
-在Index中是直接通过点击操作执行的putImageData，在DemoItem中则是通过@Watch的回调执行的putImageData。
- 
 
- 
+  
 ```text
 @Entry
 @Component
@@ -129,7 +122,7 @@ struct SyncCanvasContent {
     this.layer.draw();
     this.layer.data = this.layer.context.getImageData(0, 0, WH, WH);
     this.context.putImageData(this.layer.data, 0, 0);
-    // 此句用于证明layer中的绘画数据可以被多个context使用
+  <em>  // 此句用于证明layer中的绘画数据可以被多个context使用</em>
     this.context2.putImageData(this.layer.data, 0, 0);
   }
 }

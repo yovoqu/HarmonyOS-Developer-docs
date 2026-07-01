@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-166
 
-## Navigation组件管理两个界面都加载本地H5进行交互跳转，如何进行页面刷新
- 
-
-
-##### 问题现象
+#### 问题现象
 
 由Navigation管理的两个界面都加载本地H5，Web首页面跳转到Web第二个页面后，如何进行页面刷新？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/IMGyyJk2QniJm6D5ctT3WA/zh-cn_image_0000002629059088.png?HW-CC-KV=V1&HW-CC-Date=20260701T025742Z&HW-CC-Expire=86400&HW-CC-Sign=2C6F60873E6B06493D37DF223F36BB45AD57ADEF41F4F5C5F49CEB006703A3CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/IMGyyJk2QniJm6D5ctT3WA/zh-cn_image_0000002629059088.png?HW-CC-KV=V1&HW-CC-Date=20260701T041334Z&HW-CC-Expire=86400&HW-CC-Sign=6414A642EC0D151D2C4FA0E5232936CB425D6A5224EAAF648F186CBF2269F2C2)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onLoadIntercept](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)：当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。
 - [onWillShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onwillshow12)：当该NavDestination显示之前触发此回调。
@@ -30,7 +26,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 点击Web页面的按钮跳转Navigation页面需要在Web组件的onLoadIntercept拦截页面加载，再使用Navigation提供的组件路由能力跳转页面，然后通过onWillShow方法中进行刷新，这样每一次进入或返回都可以重新刷新界面。
  
@@ -112,24 +108,28 @@ export struct WebOnePage {
 }
 ```
  index.html：
- 
+
+  
 ```text
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
 
-
-    
-    
-    Document
-    
-
-
-    Web首界面
-    
-        
-            跳转到第二个页面
-        
-    
-
-
+<body>
+<div class="web_page_demo">
+    <div class="title">Web首界面</div>
+    <ul>
+        <li>
+            <a class="function_item" href="arkts:/pages/toWebTwoPage">跳转到第二个页面</a>
+        </li>
+    </ul>
+</div>
+</body>
+<script></script>
 ```
 
 - 第三个界面，创建Web组件，并加载本地index1.html，通过Web组件中的onLoadIntercept回调拦截后调用Navigation组件的pop方法返回上一个界面。
@@ -163,22 +163,26 @@ export struct WebTwoPage {
 }
 ```
  index1.html：
- 
+
+  
 ```text
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
 
-
-    
-    
-    Document
-    
-
-
-    第二个Web界面
-    
-        
-            返回上一个Web界面
-        
-    
-
-
+<body>
+<div class="web_page_demo">
+    <div class="title">第二个Web界面</div>
+    <ul>
+        <li>
+            <a class="function_item" href="arkts:/pages/toBackWebOnePage">返回上一个Web界面</a>
+        </li>
+    </ul>
+</div>
+</body>
+<script></script>
 ```

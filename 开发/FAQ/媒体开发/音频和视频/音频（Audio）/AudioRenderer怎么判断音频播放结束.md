@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-56
 
-## AudioRenderer怎么判断音频播放结束
- 
-
-
-##### 问题现象
+#### 问题现象
 
 AudioRenderer组件在播放PCM音频时如何监听到音频文件播放结束？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback)是音频渲染器，用于播放PCM（Pulse Code Modulation）音频数据，相比AVPlayer而言，可以在输入前添加数据预处理，更适合有音频开发经验的开发者，以实现更灵活的播放功能。
  
@@ -22,17 +18,15 @@ AudioRenderer组件在播放PCM音频时如何监听到音频文件播放结束�
  
  
 
-##### 解决方案
+#### 解决方案
 
 AudioRenderer通过回调[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)方法不停的写入音频数据播放，未提供播放结束的API。开发者可通过如下方式判断音频播放是否结束：
- 
-- 定义一个定时器[setInterval](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-timer#section1242317318140)，每隔250ms调用getAudioTimestampInfo获取播放的音频流时间戳，并记录时间戳值preTimestamp。
-- 当最新的时间戳值和上次获取的时间戳值preTimestamp相等，表示音频渲染结束，否则继续定时轮询。
-
+ 1. 定义一个定时器[setInterval](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-timer#section1242317318140)，每隔250ms调用getAudioTimestampInfo获取播放的音频流时间戳，并记录时间戳值preTimestamp。
+2. 当最新的时间戳值和上次获取的时间戳值preTimestamp相等，表示音频渲染结束，否则继续定时轮询。
  
 示例代码如下：
  
-```text
+```json
 import { audio } from '@kit.AudioKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -40,14 +34,14 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let audioRenderer: audio.AudioRenderer;
 let audioStreamInfo: audio.AudioStreamInfo = {
-  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, // 采样率。
-  channels: audio.AudioChannel.CHANNEL_1, // 通道。
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
+  samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, <em>// 采样率。</em>
+  channels: audio.AudioChannel.CHANNEL_1, <em>// 通道。</em>
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,<em> // 采样格式。</em>
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW <em>// 编码格式。</em>
 };
 let audioRendererInfo: audio.AudioRendererInfo = {
-  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
-  rendererFlags: 0 // 音频渲染器标志。
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC, <em>// 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。</em>
+  rendererFlags: 0 <em>// 音频渲染器标志。</em>
 };
 let audioRendererOptions: audio.AudioRendererOptions = {
   streamInfo: audioStreamInfo,
@@ -59,20 +53,20 @@ let audioRendererOptions: audio.AudioRendererOptions = {
 @Component
 export struct PlayPcmEndDemo {
   context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  audioData: Uint8Array = generateTestPCM(); // 测试PCM数据，按需替换为其他音频数据源
+  audioData: Uint8Array = generateTestPCM(); <em>// 测试PCM数据，按需替换为其他音频数据源</em>
   writeOffset = 0;
   preTimestamp = 0;
   intervalId = 0;
   @State isEnd: boolean = false;
 
 
-  async aboutToAppear(): Promise {
+  async aboutToAppear(): Promise<void> {
     audioRenderer = await audio.createAudioRenderer(audioRendererOptions);
-    await this.init(); //初始化
+    await this.init();<em> //初始化</em>
   }
 
 
-  async aboutToDisappear(): Promise {
+  async aboutToDisappear(): Promise<void> {
     await audioRenderer.release();
   }
 
@@ -87,7 +81,7 @@ export struct PlayPcmEndDemo {
           await audioRenderer.start();
 
 
-          this.checkPlayEnd(); //定时获取音频流时间戳，当时间戳不变时，播放结束
+          this.checkPlayEnd(); <em>//定时获取音频流时间戳，当时间戳不变时，播放结束</em>
         });
       Button('停止播放').width('100%')
         .onClick(async () => {
@@ -103,7 +97,7 @@ export struct PlayPcmEndDemo {
   }
 
 
-  //定时获取音频流时间戳，当时间戳不变时，播放结束
+ <em> //定时获取音频流时间戳，当时间戳不变时，播放结束</em>
   checkPlayEnd() {
     this.intervalId = setInterval(() => {
       audioRenderer.getAudioTimestampInfo().then((audioTimestampInfo: audio.AudioTimestampInfo) => {
@@ -128,7 +122,20 @@ export struct PlayPcmEndDemo {
       }
       let bufferView = new Uint8Array(buffer);
       let writeLen = Math.min(buffer.byteLength, this.audioData.byteLength - this.writeOffset);
-      if (writeLen  {
+      if (writeLen <= 0) {
+        console.info('Play Done');
+        return audio.AudioDataCallbackResult.INVALID;
+      }
+      bufferView.set(this.audioData.slice(this.writeOffset, this.writeOffset + writeLen));
+      this.writeOffset += writeLen;
+      return audio.AudioDataCallbackResult.VALID;
+    });
+  }
+
+
+  async stopAndFlush() {
+    console.info('renderer status' + audioRenderer.state);
+    audioRenderer.stop().then(() => {
       console.error('Renderer stop ok.');
     }).catch((err: BusinessError) => {
       console.error('Renderer stop failed. ', err);
@@ -148,13 +155,13 @@ function generateTestPCM(): Uint8Array {
   const amplitude = 0.35;
 
 
-  const freqMap: Record = {
-    1: 523.25, // C5
-    2: 587.33, // D5
-    3: 659.25, // E5
-    4: 698.46, // F5
-    5: 783.99, // G5
-    6: 880.00, // A5
+  const freqMap: Record<number, number> = {
+    1: 523.25, <em>// C5</em>
+    2: 587.33, <em>// D5</em>
+    3: 659.25,<em> // E5</em>
+    4: 698.46, <em>// F5</em>
+    5: 783.99, <em>// G5</em>
+    6: 880.00, <em>// A5</em>
   };
 
 
@@ -165,13 +172,24 @@ function generateTestPCM(): Uint8Array {
   ];
 
 
-  const samplesPerNote = Math.floor(sampleRate * noteDuration); // 4000
-  const totalSamples = samplesPerNote * melody.length; // 96,000
-  const buffer = new ArrayBuffer(totalSamples * 2); // 192,000 bytes
+  const samplesPerNote = Math.floor(sampleRate * noteDuration); <em>// 4000</em>
+  const totalSamples = samplesPerNote * melody.length; <em>// 96,000</em>
+  const buffer = new ArrayBuffer(totalSamples * 2); <em>// 192,000 bytes</em>
   const view = new DataView(buffer);
 
 
   let idx = 0;
   for (const note of melody) {
     const freq = note ? freqMap[note] : 0;
-    for (let i = 0; i
+    for (let i = 0; i < samplesPerNote; i++) {
+      const t = i / sampleRate;
+      const wave = freq ? amplitude * Math.sin(2 * Math.PI * freq * t) : 0;
+      const sample = Math.round(wave * 32767);
+      const clamped = Math.max(-32768, Math.min(32767, sample));
+      view.setInt16(idx * 2, clamped, true);
+      idx++;
+    }
+  }
+  return new Uint8Array(buffer);
+}
+```

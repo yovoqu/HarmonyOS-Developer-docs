@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-195
 
-## Web组件的请求拦截接口使用场景总结
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Web组件中onLoadIntercept、onInterceptRequest、WebSchemeHandler、onOverrideUrlLoading都是用于请求的拦截，这几个接口的作用分别是什么，适用于哪些场景？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onLoadIntercept](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onloadintercept10)：当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。
 - [onInterceptRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oninterceptrequest9)：当Web组件加载url之前触发该回调，用于拦截url并返回响应数据。
@@ -24,7 +20,7 @@ Web组件中onLoadIntercept、onInterceptRequest、WebSchemeHandler、onOverride
  
  
 
-##### 解决方案
+#### 解决方案
 
 **接口使用场景汇总说明：**
   
@@ -53,7 +49,7 @@ Web组件中onLoadIntercept、onInterceptRequest、WebSchemeHandler、onOverride
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用onLoadIntercept如何实现重定向？
  
@@ -86,12 +82,12 @@ import { buffer, util } from '@kit.ArkTS';
 struct WebComponent {
   controller: webview.WebviewController = new webview.WebviewController();
   schemeHandler: webview.WebSchemeHandler = new webview.WebSchemeHandler();
-  htmlData: string = 'Source:source';
+  htmlData: string = '<html><body bgcolor="white">Source:<pre>source</pre></body></html>';
 
   build() {
     Column() {
       Web({
-        // 使用时请替换为真实url
+        <em>// 使用时请替换为真实url</em>
         src: 'https://*****',
         controller: this.controller
       })
@@ -101,12 +97,12 @@ struct WebComponent {
               resourceHandler: webview.WebResourceHandler) => {
               console.info('[schemeHandler] onRequestStart');
               try {
-                // 可以指定请求不做拦截
+                <em>// 可以指定请求不做拦截</em>
                 if (request.getRequestMethod() !== 'POST') {
                   return false;
                 }
 
-                // 获取POST请求体
+                <em>// 获取POST请求体</em>
                 let stream = request.getHttpBodyStream();
                 if (stream) {
                   stream.initialize().then(() => {
@@ -118,7 +114,7 @@ struct WebComponent {
                     console.info(`[schemeHandler] HttpBodyStream size is ${size}`);
                     stream.read(size).then((result: ArrayBuffer) => {
                       console.info(`[schemeHandler] HttpBodyStream buffer length is ${result.byteLength}`);
-                      // 从buffer中转换请求体内容
+                      <em>// 从buffer中转换请求体内容</em>
                       let decoder = util.TextDecoder.create('utf-8');
                       let requestBodyStr = decoder.decodeToString(new Uint8Array(result));
                       console.info(`[schemeHandler] HttpBodyStream requestBody is ${requestBodyStr}`);
@@ -133,7 +129,7 @@ struct WebComponent {
                 console.error(`[schemeHandler] ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
               }
 
-              // 构造响应体返回
+              <em>// 构造响应体返回</em>
               let response = new webview.WebSchemeHandlerResponse();
               try {
                 response.setNetErrorCode(WebNetErrorList.NET_OK);
@@ -146,13 +142,13 @@ struct WebComponent {
                 console.error(`[schemeHandler] ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
               }
 
-              // 调用didFinish/didFail前需要优先调用didReceiveResponse将构造的响应头传递给被拦截的请求。
+              <em>// 调用didFinish/didFail前需要优先调用didReceiveResponse将构造的响应头传递给被拦截的请求。</em>
               let buf = buffer.from(this.htmlData);
               try {
                 if (buf.length == 0) {
                   console.info('[schemeHandler] length 0');
                   resourceHandler.didReceiveResponse(response);
-                  // 如果认为buf.length为0是正常情况，则调用resourceHandler.didFinish，否则调用resourceHandler.didFail
+                  <em>// 如果认为buf.length为0是正常情况，则调用resourceHandler.didFinish，否则调用resourceHandler.didFail</em>
                   resourceHandler.didFail(WebNetErrorList.ERR_FAILED);
                 } else {
                   console.info('[schemeHandler] length 1');
@@ -195,9 +191,9 @@ import { WebNetErrorList, webview } from '@kit.ArkWeb';
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-// 源url
+<em>// 源url</em>
 const SOURCE_URL: string = 'https://***1';
-// 目标url
+<em>// 目标url</em>
 const TARGET_URL: string = 'https://***2';
 
 export class HttpProxy {
@@ -211,17 +207,17 @@ export class HttpProxy {
     }
   }
 
-  /**
-   * 处理响应
-   * @param res
-   * @param resourceHandler
-   */
+  <em>/**</em>
+<em>   * 处理响应</em>
+<em>   * @param res</em>
+<em>   * @param resourceHandler</em>
+<em>   */</em>
   private handleResponse(res: rcp.Response, resourceHandler: webview.WebResourceHandler): void {
     let response = new webview.WebSchemeHandlerResponse();
     response.setStatus(res.statusCode);
     response.setStatusText('OK');
     response.setNetErrorCode(WebNetErrorList.NET_OK);
-    // 将rcp响应头塞到Web响应头中，此处响应头也可自定义
+   <em> // 将rcp响应头塞到Web响应头中，此处响应头也可自定义</em>
     Object.keys(res.headers).forEach((key: string) => {
       const value = res.headers[key];
       if (value) {
@@ -229,13 +225,13 @@ export class HttpProxy {
         response.setHeaderByName(key, value?.toString(), true);
       }
     });
-    // 不涉及跨域，可手动删除下面的header
+    <em>// 不涉及跨域，可手动删除下面的header</em>
     response.setHeaderByName('Access-Control-Allow-Origin', '*', true);
     response.setHeaderByName('Access-Control-Allow-Credentials', 'true', true);
     response.setHeaderByName('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE', true);
     response.setHeaderByName('Access-Control-Allow-Headers', 'Content-Type, Authorization', true);
     try {
-      // 将响应返回给Web
+      <em>// 将响应返回给Web</em>
       resourceHandler.didReceiveResponse(response);
       resourceHandler.didReceiveResponseBody(res.body);
       resourceHandler.didFinish();
@@ -244,16 +240,16 @@ export class HttpProxy {
     }
   }
 
-  /**
-   * 代理请求
-   * @param request
-   * @param resourceHandler
-   */
+  <em>/**</em>
+<em>   * 代理请求</em>
+<em>   * @param request</em>
+<em>   * @param resourceHandler</em>
+<em>   */</em>
   public fetch(request: webview.WebSchemeHandlerRequest, resourceHandler: webview.WebResourceHandler): void {
     try {
-      // 替换请求url
+      <em>// 替换请求url</em>
       let url = request.getRequestUrl().replace(SOURCE_URL, TARGET_URL);
-      // 此处rcp请求，可自定义增加header、cookie、请求参数、对请求体加解密等
+      <em>// 此处rcp请求，可自定义增加header、cookie、请求参数、对请求体加解密等</em>
       let req = new rcp.Request(url, request.getRequestMethod());
       this.session?.fetch(req).then((res) => {
         this.handleResponse(res, resourceHandler);
@@ -286,9 +282,9 @@ struct WebRequestProxyDemo {
             this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest,
               resourceHandler: webview.WebResourceHandler) => {
               console.info('[schemeHandler] onRequestStart');
-              // 对请求进行拦截，拦截规则可自定义
+              <em>// 对请求进行拦截，拦截规则可自定义</em>
               if (request.getRequestUrl().includes(SOURCE_URL)) {
-                // 使用rcp代理请求
+                <em>// 使用rcp代理请求</em>
                 this.httpProxy.fetch(request, resourceHandler);
                 return true;
               } else {
@@ -296,7 +292,7 @@ struct WebRequestProxyDemo {
               }
             });
 
-            // 通过WebSchemeHandler，拦截所有https协议请求
+            <em>// 通过WebSchemeHandler，拦截所有https协议请求</em>
             this.controller.setWebSchemeHandler('https', this.schemeHandler);
           } catch (error) {
             console.error(`ErrorCode: ${(error as BusinessError).code}, Message: ${(error as BusinessError).message}`);

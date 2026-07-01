@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-177
 
-## Web组件同层渲染时如何传自定义参数
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在Web组件同层渲染场景下，H5中的object标签如何传自定义参数并通过onNativeEmbedLifecycleChange回调接收参数？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [同层渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-same-layer)：在系统中，应用可以使用Web组件加载Web网页。当非系统框架的UI组件功能或性能不如系统组件时，可使用同层渲染技术，通过ArkUI组件渲染这些组件（简称为同层组件）。
 支持embed标签：在开启同层渲染后，仅支持type类型为native前缀的标签识别为同层组件，不支持自定义属性。
@@ -27,53 +23,57 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 object标签支持param/value的自定义属性传值，使用时需要将enableNativeEmbedMode属性设置为true，调用registerNativeEmbedRule注册同层渲染的HTML标签名和类型，最后通过onNativeEmbedLifecycleChange回调中获取到自定义属性值。
  
 应用侧示例代码如下：
  
 ```text
-import { webview } from '@kit.ArkWeb';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">webview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.ArkWeb'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct WebRender {
-  controller: webview.WebviewController = new webview.WebviewController();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">WebRender </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">webview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WebviewController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column() {
-      Web({ src: $rawfile('render.html'), controller: this.controller })
-        .domStorageAccess(true)
-        .fileAccess(true)
-        .geolocationAccess(false)
-        .enableNativeEmbedMode(true)
-        .registerNativeEmbedRule('object', 'test/input')
-        .onNativeEmbedLifecycleChange((event) => {
-          if (event.info) {
-            console.info('NativeEmbedParams: ' + event.info.params?.['testName']);
-          }
-        });
-    };
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Web</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">src</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">$rawfile</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'render.html'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">domStorageAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileAccess</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">geolocationAccess</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">enableNativeEmbedMode</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerNativeEmbedRule</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'object'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">'test/input'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onNativeEmbedLifecycleChange</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'NativeEmbedParams: ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">event</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">params</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'testName'</span><span style="color: rgb(0,0,255);">])</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
 HTML示例代码如下：
  
 ```text
-
-
-    同层渲染html
-    
-
-
-    
-
-
+<em><!--src/main/resources/rawfile/render.html--></em>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>同层渲染html</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background:white">
+<object id = "input1" type="test/input" style="width: 300px; height: 100px">
+    <param name="testName" value="testValue">
+</object>
+</body>
+</html>
 ```
  
 打印结果如下图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/6z5ozQZPS0OPfwKbBtCjqA/zh-cn_image_0000002659138435.png?HW-CC-KV=V1&HW-CC-Date=20260701T025744Z&HW-CC-Expire=86400&HW-CC-Sign=C3DD6B41ABAF1D07D55CAD4971C404E7ABE1FEE2EFFF32A5D850400441A8DD8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/6z5ozQZPS0OPfwKbBtCjqA/zh-cn_image_0000002659138435.png?HW-CC-KV=V1&HW-CC-Date=20260701T041336Z&HW-CC-Expire=86400&HW-CC-Sign=7D27E121C5F180C3F853871338281AEF80E8B7C6D5D600C302245918A928DDC9)

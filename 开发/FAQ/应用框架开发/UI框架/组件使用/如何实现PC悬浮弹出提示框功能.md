@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-955
 
-## 如何实现PC悬浮弹出提示框功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在开发PC应用时，要实现鼠标经过某个元素时弹出提示框（通常称为“工具提示”或“悬浮提示”）。具体的应用场景为：需要对表格的表头、表单的标签进行自定义，添加问号的悬浮提示。
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/ifKqpIC0RbW6N6_z4NksfA/zh-cn_image_0000002658920479.png?HW-CC-KV=V1&HW-CC-Date=20260701T025554Z&HW-CC-Expire=86400&HW-CC-Sign=32FE842B0C032E64D76672506076756048EE7D7EB78ED5E4937F174E3F705C23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/ifKqpIC0RbW6N6_z4NksfA/zh-cn_image_0000002658920479.png?HW-CC-KV=V1&HW-CC-Date=20260701T041304Z&HW-CC-Expire=86400&HW-CC-Sign=C0365BA599CFADE27F0E6C69980FC38305E91887E5F63C4B797574E8528DD27E)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tips控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips)为组件绑定Tips悬浮气泡，当鼠标悬浮在组件上时，自动显示提示信息；鼠标离开组件时，悬浮气泡自动隐藏。
 - [onHover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-hover#onhover)当光标滑动或手写笔在屏幕上悬浮移动扫过组件时触发。
@@ -29,7 +25,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **方案一**：通过将Tips悬浮气泡绑定到组件上，自动实现提示信息的显示与隐藏功能。
 ```text
@@ -45,13 +41,13 @@ struct HoverPopup1 {
       Image($r('app.media.startIcon'))
         .width(30)
         .bindTips(this.str, {
-          // 设置悬浮气泡的显示时延
+        <em>  // 设置悬浮气泡的显示时延</em>
           appearingTime: 10,
-          // 设置悬浮气泡的隐藏时延
+        <em>  // 设置悬浮气泡的隐藏时延</em>
           disappearingTime: 300,
           appearingTimeWithContinuousOperation: 300,
           disappearingTimeWithContinuousOperation: 0,
-          // 设置是否显示气泡箭头。值为true时，显示箭头；值为false时，不显示箭头
+      <em>    // 设置是否显示气泡箭头。值为true时，显示箭头；值为false时，不显示箭头</em>
           enableArrow: true,
         });
     }
@@ -62,8 +58,9 @@ struct HoverPopup1 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/xQ81SUgzTs26pcdE82FLBg/zh-cn_image_0000002628401266.png?HW-CC-KV=V1&HW-CC-Date=20260701T025554Z&HW-CC-Expire=86400&HW-CC-Sign=3EB7B1272967F77D49BA6C760A5152DAD69C49484A5B39C601DB5EB5A959E031)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/xQ81SUgzTs26pcdE82FLBg/zh-cn_image_0000002628401266.png?HW-CC-KV=V1&HW-CC-Date=20260701T041304Z&HW-CC-Expire=86400&HW-CC-Sign=14BD4E3490BD6D4DC4803875E748D24E8936CB31B157E02022FDDDD1FFAE19B1)
 
 - **方案二**：为图片组件绑定onHover悬浮事件监听与Popup控制气泡。当检测到有鼠标进入时，通过修改控制显示的状态变量来弹出气泡。
 ```text
@@ -82,7 +79,7 @@ struct HoverPopup2 {
         .onHover((isHover: boolean, event: HoverEvent) => {
           console.info(`${event}`);
           if (isHover) {
-            // 鼠标悬浮
+         <em>   // 鼠标悬浮</em>
             this.handlePopup = true;
           }
         })
@@ -104,14 +101,15 @@ struct HoverPopup2 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/TFsfp0CoRBGPjiDJPn7lEw/zh-cn_image_0000002658800525.png?HW-CC-KV=V1&HW-CC-Date=20260701T025554Z&HW-CC-Expire=86400&HW-CC-Sign=A526F1935C3B18398A2BB43AFDE5B03F38DE20A0149CA83673C37C1FC30F84AD)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/TFsfp0CoRBGPjiDJPn7lEw/zh-cn_image_0000002658800525.png?HW-CC-KV=V1&HW-CC-Date=20260701T041304Z&HW-CC-Expire=86400&HW-CC-Sign=5EC7201F7839E1F731B5CC1481DBF3973EAE4F4D9CD70722C0C52C0EB7ED50BF)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用onHover悬浮事件监听与Popup控制气泡的方案，为什么onHover仅监听悬浮，当离开时为什么不能直接修改控制展示的状态变量？
  

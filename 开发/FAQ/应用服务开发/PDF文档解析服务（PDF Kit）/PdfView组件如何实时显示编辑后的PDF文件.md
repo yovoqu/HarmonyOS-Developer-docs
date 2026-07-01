@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-10
 
-## PdfView组件如何实时显示编辑后的PDF文件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 PdfView组件加载一个PDF文件，对这个文件做编辑操作，如何使编辑后的效果在PdfView组件里体现？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/N8ppvam4RGyQ9-qWt2U1Qw/zh-cn_image_0000002658793615.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025837Z&HW-CC-Expire=86400&HW-CC-Sign=DA0BE0A1781F1F18697C58255AE848DC0C7E3162FCC825883A67E1BF6636A0ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/N8ppvam4RGyQ9-qWt2U1Qw/zh-cn_image_0000002658793615.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041056Z&HW-CC-Expire=86400&HW-CC-Sign=6F8AB4DAB923C07BCF04F2FE77F0230F72A7F6A52B127FFC0B105AC52AEFEBFC)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [PdfView](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfview-component)：HarmonyOS应用通过集成该组件完成PDF文件的预览功能。
 - [pdfViewManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage)：为应用提供统一的PDF预览能力。
@@ -33,111 +29,111 @@ PdfView组件加载一个PDF文件，对这个文件做编辑操作，如何使�
  
  
 
-##### 解决方案
+#### 解决方案
 
 以加载一个PDF文件，为其添加背景色为例：
  
-```text
-import { common } from '@kit.AbilityKit';
-import { fileIo as fs } from '@kit.CoreFileKit';
-import { pdfService, PdfView, pdfViewManager } from '@kit.PDFKit';
-import { systemDateTime } from '@kit.BasicServicesKit';
+```json
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">common </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.AbilityKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">fileIo </span>as <span style="color: rgb(0,0,255);">fs </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.CoreFileKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">PdfView</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">pdfViewManager </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PDFKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">systemDateTime </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct PdfAddBgc {
-  private controller: pdfViewManager.PdfController = new pdfViewManager.PdfController();
-  private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  @State filePath: string = '';
-  @State curPage: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">PdfAddBgc </span><span style="color: rgb(255,0,170);">{</span>
+  private <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfViewManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfViewManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfController</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(0,0,255);">context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">curPage</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear(): void {
-    let dir: string = this.context.filesDir;
-    // 确保在工程目录src/main/resources/rawfile里存在test.pdf文档
-    this.filePath = dir + '/test.pdf';
-    let res = fs.accessSync(this.filePath);
-    if (!res) {
-      let content: Uint8Array = this.context.resourceManager.getRawFileContentSync('rawfile/test.pdf');
-      let fdSand: fs.File | null = null;
-      try {
-        fdSand =
-          fs.openSync(this.filePath, fs.OpenMode.WRITE_ONLY | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
-        fs.writeSync(fdSand.fd, content.buffer);
-      } catch (e) {
-        console.error('fs.openSync failed error is : ', JSON.stringify(e));
-      } finally {
-        if (fdSand !== null) {
-          fs.closeSync(fdSand.fd);
-        }
-      }
-    }
-    (async () => {
-      let loadResult: pdfService.ParseResult = await this.controller.loadDocument(this.filePath);
-      console.log('loadResult is ', loadResult);
-      if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
-        this.controller.setPageZoom(1);
-        // 监听滑动到第几页
-        this.controller.registerPageChangedListener((pageIndex: number) => {
-          this.curPage = pageIndex;
-        });
-      }
-    })();
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">dir</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">确保在工程目录</span><span style="color: rgb(128,128,128);">src/main/resources/rawfile</span><span style="color: rgb(128,128,128);">里存在</span><span style="color: rgb(128,128,128);">test.pdf</span><span style="color: rgb(128,128,128);">文档</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">dir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/test.pdf'</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">res </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">accessSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">res</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Uint8Array </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFileContentSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'rawfile/test.pdf'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      let <span style="color: rgb(0,0,255);">fdSand</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">File </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+      try <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">fdSand </span><span style="color: rgb(181,106,1);">=</span>
+          <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">WRITE_ONLY </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CREATE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TRUNC</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fdSand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">content</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">buffer</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">} </span>catch <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'fs.openSync failed error is : '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">e</span><span style="color: rgb(0,0,255);">))</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">} </span>finally <span style="color: rgb(255,0,170);">{</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fdSand </span><span style="color: rgb(181,106,1);">!== </span>null<span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">closeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">fdSand</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">      }</span>
+<span style="color: rgb(255,0,170);">    }</span>
+    <span style="color: rgb(0,0,255);">(</span>async <span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult </span><span style="color: rgb(181,106,1);">= </span>await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">log</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'loadResult is '</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARSE_SUCCESS </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">setPageZoom</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+       <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">监听滑动到第几页</span></em>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">registerPageChangedListener</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">pageIndex</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curPage </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pageIndex</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span><span style="color: rgb(0,0,255);">)()</span><span style="color: rgb(181,106,1);">;</span>
 
-  }
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Column({ space: 5 }) {
-      Row() {
-        Button('添加背景色').onClick(() => {
-          // pdfDocument.saveDocument不支持编辑加载的文件，拷贝一份用来编辑
-          let tempDir = this.context.tempDir;
-          let tempEditFilePath = tempDir + `/tempEdit${systemDateTime.getTime()}.pdf`;
-          fs.copyFileSync(this.filePath, tempEditFilePath);
-          let pdfDocument: pdfService.PdfDocument = new pdfService.PdfDocument();
-          // 编辑PDF文件时使用临时文件过渡
-          let loadResult = pdfDocument.loadDocument(tempEditFilePath);
-          if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
-            let pageCount = pdfDocument.getPageCount();
-            let bgInfo: pdfService.BackgroundInfo = new pdfService.BackgroundInfo();
-            bgInfo.backgroundColor = 20;
-            bgInfo.isOnTop = true;
-            bgInfo.rotation = 0;
-            bgInfo.scale = 1;
-            bgInfo.opacity = 0.3;
-            bgInfo.verticalAlignment = pdfService.BackgroundAlignment.BACKGROUND_ALIGNMENT_TOP;
-            bgInfo.horizontalAlignment = pdfService.BackgroundAlignment.BACKGROUND_ALIGNMENT_LEFT;
-            bgInfo.horizontalSpace = 1;
-            bgInfo.verticalSpace = 1;
-            pdfDocument.addBackground(bgInfo, 0, pageCount, true, false);
-            // 将添加背景色后的内容保存到源文件
-            pdfDocument.saveDocument(this.filePath);
-            // 释放PdfView组件中编辑前的PDF文件
-            this.controller.releaseDocument();
-            // 将通过pdfService编辑好的PDF文件加载到PdfView组件中
-            this.controller.loadDocument(this.filePath, '', this.curPage);
-          }
-        })
-      }
-      .height('10%')
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">5 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">添加背景色</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <em>  <span style="color: rgb(128,128,128);">// pdfDocument.saveDocument</span><span style="color: rgb(128,128,128);">不支持编辑加载的文件，拷贝一份用来编辑</span></em>
+          let <span style="color: rgb(0,0,255);">tempDir </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tempDir</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">tempEditFilePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">tempDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">`/tempEdit</span><span style="color: rgb(255,0,170);">${</span><span style="color: rgb(0,0,255);">systemDateTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getTime</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(255,0,170);">.pdf`</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyFileSync</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">tempEditFilePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfDocument </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PdfDocument</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+         <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">编辑</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件时使用临时文件过渡</span></em>
+          let <span style="color: rgb(0,0,255);">loadResult </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">tempEditFilePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">ParseResult</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PARSE_SUCCESS </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">loadResult</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+            let <span style="color: rgb(0,0,255);">pageCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPageCount</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            let <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BackgroundInfo </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BackgroundInfo</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isOnTop </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rotation </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">opacity </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0.3</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">verticalAlignment </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BackgroundAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BACKGROUND_ALIGNMENT_TOP</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">horizontalAlignment </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BackgroundAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">BACKGROUND_ALIGNMENT_LEFT</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">horizontalSpace </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">verticalSpace </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">addBackground</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">bgInfo</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">pageCount</span><span style="color: rgb(181,106,1);">, </span>true<span style="color: rgb(181,106,1);">, </span>false<span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将添加背景色后的内容保存到源文件</span></em>
+            <span style="color: rgb(0,0,255);">pdfDocument</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">saveDocument</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">释放</span><span style="color: rgb(128,128,128);">PdfView</span><span style="color: rgb(128,128,128);">组件中编辑前的</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件</span></em>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">releaseDocument</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+           <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">将通过</span><span style="color: rgb(128,128,128);">pdfService</span><span style="color: rgb(128,128,128);">编辑好的</span><span style="color: rgb(128,128,128);">PDF</span><span style="color: rgb(128,128,128);">文件加载到</span><span style="color: rgb(128,128,128);">PdfView</span><span style="color: rgb(128,128,128);">组件中</span></em>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadDocument</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">curPage</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'10%'</span><span style="color: rgb(0,0,255);">)</span>
 
-      PdfView({
-        controller: this.controller,
-        pageFit: pdfService.PageFit.FIT_NONE,
-        showScroll: false
-      })
-        .height('90%')
-        .id('pdfview_app_view')
-        .layoutWeight(1);
-    }
-    .width('100%')
-    .height('100%')
-  }
-}
+      <span style="color: rgb(0,0,255);">PdfView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">pageFit</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">pdfService</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">FIT_NONE</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">showScroll</span><span style="color: rgb(181,106,1);">: </span>false
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'90%'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">id</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'pdfview_app_view'</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">layoutWeight</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：编辑PDF文件后，重新进入页面，PdfView组件里还是展示的编辑前的效果。
  

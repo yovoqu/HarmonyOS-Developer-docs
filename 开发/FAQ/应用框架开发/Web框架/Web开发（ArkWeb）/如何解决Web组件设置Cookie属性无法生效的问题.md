@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-190
 
-## 如何解决Web组件设置Cookie属性无法生效的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Web组件设置Cookie属性时无法生效，报错信息为：ErrorCode: 17100005, Message: Invalid cookie value。以设置过期时间为例。如下代码示例，把**expires=Fri, 13 Aug 2032 12:31:23 GMT** 改成 **expires=Sat, 13 Aug 2016 12:34:02 GMT**未生效。
  
@@ -21,7 +17,7 @@ webview.WebCookieManager.configCookie('https://www.example.com', cookieData);
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [fetchCookieSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager#fetchcookiesync11)：获取指定url对应Cookie的值。
 系统会自动清理过期的Cookie，对于同名key的数据，新数据将会覆盖前一个数据。
@@ -33,7 +29,7 @@ webview.WebCookieManager.configCookie('https://www.example.com', cookieData);
  
  
 
-##### 解决方案
+#### 解决方案
 
 17100005错误码为Cookie设置的格式不符合规范，通过configCookieSync方法设置Cookie，Cookie的内容以;进行分割。若设置的Cookie时间已过期，则不会存储该Cookie，此时通过fetchCookieSync获取的Cookie值为空。代码示例如下：
  
@@ -85,18 +81,16 @@ struct CookieGive {
 ```
  
 其中关键步骤是：
- 
-- 首先点击configCookieSync1后再通过fetchCookieSync获取Cookie，日志如下则说明Cookie设置成功。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/6HUukIR1R9Wq_9_-nHzE3A/zh-cn_image_0000002659138443.png?HW-CC-KV=V1&HW-CC-Date=20260701T025745Z&HW-CC-Expire=86400&HW-CC-Sign=531E338F949381C41D2EB9017CEA2896FEA0D92C87217C087019B5FB87CD728A)
+ 1. 首先点击configCookieSync1后再通过fetchCookieSync获取Cookie，日志如下则说明Cookie设置成功。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/6HUukIR1R9Wq_9_-nHzE3A/zh-cn_image_0000002659138443.png?HW-CC-KV=V1&HW-CC-Date=20260701T041340Z&HW-CC-Expire=86400&HW-CC-Sign=7D175D605BBD239C935F1B78E8104CE81C78449454F8E3CC4A947CFB119C1812)
 
-- 然后点击configCookieSync2后再通过fetchCookieSync获取Cookie，日志如下则说明Cookie清除成功。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/_ksxfAyvRbye6RUi6FEhdQ/zh-cn_image_0000002629059100.png?HW-CC-KV=V1&HW-CC-Date=20260701T025745Z&HW-CC-Expire=86400&HW-CC-Sign=D36B8493C21069F5AB7F5D17C205505C3CD0F687C0044712358845302457F180)
-
+2. 然后点击configCookieSync2后再通过fetchCookieSync获取Cookie，日志如下则说明Cookie清除成功。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/_ksxfAyvRbye6RUi6FEhdQ/zh-cn_image_0000002629059100.png?HW-CC-KV=V1&HW-CC-Date=20260701T041340Z&HW-CC-Expire=86400&HW-CC-Sign=63A014595C48F88D8ED263E7EF8EED2949B2ADC6EAC24C4E3A4A2CC2155F72EF)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：可以设置多个Cookie吗？
  

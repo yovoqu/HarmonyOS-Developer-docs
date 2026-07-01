@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1052
 
-## HitTestMode的不同应用场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 hitTestBehavior属性通过HitTestMode的不同枚举值设置不同的触摸测试响应模式，影响触摸测试收集结果及后续事件分发。如何根据实际应用场景合理使用HitTestMode，以确保触摸事件能够准确、预期地被响应和分发？
   
@@ -21,7 +17,7 @@ hitTestBehavior属性通过HitTestMode的不同枚举值设置不同的触摸测
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [触摸测试控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior)：在ArkUI开发框架中，处理触屏事件和鼠标事件时，会在事件触发前进行按压点与组件响应热区的触摸测试，以收集需响应事件的组件。基于测试结果，框架会分发相应的事件。hitTestBehavior设置组件的触摸测试类型。如果组件不设置hitTestBehavior，其默认触摸测试类型为HitTestMode.Default。
 - [事件响应链](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-basic-principles#事件响应链)：ArkUI事件响应链通过触摸测试进行收集，遵循右子树（按组件布局的先后层级）优先的后序遍历。
@@ -31,10 +27,11 @@ hitTestBehavior属性通过HitTestMode的不同枚举值设置不同的触摸测
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：一个含有子组件的全屏蒙层，希望点击蒙层内的组件时事件不穿透，点击蒙层空白区域时事件穿透。实现思路：给全屏蒙层设置hitTestBehavior(HitTestMode.None)使点击时事件可以传递蒙层下方组件，同时给蒙层的子组件设置hitTestBehavior(HitTestMode.BLOCK_HIERARCHY)阻止事件传递到蒙层下方组件。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -70,7 +67,8 @@ struct BlockHierarchy {
 ```
 
 - **场景二**：Scroll中存在一个子组件，希望触摸该子组件时不会滑动Scroll，触摸其余区域时可以滑动Scroll。实现思路：给该子组件设置hitTestBehavior(HitTestMode.Block)，阻塞其父组件Scroll的触摸测试。
- 
+
+  
 ```text
 @Entry
 @Component
@@ -97,11 +95,13 @@ struct Block {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/P3byQJ3OQXK_pxUBBCyCnQ/zh-cn_image_0000002628565458.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=879F4441174DAFAC42E409C0CCA434BF282165DB3CE9B9FB19C20B775F85F00F)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/P3byQJ3OQXK_pxUBBCyCnQ/zh-cn_image_0000002628565458.png?HW-CC-KV=V1&HW-CC-Date=20260701T041241Z&HW-CC-Expire=86400&HW-CC-Sign=DB0296FA92B071EFC0A2A81C0BEB452D66CCD59B0594C62C440FF523EFB32C2E)
 
 - **场景三**：一个容器组件（灰色矩形包裹区域），希望点击内部的深灰色矩形区域时，手势不会透传到TextArea上；点击空白区域时，手势会透传到TextArea上。实现思路：如果希望只有点击空白区域才透传，可以在onTouchIntercept方法中判断触摸位置是否处于深灰色矩形区域内，如果是，则修改HitTestMode为Default，不进行透传。否则修改HitTestMode为Transparent，进行透传。
- 
+
+  
 ```text
 import { NodeController, BuilderNode, FrameNode, UIContext } from '@kit.ArkUI';
 
@@ -135,8 +135,8 @@ function buttonBuilder(params: Params) {
 }
 
 class MyNodeController extends NodeController {
-  private rootNode: BuilderNode | null = null;
-  private wrapBuilder: WrappedBuilder = wrapBuilder(buttonBuilder);
+  private rootNode: BuilderNode<[Params]> | null = null;
+  private wrapBuilder: WrappedBuilder<[Params]> = wrapBuilder(buttonBuilder);
   params: Params = new Params();
 
   makeNode(uiContext: UIContext): FrameNode | null {
@@ -169,5 +169,24 @@ struct HitTestModeDemo {
 
       NodeContainer(this.baseNode)
         .onTouchIntercept((event: TouchEvent) => {
-          // 判断触摸点是否在深灰色矩形Column中
-          if (this.isPolygon(event) && 0
+         <em> // 判断触摸点是否在深灰色矩形Column中</em>
+          if (this.isPolygon(event) && 0 <= (Number(event.touches[0].displayX) - this.baseNode.params.columnX) &&
+            (Number(event.touches[0].displayX) - this.baseNode.params.columnX) <=
+            this.baseNode.params.columnWidth &&
+            0 <= (Number(event.touches[0].displayY) - this.baseNode.params.columnY) &&
+            (Number(event.touches[0].displayY) - this.baseNode.params.columnY) <=
+            this.baseNode.params.columnHeight) {
+            return HitTestMode.Default;
+          }
+          return HitTestMode.Transparent;
+        });
+    }
+    .height('100%')
+    .width('100%');
+  }
+}
+```
+ 效果预览：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/uIo9XqCOSPChdglRojkygg/zh-cn_image_0000002658924767.png?HW-CC-KV=V1&HW-CC-Date=20260701T041241Z&HW-CC-Expire=86400&HW-CC-Sign=C7583493AA068D089CAF97B04F08CB8188FE9EC6B9E3640D17D227F4ECB65D2B)

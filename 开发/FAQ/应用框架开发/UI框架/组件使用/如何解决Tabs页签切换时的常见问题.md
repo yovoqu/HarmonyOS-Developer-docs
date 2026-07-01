@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1072
 
-## 如何解决Tabs页签切换时的常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用Tabs组件时，常见的高频场景是内容视图的切换。但在实际使用中，可能会遇到以下问题：
  
@@ -31,7 +27,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - Tabs组件的页面组成包含两个部分，分别是[TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)和[TabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar9)。TabContent是内容页，TabBar是导航页签栏。图示请查阅Tabs[基本布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs#基本布局)。
@@ -41,7 +37,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
  
 | 场景 | 方案 |
 | --- | --- |
@@ -50,10 +46,9 @@
 | 场景三 | 设置CustomBuilder中根组件的宽高为100%或者在onTabBarClick事件中执行页签切换逻辑。 |
 | 场景四 | 在onAnimationStart或者onSelected事件中改变控制页签变化的状态变量。 |
  
- 
-- 场景一：点击TabBar切换页面时，页面会从当前页滑动到目标页，导致中间页面也被提前加载，影响性能与用户体验。
+1. 场景一：点击TabBar切换页面时，页面会从当前页滑动到目标页，导致中间页面也被提前加载，影响性能与用户体验。
 原因：TabContent子组件在UI上初次显示时，会触发[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)生命周期函数。点击页签的默认动画会导致中间页面在UI上滑过，中间页面若处于初始渲染状态，则会触发其aboutToAppear函数。
-- 解决方案：关闭点击TabBar页签时切换TabContent的动画，设置animationMode属性入参为AnimationMode.NO_ANIMATION。
+2. 解决方案：关闭点击TabBar页签时切换TabContent的动画，设置animationMode属性入参为AnimationMode.NO_ANIMATION。
 ```text
 @Entry
 @Component
@@ -91,7 +86,7 @@ struct MyComponent {
   private color: string = '';
 
   aboutToAppear(): void {
-    console.info(`aboutToAppear backgroundColor: ${this.color}`); // 通过打印日志可以观察到没有加载中间页面
+    console.info(`aboutToAppear backgroundColor: ${this.color}`); <em>// 通过打印日志可以观察到没有加载中间页面</em>
   }
 
   aboutToDisappear(): void {
@@ -112,18 +107,16 @@ struct MyComponent {
 }
 ```
 
-
- - 场景二：TabBar的高亮状态切换存在延迟，视觉反馈不及时，让用户难以判断当前选中的是哪个页签。
+3. 场景二：TabBar的高亮状态切换存在延迟，视觉反馈不及时，让用户难以判断当前选中的是哪个页签。
 原因：页签的高亮效果通常依赖状态变量的更新来触发。使用自定义页签时，在onChange事件中联动可能会导致滑动页面切换后才执行页签联动，引起自定义页签切换效果延迟。
-- 解决方案：在[onAnimationStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onanimationstart11)或者[onSelected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onselected18)事件中改变控制页签变化的状态变量。
+4. 解决方案：在[onAnimationStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onanimationstart11)或者[onSelected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onselected18)事件中改变控制页签变化的状态变量。
 参考[自定义页签切换联动](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例3自定义页签切换联动)，使用状态变量selectedIndex控制页签文字颜色的切换，在onAnimationStart事件中更改selectedIndex值为目标页签。
-- 参考[Tabs与TabBar同步切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例17tabs与tabbar同步切换)，在onSelected事件更新状态变量selectedIndex。
-
- 
- - 场景三：使用tabBar(CustomBuilder)自定义页签栏时，点击页签文字区域以外的区域（如空白处）无法触发切换，但TabContent却能正常切换，交互不一致。
+5. 参考[Tabs与TabBar同步切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例17tabs与tabbar同步切换)，在onSelected事件更新状态变量selectedIndex。
+6. 场景三：使用tabBar(CustomBuilder)自定义页签栏时，点击页签文字区域以外的区域（如空白处）无法触发切换，但TabContent却能正常切换，交互不一致。
 原因：点击在文字区域时，触发CustomBuilder中根组件的[onClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#onclick12)事件，执行了页签高亮切换的逻辑。点击文字旁的空白区域时，触发Tabs组件自带的切换逻辑，切换了内容视图，但由于页签的高亮是通过状态变量控制，此时并未更新状态变量，所以UI现象为页签未切换。
-- 解决方案：设置CustomBuilder中根组件的宽高为100%或者在[onTabBarClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#ontabbarclick10)事件中执行页签切换逻辑。
-在[onTabBarClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#ontabbarclick10)事件中执行页签切换逻辑的示例代码如下：
+7. 解决方案：设置CustomBuilder中根组件的宽高为100%或者在[onTabBarClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#ontabbarclick10)事件中执行页签切换逻辑。
+
+  在[onTabBarClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#ontabbarclick10)事件中执行页签切换逻辑的示例代码如下：
 ```text
 @Entry
 @Component
@@ -169,25 +162,20 @@ struct SceneThreeSolution2 {
 }
 ```
 
-
- - 场景四：在自定义页签栏并支持手势滑动切换时，页签的切换动作滞后于内容区域的滑动，造成内容与页签状态不同步，影响视觉一致性。
+8. 场景四：在自定义页签栏并支持手势滑动切换时，页签的切换动作滞后于内容区域的滑动，造成内容与页签状态不同步，影响视觉一致性。
 原因：类似场景二，使用自定义页签时，在onChange事件中改变控制页签栏变化的状态变量，导致状态更新滞后于用户操作，从而出现视觉延迟。
-- 解决方案：参考[自定义页签切换联动](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例3自定义页签切换联动)或[Tabs与TabBar同步切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例17tabs与tabbar同步切换)。
-
- 
+9. 解决方案：参考[自定义页签切换联动](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例3自定义页签切换联动)或[Tabs与TabBar同步切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例17tabs与tabbar同步切换)。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：切换至某个TabContent时，如何设置页面中的TextInput默认获焦并拉起软键盘？
  
 A：按以下步骤设置TextInput属性即可。
- 
-- 设置TextInput的[defaultFocus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus#defaultfocus9)为true。
-- 设置TextInput的[id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id#id)，如id('input')。
-- 在TextInput的[onAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#onappear)事件中通过[requestFocus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-focuscontroller#requestfocus12)获焦，如this.getUIContext().getFocusController().requestFocus('input')。
-
+ 1. 设置TextInput的[defaultFocus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus#defaultfocus9)为true。
+2. 设置TextInput的[id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id#id)，如id('input')。
+3. 在TextInput的[onAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#onappear)事件中通过[requestFocus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-focuscontroller#requestfocus12)获焦，如this.getUIContext().getFocusController().requestFocus('input')。
  
 Q：点击页签切换，无法在[onTabBarClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#ontabbarclick10)通过return拦截切换，如何解决？
  

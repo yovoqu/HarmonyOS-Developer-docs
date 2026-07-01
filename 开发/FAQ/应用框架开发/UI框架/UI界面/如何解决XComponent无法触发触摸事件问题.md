@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-909
 
-## 如何解决XComponent无法触发触摸事件问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在XComponent组件中绑定onTouch方法，但发现该方法中的日志未被输出，表明onTouch事件未能正常触发。
  
@@ -31,16 +27,15 @@ Column() {
  
  
 
-##### 背景知识
+#### 背景知识
 
 [XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)接口提供用于图形绘制和媒体数据写入的Surface，XComponent负责将其嵌入到视图中，支持应用自定义Surface位置和大小。当XComponentType参数为SURFACE或TEXTURE时，支持[onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)等通用事件。
  
  
 
-##### 解决方案
-
-- 当问题代码中使用[XComponent(value: {id: string, type: XComponentType, libraryname?: string, controller?: XComponentController})](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponent10)接口时，若配置了libraryname参数，点击事件、触摸事件、按键事件等通用事件将仅响应C-API侧的事件接口，因此问题代码中的onTouch事件无法被触发。
-- 为使onTouch事件正常响应，建议改用不含libraryname参数的[XComponent(options: XComponentOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponent12)接口进行配置。
+#### 解决方案
+1. 当问题代码中使用[XComponent(value: {id: string, type: XComponentType, libraryname?: string, controller?: XComponentController})](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponent10)接口时，若配置了libraryname参数，点击事件、触摸事件、按键事件等通用事件将仅响应C-API侧的事件接口，因此问题代码中的onTouch事件无法被触发。
+2. 为使onTouch事件正常响应，建议改用不含libraryname参数的[XComponent(options: XComponentOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponent12)接口进行配置。
 ```text
 @Entry
 @Component

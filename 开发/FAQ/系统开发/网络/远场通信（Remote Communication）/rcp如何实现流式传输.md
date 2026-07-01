@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-17
 
-## rcp如何实现流式传输
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在rcp模块中实现数据流式上传与流式接收功能，无需等待完整数据写入完成后再发起上传请求，亦无需等待全量数据接收完毕后执行读取操作。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [OnDataReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section9264115918536)：接收到HTTP body时的回调，如果服务端的数据类型为数据流，实现实时接收功能。
 - [INetworkInputQueue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section882732713562)：通过创建一个缓存队列，将数据写入缓存队列中，实现实时上传数据的功能。
@@ -22,19 +18,19 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 开发准备，申请获取网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)。
  
-- **场景1：实时数据流上传**
-新建缓存区INetworkInputQueue实例。
-- 使用缓存区作为请求体入参执行post方法请求。
-```text
+- **场景1：实时数据流上传**1. 新建缓存区INetworkInputQueue实例。
+
+2. 使用缓存区作为请求体入参执行post方法请求。
+```json
 try {
   const session = rcp.createSession(sessionConfig);
   console.info(`Post start.`);
-  // 发起请求，相关数据在写入队列 networkInputQueue 的同时会同步进行上传
-  session.post('xx.xx.xx.xx', inputQueue).then((response) => { // 开发者自行根据业务设置
+ <em> // 发起请求，相关数据在写入队列 networkInputQueue 的同时会同步进行上传</em>
+  session.post('xx.xx.xx.xx', inputQueue).then((response) => {<em> // 开发者自行根据业务设置</em>
     console.info(`Response status code is: ${response.statusCode}`);
     if (response && response.statusCode === 200) {
       console.info(`Post succeeded! response: ${response.toString()}`);
@@ -51,31 +47,32 @@ try {
 }
 ```
 
-- 将数据写入缓存区中实时上传。
+
+3. 将数据写入缓存区中实时上传。
 ```text
 let counter = 0;
 const interval = setInterval(() => {
-  // 添加数据到同步写队列
+<em>  // 添加数据到同步写队列</em>
   this.networkInputQueue.write('a counter ' + counter++);
   console.info(`networkInputQueue write`);
   if (counter === 10) {
     clearInterval(interval);
-    // 关闭同步写队列
+    <em>// 关闭同步写队列</em>
     this.networkInputQueue.close();
   }
 }, 1000);
 ```
  无需准备完整数据才能上传，可以将部分待上传数据写入缓存区，缓存区数据立即实时上传更新，使用抓包工具抓包效果如下。
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/dywmMuduS5edAtAGbaEfUQ/zh-cn_image_0000002658971705.png?HW-CC-KV=V1&HW-CC-Date=20260701T025800Z&HW-CC-Expire=86400&HW-CC-Sign=EA67B4618A3506B632F72FF541E2C464DF083E701B657864CEA87CDE4598080C)
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/dywmMuduS5edAtAGbaEfUQ/zh-cn_image_0000002658971705.png?HW-CC-KV=V1&HW-CC-Date=20260701T041441Z&HW-CC-Expire=86400&HW-CC-Sign=F5E70981E37BDCEE100D59481A4DEE1C395D337CC942A8E89D0DE05794AA82C8)
 
- - **场景2：实时数据流获取**实时数据流获取能力经常应用于大模型对话场景，将本地用户数据向服务端对应大模型API接口发起post请求后，实时获取数据流数据，实现流式输出效果。
- 
-设置OnDataReceive类型回调函数，处理实时数据流数据。
-```text
+- **场景2：实时数据流获取**实时数据流获取能力经常应用于大模型对话场景，将本地用户数据向服务端对应大模型API接口发起post请求后，实时获取数据流数据，实现流式输出效果。
+
+1. 设置OnDataReceive类型回调函数，处理实时数据流数据。
+```json
 onDataReceive: (incomingData: ArrayBuffer) => {
-  // Custom logic for handling incoming data
+ <em> // Custom logic for handling incoming data</em>
   console.info('Received data:', incomingData);
   const decoder = util.TextDecoder.create('utf-8');
   const jsonStr = decoder.decodeToString(new Uint8Array(incomingData));
@@ -84,7 +81,8 @@ onDataReceive: (incomingData: ArrayBuffer) => {
 },
 ```
 
-- 设置请求过程中的跟踪信息选项。
+
+2. 设置请求过程中的跟踪信息选项。
 ```text
 const tracingConfig: rcp.TracingConfiguration = {
   verbose: true,
@@ -102,19 +100,20 @@ const tracingConfig: rcp.TracingConfiguration = {
 };
 ```
 
-- 将本地用户数据发起上传请求。
-```text
+
+3. 将本地用户数据发起上传请求。
+```json
 try {
   const session = rcp.createSession(sessionConfig);
-  // 服务端大模型API请求接口，需开发者根据实际业务自行设置
+ <em> // 服务端大模型API请求接口，需开发者根据实际业务自行设置</em>
   const jsonBody: JsonBody = {
     model: 'xxx',
     messages: [{ role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'make a plan for spring' }],
     stream: true
   };
-  // 请求数据地址需开发者根据实际业务设置
-  session.post('xx.xx.xx.xx', jsonBody).then((response) => { // 开发者自行根据业务设置
+  <em>// 请求数据地址需开发者根据实际业务设置</em>
+  session.post('xx.xx.xx.xx', jsonBody).then((response) => {<em> // 开发者自行根据业务设置</em>
     if (response && response.statusCode === 200) {
       console.info(`get byts succeeded.`);
     } else {
@@ -130,15 +129,15 @@ try {
 }
 ```
  日志打印如下，OnDataReceive类型函数不停接收来自服务器的数据，并打印如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/NYm4HyDzS1y_vOQq6SJOfw/zh-cn_image_0000002628612494.png?HW-CC-KV=V1&HW-CC-Date=20260701T025800Z&HW-CC-Expire=86400&HW-CC-Sign=62A006DD20936461980A9DAE021E320207D3308A00C7BE81BDD4122FDA8E39AE)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/NYm4HyDzS1y_vOQq6SJOfw/zh-cn_image_0000002628612494.png?HW-CC-KV=V1&HW-CC-Date=20260701T041441Z&HW-CC-Expire=86400&HW-CC-Sign=97BC3F37DB2B47E428406B6BED7A36F11AE27CC167D2978A4BB865D11EA8C4D5)
 
 
- 
  
 完整示例代码如下：
  
-```text
+```json
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { util } from '@kit.ArkTS';
 import { ItemRestriction, SegmentButton, SegmentButtonOptions, SegmentButtonTextItem } from '@kit.ArkUI';
@@ -155,10 +154,10 @@ interface JsonBody {
 }
 
 function streamOutput() {
-  // Define a custom response handler
+ <em> // Define a custom response handler</em>
   const customHttpEventsHandler: rcp.HttpEventsHandler = {
     onDataReceive: (incomingData: ArrayBuffer) => {
-      // Custom logic for handling incoming data
+     <em> // Custom logic for handling incoming data</em>
       console.info('Received data:', incomingData);
       const decoder = util.TextDecoder.create('utf-8');
       const jsonStr = decoder.decodeToString(new Uint8Array(incomingData));
@@ -166,15 +165,15 @@ function streamOutput() {
       return incomingData.byteLength;
     },
     onHeaderReceive: (headers: rcp.ResponseHeaders) => {
-      // Custom logic for handling response headers
+ <em>     // Custom logic for handling response headers</em>
       console.info('Received headers:', headers);
     },
     onDataEnd: () => {
-      // Custom logic for handling data transfer completion
+     <em> // Custom logic for handling data transfer completion</em>
       console.info('Data transfer complete');
     },
     onCanceled: () => {
-      // Custom logic for handling cancellation
+   <em>   // Custom logic for handling cancellation</em>
       console.info('Request/response canceled');
     },
   };
@@ -206,7 +205,7 @@ function streamOutput() {
       tracing: tracingConfig
     },
     headers: {
-      'Authorization': 'Bearer xxxx', // 开发者自行根据业务设置
+      'Authorization': 'Bearer xxxx',<em> // 开发者自行根据业务设置</em>
       'Content-Type': 'application/json'
     },
     sessionListener: {
@@ -216,15 +215,15 @@ function streamOutput() {
   };
   try {
     const session = rcp.createSession(sessionConfig);
-    // 服务端大模型API请求接口，需开发者根据实际业务自行设置
+   <em> // 服务端大模型API请求接口，需开发者根据实际业务自行设置</em>
     const jsonBody: JsonBody = {
       model: 'xxx',
       messages: [{ role: 'system', content: 'You are a helpful assistant.' },
         { role: 'user', content: 'make a plan for spring' }],
       stream: true
     };
-    // 请求数据地址需开发者根据实际业务设置
-    session.post('xx.xx.xx.xx', jsonBody).then((response) => { // 开发者自行根据业务设置
+  <em>  // 请求数据地址需开发者根据实际业务设置</em>
+    session.post('xx.xx.xx.xx', jsonBody).then((response) => { <em>// 开发者自行根据业务设置</em>
       if (response && response.statusCode === 200) {
         console.info(`get byts succeeded.`);
       } else {
@@ -251,20 +250,20 @@ function uploadDatasync(inputQueue: rcp.INetworkInputQueue) {
     },
 
     onHeaderReceive: (headers: rcp.ResponseHeaders) => {
-      // Custom logic for handling response headers
+    <em>  // Custom logic for handling response headers</em>
       console.info('Received headers:', headers);
     },
     onDataEnd: () => {
-      // Custom logic for handling data transfer completion
+     <em> // Custom logic for handling data transfer completion</em>
       console.info('Data transfer complete');
     },
     onCanceled: () => {
-      // Custom logic for handling cancellation
+ <em>     // Custom logic for handling cancellation</em>
       console.info('Request/response canceled');
     },
   };
 
-  // Configure tracing settings
+  <em>// Configure tracing settings</em>
   const tracingConfig: rcp.TracingConfiguration = {
     verbose: true,
     infoToCollect: {
@@ -299,8 +298,8 @@ function uploadDatasync(inputQueue: rcp.INetworkInputQueue) {
   try {
     const session = rcp.createSession(sessionConfig);
     console.info(`Post start.`);
-    // 发起请求，相关数据在写入队列 networkInputQueue 的同时会同步进行上传
-    session.post('xx.xx.xx.xx', inputQueue).then((response) => { // 开发者自行根据业务设置
+    <em>// 发起请求，相关数据在写入队列 networkInputQueue 的同时会同步进行上传</em>
+    session.post('xx.xx.xx.xx', inputQueue).then((response) => { <em>// 开发者自行根据业务设置</em>
       console.info(`Response status code is: ${response.statusCode}`);
       if (response && response.statusCode === 200) {
         console.info(`Post succeeded! response: ${response.toString()}`);
@@ -333,12 +332,12 @@ struct streamUploadData {
         .onClick(() => {
           let counter = 0;
           const interval = setInterval(() => {
-            // 添加数据到同步写队列
+           <em> // 添加数据到同步写队列</em>
             this.networkInputQueue.write('a counter ' + counter++);
             console.info(`networkInputQueue write`);
             if (counter === 10) {
               clearInterval(interval);
-              // 关闭同步写队列
+            <em>  // 关闭同步写队列</em>
               this.networkInputQueue.close();
             }
           }, 1000);
@@ -374,9 +373,9 @@ struct StreamDataTransfer {
   selectedFontColor: string = '#0A59F7';
   @State currentIndex: number = 0;
   @State selectedIndex: number = 0;
-  @State tabSelectedIndexes: number[] = [0]; // SegmentButton默认选项
+  @State tabSelectedIndexes: number[] = [0]; <em>// SegmentButton默认选项</em>
   @State tabOptions: SegmentButtonOptions = SegmentButtonOptions.tab({
-    buttons: [{ text: '流式上传数据' }, { text: '流式接收数据' },] as ItemRestriction,
+    buttons: [{ text: '流式上传数据' }, { text: '流式接收数据' },] as ItemRestriction<SegmentButtonTextItem>,
     backgroundColor: '#0d000000',
     selectedBackgroundColor: $r('sys.color.white'),
     fontWeight: 400,
@@ -435,7 +434,7 @@ struct StreamDataTransfer {
       .barWidth(360)
       .barHeight(0)
       .onChange((index: number) => {
-        // currentIndex控制TabContent显示页签
+      <em>  // currentIndex控制TabContent显示页签</em>
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -444,7 +443,7 @@ struct StreamDataTransfer {
           return;
         }
         console.info(`event currentOffset ${event.currentOffset}`);
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
         this.selectedIndex = targetIndex;
       })
       .width('100%')
@@ -462,7 +461,7 @@ struct StreamDataTransfer {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：是否可以使用[Stream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#section17454218451)文件流实现边写边上传。
  

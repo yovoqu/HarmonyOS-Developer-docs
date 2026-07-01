@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1111
 
-## Toast弹窗使用常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Toast弹窗使用常见场景如下：
  
@@ -22,7 +18,7 @@ Toast弹窗使用常见场景如下：
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [即时反馈（Toast）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast)是一种临时性的消息提示框，用于向用户显示简短的操作反馈或状态信息。它通常在屏幕的底部或顶部短暂弹出，随后在一段时间后自动消失。即时反馈的主要目的是提供简洁、不打扰的信息反馈，避免干扰用户当前的操作流程。
 - 可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getPromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction)方法获取当前UI上下文关联的[PromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction)对象，再通过该对象调用[showToast](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#showtoast)创建并显示文本提示框。
@@ -31,7 +27,7 @@ Toast弹窗使用常见场景如下：
  
  
 
-##### 解决方案
+#### 解决方案
 
 - **场景一**：使用UIContext中的getPromptAction方法获取当前UI上下文关联的PromptAction对象，再通过该对象调用showToast创建并显示文本提示框。通过设置[ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)中的属性showMode来控制Toast弹窗的显示层级，其中TOP_MOST表示显示在应用之上。
 - **场景二**：自定义Toast弹窗的阴影效果可以通过设置[ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)中的属性shadow来控制。
@@ -123,7 +119,7 @@ export struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Toast弹窗无法显示的可能原因及排查方向有哪些？
  

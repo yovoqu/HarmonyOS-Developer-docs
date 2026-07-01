@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1198
 
-## Slider组件自定义气泡开发
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在开发自定义Slider组件过程中，气泡提示功能的定制是良好用户体验的关键环节。在开发过程中，我们通常会遇到以下几类具体场景。
  
@@ -20,7 +16,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)：滑动条组件，通常用于快速调节设置值，如音量调节、亮度调节等应用场景。通过配置[showTips](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#showtips)为true，可查看气泡基础样式，具体可见[示例1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#示例1滑动条基础样式)。
 - [气泡提示（Popup）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-popup)：Popup属性可绑定在组件上显示气泡弹窗提示，设置弹窗内容、交互逻辑和显示状态。
@@ -29,7 +25,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 针对上述问题，我们的核心目标是：构建一个高度可定制的Slider气泡提示组件。为实现此目标，解决方案将围绕三个层面系统展开：
  
@@ -56,13 +52,16 @@
 基于以上框架，我们按照“从共性到个性”的顺序，横向梳理每个场景的具体实现步骤：
  
 - **场景一**：实现气泡样式自定义、行为监听。此场景是基础能力构建，其实现逻辑贯穿上述三个层次：
- 
-整体布局层。采用Stack层叠布局，使用Text组件模拟气泡，基于Slider滑块位置计算气泡偏移量并通过position控制气泡位置。
-- 气泡基础样式层。在自定义的Text组件中实现气泡内容、文本内容的自定义。
-- 气泡交互行为层。使用if/else条件渲染动态控制气泡的显隐，基于SliderChangeMode滑动模式识别，识别气泡行为。使用setTimeout定时器管理气泡的延迟隐藏。
-- 气泡消失事件的监听，消失后进行业务逻辑处理。
 
- 
+1. 整体布局层。采用Stack层叠布局，使用Text组件模拟气泡，基于Slider滑块位置计算气泡偏移量并通过position控制气泡位置。
+
+2. 气泡基础样式层。在自定义的Text组件中实现气泡内容、文本内容的自定义。
+
+3. 气泡交互行为层。使用if/else条件渲染动态控制气泡的显隐，基于SliderChangeMode滑动模式识别，识别气泡行为。使用setTimeout定时器管理气泡的延迟隐藏。
+
+4. 气泡消失事件的监听，消失后进行业务逻辑处理。
+
+  
 ```text
 @Entry
 @Component
@@ -72,13 +71,13 @@ struct CustomSliderPage1 {
   @State sliderValue: number = 30;
   @State tipShow: boolean = false;
   @State tipX: number = 0;
-  @State animatedTipX: number = 0; // 动画的平滑位置
+  @State animatedTipX: number = 0; <em>// 动画的平滑位置</em>
   private sliderWidth: number = 340;
   private blockSize: number = 20;
   private hideTask: number = -1;
-  private lastUpdateTime: number = Date.now(); // 防抖动控制
+  private lastUpdateTime: number = Date.now(); <em>// 防抖动控制</em>
 
-  // 基于Slider滑块位置计算气泡偏移量
+  <em>// 基于Slider滑块位置计算气泡偏移量</em>
   private calculateExactPosition(value: number): number {
     const percent = value / 100;
     const blockCenter = percent * (this.sliderWidth - this.blockSize) + (this.blockSize / 2);
@@ -89,11 +88,18 @@ struct CustomSliderPage1 {
   private showTip(value: number) {
     const now = Date.now();
 
-    // 防抖动：如果更新太频繁，限制更新频率
-    if (now - this.lastUpdateTime    // 计算精确位置
+    <em>// 防抖动：如果更新太频繁，限制更新频率</em>
+    if (now - this.lastUpdateTime < 16) {
+      return;
+    }
+
+    this.lastUpdateTime = now;
+    this.sliderValue = value;
+
+ <em>   // 计算精确位置</em>
     const newTipX = this.calculateExactPosition(value);
 
-    // 使用动画平滑过渡
+   <em> // 使用动画平滑过渡</em>
     this.getUIContext()?.animateTo({
       duration: 30,
       curve: Curve.EaseOut
@@ -105,13 +111,13 @@ struct CustomSliderPage1 {
     this.tipShow = true;
   }
 
-  // 气泡消失事件的监听，消失后进行业务逻辑处理。
+  <em>// 气泡消失事件的监听，消失后进行业务逻辑处理。</em>
   onTipsHide() {
     console.info(`气泡已消失，最终值=${this.sliderValue}`);
-    // 这里写业务逻辑
+   <em> // 这里写业务逻辑</em>
   }
 
-  // 使用setTimeout定时器管理气泡的延迟隐藏。
+  <em>// 使用setTimeout定时器管理气泡的延迟隐藏。</em>
   private delayedHideTip() {
     clearTimeout(this.hideTask);
     this.hideTask = setTimeout(() => {
@@ -132,7 +138,7 @@ struct CustomSliderPage1 {
 
   build() {
     Column({ space: 50 }) {
-      // 采用Stack层叠布局，将Slider与气泡组件叠加显示。
+   <em>   // 采用Stack层叠布局，将Slider与气泡组件叠加显示。</em>
       Stack() {
         Slider({
           value: this.sliderValue,
@@ -143,7 +149,7 @@ struct CustomSliderPage1 {
           .width(this.sliderWidth)
           .height(40)
           .showTips(false)
-          // 基于SliderChangeMode滑动模式识别，识别气泡行为。
+          <em>// 基于SliderChangeMode滑动模式识别，识别气泡行为。</em>
           .onChange((v: number, mode: SliderChangeMode) => {
             if (mode === SliderChangeMode.Moving ||
               mode === SliderChangeMode.Click) {
@@ -152,9 +158,9 @@ struct CustomSliderPage1 {
               this.delayedHideTip();
             }
           });
-        // 使用if/else：条件渲染动态控制气泡的显示与隐藏。
+      <em>  // 使用if/else：条件渲染动态控制气泡的显示与隐藏。</em>
         if (this.tipShow) {
-          // 使用Text模拟气泡。在自定义气泡上实现需要的内容与样式。使用position控制气泡位置。
+       <em>   // 使用Text模拟气泡。在自定义气泡上实现需要的内容与样式。使用position控制气泡位置。</em>
           Text(`${this.sliderValue}`)
             .fontSize(16)
             .fontColor(Color.White)
@@ -178,16 +184,18 @@ struct CustomSliderPage1 {
   }
 }
 ```
- 
-效果预览：
- 
+ 效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/_AbsFYa8QHuuoLVp92MIsA/zh-cn_image_0000002658952787.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=52C32C4B39A98E1383A9B29A3A880F6672AF9DB61027A842762FB154FD281D69)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/_AbsFYa8QHuuoLVp92MIsA/zh-cn_image_0000002658952787.png?HW-CC-KV=V1&HW-CC-Date=20260701T041248Z&HW-CC-Expire=86400&HW-CC-Sign=1DC8B971879A98C2BC0B36371A0ADCB91A1CA66F10A5E9E370AD6AC6FC962318)
 
- - **场景二**：滑块移动时的动态UI展示。此场景在场景一的基础上，增强了内容刷新的功能：
- 继承基本布局与交互方案：使用Column布局和条件渲染显隐控制，保持基础的交互识别逻辑。
- 关键增强：将气泡实现方式升级为Popup组件，通过@Builder自定义丰富的气泡内容；在Slider的onChange回调中，实时同步更新气泡内容，实现UI的动态刷新。
- 
+- **场景二**：滑块移动时的动态UI展示。此场景在场景一的基础上，增强了内容刷新的功能：
+
+  继承基本布局与交互方案：使用Column布局和条件渲染显隐控制，保持基础的交互识别逻辑。
+
+  关键增强：将气泡实现方式升级为Popup组件，通过@Builder自定义丰富的气泡内容；在Slider的onChange回调中，实时同步更新气泡内容，实现UI的动态刷新。
+
+  
 ```text
 @Entry
 @Component
@@ -200,13 +208,13 @@ struct CustomSliderPage2 {
   private slideWidth: number = 340;
   private slideStepSize: number = 5;
   private blockSize: number = 32;
-  // 需要将app.media.background替换为实际资源值。
+<em>  // 需要将app.media.background替换为实际资源值。</em>
   private imgArr: string[] =
     ['app.media.background', 'app.media.background', 'app.media.background', 'app.media.background',
       'app.media.background', 'app.media.background',
       'app.media.background', 'app.media.background', 'app.media.background', 'app.media.background'];
 
-  // 基于Slider滑块位置计算气泡偏移量
+ <em> // 基于Slider滑块位置计算气泡偏移量</em>
   private showTip(value: number) {
     this.isTipShow = true;
     let percent = Number((value / 100).toFixed(2));
@@ -214,7 +222,7 @@ struct CustomSliderPage2 {
       Math.round(this.getUIContext().px2vp(this.beginX)) + (this.slideWidth - 8) * percent + (0.8 - percent) * 5;
   }
 
-  // @Builder自定义气泡内容。
+ <em> // @Builder自定义气泡内容。</em>
   @Builder
   popupBuilder() {
     Column() {
@@ -252,7 +260,7 @@ struct CustomSliderPage2 {
           this.beginX = Math.round(Number(newValue.globalPosition.x));
           this.showTip(this.value);
         })
-        // 基于SliderChangeMode滑动模式识别，识别气泡行为。
+      <em>  // 基于SliderChangeMode滑动模式识别，识别气泡行为。</em>
         .onChange((value: number, mode: SliderChangeMode) => {
           this.value = value;
           switch (mode) {
@@ -262,14 +270,14 @@ struct CustomSliderPage2 {
               break;
           }
         });
-      // 使用if/else：条件渲染动态控制气泡的显示与隐藏。
+   <em>   // 使用if/else：条件渲染动态控制气泡的显示与隐藏。</em>
       if (this.isTipShow) {
         Row() {
         }
         .width(this.blockSize)
         .height(this.blockSize)
         .position({ x: this.tipsOffset, y: this.offsetY })
-        // 绑定系统Popup组件实现气泡
+     <em>   // 绑定系统Popup组件实现气泡</em>
         .bindPopup(true, {
           builder: this.popupBuilder,
           placement: Placement.Bottom,
@@ -292,13 +300,17 @@ struct CustomSliderPage2 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/oU_7N39fQzO0Az50x8nI1w/zh-cn_image_0000002658832825.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=A5E0DEDA3E94579A9DBAAB4F125503EA27988832211568861753D2F2051CE5EC)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/oU_7N39fQzO0Az50x8nI1w/zh-cn_image_0000002658832825.png?HW-CC-KV=V1&HW-CC-Date=20260701T041248Z&HW-CC-Expire=86400&HW-CC-Sign=DE93FEA3BC1463BBFB900EC057A22206F38F5674E909EC9F8AD13C815669A190)
 
 - **场景三**：气泡内容长文本展示。此场景在场景二的基础上，聚焦长文本样式的增强：
- 继承布局方案：保持Stack层叠布局和Popup气泡实现方式。
- 关键增强：使用Popup组件自带的长文本滚动逻辑，通过AvoidanceMode.COVER_TARGET避免目标遮挡。以确保长文本能充分的展示。
- 
+
+  继承布局方案：保持Stack层叠布局和Popup气泡实现方式。
+
+  关键增强：使用Popup组件自带的长文本滚动逻辑，通过AvoidanceMode.COVER_TARGET避免目标遮挡。以确保长文本能充分的展示。
+
+  
 ```text
 @Entry
 @Component
@@ -307,7 +319,7 @@ struct CustomSliderPage3 {
   @State sliderWidth: number = 0;
   @State sliderValue: number = 0;
 
-  // @Builder自定义气泡内容。
+ <em> // @Builder自定义气泡内容。</em>
   @Builder
   CustomPopup() {
     Column() {
@@ -320,7 +332,7 @@ struct CustomSliderPage3 {
     }.padding(10);
   }
 
-  // 基于Slider滑块位置计算气泡偏移量，同时确保在边界内。
+  <em>// 基于Slider滑块位置计算气泡偏移量，同时确保在边界内。</em>
   getSliderPosition(): number {
     const position = this.sliderWidth / 100 * this.sliderValue - this.sliderWidth / 2;
     const maxOffset = this.sliderWidth / 2 - 9;
@@ -331,12 +343,12 @@ struct CustomSliderPage3 {
 
   build() {
     Column() {
-      // 采用Stack层叠布局，将Slider与气泡组件叠加显示。
+     <em> // 采用Stack层叠布局，将Slider与气泡组件叠加显示。</em>
       Stack() {
         Slider({ value: $$this.sliderValue, style: SliderStyle.NONE })
           .enabled(false)
           .width('90%')
-          // 基于SliderChangeMode滑动模式识别，识别气泡行为。
+         <em> // 基于SliderChangeMode滑动模式识别，识别气泡行为。</em>
           .onChange((value: number, mode: SliderChangeMode) => {
             if (mode === SliderChangeMode.Begin || mode === SliderChangeMode.Moving ||
               mode === SliderChangeMode.Click) {
@@ -350,13 +362,13 @@ struct CustomSliderPage3 {
           });
 
         Circle({ width: 18, height: 18 })
-        // 使用offset实现位置的微调，以便气泡与滑块对齐。
+    <em>    // 使用offset实现位置的微调，以便气泡与滑块对齐。</em>
           .offset({ x: this.getSliderPosition() })
           .fill('#fff')
           .hitTestBehavior(HitTestMode.None)
           .borderRadius('50%')
           .shadow({ radius: 10, color: Color.Gray })
-          // 绑定系统Popup组件实现气泡
+       <em>   // 绑定系统Popup组件实现气泡</em>
           .bindPopup(this.showPopup, {
             builder: this.CustomPopup(),
             placement: Placement.Bottom,
@@ -369,11 +381,14 @@ struct CustomSliderPage3 {
       .onTouch((e) => {
         if (e.type === TouchType.Down) {
           let touchX = e.touches[0].x;
-          // 边界限制，确保滑块在滑动条范围内
+       <em>   // 边界限制，确保滑块在滑动条范围内</em>
           const minX = 0;
           const maxX = this.sliderWidth;
 
-          if (touchX  maxX) {
+          if (touchX < minX) {
+            touchX = minX;
+          }
+          if (touchX > maxX) {
             touchX = maxX;
           }
 
@@ -385,7 +400,10 @@ struct CustomSliderPage3 {
           const minX = 0;
           const maxX = this.sliderWidth;
 
-          if (touchX  maxX) {
+          if (touchX < minX) {
+            touchX = minX;
+          }
+          if (touchX > maxX) {
             touchX = maxX;
           }
           this.sliderValue = (touchX / this.sliderWidth) * 100;
@@ -399,5 +417,6 @@ struct CustomSliderPage3 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/kNAHI96hS72IfsdIMT81dQ/zh-cn_image_0000002628593584.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=0ACE7518B8976716FA2C64FD3EB3FD6322258C7E770171ECBF3D97F830F45094)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/kNAHI96hS72IfsdIMT81dQ/zh-cn_image_0000002628593584.png?HW-CC-KV=V1&HW-CC-Date=20260701T041248Z&HW-CC-Expire=86400&HW-CC-Sign=E279BC3003A1AFE68516D8EA550DD094FB342F61430BA7B8EFF5BCCA2CB5AC3E)

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-194
 
-## 如何实现Web组件在折叠屏上分栏展示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当整个页面为Web组件加载H5页面时，折叠屏有时需要分栏展示不同页面内容，如何实现Web组件加载的页面在折叠屏上分栏展示？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [ArkWeb（方舟Web）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-overview)：提供了Web组件，用于在应用程序中显示Web页面内容。
  
@@ -33,17 +29,15 @@
  
  
 
-##### 解决方案
-
-- 实现Web组件折叠屏分栏，需了解分栏的原理，如下为单双栏实现原理：单双栏通常是使用Navigation实现的，Navigation是路由容器组件，一般作为首页的根容器，包括单栏（Stack）、分栏（Split）和自适应（Auto）三种显示模式。通过更改Navigation组件的mode值来实现单栏和双栏的切换。可以通过设置断点来自定义导航栏的显示模式。例如：当断点为sm时，将mode值设置为Stack；当断点不为sm时，将mode值设置为Split。这样可以实现单栏和双栏的自适应切换。
-- 通过设置Web组件onLoadIntercept事件，实现在Web组件加载url之前拦截并获取到该url。如果获取后的url既不是初始加载的url，也不是当前分栏第二屏加载的url，则在分栏第二屏加载该url，展示新页面。
-
+#### 解决方案
+1. 实现Web组件折叠屏分栏，需了解分栏的原理，如下为单双栏实现原理：单双栏通常是使用Navigation实现的，Navigation是路由容器组件，一般作为首页的根容器，包括单栏（Stack）、分栏（Split）和自适应（Auto）三种显示模式。通过更改Navigation组件的mode值来实现单栏和双栏的切换。可以通过设置断点来自定义导航栏的显示模式。例如：当断点为sm时，将mode值设置为Stack；当断点不为sm时，将mode值设置为Split。这样可以实现单栏和双栏的自适应切换。
+2. 通过设置Web组件onLoadIntercept事件，实现在Web组件加载url之前拦截并获取到该url。如果获取后的url既不是初始加载的url，也不是当前分栏第二屏加载的url，则在分栏第二屏加载该url，展示新页面。
  
 示例代码如下：
  
 EntryAbility.ets：
  
-```text
+```json
 import { ConfigurationConstant, UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { display, window } from '@kit.ArkUI';
@@ -59,10 +53,10 @@ export default class EntryAbility extends UIAbility {
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
     windowStage.getMainWindow().then((windowObj) => {
-      // 获取应用启动时的窗口尺寸
+      <em>// 获取应用启动时的窗口尺寸</em>
       this.updateBreakpoint(windowObj.getWindowProperties().windowRect.width,
         windowObj.getWindowProperties().windowRect.height);
-      // 注册回调函数，监听窗口尺寸变化
+      <em>// 注册回调函数，监听窗口尺寸变化</em>
       windowObj.on('windowSizeChange', (windowSize) => {
         this.updateBreakpoint(windowSize.width, windowSize.height);
       });
@@ -77,18 +71,27 @@ export default class EntryAbility extends UIAbility {
     });
   }
 
-  /**
-   * 根据当前窗口尺寸更新断点
-   * @param windowWidth
-   * @param windowHeight
-   */
+  <em>/**</em>
+<em>   * 根据当前窗口尺寸更新断点</em>
+<em>   * @param windowWidth</em>
+<em>   * @param windowHeight</em>
+<em>   */</em>
   private updateBreakpoint(windowWidth: number, windowHeight: number): void {
     AppStorage.setOrCreate(Constants.windowWidth, windowWidth);
     AppStorage.setOrCreate(Constants.windowHeight, windowHeight);
-    // 将长度的单位由px换算为vp
+    <em>// 将长度的单位由px换算为vp</em>
     let windowWidthVp = windowWidth / display.getDefaultDisplaySync().densityPixels;
     let newBp: string = '';
-    if (windowWidthVp // 使用状态变量记录当前断点值，使用方法:在组件添加@StorageProp(Constant.currentBreakpoint)curBp:string='md';
+    if (windowWidthVp < 320) {
+      newBp = BreakpointConstants.BREAKPOINT_XS;
+    } else if (windowWidthVp < 600) {
+      newBp = BreakpointConstants.BREAKPOINT_SM;
+    } else if (windowWidthVp < 840) {
+      newBp = BreakpointConstants.BREAKPOINT_MD;
+    } else {
+      newBp = BreakpointConstants.BREAKPOINT_LG;
+    }
+    <em>// 使用状态变量记录当前断点值，使用方法:在组件添加@StorageProp(Constant.currentBreakpoint)curBp:string='md';</em>
     AppStorage.setOrCreate(Constants.currentBreakpoint, newBp);
   }
 };
@@ -105,7 +108,7 @@ import { SplitWeb } from './SplitWeb';
 @Entry
 @Component
 struct Index {
-  // 代码中url链接使用时更换为实际链接
+  <em>// 代码中url链接使用时更换为实际链接</em>
   url = 'xxx.xxx.xxx';
   @Provide('lastPage') lastPage: string = '';
   controller: webview.WebviewController = new webview.WebviewController();
@@ -142,7 +145,7 @@ struct Index {
       .hideTitleBar(true)
       .hideBackButton(true)
       .titleMode(NavigationTitleMode.Mini)
-      .mode(new BreakpointConstants({
+      .mode(new BreakpointConstants<NavigationMode>({
         sm: NavigationMode.Stack,
         md: NavigationMode.Split,
         lg: NavigationMode.Split
@@ -168,9 +171,9 @@ SplitWeb.ets：
 ```text
 import { webview } from '@kit.ArkWeb';
 
-/**
- * web分屏页面
- */
+<em>/**</em>
+<em> * web分屏页面</em>
+<em> */</em>
 @Component
 export struct SplitWeb {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -191,11 +194,11 @@ export struct SplitWeb {
     }
     .hideTitleBar(true)
     .onBackPressed(() => {
-      if (this.controller.accessBackward()) { // 判断web页面是否可以后退
-        this.controller.backward(); // web页面后退
+      if (this.controller.accessBackward()) { <em>// 判断web页面是否可以后退</em>
+        this.controller.backward(); <em>// web页面后退</em>
         return true;
       } else {
-        this.pageInfos.pop(); // 弹出路由栈栈顶元素
+        this.pageInfos.pop(); <em>// 弹出路由栈栈顶元素</em>
         if (this.pageInfos.getAllPathName().length === 0) {
           this.lastPage = '';
         }
@@ -219,7 +222,7 @@ export class Constants {
 BreakpointConstants.ets：
  
 ```text
-export class BreakpointConstants {
+export class BreakpointConstants<T> {
   static readonly BREAKPOINT_XS: string = 'xs';
   static readonly BREAKPOINT_SM: string = 'sm';
   static readonly BREAKPOINT_MD: string = 'md';
@@ -231,7 +234,7 @@ export class BreakpointConstants {
   md: T;
   lg: T;
 
-  constructor(param: BreakpointTypes) {
+  constructor(param: BreakpointTypes<T>) {
     this.sm = param.sm;
     this.md = param.md;
     this.lg = param.lg;
@@ -248,7 +251,7 @@ export class BreakpointConstants {
   }
 }
 
-export interface BreakpointTypes {
+export interface BreakpointTypes<T> {
   sm: T;
   md: T;
   lg: T;

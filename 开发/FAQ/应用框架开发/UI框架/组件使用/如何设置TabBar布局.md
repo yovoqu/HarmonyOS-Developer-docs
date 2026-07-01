@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1065
 
-## 如何设置TabBar布局
- 
-
-
-##### 问题现象
+#### 问题现象
 
 TabBar的布局效果可以根据不同的设计需求来实现多种样式。以下是一些常见的TabBar布局效果：
  
@@ -21,7 +17,7 @@ TabBar的布局效果可以根据不同的设计需求来实现多种样式。�
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Tabs组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
 - [tabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar)：设置TabBar上显示内容。
@@ -29,7 +25,7 @@ TabBar的布局效果可以根据不同的设计需求来实现多种样式。�
  
  
 
-##### 解决方案
+#### 解决方案
 
 本文将基于上述场景，逐一阐述其具体实现方式。
   
@@ -43,18 +39,26 @@ TabBar的布局效果可以根据不同的设计需求来实现多种样式。�
  
  
 - **场景一：实现不同方向的TabBar布局效果。**可通过[barPosition属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barposition9)设置页签的位置，其取值为BarPosition.Start或BarPosition.End。默认值为BarPosition.Start，表示页签位于页面顶部；设置为End时，页签则显示在页面底部。
- 此外，[vertical属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#vertical)用于控制页签的布局方向，默认值为false，表示横向布局（页签位于顶部或底部）；当设为true时，页签变为纵向布局，显示在屏幕左侧或右侧。
- 综上所述，可以得出下表结论：
-  
+
+  此外，[vertical属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#vertical)用于控制页签的布局方向，默认值为false，表示横向布局（页签位于顶部或底部）；当设为true时，页签变为纵向布局，显示在屏幕左侧或右侧。
+
+  综上所述，可以得出下表结论：
+
 | barPosition取值 | vertical取值 | TabBar位置 |
+
 | --- | --- | --- |
+
 | BarPosition.Start（默认值） | true | 屏幕左侧 |
+
 | BarPosition.Start（默认值） | false（默认值） | 屏幕顶部 |
+
 | BarPosition.End | true | 屏幕右侧 |
+
 | BarPosition.End | false（默认值） | 屏幕底部 |
- 
- 用TabBar位于屏幕左侧举例，实现代码如下：
- 
+
+  用TabBar位于屏幕左侧举例，实现代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -91,16 +95,22 @@ struct TabBarLayoutInDifferentDirections {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/ZYul09dkSXi6sKdzJpCGkA/zh-cn_image_0000002628567120.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=1D004F041CE1DCA96F13EE80FDB3BA9282E5B76713A32E900AF7D65D65D8122B)
 
- 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/ZYul09dkSXi6sKdzJpCGkA/zh-cn_image_0000002628567120.png?HW-CC-KV=V1&HW-CC-Date=20260701T041319Z&HW-CC-Expire=86400&HW-CC-Sign=34C64068FDB0237830B9D68A397173A33455ABDDD557B3C48BB1069B3D82B2FA)
+
+
+  
 **场景二：实现页签的居中或左右对齐的布局效果。**通过[barMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barmode)可以设置TabBar布局模式，再加上[TabsOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#tabsoptions15)中的barModifier可以设置tabBar的align属性实现页签对齐布局效果。
- 详情可参考示例：[页签对齐布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例16页签对齐布局)。
+
+  详情可参考示例：[页签对齐布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例16页签对齐布局)。
 - **场景三：实现TabBar左右分布的布局效果。**在某些应用场景中，开发者可能需要一个自定义的TabBar布局，其中左边的两个页签居左对齐，右边的两个页签居右对齐，而中间部分则可以放置一个图标或按钮。这种布局方式不仅能够有效利用屏幕空间，还能提供更灵活的导航和功能入口，提升用户体验。
- 利用Stack组件自定义TabBar，再使用position属性自定义每一个页签的位置。则可实现页签不均匀分布的效果。
- 实现代码如下：
- 
+
+  利用Stack组件自定义TabBar，再使用position属性自定义每一个页签的位置。则可实现页签不均匀分布的效果。
+
+  实现代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -109,7 +119,7 @@ export struct TabBarAlignLeftAndRight {
   @State selectedIndex: number = 0;
   fontColor: string = '#000';
   selectedFontColor: string = '#0A59F7';
-  tabName: Array = ['首页', '商城', '更多', '我的'];
+  tabName: Array<string> = ['首页', '商城', '更多', '我的'];
   private controller: TabsController = new TabsController();
 
   @Builder
@@ -127,7 +137,7 @@ export struct TabBarAlignLeftAndRight {
       this.selectedIndex = index;
     })
     .padding(10)
-    // 设置TabItem的相对位置
+  <em>  // 设置TabItem的相对位置</em>
     .position(
       index === 1 ? { left: 80 } :
         index === 2 ? { right: 90 } :
@@ -178,7 +188,7 @@ export struct TabBarAlignLeftAndRight {
       });
 
       Stack() {
-        // 用Row组件实现TabBar效果
+      <em>  // 用Row组件实现TabBar效果</em>
         Row() {
           ForEach(this.tabName, (item: string, index: number) => {
             this.tabBuilder(index, item);
@@ -189,8 +199,8 @@ export struct TabBarAlignLeftAndRight {
         .width('100%')
         .backgroundColor(Color.White);
 
-        // 开发者按需设计中间宫格展示内容，该示例展示图标
-        Image($r('app.media.startIcon')) // 资源地址请自行替换
+      <em>  // 开发者按需设计中间宫格展示内容，该示例展示图标</em>
+        Image($r('app.media.startIcon'))<em> // 资源地址请自行替换</em>
           .width(25)
           .height(25)
           .align(Alignment.Bottom);
@@ -200,12 +210,15 @@ export struct TabBarAlignLeftAndRight {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/n5G6E465ThyZOBHdTcRF8w/zh-cn_image_0000002658926419.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=40F6289D51472C41CD0B6B3989F02C300519702CD4155EB8D98E0DC125169B9E)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/n5G6E465ThyZOBHdTcRF8w/zh-cn_image_0000002658926419.png?HW-CC-KV=V1&HW-CC-Date=20260701T041319Z&HW-CC-Expire=86400&HW-CC-Sign=18869C0847BED893A28673147936DAF1C0C1F03FB473CF92830F090F17C8F056)
 
 - **场景四：实现每个页签宽度均不相同的布局效果。**通过将[barMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#barmode10-1)设置为BarMode.Scrollable可滚动模式，tabBar的宽度即可以根据实际宽度显示。
- 实现代码如下：
- 
+
+  实现代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -246,18 +259,21 @@ struct TabBarLayoutUnevenly {
 }
 ```
  实现效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/pmohc6u-RH25GuWRLAde3w/zh-cn_image_0000002628407220.png?HW-CC-KV=V1&HW-CC-Date=20260701T025558Z&HW-CC-Expire=86400&HW-CC-Sign=B44724D5641AFE0631646743CB12671FED9226688EA153AC06A31D0C206FCEBE)
 
- 更多实现方式和详情可参考示例：[如何给tabBar页签设置不同宽度](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-580)。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/pmohc6u-RH25GuWRLAde3w/zh-cn_image_0000002628407220.png?HW-CC-KV=V1&HW-CC-Date=20260701T041319Z&HW-CC-Expire=86400&HW-CC-Sign=26725E8DA3763948B76000D011D3CC7437F8229BB5C2F7C0F9C98FAD30620AED)
+
+
+  更多实现方式和详情可参考示例：[如何给tabBar页签设置不同宽度](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-580)。
 - **场景五：实现页签布局根据数量不同，进行动态调整的效果。**通过[barGridAlign属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#bargridalign10)可以实现以栅格化方式设置TabBar的可见区域。将barGridAlign属性与页签个数相结合，即可达到动态调整页签布局的效果。
- 详情可参考示例：[Tabs如何根据TabBar数量更改页签栏排布](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1536)和[设置TabBar栅格化可见区域](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例7设置tabbar栅格化可见区域)。
+
+  详情可参考示例：[Tabs如何根据TabBar数量更改页签栏排布](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1536)和[设置TabBar栅格化可见区域](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例7设置tabbar栅格化可见区域)。
 
  
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么当barHeight与SubTabBarStyle.of同时设置的时候，文字会出现被部分覆盖的错误样式？
  

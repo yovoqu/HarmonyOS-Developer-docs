@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1274
 
-## priorityGesture监听点击事件导致Tabs页面卡顿的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 首页有个Tabs组件，由于有个双击Tabs刷新当前页面的需求，用priorityGesture监听单指双击事件，但是加了priorityGesture监听之后，导致单击Tabs切换页面卡顿。
  
@@ -105,7 +101,7 @@ struct TabsExample {
         if (index === targetIndex) {
           return;
         }
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
         this.selectedIndex = targetIndex;
       })
       .width('90%')
@@ -118,27 +114,26 @@ struct TabsExample {
 问题示例实现效果：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/RyfqjEa1ShOMFnbMdJW6tQ/zh-cn_image_0000002658955335.png?HW-CC-KV=V1&HW-CC-Date=20260701T025655Z&HW-CC-Expire=86400&HW-CC-Sign=A2425C85A9941AEDBB2399B5B5CDCAC24437E5F4745183F9F72619AA237812C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/RyfqjEa1ShOMFnbMdJW6tQ/zh-cn_image_0000002658955335.png?HW-CC-KV=V1&HW-CC-Date=20260701T041148Z&HW-CC-Expire=86400&HW-CC-Sign=E17080BE3A434F0791EF7CFA22CC2CFDAB179A0347BADCC78FF68E96C85460BB)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [priorityGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#prioritygesture)方法可以绑定优先识别手势。其参数如下：
  
 - gesture：绑定的手势类型，其类型为[GestureType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gesturetype)。
-- mask：事件响应设置。
-默认情况下，子组件优先识别通过gesture绑定的手势，当父组件配置priorityGesture时，父组件优先识别priorityGesture绑定的手势。
-- 长按手势时，设置触发长按的最短时间小的组件会优先响应，会忽略priorityGesture设置。
+- mask：事件响应设置。1. 默认情况下，子组件优先识别通过gesture绑定的手势，当父组件配置priorityGesture时，父组件优先识别priorityGesture绑定的手势。
 
- 
+2. 长按手势时，设置触发长按的最短时间小的组件会优先响应，会忽略priorityGesture设置。
+
  
 [onAnimationStart事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onanimationstart11)：Tabs组件切换动画开始时触发该回调。参数为动画开始前的index值（不是最终结束动画的index值）。当animationDuration为0时动画关闭，不触发该回调。
  
  
 
-##### 问题定位
+#### 问题定位
 
 通过问题描述的效果图可以发现，最后双击Tab2页签时，并没有优先跳转Tab2页面，而是优先响应双击事件，打开promptAction弹窗。
  
@@ -146,17 +141,17 @@ struct TabsExample {
  
  
 
-##### 分析结论
+#### 分析结论
 
 原因是加了priorityGesture监听双击事件后，单次点击Tabs后程序会等待一定时间，判断是否会有连续点击事件，导致切换卡顿现象。
  
  
 
-##### 修改建议
+#### 修改建议
 
 采用if/else语句先判定单击跳转事件。在跳转之后，再判定是否进行双击事件的监听，完整代码修改如下：
  
-```text
+```json
 @Entry
 @Component
 struct TabsExample {
@@ -166,7 +161,7 @@ struct TabsExample {
 
   @Builder
   tabBuilder(index: number, name: string) {
-    // 优先判定单击跳转事件，只有当前页面才可监听双击事件
+ <em>   // 优先判定单击跳转事件，只有当前页面才可监听双击事件</em>
     if (this.selectedIndex === index) {
       Column() {
         Text(name)
@@ -263,7 +258,7 @@ struct TabsExample {
         if (index === targetIndex) {
           return;
         }
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+      <em>  // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
         this.selectedIndex = targetIndex;
         console.info(JSON.stringify(event));
       })
@@ -277,12 +272,12 @@ struct TabsExample {
 实现效果如下，当双击的页面不是当前Tab2页面时，不会触发Tab2页面双击事件，优先响应单击跳转事件，跳转到Tab1页面：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/vn1CcsCxTbWQuv0hn2M4-w/zh-cn_image_0000002628596118.png?HW-CC-KV=V1&HW-CC-Date=20260701T025655Z&HW-CC-Expire=86400&HW-CC-Sign=D4D127F61186AE8244266BBA26A21D2AB5569C5DD2108EAFBC7823C108FA2576)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/vn1CcsCxTbWQuv0hn2M4-w/zh-cn_image_0000002628596118.png?HW-CC-KV=V1&HW-CC-Date=20260701T041148Z&HW-CC-Expire=86400&HW-CC-Sign=55757C21E6248EFBB61E4EC3A924101AC018F545AE2CFD8F5CDB88B58E7B2273)
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：为什么Tabs优先判断单击事件后，还是存在页签切换卡顿现象？
  

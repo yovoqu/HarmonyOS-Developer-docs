@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-143
 
-## 如何指定使用蜂窝网络或wifi网络发送http请求
- 
-
-
-##### 问题现象
+#### 问题现象
 
 wifi和蜂窝均开启的情况下，如何指定使用蜂窝网络发送请求？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [@ohos.net.connection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection)是HarmonyOS操作系统中用于管理网络连接的一个模块，它提供了多种功能来管理设备的网络连接，以下是这个kit的主要功能和使用方法：
  
@@ -32,9 +28,8 @@ let netConnectionCellular = connection.createNetConnection({
  
  
 
-##### 解决方案
-
-- 使用createNetConnection方法设置NetBearType监听蜂窝网络类型：
+#### 解决方案
+1. 使用createNetConnection方法设置NetBearType监听蜂窝网络类型：
 ```text
 let netConnectionWifi = connection.createNetConnection({
   netCapabilities: {
@@ -43,7 +38,7 @@ let netConnectionWifi = connection.createNetConnection({
 });
 ```
 
-- 调用返回netConnectionCellular参数结果中携带register方法拉起蜂窝网状态：
+2. 调用返回netConnectionCellular参数结果中携带register方法拉起蜂窝网状态：
 ```text
 netConnectionWifi.register((error: BusinessError) => {
   if (error) {
@@ -52,7 +47,7 @@ netConnectionWifi.register((error: BusinessError) => {
 });
 ```
 
-- 使用connection.setAppNet()将应用绑定到指定的网络上后，该应用的所有网络请求都会使用该网络。如若需要使用其他网络，则需要再次通过connection.setAppNet()将应用绑定到其他网络上。
+3. 使用connection.setAppNet()将应用绑定到指定的网络上后，该应用的所有网络请求都会使用该网络。如若需要使用其他网络，则需要再次通过connection.setAppNet()将应用绑定到其他网络上。
 ```text
 connection.getAllNets().then((data: connection.NetHandle[]) => {
   data.forEach(net => {
@@ -73,7 +68,6 @@ connection.getAllNets().then((data: connection.NetHandle[]) => {
   console.error(`getAllNets error = ${error.message}`);
 });
 ```
-
 
  
 完整示例参考如下：
@@ -100,11 +94,11 @@ struct Index {
 class WifiManager {
   private static instance?: WifiManager;
 
-  /**
-   * Get singleton
-   *
-   * @returns Singleton object
-   */
+  <em>/**</em>
+<em>   * Get singleton</em>
+<em>   *</em>
+<em>   * @returns Singleton object</em>
+<em>   */</em>
   public static getInstance(): WifiManager {
     if (!WifiManager.instance) {
       WifiManager.instance = new WifiManager();
@@ -169,7 +163,7 @@ class WifiManager {
     });
   }
 
-  private async bindWifiWhenConnected(): Promise {
+  private async bindWifiWhenConnected(): Promise<void> {
     await connection.setAppNet(connection.getDefaultNetSync()).then(() => {
       console.info('setAppNet default success');
     });
@@ -194,7 +188,7 @@ class WifiManager {
     });
   }
 
-  private async bindCellularWhenConnected(): Promise {
+  private async bindCellularWhenConnected(): Promise<void> {
     await connection.setAppNet(connection.getDefaultNetSync()).then(() => {
       console.info('setAppNet default success');
     });
@@ -222,7 +216,7 @@ class WifiManager {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用connection.getAllNetsSync获取当前所有的网络句柄，但发现只能获取当前使用的网络句柄。比如wifi和4G都是可用的，但只能获取到wifi的NetHandle。
  

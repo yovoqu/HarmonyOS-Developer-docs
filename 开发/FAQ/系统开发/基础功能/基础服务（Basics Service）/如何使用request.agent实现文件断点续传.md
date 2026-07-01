@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-67
 
-## 如何使用request.agent实现文件断点续传
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用request.agent下载文件过程中因为网络问题或者手动停止后，使用request.agent.Task.resume()无法继续下载，使用request.agent.Task.start()会重新开始下载，不能从中断的进度继续下载。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [request.agent.Config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentconfig10)：设置下载配置信息，参数begins设置下载时请求读取服务器开始下载文件时的起点位置。
 - [request.agent.show](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentshow10)：可以根据任务id查询任务的详细信息。查询到中断的任务信息。
@@ -24,10 +20,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. 任务中断后使用request.agent.show()接口查询传输中断的任务信息，记录文件的断点进度和文件路径。从中断的任务Task中获取配置信息，用于创建一个新的下载任务，下载断点后的文件：修改文件下载时的起点位置为断点进度位置，修改存储路径。
 
-- 任务中断后使用request.agent.show()接口查询传输中断的任务信息，记录文件的断点进度和文件路径。从中断的任务Task中获取配置信息，用于创建一个新的下载任务，下载断点后的文件：修改文件下载时的起点位置为断点进度位置，修改存储路径。
- 
+  
 ```text
 Continue() {
   request.agent.show(this.downloadTask!.tid, (err: BusinessError, taskInfo: request.agent.TaskInfo) => {
@@ -60,7 +56,7 @@ Continue() {
 }
 ```
 
-- 在新的下载任务完成后，将断点前的文件和断点后的临时文件拼接，获取拼接后最终文件文件的哈希值，检测文件完整性。
+2. 在新的下载任务完成后，将断点前的文件和断点后的临时文件拼接，获取拼接后最终文件文件的哈希值，检测文件完整性。
 ```text
 setFile(length: number) {
   let oldFile: fs.File | undefined = undefined;
@@ -76,7 +72,12 @@ setFile(length: number) {
     while (len) {
       fs.writeSync(oldFile.fd, buf, { offset: this.oldFileLen + fileOffset, length: len });
       fileOffset += len;
-      if ((length - fileOffset)  {
+      if ((length - fileOffset) < bufsize) {
+        bufsize = length - fileOffset;
+      }
+      len = fs.readSync(newFile.fd, buf, { offset: fileOffset, length: bufsize });
+    }
+    hash.hash(this.oldFilePath, 'sha256').then((str: string) => {
       this.promptAction.showToast({
         message: `下载完成,文件哈希值${str}`
       });
@@ -97,11 +98,10 @@ setFile(length: number) {
 }
 ```
 
-
  
 完整示例参考如下：
  
-```text
+```json
 import { BusinessError, request } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { fileIo as fs, hash } from '@kit.CoreFileKit';
@@ -118,26 +118,35 @@ struct RequestAgentDemo {
     let filter: request.agent.Filter = {
       action: request.agent.Action.DOWNLOAD
     };
-    request.agent.search(filter).then((data: Array) => {
+    request.agent.search(filter).then((data: Array<string>) => {
       this.addTaskId(data);
     }).catch((err: BusinessError) => {
       console.error(`Failed to search a upload task, Code: ${err.code}, message: ${err.message}`);
     });
   }
 
-  addTaskId(data: Array) {
-    for (let i = 0; i  {
-            let fileName = `XXX`; //需要替换为开发者需要的资源名称
-            // 配置对象
+  addTaskId(data: Array<string>) {
+    for (let i = 0; i < data.length; i++) {
+      this.taskIds.push(data[i]);
+    }
+  }
+
+  build() {
+    Column({ space: 20 }) {
+      Row({ space: 10 }) {
+        Button('创建任务')
+          .onClick(() => {
+            let fileName = `XXX`; <em>//需要替换为开发者需要的资源名称</em>
+         <em>   // 配置对象</em>
             let config: request.agent.Config = {
               action: request.agent.Action.DOWNLOAD,
-              url: 'https://XXX', //需要替换为开发者需要的资源链接
+              url: 'https://XXX', <em>//需要替换为开发者需要的资源链接</em>
               mode: request.agent.Mode.FOREGROUND,
               overwrite: true,
               method: 'POST',
               title: fileName,
               begins: 0,
-              saveas: `XXXXXXXX`//需要替换为开发者需要的资源保存路径
+              saveas: `XXXXXXXX`<em>//需要替换为开发者需要的资源保存路径</em>
             };
             request.agent.create(this.context, config)
               .then((task: request.agent.Task) => {
@@ -203,7 +212,7 @@ struct ObjectBuild {
       .then((task: request.agent.Task) => {
         this.downloadTask = task;
         this.oldFileLen = task.config.begins!;
-        // 注册监听
+     <em>   // 注册监听</em>
         this.InitEvent(task);
       })
       .catch((err: BusinessError) => {
@@ -334,7 +343,12 @@ struct ObjectBuild {
       while (len) {
         fs.writeSync(oldFile.fd, buf, { offset: this.oldFileLen + fileOffset, length: len });
         fileOffset += len;
-        if ((length - fileOffset)  {
+        if ((length - fileOffset) < bufsize) {
+          bufsize = length - fileOffset;
+        }
+        len = fs.readSync(newFile.fd, buf, { offset: fileOffset, length: bufsize });
+      }
+      hash.hash(this.oldFilePath, 'sha256').then((str: string) => {
         this.promptAction.showToast({
           message: `下载完成,文件哈希值${str}`
         });
@@ -380,7 +394,7 @@ struct ObjectBuild {
           console.error(`calculate file hash failed with error message: ${err.message}, error code: ${err.code}`);
         });
       }
-      this.downloadTask = null; // 下载完重置
+      this.downloadTask = null; <em>// 下载完重置</em>
     });
     task.on('failed', (err) => {
       this.progressInfo = '下载失败';

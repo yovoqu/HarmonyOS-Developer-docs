@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-api-map
 
-## 实况窗Live View Kit与Push Kit的API字段关联
- 
- 
-
-##### 介绍
+#### 介绍
 
 开发者可参考Live View Kit与Push Kit的API字段关联表格，在项目中配置实况窗业务所需的API字段。为便于阅读与描述，表格内统一使用**端侧**作为Live View Kit ArkTS API的简称，使用**云侧**作为Push Kit REST API的简称。
   

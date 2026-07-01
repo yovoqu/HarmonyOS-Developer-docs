@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-34
 
-## ohpm命令常见报错问题汇总
- 
-
-
-##### 问题现象
+#### 问题现象
 
 安装依赖报错（构建-同步-Ohpm Install或者终端执行ohpm install）：
  
@@ -26,7 +22,7 @@ Error Message: FetchPackageInfo: "@ohos/system" failed
 ```
 
 - 问题二：依赖名与包名不一致。
-```text
+```json
 ohpm ERROR: local dependency "@ohos/constantsCommon" found in "D:\xxx\entry\oh-package.json5" does not match the actual name "constantscommon" of its oh-package.json5
 ohpm ERROR: Install failed, detail: There are some dependency names that are inconsistent with the actual package names.
 ```
@@ -60,7 +56,7 @@ Error Message: Fetch local file package error, D:\MyApplication\oh_modules\.ohpm
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [三方依赖管理工具（ohpm）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-cli)：ohpm作为OpenHarmony三方库的包管理工具，支持OpenHarmony共享包的发布、安装和依赖管理。
 - [OHPM中心仓](https://developer.huawei.com/consumer/cn/deveco-service?ha_source=sousuo&ha_sourceId=89000251)：HarmonyOS三方包制品仓库，其中汇聚了来自全世界开发者所贡献的HarmonyOS三方库，助力您轻松完成HarmonyOS应用及服务的开发。
@@ -69,14 +65,16 @@ Error Message: Fetch local file package error, D:\MyApplication\oh_modules\.ohpm
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 问题一：根据错误码可知，[ohpm配置的仓库](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#zh-cn_topic_0000001792216397_默认配置项)中未包含依赖包。
- 根据报错日志分析：仓库是https://ohpm.openharmony.cn/ohpm/，即OpenHarmony三方库中心仓，检索未发现@ohos/system。
+
+  根据报错日志分析：仓库是https://ohpm.openharmony.cn/ohpm/，即OpenHarmony三方库中心仓，检索未发现@ohos/system。
 - 问题二：排查报错信息中oh-package.json5的依赖名和实际依赖包体中oh-package.json5的name字段，确认两者是否一致。
 - 问题三：由报错信息connect ETIMEDOUT xxx.xxx.xxx.xxx:443可知，当前通过443端口访问仓库超时。通过DevEco Studio-帮助-诊断工具-诊断开发环境，确认网络连接状况。
 - 问题四：由报错信息可知，创建软链接失败。
- 
+
+  
 排查当前用户权限：本地安全策略->本地策略->用户权限分配->创建符号链接，排查有权限的用户。
 - 排查安全杀毒软件是否阻止创建软链接。
 
@@ -86,7 +84,7 @@ Error Message: Fetch local file package error, D:\MyApplication\oh_modules\.ohpm
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 问题一：ohpm配置仓库中没有依赖仓。
 - 问题二：oh-package.json5中配置的依赖名与实际包名不一致。
@@ -98,23 +96,21 @@ Error Message: Fetch local file package error, D:\MyApplication\oh_modules\.ohpm
  
  
 
-##### 修改建议
+#### 修改建议
 
-- 问题一：尝试双击shift全局搜索报错包名。
-若未使用依赖包，oh-package.json5中删除即可。
-- 若使用依赖包，需确认仓库地址：
+- 问题一：尝试双击shift全局搜索报错包名。1. 若未使用依赖包，oh-package.json5中删除即可。
+
+2. 若使用依赖包，需确认仓库地址：
 存在仓库地址：[更新配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#zh-cn_topic_0000001792216397_更新配置)，添加仓库地址。
-- 本地仓库：通过相对路径形式配置依赖仓库位置，"xxx": "file:../xxx"
 
- 
- - 问题二：建议修改依赖名与包名一致，具体参考：[模块级oh-package.json5字段说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5#zh-cn_topic_0000001792256137_oh-packagejson5-字段说明)表格后的**依赖名使用要求**。
+3. 本地仓库：通过相对路径形式配置依赖仓库位置，"xxx": "file:../xxx"
+- 问题二：建议修改依赖名与包名一致，具体参考：[模块级oh-package.json5字段说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5#zh-cn_topic_0000001792256137_oh-packagejson5-字段说明)表格后的**依赖名使用要求**。
 - 问题三：
 网络连接状态是否正常报错：修复本地网络。
-- ohpm仓库是否可访问报错：
-浏览器访问仓库地址，确认仓库是否正常，若无法访问，请等待或者反馈，待服务器修复。
-- 存在网络隔离，[配置OHPM代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section10372836765)。
+- ohpm仓库是否可访问报错：1. 浏览器访问仓库地址，确认仓库是否正常，若无法访问，请等待或者反馈，待服务器修复。
 
- 
+2. 存在网络隔离，[配置OHPM代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section10372836765)。
+
  - 问题四：
 权限问题：使用权限用户打开编译器，例如：管理员。或者增加用户，同时重启设备。
 - 安全杀毒软件问题：关闭杀毒软件或者取消阻止创建软链接行为。

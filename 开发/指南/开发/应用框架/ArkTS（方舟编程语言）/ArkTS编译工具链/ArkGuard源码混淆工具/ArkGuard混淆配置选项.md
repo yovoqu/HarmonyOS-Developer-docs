@@ -4,13 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options
 
-## ArkGuard混淆配置选项
- 
-
 从API version 10开始，ArkGuard提供混淆配置选项来控制混淆效果。开发者可在[obfuscation-rules.txt](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#混淆配置文件)文件中自定义这些选项。若开启混淆但未配置任何选项，则仅应用默认混淆效果，即混淆局部变量和参数名。
   
 
-##### 混淆选项汇总
+#### 混淆选项汇总
  
 | 功能 | 选项 | 起始API版本 |
 | --- | --- | --- |
@@ -38,7 +35,7 @@
  
   
 
-##### -disable-obfuscation
+#### -disable-obfuscation
 
 关闭所有混淆。
  
@@ -46,14 +43,10 @@
  
   
 
-##### -enable-property-obfuscation
+#### -enable-property-obfuscation
 
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/kFBHkRBpRrSJAh6WTmiNOA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=9D0F833B5F115BCE90919FD6A049A70A373C0D96D54F841C2D3488E5EF67E403)
- 
- 
-开启该选项后，在需要[手动配置白名单的场景中](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name)，请将对应的属性名配置到白名单中。
-  
+> [!NOTE]
+> 开启该选项后，在需要 手动配置白名单的场景中 ，请将对应的属性名配置到白名单中。
 
  
 配置该选项后，开启属性名称混淆，效果如下：
@@ -77,7 +70,8 @@ TestA.i;
 配置该选项后，所有属性名将被混淆，以下场景除外：
  
 - 在未开启-enable-export-obfuscation选项的情况下，被import/export直接导入或导出的类或对象的属性名不会被混淆。例如，下面例子中的属性名data1不会被混淆。
-      
+
+  
 ```ts
 // ArkGuardAbility.ts
 export class MyClass01 {
@@ -86,7 +80,8 @@ export class MyClass01 {
 ```
 
 - ArkUI组件中的属性名不会被混淆。例如，下面例子中的message和data不会被混淆。
-     
+
+  
 ```ArkTS
 // ArkGuardAbility.ets
 @Component struct MyExample {
@@ -101,21 +96,23 @@ export class MyClass01 {
 - 被保留选项[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name)指定的属性名不会被混淆。
 - SDK API列表中的属性名不会被混淆。SDK API列表是构建时从SDK中自动提取出来的一个名称列表。其缓存文件为systemApiCache.json，路径为工程目录/build/default/cache/{...}/release/obfuscation。
 - 字符串字面量属性名不会被混淆，并且与其同名的属性名也不会被混淆。例如，下面例子中的exampleName和exampleAge不会被混淆。
-        
+
+  
 ```ts
 // 混淆前：
 // ArkGuardAbility.ts
 let person = {"exampleName": "abc"};
 person["exampleAge"] = 22;
 ```
-    
+
 ```ts
 let person1 = {exampleName: "aaa"};
 let name = person1.exampleName;
 ```
 
 - 注解成员名不会被混淆。例如，下面例子中的authorName和revision不会被混淆。
-    
+
+  
 ```ArkTS
 @interface MyAnnotation1 {
   authorName: string;
@@ -127,7 +124,7 @@ let name = person1.exampleName;
  
   
 
-##### -enable-string-property-obfuscation
+#### -enable-string-property-obfuscation
 
 若要混淆字符串字面量属性名，需在已启用-enable-property-obfuscation的情况下使用。
  
@@ -145,7 +142,7 @@ let person = {"exampleName": "abc"};
 person["exampleAge"] = 22;
 ```
  
-```ts
+```text
 // 混淆后：
 // example.ts
 let person = {"a": "abc"};
@@ -153,10 +150,10 @@ person["b"] = 22;
 ```
  
 **使用该选项时，需要注意以下事项：**
- 
-- 如果代码里面有字符串属性名包含特殊字符（除了a-z、A-Z、0-9、_之外的字符），例如let obj = {"\n": 123, "": 4, " ": 5}，建议不要开启-enable-string-property-obfuscation选项，因为可能无法通过[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name)来保留这些名称。
-- SDK API的属性白名单中不包含声明文件中使用的字符串常量值，例如示例中的字符串'ohos.want.action.home'未包含在属性白名单中。
-     
+ 1. 如果代码里面有字符串属性名包含特殊字符（除了a-z、A-Z、0-9、_之外的字符），例如let obj = {"\n": 123, "": 4, " ": 5}，建议不要开启-enable-string-property-obfuscation选项，因为可能无法通过[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name)来保留这些名称。
+2. SDK API的属性白名单中不包含声明文件中使用的字符串常量值，例如示例中的字符串'ohos.want.action.home'未包含在属性白名单中。
+
+  
 ```ts
 // SDK API文件@ohos.app.ability.wantConstant片段：
 export enum Params {
@@ -164,24 +161,19 @@ export enum Params {
 }
 
 // 开发者源码示例：
-const obj1: Record = {
+const obj1: Record<string, string> = {
   'ohos.want.action.home': 'value'
 }
 let params = obj1['ohos.want.action.home'];
 ```
   因此，在开启-enable-string-property-obfuscation选项后，如果希望保留代码中使用的SDK API字符串常量的属性不被混淆，例如obj['ohos.want.action.home']，可以使用[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name)选项进行保留。
-
  
   
 
-##### -enable-toplevel-obfuscation
+#### -enable-toplevel-obfuscation
 
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/ckGSVz_PQBS5Ib9yLYnBcA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=931C2CAC02D32463F987C1156662B4191E87832F363B7AD29AA6D5E2236F9D15)
- 
- 
-开启该选项后，在需要[手动配置白名单的场景中](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-global-name)，请将对应的顶层作用域名称配置到白名单中。
-  
+> [!NOTE]
+> 开启该选项后，在需要 手动配置白名单的场景中 ，请将对应的顶层作用域名称配置到白名单中。
 
  
 开启顶层作用域名称混淆，效果如下：
@@ -206,7 +198,7 @@ let s = 0;
  
   
 
-##### -enable-export-obfuscation
+#### -enable-export-obfuscation
 
 开启直接导入或导出的名称混淆，效果如下：
  
@@ -233,14 +225,10 @@ namespace ns {
  
   
 
-##### -enable-filename-obfuscation
+#### -enable-filename-obfuscation
 
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/-pwRe4q0SIuCBfiF52DLgA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=4F957FE81CA6B109491EBFCF17B4EA1AAF71ED199839EF729D005EBCEBC9236C)
- 
- 
-开启该选项后，在需要[手动配置白名单的场景中](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-file-name)，请将对应的文件夹/文件名称配置到白名单中。
-  
+> [!NOTE]
+> 开启该选项后，在需要 手动配置白名单的场景中 ，请将对应的文件夹/文件名称配置到白名单中。
 
  
 开启文件/文件夹名称混淆，效果如下：
@@ -264,7 +252,7 @@ async function func1() {
 }
 ```
  
-```ts
+```text
 // example.ts
 // 混淆后：
 import * as m from "@normalized:N&&&entry/src/main/ets/c/d&";
@@ -286,19 +274,13 @@ async function func() {
 - 非路径引用方式，例如import module from 'json5'中的json5不会被混淆。
 
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/OqkojE2tSGiuilCJ8XI9Nw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=0974C5A0D47646D6D55FD027DDC814CB032C4659251D1377AA27CAAE901CDB7D)
- 
- 
-由于系统会在应用运行时加载某些指定的文件，针对这类文件，开发者需要手动在[-keep-file-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-file-name)选项中配置相应的白名单，防止指定文件被混淆，导致运行失败。
-  
-编译入口、Ability组件、Worker多线程，这三种不能混淆的文件名在DevEco Studio 5.0.3.500及以上版本已被自动收集进白名单中，无需再手动配置，其它不能混淆文件名的场景仍需开发者手动配置。
-  
+> [!NOTE]
+> 由于系统会在应用运行时加载某些指定的文件，针对这类文件，开发者需要手动在 -keep-file-name 选项中配置相应的白名单，防止指定文件被混淆，导致运行失败。 编译入口、Ability组件、Worker多线程，这三种不能混淆的文件名在DevEco Studio 5.0.3.500及以上版本已被自动收集进白名单中，无需再手动配置，其它不能混淆文件名的场景仍需开发者手动配置。
 
  
   
 
-##### -compact
+#### -compact
 
 删除在代码中不参与语法结构、不影响程序运行的空格符和所有的换行符。
  
@@ -317,19 +299,13 @@ TestA.prop1;
 class TestA { static prop1: number = 0; } TestA.prop1;
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/BD_0LxeaQL-jIkpkhW1R1w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=B8E86E2AA88704DB542E1F717BF22EA2C54E7C07CC76237F04EFB7F7F5472CB3)
- 
- 
-release模式构建的应用栈信息仅包含代码行号，不包含列号，因此-compact功能开启后无法依据报错栈中的行号定位到源码具体位置。
-  
-若希望对部分源码路径仍保留换行（便于对照报错栈行号阅读混淆中间产物），可在开启-compact的同时，使用[-keep-uncompact](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-uncompact)指定不参与压缩的源码路径。
-  
+> [!NOTE]
+> release模式构建的应用栈信息仅包含代码行号，不包含列号，因此-compact功能开启后无法依据报错栈中的行号定位到源码具体位置。 若希望对部分源码路径仍保留换行（便于对照报错栈行号阅读混淆中间产物），可在开启-compact的同时，使用 -keep-uncompact 指定不参与压缩的源码路径。
 
  
   
 
-##### -remove-comments
+#### -remove-comments
 
 删除编译生成的声明文件中的JsDoc注释，效果如下：
  
@@ -352,17 +328,13 @@ declare let count: number;
  
 使用[-keep-comments](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-comments)配置保留声明文件中的JsDoc注释。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/RNyVbbVcQb-5tfMAUIbDdg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=65A943656E30BA47BB3FD69DAAD103EDE36313CCEA8B5B1CBEBBB050A64720EA)
- 
- 
-编译生成的源码文件中的注释默认全部删除，不支持保留配置。
-  
+> [!NOTE]
+> 编译生成的源码文件中的注释默认全部删除，不支持保留配置。
 
  
   
 
-##### -remove-log
+#### -remove-log
 
 删除对console.*语句的调用，要求console.*语句的返回值未被使用。效果如下：
  
@@ -382,23 +354,25 @@ function add(a: number, b: number) {
 ```
  
 若配置该选项，以下场景中的console.*语句将被删除。
- 
-- 文件顶层的调用。
-    
+ 1. 文件顶层的调用。
+
+  
 ```ts
 console.info("in tolevel");
 ```
 
-- 代码块中的调用。
-    
+2. 代码块中的调用。
+
+  
 ```ts
 function foo1() {
   console.info('in block');
 }
 ```
 
-- module或namespace中的调用。
-        
+3. module或namespace中的调用。
+
+  
 ```ts
 // ArkGuardAbility.ts
 namespace ns {
@@ -406,8 +380,9 @@ namespace ns {
 }
 ```
 
-- switch语句中的调用。
-    
+4. switch语句中的调用。
+
+  
 ```ts
 function getDayName(day: number): string {
   switch (day) {
@@ -424,36 +399,31 @@ function getDayName(day: number): string {
 }
 ```
 
-
  
   
 
-##### -print-namecache
+#### -print-namecache
 
 将名称缓存保存到指定的文件路径**filepath**中，名称缓存包含名称混淆前后的映射。其中，**filepath**为必选参数，支持相对路径和绝对路径，相对路径的起始位置为混淆配置文件的当前目录。**filepath**参数中的文件名请使用.json为后缀。
  
-```text
+```json
 -print-namecache
 ./customCache/nameCache.json
 ```
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/xjghWigRTCCP-p3s-OZIWg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=52BE7E490660E99B0065887A0952D597A5785C4E60D792F7F170B88302E128BD)
- 
- 
-每次全量构建工程都会生成新的nameCache.json文件，因此发布新版本时需保存该文件的副本。
-  
+> [!NOTE]
+> 每次全量构建工程都会生成新的nameCache.json文件，因此发布新版本时需保存该文件的副本。
 
  
   
 
-##### -apply-namecache
+#### -apply-namecache
 
 复用指定的名称缓存文件**filepath**。**filepath**为必选参数，支持相对路径和绝对路径。相对路径的起始位置为混淆配置文件的当前目录。**filepath**参数中的文件名请以.json为后缀。
  
 该选项适用于增量编译。开启后，名称将根据缓存文件映射进行混淆，新添加的第三方依赖库可能会导致混淆白名单发生改变，进而影响混淆结果。如果找不到对应的缓存，名称将被混淆为新的随机名称。
  
-```text
+```json
 -apply-namecache
 ./customCache/nameCache.json
 ```
@@ -464,7 +434,7 @@ function getDayName(day: number): string {
  
   
 
-##### -print-kept-names
+#### -print-kept-names
 
 该选项支持输出未混淆名单和全量白名单，并支持配置**filepath**。**filepath**为可选参数，仅支持相对路径。相对路径的起始位置为混淆配置文件的当前目录。**filepath**参数中的文件名请以.json为后缀。
  
@@ -495,9 +465,9 @@ function getDayName(day: number): string {
 未混淆名单（keptNames.json）中包含未混淆的名称及其原因。未混淆的原因包括：与SDK白名单重名、与语言白名单重名、与用户配置白名单重名、与结构体白名单重名、与导出白名单重名、与字符串属性白名单重名（未开启[字符串属性混淆](#section-enable-string-property-obfuscation)的情况下）以及与枚举白名单重名。
  
 **使用该选项时，需要注意以下事项：**
- 
-- 在编译HAR模块且开启属性混淆的情况下，'enum'白名单将收集enum中的成员名称。
-    
+ 1. 在编译HAR模块且开启属性混淆的情况下，'enum'白名单将收集enum中的成员名称。
+
+  
 ```ts
 enum Test1 {
   member1,
@@ -505,8 +475,9 @@ enum Test1 {
 }
 ```
    enum白名单内容为['member1', 'member2']。这是由于历史版本的har模块的编译中间产物为js文件，在js文件中enum类型会转换为一个立即执行函数，而enum成员会被转化为一个字符串属性和一个字符串常量。因此，为了保证开启属性混淆的情况下功能正常，需要将enum成员名称收集为白名单。在编译新版字节码har模块时，此特性仍然被保留。
-- 在编译HAP/HSP/字节码HAR模块且开启属性混淆的情况下，当enum的成员被初始化时，'enum'白名单会收集初始化表达式中包含的变量名称。
-         
+2. 在编译HAP/HSP/字节码HAR模块且开启属性混淆的情况下，当enum的成员被初始化时，'enum'白名单会收集初始化表达式中包含的变量名称。
+
+  
 ```ts
 // ArkGuardAbility.ts
 let outdoor = 1;
@@ -516,11 +487,10 @@ enum Test2 {
 }
 ```
    其中，编译HAP/HSP模块时，enum白名单内容为['outdoor', 'member1']；编译字节码HAR模块时，enum白名单内容为['outdoor', 'member1', 'member2']。
-
  
   
 
-##### -extra-options strip-language-default
+#### -extra-options strip-language-default
 
 混淆的预置语言白名单中**默认包含了typescript的系统接口中关于dom、webworker、scripthost等API的名称以及Web API的名称**。如果开发者源码中的属性与这部分名称重名，混淆工具会对这些属性进行保留。
  
@@ -534,7 +504,7 @@ enum Test2 {
  
   
 
-##### -extra-options strip-system-api-args
+#### -extra-options strip-system-api-args
 
 当前混淆的系统API白名单中**默认包含了系统API中的局部变量名称**，且系统API白名单默认对开发者源码中的局部变量生效。如果开发者源码中的属性与系统API中的局部变量重名或源码中的局部变量与系统API白名单重名，混淆工具会对这部分属性和局部变量名称进行保留。
  
@@ -550,7 +520,7 @@ enum Test2 {
  
   
 
-##### -extra-options strip-not-compiled-module-name
+#### -extra-options strip-not-compiled-module-name
 
 当前混淆的白名单中**默认包含了项目中所有的模块名称**。如果开发者源码中的文件名与模块名称重名，混淆工具会保留这些文件名。
  
@@ -565,6 +535,7 @@ enum Test2 {
 在混淆配置文件中添加-extra-options前缀和选项，且前缀与选项之间不能包含其他内容。支持开启单个选项或同时开启多个选项。
  
 - 使用-extra-options前缀开启单个选项，有如下2种使用方式：
+
   
 ```text
 # 方式一
@@ -576,6 +547,7 @@ strip-language-default
 ```
 
 - 使用-extra-options前缀同时开启多个选项，有如下5种使用方式：
+
   
 ```text
 # 方式一
@@ -604,7 +576,7 @@ strip-not-compiled-module-name
  
   
 
-##### -keep-parameter-names
+#### -keep-parameter-names
 
 从API version 18开始，支持保留声明文件中对外接口的参数名称。开启此选项后，有如下效果：
  
@@ -613,14 +585,12 @@ strip-not-compiled-module-name
 
  
 **使用该选项时，需要注意以下事项：**
- 
-- 对于非上述场景（如匿名函数）中的参数名称，无法通过此选项保留。
-- 源码文件中的参数名称仍然会被混淆，无法通过此选项保留。
-
+ 1. 对于非上述场景（如匿名函数）中的参数名称，无法通过此选项保留。
+2. 源码文件中的参数名称仍然会被混淆，无法通过此选项保留。
  
   
 
-##### -enable-lib-obfuscation-options
+#### -enable-lib-obfuscation-options
 
 配置此开关后，依赖模块的混淆选项将被合并到当前编译模块的混淆配置中。
  
@@ -636,7 +606,7 @@ strip-not-compiled-module-name
  
   
 
-##### -use-keep-in-source
+#### -use-keep-in-source
 
 从API version 19开始，支持在.ts和.ets源码中通过以下两种注释标记到白名单中，不支持在声明文件中使用。
  
@@ -644,101 +614,49 @@ strip-not-compiled-module-name
  
 // @KeepAsConsumer：用来标记需要保留的名称，通常写在代码上一行，表示该名称在编译时不会被混淆。在HAR/HSP模块中，被@KeepAsConsumer标记的名称还会生成在obfuscation.txt中；在HAP模块中，@KeepAsConsumer和@KeepSymbol的效果相同。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/f_MMifBeSpW52xG8esT1wQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=DFD488B260C04123703F028FDB95F8CFBB08096933E6A061FF65B870EB102442)
- 
- 
-以上两种标记均为注释，不可去除"//"。
-  
+> [!NOTE]
+> 以上两种标记均为注释，不可去除"//"。
 
  
   
 
-##### [h2]注释标记支持的语法场景
+#### 注释标记支持的语法场景
 
 以下均以// @KeepSymbol为例，// @KeepAsConsumer支持的场景和// @KeepSymbol相同。
- 
-- 类
-   支持对类中的以下语法进行标记：
+ 1. 类
+
+  支持对类中的以下语法进行标记：
+
   
-类声明
-- 构造函数
-- 字段和方法
+- 类声明
 
-        
-```ts
-// 保留类名和所有成员名
-// @KeepSymbol
-class MyClass02 {
-  prop01: string = "prop"; // MyClass02和prop01不会被混淆
-}
+2. 构造函数
 
-// 通过构造函数保留类名
-class MyClass03 {
-  prop02: string = "prop";
-  // @KeepSymbol
-  constructor() {}; // MyClass03不会被混淆
-}
+3. 字段和方法
 
-// 保留类名和指定的字段名和方法，类中MyClass04，prop03_1，method03_2不会被混淆
-class MyClass04 {
-  // @KeepSymbol
-  prop03_1: string = "prop";
-  prop03_2: number = 1;
-  constructor() {};
+4. 接口
 
-  method03_1(): void {};
-  // @KeepSymbol
-  method03_2(): void {};
-}
-```
- - 接口
-   支持对接口中的以下语法进行标记：
+  支持对接口中的以下语法进行标记：
+
   
 接口声明
-- 字段和方法
 
-        
-```ts
-// 保留接口名和所有成员名，MyInterface01，name01，foo01不会被混淆
-// @KeepSymbol
-interface MyInterface01 {
-  name01: string;
-  foo01(): void;
-}
+5. 字段和方法
 
-// 保留接口名和指定的字段和方法名，MyInterface02，name02不会被混淆
-interface MyInterface02 {
-  // @KeepSymbol
-  name02: string;
-  foo02(): void;
-}
-```
- - 枚举
-   支持对枚举中的以下语法进行标记：
+6. 枚举
+
+  支持对枚举中的以下语法进行标记：
+
   
 枚举声明
-- 枚举成员
 
-        
-```ts
-// 保留枚举名和所有成员名，Color01，RED01，BLUE01不会被混淆
-// @KeepSymbol
-enum Color01 {
-  RED01,
-  BLUE01
-}
+7. 枚举成员
 
-// 保留枚举名指定的枚举成员名
-enum Color02 {
-  RED02,
-  // @KeepSymbol
-  BLUE02 // Color02，BLUE02不会被混淆
-}
-```
- - 函数
-   支持对函数名进行标记。
-        
+8. 函数
+
+  支持对函数名进行标记。
+
+  
 ```ts
 // 保留函数名，MyAdd不会被混淆
 // @KeepSymbol
@@ -747,9 +665,12 @@ function MyAdd(a: number, b:number): number {
 }
 ```
 
-- 命名空间
-   支持对命名空间名称进行标记。
-        
+
+9. 命名空间
+
+  支持对命名空间名称进行标记。
+
+  
 ```ts
 // 保留命名空间名以及内部直接导出的成员名称，MyNameSpace以及foo不会被混淆
 // @KeepSymbol
@@ -759,19 +680,26 @@ namespace MyNameSpace {
 }
 ```
 
-- 全局变量
-   支持全局变量的标记，不支持局部变量。
-         
+
+10. 全局变量
+
+  支持全局变量的标记，不支持局部变量。
+
+  
 ```ts
 // 保留被标记的变量名，myVal不会被混淆
 // @KeepSymbol
 const myVal = 1;
 ```
 
-- 注解
-   仅支持标记并保留注解声明。标记注解成员无效，注解成员本身不会被混淆。
-   从API version 20开始，支持标记注解声明。
-        
+
+11. 注解
+
+  仅支持标记并保留注解声明。标记注解成员无效，注解成员本身不会被混淆。
+
+  从API version 20开始，支持标记注解声明。
+
+  
 ```ArkTS
 // 保留被标记的注解声明，MyAnnotation不会被混淆
 // @KeepSymbol
@@ -784,18 +712,19 @@ const myVal = 1;
 ```
 
 
- 
   
 
-##### [h2]注释标记的白名单添加规则
+  #### 注释标记的白名单添加规则
 
-被标记的名称根据以下规则添加到混淆白名单，被// @KeepAsConsumer保留的名称还会生成到[obfuscation.txt](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#混淆配置文件)文件中。
- 
-- 如果该名称位于顶层作用域或被直接导出，则会被添加到-keep-global-name中。
+  被标记的名称根据以下规则添加到混淆白名单，被// @KeepAsConsumer保留的名称还会生成到[obfuscation.txt](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#混淆配置文件)文件中。
+
+  
+如果该名称位于顶层作用域或被直接导出，则会被添加到-keep-global-name中。
 - 如果该名称被直接导出，还会被添加到-keep-property-name中。
 - 如果该名称是属性，还会被添加到-keep-property-name中。
 - 局部变量名不会被添加到白名单（不会被保留）。
-    
+
+  
 ```ts
 // @KeepAsConsumer
 export class MyClass05 {
@@ -807,7 +736,7 @@ export class MyClass05 {
  
   
 
-##### [h2]注释标记不支持的语法场景
+#### 注释标记不支持的语法场景
 
 不支持字符串属性、数字属性以及计算属性。
  
@@ -835,7 +764,7 @@ enum MyEnum {
  
   
 
-##### -keep-object-props
+#### -keep-object-props
 
 从API version 23开始，支持使用-keep-object-props配置选项保留对象字面量中的属性名称和字符串属性名称。使用方法如下：
  
@@ -843,19 +772,15 @@ enum MyEnum {
 - 同时开启属性混淆（-enable-property-obfuscation）和字符串属性混淆（-enable-string-property-obfuscation）时，配置保留对象字面量（-keep-object-props）选项后，对象字面量中的属性名称和字符串属性名称会被收集到白名单中，不会被混淆。
 
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/8mfNeQ6ATlqWX2ePtV0nhA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=5E845BE56850B369BB6961107074FF551E3E5FE6C675B0EC760464EB0A78EA58)
- 
- 
-在开启属性混淆或者同时开启属性混淆和字符串属性混淆的情况下，-keep-object-props选项才会生效，否则该选项无效。
-  
+> [!NOTE]
+> 在开启属性混淆或者同时开启属性混淆和字符串属性混淆的情况下，-keep-object-props选项才会生效，否则该选项无效。
 
  
 **支持的场景**
  
 支持保留对象字面量的属性名称以及字符串属性名称。
  
-```ts
+```text
 // example.ts
 const propertyObj = {
     propertyKey1: 'value',
@@ -870,17 +795,20 @@ const stringPropertyObj = {
     }
 };
 ```
- 
-- 开启属性混淆时，如果配置了-keep-object-props选项，对于对象字面量中的属性名称，将不会被混淆。
+ 1. 开启属性混淆时，如果配置了-keep-object-props选项，对于对象字面量中的属性名称，将不会被混淆。
+
   混淆配置选项文件obfuscation-rules.txt如下：
+
   
 ```text
 -keep-object-props
 -enable-property-obfuscation
 ```
   开启上述obfuscation-rules.txt配置文件的混淆选项后，示例代码中的属性名称propertyKey1、propertyKey2、propertyKey3将被收集到白名单中，不会被混淆。
-- 开启属性混淆和字符串属性混淆时，如果配置了-keep-object-props选项，对于对象字面量中的属性名称和字符串属性名称，将不会被混淆。
+2. 开启属性混淆和字符串属性混淆时，如果配置了-keep-object-props选项，对于对象字面量中的属性名称和字符串属性名称，将不会被混淆。
+
   混淆配置选项文件obfuscation-rules.txt如下：
+
   
 ```text
 -keep-object-props
@@ -888,13 +816,12 @@ const stringPropertyObj = {
 -enable-string-property-obfuscation
 ```
   开启上述obfuscation-rules.txt配置文件的混淆选项后，示例代码中的属性名称propertyKey1、propertyKey2、propertyKey3以及字符串属性名称stringPropertyKey1、stringPropertyKey2、stringPropertyKey3将被收集到白名单中，不会被混淆。
-
  
 **不支持的场景**
  
 不支持非对象字面量的属性名场景。
  
-```ts
+```text
 // example.ts
 // -keep-object-props不生效场景：typeLiteral1、typeLiteral2、typeLiteral3、typeLiteral4、typeLiteral5均不为对象字面量中的属性，开启属性混淆或者同时开启属性混淆和字符串属性混淆的前提下，即使开启-keep-object-props选项也会被混淆。
 interface TypeLiteralDemo {
@@ -915,24 +842,23 @@ const complexComputedPropertyObj = {
  
   
 
-##### -remove-nosideeffects-calls
+#### -remove-nosideeffects-calls
 
 从API version 23开始，支持删除指定名称的方法调用，要求方法调用的返回值未被使用。该功能适用于删除自定义日志方法调用等场景。
  
 支持的方法调用方式有如下几种：
- 
-- 直接调用：method，匹配method()。
-- 点号调用：A.B，匹配A.B()。
-- 方括号调用：A["B"]，匹配A["B"]()。
-- 嵌套调用：A.B["method"]，匹配A.B["method"]()。
-- 通配符匹配：通过名称类通配符进行模式匹配，如*.log，匹配任意对象的log()。
-
+ 1. 直接调用：method，匹配method()。
+2. 点号调用：A.B，匹配A.B()。
+3. 方括号调用：A["B"]，匹配A["B"]()。
+4. 嵌套调用：A.B["method"]，匹配A.B["method"]()。
+5. 通配符匹配：通过名称类通配符进行模式匹配，如*.log，匹配任意对象的log()。
  
 **使用该选项时，需要注意以下事项：**
- 
-- 使用该选项在删除方法调用时不会分析其内部的副作用，需确保删除的方法调用不影响应用功能。
-- 配置项需与源码中实际调用处的完整名称一致，而非声明处的名称。
+ 1. 使用该选项在删除方法调用时不会分析其内部的副作用，需确保删除的方法调用不影响应用功能。
+2. 配置项需与源码中实际调用处的完整名称一致，而非声明处的名称。
+
   例如，下面例子中的配置项MyLog.debug不是调用处的名称，Log.debug()不会被删除：
+
   
 ```text
 // obfuscation-rules.txt或consumer-rules.txt：
@@ -940,7 +866,7 @@ const complexComputedPropertyObj = {
 MyLog.debug
 ```
   
-```ts
+```text
 // a.ts
 export class MyLog {
   public static debug(message: string) {
@@ -954,8 +880,7 @@ import { MyLog as Log } from './a'
 Log.debug("this is alias");
 ```
 
-- 配置项间可用逗号、空格或换行的方式分隔。
-
+3. 配置项间可用逗号、空格或换行的方式分隔。
  
 在混淆配置文件obfuscation-rules.txt或consumer-rules.txt:
  
@@ -967,8 +892,8 @@ example["log"].info
 ```
  
 根据上述配置，在以下场景中的方法调用语句将被删除:
- 
-- 文件顶层的调用。
+ 1. 文件顶层的调用。
+
   
 ```text
 function logger(msg: string) {
@@ -978,7 +903,8 @@ function logger(msg: string) {
 logger("in top level"); // 经过混淆，该方法调用会被删除
 ```
 
-- 代码块的调用。
+2. 代码块的调用。
+
   
 ```text
 class Log {
@@ -992,9 +918,10 @@ function foo() {
 }
 ```
 
-- module或namespace中的调用。
+3. module或namespace中的调用。
+
   
-```ts
+```text
 // example.ts
 class Log {
   public static debugNamespace(msg: string) {
@@ -1007,7 +934,8 @@ namespace ns {
 }
 ```
 
-- switch语句中的调用。
+4. switch语句中的调用。
+
   
 ```text
 interface Logger {
@@ -1020,7 +948,7 @@ const logFunc: Logger = {
   }
 }
 
-const example: Record = {
+const example: Record<string, Logger> = {
   ["log"]: logFunc
 }
 

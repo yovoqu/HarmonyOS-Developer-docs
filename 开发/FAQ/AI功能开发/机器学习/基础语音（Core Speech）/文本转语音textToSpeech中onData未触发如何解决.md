@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-core-speech-8
 
-## 文本转语音textToSpeech中onData未触发如何解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在文本转语音的textToSpeech监听中，onData回调未触发，相关的日志也未打印，如何解决？
  
  
 
-##### 解决方案
+#### 解决方案
 
 参考文本转语音[SpeakParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech#section7843122735210)合成播报音频流的extraParams参数，关于合成类型<'playType', number>的介绍如下：
  

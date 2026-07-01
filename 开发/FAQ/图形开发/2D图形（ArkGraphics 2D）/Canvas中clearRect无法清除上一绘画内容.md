@@ -4,22 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-25
 
-## Canvas中clearRect无法清除上一绘画内容
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用[clearRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d#clearrect)清除之前的绘画，但是清除效果和预期有差异。一共有两个场景：
  
 - 场景一：绘制时对画布进行矩阵变换，使用clearRect清除时未达预期，出现问题现象如下所示：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/I0v5twPbTuujrvpkn9ck5A/zh-cn_image_0000002658912555.png?HW-CC-KV=V1&HW-CC-Date=20260701T025834Z&HW-CC-Expire=86400&HW-CC-Sign=AEC22E96AED8F351CD2A001A417C18BB078F7392AB813D2F0C2879F5205A51B4)
 
- 问题相关代码如下：
- 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/I0v5twPbTuujrvpkn9ck5A/zh-cn_image_0000002658912555.png?HW-CC-KV=V1&HW-CC-Date=20260701T041025Z&HW-CC-Expire=86400&HW-CC-Sign=759DF3D0602DC887978B53F6F4862C0C1E3BFE76BEAF6D964C0E7ECBED5EB858)
+
+
+  问题相关代码如下：
+
+  
 ```text
-// 第一段画布的绘制代码
+<em>// 第一段画布的绘制代码</em>
 Canvas(this.coordinateSystemContext)
   .width(this.canvasWidth)
   .height(this.canvasHeight)
@@ -41,13 +40,16 @@ Button('清除图形')
 ```
 
 - 场景二：绘制时对画布进行缩放，使用clearRect清除时未达预期，出现问题现象如下所示：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/RjtoVRlzTu6icxOtUlCZzw/zh-cn_image_0000002658792615.png?HW-CC-KV=V1&HW-CC-Date=20260701T025834Z&HW-CC-Expire=86400&HW-CC-Sign=8AD7A5AE15681653B4B9F1299164F0128872BEC1905DCD0F8DB53EEDD95A4E06)
 
- 问题相关代码：
- 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/RjtoVRlzTu6icxOtUlCZzw/zh-cn_image_0000002658792615.png?HW-CC-KV=V1&HW-CC-Date=20260701T041025Z&HW-CC-Expire=86400&HW-CC-Sign=F053CD7BF5FE9AC92089198AC6FEE98E0120C1E88071A379D57148608EB1BAD1)
+
+
+  问题相关代码：
+
+  
 ```text
-// 第二段画布的绘制代码
+<em>// 第二段画布的绘制代码</em>
 Canvas(this.incompleteAreaContext)
    .width(this.canvasWidth)
    .height(this.canvasHeight)
@@ -71,19 +73,19 @@ Button('清除图形')
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)提供画布组件，用于自定义绘制图形，开发者使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象和[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象在Canvas组件上进行绘制，支持绘制形状、文本、图像及复杂动画。
  
  
 
-##### 问题定位
+#### 问题定位
 
 对于Canvas清除效果未达预期，主要排查：画布是否进行坐标系变换，如平移、缩放、旋转等。此时需要清除画布，清除区域应保持相同变换或复原。
  
  
 
-##### 分析结论
+#### 分析结论
 
 clearRect失效通常由以下原因导致：
  
@@ -93,24 +95,24 @@ clearRect失效通常由以下原因导致：
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：适配画布变换状态：若画布经过缩放或平移，需先重置变换矩阵再清除，示例如下：
 ```text
 @Entry
 @Component
 struct CanvasExample1 {
-  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。
+<em>  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。</em>
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
-  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。
+  <em>// 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。</em>
   private coordinateSystemContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private canvasWidth: number = 300;
   private canvasHeight: number = 300;
 
   build() {
     Column({space:20}) {
-      // 在canvas中调用CanvasRenderingContext2D对象。
-      // 第一段画布的绘制代码
+  <em>    // 在canvas中调用CanvasRenderingContext2D对象。</em>
+<em>      // 第一段画布的绘制代码</em>
       Canvas(this.coordinateSystemContext)
         .width(this.canvasWidth)
         .height(this.canvasHeight)
@@ -127,14 +129,14 @@ struct CanvasExample1 {
         })
       Button('清除图形')
         .onClick(() => {
-          // 保存当前画布状态
+        <em>  // 保存当前画布状态</em>
           this.coordinateSystemContext.save();
-          // 重置变换矩阵（确保清除区域覆盖整个画布）
+      <em>    // 重置变换矩阵（确保清除区域覆盖整个画布）</em>
           this.coordinateSystemContext.resetTransform();
-          // 清除整个画布
+         <em> // 清除整个画布</em>
           this.coordinateSystemContext.clearRect(0, 0, this.coordinateSystemContext.width,
             this.coordinateSystemContext.height);
-          // 恢复之前的画布状态（如缩放、平移等）
+         <em> // 恢复之前的画布状态（如缩放、平移等）</em>
           this.coordinateSystemContext.restore();
         });
     }
@@ -149,19 +151,19 @@ struct CanvasExample1 {
 @Entry
 @Component
 struct CanvasExample2 {
-  // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。
+ <em> // 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿，true表明开启抗锯齿。</em>
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
-  // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。
+ <em> // 用来创建CanvasRenderingContext2D对象，通过在canvas中调用CanvasRenderingContext2D对象来绘制。</em>
   private incompleteAreaContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private canvasWidth: number = 300;
   private canvasHeight: number = 300;
-  private ratio: number = 0.3; // 假设存在缩放比例变量
+  private ratio: number = 0.3;<em> // 假设存在缩放比例变量</em>
 
   build() {
     Column({ space: 20 }) {
-      // 在canvas中调用CanvasRenderingContext2D对象。
-      // 第二段画布的绘制代码
-      // 第二段画布的绘制代码
+      <em>// 在canvas中调用CanvasRenderingContext2D对象。</em>
+<em>      // 第二段画布的绘制代码</em>
+<em>      // 第二段画布的绘制代码</em>
       Canvas(this.incompleteAreaContext)
         .width(this.canvasWidth)
         .height(this.canvasHeight)
@@ -177,7 +179,7 @@ struct CanvasExample2 {
         });
       Button('清除图形')
         .onClick(() => {
-          // 计算实际清除区域
+        <em>  // 计算实际清除区域</em>
           let clearWidth = this.incompleteAreaContext.width / this.ratio;
           let clearHeight = this.incompleteAreaContext.height / this.ratio;
           this.incompleteAreaContext.clearRect(0, 0, clearWidth, clearHeight);
@@ -193,6 +195,6 @@ struct CanvasExample2 {
  
  
 
-##### 总结
+#### 总结
 
 clearRect清除失效问题通常是画布状态未重置或者清除区域未进行相应变化，及时处理画布状态并动态调整清除区域可避免此类问题。

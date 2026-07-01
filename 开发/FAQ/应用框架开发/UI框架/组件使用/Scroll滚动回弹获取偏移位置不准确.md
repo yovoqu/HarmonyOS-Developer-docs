@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1428
 
-## Scroll滚动回弹获取偏移位置不准确
- 
-
-
-##### 问题现象
+#### 问题现象
 
 设置edgeEffect为Spring的时候，在onWillScroll里面监听滑动的距离，快速滑动到边缘触发物理回弹时，回调的滑动距离不为0，即使最后通过惯性回到初始状态，滑动的距离也不为0。
  
@@ -51,18 +47,18 @@ struct ScrollerTest {
 滚动到边缘无法判定为0，现象如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/owNecs7wSJOIdCNGp3bhzQ/zh-cn_image_0000002628763648.png?HW-CC-KV=V1&HW-CC-Date=20260701T025615Z&HW-CC-Expire=86400&HW-CC-Sign=A64B1D5967B44E780AA3DB5B56D2A38F624122FDA4894510B3E4AA13F1FB7D28)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/owNecs7wSJOIdCNGp3bhzQ/zh-cn_image_0000002628763648.png?HW-CC-KV=V1&HW-CC-Date=20260701T041247Z&HW-CC-Expire=86400&HW-CC-Sign=FD6580ED0EBA71AE7202BEB1990C9FCA44360CBFA784470ABA3C00F2DF4C5321)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 [onWillScroll事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onwillscroll12)：滚动事件回调，Scroll滚动前触发。该事件能回调组件下一步将要滚动的偏移量、当前滚动状态以及滚动操作来源，其中回调的偏移量为计算得到的将要滚动的偏移量值，并非最终实际滚动偏移。可以通过该回调返回值指定Scroll将要滚动的偏移。
  
  
 
-##### 问题定位
+#### 问题定位
 
 onWillScroll是滚动前触发的事件，滑动到边缘，触发弹性回弹也会触发该事件。也就是说最后打印的滚动位置信息是滑动停止后的前一帧位置到最后停止位置将要滑动的距离。最后打印的信息也就不为0。
  
@@ -71,18 +67,18 @@ onWillScroll是滚动前触发的事件，滑动到边缘，触发弹性回弹�
 设置edgeEffect为None，效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/oOKg8lcrRHiykQ90vCFFhA/zh-cn_image_0000002658962963.png?HW-CC-KV=V1&HW-CC-Date=20260701T025615Z&HW-CC-Expire=86400&HW-CC-Sign=E462159A33B303B728C8E15D5E6ED8B09ABF71D3B6CF287AEAB53ABC4129CBD0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/oOKg8lcrRHiykQ90vCFFhA/zh-cn_image_0000002658962963.png?HW-CC-KV=V1&HW-CC-Date=20260701T041247Z&HW-CC-Expire=86400&HW-CC-Sign=83AD02EA048A3E868C7A47EB9668433FA837DBE24470AC4DACC4F69E0147A568)
 
  
  
 
-##### 分析结论
+#### 分析结论
 
 onWillScroll是滚动前触发的事件，不是滚动时或滚动后触发的事件，所以，在edgeEffect为Spring的时候，以onWillScroll事件的偏移量为0作为判定滚动组件滚动到边缘的条件会失效。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 方案一：采用[onDidScroll事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#ondidscroll12)判定是否滚动到边缘，当偏移量为0时代表滚动到边缘。
 ```text
@@ -118,10 +114,12 @@ struct OptionOne {
   }
 }
 ```
- 
- 效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/P7QS7z7jSSqmTQbx1LtwCA/zh-cn_image_0000002628603748.png?HW-CC-KV=V1&HW-CC-Date=20260701T025615Z&HW-CC-Expire=86400&HW-CC-Sign=3CEC5329DA92689AA070F271E7EE697ED5402017ACEECD50898BAF6CCBD7D9FE)
+
+
+  效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/P7QS7z7jSSqmTQbx1LtwCA/zh-cn_image_0000002628603748.png?HW-CC-KV=V1&HW-CC-Date=20260701T041247Z&HW-CC-Expire=86400&HW-CC-Sign=059F45FCEA71624C26DDE18F6CA5F315A650B8EC4C5802C8449076E36AB20728)
 
 - 方案二：通过[onScrollEdge事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onscrolledge)与[onScrollStop事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onscrollstop9)判定是否滚动到边缘并停止：
 ```text
@@ -160,7 +158,9 @@ struct OptionTwo {
   }
 }
 ```
- 
- 效果如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/g-XO_fkZTMeZcyL9h-8a-Q/zh-cn_image_0000002658843015.png?HW-CC-KV=V1&HW-CC-Date=20260701T025615Z&HW-CC-Expire=86400&HW-CC-Sign=FFD3582C82D88EA131867AB7CFEA0F5E0F76743E58492565DEE51D481CE4DAED)
+
+
+  效果如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/g-XO_fkZTMeZcyL9h-8a-Q/zh-cn_image_0000002658843015.png?HW-CC-KV=V1&HW-CC-Date=20260701T041247Z&HW-CC-Expire=86400&HW-CC-Sign=DA120705D1CE107BBD8F20BF6662E9A144A0EC099943271171F4685F0EEC1C05)

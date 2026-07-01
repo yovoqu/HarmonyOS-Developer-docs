@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1159
 
-## 使用promptAction.openCustomDialog创建自定义弹窗闪退
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用promptAction.openCustomDialog创建自定义弹窗，将全局Builder构建函数作为自定义弹窗内容构造器。弹窗弹出时应用闪退。错误日志为：
  
@@ -50,13 +46,13 @@ struct Index {
  
  
 
-##### 背景知识
+#### 背景知识
 
 ArkUI提供了一种轻量的UI元素复用机制[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)，其内部UI结构固定，仅与使用方进行数据传递，开发者可以将重复使用的UI元素抽象成一个方法，在build方法里调用。
  
  
 
-##### 解决方案
+#### 解决方案
 
 自定义构建函数@Builder可以在所属组件的build方法和其他自定义构建函数中调用，但不允许在组件外调用。因此，需要将自定义构建函数@Builder移至结构体内部，示例代码如下：
  
@@ -67,7 +63,7 @@ struct Index55 {
   private customDialogComponentId: number = 0;
 
 
-  // 在结构体内构建定义函数
+ <em> // 在结构体内构建定义函数</em>
   @Builder
   customDialogComponent() {
     Column() {
@@ -127,4 +123,4 @@ struct Index55 {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/9HNTyhVcSEW-Ho-fqhEsqw/zh-cn_image_0000002658929081.png?HW-CC-KV=V1&HW-CC-Date=20260701T025602Z&HW-CC-Expire=86400&HW-CC-Sign=596F79CB5A5CF717940885E6E3CDB4234C123F02EB05C2EDF67E020932BB1CB1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/9HNTyhVcSEW-Ho-fqhEsqw/zh-cn_image_0000002658929081.png?HW-CC-KV=V1&HW-CC-Date=20260701T041257Z&HW-CC-Expire=86400&HW-CC-Sign=9E06231D4E7C80EE425C84F058ECDCB4785A735FCF873CD52F8773E592EBE1C4)

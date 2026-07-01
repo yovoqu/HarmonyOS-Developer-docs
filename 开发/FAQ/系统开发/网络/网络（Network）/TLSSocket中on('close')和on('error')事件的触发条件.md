@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-107
 
-## TLSSocket中on('close')和on('error')事件的触发条件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 TLSSocket中，on('close')和on('error')分别用于订阅关闭和error事件，二者的触发条件分别有哪些？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [TLSSocket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#tlssocket9)是一种基于TLS/SSL协议的安全网络通信套接字，用于在客户端与服务器之间建立加密的数据传输通道，确保数据的机密性和完整性。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - TLSSocket的[on('close')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#onconnect--close9)用于订阅TLSSocket的关闭事件，可以在此回调中执行资源释放、状态更新等操作。其触发条件主要表现在当一个TLSSocket成功建立连接并完成对网络资源的请求后，若在一段时间内业务侧未对该Socket进行任何操作，系统会根据配置的超时机制自动关闭该Socket连接，以释放资源。
 - TLSSocket的[on('error')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#onerror9)用于订阅TLSSocket连接的error事件，可以在此回调中处理错误，例如重试连接或提醒用户。其触发条件可能性较多，常见的有以下几种：
@@ -35,7 +31,7 @@ SYN包丢失：客户端发送的SYN（同步序列编号）包因为网络拥�
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：可以使用哪种方式处理TLSSocket的重连？
  

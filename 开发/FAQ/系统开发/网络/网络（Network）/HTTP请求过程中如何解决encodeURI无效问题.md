@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-88
 
-## HTTP请求过程中如何解决encodeURI无效问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HTTP请求中，使用encodeURI()转码并发送HTTP请求，后台收到字符串中的+号变成空格，导致异常。
  
  
 
-##### 背景知识
+#### 背景知识
 
 在构建HTTP GET或POST请求时，不应使用encodeURI()对完整的URI进行编码，因为它不会对&+和=这类在URL中具有特殊语义的字符进行编码，可以使用encodeURIComponent()进行编码。
  
  
 
-##### 解决方案
+#### 解决方案
 
 对于HTTP请求的键值对"key1=value1&key2=value2&key3=value3"的信息主体数据，需要使用encodeURIComponent()进行编码，可以将+和=等字符进行编码。
  
@@ -82,7 +78,7 @@ struct EncodeURIDemo {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：HarmonyOS NEXT系统上应用层开发是不是只支持HTTPS，不支持HTTP？
  

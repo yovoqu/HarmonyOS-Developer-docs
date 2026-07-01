@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-simulator-2
 
-## 本地模拟器已经启动，但是IDE显示NO Devices
- 
-
-
-##### 问题现象
+#### 问题现象
 
 本地模拟器已经启动，但是IDE显示NO Devices。
  
@@ -25,7 +21,7 @@ VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
  
  
 
-##### 背景知识
+#### 背景知识
 
 - DevEco Studio提供了[模拟器（Emulator）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-overview)，为开发者提供了运行和调试HarmonyOS应用/元服务的便捷方式。模拟器还原了真实设备的基本功能，如屏幕旋转、音量调节、模拟的硬件传感器和指定设备的位置等。
 - [hdc（HarmonyOS Device Connector）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)是为开发人员提供的用于调试的命令行工具，通过该工具可以在Windows/Linux/Mac系统上与设备进行交互。
@@ -33,7 +29,7 @@ VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
  
  
 
-##### 问题定位
+#### 问题定位
 
 - 查看任务管理器，时而有两个hdc进程，时而只有一个hdc进程；pid为xxxxx的进程一直都在，另外一个hdc的pid一直在变。
 - 机器安装了VPN应用。
@@ -41,13 +37,13 @@ VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
  
  
 
-##### 分析结论
+#### 分析结论
 
 VPN应用与模拟器存在兼容性问题。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 可以卸载VPN或者使用真机解决。
 - 执行hdc kill命令，终止hdc进程，然后重新连接。

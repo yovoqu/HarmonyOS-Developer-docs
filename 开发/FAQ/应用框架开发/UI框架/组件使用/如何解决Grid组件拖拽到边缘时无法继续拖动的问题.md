@@ -4,31 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1134
 
-## 如何解决Grid组件拖拽到边缘时无法继续拖动的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 将Grid里的元素拖拽到边缘位置时，无法继续拖动。如下图：
  
 （1）原始元素排列。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Eul3VtcUSt24_MSGdVybPg/zh-cn_image_0000002658928741.png?HW-CC-KV=V1&HW-CC-Date=20260701T025601Z&HW-CC-Expire=86400&HW-CC-Sign=D6D420A81AFFC8ED2C0332F6FAD62B2B213D06627B9F06559CF671FF93B7A2EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Eul3VtcUSt24_MSGdVybPg/zh-cn_image_0000002658928741.png?HW-CC-KV=V1&HW-CC-Date=20260701T041314Z&HW-CC-Expire=86400&HW-CC-Sign=A49008CB69D9116BE6DF5E7B88F2B91D57267216FC2052E2C670B6E9279D0760)
 
  
 （2）拖拽元素至边缘位置时，无法继续拖动。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/O4eBZ2P5Stird7UJ0raGCQ/zh-cn_image_0000002658808793.png?HW-CC-KV=V1&HW-CC-Date=20260701T025601Z&HW-CC-Expire=86400&HW-CC-Sign=F13165C5A46AD4D66D24762313F991245AB6B8C48B9F3BDF5E541507C7699C23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/O4eBZ2P5Stird7UJ0raGCQ/zh-cn_image_0000002658808793.png?HW-CC-KV=V1&HW-CC-Date=20260701T041314Z&HW-CC-Expire=86400&HW-CC-Sign=153838EB249096D0467C1246EF13A4F82B880AEA05A1D446345D1F34524DD016)
 
  
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onItemDragMove官方文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#onitemdragmove8)：拖拽在网格元素范围内移动时触发。
 - [onScrollIndex官方文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#onscrollindex)：Grid显示区域上第一个子组件/最后一个组件的索引值有变化就会触发。
@@ -37,36 +33,30 @@
  
  
 
-##### 问题定位
-
-- 由于当前Grid不支持拖拽自动滚屏效果，所以考虑先捕捉拖拽动作，然后进行滚屏处理。
+#### 问题定位
+1. 由于当前Grid不支持拖拽自动滚屏效果，所以考虑先捕捉拖拽动作，然后进行滚屏处理。
 使用API onItemDragMove捕捉到拖拽动作。
-- 使用API onScrollIndex定位当前页面的起始和终止元素的index。
-
- - 通过item被拖拽的目标位置来判断是上滑还是下滑：
+2. 使用API onScrollIndex定位当前页面的起始和终止元素的index。
+3. 通过item被拖拽的目标位置来判断是上滑还是下滑：
 如果被拖动超过2个index，最终的目标位置还是在**上栏**，就往上滑。
-- 如果被拖动的目标位置在下图的**下栏**，就往下滑。如下图所示：
+4. 如果被拖动的目标位置在下图的**下栏**，就往下滑。如下图所示：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/iMnafA-jTlG9SbN_n42M3Q/zh-cn_image_0000002628569430.png?HW-CC-KV=V1&HW-CC-Date=20260701T041314Z&HW-CC-Expire=86400&HW-CC-Sign=1A86CAB35669F00B4AFE1BE6613370853985A976FD6FB6E0A1B17027196C2018)
 
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/iMnafA-jTlG9SbN_n42M3Q/zh-cn_image_0000002628569430.png?HW-CC-KV=V1&HW-CC-Date=20260701T025601Z&HW-CC-Expire=86400&HW-CC-Sign=D0CC9E20E5AC3462CE29FF831705B27F441C3AC544C59C26EF82B9CA9430A60F)
-
- 
- 
-
-##### 分析结论
+#### 分析结论
 
 由于当前Grid不支持拖拽自动滚屏效果，所以考虑先捕捉拖拽动作，然后进行滚屏处理：可以通过item被拖拽的目标位置来判断是上滑还是下滑。
  
  
 
-##### 修改建议
-
-- 通过onScrollIndex记录下滑动时的起始位置和终点位置。
-- 通过onItemDragMove来判断元素移动是上滑还是下滑。
-- 通过onItemDrop在GridItem拖动结束时，修改item的序号。
-
+#### 修改建议
+1. 通过onScrollIndex记录下滑动时的起始位置和终点位置。
+2. 通过onItemDragMove来判断元素移动是上滑还是下滑。
+3. 通过onItemDrop在GridItem拖动结束时，修改item的序号。
  
 **代码示例如下：**
  
@@ -90,7 +80,7 @@ struct GridExample {
 
 
   @Builder
-  pixelMapBuilder() { //拖拽过程样式
+  pixelMapBuilder() { <em>//拖拽过程样式</em>
     Column() {
       Text(this.text)
         .fontSize(16)
@@ -103,7 +93,15 @@ struct GridExample {
 
 
   aboutToAppear() {
-    for (let i = 1; i  // 设置沉浸式
+    for (let i = 1; i <= 30; i++) {
+      this.numbers.push(i + '');
+    }
+    this.context = this.getUIContext().getHostContext() as common.Context;
+    this.setScreenFull();
+  }
+
+
+  setScreenFull() {<em> // 设置沉浸式</em>
     let windowClass: window.Window | undefined = undefined;
     try {
       let promise = window.getLastWindow(this.context);
@@ -112,11 +110,11 @@ struct GridExample {
         windowClass.setWindowLayoutFullScreen(true).then(() => {
         }).catch(() => {
         });
-        //状态栏隐藏
+     <em>   //状态栏隐藏</em>
         windowClass.setSpecificSystemBarEnabled('status', true).then(() => {
         }).catch(() => {
         });
-        //导航条隐藏
+    <em>    //导航条隐藏</em>
         windowClass.setSpecificSystemBarEnabled('navigationIndicator', false).then(() => {
         }).catch(() => {
         });
@@ -132,7 +130,7 @@ struct GridExample {
 
 
   changeIndex(index1: number, index2: number) {
-    //交换数组位置
+<em>    //交换数组位置</em>
     let temp: string;
     temp = this.numbers[index1];
     this.numbers[index1] = this.numbers[index2];
@@ -154,7 +152,7 @@ struct GridExample {
                 .textAlign(TextAlign.Center)
                 .borderRadius(16);
             }
-            .borderWidth(0); // 设置边框宽度
+            .borderWidth(0); /<em>/ 设置边框宽度</em>
 
 
           };
@@ -165,7 +163,7 @@ struct GridExample {
       .rowsGap(16)
       .backgroundColor('rgba(255, 255, 255, 1)')
       .scrollBar(BarState.Off)
-      //设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem
+     <em> //设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部GridItem</em>
       .editMode(true)
       .onScrollIndex((start: number, end: number) => {
         this.startIndex = start;
@@ -176,13 +174,13 @@ struct GridExample {
       .onItemDragStart((event: ItemDragInfo, itemIndex: number) => {
 
 
-        //第一次拖拽此事件绑定的组件时，触发回调。
+      <em>  //第一次拖拽此事件绑定的组件时，触发回调。</em>
         this.text = this.numbers[itemIndex];
         this.currentIndex = itemIndex;
-        return this.pixelMapBuilder(); //设置拖拽过程中显示的图片。
+        return this.pixelMapBuilder(); <em>//设置拖拽过程中显示的图片。</em>
       })
       .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number,
-        isSuccess: boolean) => { //绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
+        isSuccess: boolean) => { <em>//绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。</em>
 
 
         // isSuccess=false时，说明drop的位置在grid外部；insertIndex > length时，说明有新增元素的事件发生
@@ -195,11 +193,15 @@ struct GridExample {
         let screenHeight = display.getDefaultDisplaySync().height;
 
 
-        // 计算当前Y轴的位移量
+      <em>  // 计算当前Y轴的位移量</em>
         let yOffset: number = this.scroller.currentOffset().yOffset;
 
 
-        if (event.y = this.getUIContext().px2vp(screenHeight - 55)) {
+        if (event.y <= 55) {
+          this.currentY = yOffset - 55;
+          yOffset = this.currentY;
+        }
+        if (event.y >= this.getUIContext().px2vp(screenHeight - 55)) {
           this.currentY = yOffset + 55;
           yOffset = this.currentY;
         }
@@ -218,7 +220,7 @@ struct GridExample {
 
 
   currentYChange() {
-    //创建一个阶梯曲线
+  <em>  //创建一个阶梯曲线</em>
     let curve = Curves.interpolatingSpring(10, 1, 228, 30);
     this.scroller.scrollTo({ xOffset: 0, yOffset: this.currentY, animation: { duration: 1000, curve: curve } });
   }
@@ -228,4 +230,4 @@ struct GridExample {
 问题解决后效果如下图所示，拖拽元素能够自动滚屏：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/4v4YqIVMTbG0iEqn9YQJ9A/zh-cn_image_0000002628409530.png?HW-CC-KV=V1&HW-CC-Date=20260701T025601Z&HW-CC-Expire=86400&HW-CC-Sign=EC3B3543C6A0680E2575622DC556FA975817F06CB279DCDF4EF84321535A61AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/4v4YqIVMTbG0iEqn9YQJ9A/zh-cn_image_0000002628409530.png?HW-CC-KV=V1&HW-CC-Date=20260701T041314Z&HW-CC-Expire=86400&HW-CC-Sign=32D65A85769618688C3C136832E65080F7D38EBCA255A2B64E7487EC609C4536)

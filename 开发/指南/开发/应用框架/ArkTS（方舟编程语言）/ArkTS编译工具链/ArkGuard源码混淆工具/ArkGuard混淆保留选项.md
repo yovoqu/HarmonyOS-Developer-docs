@@ -4,15 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options
 
-## ArkGuard混淆保留选项
- 
-
 从API version 10开始，开启混淆后代码中的方法、属性或路径将被混淆。但在运行时，如果访问是未被混淆的原始方法、属性或路径，可能会导致功能失效。因此需要根据不同的场景配置相应的保留选项。
  
 排查场景和配置字段时，推荐使用[混淆助手配置保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section19439175917123)，快速识别需要配置的保留选项和白名单字段。
   
 
-##### 保留选项汇总
+#### 保留选项汇总
  
 | 功能 | 选项 | 起始API版本 |
 | --- | --- | --- |
@@ -28,7 +25,7 @@
  
   
 
-##### -keep-property-name
+#### -keep-property-name
 
 指定想保留的属性名，支持使用[名称类通配符](#名称类通配符)。按如下方式进行配置，表示保留名称为firstName和lastName的属性：
  
@@ -39,21 +36,74 @@ lastName
 ```
  
 **使用该选项时，需要注意以下事项：**
- 
-- 该选项在开启[-enable-property-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-property-obfuscation)时生效。
-- 属性白名单作用于全局。即代码中出现多个重名属性，只要与-keep-property-name配置白名单名称相同，均不会被混淆。
-
+ 1. 该选项在开启[-enable-property-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-property-obfuscation)时生效。
+2. 属性白名单作用于全局。即代码中出现多个重名属性，只要与-keep-property-name配置白名单名称相同，均不会被混淆。
  
 **需要手动配置白名单的属性名：**
- 
-- 如果代码中通过字符串拼接、变量访问或使用defineProperty方法定义对象属性，则这些属性名应被保留。
-       
+ 1. 如果代码中通过字符串拼接、变量访问或使用defineProperty方法定义对象属性，则这些属性名应被保留。
+
+  
 ```text
 // ArkGuardAbility.js
 var obj = {x0: '0', x1: '1', x2: '2'};
-for (var i = 0; i  number;
+for (var i = 0; i <= 2; i++) {
+    console.info(obj['x' + i]); // x0, x1, x2应该被保留
+}
+
+Object.defineProperty(obj, 'y', {}); // y应该被保留
+Object.getOwnPropertyDescriptor(obj, 'y'); // y应该被保留
+console.info(obj.y);
+
+obj.s1 = 'a';
+let key = 's1';
+console.info(obj[key]); // key对应的变量值s1应该被保留
+
+obj.t1 = 'b';
+console.info(obj['t' + '1']); // t1应该被保留
 ```
-            
+  对于如下的字符串常量形式的属性调用，可以选择性保留：
+
+  
+```ts
+// 混淆配置：
+// -enable-property-obfuscation
+// -enable-string-property-obfuscation
+
+// ArkGuardAbility.ts
+var obj2 = {t:'1', m:'2'};
+obj2.t = 'a';
+console.info(obj2['t']); // 此时，'t'会被正确混淆，t可以选择性保留
+
+obj2['m'] = 'b';
+console.info(obj2['m']); // 此时，'m'会被正确混淆，m可以选择性保留
+```
+
+2. 对于间接或直接导出的类或对象的属性名的场景，如果混淆后出现问题，可以使用[-keep-property-name](#section-keep-property-name)来保留这些属性名。
+
+  
+```ts
+// 间接导出MyClass07
+class MyClass07 {
+  greet() {}
+}
+let alias = new MyClass07();
+export { alias };
+
+// 直接导出MyClass08
+export class MyClass08 {
+  exampleName: 'jack'
+  exampleAge: 100
+}
+```
+
+3. 在ArkTS/TS/JS文件中使用so库的API（如示例中的addNum）时，需手动保留API名称。
+
+  
+```ts
+// src/main/cpp/types/libentry/Index.d.ts
+export const addNum: (a: number, b: number) => number;
+```
+
 ```ArkTS
 // ArkGuardAbility.ets
 import testNapi from 'libentry.so';
@@ -61,15 +111,16 @@ import testNapi from 'libentry.so';
 testNapi.addNum(2, 3); // addNum需要保留，示例如：-keep-property-name addNum
 ```
 
-- JSON数据解析和对象序列化时，需要保留使用到的字段。
+4. JSON数据解析和对象序列化时，需要保留使用到的字段。
+
   
-```text
+```json
 {
   "jsonProperty": "value",
   "otherProperty": "value2"
 }
 ```
-         
+
 ```ts
 import jsonData from './ImportJson.json';
 // ...
@@ -84,8 +135,9 @@ let obj = new jsonTest();
 const jsonStr = JSON.stringify(obj); // prop1 和 prop2 会被混淆，应该被保留
 ```
 
-- 使用到的数据库相关的字段，需要手动保留。例如，数据库键值对类型（ValuesBucket）中的属性：
-          
+5. 使用到的数据库相关的字段，需要手动保留。例如，数据库键值对类型（ValuesBucket）中的属性：
+
+  
 ```ts
 import { ValuesBucket } from '@kit.ArkData';
 // ...
@@ -97,8 +149,9 @@ const valueBucket: ValuesBucket = {
 }
 ```
 
-- 源码中自定义装饰器修饰了成员变量、成员方法、参数，同时其源码编译的中间产物为js文件时（如编译release源码HAR或者源码包含@ts-ignore、@ts-nocheck），这些装饰器所在的成员变量/成员方法名称需要被保留。这是由于ts高级语法特性转换为js标准语法时，将上述装饰器所在的成员变量/成员方法名称硬编码为字符串常量。
-          
+6. 源码中自定义装饰器修饰了成员变量、成员方法、参数，同时其源码编译的中间产物为js文件时（如编译release源码HAR或者源码包含@ts-ignore、@ts-nocheck），这些装饰器所在的成员变量/成员方法名称需要被保留。这是由于ts高级语法特性转换为js标准语法时，将上述装饰器所在的成员变量/成员方法名称硬编码为字符串常量。
+
+  
 ```ts
 function CustomDecorator(target: Object, propertyKey: string) {}
 function MethodDecorator(target: Object, propertyKey: string, descriptor: PropertyDescriptor) {}
@@ -116,8 +169,9 @@ class A {
 }
 ```
 
-- 使用到的数据请求相关的字段需要手动保留，例如，传递给数据请求方的字段需要手动保留：
-          
+7. 使用到的数据请求相关的字段需要手动保留，例如，传递给数据请求方的字段需要手动保留：
+
+  
 ```ArkTS
 // ArkGuardAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
@@ -136,8 +190,9 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-- 使用到的数字字面量属性需要手动保留。
-           
+8. 使用到的数字字面量属性需要手动保留。
+
+  
 ```ts
 class MyClass09 {
   123 = 'numeric-prop'; // 数字字面量属性
@@ -149,11 +204,10 @@ class MyClass09 {
 }
 ```
 
-
  
   
 
-##### -keep-global-name
+#### -keep-global-name
 
 指定要保留的顶层作用域及导入和导出元素的名称，支持使用[名称类通配符](#名称类通配符)。配置方式如下：
  
@@ -174,10 +228,8 @@ export namespace Ns {
 ```
  
 **使用该选项时，需要注意以下事项：**
- 
-- 该选项在开启[-enable-toplevel-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-toplevel-obfuscation)或[-enable-export-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-export-obfuscation)时生效。
-- [-keep-global-name](#section-keep-global-name)指定的白名单作用于全局。即代码中出现多个顶层作用域名称或者导出名称，只要与-keep-global-name配置的白名单名称相同，均不会被混淆。
-
+ 1. 该选项在开启[-enable-toplevel-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-toplevel-obfuscation)或[-enable-export-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-export-obfuscation)时生效。
+2. [-keep-global-name](#section-keep-global-name)指定的白名单作用于全局。即代码中出现多个顶层作用域名称或者导出名称，只要与-keep-global-name配置的白名单名称相同，均不会被混淆。
  
 **需要手动配置白名单的顶层作用域名称：**
  
@@ -199,7 +251,7 @@ myNapi();
  
   
 
-##### -keep-file-name
+#### -keep-file-name
 
 指定要保留的文件或文件夹名称（不需要写文件后缀），支持使用[名称类通配符](#名称类通配符)。
  
@@ -212,34 +264,33 @@ file
 ```
  
 **使用该选项时，需要注意以下事项：**
- 
-- 该选项在开启[-enable-filename-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-filename-obfuscation)时生效。
-- -keep-file-name指定的白名单作用于全局。即不同层级的文件或文件夹名称，只要与-keep-file-name配置的白名单名称相同，均不会被混淆。
-- 不支持使用路径类通配符。
+ 1. 该选项在开启[-enable-filename-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-filename-obfuscation)时生效。
+2. -keep-file-name指定的白名单作用于全局。即不同层级的文件或文件夹名称，只要与-keep-file-name配置的白名单名称相同，均不会被混淆。
+3. 不支持使用路径类通配符。
 ```text
 # 这种写法仅保留该条路径，pages目录下的文件和文件夹名称依旧会被混淆
 -keep-file-name
 ./src/main/ets/components/pages/**
 ```
 
-
  
 **需要手动配置白名单的文件名：**
- 
-- 在使用require引入文件路径时，由于ArkTS不支持[CommonJS模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-principle#commonjs模块)语法，因此这种情况下require引入的文件路径应该被保留。
-           
+ 1. 在使用require引入文件路径时，由于ArkTS不支持[CommonJS模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-principle#commonjs模块)语法，因此这种情况下require引入的文件路径应该被保留。
+
+  
 ```text
 // ArkGuardAbility.js
 const module1 = require('./RequireFile'); // RequireFile 应该被保留
 ```
 
-- 对于动态导入的路径名，由于无法识别import函数中的参数是否为路径，因此在这种情况下应保留动态导入的路径名。
-            
+2. 对于动态导入的路径名，由于无法识别import函数中的参数是否为路径，因此在这种情况下应保留动态导入的路径名。
+
+  
 ```ts
 // DynamicImportFile.ts
 export function foo () {}
 ```
-            
+
 ```ts
 // main.ts
 const moduleName = './DynamicImportFile'; // moduleName对应的路径名DynamicImportFile应该被保留
@@ -249,10 +300,14 @@ async function func2() {
 }
 ```
 
-- 对于API version 19及之前版本，使用[Navigation跨包路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package)进行路由跳转时，传递给动态路由的路径应被保留。动态路由提供系统路由表和自定义路由表两种方式：
-   若采用自定义路由表进行跳转，配置白名单的方式与第二种动态引用场景一致。
-   若采用系统路由表进行跳转，则需将模块下resources/base/profile/route_map.json文件中pageSourceFile字段对应的路径添加到白名单中。
-   对于API version 20及之后版本，不再需要手动配置白名单。
+3. 对于API version 19及之前版本，使用[Navigation跨包路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package)进行路由跳转时，传递给动态路由的路径应被保留。动态路由提供系统路由表和自定义路由表两种方式：
+
+  若采用自定义路由表进行跳转，配置白名单的方式与第二种动态引用场景一致。
+
+  若采用系统路由表进行跳转，则需将模块下resources/base/profile/route_map.json文件中pageSourceFile字段对应的路径添加到白名单中。
+
+  对于API version 20及之后版本，不再需要手动配置白名单。
+
   
 ```ArkTS
 {
@@ -269,9 +324,12 @@ async function func2() {
 }
 ```
 
-- 对于API version 19及之前版本，使用[应用启动框架AppStartup](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-startup)时，启动参数配置文件和启动任务文件的路径应保留。这些路径配置在本模块的resources/base/profile/startup_config.json文件中，分别对应configEntry字段和startupTasks对象的srcEntry字段。
+4. 对于API version 19及之前版本，使用[应用启动框架AppStartup](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-startup)时，启动参数配置文件和启动任务文件的路径应保留。这些路径配置在本模块的resources/base/profile/startup_config.json文件中，分别对应configEntry字段和startupTasks对象的srcEntry字段。
+
   对于API version 20及之后版本，不再需要手动配置白名单。
+
   startup_config.json文件示例如下：
+
   
 ```ArkTS
 {
@@ -296,6 +354,7 @@ async function func2() {
 }
 ```
    配置白名单方式如下：
+
   
 ```ArkTS
 -keep-file-name
@@ -308,12 +367,11 @@ StartupTask_002
 StartupConfig
 ```
 
-- 使用三方库提供的路由跳转方法时开启文件名混淆规则，文件路径将被混淆，从而导致跳转失败。因此需要将路由跳转的路径都配置到-keep-file-name下，防止文件路径被混淆。
-
+5. 使用三方库提供的路由跳转方法时开启文件名混淆规则，文件路径将被混淆，从而导致跳转失败。因此需要将路由跳转的路径都配置到-keep-file-name下，防止文件路径被混淆。
  
   
 
-##### -keep-comments
+#### -keep-comments
 
 保留编译生成的声明文件中class、function、namespace、enum、struct、interface、module、type及属性上方的JsDoc注释，支持使用[名称类通配符](#名称类通配符)。例如想保留声明文件中Human类上方的JsDoc注释，可进行以下配置：
  
@@ -323,10 +381,10 @@ Human
 ```
  
 **使用该选项时，需要注意以下事项：**
- 
-- 该选项在开启[-remove-comments](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-remove-comments)时生效。
-- 当编译生成的声明文件中class、function、namespace、enum、struct、interface、module、type及属性的名称被混淆时，该元素上方的JsDoc注释无法通过-keep-comments保留。例如，当在-keep-comments中配置了exportClass时，如果exportClass类名被混淆，其JsDoc注释无法被保留。
-             
+ 1. 该选项在开启[-remove-comments](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-remove-comments)时生效。
+2. 当编译生成的声明文件中class、function、namespace、enum、struct、interface、module、type及属性的名称被混淆时，该元素上方的JsDoc注释无法通过-keep-comments保留。例如，当在-keep-comments中配置了exportClass时，如果exportClass类名被混淆，其JsDoc注释无法被保留。
+
+  
 ```ts
 /**
  * @class exportClass
@@ -334,23 +392,22 @@ Human
 export class exportClass {}
 ```
 
-
  
   
 
-##### -keep-dts
+#### -keep-dts
 
 指定路径filepath的.d.ts文件中的名称（如变量名、类名、属性名等）将被添加到-keep-global-name和-keep-property-name白名单中。请确保filepath为绝对路径，也可以指定为一个目录。如果指定为目录，则该目录下所有.d.ts文件中的名称都将被保留。
  
   
 
-##### -keep
+#### -keep
 
 保留指定相对路径filepath中的所有名称（例如变量名、类名、属性名等）不被混淆。filepath可以是文件或文件夹，若是文件夹，则文件夹下的文件及子文件夹中文件都不混淆。
  
 filepath仅支持相对路径，./和../为相对于混淆配置文件所在目录，支持使用[路径类通配符](#路径类通配符)。
  
-```ts
+```json
 -keep
 ./src/main/ets/fileName.ts   // fileName.ts中的名称不混淆
 ../folder                    // folder目录下文件及子文件夹中的名称都不混淆
@@ -384,28 +441,24 @@ filepath仅支持相对路径，./和../为相对于混淆配置文件所在目�
 模块级oh_modules和工程级oh_modules在DevEco Studio中的目录结构如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/KW-2uNmoSze2yAjVhYs12A/zh-cn_image_0000002659219331.png?HW-CC-KV=V1&HW-CC-Date=20260701T025426Z&HW-CC-Expire=86400&HW-CC-Sign=9E9492C35D117BBED7078015A9CE59AA45C54C5DEDBFA4D257657C478E4598F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/KW-2uNmoSze2yAjVhYs12A/zh-cn_image_0000002659219331.png?HW-CC-KV=V1&HW-CC-Date=20260701T041455Z&HW-CC-Expire=86400&HW-CC-Sign=AB21871E31719AFAE6939798F7CEB9A5FB7EF0A90DEA70DA84E1319B9DB5A7D1)
 
  
 **使用该选项时，需要注意以下事项：**
- 
-- 使用-keep filepath保留的文件，其依赖链路上的文件中导出的名称及其属性也会被保留。
-- 该功能不影响文件名混淆-enable-filename-obfuscation的功能。
-- 使用-keep规则保留某个文件时，该文件中的代码不会被混淆，但是在其他文件中引用该文件中的属性名称时，仍然可能被混淆，此时可参考[-keep规则常见案例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-questions#跨文件调用某属性该属性在一个文件中保留在另一个文件中被混淆)来解决。
-
+ 1. 使用-keep filepath保留的文件，其依赖链路上的文件中导出的名称及其属性也会被保留。
+2. 该功能不影响文件名混淆-enable-filename-obfuscation的功能。
+3. 使用-keep规则保留某个文件时，该文件中的代码不会被混淆，但是在其他文件中引用该文件中的属性名称时，仍然可能被混淆，此时可参考[-keep规则常见案例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-questions#跨文件调用某属性该属性在一个文件中保留在另一个文件中被混淆)来解决。
  
   
 
-##### -keep-uncompact
+#### -keep-uncompact
 
 从API版本26.0.0开始，可通过-keep-uncompact指定相对路径下的源码**不参与**代码压缩。
  
 **使用该选项时，需要注意以下事项：**
- 
-- 该选项在开启[-compact](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-compact)功能后才会生效；未开启-compact时，配置不生效。
-- 配置的路径仅支持相对路径，./和../均为相对于混淆配置文件所在的目录。若配置路径为文件夹，则该文件夹下的文件及子文件夹中的文件都不被压缩。
-- 当配置路径指向远程三方包（即oh_modules目录）时，需指定其在**工程级**oh_modules中的真实路径（与[-keep](#section-keep)中保留远程HAP包的方式二一致），以确保路径解析正确。
-
+ 1. 该选项在开启[-compact](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-compact)功能后才会生效；未开启-compact时，配置不生效。
+2. 配置的路径仅支持相对路径，./和../均为相对于混淆配置文件所在的目录。若配置路径为文件夹，则该文件夹下的文件及子文件夹中的文件都不被压缩。
+3. 当配置路径指向远程三方包（即oh_modules目录）时，需指定其在**工程级**oh_modules中的真实路径（与[-keep](#section-keep)中保留远程HAP包的方式二一致），以确保路径解析正确。
  
 ```ArkTS
 -compact
@@ -417,11 +470,11 @@ filepath仅支持相对路径，./和../为相对于混淆配置文件所在目�
  
   
 
-##### 保留选项支持的通配符
+#### 保留选项支持的通配符
 
   
 
-##### [h2]名称类通配符
+#### 名称类通配符
 
 名称类通配符使用方式如下：
   
@@ -456,7 +509,7 @@ a*
  
   
 
-##### [h2]路径类通配符
+#### 路径类通配符
 
 路径类通配符使用方式如下：
   
@@ -514,8 +567,8 @@ a*
 ```
  
 **使用通配符时，需要注意以下事项：**
- 
-- 以上选项不支持将通配符*、?、!用作其他含义。
+ 1. 以上选项不支持将通配符*、?、!用作其他含义。
+
   
 ```text
 class A {
@@ -526,4 +579,4 @@ class A {
 *
 ```
    此时*表示匹配任意数量的任意字符，配置效果为所有属性名称都不会被混淆，而不是只有*属性不被混淆。
-- -keep选项中只允许使用/路径格式，不支持\或\\。
+2. -keep选项中只允许使用/路径格式，不支持\或\\。

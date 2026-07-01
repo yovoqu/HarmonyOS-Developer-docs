@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-30
 
-## 如何在Entry模块中访问Library模块中的数据
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在项目开发中采用了Entry模块结合多个Library模块的设计方式，这种情况下，Library模块中的数据Entry模块如何访问到？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 模块（Module）是应用的基本功能单元，包含了源代码、资源文件、第三方库及配置文件。一个应用通常会包含一个或多个模块，因此，可以在工程中[创建模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-add-new-module#section165216251331)。
 - [模块（Module）类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-overview#module类型)：模块按照使用场景可以分为Ability类型的Module和Library类型的Module。前者用于实现应用的功能和特性，后者用于实现代码和资源的共享。
@@ -22,16 +18,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过在Library模块中定义静态变量和导出函数的方法，实现模块之间的数据传递。详细步骤如下：
- 
-- 创建共享模块：新建工程时选择API 10及以上的Stage模型，工程创建完成后，新建'Static Library'模块。模块创建方法可参考在工程中[添加Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-har#section643521083015)。此案例中通过添加模块方式，创建名为'library'的模块。
-
-
-- 在Library模块中定义函数、常量类；
+ 1. 创建共享模块：新建工程时选择API 10及以上的Stage模型，工程创建完成后，新建'Static Library'模块。模块创建方法可参考在工程中[添加Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-har#section643521083015)。此案例中通过添加模块方式，创建名为'library'的模块。
+1. 在Library模块中定义函数、常量类；
 ```ArkTS
-// ets/constants/SharedLibraryConstants.ets
+<em>// ets/constants/SharedLibraryConstants.ets</em>
 export class SharedLibraryConstants {
   static readonly ENGLISH: string = 'Hello';
   static readonly CHINESE: string = '你好';
@@ -48,20 +41,21 @@ export function sub(a: number, b: number) {
 }
 ```
 
-- 在library模块下找到Index.ets，导出第二步中定义的常量类和函数；
+2. 在library模块下找到Index.ets，导出第二步中定义的常量类和函数；
 ```text
 export { SharedLibraryConstants, add, sub } from './src/main/ets/constants/SharedLibraryConstants';
 ```
 
-- 在Entry模块添加library的依赖：Entry的oh-package.json5中增加对library的依赖关系，点击右上角的同步。
- 
-```text
+3. 在Entry模块添加library的依赖：Entry的oh-package.json5中增加对library的依赖关系，点击右上角的同步。
+
+  
+```json
 "dependencies": {
   "library": "file:../library"
 }
 ```
  注：这边的'library'是library模块下oh-package.json5中name的名称。
-- 在Entry模块src/main/ets/pages/Index.ets中导入library模块中定义的函数、常量类，并使用。
+4. 在Entry模块src/main/ets/pages/Index.ets中导入library模块中定义的函数、常量类，并使用。
 ```text
 import { add, sub, SharedLibraryConstants } from 'library';
 
@@ -97,6 +91,8 @@ struct Index {
         .margin(10);
 
 
+
+
       Text(this.systemContent + this.systemResult)
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
@@ -121,14 +117,14 @@ struct Index {
 }
 ```
 
-- 实现效果，通过上述步骤成功在Entry模块拿到library的数据。如图所示：当点击'加法'时，调用library中定义的加法函数，计算结果为'15'。当点击'减法'时，调用library中定义的减法函数，计算结果为'5'。点击'英文'、'中文'时，分别调用library中定义的SharedLibraryConstants类中的'Hello'、'你好'。实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/PMtCjc3JSQSDXsbqX4bvkQ/zh-cn_image_0000002658927281.png?HW-CC-KV=V1&HW-CC-Date=20260701T025912Z&HW-CC-Expire=86400&HW-CC-Sign=CB6BB3F4F024A78D930D45270A912A1B267C930DCC07013638061EE10A6244BB)
+5. 实现效果，通过上述步骤成功在Entry模块拿到library的数据。如图所示：当点击'加法'时，调用library中定义的加法函数，计算结果为'15'。当点击'减法'时，调用library中定义的减法函数，计算结果为'5'。点击'英文'、'中文'时，分别调用library中定义的SharedLibraryConstants类中的'Hello'、'你好'。实现效果：
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/PMtCjc3JSQSDXsbqX4bvkQ/zh-cn_image_0000002658927281.png?HW-CC-KV=V1&HW-CC-Date=20260701T041008Z&HW-CC-Expire=86400&HW-CC-Sign=BB1FB18AC3A1507D50CD23C5BFB89CF93DBD322AE3EFD19ED8BC4D603E5B7339)
 
  
  
 
-##### 总结
+#### 总结
 
 此类问题涉及整个工程中如何进行数据管理、数据传递，在开发时需明确工程中各个模块的作用，以及它们的依赖关系，并在oh-package.json5中做好依赖定义，工程逻辑结构较清晰且模块间的依赖关系明朗，有利于开发及后期维护。

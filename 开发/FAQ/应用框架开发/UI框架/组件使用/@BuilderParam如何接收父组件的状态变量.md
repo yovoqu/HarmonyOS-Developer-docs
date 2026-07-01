@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-826
 
-## @BuilderParam如何接收父组件的状态变量
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何通过@BuilderParam装饰器传递@State装饰的状态变量？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [@BuilderParam装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam)用于装饰指向[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)方法的变量，能够声明任意UI描述的元素。@BuilderParam装饰器初始化的值必须为@Builder，否则编译时就会输出报错信息。
  
  
 
-##### 解决方案
+#### 解决方案
 
 @State装饰器装饰的变量不可直接传递给@BuilderParam装饰器，可以使用@Builder装饰器当做桥梁，在@Builder装饰的构建函数中使用状态变量，实现状态变量的传递，具体实现如下：
  
@@ -129,4 +125,4 @@ struct MyCustomContainer {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/3kM5LZpWQtyyTgzKIcgTYQ/zh-cn_image_0000002628558356.png?HW-CC-KV=V1&HW-CC-Date=20260701T025549Z&HW-CC-Expire=86400&HW-CC-Sign=15D43D3D6D5292356466FE853A8FECD75C9D96360D97CC3DBF143A7E23B97725)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/3kM5LZpWQtyyTgzKIcgTYQ/zh-cn_image_0000002628558356.png?HW-CC-KV=V1&HW-CC-Date=20260701T041238Z&HW-CC-Expire=86400&HW-CC-Sign=5BA48739F047EC914034CD845F913FCCE5162BD66581485AEB42F914110C56DA)

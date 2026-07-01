@@ -4,30 +4,30 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-preview-4
 
-## 如何实现Excel文件预览功能
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现预览rawfile里的Excel文件功能？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/9TmxU4TdTfqnfh22bkFUgg/zh-cn_image_0000002658913745.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025851Z&HW-CC-Expire=86400&HW-CC-Sign=51808FCE48326F5411FEE8DF79E72820082C255BB4DDADAF26CE548F5B87D3E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/9TmxU4TdTfqnfh22bkFUgg/zh-cn_image_0000002658913745.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041128Z&HW-CC-Expire=86400&HW-CC-Sign=0F29B308936DF28F4ED5D5F9804163FBA2E126690AC4C2DDAC8CD2B75DC3F95D)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
-- [Preview Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction)：为应用提供便捷的文件快速预览和文件打开加速能力。目前，Preview Kit实现Office的预览能力，主要是借助WPS的能力实现的，预览界面会有WPS提供的技术支持，并展示WPS的入口，统一按照文件预览的风格进行页面布局。 
+- [Preview Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction)：为应用提供便捷的文件快速预览和文件打开加速能力。目前，Preview Kit实现Office的预览能力，主要是借助WPS的能力实现的，预览界面会有WPS提供的技术支持，并展示WPS的入口，统一按照文件预览的风格进行页面布局。
+
 | 约束与限制 | 说明 |
+
 | --- | --- |
+
 | 支持的国家和地区 | 当前Preview Kit仅支持中国境内（不包含中国香港、中国澳门、中国台湾）。 |
+
 | 支持的设备 | 当前Preview Kit相关能力只支持在真机上运行，暂不支持在模拟器上运行。 文件预览功能支持华为Phone、Tablet和2in1， 文件打开加速功能仅支持2in1设备。 |
 - [filePreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts)：为应用提供便捷的文件快速预览能力。应用可以通过文件预览提供的系统级预览API，可快速启动预览界面，实现对各类文件的预览。
 - [getRawFdSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfdsync10)：获取resources/rawfile目录下rawfile文件所在HAP的文件描述符（fd）。
@@ -36,135 +36,130 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过HarmonyOS提供的Preview Kit（文件预览服务）实现Excel文件预览。实现思路如下：
- 
-- 使用resourceManager.getRawFdSync获取“resources/rawfile”目录下文件的HAP包描述符（fd）。
+ 1. 使用resourceManager.getRawFdSync获取“resources/rawfile”目录下文件的HAP包描述符（fd）。
 ```text
-let srcFileDescriptor = this.context.resourceManager.getRawFdSync('test.xls');
+let <span style="color: rgb(0,0,255);">srcFileDescriptor </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFdSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'test.xls'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
-- 通过fs.statSync获取文件属性，调用isFile()判断是否为普通文件。
+2. 通过fs.statSync获取文件属性，调用isFile()判断是否为普通文件。
 ```text
-if (!fs.statSync(srcFileDescriptor.fd).isFile()) {
-  console.error('Not a regular file');
-  return;
-}
+if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">statSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFile</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Not a regular file'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  return<span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
-- 通过UIAbilityContext获取沙箱地址filesDir，fs.openSync打开文件，“readSync/writeSync”执行数据读写，操作完成后调用closeSync释放资源。
+3. 通过UIAbilityContext获取沙箱地址filesDir，fs.openSync打开文件，“readSync/writeSync”执行数据读写，操作完成后调用closeSync释放资源。
 ```text
-let pathDir = this.context.filesDir; // 通过UIAbilityContext获取沙箱地址filesDir
-let filePath = pathDir + '/test.xls';
-// 以同步方法打开文件或目录。若文件不存在，则创建文件/读写打开
-let file = fs.openSync(filePath, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
-let bufsize = 4096;
-let buf = new ArrayBuffer(bufsize); //  用于保存读取到的文件数据的缓冲区。
-let off = 0, len = 0, readLen = 0; // 动态调整目标文件的写入位置. 写入实际读取的字节数,累计已读取的总字节数
-len = fs.readSync(srcFileDescriptor.fd, buf, { offset: srcFileDescriptor.offset + off, length: bufsize });
-while (len) {
-  readLen += len;
-  fs.writeSync(file.fd, buf, { offset: off, length: len });
-  off = off + len;
-  // 当剩余未读取的字节数小于当前分块大小时，调整bufsize为剩余大小，避免无效读取
-  if ((srcFileDescriptor.length - readLen)  bufsize) {
-    bufsize = srcFileDescriptor.length - readLen;
-  }
-  len = fs.readSync(srcFileDescriptor.fd, buf, { offset: srcFileDescriptor.offset + off, length: bufsize });
-}
-// 关闭文件或目录
-fs.close(file.fd);
+let <span style="color: rgb(0,0,255);">pathDir </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">UIAbilityContext</span><span style="color: rgb(128,128,128);">获取沙箱地址</span><span style="color: rgb(128,128,128);">filesDir</span></em>
+let <span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pathDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/test.xls'</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">以同步方法打开文件或目录。若文件不存在，则创建文件</span><span style="color: rgb(128,128,128);">/</span><span style="color: rgb(128,128,128);">读写打开</span></em>
+let <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CREATE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_WRITE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">4096</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(0,0,255);">buf </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">bufsize</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">//  </span><span style="color: rgb(128,128,128);">用于保存读取到的文件数据的缓冲区。</span></em>
+let <span style="color: rgb(0,0,255);">off </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">readLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">动态调整目标文件的写入位置</span><span style="color: rgb(128,128,128);">. </span><span style="color: rgb(128,128,128);">写入实际读取的字节数</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">累计已读取的总字节数</span></em>
+<span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+while <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">readLen </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">len </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">off </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">off </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(181,106,1);">;</span>
+  <em>// </em><em><span style="color: rgb(128,128,128);">当剩余未读取的字节数小于当前分块大小时，调整</span><span style="color: rgb(128,128,128);">bufsize</span><span style="color: rgb(128,128,128);">为剩余大小，避免无效读取</span></em>
+  if <span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">readLen</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">bufsize</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">readLen</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+  <span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">关闭文件或目录</span></em>
+<span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
-- 通过filePreview.openPreview传入文件预览信息，打开预览窗口。
+4. 通过filePreview.openPreview传入文件预览信息，打开预览窗口。
+> [!NOTE]
+> 文件预览信息mimeType参数必须和文件一致，不然会无法打开。例如xls对应 “application/vnd.ms-excel” 。详细参考： 文件预览支持的文件类型 。 文件预览信息uri参数file://com.example.myapplication中com.example.myapplication为应用包名，实际使用时需要替换为当前工程项目中的应用包名。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/NnqilM69TI-mmhooaXoniA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025851Z&HW-CC-Expire=86400&HW-CC-Sign=11863A8CF4005C2789FA3DEC06BD3002FD6FB8BC953027DCEF4A3906363750FF)
- 
 
-文件预览信息mimeType参数必须和文件一致，不然会无法打开。例如xls对应“application/vnd.ms-excel”。详细参考：[文件预览支持的文件类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-introduction#section44960372019)。
-- 文件预览信息uri参数file://com.example.myapplication中com.example.myapplication为应用包名，实际使用时需要替换为当前工程项目中的应用包名。
-
- 
-
- 
+  
 ```text
-filePreview.openPreview(this.uiContext, this.fileInfo).then(() => {
-  console.info('openPreview success');
-}).catch((err: BusinessError) => {
-  console.error('openPreview failed, err = ' + err.message);
-});
+<span style="color: rgb(0,0,255);">filePreview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openPreview</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileInfo</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'openPreview success'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'openPreview failed, err = ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
- - 完整示例参考如下：
+
+5. 完整示例参考如下：
 ```text
-import common from '@ohos.app.ability.common';
-import fs from '@ohos.file.fs';
-import { filePreview } from '@kit.PreviewKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+import <span style="color: rgb(0,0,255);">common </span>from <span style="color: rgb(255,0,170);">'@ohos.app.ability.common'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(0,0,255);">fs </span>from <span style="color: rgb(255,0,170);">'@ohos.file.fs'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">filePreview </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.PreviewKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">BusinessError </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct filePreviewDemo {
-  context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
-  uiContext: Context = this.getUIContext().getHostContext() as common.Context;
-  // 文件预览信息
-  private fileInfo: filePreview.PreviewInfo = {
-    title: 'test.xls', // 文件的标题名称
-    uri: 'file://com.example.myapplication/data/storage/el2/base/haps/entry/files/test.xls', // 文件的uri，此处com.example.myapplication为包名，请按照应用的实际包名替换
-    mimeType: 'application/vnd.ms-excel' // 文件(夹)的媒体资源类型
-  };
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">filePreviewDemo </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">UIAbilityContext</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Context </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getHostContext</span><span style="color: rgb(0,0,255);">() </span>as <span style="color: rgb(0,0,255);">common</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Context</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">文件预览信息</span></em>
+  private <span style="color: rgb(0,0,255);">fileInfo</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">filePreview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">PreviewInfo </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">title</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'test.xls'</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">文件的标题名称</span></em>
+    <span style="color: rgb(0,0,255);">uri</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'file://com.example.myapplication/data/storage/el2/base/haps/entry/files/test.xls'</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">文件的</span><span style="color: rgb(128,128,128);">uri</span><span style="color: rgb(128,128,128);">，此处</span><span style="color: rgb(128,128,128);">com.example.myapplication</span><span style="color: rgb(128,128,128);">为包名，请按照应用的实际包名替换</span></em>
+    <span style="color: rgb(0,0,255);">mimeType</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'application/vnd.ms-excel' </span><em>// </em><em><span style="color: rgb(128,128,128);">文件</span><span style="color: rgb(128,128,128);">(</span><span style="color: rgb(128,128,128);">夹</span><span style="color: rgb(128,128,128);">)</span><span style="color: rgb(128,128,128);">的媒体资源类型</span></em>
+  <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-  copyFile() {
-    // 获取resources/rawfile目录下rawfile文件所在HAP的文件描述符（fd）
-    let srcFileDescriptor = this.context.resourceManager.getRawFdSync('test.xls');
-    // 判断文件是否是普通文件。true：是普通文件；false：不是普通文件。
-    if (!fs.statSync(srcFileDescriptor.fd).isFile()) {
-      console.error('Not a regular file');
-      return;
-    }
-    let pathDir = this.context.filesDir; // 通过UIAbilityContext获取沙箱地址filesDir
-    let filePath = pathDir + '/test.xls';
-    // 以同步方法打开文件或目录。若文件不存在，则创建文件/读写打开
-    let file = fs.openSync(filePath, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
-    let bufsize = 4096;
-    let buf = new ArrayBuffer(bufsize); //  用于保存读取到的文件数据的缓冲区。
-    let off = 0, len = 0, readLen = 0; // 动态调整目标文件的写入位置. 写入实际读取的字节数,累计已读取的总字节数
-    len = fs.readSync(srcFileDescriptor.fd, buf, { offset: srcFileDescriptor.offset + off, length: bufsize });
-    while (len) {
-      readLen += len;
-      fs.writeSync(file.fd, buf, { offset: off, length: len });
-      off = off + len;
-      // 当剩余未读取的字节数小于当前分块大小时，调整bufsize为剩余大小，避免无效读取
-      if ((srcFileDescriptor.length - readLen)  bufsize) {
-        bufsize = srcFileDescriptor.length - readLen;
-      }
-      len = fs.readSync(srcFileDescriptor.fd, buf, { offset: srcFileDescriptor.offset + off, length: bufsize });
-    }
-    // 关闭文件或目录
-    fs.close(file.fd);
+  <span style="color: rgb(0,0,255);">copyFile</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">获取</span><span style="color: rgb(128,128,128);">resources/rawfile</span><span style="color: rgb(128,128,128);">目录下</span><span style="color: rgb(128,128,128);">rawfile</span><span style="color: rgb(128,128,128);">文件所在</span><span style="color: rgb(128,128,128);">HAP</span><span style="color: rgb(128,128,128);">的文件描述符（</span><span style="color: rgb(128,128,128);">fd</span><span style="color: rgb(128,128,128);">）</span></em>
+    let <span style="color: rgb(0,0,255);">srcFileDescriptor </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">resourceManager</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getRawFdSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'test.xls'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <em>// </em><em><span style="color: rgb(128,128,128);">判断文件是否是普通文件。</span><span style="color: rgb(128,128,128);">true</span><span style="color: rgb(128,128,128);">：是普通文件；</span><span style="color: rgb(128,128,128);">false</span><span style="color: rgb(128,128,128);">：不是普通文件。</span></em>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(181,106,1);">!</span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">statSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isFile</span><span style="color: rgb(0,0,255);">()) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Not a regular file'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      return<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    let <span style="color: rgb(0,0,255);">pathDir </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">context</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">filesDir</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">通过</span><span style="color: rgb(128,128,128);">UIAbilityContext</span><span style="color: rgb(128,128,128);">获取沙箱地址</span><span style="color: rgb(128,128,128);">filesDir</span></em>
+    let <span style="color: rgb(0,0,255);">filePath </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">pathDir </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,0,170);">'/test.xls'</span><span style="color: rgb(181,106,1);">;</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">以同步方法打开文件或目录。若文件不存在，则创建文件</span><span style="color: rgb(128,128,128);">/</span><span style="color: rgb(128,128,128);">读写打开</span></em>
+    let <span style="color: rgb(0,0,255);">file </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">filePath</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">CREATE </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">OpenMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">READ_WRITE</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">4096</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(0,0,255);">buf </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">ArrayBuffer</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">bufsize</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">; </span><em>//  </em><em><span style="color: rgb(128,128,128);">用于保存读取到的文件数据的缓冲区。</span></em>
+    let <span style="color: rgb(0,0,255);">off </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">readLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">动态调整目标文件的写入位置</span><span style="color: rgb(128,128,128);">. </span><span style="color: rgb(128,128,128);">写入实际读取的字节数</span><span style="color: rgb(128,128,128);">,</span><span style="color: rgb(128,128,128);">累计已读取的总字节数</span></em>
+    <span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    while <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">readLen </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">len </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">off </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">off </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">len</span><span style="color: rgb(181,106,1);">;</span>
+    <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当剩余未读取的字节数小于当前分块大小时，调整</span><span style="color: rgb(128,128,128);">bufsize</span><span style="color: rgb(128,128,128);">为剩余大小，避免无效读取</span></em>
+      if <span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">readLen</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">bufsize</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">- </span><span style="color: rgb(0,0,255);">readLen</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(0,0,255);">len </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readSync</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">buf</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">srcFileDescriptor</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">off</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">length</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">bufsize </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">关闭文件或目录</span></em>
+    <span style="color: rgb(0,0,255);">fs</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">file</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fd</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-  }
+  <span style="color: rgb(255,0,170);">}</span>
 
-  build() {
-    Row() {
-      Column() {
-        Button('传到沙箱')
-          .onClick(() => {
-            this.copyFile();
-          })
-          .margin({ bottom: 10 });
-        Button('预览文件')
-          .onClick(() => {
-            filePreview.openPreview(this.uiContext, this.fileInfo).then(() => {
-              console.info('openPreview success');
-            }).catch((err: BusinessError) => {
-              console.error('openPreview failed, err = ' + err.message);
-            });
-          });
-      }
-      .width('100%');
-    }
-    .height('100%');
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">传到沙箱</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copyFile</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">bottom</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">预览文件</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">filePreview</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">openPreview</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">uiContext</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fileInfo</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">then</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'openPreview success'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">catch</span><span style="color: rgb(0,0,255);">((</span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">BusinessError</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'openPreview failed, err = ' </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(0,0,255);">err</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">message</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1046
 
-## 如何实现Canvas画布移动
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过Canvas实现自定义的绘图效果，怎么移动Canvas画布？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - Canvas提供绘制基本图形的能力，用于在屏幕上绘制图形和处理图形，参考：[画布的获取与绘制结果的显示（ArkTS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-arkts)。
 - [NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)：用于实现自定义节点的创建、显示、更新等操作的管理，并负责将自定义节点挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上。
@@ -22,13 +18,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 Canvas画布平移操作通过translate(x, y)方法实现，将画布原点从默认的左上角(0,0)平移到新坐标(x, y)，绘制操作再基于新坐标执行。
- 
-- 添加自定义RenderNode，重写自定义RenderNode的draw()函数，获取Canvas进行自定义的绘制操作，使用translate()接口实现画布平移。
-- 添加自定义NodeController，并将自定义NodeController进行显示。
-
+ 1. 添加自定义RenderNode，重写自定义RenderNode的draw()函数，获取Canvas进行自定义的绘制操作，使用translate()接口实现画布平移。
+2. 添加自定义NodeController，并将自定义NodeController进行显示。
  
 完整示例参考如下：
  
@@ -36,7 +30,7 @@ Canvas画布平移操作通过translate(x, y)方法实现，将画布原点从�
 import { NodeController, FrameNode, RenderNode, DrawContext, UIContext } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
-// 自定义RenderNode
+<em>// 自定义RenderNode</em>
 export class MyRenderNode extends RenderNode {
   private currentX: number = 0;
   private currentY: number = 0;
@@ -48,13 +42,13 @@ export class MyRenderNode extends RenderNode {
   }
 
   async draw(context: DrawContext) {
-    // 创建画布canvas对象
+  <em>  // 创建画布canvas对象</em>
     const canvas = context.canvas;
 
-    // 使用translate()接口实现画布平移
+  <em>  // 使用translate()接口实现画布平移</em>
     canvas.translate(this.currentX, this.currentY);
 
-    // 自定义绘制相关操作
+  <em>  // 自定义绘制相关操作</em>
     const brush = new drawing.Brush();
     const pen = new drawing.Pen();
     pen.setColor({
@@ -80,7 +74,7 @@ export class MyRenderNode extends RenderNode {
   }
 }
 
-// 自定义NodeController
+<em>// 自定义NodeController</em>
 export class MyNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
   myRenderNode = new MyRenderNode();
@@ -126,7 +120,7 @@ struct RenderTest {
   build() {
     Column() {
       Column() {
-        // 将自定义NodeController进行显示
+       <em> // 将自定义NodeController进行显示</em>
         NodeContainer(this.controller)
           .width('100%')
           .height('95%');
@@ -161,9 +155,9 @@ struct RenderTest {
           });
       }
       .width('100%')
-      .justifyContent(FlexAlign.Center) // 设置当前Row容器内子元素在主轴上居中对齐
-      .alignItems(VerticalAlign.Center) // 设置当前Row容器内子元素在交叉轴（垂直方向）上的对齐方式为底部对齐
-      .layoutWeight(1); // 设置当前Row在父容器Column中的布局权重为1
+      .justifyContent(FlexAlign.Center) <em>// 设置当前Row容器内子元素在主轴上居中对齐</em>
+      .alignItems(VerticalAlign.Center) <em>// 设置当前Row容器内子元素在交叉轴（垂直方向）上的对齐方式为底部对齐</em>
+      .layoutWeight(1); <em>// 设置当前Row在父容器Column中的布局权重为1</em>
     };
   }
 }
@@ -173,4 +167,4 @@ struct RenderTest {
 运行效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/-jKghDTiThSoEPp2By7hKA/zh-cn_image_0000002628405550.png?HW-CC-KV=V1&HW-CC-Date=20260701T025721Z&HW-CC-Expire=86400&HW-CC-Sign=BC10A632C322DBBCECF2DE968A608017B183689ADA70079163DB75AD5974D812)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/-jKghDTiThSoEPp2By7hKA/zh-cn_image_0000002628405550.png?HW-CC-KV=V1&HW-CC-Date=20260701T041159Z&HW-CC-Expire=86400&HW-CC-Sign=648948F2712A74412CE0F5A19E2683AF30C678CBDEA49227EE5552CC5D652DED)

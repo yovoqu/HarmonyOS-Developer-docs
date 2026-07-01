@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-65
 
-## 应用闪退-Native运行时崩溃（CppCrash）信号与定位指导
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用在使用过程中出现闪退，系统日志或FaultLog中生成以cppcrash命名的故障日志文件。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - CppCrash进程崩溃检测基于操作系统信号机制，目前支持的崩溃信号参考[Cpp Crash（进程崩溃）检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines)。
 - CppCrash日志规格说明可以参考[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#日志规格)。
@@ -31,7 +27,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 进程在Native层发生崩溃后，系统会抓取崩溃相关的信息，在faultlogger目录下生成cppcrash-应用包名-应用UID-发生时间.log崩溃日志并上报崩溃事件，以供开发者分析定位。CppCrash日志规格说明可以参考[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#日志规格)。
  
@@ -65,43 +61,47 @@ Reason:Signal:信号值(tkill()函数信号)@崩溃地址 from:发送信号的Pi
 ```text
 Fault thread info:
 #00 pc 00000000001b0958 /system/lib/ld-musl-aarch64.so.1(raise+216)(52299a28d60f0bb4073bd788bc023a3a)
-# pc  
+#<序号> pc <pc在段内的偏移> <pc属于的段名称(函数名+函数内偏移的字节数)(BuildID)>
 
 pc：程序计数器（Program Counter）的缩写，作用是储存当前程序正在执行指令的地址。
 BuildID：是用于标识二进制文件的唯一标识符。
 ```
  
 **问题场景如下：**
- 
-- 场景一：断言检查失败。
-关键字：LastFatalMessage:Assertion failed。
-- 定位：调试代码，检查断言条件中变量的值是否符合预期。
+ 1. 场景一：断言检查失败。
+- 关键字：LastFatalMessage:Assertion failed。
 
- - 场景二：未处理抛出的异常。
+2. 定位：调试代码，检查断言条件中变量的值是否符合预期。
+
+3. 场景二：未处理抛出的异常。
 关键字：terminating due to uncaught exception of type。
-- 定位：定位抛出异常的代码行，检查抛出异常的业务逻辑是否符合预期。
 
- - 场景三：调用napi_fatal_error引发致命错误。
+4. 定位：定位抛出异常的代码行，检查抛出异常的业务逻辑是否符合预期。
+
+5. 场景三：调用napi_fatal_error引发致命错误。
 关键字：LastFatalMessage:[(xxx)(napi_fatal_error)] FATAL ERROR
-- 定位：排查napi_fatal_error的调用逻辑是否符合预期。
 
- - 场景四：空指针解引用。
+6. 定位：排查napi_fatal_error的调用逻辑是否符合预期。
+
+7. 场景四：空指针解引用。
 关键字：probably caused by NULL pointer dereference
-- 定位：排查代码中的指针变量，是否存在使用未初始化、赋值为空或已释放的指针。
 
- - 场景五：访问越栈内存上界。
+8. 定位：排查代码中的指针变量，是否存在使用未初始化、赋值为空或已释放的指针。
+
+9. 场景五：访问越栈内存上界。
 关键字：current thread stack low address = 0x0000005b479ef000, probably caused by stack-buffer-overflow
-- 定位：排查代码逻辑是否存在以下三种栈溢出场景。
-递归调用时未设置递归终止条件导致栈内存耗尽。
-- 局部变量占用过多栈内存导致栈内存耗尽。
-- 在信号栈中使用超过系统限制的栈内存。
 
- 
- 
- 
-**步骤三：结合业务代码分析根因。**
- 
-- 堆栈定位代码行：
+10. 定位：排查代码逻辑是否存在以下三种栈溢出场景。
+递归调用时未设置递归终止条件导致栈内存耗尽。
+
+11. 局部变量占用过多栈内存导致栈内存耗尽。
+
+12. 在信号栈中使用超过系统限制的栈内存。
+
+  **步骤三：结合业务代码分析根因。**
+
+  
+堆栈定位代码行：
 开发态环境下，DevEco Studio生成的CppCrash调用栈支持直接跳转到代码行，详情可见使用文档[跳转至引起错误的代码行](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-fault-log#section26629489166)。
 - 运维态的日志，可以使用hstack工具将Release应用混淆的调用栈还原为源码对应调用栈。详情可见[堆栈解析工具（hstack）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)。
 - 可能存在部分未能解析跳转到对应行号的栈帧，可以使用llvm-addr2line工具将函数地址解析成文件名或行号，详情参考[C++堆栈解析流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section1735713501344)。
@@ -118,7 +118,7 @@ BuildID：是用于标识二进制文件的唯一标识符。
  
  
 
-##### 分析结论
+#### 分析结论
 
 - 断言检查失败：断言条件为false时，进程会直接终止。
 - 未处理抛出的异常：未处理抛出的异常导致应用闪退。
@@ -129,7 +129,7 @@ BuildID：是用于标识二进制文件的唯一标识符。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 业务逻辑异常：使用[堆栈解析工具（hstack）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析崩溃栈后结合具体代码进行分析。
 - 内存异常：[使用HWASan检测内存错误](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-hwasan-detection)，获取运行时的内存栈信息，分析并修复引起内存错误的代码。

@@ -3,18 +3,16 @@
 更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialimage
-
 **支持设备：** Phone | PC/2in1 | Tablet
-
-## spatialImage（空间照片）
- 
 
 spatialImage是一项将单张2D图像重建为3D模型的技术，使开发者能够从2D图像生成3D模型（支持3D Gaussian或Mesh格式），并配合陀螺仪数据实现沉浸式视角交互体验。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { spatialImage } from '@kit.SpatialReconKit';
@@ -22,7 +20,9 @@ import { spatialImage } from '@kit.SpatialReconKit';
  
   
 
-##### SpatialImageStatus
+#### SpatialImageStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义空间照片的操作状态。
  
@@ -44,7 +44,9 @@ import { spatialImage } from '@kit.SpatialReconKit';
  
   
 
-##### SpatialImageModelType
+#### SpatialImageModelType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义生成的3D模型类型。
  
@@ -62,7 +64,9 @@ import { spatialImage } from '@kit.SpatialReconKit';
  
   
 
-##### CameraPose
+#### CameraPose
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义渲染相机的姿态，包含位置（Vec3）和旋转（Quaternion）。
  
@@ -80,7 +84,9 @@ import { spatialImage } from '@kit.SpatialReconKit';
  
   
 
-##### ProgressCallback
+#### ProgressCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type ProgressCallback = (progress: double) => void
  
@@ -101,13 +107,17 @@ type ProgressCallback = (progress: double) => void
  
   
 
-##### spatialImage.SpatialImageGenerator
+#### spatialImage.SpatialImageGenerator
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 空间照片生成器，提供设备支持检查、AI模型下载、模型生成及取消等能力。
  
   
 
-##### [h2]isSupport
+#### isSupport
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 static isSupport(): SpatialImageStatus
  
@@ -142,7 +152,9 @@ if (supportStatus === spatialImage.SpatialImageStatus.STATUS_NOT_SUPPORT) {
  
   
 
-##### [h2]prepareEnv
+#### prepareEnv
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 prepareEnv(callback: ProgressCallback): Promise&lt;SpatialImageStatus&gt;
  
@@ -189,7 +201,9 @@ if (prepareRet !== spatialImage.SpatialImageStatus.STATUS_SUCCESS) {
  
   
 
-##### [h2]cancelPrepare
+#### cancelPrepare
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 cancelPrepare(): Promise&lt;SpatialImageStatus&gt;
  
@@ -224,7 +238,9 @@ if (cancelRet === spatialImage.SpatialImageStatus.STATUS_SUCCESS) {
  
   
 
-##### [h2]generate
+#### generate
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 generate(image: image.PixelMap, type: SpatialImageModelType, uri: string): Promise&lt;SpatialImageStatus&gt;
  
@@ -275,7 +291,9 @@ if (generateRet === spatialImage.SpatialImageStatus.STATUS_SUCCESS) {
  
   
 
-##### [h2]cancelGenerate
+#### cancelGenerate
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 cancelGenerate(): Promise&lt;SpatialImageStatus&gt;
  
@@ -309,13 +327,17 @@ if (cancelRet === spatialImage.SpatialImageStatus.STATUS_SUCCESS) {
  
   
 
-##### spatialImage.SpatialImageController
+#### spatialImage.SpatialImageController
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 空间照片控制器，负责加载生成的模型文件，并根据陀螺仪数据计算渲染相机姿态。
  
   
 
-##### [h2]constructor
+#### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 constructor(uri: string)
  
@@ -346,7 +368,9 @@ let controller: spatialImage.SpatialImageController = new spatialImage.SpatialIm
  
   
 
-##### [h2]calcRenderPos
+#### calcRenderPos
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 calcRenderPos(response: sensor.GyroscopeResponse): CameraPose
  

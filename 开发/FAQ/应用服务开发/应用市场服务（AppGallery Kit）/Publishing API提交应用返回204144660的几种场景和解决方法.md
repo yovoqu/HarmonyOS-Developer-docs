@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-77
 
-## Publishing API提交应用返回204144660的几种场景和解决方法
- 
-
-
-##### 问题现象
+#### 问题现象
 
 调用Publishing API的提交应用接口，返回同一个错误码“204144660”，但是错误信息不同，分别对应哪些场景，如何解决？
  
@@ -32,7 +28,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 问题1.需要在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)保存过“registeredDclType”、“registeredEntity”、“registeredEntityName”即“APP类型信息”、“主办单位”、“主办单位名称”三个字段后再进行操作。
  

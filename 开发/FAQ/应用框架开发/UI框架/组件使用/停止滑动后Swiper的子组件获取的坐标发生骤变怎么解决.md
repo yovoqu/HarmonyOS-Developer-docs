@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-599
 
-## 停止滑动后Swiper的子组件获取的坐标发生骤变怎么解决
- 
-
-
-##### 问题现象
+#### 问题现象
 
 [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)（滑块视图容器）的子组件在手指拖动时通过触发[onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)事件获取到的x坐标是平滑变动的，但在手指抬起后坐标会骤变。
  
@@ -45,29 +41,29 @@ Swiper() {
  
  
 
-##### 背景知识
+#### 背景知识
 
 [组件区域变化事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event)是指组件显示的尺寸、位置等发生变化时触发的事件，onAreaChange可以响应组件位置发生变化时的回调，Swiper的子组件可通过调用该方法监听位置坐标的变化。
  
  
 
-##### 问题定位
+#### 问题定位
 
 手指抬起之后，Swiper默认的动画是隐式动画，所以无法触发onAreaChange事件，只在最后组件动画停止，位置确定下来后触发onAreaChange事件，从而出现坐标骤变的问题现象。
  
  
 
-##### 分析结论
+#### 分析结论
 
 隐式动画无法触发onAreaChange事件导致出现组件坐标骤变，可通过将隐式动画变为显式动画来解决。
  
  
 
-##### 修改建议
+#### 修改建议
+1. 当Swiper数据源三个及以上的场景，可以通过在Swiper外设置一个空的[onContentDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#oncontentdidscroll12)(()=>{})实现将动画变为显式动画，进而实现手抬起坐标也平滑变化的效果；
+2. 在Swiper数据源只有两个的场景，因为在循环场景下，设置prevMargin和nextMargin属性，使得Swiper前后端显示同一页面时，onContentDidScroll接口是不生效的，所以需要把loop属性设置为false，这样可以实现组件坐标平滑变动的效果。完整代码如下：
 
-- 当Swiper数据源三个及以上的场景，可以通过在Swiper外设置一个空的[onContentDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#oncontentdidscroll12)(()=>{})实现将动画变为显式动画，进而实现手抬起坐标也平滑变化的效果；
-- 在Swiper数据源只有两个的场景，因为在循环场景下，设置prevMargin和nextMargin属性，使得Swiper前后端显示同一页面时，onContentDidScroll接口是不生效的，所以需要把loop属性设置为false，这样可以实现组件坐标平滑变动的效果。完整代码如下：
- 
+  
 ```text
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
@@ -80,7 +76,7 @@ export class NumberUtils {
       return parseFloat(length as string);
     } else {
       let parseRes = length as Resource;
-      // 获取上下文
+     <em> // 获取上下文</em>
       return (new UIContext().getHostContext() as common.UIAbilityContext).resourceManager.getNumber(parseRes.id);
     }
   }
@@ -93,7 +89,7 @@ struct CoordinateChanged {
   itemHeight: number = 163;
   unselectScale: number = 0.83;
   itemSpace: number = 10;
-  // Swiper轮播的图片列表，开发者可根据真实场景进行替换
+ <em> // Swiper轮播的图片列表，开发者可根据真实场景进行替换</em>
   @State imgList: Resource [] = [
     $r('app.media.fig1'),
     $r('app.media.fig2'),
@@ -106,14 +102,14 @@ struct CoordinateChanged {
   @State xL: number = 0;
   @State xC: number = 0;
   @State xR: number = 0;
-  // 旧的坐标值
+  <em>// 旧的坐标值</em>
   @State getOldValue: Area = {
     width: 0,
     height: 0,
     position: { x: 0, y: 0 },
     globalPosition: { x: 0, y: 0 }
   };
-  // 新的坐标值
+  <em>// 新的坐标值</em>
   @State getNewValue: Area = {
     width: 0,
     height: 0,
@@ -121,7 +117,7 @@ struct CoordinateChanged {
     globalPosition: { x: 0, y: 0 }
   };
 
-  // 横幅宽度变化时修改xL、xC、xR的值
+  <em>// 横幅宽度变化时修改xL、xC、xR的值</em>
   onBannerWidthChanged() {
     if (this.bannerWidth > 0) {
       this.previousWidth = (this.bannerWidth - this.itemWidth - this.itemSpace * 2) / 2;
@@ -131,7 +127,7 @@ struct CoordinateChanged {
     }
   }
 
-  // 获取实时坐标值
+ <em> // 获取实时坐标值</em>
   func(index: number, _oldValue: Area, newValue: Area) {
     if (index >= this.viewInfo.length) {
       this.viewInfo.push(newValue);
@@ -160,7 +156,7 @@ struct CoordinateChanged {
       }
       .onContentDidScroll(() => {
       })
-      // 在Swiper数据源少于三个的场景，需要把loop属性设置为false，这样可以实现组件坐标平滑变动的效果
+      <em>// 在Swiper数据源少于三个的场景，需要把loop属性设置为false，这样可以实现组件坐标平滑变动的效果</em>
       .loop(this.imgList.length > 2 ? true : false)
       .displayCount(1)
       .prevMargin(this.previousWidth)
@@ -172,7 +168,7 @@ struct CoordinateChanged {
       })
       .autoPlay(true);
 
-      // 展示横幅的坐标属性
+      <em>// 展示横幅的坐标属性</em>
       Column({ space: 10 }) {
         Column() {
           Text(`Params`)
@@ -187,7 +183,7 @@ struct CoordinateChanged {
         .padding(5)
         .alignItems(HorizontalAlign.Start);
 
-        // 展示每张图片的坐标属性
+       <em> // 展示每张图片的坐标属性</em>
         ForEach(this.viewInfo, (item: Area, index: number) => {
           Column() {
             Text(`Item[${index}]`)
@@ -215,7 +211,7 @@ struct CoordinateChanged {
   }
 }
 
-// 设置数据源
+<em>// 设置数据源</em>
 class MyDataSource implements IDataSource {
   private list: Resource[] = [];
 

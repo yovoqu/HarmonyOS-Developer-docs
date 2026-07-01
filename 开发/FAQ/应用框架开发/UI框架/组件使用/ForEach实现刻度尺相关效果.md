@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1618
 
-## ForEach实现刻度尺相关效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 - 场景一：如何使用ForEach循环渲染实现刻度尺的效果，如下图所示：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/AvEKezoOQy-s-OUzqQM7gg/zh-cn_image_0000002628617570.png?HW-CC-KV=V1&HW-CC-Date=20260701T025623Z&HW-CC-Expire=86400&HW-CC-Sign=8BA09AEDA7AE686CD7DD08DE71E00C7B76BBAB1FEE015F73411027E44C77BC01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/AvEKezoOQy-s-OUzqQM7gg/zh-cn_image_0000002628617570.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=DC3B9B8BEB39F1A635881CA9608F2BD57221031E2C60845459CA020EE51615B3)
 
 - 场景二：如何实现一个横向的刻度选择器，支持横向滑动的效果？
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/WZuz6gj6RECfc_7vgFZqaQ/zh-cn_image_0000002628777466.png?HW-CC-KV=V1&HW-CC-Date=20260701T025623Z&HW-CC-Expire=86400&HW-CC-Sign=CF3049B2AB674076C51BF1F3706E9DAD7CFB7DBF6352D225B714A1D6BF308809)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/WZuz6gj6RECfc_7vgFZqaQ/zh-cn_image_0000002628777466.png?HW-CC-KV=V1&HW-CC-Date=20260701T041240Z&HW-CC-Expire=86400&HW-CC-Sign=FEF81ECB29EE5153B2459C3A85AE65AE25E0060A34B67BB728CCEABF158DB1DD)
 
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-foreach)：接口基于数组类型数据来进行循环渲染。其中第一个参数arr表示数据源，第二个参数itemGenerator用于为数组中的每个元素创建对应的组件，第三个参数keyGenerator为数据源arr的每个数组项生成唯一且持久的键值。
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)：包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
@@ -30,16 +26,14 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 **场景一：**
  
 可结合自定义直尺线类RulerLine用以实现刻度尺的效果，具体步骤如下：
- 
-- 创建自定义直尺线类RulerLine，包括组成直尺的每条线的高度属性height以及索引属性index。
-- 在aboutToAppear中初始化直尺线类，将每个新创建的类添加到直尺线数组对象rulerLines中，并计算出每1mm对应的像素px值。
-- 以rulerLines为数据源，使用ForEach循环渲染出每个直尺线类，即可实现刻度尺的效果。
-
+ 1. 创建自定义直尺线类RulerLine，包括组成直尺的每条线的高度属性height以及索引属性index。
+2. 在aboutToAppear中初始化直尺线类，将每个新创建的类添加到直尺线数组对象rulerLines中，并计算出每1mm对应的像素px值。
+3. 以rulerLines为数据源，使用ForEach循环渲染出每个直尺线类，即可实现刻度尺的效果。
  
 完整代码如下：
  
@@ -49,32 +43,34 @@ import { display, window } from '@kit.ArkUI';
 @Entry
 @Component
 struct RulerComponent {
-  @State cellWidthInPixels: number = 0; // 屏幕上1mm对应的像素值px
-  textWidth: number = 80; // 文本的宽度px
-  @State rulerLines: RulerLine[] = []; // 尺子每个刻度的索引对应的高度
+  @State cellWidthInPixels: number = 0; <em>// 屏幕上1mm对应的像素值px</em>
+  textWidth: number = 80;<em> // 文本的宽度px</em>
+  @State rulerLines: RulerLine[] = [];<em> // 尺子每个刻度的索引对应的高度</em>
 
   aboutToAppear(): void {
     window.getLastWindow(this.getUIContext()?.getHostContext()).then((windowClass) => {
       windowClass.setPreferredOrientation(window.Orientation.LANDSCAPE);
     });
-    this.cellWidthInPixels = display.getDefaultDisplaySync().yDPI / 25.4; // 计算当前屏幕上每毫米对应的像素值px
-    for (let i = 0; i // 初始化直尺每个刻度高
+    this.cellWidthInPixels = display.getDefaultDisplaySync().yDPI / 25.4; <em>// 计算当前屏幕上每毫米对应的像素值px</em>
+    for (let i = 0; i <= 15 * 10; i++) {
+      let lineHeight: number = (i % 10 === 0) ? 90 : (i % 5 === 0) ? 60 : 45;
+      this.rulerLines.push(new RulerLine(i, lineHeight)); <em>// 初始化直尺每个刻度高</em>
     }
   }
 
   build() {
     Column() {
       Stack() {
-        // 遍历直尺线数组
+      <em>  // 遍历直尺线数组</em>
         ForEach(this.rulerLines, (line: RulerLine, index: number) => {
-          // 生成直尺的刻度
+         <em> // 生成直尺的刻度</em>
           Line()
             .width(1)
             .height(`${line.height}px`)
             .backgroundColor(Color.Black)
             .margin({ left: `${this.cellWidthInPixels * index}px` })
             .stroke(Color.Black);
-          // 生成刻度值数字
+        <em>  // 生成刻度值数字</em>
           Text(line.showNumber())
             .fontColor(Color.Black)
             .fontSize(18)
@@ -97,17 +93,17 @@ struct RulerComponent {
   }
 }
 
-// 直尺线类
+<em>// 直尺线类</em>
 class RulerLine {
-  index: number; // 刻度索引
-  height: number; // 当前刻度的高度
+  index: number; <em>// 刻度索引</em>
+  height: number; <em>// 当前刻度的高度</em>
 
   constructor(index: number, height: number) {
     this.index = index;
     this.height = height;
   }
 
-  // 10的倍数展示刻度值
+ <em> // 10的倍数展示刻度值</em>
   showNumber(): string {
     return this.index % 10 === 0 ? `${this.index / 10}` : '';
   }
@@ -117,13 +113,11 @@ class RulerLine {
 **场景二：**
  
 使用横向List实现一个可滚动的刻度尺，通过滚动偏移计算当前值并传递给回调函数。
- 
-- 刻度渲染：在aboutToAppear初始化要显示的刻度，ForEach逐项渲染，根据数值区分长/中/短刻度；0和max默认在List的两端，无法居中对齐选中刻度线，需在List两端添加50%宽的占位ListItem用于把0和max居中。
-- 初始定位：aboutToAppear延迟调用scroller.scrollTo，把初始值滚到中间指示器下方。
-- 滚动与当前值计算：在onScroll中用xOffset除以itemWidth并向下取整得到当前值，然后传递给回调函数。
-- 触摸与吸附行为：在onTouch中监听Down/Up事件，抬起时计算最近刻度，把刻度滚动到中心位置。
-- 视觉中心指示：在容器中间绘制固定的指示器，始终位于容器水平中心，供刻度对齐参考。
-
+ 1. 刻度渲染：在aboutToAppear初始化要显示的刻度，ForEach逐项渲染，根据数值区分长/中/短刻度；0和max默认在List的两端，无法居中对齐选中刻度线，需在List两端添加50%宽的占位ListItem用于把0和max居中。
+2. 初始定位：aboutToAppear延迟调用scroller.scrollTo，把初始值滚到中间指示器下方。
+3. 滚动与当前值计算：在onScroll中用xOffset除以itemWidth并向下取整得到当前值，然后传递给回调函数。
+4. 触摸与吸附行为：在onTouch中监听Down/Up事件，抬起时计算最近刻度，把刻度滚动到中心位置。
+5. 视觉中心指示：在容器中间绘制固定的指示器，始终位于容器水平中心，供刻度对齐参考。
  
 代码实现如下：
  
@@ -133,22 +127,29 @@ export struct RulerComponent {
   @Param value: number = 0;
   @Param min: number = 0;
   @Param max: number = 60;
-  private itemWidth: number = 20; // 每个刻度的宽度
+  private itemWidth: number = 20;<em> // 每个刻度的宽度</em>
   private scroller: Scroller = new Scroller();
   @Local isTouching: boolean = false;
   @Event onValueChange?: (value: number) => void;
-  arr: Array = [];
+  arr: Array<number> = [];
 
   aboutToAppear() {
-    // 延迟滚动到初始位置
+    <em>// 延迟滚动到初始位置</em>
     setTimeout(() => {
       let offset = this.value * this.itemWidth + Math.floor(this.itemWidth / 2);
       console.info(`start offset: ${offset}`);
       this.scroller.scrollTo({ xOffset: offset, yOffset: 0, animation: { duration: 200 } });
     }, 100);
-    for (let index = 0; index  // 刻度列表
+    for (let index = 0; index < this.max + 1; index++) {
+      this.arr.push(index);
+    }
+  }
+
+  build() {
+    RelativeContainer() {
+     <em> // 刻度列表</em>
       List({ scroller: this.scroller }) {
-        // 头部占位，使0刻度能居中
+       <em> // 头部占位，使0刻度能居中</em>
         ListItem()
           .width('50%')
           .height(60);
@@ -156,26 +157,26 @@ export struct RulerComponent {
         ForEach(this.arr, (index: number) => {
           ListItem() {
             Column() {
-              // 刻度线
+           <em>   // 刻度线</em>
               if (index % 10 === 0) {
-                // 长刻度
+               <em> // 长刻度</em>
                 Column()
                   .width(2)
                   .height(30)
                   .backgroundColor('#333333');
-                // 刻度值
+               <em> // 刻度值</em>
                 Text(index.toString())
                   .fontSize(12)
                   .fontColor('#333333')
                   .margin({ top: 8 });
               } else if (index % 5 === 0) {
-                // 中刻度
+               <em> // 中刻度</em>
                 Column()
                   .width(1.5)
                   .height(20)
                   .backgroundColor('#666666');
               } else {
-                // 短刻度
+              <em>  // 短刻度</em>
                 Column()
                   .width(1)
                   .height(12)
@@ -189,7 +190,7 @@ export struct RulerComponent {
           }
         })
 
-        // 尾部占位，使最大刻度能居中
+      <em>  // 尾部占位，使最大刻度能居中</em>
         ListItem()
           .width('50%')
           .height(60);
@@ -202,7 +203,10 @@ export struct RulerComponent {
       .onDidScroll(() => {
         const x = this.scroller.currentOffset().xOffset;
         let newValue = Math.floor(x / this.itemWidth);
-        if (newValue  this.max) {
+        if (newValue < this.min) {
+          newValue = this.min;
+        }
+        if (newValue > this.max) {
           newValue = this.max;
         }
         this.onValueChange?.(newValue);
@@ -212,10 +216,10 @@ export struct RulerComponent {
           this.isTouching = true;
         } else if (event.type === TouchType.Up) {
           this.isTouching = false;
-          // 手指抬起时吸附到最近的刻度
+        <em>  // 手指抬起时吸附到最近的刻度</em>
           const x = this.scroller.currentOffset().xOffset;
           const targetValue = Math.round(x / this.itemWidth);
-          // 让刻度居中
+          <em>// 让刻度居中</em>
           let offSet = (targetValue * this.itemWidth) + Math.floor(this.itemWidth / 2);
           this.scroller.scrollTo({
             xOffset: offSet,
@@ -229,7 +233,7 @@ export struct RulerComponent {
         middle: { anchor: '__container__', align: HorizontalAlign.Center }
       });
 
-      // 中间指示器
+    <em>  // 中间指示器</em>
       Column() {
         Column()
           .width(2)

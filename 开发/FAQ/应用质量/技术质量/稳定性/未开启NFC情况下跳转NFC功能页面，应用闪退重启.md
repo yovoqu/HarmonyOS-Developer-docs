@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-41
 
-## 未开启NFC情况下跳转NFC功能页面，应用闪退重启
- 
-
-
-##### 问题现象
+#### 问题现象
 
 NFC关闭情况下，点击跳转到应用NFC功能页面，随后立刻闪退重启。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [3100201 NFC服务读写Tag错误](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc#section3100201-nfc服务读写tag错误)：异常信息Tag running state is abnormal in service，NFC服务执行Tag业务逻辑遇到错误。
 - 关于NFC标签通信相关内容，可见[NFC标签读写开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nfc-tag-access-guide)。
@@ -22,10 +18,9 @@ NFC关闭情况下，点击跳转到应用NFC功能页面，随后立刻闪退�
  
  
 
-##### 问题定位
-
-- 从faultlogger目录下获取到应用的JsCrash故障日志，故障原因是自定义错误类Error，故障信息为Tag running state is abnormal in service，NFC服务执行Tag业务逻辑遇到错误。堆栈中有具体到应用代码，栈顶函数为tagOn，由此可知，应用在调用[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)接口时NFC未开启，导致该异常产生。
-```ts
+#### 问题定位
+1. 从faultlogger目录下获取到应用的JsCrash故障日志，故障原因是自定义错误类Error，故障信息为Tag running state is abnormal in service，NFC服务执行Tag业务逻辑遇到错误。堆栈中有具体到应用代码，栈顶函数为tagOn，由此可知，应用在调用[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)接口时NFC未开启，导致该异常产生。
+```bash
 Reason:Error
 Error name:Error
 Error message:Tag running state is abnormal in service.
@@ -38,28 +33,27 @@ Cannot get SourceMap info, dump raw stack:
     at anonymous (entry|entry|1.0.0|src/main/ets/pages/recharge/RechargeCenterPage.ts:0:1)
 ```
 
-- 排查[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)接口调用前，是否判断NFC可用，或者发生异常时，是否及时捕获处理。
-
+2. 排查[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)接口调用前，是否判断NFC可用，或者发生异常时，是否及时捕获处理。
  
  
 
-##### 分析结论
+#### 分析结论
 
 应用在NFC未开启的情况下调用[tag.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)接口，导致异常闪退。
  
  
 
-##### 修改建议
+#### 修改建议
 
 在使用NFC相关能力时，应该先校验设备是否支持，以及状态是否开启。或者在出现异常时捕获处理，提醒用户开启NFC。
  
-```text
+```json
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { nfcController, tag } from '@kit.ConnectivityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { bundleManager } from '@kit.AbilityKit';
 
-let discTech : number[] = [tag.NFC_A]; // 用前台ability时所需要的技术代替
+let discTech : number[] = [tag.NFC_A]; <em>// 用前台ability时所需要的技术代替</em>
 let elementName : bundleManager.ElementName = {
   bundleName: 'com.example.commondemofordfx',
   abilityName: 'EntryAbility'
@@ -72,7 +66,7 @@ function readerModeCb(err : BusinessError, tagInfo : tag.TagInfo) {
     console.error('offCallback err: ' + err.message);
     return;
   }
-  // taginfo的其他操作
+  <em>// taginfo的其他操作</em>
 }
 
 @Entry
@@ -87,7 +81,7 @@ struct CheckNFCAbilityPage {
     this.checkNfcOpen();
   }
 
-  // 检查设备是否支持NFC能力
+ <em> // 检查设备是否支持NFC能力</em>
   checkNfcCapability() {
     if (!canIUse('SystemCapability.Communication.NFC.Core')) {
       hilog.error(0x0000, 'testTag', 'nfc unavailable.');
@@ -96,7 +90,7 @@ struct CheckNFCAbilityPage {
     this.nfcSupport = true;
   }
 
-  // 检查Nfc是否开启
+ <em> // 检查Nfc是否开启</em>
   checkNfcOpen() {
     if (!nfcController.isNfcOpen()) {
       hilog.error(0x0000, 'testTag', 'nfc disabled.');
@@ -112,14 +106,14 @@ struct CheckNFCAbilityPage {
     } catch (e) {
       hilog.error(0x0000, 'testTag',`tag.on error: ${(e as BusinessError).message}`);
       this.nfcRunFailMsg = `失败信息：${(e as BusinessError).message}`;
-      // 异常处理，例如提示弹窗。
+      <em>// 异常处理，例如提示弹窗。</em>
     }
   }
 
   build() {
     Column({ space: 20 }) {
       if (!this.nfcSupport) {
-        // 设备不支持NFC的情况
+       <em> // 设备不支持NFC的情况</em>
         Text('当前设备不支持NFC功能')
           .fontSize(20)
           .fontColor(Color.Red)
@@ -129,7 +123,7 @@ struct CheckNFCAbilityPage {
           .fontColor(Color.Red)
       }
       if (!this.nfcOpen) {
-        // 设备不支持NFC的情况
+       <em> // 设备不支持NFC的情况</em>
         Text('NFC功能未开启')
           .fontSize(20)
           .fontColor(Color.Red)

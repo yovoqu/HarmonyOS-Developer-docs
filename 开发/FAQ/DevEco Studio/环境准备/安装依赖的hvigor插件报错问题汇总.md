@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-38
 
-## 安装依赖的hvigor插件报错问题汇总
- 
-
-
-##### 问题现象
+#### 问题现象
 
 安装依赖的hvigor插件报错，问题有哪些？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [开发hvigor插件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-plugin#section627771916612)：hvigor主要提供了两种方式来实现插件：基于hvigorfile脚本开发插件、基于typescript项目开发。
 - [配置npm代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section197296441787)：hvigor、ohpm在初始化时需要从npm仓库下载依赖，如果需要代理才能访问网络，请配置npm的代理。
@@ -22,7 +18,7 @@
  
  
 
-##### 问题定位
+#### 问题定位
 
 - **场景一：执行指令npm install -force安装依赖时卡住进度条不动。**
 - **场景二：执行指令npm install，报错connect ETIMEDOUT 104.16.25.34:443：**
@@ -30,7 +26,7 @@
 npm ERR! code ETIMEDOUT
 npm ERR! syscall connect
 npm ERR! errno ETIMEDOUT
-npm ERR! network request to https://registry.npmjs.org/@react-navigation%2Fnative failed, reason: connect ETIMEDOUT 104.16.25.34:443
+npm ERR! network request to https:<span style="color: rgb(128,128,128);">//registry.npmjs.org/@react-navigation%2Fnative failed, reason: connect ETIMEDOUT 104.16.25.34:443</span>
 npm ERR! network This is a problem related to network connectivity.
 npm ERR! network In most cases you are behind a proxy or have bad network settings.
 ```
@@ -54,7 +50,7 @@ npm ERR! notarget a package version that does not exist.
  
  
 
-##### 分析结论
+#### 分析结论
 
 - **场景一和三：npm缓存问题。**
 - **场景二和四：镜像源配置不正确，插件版本与hvigor不一致。**
@@ -62,25 +58,27 @@ npm ERR! notarget a package version that does not exist.
  
  
 
-##### 修改建议
+#### 修改建议
 
-- **场景一和场景三解决方案：**
-检查网络连接，确保网络连接稳定。
-- 清除npm缓存。npm cache clean --force
-- 删除package-lock.json或者yarn-lock.json文件。
+- **场景一和场景三解决方案：**1. 检查网络连接，确保网络连接稳定。
 
- - **场景二解决方案：**
-报错显示无法连接镜像源，在C盘用户目录下检查.npmrc文件镜像源配置，确保镜像源配置可用。
+2. 清除npm缓存。npm cache clean --force
 
- - **场景四的解决方案：**
-配置npm镜像：在用户目录下创建或打开.npmrc文件，配置如下信息：
- registry=https://repo.huaweicloud.com/repository/npm/
- @ohos:registry=https://repo.harmonyos.com/npm/
- 打开package.json添加devDependencies配置并保存。
- 
+3. 删除package-lock.json或者yarn-lock.json文件。
+- **场景二解决方案：**1. 报错显示无法连接镜像源，在C盘用户目录下检查.npmrc文件镜像源配置，确保镜像源配置可用。
+- **场景四的解决方案：**1. 配置npm镜像：在用户目录下创建或打开.npmrc文件，配置如下信息：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/VrZ-MHnTRFCHPU1N92IC8g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025910Z&HW-CC-Expire=86400&HW-CC-Sign=43C072F3882F4F7762AF0E35B9350022FF1AB1D8E99E6539493B544B1ECFD0D6)
- 
-@ohos/hvigor-ohos-plugin的版本需要与当前@ohos/hvigor的版本保持一致。
-- 执行npm install命令安装依赖。
-- 查看自定义的目录下是否生成node_modules目录，node_modules目录下是否有安装的相关依赖目录，都存在说明依赖下载成功。
+  registry=https://repo.huaweicloud.com/repository/npm/
+
+  @ohos:registry=https://repo.harmonyos.com/npm/
+
+  打开package.json添加devDependencies配置并保存。
+
+  
+> [!NOTE]
+> @ohos/hvigor-ohos-plugin的版本需要与当前@ohos/hvigor的版本保持一致。
+
+
+2. 执行npm install命令安装依赖。
+
+3. 查看自定义的目录下是否生成node_modules目录，node_modules目录下是否有安装的相关依赖目录，都存在说明依赖下载成功。

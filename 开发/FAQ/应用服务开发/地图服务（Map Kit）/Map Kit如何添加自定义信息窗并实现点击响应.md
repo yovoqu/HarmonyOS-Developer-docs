@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-45
 
-## Map Kit如何添加自定义信息窗并实现点击响应
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Map Kit中Marker标记仅能实现简单图标的显示，如何实现标记点更多信息的展示，自定义设计展示的样式，并实现信息窗的点击响应交互。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#section16133115441516)。
 - [customInfoWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent#section7379125210145)：自定义信息窗。在[customInfoWindowCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent#section1038016522147)中绘制自定义UI样式。
@@ -22,9 +18,8 @@ Map Kit中Marker标记仅能实现简单图标的显示，如何实现标记点�
  
  
 
-##### 解决方案
-
-- 添加Marker，在[MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中设置clickable为true，设置信息窗title。如果需在信息窗中展示副标题信息，也可以设置snippet信息。
+#### 解决方案
+1. 添加Marker，在[MarkerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#section559041743210)中设置clickable为true，设置信息窗title。如果需在信息窗中展示副标题信息，也可以设置snippet信息。
 ```text
 let markerOptions: mapCommon.MarkerOptions = {
   position: {
@@ -32,19 +27,19 @@ let markerOptions: mapCommon.MarkerOptions = {
     longitude: 118.788765
   },
   clickable: true,
-  // 设置信息窗标题，点击标记后可展示信息窗
+ <em> // 设置信息窗标题，点击标记后可展示信息窗</em>
   title: '☆点击收藏'
 };
 await this.mapController?.addMarker(markerOptions);
 ```
 
-- 设置自定义信息窗UI样式，通过[getTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section045613476152)和[setTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section136101154181514)可以获取和设置当前Marker信息窗的标题。在UI中添加onClick点击事件，进行相关点击的响应和操作。
+2. 设置自定义信息窗UI样式，通过[getTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section045613476152)和[setTitle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker#section136101154181514)可以获取和设置当前Marker信息窗的标题。在UI中添加onClick点击事件，进行相关点击的响应和操作。
 ```text
-// 自定义信息窗BuilderParam
+<em>// 自定义信息窗BuilderParam</em>
 @BuilderParam customInfoWindow: ($$: map.MarkerDelegate) => void = this.customInfoWindowBuilder;
 
 
-// 自定义信息窗Builder
+<em>// 自定义信息窗Builder</em>
 @Builder
 customInfoWindowBuilder($$: map.MarkerDelegate) {
   if ($$.marker) {
@@ -66,7 +61,7 @@ customInfoWindowBuilder($$: map.MarkerDelegate) {
 }
 ```
 
-- 在初始化地图时，设置customInfoWindow。
+3. 在初始化地图时，设置customInfoWindow。
 ```text
 build() {
   Stack() {
@@ -74,7 +69,7 @@ build() {
       MapComponent({
         mapOptions: this.mapOptions,
         mapCallback: this.callback,
-        // 自定义信息窗
+    <em>    // 自定义信息窗</em>
         customInfoWindow: this.customInfoWindow
       })
         .height(this.mapHeight);
@@ -83,11 +78,12 @@ build() {
 }
 ```
  实现效果：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/lApV1f1bTkCFAI2ALqjuLg/zh-cn_image_0000002658793655.png?HW-CC-KV=V1&HW-CC-Date=20260701T025843Z&HW-CC-Expire=86400&HW-CC-Sign=E009DE9F359D861C72184542A2659E4D52D421EC0BFCFF3854071950D0CB3552)
 
- 
-完整代码：
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/lApV1f1bTkCFAI2ALqjuLg/zh-cn_image_0000002658793655.png?HW-CC-KV=V1&HW-CC-Date=20260701T041106Z&HW-CC-Expire=86400&HW-CC-Sign=2F6861CA38FFDACE0DFE263B4B9FEBC5EDE7DCD2017A6ABF863FA8D6C061FF14)
+
+
+  完整代码：
 ```text
 import { MapComponent, mapCommon, map } from '@kit.MapKit';
 import { AsyncCallback } from '@kit.BasicServicesKit';
@@ -99,7 +95,7 @@ import { display } from '@kit.ArkUI';
 struct MarkerDemo {
   private mapOptions?: mapCommon.MapOptions;
   private mapController?: map.MapComponentController;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   @State mapHeight: number = 0;
 
 
@@ -126,7 +122,7 @@ struct MarkerDemo {
             longitude: 118.788765
           },
           clickable: true,
-          // 设置信息窗标题，点击标记后可展示信息窗
+         <em> // 设置信息窗标题，点击标记后可展示信息窗</em>
           title: '☆点击收藏'
         };
         await this.mapController?.addMarker(markerOptions);
@@ -143,7 +139,7 @@ struct MarkerDemo {
         MapComponent({
           mapOptions: this.mapOptions,
           mapCallback: this.callback,
-          // 自定义信息窗
+        <em>  // 自定义信息窗</em>
           customInfoWindow: this.customInfoWindow
         })
           .height(this.mapHeight);
@@ -152,11 +148,13 @@ struct MarkerDemo {
   }
 
 
-  // 自定义信息窗BuilderParam
+
+
+  <em>// 自定义信息窗BuilderParam</em>
   @BuilderParam customInfoWindow: ($$: map.MarkerDelegate) => void = this.customInfoWindowBuilder;
 
 
-  // 自定义信息窗Builder
+ <em> // 自定义信息窗Builder</em>
   @Builder
   customInfoWindowBuilder($$: map.MarkerDelegate) {
     if ($$.marker) {
@@ -181,11 +179,10 @@ struct MarkerDemo {
 }
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如何默认显示信息窗？
  

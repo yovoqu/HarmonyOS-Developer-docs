@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-test-14
 
-## Hypium框架中的BY.XPath指令为何获取不到控件
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在使用[DevEco Testing Hypium](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section16890204264419)框架时，通过BY.xpath来点击详情按钮，报错控件获取失败。代码如下：
  
@@ -21,38 +17,37 @@ component = driver.touch(BY.xpath("/root/Navigation/NavBar/NavBarContent/NavRout
 工程组件结构如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/4sSKvQSTQ36BVvqePBpGaw/zh-cn_image_0000002658928757.png?HW-CC-KV=V1&HW-CC-Date=20260701T025921Z&HW-CC-Expire=86400&HW-CC-Sign=0FA4F5B19592605DFD131323DD97BBFB687AA7FC60332B7D85F6951A3A983997)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/4sSKvQSTQ36BVvqePBpGaw/zh-cn_image_0000002658928757.png?HW-CC-KV=V1&HW-CC-Date=20260701T041010Z&HW-CC-Expire=86400&HW-CC-Sign=E30E2CA45059D5EF27F594F15249A966B9C8FA83A03EEB35F1A1A7CF87551274)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [API使用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section4598236435)：
 控件查看：可使用DevEco Testing Hypium插件中的UiViewer工具查看控件的各种属性。
 - 控件查找：Hypium中的定位操作目标的方式主要分三大类型，包括控件属性定位，图片匹配定位以及比例坐标定位。根据操作目标的定位准确性，首选方式为控件属性定位，次选图片匹配定位。当无法使用前两类方式定位时，可以选择比例坐标定位操作目标。其中控件属性定位通过BY选择器对象来实现。
 
  - BY.xpath使用要点：
+> [!NOTE]
+> XPath不能和其他匹配器一起使用，且通过XPath查找控件相对较慢。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/ySmHfOQ3QSqGZoCgaqLKqQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025921Z&HW-CC-Expire=86400&HW-CC-Sign=DA0F18F3057827FD82D2889200C92B9FD5F75CABB3E080BC9194889BB43D7CE1)
- 
-XPath不能和其他匹配器一起使用，且通过XPath查找控件相对较慢。
 
  
  
 
-##### 问题定位
+#### 问题定位
 
 从图中能够看到脚本里混用了BY.type和BY.xpath匹配器，违反了XPath选择器的使用限制。
  
  
 
-##### 分析结论
+#### 分析结论
 
 测试脚本里BY.xpath与BY.type匹配器混用导致BY.xpath匹配器失效。
  
  
 
-##### 修改建议
+#### 修改建议
 
 将测试脚本里的BY选择器都统一为BY.xpath或者将脚本中的BY.xpath换成其他的BY选择器。

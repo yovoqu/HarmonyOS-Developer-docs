@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1063
 
-## 使用Swiper实现图片的一镜到底转场效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如下代码中，oneBuilder和twoBuilder的图片元素如何在Swiper组件实现一镜到底的过渡效果？
  
@@ -26,7 +22,7 @@ struct Demo {
         .objectFit(ImageFit.Auto)
         .margin({ right: 8, left: 8, top: 8 })
         .aspectRatio(1)
-        .geometryTransition('cover') // 绑定标识符
+        .geometryTransition('cover') <em>// 绑定标识符</em>
     }
   }
 
@@ -40,7 +36,7 @@ struct Demo {
         .objectFit(ImageFit.Auto)
         .margin({ right: 8, left: 8, top: 8 })
         .aspectRatio(1)
-        .geometryTransition('cover', { follow: true }) // 绑定标识符
+        .geometryTransition('cover', { follow: true }) <em>// 绑定标识符</em>
     }
   }
 
@@ -74,7 +70,7 @@ struct Demo {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)：滑块视图容器，提供子组件滑动轮播显示的能力。
 - [NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)：基础组件，用于挂载自定义节点（如FrameNode或BuilderNode），并通过[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)动态控制节点的上树和下树。
@@ -83,14 +79,13 @@ struct Demo {
  
  
 
-##### 解决方案
+#### 解决方案
 
 该转场动效为交互式动画，需在Swiper滑动过程中实时绘制动画效果。实现方案如下：通过NodeContainer的节点迁移机制管理动画元素。监听Swiper的onContentDidScroll事件，获取实时偏移量。根据滑动位置position动态设置容器的平移量，以规避因状态变量更新导致的动画延迟。
- 
-- 通过继承并实现NodeController类，以管理图片节点的自定义创建和显示等操作。同时需要重写NodeController的makeNode()方法。该方法会在NodeController实例绑定到NodeContainer时被调用，并将返回的节点挂载到NodeContainer上。
+ 1. 通过继承并实现NodeController类，以管理图片节点的自定义创建和显示等操作。同时需要重写NodeController的makeNode()方法。该方法会在NodeController实例绑定到NodeContainer时被调用，并将返回的节点挂载到NodeContainer上。
 ```text
 class TransNodeController extends NodeController {
-  private node?: BuilderNode;
+  private node?: BuilderNode<[Object]>;
   private listener: TransListener;
 
 
@@ -110,7 +105,7 @@ class TransNodeController extends NodeController {
   }
 
 
-  // 移动节点
+ <em> // 移动节点</em>
   moveTo(target: TransNodeController) {
     this.detach();
     target.attach();
@@ -145,14 +140,26 @@ class TransNodeController extends NodeController {
 }
 ```
 
-- 监听Swiper页面的滑动事件，获取实时偏移量，并结合NodeContainer的节点迁移与绘制动画，实现NodeContainer中图片节点的“一镜到底”式动态转场效果。
+2. 监听Swiper页面的滑动事件，获取实时偏移量，并结合NodeContainer的节点迁移与绘制动画，实现NodeContainer中图片节点的“一镜到底”式动态转场效果。
 ```text
 .onContentDidScroll((selectedIndex, index, position) => {
   if (this.lastPositionToWindowX == 0) {
     this.lastPositionToWindowX = this.swiperInfos[selectedIndex].controller.getPositionToWindow()?.x ?? 0;
   }
   if (index == 1) {
-    if (position >= 0 && position  0) {
+    if (position >= 0 && position <= 1) {
+      if (position < 0.99) {
+        this.moveNode(0, 1);
+      } else {
+        this.moveNode(1, 0);
+      }
+      this.imageWidth = this.min_width + position * (this.max_width - this.min_width);
+      this.swiperInfos[index].transNodeTranslate = 0;
+    } else {
+      this.swiperInfos[index].transNodeTranslate = position * 100;
+    }
+  } else if (index == 0) {
+    if (position > 0) {
       this.swiperInfos[index].transNodeTranslate = position * 100;
     }
   }
@@ -160,14 +167,15 @@ class TransNodeController extends NodeController {
 })
 ```
  完整代码示例参考：
- 
+
+  
 ```text
 import { BuilderNode, NodeController } from '@kit.ArkUI';
 
 
-//实现NodeController，用于自定义节点的创建、显示等操作的管理
+<em>//实现NodeController，用于自定义节点的创建、显示等操作的管理</em>
 class TransNodeController extends NodeController {
-  private node?: BuilderNode;
+  private node?: BuilderNode<[Object]>;
   private listener: TransListener;
 
 
@@ -187,7 +195,7 @@ class TransNodeController extends NodeController {
   }
 
 
-  // 移动节点
+  <em>// 移动节点</em>
   moveTo(target: TransNodeController) {
     this.detach();
     target.attach();
@@ -222,9 +230,11 @@ class TransNodeController extends NodeController {
 }
 
 
+
+
 interface TransListener {
-  onAttach: () => BuilderNode;
-  onDetach?: (node: BuilderNode) => void;
+  onAttach: () => BuilderNode<[Object]>;
+  onDetach?: (node: BuilderNode<[Object]>) => void;
 }
 
 
@@ -272,7 +282,7 @@ class SwiperItemInfo {
   }
 
 
-  // UI属性
+ <em> // UI属性</em>
   @Trace translate: number = 0;
   @Trace transNodeTranslate: number = 0;
 }
@@ -281,16 +291,16 @@ class SwiperItemInfo {
 @Entry
 @Component
 struct SwiperTransitionDemo {
-  // 图片大小原始比例
+ <em> // 图片大小原始比例</em>
   @State imageWidth: number = 1;
-  // 最大宽度比和最小宽度比
+  <em>// 最大宽度比和最小宽度比</em>
   private max_width: number = 1;
   private min_width: number = 0.3;
-  // 图片位置
+ <em> // 图片位置</em>
   private lastPositionToWindowX: number = 0;
-  // 共享图片builder node对象
-  private transNode = new BuilderNode(this.getUIContext());
-  // node controller对象
+<em>  // 共享图片builder node对象</em>
+  private transNode = new BuilderNode<[TransNodeContent]>(this.getUIContext());
+  <em>// node controller对象</em>
   private swiperInfos: SwiperItemInfo[] = [
     new SwiperItemInfo(new TransNodeController({ onAttach: () => this.transNode })),
     new SwiperItemInfo(new TransNodeController({ onAttach: () => this.transNode }))
@@ -298,8 +308,8 @@ struct SwiperTransitionDemo {
 
 
   aboutToAppear(): void {
-    // 提前创建组件，提升页面响应速度
-    this.transNode.build(wrapBuilder(TransNodeContentBuilder), new TransNodeInfo(() => {
+   <em> // 提前创建组件，提升页面响应速度</em>
+    this.transNode.build(wrapBuilder<[TransNodeInfo]>(TransNodeContentBuilder), new TransNodeInfo(() => {
       this.imageBuilder();
     }));
     this.swiperInfos[0].controller.attach(false);
@@ -320,16 +330,16 @@ struct SwiperTransitionDemo {
       .objectFit(ImageFit.Auto)
       .margin({ right: 8, left: 8, top: 8 })
       .aspectRatio(1)
-      .geometryTransition('cover', { follow: true }) // 绑定标识符
+      .geometryTransition('cover', { follow: true }) <em>// 绑定标识符</em>
   }
 
 
   @Builder
   oneBuilder(info: SwiperItemInfo, index: number) {
-    // 使用堆叠容器，转场图片放到页面之上
+   <em> // 使用堆叠容器，转场图片放到页面之上</em>
     Stack() {
       Column() {
-        // 内容区域
+        <em>// 内容区域</em>
         Text('测试')
           .visibility(index === 0 ? Visibility.Hidden : Visibility.Visible)
           .padding({ top: 30, left: 30 })
@@ -340,11 +350,11 @@ struct SwiperTransitionDemo {
       .translate({ x: `${info.translate}%` })
 
 
-      // 使用NodeContainer显示自定义节点
+     <em> // 使用NodeContainer显示自定义节点</em>
       NodeContainer(info.controller)
         .width('100%')
         .position({ x: 8, y: 8 })
-        .translate({ x: `${info.transNodeTranslate}%` }) // 设置平移。
+        .translate({ x: `${info.transNodeTranslate}%` }) <em>// 设置平移。</em>
     }
     .position({ x: 0, y: 0 })
   }
@@ -373,13 +383,25 @@ struct SwiperTransitionDemo {
       .height('100%')
       .effectMode(EdgeEffect.None)
       .hitTestBehavior(HitTestMode.Transparent)
-      // 监听Swiper页面滑动事件，获取实时偏移量绘制动画。
+     <em> // 监听Swiper页面滑动事件，获取实时偏移量绘制动画。</em>
       .onContentDidScroll((selectedIndex, index, position) => {
         if (this.lastPositionToWindowX == 0) {
           this.lastPositionToWindowX = this.swiperInfos[selectedIndex].controller.getPositionToWindow()?.x ?? 0;
         }
         if (index == 1) {
-          if (position >= 0 && position  0) {
+          if (position >= 0 && position <= 1) {
+            if (position < 0.99) {
+              this.moveNode(0, 1);
+            } else {
+              this.moveNode(1, 0);
+            }
+            this.imageWidth = this.min_width + position * (this.max_width - this.min_width);
+            this.swiperInfos[index].transNodeTranslate = 0;
+          } else {
+            this.swiperInfos[index].transNodeTranslate = position * 100;
+          }
+        } else if (index == 0) {
+          if (position > 0) {
             this.swiperInfos[index].transNodeTranslate = position * 100;
           }
         }

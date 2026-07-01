@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-63
 
-## 如何适配服务端AES加解密
- 
-
-
-##### 问题现象
+#### 问题现象
 
 AES是常用的对称密钥加解密算法，HarmonyOS端和服务端传输的加密数据互相进行解密是常见场景，使用时发现HarmonyOS端无法解密服务端加密密文，如何参考服务端加解密代码生成HarmonyOS加解密。
  
@@ -38,7 +34,7 @@ public class AESUtil {
 
     public static void main(String[] args) {
         try {
-            // 16字节密钥（128位）
+           <em> // 16字节密钥（128位）</em>
             String key = "1234567890123456";
             String text = "这是一条测试密文";
 
@@ -58,13 +54,13 @@ public class AESUtil {
  
 加密密文为：
  
-```text
+```bash
 MPpBFmzUAW276P3C5cAQj7CSeVxb85MFUnPzxPQ1O30=
 ```
  
  
 
-##### 解决方案
+#### 解决方案
 
 HarmonyOS端对应代码如下：
  
@@ -74,20 +70,20 @@ import { buffer, util } from '@kit.ArkTS';
 
 const base64 = new util.Base64Helper();
 
-// 加密消息。
+<em>// 加密消息。</em>
 function encryptMessage(symKey: cryptoFramework.SymKey, message: string) {
   let plainText: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(message, 'utf-8').buffer) };
   let cipher = cryptoFramework.createCipher('AES128|ECB|PKCS5');
-  cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, null); // ECB模式params为null。
+  cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, null); <em>// ECB模式params为null。</em>
   let cipherData = cipher.doFinalSync(plainText);
   return base64.encodeToStringSync(cipherData.data);
 }
 
-// 解密消息。
+<em>// 解密消息。</em>
 function decryptMessage(symKey: cryptoFramework.SymKey, encryptText: string) {
   let cipherText: cryptoFramework.DataBlob = { data: base64.decodeSync(encryptText) };
   let decoder = cryptoFramework.createCipher('AES128|ECB|PKCS5');
-  decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, null); // ECB模式params为null。
+  decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, null); <em>// ECB模式params为null。</em>
   let decryptData = decoder.doFinalSync(cipherText);
   return buffer.from(decryptData.data).toString('utf-8');
 }
@@ -133,6 +129,6 @@ struct Index {
  
  
 
-##### 总结
+#### 总结
 
 加解密算法使用过程需要对明文或密文数据做编码格式处理，本示例中服务端对加密结果采用Base64编码，在HarmonyOS端同样需要保持同样的编解码处理。

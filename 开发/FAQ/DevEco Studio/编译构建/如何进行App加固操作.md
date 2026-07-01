@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-219
 
-## 如何进行App加固操作
- 
-
-
-##### 问题现象
+#### 问题现象
 
 开发的过程中，为了保护开发的App不被恶意破解，如何对App进行加密，混淆操作？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - HarmonyOS[反编译](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-data-prevention-9)安全性提供基础的应用加固安全能力，包括混淆、加密和代码签名，保护代码免受反编译和反调试。高级混淆功能目前由第三方支持。
 - 当前提供的加固方式有：混淆，加密。
@@ -25,19 +21,19 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-- 代码混淆：代码混淆是一种软件安全技术，旨在增加代码的复杂性和模糊性，从而增加攻击者分析和理解代码的难度。
-开启混淆能力：Stage模型的工程在**Release编译模式**下[使能混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section18326541833)，从DevEco Studio NEXT Developer Beta3（5.0.3.600）版本开始，默认不开启混淆。
-- 混淆配置能力：混淆配置文件obfuscation-rules.txt默认开启了四项推荐的混淆选项：**-enable-property-obfuscation**、**-enable-toplevel-obfuscation**、**-enable-filename-obfuscation**和 **-enable-export-obfuscation**，开发者可以根据需要进一步修改混淆配置。如果存在多个混淆规则文件，则可以参考[混淆规则合并策略](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-code-ob#section1842224516252)。
-- 配置保留选项：代码中可能有部分字段，方法不希望被混淆，这个时候可以通过配置混淆白名单，参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)。混淆常见案例汇总可以查看[扫描任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section18125192133818)中的混淆示例。
+- 代码混淆：代码混淆是一种软件安全技术，旨在增加代码的复杂性和模糊性，从而增加攻击者分析和理解代码的难度。1. 开启混淆能力：Stage模型的工程在**Release编译模式**下[使能混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section18326541833)，从DevEco Studio NEXT Developer Beta3（5.0.3.600）版本开始，默认不开启混淆。
 
- - 应用加密：为了保护应用代码安全，保护开发者的核心资产，HarmonyOS提供了端到端的应用代码保护机制，该机制以系统安全为基础，构建内核级应用生命周期内的代码安全保护能力。 **开发者向应用市场提交上架申请，上传应用包后可选择是否加密。选择加密的应用，在经过应用市场审核后，应用市场会对上架应用做代码加密。** 应用在设备上安装时，安装文件落盘后仍是处于加密状态，有效的保护应用程序；当应用程序启动时按需解密。应用加密采用标准AES加密算法，解密后的明文只存在于内存中，不会存储到设备。
+2. 混淆配置能力：混淆配置文件obfuscation-rules.txt默认开启了四项推荐的混淆选项：**-enable-property-obfuscation**、**-enable-toplevel-obfuscation**、**-enable-filename-obfuscation**和 **-enable-export-obfuscation**，开发者可以根据需要进一步修改混淆配置。如果存在多个混淆规则文件，则可以参考[混淆规则合并策略](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-code-ob#section1842224516252)。
+
+3. 配置保留选项：代码中可能有部分字段，方法不希望被混淆，这个时候可以通过配置混淆白名单，参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)。混淆常见案例汇总可以查看[扫描任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section18125192133818)中的混淆示例。
+- 应用加密：为了保护应用代码安全，保护开发者的核心资产，HarmonyOS提供了端到端的应用代码保护机制，该机制以系统安全为基础，构建内核级应用生命周期内的代码安全保护能力。 **开发者向应用市场提交上架申请，上传应用包后可选择是否加密。选择加密的应用，在经过应用市场审核后，应用市场会对上架应用做代码加密。** 应用在设备上安装时，安装文件落盘后仍是处于加密状态，有效的保护应用程序；当应用程序启动时按需解密。应用加密采用标准AES加密算法，解密后的明文只存在于内存中，不会存储到设备。
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用官方提供的代码加密能力后，应用代码是否需要其它的代码保护措施吗？
  

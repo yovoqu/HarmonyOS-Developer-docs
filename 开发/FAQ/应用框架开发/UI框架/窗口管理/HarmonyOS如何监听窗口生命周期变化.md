@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1081
 
-## HarmonyOS如何监听窗口生命周期变化
- 
-
-
-##### 问题现象
+#### 问题现象
 
 HarmonyOS如何监听不同情况窗口生命周期变化，比如窗口失焦/获焦、窗口前后台切换、窗口进入多任务等。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 开启WindowStage生命周期变化的监听：[windowStage.on('windowStageEvent')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#onwindowstageevent9)。
 - [WindowStageEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstageeventtype9)：WindowStage生命周期状态枚举。
@@ -25,7 +21,7 @@ HarmonyOS如何监听不同情况窗口生命周期变化，比如窗口失焦/�
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 监听窗口失焦与获焦的变化：
 可通过on('windowEvent')监听窗口的生命周期变化，其返回值WindowEventType.WINDOW_ACTIVE为获焦状态，值为WindowEventType.WINDOW_INACTIVE时为失焦状态。详情参考[PC或平板自由多窗模式下，如何做到主窗口获焦，子窗口隐藏](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-980)。
@@ -42,9 +38,9 @@ HarmonyOS如何监听不同情况窗口生命周期变化，比如窗口失焦/�
  
 监听不同情况窗口生命周期变化示例代码参考如下：
  
-```text
+```json
 onWindowStageCreate(windowStage: window.WindowStage): void {
-  // Main window is created, set main page for this ability
+ <em> // Main window is created, set main page for this ability</em>
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
 
@@ -57,23 +53,23 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
   });
 
 
-  // 监听windowStage生命周期变化
+ <em> // 监听windowStage生命周期变化</em>
   try {
     windowStage.on('windowStageEvent', (data) => {
       let stageEventType: window.WindowStageEventType = data;
 
 
       switch (stageEventType) {
-        case window.WindowStageEventType.ACTIVE: // 获焦状态
+        case window.WindowStageEventType.ACTIVE: <em>// 获焦状态</em>
           console.info(`windowStage active.`);
           break;
-        case window.WindowStageEventType.INACTIVE: // 失焦状态
+        case window.WindowStageEventType.INACTIVE: <em>// 失焦状态</em>
           console.info(`windowStage inactive.`);
           break;
-        case window.WindowStageEventType.SHOWN: // 切到前台
+        case window.WindowStageEventType.SHOWN: <em>// 切到前台</em>
           console.info(`windowStage foreground.`);
           break;
-        case window.WindowStageEventType.HIDDEN: // 切到后台
+        case window.WindowStageEventType.HIDDEN: <em>// 切到后台</em>
           console.info(`windowStage background.`);
           break;
         default:
@@ -85,7 +81,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
   }
 
 
-  // 监听窗口生命周期变化
+  <em>// 监听窗口生命周期变化</em>
   window.getLastWindow(this.context, (_, data) => {
     let windowClass = data;
     windowClass.on('windowEvent', (data) => {
@@ -93,16 +89,16 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 
 
       switch (winEventType){
-        case window.WindowEventType.WINDOW_ACTIVE: // 获焦状态
+        case window.WindowEventType.WINDOW_ACTIVE: <em>// 获焦状态</em>
           console.info(`window active.`);
           break;
-        case window.WindowEventType.WINDOW_INACTIVE: // 失焦状态
+        case window.WindowEventType.WINDOW_INACTIVE: <em>// 失焦状态</em>
           console.info(`window inactive.`);
           break;
-        case window.WindowEventType.WINDOW_SHOWN: // 切到前台
+        case window.WindowEventType.WINDOW_SHOWN: <em>// 切到前台</em>
           console.info(`window foreground.`);
           break;
-        case window.WindowEventType.WINDOW_HIDDEN: // 切到后台
+        case window.WindowEventType.WINDOW_HIDDEN: <em>// 切到后台</em>
           console.info(`window background.`);
           break;
         default:
@@ -115,7 +111,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用[getLastWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-f#windowgetlastwindow9)获取的window，当新建的窗口还未销毁此时获取window，就会报Window is nullptr和This window stage is abnormal，请问有什么好的解决办法？
  

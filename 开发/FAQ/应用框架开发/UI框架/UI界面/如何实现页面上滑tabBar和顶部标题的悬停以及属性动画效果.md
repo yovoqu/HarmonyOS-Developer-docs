@@ -4,27 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-807
 
-## 如何实现页面上滑tabBar和顶部标题的悬停以及属性动画效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 参照Scroll的[示例3](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#示例3嵌套滚动实现方式二)，实现了tabBar在页面顶部的悬停效果。
  
 如果页面顶部还有一个标题栏（即下图中“首页”），现在要实现tab内容向上滚动时tabBar悬停到标题栏下方（即下图中“同城”，“推荐”，“活动”，“玩机”这一行），且可以实现标题栏在滚动过程中样式变化（如下图背景变化），该如何实现？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/zEyTqjJlQGaBMschjh-wOQ/zh-cn_image_0000002628557796.png?HW-CC-KV=V1&HW-CC-Date=20260701T025650Z&HW-CC-Expire=86400&HW-CC-Sign=D79016AA7D16800137502C84237747A0CA5FB349C2901FF09AAB323D89617D56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/zEyTqjJlQGaBMschjh-wOQ/zh-cn_image_0000002628557796.png?HW-CC-KV=V1&HW-CC-Date=20260701T041207Z&HW-CC-Expire=86400&HW-CC-Sign=65C5E71DB6A869CC119A54460905D6E5A2D4F7418C6BBE100DDD6F2E6F429130)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/oroN3jKURw2xn_cwV3bmcg/zh-cn_image_0000002658917113.png?HW-CC-KV=V1&HW-CC-Date=20260701T025650Z&HW-CC-Expire=86400&HW-CC-Sign=9CB15D28F4B988B733524A42840D6895FD44FDB494B42744089AECB0F6F469F3)
-
- 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/oroN3jKURw2xn_cwV3bmcg/zh-cn_image_0000002658917113.png?HW-CC-KV=V1&HW-CC-Date=20260701T041207Z&HW-CC-Expire=86400&HW-CC-Sign=D896F22BF99FBED851A4B6BD08EE4205B664792B434CCA4620D93A2C56ED5A50)
 
  
+
+ 
  
 
-##### 背景知识
+#### 背景知识
 
 [Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)：堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件。
  
@@ -36,25 +32,15 @@
  
  
 
-##### 解决方案
-
-- 使用Stack层叠布局，将标题栏悬浮展示在页面顶部。
-- 考虑页面滚动以及tabContent里面的list滚动，就要考虑滚动嵌套问题，目前场景需要选择：
+#### 解决方案
+1. 使用Stack层叠布局，将标题栏悬浮展示在页面顶部。
+2. 考虑页面滚动以及tabContent里面的list滚动，就要考虑滚动嵌套问题，目前场景需要选择：
 向上滚动时：父组件先滚动，父组件滚动到边缘以后自身滚动；
-- 向下滚动时：自身先滚动，自身滚动到边缘以后父组件滚动。
+3. 向下滚动时：自身先滚动，自身滚动到边缘以后父组件滚动。
+4. 父组件滚动过程中，根据滚动偏移量线性修改标题栏样式（如字体大小、透明度、背景等），onDidScroll可以返回当前帧滚动的偏移量和当前滚动状态。
 
- 
-示例代码如下：
- 
-```text
-.nestedScroll({
-  scrollForward: NestedScrollMode.PARENT_FIRST,
-  scrollBackward: NestedScrollMode.SELF_FIRST
-});
-```
- - 父组件滚动过程中，根据滚动偏移量线性修改标题栏样式（如字体大小、透明度、背景等），onDidScroll可以返回当前帧滚动的偏移量和当前滚动状态。
-示例代码如下：
-```text
+  示例代码如下：
+```json
 @Entry
 @Component
 struct StickyNestedScroll {
@@ -65,7 +51,51 @@ struct StickyNestedScroll {
 
 
   aboutToAppear() {
-    for (let i = 0; i // 图片资源需自行替换
+    for (let i = 0; i < 30; i++) {
+      this.arr.push(i);
+    }
+  }
+
+
+  @Styles
+  listCard() {
+    .backgroundColor('#FFF')
+    .height(64)
+    .width('calc(100% - 32vp)')
+    .borderRadius(20)
+    .margin({
+      left: 16,
+      right: 16,
+    });
+  }
+
+
+  @Builder
+  tabBuilder(title: string, targetIndex: number) {
+    Column() {
+      Text(title)
+        .fontColor(this.currentIndex === targetIndex ? '#FFF' : '#000')
+        .fontSize(14)
+        .fontWeight(this.currentIndex === targetIndex ? 500 : 400);
+    }
+    .height(36)
+    .padding({
+      left: 16,
+      right: 16,
+    })
+    .margin({ left: 8 })
+    .borderRadius(20)
+    .backgroundColor(this.currentIndex === targetIndex ? '#0A59F7' : 'rgba(0, 0, 0, 0.05)')
+    .alignItems(HorizontalAlign.Center)
+    .justifyContent(FlexAlign.Center);
+  }
+
+
+  build() {
+    Stack() {
+      Scroll() {
+        Column() {
+          Image($r('app.media.scrollTopbg')) <em>// 图片资源需自行替换</em>
             .width('100%')
             .height(300);
           Tabs({ barPosition: BarPosition.Start }) {
@@ -105,14 +135,22 @@ struct StickyNestedScroll {
       .width('100%')
       .height('100%')
       .onDidScroll((xOffset: number, yOffset: number, scrollState: ScrollState): void => {
-        // 累计计算当前父组件滚动在Y轴方向的偏移量
+       <em> // 累计计算当前父组件滚动在Y轴方向的偏移量</em>
         this.curYOffset += yOffset;
-        // 根据父组件一共可以滚动的距离计算当前每帧的当前透明度
+      <em>  // 根据父组件一共可以滚动的距离计算当前每帧的当前透明度</em>
         let opacity = this.curYOffset / 220;
         if (opacity >= 1) {
           opacity = 1;
         }
-        if (opacity  // 悬浮标题栏
+        if (opacity <= 0) {
+          opacity = 0;
+        }
+        this.opacityNum = opacity;
+        console.info(`xOffset: ${xOffset},scrollState:${scrollState}`);
+      });
+
+
+     <em> // 悬浮标题栏</em>
       Text('工作台')
         .fontSize(24)
         .fontColor('#000')
@@ -127,18 +165,17 @@ struct StickyNestedScroll {
   }
 }
 ```
- 
- 
- 效果如图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/yFj47ZBHTqipBN61SNE6mA/zh-cn_image_0000002628397892.png?HW-CC-KV=V1&HW-CC-Date=20260701T025650Z&HW-CC-Expire=86400&HW-CC-Sign=FC463D5F2489F3D6D193CAAAE15190D386B94C9B8376985FE875C383C0A4642F)
 
 
+  效果如图：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/yFj47ZBHTqipBN61SNE6mA/zh-cn_image_0000002628397892.png?HW-CC-KV=V1&HW-CC-Date=20260701T041207Z&HW-CC-Expire=86400&HW-CC-Sign=D648D3B0FA9E7AFF5AB503FE13D6FAAA29239D0902E38220F45F361A710DFFC2)
+
  
  
 
-##### 总结
-
-- 悬浮类布局首先考虑Stack层叠布局。
-- 嵌套滚动，考虑父子组件之间的先后滚动模式，选择合适的滚动模式。
-- 滚动过程中，获取当前滚动每帧偏移量和滚动状态，做合适的UI更新。
+#### 总结
+1. 悬浮类布局首先考虑Stack层叠布局。
+2. 嵌套滚动，考虑父子组件之间的先后滚动模式，选择合适的滚动模式。
+3. 滚动过程中，获取当前滚动每帧偏移量和滚动状态，做合适的UI更新。

@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-50
 
-## 升级至API 26后使用“DocumentViewPicker”拉起文件选择Picker的聚合视图模式时支持文件格式过滤
- 
-
 **问题现象**
  
 升级API 26后，使用“DocumentViewPicker”拉起文件选择Picker的聚合视图模式时（“mergeMode”参数设置为非“DEFAULT”），选择Picker可选择的文件格式变少，且界面提示“仅显示应用需要的文件格式”。

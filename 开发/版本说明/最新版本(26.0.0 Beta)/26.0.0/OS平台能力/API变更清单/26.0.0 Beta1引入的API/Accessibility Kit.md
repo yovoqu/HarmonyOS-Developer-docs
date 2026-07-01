@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accessibilitykit-7001
 
-## Accessibility Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：accessibility； API声明：function isSeniorModeEnabled(): Promise&lt;boolean&gt;; 差异内容：function isSeniorModeEnabled(): Promise&lt;boolean&gt;; | api/@ohos.accessibility.d.ts |

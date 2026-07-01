@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-888
 
-## Text组件下Span布局属性和触摸事件无效
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Text组件内嵌套Span组件时，设置Span组件的布局属性会失效。
  
@@ -54,7 +50,7 @@ struct Index {
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Span](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span)组件是Text组件的子组件，遇到多个字符串拼接场景往往会利用Span组件来实现，但是Span组件的属性不像Text那样丰富，有如下特点：
  
@@ -65,7 +61,7 @@ struct Index {
  
  
 
-##### 解决方案
+#### 解决方案
 
 Text组件搭配Span组件使用时，仅可设置文本通用属性，如果需要实现Span组件的布局效果，建议使用Row和Text组件等其他代替方案实现。
  
@@ -121,12 +117,12 @@ struct Scene3 {
   build() {
     Column() {
       Text() {
-        // 在文本前后增加空格控制左右距离
+     <em>   // 在文本前后增加空格控制左右距离</em>
         Span(' 标题 ')
           .fontSize('20fp')
           .textBackgroundStyle({ color: Color.Green, radius: '5vp' })
           .fontColor(Color.White);
-        // 直接增加空格控制间距
+      <em>  // 直接增加空格控制间距</em>
         Span(' ').letterSpacing(10);
         Span('我是一段文本我是一段文本我是一段文本，我是一段文本我是一段文本我是一段文本，我是一段文本我是一段文本我是一段文本')
           .fontSize('20fp');
@@ -190,7 +186,7 @@ struct Scene5 {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：DevEco Studio版本（5.0.5.315），使用@Extend装饰器修饰Span，设置margin属性后编译运行报错。报错内容为“Error: Debug Failure. False expression: Node must have a real position for this operatior”。
  

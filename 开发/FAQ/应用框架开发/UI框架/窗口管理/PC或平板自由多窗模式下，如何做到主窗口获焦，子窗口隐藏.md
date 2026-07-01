@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-980
 
-## PC或平板自由多窗模式下，如何做到主窗口获焦，子窗口隐藏
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何实现PC或平板自由多窗模式下创建的子窗口，在主窗口获焦后，子窗口隐藏，在主窗口失焦后，子窗口显示？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [on('windowEvent')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowevent10)：可通过on('windowEvent')监听窗口的生命周期变化。
 - [minimize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#minimize11-1)：当调用对象为子窗口时，可实现隐藏功能。
@@ -23,13 +19,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 实现上述功能，可通过on('windowEvent')监听窗口的生命周期变化，其返回值2为获焦，值为3时为失焦状态。再通过minimize与showWindow对子窗口进行隐藏与显示。具体示例代码如下：
  
 在EntryAbility中onWindowStageCreate方法中，注册窗口监听事件：
  
-```text
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -74,19 +70,19 @@ export default class EntryAbility extends UIAbility {
 
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+  <em>  // Main window is destroyed, release UI related resources</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
 
   onForeground(): void {
-    // Ability has brought to foreground
+ <em>   // Ability has brought to foreground</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
 
   onBackground(): void {
-    // Ability has back to background
+<em>    // Ability has back to background</em>
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };

@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-computer-2
 
-## PC上不能通过鼠标控制图片滑动
- 
-
-
-##### 问题现象
+#### 问题现象
 
 PC上的应用，不能通过鼠标控制图片滑动。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)：滑动手势事件。当滑动的最小距离达到设定的最小值时触发滑动手势事件。
 - [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)：滑块视图容器，提供子组件滑动轮播显示的能力。
@@ -23,15 +19,14 @@ PC上的应用，不能通过鼠标控制图片滑动。
  
  
 
-##### 问题定位
-
-- 检查容器是否绑定滑动手势事件。如PanGesture事件。
+#### 问题定位
+1. 检查容器是否绑定滑动手势事件。如PanGesture事件。
 ```text
 Column() {
   Text('PanGesture offset:\nX: ' + this.offsetX + '\n' + 'Y: ' + this.offsetY)
 }
-.translate({ x: this.offsetX, y: this.offsetY, z: 0 }) // 以组件左上角为坐标原点进行移动
-// 左右滑动触发该手势事件
+.translate({ x: this.offsetX, y: this.offsetY, z: 0 }) <em>// 以组件左上角为坐标原点进行移动</em>
+<em>// 左右滑动触发该手势事件</em>
 .gesture(
   PanGesture(this.panOption)
     .onActionStart((event: GestureEvent) => {
@@ -41,25 +36,18 @@ Column() {
 )
 ```
 
-- 确保父容器未阻拦鼠标事件。如父组件设置了[hitTestBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior#hittestbehavior)(HitTestMode.BLOCK_DESCENDANTS)则会阻塞子节点响应触摸测试。
-
+2. 确保父容器未阻拦鼠标事件。如父组件设置了[hitTestBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior#hittestbehavior)(HitTestMode.BLOCK_DESCENDANTS)则会阻塞子节点响应触摸测试。
  
  
 
-##### 分析结论
-
-- 组件未声明支持鼠标拖拽事件。
-- 父容器阻拦了鼠标事件。
-
+#### 分析结论
+1. 组件未声明支持鼠标拖拽事件。
+2. 父容器阻拦了鼠标事件。
  
  
 
-##### 修改建议
-
-- 组件未声明支持鼠标拖拽事件：
+#### 修改建议
+1. 组件未声明支持鼠标拖拽事件：
 组件绑定PanGesture事件实现左右滑动。参考[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#示例)。
-- 如果是Swiper组件，将[disableSwipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#disableswipe8)设为false。因为Swiper组件内包含了[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)拖动手势事件，用于滑动轮播子组件。disableSwipe属性设为true会取消内部的PanGesture事件监听。
-
- 
-
-- 建议启用鼠标事件传递（参考：[如何实现事件透传](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-155)）。
+2. 如果是Swiper组件，将[disableSwipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#disableswipe8)设为false。因为Swiper组件内包含了[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)拖动手势事件，用于滑动轮播子组件。disableSwipe属性设为true会取消内部的PanGesture事件监听。
+1. 建议启用鼠标事件传递（参考：[如何实现事件透传](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-155)）。

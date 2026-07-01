@@ -4,18 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-906
 
-## Navigation自定义标题栏不生效问题如何修改
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用Navigation时，自定义了一个标题栏布局，使用其中的title方法无效。
  
 问题效果预览：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/tri6awaVTkOYHr-eEUEa2w/zh-cn_image_0000002628399758.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=A33D20C7606811455B27FB5698D57EE6D7F15B6EDAD8B6B9F2C72BABC558A137)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/tri6awaVTkOYHr-eEUEa2w/zh-cn_image_0000002628399758.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=9CFA63A6201B2E01C37FD81039028DCF5F776862589313B60F651DDD79292735)
 
  
 问题代码示例参考如下：
@@ -54,18 +50,18 @@ struct Index {
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)是路由容器组件，一般作为首页的根容器。其内部默认包含了标题栏、内容区和工具栏。其中内容区默认首页显示导航内容，标题栏和工具栏均支持传入自定义样式。
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用ArkUI Inspector查看应用布局，发现TitleBar不可见，标题栏未创建。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/Ji6AST-WSoe94WQ6chcO8Q/zh-cn_image_0000002658799027.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=C69F7ABAE5AE93EB507B94EA6B3953396C3119C30F2DBEDDB4B653E43E4B93A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/Ji6AST-WSoe94WQ6chcO8Q/zh-cn_image_0000002658799027.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=DD41FCABCB76CE3A9EA8C2267852B8618C2D1AEE366F8F0AB9B592841161C521)
 
  
 查看[title](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#title)传入参数类型，其中NavigationCustomTitle和CustomBuilder这两种类型均支持自定义标题栏样式。
@@ -106,8 +102,9 @@ struct NavTitleSolution1 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/rMk62wiUToC76vrcmLw15Q/zh-cn_image_0000002628559674.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=5FFBB53C64660EB97952255A2EF628F1F1AEBBD7C1EAD8377D9BD9D22A11181C)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/rMk62wiUToC76vrcmLw15Q/zh-cn_image_0000002628559674.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=E8BFD69D66F0781CCF06B674E6633BA51B5C9CF2B601D3D55580FA1B9A617CA8)
 
 - **方案二**：在title中直接传入自定义布局的方法。
 ```text
@@ -141,14 +138,15 @@ struct NavTitleSolution2 {
 }
 ```
  效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/2CquOetPTdOMgtO70jb4ag/zh-cn_image_0000002658918981.png?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=AFA396E539573DED0251380E23987161DED1342F92E9AA6593F76A3AD9ECFAA2)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/2CquOetPTdOMgtO70jb4ag/zh-cn_image_0000002658918981.png?HW-CC-KV=V1&HW-CC-Date=20260701T041142Z&HW-CC-Expire=86400&HW-CC-Sign=13199F3E9682418D420FBD1ECF52FD8D3D1F722A355BF0E00D358DCB843F2EE1)
 
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：NavDestination怎么修改单个页面标题文字颜色？
  

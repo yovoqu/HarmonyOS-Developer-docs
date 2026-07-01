@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-55
 
-## PNG图片透明像素转白色
- 
-
-
-##### 问题现象
+#### 问题现象
 
 将PNG图片分享到三方应用时，由于PNG图片存在透明通道，而三方应用不支持透明通道，因此PNG图片的透明背景会被转换成黑色背景。如何处理PNG图片，将透明背景转换为白色背景？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)为图像像素类，用于读取或写入图像数据以及获取图像信息，常用于图片的显示与处理。
 - [ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)将所支持格式的图片文件解码为PixelMap，用于显示或处理图片。当前支持的图片文件格式包括JPEG、PNG、GIF、WebP、BMP、SVG、ICO、DNG、HEIC。
@@ -23,20 +19,18 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 将PNG图片的透明背景修改为白色背景，需要解码PNG图片，读取图像像素数据；遍历像素数据，将透明像素修改为白色像素；最后将像素数据重新编码为图片文件。
  
 具体步骤包括：
- 
-- 首先通过ImageSource解码PNG图片为PixelMap。
-- 然后通过PixelMap获得图像的像素数据（RGBA）。遍历像素数据，将透明像素点（A=0）修改为白色像素点（R=255，G=255，B=255，A=255）。通过修改过的像素数据，生成白色背景PixelMap。
-- 最后通过ImagePacker将修改透明像素后的白色背景PixelMap重新编码为PNG图片。
-
+ 1. 首先通过ImageSource解码PNG图片为PixelMap。
+2. 然后通过PixelMap获得图像的像素数据（RGBA）。遍历像素数据，将透明像素点（A=0）修改为白色像素点（R=255，G=255，B=255，A=255）。通过修改过的像素数据，生成白色背景PixelMap。
+3. 最后通过ImagePacker将修改透明像素后的白色背景PixelMap重新编码为PNG图片。
  
 完整示例参考如下：
  
-```text
+```json
 import image from '@ohos.multimedia.image';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -52,30 +46,33 @@ struct PngWhiteBgDemo {
     let origPixelMap: image.PixelMap | undefined;
     let outputFile: fileIo.File | undefined;
     try {
-      // 解码PNG图片生成PixelMap
+   <em>   // 解码PNG图片生成PixelMap</em>
       const imgData = context.resourceManager.getRawFileContentSync(rawFilePath);
       imageSource = image.createImageSource(imgData.buffer.slice(0));
       origPixelMap = await imageSource.createPixelMap();
-      // 读取PixelMap图像像素数据
+   <em>   // 读取PixelMap图像像素数据</em>
       const pixelsBytesCnt = origPixelMap.getPixelBytesNumber();
       const pixelsBuffer = new ArrayBuffer(pixelsBytesCnt);
       await origPixelMap.readPixelsToBuffer(pixelsBuffer);
-      // 将透明像素修改为白色像素
+     <em> // 将透明像素修改为白色像素</em>
       const pixelsBufferView = new Uint8Array(pixelsBuffer);
-      for (let idx = 0; idx  // R
-          pixelsBufferView[idx + 1] = 255; // G
-          pixelsBufferView[idx + 2] = 255; // B
-          pixelsBufferView[idx + 3] = 255; // A
+      for (let idx = 0; idx < pixelsBytesCnt; idx += 4) {
+        const alpha = pixelsBufferView[idx + 3];
+        if (alpha === 0) {
+          pixelsBufferView[idx] = 255;<em> // R</em>
+          pixelsBufferView[idx + 1] = 255;<em> // G</em>
+          pixelsBufferView[idx + 2] = 255;<em> // B</em>
+          pixelsBufferView[idx + 3] = 255; <em>// A</em>
         }
       }
-      // 生成白色背景的PixelMap
+     <em> // 生成白色背景的PixelMap</em>
       const imgSize = (await origPixelMap.getImageInfo()).size;
       const initOpts: image.InitializationOptions = {
         size: imgSize,
         srcPixelFormat: image.PixelMapFormat.RGBA_8888,
       };
       this.whiteBgPixelMap = await image.createPixelMap(pixelsBuffer, initOpts);
-      // 重新编码PixelMap生成图片文件，并保存入沙箱路径
+    <em>  // 重新编码PixelMap生成图片文件，并保存入沙箱路径</em>
       imagePacker = image.createImagePacker();
       const packOpts: image.PackingOption = {
         format: 'image/png',
@@ -105,12 +102,12 @@ struct PngWhiteBgDemo {
 
   build() {
     Column({ space: 20 }) {
-      // 原始透明背景的Png图片
+  <em>    // 原始透明背景的Png图片</em>
       Image($rawfile('startIcon.png'))
         .width('50%')
         .aspectRatio(1)
         .backgroundColor(Color.Black);
-      // 修改背景颜色为白色后的PixelMap
+    <em>  // 修改背景颜色为白色后的PixelMap</em>
       Image(this.whiteBgPixelMap)
         .width('50%')
         .aspectRatio(1)
@@ -135,7 +132,7 @@ struct PngWhiteBgDemo {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：是否可以修改JPG格式图片的背景为白色。
  

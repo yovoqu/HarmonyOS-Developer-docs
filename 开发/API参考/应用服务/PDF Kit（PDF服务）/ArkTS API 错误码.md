@@ -3,22 +3,16 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pdf
-
 **支持设备：** Phone | PC/2in1 | Tablet
 
-## ArkTS API 错误码
- 
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/eG7zGN9aRdqOWN1NM278EQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025455Z&HW-CC-Expire=86400&HW-CC-Sign=AE773875B75EF816229680A190FEF5D1355491B644C2CF878D8C742A496CE406)
- 
- 
-以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-  
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
   
 
-##### 1011301001 数组大小不匹配
+#### 1011301001 数组大小不匹配
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -38,7 +32,9 @@ pageIndices和matrices数组长度不一致。
  
   
 
-##### 1011301002 页码值超出范围
+#### 1011301002 页码值超出范围
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -49,11 +45,9 @@ The page index value in pageIndices is out of valid range.
 pageIndices中的页码值不在合理范围。
  
 **可能原因**
- 
-- 页码值小于0。
-- 页码值大于等于PDF总页码数。
-- pageIndices的总页码数超过16。
-
+ 1. 页码值小于0。
+2. 页码值大于等于PDF总页码数。
+3. pageIndices的总页码数超过16。
  
 **处理步骤**
  
@@ -61,7 +55,9 @@ pageIndices中的页码值不在合理范围。
  
   
 
-##### 1011301003 尺寸超出最大值
+#### 1011301003 尺寸超出最大值
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -81,7 +77,9 @@ bitmapWidth × bitmapHeight的值超过2.5亿。
  
   
 
-##### 1011301004 创建bitmap失败
+#### 1011301004 创建bitmap失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -96,15 +94,15 @@ Failed to create a bitmap.
 系统资源不足。
  
 **处理步骤**
- 
-- 减少渲染页数，将多页批量渲染拆分为单页或少量页面依次渲染。
-- 关闭不用的PDF文档实例、清理图片缓存。
-- 尝试减小bitmapWidth或bitmapHeight的值，减少占用内存。
-
+ 1. 减少渲染页数，将多页批量渲染拆分为单页或少量页面依次渲染。
+2. 关闭不用的PDF文档实例、清理图片缓存。
+3. 尝试减小bitmapWidth或bitmapHeight的值，减少占用内存。
  
   
 
-##### 1011301005 bitmap渲染失败
+#### 1011301005 bitmap渲染失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -119,14 +117,14 @@ bitmap渲染失败。
 PDF文档不完整。
  
 **处理步骤**
- 
-- 使用PDF阅读器打开文件，确认文件能否正常显示。
-- 对比原文件和传输/复制后的文件大小，确保一致。
-
+ 1. 使用PDF阅读器打开文件，确认文件能否正常显示。
+2. 对比原文件和传输/复制后的文件大小，确保一致。
  
   
 
-##### 1011301006 PDF文档未加载
+#### 1011301006 PDF文档未加载
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

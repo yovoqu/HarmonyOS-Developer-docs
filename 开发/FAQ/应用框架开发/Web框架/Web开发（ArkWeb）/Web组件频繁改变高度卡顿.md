@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-140
 
-## Web组件频繁改变高度卡顿
- 
-
-
-##### 问题现象
+#### 问题现象
 
 频繁调整Web组件的高度导致卡顿？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [onScaleChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onscalechange9)：当前页面显示比例的变化时触发该回调。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 由于高度更新过于频繁，触发了不必要的重渲染或布局计算。
 - 可以使用节流或防抖来限制更新频率，减少性能消耗。
@@ -54,7 +50,7 @@ struct Demo {
 }
 
 class Util {
-  // 防抖，在一段时间内函数被多次触发，防抖让函数在一段时间内只执行一次
+ <em> // 防抖，在一段时间内函数被多次触发，防抖让函数在一段时间内只执行一次</em>
   static debounce(fun: (height: number) => void, delay?: number) {
     let timer: number;
     return (height: number) => {
@@ -69,11 +65,11 @@ class Util {
 @Entry
 @Component
 struct Index {
-  @State webHeight: number = 600; // 当前显示高度
-  constWebHeight: number = 600; // 基础计算高度
-  originScale: number = 100; // 初始比例
+  @State webHeight: number = 600; <em>// 当前显示高度</em>
+  constWebHeight: number = 600; <em>// 基础计算高度</em>
+  originScale: number = 100; <em>// 初始比例</em>
   webController: webview.WebviewController = new webview.WebviewController();
-  // 创建防抖函数实例（300ms延迟）
+<em>  // 创建防抖函数实例（300ms延迟）</em>
   debouncedSetHeight: (height: number) => void = Util.debounce((newHeight: number) => {
     this.webHeight = newHeight;
     console.info(`防抖后高度：${this.webHeight}`);
@@ -85,7 +81,7 @@ struct Index {
         controller: this.webController,
         changeEvent: (event: OnScaleChangeEvent) => {
           const targetHeight = this.constWebHeight * event.newScale / this.originScale;
-          this.debouncedSetHeight(targetHeight); // 此处触发防抖函数，替换成this.webHeight = targetHeight则表示不采用防抖函数
+          this.debouncedSetHeight(targetHeight); <em>// 此处触发防抖函数，替换成this.webHeight = targetHeight则表示不采用防抖函数</em>
         }
       });
     }
@@ -98,43 +94,50 @@ struct Index {
 html代码如下：
  
 ```text
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复杂页面示例</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#news">新闻</a></li>
+            <li><a href="#contact">联系我们</a></li>
+            <li><a href="#about">关于我们</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="home">
+        <h1>欢迎来到我们的网站</h1>
+        <p>这是一个示例页面，展示了如何创建一个复杂的HTML页面。</p>
+    </section>
+    <section id="news">
+        <h2>最新新闻</h2>
+        <article>
+            <h3>新闻标题</h3>
+            <p>这里是新闻的详细内容。</p>
+        </article>
+    </section>
+    <aside>
+        <h2>侧边栏</h2>
+        <p>这里是一些额外的信息或者广告。</p>
+    </aside>
+</main>
+<footer>
+    <p>© 2023 公司名称. 保留所有权利。</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
 
-
-    
-    
-    复杂页面示例
-    
-
-
-    
-        
-            首页
-            新闻
-            联系我们
-            关于我们
-        
-    
-
-
-    
-        欢迎来到我们的网站
-        这是一个示例页面，展示了如何创建一个复杂的HTML页面。
-    
-    
-        最新新闻
-        
-            新闻标题
-            这里是新闻的详细内容。
-        
-    
-    
-        侧边栏
-        这里是一些额外的信息或者广告。
-    
-
-
-    © 2023 公司名称. 保留所有权利。
-
+<style>
 
     body {
         font-family: Arial, sans-serif;
@@ -159,16 +162,16 @@ html代码如下：
         text-decoration: none;
     }
     main {
-        display: flex; /* 使用Flexbox布局 */
+        display: flex;<em> /* 使用Flexbox布局 */</em>
     }
     section, aside {
         padding: 20px;
     }
     section#home {
-        flex: 3; /* 主内容区域占据更多空间 */
+        flex: 3;<em> /* 主内容区域占据更多空间 */</em>
     }
     aside {
-        flex: 1; /* 侧边栏占据较少空间 */
+        flex: 1;<em> /* 侧边栏占据较少空间 */</em>
         background: #f4f4f4;
     }
     footer {
@@ -177,22 +180,18 @@ html代码如下：
         background: #333;
         color: #fff;
     }
-
+</style>
 ```
  
 可以通过双指捏动手机屏幕来实现页面的放大和缩小，对比观察是否采用防抖函数时的现象差。
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/RS_WH2L9QDuGwhLcLifkNA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025740Z&HW-CC-Expire=86400&HW-CC-Sign=F7DBEC4FEA632D0DDD35E9021B3AEB1DE269CCE2909811C401BD04129B8889D6)
- 
-
-防抖函数设置的时延delay指的是改变Column组件高度webHeight的间隔时间。
- 
+> [!NOTE]
+> 防抖函数设置的时延delay指的是改变Column组件高度webHeight的间隔时间。
 
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用Web组件页面时，在网页加载过程中，页面底部可能出现闪烁现象。
  

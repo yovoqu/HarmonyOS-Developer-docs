@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-805
 
-## 如何解决动态修改TextArea数量时光标跳转的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 当通过动态增删操作修改TextArea输入框数量时，光标会自动聚焦到默认输入框，当前输入的光标位置丢失。代码如下：
  
@@ -71,20 +67,20 @@ class AcquireModel {
 效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/yqjjzJQzQdW7H0fQbIg2jQ/zh-cn_image_0000002658917111.png?HW-CC-KV=V1&HW-CC-Date=20260701T025548Z&HW-CC-Expire=86400&HW-CC-Sign=FA51DE6F0ED34D787DE16AEDF61A22055FDD56C4A2D372113800C6A532EF8A49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/yqjjzJQzQdW7H0fQbIg2jQ/zh-cn_image_0000002658917111.png?HW-CC-KV=V1&HW-CC-Date=20260701T041317Z&HW-CC-Expire=86400&HW-CC-Sign=CE0FCEFAE371991FCE104D0AD51409C51B48B5EB5A9058FAFCA93D9CFF794269)
 
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/F_FbmY4OSs2kJKc2w2fidw/zh-cn_image_0000002628397890.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025548Z&HW-CC-Expire=86400&HW-CC-Sign=6B61CF7FDE627750E90E3EDBA4D737D8C89280CFCFFF5B8A22A84F44FAD773BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/F_FbmY4OSs2kJKc2w2fidw/zh-cn_image_0000002628397890.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041317Z&HW-CC-Expire=86400&HW-CC-Sign=048326CFCE678DDC81B765A66E10750DA100261C295C8457652A467AD7151E76)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea)为多行文本输入框组件，当输入的文本内容超过组件宽度时会自动换行显示。
 - [ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-foreach)接口基于数组类型数据来进行循环渲染。
@@ -93,15 +89,13 @@ class AcquireModel {
  
  
 
-##### 解决方案
+#### 解决方案
 
 当数组通过push/splice修改时，ForEach会重新渲染UI。由于TextArea是动态生成的，框架无法正确追踪每个输入框的生命周期，导致焦点丢失或默认聚焦到默认输入框。可通过以下方法避免光标跳转：
- 
-- 通过focusId明确跟踪当前聚焦的输入框。
-- 在删除操作后，通过deleteChange方法延迟恢复焦点。
-- 为每个输入框生成唯一ID，避免因DOM重排导致焦点错位。
-- 通过requestFocus精准定位光标，不依赖框架的自动分配。
-
+ 1. 通过focusId明确跟踪当前聚焦的输入框。
+2. 在删除操作后，通过deleteChange方法延迟恢复焦点。
+3. 为每个输入框生成唯一ID，避免因DOM重排导致焦点错位。
+4. 通过requestFocus精准定位光标，不依赖框架的自动分配。
  
 ```text
 import { util } from '@kit.ArkTS';

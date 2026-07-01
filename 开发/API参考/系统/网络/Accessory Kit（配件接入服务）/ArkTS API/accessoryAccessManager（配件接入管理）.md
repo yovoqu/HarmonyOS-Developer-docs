@@ -3,18 +3,16 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/accessory-accessoryaccessmanager
-
 **支持设备：** Phone | PC/2in1 | Tablet
-
-## accessoryAccessManager（配件接入管理）
- 
 
 配件接入管理模块面向华为分享生态合作配件设备及其生态应用提供关联唤醒、系统服务关联、按需调度和安全授信管理等能力。
  
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { accessoryAccessManager } from '@kit.AccessoryKit';
@@ -22,7 +20,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### DiscoveryType
+#### DiscoveryType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举类型，配件设备被主机设备发现和识别的通信类型。
  
@@ -39,7 +39,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### ServiceName
+#### ServiceName
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举类型，设备关联的服务名称。
  
@@ -58,7 +60,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### WakeupType
+#### WakeupType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举类型，唤醒应用的方式。
  
@@ -75,7 +79,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### StringResourceInfo
+#### StringResourceInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 被唤醒应用信息的简要说明。
  
@@ -94,7 +100,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### WakeupInfo
+#### WakeupInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 唤醒类型以及被唤醒应用的信息。
  
@@ -114,7 +122,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### ServiceInfo
+#### ServiceInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 关联的服务类型和对应的服务参数。
  
@@ -132,7 +142,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### PickerItemInfo
+#### PickerItemInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 配件的信息及配件关联的服务。
  
@@ -157,7 +169,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### AccessoryInfo
+#### AccessoryInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 配件信息。
  
@@ -177,7 +191,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### AccessEvent
+#### AccessEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举类型，配件设备接入事件。
  
@@ -200,7 +216,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### AttachServiceInfo
+#### AttachServiceInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 挂载配件信息和服务信息。
  
@@ -219,7 +237,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### AccessEventInfo
+#### AccessEventInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 配件接入事件信息。
  
@@ -239,7 +259,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### DetachServiceEvent
+#### DetachServiceEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举类型，移除配件服务状态。
  
@@ -257,7 +279,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### AccessManager
+#### AccessManager
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 配件接入管理器。
  
@@ -269,7 +293,9 @@ import { accessoryAccessManager } from '@kit.AccessoryKit';
  
   
 
-##### [h2]showAccessPicker
+#### showAccessPicker
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 showAccessPicker(items: Array&lt;PickerItemInfo&gt;, callback: Callback&lt;AccessEventInfo&gt;): number
  
@@ -327,7 +353,7 @@ let wakeupInfo: accessoryAccessManager.WakeupInfo = {
   'abilityName': 'EntryAbility',
   'briefDesc': briefDesc
 }
-let serviceInfo: Array = [
+let serviceInfo: Array<accessoryAccessManager.ServiceInfo> = [
   {
     serviceName: accessoryAccessManager.ServiceName.PARTNER_APP_ACCESSORY_COLLABORATION,
     parameters: {
@@ -339,11 +365,21 @@ let serviceInfo: Array = [
 // 此处创建了一张空图，开发时可自行换成所需图片
 const color: ArrayBuffer = new ArrayBuffer(96);
 let bufferArr: Uint8Array = new Uint8Array(color);
-for (let i = 0; i  {
+for (let i = 0; i < bufferArr.length; i++) {
+  bufferArr[i] = 0x80;
+}
+let opts: image.InitializationOptions = {
+  editable: true,
+  pixelFormat: image.PixelMapFormat.BGRA_8888,
+  size: { height: 4, width: 6 },
+  alphaType: image.AlphaType.UNPREMUL
+}
+let pixelMap: image.PixelMap | undefined = undefined;
+image.createPixelMap(color, opts).then((srcPixelMap: image.PixelMap) => {
   pixelMap = srcPixelMap;
 })
 
-let items: Array = [
+let items: Array<accessoryAccessManager.PickerItemInfo> = [
   {
     discoveryType: accessoryAccessManager.DiscoveryType.PARTNER_BLE_CONNECT,
     hasScreen: true,
@@ -369,7 +405,9 @@ hilog.info(0x0000, TAG, `showAccessPicker result: ${result}`);
  
   
 
-##### [h2]modifyDisplayName
+#### modifyDisplayName
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 modifyDisplayName(accessoryId: string, displayName: string): number
  
@@ -424,7 +462,9 @@ hilog.info(0x0000, TAG, `modifyDisplayName code: ${result}`);
  
   
 
-##### [h2]queryAttachedService
+#### queryAttachedService
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 queryAttachedService(): Array&lt;AttachServiceInfo&gt;
  
@@ -460,12 +500,14 @@ queryAttachedService(): Array&lt;AttachServiceInfo&gt;
 import { accessoryAccessManager } from '@kit.AccessoryKit';
 
 let accessoryManager: accessoryAccessManager.AccessManager = new accessoryAccessManager.AccessManager();
-let resultArr: Array = accessoryManager.queryAttachedService();
+let resultArr: Array<accessoryAccessManager.AttachServiceInfo> = accessoryManager.queryAttachedService();
 ```
  
   
 
-##### [h2]detachService
+#### detachService
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 detachService(attachId: number, callback: Callback&lt;DetachServiceEvent&gt;): number
  
@@ -525,7 +567,9 @@ hilog.info(0x0000, TAG, `detachService result: ${result}`);
  
   
 
-##### ChannelType
+#### ChannelType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举类型，连接的通道类型。
  
@@ -542,7 +586,9 @@ hilog.info(0x0000, TAG, `detachService result: ${result}`);
  
   
 
-##### ChannelEvent
+#### ChannelEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举类型，连接的通道状态。
  
@@ -562,7 +608,9 @@ hilog.info(0x0000, TAG, `detachService result: ${result}`);
  
   
 
-##### ChannelEventInfo
+#### ChannelEventInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 连接的通道信息。
  
@@ -584,7 +632,9 @@ hilog.info(0x0000, TAG, `detachService result: ${result}`);
  
   
 
-##### ConnectRequestInfo
+#### ConnectRequestInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 连接请求的信息。
  
@@ -603,7 +653,9 @@ hilog.info(0x0000, TAG, `detachService result: ${result}`);
  
   
 
-##### ConnectManager
+#### ConnectManager
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 连接管理器。
  
@@ -615,7 +667,9 @@ hilog.info(0x0000, TAG, `detachService result: ${result}`);
  
   
 
-##### [h2]registerConnectListener
+#### registerConnectListener
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 registerConnectListener(attachId: number, stateCallback: Callback&lt;ChannelEventInfo&gt;): number
  
@@ -655,7 +709,7 @@ registerConnectListener(attachId: number, stateCallback: Callback&lt;ChannelEven
  
 **示例：**
  
-```text
+```json
 import { accessoryAccessManager } from '@kit.AccessoryKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -683,7 +737,9 @@ hilog.info(0x0000, TAG, `modifyDisplayName code: ${result}`);
  
   
 
-##### [h2]unregisterConnectListener
+#### unregisterConnectListener
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 unregisterConnectListener(attachId: number): number
  
@@ -722,7 +778,7 @@ unregisterConnectListener(attachId: number): number
  
 **示例：**
  
-```text
+```json
 import { accessoryAccessManager } from '@kit.AccessoryKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -736,7 +792,9 @@ hilog.info(0x0000, TAG, `unregisterConnectListener result: ${JSON.stringify(resu
  
   
 
-##### [h2]connect
+#### connect
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 connect(connectRequestInfo: ConnectRequestInfo): number
  
@@ -775,7 +833,7 @@ connect(connectRequestInfo: ConnectRequestInfo): number
  
 **示例：**
  
-```text
+```json
 import { accessoryAccessManager } from '@kit.AccessoryKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -800,7 +858,9 @@ hilog.info(0x0000, TAG, `connect result: ${JSON.stringify(result)}`);
  
   
 
-##### [h2]disconnect
+#### disconnect
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 disconnect(attachId: number): number
  
@@ -839,7 +899,7 @@ disconnect(attachId: number): number
  
 **示例：**
  
-```text
+```json
 import { accessoryAccessManager } from '@kit.AccessoryKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 

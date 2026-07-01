@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-77
 
-## fs.write和fs.createStream区别及使用场景
- 
-
-
-##### 问题现象
+#### 问题现象
 
 @ohos.file.fs模块的fs.write和fs.createStream区别及使用场景是什么？
  
  
 
-##### 解决方案
+#### 解决方案
 
 在HarmonyOS的@ohos.file.fs模块中，[fs.write](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiowrite)和[fs.createStream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiocreatestream)是两种不同的文件写入方式:
  

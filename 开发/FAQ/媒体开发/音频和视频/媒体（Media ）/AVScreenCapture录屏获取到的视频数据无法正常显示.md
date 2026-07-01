@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-26
 
-## AVScreenCapture录屏获取到的视频数据无法正常显示
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用AVScreenCapture模块进行屏幕录制，在录屏结束获取完数据之后视频数据无法正常显示。核心代码如下：
  
@@ -23,45 +19,51 @@ OH_VideoCaptureInfo videocapinfo = {
 问题显示如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/6JfZxv8NStum0iy4C_UWlw/zh-cn_image_0000002628552652.png?HW-CC-KV=V1&HW-CC-Date=20260701T025828Z&HW-CC-Expire=86400&HW-CC-Sign=551BB6B39181DFC4ACA731228893FEA00937C83126C20E68D943E32B46E0D28E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/6JfZxv8NStum0iy4C_UWlw/zh-cn_image_0000002628552652.png?HW-CC-KV=V1&HW-CC-Date=20260701T041045Z&HW-CC-Expire=86400&HW-CC-Sign=7F582E87C4BDBD0502B41DC3642E95581EE24F65ED7073687B88E1811FAB951D)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [AVScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avscreencapture)：主要工作是捕获音频信号、视频信号，并通过音视频编码将屏幕信息保存到文件中，帮助开发者轻松实现屏幕录制功能，主要包括录屏存文件和录屏取码流两套接口，它允许调用者指定屏幕录制的编码格式、封装格式和文件路径等参数。
 [使用AVScreenCapture录屏取码流(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avscreencapture-for-buffer)：开发者可以调用录屏（AVScreenCapture）模块的C API接口，完成屏幕录制，采集设备内、麦克风等的音视频源数据。当开发直播、办公等应用时，可以调用录屏模块获取音视频原始码流，然后通过流的方式流转到其他模块处理，达成直播时共享桌面的场景。
 - [使用AVScreenCapture录屏写文件(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avscreencapture-for-file)：开发者可以调用录屏（AVScreenCapture）模块的C API接口，完成屏幕录制，采集设备内、麦克风等的音视频源数据。可以调用录屏模块获取音视频文件，然后通过文件的形式流转到其他模块进行播放或处理，达成文件形式分享屏幕内容的场景。
 
- - [视频编码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding)：可通过调用该模块的Native API接口，完成视频编码，即将未压缩的视频数据压缩成视频码流。在视频编码过程中，编码器会通过算法将图像划分为多个小块，然后逐块进行压缩处理。根据视频编码方式的不同，最大块（即宏块）大小也不同，当前系统支持的视频编码格式有HEVC(H.265)和AVC(H.264)两种，两者区别可参见下表： 
+ - [视频编码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding)：可通过调用该模块的Native API接口，完成视频编码，即将未压缩的视频数据压缩成视频码流。在视频编码过程中，编码器会通过算法将图像划分为多个小块，然后逐块进行压缩处理。根据视频编码方式的不同，最大块（即宏块）大小也不同，当前系统支持的视频编码格式有HEVC(H.265)和AVC(H.264)两种，两者区别可参见下表：
+
 |    | H.265 | H.264 |
+
 | --- | --- | --- |
+
 | 宏块大小 | 64x64（帧宽高均为64的整数倍） | 16x16（帧宽高均为16的整数倍） |
+
 | 编码效率 | 压缩率高，节省带宽和存储 | 相对较低 |
+
 | 画面质量 | 画面质量更好，低码率情况下优势明显 | 相对较差 |
+
 | 硬件要求 | 硬件要求高，老设备可能不支持 | 几乎所有视频播放设备都能支持 |
+
 | 计算复杂度 | 编码算法复杂，编解码所需时间和资源消耗都更高 | 复杂度较低，编解码速度较快 |
+
 | 适用场景 | 4K、8K超高清视频、流媒体服务、视频存储等领域 | 网络视频、监控系统、视频会议等对实时性要求高、设备性能有限的场景 |
 
  
  
 
-##### 问题定位
-
-- debug发现OH_AVBuffer_GetAddr(buffer)里面实际有录屏的数据，并且日志里面也没有报错信息。这说明录屏过程并没有问题，可能是录屏数据在编解码/渲染显示的过程中出现了异常。
-- 排查代码时发现，代码里通过OH_VideoCodecFormat指定了视频编码格式为OH_H265，而录屏的帧宽高为720x1280，帧宽度并不是64的整数倍，不符合H.265的分辨率大小要求。
-
+#### 问题定位
+1. debug发现OH_AVBuffer_GetAddr(buffer)里面实际有录屏的数据，并且日志里面也没有报错信息。这说明录屏过程并没有问题，可能是录屏数据在编解码/渲染显示的过程中出现了异常。
+2. 排查代码时发现，代码里通过OH_VideoCodecFormat指定了视频编码格式为OH_H265，而录屏的帧宽高为720x1280，帧宽度并不是64的整数倍，不符合H.265的分辨率大小要求。
  
  
 
-##### 分析结论
+#### 分析结论
 
 采用H.265格式给视频编码时，算法会将帧画面划分为64x64大小的块，后续帧内/帧间预测时的残差块的大小也与之相同。而录屏时设定的帧宽度并非64的整数倍，因此使得视频画面在编解码过程中产生画面异常。
  
  
 
-##### 修改建议
+#### 修改建议
 
 将视频的宽度和高度设置为64的倍数，例如768*1280，以此来适应视频编码的标准。
  
@@ -69,7 +71,7 @@ OH_VideoCaptureInfo videocapinfo = {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用AVScreenCapture录屏取码流，出现Native层数据持续增长，调用释放资源的接口，应在什么时机进行资源释放？
  

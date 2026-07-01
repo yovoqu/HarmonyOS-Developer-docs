@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-development-10
 
-## 如何解决构建HAR包时头文件未被打包的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 含有C++代码的工程编译源码HAR包时，源码、so文件和资源文件都被正确打包，但是头文件（通常位于include目录下）却未被包含进最终的HAR包中。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [源码HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-har#section1031922925716)：是产物包含源码的HAR包，其中包含源码、资源文件以及配置文件等，方便开发者进行本地调测。
 - [配置CPP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-cpp)：通过配置工程中的选项，定制化CPP相关的编译。
@@ -22,10 +18,11 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 - CPP配置包含externalNativeOptions和nativeLib，在模块级build-profile.json5文件中，通过正确配置nativeLib的headerPath属性，以确保头文件能够被包含进HAR包中。
-参考配置如下：
+
+  参考配置如下：
 ```text
 "externalNativeOptions": {
   "path": "./src/main/cpp/CMakeLists.txt",

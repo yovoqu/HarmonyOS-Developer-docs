@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-21
 
-## 视频解码如何传入SPS，PPS数据
- 
-
-
-##### 问题现象
+#### 问题现象
 
 视频文件在解封装后得到H264裸流数据，然后使用编码器工具VideoDecoder组件时使用其硬解码功能，在创建解码器时，如何传入SPS，PPS数据给解码器？
  
  
 
-##### 背景知识
+#### 背景知识
 
 SPS和PPS都为H264编码中的重要数据信息。
  
@@ -25,15 +21,20 @@ SPS和PPS都为H264编码中的重要数据信息。
 H264原始码流是由若干NALU组成的结构，如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/AeCYYtknTSOx7FOxbSiYFA/zh-cn_image_0000002658791637.png?HW-CC-KV=V1&HW-CC-Date=20260701T025833Z&HW-CC-Expire=86400&HW-CC-Sign=1EFF5487E14353DD4392E80B531AC41FBB6AC2319499DF84FF6106F854B18C95)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/AeCYYtknTSOx7FOxbSiYFA/zh-cn_image_0000002658791637.png?HW-CC-KV=V1&HW-CC-Date=20260701T041050Z&HW-CC-Expire=86400&HW-CC-Sign=2983BA8853E88BAF2B2041FF9006C1105F23DF9423A20DADF445FC3DD1523B56)
 
  
 - NALU（Network Abstraction Layer Units）：网络抽象层。每个NAL单元是一个有一定语法元素的可变长字节字符串，包括一个字节的NAL Header（用来表示数据类型），以及若干整数字节的原始字节序列负荷（RBSP）。在实际的H264数据帧中，往往帧前面带有00 00 00 01或00 00 01的分隔符，其后跟随NAL单元数据。一个NAL单元可以携带一个编码片，I帧、P帧、B帧、一个序列参数集（SPS）、或一个图像参数集（PPS）。
- H264采用NAL单元可以适用于多种网络，而且能进一步提高其抗误码能力。通过序列号的设置可以发现丢失的是哪一个VLC单元，冗余编码图像使得基本编码图像丢失仍可得到较粗糙的图像。
- NAL Header（1 byte）的组成为：forbidden_zero_bit(1bit)+nal_ref_idc(2bit)+nal_unit_type(5bit)
- forbidden_zero_bit：禁止位，初始为0，当网络发现NAL单元有比特错误时可设置该比特为1，以便接收方纠错或丢掉该单元。
- nal_ref_idc：nal重要性指示，标志该NAL单元的重要性，值越大，越重要，解码器在解码处理不过来的时候，可以丢掉重要性为0的NALU。
- nal_unit_type：用来识别不同NAL单元类型：
+
+  H264采用NAL单元可以适用于多种网络，而且能进一步提高其抗误码能力。通过序列号的设置可以发现丢失的是哪一个VLC单元，冗余编码图像使得基本编码图像丢失仍可得到较粗糙的图像。
+
+  NAL Header（1 byte）的组成为：forbidden_zero_bit(1bit)+nal_ref_idc(2bit)+nal_unit_type(5bit)
+
+  forbidden_zero_bit：禁止位，初始为0，当网络发现NAL单元有比特错误时可设置该比特为1，以便接收方纠错或丢掉该单元。
+
+  nal_ref_idc：nal重要性指示，标志该NAL单元的重要性，值越大，越重要，解码器在解码处理不过来的时候，可以丢掉重要性为0的NALU。
+
+  nal_unit_type：用来识别不同NAL单元类型：
 
   
 | nal_unit_type | NAL单元和RBSP语法结构的内容 |
@@ -62,21 +63,21 @@ H264原始码流是由若干NALU组成的结构，如下图所示：
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用AVCodec进行解码的流程中，给视频解码器传入SPS和PPS数据，都需要通过[OH_VideoDecoder_PushInputBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_pushinputbuffer)函数在传入首帧数据时传入SPS/PPS数据。
  
 传入SPS、PPS数据也分为首次传入和重新传入两种情况，两种情况的操作流程有一些区别：
- 
-- 首次传入SPS/PPS数据：在创建解码器并首次配置完回调函数和参数后，调用[OH_VideoDecoder_Start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_start)函数让解码器开始工作。然后通过调用OH_VideoDecoder_PushInputBuffer函数在首帧传入SPS/PPS帧和I帧的拼接帧或者仅传入SPS/PPS帧，即可首次传入SPS、PPS数据给解码器。
- 具体代码实现可以参考：[视频解码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface模式)中调用OH_VideoDecoder_Start的步骤和调用OH_VideoDecoder_PushInputBuffer步骤。
-- 重新传入SPS/PPS数据：在解码器创建之后，需要重新传入SPS/PPS数据或者分批次传入SPS/PPS的数据时，可以[使用OH_VideoDecoder_Flush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_flush)函数刷新解码器，在刷新解码器后，解码器仍处于运行态，但会清除解码器中缓存的输入和输出数据及参数集如H.264格式的PPS/SPS，此时调用OH_VideoDecoder_Start接口重新让解码器开始工作，再调用OH_VideoDecoder_PushInputBuffer函数传入SPS/PPS帧和I帧的拼接帧或者仅传入SPS/PPS帧，即可重新传入SPS、PPS数据给解码器。
- 具体代码实现可以参考：[视频解码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface模式)中调用OH_VideoDecoder_Flush的步骤。
+ 1. 首次传入SPS/PPS数据：在创建解码器并首次配置完回调函数和参数后，调用[OH_VideoDecoder_Start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_start)函数让解码器开始工作。然后通过调用OH_VideoDecoder_PushInputBuffer函数在首帧传入SPS/PPS帧和I帧的拼接帧或者仅传入SPS/PPS帧，即可首次传入SPS、PPS数据给解码器。
 
+  具体代码实现可以参考：[视频解码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface模式)中调用OH_VideoDecoder_Start的步骤和调用OH_VideoDecoder_PushInputBuffer步骤。
+2. 重新传入SPS/PPS数据：在解码器创建之后，需要重新传入SPS/PPS数据或者分批次传入SPS/PPS的数据时，可以[使用OH_VideoDecoder_Flush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_flush)函数刷新解码器，在刷新解码器后，解码器仍处于运行态，但会清除解码器中缓存的输入和输出数据及参数集如H.264格式的PPS/SPS，此时调用OH_VideoDecoder_Start接口重新让解码器开始工作，再调用OH_VideoDecoder_PushInputBuffer函数传入SPS/PPS帧和I帧的拼接帧或者仅传入SPS/PPS帧，即可重新传入SPS、PPS数据给解码器。
+
+  具体代码实现可以参考：[视频解码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface模式)中调用OH_VideoDecoder_Flush的步骤。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：如果在配置视频解码器时，已经通过OH_MD_KEY_CODEC_CONFIG设置了SPS/PPS，后续在输入解码帧时，是否需要继续输入SPS/PPS帧？
  

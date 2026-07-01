@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-screentimeguardkit-7001
 
-## Screen Time Guard Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：GuardServiceErrorCode； API声明：SYSCAP_UNSUPPORTED_STRATEGY_TYPE = 1019000011 差异内容：SYSCAP_UNSUPPORTED_STRATEGY_TYPE = 1019000011 | api/@hms.utilityApplication.screenTimeGuard.guardService.d.ts |

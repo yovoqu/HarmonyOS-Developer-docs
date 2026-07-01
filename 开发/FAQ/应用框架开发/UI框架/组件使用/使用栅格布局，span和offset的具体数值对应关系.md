@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1357
 
-## 使用栅格布局，span和offset的具体数值对应关系
- 
-
-
-##### 问题现象
+#### 问题现象
 
 栅格布局中span和offset的对应关系是怎么样的，以设置span：8，offset：3为例进行说明。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [栅格布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout)是一种通用的辅助定位工具，对移动设备的界面设计有较好的借鉴作用。
 - [span](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridcol#span)：设置占用列数。span为0，意味着该元素不参与布局计算，即不会被渲染。
@@ -27,7 +23,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 已知默认列数为12，span为占用列数，offset为距离前一个的列数，以span：8，offset：3为例可知：
  
@@ -49,7 +45,7 @@ struct GridRowExample {
   build() {
     Column() {
       GridRow({
-        // 默认个数为12
+     <em>   // 默认个数为12</em>
         columns: 12,
         gutter: { x: 5, y: 10 },
         breakpoints: {
@@ -59,7 +55,7 @@ struct GridRowExample {
         direction: GridRowDirection.Row
       }) {
         ForEach(this.bgColors, (color: Color) => {
-          // 设置span为8，offset为3
+       <em>   // 设置span为8，offset为3</em>
           GridCol({ span: 8, offset: 3, order: 0 }) {
             Row().width('100%').height('20vp');
           }.borderColor(color).borderWidth(2);

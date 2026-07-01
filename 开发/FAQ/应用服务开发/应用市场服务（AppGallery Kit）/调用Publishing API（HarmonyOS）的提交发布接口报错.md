@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-83
 
-## 调用Publishing API（HarmonyOS）的提交发布接口报错
- 
-
-
-##### 问题现象
+#### 问题现象
 
 调用Publishing API（HarmonyOS）的[提交发布接口](https://developer.huawei.com/consumer/cn/doc/app/agc-help-publish-api-app-submit-0000002271160585)，返回错误信息：
  
@@ -24,6 +20,6 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过调用的入参"releaseType":3，可以看出应用为[分阶段发布](https://developer.huawei.com/consumer/cn/doc/app/agc-help-maintain-phased-release-0000002271493785)类型，提交分阶段发布的前提为已经有一个全网在架的版本了，否则返回“there is no full release version on shelf”的报错信息，先提交全网在架版本，再提交分阶段发布版本。

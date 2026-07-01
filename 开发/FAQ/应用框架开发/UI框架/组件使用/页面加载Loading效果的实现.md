@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-825
 
-## 页面加载Loading效果的实现
- 
-
-
-##### 问题现象
+#### 问题现象
 
 页面加载时有时延，较长时会被感知到，如何解决该问题？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [LoadingProgress()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)是用于显示加载动效的组件。
 - [rotate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation)用于设置组件旋转。
@@ -23,403 +19,401 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 根据业务场景，有三种方案实现该效果：
- 
-- 参考LoadingProgress()[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress#示例1设置颜色)。
-- 通过图片旋转模拟Loading效果。
+ 1. 参考LoadingProgress()[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress#示例1设置颜色)。
+2. 通过图片旋转模拟Loading效果。
 ```text
-@Entry
-@Component
-struct LoadingExample {
-  @State loading: boolean = false;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">LoadingExample </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">loading</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 20 }) {
-      LoadingView({ loading: this.loading })
-      Row({ space: 20 }) {
-        Button('开始').onClick(() => {
-          this.loading = true;
-        })
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">LoadingView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">loading</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loading </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">开始</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loading </span><span style="color: rgb(181,106,1);">= </span>true<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
 
-        Button('结束').onClick(() => {
-          this.loading = false;
-        })
-      }
-    }
-    .width('100%')
-    .height('100%')
-  }
-}
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">结束</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loading </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-@Component
-struct LoadingView {
-  @Prop loading: boolean = false;
-  //图片旋转角度
-  @State angel: number = 0;
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">LoadingView </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(181,106,1);">@Prop </span><span style="color: rgb(0,0,255);">loading</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">;</span>
+  <em><span style="color: rgb(128,128,128);">//</span><span style="color: rgb(128,128,128);">图片旋转角度</span></em>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">angel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Image($r('app.media.startIcon'))  // 图片资源自行替换
-      .width(30)
-      .height(30)
-      .rotate({
-        centerX: "50%",
-        centerY: "50%",
-        angle: this.angel,
-      })
-      .draggable(false)
-      .visibility(this.loading ? Visibility.Visible : Visibility.None)
-      .onAppear(() => {
-        this.getUIContext()?.animateTo({
-          curve: Curve.Linear,
-          playMode: PlayMode.Normal,
-          iterations: -1, // 设置-1表示动画无限循环
-          onFinish: () => {
-          }
-        }, () => {
-          this.angel = 360;
-        });
-      })
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">))  </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">图片资源自行替换</span></em>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rotate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">centerX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"50%"</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">centerY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">"50%"</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">angle</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">angel</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">draggable</span><span style="color: rgb(0,0,255);">(</span>false<span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">visibility</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loading </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Visible </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Visibility</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onAppear</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">animateTo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Linear</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">playMode</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">PlayMode</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Normal</span><span style="color: rgb(181,106,1);">,</span>
+          <span style="color: rgb(0,0,255);">iterations</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">设置</span><span style="color: rgb(128,128,128);">-1</span><span style="color: rgb(128,128,128);">表示动画无限循环</span></em>
+          <span style="color: rgb(0,0,255);">onFinish</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">          }</span>
+<span style="color: rgb(255,0,170);">        }</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">angel </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">360</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  代码运行效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/sUiS152zR-qciaaApdArog/zh-cn_image_0000002628398440.png?HW-CC-KV=V1&HW-CC-Date=20260701T025549Z&HW-CC-Expire=86400&HW-CC-Sign=2D98C9095D21C8E55EDF7059A3EC1A5B1BD509B9566AFD118F8194A2562976EB)
 
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/sUiS152zR-qciaaApdArog/zh-cn_image_0000002628398440.png?HW-CC-KV=V1&HW-CC-Date=20260701T041332Z&HW-CC-Expire=86400&HW-CC-Sign=F2CF69A5FBB8288C2CF7806B41D00103CF10D04A8DB8E548C44A8DEA7830A740)
 
-- 自定义LoadingView，供全局调用。
+1. 自定义LoadingView，供全局调用。
 自定义LoadingView.ets。
 ```text
-export class LoadingTime {
-  // 显示时间为baseTime+msg.length*wordTime
-  static baseTime: number = 400; // 消息显示基本时间
-  static wordTime: number = 90; // 每个字增加显示的时间
+export class <span style="color: rgb(0,0,255);">LoadingTime </span><span style="color: rgb(255,0,170);">{</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">显示时间为</span><span style="color: rgb(128,128,128);">baseTime+msg.length*wordTime</span></em>
+  static <span style="color: rgb(0,0,255);">baseTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">400</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">消息显示基本时间</span></em>
+  static <span style="color: rgb(0,0,255);">wordTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(181,106,1);">; </span><em>// </em><em><span style="color: rgb(128,128,128);">每个字增加显示的时间</span></em>
 
-  // 最终显示时间为上面计算结果限制到最短与最长之间
-  static minTime: number = 1600; // 最短显示时间
-  static maxTime: number = 4200; // 最长显示时间
-};
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">最终显示时间为上面计算结果限制到最短与最长之间</span></em>
+  static <span style="color: rgb(0,0,255);">minTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1600</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">最短显示时间</span></em>
+  static <span style="color: rgb(0,0,255);">maxTime</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">4200</span><span style="color: rgb(181,106,1);">; </span><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">最长显示时间</span></em>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-export enum LoadingType {
-  Loading = 0,
-  Info,
-  Success,
-  Error,
-  Length
-};
+export enum <span style="color: rgb(0,0,255);">LoadingType </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">Loading </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">Info</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">Success</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">Error</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">Length</span>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-interface LoadingParam {
-  msg: string,
-  cancelCallBack?: () => void,
-  alignment?: DialogAlignment,
-  offset?: Offset,
-  showInSubWindow?: boolean,
-  isModal?: boolean,
-  tmpHUDNum?: number, // 缓存HUD的数量，用于多层返回HUD不显示情况
-};
+interface <span style="color: rgb(0,0,255);">LoadingParam </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Offset</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">tmpHUDNum</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">number</span><span style="color: rgb(181,106,1);">,</span><em> </em><em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓存</span><span style="color: rgb(128,128,128);">HUD</span><span style="color: rgb(128,128,128);">的数量，用于多层返回</span><span style="color: rgb(128,128,128);">HUD</span><span style="color: rgb(128,128,128);">不显示情况</span></em>
+<span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@CustomDialog
-struct _LoadingView {
-  controller: CustomDialogController;
-  close: () => void = () => {
-  };
-  type: LoadingType = LoadingType.Loading;
-  image: ResourceStr | undefined = undefined;
-  @State angle: number = 0;
-  msg: string = '';
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@CustomDialog</span>
+struct <span style="color: rgb(0,0,255);">_LoadingView </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">controller</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomDialogController</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">close</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">  }</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LoadingType </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Loading</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">ResourceStr </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>undefined<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(0,0,255);">angle</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">;</span>
 
-  aboutToAppear() {
-    if (this.type === LoadingType.Loading) {
-      setTimeout(() => {
-        this.angle = 360;
-      }, 100);
-    }
-  }
+  <span style="color: rgb(0,0,255);">aboutToAppear</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Loading</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">angle </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">360</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  build() {
-    Column() {
-      if (this.type === LoadingType.Loading) {
-        Row()
-          .width(this.getUIContext().px2vp(200))
-          .height(this.getUIContext().px2vp(200))
-          .sweepGradient({
-            center: [this.getUIContext().px2vp(100), this.getUIContext().px2vp(100)],
-            rotation: 280,
-            start: 0,
-            end: 360,
-            colors:
-            [['rgba(255, 255, 255, 0.0)', 0.0], ['rgba(255, 255, 255, 0.0)', 0.18], ['rgba(255, 255, 255, 1.0)', 1.0]]
-          })
-          .clipShape(new Path({
-            width: 100, height: 100, commands:
-            `M100 10 A90 90 0 1 0 190 100 A2 8 0 1 0 182 100 A82 82 0 1 1 100 18 A4 4 0 0 0 100 10 Z`
-          }))
-          .rotate({
-            z: 1,
-            angle: this.angle
-          })
-          .animation({
-            duration: 1000,
-            curve: Curve.Linear,
-            iterations: -1,
-            expectedFrameRateRange: {
-              min: 20,
-              max: 60,
-              expected: 60,
-            }
-          })
-          .scale({ x: 0.9, y: 0.9 })
-      } else if (this.image) {
-        Image(this.image)
-          .fitOriginalSize(true)
-          .objectFit(ImageFit.None)
-      }
-      if (this.msg) {
-        Text(this.msg)
-          .fontColor(Color.White)
-          .textAlign(TextAlign.Center)
-          .padding({ top: this.type === LoadingType.Loading || this.image ? 10 : 0 })
-      }
-    }
-    .justifyContent(FlexAlign.Center)
-    .alignItems(HorizontalAlign.Center)
-    .padding(12)
-    .margin(30)
-    .backgroundColor(Color.Black)
-    .borderRadius(10)
-    .shadow({
-      radius: 10,
-      color: Color.Gray,
-      offsetX: 3,
-      offsetY: 0
-    })
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Loading</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Row</span><span style="color: rgb(0,0,255);">()</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">))</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">200</span><span style="color: rgb(0,0,255);">))</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">sweepGradient</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">center</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">[</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">px2vp</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(0,0,255);">)]</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">rotation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">280</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">start</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">end</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">360</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">colors</span><span style="color: rgb(181,106,1);">:</span>
+            <span style="color: rgb(0,0,255);">[[</span><span style="color: rgb(255,0,170);">'rgba(255, 255, 255, 0.0)'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.0</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'rgba(255, 255, 255, 0.0)'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">0.18</span><span style="color: rgb(0,0,255);">]</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">[</span><span style="color: rgb(255,0,170);">'rgba(255, 255, 255, 1.0)'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1.0</span><span style="color: rgb(0,0,255);">]]</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">clipShape</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">Path</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">100</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">commands</span><span style="color: rgb(181,106,1);">:</span>
+            <span style="color: rgb(255,0,170);">`M100 10 A90 90 0 1 0 190 100 A2 8 0 1 0 182 100 A82 82 0 1 1 100 18 A4 4 0 0 0 100 10 Z`</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">))</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">rotate</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">z</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">angle</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">angle</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">animation</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+            <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Linear</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">iterations</span><span style="color: rgb(181,106,1);">: -</span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(0,0,255);">expectedFrameRateRange</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">{</span>
+              <span style="color: rgb(0,0,255);">min</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">20</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">max</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(181,106,1);">,</span>
+              <span style="color: rgb(0,0,255);">expected</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">60</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">          }</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">scale</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">x</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0.9</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">y</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0.9 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">} </span>else if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Image</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fitOriginalSize</span><span style="color: rgb(0,0,255);">(</span>true<span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">objectFit</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">ImageFit</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">None</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      if <span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(0,0,255);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">White</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">top</span><span style="color: rgb(181,106,1);">: </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Loading </span><span style="color: rgb(181,106,1);">|| </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">image </span><span style="color: rgb(181,106,1);">? </span><span style="color: rgb(255,0,0);">10 </span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">justifyContent</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">FlexAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignItems</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">HorizontalAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">padding</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">12</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">30</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">backgroundColor</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Black</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">borderRadius</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">shadow</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">radius</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">10</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">color</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Color</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Gray</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">offsetX</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">3</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">offsetY</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 
-let _dialogController: CustomDialogController | null;
-let _cancelCallBack: (() => void) | undefined;
+let <span style="color: rgb(0,0,255);">_dialogController</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">CustomDialogController </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">null</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(0,0,255);">_cancelCallBack</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(181,106,1);">;</span>
 
-let tmpHUDArray: LoadingView[] = [];
+let <span style="color: rgb(0,0,255);">tmpHUDArray</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LoadingView</span><span style="color: rgb(0,0,255);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">[]</span><span style="color: rgb(181,106,1);">;</span>
 
-@Component
-export struct LoadingView {
-  showLoading(
-    msg: string | LoadingParam = '',
-    cancelCallBack?: () => void,
-    alignment?: DialogAlignment,
-    offset?: Offset,
-    showInSubWindow?: boolean,
-    isModal?: boolean,
-    tmpHUDNum: number = 1, // 缓存HUD的数量，用于多层返回HUD不显示情况
-  ): void {
-    if (typeof msg === 'string') {
-      this.showType(LoadingType.Loading, undefined, msg, cancelCallBack, alignment, offset, showInSubWindow, isModal);
-    } else {
-      this.showType(LoadingType.Loading, undefined, msg.msg, msg.cancelCallBack, msg.alignment, msg.offset,
-        msg.showInSubWindow, msg.isModal);
-      tmpHUDNum = msg.tmpHUDNum ?? 1;
-    }
+<span style="color: rgb(181,106,1);">@Component</span>
+export struct <span style="color: rgb(0,0,255);">LoadingView </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">showLoading</span><span style="color: rgb(0,0,255);">(</span>
+    <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">LoadingParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Offset</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">tmpHUDNum</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">, </span><em>// </em><em><span style="color: rgb(128,128,128);">缓存</span><span style="color: rgb(128,128,128);">HUD</span><span style="color: rgb(128,128,128);">的数量，用于多层返回</span><span style="color: rgb(128,128,128);">HUD</span><span style="color: rgb(128,128,128);">不显示情况</span></em>
+  <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>typeof <span style="color: rgb(0,0,255);">msg </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'string'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Loading</span><span style="color: rgb(181,106,1);">, </span>undefined<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Loading</span><span style="color: rgb(181,106,1);">, </span>undefined<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">tmpHUDNum </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">tmpHUDNum </span><span style="color: rgb(181,106,1);">?? </span><span style="color: rgb(255,0,0);">1</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
 
-    // 用于解决网络返回或者其它情况下不显示的问题
-    if (tmpHUDArray.length  tmpHUDNum) {
-      for (let index = 0; index  tmpHUDNum; index++) {
-        tmpHUDArray.push(new LoadingView());
-      }
-    }
-  }
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">用于解决网络返回或者其它情况下不显示的问题</span></em>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">tmpHUDArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">tmpHUDNum</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      for <span style="color: rgb(0,0,255);">(</span>let <span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(0,0,255);">tmpHUDNum</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(0,0,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">tmpHUDArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(0,0,255);">(</span>new <span style="color: rgb(0,0,255);">LoadingView</span><span style="color: rgb(0,0,255);">())</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  showInfo(
-    msg: string | LoadingParam = '',
-    cancelCallBack?: () => void,
-    alignment?: DialogAlignment,
-    offset?: Offset,
-    showInSubWindow?: boolean,
-    isModal?: boolean,
-  ): void {
-    if (typeof msg === 'string') {
-      this.showType(LoadingType.Info, undefined, msg, cancelCallBack, alignment, offset, showInSubWindow, isModal);
-    } else {
-      this.showType(LoadingType.Info, undefined, msg.msg, msg.cancelCallBack, msg.alignment, msg.offset,
-        msg.showInSubWindow, msg.isModal);
-    }
-  }
+  <span style="color: rgb(0,0,255);">showInfo</span><span style="color: rgb(0,0,255);">(</span>
+    <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">LoadingParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Offset</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>typeof <span style="color: rgb(0,0,255);">msg </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'string'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Info</span><span style="color: rgb(181,106,1);">, </span>undefined<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Info</span><span style="color: rgb(181,106,1);">, </span>undefined<span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  showSuccess(
-    msg: string | LoadingParam = '',
-    cancelCallBack?: () => void,
-    alignment?: DialogAlignment,
-    offset?: Offset,
-    showInSubWindow?: boolean,
-    isModal?: boolean,
-  ): void {
-    if (typeof msg === 'string') {
-      this.showType(LoadingType.Success, $r('app.media.startIcon'), msg, cancelCallBack, alignment, offset,
-        showInSubWindow, isModal);
-    } else {
-      this.showType(LoadingType.Success, $r('app.media.startIcon'), msg.msg, msg.cancelCallBack, msg.alignment,
-        msg.offset, msg.showInSubWindow, msg.isModal);
-    }
-  }
+  <span style="color: rgb(0,0,255);">showSuccess</span><span style="color: rgb(0,0,255);">(</span>
+    <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">LoadingParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Offset</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>typeof <span style="color: rgb(0,0,255);">msg </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'string'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Success</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Success</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  showError(
-    msg: string | LoadingParam = '',
-    cancelCallBack?: () => void,
-    alignment?: DialogAlignment,
-    offset?: Offset,
-    showInSubWindow?: boolean,
-    isModal?: boolean,
-  ): void {
-    if (typeof msg === 'string') {
-      this.showType(LoadingType.Error, $r('app.media.startIcon'), msg, cancelCallBack, alignment, offset,
-        showInSubWindow, isModal);
-    } else {
-      this.showType(LoadingType.Error, $r('app.media.startIcon'), msg.msg, msg.cancelCallBack, msg.alignment,
-        msg.offset, msg.showInSubWindow, msg.isModal);
-    }
-  }
+  <span style="color: rgb(0,0,255);">showError</span><span style="color: rgb(0,0,255);">(</span>
+    <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">LoadingParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">''</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">Offset</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">boolean</span><span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span>typeof <span style="color: rgb(0,0,255);">msg </span><span style="color: rgb(181,106,1);">=== </span><span style="color: rgb(255,0,170);">'string'</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">} </span>else <span style="color: rgb(255,0,170);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Error</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">$r</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'app.media.startIcon'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">,</span>
+        <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  showType(
-    type: LoadingType,
-    image: Resource | undefined,
-    msg: string,
-    cancelCallBack?: () => void,
-    alignment: DialogAlignment = DialogAlignment.Center,
-    offset: Offset = { dx: 0, dy: 0 },
-    showInSubWindow: boolean = false,
-    isModal: boolean = false,
-    useTmpHUD: boolean = true // 是否使用缓存的HUD
-  ): void {
-    let self: LoadingView | undefined = this;
-    if (useTmpHUD && tmpHUDArray.length > 0) {
-      self = tmpHUDArray.shift();
-    };
-    self?.showTypeReal(type, image, msg, cancelCallBack, alignment, offset, showInSubWindow, isModal);
-  }
+  <span style="color: rgb(0,0,255);">showType</span><span style="color: rgb(0,0,255);">(</span>
+    <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogAlignment </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Offset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">dx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dy</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">useTmpHUD</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>true <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">是否使用缓存的</span><span style="color: rgb(128,128,128);">HUD</span></em>
+  <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    let <span style="color: rgb(0,0,255);">self</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LoadingView </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">useTmpHUD </span><span style="color: rgb(181,106,1);">&</span><span style="color: rgb(181,106,1);">&</span> <span style="color: rgb(0,0,255);">tmpHUDArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,0);">0</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">self </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">tmpHUDArray</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">shift</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">self</span><span style="color: rgb(181,106,1);">?.</span><span style="color: rgb(0,0,255);">showTypeReal</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(255,0,170);">}</span>
 
-  private showTypeReal(
-    type: LoadingType,
-    image: Resource | undefined,
-    msg: string,
-    cancelCallBack?: () => void,
-    alignment: DialogAlignment = DialogAlignment.Center,
-    offset: Offset = { dx: 0, dy: 0 },
-    showInSubWindow: boolean = false,
-    isModal: boolean = false,
-  ): void {
-    this.hide();
+  private <span style="color: rgb(0,0,255);">showTypeReal</span><span style="color: rgb(0,0,255);">(</span>
+    <span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Resource </span><span style="color: rgb(181,106,1);">| </span><span style="color: rgb(0,0,255);">undefined</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">string</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">?: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(0,0,255);">void</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">DialogAlignment </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">DialogAlignment</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Center</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Offset </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">dx</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">dy</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">,</span>
+    <span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">boolean </span><span style="color: rgb(181,106,1);">= </span>false<span style="color: rgb(181,106,1);">,</span>
+  <span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">void </span><span style="color: rgb(255,0,170);">{</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hide</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-    _cancelCallBack = cancelCallBack;
+    <span style="color: rgb(0,0,255);">_cancelCallBack </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">cancelCallBack</span><span style="color: rgb(181,106,1);">;</span>
 
-    let animate: AnimateParam = {
-      duration: 90,
-      delay: 0,
-      curve: Curve.EaseInOut
-    };
+    let <span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">AnimateParam </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">duration</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">90</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">delay</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">0</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">curve</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">Curve</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">EaseInOut</span>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
 
-    _dialogController = new CustomDialogController({
-      builder: _LoadingView({ type: type, image: image, msg: msg }),
-      autoCancel: false,
-      cancel: () => {
-        _dialogController = null;
-        if (_cancelCallBack) {
-          _cancelCallBack();
-        };
-      },
-      customStyle: true,
-      alignment: alignment,
-      offset: offset,
-      maskColor: 0x33000000,
-      openAnimation: animate,
-      closeAnimation: animate,
-      showInSubWindow: showInSubWindow,
-      isModal: isModal, // api11是否有蒙层
-    });
-    _dialogController.open();
-    if (type !== LoadingType.Loading) {
-      let time: number = LoadingTime.baseTime;
-      if (msg) {
-        time += msg.length * LoadingTime.wordTime;
-      }
-      time = Math.max(time, LoadingTime.minTime);
-      time = Math.min(time, LoadingTime.maxTime);
-      setTimeout(() => {
-        this.hide();
-      }, time);
-    }
-  }
+    <span style="color: rgb(0,0,255);">_dialogController </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">CustomDialogController</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">builder</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">_LoadingView</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">type</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">image</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">msg </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">autoCancel</span><span style="color: rgb(181,106,1);">: </span>false<span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">cancel</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">_dialogController </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+        if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">_cancelCallBack</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+          <span style="color: rgb(0,0,255);">_cancelCallBack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">customStyle</span><span style="color: rgb(181,106,1);">: </span>true<span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">alignment</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">offset</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">maskColor</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">0x33000000</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">openAnimation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">closeAnimation</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">animate</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">showInSubWindow</span><span style="color: rgb(181,106,1);">,</span>
+      <span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">, </span><em><span style="color: rgb(128,128,128);">// api11</span><span style="color: rgb(128,128,128);">是否有蒙层</span></em>
+    <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(0,0,255);">_dialogController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">open</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">type </span><span style="color: rgb(181,106,1);">!== </span><span style="color: rgb(0,0,255);">LoadingType</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">Loading</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      let <span style="color: rgb(0,0,255);">time</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">LoadingTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">baseTime</span><span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">time </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">length </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(0,0,255);">LoadingTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">wordTime</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+      <span style="color: rgb(0,0,255);">time </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">max</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">time</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">LoadingTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">minTime</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">time </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(0,0,255);">Math</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">min</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">time</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">LoadingTime</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">maxTime</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+        this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hide</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">time</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  hide() {
-    if (_dialogController) {
-      _dialogController.close();
-      _dialogController = null;
-      if (_cancelCallBack) {
-        _cancelCallBack();
-      }
-    }
-  }
+  <span style="color: rgb(0,0,255);">hide</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">_dialogController</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">_dialogController</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">close</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">_dialogController </span><span style="color: rgb(181,106,1);">= </span>null<span style="color: rgb(181,106,1);">;</span>
+      if <span style="color: rgb(0,0,255);">(</span><span style="color: rgb(0,0,255);">_cancelCallBack</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">_cancelCallBack</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+<span style="color: rgb(255,0,170);">  }</span>
 
-  build() {
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+<span style="color: rgb(255,0,170);">  }</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
 
-
- 
-- Index引入使用。
+2. Index引入使用。
 ```text
-import { LoadingView } from './LoadingView';
+import <span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">LoadingView </span><span style="color: rgb(255,0,170);">} </span>from <span style="color: rgb(255,0,170);">'./LoadingView'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct Index {
-  loadingView: LoadingView = new LoadingView();
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">Index </span><span style="color: rgb(255,0,170);">{</span>
+  <span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(0,0,255);">LoadingView </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">LoadingView</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    NavDestination() {
-      Column({ space: 30 }) {
-        Button('Toast提示有文案')
-          .onClick(() => {
-            this.loadingView.showLoading({ msg: '数据加载中' });
-            setTimeout(() => {
-              this.loadingView.hide();
-            }, 1000);
-          })
-        Button('loading有蒙层')
-          .onClick(() => {
-            this.loadingView.showLoading({ msg: '数据加载中', isModal: true });
-            setTimeout(() => {
-              this.loadingView.hide();
-            }, 1000);
-          })
-        Button('信息提示')
-          .onClick(() => {
-            this.loadingView.showInfo('这里是Toast提示信息');
-          })
-        Button('成功')
-          .onClick(() => {
-            this.loadingView.showSuccess('数据加载成功');
-          })
-        Button('失败')
-          .onClick(() => {
-            this.loadingView.showError('数据加载失败');
-          })
-        Button('Toast')
-          .onClick(() => {
-            this.loadingView.showLoading();
-            setTimeout(() => {
-              this.loadingView.hide();
-            }, 1000);
-          })
-      }
-    }
-    .height('100%')
-    .width('100%')
-  }
-}
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+    <span style="color: rgb(0,0,255);">NavDestination</span><span style="color: rgb(0,0,255);">() </span><span style="color: rgb(255,0,170);">{</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,0);">30 </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">) </span><span style="color: rgb(255,0,170);">{</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Toast</span><span style="color: rgb(255,0,170);">提示有文案</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showLoading</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据加载中</span><span style="color: rgb(255,0,170);">' </span><span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hide</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'loading</span><span style="color: rgb(255,0,170);">有蒙层</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showLoading</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">{ </span><span style="color: rgb(0,0,255);">msg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据加载中</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(0,0,255);">isModal</span><span style="color: rgb(181,106,1);">: </span>true <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hide</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">信息提示</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showInfo</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">这里是</span><span style="color: rgb(255,0,170);">Toast</span><span style="color: rgb(255,0,170);">提示信息</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">成功</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showSuccess</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据加载成功</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">失败</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showError</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(255,0,170);">数据加载失败</span><span style="color: rgb(255,0,170);">'</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+        <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'Toast'</span><span style="color: rgb(0,0,255);">)</span>
+          <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showLoading</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(0,0,255);">setTimeout</span><span style="color: rgb(0,0,255);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(255,0,170);">{</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">loadingView</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">hide</span><span style="color: rgb(0,0,255);">()</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,0);">1000</span><span style="color: rgb(0,0,255);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(255,0,170);">}</span><span style="color: rgb(0,0,255);">)</span>
+      <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">    }</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(0,0,255);">(</span><span style="color: rgb(255,0,170);">'100%'</span><span style="color: rgb(0,0,255);">)</span>
+  <span style="color: rgb(255,0,170);">}</span>
+<span style="color: rgb(255,0,170);">}</span>
 ```
  代码运行效果图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/4RwYKHaHT3SdY3ptX_k2tg/zh-cn_image_0000002658797721.png?HW-CC-KV=V1&HW-CC-Date=20260701T025549Z&HW-CC-Expire=86400&HW-CC-Sign=5DA61E0C737D45A3ECF4FD69785BB29E92835F53659CC1DDF67059C180AB856B)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/4RwYKHaHT3SdY3ptX_k2tg/zh-cn_image_0000002658797721.png?HW-CC-KV=V1&HW-CC-Date=20260701T041332Z&HW-CC-Expire=86400&HW-CC-Sign=57B4A9CA7E71B5446201F5247A3EFC50BE5F716B6D15FDA60F604DA8E2F88155)

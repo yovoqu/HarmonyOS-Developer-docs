@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-39
 
-## 如何在WGS84坐标系实现FOLLOW_ROTATE相同定位展示效果
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Map Kit使用GCJ02坐标系，当使用WGS84坐标图源时，使用Map Kit自带的setMyLocation设置我的位置时，我的位置图标是GCJ02坐标系，在WGS84坐标地图上会产生偏移，所以无法使用自带的我的位置相关能力。
  
@@ -16,7 +12,7 @@ Map Kit使用GCJ02坐标系，当使用WGS84坐标图源时，使用Map Kit自�
  
  
 
-##### 背景知识
+#### 背景知识
 
 [sensor.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#sensoron)：传感器订阅，其中[ORIENTATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#orientation9)表示订阅方向传感器数据。
  
@@ -28,11 +24,10 @@ Map Kit使用GCJ02坐标系，当使用WGS84坐标图源时，使用Map Kit自�
  
  
 
-##### 解决方案
+#### 解决方案
 
 前提条件：需申请ohos.permission.LOCATION、ohos.permission.APPROXIMATELY_LOCATION、ohos.permission.ACCELEROMETER权限。
- 
-- 创建Marker标记。
+ 1. 创建Marker标记。
 ```text
 let markerOptions: mapCommon.MarkerOptions = {
   position: {
@@ -52,7 +47,7 @@ let markerOptions: mapCommon.MarkerOptions = {
 this.marker = await this.mapController.addMarker(markerOptions);
 ```
 
-- 通过sensor.on(sensor.SensorId.ORIENTATION)监听设备方向，通过setRotation设置Marker标记的旋转角度为设备方向角度。
+2. 通过sensor.on(sensor.SensorId.ORIENTATION)监听设备方向，通过setRotation设置Marker标记的旋转角度为设备方向角度。
 ```text
 try {
   sensor.on(sensor.SensorId.ORIENTATION, (data: sensor.OrientationResponse) => {
@@ -60,9 +55,21 @@ try {
     let nowOrientation = display.getDefaultDisplaySync().orientation;
     if (nowOrientation !== 0) {
       direction = direction - 90 * nowOrientation;
-      if (direction 同时配置moveCamera接口将相机移动至marker为屏幕中心点。
- 
-```text
+      if (direction < 0) {
+        direction = direction + 360;
+      }
+    }
+    this.marker?.setRotation(direction);
+  }, { interval: 100000000 });
+} catch (error) {
+  console.error(`Failed to invoke on. Code: ${error.code}, message: ${error.message}`);
+}
+```
+
+3. 通过geoLocationManager.on('locationChange')监听位置变化，使用setPosition设置标记的位置为监听返回的坐标。注意位置监听返回的坐标是WGS84坐标系，在WGS84图源上直接使用该坐标设置Marker位置即可，无需转换为GCJ02坐标系。同时配置moveCamera接口将相机移动至marker为屏幕中心点。
+
+  
+```json
 let requestInfo: geoLocationManager.LocationRequest = {
   'priority': geoLocationManager.LocationRequestPriority.FIRST_FIX,
   'scenario': geoLocationManager.LocationRequestScenario.UNSET,
@@ -72,21 +79,20 @@ let requestInfo: geoLocationManager.LocationRequest = {
 };
 let locationChange = (location: geoLocationManager.Location): void => {
   console.info('locationChange: data: ' + JSON.stringify(location));
-  // 添加WGS84坐标Marker
+  <em>// 添加WGS84坐标Marker</em>
   this.marker?.setPosition(location);
-  // 并将相机移动到地图中心点
+<em>  // 并将相机移动到地图中心点</em>
   let cameraUpdate = map.newLatLng(location);
   this.mapController?.moveCamera(cameraUpdate);
 };
 ```
-
 
  
 完整代码：
  
 Index.ets:
  
-```text
+```json
 import { map, mapCommon, MapComponent } from '@kit.MapKit';
 import { AsyncCallback } from '@kit.BasicServicesKit';
 import { geoLocationManager } from '@kit.LocationKit';
@@ -100,7 +106,7 @@ import PermissionsRequest from '../utils/PermissionsRequest';
 struct Index {
   private mapOptions?: mapCommon.MapOptions;
   private mapController?: map.MapComponentController;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   private marker?: map.Marker;
 
   async aboutToAppear() {
@@ -117,7 +123,7 @@ struct Index {
     this.callback = async (err, mapController) => {
       if (!err) {
         this.mapController = mapController;
-        let permissions: Array = ['ohos.permission.LOCATION', 'ohos.permission.APPROXIMATELY_LOCATION'];
+        let permissions: Array<Permissions> = ['ohos.permission.LOCATION', 'ohos.permission.APPROXIMATELY_LOCATION'];
         await PermissionsRequest.commonRequestPermissions(this.getUIContext(), permissions);
         let markerOptions: mapCommon.MarkerOptions = {
           position: {
@@ -135,14 +141,24 @@ struct Index {
           flat: false
         };
         this.marker = await this.mapController.addMarker(markerOptions);
-        // 监听设备方向，设置Marker的旋转角度
+       <em> // 监听设备方向，设置Marker的旋转角度</em>
         try {
           sensor.on(sensor.SensorId.ORIENTATION, (data: sensor.OrientationResponse) => {
             let direction = Math.round(data.alpha);
             let nowOrientation = display.getDefaultDisplaySync().orientation;
             if (nowOrientation !== 0) {
               direction = direction - 90 * nowOrientation;
-              if (direction  // 持续监听设备位置，更新Marker点的位置
+              if (direction < 0) {
+                direction = direction + 360;
+              }
+            }
+            this.marker?.setRotation(direction);
+          }, { interval: 100000000 });
+        } catch (error) {
+          console.error(`Failed to invoke on. Code: ${error.code}, message: ${error.message}`);
+        }
+
+       <em> // 持续监听设备位置，更新Marker点的位置</em>
         let requestInfo: geoLocationManager.LocationRequest = {
           'priority': geoLocationManager.LocationRequestPriority.FIRST_FIX,
           'scenario': geoLocationManager.LocationRequestScenario.UNSET,
@@ -152,9 +168,9 @@ struct Index {
         };
         let locationChange = (location: geoLocationManager.Location): void => {
           console.info('locationChange: data: ' + JSON.stringify(location));
-          // 添加WGS84坐标Marker
+        <em>  // 添加WGS84坐标Marker</em>
           this.marker?.setPosition(location);
-          // 并将相机移动到地图中心点
+        <em>  // 并将相机移动到地图中心点</em>
           let cameraUpdate = map.newLatLng(location);
           this.mapController?.moveCamera(cameraUpdate);
         };
@@ -186,32 +202,32 @@ struct Index {
  
 utils/PermissionsRequest.ets:
  
-```text
+```json
 import { abilityAccessCtrl, bundleManager, common, Permissions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { preferences } from '@kit.ArkData';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 class PermissionsRequest {
-  /**
-   * 通用申请权限
-   */
-  async commonRequestPermissions(context: UIContext, permissions: Array) {
+<em>  /**</em>
+<em>   * 通用申请权限</em>
+<em>   */</em>
+  async commonRequestPermissions(context: UIContext, permissions: Array<Permissions>) {
     let isPermission: boolean = await this.checkPermissions(permissions);
     if (!isPermission) {
-      //一次授权
+    <em>  //一次授权</em>
       let isDialogShown = await this.requestPermissions(context, permissions);
       if (isDialogShown !== true) {
-        //二次授权
+       <em> //二次授权</em>
         this.requestPermissionsOnSetting(context, permissions);
       }
     }
   }
 
-  /**
-   * 校验应用是否被授权
-   */
-  async checkPermissions(permissions: Array) {
+ <em> /**</em>
+<em>   * 校验应用是否被授权</em>
+<em>   */</em>
+  async checkPermissions(permissions: Array<Permissions>) {
     for (let permission of permissions) {
       let grantStatus: abilityAccessCtrl.GrantStatus = await this.checkAccessToken(permission);
       if (grantStatus !== abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED) {
@@ -221,11 +237,11 @@ class PermissionsRequest {
     return true;
   }
 
-  async checkAccessToken(permission: Permissions): Promise {
+  async checkAccessToken(permission: Permissions): Promise<abilityAccessCtrl.GrantStatus> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     let grantStatus: abilityAccessCtrl.GrantStatus = abilityAccessCtrl.GrantStatus.PERMISSION_DENIED;
 
-    // 获取应用程序的accessTokenID
+   <em> // 获取应用程序的accessTokenID</em>
     let tokenId: number = 0;
     try {
       let bundleInfo: bundleManager.BundleInfo =
@@ -240,31 +256,31 @@ class PermissionsRequest {
     return grantStatus;
   }
 
-  /**
-   * 申请用户授权
-   */
-  async requestPermissions(context: UIContext, permissions: Array): Promise {
+<em>  /**</em>
+<em>   * 申请用户授权</em>
+<em>   */</em>
+  async requestPermissions(context: UIContext, permissions: Array<Permissions>): Promise<boolean | undefined> {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     try {
       let data =
         await atManager.requestPermissionsFromUser(context.getHostContext() as common.UIAbilityContext, permissions);
       hilog.info(0x000, 'testTag', 'requestPermissions1 success', JSON.stringify(data));
-      return data.dialogShownResults ? data.dialogShownResults[0] : undefined; // 返回请求是否有弹窗
+      return data.dialogShownResults ? data.dialogShownResults[0] : undefined; <em>// 返回请求是否有弹窗</em>
     } catch (e) {
       hilog.error(0x000, 'testTag', `requestPermissions1 err Code is ${e.code}, message is ${e.message}`);
       return undefined;
     }
   }
 
-  /**
-   * 2次申请用户授权
-   */
-  requestPermissionsOnSetting(context: UIContext, permissions: Array) {
+<em>  /**</em>
+<em>   * 2次申请用户授权</em>
+<em>   */</em>
+  requestPermissionsOnSetting(context: UIContext, permissions: Array<Permissions>) {
     let keyPerms = JSON.stringify(permissions);
     let store = preferences.getPreferencesSync(context.getHostContext(), { name: 'permsHasOnSetting' });
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     atManager.requestPermissionOnSetting(context.getHostContext(), permissions)
-      .then((res: Array) => {
+      .then((res: Array<abilityAccessCtrl.GrantStatus>) => {
         hilog.info(0x000, 'testTag', 'requestPermissions2 success', JSON.stringify(res));
         store.putSync(keyPerms, 1);
         store.flush();

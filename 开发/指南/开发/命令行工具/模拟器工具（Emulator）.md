@@ -4,130 +4,120 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-commandline-emulator
 
-## 模拟器工具（Emulator）
-   
-    
 从6.1.0 Release版本开始，Command Line Tools集成Emulator工具，支持Windows和macOS平台，可独立进行模拟器创建、启动、关闭、镜像下载等操作。
-    
+
 从26.0.0 Beta1版本开始，支持在Linux平台上使用Emulator，具体使用方式请参考[使用Linux版本Emulator工具](#section15887175165919)。
-    
-     
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/pA1r3RyHTXys0FVoMvQTvw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025445Z&HW-CC-Expire=86400&HW-CC-Sign=9A8D14E89165EA350727CBC83312B8AD6A7B894CCAB14C1A9FBE9B3D9421BCF1)
-      
-      
-在macOS上使用命令行工具时，如果弹框提示Emulator无法验证开发者，可以在系统的**设置 > 隐私与安全性**中选择**仍要打开Emulator，**或者使用[DevEco Studio目录下的Emulator工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-command-line)。
-     
-    
-    
-          
-##### 环境准备
-     
+
+> [!NOTE]
+> 在macOS上使用命令行工具时，如果弹框提示Emulator无法验证开发者，可以在系统的 设置 > 隐私与安全性 中选择 仍要打开Emulator， 或者使用 DevEco Studio目录下的Emulator工具 。
+
+
+
+#### 环境准备
+
 Emulator工具在command-line-tools安装目录的emulator目录下，有两种执行命令的方式。
-     
+
  - 方式一：在命令行终端中进入emulator目录下，执行命令。
  - 方式二：配置环境变量后，在任意目录下执行命令。       
-        Windows环境变量设置方法：         在系统或者用户的PATH变量中，添加路径{command-line-tools安装目录}/emulator，配置完成后重新打开命令行窗口使环境变量生效。
+Windows环境变量设置方法：         在系统或者用户的PATH变量中，添加路径{command-line-tools安装目录}/emulator，配置完成后重新打开命令行窗口使环境变量生效。
  - macOS/Linux环境变量设置方法：         打开命令行终端，执行以下命令。
-         
-```text
+
+  
+```bash
 export PATH={command-line-tools安装目录}/emulator:$PATH
 ```
 
-       
-     
-    
-    
-          
-##### 模拟器命令
-     
+
+
+
+
+
+#### 模拟器命令
+
 Emulator命令请参考[通过命令行使用模拟器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-command-line)。
-    
-    
-          
-##### 在模拟器上推包调试
-     
+
+
+
+#### 在模拟器上推包调试
+
 可通过hdc工具在模拟器上进行推包调试。
-     
- - 使用时需要先确认模拟器和hdc的连接状态，模拟器的IP和端口号是127.0.0.1:5555，如果端口号已经被占用，则从5555起递增2，例如5555、5557、5559，端口号范围在5555-15555之间。       
-```text
+1. 使用时需要先确认模拟器和hdc的连接状态，模拟器的IP和端口号是127.0.0.1:5555，如果端口号已经被占用，则从5555起递增2，例如5555、5557、5559，端口号范围在5555-15555之间。       
+```bash
 hdc list targets
 ```
 
- - 如果未连接，执行命令`hdc tconn {IP:端口号}`连接模拟器，例如：       
-```text
+2. 如果未连接，执行命令`hdc tconn {IP:端口号}`连接模拟器，例如：       
+```bash
 hdc tconn 127.0.0.1:5555
 ```
 
- - 连接成功后，通过hdc在模拟器上安装、卸载应用等，更多使用方式请参考[SDK命令行工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/command-line-tools-overview)。
-     
-    
-    
-          
-##### 使用Linux版本Emulator工具
-     
+3. 连接成功后，通过hdc在模拟器上安装、卸载应用等，更多使用方式请参考[SDK命令行工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/command-line-tools-overview)。
+
+
+
+#### 使用Linux版本Emulator工具
+
 从26.0.0 Beta1版本开始，支持在Linux平台使用模拟器工具。
-    
-    
-          
-##### [h2]环境准备
-     
+
+
+
+#### 环境准备
+
 当前仅支持Ubuntu 18.04及以上的Linux系统，使用前需要安装相关的依赖，以Ubuntu 18.04操作系统为例，执行命令：
-     
-```text
+
+```bash
 apt install -y libatomic1 libpulse0 libegl1 libgbm1 libgl1 libpng16-16 libfontconfig1 libfreetype6 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xinerama0 libxcb-xkb1 libsm6 libice6 libxkbcommon-x11-0 libxkbcommon0 libglib2.0-0
 ```
-    
-    
-          
-##### [h2]使用约束
-     
+
+
+
+#### 使用约束
+
  - Linux模拟器依赖系统kvm能力，需要手动将Emulator程序当前用户加入/dev/kvm所在的组中。
  - Linux模拟器图形渲染依赖/dev/dri下的设备渲染节点，如card0、renderD128等，需要手动将Emulator程序当前用户加入相关节点的用户组中。
  - 如需使用第三方远程桌面工具操作Linux，请确保工具可使用的图形驱动支持OpenGL4.1或以上版本。
-     
-    
-    
-          
-##### [h2]模拟器命令差异
-     
+
+
+
+
+#### 模拟器命令差异
+
 针对无图形界面的Linux环境，[启动模拟器命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-command-line#section1986131715236)必须添加-noWindow参数。除此之外，其他命令和Windows/macOS相同，详细命令请参考[通过命令行使用模拟器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-command-line)。
-    
-    
-          
-##### [h2]使用远程服务
-     
+
+
+
+#### 使用远程服务
+
 Linux模拟器提供了对外的gRPC服务，开发者可通过调用模拟器服务接口，远程获取模拟器内的视频流数据、音频流数据，以及远程使用场景化命令和鼠标点击功能。
-     
+
 在使用本文提供的能力之前，开发者需要具备gRPC开发的基础知识。
-     
+
 工作流程如下：
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/5pR2ThkjRUum9YX9jZB1Jg/zh-cn_image_0000002625074205.png?HW-CC-KV=V1&HW-CC-Date=20260701T025445Z&HW-CC-Expire=86400&HW-CC-Sign=833DACEC82909B50CF1CC3A919AF184DC5546A3DA9205909B5DB25D967D5746A)
 
-     
- - 开发者需要自行开发本地gRPC客户端。
- - 开发者需要通过本文档提供的模拟器gRPC服务，定义服务接口和消息结构，使用protoc生成规范的接口头文件。
- - 在Linux服务器上以服务器模式启动模拟器，记录token，IP，端口号和认证信息。
- - 通过本地客户端构建包含认证信息的gRPC请求消息，并将所需调用的接口添加进消息中，发送给服务端。
- - 服务端接收消息并响应，返回请求结果。
-     
-     
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/5pR2ThkjRUum9YX9jZB1Jg/zh-cn_image_0000002625074205.png?HW-CC-KV=V1&HW-CC-Date=20260701T041443Z&HW-CC-Expire=86400&HW-CC-Sign=9508BB5274512252F9BCD8F06D6F1812C30BA2AED9571E2C1350387E58FB3421)
+
+1. 开发者需要自行开发本地gRPC客户端。
+2. 开发者需要通过本文档提供的模拟器gRPC服务，定义服务接口和消息结构，使用protoc生成规范的接口头文件。
+3. 在Linux服务器上以服务器模式启动模拟器，记录token，IP，端口号和认证信息。
+4. 通过本地客户端构建包含认证信息的gRPC请求消息，并将所需调用的接口添加进消息中，发送给服务端。
+5. 服务端接收消息并响应，返回请求结果。
+
 **启动RPC服务器模式命令**
-     
+
 在Linux服务器上，以gRPC服务器模式启动模拟器，包括无认证模式和认证模式。
-     
+
 如果使用认证模式，启动后在命令执行路径下会生成token文件server_token.txt，其中包含认证所需要的token字段。
-     
-```text
+
+```bash
 # 无认证模式
 Emulator -start {模拟器名称} -instancePath {模拟器实例路径} -imageRoot {模拟器镜像路径} -grpcServer -grpcPort {端口} -noAuth
 # 认证模式
 Emulator -start {模拟器名称} -instancePath {模拟器实例路径} -imageRoot {模拟器镜像路径} -grpcServer -grpcPort {端口} -pem_root_certs {根证书路径} -pem_private_key {私钥路径} -pem_cert_chain {证书链路径}
 ```
-     
+
 **参数：**
-     
+
 | 参数名 | 说明 |
 | --- | --- |
 | -start | 必选参数，指定模拟器名称。 |
@@ -139,54 +129,54 @@ Emulator -start {模拟器名称} -instancePath {模拟器实例路径} -imageRo
 | -pem_root_certs | 可选参数，使用认证模式后必选，指定根证书路径。要求服务端和客户端证书均支持双向认证。 |
 | -pem_private_key | 可选参数，使用认证模式后必选，指定私钥路径。 |
 | -pem_cert_chain | 可选参数，使用认证模式后必选，指定证书链路径。 |
-     
-     
+
+
 模拟器提供的gRPC服务如下。
-    
-    
-          
-##### [h2]VideoStreamService
-     
+
+
+
+#### VideoStreamService
+
 ```text
 service VideoStreamService {
     rpc StreamVideo(VideoStreamRequest) returns (stream VideoFrame);
 }
 ```
-     
+
 **描述**：服务端接收客户端视频流请求，请求消息为[VideoStreamRequest](#section19408143512553)。
-    
-    
-          
-##### [h2]VideoStreamRequest
-     
+
+
+
+#### VideoStreamRequest
+
 ```text
 message VideoStreamRequest {
     int32 screen_index = 0;
 }
 ```
-     
+
 **描述：**客户端请求视频流的请求消息。
-     
+
 **参数**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | screen_index | int32 | 是 | 屏幕索引，用于指定要获取的视频流来源，主屏幕默认为索引0，模拟器多屏模式下0 ~ 3分别对应模拟器的主屏幕和3个副屏幕。 |
-     
-     
+
+
 **返回值**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | VideoFrame | 模拟器视频帧数据 |
-     
-    
-    
-          
-##### [h2]VideoFrame
-     
+
+
+
+
+#### VideoFrame
+
 模拟器视频帧数据。
-     
+
 | 参数名 | 类型 | 说明 |
 | --- | --- | --- |
 | width | int32 | 视频帧宽度（像素） |
@@ -195,119 +185,119 @@ message VideoStreamRequest {
 | image_data | bytes | 视频帧数据（RAW RGB/NV21格式） |
 | display_width | int32 | 显示设备宽度（用于缩放计算） |
 | display_height | int32 | 显示设备高度（用于缩放计算） |
-     
-    
-    
-          
-##### [h2]AudioStreamService
-     
+
+
+
+
+#### AudioStreamService
+
 ```text
 service AudioStreamService {
     rpc StreamAudio(AudioStreamRequest) returns (stream AudioFrame);
 }
 ```
-     
+
 **描述：**服务端接收客户端音频流请求，请求消息为[AudioStreamRequest](#section67501129195615)。
-    
-    
-          
-##### [h2]AudioStreamRequest
-     
+
+
+
+#### AudioStreamRequest
+
 ```text
 message AudioStreamRequest {
 }
 ```
-     
+
 **描述：**客户端请求音频流的请求消息。
-     
+
 **返回值**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | AudioFrame | 模拟器音频帧数据 |
-     
-    
-    
-          
-##### [h2]AudioFrame
-     
+
+
+
+
+#### AudioFrame
+
 模拟器音频帧数据。
-     
+
 | 参数名 | 类型 | 说明 |
 | --- | --- | --- |
 | sample_rate | int32 | 采样率（Hz），如44100、48000 |
-| channels | int32 | 声道数，支持以下取值：                     1：单声道           2：立体声 |
-| format | int32 | 采样格式，支持以下取值：                     0：格式为8-bit unsigned，标识符PCM_U8           1：格式为16-bit unsigned，标识符PCM_S16LE           2：格式为32-bit unsigned，标识符PCM_S32LE |
+| channels | int32 | 声道数，支持以下取值： 1：单声道 2：立体声 |
+| format | int32 | 采样格式，支持以下取值： 0：格式为8-bit unsigned，标识符PCM_U8 1：格式为16-bit unsigned，标识符PCM_S16LE 2：格式为32-bit unsigned，标识符PCM_S32LE |
 | timestamp | int64 | 时间戳（微秒） |
 | audio_data | bytes | 音频数据（PCM 格式） |
-     
-    
-    
-          
-##### [h2]ScenarioCommandService
-     
+
+
+
+
+#### ScenarioCommandService
+
 ```text
 service ScenarioCommandService {
     rpc ExecuteCommand(CommandRequest) returns (CommandResponse);
 }
 ```
-     
+
 **描述：**服务端接收执行模拟器命令的请求，请求消息为[CommandRequest](#section298891155819)。
-    
-    
-          
-##### [h2]CommandRequest
-     
+
+
+
+#### CommandRequest
+
 ```text
 message CommandRequest {
     string command = "";
 }
 ```
-     
+
 **描述：**客户端发送命令的请求消息。
-     
+
 **参数**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | command | string | 是 | 模拟器场景化命令字符串，支持的命令请参考场景化模拟，如"-volume up"。 |
-     
-     
+
+
 **返回值**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | CommandResponse | 模拟器命令执行结果 |
-     
-    
-    
-          
-##### [h2]CommandResponse
-     
+
+
+
+
+#### CommandResponse
+
 模拟器命令执行结果。
-     
+
 | 参数名 | 类型 | 说明 |
 | --- | --- | --- |
 | success | bool | 命令是否成功执行 |
 | message | string | 结果消息或错误信息 |
-     
-    
-    
-          
-##### [h2]MouseInputService
-     
+
+
+
+
+#### MouseInputService
+
 ```text
 service MouseInputService {
     rpc SendMouseEvent(MouseInputRequest) returns (MouseInputResponse);
 }
 ```
-     
+
 **描述：**客户端发送鼠标事件到模拟器，请求消息为[MouseInputRequest](#section161605235598)。
-    
-    
-          
-##### [h2]MouseInputRequest
-     
+
+
+
+#### MouseInputRequest
+
 ```text
 message MouseInputRequest {
     int32 x = 1;
@@ -318,61 +308,57 @@ message MouseInputRequest {
     int32 screen_index = 0;
 }
 ```
-     
+
 **描述：**客户端发送鼠标事件的请求消息。
-     
+
 **参数**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | int32 | 是 | 鼠标X坐标，表示模拟器屏幕横坐标，以模拟器屏幕左上角为原点(0,0)。           多屏状态下每个屏幕坐标独立，以每个屏幕左上角为原点(0,0)。           通过屏幕索引screen_index区分屏幕。           横坐标以模拟器宽度(px)为范围，如果坐标点超出屏幕范围，无法执行。 |
-| y | int32 | 是 | 鼠标Y坐标，表示模拟器屏幕纵坐标，以模拟器屏幕左上角为原点(0,0)。           多屏状态下每个屏幕坐标独立，以每个屏幕左上角为原点(0,0)。           通过屏幕索引screen_index区分屏幕。           纵坐标以模拟器高度(px)为范围，如果坐标点超出屏幕范围，无法执行。 |
-| button | int32 | 是 | 按钮类型，支持以下类型：                     0：表示无按钮           1：表示鼠标左键           2：表示鼠标右键           3：表示鼠标中键 |
-| event_type | int32 | 是 | 事件类型，支持以下取值：                     0：表示鼠标移动           1：表示按下鼠标           2：表示释放鼠标           3：表示鼠标滚轮 |
+| x | int32 | 是 | 鼠标X坐标，表示模拟器屏幕横坐标，以模拟器屏幕左上角为原点(0,0)。 多屏状态下每个屏幕坐标独立，以每个屏幕左上角为原点(0,0)。 通过屏幕索引screen_index区分屏幕。 横坐标以模拟器宽度(px)为范围，如果坐标点超出屏幕范围，无法执行。 |
+| y | int32 | 是 | 鼠标Y坐标，表示模拟器屏幕纵坐标，以模拟器屏幕左上角为原点(0,0)。 多屏状态下每个屏幕坐标独立，以每个屏幕左上角为原点(0,0)。 通过屏幕索引screen_index区分屏幕。 纵坐标以模拟器高度(px)为范围，如果坐标点超出屏幕范围，无法执行。 |
+| button | int32 | 是 | 按钮类型，支持以下类型： 0：表示无按钮 1：表示鼠标左键 2：表示鼠标右键 3：表示鼠标中键 |
+| event_type | int32 | 是 | 事件类型，支持以下取值： 0：表示鼠标移动 1：表示按下鼠标 2：表示释放鼠标 3：表示鼠标滚轮 |
 | wheel_delta | int32 | 是 | 滚轮滚动量 |
 | screen_index | int32 | 是 | 屏幕索引，主屏幕为索引0，模拟器多屏模式下0 ~ 3分别对应模拟器的主屏幕和3个副屏幕。 |
-     
-     
+
+
 **返回值**
-     
+
 | 类型 | 说明 |
 | --- | --- |
 | MouseInputResponse | 鼠标事件执行结果 |
-     
-    
-    
-          
-##### [h2]MouseInputResponse
-     
+
+
+
+
+#### MouseInputResponse
+
 鼠标事件执行结果。
-     
+
 | 参数名 | 类型 | 说明 |
 | --- | --- | --- |
 | success | bool | 事件是否成功执行 |
 | message | string | 结果消息或错误信息 |
-     
-    
-    
-          
-##### [h2]示例代码
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/oVMalq6cTQOj4lz_3XGUgA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025445Z&HW-CC-Expire=86400&HW-CC-Sign=E76DAA94501840B41A366318E9A5F0801341A07F7CE561833213C12CA302635D)
-       
-       
-以下示例无法直接运行，仅供参考。
-      
-     
-     
+
+
+
+
+#### 示例代码
+
+> [!NOTE]
+> 以下示例无法直接运行，仅供参考。
+
+
 开发者需要自行开发本地客户端。通过模拟器提供的gRPC服务，对指定模拟器进行远程操控。示例如下。
-     
- - 在远端Linux服务器上执行命令，启动模拟器作为服务器。       
-```text
+1. 在远端Linux服务器上执行命令，启动模拟器作为服务器。       
+```bash
 Emulator -start "myEmulator" -instancePath /path/to/instance -imageRoot /path/to/image -grpcServer -grpcPort 6555 -pem_root_certs /path/to/root.pem -pem_private_key /path/to/client.key -pem_cert_chain /path/to/client.pem
 ```
 
- - 开发本地客户端，通过服务器的IP和端口号以及认证方式，对模拟器服务器进行请求。       生成protobuf消息定义代码：
-       
+2. 开发本地客户端，通过服务器的IP和端口号以及认证方式，对模拟器服务器进行请求。       生成protobuf消息定义代码：
+
+  
 ```text
 # emulator_server.proto文件，用于生成protobuf消息定义
 message VideoStreamRequest {
@@ -438,8 +424,9 @@ service AudioStreamService {
     rpc StreamAudio(AudioStreamRequest) returns (stream AudioFrame);
 }
 ```
-       
-        开发本地客户端，发送gRPC请求给服务端。        
+
+
+  开发本地客户端，发送gRPC请求给服务端。        
 ```text
 # Token + TLS 双向认证模式
 #!/usr/bin/env python3

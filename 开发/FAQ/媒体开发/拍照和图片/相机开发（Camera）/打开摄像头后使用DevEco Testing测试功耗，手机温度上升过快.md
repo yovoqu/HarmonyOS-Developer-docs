@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-38
 
-## 打开摄像头后使用DevEco Testing测试功耗，手机温度上升过快
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在进行自定义相机开发时，使用代码开启摄像头后手机会出现发烫问题，于是用DevEco Testing记录了摄像头打开后10分钟内手机的功耗和机壳温度，在10分钟内机壳温度上升了7-8摄氏度，并且随着时间的增加温度还会持续上升。如何优化测试工具和代码，使相同时间内的温度上升幅度控制在5摄氏度以内？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [DevEco Profiler](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler)：为了帮助开发者更高效地进行性能问题的分析，DevEco Studio提供了场景化调优工具DevEco Profiler，希望为开发者带来高效、直通代码行的调优体验。
 - [动态调整预览帧率(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-setframerate-native)：应用可通过动态调整预览流帧率，显性地控制流输出帧率，以适应不同帧率下的业务目标。
@@ -22,14 +18,12 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 使用DevEco Testing进行功耗测试时资源消耗较高，因此在测试时不推荐使用，推荐使用DevEco Profiler进行测试。为了排除DevEco Profiler引起的发热，测试时应断开DevEco Profiler连接，操作步骤如下：
- 
-- 运行demo，使用DevEco Profiler工具记录此时的温度。
-- 断开手机与电脑连接的USB，让demo运行10分钟左右。
-- 再次连接电脑，使用DevEco Profiler工具记录此时的温度。
-
+ 1. 运行demo，使用DevEco Profiler工具记录此时的温度。
+2. 断开手机与电脑连接的USB，让demo运行10分钟左右。
+3. 再次连接电脑，使用DevEco Profiler工具记录此时的温度。
  
 测试时可以通过以下设置关闭USB充电选项：设置->系统->开发者选项->关闭充电。
  
@@ -37,7 +31,7 @@
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Native相机使用ImageReceiver读取，预览帧率只有20FPS左右，属于正常范围吗？
  

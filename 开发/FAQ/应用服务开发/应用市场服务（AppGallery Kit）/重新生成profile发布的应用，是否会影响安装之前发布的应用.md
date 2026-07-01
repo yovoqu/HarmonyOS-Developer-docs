@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery-12
 
-## 重新生成profile发布的应用，是否会影响安装之前发布的应用
- 
-
-
-##### 问题现象
+#### 问题现象
 
 **问题一**：
  
@@ -28,7 +24,7 @@ AGC平台重新生成profile成功后有下载按钮，为什么一段时间后�
  
  
 
-##### 解决方案
+#### 解决方案
 
 **问题一**：
  

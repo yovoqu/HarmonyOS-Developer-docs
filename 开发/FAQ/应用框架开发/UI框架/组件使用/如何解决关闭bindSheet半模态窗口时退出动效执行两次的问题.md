@@ -4,24 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-744
 
-## 如何解决关闭bindSheet半模态窗口时退出动效执行两次的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用bindSheet半模态窗口实现应用分享的弹窗，在点击空白处或者拖动关闭bindSheet时，半模态窗口退出动效会执行两次。
  
 问题现象图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/HWAh7jyTT1y-VrDwayaLug/zh-cn_image_0000002658914683.png?HW-CC-KV=V1&HW-CC-Date=20260701T025545Z&HW-CC-Expire=86400&HW-CC-Sign=29F44888631F332E27DF4D04050542176F28B222FCFB9D9DA80F26FE6993D87C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/HWAh7jyTT1y-VrDwayaLug/zh-cn_image_0000002658914683.png?HW-CC-KV=V1&HW-CC-Date=20260701T041316Z&HW-CC-Expire=86400&HW-CC-Sign=9DF41F05DEBD2DC1D089F77A735FF6CDF526A44CE5DCAA65E19ADFAFB3E265E5)
 
  
 效果预览:
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/1y5MfoNwQeOkgu61gK8Y-g/zh-cn_image_0000002658794733.png?HW-CC-KV=V1&HW-CC-Date=20260701T025545Z&HW-CC-Expire=86400&HW-CC-Sign=E9FE221250CE1E51A06EF6AACB3F57DF532A5FD7B4C3D6AE734BF8C8A9244E77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/1y5MfoNwQeOkgu61gK8Y-g/zh-cn_image_0000002658794733.png?HW-CC-KV=V1&HW-CC-Date=20260701T041316Z&HW-CC-Expire=86400&HW-CC-Sign=51397ECB46EFFAB8E7B6B02FEBA6CE6C7DD44D98F12C40B48DB0917DD40B5E02)
 
  
 复现问题示例代码如下：
@@ -30,13 +26,13 @@
 List() {
   ForEach(this.listObjs, (item: MenuObject, index: Number) => {
     ListItem() {
-      MenuComponent({value: item}) // 自定义组件
+      MenuComponent({value: item}) <em>// 自定义组件</em>
         .width('100%')
         .onClick(() => {
           if (item.title === '分享给好友') {
             this.isShow = true
           } else {
-            // 跳转逻辑
+           <em> // 跳转逻辑</em>
           }
         })
         .bindSheet($$this.isShow, this.ShareBuilder(), {
@@ -60,7 +56,7 @@ List() {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [半模态页面（bindSheet）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#bindsheet)默认是模态形式的非全屏弹窗式交互页面，允许部分底层父视图可见，帮助用户在与半模态交互时保留其父视图环境。用户可以通过bindSheet首参数控制半模态窗口的显示和退出，通过第二个参数设置[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)自定义半模态窗口显示的内容布局。
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
@@ -69,7 +65,7 @@ List() {
  
  
 
-##### 问题定位
+#### 问题定位
 
 出现bindSheet半模态窗口退出动效执行两次，一般需要考虑bindSheet是否为多个组件绑定了半模态窗口。结合本案例问题分析如下：
  
@@ -80,13 +76,13 @@ List() {
  
  
 
-##### 分析结论
+#### 分析结论
 
 本案例给多个子组件都绑定了半模态窗口，导致在退出半模态窗口时，触发多个窗口的退出动效。
  
  
 
-##### 修改建议
+#### 修改建议
 
 为了避免出现bindSheet半模态窗口退出动效执行两次的问题，使用bindSheet半模态窗口时，只给指定的子组件绑定半模态窗口，其余子组件可以把bindSheet第二个参数CustomBuilder设置成undefined。示例代码如下：
  
@@ -141,18 +137,18 @@ struct BindSheetExample {
         List() {
           ForEach(this.listObjs, (item: MenuObject) => {
             ListItem() {
-              // 自定义组件
+            <em>  // 自定义组件</em>
               MenuComponent({ value: item })
                 .width('100%')
                 .onClick(() => {
                   if (item.title === '分享给好友') {
                     this.isShow = true;
                   } else {
-                    // 跳转页面逻辑
+                   <em> // 跳转页面逻辑</em>
 
                   }
                 })
-                // 不需要bindSheet的子组件设置undefined
+             <em>   // 不需要bindSheet的子组件设置undefined</em>
                 .bindSheet($$this.isShow, item.title === '分享给好友' ? this.ShareBuilder() : undefined,
                   {
                     detents: [SheetSize.FIT_CONTENT],

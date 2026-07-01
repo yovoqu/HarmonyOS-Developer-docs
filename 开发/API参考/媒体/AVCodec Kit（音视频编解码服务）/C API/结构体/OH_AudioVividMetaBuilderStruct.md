@@ -3,18 +3,16 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core-oh-audiovividmetabuilderstruct
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## OH_AudioVividMetaBuilderStruct
- 
 
 ```text
 typedef struct OH_AudioVividMetaBuilderStruct OH_AudioVividMetaBuilder
 ```
   
 
-##### 概述
+#### 概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 OH_AudioVividMetaBuilder的前向声明。
  

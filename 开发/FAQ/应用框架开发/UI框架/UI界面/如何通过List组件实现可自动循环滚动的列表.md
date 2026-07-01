@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-952
 
-## 如何通过List组件实现可自动循环滚动的列表
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何通过List组件实现一个既能自动滚动又能无限循环的列表？要求列表需要具备自动滚动功能，并能够实现无缝循环播放的效果，使首尾衔接自然，不出现空白或卡顿现象。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件是可滚动的容器组件列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
 - [setInterval](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-timer#setinterval)定时器可以重复调用一个函数，在每次调用之间可以设置固定的时间延迟。
@@ -23,16 +19,16 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
-- 场景一：在纵向实现循环滑动列表：
-通过setInterval定时器循环执行this.scroller.scrollTo达到自动滚动的效果。具体逻辑为：当移动大于五行时，每次执行data数组删除索引为0数据，将该数据加到数组末尾的逻辑，实现循环。
+- 场景一：在纵向实现循环滑动列表：1. 通过setInterval定时器循环执行this.scroller.scrollTo达到自动滚动的效果。具体逻辑为：当移动大于五行时，每次执行data数组删除索引为0数据，将该数据加到数组末尾的逻辑，实现循环。
 ```text
 startAutoRoll() {
   this.last = new Date().getTime();
   this.intervalNum = setInterval(() => {
     if (this.rollOffset > (this.itemWidth * 5)) {
-      for (let i = 0; i   // data数组前减后加，实现循环
+      for (let i = 0; i < 5; i++) {
+      <em>  // data数组前减后加，实现循环</em>
         this.data.deleteData(0);
         this.data.pushData(this.nextNum.toString());
         if (this.nextNum === 9) {
@@ -41,12 +37,12 @@ startAutoRoll() {
           this.nextNum++;
         }
       }
-      // 对应data变化，防止超出
+     <em> // 对应data变化，防止超出</em>
       this.rollOffset -= this.itemWidth * 5;
     }
     let curr = new Date().getTime();
     this.rollOffset += 0.5 * (curr - this.last) / 10;
-    // 改为x轴移动
+   <em> // 改为x轴移动</em>
     this.scroller.scrollTo({ xOffset: this.rollOffset, yOffset: 0, animation: false });
     this.last = curr;
   }, 10);
@@ -54,14 +50,16 @@ startAutoRoll() {
 ```
 
 
-- 在List的onScrollFrameBegin回调里计算实际需要的滚动量并作为事件处理函数的返回值返回，List将按照返回值的实际滚动量进行滚动。
+1. 在List的onScrollFrameBegin回调里计算实际需要的滚动量并作为事件处理函数的返回值返回，List将按照返回值的实际滚动量进行滚动。
 ```text
 .onScrollFrameBegin((offset: number) => {
-  let currOffset = this.scroller.currentOffset().xOffset; // 改为x轴
+  let currOffset = this.scroller.currentOffset().xOffset;<em> // 改为x轴</em>
   let newOffset = currOffset + offset;
   let totalWidth = this.itemWidth * 10;
-  // 左滑
-  if (newOffset  // 右滑
+  <em>// 左滑</em>
+  if (newOffset < totalWidth * 0.5) {
+    newOffset += totalWidth;
+   <em> // 右滑</em>
   } else if (newOffset > totalWidth * 1.5) {
     newOffset -= totalWidth;
   }
@@ -71,11 +69,11 @@ startAutoRoll() {
 ```
 
 
- 
-完整示例参考如下：
- 
-VerticalCircularList.ets：
- 
+  完整示例参考如下：
+
+  VerticalCircularList.ets：
+
+  
 ```text
 import { MyDataSource } from './MyDataSource';
 
@@ -96,7 +94,8 @@ struct VerticalCircularList {
     this.last = new Date().getTime();
     this.intervalNum = setInterval(() => {
       if (this.rollOffset > (this.itemHeight * 5)) {
-        for (let i = 0; i   // data数组前减后加，实现循环
+        for (let i = 0; i < 5; i++) {
+        <em>  // data数组前减后加，实现循环</em>
           this.data.deleteData(0);
           this.data.pushData(this.nextNum.toString());
           if (this.nextNum === 9) {
@@ -105,7 +104,7 @@ struct VerticalCircularList {
             this.nextNum++;
           }
         }
-        // 对应data变化，防止超出
+       <em> // 对应data变化，防止超出</em>
         this.rollOffset -= this.itemHeight * 5;
       }
       let curr = new Date().getTime();
@@ -116,7 +115,20 @@ struct VerticalCircularList {
   }
 
   aboutToAppear(): void {
-    for (let i = 0; i  {
+    for (let i = 0; i < 10; i++) {
+      this.data.pushData(this.dataSource[i].toString());
+    }
+    for (let i = 0; i < 10; i++) {
+      this.data.pushData(this.dataSource[i].toString());
+    }
+    this.startAutoRoll();
+  }
+
+  build() {
+    Navigation(this.pathStack) {
+      Row() {
+        List({ scroller: this.scroller }) {
+          LazyForEach(this.data, (item: string) => {
             ListItem() {
               Column() {
                 Text('宝宝吃完奶后，怎样让他快速入睡。' + item.toString())
@@ -177,8 +189,10 @@ struct VerticalCircularList {
           let currOffset = this.scroller.currentOffset().yOffset;
           let newOffset = currOffset + offset;
           let totalHeight = this.itemHeight * 10;
-          // 上滑
-          if (newOffset   // 下滑
+         <em> // 上滑</em>
+          if (newOffset < totalHeight * 0.5) {
+            newOffset += totalHeight;
+          <em>  // 下滑</em>
           } else if (newOffset > totalHeight * 1.5) {
             newOffset -= totalHeight;
           }
@@ -190,9 +204,9 @@ struct VerticalCircularList {
   }
 }
 ```
- 
-BasicDataSource.ets：
- 
+ BasicDataSource.ets：
+
+  
 ```text
 export class BasicDataSource implements IDataSource {
   private listeners: DataChangeListener[] = [];
@@ -207,7 +221,15 @@ export class BasicDataSource implements IDataSource {
   }
 
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener) = 0) {
+    if (this.listeners.indexOf(listener) < 0) {
+      console.info('add listener');
+      this.listeners.push(listener);
+    }
+  }
+
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    const pos = this.listeners.indexOf(listener);
+    if (pos >= 0) {
       console.info('remove listener');
       this.listeners.splice(pos, 1);
     }
@@ -244,9 +266,9 @@ export class BasicDataSource implements IDataSource {
   }
 }
 ```
- 
-MyDataSource.ets：
- 
+ MyDataSource.ets：
+
+  
 ```text
 import { BasicDataSource } from './BasicDataSource';
 
@@ -282,13 +304,12 @@ export class MyDataSource extends BasicDataSource {
   }
 }
 ```
- 
-纵向循环滚动效果预览：
- 
+ 纵向循环滚动效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/9lAopOnvTUST2cn9BS0tUQ/zh-cn_image_0000002658920467.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025711Z&HW-CC-Expire=86400&HW-CC-Sign=8597F83CD84CF95D10B5D444BDA6199B4150C5FD0EA8FD6C18DA1AC0119E7FCE)
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/9lAopOnvTUST2cn9BS0tUQ/zh-cn_image_0000002658920467.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041214Z&HW-CC-Expire=86400&HW-CC-Sign=2CD1440C6D88E923C199365454A5118AFE0C16D8D48C9340900C4146DA2D2CB7)
 
- 
+
  
 - **场景二**：在横向实现循环滚动列表。横向滑动与纵向类似，完整代码如下（BasicDataSource.ets和MyDataSource.ets与场景一相同）。
 ```text
@@ -304,14 +325,15 @@ struct HorizontalCircularList {
   private rollOffset: number = 0;
   private intervalNum: number = 0;
   pathStack: NavPathStack = new NavPathStack();
-  private itemWidth: number = 350; // 纵向中的itemHeight=50改为itemWidth=350
+  private itemWidth: number = 350;<em> // 纵向中的itemHeight=50改为itemWidth=350</em>
   private last: number = 0;
 
   startAutoRoll() {
     this.last = new Date().getTime();
     this.intervalNum = setInterval(() => {
       if (this.rollOffset > (this.itemWidth * 5)) {
-        for (let i = 0; i     // data数组前减后加，实现循环
+        for (let i = 0; i < 5; i++) {
+      <em>    // data数组前减后加，实现循环</em>
           this.data.deleteData(0);
           this.data.pushData(this.nextNum.toString());
           if (this.nextNum === 9) {
@@ -320,19 +342,32 @@ struct HorizontalCircularList {
             this.nextNum++;
           }
         }
-        // 对应data变化，防止超出
+     <em>   // 对应data变化，防止超出</em>
         this.rollOffset -= this.itemWidth * 5;
       }
       let curr = new Date().getTime();
       this.rollOffset += 0.5 * (curr - this.last) / 10;
-      // 改为x轴移动
+     <em> // 改为x轴移动</em>
       this.scroller.scrollTo({ xOffset: this.rollOffset, yOffset: 0, animation: false });
       this.last = curr;
     }, 10);
   }
 
   aboutToAppear(): void {
-    for (let i = 0; i  {
+    for (let i = 0; i < 10; i++) {
+      this.data.pushData(this.dataSource[i].toString());
+    }
+    for (let i = 0; i < 10; i++) {
+      this.data.pushData(this.dataSource[i].toString());
+    }
+    this.startAutoRoll();
+  }
+
+  build() {
+    Navigation(this.pathStack) {
+      Row() {
+        List({ scroller: this.scroller }) {
+          LazyForEach(this.data, (item: string) => {
             ListItem() {
               Column() {
                 Text('宝宝吃完奶后，怎样让他快速入睡。' + item.toString())
@@ -380,7 +415,7 @@ struct HorizontalCircularList {
         .width('100%')
         .height(160)
         .backgroundColor('#FFDCDCDC')
-        .listDirection(Axis.Horizontal) // 滑动方向改为横向
+        .listDirection(Axis.Horizontal)<em> // 滑动方向改为横向</em>
         .scrollSnapAlign(ScrollSnapAlign.NONE)
         .friction(0.5)
         .onScrollStart(() => {
@@ -390,11 +425,13 @@ struct HorizontalCircularList {
           this.startAutoRoll();
         })
         .onScrollFrameBegin((offset: number) => {
-          let currOffset = this.scroller.currentOffset().xOffset; // 改为x轴
+          let currOffset = this.scroller.currentOffset().xOffset;<em> // 改为x轴</em>
           let newOffset = currOffset + offset;
           let totalWidth = this.itemWidth * 10;
-          // 左滑
-          if (newOffset   // 右滑
+         <em> // 左滑</em>
+          if (newOffset < totalWidth * 0.5) {
+            newOffset += totalWidth;
+          <em>  // 右滑</em>
           } else if (newOffset > totalWidth * 1.5) {
             newOffset -= totalWidth;
           }
@@ -407,5 +444,6 @@ struct HorizontalCircularList {
 }
 ```
  横向循环滚动效果预览：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/B_m-CuxNSTKgLHHiJJqDYw/zh-cn_image_0000002628401258.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025711Z&HW-CC-Expire=86400&HW-CC-Sign=7CA5EC861B0CCCD57723F46D5B54FB9D80F539384D14B2A98AD5A53007A22DD4)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/B_m-CuxNSTKgLHHiJJqDYw/zh-cn_image_0000002628401258.gif?HW-CC-KV=V1&HW-CC-Date=20260701T041214Z&HW-CC-Expire=86400&HW-CC-Sign=96E94E5340C6E12CE64C79E59EF7F28570A1D5C1E0C1713F22B3F304FCB6DB79)

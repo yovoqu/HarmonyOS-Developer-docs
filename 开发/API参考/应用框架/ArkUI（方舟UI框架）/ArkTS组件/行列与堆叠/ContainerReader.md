@@ -3,165 +3,166 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-containerreader
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+ContainerReader是容器断点组件，用于在动态场景下根据容器尺寸获取断点信息并进行响应式布局。该组件通过[双向绑定](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)实时返回容器的尺寸和断点，使开发者能够基于容器大小进行差异化的组件创建和布局。
+
+> [!NOTE]
+> 使用ContainerReader时，ContainerReader父组件不要依赖其子组件确定自身尺寸。 容器断点基于组件自身的实际尺寸和断点阈值数组确定高度和宽度断点值，组件尺寸和断点信息仅作用于当前组件及其子组件，同一页面中的多个容器可拥有各自独立的断点状态。 ContainerReader组件的尺寸需要由父容器和自身布局确定，不受子组件影响。在不同父容器下的布局规格：父容器为 Flex 、 Column 、 Row 时撑满容器剩余空间；父容器为其他类型时撑满父容器。 ContainerReader接口的参数必须使用状态变量结合双向绑定形式( !!语法 )，以便在后端计算尺寸变化时及时通知前端刷新UI。 更多关于容器断点的开发指导和完整示例，可参考 容器断点 (ContainerReader) 。
+
+
+**起始版本：** 26.0.0
+
+
+#### 子组件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-## ContainerReader
-   
-    
-ContainerReader是容器断点组件，用于在动态场景下根据容器尺寸获取断点信息并进行响应式布局。该组件通过[双向绑定](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)实时返回容器的尺寸和断点，使开发者能够基于容器大小进行差异化的组件创建和布局。
-    
-     
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/VXBAV4XAToiLfGBOdjZZbg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025447Z&HW-CC-Expire=86400&HW-CC-Sign=2347DAB3B5513624B53AEF7FE4BE1AD8B746E2EC1E3D6D6FAB7A0924F088FDF2)
-      
-      
- - 使用ContainerReader时，ContainerReader父组件不要依赖其子组件确定自身尺寸。
- - 容器断点基于组件自身的实际尺寸和断点阈值数组确定高度和宽度断点值，组件尺寸和断点信息仅作用于当前组件及其子组件，同一页面中的多个容器可拥有各自独立的断点状态。
- - ContainerReader组件的尺寸需要由父容器和自身布局确定，不受子组件影响。在不同父容器下的布局规格：父容器为[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)、[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)、[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)时撑满容器剩余空间；父容器为其他类型时撑满父容器。
- - ContainerReader接口的参数必须使用状态变量结合双向绑定形式([!!语法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding))，以便在后端计算尺寸变化时及时通知前端刷新UI。
- - 更多关于容器断点的开发指导和完整示例，可参考[容器断点 (ContainerReader)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-container-reader)。
-      
-     
-    
-    
-**起始版本：** 26.0.0
-    
-          
-##### 子组件
-     
 可以包含子组件。
-    
-    
-          
-##### 接口
-    
-    
-          
-##### [h2]ContainerReader
-     
+
+
+
+#### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+
+
+#### ContainerReader
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ContainerReader(value: ContainerReaderInfo)
-     
+
 创建容器断点组件并配置容器读取参数。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ContainerReaderInfo | 是 | 容器读取配置选项，包含尺寸数据和断点配置。 |
-     
-    
-    
-          
-##### ContainerReaderInfo
-     
+
+
+
+
+#### ContainerReaderInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ContainerReader组件的配置选项，用于指定容器尺寸读取和断点值获取的参数，不能通过此参数改变组件尺寸和断点值。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-     
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| size | Size | 否 | 否 | 获取到的当前ContainerReader组件的尺寸，用于布局分析和断点计算。          说明：          该参数支持!!双向绑定变量。绑定后组件尺寸值变化时，size绑定的变量值会自动更新。 |
-| widthBreakpoint | WidthBreakpoint | 否 | 是 | 容器的宽度断点，为获取到的当前ContainerReader组件的宽度断点枚举值。          默认值：WidthBreakpoint.XS          说明：          该参数支持!!双向绑定变量。绑定后组件宽度断点值变化时，widthBreakpoint绑定的变量值会自动更新。 |
-| heightBreakpoint | HeightBreakpoint | 否 | 是 | 容器的高度断点，为获取到的当前ContainerReader组件在不同高宽比阈值下对应的高度断点枚举值。          默认值：HeightBreakpoint.SM          说明：          该参数支持!!双向绑定变量。绑定后组件高度断点值变化时，heightBreakpoint绑定的变量值会自动更新。 |
-     
-    
-    
-          
-##### 属性
-     
+| size | Size | 否 | 否 | 获取到的当前ContainerReader组件的尺寸，用于布局分析和断点计算。 说明： 该参数支持!!双向绑定变量。绑定后组件尺寸值变化时，size绑定的变量值会自动更新。 |
+| widthBreakpoint | WidthBreakpoint | 否 | 是 | 容器的宽度断点，为获取到的当前ContainerReader组件的宽度断点枚举值。 默认值：WidthBreakpoint.XS 说明： 该参数支持!!双向绑定变量。绑定后组件宽度断点值变化时，widthBreakpoint绑定的变量值会自动更新。 |
+| heightBreakpoint | HeightBreakpoint | 否 | 是 | 容器的高度断点，为获取到的当前ContainerReader组件在不同高宽比阈值下对应的高度断点枚举值。 默认值：HeightBreakpoint.SM 说明： 该参数支持!!双向绑定变量。绑定后组件高度断点值变化时，heightBreakpoint绑定的变量值会自动更新。 |
+
+
+
+
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
-    
-    
-          
-##### [h2]breakpointConfig
-     
+
+
+
+#### breakpointConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 breakpointConfig(value?: BreakpointOptions)
-     
+
 设置断点配置选项，定义触发不同布局行为的尺寸阈值。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-     
+
 **参数：**
-     
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | BreakpointOptions | 否 | 断点配置选项，包含宽度和高度的断点阈值数组。 |
-     
-    
-    
-          
-##### BreakpointOptions
-     
+
+
+
+
+#### BreakpointOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义断点配置选项，用于指定容器尺寸分析的阈值参数。
-     
+
 **起始版本：** 26.0.0
-     
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-     
+
 **卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
-     
+
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
-     
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-     
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width | Array&lt;number&gt; | 否 | 是 | 宽度断点值数组。数组必须为单调递增数组。          默认值：[320, 600, 840, 1440]，单位vp，与窗口宽度断点默认值一致。          说明：          最多可支持5个断点，即数组最大长度为4。 |
-| height | Array&lt;number&gt; | 否 | 是 | 高度断点值数组，高度断点值是组件高度与宽度的比值。无单位。数组必须为单调递增数组。          默认值：[0.8, 1.2]，与窗口高度断点默认值一致。          说明：          最多支持3个断点，即数组最大长度为2。 |
-     
-    
-    
-          
-##### 事件
-     
+| width | Array&lt;number&gt; | 否 | 是 | 宽度断点值数组。数组必须为单调递增数组。 默认值：[320, 600, 840, 1440]，单位vp，与窗口宽度断点默认值一致。 说明： 最多可支持5个断点，即数组最大长度为4。 |
+| height | Array&lt;number&gt; | 否 | 是 | 高度断点值数组，高度断点值是组件高度与宽度的比值。无单位。数组必须为单调递增数组。 默认值：[0.8, 1.2]，与窗口高度断点默认值一致。 说明： 最多支持3个断点，即数组最大长度为2。 |
+
+
+
+
+#### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
-    
-    
-          
-##### 示例
-    
-    
-          
-##### [h2]示例1 （根据ContainerReader宽度断点切换布局方向）
-     
+
+
+
+#### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+
+
+#### 示例1 （根据ContainerReader宽度断点切换布局方向）
+
 该示例展示了[ContainerReader](#containerreader-1)组件，如何通过双向绑定获取容器尺寸和断点信息，并根据宽度断点切换布局方向。
-     
+
 从API版本26.0.0开始，新增ContainerReader。
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/KR2fMZpiS_awog8YVx-6Qw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025447Z&HW-CC-Expire=86400&HW-CC-Sign=8B94BE8062704266ABE2E69AC05C87C55EE4C5D57C422019C881C5797F770023)
-       
-       
-使用ContainerReader需要同时导入ContainerReaderAttribute，否则会导致编译报错。
-      
-     
-     
+
+> [!NOTE]
+> 使用ContainerReader需要同时导入ContainerReaderAttribute，否则会导致编译报错。
+
+
 ```ArkTS
 // xxx.ets
 import { ContainerReader, ContainerReaderAttribute, Size } from '@kit.ArkUI';
@@ -221,27 +222,23 @@ struct Index {
   }
 }
 ```
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/pMlG73qiQWORxo0GE4khRA/zh-cn_image_0000002659221647.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025447Z&HW-CC-Expire=86400&HW-CC-Sign=05ADECA206DC4EFE99D455A84626E6F48071BED3496F1A6FD2B9FBD641200C24)
 
-    
-    
-          
-##### [h2]示例2 （自定义断点配置）
-     
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/pMlG73qiQWORxo0GE4khRA/zh-cn_image_0000002659221647.gif?HW-CC-KV=V1&HW-CC-Date=20260701T040945Z&HW-CC-Expire=86400&HW-CC-Sign=B3CE6378288DA85D445BE5A34BEA8FB85760423C6F8EE51513DDFA372B5FC86E)
+
+
+
+
+#### 示例2 （自定义断点配置）
+
 该示例展示了如何通过[breakpointConfig](#breakpointconfig)自定义断点阈值，定义不同的宽窄布局尺寸要求，实现更精细化的布局控制。
-     
+
 从API版本26.0.0开始，新增ContainerReader与breakpointConfig。
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/T7wSVMDxQMycy3gfhVqJhw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025447Z&HW-CC-Expire=86400&HW-CC-Sign=3D1F1A6E67B19AF892A0103F5F99404433DD93EAC8D9EEF9A2A9E5F80FB78BFC)
-       
-       
-使用ContainerReader需要同时导入ContainerReaderAttribute，否则会导致编译报错。
-      
-     
-     
+
+> [!NOTE]
+> 使用ContainerReader需要同时导入ContainerReaderAttribute，否则会导致编译报错。
+
+
 ```ArkTS
 // xxx.ets
 import { ContainerReader, ContainerReaderAttribute, Size } from '@kit.ArkUI';
@@ -306,29 +303,25 @@ struct Index {
   }
 }
 ```
-     
+
 通过单击按钮改变父容器的宽度，返回不同的宽度断点值，从而调整布局方向。
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/WVB9jOuaRT-9IIF1K6uwfg/zh-cn_image_0000002628702456.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025447Z&HW-CC-Expire=86400&HW-CC-Sign=EEC23E2E0D779491A618F8D16391E9B0BA2A2AD6230C83A1796ECC36D712D61A)
 
-    
-    
-          
-##### [h2]示例3 （利用宽度断点动态调整列数）
-     
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/WVB9jOuaRT-9IIF1K6uwfg/zh-cn_image_0000002628702456.gif?HW-CC-KV=V1&HW-CC-Date=20260701T040945Z&HW-CC-Expire=86400&HW-CC-Sign=247CE8929659A34CF5BB2270239EDAC5A1C206055D99F0ADA26D3C6252E579BE)
+
+
+
+
+#### 示例3 （利用宽度断点动态调整列数）
+
 该示例展示了如何根据ContainerReader得到的宽度断点动态调整列数，实现多设备自适应布局。根据宽度断点不同设置不同的列数。
-     
+
 从API版本26.0.0开始，新增ContainerReader。
-     
-      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/8K-VNQSmSympDnI8amM5Uw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025447Z&HW-CC-Expire=86400&HW-CC-Sign=32D2A0295CCCB88941AE83470D2362364804F764F9FE5F90C9DE98CFF8AEE937)
-       
-       
-使用ContainerReader需要同时导入ContainerReaderAttribute，否则会导致编译报错。
-      
-     
-     
+
+> [!NOTE]
+> 使用ContainerReader需要同时导入ContainerReaderAttribute，否则会导致编译报错。
+
+
 ```ArkTS
 // xxx.ets
 import { ContainerReader, ContainerReaderAttribute, Size } from '@kit.ArkUI';
@@ -405,6 +398,6 @@ struct Index {
   }
 }
 ```
-     
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/f_L8LgH2TDWdfn2xOfPnkA/zh-cn_image_0000002659101685.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025447Z&HW-CC-Expire=86400&HW-CC-Sign=1A41C8F146DC1E0F75EC52D8DF9C50632CFE02E797C0C1EF1C0431635DC3834C)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/f_L8LgH2TDWdfn2xOfPnkA/zh-cn_image_0000002659101685.gif?HW-CC-KV=V1&HW-CC-Date=20260701T040945Z&HW-CC-Expire=86400&HW-CC-Sign=30B0278EEC4E7D7C402E06B4CD78A021A87B6396D5B41903FEEC3B0084254366)

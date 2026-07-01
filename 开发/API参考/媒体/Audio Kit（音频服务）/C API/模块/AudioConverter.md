@@ -3,14 +3,11 @@
 更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audioconverter
-
 **支持设备：** Phone | PC/2in1 | Tablet
 
-## AudioConverter
- 
- 
+#### 概述
 
-##### 概述
+**支持设备：** Phone | PC/2in1 | Tablet
 
 提供音频模块的C接口定义。
  
@@ -18,7 +15,9 @@
  
   
 
-##### 文件汇总
+#### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

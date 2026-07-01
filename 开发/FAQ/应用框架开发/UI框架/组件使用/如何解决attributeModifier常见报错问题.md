@@ -4,19 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1532
 
-## 如何解决attributeModifier常见报错问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用attributeModifier时程序崩溃，报以下几种错误：
  
 - 场景一：Error message:Cannot read property observeComponentCreation2 of undefined。
 ```text
-class NavigationModifier implements AttributeModifier {
+class NavigationModifier implements AttributeModifier<NavigationAttribute> {
   applyNormalAttribute(instance: NavigationAttribute): void {
-    instance.title({ builder: mainToolbarLayout(), height: 60 }); // 此处入参为CustomBuilder
+    instance.title({ builder: mainToolbarLayout(), height: 60 }); <em>// 此处入参为CustomBuilder</em>
   }
 }
 
@@ -37,11 +33,11 @@ function mainToolbarLayout() {
 
 - 场景二：Error message:undefined is not callable。
 ```text
-class TextModifier implements AttributeModifier {
+class TextModifier implements AttributeModifier<TextAttribute> {
   applyNormalAttribute(instance: TextAttribute): void {
     instance.hitTestBehavior(HitTestMode.Default)
       .copyOption(CopyOptions.InApp)
-      // bindSelectionMenu第二个入参为CustomBuilder
+     <em> // bindSelectionMenu第二个入参为CustomBuilder</em>
       .bindSelectionMenu(TextSpanType.TEXT, longPressEmptyMenu, TextResponseType.LONG_PRESS);
   }
 }
@@ -49,7 +45,7 @@ class TextModifier implements AttributeModifier {
 
 @Builder
 function longPressEmptyMenu() {
-  // 需要让Menu组件为空，才能达到长按选中但不出现默认菜单的效果
+  <em>// 需要让Menu组件为空，才能达到长按选中但不出现默认菜单的效果</em>
   Column() {
     Menu() {
     };
@@ -61,7 +57,7 @@ function longPressEmptyMenu() {
  
  
 
-##### 背景知识
+#### 背景知识
 
 ArkUI支持动态属性设置，可通过组件的通用方法[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)设置组件的多态样式，在使用此方法时，开发者需要自定义class实现attributeModifier接口。
  
@@ -76,11 +72,13 @@ ArkUI支持动态属性设置，可通过组件的通用方法[attributeModifier
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 场景一：用NavigationAttribute把Navigation的title整理成一个公共的动态属性时，程序报错闪退。原因：不支持入参或者返回值为CustomBuilder的属性。Navigation的[title](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#title)方法支持CustomBuilder参数。
- 修改建议：直接在组件尾部调用属性或使用[@Extend](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend)封装。
- 
+
+  修改建议：直接在组件尾部调用属性或使用[@Extend](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend)封装。
+
+  
 ```text
 @Component
 struct SceneOne {
@@ -95,8 +93,10 @@ struct SceneOne {
 ```
 
 - 场景二：Text组件使用attributeModifier绑定bindSelectionMenu崩溃，程序报错闪退。原因：不支持入参或者返回值为CustomBuilder的属性。Text的[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#bindselectionmenu11)方法第二个入参为CustomBuilder类型。
- 修改建议：直接在组件尾部调用属性或使用[@Extend](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend)封装。
- 
+
+  修改建议：直接在组件尾部调用属性或使用[@Extend](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend)封装。
+
+  
 ```text
 @Component
 struct SceneTwo {
@@ -173,7 +173,7 @@ function mainToolbarLayout() {
 
 @Builder
 function longPressEmptyMenu() {
-  // 需要让Menu组件为空，才能达到长按选中但不出现默认菜单的效果
+  <em>// 需要让Menu组件为空，才能达到长按选中但不出现默认菜单的效果</em>
   Column() {
     Menu() {
     };
@@ -183,7 +183,7 @@ function longPressEmptyMenu() {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：上述场景二这种需要封装自定义组件给多个地方使用，attributeModifier不支持bindSelectionMenu属性，应该如何从外部指定呢？
  
@@ -199,13 +199,11 @@ A：报错Method not implemented，说明该属性当前不支持attributeModifi
  
  
 
-##### 总结
+#### 总结
 
 在使用attributeModifier遇错时，可以按照以下步骤排查：
- 
-- 检查Attribute是否可以使用attributeModifier封装。详细可查阅[applySelectedAttribute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#applyselectedattribute)文档下方描述的instance参数支持范围。
-- 判断是否使用了不支持或者未实现的属性。详细可查阅[属性或事件对attributeModifier的支持情况](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-attributemodifier#属性或事件对attributemodifier的支持情况)。
-- 对于不在2中所列举，但是报错的属性，可以查看此属性详细介绍，判断是否属于背景知识中所列举的不支持情况。
-
+ 1. 检查Attribute是否可以使用attributeModifier封装。详细可查阅[applySelectedAttribute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#applyselectedattribute)文档下方描述的instance参数支持范围。
+2. 判断是否使用了不支持或者未实现的属性。详细可查阅[属性或事件对attributeModifier的支持情况](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-attributemodifier#属性或事件对attributemodifier的支持情况)。
+3. 对于不在2中所列举，但是报错的属性，可以查看此属性详细介绍，判断是否属于背景知识中所列举的不支持情况。
  
 对于无法使用attributeModifier封装的属性，需要在每个组件尾部直接调用属性方法，也可以尝试使用[@Styles装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style)和[@Extend装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend)实现类似attributeModifier的封装效果。

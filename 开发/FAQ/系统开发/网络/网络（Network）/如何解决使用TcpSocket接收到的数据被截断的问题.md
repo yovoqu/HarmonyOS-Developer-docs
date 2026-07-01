@@ -4,355 +4,361 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-82
 
-## 如何解决使用TcpSocket接收到的数据被截断的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 使用[TcpSocket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket)接收到的数据被截断。
  
  
 
-##### 背景知识
+#### 背景知识
 
 TCP是面向字节流的协议，是无边界的。由于没有边界，当发送端按顺序将字节发送到网络中时，接收方无法确定这些字节属于哪个包。所以在TCP数据传输过程中，有可能会发生粘包、拆包（半包）现象。
  
  
 - 正常传输数据包：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/sxlU0n25T0y5NR9nFQgATg/zh-cn_image_0000002628770212.png?HW-CC-KV=V1&HW-CC-Date=20260701T025752Z&HW-CC-Expire=86400&HW-CC-Sign=FAF67C98769264A30254FAE7D6B3681EA2361B2CC61E973EA5FA5DF7554A2425)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/sxlU0n25T0y5NR9nFQgATg/zh-cn_image_0000002628770212.png?HW-CC-KV=V1&HW-CC-Date=20260701T041438Z&HW-CC-Expire=86400&HW-CC-Sign=99CFD4141C3AB738BC4A48BD34F877BE0C54C830261F1D98400146815B8AD7D8)
 
 - TCP粘包：是指发送方发送的若干数据，在接收方的缓冲区里被组合到一起后读取，后面数据包的头部“粘着”前面数据包的尾部，当单个包比较小时，多个包可能会被合并成一个数据包，所以称为粘包。
- 粘包示意图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/kqk42HNPStOpq7nugkV3lg/zh-cn_image_0000002658969537.png?HW-CC-KV=V1&HW-CC-Date=20260701T025752Z&HW-CC-Expire=86400&HW-CC-Sign=235A148D0B38087BF1DDEE074FF4F8D73A941EBFE8EF9E86DCBF94CE88438970)
+
+  粘包示意图：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/kqk42HNPStOpq7nugkV3lg/zh-cn_image_0000002658969537.png?HW-CC-KV=V1&HW-CC-Date=20260701T041438Z&HW-CC-Expire=86400&HW-CC-Sign=E1852B4352206A704AF1F60B25022BD06D903F26AF89C5CB34BFFB5DD7E985B9)
 
 - TCP拆包：是指一个比较大的数据包，在接收方缓冲区被拆分成多个数据包来读取，这些多个数据包组合起来才是正确的数据包。
- 拆包和粘包示意图：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/7H1pJfL1RTa1DZFnxjqVbQ/zh-cn_image_0000002628610326.png?HW-CC-KV=V1&HW-CC-Date=20260701T025752Z&HW-CC-Expire=86400&HW-CC-Sign=E28C8D95CBD663C00536F8032F30F84A9AAA2684955AFAD3EDB6B2454C7A87F0)
+
+  拆包和粘包示意图：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/7H1pJfL1RTa1DZFnxjqVbQ/zh-cn_image_0000002628610326.png?HW-CC-KV=V1&HW-CC-Date=20260701T041438Z&HW-CC-Expire=86400&HW-CC-Sign=6BFB7BA7EB6BCB94233B1842BB50EF10C6DDD2E06F44FDFC7173C189C86CBBE8)
 
 
  
 
-##### 问题定位
+#### 问题定位
 
 使用代码模拟场景，发送一个长度很长的包，会出现截断现象；发送一个长度较短的包，会出现两次发送的包粘连成一个数据包。
  
  
 
-##### 分析结论
+#### 分析结论
 
 使用TcpSocket传输数据时，服务端同时发送了3个数据包A、B、C给客户端，由于B包数据过大，导致B包被截断，并且被截断的部分拼接到了C包的前面，从而客户端无法正常读取数据。
  
  
 
-##### 修改建议
+#### 修改建议
 
 - **方案一**：使用固定的标识符作为数据包的结尾。
-可以在每次发送数据时，在数据的末尾添加固定的标识符，比如\r\n。
+
+  可以在每次发送数据时，在数据的末尾添加固定的标识符，比如\r\n。
 ```text
-msg += '\r\n';
-try {
-  await this.tcp.send({
-    data: msg
-  });
-} catch (error) {
-  console.error(`send failed. ${index}`);
-}
+<span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(132,63,161);">'</span>\r\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
+try <span style="color: rgb(181,106,1);">{</span>
+  await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">send</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">msg</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`send failed. </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
- 
- 这样当解析对端传过来的数据时，首先把所有收到的数据都复制到接收缓冲区中，然后遍历缓冲区查找结束标志，找到后就把结束标志以前的部分作为完整数据包提取出来使用，剩余的部分复制到缓冲区首部进行下一次遍历，直到找不到结束标志为止。
- 
+
+
+  这样当解析对端传过来的数据时，首先把所有收到的数据都复制到接收缓冲区中，然后遍历缓冲区查找结束标志，找到后就把结束标志以前的部分作为完整数据包提取出来使用，剩余的部分复制到缓冲区首部进行下一次遍历，直到找不到结束标志为止。
+
+  
 ```text
-client.on('message', (value: socket.SocketMessageInfo) => {
-  // 把接收到的数据复制到缓冲区有效数据尾部
-  let copyCount = buffer.from(value.message).copy(this.receivedDataBuf, this.receivedDataLen);
-  // 缓冲区已使用长度加上本次接收的数据长度
-  this.receivedDataLen += copyCount;
-  // 缓冲区数据中数据包结束标志的位置
-  let endFlagPos = this.receivedDataBuf.subarray(0, this.receivedDataLen).indexOf(this.packetEndFlag);
-  let textDecoder = util.TextDecoder.create('utf-8');
-  while (endFlagPos > -1) {
-    // 把数据包结束标志前面的数据转换为字符串
-    let msgArray = new Uint8Array(this.receivedDataBuf.subarray(0, endFlagPos).buffer);
-    let msg = textDecoder.decodeToString(msgArray);
-    this.receivedMsg.push(msg);
-    // 剩余的未解析数据
-    let leaveBufData = this.receivedDataBuf.subarray(endFlagPos + 2, this.receivedDataLen);
-    // 剩余的未解析数据移动到缓冲区头部
-    for (let pos = 0; pos  leaveBufData.length; pos++) {
-      this.receivedDataBuf.writeUInt8(leaveBufData.readUInt8(pos), pos);
-    }
-    // 重新设置缓冲区已使用长度
-    this.receivedDataLen = leaveBufData.length;
-    // 开始查找下一个数据包结束标志
-    endFlagPos = this.receivedDataBuf.subarray(0, this.receivedDataLen).indexOf(this.packetEndFlag);
-  }
-});
+<span style="color: rgb(255,255,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'message'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SocketMessageInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把接收到的数据复制到缓冲区有效数据尾部</span></em>
+  let <span style="color: rgb(255,255,255);">copyCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copy</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓冲区已使用长度加上本次接收的数据长度</span></em>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">copyCount</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓冲区数据中数据包结束标志的位置</span></em>
+  let <span style="color: rgb(255,255,255);">endFlagPos </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">packetEndFlag</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'utf-8'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  while <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">endFlagPos </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把数据包结束标志前面的数据转换为字符串</span></em>
+    let <span style="color: rgb(255,255,255);">msgArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endFlagPos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msgArray</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedMsg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">剩余的未解析数据</span></em>
+    let <span style="color: rgb(255,255,255);">leaveBufData </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">endFlagPos </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">剩余的未解析数据移动到缓冲区头部</span></em>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">pos </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">pos </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeUInt8</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readUInt8</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+   <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重新设置缓冲区已使用长度</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始查找下一个数据包结束标志</span></em>
+    <span style="color: rgb(255,255,255);">endFlagPos </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">packetEndFlag</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 
  
 - **方案二**：在每个数据包的头部定义数据包的长度。
-通过将数据包的总长度声明在数据包的首部，例如前2位字节为固定的包长度，使用小端的16位无符号整数表示，后面是包内容：
+
+  通过将数据包的总长度声明在数据包的首部，例如前2位字节为固定的包长度，使用小端的16位无符号整数表示，后面是包内容：
 ```text
-let msg = index.toString();
-let textEncoder = new util.TextEncoder();
-let encodeValue = textEncoder.encodeInto(msg);
-let sendBuf = buffer.alloc(2 + encodeValue.byteLength);
-// 写入固定包头中的长度信息
-sendBuf.writeUInt16LE(encodeValue.byteLength);
-// 写入固定包头中的长度信息
-sendBuf.write(msg, 2);
-try {
-  await this.tcp.send({
-    data: sendBuf.buffer
-  });
-} catch (error) {
-  console.error(`send failed. ${index}`);
-}
+let <span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">textEncoder </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextEncoder</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">encodeValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">textEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeInto</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+let <span style="color: rgb(255,255,255);">sendBuf </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alloc</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">encodeValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">写入固定包头中的长度信息</span></em>
+<span style="color: rgb(255,255,255);">sendBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeUInt16LE</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">encodeValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>// </em><em><span style="color: rgb(128,128,128);">写入固定包头中的长度信息</span></em>
+<span style="color: rgb(255,255,255);">sendBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">write</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+try <span style="color: rgb(181,106,1);">{</span>
+  await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">send</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">sendBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span>
+  <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+  <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`send failed. </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
- 
- 接收方在读取数据时，就可以先读取前2位字节获取数据包的长度，然后再往后读取这个长度的字节流，就是一个完整的数据包。
- 
+
+
+  接收方在读取数据时，就可以先读取前2位字节获取数据包的长度，然后再往后读取这个长度的字节流，就是一个完整的数据包。
+
+  
 ```text
-client.on('message', (value: socket.SocketMessageInfo) => {
-  // 把接收到的数据复制到缓冲区有效数据尾部
-  let copyCount = buffer.from(value.message).copy(this.receivedDataBuf, this.receivedDataLen);
-  this.receivedDataLen += copyCount;
-  // 至少写入了3个字节才需要解析
-  if (this.receivedDataLen  3) {
-    return;
-  }
-  // 当前数据包长度
-  let packLen = this.receivedDataBuf.readUInt16LE();
-  let textDecoder = util.TextDecoder.create('utf-8');
-  // 当前数据包长度加上固定包体的2字节，如果小于等于缓冲区已使用长度，就可以解析
-  while ((packLen + 2) = this.receivedDataLen) {
-    // 把可变包体中的数据转换为字符串
-    let msgArray = new Uint8Array(this.receivedDataBuf.subarray(2, packLen + 2).buffer);
-    let msg = textDecoder.decodeToString(msgArray);
-    this.receivedMsg.push(msg);
-    // 剩余的未解析数据
-    let leaveBufData = this.receivedDataBuf.subarray(packLen + 2, this.receivedDataLen);
-    // 剩余的未解析数据移动到缓冲区头部
-    for (let pos = 0; pos  leaveBufData.length; pos++) {
-      this.receivedDataBuf.writeUInt8(leaveBufData.readUInt8(pos), pos);
-    }
-    // 重新设置缓冲区已使用长度
-    this.receivedDataLen = leaveBufData.length;
-    // 至少写入了3个字节才需要解析，否则跳出循环
-    if (this.receivedDataLen  3) {
-      break;
-    }
-    // 开始查找下一个固定包头中的可变包体长度
-    packLen = this.receivedDataBuf.readUInt16LE();
-  }
-});
+<span style="color: rgb(255,255,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'message'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SocketMessageInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把接收到的数据复制到缓冲区有效数据尾部</span></em>
+  let <span style="color: rgb(255,255,255);">copyCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copy</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">copyCount</span><span style="color: rgb(181,106,1);">;</span>
+  <em><span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">至少写入了</span><span style="color: rgb(128,128,128);">3</span><span style="color: rgb(128,128,128);">个字节才需要解析</span></em>
+  if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+    return<span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前数据包长度</span></em>
+  let <span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readUInt16LE</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  let <span style="color: rgb(255,255,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'utf-8'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前数据包长度加上固定包体的</span><span style="color: rgb(128,128,128);">2</span><span style="color: rgb(128,128,128);">字节，如果小于等于缓冲区已使用长度，就可以解析</span></em>
+  while <span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把可变包体中的数据转换为字符串</span></em>
+    let <span style="color: rgb(255,255,255);">msgArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    let <span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msgArray</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedMsg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">剩余的未解析数据</span></em>
+    let <span style="color: rgb(255,255,255);">leaveBufData </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">剩余的未解析数据移动到缓冲区头部</span></em>
+    for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">pos </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">pos </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeUInt8</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readUInt8</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+ <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重新设置缓冲区已使用长度</span></em>
+    this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">至少写入了</span><span style="color: rgb(128,128,128);">3</span><span style="color: rgb(128,128,128);">个字节才需要解析，否则跳出循环</span></em>
+    if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      break<span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+  <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始查找下一个固定包头中的可变包体长度</span></em>
+    <span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readUInt16LE</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 ```
 
 
  
 实现TcpSocket通信，首先需要申请[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)权限，完整示例参考如下：
  
-```text
-import { socket } from '@kit.NetworkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { buffer, util } from '@kit.ArkTS';
+```json
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">socket </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.NetworkKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">BusinessError </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
+import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">util </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.ArkTS'</span><span style="color: rgb(181,106,1);">;</span>
 
-@Entry
-@Component
-struct SocketCommunication {
-  private tcp: socket.TCPSocket = socket.constructTCPSocketInstance();
-  private tcpServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
-  @State receivedMsg: string[] = [];
-  // 数据包结束标志
-  packetEndFlag: string = '\r\n';
-  // 最大缓存长度
-  maxBufSize: number = 1024 * 8;
-  // 接收数据缓冲区
-  receivedDataBuf: buffer.Buffer = buffer.alloc(this.maxBufSize);
-  // 缓冲区已使用长度
-  receivedDataLen: number = 0;
+<span style="color: rgb(181,106,1);">@Entry</span>
+<span style="color: rgb(181,106,1);">@Component</span>
+struct <span style="color: rgb(0,0,255);">SocketCommunication </span><span style="color: rgb(181,106,1);">{</span>
+  private <span style="color: rgb(255,255,255);">tcp</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TCPSocket </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constructTCPSocketInstance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  private <span style="color: rgb(255,255,255);">tcpServer</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TCPSocketServer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">constructTCPSocketServerInstance</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">@State </span><span style="color: rgb(255,255,255);">receivedMsg</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">[] </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,0,170);">[]</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">数据包结束标志</span></em>
+  <span style="color: rgb(255,255,255);">packetEndFlag</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(132,63,161);">'</span>\r\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">最大缓存长度</span></em>
+  <span style="color: rgb(255,255,255);">maxBufSize</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">1024 </span><span style="color: rgb(181,106,1);">* </span><span style="color: rgb(80,160,79);">8</span><span style="color: rgb(181,106,1);">;</span>
+ <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">接收数据缓冲区</span></em>
+  <span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Buffer </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alloc</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">maxBufSize</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+<em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓冲区已使用长度</span></em>
+  <span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">number </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">;</span>
 
-  build() {
-    Column({ space: 20 }) {
-      Button('init TCP Server')
-        .fontSize(24)
-        .fontWeight(FontWeight.Bold)
-        .onClick(() => {
-          let listenAddr: socket.NetAddress = {
-            address: 'localhost',
-            port: 9588,
-            family: 1
-          };
-          this.tcpServer.listen(listenAddr, (err: BusinessError) => {
-            if (err) {
-              console.error('listen fail', JSON.stringify(err));
-              return;
-            }
-            console.info('listen success');
-            this.getUIContext().getPromptAction().showToast({ message: 'listen success' });
-          });
-        });
-      Button('方案一：固定标识符作为尾部')
-        .fontSize(24)
-        .fontWeight(FontWeight.Bold)
-        .onClick(() => {
-          this.tcpServer.on('connect', (client: socket.TCPSocketConnection) => {
-            console.info('client connected');
-            client.on('close', () => {
-              console.info('on close success');
-            });
-            client.on('message', (value: socket.SocketMessageInfo) => {
-              // 把接收到的数据复制到缓冲区有效数据尾部
-              let copyCount = buffer.from(value.message).copy(this.receivedDataBuf, this.receivedDataLen);
-              // 缓冲区已使用长度加上本次接收的数据长度
-              this.receivedDataLen += copyCount;
-              // 缓冲区数据中数据包结束标志的位置
-              let endFlagPos = this.receivedDataBuf.subarray(0, this.receivedDataLen).indexOf(this.packetEndFlag);
-              let textDecoder = util.TextDecoder.create('utf-8');
-              while (endFlagPos > -1) {
-                // 把数据包结束标志前面的数据转换为字符串
-                let msgArray = new Uint8Array(this.receivedDataBuf.subarray(0, endFlagPos).buffer);
-                let msg = textDecoder.decodeToString(msgArray);
-                this.receivedMsg.push(msg);
-                // 剩余的未解析数据
-                let leaveBufData = this.receivedDataBuf.subarray(endFlagPos + 2, this.receivedDataLen);
-                // 剩余的未解析数据移动到缓冲区头部
-                for (let pos = 0; pos  leaveBufData.length; pos++) {
-                  this.receivedDataBuf.writeUInt8(leaveBufData.readUInt8(pos), pos);
-                }
-                // 重新设置缓冲区已使用长度
-                this.receivedDataLen = leaveBufData.length;
-                // 开始查找下一个数据包结束标志
-                endFlagPos = this.receivedDataBuf.subarray(0, this.receivedDataLen).indexOf(this.packetEndFlag);
-              }
-            });
-          });
+  <span style="color: rgb(0,0,255);">build</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+    <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">space</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'init TCP Server'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">24</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          let <span style="color: rgb(255,255,255);">listenAddr</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NetAddress </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'localhost'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">9588</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">family</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcpServer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">listen</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">listenAddr</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">BusinessError</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            if <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'listen fail'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">JSON</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">stringify</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">err</span><span style="color: rgb(255,0,170);">))</span><span style="color: rgb(181,106,1);">;</span>
+              return<span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'listen success'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getUIContext</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getPromptAction</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">showToast</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'listen success' </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">方案一：固定标识符作为尾部</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">24</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcpServer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'connect'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">client</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TCPSocketConnection</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'client connected'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,255,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'close'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'on close success'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,255,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'message'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SocketMessageInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+         <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把接收到的数据复制到缓冲区有效数据尾部</span></em>
+              let <span style="color: rgb(255,255,255);">copyCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copy</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+         <em>     <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓冲区已使用长度加上本次接收的数据长度</span></em>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">copyCount</span><span style="color: rgb(181,106,1);">;</span>
+            <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">缓冲区数据中数据包结束标志的位置</span></em>
+              let <span style="color: rgb(255,255,255);">endFlagPos </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">packetEndFlag</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              let <span style="color: rgb(255,255,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'utf-8'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              while <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">endFlagPos </span><span style="color: rgb(181,106,1);">></span><span style="color: rgb(181,106,1);"> -</span><span style="color: rgb(80,160,79);">1</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+             <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把数据包结束标志前面的数据转换为字符串</span></em>
+                let <span style="color: rgb(255,255,255);">msgArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">endFlagPos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                let <span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msgArray</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedMsg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+             <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">剩余的未解析数据</span></em>
+                let <span style="color: rgb(255,255,255);">leaveBufData </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">endFlagPos </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">剩余的未解析数据移动到缓冲区头部</span></em>
+                for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">pos </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">pos </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeUInt8</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readUInt8</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span>
+              <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重新设置缓冲区已使用长度</span></em>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
+              <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始查找下一个数据包结束标志</span></em>
+                <span style="color: rgb(255,255,255);">endFlagPos </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">indexOf</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">packetEndFlag</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">            }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          let netAddress: socket.NetAddress = {
-            address: 'localhost',
-            port: 9588
-          };
-          let tcpConnectOptions: socket.TCPConnectOptions = {
-            address: netAddress,
-            timeout: 6000
-          };
-          this.tcp.connect(tcpConnectOptions, async () => {
-            console.info('connect success');
-            for (let index = 0; index  100; index++) {
-              let msg = index.toString();
-              msg += '\r\n';
-              try {
-                await this.tcp.send({
-                  data: msg
-                });
-              } catch (error) {
-                console.error(`send failed. ${index}`);
-              }
-            }
-          });
-        });
-      Button('方案二：头部标识长度')
-        .fontSize(24)
-        .fontWeight(FontWeight.Bold)
-        .onClick(() => {
-          this.tcpServer.on('connect', (client: socket.TCPSocketConnection) => {
-            console.info('client connected');
-            client.on('close', () => {
-              console.info('on close success');
-            });
-            client.on('message', (value: socket.SocketMessageInfo) => {
-              // 把接收到的数据复制到缓冲区有效数据尾部
-              let copyCount = buffer.from(value.message).copy(this.receivedDataBuf, this.receivedDataLen);
-              this.receivedDataLen += copyCount;
-              // 至少写入了3个字节才需要解析
-              if (this.receivedDataLen  3) {
-                return;
-              }
-              // 当前数据包长度
-              let packLen = this.receivedDataBuf.readUInt16LE();
-              let textDecoder = util.TextDecoder.create('utf-8');
-              // 当前数据包长度加上固定包体的2字节，如果小于等于缓冲区已使用长度，就可以解析
-              while ((packLen + 2) = this.receivedDataLen) {
-                // 把可变包体中的数据转换为字符串
-                let msgArray = new Uint8Array(this.receivedDataBuf.subarray(2, packLen + 2).buffer);
-                let msg = textDecoder.decodeToString(msgArray);
-                this.receivedMsg.push(msg);
-                // 剩余的未解析数据
-                let leaveBufData = this.receivedDataBuf.subarray(packLen + 2, this.receivedDataLen);
-                // 剩余的未解析数据移动到缓冲区头部
-                for (let pos = 0; pos  leaveBufData.length; pos++) {
-                  this.receivedDataBuf.writeUInt8(leaveBufData.readUInt8(pos), pos);
-                }
-                // 重新设置缓冲区已使用长度
-                this.receivedDataLen = leaveBufData.length;
-                // 至少写入了3个字节才需要解析，否则跳出循环
-                if (this.receivedDataLen  3) {
-                  break;
-                }
-                // 开始查找下一个固定包头中的可变包体长度
-                packLen = this.receivedDataBuf.readUInt16LE();
-              }
-            });
-          });
+          let <span style="color: rgb(255,255,255);">netAddress</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NetAddress </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'localhost'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">9588</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(255,255,255);">tcpConnectOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TCPConnectOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">netAddress</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">6000</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">tcpConnectOptions</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'connect success'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+              let <span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(132,63,161);">'</span>\r\n<span style="color: rgb(132,63,161);">'</span><span style="color: rgb(181,106,1);">;</span>
+              try <span style="color: rgb(181,106,1);">{</span>
+                await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">send</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">msg</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`send failed. </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">            }</span>
+<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Button</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(132,63,161);">方案二：头部标识长度</span><span style="color: rgb(132,63,161);">'</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">24</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontWeight</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">FontWeight</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Bold</span><span style="color: rgb(255,0,170);">)</span>
+        <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">onClick</span><span style="color: rgb(255,0,170);">(() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcpServer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'connect'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">client</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TCPSocketConnection</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'client connected'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,255,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'close'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">info</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'on close success'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(255,255,255);">client</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">on</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'message'</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">SocketMessageInfo</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+          <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把接收到的数据复制到缓冲区有效数据尾部</span></em>
+              let <span style="color: rgb(255,255,255);">copyCount </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">from</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">value</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">message</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">copy</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);">+= </span><span style="color: rgb(255,255,255);">copyCount</span><span style="color: rgb(181,106,1);">;</span>
+           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">至少写入了</span><span style="color: rgb(128,128,128);">3</span><span style="color: rgb(128,128,128);">个字节才需要解析</span></em>
+              if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                return<span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span>
+           <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前数据包长度</span></em>
+              let <span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readUInt16LE</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+              let <span style="color: rgb(255,255,255);">textDecoder </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TextDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">create</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'utf-8'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">当前数据包长度加上固定包体的</span><span style="color: rgb(128,128,128);">2</span><span style="color: rgb(128,128,128);">字节，如果小于等于缓冲区已使用长度，就可以解析</span></em>
+              while <span style="color: rgb(255,0,170);">((</span><span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);"><</span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+             <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">把可变包体中的数据转换为字符串</span></em>
+                let <span style="color: rgb(255,255,255);">msgArray </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(0,0,255);">Uint8Array</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                let <span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">textDecoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">decodeToString</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msgArray</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedMsg</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">push</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">剩余的未解析数据</span></em>
+                let <span style="color: rgb(255,255,255);">leaveBufData </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">subarray</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(181,106,1);">, </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <em>  <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">剩余的未解析数据移动到缓冲区头部</span></em>
+                for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">pos </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">pos </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                  this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeUInt8</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readUInt8</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,255,255);">pos</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span>
+             <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">重新设置缓冲区已使用长度</span></em>
+                this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">leaveBufData</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">length</span><span style="color: rgb(181,106,1);">;</span>
+               <em> <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">至少写入了</span><span style="color: rgb(128,128,128);">3</span><span style="color: rgb(128,128,128);">个字节才需要解析，否则跳出循环</span></em>
+                if <span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataLen </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">3</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                  break<span style="color: rgb(181,106,1);">;</span>
+                <span style="color: rgb(181,106,1);">}</span>
+             <em>   <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">开始查找下一个固定包头中的可变包体长度</span></em>
+                <span style="color: rgb(255,255,255);">packLen </span><span style="color: rgb(181,106,1);">= </span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedDataBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">readUInt16LE</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">            }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
 
-          let netAddress: socket.NetAddress = {
-            address: 'localhost',
-            port: 9588
-          };
-          let tcpConnectOptions: socket.TCPConnectOptions = {
-            address: netAddress,
-            timeout: 6000
-          };
-          this.tcp.connect(tcpConnectOptions, async () => {
-            for (let index = 0; index  100; index++) {
-              let msg = index.toString();
-              let textEncoder = new util.TextEncoder();
-              let encodeValue = textEncoder.encodeInto(msg);
-              let sendBuf = buffer.alloc(2 + encodeValue.byteLength);
-              // 写入固定包头中的长度信息
-              sendBuf.writeUInt16LE(encodeValue.byteLength);
-              // 写入固定包头中的长度信息
-              sendBuf.write(msg, 2);
-              try {
-                await this.tcp.send({
-                  data: sendBuf.buffer
-                });
-              } catch (error) {
-                console.error(`send failed. ${index}`);
-              }
-            }
-          });
-        });
-      Column() {
-        Scroll() {
-          Column() {
-            ForEach(this.receivedMsg, (item: string) => {
-              Text(item)
-                .textAlign(TextAlign.Center)
-                .width('100%')
-                .fontSize(24);
-            });
-          };
-        };
-      }
-      .border({ width: 1 })
-      .width('90%')
-      .height('75%');
-    }
-    .margin({ top: 20 })
-    .height('100%')
-    .width('100%');
-  }
-}
+          let <span style="color: rgb(255,255,255);">netAddress</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">NetAddress </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(132,63,161);">'localhost'</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">port</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">9588</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+          let <span style="color: rgb(255,255,255);">tcpConnectOptions</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">socket</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">TCPConnectOptions </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(255,255,255);">address</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">netAddress</span><span style="color: rgb(181,106,1);">,</span>
+            <span style="color: rgb(255,255,255);">timeout</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">6000</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+          this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">connect</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">tcpConnectOptions</span><span style="color: rgb(181,106,1);">, </span>async <span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+            for <span style="color: rgb(255,0,170);">(</span>let <span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(80,160,79);">0</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index </span><span style="color: rgb(181,106,1);"><</span> <span style="color: rgb(80,160,79);">100</span><span style="color: rgb(181,106,1);">; </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">++</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+              let <span style="color: rgb(255,255,255);">msg </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">toString</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+              let <span style="color: rgb(255,255,255);">textEncoder </span><span style="color: rgb(181,106,1);">= </span>new <span style="color: rgb(255,255,255);">util</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">TextEncoder</span><span style="color: rgb(255,0,170);">()</span><span style="color: rgb(181,106,1);">;</span>
+              let <span style="color: rgb(255,255,255);">encodeValue </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">textEncoder</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">encodeInto</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              let <span style="color: rgb(255,255,255);">sendBuf </span><span style="color: rgb(181,106,1);">= </span><span style="color: rgb(255,255,255);">buffer</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">alloc</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">2 </span><span style="color: rgb(181,106,1);">+ </span><span style="color: rgb(255,255,255);">encodeValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">写入固定包头中的长度信息</span></em>
+              <span style="color: rgb(255,255,255);">sendBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">writeUInt16LE</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">encodeValue</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">byteLength</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <em>    <span style="color: rgb(128,128,128);">// </span><span style="color: rgb(128,128,128);">写入固定包头中的长度信息</span></em>
+              <span style="color: rgb(255,255,255);">sendBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">write</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">msg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(80,160,79);">2</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              try <span style="color: rgb(181,106,1);">{</span>
+                await this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">tcp</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">send</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{</span>
+                  <span style="color: rgb(255,255,255);">data</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(255,255,255);">sendBuf</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">buffer</span>
+                <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">} </span>catch <span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">error</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">{</span>
+                <span style="color: rgb(255,255,255);">console</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">error</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">`send failed. </span><span style="color: rgb(181,106,1);">${</span><span style="color: rgb(255,255,255);">index</span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(132,63,161);">`</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+              <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">            }</span>
+<span style="color: rgb(181,106,1);">          }</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+        <span style="color: rgb(0,0,255);">Scroll</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+          <span style="color: rgb(0,0,255);">Column</span><span style="color: rgb(255,0,170);">() </span><span style="color: rgb(181,106,1);">{</span>
+            <span style="color: rgb(0,0,255);">ForEach</span><span style="color: rgb(255,0,170);">(</span>this<span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">receivedMsg</span><span style="color: rgb(181,106,1);">, </span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(181,106,1);">string</span><span style="color: rgb(255,0,170);">) </span><span style="color: rgb(181,106,1);">=</span><span style="color: rgb(181,106,1);">></span> <span style="color: rgb(181,106,1);">{</span>
+              <span style="color: rgb(0,0,255);">Text</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">item</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">textAlign</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(255,255,255);">TextAlign</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(255,255,255);">Center</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+                <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">fontSize</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">24</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+            <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+          <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+        <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">;</span>
+      <span style="color: rgb(181,106,1);">}</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">border</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">width</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">1 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'90%'</span><span style="color: rgb(255,0,170);">)</span>
+      <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'75%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+    <span style="color: rgb(181,106,1);">}</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">margin</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">top</span><span style="color: rgb(181,106,1);">: </span><span style="color: rgb(80,160,79);">20 </span><span style="color: rgb(181,106,1);">}</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span>
+    <span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">width</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'100%'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+  <span style="color: rgb(181,106,1);">}</span>
+<span style="color: rgb(181,106,1);">}</span>
 ```
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：TcpSocket发送的文件流比较大的时候，有什么好的处理方法？
  

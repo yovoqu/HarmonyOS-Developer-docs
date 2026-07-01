@@ -4,18 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1442
 
-## 解决不同路由页面存在相同组件id导致组件无法获焦的问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 页面一使用requestFocus通过组件id获焦成功，然后路由至页面二，再然后路由至页面一，此时为什么无法使用requestFocus通过组件id获焦？
  
 主页代码示例参考如下：
  
 ```text
-// 主页
+<em>// 主页</em>
 @Entry
 @Component
 struct NavigationIndex {
@@ -29,7 +25,7 @@ struct NavigationIndex {
           .width('90%')
           .height(40)
           .margin({ bottom: 10 });
-        // 通过List定义导航的一级界面
+       <em> // 通过List定义导航的一级界面</em>
         List({ space: 12, initialIndex: 0 }) {
           ForEach(this.listArray, (item: string) => {
             ListItem() {
@@ -86,7 +82,7 @@ struct NavigationIndex {
       }
       .width('100%')
       .mode(NavigationMode.Auto)
-      .title('设置'); // 设置标题文字
+      .title('设置');<em> // 设置标题文字</em>
     }
     .size({ width: '100%', height: '100%' })
     .backgroundColor(0xf4f4f5);
@@ -97,7 +93,7 @@ struct NavigationIndex {
 页面一代码示例参考如下：
  
 ```text
-// 页面一
+<em>// 页面一</em>
 @Builder
 export function PageOneBuilder(name: string) {
   PageOne({ name: name });
@@ -139,7 +135,7 @@ struct PageOne {
           .height(40)
           .margin({ top: 50 })
           .onClick(() => {
-            // 弹出路由栈栈顶元素，跳转'Connect & Share'页面
+         <em>   // 弹出路由栈栈顶元素，跳转'Connect & Share'页面</em>
             this.pathInfos.pushPathByName(`Connect & Share`, '');
           });
       }
@@ -147,7 +143,7 @@ struct PageOne {
     }
     .title(`${this.name}`)
     .onReady((ctx: NavDestinationContext) => {
-      // NavDestinationContext获取当前所在的导航控制器
+   <em>   // NavDestinationContext获取当前所在的导航控制器</em>
       this.pathInfos = ctx.pathStack;
     })
     .onShown(() => {
@@ -160,7 +156,7 @@ struct PageOne {
 页面二跳转页面一代码示例参考如下：
  
 ```text
-// 页面二
+<em>// 页面二</em>
 @Builder
 export function PageTwoBuilder(name: string) {
   PageTwo({ name: name });
@@ -180,7 +176,7 @@ struct PageTwo {
           .height(40)
           .margin({ top: 5 })
           .onClick(() => {
-            // 跳转到WLAN
+          <em>  // 跳转到WLAN</em>
             this.pathInfos.pushPath({ name: 'WLAN', param: '' });
           });
       }
@@ -188,7 +184,7 @@ struct PageTwo {
     }
     .title(`${this.name}`)
     .onReady((ctx: NavDestinationContext) => {
-      // NavDestinationContext获取当前所在的导航控制器
+    <em>  // NavDestinationContext获取当前所在的导航控制器</em>
       this.pathInfos = ctx.pathStack;
     })
     .onShown(() => {
@@ -200,7 +196,7 @@ struct PageTwo {
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)组件是路由导航的根视图容器，一般作为Page页面的根容器使用，其内部默认包含了标题栏、内容区和工具栏。其中[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)导航控制器提供多种跳转方式，具体参考[LaunchMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#launchmode12枚举说明)。
 - [组件标识（id）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id)为组件的唯一标识，在整个应用内唯一。
@@ -208,23 +204,23 @@ struct PageTwo {
  
  
 
-##### 问题定位
+#### 问题定位
 
 当由页面一路由至页面二后，页面二重新路由至页面一，传参保持不变，组件最后id为“WLAN1”和“WLAN2”，与路由栈内存在的页面一组件id一致，因此id赋值失败，requestFocus找不到对应组件。报错信息如下：
  
-```text
+```bash
 Error code: 150003, Error message: The component doesn't exist, is currently invisible, or has been disabled.
 ```
  
  
 
-##### 分析结论
+#### 分析结论
 
 路由栈内存在已有同id组件，因此新页面组件id赋值失败，requestFocus找不到对应组件。
  
  
 
-##### 修改建议
+#### 修改建议
 
 路由逻辑：主页跳转页面一，页面一跳转页面二，页面二跳转页面一。
  
@@ -232,13 +228,13 @@ Error code: 150003, Error message: The component doesn't exist, is currently inv
  
 - 方式一：页面一跳转页面二时，跳转方法使用replacePathByName，用新页面替换旧组件所在页面。
 ```text
-// 弹出路由栈栈顶元素，跳转'Connect & Share'页面
+<em>// 弹出路由栈栈顶元素，跳转'Connect & Share'页面</em>
 this.pathInfos.replacePathByName(`Connect & Share`, '详情页面参数');
 ```
 
 - 方式二：页面二跳转页面一时，跳转模式MOVE_TO_TOP_SINGLETON或者POP_TO_SINGLETON，使用原页面。
 ```text
-// 跳转到WLAN
+<em>// 跳转到WLAN</em>
 this.pathInfos.pushPath({ name: 'WLAN', param: '' }, { launchMode: LaunchMode.MOVE_TO_TOP_SINGLETON });
 ```
 
@@ -286,7 +282,7 @@ this.pathInfos.pushPathByName('Bluetooth', '');
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：使用HMRouter三方库进行页面跳转是否也有上述问题？
  
@@ -298,6 +294,6 @@ A：本质原因是路由栈中只有一个页面一，因此无重复使用同�
  
  
 
-##### 总结
+#### 总结
 
 id为组件的唯一标识，在整个应用内唯一。其他组件不可使用已命名的id，同时id命名以最新的id为准。

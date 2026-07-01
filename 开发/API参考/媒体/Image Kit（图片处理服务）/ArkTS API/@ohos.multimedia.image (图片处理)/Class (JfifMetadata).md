@@ -3,11 +3,7 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-jfifmetadata
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## Class (JfifMetadata)
- 
 
 JfifMetadata.
  
@@ -16,7 +12,9 @@ JFIF图像元数据类，用于存储图像的元数据。
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { image } from '@kit.ImageKit';
@@ -24,7 +22,9 @@ import { image } from '@kit.ImageKit';
  
   
 
-##### 属性
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **起始版本：** 26.0.0
  

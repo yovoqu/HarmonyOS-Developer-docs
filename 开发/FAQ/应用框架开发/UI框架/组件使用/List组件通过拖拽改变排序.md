@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1157
 
-## List组件通过拖拽改变排序
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何通过List列表实现拖拽改变排序的功能？以及能否做到拖拽排序功能可开关？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/dGb_ATNtTNacW4Is0ruq2A/zh-cn_image_0000002658808979.png?HW-CC-KV=V1&HW-CC-Date=20260701T025602Z&HW-CC-Expire=86400&HW-CC-Sign=BED18EF9A4B7CC4BD0812F69C1CC06F14A37C7CA236C510A8AE1FD0842535E5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/dGb_ATNtTNacW4Is0ruq2A/zh-cn_image_0000002658808979.png?HW-CC-KV=V1&HW-CC-Date=20260701T041244Z&HW-CC-Expire=86400&HW-CC-Sign=6FC5B7D7A48B8E6CB502ABC98A20AF395E6D050C307A4C980635C5079835CE28)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - 通用属性[draggable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-drop#draggable)能够设置组件是否允许进行拖拽，能够通过draggable控制拖拽排序功能的开关。
 - 在绑定手势方法中，gesture属性能够给组件[绑定手势方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings)，手势识别成功后可以通过事件回调通知组件。还可以通过[组合手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-combined-gestures)的方法将多种手势组合为复合手势，支持连续识别、并行识别和互斥识别。
@@ -31,11 +27,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 实现拖拽功能的方法与示例代码如下：
- 
-- 定义scaleSelect方法，能够根据当前缩放的列表项和相邻项目返回缩放比例。如果当前列表项正在缩放，返回1.05；如果当前列表项是相邻项目，返回预设的缩放比例；否则返回1。
+ 1. 定义scaleSelect方法，能够根据当前缩放的列表项和相邻项目返回缩放比例。如果当前列表项正在缩放，返回1.05；如果当前列表项是相邻项目，返回预设的缩放比例；否则返回1。
 ```text
 scaleSelect(item: number): number {
   if (this.scaleItem === item) {
@@ -48,8 +43,7 @@ scaleSelect(item: number): number {
 }
 ```
 
-
-- 定义itemMove方法，该方法通过splice在数组中移动项目位置，改变项目排序。
+1. 定义itemMove方法，该方法通过splice在数组中移动项目位置，改变项目排序。
 ```text
 itemMove(index: number, newIndex: number): void {
   let tmp = this.arr.splice(index, 1);
@@ -57,63 +51,69 @@ itemMove(index: number, newIndex: number): void {
 }
 ```
 
-- 使用长按手势和滑动手势组成顺序识别组合手势。长按手势用于触发缩放效果，拖动手势用于拖动项目改变排序。通过animateTo设置显示动画。在拖动过程中，根据拖动的位移计算相邻项目的缩放比例，并且使用Curves.initCurve和interpolate方法实现平滑的缩放效果。
+2. 使用长按手势和滑动手势组成顺序识别组合手势。长按手势用于触发缩放效果，拖动手势用于拖动项目改变排序。通过animateTo设置显示动画。在拖动过程中，根据拖动的位移计算相邻项目的缩放比例，并且使用Curves.initCurve和interpolate方法实现平滑的缩放效果。
 ```text
-// 添加手势
+<em>// 添加手势</em>
 .gesture(
-  // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件
+ <em> // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件</em>
   GestureGroup(GestureMode.Sequence,
-    // 长按手势识别
+  <em>  // 长按手势识别</em>
     LongPressGesture({ repeat: true })
-      .onAction(() => { // 长按手势识别成功回调
-        // 设置显示动画为阻尼曲线，持续时间为300毫秒
+      .onAction(() => {<em> // 长按手势识别成功回调</em>
+      <em>  // 设置显示动画为阻尼曲线，持续时间为300毫秒</em>
         this.uiContext.animateTo({ curve: Curve.Friction, duration: 300 }, () => {
           this.scaleItem = item;
         });
       })
-      // 长按手势识别成功，最后一根手指抬起后触发回调
+   <em>   // 长按手势识别成功，最后一根手指抬起后触发回调</em>
       .onActionEnd(() => {
-        // 设置显示动画为阻尼曲线，持续时间为300毫秒
+     <em>   // 设置显示动画为阻尼曲线，持续时间为300毫秒</em>
         this.uiContext.animateTo({ curve: Curve.Friction, duration: 300 }, () => {
           this.scaleItem = -1;
         });
       }),
-    // 设置滑动手势事件，任意滑动方向都能够触发事件，触发滑动手势事件的最小滑动距离为0
+  <em>  // 设置滑动手势事件，任意滑动方向都能够触发事件，触发滑动手势事件的最小滑动距离为0</em>
     PanGesture({ fingers: 1, direction: null, distance: 0 })
-    // 滑动手势识别成功回调
+  <em>  // 滑动手势识别成功回调</em>
       .onActionStart(() => {
         this.dragItem = item;
         this.dragRefOffset = 0;
       })
-      // 滑动手势移动过程中回调
+    <em>  // 滑动手势移动过程中回调</em>
       .onActionUpdate((event: GestureEvent) => {
         this.offsetY = event.offsetY - this.dragRefOffset;
         this.neighborItem = -1;
         let index = this.arr.indexOf(item);
         let curveValue: ICurve = curves.initCurve(Curve.Sharp);
         let value: number = 0;
-        // 根据位移计算相邻项的缩放
-        if (this.offsetY  0) {
+      <em>  // 根据位移计算相邻项的缩放</em>
+        if (this.offsetY < 0) {
+          value = curveValue.interpolate(-this.offsetY / this.itemIntv);
+          this.neighborItem = this.arr[index - 1];
+          this.neighborScale = 1 - value / 20;
+          console.info('neighborScale:' + this.neighborScale.toString());
+        } else if (this.offsetY > 0) {
           value = curveValue.interpolate(this.offsetY / this.itemIntv);
           this.neighborItem = this.arr[index + 1];
           this.neighborScale = 1 - value / 20;
         }
-        // 根据位移交换排序
+      <em>  // 根据位移交换排序</em>
         if (this.offsetY > this.itemIntv / 2) {
-          // 设置显式动画曲线，
+        <em>  // 设置显式动画曲线，</em>
           this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
             this.offsetY -= this.itemIntv;
             this.dragRefOffset += this.itemIntv;
             this.itemMove(index, index + 1);
           });
-        } else if (this.offsetY  {
+        } else if (this.offsetY < -this.itemIntv / 2) {
+          this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
             this.offsetY += this.itemIntv;
             this.dragRefOffset -= this.itemIntv;
             this.itemMove(index, index - 1);
           });
         }
       })
-      // 滑动手势识别成功，手指抬起后触发回调
+   <em>   // 滑动手势识别成功，手指抬起后触发回调</em>
       .onActionEnd(() => {
         console.info(this.arr.toString());
         this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
@@ -127,7 +127,7 @@ itemMove(index: number, newIndex: number): void {
         });
       })
   )
-  // 滑动手势识别成功，接收到触摸取消事件触发回调
+ <em> // 滑动手势识别成功，接收到触摸取消事件触发回调</em>
     .onCancel(() => {
       this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
         this.dragItem = -1;
@@ -142,7 +142,6 @@ itemMove(index: number, newIndex: number): void {
 );
 ```
 
-
  
 完整示例参考如下：
  
@@ -153,15 +152,15 @@ import { curves } from '@kit.ArkUI';
 @Component
 struct ListDrag {
   @State private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  @State dragItem: number = -1; // 当前拖拽的项目
-  @State scaleItem: number = -1; // 当前缩放的项目
-  @State neighborItem: number = -1; // 相邻项目
-  @State neighborScale: number = -1; // 相邻项目的缩放比例
-  private dragRefOffset: number = 0; // 拖拽参考偏移
-  offsetX: number = 0; // 偏移量
+  @State dragItem: number = -1; <em>// 当前拖拽的项目</em>
+  @State scaleItem: number = -1;<em> // 当前缩放的项目</em>
+  @State neighborItem: number = -1;<em> // 相邻项目</em>
+  @State neighborScale: number = -1;<em> // 相邻项目的缩放比例</em>
+  private dragRefOffset: number = 0;<em> // 拖拽参考偏移</em>
+  offsetX: number = 0;<em> // 偏移量</em>
   @State offsetY: number = 0;
-  private itemIntv: number = 120; // 项目间隔
-  @State moveControls: boolean = false; // 控制拖拽功能
+  private itemIntv: number = 120;<em> // 项目间隔</em>
+  @State moveControls: boolean = false;<em> // 控制拖拽功能</em>
   private uiContext: UIContext = this.getUIContext();
 
   aboutToAppear() {
@@ -202,7 +201,7 @@ struct ListDrag {
                 .textAlign(TextAlign.Center)
                 .borderRadius(10)
                 .backgroundColor('#f1f3f5')
-                // 通过状态变量scaleItem判断是否为组件添加阴影效果
+           <em>     // 通过状态变量scaleItem判断是否为组件添加阴影效果</em>
                 .shadow(this.scaleItem === item ? {
                   radius: 70,
                   color: '#15000000',
@@ -211,77 +210,83 @@ struct ListDrag {
                 } :
                   {
                     radius: 0,
-                    // 阴影半径为0，相当于没有阴影
+                  <em>  // 阴影半径为0，相当于没有阴影</em>
                     color: '#15000000',
                     offsetX: 0,
                     offsetY: 0
                   })
-                // 设置锐利曲线动画，持续时间为300毫秒
+              <em>  // 设置锐利曲线动画，持续时间为300毫秒</em>
                 .animation({ curve: Curve.Sharp, duration: 300 });
             }
             .draggable(this.moveControls)
             .margin({ left: 12, right: 12 })
-            // 增加x轴、y轴缩放效果
+          <em>  // 增加x轴、y轴缩放效果</em>
             .scale({ x: this.scaleSelect(item), y: this.scaleSelect(item) })
-            // 设置组件的堆叠顺序，实现拖拽过程中被拖拽组件覆盖其他组件的效果
+         <em>   // 设置组件的堆叠顺序，实现拖拽过程中被拖拽组件覆盖其他组件的效果</em>
             .zIndex(this.dragItem === item ? 1 : 0)
-            // 设置页面转场时的纵向的平移距离
+         <em>   // 设置页面转场时的纵向的平移距离</em>
             .translate(this.dragItem === item ? { y: this.offsetY } : { y: 0 })
-            // 添加手势
+         <em>   // 添加手势</em>
             .gesture(
-              // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件
+             <em> // 以下组合手势为顺序识别，当长按手势事件未正常触发时则不会触发拖动手势事件</em>
               GestureGroup(GestureMode.Sequence,
-                // 长按手势识别
+             <em>   // 长按手势识别</em>
                 LongPressGesture({ repeat: true })
-                  .onAction(() => { // 长按手势识别成功回调
-                    // 设置显示动画为阻尼曲线，持续时间为300毫秒
+                  .onAction(() => {<em> // 长按手势识别成功回调</em>
+                  <em>  // 设置显示动画为阻尼曲线，持续时间为300毫秒</em>
                     this.uiContext.animateTo({ curve: Curve.Friction, duration: 300 }, () => {
                       this.scaleItem = item;
                     });
                   })
-                  // 长按手势识别成功，最后一根手指抬起后触发回调
+               <em>   // 长按手势识别成功，最后一根手指抬起后触发回调</em>
                   .onActionEnd(() => {
-                    // 设置显示动画为阻尼曲线，持续时间为300毫秒
+                   <em> // 设置显示动画为阻尼曲线，持续时间为300毫秒</em>
                     this.uiContext.animateTo({ curve: Curve.Friction, duration: 300 }, () => {
                       this.scaleItem = -1;
                     });
                   }),
-                // 设置滑动手势事件，任意滑动方向都能够触发事件，触发滑动手势事件的最小滑动距离为0
+               <em> // 设置滑动手势事件，任意滑动方向都能够触发事件，触发滑动手势事件的最小滑动距离为0</em>
                 PanGesture({ fingers: 1, direction: null, distance: 0 })
-                // 滑动手势识别成功回调
+             <em>   // 滑动手势识别成功回调</em>
                   .onActionStart(() => {
                     this.dragItem = item;
                     this.dragRefOffset = 0;
                   })
-                  // 滑动手势移动过程中回调
+              <em>    // 滑动手势移动过程中回调</em>
                   .onActionUpdate((event: GestureEvent) => {
                     this.offsetY = event.offsetY - this.dragRefOffset;
                     this.neighborItem = -1;
                     let index = this.arr.indexOf(item);
                     let curveValue: ICurve = curves.initCurve(Curve.Sharp);
                     let value: number = 0;
-                    // 根据位移计算相邻项的缩放
-                    if (this.offsetY  0) {
+                   <em> // 根据位移计算相邻项的缩放</em>
+                    if (this.offsetY < 0) {
+                      value = curveValue.interpolate(-this.offsetY / this.itemIntv);
+                      this.neighborItem = this.arr[index - 1];
+                      this.neighborScale = 1 - value / 20;
+                      console.info('neighborScale:' + this.neighborScale.toString());
+                    } else if (this.offsetY > 0) {
                       value = curveValue.interpolate(this.offsetY / this.itemIntv);
                       this.neighborItem = this.arr[index + 1];
                       this.neighborScale = 1 - value / 20;
                     }
-                    // 根据位移交换排序
+                 <em>   // 根据位移交换排序</em>
                     if (this.offsetY > this.itemIntv / 2) {
-                      // 设置显式动画曲线，
+                    <em>  // 设置显式动画曲线，</em>
                       this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
                         this.offsetY -= this.itemIntv;
                         this.dragRefOffset += this.itemIntv;
                         this.itemMove(index, index + 1);
                       });
-                    } else if (this.offsetY  {
+                    } else if (this.offsetY < -this.itemIntv / 2) {
+                      this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
                         this.offsetY += this.itemIntv;
                         this.dragRefOffset -= this.itemIntv;
                         this.itemMove(index, index - 1);
                       });
                     }
                   })
-                  // 滑动手势识别成功，手指抬起后触发回调
+               <em>   // 滑动手势识别成功，手指抬起后触发回调</em>
                   .onActionEnd(() => {
                     console.info(this.arr.toString());
                     this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
@@ -295,7 +300,7 @@ struct ListDrag {
                     });
                   })
               )
-              // 滑动手势识别成功，接收到触摸取消事件触发回调
+           <em>   // 滑动手势识别成功，接收到触摸取消事件触发回调</em>
                 .onCancel(() => {
                   this.uiContext.animateTo({ curve: curves.interpolatingSpring(0, 1, 400, 38) }, () => {
                     this.dragItem = -1;
@@ -321,7 +326,7 @@ struct ListDrag {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：二级嵌套List中使用什么方法触发拖拽回调？
  

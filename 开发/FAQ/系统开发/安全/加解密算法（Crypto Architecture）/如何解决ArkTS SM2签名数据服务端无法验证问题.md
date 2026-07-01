@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-33
 
-## 如何解决ArkTS SM2签名数据服务端无法验证问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在ArkTS中使用SM2签名的数据，在其他平台进行验签时，验签失败。
  
@@ -20,7 +16,7 @@
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [SM2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sign-sig-verify-overview#sm2)数字签名算法，是基于椭圆曲线的非对称签名验签算法。
 - DER格式：在SM2数字签名中，DER格式是签名值（r, s）的标准编码方式，遵循ASN.1标准。这是一种结构化的二进制编码格式，用于确保签名数据的完整性和可解析性。ArkTS中使用SM2签名完的数据通常是DER格式，而其他端通常是裸签名，即直接拼接r||s（64字节）。
@@ -29,28 +25,23 @@
  
  
 
-##### 问题定位
-
-- **确认加解密流程**：针对服务端与客户端加密结果不一致的问题，先验证同一端加签、验签流程无误，以此确定是否为跨端的问题。
-- **确认编码格式**：加签验签过程中有两处编码格式需要检查服务端与客户端是否一致：公钥格式、签名格式。
-
+#### 问题定位
+1. **确认加解密流程**：针对服务端与客户端加密结果不一致的问题，先验证同一端加签、验签流程无误，以此确定是否为跨端的问题。
+2. **确认编码格式**：加签验签过程中有两处编码格式需要检查服务端与客户端是否一致：公钥格式、签名格式。
  
  
 
-##### 分析结论
-
-- 在ArkTS端和服务端独立进行加签验签操作，验证都成功，说明验签失败是跨端的问题。
-- 分析公钥格式，ArkTS端[getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)生成的公钥转换成十六进制后，为十六进制编码的X.509格式的公钥，而服务端生成的公钥是裸椭圆曲线公钥，格式为64字节的X||Y坐标拼接（没有0x04前缀），两端公钥格式不一致。
-- 分析签名格式，ArkTS端[signSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#signsync12)生成的签名为DER格式，而服务端生成的签名格式为裸签名，两端签名格式不一致。
-
+#### 分析结论
+1. 在ArkTS端和服务端独立进行加签验签操作，验证都成功，说明验签失败是跨端的问题。
+2. 分析公钥格式，ArkTS端[getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)生成的公钥转换成十六进制后，为十六进制编码的X.509格式的公钥，而服务端生成的公钥是裸椭圆曲线公钥，格式为64字节的X||Y坐标拼接（没有0x04前缀），两端公钥格式不一致。
+3. 分析签名格式，ArkTS端[signSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#signsync12)生成的签名为DER格式，而服务端生成的签名格式为裸签名，两端签名格式不一致。
  
  
 
-##### 修改建议
-
-- 将ArkTS端[getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)生成的公钥转换成裸公钥的格式：通过[getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)方法，指定参数[AsyKeySpecItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#asykeyspecitem10)为ECC_PK_X_BN和ECC_PK_Y_BN分别获取公钥的X坐标和Y坐标，然后将坐标转换成十六进制数据，数据不足64位补充前导零，将处理完的X和Y拼接起来，最后补充前缀04即可，代码实现为：
+#### 修改建议
+1. 将ArkTS端[getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)生成的公钥转换成裸公钥的格式：通过[getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)方法，指定参数[AsyKeySpecItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#asykeyspecitem10)为ECC_PK_X_BN和ECC_PK_Y_BN分别获取公钥的X坐标和Y坐标，然后将坐标转换成十六进制数据，数据不足64位补充前导零，将处理完的X和Y拼接起来，最后补充前缀04即可，代码实现为：
 ```text
-// 将压缩公钥转换成非压缩公钥
+<em>// 将压缩公钥转换成非压缩公钥</em>
 function convertPublicKeyFormat(keyPair: cryptoFramework.KeyPair): string {
   let x = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_X_BN);
   let y = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_Y_BN);
@@ -59,22 +50,32 @@ function convertPublicKeyFormat(keyPair: cryptoFramework.KeyPair): string {
 }
 ```
 
-- ArkTS中有[genEccSignatureSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#geneccsignaturespec20)方法可以从ASN1 DER格式的SM2签名数据获取r和s，获取到r和s后拼接起来即可，最终转换完成的数据为64字节二进制数据。为了方便调试、日志配置，通常还需要转换成16进制的数据，DER格式签名转换为裸签名代码如下：
+2. ArkTS中有[genEccSignatureSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#geneccsignaturespec20)方法可以从ASN1 DER格式的SM2签名数据获取r和s，获取到r和s后拼接起来即可，最终转换完成的数据为64字节二进制数据。为了方便调试、日志配置，通常还需要转换成16进制的数据，DER格式签名转换为裸签名代码如下：
 ```text
 function bigIntTo32Bytes(bn: bigint): Uint8Array {
   let hex = bn.toString(16).padStart(64, '0');
   let bytes = new Uint8Array(32);
-  for (let i = 0; i  // 拼接r||s裸签名
+  for (let i = 0; i < 64; i += 2) {
+    bytes[i / 2] = parseInt(hex.slice(i, i + 2), 16);
+  }
+  return bytes;
+}
+
+
+function convertSignFormat(signData: cryptoFramework.DataBlob): string {
+  let spec: cryptoFramework.EccSignatureSpec = cryptoFramework.SignatureUtils.genEccSignatureSpec(signData.data);
+ <em> // 拼接r||s裸签名</em>
   let rBytes = bigIntTo32Bytes(spec.r);
   let sBytes = bigIntTo32Bytes(spec.s);
   let rawSignature = new Uint8Array(64);
-  rawSignature.set(rBytes, 0); // 0-31位写入r
-  rawSignature.set(sBytes, 32); // 32-63位写入s
+  rawSignature.set(rBytes, 0); <em>// 0-31位写入r</em>
+  rawSignature.set(sBytes, 32); <em>// 32-63位写入s</em>
   return uint8ArrayToHexStr(rawSignature);
 }
 ```
  完整代码如下：
- 
+
+  
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
@@ -100,15 +101,18 @@ struct Index {
 }
 
 
-// uint8Array转16进制工具函数
+<em>// uint8Array转16进制工具函数</em>
 function uint8ArrayToHexStr(array: Uint8Array): string {
   let result = '';
-  for (let i = 0; i // 将字节转为16进制并补齐两位，确保格式统一
+  for (let i = 0; i < array.length; i++) {
+    <em>// 将字节转为16进制并补齐两位，确保格式统一</em>
     const hexByte = array[i].toString(16).padStart(2, '0');
     result += hexByte;
   }
   return result;
 }
+
+
 
 
 function signMessagePromise(priKey: cryptoFramework.PriKey) {
@@ -132,23 +136,36 @@ function verifyMessagePromise(signMessageBlob: cryptoFramework.DataBlob, pubKey:
 function bigIntTo32Bytes(bn: bigint): Uint8Array {
   let hex = bn.toString(16).padStart(64, '0');
   let bytes = new Uint8Array(32);
-  for (let i = 0; i  // 拼接r||s裸签名
+  for (let i = 0; i < 64; i += 2) {
+    bytes[i / 2] = parseInt(hex.slice(i, i + 2), 16);
+  }
+  return bytes;
+}
+
+
+function convertSignFormat(signData: cryptoFramework.DataBlob): string {
+  let spec: cryptoFramework.EccSignatureSpec = cryptoFramework.SignatureUtils.genEccSignatureSpec(signData.data);
+ <em> // 拼接r||s裸签名</em>
   let rBytes = bigIntTo32Bytes(spec.r);
   let sBytes = bigIntTo32Bytes(spec.s);
   let rawSignature = new Uint8Array(64);
-  rawSignature.set(rBytes, 0); // 0-31位写入r
-  rawSignature.set(sBytes, 32); // 32-63位写入s
+  rawSignature.set(rBytes, 0); <em>// 0-31位写入r</em>
+  rawSignature.set(sBytes, 32); <em>// 32-63位写入s</em>
   return uint8ArrayToHexStr(rawSignature);
 }
 
 
-// 将压缩公钥转换成非压缩公钥
+
+
+<em>// 将压缩公钥转换成非压缩公钥</em>
 function convertPublicKeyFormat(keyPair: cryptoFramework.KeyPair): string {
   let x = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_X_BN);
   let y = keyPair.pubKey.getAsyKeySpec(cryptoFramework.AsyKeySpecItem.ECC_PK_Y_BN);
   let pk = '04' + x.toString(16).padStart(64, '0') + y.toString(16).padStart(64, '0');
   return pk;
 }
+
+
 
 
 async function main() {

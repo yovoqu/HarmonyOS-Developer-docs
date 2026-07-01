@@ -4,30 +4,24 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-vision-3
 
-## 如何区分CardRecognition的取消和失败
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在卡证识别过程中，如何区分取消和失败？当CardRecognition识别正面成功后，摄像头不会开启，若识别结果图片不符合要求，如何重新调用识别接口？
  
  
 
-##### 背景知识
-
-- [卡证识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition)提供身份证、行驶证、驾驶证、护照、银行卡等证件的结构化识别服务，满足卡证的自动分类功能，系统可自动判断所属卡证类型并返回结构化信息和卡证图片信息。
-- [CardRecognitionResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#section161551745133610)可获取卡证识别结果是否成功，其中code表示结果码（200表示识别成功，1008701001表示未识别，1008701002表示识别失败，1008701003表示部分识别失败，1008701004表示未完成识别）。
-- 关于卡证识别功能，可参考相关[CardRecognition控件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#section143611912403)和[卡证识别指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-cardrecognition)，以及[Codelabs](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_Next-VisionKit)提供的示例。
-
+#### 背景知识
+1. [卡证识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition)提供身份证、行驶证、驾驶证、护照、银行卡等证件的结构化识别服务，满足卡证的自动分类功能，系统可自动判断所属卡证类型并返回结构化信息和卡证图片信息。
+2. [CardRecognitionResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#section161551745133610)可获取卡证识别结果是否成功，其中code表示结果码（200表示识别成功，1008701001表示未识别，1008701002表示识别失败，1008701003表示部分识别失败，1008701004表示未完成识别）。
+3. 关于卡证识别功能，可参考相关[CardRecognition控件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition#section143611912403)和[卡证识别指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vision-cardrecognition)，以及[Codelabs](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_Next-VisionKit)提供的示例。
  
  
 
-##### 解决方案
+#### 解决方案
 
 当CardRecognitionResult中code为1008701001时，表明未识别；当code为200时，通过实际识别到的数据来判断是否识别成功；如果识别数据正确，则进一步处理；如果数据错误，可使用[Class (Router)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)重新跳转到识别页面。示例代码如下：
  
-```text
+```json
 import { CardRecognition, CardRecognitionResult, CardType } from '@kit.VisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { PromptAction } from '@kit.ArkUI';
@@ -46,7 +40,7 @@ struct test {
   build() {
     Stack({ alignContent: Alignment.Top }) {
       CardRecognition({
-        // 此处选择身份证类型作为示例
+        <em>// 此处选择身份证类型作为示例</em>
         supportType: CardType.CARD_ID,
         callback: ((params: CardRecognitionResult) => {
           this.para = params;
@@ -54,30 +48,30 @@ struct test {
           hilog.info(0x0001, TAG, `params cardType: ${params.cardType}`);
           hilog.info(0x0001, TAG, `params cardInfo front: ${JSON.stringify(params.cardInfo?.front)}`);
           hilog.info(0x0001, TAG, `params cardInfo back: ${JSON.stringify(params.cardInfo?.back)}`);
-          // params.code是-1说明是关闭，识别到后要退出
+        <em>  // params.code是-1说明是关闭，识别到后要退出</em>
           if (params.code === -1) {
             this.promptAction.showToast({
               message: '未进行识别，已返回!',
               duration: 1000
-            }); // 伙伴可以根据需求自行更改promptAction类型
+            }); <em>// 伙伴可以根据需求自行更改promptAction类型</em>
             this.getUIContext().getRouter().back(1);
           } else {
-            // 可以使用某些条件，判断信息是否全面，如果不全面就说明识别信息不全，识别失败
+           <em> // 可以使用某些条件，判断信息是否全面，如果不全面就说明识别信息不全，识别失败</em>
             if (!params.cardInfo?.front.sex) {
               this.promptAction.showToast({
                 message: '识别失败，请重试!',
                 duration: 1000
-              }); // 可以根据需求自行更改promptAction类型
+              }); <em>// 可以根据需求自行更改promptAction类型</em>
               this.getUIContext().getRouter().back(1);
             }
-            // 接下来假设为未发现问题，可以进行后续操作
+           <em> // 接下来假设为未发现问题，可以进行后续操作</em>
             else {
-              // 后续处理，可以设计存储数据，
-              // 处理完成进行跳转
+            <em>  // 后续处理，可以设计存储数据，</em>
+<em>              // 处理完成进行跳转</em>
               this.promptAction.showToast({
                 message: '识别完成!',
                 duration: 1000
-              }); // 可以根据需求自行更改promptAction类型
+              }); <em>// 可以根据需求自行更改promptAction类型</em>
               this.getUIContext().getRouter().back(1);
             }
           }
@@ -97,7 +91,7 @@ struct test {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：目前OCR识别主要支持一些常见的文档类型，如身份证和名片等。对于一些特定的小票、营业执照、发票和价签等，这些类型不在默认支持范围内。是否可以通过自定义识别插槽来实现这些特定场景的OCR识别？
  

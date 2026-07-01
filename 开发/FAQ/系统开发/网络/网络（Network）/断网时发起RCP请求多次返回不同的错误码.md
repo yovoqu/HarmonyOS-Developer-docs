@@ -4,16 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-90
 
-## 断网时发起RCP请求多次返回不同的错误码
- 
-
-
-##### 问题现象
+#### 问题现象
 
 问题一：测试机A开启热点，测试机B连接后，测试机A断网，然后测试机B在同一个时间段对同一个地址进行访问时，会分别返回三种不同的错误码，是什么原因？
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/zsAklByQQxKsKGSyFQb33Q/zh-cn_image_0000002658849581.png?HW-CC-KV=V1&HW-CC-Date=20260701T025753Z&HW-CC-Expire=86400&HW-CC-Sign=76333107DBF1D40C4E1E86645AD6927673C0976A6CE409BC90AD59A677232796)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/zsAklByQQxKsKGSyFQb33Q/zh-cn_image_0000002658849581.png?HW-CC-KV=V1&HW-CC-Date=20260701T041439Z&HW-CC-Expire=86400&HW-CC-Sign=9E91C3955048D7AB8DFB5B238A6790779E94AC7DB796816D13F40DE08C04E48E)
 
  
 问题二：错误码1007900056要怎么排查？
@@ -22,7 +18,7 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 问题一方案：
  

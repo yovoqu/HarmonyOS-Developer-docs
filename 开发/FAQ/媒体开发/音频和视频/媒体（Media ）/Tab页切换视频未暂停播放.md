@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-12
 
-## Tab页切换视频未暂停播放
- 
-
-
-##### 问题现象
+#### 问题现象
 
 应用从视频播放页面切换到其他Tab页，视频未暂停播放。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [AVPlayer播放视频](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)：功能较完善的音视频播放ArkTS/JS API，集成了流媒体和本地资源解析，媒体资源解封装，视频解码和渲染功能，适用于对媒体资源进行端到端播放的场景，可直接播放mp4、mkv等格式的视频文件。
 - [Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs)：通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onchange)为Tab页签切换后触发的事件。
@@ -22,12 +18,11 @@
  
  
 
-##### 问题定位
-
-- 根据现象判断，应用在切换到其他页面时没有在监听到页面变化时进行视频播放暂停处理。
-- 验证判断：
+#### 问题定位
+1. 根据现象判断，应用在切换到其他页面时没有在监听到页面变化时进行视频播放暂停处理。
+2. 验证判断：
 通过关键词(start|pause|status|Player|tab|onChange)过滤日志，如下所示：
-```text
+```bash
 07-01 10:31:39.011   20804-20973   C03900/com.leh...video/Ace             I     [a92ab1488b010a2 0 0][(100000:100000:scope)] Media player start to play.
 07-01 10:31:39.013   20804-20973   C02B2B/com.leh...MonitorClient         I     [a92ab1488b010a2 0 0]#83 0x04B6E0 StartClick
 07-01 10:31:39.014   20804-20969   C02B2B/com.leh...rServiceProxy         I     [a92ab1488b010a2 0 0]#726 0x15E100 surfaceFormat is !
@@ -48,19 +43,17 @@
 07-01 10:31:57.769   20804-20804   C03916/com.leh...video/AceTabs         I     [(100000:100000:scope)] Clicked tabBarIndex: 1
 ```
 
-- 日志“Clicked tabBarIndex: 1”中可以看出Tab页的切换，但后面没有视频状态的变化日志。
-
- 
+3. 日志“Clicked tabBarIndex: 1”中可以看出Tab页的切换，但后面没有视频状态的变化日志。
  
  
 
-##### 分析结论
+#### 分析结论
 
 应用缺少在页面变化时对正在播放的视频进行暂停处理能力，或处理视频暂停的逻辑未放在正确的位置，导致应用在前台时即使切换Tab页也会一直播放视频。
  
  
 
-##### 修改建议
+#### 修改建议
 
 在Tab页切换的onChange事件中或监听页面切换的方法里加入对视频播放的暂停控制能力。参考代码：
  
@@ -103,7 +96,7 @@ struct onChangePause {
       }
       .barPosition(BarPosition.End)
       .onChange((index: number) => {
-        // currentIndex控制TabContent显示页签
+        <em>// currentIndex控制TabContent显示页签</em>
         if (this.currentIndex != index) {
           this.vController.pause();
         }

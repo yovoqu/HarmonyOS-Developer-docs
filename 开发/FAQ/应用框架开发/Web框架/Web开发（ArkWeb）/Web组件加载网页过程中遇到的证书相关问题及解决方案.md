@@ -4,21 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-197
 
-## Web组件加载网页过程中遇到的证书相关问题及解决方案
- 
-
-
-##### 问题现象
+#### 问题现象
 
 Web组件加载网页过程中，会遇到证书相关问题，如：
- 
-- 加载时网页出现证书校验错误，如何处理？
-- 网页与服务端需要证书双向认证，如何实现？
-
+ 1. 加载时网页出现证书校验错误，如何处理？
+2. 网页与服务端需要证书双向认证，如何实现？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [onSslErrorEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onsslerrorevent12)：通知用户加载资源（主资源+子资源）时发生SSL错误（证书校验错误），可在该函数中对SSL错误进行处理。
  
@@ -26,31 +20,38 @@ Web组件加载网页过程中，会遇到证书相关问题，如：
  
  
 
-##### 解决方案
+#### 解决方案
 
  
 
-##### [h2]场景一、忽略证书校验
+#### 场景一、忽略证书校验
 
 - 现象：网页加载过程中，可能会存在域名证书过期、证书链不完整、证书不受信等情况，导致加载时报证书校验失败，网页无法正常加载。
 - 解决方案：在[onSslErrorEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onsslerrorevent12)接口中回调通知证书校验失败异常，可通过[SslErrorHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-sslerrorhandler)对证书校验失败进行处理，具备能力：
- 
+
+  
 [handleConfirm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-sslerrorhandler#handleconfirm9)：通知Web组件继续加载并使用当前SSL证书，忽略证书错误。
 - [handleCancel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-sslerrorhandler#handlecancel20)：在低于API20版本时，表示不忽略证书校验错误，阻止网页请求加载。在API20及以上版本，可以传布尔值，决定是否停止加载：true：表示停止加载页面；
- false：表示继续加载页面，与[handleConfirm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-sslerrorhandler#handleconfirm9)效果类似，默认值为false。
+
+  false：表示继续加载页面，与[handleConfirm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-sslerrorhandler#handleconfirm9)效果类似，默认值为false。
 
  - 示例代码：
 ```text
 import { webview } from '@kit.ArkWeb';
 import { cert } from '@kit.DeviceCertificateKit';
 
-function LogCertInfo(certChainData: Array | undefined) {
+function LogCertInfo(certChainData: Array<Uint8Array> | undefined) {
   if (!(certChainData instanceof Array)) {
     console.error('failed, cert chain data type is not array');
     return;
   }
 
-  for (let i = 0; i  {
+  for (let i = 0; i < certChainData.length; i++) {
+    let encodeBlobData: cert.EncodingBlob = {
+      data: certChainData[i],
+      encodingFormat: cert.EncodingFormat.FORMAT_DER
+    };
+    cert.createX509Cert(encodeBlobData, (error, x509Cert) => {
       if (error) {
         console.error('Index : ' + i + ',createX509Cert failed, errCode: ' + error.code + ', errMsg: ' + error.message);
       } else {
@@ -64,7 +65,28 @@ function LogCertInfo(certChainData: Array | undefined) {
 
 function Uint8ArrayToString(dataArray: Uint8Array) {
   let dataString = '';
-  for (let i = 0; i // 使用时请替换为真实url
+  for (let i = 0; i < dataArray.length; i++) {
+    dataString += String.fromCharCode(dataArray[i]);
+  }
+  return dataString;
+}
+
+function ParseX509CertInfo(x509Cert: cert.X509Cert) {
+  let res: string = 'getCertificate success, ' + 'issuer name = ' + Uint8ArrayToString(x509Cert.getIssuerName().data) +
+    ', subject name = ' + Uint8ArrayToString(x509Cert.getSubjectName().data) + ', valid start = ' +
+  x509Cert.getNotBeforeTime() + ', valid end = ' + x509Cert.getNotAfterTime();
+  return res;
+}
+
+@Entry
+@Component
+struct Index1 {
+  controller: webview.WebviewController = new webview.WebviewController();
+  uiContext: UIContext = this.getUIContext();
+
+  build() {
+    Column() {
+      <em>// 使用时请替换为真实url</em>
       Web({ src: '*****', controller: this.controller })
         .onSslErrorEvent((event: SslErrorEvent) => {
           console.info('onSslErrorEvent url: ' + event.url);
@@ -105,32 +127,37 @@ function Uint8ArrayToString(dataArray: Uint8Array) {
  
  
 
-##### [h2]场景二、证书双向认证
+#### 场景二、证书双向认证
 
 - 现象：
-双向认证是指客户端和服务器端都需要验证对方的身份，在建立HTTPS连接的过程中，握手的过程比单向认证多了几步。
+
+  双向认证是指客户端和服务器端都需要验证对方的身份，在建立HTTPS连接的过程中，握手的过程比单向认证多了几步。
 单向认证的流程是：客户端（浏览器）请求服务端，服务端返回证书，客户端验证证书合法性后，开始通信。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/isTwJiNpRe2IxWoyfdiTEg/zh-cn_image_0000002629059102.png?HW-CC-KV=V1&HW-CC-Date=20260701T025745Z&HW-CC-Expire=86400&HW-CC-Sign=115284B542DD3F771D2B5503D673E253300A8375B19D6508C8BB6ED52701CE68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/isTwJiNpRe2IxWoyfdiTEg/zh-cn_image_0000002629059102.png?HW-CC-KV=V1&HW-CC-Date=20260701T041336Z&HW-CC-Expire=86400&HW-CC-Sign=38C53F015C8B95BB6A0FFC80853A640CEF0F07E04619778B6AF44AF46710A19C)
 
 - 双向认证的流程是：除单向认证步骤外，服务端还会验证客户端提供证书，验证通过后，开始通信。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/FXuOLBmdQSuKM35FMS0smQ/zh-cn_image_0000002628899178.png?HW-CC-KV=V1&HW-CC-Date=20260701T025745Z&HW-CC-Expire=86400&HW-CC-Sign=0F9D89B965B0B8A9CFBDBA50B1E1BCC4A0083E539BF9B9EE1DCD26BA7F7DD8A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/FXuOLBmdQSuKM35FMS0smQ/zh-cn_image_0000002628899178.png?HW-CC-KV=V1&HW-CC-Date=20260701T041336Z&HW-CC-Expire=86400&HW-CC-Sign=C391CE128AF8252C9EB549F6AA17A546DBF794D14481643BA347BA70BE2B93FF)
 
 
  
  - 解决方案：双向认证，客户端发送请求时，需要携带客户端证书，此时依赖客户端设备证书库中已经安装了客户端证书，若是未安装，需要在发送请求前，完成证书安装，再发送请求。实现方式有两种：
- 
-方式一：
-将证书预置在应用rawfile目录。
-- 打开网页前，使用certificateManager.installPrivateCertificate接口，将预置在rawfile目录下的证书安装至证书库。
-- 打开需要双向认证的网页。
-- [onClientAuthenticationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onclientauthenticationrequest9)收到SSL客户端证书请求事件。
-- 调用[ClientAuthenticationHandler.confirm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-basic-components-web-clientauthenticationhandler#confirm10)接口，通知Web组件使用证书库中指定证书继续请求。
-- 完成上述步骤后，客户端请求发送时会自动携带客户端证书，进而进行双向认证。
 
- 
-示例代码：
+  
+方式一：1. 将证书预置在应用rawfile目录。
+
+2. 打开网页前，使用certificateManager.installPrivateCertificate接口，将预置在rawfile目录下的证书安装至证书库。
+
+3. 打开需要双向认证的网页。
+
+4. [onClientAuthenticationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onclientauthenticationrequest9)收到SSL客户端证书请求事件。
+
+5. 调用[ClientAuthenticationHandler.confirm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-basic-components-web-clientauthenticationhandler#confirm10)接口，通知Web组件使用证书库中指定证书继续请求。
+
+6. 完成上述步骤后，客户端请求发送时会自动携带客户端证书，进而进行双向认证。
+
+  示例代码：
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 import { webview } from '@kit.ArkWeb';
 import { common } from '@kit.AbilityKit';
 import { certificateManager } from '@kit.DeviceCertificateKit';
@@ -151,9 +178,9 @@ struct Index2 {
           return;
         }
 
-        // ****指证书名称，使用时请提前替换为真实证书，需提前预置在rawfile目录下
+        <em>// ****指证书名称，使用时请提前替换为真实证书，需提前预置在rawfile目录下</em>
         let value: Uint8Array = this.context.resourceManager.getRawFileContentSync('****');
-        // keystorePwd指证书凭据密码，certAlias指证书凭据别名，使用时请替换成证书真实密码、别名
+        <em>// keystorePwd指证书凭据密码，certAlias指证书凭据别名，使用时请替换成证书真实密码、别名</em>
         certificateManager.installPrivateCertificate(value, 'keystorePwd', 'certAlias',
           async (err: BusinessError, data: certificateManager.CMResult) => {
             console.info(`installPrivateCertificate, uri==========${JSON.stringify(data.uri)}`);
@@ -164,11 +191,11 @@ struct Index2 {
       });
       Button('加载需要客户端SSL证书的网站')
         .onClick(() => {
-          // 使用时，请替代真实网址
+          <em>// 使用时，请替代真实网址</em>
           this.controller.loadUrl('****');
         });
       Web({
-        // 使用时，请替代真实网址
+        <em>// 使用时，请替代真实网址</em>
         src: 'www.example.com',
         controller: this.controller,
       })
@@ -204,24 +231,25 @@ struct Index2 {
   }
 }
 ```
- 
- - 方式二：
-用户将客户端使用证书提前安装至证书库，将证书下载至设备本地后，点击系统设置->隐私和安全->高级->证书与凭据->从存储设备安装->用户凭据，选择下载的客户端证书，输入证书密码后，安装至证书库。
-- 应用加载需要双向认证的网页，[onClientAuthenticationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onclientauthenticationrequest9)收到SSL客户端证书请求事件。
-- 在onClientAuthenticationRequest中拉起证书管理，并授权应用使用证书凭据。
-- 完成上述步骤后，客户端网页请求发送时会自动携带客户端证书，进行双向认证。
 
- 
-示例代码：
- 
-GlobalContext.ets：
+- 方式二：1. 用户将客户端使用证书提前安装至证书库，将证书下载至设备本地后，点击系统设置->隐私和安全->高级->证书与凭据->从存储设备安装->用户凭据，选择下载的客户端证书，输入证书密码后，安装至证书库。
+
+2. 应用加载需要双向认证的网页，[onClientAuthenticationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onclientauthenticationrequest9)收到SSL客户端证书请求事件。
+
+3. 在onClientAuthenticationRequest中拉起证书管理，并授权应用使用证书凭据。
+
+4. 完成上述步骤后，客户端网页请求发送时会自动携带客户端证书，进行双向认证。
+
+  示例代码：
+
+  GlobalContext.ets：
 ```text
 export class GlobalContext {
   private constructor() {
   }
 
   private static instance: GlobalContext;
-  private _objects = new Map();
+  private _objects = new Map<string, Object>();
 
   public static getContext(): GlobalContext {
     if (!GlobalContext.instance) {
@@ -239,9 +267,9 @@ export class GlobalContext {
   }
 }
 ```
- 
- 
-CertMgrService.ets：
+
+
+  CertMgrService.ets：
 ```ArkTS
 import { bundleManager, common, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -259,7 +287,7 @@ export default class CertManagerService {
     return CertManagerService.sInstance;
   }
 
-  async grantAppPm(): Promise {
+  async grantAppPm(): Promise<string> {
     let bundleFlags =
       bundleManager.BundleFlag.GET_BUNDLE_INFO_DEFAULT | bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION;
     try {
@@ -275,7 +303,7 @@ export default class CertManagerService {
       console.error('getBundleInfoForSelf failed: %{public}s', message);
     }
 
-    // 注：需要在EntryAbility.ets文件的onCreate函数里添加GlobalContext.getContext().setObject("AbilityContext", this.context)
+    <em>// 注：需要在EntryAbility.ets文件的onCreate函数里添加GlobalContext.getContext().setObject("AbilityContext", this.context)</em>
     let abilityContext = GlobalContext.getContext().getObject('AbilityContext') as common.UIAbilityContext;
     await abilityContext.startAbilityForResult(
       {
@@ -283,13 +311,13 @@ export default class CertManagerService {
         abilityName: 'MainAbility',
         uri: 'requestAuthorize',
         parameters: {
-          appUid: this.appUid, // 传入申请应用的appUid
+          appUid: this.appUid, <em>// 传入申请应用的appUid</em>
         }
       } as Want)
       .then((data: common.AbilityResult) => {
         if (!data.resultCode && data.want) {
           if (data.want.parameters) {
-            this.authUri = data.want.parameters.authUri as string; // 授权成功后获取返回的authUri
+            this.authUri = data.want.parameters.authUri as string; <em>// 授权成功后获取返回的authUri</em>
           }
         }
       });
@@ -297,16 +325,16 @@ export default class CertManagerService {
   }
 };
 ```
- 
- 
-EntryAbility.ets onCreate中，将当前Ability的上下文存储到GlobalContext中：
-```text
+
+
+  EntryAbility.ets onCreate中，将当前Ability的上下文存储到GlobalContext中：
+```json
 onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   try {
     hilog.info(DOMAIN, 'testTag',
       `want ${want ? 'not' : ''} empty, launchParam ${launchParam ? 'not' : ''} empty`);
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
-    // 将当前Ability的上下文存储到GlobalContext中
+    <em>// 将当前Ability的上下文存储到GlobalContext中</em>
     GlobalContext.getContext().setObject('AbilityContext', this.context);
   } catch (err) {
     hilog.error(DOMAIN, 'testTag', 'Failed to set colorMode. Cause: %{public}s', JSON.stringify(err));
@@ -314,9 +342,9 @@ onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
 }
 ```
- 
- 
-Index.ets：
+
+
+  Index.ets：
 ```text
 import { webview } from '@kit.ArkWeb';
 import CertManagerService from '../common/CertMgrService';
@@ -335,11 +363,11 @@ struct Index {
     Column() {
       Button('加载需要客户端SSL证书的网站')
         .onClick(() => {
-          // 使用时请替换真实网址
+          <em>// 使用时请替换真实网址</em>
           this.controller.loadUrl('***');
         });
       Web({
-        // 使用时请替换真实网址
+        <em>// 使用时请替换真实网址</em>
         src: 'www.example.com',
         controller: this.controller,
       })
@@ -379,8 +407,8 @@ struct Index {
   }
 }
 ```
- 
- 
+
+
  
  
 证书安装，需要依赖权限：[ohos.permission.ACCESS_CERT_MANAGER](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionaccess_cert_manager)，
@@ -391,7 +419,7 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：双向认证有什么优缺点？
  

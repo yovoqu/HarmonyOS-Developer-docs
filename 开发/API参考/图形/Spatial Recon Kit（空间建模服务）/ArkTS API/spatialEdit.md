@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialedit
 
-## spatialEdit
- 
-
 spatialEdit模块提供了编辑3DGS（3D Gaussian Splatting）模型的能力，支持选择、变换、上色和删除高斯点等操作。
  
 **系统能力：** SystemCapability.Graphics.spatialEdit
@@ -16,7 +13,7 @@ spatialEdit模块提供了编辑3DGS（3D Gaussian Splatting）模型的能力�
 **起始版本：** 26.0.0
   
 
-##### 导入模块
+#### 导入模块
 
 ```text
 import { spatialEdit } from '@kit.SpatialReconKit';
@@ -24,7 +21,7 @@ import { spatialEdit } from '@kit.SpatialReconKit';
  
   
 
-##### PaintMode
+#### PaintMode
 
 定义颜色混合模式的枚举类型。
  
@@ -43,7 +40,7 @@ import { spatialEdit } from '@kit.SpatialReconKit';
  
   
 
-##### GSEdit
+#### GSEdit
 
 3DGS模型编辑句柄类，提供对高斯模型的各种编辑操作。
  
@@ -55,7 +52,7 @@ import { spatialEdit } from '@kit.SpatialReconKit';
  
   
 
-##### [h2]editGSNode
+#### editGSNode
 
 static editGSNode(node: spatialRender.GSNode): GSEdit
  
@@ -103,7 +100,7 @@ function EditGSNode() : void {
  
   
 
-##### [h2]selectBy2DBox
+#### selectBy2DBox
 
 selectBy2DBox(rect: Rect): void
  
@@ -147,7 +144,7 @@ function SelectBy2DBox() : void {
  
   
 
-##### [h2]selectBy3DBox
+#### selectBy3DBox
 
 selectBy3DBox(aabb: Aabb): void
  
@@ -194,7 +191,7 @@ function SelectBy3DBox() : void {
  
   
 
-##### [h2]selectByIndex
+#### selectByIndex
 
 selectByIndex(indices: number[]): void
  
@@ -231,8 +228,17 @@ function SelectByIndex() : void {
     let editor: spatialEdit.GSEdit = spatialEdit.GSEdit.editGSNode(gsNode);
     // 通过索引选择高斯点（添加到当前选区）
     let indices: number[] = [];
-    for (let i = 1; i 
-##### [h2]selectBy2DMask
+    for (let i = 1; i <= 50000; i++) {
+      indices.push(i);
+    }
+    editor.selectByIndex(indices);
+  });
+}
+```
+ 
+  
+
+#### selectBy2DMask
 
 selectBy2DMask(mask: image.PixelMap): void
  
@@ -285,7 +291,7 @@ function SelectBy2DMask(context : Context) : void {
  
   
 
-##### [h2]invertSelection
+#### invertSelection
 
 invertSelection(): void
  
@@ -324,7 +330,7 @@ function InvertSelection() : void {
  
   
 
-##### [h2]clearSelection
+#### clearSelection
 
 clearSelection(): void
  
@@ -363,7 +369,7 @@ function ClearSelection() : void {
  
   
 
-##### [h2]transform
+#### transform
 
 transform(matrix: Mat4x4): void
  
@@ -422,7 +428,7 @@ function Transform() : void {
  
   
 
-##### [h2]paint
+#### paint
 
 paint(color: Color, mode: PaintMode): void
  
@@ -475,7 +481,7 @@ function Paint() : void {
  
   
 
-##### [h2]remove
+#### remove
 
 remove(): void
  
@@ -514,7 +520,7 @@ function Remove() : void {
  
   
 
-##### [h2]undo
+#### undo
 
 undo(): void
  
@@ -555,9 +561,9 @@ function undo() : void {
  
   
 
-##### [h2]saveToPLY
+#### saveToPLY
 
-saveToPLY(uri: string): Promise<boolean>
+saveToPLY(uri: string): Promise&lt;boolean&gt;
  
 将编辑后的模型保存为PLY格式，使用Promise异步回调。
  
@@ -578,7 +584,7 @@ saveToPLY(uri: string): Promise<boolean>
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise<boolean> | Promise对象，保存成功返回true，否则返回false。 |
+| Promise&lt;boolean&gt; | Promise对象，保存成功返回true，否则返回false。 |
  
  
 **示例：**

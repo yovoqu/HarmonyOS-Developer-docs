@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-22
 
-## DevEco Studio编译时报错FetchPackageInfo: "@ohos/hamock" failed
- 
-
-
-##### 问题现象
+#### 问题现象
 
 DevEco Studio编译时报错，报错信息如下：
  
@@ -21,7 +17,7 @@ ohpm ERROR: Install failed, detail: Error: FetchPackageInfo: "@ohos/hamock" fail
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Hamock](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fhamock)是OpenHarmony上的模拟框架，提供预览场景的模拟功能。
 - [配置代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config)：DevEco Studio开发环境依赖于网络环境，需要连接上网络才能确保工具的正常使用。
@@ -29,8 +25,7 @@ ohpm ERROR: Install failed, detail: Error: FetchPackageInfo: "@ohos/hamock" fail
  
  
 
-##### 解决方案
-
-- 修改ohpm代理信息，详情请参考：[配置OHPM代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section10372836765)。
-- 将工程级目录下的oh-package.json5中的devDependencies中的@ohos/hamock版本修改为"1.0.0"。
-- 执行Build -> Clean Project操作后，再重新Build。
+#### 解决方案
+1. 修改ohpm代理信息，详情请参考：[配置OHPM代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config#section10372836765)。
+2. 将工程级目录下的oh-package.json5中的devDependencies中的@ohos/hamock版本修改为"1.0.0"。
+3. 执行Build -> Clean Project操作后，再重新Build。

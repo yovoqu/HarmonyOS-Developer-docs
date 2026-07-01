@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-19
 
-## RCP会话实例如何在子线程使用
- 
-
-
-##### 问题现象
+#### 问题现象
 
 网络请求属于耗时的I/O操作，而主线程（也叫UI线程/事件循环线程）的核心职责是处理用户交互、UI渲染等对响应速度要求极高的任务。例如打开电商APP加载首页商品列表、打开新闻APP加载头条内容，这些数据都需要从服务器获取。如果在主线程请求，APP可能会出现“启动白屏”、“卡顿”现象。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Worker运作机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction#worker运作机制)：创建Worker的线程称为宿主线程（不局限于主线程，Worker线程也支持创建Worker子线程）。Worker子线程（或Actor线程、工作线程）是Worker自身运行的线程。每个Worker子线程和宿主线程拥有独立的实例，包含独立执行环境、对象、代码段等。Worker子线程和宿主线程通过消息传递机制通信，利用序列化、引用传递或转移所有权的机制完成命令和数据的交互。
 - [TaskPool运作机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction#taskpool运作机制)：TaskPool支持在宿主线程提交任务到任务队列，系统选择合适的工作线程执行任务，并将结果返回给宿主线程。通过系统统一线程管理，结合动态调度和负载均衡算法，系统默认启动一个任务工作线程，任务多时会自动扩容。工作线程数量上限由设备的物理核数决定，内部管理具体数量，确保调度和执行效率最优。长时间无任务分发时会缩容，减少工作线程数量。
@@ -22,16 +18,15 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 开发准备，申请获取网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)。
  
  
 
-##### [h2]场景一：在Worker中进行实现RCP网络请求
-
-- 参考[Worker基本用法示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction#worker基本用法示例)，创建Worker。
-- 在index.ets文件中，创建多个Worker任务实例，并注册Worker的回调函数，具体代码如下：
+#### 场景一：在Worker中进行实现RCP网络请求
+1. 参考[Worker基本用法示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction#worker基本用法示例)，创建Worker。
+2. 在index.ets文件中，创建多个Worker任务实例，并注册Worker的回调函数，具体代码如下：
 ```ArkTS
 import { ErrorEvent, MessageEvents, worker } from '@kit.ArkTS';
 
@@ -49,10 +44,12 @@ struct Index {
         .fontColor(Color.White)
         .borderRadius(32)
         .onClick(() => {
-          for (let i: number = 0; i  // 创建Worker对象
+          for (let i: number = 0; i < 6; i++) {
+            let fileUrl = `entry/ets/workers/Worker.ets`;
+           <em> // 创建Worker对象</em>
             let workerInstance = new worker.ThreadWorker(fileUrl);
 
-            // 注册onmessage回调，捕获宿主线程接收到来自其创建的Worker通过workerPort.postMessage接口发送的消息。该回调在宿主线程执行
+         <em>   // 注册onmessage回调，捕获宿主线程接收到来自其创建的Worker通过workerPort.postMessage接口发送的消息。该回调在宿主线程执行</em>
             workerInstance.onmessage = (e: MessageEvents) => {
               let data: string = e.data;
               this.message += data;
@@ -60,23 +57,23 @@ struct Index {
               console.info('workerInstance onmessage is: ', data);
             };
 
-            // 注册onAllErrors回调，捕获Worker线程的onmessage回调、timer回调以及文件执行等流程产生的全局异常。该回调在宿主线程执行
+           <em> // 注册onAllErrors回调，捕获Worker线程的onmessage回调、timer回调以及文件执行等流程产生的全局异常。该回调在宿主线程执行</em>
             workerInstance.onAllErrors = (err: ErrorEvent) => {
               console.error('workerInstance onAllErrors message is: ' + err.message);
             };
 
-            // 注册onmessageerror回调，当Worker对象接收到无法序列化的消息时被调用，在宿主线程执行
+          <em>  // 注册onmessageerror回调，当Worker对象接收到无法序列化的消息时被调用，在宿主线程执行</em>
             workerInstance.onmessageerror = () => {
               console.error('workerInstance onmessageerror');
             };
 
-            // 注册onexit回调，当Worker销毁时被调用，在宿主线程执行
+          <em>  // 注册onexit回调，当Worker销毁时被调用，在宿主线程执行</em>
             workerInstance.onexit = (e: number) => {
-              // Worker正常退出时，code为0；异常退出时，code为1
+             <em> // Worker正常退出时，code为0；异常退出时，code为1</em>
               console.info('workerInstance onexit code is: ', e);
             };
 
-            // 发送消息给Worker线程
+          <em>  // 发送消息给Worker线程</em>
             workerInstance.postMessage(i.toString());
           }
         });
@@ -93,67 +90,76 @@ struct Index {
 }
 ```
 
-- 在Worker文件中，新建1024个session，具体代码如下：
-```text
+3. 在Worker文件中，新建1024个session，具体代码如下：
+```json
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { rcp } from '@kit.RemoteCommunicationKit';
 
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
-/**
- * Defines the event handler to be called when the worker thread receives a message sent by the host thread.
- * The event handler is executed in the worker thread.
- *
- * @param event message data
- */
+<em>/**</em>
+<em> * Defines the event handler to be called when the worker thread receives a message sent by the host thread.</em>
+<em> * The event handler is executed in the worker thread.</em>
+<em> *</em>
+<em> * @param event message data</em>
+<em> */</em>
 workerPort.onmessage = (event: MessageEvents) => {
   let data: string = event.data;
   console.info('workerPort onmessage is: ', data);
 
   console.info("testGetByTask exec by " + data);
-  let sessionMap: Map = new Map();
-  for (let index = 0; index  // 向宿主线程发送消息
+  let sessionMap: Map<number, rcp.Session> = new Map<number, rcp.Session>();
+  for (let index = 0; index < 1024; index++) {
+    try {
+      sessionMap.set(index, rcp.createSession());
+    } catch (error) {
+      workerPort.postMessage(JSON.stringify(error));
+      return;
+    }
+  }
+
+
+ <em> // 向宿主线程发送消息</em>
   workerPort.postMessage(sessionMap.size.toString());
 };
 
-/**
- * Defines the event handler to be called when the worker receives a message that cannot be deserialized.
- * The event handler is executed in the worker thread.
- *
- * @param event message data
- */
+<em>/**</em>
+<em> * Defines the event handler to be called when the worker receives a message that cannot be deserialized.</em>
+<em> * The event handler is executed in the worker thread.</em>
+<em> *</em>
+<em> * @param event message data</em>
+<em> */</em>
 workerPort.onmessageerror = (event: MessageEvents) => {
   console.error('workerPort onmessageerror', event.type);
 };
 
-/**
- * Defines the event handler to be called when an exception occurs during worker execution.
- * The event handler is executed in the worker thread.
- *
- * @param event error message
- */
+<em>/**</em>
+<em> * Defines the event handler to be called when an exception occurs during worker execution.</em>
+<em> * The event handler is executed in the worker thread.</em>
+<em> *</em>
+<em> * @param event error message</em>
+<em> */</em>
 workerPort.onerror = (event: ErrorEvent) => {
   console.error('workerPort onerror err is: ', event.message);
 };
 ```
 
-
  
 代码运行效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/ZlyszmwnShy9tbIf-JAU0Q/zh-cn_image_0000002628612498.png?HW-CC-KV=V1&HW-CC-Date=20260701T025800Z&HW-CC-Expire=86400&HW-CC-Sign=5750491B9970FA8919F9E0BEB131BFD9C683DDB94EB8585B9EC7052D5449BD2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/ZlyszmwnShy9tbIf-JAU0Q/zh-cn_image_0000002628612498.png?HW-CC-KV=V1&HW-CC-Date=20260701T041440Z&HW-CC-Expire=86400&HW-CC-Sign=26C78C7C931EEFE4F7C247F6D66387E5127DC74991186E40100230F43E06ED45)
 
  
  
 
-##### [h2]场景二：在TaskPool中进行实现RCP网络请求
+#### 场景二：在TaskPool中进行实现RCP网络请求
 
 详细使用示例代码参考[RCP网络请求在TaskPool子线程中使用异常](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-11)的修改建议章节。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：RCP会话实例在Worker和TaskPool中使用的区别是什么？
  

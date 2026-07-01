@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-58
 
-## CameraPicker拍摄的优势及常见问题
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在开发相机功能时，一般有两种方案可供选择：[CameraPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-picker)和自定义相机。相比较功能丰富的自定义相机而言，CameraPicker有什么优势，又可能会有哪些问题呢？
  
  
 
-##### 解决方案
+#### 解决方案
 
 **CameraPicker核心优势**
  
@@ -28,7 +24,8 @@
 - 系统已经开放地理位置权限，但是CameraPicker拍摄的图片依然看不到地理位置信息。答：CameraPicker的隐私规格限制决定了其拍摄的图片不会带上地理位置信息。
 - 如何获取CameraPicker拍照生成文件的格式？答：通过pickerResult.resultUri的扩展名判断文件格式，或者使用image模块的[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)接口来获取文件的真实MIME类型，从而准确确定文件格式。
 - CameraPicker调起系统相机拍照时怎么获取拍摄时间？
-答：一般可通过下述两种方案来解决：
+
+  答：一般可通过下述两种方案来解决：
 使用[@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)获取照片文件的创建时间。需要在相机拍摄完成后，拿到返回的resultUri，然后使用[fileIo.statSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiostatsync)接口创建[fileIo.Stat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#stat)对象，Stat对象中的mtime属性即为该文件上次被修改的时间，一般来说就是拍摄完被覆写的时间。
 - 在代码里直接记录时间戳。可根据业务实际需要，在调起Picker拍摄时或者拍摄动作完成后记录时间戳，作为照片拍摄时间。
 
@@ -38,7 +35,7 @@
  
  
 
-##### 总结
+#### 总结
 
 CameraPicker和自定义相机优劣势对比可参见下表：
   

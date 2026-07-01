@@ -4,11 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-47
 
-## 如何定位应用中Native层出现的空指针解引用CppCrash
- 
-
-
-##### 问题现象
+#### 问题现象
 
 长稳测试的时候，偶现CppCrash崩溃，每次的崩溃栈不同，复现的场景不明确。查看多个崩溃日志都有出现SIGSEGV(SEGV_MAPERR)@0x0000000000000000 probably caused by NULL pointer dereference报错，其中之一的报错信息如下：
  
@@ -42,12 +38,12 @@ Tid:42378, Name:m.example.application
 #08 pc 00000000000173cc /system/lib64/platformsdk/libuv.so(uv_run+408)(81fe2b78ed1df8447a6c4e51c5f644e2)
 #09 pc 000000000007f250 /system/lib64/platformsdk/libruntime.z.so(OHOS::AbilityRuntime::OHOSLoopHandler::OnTriggered()+140)(17e438b05b67ccb9c7eb96e54ed833e5)
 #10 pc 0000000000020430 /system/lib64/chipset-pub-sdk/libeventhandler.z.so(770d0cd78402a5ad1ced37fad50c5707)
-#11 pc 000000000001bdb4 /system/lib64/chipset-pub-sdk/libeventhandler.z.so(OHOS::AppExecFwk::EventHandler::DistributeEvent(std::__h::unique_ptr const&)+1140)(770d0cd78402a5ad1ced37fad50c5707)
+#11 pc 000000000001bdb4 /system/lib64/chipset-pub-sdk/libeventhandler.z.so(OHOS::AppExecFwk::EventHandler::DistributeEvent(std::__h::unique_ptr<OHOS::AppExecFwk::InnerEvent, void (*)(OHOS::AppExecFwk::InnerEvent*)> const&)+1140)(770d0cd78402a5ad1ced37fad50c5707)
 ```
  
  
 
-##### 背景知识
+#### 背景知识
 
 [CppCrash（进程崩溃）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines)是指C/C++运行时崩溃。目前主要支持[崩溃异常信号](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#系统处理的崩溃信号)SIGBUS、SIGFPE、SIGSEGV、SIGSTKFLT、SIGSYS、SIGILL、SIGTRAP、SIGABRT的处理。可以通过FaultLogger模块[获取崩溃日志](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#日志获取)。
  
@@ -58,18 +54,15 @@ Tid:42378, Name:m.example.application
 
  
 定位该类型问题一般尝试以下几种方法：
- 
-- 使用DevEco Studio中链接应用，尝试直接点击崩溃日志中的调用栈跳转到对应行号。在应用开发场景，对于应用自身的动态库生成的CppCrash堆栈可直接跳转到代码行处，支持Native栈帧和ArkTS栈帧，无需开发者自行进行解析行号操作。
-- 对于未能解析跳转到对应行号的栈帧，可使用[llvm-addr2line工具解析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section1735713501344)定位崩溃行号。注意在使用llvm-addr2line工具前需要[将release编译的so带上符号表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section5147812132)，同时将build-profile.json5中[debugSymbol](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-cpp#section2182144382320)的strip字段设置为"false"。
-- 使用[ASan检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-asan#section111599216114)内存错误。使用DevEco Studio集成的ASan（Address-Sanitizer）来检测面向C/C++的地址报错，并通过FaultLog展示的错误堆栈详情及导致错误的代码行来进行问题定位。
-- 结合业务检视代码。根据基于崩溃栈定位行号章节中介绍的三种方式获取到栈顶对应的行号后，回到代码中，检视上下文。
-
+ 1. 使用DevEco Studio中链接应用，尝试直接点击崩溃日志中的调用栈跳转到对应行号。在应用开发场景，对于应用自身的动态库生成的CppCrash堆栈可直接跳转到代码行处，支持Native栈帧和ArkTS栈帧，无需开发者自行进行解析行号操作。
+2. 对于未能解析跳转到对应行号的栈帧，可使用[llvm-addr2line工具解析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section1735713501344)定位崩溃行号。注意在使用llvm-addr2line工具前需要[将release编译的so带上符号表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section5147812132)，同时将build-profile.json5中[debugSymbol](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-cpp#section2182144382320)的strip字段设置为"false"。
+3. 使用[ASan检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-asan#section111599216114)内存错误。使用DevEco Studio集成的ASan（Address-Sanitizer）来检测面向C/C++的地址报错，并通过FaultLog展示的错误堆栈详情及导致错误的代码行来进行问题定位。
+4. 结合业务检视代码。根据基于崩溃栈定位行号章节中介绍的三种方式获取到栈顶对应的行号后，回到代码中，检视上下文。
  
  
 
-##### 问题定位
-
-- 由于出现问题的场景不明确，所以首先通过崩溃栈日志进行规律总结。经过查看多次的崩溃栈，发现基本都是在回调函数中出现的崩溃，比如以下的libnet.so中doCallback函数，于是怀疑问题出在各回调函数中的共性问题。
+#### 问题定位
+1. 由于出现问题的场景不明确，所以首先通过崩溃栈日志进行规律总结。经过查看多次的崩溃栈，发现基本都是在回调函数中出现的崩溃，比如以下的libnet.so中doCallback函数，于是怀疑问题出在各回调函数中的共性问题。
 ```text
 pc 0000000000135dc8 /data/storage/el1/bundle/libs/arm64/libnet.so(91a0f067f914ed44654e1191fccc295e60882cb0)
 #01 pc 0000000000135d68 /data/storage/el1/bundle/libs/arm64/libnet.so(91a0f067f914ed44654e1191fccc295e60882cb0)
@@ -78,20 +71,20 @@ pc 0000000000135dc8 /data/storage/el1/bundle/libs/arm64/libnet.so(91a0f067f914ed
 #04 pc 000000000012aa78 /data/storage/el1/bundle/libs/arm64/libnet.so(doCallback(napi_env__*, napi_status, void*)+1584)(91a0f067f914ed44654e1191fccc295e60882cb0)
 ```
 
-- 以doCallback回调作为突破口，尝试通过添加空指针保护，发现还是会偶现该问题。于是怀疑是由于doCallback函数在执行过程中被释放了使用的指针内存资源。
+2. 以doCallback回调作为突破口，尝试通过添加空指针保护，发现还是会偶现该问题。于是怀疑是由于doCallback函数在执行过程中被释放了使用的指针内存资源。
 ```text
 void doCallback(napi_env env, napi_status status, void *data) {
     if (env == nullptr || data == nullptr) {
         LOGE("Invalid env or data");
         return;
     }
-    // ...
+   <em> // ...</em>
 }
 ```
 
-- 使用llvm-addr2line（或者[堆栈轨迹分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-release-app-stack-analysis)）对出现崩溃的libnet.so尝试解析出文件名和行号。
-首先将libnet模块的build-profile.json5里面buildOption/externalNativeOptions中配置参数："arguments": "-DCMAKE_BUILD_TYPE=RelWithDebInfo"。
-```text
+3. 使用llvm-addr2line（或者[堆栈轨迹分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-release-app-stack-analysis)）对出现崩溃的libnet.so尝试解析出文件名和行号。
+- 首先将libnet模块的build-profile.json5里面buildOption/externalNativeOptions中配置参数："arguments": "-DCMAKE_BUILD_TYPE=RelWithDebInfo"。
+```json
 {
   "apiType": "stageMode",
   "buildOption": {
@@ -101,14 +94,13 @@ void doCallback(napi_env env, napi_status status, void *data) {
       "cppFlags": "",
     }
   },
-  // ...
+  <em>// ...</em>
 }
 ```
 
 
- 
-- 然后将libnet模块的build-profile.json5里面buildOptionSet/nativeLib/debugSymbol/strip设置为"false"。（注意下方示例中的name为"debug"包，如需"release"包带上符号表则需要在"name"为"release"的构建配置中修改）。
-```text
+4. 然后将libnet模块的build-profile.json5里面buildOptionSet/nativeLib/debugSymbol/strip设置为"false"。（注意下方示例中的name为"debug"包，如需"release"包带上符号表则需要在"name"为"release"的构建配置中修改）。
+```json
 "buildOptionSet": [
     {
       "name": "debug",
@@ -133,57 +125,52 @@ void doCallback(napi_env env, napi_status status, void *data) {
 ```
 
 
- 
-- 编译出libnet.so后，确认是否已带上符号表：
+5. 编译出libnet.so后，确认是否已带上符号表：
 在Linux中可使用file libnet.so命令，查看最后是否有not stripped字段，带了则表示编译出的libnet.so带上了符号表。
-```text
+```bash
 [root@ncn4b-partnervectorservice-33-83-97 arm64-v8a]# file libnet.so 
 libnet.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, BuildID[sha1]=9d075a569e007bc6e4ea25f2f96be548724b4aef, with debug_info, not stripped
 ```
 
-- 在windows中可使用llvm-objdump --headers libnet.so（llvm-objdump工具在DevEco Studio安装的时候会自带），查看是否有debug字段，有则说明带上了符号表，没有则说明无符号表：
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/2YI7hVeTT5iIJEn9AuyhWw/zh-cn_image_0000002628554888.png?HW-CC-KV=V1&HW-CC-Date=20260701T025508Z&HW-CC-Expire=86400&HW-CC-Sign=E8D951384647F4B35EA6D60B131C6A14434FE066E3161E53F0845B28231CA057)
+
+6. 在windows中可使用llvm-objdump --headers libnet.so（llvm-objdump工具在DevEco Studio安装的时候会自带），查看是否有debug字段，有则说明带上了符号表，没有则说明无符号表：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/2YI7hVeTT5iIJEn9AuyhWw/zh-cn_image_0000002628554888.png?HW-CC-KV=V1&HW-CC-Date=20260701T041409Z&HW-CC-Expire=86400&HW-CC-Sign=7F21FE84877F05DA5409F3EB80FB159416360B275FB4089951AC79CFAE1794BC)
 
 
- 
- 
-- 使用编译出来的带符号表的libnet.so使用llvm-addr2line进行崩溃行号定位：
-```text
+7. 使用编译出来的带符号表的libnet.so使用llvm-addr2line进行崩溃行号定位：
+```bash
 llvm-addr2line -Cipe LocalPath/libnet.so 000000000012aa78
 ```
 
 
- 
-- 得到出问题的行信息，定位到崩溃在napi_call_function函数这行。
+8. 得到出问题的行信息，定位到崩溃在napi_call_function函数这行。
 ```text
 napi_call_function(env, nullptr, callback, 1, &returnValue, &tempValue);
 ```
 
 
- 
-说明是napi_call_function在调用ArkTS函数指针的时候，回调函数指针可能被其他线程释放了才导致的踩空。
- - 通过代码分析发现问题所在ArkTS层往Native层传递函数参数的时候，需要依赖的回调函数指针必须是有效的。但是从上层传下来的函数制造者却没有创建强引用napi_ref保留。所以当GC回收了ArkTS的回调函数资源后，使用该ArkTS回调函数可能在Native执行napi_call_function前就已经是空指针了，最后导致空指针解引用。
+9. 通过代码分析发现问题所在ArkTS层往Native层传递函数参数的时候，需要依赖的回调函数指针必须是有效的。但是从上层传下来的函数制造者却没有创建强引用napi_ref保留。所以当GC回收了ArkTS的回调函数资源后，使用该ArkTS回调函数可能在Native执行napi_call_function前就已经是空指针了，最后导致空指针解引用。
 
- 
- 
+  
 
-##### 分析结论
+  #### 分析结论
 
-- 使用napi_call_function函数调用ArkTS层函数前，要使用napi_create_reference创建一个强引用napi_ref，防止GC回收ArkTS的回调函数资源。
+  
+使用napi_call_function函数调用ArkTS层函数前，要使用napi_create_reference创建一个强引用napi_ref，防止GC回收ArkTS的回调函数资源。
 - 然后通过napi_get_reference_value从napi_ref中提取当前有效的napi_value。此时napi_value就是持久化后的ArkTS层的持久化的函数指针，这个时候使用napi_call_function函数调用改指针才是安全的。
 - 在使用完后需要调用napi_delete_reference主动释放引用，避免内存泄漏。
 
  
  
 
-##### 修改建议
+#### 修改建议
 
 - 在Native层中，首先在获取异步回调ArkTS层函数指针的时候，需要使用napi_create_reference创建强引用将指针缓存起来，在使用结束后，需要调用napi_delete_reference释放强引用，避免资源泄露。示例代码如下：
 ```text
-// 异步工作Native流程
+<em>// 异步工作Native流程</em>
 static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
 {
-    // 从模块数据中获取函数引用
+    <em>// 从模块数据中获取函数引用</em>
     ModuleData* moduleData = nullptr;
     napi_get_instance_data(env, (void**)&moduleData);
 
@@ -192,11 +179,11 @@ static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
         return nullptr;
     }
 
-    // 创建新的工作数据
+  <em>  // 创建新的工作数据</em>
     AsyncWorkData* workData = new AsyncWorkData();
     workData->env = env;
 
-    // 为异步工作创建新的函数引用
+   <em> // 为异步工作创建新的函数引用</em>
     napi_value arktsFunc;
     if (napi_get_reference_value(env, moduleData->arktsFuncRef, &arktsFunc) != napi_ok) {
         delete workData;
@@ -204,14 +191,14 @@ static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
         return nullptr;
     }
 
-    // 创建新的引用给异步工作使用
+  <em>  // 创建新的引用给异步工作使用</em>
     if (napi_create_reference(env, arktsFunc, 1, &workData->arktsFuncRef) != napi_ok) {
         delete workData;
         napi_throw_error(env, nullptr, "为异步工作创建函数引用失败");
         return nullptr;
     }
 
-    // 创建异步工作
+<em>    // 创建异步工作</em>
     napi_async_work asyncWork;
     napi_value workName;
     napi_create_string_utf8(env, "MyProc", NAPI_AUTO_LENGTH, &workName);
@@ -223,7 +210,7 @@ static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
         return nullptr;
     }
 
-    // 排队执行异步工作
+   <em> // 排队执行异步工作</em>
     if (napi_queue_async_work(env, asyncWork) != napi_ok) {
         napi_delete_async_work(env, asyncWork);
         napi_delete_reference(env, workData->arktsFuncRef);
@@ -242,25 +229,25 @@ static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
 
 - 在执行完数据的处理后，napi_create_async_work函数会回调doCallback函数，在该函数中，在使用napi_call_function函数调用ArkTS层函数指针前，使用napi_get_reference_value获取缓存中的ArkTS函数指针。示例代码如下：
 ```text
-// 异步工作完成回调（在主线程/JS线程中执行）
+<em>// 异步工作完成回调（在主线程/JS线程中执行）</em>
 void doCallback(napi_env env, napi_status status, void* data)
 {
-    AsyncWorkData* workData = static_cast(data);
+    AsyncWorkData* workData = static_cast<AsyncWorkData*>(data);
 
     if (status != napi_ok || workData == nullptr) {
         OH_LOG_ERROR(LOG_APP, "异步工作完成回调出错");
         return;
     }
 
-    // 安全地调用ArkTS函数
+ <em>   // 安全地调用ArkTS函数</em>
     if (workData->arktsFuncRef != nullptr) {
         napi_handle_scope scope;
         napi_status status;
 
-        // 创建作用域
+       <em> // 创建作用域</em>
         if (napi_open_handle_scope(env, &scope) != napi_ok) {
             OH_LOG_ERROR(LOG_APP, "打开handle scope失败");
-            // 清理工作数据
+          <em>  // 清理工作数据</em>
             if (workData->arktsFuncRef != nullptr) {
                 napi_delete_reference(env, workData->arktsFuncRef);
             }
@@ -271,10 +258,10 @@ void doCallback(napi_env env, napi_status status, void* data)
         napi_value arktsFunc;
         status = napi_get_reference_value(env, workData->arktsFuncRef, &arktsFunc);
         if (status == napi_ok && arktsFunc != nullptr) {
-            // 创建要传递给ArkTS函数的参数，本例为字符串
+          <em>  // 创建要传递给ArkTS函数的参数，本例为字符串</em>
             napi_value argv[1];
             napi_create_string_utf8(env, workData->resultMessage.c_str(), NAPI_AUTO_LENGTH, &argv[0]);
-            // 调用ArkTS函数
+           <em> // 调用ArkTS函数</em>
             napi_value global;
             napi_get_global(env, &global);
 
@@ -288,7 +275,7 @@ void doCallback(napi_env env, napi_status status, void* data)
         } else {
             OH_LOG_ERROR(LOG_APP, "获取ArkTS函数引用失败");
         }
-        // 关闭作用域
+      <em>  // 关闭作用域</em>
         napi_close_handle_scope(env, scope);
     }
 }
@@ -299,8 +286,8 @@ void doCallback(napi_env env, napi_status status, void* data)
 完整示例参考如下：
  
 - entry/src/main/cpp/CMakeLists.txt：
-```text
-# the minimum version of CMake.
+```cpp
+<em># the minimum version of CMake.</em>
 cmake_minimum_required(VERSION 3.5.0)
 project(SQI202505101216105442012)
 
@@ -319,66 +306,68 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libuv.so)
 
 - entry/src/main/cpp/napi_init.cpp：
 ```text
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
- */
+<em>/*</em>
+<em> * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.</em>
+<em> */</em>
 
 #include "napi/native_api.h"
-#include 
+#include <thread>
 #include "hilog/log.h"
-#include 
+#include <uv.h>
 
 #undef LOG_DOMAIN
 #undef LOG_TAG
-#define LOG_DOMAIN 0x3200  // 全局domain宏，标识业务领域
-#define LOG_TAG "MY_TAG"   // 全局tag宏，标识模块日志tag
+#define LOG_DOMAIN 0x3200  <em>// 全局domain宏，标识业务领域</em>
+#define LOG_TAG "MY_TAG"  <em> // 全局tag宏，标识模块日志tag</em>
 
-// 异步工作数据结构
+<em>// 异步工作数据结构</em>
 struct AsyncWorkData {
     napi_env env = nullptr;
-    napi_ref arktsFuncRef = nullptr;  // 保存ArkTS函数的引用
-    std::string resultMessage;        // 要传递给ArkTS的结果
+    napi_ref arktsFuncRef = nullptr;  <em>// 保存ArkTS函数的引用</em>
+    std::string resultMessage;       <em> // 要传递给ArkTS的结果</em>
 };
 
-// 模块全局数据
+<em>// 模块全局数据</em>
 struct ModuleData {
     napi_ref arktsFuncRef = nullptr;
 };
 
-// 异步工作执行函数（在工作线程中执行）
+<em>// 异步工作执行函数（在工作线程中执行）</em>
 void ExecuteWork(napi_env env, void* data)
 {
-    AsyncWorkData* workData = static_cast(data);
+    AsyncWorkData* workData = static_cast<AsyncWorkData*>(data);
 
-    // 模拟一些耗时操作
-    for (int i = 0; i  // 模拟工作耗时操作
+   <em> // 模拟一些耗时操作</em>
+    for (int i = 0; i < 3; i++) {
+        OH_LOG_INFO(LOG_APP, "耗时异步流程执行中... %{public}d", i);
+       <em> // 模拟工作耗时操作</em>
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 
-    // 准备要传递给ArkTS的消息
+   <em> // 准备要传递给ArkTS的消息</em>
     workData->resultMessage = "来自Native层的异步完成消息，时间戳: " + 
                              std::to_string(uv_hrtime() / 1000000);
 }
 
-// 异步工作完成回调（在主线程/JS线程中执行）
+<em>// 异步工作完成回调（在主线程/JS线程中执行）</em>
 void doCallback(napi_env env, napi_status status, void* data)
 {
-    AsyncWorkData* workData = static_cast(data);
+    AsyncWorkData* workData = static_cast<AsyncWorkData*>(data);
 
     if (status != napi_ok || workData == nullptr) {
         OH_LOG_ERROR(LOG_APP, "异步工作完成回调出错");
         return;
     }
 
-    // 安全地调用ArkTS函数
+   <em> // 安全地调用ArkTS函数</em>
     if (workData->arktsFuncRef != nullptr) {
         napi_handle_scope scope;
         napi_status status;
 
-        // 创建作用域
+     <em>   // 创建作用域</em>
         if (napi_open_handle_scope(env, &scope) != napi_ok) {
             OH_LOG_ERROR(LOG_APP, "打开handle scope失败");
-            // 清理工作数据
+           <em> // 清理工作数据</em>
             if (workData->arktsFuncRef != nullptr) {
                 napi_delete_reference(env, workData->arktsFuncRef);
             }
@@ -389,10 +378,10 @@ void doCallback(napi_env env, napi_status status, void* data)
         napi_value arktsFunc;
         status = napi_get_reference_value(env, workData->arktsFuncRef, &arktsFunc);
         if (status == napi_ok && arktsFunc != nullptr) {
-            // 创建要传递给ArkTS函数的参数，本例为字符串
+           <em> // 创建要传递给ArkTS函数的参数，本例为字符串</em>
             napi_value argv[1];
             napi_create_string_utf8(env, workData->resultMessage.c_str(), NAPI_AUTO_LENGTH, &argv[0]);
-            // 调用ArkTS函数
+            <em>// 调用ArkTS函数</em>
             napi_value global;
             napi_get_global(env, &global);
 
@@ -406,39 +395,51 @@ void doCallback(napi_env env, napi_status status, void* data)
         } else {
             OH_LOG_ERROR(LOG_APP, "获取ArkTS函数引用失败");
         }
-        // 关闭作用域
+      <em>  // 关闭作用域</em>
         napi_close_handle_scope(env, scope);
     }
 }
 
-// 注册ArkTS函数的Native方法
+<em>// 注册ArkTS函数的Native方法</em>
 static napi_value RegisterArkTSFunction(napi_env env, napi_callback_info info)
 {
     size_t argc = 1;
     napi_value args[1];
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-    if (argc   // 获取模块数据
+    if (argc < 1) {
+        napi_throw_error(env, nullptr, "需要传入ArkTS函数作为参数");
+        return nullptr;
+    }
+
+    napi_valuetype valuetype;
+    napi_typeof(env, args[0], &valuetype);
+    if (valuetype != napi_function) {
+        napi_throw_type_error(env, nullptr, "参数必须是一个函数");
+        return nullptr;
+    }
+
+  <em>  // 获取模块数据</em>
     ModuleData* moduleData = nullptr;
     napi_get_instance_data(env, (void**)&moduleData);
     if (moduleData == nullptr) {
         moduleData = new ModuleData();
         napi_set_instance_data(env, moduleData, [](napi_env env, void* data, void* hint) {
-            ModuleData* moduleData = static_cast(data);
+            ModuleData* moduleData = static_cast<ModuleData*>(data);
             if (moduleData && moduleData->arktsFuncRef) {
                 napi_delete_reference(env, moduleData->arktsFuncRef);
             }
             delete moduleData;
         }, nullptr);
     } else {
-        // 如果已经注册过函数，先清理旧的引用
+      <em>  // 如果已经注册过函数，先清理旧的引用</em>
         if (moduleData->arktsFuncRef != nullptr) {
             napi_delete_reference(env, moduleData->arktsFuncRef);
             moduleData->arktsFuncRef = nullptr;
         }
     }
 
-    // 创建对ArkTS函数的强引用，防止被GC
+   <em> // 创建对ArkTS函数的强引用，防止被GC</em>
     napi_status status = napi_create_reference(env, args[0], 1, &moduleData->arktsFuncRef);
     if (status != napi_ok) {
         napi_throw_error(env, nullptr, "创建函数引用失败");
@@ -452,10 +453,10 @@ static napi_value RegisterArkTSFunction(napi_env env, napi_callback_info info)
     return result;
 }
 
-// 异步工作Native流程
+<em>// 异步工作Native流程</em>
 static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
 {
-    // 从模块数据中获取函数引用
+   <em> // 从模块数据中获取函数引用</em>
     ModuleData* moduleData = nullptr;
     napi_get_instance_data(env, (void**)&moduleData);
 
@@ -464,11 +465,11 @@ static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
         return nullptr;
     }
 
-    // 创建新的工作数据
+  <em>  // 创建新的工作数据</em>
     AsyncWorkData* workData = new AsyncWorkData();
     workData->env = env;
 
-    // 为异步工作创建新的函数引用
+   <em> // 为异步工作创建新的函数引用</em>
     napi_value arktsFunc;
     if (napi_get_reference_value(env, moduleData->arktsFuncRef, &arktsFunc) != napi_ok) {
         delete workData;
@@ -476,14 +477,14 @@ static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
         return nullptr;
     }
 
-    // 创建新的引用给异步工作使用
+   <em> // 创建新的引用给异步工作使用</em>
     if (napi_create_reference(env, arktsFunc, 1, &workData->arktsFuncRef) != napi_ok) {
         delete workData;
         napi_throw_error(env, nullptr, "为异步工作创建函数引用失败");
         return nullptr;
     }
 
-    // 创建异步工作
+   <em> // 创建异步工作</em>
     napi_async_work asyncWork;
     napi_value workName;
     napi_create_string_utf8(env, "MyProc", NAPI_AUTO_LENGTH, &workName);
@@ -495,7 +496,7 @@ static napi_value StartAsyncWork(napi_env env, napi_callback_info info)
         return nullptr;
     }
 
-    // 排队执行异步工作
+   <em> // 排队执行异步工作</em>
     if (napi_queue_async_work(env, asyncWork) != napi_ok) {
         napi_delete_async_work(env, asyncWork);
         napi_delete_reference(env, workData->arktsFuncRef);
@@ -549,7 +550,7 @@ export const startAsyncWork: () => void;
 ```text
 import testNapi from 'libentry.so';
 
-// 要传递给Native层的回调函数
+<em>// 要传递给Native层的回调函数</em>
 function myArkTSFunction(message: string): void {
   console.info('ArkTS收到Native消息: ' + message);
 }
@@ -582,7 +583,7 @@ struct Index {
     .height('100%');
   }
 
-  // 注册回调函数到Native层
+ <em> // 注册回调函数到Native层</em>
   registerCallbackToNative(): void {
     try {
       testNapi.registerArkTSFunction(myArkTSFunction);
@@ -592,7 +593,7 @@ struct Index {
     }
   }
 
-  // 触发Native层的异步工作
+ <em> // 触发Native层的异步工作</em>
   triggerAsyncWork(): void {
     try {
       testNapi.startAsyncWork();

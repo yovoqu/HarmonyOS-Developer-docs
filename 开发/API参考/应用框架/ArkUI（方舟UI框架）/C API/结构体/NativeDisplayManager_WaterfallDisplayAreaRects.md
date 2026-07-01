@@ -1,6 +1,6 @@
 # NativeDisplayManager_WaterfallDisplayAreaRects
 
-更新时间：2026-06-27 10:02:54（官网已下线）
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaymanager-waterfalldisplayarearects
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

@@ -3,18 +3,16 @@
 更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-oh-camera-zoompointinfo
-
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-## OH_Camera_ZoomPointInfo
- 
 
 ```text
 typedef struct OH_Camera_ZoomPointInfo {...} OH_Camera_ZoomPointInfo
 ```
   
 
-##### 概述
+#### 概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述变焦点信息。
  
@@ -26,11 +24,15 @@ typedef struct OH_Camera_ZoomPointInfo {...} OH_Camera_ZoomPointInfo
  
   
 
-##### 汇总
+#### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
-##### [h2]成员变量
+#### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

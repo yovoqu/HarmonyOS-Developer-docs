@@ -4,25 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphics-2d-22
 
-## 如何在Canvas上绘制不同对齐方式的文字
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过Canvas绘制填充类文本时，如何实现整体文字的对齐方式？例如居中、居右或者居左？
  
  
 
-##### 效果预览
+#### 效果预览
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/S0UnXecyTuaW20As2470yA/zh-cn_image_0000002628393354.png?HW-CC-KV=V1&HW-CC-Date=20260701T025834Z&HW-CC-Expire=86400&HW-CC-Sign=D2CB65A2DECDC01E60C16B17D720A1EF7E23A82C373852CF9FAB6010B4F6BD8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/S0UnXecyTuaW20As2470yA/zh-cn_image_0000002628393354.png?HW-CC-KV=V1&HW-CC-Date=20260701T041026Z&HW-CC-Expire=86400&HW-CC-Sign=DC43631C6A0C5BDA1AC2B41E5C32A5CB87D81924F794A7C7C5855D6FE7822E9C)
 
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)提供画布组件，[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)接口能够使用RenderingContext在Canvas组件上进行绘制，绘制对象可以是矩形、文本、图片等。
 - [fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#filltext)方法能够绘制填充类文本，但一次只能绘制指定区域内的文本，无法一次性绘制具有不同对齐方式的文本。
@@ -30,11 +26,10 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 实现在Canvas上绘制不同对齐方式的文字，具体方法如下：
- 
-- 创建RenderingContextSettings和CanvasRenderingContext2D对象，用于配置和管理Canvas的渲染上下文。同时定义leftText、centerText和rightText三个变量，分别用于展示左对齐、居中对齐和右对齐的文字内容；letterSpacing用于设置字符间距；lineX用于标识参考线的水平位置。
+ 1. 创建RenderingContextSettings和CanvasRenderingContext2D对象，用于配置和管理Canvas的渲染上下文。同时定义leftText、centerText和rightText三个变量，分别用于展示左对齐、居中对齐和右对齐的文字内容；letterSpacing用于设置字符间距；lineX用于标识参考线的水平位置。
 ```text
 private settings: RenderingContextSettings = new RenderingContextSettings(true);
 private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
@@ -45,11 +40,12 @@ private letterSpacing: number = 1;
 private lineX: number = 200;
 ```
 
-- getTotalWidth方法用于计算指定文本的总宽度，其实现方式为逐个遍历文本中的字符，并累加每个字符的宽度及其对应的间距，最终得到文本整体的宽度总和。
+2. getTotalWidth方法用于计算指定文本的总宽度，其实现方式为逐个遍历文本中的字符，并累加每个字符的宽度及其对应的间距，最终得到文本整体的宽度总和。
 ```text
 getTotalWidth(text: string): number {
   let totalWidth = 0;
-  for (let i = 0; i // 累计已占用宽度
+  for (let i = 0; i < text.length; i++) {
+    <em>// 累计已占用宽度</em>
     if (i === text.length - 1) {
       totalWidth += this.context.measureText(text[i]).width;
     } else {
@@ -60,12 +56,14 @@ getTotalWidth(text: string): number {
 }
 ```
 
-- 在Canvas的onReady事件中，首先将画笔颜色设置为蓝色，并绘制一条参考线作为对齐基准。随后，在该事件处理函数中，通过计算确定文本的绘制位置，并利用循环调用fillText方法，依次绘制具有不同对齐方式的文本内容：
+3. 在Canvas的onReady事件中，首先将画笔颜色设置为蓝色，并绘制一条参考线作为对齐基准。随后，在该事件处理函数中，通过计算确定文本的绘制位置，并利用循环调用fillText方法，依次绘制具有不同对齐方式的文本内容：
 左对齐：通过累加每个字符的宽度和间距，确定文字绘制的起始位置。
 ```text
 let leftTotalWidth = this.lineX;
 this.context.font = '24vp sans-serif';
-for (let i = 0; i // 累计已占用宽度
+for (let i = 0; i < this.leftText.length; i++) {
+  this.context.fillText(this.leftText[i], leftTotalWidth, 50);
+  <em>// 累计已占用宽度</em>
   if (i === this.leftText.length - 1) {
     leftTotalWidth += this.context.measureText(this.leftText[i]).width;
   } else {
@@ -74,12 +72,14 @@ for (let i = 0; i // 累计已占用宽度
 }
 ```
 
-- 居中对齐：先计算文本的总宽度，然后将起始位置设置为（lineX-总宽度一半），以实现居中对齐。
+4. 居中对齐：先计算文本的总宽度，然后将起始位置设置为（lineX-总宽度一半），以实现居中对齐。
 ```text
 let centerTotalWidth = 0;
 centerTotalWidth = this.getTotalWidth(this.centerText);
 centerTotalWidth = this.lineX - centerTotalWidth / 2;
-for (let i = 0; i // 累计已占用宽度
+for (let i = 0; i < this.centerText.length; i++) {
+  this.context.fillText(this.centerText[i], centerTotalWidth, 90);
+  <em>// 累计已占用宽度</em>
   if (i === this.centerText.length - 1) {
     centerTotalWidth += this.context.measureText(this.centerText[i]).width;
   } else {
@@ -88,12 +88,14 @@ for (let i = 0; i // 累计已占用宽度
 }
 ```
 
-- 右对齐：先计算文本的总宽度，然后将起始位置设置为（lineX-总宽度），以实现右对齐。
+5. 右对齐：先计算文本的总宽度，然后将起始位置设置为（lineX-总宽度），以实现右对齐。
 ```text
 let rightTotalWidth = 0;
 rightTotalWidth = this.getTotalWidth(this.rightText);
 rightTotalWidth = this.lineX - rightTotalWidth;
-for (let i = 0; i // 累计已占用宽度
+for (let i = 0; i < this.rightText.length; i++) {
+  this.context.fillText(this.rightText[i], rightTotalWidth, 130);
+  <em>// 累计已占用宽度</em>
   if (i === this.rightText.length - 1) {
     rightTotalWidth += this.context.measureText(this.rightText[i]).width;
   } else {
@@ -102,8 +104,6 @@ for (let i = 0; i // 累计已占用宽度
 }
 ```
 
-
- 
  
 完整示例参考如下：
  
@@ -120,7 +120,8 @@ struct Index {
   private lineX: number = 200;
   getTotalWidth(text: string): number {
     let totalWidth = 0;
-    for (let i = 0; i  // 累计已占用宽度
+    for (let i = 0; i < text.length; i++) {
+     <em> // 累计已占用宽度</em>
       if (i === text.length - 1) {
         totalWidth += this.context.measureText(text[i]).width;
       } else {
@@ -140,32 +141,38 @@ struct Index {
           this.context.moveTo(this.lineX, 10);
           this.context.lineTo(this.lineX, 160);
           this.context.stroke();
-          // 左对齐
+          <em>// 左对齐</em>
           let leftTotalWidth = this.lineX;
           this.context.font = '24vp sans-serif';
-          for (let i = 0; i // 累计已占用宽度
+          for (let i = 0; i < this.leftText.length; i++) {
+            this.context.fillText(this.leftText[i], leftTotalWidth, 50);
+            <em>// 累计已占用宽度</em>
             if (i === this.leftText.length - 1) {
               leftTotalWidth += this.context.measureText(this.leftText[i]).width;
             } else {
               leftTotalWidth += this.context.measureText(this.leftText[i]).width + this.letterSpacing;
             }
           }
-          // 居中对齐
+          <em>// 居中对齐</em>
           let centerTotalWidth = 0;
           centerTotalWidth = this.getTotalWidth(this.centerText);
           centerTotalWidth = this.lineX - centerTotalWidth / 2;
-          for (let i = 0; i // 累计已占用宽度
+          for (let i = 0; i < this.centerText.length; i++) {
+            this.context.fillText(this.centerText[i], centerTotalWidth, 90);
+            <em>// 累计已占用宽度</em>
             if (i === this.centerText.length - 1) {
               centerTotalWidth += this.context.measureText(this.centerText[i]).width;
             } else {
               centerTotalWidth += this.context.measureText(this.centerText[i]).width + this.letterSpacing;
             }
           }
-          // 右对齐
+          <em>// 右对齐</em>
           let rightTotalWidth = 0;
           rightTotalWidth = this.getTotalWidth(this.rightText);
           rightTotalWidth = this.lineX - rightTotalWidth;
-          for (let i = 0; i // 累计已占用宽度
+          for (let i = 0; i < this.rightText.length; i++) {
+            this.context.fillText(this.rightText[i], rightTotalWidth, 130);
+            <em>// 累计已占用宽度</em>
             if (i === this.rightText.length - 1) {
               rightTotalWidth += this.context.measureText(this.rightText[i]).width;
             } else {
@@ -183,7 +190,7 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：将UI组件绘制到Canvas上后，如何截取Canvas获取图片？
  

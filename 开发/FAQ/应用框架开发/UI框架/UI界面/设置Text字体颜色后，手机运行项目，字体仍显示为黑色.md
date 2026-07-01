@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1645
 
-## 设置Text字体颜色后，手机运行项目，字体仍显示为黑色
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在ArkTS项目中设置Text字体颜色[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontcolor)为蓝色后，手机运行项目，字体仍显示为黑色。多台同型号手机运行同一项目，只有一台出现该问题。
  
  
 
-##### 解决方案
+#### 解决方案
 
 该问题的出现是由于问题手机开启了“高对比度文字”开关，开启“高对比度文字”后，所有应用的浅色背景字体均会显示为黑色。
  

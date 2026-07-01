@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-171
 
-## 如何根据Web中的权限请求去动态申请权限
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何根据Web的onPermissionRequest回调方法监听网页请求了什么权限，然后通过atManager.requestPermissionsFromUser统一申请权限。
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [onPermissionRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onpermissionrequest9)：通知收到获取权限请求，需配置"ohos.permission.CAMERA"、"ohos.permission.MICROPHONE"权限。具体权限配置可参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 - [getAccessibleResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-permissionrequest#getaccessibleresource9)：获取网页所请求的权限资源列表。
@@ -23,14 +19,13 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 通过Web组件的onPermissionRequest回调方法返回值event.request.getAccessibleResource()获取网页所请求的权限资源列表，随后遍历判断具体的资源类型，添加对应的权限，生成权限列表传给atManager.requestPermissionsFromUser统一申请权限。
  
 具体步骤如下：
- 
-- 允许应用使用相机时需添加相机权限：[ohos.permission.CAMERA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissioncamera)，允许应用使用麦克风时需添加麦克风权限：[ohos.permission.MICROPHONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionmicrophone)，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
-- 根据Web中的权限请求向用户手动授权，示例代码如下：
+ 1. 允许应用使用相机时需添加相机权限：[ohos.permission.CAMERA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissioncamera)，允许应用使用麦克风时需添加麦克风权限：[ohos.permission.MICROPHONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionmicrophone)，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+2. 根据Web中的权限请求向用户手动授权，示例代码如下：
 ```text
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -42,8 +37,8 @@ struct WebPermissionsPage {
   controller: webview.WebviewController = new webview.WebviewController();
   uiContext: UIContext = this.getUIContext();
 
-  requestPermissions(arr: Array) {
-    let permissionList: Array = [];
+  requestPermissions(arr: Array<string>) {
+    let permissionList: Array<Permissions> = [];
     arr.forEach((it) => {
       if (it.toString() === 'TYPE_VIDEO_CAPTURE') {
         permissionList.push('ohos.permission.CAMERA');
@@ -97,24 +92,30 @@ struct WebPermissionsPage {
 }
 ```
 
-- webPermissions.html示例代码如下：
+3. webPermissions.html示例代码如下：
 ```text
-
-
-    
-    
-
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+<body>
+<video id="video" autoplay="autoplay"></video>
+<canvas id="canvas"></canvas>
+<br>
+<input type="button" title="HTML5摄像头" style="width: 200px; height: 40px;" value="开启摄像头" onclick="getMedia()"/>
+<script>
     function getMedia() {
        let constraints = {
           video: {width: 500, height: 500},
           audio: true
        };
-       // 获取video摄像头区域
+      <em> // 获取video摄像头区域</em>
        let video = document.getElementById("video");
-       // 返回的Promise对象
+     <em>  // 返回的Promise对象</em>
        let promise = navigator.mediaDevices.getUserMedia(constraints);
-       // then()异步，调用MediaStream对象作为参数
+      <em> // then()异步，调用MediaStream对象作为参数</em>
        promise.then(function (MediaStream) {
           video.srcObject = MediaStream;
           video.play();
@@ -126,27 +127,25 @@ struct WebPermissionsPage {
       output.innerText = text;
       return 'html_' + text;
     }
-
-
-    message:  
-
-
+</script>
+<div>
+    <span>message: </span> <span id="container"></span>
+</div>
+</body>
+</html>
 ```
 
-
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：通过event.request.getAccessibleResource获取网页所请求的权限类型有（TYPE_MIDI_SYSEX、TYPE_VIDEO_CAPTURE 、TYPE_AUDIO_CAPTURE、TYPE_SENSOR）四种，如何通过这四种枚举判断是请求了什么权限？
  
 A：[ProtectedResourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#protectedresourcetype9)枚举有4种类型：
- 
-- TYPE_MIDI_SYSEX目前还不支持申请使用midi设备相关的权限；
-- TYPE_VIDEO_CAPTURE是视频捕获资源，可申请[ohos.permission.CAMERA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissioncamera)相机权限；
-- TYPE_AUDIO_CAPTURE是音频捕获资源，可申请[ohos.permission.MICROPHONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionmicrophone)麦克风权限；
-- TYPE_SENSOR是传感器资源，可申请[ohos.permission.ACCELEROMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionaccelerometer)加速度传感器和[ohos.permission.GYROSCOPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissiongyroscope)陀螺仪传感器。
-
+ 1. TYPE_MIDI_SYSEX目前还不支持申请使用midi设备相关的权限；
+2. TYPE_VIDEO_CAPTURE是视频捕获资源，可申请[ohos.permission.CAMERA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissioncamera)相机权限；
+3. TYPE_AUDIO_CAPTURE是音频捕获资源，可申请[ohos.permission.MICROPHONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionmicrophone)麦克风权限；
+4. TYPE_SENSOR是传感器资源，可申请[ohos.permission.ACCELEROMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionaccelerometer)加速度传感器和[ohos.permission.GYROSCOPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissiongyroscope)陀螺仪传感器。
  
 具体使用详情可以参考文档：[onPermissionRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onpermissionrequest9)和[使用运动和方向传感器监测设备状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-sensor)。

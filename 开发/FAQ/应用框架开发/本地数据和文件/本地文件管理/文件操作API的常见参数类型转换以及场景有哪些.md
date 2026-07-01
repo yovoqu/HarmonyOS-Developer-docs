@@ -4,29 +4,28 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-56
 
-## 文件操作API的常见参数类型转换以及场景有哪些
- 
-
-
-##### 问题现象
+#### 问题现象
 
 常见文件操作API的参数涉及沙箱路径、文件句柄fd、文件uri，如何进行转换以及涉及常见转换场景有哪些？
  
  
 
-##### 背景知识
+#### 背景知识
 
  
 在ArkTS中，[@ohos.file.fs包](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)中提供了多种文件操作API，包括创建、读取、写入、删除文件等。在这些常用操作API中，涉及待处理的文件参数，一般有以下几类：
  
 - 待处理文件的[应用沙箱路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。对于每个应用，系统会在内部存储空间映射出一个专属的“应用沙箱目录”，它是“应用文件目录”与一部分系统文件（应用运行必需的少量系统文件）所在的目录组成的集合。应用文件目录结构图如下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/Iag-eBRsS8Sj2QafA9Eowg/zh-cn_image_0000002659258325.png?HW-CC-KV=V1&HW-CC-Date=20260701T025731Z&HW-CC-Expire=86400&HW-CC-Sign=7052468E89885B3C9085A4F77A65D57FAF971FF1ADE76C8B9F17EB2DC12785A0)
 
- 禁止直接使用上图中四级目录之前的目录名组成的路径字符串，否则可能导致后续应用版本因应用文件路径变化导致不兼容问题。正确的做法应通过上下文Context属性获取应用文件路径，包括但不限于上图中绿色背景的路径。
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/Iag-eBRsS8Sj2QafA9Eowg/zh-cn_image_0000002659258325.png?HW-CC-KV=V1&HW-CC-Date=20260701T041350Z&HW-CC-Expire=86400&HW-CC-Sign=27F083FE089C2E340C769209B5DEAAF21A9E8308CA98719A04F96E693CC17071)
+
+
+  禁止直接使用上图中四级目录之前的目录名组成的路径字符串，否则可能导致后续应用版本因应用文件路径变化导致不兼容问题。正确的做法应通过上下文Context属性获取应用文件路径，包括但不限于上图中绿色背景的路径。
 - 待处理文件的文件描述符（即fd标识）。ArkTS中系统对象File的属性，File对象的属性见以下：
- 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/Up0gWur7Q_WH_qbtBBHhtQ/zh-cn_image_0000002628899106.png?HW-CC-KV=V1&HW-CC-Date=20260701T025731Z&HW-CC-Expire=86400&HW-CC-Sign=1999D35965FE6F1923515392413B654D078E98FB31BDE0B8FA77F49CC9D3EDEC)
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/Up0gWur7Q_WH_qbtBBHhtQ/zh-cn_image_0000002628899106.png?HW-CC-KV=V1&HW-CC-Date=20260701T041350Z&HW-CC-Expire=86400&HW-CC-Sign=FEEE6C25558652F63BA970183ECB0DE87D8FDDB31AF967A28E1D9A3A08EEB995)
 
 - 待处理文件uri。[uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro)（Uniform Resource Identifier）即文件统一资源标志符，是指向资源的字符串标识。
 
@@ -40,7 +39,7 @@
 
  
 
-##### 解决方案
+#### 解决方案
 
 一、文件操作API的参数类型的常见参数类型转换、以及常见业务场景如下：
  
@@ -59,14 +58,15 @@
 二、文件操作API的参数类型的常见参数类型转换场景：
  
 - 应用读取rawfile目录下文件至沙箱进行读写：**sandboxPath -> fd转换：** 一般通过fs.openSync接口，打开沙箱路径sandboxPath，获取File对象，进而获取文件描述符fd。
- 
+
+  
 ```text
-// 1、sandboxPath转化fd
+<em>// 1、sandboxPath转化fd</em>
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let content = context.resourceManager.getRawFileContentSync('testPic.png');
-// 获取沙箱文件sandboxPath：
+<em>// 获取沙箱文件sandboxPath：</em>
 let sandboxPath = context.filesDir + '/testPic.png';
-// 通过fs.openSync接口获取File对象
+<em>// 通过fs.openSync接口获取File对象</em>
 let file = fs.openSync(sandboxPath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
 fs.writeSync(file.fd, content.buffer);
 fs.closeSync(file);
@@ -74,11 +74,12 @@ hilog.info(0x0000, TAG, `sandboxPath转化为fd 成功。`);
 ```
 
 - 图片编辑场景下，获取图片uri后拉起图片编辑类应用：**sandboxPath -> uri：** 通过fileUri.getUriFromPath接口将沙箱文件转换为文件uri。
- 
-```text
+
+  
+```json
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let sandboxPath = context.filesDir + 'testPic';
-// 2、sandboxPath转化uri
+<em>// 2、sandboxPath转化uri</em>
 let uri = fileUri.getUriFromPath(sandboxPath);
 let abilityStartCallback: common.AbilityStartCallback = {
   onError: (code, name, message) => {
@@ -86,18 +87,18 @@ let abilityStartCallback: common.AbilityStartCallback = {
     hilog.error(0x0000, TAG, `startAbilityByType: ${tip}`);
   },
   onResult: (result) => {
-    // 获取到回调结果中编辑后的图片uri并做对应的处理
+   <em> // 获取到回调结果中编辑后的图片uri并做对应的处理</em>
     hilog.info(0x0000, TAG, `PhotoEditorCaller result: ${JSON.stringify(result)}`);
   }
 };
 context.startAbilityByType('photoEditor', {
-  // 原始图片的uri,只支持传入一个uri
+  <em>// 原始图片的uri,只支持传入一个uri</em>
   'ability.params.stream': [uri],
-  // 至少需要分享读权限给到图片编辑面板
+ <em> // 至少需要分享读权限给到图片编辑面板</em>
   'ability.want.params.uriPermissionFlag': wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION
 
 
-} as Record, abilityStartCallback, (err) => {
+} as Record<string, Object>, abilityStartCallback, (err) => {
   if (err) {
     hilog.error(0x0000, TAG, `startAbilityByType: fail, err: ${JSON.stringify(err)}`);
   } else {
@@ -107,38 +108,42 @@ context.startAbilityByType('photoEditor', {
 ```
 
 - 文件管理器类应用需要根据某一个文件获取整个目录下同类或其他文件：**fd -> sandboxPath：** 根据fs.dup(fd)接口获取File对象，从而获取沙箱路径sandboxPath。
- **fd -> uri：** 有上述步骤获取到沙箱路径sandboxPath；再通过fileUri.getUriFromPath（sandboxPath）获取uri对象。
- 
+
+  **fd -> uri：** 有上述步骤获取到沙箱路径sandboxPath；再通过fileUri.getUriFromPath（sandboxPath）获取uri对象。
+
+  
 ```text
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let filePath = context.filesDir + 'testPic';
 let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
 let fd: number = file.fd;
-// 通过fs.dup接口将fd转换为sandboxPath
+<em>// 通过fs.dup接口将fd转换为sandboxPath</em>
 let sandboxPath = fs.dup(fd).path;
 hilog.info(0x0000, TAG, `sandboxPath is ${sandboxPath}`);
-// 再通过sandboxPath获取uri
+<em>// 再通过sandboxPath获取uri</em>
 let uri = fileUri.getUriFromPath(sandboxPath);
 hilog.info(0x0000, TAG, `uri is ${uri}`);
 fs.closeSync(file);
 ```
 
 - 应用打开文件管理器操作文本文件进行读写：**uri -> fd转换：** 一般通过fs.openSync接口，打开沙箱路径sandboxPath，获取File对象，进而获取文件描述符fd。
- **uri -> sandboxPath转换：** 需要使用fileUri.FileUri先获取fileUri对象，再通过FileUri.getFullDirectoryUri（fileUri）获取全目录json对象上的path属性，最后获得沙箱路径sandboxPath。
- 
+
+  **uri -> sandboxPath转换：** 需要使用fileUri.FileUri先获取fileUri对象，再通过FileUri.getFullDirectoryUri（fileUri）获取全目录json对象上的path属性，最后获得沙箱路径sandboxPath。
+
+  
 ```text
-let uris: Array = [];
+let uris: Array<string> = [];
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-// 创建文件选择器实例
+<em>// 创建文件选择器实例</em>
 const documentSelectOptions = new picker.DocumentSelectOptions();
 documentSelectOptions.maxSelectNumber = 1;
 const documentViewPicker = new picker.DocumentViewPicker(context);
-documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Array) => {
-  // 文件选择成功后，返回被选中文档的uri结果集。
+documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Array<string>) => {
+  <em>// 文件选择成功后，返回被选中文档的uri结果集。</em>
   uris = documentSelectResult;
   hilog.info(0x0000, TAG, `documentViewPicker.select to file succeed and uris are: ${uris}`);
   let file = fs.openSync(uris[0], fs.OpenMode.READ_ONLY);
-  // 通过fs.openSync获取File对象，从而获得fd、sandboxPath
+  <em>// 通过fs.openSync获取File对象，从而获得fd、sandboxPath</em>
   hilog.info(0x0000, TAG, `file fd: ${file.fd}`);
   hilog.info(0x0000, TAG, `sandboxPath is ${file.path}`);
 }).catch((err: BusinessError) => {
@@ -151,7 +156,7 @@ documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Arr
  
 完整示例代码如下：
  
-```text
+```json
 import { fileIo as fs, fileUri, picker } from '@kit.CoreFileKit';
 import { common, wantConstant } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -169,12 +174,12 @@ struct Index {
       Button('sandboxPath转化为fd')
         .onClick(() => {
           try {
-            // 1、sandboxPath转化fd
+          <em>  // 1、sandboxPath转化fd</em>
             let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
             let content = context.resourceManager.getRawFileContentSync('testPic.png');
-            // 获取沙箱文件sandboxPath：
+            <em>// 获取沙箱文件sandboxPath：</em>
             let sandboxPath = context.filesDir + '/testPic.png';
-            // 通过fs.openSync接口获取File对象
+           <em> // 通过fs.openSync接口获取File对象</em>
             let file = fs.openSync(sandboxPath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
             fs.writeSync(file.fd, content.buffer);
             fs.closeSync(file);
@@ -191,7 +196,7 @@ struct Index {
           try {
             let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
             let sandboxPath = context.filesDir + 'testPic';
-            // 2、sandboxPath转化uri
+        <em>    // 2、sandboxPath转化uri</em>
             let uri = fileUri.getUriFromPath(sandboxPath);
             let abilityStartCallback: common.AbilityStartCallback = {
               onError: (code, name, message) => {
@@ -199,18 +204,18 @@ struct Index {
                 hilog.error(0x0000, TAG, `startAbilityByType: ${tip}`);
               },
               onResult: (result) => {
-                // 获取到回调结果中编辑后的图片uri并做对应的处理
+           <em>     // 获取到回调结果中编辑后的图片uri并做对应的处理</em>
                 hilog.info(0x0000, TAG, `PhotoEditorCaller result: ${JSON.stringify(result)}`);
               }
             };
             context.startAbilityByType('photoEditor', {
-              // 原始图片的uri,只支持传入一个uri
+            <em>  // 原始图片的uri,只支持传入一个uri</em>
               'ability.params.stream': [uri],
-              // 至少需要分享读权限给到图片编辑面板
+             <em> // 至少需要分享读权限给到图片编辑面板</em>
               'ability.want.params.uriPermissionFlag': wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION
 
 
-            } as Record, abilityStartCallback, (err) => {
+            } as Record<string, Object>, abilityStartCallback, (err) => {
               if (err) {
                 hilog.error(0x0000, TAG, `startAbilityByType: fail, err: ${JSON.stringify(err)}`);
               } else {
@@ -231,10 +236,10 @@ struct Index {
             let filePath = context.filesDir + 'testPic';
             let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
             let fd: number = file.fd;
-            // 通过fs.dup接口将fd转换为sandboxPath
+          <em>  // 通过fs.dup接口将fd转换为sandboxPath</em>
             let sandboxPath = fs.dup(fd).path;
             hilog.info(0x0000, TAG, `sandboxPath is ${sandboxPath}`);
-            // 再通过sandboxPath获取uri
+         <em>   // 再通过sandboxPath获取uri</em>
             let uri = fileUri.getUriFromPath(sandboxPath);
             hilog.info(0x0000, TAG, `uri is ${uri}`);
             fs.closeSync(file);
@@ -249,18 +254,18 @@ struct Index {
       Button('uri->fd转换、uri->sandboxPath转换')
         .onClick(() => {
           try {
-            let uris: Array = [];
+            let uris: Array<string> = [];
             let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-            // 创建文件选择器实例
+         <em>   // 创建文件选择器实例</em>
             const documentSelectOptions = new picker.DocumentSelectOptions();
             documentSelectOptions.maxSelectNumber = 1;
             const documentViewPicker = new picker.DocumentViewPicker(context);
-            documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Array) => {
-              // 文件选择成功后，返回被选中文档的uri结果集。
+            documentViewPicker.select(documentSelectOptions).then((documentSelectResult: Array<string>) => {
+            <em>  // 文件选择成功后，返回被选中文档的uri结果集。</em>
               uris = documentSelectResult;
               hilog.info(0x0000, TAG, `documentViewPicker.select to file succeed and uris are: ${uris}`);
               let file = fs.openSync(uris[0], fs.OpenMode.READ_ONLY);
-              // 通过fs.openSync获取File对象，从而获得fd、sandboxPath
+            <em>  // 通过fs.openSync获取File对象，从而获得fd、sandboxPath</em>
               hilog.info(0x0000, TAG, `file fd: ${file.fd}`);
               hilog.info(0x0000, TAG, `sandboxPath is ${file.path}`);
             }).catch((err: BusinessError) => {
@@ -283,7 +288,7 @@ struct Index {
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：通过documentViewPicker.select选择文件，将用户选择的文件路径，即回调参数作为参数值，调用@ohos.file.fs的fs.statSync为什么报错，fs.openSync就没报错？
  

@@ -4,9 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkboostkit-7001
 
-## Network Boost Kit
- 
- 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：netBoost； API声明：function setDataFlowDesc(dataFlowDesc: DataFlowDesc): void; 差异内容：function setDataFlowDesc(dataFlowDesc: DataFlowDesc): void; | api/@hms.networkboost.netBoost.d.ts |

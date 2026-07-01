@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-59
 
-## 视频录制时如何选择合适的Profile
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在视频录制的开发过程中，该如何选择合适的Profile？VideoOutput.Profile跟AVRecorderProfile之间有什么关系？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [VideoProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#videoprofile)：视频配置信息项，继承[Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#profile)。可通过[getSupportedOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedoutputcapability11)接口查询到当前设备支持的视频规格，规格参数中包括视频帧率范围、输出格式、分辨率宽高。
 - [AVRecorderProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderprofile9)：音视频录制的配置文件。
@@ -23,21 +19,20 @@
  
  
 
-##### 解决方案
+#### 解决方案
+1. **如何选择合适的Profile**首先通过getSupportedOutputCapability接口查询当前设备支持的视频输出规格，然后再根据分辨率、输出格式、帧率等维度出发，从中挑选符合业务需求的规格去创建VideoOutput和AVRecorder。
 
-- **如何选择合适的Profile**首先通过getSupportedOutputCapability接口查询当前设备支持的视频输出规格，然后再根据分辨率、输出格式、帧率等维度出发，从中挑选符合业务需求的规格去创建VideoOutput和AVRecorder。
- 完整的示例代码可参考[录像实践(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording-case)或[录像实践(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording-case)。
-- **VideoOutput.Profile与AVRecorderProfile之间的关联与限制**VideoOutput的配置参数与AVRecorder配置参数之间的关联和限制主要有如下几点：
- 
+  完整的示例代码可参考[录像实践(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording-case)或[录像实践(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording-case)。
+2. **VideoOutput.Profile与AVRecorderProfile之间的关联与限制**VideoOutput的配置参数与AVRecorder配置参数之间的关联和限制主要有如下几点：
+
+  
 VideoOutput的分辨率要与AVRecorderProfile中的分辨率一致。
-- AVRecorderProfile配置中的帧率不能超出VideoOutput的帧率规格的限制。
-- 如果需要录制HDR视频，则VideoOutput的输出格式要选择camera.CameraFormat.CAMERA_FORMAT_YCBCR_P010或者camera.CameraFormat.CAMERA_FORMAT_YCRCB_P010，并且AVRecorderProfile配置参数中的isHdr需要设置为true。
-
- 
+3. AVRecorderProfile配置中的帧率不能超出VideoOutput的帧率规格的限制。
+4. 如果需要录制HDR视频，则VideoOutput的输出格式要选择camera.CameraFormat.CAMERA_FORMAT_YCBCR_P010或者camera.CameraFormat.CAMERA_FORMAT_YCRCB_P010，并且AVRecorderProfile配置参数中的isHdr需要设置为true。
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Mate X6视频录制失败，界面显示黑屏，应该怎么解决？
  

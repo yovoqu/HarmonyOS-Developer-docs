@@ -4,17 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-780
 
-## 自定义router到Navigation中NavDestination子页面的转场动画
- 
-
-
-##### 问题现象
+#### 问题现象
 
 在项目中同时使用Router和Navigation时，如何实现从Router页面跳转到Navigation子界面NavDestination的特殊页面转场效果？
  
  
 
-##### 背景知识
+#### 背景知识
 
 - [Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)跳转页面通过在pageTransition函数中定义[PageTransitionEnter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation#pagetransitionenter)和[PageTransitionExit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation#pagetransitionexit)参数，可实现自定义页面转场动画。
 - [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的导航控制器[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)提供的push、pop、replace等接口支持通过设置[NavigationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationoptions12)的animated参数控制动画开关（默认值为true启用转场动画），若单次操作设为false可临时关闭动画，后续操作仍会恢复默认动画效果。
@@ -23,40 +19,36 @@
  
  
 
-##### 解决方案
+#### 解决方案
 
 转场动画由关闭页面的退场动画和目标页面的进场动画构成。由于Router的页面级路由跳转与Navigation组件的容器级导航属于不同层级的导航机制，混合使用可能导致动画效果不符合预期。
  
 推荐解决方案：
- 
-- 关闭跨层级动画：
+ 1. 关闭跨层级动画：
 在Router跳转时设置pageTransition函数，关闭转场动画。
-- 在Navigation组件跳转时禁用默认动效，设置animated为false。
-
- - 配置组件级过渡：
+2. 在Navigation组件跳转时禁用默认动效，设置animated为false。
+3. 配置组件级过渡：
 使用transition接口定义组件显隐动效。
-- 通过visibility属性控制组件可见性触发动画。
-
- 
+4. 通过visibility属性控制组件可见性触发动画。
  
 完整代码如下：
  
 ```text
-// 使用router跳转到NavigationPage页面
+<em>// 使用router跳转到NavigationPage页面</em>
 @Entry
 @Component
 struct RouterPage {
   @State visibilityState: Visibility = Visibility.Hidden;
   private duration: number = 1000;
 
-  // 关闭router转场动画
+  <em>// 关闭router转场动画</em>
   pageTransition() {
     PageTransitionEnter({ type: RouteType.None, duration: 0 });
     PageTransitionExit({ type: RouteType.None, duration: 0 });
   }
 
   onPageShow(): void {
-    this.visibilityState = Visibility.Visible; // 触发入场动画
+    this.visibilityState = Visibility.Visible; <em>// 触发入场动画</em>
   }
 
   build() {
@@ -65,10 +57,10 @@ struct RouterPage {
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-          this.visibilityState = Visibility.Hidden; // 触发出场动画
-          // 等待转场动画消失后跳转
+          this.visibilityState = Visibility.Hidden; <em>// 触发出场动画</em>
+          <em>// 等待转场动画消失后跳转</em>
           setTimeout(() => {
-            // 携带页面名称参数，用于Navigation跳转
+            <em>// 携带页面名称参数，用于Navigation跳转</em>
             this.getUIContext()
               .getRouter()
               .pushUrl({ url: 'pages/NavigationPage', params: { pageName: 'TargetInterfacePage' } });
@@ -85,7 +77,7 @@ struct RouterPage {
 ```
  
 ```text
-// 使用NavPathStack跳转到TargetInterfacePage页面
+<em>// 使用NavPathStack跳转到TargetInterfacePage页面</em>
 interface PageParams {
   pageName: string;
 }
@@ -95,17 +87,17 @@ interface PageParams {
 struct NavigationPage {
   @State pathStack: NavPathStack = new NavPathStack();
 
-  // 关闭router转场动画
+  <em>// 关闭router转场动画</em>
   pageTransition() {
     PageTransitionEnter({ type: RouteType.None, duration: 0 });
     PageTransitionExit({ type: RouteType.None, duration: 0 });
   }
 
   aboutToAppear(): void {
-    // 接收pageName参数并跳转
+   <em> // 接收pageName参数并跳转</em>
     const params = this.getUIContext().getRouter().getParams() as PageParams;
     if (params && params.pageName) {
-      this.pathStack.pushPath({ name: params.pageName }, false); // 关闭Navigation转场动画
+      this.pathStack.pushPath({ name: params.pageName }, false); <em>// 关闭Navigation转场动画</em>
     }
   }
 
@@ -117,7 +109,7 @@ struct NavigationPage {
 ```
  
 ```text
-// 使用Navigation管理的NavDestination子界面，是跳转的目标界面
+<em>// 使用Navigation管理的NavDestination子界面，是跳转的目标界面</em>
 const TAG = '目标界面';
 
 @Builder
@@ -141,11 +133,11 @@ struct TargetInterfacePage {
       this.pathStack = context.pathStack;
     })
     .onShown(() => {
-      this.visibilityState = Visibility.Visible; // 触发入场动画
+      this.visibilityState = Visibility.Visible; <em>// 触发入场动画</em>
     })
     .onBackPressed(() => {
-      this.visibilityState = Visibility.Hidden; // 触发出场动画
-      // 等待转场动画消失后跳转
+      this.visibilityState = Visibility.Hidden; <em>// 触发出场动画</em>
+     <em> // 等待转场动画消失后跳转</em>
       setTimeout(() => {
         this.pathStack?.pop(false);
       }, this.duration);

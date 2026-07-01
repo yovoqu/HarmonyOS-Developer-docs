@@ -4,23 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-894
 
-## Image加载本地图片
- 
-
-
-##### 问题现象
+#### 问题现象
 
 如何使用Image组件加载本地图片？
  
  
 
-##### 背景知识
+#### 背景知识
 
 [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)：Image为图片组件，常用于在应用中显示图片。Image支持加载[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)、[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)和[DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawabledescriptor10)类型的数据源，支持png、jpg、jpeg、bmp、svg、webp、gif和heif类型的图片格式，不支持apng和svga格式。
  
  
 
-##### 解决方案
+#### 解决方案
 
 - 方案一、通过Resource资源管理加载（推荐）。
 将图片放置在resources/base/media或resources/rawfile目录下。
@@ -56,7 +52,7 @@ Image('data:image/jpg;base64,' + this.base64ImageData)
  
  
 
-##### 常见FAQ
+#### 常见FAQ
 
 Q：Image组件如何加载apng图片？
  
@@ -64,7 +60,7 @@ A：可以通过[ohos_apng](https://gitee.com/openharmony-sig/ohos_apng)库来�
  
  
 
-##### 总结
+#### 总结
  
 | 方案 | 适用场景 | 跨模块支持 | 动态路径 | 资源校验 | 性能优化 |
 | --- | --- | --- | --- | --- | --- |

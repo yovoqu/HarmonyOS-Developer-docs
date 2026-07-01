@@ -4,24 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1016
 
-## 如何在EntryAbility中获取Toggle组件的值
- 
-
-
-##### 问题现象
+#### 问题现象
 
 通过首选项保存Toggle组件的值，应用重新启动后Toggle的值和全局变量不一致。导致EntryAbility中无法正确获取到Toggle组件的值，该如何解决？
  
 问题代码如下：
  
 - EntryAbility.ets中后台时执行的操作：
-```text
+```json
 onBackground(): void {
-  // Ability has back to background
+  <em>// Ability has back to background</em>
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
-  // 判断是否销毁应用
+<em>  // 判断是否销毁应用</em>
   if (delAppValue === true) {
-    // module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true
+    <em>// module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true</em>
     this.context.terminateSelf();
   }
 }
@@ -32,7 +28,7 @@ onBackground(): void {
 import { preferences } from '@kit.ArkData';
 import { PromptAction } from '@kit.ArkUI';
 
-export let delAppValue: boolean = false; // delAppValue初始化默认值
+export let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
 let preferenceDelApp: preferences.Preferences | null = null;
 
 @Entry
@@ -44,12 +40,12 @@ struct SetPage {
   promptAction: PromptAction = this.uiContext.getPromptAction();
 
   async aboutToAppear() {
-    delAppValue = await this.getPreferenceDelApp(); // 获取首选项中的值，同步到全局变量
+    delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
     this.promptAction.showToast({ message: String(delAppValue) });
   }
 
-  // 获取首选项中DelApp的值
-  async getPreferenceDelApp(): Promise {
+ <em> // 获取首选项中DelApp的值</em>
+  async getPreferenceDelApp(): Promise<boolean> {
     let value: boolean = false;
     try {
       preferenceDelApp = await preferences.getPreferences(this.context, 'DelAppID');
@@ -60,7 +56,7 @@ struct SetPage {
     return value;
   }
 
-  // 更新首选项中DelApp的值
+<em>  // 更新首选项中DelApp的值</em>
   async putPreferenceDelApp(value: boolean) {
     if (preferenceDelApp !== null) {
       try {
@@ -79,7 +75,7 @@ struct SetPage {
       Toggle({ type: ToggleType.Switch, isOn: delAppValue })
         .onChange(() => {
           delAppValue = !delAppValue;
-          this.putPreferenceDelApp(delAppValue); // 保存到首选项中
+          this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
           this.promptAction.showToast({ message: String(delAppValue) });
         });
     }
@@ -96,11 +92,11 @@ struct SetPage {
 问题现象效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/fKGmNDA9QiyylHISMbqy2w/zh-cn_image_0000002658804047.png?HW-CC-KV=V1&HW-CC-Date=20260701T025556Z&HW-CC-Expire=86400&HW-CC-Sign=FDAFB86A26B6A3A7FC7320A4868942E8B33311F8FDE1495656FDB0C7D5197B3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/fKGmNDA9QiyylHISMbqy2w/zh-cn_image_0000002658804047.png?HW-CC-KV=V1&HW-CC-Date=20260701T041303Z&HW-CC-Expire=86400&HW-CC-Sign=A93786027EA9D0A9074B9F7413A7A9D1A8727787CBA6D19EDA0500F61C864DCE)
 
  
 
-##### 背景知识
+#### 背景知识
 
 - [Toggle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle)组件提供勾选框样式、状态按钮样式和开关样式，可以通过[ToggleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#toggleoptions18对象说明)对象设置开关值（支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量）和样式。当开关状态切换时触发[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#onchange)事件获取开关当前状态。
 - [aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)函数在创建自定义组件的新实例后，在其[build](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#build)函数执行前调用。允许在aboutToAppear函数中改变状态变量。
@@ -109,61 +105,59 @@ struct SetPage {
  
  
 
-##### 问题定位
+#### 问题定位
 
 当首选项中获取到的值为true时，onBackground中得到的全局变量的值和开关显示的值不一致。
  
  
 
-##### 分析结论
+#### 分析结论
 
 开关没有使用状态变量，且组件在初始化时采用了默认值false。由于非状态变量发生改变时不会让组件刷新渲染，当首选项值为true时会出现全局变量和开关显示的值不一致的情况。
  
  
 
-##### 修改建议
-
-- 将全局变量delAppValue前的export去掉，改为导出的get方法获取值（如果需要外部修改可以添加set方法并导出）。保证EntryAbility文件中调用get方法可以随时获取delAppValue值。
+#### 修改建议
+1. 将全局变量delAppValue前的export去掉，改为导出的get方法获取值（如果需要外部修改可以添加set方法并导出）。保证EntryAbility文件中调用get方法可以随时获取delAppValue值。
 ```text
-let delAppValue: boolean = false; // delAppValue初始化默认值
+let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
 
-// 用于让EntryAbility文件获取delAppValue
+<em>// 用于让EntryAbility文件获取delAppValue</em>
 export function getDelAppValue() {
   return delAppValue;
 }
 ```
 
-- 开关中的值改为状态变量，在aboutToAppear函数中获取到首选项的值后同步修改状态变量。
+2. 开关中的值改为状态变量，在aboutToAppear函数中获取到首选项的值后同步修改状态变量。
 ```text
 async aboutToAppear() {
-  delAppValue = await this.getPreferenceDelApp(); // 获取首选项中的值，同步到全局变量
-  this.delApp = delAppValue; // 全局变量和开关的值保存一致
+  delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
+  this.delApp = delAppValue; <em>// 全局变量和开关的值保存一致</em>
   this.promptAction.showToast({ message: String(delAppValue) });
 }
 ```
 
-- 当开关值发生变化时，通过Toggle组件的onChange事件获取开关当前值，同步给全局变量。让EntryAbility中通过getDelAppValue方法获取到的值和开关一致，根据true和false来判断应用是后台还是直接关闭。
+3. 当开关值发生变化时，通过Toggle组件的onChange事件获取开关当前值，同步给全局变量。让EntryAbility中通过getDelAppValue方法获取到的值和开关一致，根据true和false来判断应用是后台还是直接关闭。
 ```text
 Toggle({ type: ToggleType.Switch, isOn: $$this.delApp })
   .onChange((isOn: boolean) => {
-    delAppValue = isOn; // 开关值发生变化时全局变量同步更新
-    this.putPreferenceDelApp(delAppValue); // 保存到首选项中
+    delAppValue = isOn; <em>// 开关值发生变化时全局变量同步更新</em>
+    this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
     this.promptAction.showToast({ message: String(delAppValue) });
   });
 ```
  
-```text
+```json
 onBackground(): void {
-  // Ability has back to background
+  <em>// Ability has back to background</em>
   hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
-  // 判断是否销毁应用
+<em>  // 判断是否销毁应用</em>
   if (getDelAppValue() === true) {
-    // module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true
+  <em>  // module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true</em>
     this.context.terminateSelf();
   }
 }
 ```
-
 
  
 完整代码如下：
@@ -173,9 +167,9 @@ import { preferences } from '@kit.ArkData';
 import { PromptAction } from '@kit.ArkUI';
 
 let preferenceDelApp: preferences.Preferences | null = null;
-let delAppValue: boolean = false; // delAppValue初始化默认值
+let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
 
-// 用于让EntryAbility文件获取delAppValue
+<em>// 用于让EntryAbility文件获取delAppValue</em>
 export function getDelAppValue() {
   return delAppValue;
 }
@@ -183,19 +177,19 @@ export function getDelAppValue() {
 @Entry
 @Component
 struct SetPage {
-  @State delApp: boolean = false; // 开关，DelApp初始化默认值
+  @State delApp: boolean = false; <em>// 开关，DelApp初始化默认值</em>
   uiContext: UIContext = this.getUIContext();
   context: Context = this.uiContext.getHostContext() as Context;
   promptAction: PromptAction = this.uiContext.getPromptAction();
 
   async aboutToAppear() {
-    delAppValue = await this.getPreferenceDelApp(); // 获取首选项中的值，同步到全局变量
-    this.delApp = delAppValue; // 全局变量和开关的值保存一致
+    delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
+    this.delApp = delAppValue; <em>// 全局变量和开关的值保存一致</em>
     this.promptAction.showToast({ message: String(delAppValue) });
   }
 
-  // 获取首选项中DelApp的值
-  async getPreferenceDelApp(): Promise {
+ <em> // 获取首选项中DelApp的值</em>
+  async getPreferenceDelApp(): Promise<boolean> {
     let value: boolean = false;
     try {
       preferenceDelApp = await preferences.getPreferences(this.context, 'DelAppID');
@@ -206,7 +200,7 @@ struct SetPage {
     return value;
   }
 
-  // 更新首选项中DelApp的值
+  <em>// 更新首选项中DelApp的值</em>
   async putPreferenceDelApp(value: boolean) {
     if (preferenceDelApp !== null) {
       try {
@@ -224,8 +218,8 @@ struct SetPage {
         .fontSize(18);
       Toggle({ type: ToggleType.Switch, isOn: $$this.delApp })
         .onChange((isOn: boolean) => {
-          delAppValue = isOn; // 开关值发生变化时全局变量同步更新
-          this.putPreferenceDelApp(delAppValue); // 保存到首选项中
+          delAppValue = isOn; <em>// 开关值发生变化时全局变量同步更新</em>
+          this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
           this.promptAction.showToast({ message: String(delAppValue) });
         });
     }
@@ -240,4 +234,4 @@ struct SetPage {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/FGPpFZTzQ6CLaWvZ_-APKQ/zh-cn_image_0000002628404778.png?HW-CC-KV=V1&HW-CC-Date=20260701T025556Z&HW-CC-Expire=86400&HW-CC-Sign=D5A6627B65613EC1828F9B321FCDACE24E3329BEABF22F49FD75AFCB15BB6981)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/FGPpFZTzQ6CLaWvZ_-APKQ/zh-cn_image_0000002628404778.png?HW-CC-KV=V1&HW-CC-Date=20260701T041303Z&HW-CC-Expire=86400&HW-CC-Sign=FFD4B9111046BDED7D8A0FCBAC544B2BB82C4220D83DF0D20BACB696F04359A6)
