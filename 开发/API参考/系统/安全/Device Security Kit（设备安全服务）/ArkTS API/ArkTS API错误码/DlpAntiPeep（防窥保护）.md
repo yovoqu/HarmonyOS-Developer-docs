@@ -1,18 +1,24 @@
 # DlpAntiPeep（防窥保护）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-dlpantipeep
+
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
+## DlpAntiPeep（防窥保护）
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/Wy9qdAumQB-n-6QSZijRJA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025448Z&HW-CC-Expire=86400&HW-CC-Sign=F470E890D737C087EAA5D899B2DE7CF405B7F550AF18FA56FC463B02D627F52D)
+ 
+ 
+以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+  
 
   
 
-#### 201 权限校验失败
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+##### 201 权限校验失败
 
 **错误信息**
  
@@ -32,9 +38,7 @@ Permission denied.
  
   
 
-#### 801 设备不支持该能力
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+##### 801 设备不支持该能力
 
 **错误信息**
  
@@ -54,9 +58,7 @@ Capability not supported.
  
   
 
-#### 1020600001 内部错误
-
-**支持设备：** Phone
+##### 1020600001 内部错误
 
 **错误信息**
  
@@ -78,9 +80,7 @@ Internal error.
  
   
 
-#### 1020600002 防窥能力未开启
-
-**支持设备：** Phone
+##### 1020600002 防窥能力未开启
 
 **错误信息**
  
@@ -104,9 +104,7 @@ The antipeep function is not enabled.
  
   
 
-#### 1020600003 应用不在前台
-
-**支持设备：** Phone
+##### 1020600003 应用不在前台
 
 **错误信息**
  
@@ -126,9 +124,7 @@ The protected application is not displayed on the screen.
  
   
 
-#### 1020600004 未设置人脸识别
-
-**支持设备：** Phone
+##### 1020600004 未设置人脸识别
 
 **错误信息**
  
@@ -148,9 +144,7 @@ Facial recognition is not set.
  
   
 
-#### 1020600005 提示信息已发布
-
-**支持设备：** Phone
+##### 1020600005 提示信息已发布
 
 **错误信息**
  
@@ -170,9 +164,7 @@ The anti-peep information has been published.
  
   
 
-#### 1020600006 未检测到窥视风险
-
-**支持设备：** Phone
+##### 1020600006 未检测到窥视风险
 
 **错误信息**
  

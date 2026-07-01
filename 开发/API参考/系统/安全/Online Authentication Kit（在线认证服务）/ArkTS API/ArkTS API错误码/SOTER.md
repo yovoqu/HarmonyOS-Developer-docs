@@ -1,18 +1,24 @@
 # SOTER
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter
+
 **支持设备：** Phone | PC/2in1 | Tablet
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
+## SOTER
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/Wt7acvTBTYa-NBz6c-c_gA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025449Z&HW-CC-Expire=86400&HW-CC-Sign=64BB2BA04AF3A86B37EE13B3C52500FE0A8A8AC84F66B5266CB60FBD7002906D)
+ 
+ 
+以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+  
 
   
 
-#### 1014500001 服务异常
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1014500001 服务异常
 
 **错误信息**
  
@@ -27,5 +33,6 @@ SOTER服务异常时，系统会产生此错误码。
 SOTER服务异常。
  
 **处理步骤**
- 1. 检查网络状况。
-2. 重启系统。
+ 
+- 检查网络状况。
+- 重启系统。

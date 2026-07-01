@@ -1,18 +1,24 @@
 # ArkTS API错误码
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-27 10:02:54
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-error-code
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-agent-framework
+
 **支持设备：** Phone | Tablet
 
-> [!TIP]
-> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
+## ArkTS API错误码
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/XZ69rYAsRae89dbZAVsVuw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025456Z&HW-CC-Expire=86400&HW-CC-Sign=EDE8E562C73CC51AA4DDB9D67CDAAE16F3F6A8BA0F56F19B7744E26D9597A496)
+ 
+ 
+以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+  
 
   
 
-#### 1022400010 参数错误
-
-**支持设备：** Phone | Tablet
+##### 1022400010 参数错误
 
 **错误信息**
  
@@ -32,9 +38,7 @@ Parameter error.
  
   
 
-#### 1022400011 隐私协议未授权
-
-**支持设备：** Phone | Tablet
+##### 1022400011 隐私协议未授权
 
 **错误信息**
  
@@ -42,7 +46,7 @@ Privacy agreement not accepted.
  
 **错误描述**
  
-隐私未授权。
+隐私协议未授权。
  
 **可能原因**
  
@@ -54,9 +58,7 @@ Privacy agreement not accepted.
  
   
 
-#### 1022400012 未登录华为账户
-
-**支持设备：** Phone | Tablet
+##### 1022400012 未登录华为账户
 
 **错误信息**
  
@@ -76,9 +78,7 @@ HUAWEI ID not signed in.
  
   
 
-#### 1022400013 网络错误
-
-**支持设备：** Phone | Tablet
+##### 1022400013 网络错误
 
 **错误信息**
  
@@ -86,7 +86,7 @@ Internet error.
  
 **错误描述**
  
-网络异常。
+网络错误。
  
 **可能原因**
  
@@ -98,9 +98,7 @@ Internet error.
  
   
 
-#### 1022400014 内部错误
-
-**支持设备：** Phone | Tablet
+##### 1022400014 内部错误
 
 **错误信息**
  

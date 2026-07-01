@@ -1,6 +1,6 @@
 # app对象内部结构
 
-更新时间：2026-04-17 08:12:20
+更新时间：2026-04-17 08:12:20（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-structure
 

@@ -1,18 +1,24 @@
 # ArkTS API错误码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech
+
 **支持设备：** Phone | PC/2in1 | Tablet
 
-> [!TIP]
-> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
+## ArkTS API错误码
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/eLBodvLRQl2VqnhNFUYnIA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025456Z&HW-CC-Expire=86400&HW-CC-Sign=4412C3A1A55CC077799624C60ECDC8F6457946156BD153E3866085AFA0A32F0E)
+ 
+ 
+以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+  
 
   
 
-#### 201 权限校验失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 201 权限校验失败
 
 **错误信息**
  
@@ -34,9 +40,7 @@ Permission denied.
  
   
 
-#### 401 参数检查失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 401 参数检查失败
 
 **错误信息**
  
@@ -58,9 +62,7 @@ Parameter error.
  
   
 
-#### 1010600011 初始化失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600011 初始化失败
 
 **错误信息**
  
@@ -71,20 +73,22 @@ Initialize failed.
 TextReader初始化失败。
  
 **可能原因**
- 1. 可能是TTS引擎侧或播放器侧初始化失败。
-2. 部分机型暂不支持。
+ 
+- 可能是TTS引擎侧或播放器侧初始化失败。
+- 部分机型暂不支持。
+
  
 **处理步骤**
- 1. PC端场景下，拉起朗读详情页面时，需要在初始化前设置好[setWindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-windowmanager#setwindowstage)。如果是其他设备类型，可以忽略此步骤。
-2. 检查当前是否已初始化，再次调用初始化会出现此错误。
+ 
+- PC端场景下，拉起朗读详情页面时，需要在初始化前设置好[setWindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-windowmanager#setwindowstage)。如果是其他设备类型，可以忽略此步骤。
+- 检查当前是否已初始化，再次调用初始化会出现此错误。
+
  
 如果解决不了，建议[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)。
  
   
 
-#### 1010600012 未初始化
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600012 未初始化
 
 **错误信息**
  
@@ -106,9 +110,7 @@ The TextReader is not initialized.
  
   
 
-#### 1010600013 TTS音频合成错误
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600013 TTS音频合成错误
 
 **错误信息**
  
@@ -128,9 +130,7 @@ TTS引擎侧合成音频异常。
  
   
 
-#### 1010600014 播放器错误
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600014 播放器错误
 
 **错误信息**
  
@@ -152,9 +152,7 @@ AudioRenderer播放器播放异常。
  
   
 
-#### 1010600015 解码错误
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600015 解码错误
 
 **错误信息**
  
@@ -174,9 +172,7 @@ TTS引擎侧音频解码失败。
  
   
 
-#### 1010600016 播控中心同步错误
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600016 播控中心同步错误
 
 **错误信息**
  
@@ -196,9 +192,7 @@ AVSession播控中心同步封面图片或播放状态错误。
  
   
 
-#### 1010600017 其他错误
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600017 其他错误
 
 **错误信息**
  
@@ -218,9 +212,7 @@ Other error.
  
   
 
-#### 1010600018 播放前一首失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600018 播放前一首失败
 
 **错误信息**
  
@@ -242,9 +234,7 @@ playPrev failed.
  
   
 
-#### 1010600019 播放后一首失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600019 播放后一首失败
 
 **错误信息**
  
@@ -266,9 +256,7 @@ playNext failed.
  
   
 
-#### 1010600020 释放异常
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1010600020 释放异常
 
 **错误信息**
  
@@ -290,9 +278,7 @@ TextReader释放失败。
  
   
 
-#### 1012900010 AI字幕服务忙
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1012900010 AI字幕服务忙
 
 **错误信息**
  
@@ -312,9 +298,7 @@ AI字幕服务忙造成的异常。
  
   
 
-#### 1012900011 AI字幕控制器初始化失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1012900011 AI字幕控制器初始化失败
 
 **错误信息**
  
@@ -336,9 +320,7 @@ AI字幕控制器初始化失败造成的异常。
  
   
 
-#### 1012900012 音频识别失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1012900012 音频识别失败
 
 **错误信息**
  
@@ -353,16 +335,16 @@ Audio recognition failed.
 AI字幕音频识别失败造成的异常。
  
 **处理步骤**
- 1. 检查传入的音频的字节长度是否小于640或者大于1280。
-2. 检查AI引擎是否初始化成功。
+ 
+- 检查传入的音频的字节长度是否小于640或者大于1280。
+- 检查AI引擎是否初始化成功。
+
  
 如果解决不了，建议[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)。
  
   
 
-#### 1012900013 初始化参数错误
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1012900013 初始化参数错误
 
 **错误信息**
  
@@ -377,6 +359,8 @@ AI字幕初始化参数错误。
 [AICaptionOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-aicaptioncomponent#aicaptionoptions)的源语言、目标语言、字体大小等参数不在范围之内，初始化参数错误。
  
 **处理步骤**
- 1. 检查传入的参数是否符合范围。
+ 
+- 检查传入的参数是否符合范围。
+
  
 如果解决不了，建议[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)。

@@ -27277,5 +27277,683 @@
     "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_CustomSpanMeasureInfo.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-customspanmeasureinfo",
     "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-app-ability-scriptmanager",
+    "name": "@ohos.app.ability.scriptManager (脚本管理)",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/Stage模型能力的接口/@ohos.app.ability.scriptManager (脚本管理).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-scriptmanager"
+  },
+  {
+    "slug": "js-apis-app-agent-agentconstant",
+    "name": "@ohos.app.agent.agentConstant (Agent常量)",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/Stage模型能力的接口/@ohos.app.agent.agentConstant (Agent常量).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentconstant"
+  },
+  {
+    "slug": "js-apis-skillmanager",
+    "name": "@ohos.bundle.skillManager (skillManager模块)",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/通用能力的接口(推荐)/@ohos.bundle.skillManager (skillManager模块).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-skillmanager"
+  },
+  {
+    "slug": "js-apis-bundlemanager-skillinfo",
+    "name": "SkillInfo",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/bundleManager/SkillInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo"
+  },
+  {
+    "slug": "capi-modular-object-extension-manager-h",
+    "name": "modular_object_extension_manager.h",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/头文件/modular_object_extension_manager.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-modular-object-extension-manager-h"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-modularobjectextensioninfo8h",
+    "name": "OH_AbilityRuntime_ModularObjectExtensionInfo*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_ModularObjectExtensionInfo＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-modularobjectextensioninfo8h"
+  },
+  {
+    "slug": "capi-abilityruntime-oh-abilityruntime-allmodularobjectextensioninfos8h",
+    "name": "OH_AbilityRuntime_AllModularObjectExtensionInfos*",
+    "file": "开发/API参考/应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_AbilityRuntime_AllModularObjectExtensionInfos＊.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-oh-abilityruntime-allmodularobjectextensioninfos8h"
+  },
+  {
+    "slug": "arkts-apis-uimaterial",
+    "name": "@ohos.arkui.uiMaterial (系统材质)",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS API/UI界面/@ohos.arkui.uiMaterial (系统材质).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial"
+  },
+  {
+    "slug": "js-apis-floatview",
+    "name": "@ohos.window.floatView (闪控窗)",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS API/窗口管理/@ohos.window.floatView (闪控窗).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview"
+  },
+  {
+    "slug": "ts-inputeventmonitor",
+    "name": "全局基础输入事件监听",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/通用事件/交互事件分发控制/全局基础输入事件监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-inputeventmonitor"
+  },
+  {
+    "slug": "ts-universal-attributes-modifierutils",
+    "name": "属性操作工具",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/通用属性/动态属性与自定义/属性操作工具.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-modifierutils"
+  },
+  {
+    "slug": "ts-container-containerreader",
+    "name": "ContainerReader",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/行列与堆叠/ContainerReader.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-containerreader"
+  },
+  {
+    "slug": "ts-container-lazyvwaterflowlayout",
+    "name": "LazyVWaterFlowLayout",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/ArkTS组件/滚动与滑动/LazyVWaterFlowLayout.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvwaterflowlayout"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-gesturecollectinterceptinfo",
+    "name": "ArkUI_GestureCollectInterceptInfo",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_GestureCollectInterceptInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-gesturecollectinterceptinfo"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-linespacingstyle",
+    "name": "OH_ArkUI_LineSpacingStyle",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_LineSpacingStyle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-linespacingstyle"
+  },
+  {
+    "slug": "capi-windowmanager-oh-windowmanager-framemetrics",
+    "name": "OH_WindowManager_FrameMetrics",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_WindowManager_FrameMetrics.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-oh-windowmanager-framemetrics"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-textcontroller",
+    "name": "OH_ArkUI_TextController",
+    "file": "开发/API参考/应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_TextController.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-textcontroller"
+  },
+  {
+    "slug": "arkts-apis-webview-securityparams",
+    "name": "Class (SecurityParams)",
+    "file": "开发/API参考/应用框架/ArkWeb（方舟Web）/ArkTS API/@ohos.web.webview (Webview)/Class (SecurityParams).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-securityparams"
+  },
+  {
+    "slug": "errorcode-dataaugmentation",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用框架/Data Augmentation Kit（数据增强服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation"
+  },
+  {
+    "slug": "errorcode-ui-design",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用框架/UI Design Kit（UI设计套件）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ui-design"
+  },
+  {
+    "slug": "devicesecurity-riskcontrolengine-api",
+    "name": "StarShieldConfidentialRiskControlEngine（星盾机密风控引擎）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/StarShieldConfidentialRiskControlEngine（星盾机密风控引擎）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-riskcontrolengine-api"
+  },
+  {
+    "slug": "errorcode-devicesecurity-deviceverify",
+    "name": "DeviceVerify（应用设备状态检测）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/DeviceVerify（应用设备状态检测）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-deviceverify"
+  },
+  {
+    "slug": "errorcode-devicesecurity-safetydetect",
+    "name": "SafetyDetect（安全检测）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/SafetyDetect（安全检测）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-safetydetect"
+  },
+  {
+    "slug": "errorcode-devicesecurity-riskcontrolengine",
+    "name": "StarShieldConfidentialRiskControlEngine（星盾机密风控引擎）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/StarShieldConfidentialRiskControlEngine（星盾机密风控引擎）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-riskcontrolengine"
+  },
+  {
+    "slug": "errorcode-devicesecurity-taas",
+    "name": "TrustedAppService（可信应用服务）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/TrustedAppService（可信应用服务）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-taas"
+  },
+  {
+    "slug": "errorcode-devicesecurity-brid",
+    "name": "BusinessRiskIntelligentDetection（业务风险检测）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/BusinessRiskIntelligentDetection（业务风险检测）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-brid"
+  },
+  {
+    "slug": "errorcode-devicesecurity-securityaudit",
+    "name": "SecurityAudit（安全审计）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/SecurityAudit（安全审计）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit"
+  },
+  {
+    "slug": "errorcode-devicesecurity-antifraudpicker",
+    "name": "AntifraudPicker（反诈选择器）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/AntifraudPicker（反诈选择器）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-antifraudpicker"
+  },
+  {
+    "slug": "errorcode-devicesecurity-trusted-auth",
+    "name": "TrustedAuthentication （数字盾服务）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/TrustedAuthentication （数字盾服务）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth"
+  },
+  {
+    "slug": "errorcode-devicesecurity-dlpantipeep",
+    "name": "DlpAntiPeep（防窥保护）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/DlpAntiPeep（防窥保护）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-dlpantipeep"
+  },
+  {
+    "slug": "errorcode-devicesecurity-superprivacy",
+    "name": "SuperPrivacyMode（超级隐私模式）",
+    "file": "开发/API参考/系统/安全/Device Security Kit（设备安全服务）/ArkTS API/ArkTS API错误码/SuperPrivacyMode（超级隐私模式）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-superprivacy"
+  },
+  {
+    "slug": "errorcode-enterprise-dataguard",
+    "name": "企业数据保护服务错误码",
+    "file": "开发/API参考/系统/安全/Enterprise Data Guard Kit（企业数据保护服务）/ArkTS API/企业数据保护服务错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard"
+  },
+  {
+    "slug": "onlineauthentication-did-api",
+    "name": "DID",
+    "file": "开发/API参考/系统/安全/Online Authentication Kit（在线认证服务）/ArkTS API/DID.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-did-api"
+  },
+  {
+    "slug": "errorcode-onlineauthentication-fido",
+    "name": "FIDO",
+    "file": "开发/API参考/系统/安全/Online Authentication Kit（在线认证服务）/ArkTS API/ArkTS API错误码/FIDO.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-fido"
+  },
+  {
+    "slug": "errorcode-onlineauthentication-ifaa",
+    "name": "IFAA",
+    "file": "开发/API参考/系统/安全/Online Authentication Kit（在线认证服务）/ArkTS API/ArkTS API错误码/IFAA.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa"
+  },
+  {
+    "slug": "errorcode-onlineauthentication-soter",
+    "name": "SOTER",
+    "file": "开发/API参考/系统/安全/Online Authentication Kit（在线认证服务）/ArkTS API/ArkTS API错误码/SOTER.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter"
+  },
+  {
+    "slug": "errorcode-onlineauthentication-passkey",
+    "name": "通行密钥",
+    "file": "开发/API参考/系统/安全/Online Authentication Kit（在线认证服务）/ArkTS API/ArkTS API错误码/通行密钥.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-passkey"
+  },
+  {
+    "slug": "errorcode-onlineauthentication-did",
+    "name": "DID数字身份服务",
+    "file": "开发/API参考/系统/安全/Online Authentication Kit（在线认证服务）/ArkTS API/ArkTS API错误码/DID数字身份服务.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-did"
+  },
+  {
+    "slug": "accessory-accessoryaccessmanager",
+    "name": "accessoryAccessManager（配件接入管理）",
+    "file": "开发/API参考/系统/网络/Accessory Kit（配件接入服务）/ArkTS API/accessoryAccessManager（配件接入管理）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/accessory-accessoryaccessmanager"
+  },
+  {
+    "slug": "errorcode-nearlink",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/网络/NearLink Kit（星闪服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink"
+  },
+  {
+    "slug": "errorcode-networkboost",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/网络/Network Boost Kit（网络加速服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost"
+  },
+  {
+    "slug": "rcp_quic_h",
+    "name": "rcp_quic.h",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/C API/头文件/rcp_quic.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/rcp_quic_h"
+  },
+  {
+    "slug": "_rcp___form_order",
+    "name": "Rcp_FormOrder",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/C API/结构体/Rcp_FormOrder.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___form_order"
+  },
+  {
+    "slug": "_rcp___on_get_data_callback",
+    "name": "Rcp_OnGetDataCallback",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/C API/结构体/Rcp_OnGetDataCallback.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___on_get_data_callback"
+  },
+  {
+    "slug": "_rcp___quic_slist",
+    "name": "Rcp_QuicSlist",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/C API/结构体/Rcp_QuicSlist.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___quic_slist"
+  },
+  {
+    "slug": "_rcp___quic_ipaddress",
+    "name": "Rcp_QuicIpAddress",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/C API/结构体/Rcp_QuicIpAddress.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___quic_ipaddress"
+  },
+  {
+    "slug": "_rcp___quic_io_vec",
+    "name": "Rcp_QuicIoVec",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/C API/结构体/Rcp_QuicIoVec.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___quic_io_vec"
+  },
+  {
+    "slug": "_rcp___quic_stream_data",
+    "name": "Rcp_QuicStreamData",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/C API/结构体/Rcp_QuicStreamData.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___quic_stream_data"
+  },
+  {
+    "slug": "errorcode-remote-communication",
+    "name": "API错误码",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication"
+  },
+  {
+    "slug": "errorcode-servicecollaboration",
+    "name": "ArkTS 错误码",
+    "file": "开发/API参考/系统/网络/Service Collaboration Kit（协同服务）/ArkTS组件/ArkTS 错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-servicecollaboration"
+  },
+  {
+    "slug": "errorcode-statusbar-extension",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/基础功能/Desktop Extension Kit（桌面拓展服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension"
+  },
+  {
+    "slug": "fast-kit-fast-math-prediction",
+    "name": "@hms.fast.mathPrediction (数理预测)",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/ArkTS API/@hms.fast.mathPrediction (数理预测).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-math-prediction"
+  },
+  {
+    "slug": "fast-kit-errorcode",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-errorcode"
+  },
+  {
+    "slug": "fast-kit-fast-dsp-transform-8h",
+    "name": "fast_dsp_transform.h",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/C API/头文件和结构体/头文件/fast_dsp_transform.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-dsp-transform-8h"
+  },
+  {
+    "slug": "fast-kit-fast-collections-hashmap-8h",
+    "name": "fast_collections_hashmap.h",
+    "file": "开发/API参考/系统/基础功能/FAST Kit（算法加速服务）/C API/头文件和结构体/头文件/fast_collections_hashmap.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-collections-hashmap-8h"
+  },
+  {
+    "slug": "js-apis-inputeventclient",
+    "name": "@ohos.multimodalInput.inputEventClient (输入事件注入)",
+    "file": "开发/API参考/系统/基础功能/Input Kit（多模输入服务）/ArkTS API/@ohos.multimodalInput.inputEventClient (输入事件注入).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputeventclient"
+  },
+  {
+    "slug": "errorcode-infraredemitter",
+    "name": "红外管理错误码",
+    "file": "开发/API参考/系统/基础功能/Input Kit（多模输入服务）/错误码/红外管理错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-infraredemitter"
+  },
+  {
+    "slug": "errorcode-inputeventclient",
+    "name": "输入事件注入错误码",
+    "file": "开发/API参考/系统/基础功能/Input Kit（多模输入服务）/错误码/输入事件注入错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputeventclient"
+  },
+  {
+    "slug": "errorcode-car",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/硬件/Car Kit（车服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car"
+  },
+  {
+    "slug": "capi-usbddk-usb-nonroothubarray",
+    "name": "Usb_NonRootHubArray",
+    "file": "开发/API参考/系统/硬件/Driver Development Kit（驱动开发服务）/C API/结构体/Usb_NonRootHubArray.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk-usb-nonroothubarray"
+  },
+  {
+    "slug": "errorcode-pen",
+    "name": "ArkTS API 错误码",
+    "file": "开发/API参考/系统/硬件/Pen Kit（手写笔服务）/ArkTS API 错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen"
+  },
+  {
+    "slug": "errorcode-wearengine",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/系统/硬件/Wear Engine Kit（穿戴服务）/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine"
+  },
+  {
+    "slug": "js-apis-hiretrieval",
+    "name": "@ohos.hiviewdfx.hiRetrieval (应用灰度)",
+    "file": "开发/API参考/系统/调测调优/Performance Analysis Kit（性能分析服务）/ArkTS API/@ohos.hiviewdfx.hiRetrieval (应用灰度).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiretrieval"
+  },
+  {
+    "slug": "errorcode-hiviewdfx-hiretrieval",
+    "name": "应用灰度错误码",
+    "file": "开发/API参考/系统/调测调优/Performance Analysis Kit（性能分析服务）/错误码/应用灰度错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hiretrieval"
+  },
+  {
+    "slug": "capi-audioconverter",
+    "name": "AudioConverter",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/C API/模块/AudioConverter.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audioconverter"
+  },
+  {
+    "slug": "capi-native-audio-converter-h",
+    "name": "native_audio_converter.h",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/C API/头文件/native_audio_converter.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-converter-h"
+  },
+  {
+    "slug": "capi-audioconverter-oh-audioconverter-format",
+    "name": "OH_AudioConverter_Format",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/C API/结构体/OH_AudioConverter_Format.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audioconverter-oh-audioconverter-format"
+  },
+  {
+    "slug": "capi-audioconverter-oh-audioconverterstruct",
+    "name": "OH_AudioConverterStruct",
+    "file": "开发/API参考/媒体/Audio Kit（音频服务）/C API/结构体/OH_AudioConverterStruct.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audioconverter-oh-audioconverterstruct"
+  },
+  {
+    "slug": "capi-native-audio-vivid-h",
+    "name": "native_audio_vivid.h",
+    "file": "开发/API参考/媒体/AVCodec Kit（音视频编解码服务）/C API/头文件/native_audio_vivid.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-vivid-h"
+  },
+  {
+    "slug": "capi-core-oh-cartesianposition",
+    "name": "OH_CartesianPosition",
+    "file": "开发/API参考/媒体/AVCodec Kit（音视频编解码服务）/C API/结构体/OH_CartesianPosition.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core-oh-cartesianposition"
+  },
+  {
+    "slug": "capi-core-oh-polarposition",
+    "name": "OH_PolarPosition",
+    "file": "开发/API参考/媒体/AVCodec Kit（音视频编解码服务）/C API/结构体/OH_PolarPosition.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core-oh-polarposition"
+  },
+  {
+    "slug": "capi-core-oh-audioobjectposition",
+    "name": "OH_AudioObjectPosition",
+    "file": "开发/API参考/媒体/AVCodec Kit（音视频编解码服务）/C API/结构体/OH_AudioObjectPosition.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core-oh-audioobjectposition"
+  },
+  {
+    "slug": "capi-core-oh-audiovividmetabuilderstruct",
+    "name": "OH_AudioVividMetaBuilderStruct",
+    "file": "开发/API参考/媒体/AVCodec Kit（音视频编解码服务）/C API/结构体/OH_AudioVividMetaBuilderStruct.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core-oh-audiovividmetabuilderstruct"
+  },
+  {
+    "slug": "capi-oh-camera-oh-camera-zoompointinfo",
+    "name": "OH_Camera_ZoomPointInfo",
+    "file": "开发/API参考/媒体/Camera Kit（相机服务）/C API/结构体/OH_Camera_ZoomPointInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-oh-camera-zoompointinfo"
+  },
+  {
+    "slug": "arkts-apis-image-gifmetadata",
+    "name": "Class (GifMetadata)",
+    "file": "开发/API参考/媒体/Image Kit（图片处理服务）/ArkTS API/@ohos.multimedia.image (图片处理)/Class (GifMetadata).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-gifmetadata"
+  },
+  {
+    "slug": "arkts-apis-image-jfifmetadata",
+    "name": "Class (JfifMetadata)",
+    "file": "开发/API参考/媒体/Image Kit（图片处理服务）/ArkTS API/@ohos.multimedia.image (图片处理)/Class (JfifMetadata).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-jfifmetadata"
+  },
+  {
+    "slug": "arkts-apis-image-tiffmetadata",
+    "name": "Class (TiffMetadata)",
+    "file": "开发/API参考/媒体/Image Kit（图片处理服务）/ArkTS API/@ohos.multimedia.image (图片处理)/Class (TiffMetadata).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-tiffmetadata"
+  },
+  {
+    "slug": "arkts-apis-image-pngmetadata",
+    "name": "Class (PngMetadata)",
+    "file": "开发/API参考/媒体/Image Kit（图片处理服务）/ArkTS API/@ohos.multimedia.image (图片处理)/Class (PngMetadata).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pngmetadata"
+  },
+  {
+    "slug": "arkts-apis-image-xmpmetadata",
+    "name": "Class (XMPMetadata)",
+    "file": "开发/API参考/媒体/Image Kit（图片处理服务）/ArkTS API/@ohos.multimedia.image (图片处理)/Class (XMPMetadata).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-xmpmetadata"
+  },
+  {
+    "slug": "arkts-apis-image-avismetadata",
+    "name": "Class (AvisMetadata)",
+    "file": "开发/API参考/媒体/Image Kit（图片处理服务）/ArkTS API/@ohos.multimedia.image (图片处理)/Class (AvisMetadata).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-avismetadata"
+  },
+  {
+    "slug": "capi-avplayer-oh-avplayervideooutput",
+    "name": "OH_AVPlayerVideoOutput",
+    "file": "开发/API参考/媒体/Media Kit（媒体服务）/C API/结构体/OH_AVPlayerVideoOutput.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-oh-avplayervideooutput"
+  },
+  {
+    "slug": "errorcode-ringtone",
+    "name": "ArkTS API 错误码",
+    "file": "开发/API参考/媒体/Ringtone Kit（铃声服务）/ArkTS API/ArkTS API 错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone"
+  },
+  {
+    "slug": "errorcode-scan",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/媒体/Scan Kit（统一扫码服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan"
+  },
+  {
+    "slug": "errorcode-ar-engine",
+    "name": "AR Engine错误码",
+    "file": "开发/API参考/图形/AR Engine（AR引擎服务）/AR Engine错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine"
+  },
+  {
+    "slug": "arkts-apis-graphics-drawing-pointutils",
+    "name": "Class (PointUtils)",
+    "file": "开发/API参考/图形/ArkGraphics 2D（方舟2D图形服务）/ArkTS API/@ohos.graphics.drawing (绘制模块)/Class (PointUtils).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-pointutils"
+  },
+  {
+    "slug": "errorcode-graphics-accelerate",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/图形/Graphics Accelerate Kit（图形加速服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate"
+  },
+  {
+    "slug": "spatial-recon-spatialedit",
+    "name": "spatialEdit",
+    "file": "开发/API参考/图形/Spatial Recon Kit（空间建模服务）/ArkTS API/spatialEdit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialedit"
+  },
+  {
+    "slug": "spatial-recon-spatialimage",
+    "name": "spatialImage（空间照片）",
+    "file": "开发/API参考/图形/Spatial Recon Kit（空间建模服务）/ArkTS API/spatialImage（空间照片）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialimage"
+  },
+  {
+    "slug": "xengine-kit-xeg-vulkan-neural-upscale-8h",
+    "name": "xeg_vulkan_neural_upscale.h",
+    "file": "开发/API参考/图形/XEngine Kit（GPU加速引擎服务）/C API/头文件和结构体/头文件/xeg_vulkan_neural_upscale.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-vulkan-neural-upscale-8h"
+  },
+  {
+    "slug": "xengine-kit-xeg-control-display-separation",
+    "name": "xeg_control_display_separation.h",
+    "file": "开发/API参考/图形/XEngine Kit（GPU加速引擎服务）/C API/头文件和结构体/头文件/xeg_control_display_separation.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-control-display-separation"
+  },
+  {
+    "slug": "xengine-kit-xeg-neuralupscalecreateinfo",
+    "name": "XEG_NeuralUpscaleCreateInfo",
+    "file": "开发/API参考/图形/XEngine Kit（GPU加速引擎服务）/C API/头文件和结构体/结构体/XEG_NeuralUpscaleCreateInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-neuralupscalecreateinfo"
+  },
+  {
+    "slug": "xengine-kit-xeg-neuralupscaledescription",
+    "name": "XEG_NeuralUpscaleDescription",
+    "file": "开发/API参考/图形/XEngine Kit（GPU加速引擎服务）/C API/头文件和结构体/结构体/XEG_NeuralUpscaleDescription.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-neuralupscaledescription"
+  },
+  {
+    "slug": "errorcode-account-kit",
+    "name": "ArkTS错误码",
+    "file": "开发/API参考/应用服务/Account Kit（华为账号服务）/ArkTS错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit"
+  },
+  {
+    "slug": "errorcode-appgallery",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/AppGallery Kit（应用市场服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery"
+  },
+  {
+    "slug": "errorcode-enterprise-space",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/Enterprise Space Kit（企业数字空间服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-space"
+  },
+  {
+    "slug": "errorcode-gameservice",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/Game Service Kit（游戏服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice"
+  },
+  {
+    "slug": "errorcode-iap",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/IAP Kit（应用内支付服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap"
+  },
+  {
+    "slug": "liveview-api-map",
+    "name": "实况窗Live View Kit与Push Kit的API字段关联",
+    "file": "开发/API参考/应用服务/Live View Kit（实况窗服务）/ArkTS API/实况窗Live View Kit与Push Kit的API字段关联.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-api-map"
+  },
+  {
+    "slug": "errorcode-payment",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/Payment Kit（鸿蒙支付服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment"
+  },
+  {
+    "slug": "errorcode-pdf",
+    "name": "ArkTS API 错误码",
+    "file": "开发/API参考/应用服务/PDF Kit（PDF服务）/ArkTS API 错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pdf"
+  },
+  {
+    "slug": "errorcode-preview",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/Preview Kit（文件预览服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preview"
+  },
+  {
+    "slug": "push-safety",
+    "name": "安全访问要求",
+    "file": "开发/API参考/应用服务/Push Kit（推送服务）/REST API/安全访问要求.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-safety"
+  },
+  {
+    "slug": "errorcode-scenario-fusion-arkts-api",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/Scenario Fusion Kit（融合场景服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion-arkts-api"
+  },
+  {
+    "slug": "errorcode-scenario-fusion",
+    "name": "ArkTS组件错误码",
+    "file": "开发/API参考/应用服务/Scenario Fusion Kit（融合场景服务）/ArkTS组件/ArkTS组件错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion"
+  },
+  {
+    "slug": "errorcode-screentimeguard",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/Screen Time Guard Kit（屏幕时间守护服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-screentimeguard"
+  },
+  {
+    "slug": "errorcode-wallet",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/应用服务/Wallet Kit（钱包服务）/ArkTS API/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet"
+  },
+  {
+    "slug": "errorcode-agent-framework",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/AI/Agent Framework Kit（智能体框架服务）/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-agent-framework"
+  },
+  {
+    "slug": "core-vision-image-super-resolution-api",
+    "name": "imageSuperResolution（图像超分）",
+    "file": "开发/API参考/AI/Core Vision Kit（基础视觉服务）/ArkTS API/imageSuperResolution（图像超分）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-image-super-resolution-api"
+  },
+  {
+    "slug": "core-vision-text-search-image-api",
+    "name": "textSearchImage（通过文本搜索图片）",
+    "file": "开发/API参考/AI/Core Vision Kit（基础视觉服务）/ArkTS API/textSearchImage（通过文本搜索图片）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-text-search-image-api"
+  },
+  {
+    "slug": "errorcode-core-vision",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/AI/Core Vision Kit（基础视觉服务）/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision"
+  },
+  {
+    "slug": "errorcode-natural-language",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/AI/Natural Language Kit（自然语言理解服务）/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-natural-language"
+  },
+  {
+    "slug": "errorcode-speech",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/AI/Speech Kit（场景化语音服务）/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech"
+  },
+  {
+    "slug": "errorcode-vision",
+    "name": "ArkTS API错误码",
+    "file": "开发/API参考/AI/Vision Kit（场景化视觉服务）/ArkTS API错误码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision"
   }
 ]

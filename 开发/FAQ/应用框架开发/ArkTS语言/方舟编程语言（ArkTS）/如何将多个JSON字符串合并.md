@@ -1,0 +1,94 @@
+# 如何将多个JSON字符串合并
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-167
+
+## 如何将多个JSON字符串合并
+ 
+
+
+##### 问题现象
+
+多个接口一起请求，获取到多个JSON字符串，如何将多个JSON字符串合并为一个？
+ 
+ 
+
+##### 背景知识
+
+- ArkTS具有[对象字面量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/introduction-to-arkts#对象字面量)，支持Record类型的对象字面量，泛型Record<K, V>用于将类型（键类型）的属性映射到另一个类型（值类型）。
+- [JSON扩展库](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-json)提供了JSON字符串的操作方法。parse方法可解析JSON字符串。
+
+ 
+ 
+
+##### 解决方案
+
+- 使用JSON.parse方法将两个JSON字符串解析为Record对象，再通过key值将两个Record对象合并。若多个JSON转换的Record对象中有相同key值，在合并过程中，前一个Record中key-value会被后一个Record中对应key的键值对覆盖，最终合并结果中只保留最后一个Record对象中的键值对。
+```text
+function assign(target: Record, ...source: Object[]): Record {
+  for (const items of source) {
+    for (const key of Object.keys(items)) {
+      target[key] = Reflect.get(items, key);
+    }
+  }
+  return target;
+}
+
+
+function jsonMerge() {
+  let jsonText1 = '{"aa": "aa", "bb": {"aa": "aaa"}, "cc": "cc"}';
+  let jsonText2 = '{"dd": "dd", "ee": 3, "ff": "ff", "cc": "ccc"}';
+  let jsonRecord1: Record = JSON.parse(jsonText1) as Record;
+  let jsonRecord2: Record = JSON.parse(jsonText2) as Record;
+  const multiObjectMerged = assign(jsonRecord1, jsonRecord2);
+  console.info('jsonMerge', JSON.stringify(multiObjectMerged));
+}
+
+
+@Entry
+@Component
+struct JsonMergeDemo {
+  build() {
+    Column({ space: 16 }) {
+      Button('合并测试').onClick(() => {
+        jsonMerge();
+      });
+    }.width('100%').height('100%')
+    .justifyContent(FlexAlign.Center);
+  }
+}
+```
+
+- 可以在TS文件中封装工具方法来实现合并，使用Object.assign()或扩展运算符。
+业务侧TS封装。
+```text
+export class ObjectUtil {
+  static Assign(target: T, source: U): T & U {
+    // 1、使用Object.assign()
+    return Object.assign(target, source);
+    // 2、使用扩展运算符
+    return { ...target, ...source };
+  }
+}
+```
+
+- 在ets文件中使用。
+```text
+import { ObjectUtil } from './ObjectUtil';
+
+
+function jsonMerge() {
+  let jsonText1 = '{"aa": "aa", "bb": {"aa": "aaa"}, "cc": "cc"}';
+  let jsonText2 = '{"dd": "dd", "ee": 3, "ff": "ff", "cc": "ccc"}';
+  let jsonRecord1: Record = JSON.parse(jsonText1) as Record;
+  let jsonRecord2: Record = JSON.parse(jsonText2) as Record;
+  const multiObjectMerged = ObjectUtil.Assign(jsonRecord1, jsonRecord2);
+  console.info('jsonMerge', JSON.stringify(multiObjectMerged));
+}
+```
+
+
+ 
+ 
+合并后的数据为：{"aa":"aa","bb":{"aa":"aaa"},"cc":"ccc","dd":"dd","ee":3,"ff":"ff"}。前一个JSON中键值对{"cc":"cc"}被后一个JSON中key值相同的{"cc":"ccc"}覆盖。

@@ -1,0 +1,68 @@
+# TextInput组件禁止长按事件
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-765
+
+## TextInput组件禁止长按事件
+ 
+
+
+##### 问题现象
+
+TextInput组件长按输入框内文本时会自动选中文本，如何实现禁止长按事件？
+ 
+ 
+
+##### 效果预览
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/piXyo911QK67AvL-XyAmVQ/zh-cn_image_0000002628555694.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025546Z&HW-CC-Expire=86400&HW-CC-Sign=582A3B2AB684A0B8AF244ACDA19C9B32F798BD7AB4B2E64D35E15962BB5FB666)
+
+ 
+ 
+
+##### 背景知识
+
+- [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)是单行文本输入框组件，仅支持单文本样式。当用户长按输入框内的文本时会自动选中文本，其默认触发时间为500ms。
+- [LongPressGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture)用于触发长按手势事件，触发长按手势的最少手指数为1，默认最短长按时间为500毫秒。可配置duration参数控制最短长按时长。
+
+ 
+ 
+
+##### 解决方案
+
+系统长按事件触发时间为500ms，可以设置LongPressGesture长按手势事件触发时间小于500ms，实现拦截系统长按事件的效果。
+ 
+```text
+@Entry
+@Component
+struct TextInputNoLongPress {
+  @State message: string = '';
+
+  build() {
+    Column() {
+      Text(`输入的内容: ${this.message}`)
+        .margin({ top: 100, bottom: 30 });
+      TextInput({ placeholder: '请输入内容' })
+        .borderRadius(0)
+        .onChange((value: string) => {
+          this.message = value;
+        })
+        .gesture(
+          LongPressGesture({ repeat: true, duration: 400 })
+            // 由于repeat设置为true，长按动作存在时会连续触发，触发间隔为duration（默认值500ms）
+            .onAction(() => {
+              return true;
+            })
+            .onActionEnd(() => {
+            })
+        )
+        .selectionMenuHidden(true);
+    }
+    .height('100%')
+    .width('100%')
+    .padding(16);
+  }
+}
+```

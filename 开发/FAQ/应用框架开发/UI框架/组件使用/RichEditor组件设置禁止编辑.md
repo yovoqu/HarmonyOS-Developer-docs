@@ -1,0 +1,107 @@
+# RichEditor组件设置禁止编辑
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-631
+
+## RichEditor组件设置禁止编辑
+ 
+
+
+##### 问题现象
+
+如何实现RichEditor组件禁止编辑态？
+ 
+ 
+
+##### 效果预览
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/3fNtKn6_TYGEpI1eOsILBw/zh-cn_image_0000002658913491.png?HW-CC-KV=V1&HW-CC-Date=20260701T025539Z&HW-CC-Expire=86400&HW-CC-Sign=9E266F6FCC8E0E67F81052BCF833E43DD656906370025008B3C5299B72F6CA74)
+
+ 
+ 
+
+##### 背景知识
+
+[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)是支持图文混排和文本交互式编辑的组件。[customKeyboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#customkeyboard)属性可设置自定义键盘。
+ 
+ 
+
+##### 解决方案
+
+- **方案一**：RichEditor没有禁止文本编辑的属性，可使用customKeyboard属性绑定一个空白的自定义键盘来代替系统键盘，实现禁止编辑的功能。
+ 
+```text
+@Entry
+@Component
+struct RichEditorDemo {
+  controller: RichEditorController = new RichEditorController();
+
+  @Builder
+  TestBoard() {
+  }
+
+  build() {
+    Column() {
+      RichEditor({ controller: this.controller })
+        .onReady(() => {
+          this.controller.addTextSpan('测试文字测试文字测试文字测试文字测试文字测试文字');
+        })
+        .customKeyboard(this.TestBoard())
+        .width('100%')
+        .border({ width: 1, radius: 5 })
+        .key('RichEditor')
+        .caretColor(Color.Transparent)
+        .margin({ top: 50 })
+    }
+    .width('100%')
+  }
+}
+```
+
+- **方案二**：设置属性hitTestBehavior(HitTestMode.None)，RichEditor组件不响应点击事件。
+
+ 
+ 
+
+##### 常见FAQ
+
+Q：RichEditor菜单怎么禁止剪切和粘贴？
+ 
+A：可以通过修改editMenuOptions属性绑定的菜单，去除剪切和粘贴选项。
+ 
+```text
+@Entry
+@Component
+struct Faq {
+  controller: RichEditorController = new RichEditorController();
+  build() {
+    Column() {
+      RichEditor({ controller: this.controller })
+        .editMenuOptions({
+          onCreateMenu: (menuItems: Array) => {
+            let menus = menuItems.filter((item: TextMenuItem) => {
+              return !item.id.equals(TextMenuItemId.PASTE) && !item.id.equals(TextMenuItemId.of('OH_DEFAULT_PASTE'))
+                && !item.id.equals(TextMenuItemId.CUT) && !item.id.equals(TextMenuItemId.of('OH_DEFAULT_CUT'));
+            });
+            return menus;
+          },
+          onMenuItemClick: (menuItem: TextMenuItem) => {
+            if (menuItem.id.equals(TextMenuItemId.PASTE) || menuItem.id.equals(TextMenuItemId.of('OH_DEFAULT_PASTE')) ||
+            menuItem.id.equals(TextMenuItemId.CUT) || menuItem.id.equals(TextMenuItemId.of('OH_DEFAULT_CUT'))) {
+              return true;
+            };
+            return false;
+          }
+        })
+        .width('100%')
+        .border({ width: 1, radius: 5 })
+        .key('RichEditor')
+        .caretColor(Color.Transparent)
+        .margin({ top: 50 })
+    }
+    .width('100%')
+  }
+}
+```

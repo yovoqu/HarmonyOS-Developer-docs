@@ -1,6 +1,6 @@
 # newLatLng
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-04-24 08:10:21（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-newlatlng
 **支持设备：** Phone / PC/2in1 / Tablet / Wearable

@@ -1,18 +1,24 @@
 # SecurityAudit（安全审计）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit
+
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
+## SecurityAudit（安全审计）
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/t9qUILQ7RWKOo53YZJW9cw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025448Z&HW-CC-Expire=86400&HW-CC-Sign=9820952A5099451ED4719DBC7AB2BE7194B4FE13D460C21C50B3E270A2F9675D)
+ 
+ 
+以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+  
 
   
 
-#### 201 权限校验失败
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+##### 201 权限校验失败
 
 **错误信息**
  
@@ -32,9 +38,7 @@ check permission fail.
  
   
 
-#### 401 参数检查失败
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+##### 401 参数检查失败
 
 **错误信息**
  
@@ -54,9 +58,7 @@ Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
  
   
 
-#### 1012000001 内部异常
-
-**支持设备：** PC/2in1
+##### 1012000001 内部异常
 
 **错误信息**
  
@@ -76,9 +78,7 @@ Internal error.
  
   
 
-#### 1012000002 客户端总数超限
-
-**支持设备：** PC/2in1
+##### 1012000002 客户端总数超限
 
 **错误信息**
  
@@ -100,9 +100,7 @@ The number of clients exceeds the global upper limit.
  
   
 
-#### 1012000003 进程内客户端数量超限
-
-**支持设备：** PC/2in1
+##### 1012000003 进程内客户端数量超限
 
 **错误信息**
  
@@ -124,9 +122,7 @@ The number of clients exceeds the current process upper limit.
  
   
 
-#### 1012000004 过滤条件数量超限
-
-**支持设备：** PC/2in1
+##### 1012000004 过滤条件数量超限
 
 **错误信息**
  
@@ -146,9 +142,7 @@ The number of filters exceeds the upper limit.
  
   
 
-#### 1012000005 事件不支持此过滤条件
-
-**支持设备：** PC/2in1
+##### 1012000005 事件不支持此过滤条件
 
 **错误信息**
  
@@ -168,9 +162,7 @@ The event does not support the filter condition.
  
   
 
-#### 1012000006 查询的进程数量超限
-
-**支持设备：** PC/2in1
+##### 1012000006 查询的进程数量超限
 
 **错误信息**
  
@@ -190,9 +182,7 @@ The number of queried processes exceeds the threshold.
  
   
 
-#### 1012000007 找不到对应的阻断事件
-
-**支持设备：** PC/2in1
+##### 1012000007 找不到对应的阻断事件
 
 **错误信息**
  
@@ -212,9 +202,7 @@ The auth event cannot be found.
  
   
 
-#### 1012000008 找不到对应的文件
-
-**支持设备：** PC/2in1
+##### 1012000008 找不到对应的文件
 
 **错误信息**
  

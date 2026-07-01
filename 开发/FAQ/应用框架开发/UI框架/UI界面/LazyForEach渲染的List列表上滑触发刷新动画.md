@@ -1,0 +1,229 @@
+# LazyForEach渲染的List列表上滑触发刷新动画
+
+更新时间：2026-06-26 09:07:13
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1136
+
+## LazyForEach渲染的List列表上滑触发刷新动画
+ 
+
+
+##### 问题现象
+
+使用LazyForEach渲染List列表，实现下滑会触发transition动画，但是上滑也会触发动画，如何使其上滑过程中不会触发动画？
+ 
+问题示意图：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/dO5IpjdYRjS8KEBzLuI_rw/zh-cn_image_0000002628569432.gif?HW-CC-KV=V1&HW-CC-Date=20260701T025651Z&HW-CC-Expire=86400&HW-CC-Sign=21B1F3EDE8A6CF3DB5F4967233CC7B911626A792D43345AB54E157AE75322653)
+
+ 
+ 
+
+##### 背景知识
+
+- [transition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component)（组件内转场）：transition属性能够在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除。transition函数的入参为组件内转场的效果，可以定义平移、透明度、旋转、缩放这几种转场样式的单个或者组合的转场效果。
+- [LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)：能够从提供的数据源中按需迭代数据，并在每次迭代过程中创建相应的组件。当在滚动容器中使用了LazyForEach，框架会根据滚动容器可视区域按需创建组件，当组件滑出可视区域外时，框架会进行组件销毁回收以降低内存占用。
+
+ 
+ 
+
+##### 问题定位
+
+当在滚动容器中使用了LazyForEach，框架会根据滚动容器可视区域按需创建组件，当组件滑出可视区域外时，框架会进行组件销毁回收以降低内存占用，因此当List往下滑动，滚动出可视区域的列表项就会被销毁回收，当再往上回到顶部时，实际上会重新创建列表项，就会出现上滑过程中触发刷新动画。
+ 
+ 
+
+##### 分析结论
+
+LazyForEach回收列表项子组件导致重新渲染而触发上滑时的刷新动画。
+ 
+ 
+
+##### 解决方案
+
+可以根据滑动方向决定是否展示动画，来达到下滑不会触发动画的效果，具体实现为：
+ 
+- 实现LazyForEach数据源相关接口，使用BasicDataSource类实现IDataSource接口，负责管理数据变化的监听者和数据本身，可以参考官网[BasicDataSource示例代码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach#basicdatasource示例代码)，并且使用MyDataSource类继承BasicDataSource类，增加自定义的方法，MyDataSource代码如下：
+```text
+class MyDataSource extends BasicDataSource {
+  private dataArray: string[] = [];
+
+  public totalCount(): number {
+    return this.dataArray.length;
+  }
+
+  public getData(index: number): string {
+    return this.dataArray[index];
+  }
+
+  public addData(index: number, data: string): void {
+    this.dataArray.splice(index, 0, data);
+    this.notifyDataAdd(index);
+  }
+
+  public pushData(data: string): void {
+    this.dataArray.push(data);
+    this.notifyDataAdd(this.dataArray.length - 1);
+  }
+}
+```
+
+- 定义状态变量，创建数据源data。
+```text
+private data: MyDataSource = new MyDataSource();
+@State showItemAnimation: boolean = false;
+@State currentScrollOffsetInList: number = 0;
+private currentScrollStateInList: ScrollState | null = null;
+private lastOffset: number = 0;
+```
+
+- 在aboutToAppear生命周期方法中，初始化数据源，向其中添加50个数据项，每个数据项为字符串格式。
+```text
+aboutToAppear() {
+  for (let i = 0; i  {
+    ListItem() {
+      Text('' + item)
+        .width('100%')
+        .height(100)
+        .fontSize(16)
+        .textAlign(TextAlign.Center)
+        .borderRadius(10)
+        .backgroundColor(0xFFFFFF);
+    }
+    .transition(this.showItemAnimation ?
+      TransitionEffect.OPACITY.combine(TransitionEffect.move(TransitionEdge.END))
+        .animation({ curve: curves.springMotion(), duration: 300, delay: (index % 10) * 30 }) : null);
+  }, (item: string) => item);
+}
+```
+
+- 使用[onDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#ondidscroll12)监听列表的滚动事件，更新currentScrollOffsetInList和currentScrollStateInList状态。根据onDidScroll的参数scrollOffset的正负来决定是否显示动画效果，当滚动到顶部且之前滚动方向为向上时，不显示动画效果。
+ 
+```text
+.onDidScroll((scrollOffset: number, scrollState: ScrollState) => {
+  this.currentScrollOffsetInList = scrollOffset;
+  this.currentScrollStateInList = scrollState;
+  if (scrollOffset != 0) {
+    this.lastOffset = scrollOffset;
+  }
+  this.showItemAnimation = ((scrollOffset  // 该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听
+  registerDataChangeListener(listener: DataChangeListener): void {
+    if (this.listeners.indexOf(listener)  // 该方法为框架侧调用，为对应的LazyForEach组件在数据源处去除listener监听
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    const pos = this.listeners.indexOf(listener);
+    if (pos >= 0) {
+      this.listeners.splice(pos, 1);
+    }
+  }
+
+  // 通知LazyForEach组件需要重载所有子组件
+  notifyDataReload(): void {
+    this.listeners.forEach(listener => {
+      listener.onDataReloaded();
+    });
+  }
+
+  // 通知LazyForEach组件需要在index对应索引处添加子组件
+  notifyDataAdd(index: number): void {
+    this.listeners.forEach(listener => {
+      listener.onDataAdd(index);
+    });
+  }
+
+  // 通知LazyForEach组件在index对应索引处数据有变化，需要重建该子组件
+  notifyDataChange(index: number): void {
+    this.listeners.forEach(listener => {
+      listener.onDataChange(index);
+    });
+  }
+
+  // 通知LazyForEach组件需要在index对应索引处删除该子组件
+  notifyDataDelete(index: number): void {
+    this.listeners.forEach(listener => {
+      listener.onDataDelete(index);
+    });
+  }
+
+  // 通知LazyForEach组件将from索引和to索引处的子组件进行交换
+  notifyDataMove(from: number, to: number): void {
+    this.listeners.forEach(listener => {
+      listener.onDataMove(from, to);
+    });
+  }
+
+  notifyDatasetChange(operations: DataOperation[]): void {
+    this.listeners.forEach(listener => {
+      listener.onDatasetChange(operations);
+    });
+  }
+}
+
+class MyDataSource extends BasicDataSource {
+  private dataArray: string[] = [];
+
+  public totalCount(): number {
+    return this.dataArray.length;
+  }
+
+  public getData(index: number): string {
+    return this.dataArray[index];
+  }
+
+  public addData(index: number, data: string): void {
+    this.dataArray.splice(index, 0, data);
+    this.notifyDataAdd(index);
+  }
+
+  public pushData(data: string): void {
+    this.dataArray.push(data);
+    this.notifyDataAdd(this.dataArray.length - 1);
+  }
+}
+
+@Entry
+@Component
+struct LazyForEachListTransition {
+  private data: MyDataSource = new MyDataSource();
+  @State showItemAnimation: boolean = false;
+  @State currentScrollOffsetInList: number = 0;
+  private currentScrollStateInList: ScrollState | null = null;
+  private lastOffset: number = 0;
+
+  aboutToAppear() {
+    for (let i = 0; i  {
+          ListItem() {
+            Text('' + item)
+              .width('100%')
+              .height(100)
+              .fontSize(16)
+              .textAlign(TextAlign.Center)
+              .borderRadius(10)
+              .backgroundColor(0xFFFFFF);
+          }
+          .transition(this.showItemAnimation ?
+          TransitionEffect.OPACITY.combine(TransitionEffect.move(TransitionEdge.END))
+            .animation({ curve: curves.springMotion(), duration: 300, delay: (index % 10) * 30 }) : null);
+        }, (item: string) => item);
+      }
+      .listDirection(Axis.Vertical) // 排列方向
+      .scrollBar(BarState.Off)
+      .friction(0.6)
+      .divider({
+        strokeWidth: 2,
+        color: 0xFFFFFF,
+        startMargin: 20,
+        endMargin: 20
+      }) // 每行之间的分界线
+      .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring
+      .onScrollIndex(() => {})
+      .onDidScroll((scrollOffset: number, scrollState: ScrollState) => {
+        this.currentScrollOffsetInList = scrollOffset;
+        this.currentScrollStateInList = scrollState;
+        if (scrollOffset != 0) {
+          this.lastOffset = scrollOffset;
+        }
+        this.showItemAnimation = ((scrollOffset 
+##### 总结
+
+配合刷新动画的滚动组件在嵌套LazyForEach时，需注意LazyForEach的特性，控制相应的组件的动画效果不受LazyForEach影响，以免出现动画不正常刷新的情况。

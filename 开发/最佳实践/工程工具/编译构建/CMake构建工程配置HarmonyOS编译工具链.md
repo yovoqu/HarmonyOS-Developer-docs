@@ -1,6 +1,6 @@
 # CMake构建工程配置HarmonyOS编译工具链
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-05-18 00:55:31（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-cmake-adapts-to-harmonyos
 

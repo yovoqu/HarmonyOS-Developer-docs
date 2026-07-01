@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（信息选择类组件相关属性）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-12 06:54:11（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-informationselection
 

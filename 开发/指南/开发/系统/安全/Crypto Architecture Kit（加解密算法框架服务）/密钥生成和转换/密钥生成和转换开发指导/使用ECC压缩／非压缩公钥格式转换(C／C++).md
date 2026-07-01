@@ -1,6 +1,6 @@
 # 使用ECC压缩/非压缩公钥格式转换(C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-26 06:48:54（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/-convert-compressed-or-uncompressed-ecc-pubkey-ndk
 

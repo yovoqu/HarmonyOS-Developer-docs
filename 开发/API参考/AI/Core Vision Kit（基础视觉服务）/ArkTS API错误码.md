@@ -1,18 +1,24 @@
 # ArkTS API错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision
+
 **支持设备：** Phone | PC/2in1 | Tablet
 
-> [!TIP]
-> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
+## ArkTS API错误码
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/u_wmak7RShSsjHz2fLj1dA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025456Z&HW-CC-Expire=86400&HW-CC-Sign=C672ED5B234D2FF103D4E7B332768B1B692C6329467152778DE6EC8AC4BDED6D)
+ 
+ 
+以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+  
 
   
 
-#### 200 运行超时
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 200 运行超时
 
 **错误信息**
  
@@ -32,9 +38,7 @@ Run timed out, please try again later.
  
   
 
-#### 401 参数错误
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 401 参数错误
 
 **错误信息**
  
@@ -54,9 +58,7 @@ The parameter check failed.
  
   
 
-#### 1001400001 运行失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1001400001 运行失败
 
 **错误信息**
  
@@ -76,9 +78,7 @@ Failed to run, please try again.
  
   
 
-#### 1001400002 服务异常
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1001400002 服务异常
 
 **错误信息**
  
@@ -98,9 +98,7 @@ The service is abnormal.
  
   
 
-#### 1008400001 运行失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1008400001 运行失败
 
 **错误信息**
  
@@ -120,9 +118,7 @@ Failed to run, please try again.
  
   
 
-#### 1008400002 服务异常
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1008400002 服务异常
 
 **错误信息**
  
@@ -142,9 +138,7 @@ The service is abnormal.
  
   
 
-#### 1008800001 运行失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1008800001 运行失败
 
 **错误信息**
  
@@ -164,9 +158,7 @@ Failed to run, please try again.
  
   
 
-#### 1008800002 服务异常
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1008800002 服务异常
 
 **错误信息**
  
@@ -186,9 +178,7 @@ The service is abnormal.
  
   
 
-#### 1011000001 运行失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1011000001 运行失败
 
 **错误信息**
  
@@ -208,9 +198,7 @@ Failed to run, please try again.
  
   
 
-#### 1011000002 服务异常
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1011000002 服务异常
 
 **错误信息**
  
@@ -230,9 +218,7 @@ The service is abnormal.
  
   
 
-#### 1011000003 模型运行失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1011000003 模型运行失败
 
 **错误信息**
  
@@ -252,9 +238,7 @@ Failed to run the model, please try again.
  
   
 
-#### 1011000004 模型运行超时
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1011000004 模型运行超时
 
 **错误信息**
  
@@ -271,3 +255,25 @@ Running the model timed out. Try again later.
 **处理步骤**
  
 稍后重试。
+ 
+  
+
+##### 1018700001 服务异常
+
+**错误信息**
+ 
+Service exception.
+ 
+**错误描述**
+ 
+服务运行异常时，系统会产生此错误码。
+ 
+**可能原因**
+ 
+- 服务运行超时。
+- 模型推理结果失败。
+
+ 
+**处理步骤**
+ 
+服务异常，建议重启设备重试。

@@ -1,6 +1,6 @@
 # AnimationRepeatMode
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-04-20 06:34:33（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animationrepeatmode
 **支持设备：** Phone / PC/2in1 / Tablet / Wearable

@@ -1,6 +1,6 @@
 # FA模型应用程序包结构
 
-更新时间：2026-03-12 09:39:20
+更新时间：2026-03-12 09:39:20（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-structure-fa
 

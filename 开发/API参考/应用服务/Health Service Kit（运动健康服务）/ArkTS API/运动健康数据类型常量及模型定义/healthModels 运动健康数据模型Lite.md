@@ -1,6 +1,6 @@
 # healthModels (运动健康数据模型)(Lite)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-05-08 09:27:50（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthmodels-lite
 **支持设备：** lite_wearable

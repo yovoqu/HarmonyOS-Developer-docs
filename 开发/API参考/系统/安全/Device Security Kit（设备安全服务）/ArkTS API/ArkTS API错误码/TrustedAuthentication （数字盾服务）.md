@@ -1,18 +1,24 @@
 # TrustedAuthentication （数字盾服务）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth
+
 **支持设备：** Phone | PC/2in1 | Tablet
 
-> [!TIP]
-> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 说明文档。
+## TrustedAuthentication （数字盾服务）
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/ADsIGOZYRQiMcGjvt5o6IA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025448Z&HW-CC-Expire=86400&HW-CC-Sign=50F95BF10ADA7056FF681C81905082608BC298CD523E1C7EDC5F0F66EAC2D7BB)
+ 
+ 
+以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
+  
 
   
 
-#### 1019100001 权限校验失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100001 权限校验失败
 
 **错误信息**
  
@@ -32,9 +38,7 @@ permission denied.
  
   
 
-#### 1019100002 参数检查失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100002 参数检查失败
 
 **错误信息**
  
@@ -54,9 +58,7 @@ argument is invalid.
  
   
 
-#### 1019100003 密码认证连续失败次数达到要求的最大次数
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100003 密码认证连续失败次数达到要求的最大次数
 
 **错误信息**
  
@@ -76,9 +78,7 @@ The number of consecutive authentication failures exceeds the maximum.
  
   
 
-#### 1019100004 删除密码失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100004 删除密码失败
 
 **错误信息**
  
@@ -98,9 +98,7 @@ delete trusted authentication password failed.
  
   
 
-#### 1019100005 密码认证失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100005 密码认证失败
 
 **错误信息**
  
@@ -120,9 +118,7 @@ trusted authentication verify failed.
  
   
 
-#### 1019100006 输入文本信息检查失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100006 输入文本信息检查失败
 
 **错误信息**
  
@@ -142,9 +138,7 @@ Check input confirm text failed.
  
   
 
-#### 1019100007 不支持的图片格式
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100007 不支持的图片格式
 
 **错误信息**
  
@@ -164,9 +158,7 @@ Unsupported custom image.
  
   
 
-#### 1019100008 用户取消操作
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100008 用户取消操作
 
 **错误信息**
  
@@ -186,9 +178,7 @@ The user canceled the operation.
  
   
 
-#### 1019100009 备份数据导出失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100009 备份数据导出失败
 
 **错误信息**
  
@@ -208,9 +198,7 @@ Failed to export data.
  
   
 
-#### 1019100010 备份数据导入失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100010 备份数据导入失败
 
 **错误信息**
  
@@ -230,9 +218,7 @@ Failed to import data.
  
   
 
-#### 1019100011 不合法的TUI认证信息
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100011 不合法的TUI认证信息
 
 **错误信息**
  
@@ -252,9 +238,7 @@ The text content cannot be displayed.
  
   
 
-#### 1019100012 无效的authID
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100012 无效的authID
 
 **错误信息**
  
@@ -274,9 +258,7 @@ Invalid authentication ID.
  
   
 
-#### 1019100013 创建密码失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100013 创建密码失败
 
 **错误信息**
  
@@ -296,9 +278,7 @@ Set trusted authentication password failed.
  
   
 
-#### 1019100014 修改密码失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100014 修改密码失败
 
 **错误信息**
  
@@ -318,9 +298,7 @@ Modify trusted authentication password failed.
  
   
 
-#### 1019100015 生物认证authToken签发失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100015 生物认证authToken签发失败
 
 **错误信息**
  
@@ -340,7 +318,7 @@ Get biometric authToken failed.
  
   
 
-#### 1019100016 数字盾服务未使能
+##### 1019100016 数字盾服务未使能
 
 **错误信息**
  
@@ -360,9 +338,7 @@ The trusted authentication feature is not enabled.
  
   
 
-#### 1019100017 获取剩余认证次数失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100017 获取剩余认证次数失败
 
 **错误信息**
  
@@ -382,9 +358,7 @@ Failed to get the remaining number of authentication attempts.
  
   
 
-#### 1019100018 关闭对应生物特征认证能力失败
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100018 关闭对应生物特征认证能力失败
 
 **错误信息**
  
@@ -404,9 +378,7 @@ Failed to unbind the corresponding biometric data.
  
   
 
-#### 1019100019 与绑定的生物特征不匹配
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100019 与绑定的生物特征不匹配
 
 **错误信息**
  
@@ -426,9 +398,7 @@ The biometric data for authentication does not match the bound biometric feature
  
   
 
-#### 1019100020 已绑定对应生物特征
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100020 已绑定对应生物特征
 
 **错误信息**
  
@@ -448,9 +418,7 @@ The biometric data has already been bound.
  
   
 
-#### 1019100021 未绑定对应生物特征
-
-**支持设备：** Phone | PC/2in1 | Tablet
+##### 1019100021 未绑定对应生物特征
 
 **错误信息**
  
@@ -470,9 +438,27 @@ The corresponding biometric data has not been bound.
  
   
 
-#### 1019100025 TUI界面被其他应用占用
+##### 1019100024 绑定的生物特征ID已失效
 
-**支持设备：** Phone | PC/2in1 | Tablet
+**错误信息**
+ 
+The bound biometric ID is invalid.
+ 
+**错误描述**
+ 
+绑定的生物特征ID已失效。
+ 
+**可能原因**
+ 
+绑定的生物特征在系统侧已删除。
+ 
+**处理步骤**
+ 
+数字盾服务侧解绑指定的生物特征，并重新绑定当前系统有效的生物特征ID。
+ 
+  
+
+##### 1019100025 TUI界面被其他应用占用
 
 **错误信息**
  

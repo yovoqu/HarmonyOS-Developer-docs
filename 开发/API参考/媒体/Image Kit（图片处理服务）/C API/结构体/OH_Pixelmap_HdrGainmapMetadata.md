@@ -1,6 +1,6 @@
 # OH_Pixelmap_HdrGainmapMetadata
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-13 03:51:30（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-hdrgainmapmetadata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

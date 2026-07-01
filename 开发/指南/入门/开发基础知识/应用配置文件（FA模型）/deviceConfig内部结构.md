@@ -1,6 +1,6 @@
 # deviceConfig内部结构
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-04-10 09:55:20（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deviceconfig-structure
 

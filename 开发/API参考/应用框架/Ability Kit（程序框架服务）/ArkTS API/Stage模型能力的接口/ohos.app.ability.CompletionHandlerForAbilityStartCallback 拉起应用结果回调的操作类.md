@@ -1,6 +1,6 @@
 # @ohos.app.ability.CompletionHandlerForAbilityStartCallback (拉起应用结果回调的操作类)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-03-09 02:50:43（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/p-ability-completionhandlerforabilitystartcallback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

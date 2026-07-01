@@ -1,0 +1,189 @@
+# 如何实现类似9-patch功能使图片指定区域不被拉伸
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-694
+
+## 如何实现类似9-patch功能使图片指定区域不被拉伸
+ 
+
+
+##### 问题现象
+
+如何实现一个带箭头的聊天气泡背景，在拉伸时气泡四角和箭头都不变形，类似9-patch图。
+ 
+ 
+
+##### 背景知识
+
+- 9-patch图：是一种特殊的PNG格式图片，分为伸缩区（下图灰色，可拉伸区域）和安全区（下图黑色，固定区域），当图片拉伸时，仅对可拉伸区域进行拉伸，固定区域保持原始尺寸与形态不变。 
+| 水平拉伸（灰色为可拉伸区域） | 垂直拉伸（灰色为可拉伸区域） |
+| --- | --- |
+|  |  |
+- Image组件的[resizable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#resizable11)属性，可精准指定图片的可拉伸区域与固定区域，从而确保图片在不同尺寸的容器中都能保持良好的视觉效果。
+[slice](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-resizable#section192433524230)参数可以通过上、下、左、右四个偏移量定义四个角的区域为固定区域。
+- [lattice](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-resizable#section0797147172420)参数支持将图像划分为矩形网格，同时处于偶数列和偶数行（从0开始计算）上的网格图像是固定的，不会被拉伸。
+
+ - 矩形网格对象通过[createImageLattice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-lattice#createimagelattice12)方法创建，使用屏幕物理像素单位px。可以将图像划分为矩形网格，同时处于偶数列和偶数行上的网格是固定的。如果目标网格足够大，则这些固定网格以其原始大小进行绘制；如果目标网格太小，无法容纳这些固定网格，则所有固定网格都会按比例缩小以适应目标网格。其余网格将进行缩放，来适应剩余的空间。
+
+ 
+ 
+
+##### 解决方案
+
+- **方案一**、对于样式简单的气泡图，通过配置ResizableOptions类型的slice参数，设置统一的上下左右拉伸距离，即可实现类似9-patch图的拉伸效果。拉伸示例图如下（灰色为可拉伸区域）：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/LI_ReM1NQPqHvQRiZolRBQ/zh-cn_image_0000002658794125.png?HW-CC-KV=V1&HW-CC-Date=20260701T025542Z&HW-CC-Expire=86400&HW-CC-Sign=8AD135A386175840071259F97160852DF727B6F93E89B217E6C48DFACD610985)
+
+ 
+通过为slice参数指定上、下、左、右四个方向的像素偏移值，将一张图片划分为九宫格布局。
+- 此时四个角的区域为固定区域，其余为可拉伸区域。
+
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/N81n54jlRV6dUZc1BDcF2Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025542Z&HW-CC-Expire=86400&HW-CC-Sign=563CA68018E7F3D8EA37EE1A00C715FA46FF0C9011AE802A4A7B5C9D0CA03E0A)
+ 
+
+slice除了在resizable属性中使用，还支持在[backgroundImageResizable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundimageresizable12)属性中使用。
+ 
+
+ 
+```text
+@Entry
+@Component
+struct Page {
+  build() {
+    Column({ space: 20 }) {
+      Stack() {
+        // 加载原始图片资源（不改变大小，不进行任何拉伸处理）
+        Image($r('app.media.bubble'))
+          .objectFit(ImageFit.None);
+        Column() {
+          Text('初始图片')
+            .fontColor(Color.White);
+        }
+        .justifyContent(FlexAlign.Center)
+        .width('100%')
+        .height('calc(100% - 10px)');
+      }
+      .height(100);
+
+      // 第二个Stack：显示应用九宫格拉伸的图片
+      Stack() {
+        // 加载相同图片资源，应用九宫格拉伸规则
+        Image($r('app.media.bubble'))
+          .resizable({
+            slice: {
+              top: '80px',
+              left: '30px',
+              bottom: '30px',
+              right: '80px'
+            }
+          })
+          .width('100%')
+          .height('100%');
+        Column() {
+          Text('实现四角+箭头不拉伸,其他内部文字可以撑开固定区域,比如下面这一段文字，可以把这个气泡撑开，圆角箭头无变形，来达到四角和箭头不拉伸')
+            .fontColor(Color.White)
+            .padding({
+              left: 10,
+              right: 15,
+            });
+        }
+        .justifyContent(FlexAlign.Center)
+        .width('100%')
+        .height('100%');
+      }
+      .alignContent(Alignment.TopStart)
+      .width(240)
+      .height(120);
+    }
+    .margin(20);
+  }
+}
+```
+ 
+效果预览：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/SZX4njH2TiaZ9CiCzV62IQ/zh-cn_image_0000002628554754.png?HW-CC-KV=V1&HW-CC-Date=20260701T025542Z&HW-CC-Expire=86400&HW-CC-Sign=CC7D07218886FD76C5C28CD6FDBC6C49A9528F04F4A1DB122ED491FF984E3A2B)
+
+ - **方案二**、针对结构复杂的气泡图，可以通过ResizableOptions类型的lattice参数，将图像划分为一个矩形网格来实现拉伸控制。拉伸示例图如下（灰色为可拉伸区域）：
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/Scptf98AREKloD-AGoVurw/zh-cn_image_0000002628394860.png?HW-CC-KV=V1&HW-CC-Date=20260701T025542Z&HW-CC-Expire=86400&HW-CC-Sign=A99A9CAF648D66E0B8F6FE8F3C972D878A6BD304296B997CA161817D4F9CE6CC)
+
+ 
+首先将原图划分为矩形网格，使无需发生形变的区域处于矩形网格的偶数行偶数列，并获取相应像素值。如上图所示，气泡图的水平方向包含左、中、右三个固定区域（图中黑色标注部分），因此水平上一共划分为五个区域。垂直方向上，则只有中间部分为可拉伸区域（图中灰色标注部分），因此垂直方向上共划分为三个区域。
+- 创建DrawingLattice对象，并应用在Stack中作为背景图片的Image上。
+
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/Lq_9WqkQRV6XMpwg6aiECQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025542Z&HW-CC-Expire=86400&HW-CC-Sign=54EAFA832CE890C247490CDBC44D9B18CE7B34D1A42FAC42154E8FEB44159AE0)
+ 
+
+lattice参数对同样可以设置图像拉伸的[backgroundImageResizable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundimageresizable12)接口不生效。
+ 
+
+ 
+```text
+import { drawing } from '@kit.ArkGraphics2D';
+
+@Entry
+@Component
+struct Index {
+  // X轴分割线：定义图片在水平方向的4条切割线（单位：像素）,将图片分为5个区域
+  xDivs: Array = [79, 162, 198, 279];
+  // Y轴分割线：定义垂直方向的2条切割线（单位：像素）,将图片分为2个区域
+  yDivs: Array = [78, 81];
+  // 创建九宫格拉伸规则对象,水平分割线数组，垂直分割线数组，水平分区数(5区域)，垂直分区数(3区域)
+  lattice: DrawingLattice =
+    drawing.Lattice.createImageLattice(this.xDivs, this.yDivs, this.xDivs.length, this.yDivs.length);
+
+  build() {
+    Column({ space: 20 }) {
+      // 第一个Stack：显示原始图片
+      Stack() {
+        // 加载原始图片资源（不进行任何拉伸处理）
+        Image($r('app.media.9patch'))
+          .objectFit(ImageFit.None);
+        Column() {
+          Text('初始图片')
+            .fontColor(Color.White);
+        }
+        .justifyContent(FlexAlign.Center)
+        .width('100%')
+        .height('calc(100% - 20px)');
+      }
+      .height(65);
+
+      // 第二个Stack：显示应用九宫格拉伸的图片
+      Stack() {
+        // 加载相同图片资源，应用九宫格拉伸规则
+        Image($r('app.media.9patch'))
+        // 应用自定义拉伸规则
+          .resizable({ lattice: this.lattice })
+          .width('100%')
+          .height('100%');
+        Column() {
+          Text('实现四角+底部中间箭头不拉伸呵呵')
+            .fontColor(Color.White)
+            .padding({
+              left: 15,
+              right: 15,
+            });
+        }
+        .justifyContent(FlexAlign.Center)
+        .width('100%')
+        .height('calc(100% - 20px)');
+      }
+      .alignContent(Alignment.TopStart)
+      .width(240)
+      .height(65);
+    }
+    .margin(20);
+  }
+}
+```
+ 
+效果预览：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/gNp8BujKRI6KMbS6WOMShA/zh-cn_image_0000002658914079.png?HW-CC-KV=V1&HW-CC-Date=20260701T025542Z&HW-CC-Expire=86400&HW-CC-Sign=EA9F813C67FED4BAB99A557ED590391B8DC508ED0F07C9C15E50DEB069F7C041)

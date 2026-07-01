@@ -1,0 +1,139 @@
+# TextInput组件中如何实现点击输入框弹出Popup气泡，选中内容时关闭Popup
+
+更新时间：2026-06-26 09:07:13
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1460
+
+## TextInput组件中如何实现点击输入框弹出Popup气泡，选中内容时关闭Popup
+ 
+
+
+##### 问题现象
+
+使用TextInput组件时，如何实现编辑状态打开Popup且使用键盘输入不关闭，点击Popup气泡中内容并填充至TextInput中时，关闭Popup？
+ 
+ 
+
+##### 背景知识
+
+- [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)：TextInput是输入框组件，用于响应用户输入，比如评论区的输入、聊天框的输入、表格的输入等，也可以结合其它组件构建功能页面，例如登录注册页面。具体用法请参考[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)。
+- [onEditChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#oneditchange8)：输入状态变化时，触发该回调。有光标时为编辑态，无光标时为非编辑态。
+- [Popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-popup)：Popup属性可绑定在组件上显示气泡弹窗提示，设置弹窗内容、交互逻辑和显示状态。主要用于屏幕录制、信息弹出提醒等显示状态。
+- [使用Emitter进行线程间通信](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/itc-with-emitter)：Emitter是一种作用在进程内的事件处理机制，为应用程序提供订阅事件、发布事件、取消事件订阅的能力。
+
+ 
+ 
+
+##### 解决方案
+
+- 在TextInput的onEditChange事件中进行判断，处于编辑状态时，Popup弹出，退出编辑状态时，Popup关闭。
+- 使用Emitter订阅事件，当点击Popup中的值时，给message进行赋值并且关闭Popup，退出TextInput的编辑状态。
+
+ 
+运行效果如下：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/3OYxNvWuTM2DHEvzli7hSQ/zh-cn_image_0000002658964561.png?HW-CC-KV=V1&HW-CC-Date=20260701T025708Z&HW-CC-Expire=86400&HW-CC-Sign=FB49CA1D155D7A9D18F7B57A6FECDEAEC11FA748B7D84AE80E17AB98AEF97E56)
+
+ 
+完整示例参考如下：
+ 
+```text
+import { emitter } from '@kit.BasicServicesKit';
+
+@Entry
+@Component
+struct bindPopupDemo {
+  @State message: string = '';
+  @State customPopup: boolean = false;
+  controller: TextInputController = new TextInputController();
+  // 定义一个eventId为1的事件，事件优先级为Low。
+  private event: emitter.InnerEvent = {
+    eventId: 1,
+    priority: emitter.EventPriority.LOW
+  };
+
+  aboutToAppear(): void {
+    // 收到eventId为1的事件后执行回调函数。
+    emitter.on(this.event, data => {
+      this.message = data.data!['message'];
+      this.customPopup = false;
+      this.controller.stopEditing();
+    });
+  };
+
+  aboutToDisappear(): void {
+    // 取消eventId为1的事件。
+    emitter.off(this.event.eventId);
+  };
+
+  @Builder
+  popupBuilder() {
+    Column({ space: 2 }) {
+      Text('内容一')
+        .fontSize(20)
+        .onClick(() => {
+          let eventData: emitter.EventData = {
+            data: {
+              message: '内容一'
+            }
+          };
+          // 发送eventId为1的事件，事件内容为eventData。
+          emitter.emit(this.event, eventData);
+        })
+        .margin({
+          left: 24,
+          right: 24,
+          bottom: 8,
+          top: 8
+        });
+      Text('内容二').fontSize(20).onClick(() => {
+        let eventData: emitter.EventData = {
+          data: {
+            message: '内容二'
+          }
+        };
+        emitter.emit(this.event, eventData);
+      })
+        .margin({
+          left: 24,
+          right: 24,
+          bottom: 8,
+          top: 8
+        });
+    }
+    .padding(5)
+    .alignItems(HorizontalAlign.Center)
+  };
+
+  build() {
+    Row() {
+      TextInput({ text: this.message, placeholder: '请输入正确内容', controller: this.controller })
+        .layoutWeight(1)
+        .enableAutoFill(false)
+        .alignSelf(ItemAlign.Center)
+        // 实现气泡弹窗。
+        .bindPopup(this.customPopup, {
+          builder: this.popupBuilder,
+          placement: Placement.BottomLeft,
+          mask: false,
+          backgroundBlurStyle: BlurStyle.NONE,
+          enableArrow: false,
+          autoCancel: true,
+          showInSubWindow: false,
+          targetSpace: 15
+        })
+        // 当输入框编辑态改变时，处于编辑态时气泡出现。
+        .onEditChange((isEditing: boolean) => {
+          this.customPopup = isEditing;
+        })
+        .onChange((value: string) => {
+          this.message = value;
+        })
+        .margin({ left: 16, right: 16 });
+    }.alignItems(VerticalAlign.Top)
+    .width('100%')
+    .height('100%');
+  };
+}
+```

@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（布局属性）
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-06-16 09:03:21（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-layoutattributes
 

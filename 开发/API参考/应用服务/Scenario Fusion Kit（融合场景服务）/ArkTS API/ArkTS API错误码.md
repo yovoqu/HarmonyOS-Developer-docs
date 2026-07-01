@@ -1,12 +1,20 @@
 # ArkTS API错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-arkts-api-error-code
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion-arkts-api
+
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
-> 本模块错误码请参考以下链接。
+## ArkTS API错误码
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/MWLuzU0-S7-TKEP0gkA3WQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025455Z&HW-CC-Expire=86400&HW-CC-Sign=F24FA735AF2B16D7EFA03FEA1AA22FD63062D1E78F117BC82B3172130CA630F3)
+ 
+ 
+本模块错误码请参考以下链接。
+  
 
  
 [通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)
@@ -17,12 +25,10 @@
  
 [Location Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/location-arkts-errcode)
  
-[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)
+[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)
   
 
-#### 1009601001 非法的服务号ID
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+##### 1009601001 非法的服务号ID
 
 **错误信息**
  
@@ -46,9 +52,7 @@ Invalid service account id.
  
   
 
-#### 1009601002 用户未登录华为账号
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+##### 1009601002 用户未登录华为账号
 
 **错误信息**
  
@@ -68,9 +72,7 @@ The user has not logged in with HUAWEI ID.
  
   
 
-#### 1009601003 请求服务号云失败
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+##### 1009601003 请求服务号云失败
 
 **错误信息**
  
@@ -90,9 +92,7 @@ Request server failed.
  
   
 
-#### 1009601004 网络连接失败
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+##### 1009601004 网络连接失败
 
 **错误信息**
  
@@ -112,9 +112,7 @@ Network connection error.
  
   
 
-#### 1009601005 其他异常
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+##### 1009601005 其他异常
 
 **错误信息**
  

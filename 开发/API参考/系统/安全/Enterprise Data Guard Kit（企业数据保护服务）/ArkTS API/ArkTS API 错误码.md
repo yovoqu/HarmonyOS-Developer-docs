@@ -1,6 +1,6 @@
 # ArkTS API 错误码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-26 06:48:54（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code
 **支持设备：** PC/2in1

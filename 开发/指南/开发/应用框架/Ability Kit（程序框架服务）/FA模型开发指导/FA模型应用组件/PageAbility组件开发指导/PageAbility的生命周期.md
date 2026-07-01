@@ -1,6 +1,6 @@
 # PageAbility的生命周期
 
-更新时间：2026-03-23 08:10:50
+更新时间：2026-03-23 08:10:50（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pageability-lifecycle
 

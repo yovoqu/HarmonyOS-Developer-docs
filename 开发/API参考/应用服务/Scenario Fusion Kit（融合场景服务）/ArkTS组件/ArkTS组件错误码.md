@@ -1,13 +1,15 @@
 # ArkTS组件错误码
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-error-code
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion
+
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-> [!NOTE]
-> 本模块错误码请参考以下链接。
+## ArkTS组件错误码
+ 
 
+ArkTS组件错误码由通用错误码、语言基础类库错误码、依赖kit错误码和特有错误码组成。
  
 [通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)
  
@@ -15,20 +17,26 @@
  
 [Ability Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ability-arkts-errcode)
  
-[Account Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)
+[Account Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)
  
 [Live View Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-error-code)
  
 [Push Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)
  
-[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)
+[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)
  
 [REST API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-server-error-code)
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/4PTbYKWFRVi9ferAOJ-GLQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025455Z&HW-CC-Expire=86400&HW-CC-Sign=3ABB5981519EB6A3AA27C912B7322F7DADCFD623510A0D5320B1E5E633B64783)
+ 
+ 
+以下仅介绍本模块特有错误码。
   
 
-#### 10004 系统内部异常
+  
 
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+##### 10004 系统内部异常
 
 **错误信息**
  
@@ -48,9 +56,7 @@ Internal error.
  
   
 
-#### 10006 获取分享数据失败
-
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+##### 10006 获取分享数据失败
 
 **错误信息**
  
@@ -70,9 +76,7 @@ Failed to get data.
  
   
 
-#### 10008 调用方非元服务
-
-**支持设备：** Phone | PC/2in1 | Tablet | TV
+##### 10008 调用方非元服务
 
 **错误信息**
  
@@ -89,3 +93,27 @@ Not atomic service.
 **处理步骤**
  
 通过元服务应用调用此接口。
+ 
+  
+
+##### 1007601001 无效的分享参数值
+
+**错误信息**
+ 
+Invalid share parameter value. Possible causes: 1. The uniformDataType parameter verification failed; 2. Invalid content parameter format. [since 26.0.0]
+ 
+**错误描述**
+ 
+无效的分享参数值。
+ 
+**可能原因**
+ 
+1.分享参数uniformDataType不在支持的取值范围内。
+ 
+2.content参数格式非法。
+ 
+**处理步骤**
+ 
+1.按照取值范围修改分享参数[uniformDataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalbuttoncomponentmanager#shareparam)的值。
+ 
+2.确认[content](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalbuttoncomponentmanager#shareparam)参数的格式是否正确。

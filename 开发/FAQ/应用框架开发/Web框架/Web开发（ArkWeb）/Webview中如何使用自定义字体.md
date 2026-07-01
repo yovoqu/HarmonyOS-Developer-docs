@@ -1,0 +1,90 @@
+# Webview中如何使用自定义字体
+
+更新时间：2026-06-26 09:07:13
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-149
+
+## Webview中如何使用自定义字体
+ 
+
+
+##### 问题现象
+
+Webview中h5侧如何使用自定义字体？
+ 
+ 
+
+##### 背景知识
+
+自定义字体是指开发者根据应用需求创建或选择的字体，通常用于实现特定的文字风格或满足独特的设计要求。当应用需要使用特定的文本样式和字符集时，可以注册并使用自定义字体进行文本渲染。
+ 
+ 
+
+##### 解决方案
+
+使用本地自定义字体，实现思路参考如下：
+ 
+- 将字体文件放在resources/rawfile/font文件夹里。
+- h5侧直接通过font-face引用字体。
+```text
+@font-face {
+  font-family: 'HarmonyOS Sans';
+  src: url('./font/HarmonyOS_Sans_SC_Regular.ttf');
+}
+.harmonyos-sans {
+  font-family: 'HarmonyOS Sans', sans-serif;
+}
+```
+
+
+ 
+完整示例参考如下：
+ 
+- src/main/ets/pages/webPage页面。
+```text
+import { webview } from '@kit.ArkWeb';
+
+@Entry
+@Component
+struct WebComponent {
+  controller: webview.WebviewController = new webview.WebviewController();
+
+  build() {
+    Column() {
+      Web({
+        src: $rawfile('Index.html'), controller: this.controller
+      })
+        .fileAccess(true)
+        .javaScriptAccess(true)
+        .domStorageAccess(true)
+        .onlineImageAccess(true)
+        .geolocationAccess(false)
+    }
+  }
+}
+```
+
+- resources/rawfile/Index.html页面。
+```text
+
+
+    
+    自定义字体
+    
+        body {
+          font-size: 20px;
+        }
+        @font-face {
+          font-family: 'HarmonyOS Sans';
+          src: url('./font/HarmonyOS_Sans_SC_Regular.ttf');
+        }
+        .harmonyos-sans {
+          font-family: 'HarmonyOS Sans', sans-serif;
+        }
+    
+
+
+Sans字体：Innation in china
+
+
+```

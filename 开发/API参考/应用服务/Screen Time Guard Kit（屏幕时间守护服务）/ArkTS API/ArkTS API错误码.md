@@ -1,18 +1,24 @@
 # ArkTS API错误码
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-error-code
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-screentimeguard
+
 **支持设备：** Phone | Tablet
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
+## ArkTS API错误码
+ 
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/eeIXA96VQq-jH9Q_742fRA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T025456Z&HW-CC-Expire=86400&HW-CC-Sign=DBE35E29F9D390D1AFB10652EC38167FE1C8537DB1D5FF387A097460D9467368)
+ 
+ 
+以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+  
 
   
 
-#### 1019000001 内部错误
-
-**支持设备：** Phone | Tablet
+##### 1019000001 内部错误
 
 **错误信息**
  
@@ -38,9 +44,7 @@ Internal error.
  
   
 
-#### 1019000002 用户未授权
-
-**支持设备：** Phone | Tablet
+##### 1019000002 用户未授权
 
 **错误信息**
  
@@ -52,19 +56,17 @@ The user has not authorized the application to access this interface.
  
 **可能原因**
  
-用户拒绝了权限申请。
+1、应用未向用户请求授权。
+ 
+2、用户拒绝了授权申请。
  
 **处理步骤**
  
-1、请确认用户同意权限申请。
- 
-2、若用户操作正常，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+调用请求用户授权接口[requestUserAuth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#requestuserauth)获取用户授权。
  
   
 
-#### 1019000003 用户取消
-
-**支持设备：** Phone | Tablet
+##### 1019000003 用户取消
 
 **错误信息**
  
@@ -76,19 +78,15 @@ The user canceled the operation.
  
 **可能原因**
  
-用户取消了拉起应用列表picker页的操作。
+用户主动关闭了半模态页面。
  
 **处理步骤**
  
-1、请确认用户没有取消操作。
- 
-2、若用户操作正常，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+由于用户主动取消操作，应用无需特殊处理。
  
   
 
-#### 1019000004 策略数量超限
-
-**支持设备：** Phone | Tablet
+##### 1019000004 策略数量超限
 
 **错误信息**
  
@@ -100,19 +98,15 @@ The number of strategies exceeds the upper limit.
  
 **可能原因**
  
-添加管控策略太多，使其数量超过50条限制。
+同一应用下添加太多策略，使其数量超过50条限制。
  
 **处理步骤**
  
-1、减少管控策略数量。
- 
-2、若策略数量正常，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+调用策略删除接口[removeGuardStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#removeguardstrategy)删除已添加策略，以减少策略数量。
  
   
 
-#### 1019000005 策略名称重复
-
-**支持设备：** Phone | Tablet
+##### 1019000005 策略名称重复
 
 **错误信息**
  
@@ -124,21 +118,17 @@ The strategy name is already existed.
  
 **可能原因**
  
-添加的策略名称已经存在。
+在同一应用下添加具有相同名称的策略。
  
 **处理步骤**
  
-1、先使用[策略查询接口（queryGuardStrategies）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#queryguardstrategies)获取应用名下有哪些策略。
+1、先调用策略查询接口[queryGuardStrategies](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#queryguardstrategies)获取应用名下有哪些策略。
  
 2、将本次调用使用的策略名称更换成不重复的策略名称。
  
-3、若策略名称正常，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
- 
   
 
-#### 1019000006 策略不存在
-
-**支持设备：** Phone | Tablet
+##### 1019000006 策略不存在
 
 **错误信息**
  
@@ -150,19 +140,19 @@ Nonexistent strategy.
  
 **可能原因**
  
-试图修改、删除、启用、停止不存在的策略。
+1、试图修改、删除、启用、停止不存在的策略。
+ 
+2、调用查询策略运行数据接口[queryGuardStrategyData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#queryguardstrategydata)查询不存在策略的数据。
  
 **处理步骤**
  
-1、确认要修改的策略是否存在。
+1、先调用策略查询接口[queryGuardStrategies](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#queryguardstrategies)获取应用名下有哪些策略，判断策略是否存在。
  
-2、若策略存在，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+2、调用策略添加接口[addGuardStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#addguardstrategy)添加相应的策略后再执行操作。
  
   
 
-#### 1019000007 策略重复执行
-
-**支持设备：** Phone | Tablet
+##### 1019000007 策略重复执行
 
 **错误信息**
  
@@ -178,15 +168,11 @@ The strategy is already being executed.
  
 **处理步骤**
  
-1、确认策略是否已经在执行中。
- 
-2、若策略不在执行，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+调用策略停止接口[stopGuardStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#stopguardstrategy)停止相应的策略后再执行操作。
  
   
 
-#### 1019000008 策略未执行
-
-**支持设备：** Phone | Tablet
+##### 1019000008 策略未执行
 
 **错误信息**
  
@@ -198,19 +184,17 @@ This strategy has not been started yet.
  
 **可能原因**
  
-试图停止的管控策略已不在执行中。
+1、试图停止的管控策略已不在执行中。
+ 
+2、试图查询不在执行中的管控策略运行数据。
  
 **处理步骤**
  
-1、确认策略是否已经停止。
- 
-2、若策略仍在执行，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+调用策略启动接口[startGuardStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#startguardstrategy)启动相应的策略后再执行操作。
  
   
 
-#### 1019000009 参数检查失败
-
-**支持设备：** Phone | Tablet
+##### 1019000009 参数检查失败
 
 **错误信息**
  
@@ -240,15 +224,11 @@ Parameter error. Possible causes:1. Mandatory parameters are left unspecified. 2
  
 **处理步骤**
  
-1、请检查必选参数是否传入，或者传入的参数类型是否错误。对于参数校验失败，阅读参数规格约束，按照可能原因进行排查。
- 
-2、若参数正常，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+请检查必选参数是否传入，或者传入的参数类型是否错误。对于参数校验失败，阅读参数规格约束，按照可能原因进行排查。
  
   
 
-#### 1019000010 该设备不支持此API
-
-**支持设备：** Phone | Tablet
+##### 1019000010 该设备不支持此API
 
 **错误信息**
  
@@ -264,6 +244,24 @@ Capability is not supported on current device.
  
 **处理步骤**
  
-1、应避免在除Phone、Tablet之外的设备上使用此API，或在代码中增加判断来规避异常场景下应用在不同设备上运行所产生的影响。
+应避免在除Phone、Tablet之外的设备上调用此API，或在代码中增加判断来规避异常场景下应用在不同设备上运行所产生的影响。
  
-2、若设备为Phone或Tablet，可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
+  
+
+##### 1019000011 策略类型不支持
+
+**错误信息**
+ 
+The strategy type is not supported.
+ 
+**错误描述**
+ 
+该API不支持此策略类型，因此无法正常调用。
+ 
+**可能原因**
+ 
+在调用查询策略运行数据接口[queryGuardStrategyData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#queryguardstrategydata)接口时，传入了非[INCLUSIVE_DURATION_TYPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#timestrategytype)类型的策略。
+ 
+**处理步骤**
+ 
+请检查调用查询策略运行数据接口[queryGuardStrategyData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#queryguardstrategydata)接口时，传入的策略类型是否为[INCLUSIVE_DURATION_TYPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#timestrategytype)。

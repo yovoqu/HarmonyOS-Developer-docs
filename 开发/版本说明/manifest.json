@@ -5860,5 +5860,431 @@
     "name": "MDM Kit",
     "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/MDM Kit.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mdmkit-6112"
+  },
+  {
+    "slug": "overview-2600",
+    "name": "版本概览",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/版本概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-2600"
+  },
+  {
+    "slug": "version-number-26",
+    "name": "版本号格式调整说明",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/版本号格式调整说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/version-number-26"
+  },
+  {
+    "slug": "os-new-feature-2600",
+    "name": "OS新增和增强特性",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/OS新增和增强特性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-2600"
+  },
+  {
+    "slug": "changelogs-overview-2600",
+    "name": "总览",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/OS平台行为变更说明/总览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-overview-2600"
+  },
+  {
+    "slug": "changelogs-for-all-apps-7001",
+    "name": "针对所有应用的变更",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/OS平台行为变更说明/针对所有应用的变更.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-7001"
+  },
+  {
+    "slug": "changelogs-ux-7001",
+    "name": "UX样式或效果的变更",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/OS平台行为变更说明/UX样式或效果的变更.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-7001"
+  },
+  {
+    "slug": "js-apidiff-abilitykit-7001",
+    "name": "Ability Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Ability Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-abilitykit-7001"
+  },
+  {
+    "slug": "js-apidiff-accessibilitykit-7001",
+    "name": "Accessibility Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Accessibility Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accessibilitykit-7001"
+  },
+  {
+    "slug": "js-apidiff-accessorykit-7001",
+    "name": "Accessory Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Accessory Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accessorykit-7001"
+  },
+  {
+    "slug": "js-apidiff-accountkit-7001",
+    "name": "Account Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Account Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accountkit-7001"
+  },
+  {
+    "slug": "js-apidiff-arengine-7001",
+    "name": "AR Engine",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/AR Engine.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arengine-7001"
+  },
+  {
+    "slug": "js-apidiff-arkdata-7001",
+    "name": "ArkData",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/ArkData.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkdata-7001"
+  },
+  {
+    "slug": "js-apidiff-arkgraphics2d-7001",
+    "name": "ArkGraphics 2D",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/ArkGraphics 2D.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkgraphics2d-7001"
+  },
+  {
+    "slug": "js-apidiff-arkgraphics3d-7001",
+    "name": "ArkGraphics 3D",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/ArkGraphics 3D.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkgraphics3d-7001"
+  },
+  {
+    "slug": "js-apidiff-arkts-7001",
+    "name": "ArkTS",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/ArkTS.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkts-7001"
+  },
+  {
+    "slug": "js-apidiff-arkui-7001",
+    "name": "ArkUI",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/ArkUI.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-7001"
+  },
+  {
+    "slug": "js-apidiff-arkweb-7001",
+    "name": "ArkWeb",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/ArkWeb.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkweb-7001"
+  },
+  {
+    "slug": "js-apidiff-assetstorekit-7001",
+    "name": "Asset Store Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Asset Store Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-assetstorekit-7001"
+  },
+  {
+    "slug": "js-apidiff-audiokit-7001",
+    "name": "Audio Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Audio Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-audiokit-7001"
+  },
+  {
+    "slug": "js-apidiff-avsessionkit-7001",
+    "name": "AVSession Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/AVSession Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-avsessionkit-7001"
+  },
+  {
+    "slug": "js-apidiff-backgroundtaskskit-7001",
+    "name": "Background Tasks Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Background Tasks Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-backgroundtaskskit-7001"
+  },
+  {
+    "slug": "js-apidiff-basicserviceskit-7001",
+    "name": "Basic Services Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Basic Services Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-basicserviceskit-7001"
+  },
+  {
+    "slug": "js-apidiff-camerakit-7001",
+    "name": "Camera Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Camera Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-camerakit-7001"
+  },
+  {
+    "slug": "js-apidiff-connectivitykit-7001",
+    "name": "Connectivity Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Connectivity Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-connectivitykit-7001"
+  },
+  {
+    "slug": "js-apidiff-contactskit-7001",
+    "name": "Contacts Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Contacts Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-contactskit-7001"
+  },
+  {
+    "slug": "js-apidiff-corefilekit-7001",
+    "name": "Core File Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Core File Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-corefilekit-7001"
+  },
+  {
+    "slug": "js-apidiff-corevisionkit-7001",
+    "name": "Core Vision Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Core Vision Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-corevisionkit-7001"
+  },
+  {
+    "slug": "js-apidiff-cryptoarchitecturekit-7001",
+    "name": "Crypto Architecture Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Crypto Architecture Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-cryptoarchitecturekit-7001"
+  },
+  {
+    "slug": "js-apidiff-dataaugmentationkit-7001",
+    "name": "Data Augmentation Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Data Augmentation Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-dataaugmentationkit-7001"
+  },
+  {
+    "slug": "js-apidiff-dataprotectionkit-7001",
+    "name": "Data Protection Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Data Protection Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-dataprotectionkit-7001"
+  },
+  {
+    "slug": "js-apidiff-devicecertificatekit-7001",
+    "name": "Device Certificate Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Device Certificate Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-devicecertificatekit-7001"
+  },
+  {
+    "slug": "js-apidiff-devicesecuritykit-7001",
+    "name": "Device Security Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Device Security Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-devicesecuritykit-7001"
+  },
+  {
+    "slug": "js-apidiff-distributedservicekit-7001",
+    "name": "Distributed Service Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Distributed Service Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-distributedservicekit-7001"
+  },
+  {
+    "slug": "js-apidiff-enterprisedataguardkit-7001",
+    "name": "Enterprise Data Guard Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Enterprise Data Guard Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-enterprisedataguardkit-7001"
+  },
+  {
+    "slug": "js-apidiff-enterprisespacekit-7001",
+    "name": "Enterprise Space Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Enterprise Space Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-enterprisespacekit-7001"
+  },
+  {
+    "slug": "js-apidiff-fastkit-7001",
+    "name": "FAST Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/FAST Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-fastkit-7001"
+  },
+  {
+    "slug": "js-apidiff-graphicsacceleratekit-7001",
+    "name": "Graphics Accelerate Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Graphics Accelerate Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-graphicsacceleratekit-7001"
+  },
+  {
+    "slug": "js-apidiff-imagekit-7001",
+    "name": "Image Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Image Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-imagekit-7001"
+  },
+  {
+    "slug": "js-apidiff-imekit-7001",
+    "name": "IME Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/IME Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-imekit-7001"
+  },
+  {
+    "slug": "js-apidiff-inputkit-7001",
+    "name": "Input Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Input Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-inputkit-7001"
+  },
+  {
+    "slug": "js-apidiff-liveviewkit-7001",
+    "name": "Live View Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Live View Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-liveviewkit-7001"
+  },
+  {
+    "slug": "js-apidiff-localizationkit-7001",
+    "name": "Localization Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Localization Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-localizationkit-7001"
+  },
+  {
+    "slug": "js-apidiff-locationkit-7001",
+    "name": "Location Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Location Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-locationkit-7001"
+  },
+  {
+    "slug": "js-apidiff-mdmkit-7001",
+    "name": "MDM Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/MDM Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mdmkit-7001"
+  },
+  {
+    "slug": "js-apidiff-mechanickit-7001",
+    "name": "Mechanic Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Mechanic Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mechanickit-7001"
+  },
+  {
+    "slug": "js-apidiff-mediakit-7001",
+    "name": "Media Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Media Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mediakit-7001"
+  },
+  {
+    "slug": "js-apidiff-medialibrarykit-7001",
+    "name": "Media Library Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Media Library Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-medialibrarykit-7001"
+  },
+  {
+    "slug": "js-apidiff-nearlinkkit-7001",
+    "name": "NearLink Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/NearLink Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-nearlinkkit-7001"
+  },
+  {
+    "slug": "js-apidiff-networkboostkit-7001",
+    "name": "Network Boost Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Network Boost Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkboostkit-7001"
+  },
+  {
+    "slug": "js-apidiff-networkkit-7001",
+    "name": "Network Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Network Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkkit-7001"
+  },
+  {
+    "slug": "js-apidiff-notificationkit-7001",
+    "name": "Notification Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Notification Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-notificationkit-7001"
+  },
+  {
+    "slug": "js-apidiff-onlineauthenticationkit-7001",
+    "name": "Online Authentication Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Online Authentication Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-onlineauthenticationkit-7001"
+  },
+  {
+    "slug": "js-apidiff-pdfkit-7001",
+    "name": "PDF Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/PDF Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-pdfkit-7001"
+  },
+  {
+    "slug": "js-apidiff-performanceanalysiskit-7001",
+    "name": "Performance Analysis Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Performance Analysis Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-performanceanalysiskit-7001"
+  },
+  {
+    "slug": "js-apidiff-previewkit-7001",
+    "name": "Preview Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Preview Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-previewkit-7001"
+  },
+  {
+    "slug": "js-apidiff-pushkit-7001",
+    "name": "Push Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Push Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-pushkit-7001"
+  },
+  {
+    "slug": "js-apidiff-remotecommunicationkit-7001",
+    "name": "Remote Communication Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Remote Communication Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-remotecommunicationkit-7001"
+  },
+  {
+    "slug": "js-apidiff-scankit-7001",
+    "name": "Scan Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Scan Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-scankit-7001"
+  },
+  {
+    "slug": "js-apidiff-scenariofusionkit-7001",
+    "name": "Scenario Fusion Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Scenario Fusion Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-scenariofusionkit-7001"
+  },
+  {
+    "slug": "js-apidiff-screentimeguardkit-7001",
+    "name": "Screen Time Guard Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Screen Time Guard Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-screentimeguardkit-7001"
+  },
+  {
+    "slug": "js-apidiff-sensorservicekit-7001",
+    "name": "Sensor Service Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Sensor Service Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-sensorservicekit-7001"
+  },
+  {
+    "slug": "js-apidiff-sharekit-7001",
+    "name": "Share Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Share Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-sharekit-7001"
+  },
+  {
+    "slug": "js-apidiff-spatialreconkit-7001",
+    "name": "Spatial Recon Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Spatial Recon Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-spatialreconkit-7001"
+  },
+  {
+    "slug": "js-apidiff-telephonykit-7001",
+    "name": "Telephony Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Telephony Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-telephonykit-7001"
+  },
+  {
+    "slug": "js-apidiff-testkit-7001",
+    "name": "Test Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Test Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-testkit-7001"
+  },
+  {
+    "slug": "js-apidiff-uidesignkit-7001",
+    "name": "UI Design Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/UI Design Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-uidesignkit-7001"
+  },
+  {
+    "slug": "js-apidiff-universalkeystorekit-7001",
+    "name": "Universal Keystore Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/Universal Keystore Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-universalkeystorekit-7001"
+  },
+  {
+    "slug": "js-apidiff-userauthenticationkit-7001",
+    "name": "User Authentication Kit",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/OS平台能力/API变更清单/26.0.0 Beta1引入的API/User Authentication Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-userauthenticationkit-7001"
+  },
+  {
+    "slug": "deveco-studio-new-features-2600",
+    "name": "新增和增强特性",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/DevEco Studio/新增和增强特性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/deveco-studio-new-features-2600"
+  },
+  {
+    "slug": "ide-changelogs-2600",
+    "name": "变更说明",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/DevEco Studio/变更说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/ide-changelogs-2600"
+  },
+  {
+    "slug": "deveco-testing-releasenotes-2600",
+    "name": "新增和增强特性",
+    "file": "开发/版本说明/最新版本(26.0.0 Beta)/26.0.0/DevEco Testing/新增和增强特性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/deveco-testing-releasenotes-2600"
   }
 ]

@@ -1,0 +1,196 @@
+# 如何跨Text组件选择文本
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1204
+
+## 如何跨Text组件选择文本
+ 
+
+
+##### 问题现象
+
+使用多个Text组件时，如何跨组件选中文本。
+ 
+ 
+
+##### 效果预览
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/QpFlLpriT7SeQY_HyThicA/zh-cn_image_0000002658832831.png?HW-CC-KV=V1&HW-CC-Date=20260701T025604Z&HW-CC-Expire=86400&HW-CC-Sign=B4250C13BD7F3885EBCE2E290635E06F25313CAF246B6EA8FE6A7EDEB6A2D180)
+
+ 
+ 
+
+##### 背景知识
+
+- [PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)用于给组件添加滑动手势事件，通过onActionStart、onActionUpdate、onActionEnd来判断当前手势状态。
+- [getLayoutManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#getlayoutmanager12)：调用文本的布局管理对象获取文本信息。
+- [getRectsForRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#getrectsforrange14)：获取给定的矩形区域宽度以及矩形区域高度的规格下，文本中任意区间范围内的字符或占位符所占的绘制区域信息。
+- [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)：提供画布组件，用于自定义绘制图形。
+
+ 
+ 
+
+##### 解决方案
+
+实现思路：通过自定义光标组件结合手势事件，调整文本选区范围，并通过Canvas绘制区域高亮，实现跨Text组件选择文本。
+ 
+- 自定义光标组件，并绑定了PanGesture，处理拖动事件，更新光标位置并调整选中区域：
+```text
+// 自定义光标组件
+@Builder
+caretBuilder(info: CaretInfo) {
+  Column() {
+    Column()
+      .width(1.5)
+      .height(22)
+      .backgroundColor('rgba(10, 89, 247, 1)');
+    Column()
+      .width(19)
+      .aspectRatio(1)
+      .border({ width: 2, color: 'rgba(10, 89, 247, 1)', radius: 10 });
+  }
+  .position(info.position)
+  // 拖拽时更新贯标位置
+  .gesture(
+    PanGesture()
+      .onActionStart(() => {
+        this.lastStartCaretPosition = this.startCaretInfo.position;
+        this.lastEndCaretPosition = this.endCaretInfo.position;
+      })
+      .onActionUpdate(event => {
+        this.getCaretInfo(event.fingerList[event.fingerList.length - 1].globalX,
+          event.fingerList[event.fingerList.length - 1].globalY - this.TOP_HEIGHT, info);
+        if (this.startCaretInfo.lessThan(this.endCaretInfo)) {
+          this.getTextInfos(this.startCaretInfo, this.endCaretInfo);
+        } else {
+          this.getTextInfos(this.endCaretInfo, this.startCaretInfo);
+        }
+      })
+  );
+}
+```
+
+- 调用getTextInfos来获取选中的文本区域信息，最后通过paint方法在Canvas上绘制高亮，实现跨Text组件选择文本：
+```text
+// 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。
+getTextInfos(start: CaretInfo, end: CaretInfo) {
+  this.textInfos = [];
+  for (let i = start.listItemIndex; i  another.listItemIndex) &&
+      (this.listItemIndex  {
+        this.TOP_HEIGHT =
+          this.getUIContext().px2vp(win.getWindowAvoidArea(window.AvoidAreaType.TYPE_SYSTEM).topRect.height);
+      });
+  }
+
+  // 自定义光标组件
+  @Builder
+  caretBuilder(info: CaretInfo) {
+    Column() {
+      Column()
+        .width(1.5)
+        .height(22)
+        .backgroundColor('rgba(10, 89, 247, 1)');
+      Column()
+        .width(19)
+        .aspectRatio(1)
+        .border({ width: 2, color: 'rgba(10, 89, 247, 1)', radius: 10 });
+    }
+    .position(info.position)
+    // 拖拽时更新贯标位置
+    .gesture(
+      PanGesture()
+        .onActionStart(() => {
+          this.lastStartCaretPosition = this.startCaretInfo.position;
+          this.lastEndCaretPosition = this.endCaretInfo.position;
+        })
+        .onActionUpdate(event => {
+          this.getCaretInfo(event.fingerList[event.fingerList.length - 1].globalX,
+            event.fingerList[event.fingerList.length - 1].globalY - this.TOP_HEIGHT, info);
+          if (this.startCaretInfo.lessThan(this.endCaretInfo)) {
+            this.getTextInfos(this.startCaretInfo, this.endCaretInfo);
+          } else {
+            this.getTextInfos(this.endCaretInfo, this.startCaretInfo);
+          }
+        })
+    );
+  }
+
+  // 获取文本中字符位置
+  getTextIndex(x: number, y: number, layoutManager: LayoutManager) {
+    let lineCount = layoutManager.getLineCount();
+    let lineNum: number = -1;
+    for (let i = 0; i = this.getUIContext().px2vp(lineMetrics.topHeight) &&
+        y = this.getUIContext().px2vp(line.left + line.width)) {
+      return line.endIndex + 1;
+    }
+    for (let i = line.startIndex; i  {
+      return {
+        left: this.getUIContext().px2vp(item.rect.left),
+        right: this.getUIContext().px2vp(item.rect.right),
+        top: this.getUIContext().px2vp(item.rect.top),
+        bottom: this.getUIContext().px2vp(item.rect.bottom)
+      };
+    });
+  }
+
+  // 历起始和结束位置之间的列表项，获取每个项的选区矩形，计算光标的位置，并调用paint进行绘制。
+  getTextInfos(start: CaretInfo, end: CaretInfo) {
+    this.textInfos = [];
+    for (let i = start.listItemIndex; i  // 使用Canvas绘制黄色高亮背景
+  paint() {
+    this.context.reset();
+    this.context.translate(0, -this.yOffset);
+    this.context.fillStyle = 'rgba(10, 89, 247, 0.2)';
+    this.textInfos.forEach(info => {
+      info.textRects.forEach(item => {
+        this.context.fillRect(info.itemRect.x + item.left, info.itemRect.y + item.top + info.yOffset,
+          item.right - item.left, item.bottom - item.top);
+      });
+    });
+  }
+
+  build() {
+    Stack() {
+      Canvas(this.context);
+      List({ space: 10, scroller: this.scroller }) {
+        Repeat(this.data)
+          .each(item => {
+            ListItem() {
+              Text(item.item, { controller: this.controllers[item.index] })
+                .fontColor('rgba(0, 0, 0, 0.9)');
+            };
+          });
+      }
+      .onScrollStart(() => {
+        this.lastStartCaretPosition = this.startCaretInfo.position;
+        this.lastStartCaretPosition.y = this.lastStartCaretPosition.y as number + this.yOffset;
+        this.lastEndCaretPosition = this.endCaretInfo.position;
+        this.lastEndCaretPosition.y = this.lastEndCaretPosition.y as number + this.yOffset;
+      })
+      .onDidScroll(() => {
+        this.yOffset = this.scroller.currentOffset().yOffset;
+        this.startCaretInfo.position =
+          { x: this.lastStartCaretPosition.x, y: (this.lastStartCaretPosition.y as number) - this.yOffset };
+        this.endCaretInfo.position =
+          { x: this.lastEndCaretPosition.x, y: (this.lastEndCaretPosition.y as number) - this.yOffset };
+        this.paint();
+      })
+      .gesture(
+        LongPressGesture()
+          .onAction(event => {
+            this.getCaretInfo(event.fingerList[0].localX, event.fingerList[0].localY, this.startCaretInfo);
+            this.endCaretInfo.listItemIndex = this.startCaretInfo.listItemIndex;
+            this.endCaretInfo.caretIndex = this.startCaretInfo.caretIndex + 1;
+            this.getTextInfos(this.startCaretInfo, this.endCaretInfo);
+          })
+      );
+
+      this.caretBuilder(this.startCaretInfo);
+      this.caretBuilder(this.endCaretInfo);
+    }
+    .margin({ left: 16, right: 16 });
+  }
+}
+```

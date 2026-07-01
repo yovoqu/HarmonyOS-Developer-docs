@@ -1,6 +1,6 @@
 # OH_AudioSuite_SpaceRenderExtensionParams
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-03 01:38:22（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-spacerenderextensionparams
 **支持设备：** Phone | PC/2in1 | Tablet

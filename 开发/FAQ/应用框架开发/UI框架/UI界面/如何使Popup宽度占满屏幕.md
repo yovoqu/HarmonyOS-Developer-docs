@@ -1,0 +1,95 @@
+# 如何使Popup宽度占满屏幕
+
+更新时间：2026-06-26 09:07:13
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-814
+
+## 如何使Popup宽度占满屏幕
+ 
+
+
+##### 问题现象
+
+使用bindPopup创建气泡弹窗，如何使气泡弹窗的宽度占满屏幕？
+ 
+ 
+
+##### 效果预览
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/Aw-h4j1FRdOFbpS20ssYvg/zh-cn_image_0000002658917117.png?HW-CC-KV=V1&HW-CC-Date=20260701T025653Z&HW-CC-Expire=86400&HW-CC-Sign=7F4E765B7171F168F58F5FE85574D0BA217DB16B0028F61B16E3556AC8EA05D9)
+
+ 
+ 
+
+##### 背景知识
+
+[bindPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#bindpopup)方法中填入的Popup参数有两种类型，[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)和[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)：
+ 
+- PopupOptions依靠文本信息构建内容，样式相对固定。
+- CustomPopupOptions通过自定义构建函数@Builder构建内容。
+
+ 
+ 
+
+##### 解决方案
+
+选用CustomPopupOptions类型的参数，并依靠自定义构建函数@Builder构建内容。
+ 
+将CustomPopupOptions中的width设为100%：
+ 
+```text
+@Entry
+@Component
+struct PopupWidth {
+  @State handlePopup: boolean = false;
+
+  @Builder
+  popupBuilder() {
+    Row({ space: 2 }) {
+      Text('Custom Popup').fontSize(12);
+    }.width(100).height(50).padding(5);
+  }
+
+  build() {
+    Column({ space: 100 }) {
+      Button('CustomPopupOptions中width设置为100%')
+        .onClick(() => {
+          this.handlePopup = !this.handlePopup;
+        })
+        .bindPopup(this.handlePopup, {
+          width: '100%',
+          builder: this.popupBuilder,
+          arrowPointPosition: ArrowPointPosition.START, // 设置箭头的位置
+          backgroundBlurStyle: BlurStyle.NONE, // 关闭气泡的模糊背景
+          autoCancel: true,
+        });
+    }
+    .margin({ top: 50 })
+    .width('100%');
+  }
+}
+```
+ 
+ 
+
+##### 常见FAQ
+
+Q：使用Popup时，创建监听，会导致崩溃，是什么原因？
+ 
+```text
+aboutToAppear(): void {
+  this.listener.on('draw', () => {
+    this.pageMainContentHeight = componentUtils.getRectangleById('pageMainContent').size.height // 单位是px
+  })
+}
+```
+ 
+A：使用Popup时要手动取消监听。
+ 
+```text
+aboutToDisappear() {
+  // Unregister callback before destruction
+  this.listener.off('draw', () => {});
+}
+```

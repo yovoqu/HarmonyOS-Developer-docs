@@ -1,6 +1,6 @@
 # AccessibilityExtensionContext (辅助功能扩展上下文)
 
-更新时间：2026-04-17 08:12:20
+更新时间：2026-04-17 08:12:20（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
