@@ -1,6 +1,6 @@
 # CanvasPattern
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvaspattern
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -102,4 +102,4 @@ struct CanvasPatternPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/uyeAWSAsSJ--MREUcYzH3g/zh-cn_image_0000002581436062.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=E66FA15F3D43855D4C8BE7ACC6107DE2EB4D5E27066036D3C9265D44C8B1CB2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/LtkrD8zoSf-lcU_o7CBwyQ/zh-cn_image_0000002628862676.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=943222452B457BFE8BCA3F77AC728CA98A51F3D8767B225FA028CC084704C8F7)

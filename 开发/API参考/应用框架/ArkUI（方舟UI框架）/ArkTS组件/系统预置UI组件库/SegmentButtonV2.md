@@ -1,6 +1,6 @@
 # SegmentButtonV2
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 分段按钮组件用于创建页签型、单选或多选的胶囊型分段按钮。
  
 > [!NOTE]
-> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -84,7 +84,8 @@ TabSegmentButtonV2({
   buttonMinHeight?: LengthMetrics,
   buttonPadding?: LengthMetrics,
   languageDirection?: Direction,
-  enableStateAnimation?: boolean
+  enableStateAnimation?: boolean,
+  backgroundSystemMaterial?: uiMaterial.Material
 })
 ```
  
@@ -129,6 +130,7 @@ TabSegmentButtonV2({
 | itemSelectedSymbolFontColor | ColorMetrics | 否 | @Param | 配置分段按钮选中选项的HM Symbol类型图标颜色。 默认值：\$r('sys.color.font_primary') 值为undefined时，按默认值处理。 说明： items设置symbolModifier的fontColor属性值时，itemSelectedSymbolFontColor不生效。 该成员只读，不支持更改。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | languageDirection | Direction | 否 | @Param | 配置分段按钮的布局方向。 默认值：Direction.Auto 超出取值范围按默认值处理。 该成员只读，不支持更改。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | enableStateAnimation24+ | boolean | 否 | @Param | 设置当通过变量修改selectedIndex值时，是否开启分段按钮的属性动画。 true表示开启分段按钮的属性动画；未配置该属性或值为false时表示不开启分段按钮的属性动画，使用原有动画。 默认值：false 该成员只读，不支持更改。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundSystemMaterial | uiMaterial.Material | 否 | @Param | 分段按钮组件的背景板的系统材质。不同系统材质包含不同的属性影响效果。传入材质后，SegmentButtonV2的动效发生改变。 默认值：无材质效果。 该成员只读，不支持更改。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
   
@@ -171,7 +173,8 @@ CapsuleSegmentButtonV2({
   buttonMinHeight?: LengthMetrics,
   buttonPadding?: LengthMetrics,
   languageDirection?: Direction,
-  enableStateAnimation?: boolean
+  enableStateAnimation?: boolean,
+  backgroundSystemMaterial?: uiMaterial.Material
 })
 ```
  
@@ -216,6 +219,7 @@ CapsuleSegmentButtonV2({
 | itemSelectedSymbolFontColor | ColorMetrics | 否 | @Param | 配置分段按钮选中的选项中HM Symbol类型图标颜色。 默认值：\$r('sys.color.font_on_primary') 值为undefined时，按默认值处理。 说明： items设置symbolModifier的fontColor属性值时，itemSelectedSymbolFontColor不生效。 该成员只读，不支持更改。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | languageDirection | Direction | 否 | @Param | 配置分段按钮的布局方向。 默认值：Direction.Auto 超出取值范围按默认值处理。 该成员只读，不支持更改。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | enableStateAnimation24+ | boolean | 否 | @Param | 设置当通过变量修改selectedIndex时，是否开启分段按钮的属性动画。 true表示开启分段按钮的属性动画；未配置该属性或值为false时表示不开启分段按钮的属性动画，使用原有动画。 默认值：false 该成员只读，不支持更改。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundSystemMaterial | uiMaterial.Material | 否 | @Param | 分段按钮组件的背景板的系统材质。不同系统材质包含不同的属性影响效果。传入材质后，SegmentButtonV2的动效发生改变。 默认值：无材质效果。 该成员只读，不支持更改。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
   
@@ -930,7 +934,7 @@ export struct VCard {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/NvdLxboDQz6RlRA8ZCLPVA/zh-cn_image_0000002617710313.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=49E9F919136BEBDBCE6B55524664662EEAC77C62B215E982018B7E57083123BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/7-gOGZX4RjuQIJfqVCCpzw/zh-cn_image_0000002628862880.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=4CA4F8ECB1D793F680E0B8CDD9AE5034D4ECED53789413782372B00150C7470B)
 
  
   
@@ -1029,16 +1033,16 @@ export struct VCard {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/rZhH9UmMRvi9zuh58Eyhyw/zh-cn_image_0000002587110732.png?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=146BA1B26769A79CB4C8D4BCEC0223634CD328CFD454CF0CD729CD5BC225381A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/ZLFqY48ITk-PjoYoromoZw/zh-cn_image_0000002659222193.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=4B0A0E25616766044858589B60F80D592FED5075471911A3413776A611C494C8)
 
  
   
 
 #### 示例5（开启SegmentButtonV2的属性动画）
 
- 此示例展示了SegmentButtonV2开启enableStateAnimation后，在通过状态变量修改selectedIndexes的值时，按钮切换也具有动画效果。
+此示例展示了SegmentButtonV2开启enableStateAnimation后，在通过状态变量修改selectedIndexes的值时，按钮切换也具有动画效果。
  
- 从API version 24开始，[TabSegmentButtonV2](#tabsegmentbuttonv2)和[CapsuleSegmentButtonV2](#capsulesegmentbuttonv2)新增enableStateAnimation属性。
+从API version 24开始，[TabSegmentButtonV2](#tabsegmentbuttonv2)和[CapsuleSegmentButtonV2](#capsulesegmentbuttonv2)新增enableStateAnimation属性。
  
 ```text
 import { TabSegmentButtonV2, CapsuleSegmentButtonV2, SegmentButtonV2Items } from '@kit.ArkUI';
@@ -1127,5 +1131,106 @@ export struct VCard {
 }
 ```
  
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/elQA-AbWRjam7qZHjEC9iw/zh-cn_image_0000002628703002.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=13AC00A4E7C0DBA3B4EF9FAA7A93A638EAE26431D1EEA9C1252D8FCAFF0EEEC6)
+
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/6hPBCyW1SNC_DSdnpaVzkA/zh-cn_image_0000002617670411.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=921BC64FAD41794FE523096F0D5A1160127D72D5D77EDD91371F302D0671718C)
+  
+
+#### 示例6（设置背景板材质）
+
+以下示例通过backgroundSystemMaterial属性，为分段按钮设置了半透明的背景板材质。
+ 
+从API版本26.0.0开始，[TabSegmentButtonV2](#tabsegmentbuttonv2)和[CapsuleSegmentButtonV2](#capsulesegmentbuttonv2)中新增backgroundSystemMaterial属性。
+ 
+```text
+import { SegmentButtonV2Items, TabSegmentButtonV2, CapsuleSegmentButtonV2, uiMaterial } from '@kit.ArkUI';
+
+@Entry
+@ComponentV2
+struct SegmentButtonV2Example {
+  @Local textItems: SegmentButtonV2Items = new SegmentButtonV2Items([
+    { text: '手机' },
+    { text: '平板' },
+    { text: 'PC/2in1' },
+    { text: '智能穿戴' },
+  ]);
+  @Local textSelectedIndex: number = 0;
+
+  @Local imageItems: SegmentButtonV2Items = new SegmentButtonV2Items([
+    { icon: $r('sys.media.ohos_ic_public_device_phone') },
+    { icon: $r('sys.media.ohos_ic_public_device_pad') },
+    { icon: $r('sys.media.ohos_ic_public_device_matebook') },
+    { icon: $r('sys.media.ohos_ic_public_device_watch') },
+  ]);
+  @Local imageSelectedIndex: number = 0;
+
+  build() {
+    Scroll() {
+      Stack() {
+        // 作为分段按钮的背景，其中('app.media.pic')需要替换为开发者所需的图片
+        Image($r('app.media.pic'))
+        Column({ space: 12 }) {
+          VCard({ title: '纯文本选项' }) {
+            TabSegmentButtonV2({
+              items: this.textItems,
+              selectedIndex: this.textSelectedIndex!!,
+              // 设置为半透明材质
+              backgroundSystemMaterial:
+              new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.ULTRA_THICK })
+            })
+          }
+
+          VCard({ title: '纯图标选项' }) {
+            CapsuleSegmentButtonV2({
+              items: this.imageItems,
+              selectedIndex: this.imageSelectedIndex!!,
+              // 设置为半透明材质
+              backgroundSystemMaterial:
+              new uiMaterial.ImmersiveMaterial({ style: uiMaterial.ImmersiveStyle.ULTRA_THICK })
+            })
+          }
+
+        }
+        .constraintSize({ minHeight: '100%' })
+        .justifyContent(FlexAlign.Start)
+        .padding(16)
+      }
+      .backgroundColor('#f1f3f5')
+      .width('100%')
+      .height('100%')
+    }
+  }
+}
+
+@Builder
+function Noop() {
+}
+
+@Component
+export struct VCard {
+  @Prop
+  title: ResourceStr;
+  @BuilderParam
+  content: () => void = Noop;
+
+  build() {
+    Column({ space: 8 }) {
+      if (this.title) {
+        Text(this.title)
+          .maxLines(1)
+          .textOverflow({ overflow: TextOverflow.Ellipsis })
+          .constraintSize({ maxWidth: '80%' })
+      }
+      this.content()
+    }
+    .backgroundColor(Color.Transparent)
+    .borderRadius(8)
+    .padding(8)
+    .width('100%')
+  }
+}
+```
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/ak8dScr0S_a8B7giK-AAjA/zh-cn_image_0000002659102229.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=5164F8D03692AAC1641341168097AEEB994E8CBBABC5893DB6B0A8579EFF5ADE)

@@ -1,6 +1,6 @@
 # @ohos.app.form.LiveFormExtensionAbility (LiveFormExtensionAbility)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-liveformextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -139,7 +139,7 @@ export default class LiveFormExtAbility extends LiveFormExtensionAbility {
 | --- | --- | --- | --- | --- |
 | formId | string | 否 | 否 | 卡片id。 |
 | rect | formInfo.Rect | 否 | 否 | 卡片位置和大小信息。 |
-| borderRadius | number | 否 | 否 | 卡片圆角半径信息。取值大于0，单位vp。 |
+| borderRadius | number | 否 | 否 | 卡片圆角半径信息。取值大于等于0，单位vp。 |
 
 
 

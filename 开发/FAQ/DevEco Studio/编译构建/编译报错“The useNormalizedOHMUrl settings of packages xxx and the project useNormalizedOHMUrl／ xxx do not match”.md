@@ -1,6 +1,6 @@
 # 编译报错“The useNormalizedOHMUrl settings of packages xxx and the project useNormalizedOHMUrl: xxx do not match”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-119
 
@@ -41,8 +41,8 @@ useNormalizedOHMUrl为true的时候ohmurl使用的是新的拼接和解析方式
 ```json
 "modules": [
   {
-    name: "hsp",   // The referenced hsp package dependency
-    srcPath: "../MyApplication_stageB/hsp",   // The path to the hsp package being referenced (both absolute and relative paths are okay)
+    name: "hsp",   <em>// The referenced hsp package dependency</em>
+    srcPath: "../MyApplication_stageB/hsp",   <em>// The path to the hsp package being referenced (both absolute and relative paths are okay)</em>
   }
 ],
 ```

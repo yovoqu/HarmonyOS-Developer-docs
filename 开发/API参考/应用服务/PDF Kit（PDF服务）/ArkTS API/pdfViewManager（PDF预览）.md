@@ -1,6 +1,6 @@
 # pdfViewManager（PDF预览）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -26,7 +26,7 @@ import { pdfViewManager } from '@kit.PDFKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-PDF文件控制器类。
+PDF文档控制器类。
  
 **系统能力：** SystemCapability.OfficeService.PDFService.Core
  
@@ -41,6 +41,8 @@ PDF文件控制器类。
 constructor()
  
 构造函数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.OfficeService.PDFService.Core
  
@@ -906,7 +908,7 @@ getPageHorizontalSpacing(): number
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 左右页面之间的间距，单位为vp。 |
+| number | 左右页面之间的间距，单位为px。 |
  
  
 **示例：**
@@ -942,7 +944,7 @@ getPageVerticalSpacing(): number
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 上下页之间的间距，单位为vp。 |
+| number | 上下页之间的间距，单位为px。 |
  
  
 **示例：**
@@ -2172,7 +2174,7 @@ PDF页面 registerAnnotationChangedListener 监听函数回调参数。
 | --- | --- | --- | --- | --- |
 | color | number | 否 | 否 | 颜色(ARGB)，范围0x00000000 ~ 0xFFFFFFFF。 |
 | annotationType | SupportedAnnotationType | 否 | 否 | 批注类型。 |
-| pageIndexArray | Array&lt;number&gt; | 否 | 否 | 批注在页面的的索引列表。 |
+| pageIndexArray | Array&lt;number&gt; | 否 | 否 | 批注在页面的索引列表。 |
 | controlType | AnnotationEditType | 否 | 否 | 批注编辑类型，0：添加，1：修改，2：删除。 |
  
  

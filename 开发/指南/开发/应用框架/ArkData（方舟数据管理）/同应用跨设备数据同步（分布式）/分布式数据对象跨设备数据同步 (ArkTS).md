@@ -1,6 +1,6 @@
 # 分布式数据对象跨设备数据同步 (ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-distributed-data-object
 
@@ -119,11 +119,11 @@ dataObject['parents']['mom'] = "amy"; // 不支持的修改
 
 #### 资产同步机制
 
-在分布式对象中，可以使用[资产类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#asset)来描述本地实体资产文件，分布式对象跨设备同步时，该文件会和数据一起同步到其他设备上。
+在分布式对象中，可以使用资产类型[Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#asset)来描述本地实体资产文件，分布式对象跨设备同步时，该文件会和数据一起同步到其他设备上。
 
-在API version 20之前版本，仅支持资产类型，不支持[资产类型数组](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#assets)。如需同步多个资产，可将每个资产作为分布式对象的一个根属性实现。
+在API version 20之前版本，仅支持资产类型，不支持资产类型数组[Assets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#assets)。如需同步多个资产，可将每个资产作为分布式对象的一个根属性实现。
 
-从API version 20开始，支持[资产类型数组](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#assets)的同步。
+从API version 20开始，支持资产类型数组[Assets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#assets)的同步。
 
 
 

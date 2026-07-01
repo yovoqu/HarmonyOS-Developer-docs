@@ -1,6 +1,6 @@
 # RowSplit
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-rowsplit
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -112,4 +112,4 @@ struct RowSplitExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/mJrfprH8QaieSv6ZwI8eFQ/zh-cn_image_0000002611755671.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=EF795763C5C93852B8F57E7EF9141C5A491A28F5DB75AB5C982C167B3426CFBE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/_6mTV6bFR-CvKbhOIREsoQ/zh-cn_image_0000002659221651.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=74472793B5704466DD99EF88A95176AB4CD594BFF597A396C19E79674B8B1D69)

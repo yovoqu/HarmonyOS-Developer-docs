@@ -1,6 +1,6 @@
 # SideBarContainer
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-sidebarcontainer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,15 +51,13 @@ SideBarContainer( type?: SideBarContainerType )
 
 容器内侧边栏样式枚举。
 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| Embed | 0 | 侧边栏嵌入到组件内，和内容区并列显示。 整体容器大小不变时，显示侧边栏会导致内容区缩小，隐藏侧边栏会扩大内容区。 组件尺寸小于minContentWidth + minSideBarWidth，并且未设置showSideBar时，侧边栏自动隐藏。 未设置minSideBarWidth或者minContentWidth采用未设置接口的默认值进行计算。 组件在自动隐藏后，如果通过点击控制按钮唤出侧边栏，则侧边栏悬浮在内容区上显示。 |
-| Overlay | 1 | 侧边栏浮在内容区上面，不会影响内容区的大小。 |
-| AUTO10+ | 2 | 组件尺寸大于等于minSideBarWidth + minContentWidth时，采用Embed模式显示。 组件尺寸小于minSideBarWidth + minContentWidth时，采用Overlay模式显示。 未设置minSideBarWidth或minContentWidth时，会使用未设置接口的默认值进行计算，若计算的值小于600vp，则使用600vp做为模式切换的断点值。 |
+| Embed | 0 | 侧边栏嵌入到组件内，和内容区并列显示。 整体容器大小不变时，显示侧边栏会导致内容区缩小，隐藏侧边栏会扩大内容区。 组件尺寸小于minContentWidth + minSideBarWidth，并且未设置showSideBar时，侧边栏自动隐藏。 未设置minSideBarWidth或者minContentWidth采用未设置接口的默认值进行计算。 组件在自动隐藏后，如果通过点击控制按钮唤出侧边栏，则侧边栏悬浮在内容区上显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| Overlay | 1 | 侧边栏浮在内容区上面，不会影响内容区的大小。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| AUTO10+ | 2 | 组件尺寸大于等于minSideBarWidth + minContentWidth时，采用Embed模式显示。 组件尺寸小于minSideBarWidth + minContentWidth时，采用Overlay模式显示。 未设置minSideBarWidth或minContentWidth时，会使用未设置接口的默认值进行计算，若计算的值小于600vp，则使用600vp做为模式切换的断点值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -333,6 +331,8 @@ divider(value: DividerStyle | null)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -367,6 +367,8 @@ Embed场景下，增大组件尺寸时仅增大内容区的尺寸。
 minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBarWidth属性，minContentWidth未设置时默认值优先级低于设置的minSideBarWidth与maxSideBarWidth属性。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -412,6 +414,8 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -448,10 +452,12 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 设置分割线的样式。
 
 > [!NOTE]
-> 针对侧边栏子组件设置 通用属性宽高 时，宽高都不生效。 针对侧边栏内容区设置 通用属性宽高 时，宽高都不生效，默认占满SideBarContainer的剩余空间。 当 showSideBar 属性未设置时，依据组件大小进行自动显示： 小于 minSideBarWidth + minContentWidth ：默认不显示侧边栏。 大于等于minSideBarWidth + minContentWidth：默认显示侧边栏。
+> 针对侧边栏子组件设置 width ， height 时，宽高都不生效。 针对侧边栏内容区设置 width ， height 时，宽高都不生效，默认占满SideBarContainer的剩余空间。 当 showSideBar 属性未设置时，依据组件大小进行自动显示： 小于 minSideBarWidth + minContentWidth ：默认不显示侧边栏。 大于等于minSideBarWidth + minContentWidth：默认显示侧边栏。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -562,4 +568,4 @@ struct SideBarContainerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/qBMq2h1pRCu-GV0e852LUQ/zh-cn_image_0000002581435732.png?HW-CC-KV=V1&HW-CC-Date=20260528T025552Z&HW-CC-Expire=86400&HW-CC-Sign=CA38231C13F4C2B95B4811E4DC8F04C6FEC94AE31DA5F26111DFD99CE6B5C097)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/LkGXoXkvROyatyaOM7H_sA/zh-cn_image_0000002628702460.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=B6AB09162996BE1CB1E65E5B1DDA96BA1447AACB48F406860599D180F975150A)

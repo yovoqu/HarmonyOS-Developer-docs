@@ -1,12 +1,12 @@
 # 报错“the parameters check fails this is fail path”如何解决
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-31
 
 **问题现象**
  
-```ArkTS
+```json
 public static timelineReceivedResult(path: string): void {
   if (!path) {
     console.error('Invoke empty file path')
@@ -23,7 +23,7 @@ public static timelineReceivedResult(path: string): void {
       type: 'txt'
     }
   ]
-  let data: Array<request.RequestData> = []; // { name: 'name', value: 'value' }
+  let data: Array<request.RequestData> = []; <em>// { name: 'name', value: 'value' }</em>
   let uploadConfig: request.UploadConfig = {
     url: 'http://30.7.242.25:8800',
     header: header,
@@ -32,7 +32,7 @@ public static timelineReceivedResult(path: string): void {
     data: data
   }
 
-  // Upload the local application file to the web server.
+ <em> // Upload the local application file to the web server.</em>
   try {
     request.uploadFile(context, uploadConfig)
       .then((uploadTask: request.UploadTask) => {

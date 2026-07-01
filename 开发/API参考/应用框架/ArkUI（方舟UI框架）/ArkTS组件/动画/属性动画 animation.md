@@ -1,6 +1,6 @@
 # 属性动画 (animation)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-animatorproperty
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -152,4 +152,4 @@ struct AttrAnimationExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/yrqDjALdTbmvXsGadFqv9g/zh-cn_image_0000002581276242.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=85D8EC07D534EB9BF1E04CDB8ED909344EE47E25F15A49ADF39D2F1803B5236B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/gWpZrQ2MTxm3VelVh7hpog/zh-cn_image_0000002659102121.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=FEE2E3B69F61E66D6C69C79ACC3C0EE8CC0B189AC7C5C66073B9DDF5C9FEBA2B)

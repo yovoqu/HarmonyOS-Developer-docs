@@ -1,6 +1,6 @@
 # 如何在UIAbility、页面和组件中获取UIAbilityContext
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-73
 

@@ -1,6 +1,6 @@
-# resultSet (结果集)
+# resultSet（结果集）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-resultset
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -222,7 +222,7 @@ goToFirstRow(): boolean
   
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 如果成功移动结果集，则为true；否则返回false。 |
+| boolean | 如果成功移动结果集到第一行，则为true；否则为false。 |
  
  
 **示例：**
@@ -254,7 +254,7 @@ goToLastRow(): boolean
   
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 如果成功移动结果集，则为true；否则返回false。 |
+| boolean | 如果成功移动结果集到最后一行，则为true；否则为false。 |
  
  
 **示例：**
@@ -286,7 +286,7 @@ goToNextRow(): boolean
   
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 如果成功移动结果集，则为true；否则返回false。 |
+| boolean | 如果成功移动结果集到下一行，则为true；否则为false。 |
  
  
 **示例：**
@@ -295,7 +295,6 @@ goToNextRow(): boolean
 let predicatesgoNext = new dataRdb.RdbPredicates("EMPLOYEE");
 let promisequerygoNext = rdbStore.query(predicatesgoNext, ["ID", "NAME", "AGE", "SALARY", "CODES"]);
 promisequerygoNext.then((resultSet) => {
-  resultSet.goToNextRow();
   resultSet.close();
 }).catch((err) => {
   console.error('query failed');
@@ -318,7 +317,7 @@ goToPreviousRow(): boolean
   
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 如果成功移动结果集，则为true；否则返回false。 |
+| boolean | 如果成功移动结果集到上一行，则为true；否则为false。 |
  
  
 **示例：**
@@ -327,7 +326,6 @@ goToPreviousRow(): boolean
 let predicatesgoPrev = new dataRdb.RdbPredicates("EMPLOYEE");
 let promisequerygoPrev = rdbStore.query(predicatesgoPrev, ["ID", "NAME", "AGE", "SALARY", "CODES"]);
 promisequerygoPrev.then((resultSet) => {
-  resultSet.goToPreviousRow();
   resultSet.close();
 }).catch((err) => {
   console.error('query failed');

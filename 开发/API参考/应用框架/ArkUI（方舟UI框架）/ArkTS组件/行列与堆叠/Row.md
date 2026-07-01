@@ -1,6 +1,6 @@
 # Row
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,7 +48,7 @@ Row(options?: RowOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options18+ | RowOptions | 否 | 横向布局元素间距，支持设置number或string类型。 |
+| options18+ | RowOptions | 否 | 横向布局元素的配置选项，可设置子组件的水平方向间距。 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
   
@@ -65,13 +65,15 @@ Row(options?: RowOptions | RowOptionsV2)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | RowOptions \| RowOptionsV2 | 否 | 横向布局元素间距，支持设置number、string或Resource类型。 |
+| options | RowOptions \| RowOptionsV2 | 否 | 横向布局元素的配置选项，可设置子组件的水平方向间距。 |
  
  
   
@@ -89,6 +91,8 @@ Row(options?: RowOptions | RowOptionsV2)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -108,6 +112,8 @@ Row(options?: RowOptions | RowOptionsV2)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -187,6 +193,8 @@ reverse(isReversed: Optional&lt;boolean&gt;)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -285,7 +293,7 @@ struct RowExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/9zBKc4YyRAKYMKmt8efy1w/zh-cn_image_0000002611835553.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=8A9B68D6B042B25284483164FE8A83ABE97AAB61BD39870C2BE15824FFE54AC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/4oKY-0AgT2iUO7-6d8hnjw/zh-cn_image_0000002659221639.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=78B03169F6FCA20D1EA3BEA070D92B034C0A0E942FA4A1ED76137396641C3D72)
 
  
   
@@ -319,4 +327,4 @@ struct RowReverseSample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/mC-IiuqlQFq-Wd15uX4T4w/zh-cn_image_0000002581275806.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=80AF5551AF606C328CD345FB3AB25B9F14650782E19FE7D34967D4B198BFD1E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/WOufETCDS2OBPLgfiswnAQ/zh-cn_image_0000002628702448.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=E2B7E1F1AC417B165457182F003D0D062B53C4286E962B7B6DCA57DAA6BD5D51)

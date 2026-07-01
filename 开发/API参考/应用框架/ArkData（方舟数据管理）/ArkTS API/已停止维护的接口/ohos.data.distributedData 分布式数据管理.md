@@ -1,6 +1,6 @@
 # @ohos.data.distributedData (分布式数据管理)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributed-data
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -4692,7 +4692,7 @@ get(deviceId: string, key: string): Promise<boolean|string|number|Uint8Array>
  
 获取与指定设备ID和key匹配的string值，使用Promise异步回调。
  
-> [!TIP]
+> [!NOTE]
 > 其中deviceId通过调用deviceManager.getTrustedDeviceListSync方法得到。deviceManager模块的接口均为系统接口，仅系统应用可用。 deviceId具体获取方式请参考 sync接口示例 。
 
  

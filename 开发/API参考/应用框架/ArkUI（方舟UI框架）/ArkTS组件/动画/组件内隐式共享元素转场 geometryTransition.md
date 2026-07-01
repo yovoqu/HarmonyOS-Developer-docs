@@ -1,6 +1,6 @@
 # 组件内隐式共享元素转场 (geometryTransition)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-geometrytransition
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,6 +50,8 @@ geometryTransition(id: string, options?: GeometryTransitionOptions): T
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -73,9 +75,11 @@ geometryTransition(id: string, options?: GeometryTransitionOptions): T
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -138,4 +142,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/_lNfSFzMSgazouSX-crTBw/zh-cn_image_0000002581276248.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=40D1703C30C61716A7DFCC395AC9F426A7E541164E9D50D158B9E87F5F307BB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/Bi4DWU8SR7K0ljF0hr0Y5A/zh-cn_image_0000002659102127.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=AAF5447DCEF4F2B3F1CF18F2B71D6A4938628D758790A73FB6642DB85018695F)

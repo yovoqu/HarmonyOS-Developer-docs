@@ -1,6 +1,6 @@
 # GetSubgraphNames
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getsubgraphnames
 
@@ -27,7 +27,7 @@ graphStatus GetSubgraphNames(std::vector<AscendString> &names) const;
  
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
-| names | 输出 | 获取一个算子的子图名称列表。 |
+| names | 输出 | 返回一个子图名称的列表。 |
  
  
   

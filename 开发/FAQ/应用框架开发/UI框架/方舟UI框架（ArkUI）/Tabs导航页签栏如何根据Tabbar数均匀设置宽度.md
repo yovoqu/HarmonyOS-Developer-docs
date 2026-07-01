@@ -1,12 +1,12 @@
 # Tabs导航页签栏如何根据Tabbar数均匀设置宽度
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-474
 
 可以通过设置TabBar布局模式枚举中的BarMode.Fixed来动态均分Tab导航栏宽度，示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct Index {
@@ -53,7 +53,7 @@ struct Index {
       .barHeight(56)
       .animationDuration(400)
       .onChange((index: number) => {
-        // currentIndex controls TabContent to display tabs
+      <em>  // currentIndex controls TabContent to display tabs</em>
         this.currentIndex = index
         this.selectedIndex = index
       })
@@ -61,7 +61,7 @@ struct Index {
         if (index === targetIndex) {
           return
         }
-        // selectedIndex controls the color switching between Image and Text within the custom TabBar
+       <em> // selectedIndex controls the color switching between Image and Text within the custom TabBar</em>
         this.selectedIndex = targetIndex
       })
       .width(360)

@@ -1,12 +1,12 @@
 # 如何同时获取屏幕方向orientation和系统规避区avoidAreaChange信息
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-369
 
 以折叠屏形态变化时触发为示例，可以在EntryAbility.ets文件中通过[on('avoidAreaChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onavoidareachange9)接口监听窗口系统规避区的变化，在callback中获取avoidAreaChange信息，并通过Display实例获取屏幕方向orientation等信息。
  
-```ArkTS
+```json
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { display, window } from '@kit.ArkUI';
@@ -22,7 +22,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
+  <em>  // Main window is created, set main page for this ability</em>
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -44,7 +44,7 @@ export default class EntryAbility extends UIAbility {
         windowClass = data;
         console.info('Succeeded in obtaining the top window. Data: ' + JSON.stringify(data));
         if (windowClass) {
-          // Please ensure that the relevant Window instance, namely windowClass, has been obtained
+      <em>    // Please ensure that the relevant Window instance, namely windowClass, has been obtained</em>
           windowClass.on('avoidAreaChange', async (data) => {
             console.info('Succeeded in enabling the listener for avoid area changes. Type: ' +
             JSON.stringify(data.type) + ', area ' + JSON.stringify(data.area));
@@ -64,17 +64,17 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+   <em> // Main window is destroyed, release UI related resources</em>
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-    // Ability has brought to foreground
+  <em>  // Ability has brought to foreground</em>
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-    // Ability has back to background
+   <em> // Ability has back to background</em>
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }

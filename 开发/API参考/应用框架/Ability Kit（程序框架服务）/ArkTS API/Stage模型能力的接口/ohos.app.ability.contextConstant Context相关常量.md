@@ -1,6 +1,6 @@
 # @ohos.app.ability.contextConstant (Context相关常量)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -169,6 +169,44 @@ export default class EntryAbility extends UIAbility {
       let message = (err as BusinessError).message;
       console.error(`setOnNewWantSkipScenarios failed, code is ${code}, message is ${message}`);
     }
+  }
+}
+```
+ 
+  
+
+#### ContextType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示常见Context类型的枚举，用于[isContextOf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#iscontextof)接口。
+ 
+**起始版本**：26.0.0
+ 
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| APPLICATION_CONTEXT | 0 | ApplicationContext类型。 |
+| ABILITY_STAGE_CONTEXT | 1 | AbilityStageContext类型。 |
+| UIABILITY_CONTEXT | 2 | UIAbilityContext类型。 |
+| FORM_EXTENSION_CONTEXT | 3 | FormExtensionContext类型。 |
+| APP_SERVICE_EXTENSION_CONTEXT | 4 | AppServiceExtensionContext类型。 |
+ 
+ 
+**示例：**
+ 
+```json
+import { UIAbility, contextConstant } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+export default class EntryAbility extends UIAbility {
+  onCreate() {
+    hilog.info(0x0000, 'testTag', `%{public}s`, 'Ability onCreate');
+    let result = this.context.isContextOf(contextConstant.ContextType.UIABILITY_CONTEXT);
+    hilog.info(0x0000, 'testTag', `match contextType result is:%{public}s`, JSON.stringify(result));
   }
 }
 ```

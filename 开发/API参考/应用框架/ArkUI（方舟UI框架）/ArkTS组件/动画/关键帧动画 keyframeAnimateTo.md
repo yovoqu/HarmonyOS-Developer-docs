@@ -1,14 +1,14 @@
 # 关键帧动画 (keyframeAnimateTo)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-keyframeanimateto
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-在[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中提供keyframeAnimateTo接口来指定若干个关键帧状态，实现分段的动画。同属性动画，布局类改变宽高的动画，内容都是直接到终点状态，例如文字、[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)的内容等，如果要内容跟随宽高变化，可以使用[renderFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-renderfit)属性配置。
+在[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中提供keyframeAnimateTo接口来指定若干个关键帧状态，实现分段的动画。同属性动画，布局类改变宽高的动画，内容都是直接到终点状态，例如文字、[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)的内容等，如果要内容跟随宽高变化，可以使用[renderFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-renderfit#renderfit)属性配置。
  
 > [!NOTE]
-> 从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该接口为 UIContext 类的成员函数，需要通过UIContext实例对象调用。
+> 从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 该接口为 UIContext 类的成员函数，需要通过UIContext实例对象调用。
 
  
 keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState&gt;): void
@@ -130,4 +130,4 @@ struct KeyframeDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/6tRMFr3qTB-ha5eizTBUGg/zh-cn_image_0000002611835991.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=3A8EAD94DC13DF93C9059E8E23A15C92CC60EA5402BD02E9A85AC8683E77D9B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/fQeVuaVvSRemrxn2N2Mxbg/zh-cn_image_0000002628702896.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=5EBE9504DF1E68323F293A74DF4203FDD2478C0203BFFB66F1A0223B98EE3DB6)

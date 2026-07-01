@@ -1,6 +1,6 @@
 # picker
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-picker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -387,4 +387,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/3A46uTdzS1q-EvckS8j1sQ/zh-cn_image_0000002581436334.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=33CF866AFDB1527A9AC3FA4C26059B3E2CEB644AC880663544876886D5566B76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/NPMYG9GtQPS3gKmxdw4fDw/zh-cn_image_0000002659102297.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=AF118CEA1113C22877DE693A43396729DA84178629D454F36DDEA3CB63A7EE1A)

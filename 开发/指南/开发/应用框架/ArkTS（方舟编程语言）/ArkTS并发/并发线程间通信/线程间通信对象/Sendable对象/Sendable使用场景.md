@@ -1,6 +1,6 @@
 # Sendable使用场景
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-guide
 
@@ -63,19 +63,24 @@ struct Index {
             console.info(`Receive ACCELEROMETER data: {${data.data?.x}, ${data.data?.y}, ${data.data?.z}}`);
           });
           taskpool.execute(sensorTask).then(() => {
+            this.listenerTask = 'success';
             console.info('Add listener of ACCELEROMETER success');
           }).catch((e: BusinessError) => {
             // Process error
+            this.listenerTask = 'failed';
           })
-          this.listenerTask = 'success';
         })
       Text(this.dataProcessingTask)
         .id('Data processing task')
         .fontSize(50)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-          test();
-          this.dataProcessingTask = 'success';
+          test().then(() => {
+            this.dataProcessingTask = 'success';
+          }).catch((e: BusinessError) => {
+            this.dataProcessingTask = 'failed';
+            console.error('taskpool execute failed. Code: ' + e.code + ', message: ' + e.message);
+          })
         })
     }
     .height('100%')

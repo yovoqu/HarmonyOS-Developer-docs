@@ -1,6 +1,6 @@
 # 系统能力SystemCapability使用指南
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap
 
@@ -250,7 +250,7 @@ media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptu
 #### 单设备及多设备应用开发场景下的适配开发
 
 应用开发可分为：
-1. 单设备应用开发：指应用工程的Device type只配置1个设备类型。
+1. 单设备应用开发：指应用工程的Device type只配置1个设备类型；
 2. 多设备应用开发：指应用工程的Device type配置多个设备类型。
 
 
@@ -260,7 +260,7 @@ media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptu
 单设备应用开发时，DevEco Studio只识别到一种设备类型，适配开发过程如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/R9qMpc_IQ061M7LvN-r-LA/zh-cn_image_0000002581435518.png?HW-CC-KV=V1&HW-CC-Date=20260528T025656Z&HW-CC-Expire=86400&HW-CC-Sign=0157DE5D89003550D93C2AE6FB6498D3E47BF72692A1A8F39C1D016B7B3BE314)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/LLvp0H2OR9q49C0mc_hdeQ/zh-cn_image_0000002659101463.png?HW-CC-KV=V1&HW-CC-Date=20260701T014229Z&HW-CC-Expire=86400&HW-CC-Sign=629BD3FC0320626D5A8434827BEB44CBF099B4C38BCAC3F56A9DF72917B5660F)
 
 1. 如果存在API在同一设备类型下的不同设备型号存在能力不一致的情况，需使用能力查询接口判断接口能力可用性（注意：此处的能力查询机制并非canIUse，请参见[使用能力查询接口判断API是否可用](#使用能力查询接口判断api是否可用)）；
 2. 为了避免调用接口出现的异常情况，需要开发者进行错误码异常处理。
@@ -272,7 +272,7 @@ media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptu
 多设备应用开发时，DevEco Studio需同时识别多种设备类型，适配开发过程如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/z6plMjWfR6yLAsYX1yfQmQ/zh-cn_image_0000002611835349.png?HW-CC-KV=V1&HW-CC-Date=20260528T025656Z&HW-CC-Expire=86400&HW-CC-Sign=7E1D71690D3CBF3D369C90F4F682D1A2C7D443AF3F0338C3925C0FD588B65BD5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/-cPwAUg8QIyD6LNMWoO66g/zh-cn_image_0000002628862114.png?HW-CC-KV=V1&HW-CC-Date=20260701T014229Z&HW-CC-Expire=86400&HW-CC-Sign=9AC22FB0B93DD239F768E98366C04E10AC31D9088F26C14B911DB0748172F458)
 
 1. 使用canIUse判断并集内交集外的SysCap集合是否可用；
 

@@ -1,6 +1,6 @@
 # @ohos.arkui.observer (无感监听)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-observer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供UI组件行为变化的无感监听能力。推荐使用[UIObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver)进行组件监听。
  
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 UIObserver仅能监听到本进程内的相关信息，不支持获取跨进程场景的信息。
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 UIObserver仅能监听到本进程内的相关信息，不支持获取跨进程场景的信息。
 
   
 

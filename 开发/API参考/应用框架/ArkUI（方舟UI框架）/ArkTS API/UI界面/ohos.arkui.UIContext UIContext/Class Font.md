@@ -1,6 +1,6 @@
 # Class (Font)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-font
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -23,6 +23,8 @@ registerFont(options: font.FontOptions): void
 该接口为异步接口，不支持并发调用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -80,6 +82,8 @@ getSystemFontList(): Array&lt;string&gt;
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -127,6 +131,8 @@ getFontByName(fontName: string): font.FontInfo
 根据传入的系统字体名称获取系统字体的相关信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

@@ -1,6 +1,6 @@
 # ValuesBucket是否有可动态添加字段的方式
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-48
 
@@ -8,13 +8,13 @@
  
 ValuesBucket的实现如下：
  
-```ArkTS
+```text
 export type ValuesBucket = Record<string, ValueType | Uint8Array | null>;
 ```
  
 若要动态添加字段，可以参考以下方法。
  
-```ArkTS
+```text
 function set(): void {
 
   let value : ValuesBucket={};

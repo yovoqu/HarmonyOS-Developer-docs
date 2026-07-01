@@ -1,6 +1,6 @@
 # ArcAlphabetIndexer
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -525,4 +525,4 @@ struct ArcListAndIndexer {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/dAigkfP4T_WMW6rlNcOl7A/zh-cn_image_0000002581436034.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=6C2989D3DC429FAD466F99D577C4FA1D2BED708FF962082E3EB480E2B68C8A71)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/ZdjFf5JcTL6qWU8Jc2-5ow/zh-cn_image_0000002628702770.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=E156AD58F5BCDA36E56E9ED316B1ADAAE5F160E2B390BE956E5D71E59692A448)

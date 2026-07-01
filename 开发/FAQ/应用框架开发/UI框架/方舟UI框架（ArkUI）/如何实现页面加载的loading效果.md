@@ -1,19 +1,19 @@
 # 如何实现页面加载的loading效果
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-233
 
 使用Stack堆叠组件和LoadingProgress加载组件实现页面首次加载时的等待效果。参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct PageLoading {
   @State isLoading: boolean = true;
 
   aboutToAppear(): void {
-    // Simulate network request operation, request data from the network 3 seconds later, notify the component, and change the list data
+   <em> // Simulate network request operation, request data from the network 3 seconds later, notify the component, and change the list data</em>
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);

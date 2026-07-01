@@ -1,6 +1,6 @@
 # Class (UIContext)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 UIContext实例对象。
 
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。 以下API需要通过对应的UIContext实例调用。获取UIContext分为三种方式，第一种是使用ohos.window中的 getUIContext() 方法获取UIContext实例，第二种是通过自定义组件内置方法 getUIContext() 获取UIContext实例，第三种是通过UIContext类的静态方法如 getCallingScopeUIContext 获取UIContext实例。本文中UIContext对象以uiContext表示。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。 以下API需要通过对应的UIContext实例调用。获取UIContext分为三种方式，第一种是使用ohos.window中的 getUIContext() 方法获取UIContext实例，第二种是通过自定义组件内置方法 getUIContext() 获取UIContext实例，第三种是通过UIContext类的静态方法如 getCallingScopeUIContext 获取UIContext实例。本文中UIContext对象以uiContext表示。
 
 
 **示例：**
@@ -3922,7 +3922,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/uDmqcXq5Ss-sOHbcJn4lag/zh-cn_image_0000002611835373.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=4711110D9ECA5B01D41C5D9B6CBD00FAEDD7660D2497202C531967E48E718BBF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/U0Q4rYqwSeyCskWUZEhjcg/zh-cn_image_0000002659221449.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=6F350DE8761C2F46C13B1B71953F1BDB84851A754DD575321CF80FE888F90B9E)
 
 
 
@@ -4633,7 +4633,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/oW5CtL7JQtutDx015rgGOw/zh-cn_image_0000002581275624.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=2F6D6632D69DBB77AABC6B96E6593F7245267D78197E5551B1E362AC1F1878A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/2Z4Ysgq9TjSUcQ1nnkjTWw/zh-cn_image_0000002628702260.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=7DF7117A54268EEC1F19549E053E5F97A17818DBE6EC60F123A01AE497474E84)
 
 
 
@@ -4794,7 +4794,7 @@ export struct pageThreeTmp {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/sOyNe1tIS1yeizGKrsLlew/zh-cn_image_0000002611755481.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=386C2C98D13CE1B34DD4BA5C63BD6A9F6A506C2A01DC5EF17E313D4F06C76B80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/ce4wvMhOQwOJchis0HxjEA/zh-cn_image_0000002659101489.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=11D57C76FDB7D437F6DB0A8F723D9E1176167F61D5BF4140EBB2B499D3484012)
 
 
 
@@ -4836,6 +4836,248 @@ struct Index {
       Button('Check EasySplit')
         .onClick(() => {
           this.isEasySplit = this.getUIContext()?.isEasySplit();
+        })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+
+#### enableEventPassthrough
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+enableEventPassthrough(enabled: boolean, eventType: RawInputEventType): void
+
+启用或禁用事件直通。事件直通表示在事件分发过程中，不经过[重采样](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-development-guide-touch-screen#重采样与历史点)直接下发给组件。未通过该接口设置时，默认禁用事件直通。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | boolean | 是 | 启用或禁用事件直通。true表示启用事件直通，false表示禁用事件直通。 |
+| eventType | RawInputEventType | 是 | 指定启用或禁用事件直通的原始输入事件类型。 |
+
+
+**示例：**
+
+```text
+@Entry
+@Component
+struct Index {
+  build() {
+    Column() {
+      Button('Enable Event Passthrough')
+        .onClick(() => {
+          this.getUIContext()?.enableEventPassthrough(true, RawInputEventType.TOUCH);
+        })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+
+#### addLocalInputEventMonitor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+addLocalInputEventMonitor(eventMask: number, listener: InputEventListener): InputEventMonitor
+
+注册本地输入事件监听器。
+
+> [!NOTE]
+> 请勿在回调中执行耗时操作（如复杂计算或网络请求），否则可能导致应用卡顿。 该监听器仅在当前UIContext（即当前窗口）内有效，不会响应其他UIContext实例。 返回值InputEventMonitor对象是系统创建的唯一标识，开发者无法主动构造或伪造此对象，必须保留其引用以用于后续取消注册。 如果传入无效参数，则返回undefined，表示注册监听器失败。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| eventMask | number | 是 | 事件类型掩码，通过位运算指定要监听的事件类型。取值及对应含义请参考InputEventSubTypeMask。 |
+| listener | InputEventListener | 是 | 事件监听器回调函数。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| InputEventMonitor | 监听器唯一标识对象，用于后续取消注册。 |
+
+
+**示例：**
+
+```text
+@Entry
+@Component
+struct InputEventMonitorSample {
+  private uiContext: UIContext | undefined = undefined;
+  private monitor: InputEventMonitor | null = null;
+  aboutToAppear() {
+    this.uiContext = this.getUIContext();
+    // 监听鼠标左键按下事件
+    this.monitor = this.uiContext.addLocalInputEventMonitor(
+      InputEventSubTypeMask.LEFT_MOUSE_DOWN,
+      (wrapper: RawInputEventWrapper) => {
+        if (wrapper.isMouseEvent()) {
+          const event = wrapper.asMouseEvent()!;
+          console.info(`Mouse down at (${event.windowX}, ${event.windowY})`);
+          return { action: InputEventInterceptAction.CONTINUE };  // 允许事件继续传递
+        }
+        return { action: InputEventInterceptAction.BLOCK };  // 阻止事件传递
+      }
+    );
+  }
+  aboutToDisappear() {
+    if (this.monitor && this.uiContext) {
+      this.uiContext.removeLocalInputEventMonitor(this.monitor);
+    }
+  }
+  build() {
+    Column() {
+      Text('Input Event Monitor Sample')
+        .fontSize(20)
+        .margin(20)
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+
+#### removeLocalInputEventMonitor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+removeLocalInputEventMonitor(monitor: InputEventMonitor): void
+
+移除本地输入事件监听器。
+
+> [!NOTE]
+> 只能移除通过 addLocalInputEventMonitor 返回的InputEventMonitor对象。 无法通过手动构造对象来注销监听器。 如果传入无效对象，系统会静默忽略。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| monitor | InputEventMonitor | 是 | 监听器标识对象，通过addLocalInputEventMonitor返回。 |
+
+
+**示例：**
+
+```text
+@Entry
+@Component
+struct RemoveMonitorSample {
+  private uiContext: UIContext | undefined = undefined;
+  private monitor: InputEventMonitor | null = null;
+  aboutToAppear() {
+    this.uiContext = this.getUIContext();
+    this.monitor = this.uiContext.addLocalInputEventMonitor(
+      InputEventSubTypeMask.LEFT_MOUSE_DOWN,
+      (wrapper: RawInputEventWrapper) => {
+        return { action: InputEventInterceptAction.CONTINUE };
+      }
+    );
+  }
+  aboutToDisappear() {
+    // 组件销毁时移除监听器
+    if (this.monitor && this.uiContext) {
+      this.uiContext.removeLocalInputEventMonitor(this.monitor);
+    }
+  }
+  build() {
+    Column() {
+      Button('Remove Monitor')
+        .onClick(() => {
+          if (this.monitor && this.uiContext) {
+            this.uiContext.removeLocalInputEventMonitor(this.monitor);
+            this.monitor = null;
+          }
+        })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+
+#### setTextSelectionClearPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setTextSelectionClearPolicy(policy: TextSelectionClearPolicy): void
+
+设置文本组件的文本选择清除策略。未通过该接口设置时，默认策略为TextSelectionClearPolicy.KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| policy | TextSelectionClearPolicy | 是 | 文本选择清除策略。 |
+
+
+**示例：**
+
+```text
+import { TextSelectionClearPolicy } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct Index {
+  @State message: string = 'Hello World';
+
+  build() {
+    Column() {
+      Text(this.message)
+        .fontSize(20)
+        .margin(10)
+        .copyOption(CopyOptions.LocalDevice)
+      Button('Set Clear Policy')
+        .onClick(() => {
+          this.getUIContext()?.setTextSelectionClearPolicy(TextSelectionClearPolicy.CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH);
         })
     }
     .width('100%')

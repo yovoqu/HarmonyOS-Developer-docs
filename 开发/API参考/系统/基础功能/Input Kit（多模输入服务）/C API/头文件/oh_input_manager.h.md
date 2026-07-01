@@ -1,6 +1,6 @@
 # oh_input_manager.h
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2264,7 +2264,7 @@ int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEve
 
 | 类型 | 说明 |
 | --- | --- |
-| int64_t | 返回触屏输入事件发生的时间。 |
+| int64_t | 返回触屏输入事件发生的时间，表示系统启动运行至今逝去的微秒数，单位为微秒（μs）。 |
 
 
 

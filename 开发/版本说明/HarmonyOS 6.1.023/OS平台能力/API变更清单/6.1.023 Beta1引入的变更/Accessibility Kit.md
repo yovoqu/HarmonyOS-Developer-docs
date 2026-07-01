@@ -1,6 +1,6 @@
 # Accessibility Kit
 
-更新时间：2026-04-20 06:33:01
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accessibilitykit-6101
 

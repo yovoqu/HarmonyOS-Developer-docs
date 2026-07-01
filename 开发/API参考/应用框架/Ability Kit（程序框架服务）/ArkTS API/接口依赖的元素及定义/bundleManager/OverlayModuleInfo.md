@@ -1,6 +1,6 @@
 # OverlayModuleInfo
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-overlaymoduleinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,8 +30,8 @@ import { overlay } from '@kit.AbilityKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| bundleName | string | 是 | 否 | overlay特征module所属的应用的bundle名称。 |
-| moduleName | string | 是 | 否 | overlay特征module的名称。 |
-| targetModuleName | string | 是 | 否 | overlay特征指定的目标module的名称，表示当前overlay包的资源需要替换生效的模块名称。 |
-| priority | number | 是 | 否 | overlay特征module的优先级。取值为整数，取值范围1 ~ 100，数值越大优先级越高。 |
-| state | number | 是 | 否 | overlay特征module的禁用使能状态。0代表禁用状态，1代表使能状态。 |
+| bundleName | string | 是 | 否 | overlay特征模块所属应用的bundle名称。 |
+| moduleName | string | 是 | 否 | overlay特征模块名称。 |
+| targetModuleName | string | 是 | 否 | overlay特征模块作用目标的模块名称，表示当前overlay包的资源需要替换生效的模块名称。 |
+| priority | number | 是 | 否 | overlay特征模块的优先级。取值为整数，取值范围1 ~ 100，数值越大优先级越高。 |
+| state | number | 是 | 否 | overlay特征模块的禁用启用状态。取值为整数，取值范围：[0-2]，0代表禁用状态，1代表启用状态，2代表无效状态。 |

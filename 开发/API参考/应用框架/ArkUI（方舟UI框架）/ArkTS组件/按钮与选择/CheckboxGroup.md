@@ -1,6 +1,6 @@
 # CheckboxGroup
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkboxgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -117,6 +117,8 @@ selectAll(isAllSelected: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -163,6 +165,8 @@ selectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -183,6 +187,8 @@ unselectedColor(value: ResourceColor)
 设置非选中状态边框颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -205,6 +211,8 @@ unselectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -226,6 +234,8 @@ mark(value: MarkStyle)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -246,6 +256,8 @@ mark(style: Optional&lt;MarkStyle&gt;)
 设置多选框内部图标样式。与[mark](#mark10)10+相比，style参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -270,6 +282,8 @@ checkboxShape(value: CheckBoxShape)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -292,6 +306,8 @@ checkboxShape(shape: Optional&lt;CheckBoxShape&gt;)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -317,6 +333,8 @@ contentModifier(modifier: Optional<ContentModifier&lt;CheckBoxGroupConfiguration
 
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -372,6 +390,8 @@ CheckboxGroup的选中状态或群组内的Checkbox的选中状态发生变化�
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -394,6 +414,8 @@ type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -454,6 +476,8 @@ type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void
 开发者必须自定义此类以实现ContentModifier接口，使用方法见[contentModifier](#contentmodifier21)。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -741,7 +765,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/IdmgFuCuT5OfsyDhDzJr7w/zh-cn_image_0000002581275914.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=C3E895776583A0A7D3E92E890FB3DC834786D19847C746BE77729B09A71B8E30)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/SBM5L5vjQu-tdkDf4XhF-A/zh-cn_image_0000002628862438.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=F486A00D8EFD358C91EDB838E2897C0C7F2C6384EE70595F2D13F13FD7A7223E)
 
 
 
@@ -903,4 +927,4 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/QGdnQzAFRqe0R5ZLkWBI-A/zh-cn_image_0000002611755771.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=6D969E25D15AD4738DA1467ABB9E1666BE2278F3AA88B8878B0E4975B9AE747B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/SgmQ7UJMS2W7djMZFl4GVg/zh-cn_image_0000002659221751.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=F333953D2D762B8E2DE5620A9B918C3A379A05AE337040A94F2E8566CFF93063)

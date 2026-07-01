@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@ createWindow(config: Configuration, callback: AsyncCallback&lt;Window&gt;): void
 
 创建子窗口或者系统窗口，使用callback异步回调。
 
-非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下，子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下，子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 自由窗口状态下，子窗口参数[decorEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#configuration9)为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口创建后为非沉浸式布局。
 
@@ -105,7 +105,7 @@ createWindow(config: Configuration): Promise&lt;Window&gt;
 
 创建子窗口或者系统窗口，使用Promise异步回调。
 
-非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下，子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下，子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 自由窗口状态下，子窗口参数[decorEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#configuration9)为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口创建后为非沉浸式布局。
 
@@ -236,6 +236,8 @@ getLastWindow(ctx: BaseContext, callback: AsyncCallback&lt;Window&gt;): void
 
 若无应用子窗口或子窗口未调用[showWindow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#showwindow9)进行显示，则返回应用主窗口。
 
+自由窗口状态下，[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)不在接口的计算范围内。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
@@ -315,6 +317,8 @@ getLastWindow(ctx: BaseContext): Promise&lt;Window&gt;
 获取当前应用内层级最高的子窗口，使用Promise异步回调。
 
 若无应用子窗口或子窗口未调用[showWindow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#showwindow9)进行显示，则返回应用主窗口。
+
+自由窗口状态下，[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)不在接口的计算范围内。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -399,6 +403,8 @@ shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise&lt;
 在同应用内将窗口焦点从源窗口转移到目标窗口，仅支持应用主窗、子窗范围内的焦点转移。使用Promise异步回调。
 
 目标窗口需确保具有获得焦点的能力（可通过[setWindowFocusable()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowfocusable9)设置），并确保调用[showWindow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#showwindow9)成功且执行完毕。
+
+非[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)支持调用。[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)调用该接口不生效也不报错。
 
 > [!NOTE]
 > 在调用shiftAppWindowFocus()前，建议确保目标窗口已调用 loadContent() 或 setUIContent() 并生效，否则可能会导致不可见窗口获取焦点，造成功能异常或影响用户体验。
@@ -519,7 +525,7 @@ shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Prom
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
@@ -599,7 +605,7 @@ shiftAppWindowTouchEvent(sourceWindowId: number, targetWindowId: number, fingerI
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
@@ -776,7 +782,7 @@ getAllWindowLayoutInfo(displayId: number): Promise<Array&lt;WindowLayoutInfo&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 801 | Capability not supported. Function getAllWindowLayoutInfo can not work correctly due to limited device capabilities. |
+| 801 | Capability not supported. function getAllWindowLayoutInfo can not work correctly due to limited device capabilities. |
 | 1300003 | This window manager service works abnormally. Possible cause: Internal task error. |
 
 
@@ -790,6 +796,75 @@ try {
   let displayId = 0;
   let promise = window.getAllWindowLayoutInfo(displayId);
   promise.then((data) => {
+    console.info('Succeeded in obtaining all window layout info. Data: ' + JSON.stringify(data));
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to obtain all window layout info. Cause code: ${err.code}, message: ${err.message}`);
+  });
+} catch (exception) {
+  console.error(`Failed to obtain all window layout info. Cause code: ${exception.code}, message: ${exception.message}`);
+}
+```
+
+
+
+#### window.getAllWindowLayoutInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getAllWindowLayoutInfo(displayId: number, option?: WindowInfoOptions): Promise<Array&lt;WindowLayoutInfo&gt;>
+
+根据option指定的过滤条件获取指定屏幕上可见的窗口布局信息数组，其中返回的每个Rect的宽、高是已经过缩放计算后的值，按当前窗口层级排列，层级最高的对应数组index为0，使用Promise异步回调。当未传入option或其中的字段都为默认值时，当前接口与[getAllWindowLayoutInfo](#windowgetallwindowlayoutinfo15)等价。
+
+> [!NOTE]
+> 本接口返回的可见窗口与肉眼所见可能存在区别，如以下场景： 上层窗口带有透明效果时（包括完全不透明之外的所有透明程度）不会遮挡下层窗口，此时下层窗口是可见的。 窗口通过 setWindowMask 接口设置异形窗口蒙层时，不会影响窗口可见状态计算，窗口仍可见，即使掩码全部设置为0，窗口依然按照其原本矩形大小参与可见状态计算。 大多数处于动画效果下的窗口也不会遮挡住下层窗口，比如在手机设备上拖动智慧多窗悬浮窗时返回的下层窗口依然是可见的。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| displayId | number | 是 | 需要获取窗口布局信息的displayId，该参数应为整数，且为当前实际存在屏幕的displayId，可以通过窗口属性WindowProperties获取。 |
+| option | WindowInfoOptions | 否 | 过滤选项。用于指定返回信息是否排除系统窗、比指定窗口层级更低或更高的窗口的信息。默认不过滤。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;WindowLayoutInfo&gt;> | Promise对象。返回获取到的窗口布局信息对象数组。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. Function getAllWindowLayoutInfo can not work correctly due to limited device capabilities. |
+| 1300003 | This window manager service works abnormally. Possible cause: Internal task error. |
+| 1300016 | Parameter error. Possible cause: 1. Invalid parameter range. |
+
+
+```json
+import { window } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+try {
+  let displayId = 0;
+  let option: window.WindowInfoOptions = {
+    excludeSystemWindows: false,
+    foregroundAboveWindow: 0,
+    foregroundBelowWindow: 0,
+  };
+  window.getAllWindowLayoutInfo(displayId, option).then((data) => {
     console.info('Succeeded in obtaining all window layout info. Data: ' + JSON.stringify(data));
   }).catch((err: BusinessError) => {
     console.error(`Failed to obtain all window layout info. Cause code: ${err.code}, message: ${err.message}`);
@@ -850,7 +925,9 @@ try {
       console.info(`abilityName:${windowInfo.abilityName}`);
       console.info(`bundleName:${windowInfo.bundleName}`);
       console.info(`isFocused:${windowInfo.isFocused}`);
+      console.info(`displayId:${windowInfo.displayId}`);
       console.info(`globalDisplayRect:${JSON.stringify(windowInfo.globalDisplayRect)}`);
+      console.info(`globalRect:${JSON.stringify(windowInfo.globalRect)}`);
     })
   }).catch((err: BusinessError) => {
     console.error('Failed to getWindowInfo. Cause: ' + JSON.stringify(err));
@@ -1062,7 +1139,7 @@ getAllMainWindowInfo(): Promise<Array&lt;MainWindowInfo&gt;>
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
 **返回值：**
 
@@ -1146,7 +1223,7 @@ getMainWindowSnapshot(windowId: Array&lt;number&gt;, config: WindowSnapshotConfi
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
 **参数：**
 
@@ -1241,6 +1318,84 @@ function reqPermissionsFromUser(permissions: Array<Permissions>, context: common
 
 
 
+#### window.onApplicationFocusStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onApplicationFocusStateChange(callback: Callback&lt;boolean&gt;): void
+
+开启应用进程获焦状态变化的监听。此监听针对应用间的获焦状态变化，若同应用内窗口间的获焦状态发生变化，则不会触发回调函数。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;boolean&gt; | 是 | 回调函数。返回当前应用进程获焦状态的变化。true表示当前应用进程变为获焦状态；false表示当前应用进程变为失焦状态。 |
+
+
+**示例：**
+
+```text
+import { window } from '@kit.ArkUI';
+
+try {
+  window.onApplicationFocusStateChange((data) =>{
+      console.info(`Succeeded in enabling the listener for application focus state changes. Data: ${data}`);
+  })
+} catch(exception){
+  console.error(`Failed to enable the listener for application focus state changes. Cause code: ${exception.code}, message: ${exception.message}`);
+}
+```
+
+
+
+#### window.offApplicationFocusStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offApplicationFocusStateChange(callback?: Callback&lt;boolean&gt;): void
+
+关闭应用进程获焦状态变化的监听。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;boolean&gt; | 否 | 已注册的回调函数。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有应用进程焦点状态变化的监听。 |
+
+
+**示例：**
+
+```text
+import { window } from '@kit.ArkUI';
+
+const callback = (bool: boolean) => {
+  // ...
+}
+try {
+  window.onApplicationFocusStateChange(callback);
+  window.offApplicationFocusStateChange(callback);
+  // 如果通过on开启多个callback进行监听，同时关闭所有监听：
+  window.offApplicationFocusStateChange();
+} catch (exception) {
+  console.error(`Failed to enable or disable the listener for application focus state changes. Cause code: ${exception.code}, message: ${exception.message}`);
+}
+```
+
+
+
 #### window.create(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1249,7 +1404,7 @@ create(id: string, type: WindowType, callback: AsyncCallback&lt;Window&gt;): voi
 
 创建子窗口，使用callback异步回调。
 
-子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，参数id传入null或undefined时，可能会导致callback无法得到执行，建议使用 createWindow() 替代。
@@ -1295,7 +1450,7 @@ create(id: string, type: WindowType): Promise&lt;Window&gt;
 
 创建子窗口，使用Promise异步回调。
 
-子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 createWindow() 替代。

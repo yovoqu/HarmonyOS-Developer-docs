@@ -1,6 +1,6 @@
 # Tiling调测功能
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tiling-tuning
 
@@ -19,7 +19,7 @@ Tiling是算子开发中独立且关键的部分，描述了Kirin AI处理器SoC
 #### 使用方法（命令行）
 
 通过命令行进行Tiling调测的关键步骤如下，详细样例请参考Tiling调测功能。
- 1. 完成环境搭建，并准备好输入/标杆数据文件。
+ 1. [完成环境搭建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-environment-preparation)，并准备好输入/标杆数据文件。
 2. 执行如下命令进行Tiling调测，这里仅提供关键参数项示例，其他参数请参考[Tiling调测参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-cli-parameters#tiling调测参数)按需配置。
 
   标准自定义算子场景：

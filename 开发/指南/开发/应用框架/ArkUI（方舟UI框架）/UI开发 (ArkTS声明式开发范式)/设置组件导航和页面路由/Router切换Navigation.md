@@ -1,6 +1,6 @@
 # Router切换Navigation
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation
 
@@ -409,7 +409,7 @@ onPageHide(): void {
 其生命周期时序如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/F0Vrpq8WSSansjBmc8EYcg/zh-cn_image_0000002626068248.png?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=35C15C51A08D73B83DC750AB75BF9BD8A92B6464CAC81BAED90CFB5124AEA3C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/QGcNzQWJRAa3huV-zVY3gQ/zh-cn_image_0000002659099531.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=F94C4A00478CFF65038606AA9CE40D630E715628AA1472FC4FE559BCFB7A4600)
 
 
 Navigation作为路由容器，其生命周期承载在NavDestination组件上，以组件事件的形式开放。
@@ -466,7 +466,7 @@ Navigation作为路由容器组件，其内部的页面切换动画本质上属�
 
 页面和页面之间跳转的时候需要进行共享元素过渡动画，Router可以通过通用属性sharedTransition来实现共享元素转场，具体可以参考如下链接：
 
-[Router共享元素转场动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-shared-elements)。
+[共享元素转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-shared-elements)。
 
 Navigation也提供了共享元素一镜到底的转场能力，需要配合geometryTransition属性，在子页面（NavDestination）之间切换时，可以实现共享元素转场，具体可参考[Navigation共享元素转场动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-animation#共享元素转场)。
 
@@ -652,7 +652,7 @@ struct mainPage {
 4. 各个路由页面将模块名称、路由名称、WrappedBuilder封装后构建函数注册如路由模块；
 5. 当路由需要跳转到指定路由时，路由模块完成对指定路由模块的动态导入，并完成路由跳转。
 
-具体的构建过程，可以参考Navigation[自动生成动态路由](https://gitcode.com/harmonyos-cases/cases/blob/master/CommonAppDevelopment/common/routermodule/README_AUTO_GENERATE.md)示例。
+具体的构建过程，可以参考Navigation[自动生成动态路由](https://gitcode.com/HarmonyOS-Cases/cases/blob/master/CommonAppDevelopment/common/routermodule/README_AUTO_GENERATE.md)示例。
 
 **方案二：** 系统路由表
 

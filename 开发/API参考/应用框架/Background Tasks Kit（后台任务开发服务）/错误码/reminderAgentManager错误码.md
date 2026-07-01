@@ -1,6 +1,6 @@
 # reminderAgentManager错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-reminderagentmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,7 +51,7 @@ The number of reminders exceeds the limit.
 
 **处理步骤**
 1. 首先，确认是否[申请了代理提醒的使用权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-powered-reminder#约束与限制)。由于系统限制且HarmonyOS 5.1.1(19)及其之前版本存量设备较少，新申请的权限在HarmonyOS 5.1.1(19)及其之前版本不再生效，建议升级至HarmonyOS 6.0.0(20)及以上版本。
-2. 然后，在申请通过情况下，检查提醒数量是否超过规定数量，及时删除不必要的提醒。
+2. 然后，在申请通过情况下，优先检查签名是否配置正确，如果配置不正确，需要重新生成Profile文件并使用[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)；其次检查提醒数量是否超过规定数量，及时删除不必要的提醒。
 
 
 

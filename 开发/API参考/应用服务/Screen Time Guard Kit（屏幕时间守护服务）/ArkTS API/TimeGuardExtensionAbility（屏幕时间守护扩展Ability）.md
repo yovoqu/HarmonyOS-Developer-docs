@@ -1,6 +1,6 @@
 # @hms.utilityApplication.screenTimeGuard.TimeGuardExtensionAbility.d.ts（屏幕时间守护扩展Ability）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-timeguardextensionability
 **支持设备：** Phone | Tablet
@@ -50,7 +50,7 @@ import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
 
 onStart(strategyName: string): Promise&lt;void&gt;
  
-当管控应用启动的策略管控生效时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
+当管控应用启动守护策略时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -62,7 +62,7 @@ onStart(strategyName: string): Promise&lt;void&gt;
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strategyName | string | 是 | 生效的时间管控策略名称。 |
+| strategyName | string | 是 | 启动的守护策略名称。 |
  
  
 **返回值：**
@@ -89,6 +89,7 @@ function asyncIncrement(): Promise<void> {
 
 export default class EntryAbility extends TimeGuardExtensionAbility {
   async onStart(strategyName: string): Promise<void> {
+    // strategyName表示启动的守护策略名称
     // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
     await asyncIncrement();
     console.info('test --- onStart:', strategyName, index);
@@ -104,7 +105,7 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
 
 onStop(strategyName: string): Promise&lt;void&gt;
  
-当管控应用启动的策略管控结束时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
+当管控应用停止守护策略时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -116,7 +117,7 @@ onStop(strategyName: string): Promise&lt;void&gt;
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strategyName | string | 是 | 结束的时间管控策略名称。 |
+| strategyName | string | 是 | 停止的守护策略名称。 |
  
  
 **返回值：**
@@ -143,6 +144,7 @@ function asyncIncrement(): Promise<void> {
 
 export default class EntryAbility extends TimeGuardExtensionAbility {
   async onStop(strategyName: string): Promise<void> {
+    // strategyName表示停止的守护策略名称
     // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
     await asyncIncrement();
     console.info('test --- onStop:', strategyName, index);

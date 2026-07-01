@@ -1,6 +1,6 @@
 # 如何将HAR（静态共享包）转为HSP（动态共享包）
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-project-management-7
 
@@ -8,7 +8,7 @@
  1. 新建一个HSP，将HAR包拷贝到lib目录，并在HSP的oh-package.json5文件的dependencies下配置HAR包。
 ```json
 "dependencies": {
-  "myhar": "file:./lib/myHar.har" // MyHar.Har path: oh-package.json5 file in the same directory as the lib folder
+  "myhar": "file:./lib/myHar.har" <em>// MyHar.Har path: oh-package.json5 file in the same directory as the lib folder</em>
 },
 ```
 

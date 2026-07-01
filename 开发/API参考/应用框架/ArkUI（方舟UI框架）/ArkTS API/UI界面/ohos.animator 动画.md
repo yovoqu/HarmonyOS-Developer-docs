@@ -1,6 +1,6 @@
 # @ohos.animator (动画)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-animator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -108,6 +108,8 @@ create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult
 创建animator动画结果对象（AnimatorResult）。与[create](#createdeprecated)相比，新增对[SimpleAnimatorOptions](#simpleanimatoroptions18)类型入参的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -217,10 +219,10 @@ this.animator = animator.createAnimator(options);
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| onFrame12+ | (progress: number) => void | 否 | 否 | 接收到帧时回调。 progress表示动画的当前值。取值范围为AnimatorOptions定义的[begin, end]，默认取值范围为[0, 1]。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onFinish12+ | () => void | 否 | 否 | 动画完成时回调。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onCancel12+ | () => void | 否 | 否 | 动画被取消时回调。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onRepeat12+ | () => void | 否 | 否 | 动画重复时回调。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onFrame12+ | (progress: number) => void | 否 | 否 | 接收到帧时回调。 progress表示动画的当前值。取值范围为AnimatorOptions定义的[begin, end]，默认取值范围为[0, 1]。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| onFinish12+ | () => void | 否 | 否 | 动画完成时回调。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| onCancel12+ | () => void | 否 | 否 | 动画被取消时回调。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| onRepeat12+ | () => void | 否 | 否 | 动画重复时回调。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | onframe(deprecated) | (progress: number) => void | 否 | 否 | 接收到帧时回调。 说明: 从API version 6开始支持，从API version 12开始废弃，推荐使用onFrame。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onfinish(deprecated) | () => void | 否 | 否 | 动画完成时回调。 说明: 从API version 6开始支持，从API version 12开始废弃，推荐使用onFinish。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | oncancel(deprecated) | () => void | 否 | 否 | 动画被取消时回调。 说明: 从API version 6开始支持，从API version 12开始废弃，推荐使用onCancel。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -308,6 +310,8 @@ reset(options: AnimatorOptions | SimpleAnimatorOptions): void
 重置当前animator动画参数。与[reset](#reset9)相比，新增对[SimpleAnimatorOptions](#simpleanimatoroptions18)类型入参的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -475,6 +479,8 @@ setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -602,7 +608,7 @@ animator.update(options);
 | "smooth" | 平滑曲线，cubic-bezier(0.4, 0.0, 0.4, 1.0)。 |
 | "cubic-bezier(x1, y1, x2, y2)" | 三次贝塞尔曲线，x1、x2的值必须处于0-1之间。例如"cubic-bezier(0.42, 0.0, 0.58, 1.0)"。 |
 | "steps(number, step-position)" | 阶梯曲线，number必须设置，为正整数，step-position参数可选，支持设置start或end，默认值为end。例如"steps(3, start)"。 |
-| interpolating-spring(velocity, mass, stiffness, damping) | 插值弹簧曲线。 velocity、mass、stiffness、damping都是数值类型，且mass、stiffness、damping参数均应该大于0，具体参数含义参考插值弹簧曲线。 使用interpolating-spring时，duration不生效，由弹簧参数决定；fill、direction、iterations设置无效，fill固定设置为"forwards"，direction固定设置为"normal"，iterations固定设置为1，且对animator的reverse函数调用无效。即animator使用interpolating-spring时只能正向播放1次。 从API version 11开始支持且仅在ArkTS中支持使用。 |
+| interpolating-spring(velocity, mass, stiffness, damping) | 插值弹簧曲线。 velocity、mass、stiffness、damping都是数值类型，且mass、stiffness、damping参数均应该大于0，具体参数含义参考插值弹簧曲线curves.interpolatingSpring。 使用interpolating-spring时，duration不生效，由弹簧参数决定；fill、direction、iterations设置无效，fill固定设置为"forwards"，direction固定设置为"normal"，iterations固定设置为1，且对animator的reverse函数调用无效。即animator使用interpolating-spring时只能正向播放1次。 从API version 11开始支持且仅在ArkTS中支持使用。 |
 
 
 
@@ -624,6 +630,8 @@ constructor(begin: number, end: number)
 SimpleAnimatorOptions的构造函数。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -669,6 +677,8 @@ duration(duration: number): SimpleAnimatorOptions
 设置animator动画时长。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -721,6 +731,8 @@ easing(curve: string): SimpleAnimatorOptions
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -771,6 +783,8 @@ delay(delay: number): SimpleAnimatorOptions
 设置animator动画播放时延。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -823,6 +837,8 @@ fill(fillMode: [FillMode](https://developer.huawei.com/consumer/cn/doc/harmonyos
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -874,6 +890,8 @@ direction(direction: [PlayMode](https://developer.huawei.com/consumer/cn/doc/har
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -924,6 +942,8 @@ iterations(iterations: number): SimpleAnimatorOptions
 设置animator动画播放次数。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1065,7 +1085,7 @@ class DateT {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/MbcCwd2jSvatZEhoHZXK5w/zh-cn_image_0000002611835355.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=97CD1B13B6A6BD66854EF7D51F5AE2094FC440DE951EE72E289E2EBDF420D0A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/qIn_vEr9SWebEhfxkS1LGg/zh-cn_image_0000002628862120.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=902301BC1BFBCADE335C763F4AA6146B00826CA304C899B926AD5DE6CDA18A3E)
 
 
 
@@ -1241,7 +1261,7 @@ struct AnimatorTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HT8pOGuTXiRECBF7VTedw/zh-cn_image_0000002581275606.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=88A73B3B4B5EDDEC2B942AB70E241623FDA973A6EAEA8B49EDF0AA71316C41CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/4P99gtAbSdScO6vj1NzzsQ/zh-cn_image_0000002659221431.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=289CFD39FC113F1827A1FAFE4399A21C2ED324E485FF4A12BFEF6F597C036C77)
 
 
 
@@ -1346,4 +1366,4 @@ struct AnimatorTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/Wt9FnNJnSTuXTNR3alvnNQ/zh-cn_image_0000002611755463.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=1EF61FFEE27EEE0A11472D046D28A41C99FB52956EEE7B610BA2C855E14C6EB7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/xzLQG7UURbyUFUiknzELKg/zh-cn_image_0000002628702242.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=E382E25E2DF9103BC92B6D692D48D27FBB79B173137F7E3E24CA6979B0AD0B06)

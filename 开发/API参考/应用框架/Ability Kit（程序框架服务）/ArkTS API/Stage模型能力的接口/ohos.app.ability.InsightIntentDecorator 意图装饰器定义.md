@@ -1,6 +1,6 @@
 # @ohos.app.ability.InsightIntentDecorator (意图装饰器定义)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentdecorator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -290,7 +290,7 @@ struct Index {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-PageIntentDecoratorInfo继承自[IntentDecoratorInfo](#intentdecoratorinfo)，用于描述[@InsightIntentPage](#insightintentpage)装饰器支持的参数，例如目标页面的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navdestination10)名称。
+PageIntentDecoratorInfo继承自[IntentDecoratorInfo](#intentdecoratorinfo)，用于描述[@InsightIntentPage](#insightintentpage)装饰器支持的参数，例如目标页面的[navDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navdestination10)名称。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
@@ -303,7 +303,7 @@ PageIntentDecoratorInfo继承自[IntentDecoratorInfo](#intentdecoratorinfo)，�
 | uiAbility | string | 否 | 是 | 表示与意图绑定的UIAbility名称。 |
 | pagePath | string | 否 | 否 | 表示与意图绑定的页面路径，该页面需要是一个实际存在的文件。 |
 | navigationId | string | 否 | 是 | 表示与意图绑定的Navigation组件的id属性。 |
-| navDestinationName | string | 否 | 是 | 表示与意图绑定NavDestination组件的名称。 |
+| navDestinationName | string | 否 | 是 | 表示与意图绑定的navDestination组件的名称。 |
 
 
 
@@ -650,3 +650,4 @@ export class ArtistClassDef implements insightIntent.IntentEntity {
 | --- | --- | --- | --- | --- |
 | entityCategory | string | 否 | 否 | 表示意图实体类别。可以基于意图实体类别对意图实体进行归类 |
 | parameters | Record<string, Object> | 否 | 是 | 表示意图实体的数据格式声明。用于定义意图实体的数据格式。 |
+| supportedQueryProperties | string[] | 否 | 是 | 表示意图实体支持查询的属性列表。列表中的属性名必须在parameters中定义。 起始版本： 26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 |

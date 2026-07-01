@@ -1,6 +1,6 @@
 # 如何解决webview每次调试都需要寻找进程号问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-61
 
@@ -13,7 +13,7 @@
 参考以下示例代码，文件内容编写完成后，将文件扩展名更改为.bat。每次调试后，运行bat文件以自动获取进程号。
  
 ```bash
-// xxx.bat
+<em>// xxx.bat</em>
 @echo off
 setlocal
 
@@ -34,7 +34,7 @@ if not defined SOCKET_NAME (
 )
 
 :: Extract process ID
-// tokens=4 indicates extracting the field separated by the fourth underscore as the PID
+<em>// tokens=4 indicates extracting the field separated by the fourth underscore as the PID</em>
 for /f "delims=_ tokens=4" %%a in ("%SOCKET_NAME%") do set PID=%%a
 if not defined PID (
     echo Error: Failed to extract process ID.

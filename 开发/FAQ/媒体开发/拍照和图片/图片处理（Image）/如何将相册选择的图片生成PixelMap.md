@@ -1,17 +1,19 @@
 # 如何将相册选择的图片生成PixelMap
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-6
 
-方法一：
- 1. 创建图库选择器实例，调用select()接口拉起photoPicker界面选择图片。选择成功后，返回PhotoSelectResult结果集。
+- 方法一：1. 创建图库选择器实例，调用select()接口拉起photoPicker界面选择图片。选择成功后，返回PhotoSelectResult结果集。
+
 2. 通过photoAccessHelper模块的getAssets接口获取媒体文件的URI。
+
 3. 调用getThumbnail获取缩略图。
- 
-参考代码如下：
- 
-```ArkTS
+
+  参考代码如下：
+
+  
+```json
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { dataSharePredicates } from '@kit.ArkData';
@@ -35,7 +37,7 @@ struct WebComponent {
             uris = PhotoSelectResult.photoUris;
             let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
             let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
-            // Configure query conditions, use PhotoViewPicker to select the URI of the image to be queried
+           <em> // Configure query conditions, use PhotoViewPicker to select the URI of the image to be queried</em>
             predicates.equalTo('uri', uris[0]);
             let fetchOptions: photoAccessHelper.FetchOptions = {
               fetchColumns: [],
@@ -46,7 +48,7 @@ struct WebComponent {
                 console.info('fetchResult success');
                 let photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
                 if (photoAsset !== undefined) {
-                  // Get Thumbnail
+                <em>  // Get Thumbnail</em>
                   photoAsset.getThumbnail((err, pixelMap) => {
                     if (err == undefined) {
                       console.info('getThumbnail successful ' + JSON.stringify(pixelMap));
@@ -72,17 +74,19 @@ struct WebComponent {
   }
 }
 ```
- 
-方法二：
- 
-1. 创建图库选择器实例，调用select()接口拉起photoPicker界面进行图片选择。图片选择成功后，返回PhotoSelectResult结果集。
- 1. 待界面从图库返回后，使用 fileIo.openSync 接口通过 URI 打开文件并获取文件描述符（fd）。注意，接口的权限参数应设置为 fileIo.OpenMode.READ_ONLY。
-2. 通过 image 使用 image.createImageSource 接口创建图片源实例。
-3. 根据 imageSource 创建 pixelMap。
- 
-参考代码如下：
- 
-```ArkTS
+
+- 方法二：1. 创建图库选择器实例，调用select()接口拉起photoPicker界面进行图片选择。图片选择成功后，返回PhotoSelectResult结果集。
+
+2. 待界面从图库返回后，使用 fileIo.openSync 接口通过 URI 打开文件并获取文件描述符（fd）。注意，接口的权限参数应设置为 fileIo.OpenMode.READ_ONLY。
+
+3. 通过 image 使用 image.createImageSource 接口创建图片源实例。
+
+4. 根据 imageSource 创建 pixelMap。
+
+  参考代码如下：
+
+  
+```json
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';

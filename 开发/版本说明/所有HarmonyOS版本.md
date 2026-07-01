@@ -1,11 +1,11 @@
 # 所有HarmonyOS开发套件版本
 
-更新时间：2026-06-12 06:54:02
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-allversion
 
 HarmonyOS已面向开发者发布的所有版本清单如下：
-  
+
 | HarmonyOS 开发者版本 （即API版本） | DevEco Studio 版本 | 发布时间 | 版本使用建议 |
 | --- | --- | --- | --- |
 | 新开发应用 | 已开发应用 |
@@ -25,13 +25,13 @@ HarmonyOS已面向开发者发布的所有版本清单如下：
 | 5.0.1(13) | DevEco Studio 5.0.1 Release | 2024/11/30 | NA | 如需升级，建议直接升级至6.0.0(20)。 |
 | 5.0.0(12) | DevEco Studio 5.0.0 Release | 2024/10/22 | NA | 如需升级，建议直接升级至6.0.0(20)。 |
 | HarmonyOS 3.1/4.0 （API 9） | DevEco Studio 3.1 Release | 2023/05/15 | NA | NA |
- 
- 
+
+
 
 #### 发布类型说明
 
 HarmonyOS开发者套件版本的发布类型定义如下：
-  
+
 | 类型 | 版本类型说明 | 版本作用 |
 | --- | --- | --- |
 | Canary | 早期体验版本，特性功能待稳定。 | 您可以反馈使用过程中遇到的问题，我们将全力解决。 |

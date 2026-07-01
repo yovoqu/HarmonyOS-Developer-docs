@@ -1,12 +1,10 @@
 # @typescript-eslint/prefer-includes
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-includes
 
 强制使用“includes”方法而不是“indexOf”方法。
- 
-
  
 
 #### 规则配置

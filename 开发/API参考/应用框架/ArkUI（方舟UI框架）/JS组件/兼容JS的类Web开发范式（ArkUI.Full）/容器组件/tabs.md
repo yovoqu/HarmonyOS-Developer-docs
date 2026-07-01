@@ -1,6 +1,6 @@
 # tabs
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tabs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -135,4 +135,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/U17eMGWYRm2GbW1teRPr0w/zh-cn_image_0000002581436326.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025443Z&HW-CC-Expire=86400&HW-CC-Sign=5C244F91AD29938AB6C2B4918770A90D977177788F838530A0500F0F0FE766EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/ycY7CYDwQNKstP24E2yf2Q/zh-cn_image_0000002659102289.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014400Z&HW-CC-Expire=86400&HW-CC-Sign=88186554417D7774D7E45512B9571B0A8F93F975B96878AAEF52202801BE2536)

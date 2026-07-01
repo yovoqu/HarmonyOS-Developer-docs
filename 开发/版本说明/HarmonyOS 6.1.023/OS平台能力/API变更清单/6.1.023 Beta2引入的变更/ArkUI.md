@@ -1,6 +1,6 @@
 # ArkUI
 
-更新时间：2026-06-23 08:39:00
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-6102
 

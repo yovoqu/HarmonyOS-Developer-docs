@@ -1,6 +1,6 @@
 # NAPI执行上层回调时，如何获取env
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-29
 
@@ -8,26 +8,26 @@ libuv处理方式是在注册JS回调时保存env。在callback中从env中获�
  
 napi_create_thread_safe_function函数调用时会触发参数中的napi_threadsafe_function_call_js函数，该函数可以获取env在js线程中执行，参考以下方式：
  
-```cpp
+```text
 #include "napi/native_api.h" 
 #include <thread> 
 #include "hilog/log.h" 
  
 napi_ref cbObj = nullptr; 
-// Thread safety function
+<em>// Thread safety function</em>
 napi_threadsafe_function tsfn; 
-// Native side Value Value
+<em>// Native side Value Value</em>
 static int cValue; 
  
  
-// Subthread running function 
+<em>// Subthread running function </em>
 static void CallJs(napi_env env, napi_value js_cb, void *context, void *data) { 
     std::thread::id this_id = std::this_thread::get_id(); 
     OH_LOG_INFO(LOG_APP, "threadId3 is +%{public}d", this_id); 
-    // Get reference value 
+  <em>  // Get reference value </em>
     napi_get_reference_value(env, cbObj, &js_cb); 
  
-    // Create an ArkTS number as an input parameter for the ArkTS function.
+  <em>  // Create an ArkTS number as an input parameter for the ArkTS function.</em>
     napi_value argv; 
     napi_create_int32(env, cValue, &argv); 
  
@@ -39,30 +39,30 @@ static void CallJs(napi_env env, napi_value js_cb, void *context, void *data) {
     napi_delete_reference(env, cbObj); 
 } 
  
-// Native main thread
+<em>// Native main thread</em>
 static napi_value ThreadsTest(napi_env env, napi_callback_info info) { 
-    // The number of parameters obtained from ArkTS side
+   <em> // The number of parameters obtained from ArkTS side</em>
     size_t argc = 1; 
     napi_value js_cb, work_name; 
  
-    // Get ArkTS parameters
+   <em> // Get ArkTS parameters</em>
     napi_get_cb_info(env, info, &argc, &js_cb, nullptr, nullptr); 
  
-    // Napi_ref cbObj pointing to napi_value js_cb
+   <em> // Napi_ref cbObj pointing to napi_value js_cb</em>
     napi_create_reference(env, js_cb, 1, &cbObj); 
  
-    // Create workname using UTF8 encoded C string data 
+   <em> // Create workname using UTF8 encoded C string data </em>
     napi_create_string_utf8(env, "Work Item", NAPI_AUTO_LENGTH, &work_name); 
  
-    // Create thread safe function
+  <em>  // Create thread safe function</em>
     napi_create_threadsafe_function(env, js_cb, NULL, work_name, 0, 1, NULL, NULL, NULL, CallJs, &tsfn); 
  
     std::thread::id this_id = std::this_thread::get_id(); 
     OH_LOG_INFO(LOG_APP, "threadId1 is +%{public}d", this_id); 
  
-    // Calling thread safe functions in other threads
+   <em> // Calling thread safe functions in other threads</em>
     std::thread t([]() { 
-        // Can obtain thread ID
+      <em>  // Can obtain thread ID</em>
         std::thread::id this_id = std::this_thread::get_id(); 
         OH_LOG_INFO(LOG_APP, "threadId2 is +%{public}d", this_id); 
         napi_acquire_threadsafe_function(tsfn); 

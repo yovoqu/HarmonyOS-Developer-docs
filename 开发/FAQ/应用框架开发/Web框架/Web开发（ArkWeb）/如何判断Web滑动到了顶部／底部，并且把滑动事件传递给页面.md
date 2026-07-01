@@ -1,6 +1,6 @@
 # 如何判断Web滑动到了顶部/底部，并且把滑动事件传递给页面
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-40
 
@@ -8,14 +8,14 @@ Web组件的[onOverScroll](https://developer.huawei.com/consumer/cn/doc/harmonyo
  
 具体可参考代码示例：传递滑动事件可参考[Web组件嵌套滚动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-nested-scrolling)，将Web组件嵌入可滚动容器中，使用[nestedScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#nestedscroll11)属性设置嵌套滚动选项，实现滑动事件传递。具体代码示例如下：
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 @Entry
 @Component
 struct Index {
   private scrollerForScroll: Scroller = new Scroller();
-  controller: webview.WebviewController = new webview.WebviewController; // Web component controller, used for loading pages and interaction control
+  controller: webview.WebviewController = new webview.WebviewController; <em>// Web component controller, used for loading pages and interaction control</em>
   @State scrollDirection: ScrollDirection = ScrollDirection.Vertical;
   title = '2023落下帷幕，一起迎接2024年***********************************************';
   review = '评论';

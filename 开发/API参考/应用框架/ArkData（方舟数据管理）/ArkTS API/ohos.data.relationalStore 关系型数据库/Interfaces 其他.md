@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -18,11 +18,11 @@
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | string | 否 | 否 | 数据库文件名，也是数据库唯一标识符。同一进程禁止创建两个同名的数据库，否则可能导致端端同步、端云同步、静默访问以及密钥备份等功能出现异常。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
+| name | string | 否 | 否 | 数据库文件名，也是数据库唯一标识符，不能为空字符串且不能包含路径分隔符/。同一进程禁止创建两个同名的数据库，否则可能导致端端同步、端云同步、静默访问以及密钥备份等功能出现异常。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | securityLevel | SecurityLevel | 否 | 否 | 设置数据库安全级别。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | encrypt | boolean | 否 | 是 | 指定数据库是否加密，默认非加密。数据库创建完成后，此参数不允许直接修改。如需变更数据库加密状态，请调用rekeyEx接口进行更新操作。 true：加密。 false：非加密。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | dataGroupId10+ | string | 否 | 是 | 应用组ID，需要向应用市场获取，详见dataGroupId申请流程。基于dataGroupId的数据共享支持两种场景：1.同一应用的不同进程间共享，只支持三方应用中输入法和输入法的扩展场景使用；2.不同应用间的数据共享，只支持系统应用使用。 模型约束： 此属性仅在Stage模型下可用。 从API version 10开始，支持此可选参数。dataGroupId共享沙箱的方式不支持多进程访问加密数据库，当此参数不填时，默认在本应用沙箱目录下创建RdbStore实例。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
-| customDir11+ | string | 否 | 是 | 数据库自定义路径。 使用约束： 数据库路径大小限制为128字节，如果超过该大小会开库失败，返回错误。 从API version 11开始，支持此可选参数。数据库将在如下的目录结构中被创建：context.databaseDir + "/rdb/" + customDir，其中context.databaseDir是应用沙箱对应的路径，"/rdb/"表示创建的是关系型数据库，customDir表示自定义的路径。当此参数不填时，默认在本应用沙箱目录下创建RdbStore实例。从API version 18开始，如果同时配置了rootDir参数，将打开或删除如下路径数据库：rootDir + "/" + customDir + "/" + name。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
+| customDir11+ | string | 否 | 是 | 数据库自定义路径。 使用约束： 数据库路径大小限制为128字节，如果超过该大小会开库失败，抛出错误码401，请参见通用错误码。 从API version 11开始，支持此可选参数。数据库将在如下的目录结构中被创建：context.databaseDir + "/rdb/" + customDir，其中context.databaseDir是应用沙箱对应的路径，"/rdb/"表示创建的是关系型数据库，customDir表示自定义的路径。当此参数不填时，默认在本应用沙箱目录下创建RdbStore实例。从API version 18开始，如果同时配置了rootDir参数，将打开或删除如下路径数据库：rootDir + "/" + customDir + "/" + name。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | rootDir18+ | string | 否 | 是 | 指定数据库根路径，默认值为空字符串。 从API version 18开始，支持此可选参数。将从如下目录打开或删除数据库：rootDir + "/" + customDir。通过设置此参数打开的数据库为只读模式，不允许对数据库进行写操作，否则返回错误码801。配置此参数打开或删除数据库时，应确保对应路径下数据库文件存在，并且有读取权限，否则返回错误码14800010。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | autoCleanDirtyData11+ | boolean | 否 | 是 | 指定是否自动清理云端删除后同步到本地的数据，true表示自动清理，false表示手动清理，默认自动清理。 对于端云协同的数据库，当云端删除的数据同步到设备端时，可通过该参数设置设备端是否自动清理。手动清理可以通过cleanDirtyData11+接口清理。 从API version 11开始，支持此可选参数。 系统能力： SystemCapability.DistributedDataManager.CloudSync.Client |
 | allowRebuild12+ | boolean | 否 | 是 | 指定数据库是否支持异常时自动删除，并重建一个空库空表，默认不自动删除。 true：自动删除。 false：不自动删除。 从API version 12开始，支持此可选参数。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
@@ -48,7 +48,7 @@
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | encryptionKey | Uint8Array | 否 | 否 | 指定数据库加/解密使用的密钥。 如传入密钥为空，则由数据库负责生成并保存密钥，并使用生成的密钥打开数据库文件。 使用完后用户需要将密钥内容全部置为零。 |
-| iterationCount | number | 否 | 是 | 整数类型，指定数据库PBKDF2算法的迭代次数，默认值为10000。 迭代次数应当为大于零的整数，若非整数则向下取整。 不指定此参数或指定为零时，使用默认值10000，并使用默认加密算法AES_256_GCM。 |
+| iterationCount | number | 否 | 是 | 整数类型，指定数据库PBKDF2算法的迭代次数，默认值为10000。 迭代次数应当为大于零的整数，若非整数则向下取整，若小于零则抛出错误码401，请参见通用错误码。 不指定此参数或指定为零时，使用默认值10000，并使用默认加密算法AES_256_GCM。 |
 | encryptionAlgo | EncryptionAlgo | 否 | 是 | 指定数据库加解密使用的加密算法。如不指定，默认值为 AES_256_GCM。 |
 | hmacAlgo | HmacAlgo | 否 | 是 | 指定数据库加解密使用的HMAC算法。如不指定，默认值为SHA256。 |
 | kdfAlgo | KdfAlgo | 否 | 是 | 指定数据库加解密使用的PBKDF2算法。如不指定，默认使用和HMAC算法相等的算法。 |
@@ -67,9 +67,9 @@
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | string | 否 | 否 | 资产的名称。 |
-| uri | string | 否 | 否 | 资产的uri，在系统里的绝对路径。 |
-| path | string | 否 | 否 | 资产在应用沙箱里的路径。 |
+| name | string | 否 | 否 | 资产的名称，长度不超过256字节。 |
+| uri | string | 否 | 否 | 资产的uri，在系统里的绝对路径，路径长度不超过1024字节。 |
+| path | string | 否 | 否 | 资产在应用沙箱里的路径，路径长度不超过1024字节。 |
 | createTime | string | 否 | 否 | 资产被创建出来的时间。 |
 | modifyTime | string | 否 | 否 | 资产最后一次被修改的时间。 |
 | size | string | 否 | 否 | 资产占用空间的大小。在端云同步机制中，本字段作为判定资产是否发生变更的关键依据之一，需确保在全链路中保持统一、一致的存储格式与取值逻辑。建议所有系统节点均采用标准化处理方式（单位为字节（Byte），取值为非负整数），避免因格式差异导致同步异常或误判。 |
@@ -111,6 +111,10 @@
 | asyncDownloadAsset18+ | boolean | 否 | 是 | 表示当前数据库在端云同步时，同步或异步下载资产。true表示优先下载完所有数据后，使用异步任务下载资产；false表示同步下载资产；默认值为false。 |
 | enableCloud18+ | boolean | 否 | 是 | 表示当前数据库是否允许端云同步。true表示允许端云同步；false表示不允许端云同步。默认值为true。 |
 | tableType23+ | DistributedTableType | 否 | 是 | 分布式表类型。DEVICE_COLLABORATION表示设备协作表；SINGLE_VERSION表示单版本表。跨设备数据同步时，默认值为DEVICE_COLLABORATION；端云数据同步时，默认值为SINGLE_VERSION，不支持DEVICE_COLLABORATION。 |
+| assetConflictPolicy | AssetConflictPolicy | 否 | 是 | 资产冲突策略。默认值为CONFLICT_POLICY_DEFAULT。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| assetTempPath | string | 否 | 是 | 资产临时路径。仅当assetConflictPolicy值为CONFLICT_POLICY_TEMP_PATH时生效，需指定为distributedfiles下的临时路径，格式示例：tmp/，若未填写或路径不合规，将抛出 401 错误码。默认值为空。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| assetDownloadOnDemand | boolean | 否 | 是 | 是否按需下载资产。true表示仅下行数据到本地，当需要下载资产时，调用cloudSyncEx接口触发资产下载；false表示数据与资产都下行到本地。默认值为false。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| autoSyncSwitch | boolean | 否 | 是 | 是否启用自动同步开关。true表示启用自动同步，false表示不启用。默认值为true。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -162,6 +166,28 @@
 | schedule | Progress | 否 | 否 | 表示端云同步过程。 |
 | code | ProgressCode | 否 | 否 | 表示端云同步过程的状态。 |
 | details | Record<string, TableDetails> | 否 | 否 | 表示端云同步各表的统计信息。 键表示表名，值表示该表的端云同步过程统计信息。 |
+| message | string | 否 | 是 | 同步状态的详细消息。通过message信息查看详细的失败原因。默认值为空。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+
+
+
+
+#### CloudSyncConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+云同步配置信息。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| mode | SyncMode | 否 | 否 | 数据库同步模式。 |
+| enablePredicate | boolean | 否 | 是 | 是否启用表级同步开关。true表示启用表级同步，false表示不启用。默认值为false。 |
+| predicate | RdbPredicates | 否 | 是 | 表级同步谓词。仅当enablePredicate为true时，此参数有效。 |
 
 
 
@@ -212,8 +238,8 @@
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | code | number | 否 | 否 | 表示执行SQL返回的错误码，对应的取值和含义请见sqlite错误码 |
-| message | string | 否 | 否 | 表示执行SQL返回的错误信息。 |
-| sql | string | 否 | 否 | 表示报错执行的SQL语句。 |
+| message | string | 否 | 否 | 表示执行SQL返回的错误信息，长度不超过1024字节。 |
+| sql | string | 否 | 否 | 表示报错执行的SQL语句，长度不超过1024字节。 |
 
 
 
@@ -340,3 +366,24 @@ export default class EntryAbility extends UIAbility {
 | --- | --- | --- | --- | --- |
 | changed | number | 是 | 否 | 表示受影响的行数量。 |
 | resultSet | LiteResultSet | 是 | 否 | 表示受影响数据的结果集。默认返回1024行，最大支持32766行，超出部分将被丢弃。 |
+
+
+
+
+#### SyncResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示设备同步结果。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
+
+**模型约束：** 此接口仅在Stage模型下可用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| device | string | 是 | 否 | 表示同步的设备ID，可通过getAvailableDeviceListSync等接口获取所有可信设备ID列表。 |
+| code | SyncResultCode | 是 | 否 | 表示同步结果的状态码。 |
+| message | string | 是 | 否 | 表示同步结果的信息。 |

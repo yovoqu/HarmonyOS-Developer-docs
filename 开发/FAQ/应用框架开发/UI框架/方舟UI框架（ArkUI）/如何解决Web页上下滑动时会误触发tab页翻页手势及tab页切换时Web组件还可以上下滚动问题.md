@@ -1,6 +1,6 @@
 # 如何解决Web页上下滑动时会误触发tab页翻页手势及tab页切换时Web组件还可以上下滚动问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-339
 
@@ -16,16 +16,16 @@ Tabs组件嵌套Web组件在滚动场景中可能出现以下问题：
  
 示例代码如下：
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 
 @Component
 @Entry
 struct TabWebScroll {
-  @State isScrollEnabled: boolean = true; // Control the sliding page for page switching
+  @State isScrollEnabled: boolean = true; <em>// Control the sliding page for page switching</em>
   private tabsController = new TabsController();
-  private currentIndex: number = 0;// Track currently active tab index
+  private currentIndex: number = 0;<em>// Track currently active tab index</em>
   private webviewController: webview.WebviewController = new webview.WebviewController();
 
 
@@ -34,7 +34,7 @@ struct TabWebScroll {
       TabContent() {
         Web({ src: 'https://developer.huawei.com/consumer/cn/', controller: this.webviewController })
           .nestedScroll({
-            // Set nested scrolling
+           <em> // Set nested scrolling</em>
             scrollForward: NestedScrollMode.PARENT_FIRST,
             scrollBackward: NestedScrollMode.SELF_FIRST
           })
@@ -76,11 +76,11 @@ struct TabWebScroll {
     })
     .scrollable(this.isScrollEnabled)
     .onAnimationEnd(() => {
-      // Trigger this callback when the animation ends, and set the web component to slide
+      <em>// Trigger this callback when the animation ends, and set the web component to slide</em>
       this.webviewController?.setScrollable(true);
     })
     .onGestureSwipe(() => {
-      // During the sliding process on the page, this callback is triggered frame by frame. When switching between tab pages, the web page cannot slide up or down
+     <em> // During the sliding process on the page, this callback is triggered frame by frame. When switching between tab pages, the web page cannot slide up or down</em>
       this.webviewController?.setScrollable(false);
     })
   }

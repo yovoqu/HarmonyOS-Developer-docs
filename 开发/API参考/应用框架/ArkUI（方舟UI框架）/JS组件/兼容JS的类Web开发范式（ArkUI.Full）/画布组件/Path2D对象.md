@@ -1,6 +1,6 @@
 # Path2D对象
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-path2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -520,4 +520,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/hORaokO7RUqQxk2oApfrEA/zh-cn_image_0000002611836207.png?HW-CC-KV=V1&HW-CC-Date=20260528T025435Z&HW-CC-Expire=86400&HW-CC-Sign=F90E98647AFA14F913EB7862415B5A2DA501E40A16E366F7A7F6542AD0A2F623)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/B21wyPb5Qz2CCm3QfrzD5w/zh-cn_image_0000002628862992.png?HW-CC-KV=V1&HW-CC-Date=20260701T014404Z&HW-CC-Expire=86400&HW-CC-Sign=6E9C5B7AF4CBB4633A6446DEFA34F6B5765A17D75B1401EDC6BEA04AEE70E3C6)

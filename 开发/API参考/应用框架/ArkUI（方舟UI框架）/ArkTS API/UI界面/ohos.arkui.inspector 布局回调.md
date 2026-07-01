@@ -1,6 +1,6 @@
 # @ohos.arkui.inspector (布局回调)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-inspector
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供注册组件布局和组件绘制送显完成回调通知的能力。
  
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -327,7 +327,7 @@ onDrawChildren(callback: Callback<number[]>): void
  
 通过[ComponentObserver](#componentobserver)注册drawChildren事件回调。使用callback异步回调。
  
-把当前注册监听的节点作为根节点，组件的子组件绘制送显完成时，会触发该回调。如果组件树中存在多个drawChildren事件回调，只会触发在最顶层的drawChildren事件回调。
+把当前注册监听的节点作为根节点，组件的子组件绘制送显完成时，会触发该回调。如果组件树中存在多个drawChildren事件回调，只会触发在最顶层的drawChildren事件回调。取消最顶层的回调后，其余drawChildren事件回调也无法生效。
  
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
  
@@ -388,7 +388,7 @@ struct ImageExample {
 
 offDrawChildren(callback?: Callback<number[]>): void
  
-取消注册offDrawChildren事件回调。使用callback异步回调。
+取消注册drawChildren事件回调。使用callback异步回调。
  
 要实现在子组件布局完成后停止触发特定回调，只需通过其句柄，在对应的查询条件上取消注册该回调即可。
  
@@ -402,7 +402,7 @@ offDrawChildren(callback?: Callback<number[]>): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<number[]> | 否 | 需要取消注册的回调，如果参数缺省则取消注册该句柄下所有的回调。callback需要和onDrawChildren24+方法中的callback为相同对象时才能取消回调成功。 |
+| callback | Callback<number[]> | 否 | 需要取消注册的回调，如果参数缺省则取消注册该句柄下所有的回调。callback需要和onDrawChildren方法中的callback为相同对象时才能取消回调成功。 |
  
  
 **示例：**

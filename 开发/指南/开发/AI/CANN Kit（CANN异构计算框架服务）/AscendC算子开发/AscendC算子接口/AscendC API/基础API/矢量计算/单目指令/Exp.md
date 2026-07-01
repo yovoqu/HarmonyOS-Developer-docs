@@ -1,6 +1,6 @@
 # Exp
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vector-calculation-exp
 
@@ -38,8 +38,8 @@ template <typename T>
   
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
-| dstLocal | 输出 | 目的操作数。 类型为LocalTensor，支持的TPosition为VECIN/VECCALC/VECOUT。 LocalTensor的起始地址需要32字节对齐。 Kirin9020系列处理器，支持的数据类型为：half/float。 KirinX90系列处理器，支持的数据类型为：half/float。 |
-| srcLocal | 输入 | 源操作数。 类型为LocalTensor，支持的TPosition为VECIN/VECCALC/VECOUT。 LocalTensor的起始地址需要32字节对齐。 源操作数的数据类型需要与目的操作数保持一致。 Kirin9020系列处理器，支持的数据类型为：half/float。 KirinX90系列处理器，支持的数据类型为：half/float。 |
+| dstLocal | 输出 | 目的操作数。 类型为LocalTensor，支持的TPosition为VECIN、VECCALC、VECOUT。 LocalTensor的起始地址需要32字节对齐。 Kirin9020系列处理器，支持的数据类型为：half、float。 KirinX90系列处理器，支持的数据类型为：half、float。 |
+| srcLocal | 输入 | 源操作数。 类型为LocalTensor，支持的TPosition为VECIN、VECCALC、VECOUT。 LocalTensor的起始地址需要32字节对齐。 源操作数的数据类型需要与目的操作数保持一致。 Kirin9020系列处理器，支持的数据类型为：half、float。 KirinX90系列处理器，支持的数据类型为：half、float。 |
 | calCount | 输入 | 输入数据元素个数。 |
  
  

@@ -1,6 +1,6 @@
 # CPP编译报错“A 'unknown type name' error has occurred”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-117
 
@@ -18,11 +18,11 @@
  
 **示例：**
  
-```cpp
+```text
 #include "myLibrary.h" 
 int main() {
      MyType obj;
-     // Use custom types
+     <em>// Use custom types</em>
      return 0;
 }
 ```

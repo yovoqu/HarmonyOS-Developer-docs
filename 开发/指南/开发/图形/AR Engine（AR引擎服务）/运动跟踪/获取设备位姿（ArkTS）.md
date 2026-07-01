@@ -1,6 +1,6 @@
 # 获取设备位姿（ArkTS）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-pose
 
@@ -9,7 +9,7 @@
 
 #### 约束与限制
 
-从5.1.0(18)开始，获取设备位姿支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
+从5.1.0(18)开始，获取设备位姿支持部分Phone、部分Tablet设备。并且从6.1.0(23)版本开始，新增支持TV设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
 
 
@@ -48,7 +48,7 @@ Vec3是一个三维向量，用于存储设备的位姿信息。
 
 ```text
 let pose: arEngine.ARPose;
-let stateReason: arEngine.ARTrackingStateReason;
+let stateReason: arEngine.ARTrackingStateReason = arEngine.ARTrackingStateReason.NONE;
 ```
 
 

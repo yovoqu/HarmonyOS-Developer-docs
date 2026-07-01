@@ -1,6 +1,6 @@
 # TextInput、TextArea等组件如何禁止提示拍摄输入
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-450
 
@@ -20,14 +20,14 @@
  
 示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct TextAreaExample {
   @State text: string = 'TextArea editMenuOptions';
 
   onCreateMenu(menuItems: Array<TextMenuItem>) {
-    menuItems = menuItems.filter((item) => item.content !== 'Photo Input'); // Can also choose to disable other menu options such as "Aelect All".
+    menuItems = menuItems.filter((item) => item.content !== 'Photo Input'); <em>// Can also choose to disable other menu options such as "Aelect All".</em>
     return menuItems;
   }
 
@@ -39,7 +39,7 @@ struct TextAreaExample {
         .editMenuOptions({
           onCreateMenu: this.onCreateMenu,
           onMenuItemClick: (menuItem: TextMenuItem, textRange: TextRange) => {
-            return false; // Return false, execute custom logic first, then execute system logic
+            return false; <em>// Return false, execute custom logic first, then execute system logic</em>
           }
         })
         .margin({ top: 100 })

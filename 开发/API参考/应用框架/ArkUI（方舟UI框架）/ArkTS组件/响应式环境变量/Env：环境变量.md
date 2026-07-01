@@ -1,6 +1,6 @@
 # @Env：环境变量
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -94,7 +94,7 @@ type EnvDecorator = (value: SystemProperties) => PropertyDecorator
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | BREAK_POINT | 'system.arkui.breakpoint' | @Env变量参数，通过@Env(SystemProperties.BREAK_POINT)可获取WindowSizeLayoutBreakpointInfo实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的尺寸布局断点信息。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| WINDOW_SIZE23+ | 'system.window.size' | @Env变量参数，通过@Env(SystemProperties.WINDOW_SIZE)可获取SizeInVP实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的大小信息，单位为vp。 模型约束：此接口仅可在Stage模型下使用。 |
-| WINDOW_SIZE_PX23+ | 'system.window.size.px' | @Env变量参数，通过@Env(SystemProperties.WINDOW_SIZE_PX)可获取Size实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的大小信息，单位为px。 模型约束：此接口仅可在Stage模型下使用。 |
-| WINDOW_AVOID_AREA23+ | 'system.window.avoidarea' | @Env变量参数，通过@Env(SystemProperties.WINDOW_AVOID_AREA)可获取UIEnvWindowAvoidAreaInfoVP实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的避让区域信息，单位为vp。 模型约束：此接口仅可在Stage模型下使用。 |
-| WINDOW_AVOID_AREA_PX23+ | 'system.window.avoidarea.px' | @Env变量参数，通过@Env(SystemProperties.WINDOW_AVOID_AREA_PX)可获取UIEnvWindowAvoidAreaInfoPX实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的避让区域信息，单位为px。 模型约束：此接口仅可在Stage模型下使用。 |
+| WINDOW_SIZE23+ | 'system.window.size' | @Env变量参数，通过@Env(SystemProperties.WINDOW_SIZE)可获取SizeInVP实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的大小信息，单位为vp。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
+| WINDOW_SIZE_PX23+ | 'system.window.size.px' | @Env变量参数，通过@Env(SystemProperties.WINDOW_SIZE_PX)可获取Size实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的大小信息，单位为px。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
+| WINDOW_AVOID_AREA23+ | 'system.window.avoidarea' | @Env变量参数，通过@Env(SystemProperties.WINDOW_AVOID_AREA)可获取UIEnvWindowAvoidAreaInfoVP实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的避让区域信息，单位为vp。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |
+| WINDOW_AVOID_AREA_PX23+ | 'system.window.avoidarea.px' | @Env变量参数，通过@Env(SystemProperties.WINDOW_AVOID_AREA_PX)可获取UIEnvWindowAvoidAreaInfoPX实例。 当该装饰器声明在@Component或@ComponentV2中时，用于获取当前自定义组件所在窗口的避让区域信息，单位为px。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 |

@@ -1,6 +1,6 @@
 # 使用AVTranscoder实现视频转码(C/C++)
 
-更新时间：2026-03-12 09:39:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avtranscoder-for-transcodering
 
@@ -234,7 +234,7 @@ OH_AVTranscoderConfig_SetDstFileType(config, AV_OUTPUT_FORMAT_MPEG_4); // 封装
   
 ```text
 const std::int32_t AUDIO_BITRATE = 200000;
-OH_AVTranscoderConfig_SetDstAudioBitrate(config, AUDIO_BITRATE); // 音频比特率，可选。
+OH_AVTranscoderConfig_SetDstAudioBitrate(config, AUDIO_BITRATE); // 参考avcodec音频编码器码率设置，具体根据实际需要设置。
 ```
 
 10. （可选）设置转码输出视频的码率：调用OH_AVTranscoderConfig_SetDstVideoBitrate()设置输出视频的码率。

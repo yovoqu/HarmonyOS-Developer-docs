@@ -1,6 +1,6 @@
 # @ohos.data.cloudData (端云服务)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-clouddata
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -57,6 +57,48 @@ import { cloudData } from '@kit.ArkData';
 
 
 
+#### AutoSyncTriggerMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+自动同步触发模式枚举。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| ACCOUNT_LOGIN | 0 | 账号登录触发模式。 |
+| CLOUD_SWITCH_ON | 1 | 同步开关触发模式。 |
+| NETWORK_RECOVER | 2 | 网络恢复后的触发模式。 |
+| CLOUD_DATA_CHANGE | 3 | 云端数据变更触发模式。 |
+| USER_CHANGE | 4 | 用户变更触发模式。 |
+
+
+
+
+#### AutoSyncTriggerInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+自动同步触发信息。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| mode | AutoSyncTriggerMode | 否 | 否 | 自动同步触发模式。 |
+
+
+
+
 #### cloudData.setCloudStrategy
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -103,4 +145,99 @@ cloudData.setCloudStrategy(cloudData.StrategyType.NETWORK, [cloudData.NetWorkStr
 }).catch((err: BusinessError) => {
     console.error(`Failed to set cloud strategy. Code: ${err.code}, message: ${err.message}`);
 });
+```
+
+
+
+#### cloudData.onAutoSyncTrigger
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+onAutoSyncTrigger(observer: Callback&lt;AutoSyncTriggerInfo&gt;): void
+
+在已打开端云同步，并且应用关闭自动同步条件下，注册自动同步触发事件通知，自动同步进行时调用回调。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| observer | Callback&lt;AutoSyncTriggerInfo&gt; | 是 | 自动同步触发的回调函数。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. |
+
+
+**示例：**
+
+```text
+import { cloudData } from '@kit.ArkData';
+
+function autoSyncTriggerObserver(info: cloudData.AutoSyncTriggerInfo) {
+  console.info(`Auto sync triggered, mode: ${info.mode}`);
+}
+
+cloudData.onAutoSyncTrigger(autoSyncTriggerObserver);
+```
+
+
+
+#### cloudData.offAutoSyncTrigger
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+offAutoSyncTrigger(observer?: Callback&lt;AutoSyncTriggerInfo&gt;): void
+
+取消订阅自动同步触发事件通知。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| observer | Callback&lt;AutoSyncTriggerInfo&gt; | 否 | 自动同步触发的回调函数。如果不传参数，则取消所有已注册的回调。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. |
+
+
+**示例：**
+
+```text
+import { cloudData } from '@kit.ArkData';
+
+function autoSyncTriggerObserver(info: cloudData.AutoSyncTriggerInfo) {
+  console.info(`Auto sync triggered, mode: ${info.mode}`);
+}
+
+// 订阅
+cloudData.onAutoSyncTrigger(autoSyncTriggerObserver);
+
+// 取消指定订阅
+cloudData.offAutoSyncTrigger(autoSyncTriggerObserver);
+
+// 取消所有订阅
+cloudData.offAutoSyncTrigger();
 ```

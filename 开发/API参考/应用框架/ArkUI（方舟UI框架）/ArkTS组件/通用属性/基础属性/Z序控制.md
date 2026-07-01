@@ -1,6 +1,6 @@
 # Z序控制
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-z-order
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -181,4 +181,4 @@ struct ZIndexExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/6WhpjW7DQEyGM34MCSXbcw/zh-cn_image_0000002581435614.png?HW-CC-KV=V1&HW-CC-Date=20260528T025543Z&HW-CC-Expire=86400&HW-CC-Sign=A0548ED71397259935498C71F72E8245B068F694AAAAC37BB555519557C84907)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/_p1ELZnvRkiyyWP7jwzB_w/zh-cn_image_0000002659221525.png?HW-CC-KV=V1&HW-CC-Date=20260701T014324Z&HW-CC-Expire=86400&HW-CC-Sign=2E018399C29EEE2D6D0E4BDFF0234FBA947CC2F9BC286B3A4245AF7ECC690F60)

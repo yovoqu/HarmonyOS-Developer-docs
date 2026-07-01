@@ -1,6 +1,6 @@
 # HalfScreenLaunchComponent
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-halfscreenlaunchcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -44,7 +44,9 @@ import { HalfScreenLaunchComponent } from '@kit.ArkUI';
 
 HalfScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback&lt;TerminationInfo&gt;, onReceive?: Callback<Record<string, Object>> })
 
-**装饰器类型：**@Component
+**装饰器类型：**[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)
+
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -52,12 +54,12 @@ HalfScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, option
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | Callback&lt;void&gt; | 是 | @BuilderParam | 组件显示内容。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| appId | string | 是 | - | 元服务appId。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| options | AtomicServiceOptions | 否 | - | 拉起元服务参数，默认为空。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onError | ErrorCallback | 否 | - | 被拉起的元服务扩展在运行过程中发生异常时触发本回调。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onTerminated | Callback&lt;TerminationInfo&gt; | 否 | - | 回调函数，入参用于接收元服务的返回结果，类型为TerminationInfo。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onReceive20+ | Callback<Record<string, Object>> | 否 | - | 被拉起的嵌入式运行元服务通过Window调用API时，触发本回调。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| content | Callback&lt;void&gt; | 是 | @BuilderParam | 组件显示内容。 |
+| appId | string | 是 | - | 元服务appId。 |
+| options | AtomicServiceOptions | 否 | - | 拉起元服务参数，默认为空。 |
+| onError | ErrorCallback | 否 | - | 被拉起的元服务扩展在运行过程中发生异常时触发本回调。 |
+| onTerminated | Callback&lt;TerminationInfo&gt; | 否 | - | 被拉起的嵌入式运行元服务通过点击元服务退出按钮、手势侧滑、调用terminateSelfWithResult或者terminateSelf正常退出时，触发本回调函数。 |
+| onReceive20+ | Callback<Record<string, Object>> | 否 | - | 被拉起的嵌入式运行元服务通过@ohos.window (窗口)调用API时，触发本回调。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
 

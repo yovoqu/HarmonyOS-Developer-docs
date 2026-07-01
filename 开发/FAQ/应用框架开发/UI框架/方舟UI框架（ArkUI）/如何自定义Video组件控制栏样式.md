@@ -1,13 +1,13 @@
 # 如何自定义Video组件控制栏样式
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-97
 
 1. 通过设置属性controls为false关闭默认控制栏。
 2. 设置Video组件的controller。
 3. 通过ArkTS实现自定义的控制栏，并通过VideoController控制视频播放。
-```ArkTS
+```text
 @Entry
 @Component
 struct VideoCreateComponent {
@@ -56,41 +56,41 @@ struct VideoCreateComponent {
         })
       Row() {
         Button('src').onClick(() => {
-          this.videoSrc = $rawfile('xxx.mp4') // Switch video source
+          this.videoSrc = $rawfile('xxx.mp4') <em>// Switch video source</em>
         }).margin(5)
         Button('previewUri').onClick(() => {
-          this.previewUri = $r('app.media.xxx') // Switch video preview poster
+          this.previewUri = $r('app.media.xxx') <em>// Switch video preview poster</em>
         }).margin(5)
 
         Button('controls').onClick(() => {
-            this.showControls = !this.showControls // Switch whether to display the video control bar
+            this.showControls = !this.showControls <em>// Switch whether to display the video control bar</em>
         }).margin(5)
       }
 
       Row() {
         Button('start').onClick(() => {
-          this.controller.start() // 开始播放
+          this.controller.start() <em>// 开始播放</em>
         }).margin(5)
         Button('pause').onClick(() => {
-          this.controller.pause() // 暂停播放
+          this.controller.pause() <em>// 暂停播放</em>
         }).margin(5)
         Button('stop').onClick(() => {
-          this.controller.stop() // 结束播放
+          this.controller.stop() <em>// 结束播放</em>
         }).margin(5)
         Button('setTime').onClick(() => {
-          this.controller.setCurrentTime(10, SeekMode.Accurate) // Accurately jump to the 10s position of the video
+          this.controller.setCurrentTime(10, SeekMode.Accurate) <em>// Accurately jump to the 10s position of the video</em>
         }).margin(5)
       }
 
       Row() {
         Button('rate 0.75').onClick(() => {
-          this.curRate = PlaybackSpeed.Speed_Forward_0_75_X // 0.75 times playback speed
+          this.curRate = PlaybackSpeed.Speed_Forward_0_75_X <em>// 0.75 times playback speed</em>
         }).margin(5)
         Button('rate 1').onClick(() => {
-          this.curRate = PlaybackSpeed.Speed_Forward_1_00_X // Original speed playback
+          this.curRate = PlaybackSpeed.Speed_Forward_1_00_X <em>// Original speed playback</em>
         }).margin(5)
         Button('rate 2').onClick(() => {
-          this.curRate = PlaybackSpeed.Speed_Forward_2_00_X // Play at 2x speed
+          this.curRate = PlaybackSpeed.Speed_Forward_2_00_X <em>// Play at 2x speed</em>
         }).margin(5)
       }
     }

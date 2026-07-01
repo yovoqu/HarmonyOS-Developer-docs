@@ -1,6 +1,6 @@
 # @ohos.curves (插值计算)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-curve
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -117,7 +117,7 @@ stepsCurve(count: number, end: boolean): ICurve
  
 ```text
 import { curves } from '@kit.ArkUI';
-curves.stepsCurve(9, true)  //创建一个阶梯曲线
+curves.stepsCurve(9, true)  // 创建一个阶梯曲线
 ```
  
   
@@ -285,6 +285,8 @@ interpolatingSpring(velocity: number, mass: number, stiffness: number, damping: 
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -322,6 +324,8 @@ customCurve(interpolate: (fraction: number) => number): ICurve
 构造自定义曲线对象。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -555,4 +559,4 @@ struct ImageComponent {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/O1FBsVtCTJexv9Nheveijw/zh-cn_image_0000002581275626.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=2EC4810BF0BE1AE86C35E63C78D4F43FC4E8B6CAD81C0EDD7CB4BD63146BE946)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/loGykaekSEeENa77D1jIfg/zh-cn_image_0000002659221453.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=7571DD6A1AD78FF628E30129DA75F677A8221636F8E705D08A6D5CCECD5D0FF3)

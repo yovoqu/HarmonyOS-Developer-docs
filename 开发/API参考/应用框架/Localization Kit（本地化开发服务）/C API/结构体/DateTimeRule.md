@@ -1,6 +1,6 @@
 # DateTimeRule
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-i18n-datetimerule
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ typedef struct DateTimeRule {...} DateTimeRule
  
 | 名称 | 描述 |
 | --- | --- |
-| int32_t month | 月份。 |
+| int32_t month | 月份。月份从0开始计数，0表示一月。 |
 | int32_t dayOfMonth | 当月的第几天。 |
 | int32_t dayOfWeek | 当周的第几天。 |
 | int32_t weekInMonth | 当月的第几周。 |

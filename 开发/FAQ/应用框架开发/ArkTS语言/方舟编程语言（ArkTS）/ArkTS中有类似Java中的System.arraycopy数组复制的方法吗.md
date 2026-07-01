@@ -1,19 +1,19 @@
-# ArkTS中有类似Java中的System.arraycopy数组复制的方法吗
+# ArkTS中有类似java中的System.arraycopy数组复制的方法吗
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-15
 
 可以通过 buffer.concat() 方法，将数组中的内容复制到新的 Buffer 对象中并返回。参考代码如下：
  
-```ArkTS
+```text
 import { buffer } from '@kit.ArkTS';
 
 let buf1 = buffer.from("1234");
 let buf2 = buffer.from("abcd");
 let buf = buffer.concat([buf1, buf2]);
 console.info(buf.toString('hex'));
-// Output result:3132333461626364
+<em>// Output result:3132333461626364</em>
 ```
  
 **参考链接**

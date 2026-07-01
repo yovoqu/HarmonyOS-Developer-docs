@@ -1,6 +1,6 @@
 # Graphics
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 自定义节点相关属性定义的详细信息。
 
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -59,7 +59,7 @@ type Position = Vector2
 
 
 
-#### PositionT12+
+#### PositionT&lt;T&gt;12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -256,6 +256,30 @@ const transform: Matrix4 = [
 | x | number | 否 | 否 | x轴方向的旋转角度。 取值范围：(-∞, +∞) |
 | y | number | 否 | 否 | y轴方向的旋转角度。 取值范围：(-∞, +∞) |
 | z | number | 否 | 否 | z轴方向的旋转角度。 取值范围：(-∞, +∞) |
+
+
+
+
+#### Vector4
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+用于表示包含x、y、z、w四个值的向量。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| x | number | 否 | 否 | 向量x轴方向的值。 取值范围：(-∞, +∞) |
+| y | number | 否 | 否 | 向量y轴方向的值。 取值范围：(-∞, +∞) |
+| z | number | 否 | 否 | 向量z轴方向的值。 取值范围：(-∞, +∞) |
+| w | number | 否 | 否 | 向量w轴方向的值。 取值范围：(-∞, +∞) |
 
 
 
@@ -2351,4 +2375,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/DXfHNJf9R1aLhOhjEZfvYQ/zh-cn_image_0000002581435582.png?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=92F86BFE5D20198AC2A80AA67577769183DEE9C5817FE9CCC38E03EFD81B8B85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/OY0IPJwPSL2NIhsVHYJMnQ/zh-cn_image_0000002628862180.png?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=0AAF0514A115DEB953EC632BF5C82FA7FD0BA64A75737EE0368A042BAEBD5725)

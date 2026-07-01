@@ -1,6 +1,6 @@
 # Class (Magnifier)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-magnifier
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -21,6 +21,8 @@ bind(id: string): void
 绑定放大镜与指定id的组件。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -73,7 +75,7 @@ struct MagnifierExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/hh0lQHhfQ6KvZq-nWkxEEg/zh-cn_image_0000002581275618.png?HW-CC-KV=V1&HW-CC-Date=20260528T025454Z&HW-CC-Expire=86400&HW-CC-Sign=9F9BD6D685C88FA0AEF30B4C4AFD8E07C360D23746D1A633CCE007303A5D6627)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/5Z9YWaJoRRGs1x1w6nANtw/zh-cn_image_0000002628702254.png?HW-CC-KV=V1&HW-CC-Date=20260701T014312Z&HW-CC-Expire=86400&HW-CC-Sign=E5F8D269097C7AD3723930842BE86445B0409B1D506A4F799C4BA64513563072)
 
  
   
@@ -91,6 +93,8 @@ show(x: number, y: number): void
 
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -117,6 +121,8 @@ unbind(): void
 解除放大镜与当前组件的绑定。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  

@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -256,7 +256,7 @@
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| quality | QualityLevel | 否 | 是 | 图片质量（默认低）。 |
+| quality | QualityLevel | 否 | 是 | 图片质量（默认中等）。 |
 | rotation | ImageRotation | 否 | 是 | 图片旋转角度（默认0度，顺时针旋转）。 |
 | location | Location | 否 | 是 | 图片地理位置信息（默认以设备硬件信息为准）。 |
 | mirror | boolean | 否 | 是 | 镜像使能开关（默认关）。使用之前需要使用isMirrorSupported进行判断是否支持。true表示使能，false表示不使能。 |

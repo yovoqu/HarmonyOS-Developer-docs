@@ -1,6 +1,6 @@
 # 选择器（Picker）公共接口
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,6 +20,8 @@
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -37,6 +39,8 @@
 选择器弹窗的按钮样式。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -64,6 +68,8 @@
 日期区间，用于描述起止日期区间。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   

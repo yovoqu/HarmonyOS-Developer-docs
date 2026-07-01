@@ -1,6 +1,6 @@
 # 如何使用Record
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-98
 
@@ -8,29 +8,24 @@
  
 示例如下：
  
-```ArkTS
-// Define course types
+```text
+<em>// Define course types</em>
 type Course = 'Math' | 'Chinese' | 'English';
 
-
-// Define grade types
+<em>// Define grade types</em>
 type Grade = number;
 
-
-// Define student grade record types
+<em>// Define student grade record types</em>
 type StudentGrades = Record<Course, Grade>;
 
-
-// Define the type of class grade record, where the key is the student ID and the value is the student's grade record
+<em>// Define the type of class grade record, where the key is the student ID and the value is the student's grade record</em>
 type ClassGrades = Record<string, StudentGrades>;
-
 
 interface StudentCourseGrade {
   Math: number,
   Chinese: number,
   English: number
 }
-
 
 let student1: StudentCourseGrade = {
   Math: 90,
@@ -48,40 +43,36 @@ let student3: StudentCourseGrade = {
   English: 90
 }
 
-
-// Initialize class grades
+<em>// Initialize class grades</em>
 const classGrades: ClassGrades = {
   '001': student1,
   '002': student2,
   '003': student3
 };
 
-
 @Entry
 @Component
 struct Index {
-  // Obtain the average grade of a student
+ <em> // Obtain the average grade of a student</em>
   getAverageGrade(studentId: string, grades: ClassGrades): number | null {
-    const studentGrades = grades[studentId]; // Obtain corresponding grade data for students
+    const studentGrades = grades[studentId]; <em>// Obtain corresponding grade data for students</em>
     if (!studentGrades) {
       console.log(`Student with ID ${studentId} not found.`);
       return null;
     }
 
-
-    const courses = Object.keys(studentGrades) as Course[]; // Course type array
-    // Calculate the total grade of the course
+    const courses = Object.keys(studentGrades) as Course[]; <em>// Course type array</em>
+   <em> // Calculate the total grade of the course</em>
     const total = courses.reduce((sum, course) => sum + studentGrades[course], 0);
-    return total / courses.length; // Average score
+    return total / courses.length; <em>// Average score</em>
   }
-
 
   build() {
     Row() {
       Column() {
         Button('getAverageGrade')
           .onClick(() => {
-            // output: 89
+           <em> // output: 89</em>
             console.log('student average grade is:', this.getAverageGrade('001', classGrades));
           })
       }

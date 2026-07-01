@@ -1,6 +1,6 @@
 # @ohos.app.ability.application (应用工具类)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -47,7 +47,7 @@ import { application } from '@kit.AbilityKit';
 
 createModuleContext(context: Context, moduleName: string): Promise&lt;Context&gt;
 
-创建指定模块的上下文。创建出的模块上下文中[resourceManager.Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#configuration)资源继承自入参上下文，便于开发者获取[跨HAP/HSP包应用资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access#访问跨haphsp包资源)。使用Promise异步回调。
+创建指定模块的上下文。创建出的模块上下文中[resourceManager.Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#configuration)资源继承自入参上下文，便于开发者获取[跨HAP/HSP包资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access#访问跨haphsp包资源)。使用Promise异步回调。
 
 > [!NOTE]
 > 由于创建模块上下文的过程涉及资源查询与初始化，耗时相对较长，在对应用流畅性要求较高的场景下，不建议频繁或多次调用createModuleContext接口创建多个Context实例，以免影响用户体验。

@@ -1,6 +1,6 @@
 # 日期滑动选择器弹窗 (DatePickerDialog)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-datepicker-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,7 +40,7 @@ static show(options?: DatePickerDialogOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | DatePickerDialogOptions | 否 | 配置日期选择器弹窗的参数。 |
+| options | DatePickerDialogOptions | 否 | 配置日期选择器弹窗的参数。参数缺省时无法弹出弹窗。 |
 
 
 
@@ -60,37 +60,37 @@ static show(options?: DatePickerDialogOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | lunar | boolean | 否 | 是 | 日期是否显示为农历。 - true：显示为农历。 - false：不显示为农历。 默认值：false 说明： 仅在简体中文和繁体中文语言环境下生效，其他语言环境下设置该属性无效果。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| showTime10+ | boolean | 否 | 是 | 是否在弹窗内展示时间选择器。 - true：展示时间选择器。 - false：不展示时间选择器。 默认值：false 说明： 1. 当showTime为true时，点击弹窗的标题日期可以在"日期选择器"和"日期选择器+时间选择器"两个页面中切换。 2. 当showTime为true时，mode参数不生效，"日期选择器"页面显示默认年、月、日三列。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| useMilitaryTime10+ | boolean | 否 | 是 | 弹窗内展示的时间选择器是否为24小时制，仅当showTime为true时生效。 - true：显示24小时制。 - false：显示12小时制。 默认值：false 说明： 当展示的时间选择器为12小时制时，上午和下午的标识不会根据小时数自动切换。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| lunarSwitch10+ | boolean | 否 | 是 | 是否展示切换农历的开关。 - true：展示切换农历的开关。 - false：不展示切换农历的开关。 默认值：false 说明： 开关打开后，仅在简体中文和繁体中文环境下生效，在其他语言环境农历不生效。因此建议在其他语言环境设置为不展示开关。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| lunarSwitchStyle14+ | LunarSwitchStyle | 否 | 是 | 设置农历开关的颜色样式。 默认值：{ selectedColor: \$r('sys.color.ohos_id_color_text_primary_actived'), unselectedColor: \$r('sys.color.ohos_id_color_switch_outline_off'), strokeColor: Color.White } 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| disappearTextStyle10+ | PickerTextStyle | 否 | 是 | 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| textStyle10+ | PickerTextStyle | 否 | 是 | 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '16fp', weight: FontWeight.Regular } } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| selectedTextStyle10+ | PickerTextStyle | 否 | 是 | 设置选中项的文本颜色、字号、字体粗细。 默认值： { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| acceptButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置确认按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，如果同时设置为true，则primary字段不生效，保持默认值false。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，呈现效果依然是胶囊型按钮Capsule。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| cancelButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置取消按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，如果同时设置为true，则primary字段不生效，保持默认值false。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，呈现效果依然是胶囊型按钮Capsule。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| alignment10+ | DialogAlignment | 否 | 是 | 弹窗在竖直方向上的对齐方式。 默认值：DialogAlignment.Default 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| offset10+ | Offset | 否 | 是 | 弹窗相对alignment所在位置的偏移量。 默认值：{ dx: 0 , dy: 0 } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| maskRect10+ | Rectangle | 否 | 是 | 弹窗遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| showTime10+ | boolean | 否 | 是 | 是否在弹窗内展示时间选择器。 - true：展示时间选择器。 - false：不展示时间选择器。 默认值：false 说明： 1. 当showTime为true时，点击弹窗的标题日期可以在"日期选择器"和"日期选择器+时间选择器"两个页面中切换。 2. 当showTime为true时，mode参数不生效，"日期选择器"页面显示默认年、月、日三列。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| useMilitaryTime10+ | boolean | 否 | 是 | 弹窗内展示的时间选择器是否为24小时制，仅当showTime为true时生效。 - true：显示24小时制。 - false：显示12小时制。 默认值：false 说明： 当展示的时间选择器为12小时制时，上午和下午的标识不会根据小时数自动切换。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| lunarSwitch10+ | boolean | 否 | 是 | 是否展示切换农历的开关。 - true：展示切换农历的开关。 - false：不展示切换农历的开关。 默认值：false 说明： 开关打开后，仅在简体中文和繁体中文环境下生效，在其他语言环境农历不生效。因此建议在其他语言环境设置为不展示开关。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| lunarSwitchStyle14+ | LunarSwitchStyle | 否 | 是 | 设置农历开关的颜色样式。 默认值：{ selectedColor: \$r('sys.color.ohos_id_color_text_primary_actived'), unselectedColor: \$r('sys.color.ohos_id_color_switch_outline_off'), strokeColor: Color.White } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| disappearTextStyle10+ | PickerTextStyle | 否 | 是 | 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| textStyle10+ | PickerTextStyle | 否 | 是 | 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '16fp', weight: FontWeight.Regular } } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| selectedTextStyle10+ | PickerTextStyle | 否 | 是 | 设置选中项的文本颜色、字号、字体粗细。 默认值： { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| acceptButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置确认按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，如果同时设置为true，则primary字段不生效，保持默认值false。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，呈现效果依然是胶囊型按钮Capsule。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| cancelButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置取消按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，如果同时设置为true，则primary字段不生效，保持默认值false。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，呈现效果依然是胶囊型按钮Capsule。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| alignment10+ | DialogAlignment | 否 | 是 | 弹窗在竖直方向上的对齐方式。 默认值：DialogAlignment.Default 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| offset10+ | Offset | 否 | 是 | 弹窗相对alignment所在位置的偏移量。 默认值：{ dx: 0 , dy: 0 } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| maskRect10+ | Rectangle | 否 | 是 | 弹窗遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onAccept(deprecated) | (value: DatePickerResult) => void | 否 | 是 | 点击弹窗中的“确定”按钮时触发该回调。 说明： 从API version 8 开始支持，从 API version 10 开始废弃。建议使用onDateAccept。 |
 | onCancel | VoidCallback | 否 | 是 | 点击弹窗中的“取消”按钮时触发该回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onChange(deprecated) | (value: DatePickerResult) => void | 否 | 是 | 滑动弹窗中的滑动选择器使当前选中项改变时触发该回调。 说明： 从API version 8 开始支持，从 API version 10 开始废弃。建议使用onDateChange。 |
-| onDateAccept10+ | Callback&lt;Date&gt; | 否 | 是 | 点击弹窗中的“确定”按钮时触发该回调。 说明： 当showTime设置为true时，回调接口返回值value中时和分为选择器选择的时和分。否则，返回值value中时和分为系统时间的时和分。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| onDateChange10+ | Callback&lt;Date&gt; | 否 | 是 | 滑动弹窗中的日期使当前选中项改变时触发该回调。 说明： 当showTime设置为true时，回调接口返回值value中时和分为选择器选择的时和分。否则，返回值value中时和分为系统时间的时和分。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| backgroundColor11+ | ResourceColor | 否 | 是 | 弹窗背板颜色。 默认值：Color.Transparent 说明： 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE关闭背景虚化。设置backgroundBlurStyle为非NONE值时，不要设置backgroundColor，否则显示的颜色将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| onDidAppear12+ | VoidCallback | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件。二次弹出生效。 3.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onDidDisappear12+ | VoidCallback | 否 | 是 | 弹窗消失后的事件回调。 说明： 1.正常时序为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onWillAppear12+ | VoidCallback | 否 | 是 | 弹窗显示动效前的事件回调。 说明： 1.正常时序为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变弹窗显示效果的回调事件。二次弹出生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onWillDisappear12+ | VoidCallback | 否 | 是 | 弹窗退出动效前的事件回调。 说明： 1.正常时序为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置弹窗背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| dateTimeOptions12+ | DateTimeOptions | 否 | 是 | 设置时分是否显示前导0，目前只支持设置hour和minute参数。 默认值： hour: 24小时制默认为"2-digit"，设置hour是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"；12小时制默认为"numeric"，即没有前导0。 minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态。 - true：响应悬停态。 - false：不响应悬停态。 默认值：false 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 悬停态下弹窗默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| enableHapticFeedback18+ | boolean | 否 | 是 | 设置是否开启触控反馈。 - true：开启触控反馈。 - false：不开启触控反馈。 默认值：true 元服务API： 从API version 18开始，该接口支持在元服务中使用。 说明： 1. 设置为true后，其生效情况取决于系统的硬件是否支持。 2. 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下： "requestPermissions": [{"name": "ohos.permission.VIBRATE"}] |
-| canLoop20+ | boolean | 否 | 是 | 设置是否可循环滚动。 默认值：true 说明： true：可循环，年份随着月份的循环滚动进行联动加减，月份随着日的循环滚动进行联动加减。 false：不可循环，年、月、日到达本列的顶部或底部时，无法再进行滚动，年、月、日之间也无法再联动加减。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| onDateAccept10+ | Callback&lt;Date&gt; | 否 | 是 | 点击弹窗中的“确定”按钮时触发该回调。 说明： 当showTime设置为true时，回调接口返回值value中时和分为选择器选择的时和分。否则，返回值value中时和分为系统时间的时和分。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| onDateChange10+ | Callback&lt;Date&gt; | 否 | 是 | 滑动弹窗中的日期使当前选中项改变时触发该回调。 说明： 当showTime设置为true时，回调接口返回值value中时和分为选择器选择的时和分。否则，返回值value中时和分为系统时间的时和分。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| backgroundColor11+ | ResourceColor | 否 | 是 | 弹窗背板颜色。 默认值：Color.Transparent 说明： 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE关闭背景虚化。设置backgroundBlurStyle为非NONE值时，不要设置backgroundColor，否则显示的颜色将不符合预期效果。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| onDidAppear12+ | VoidCallback | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件。二次弹出生效。 3.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onDidDisappear12+ | VoidCallback | 否 | 是 | 弹窗消失后的事件回调。 说明： 1.正常时序为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onWillAppear12+ | VoidCallback | 否 | 是 | 弹窗显示动效前的事件回调。 说明： 1.正常时序为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变弹窗显示效果的回调事件。二次弹出生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onWillDisappear12+ | VoidCallback | 否 | 是 | 弹窗退出动效前的事件回调。 说明： 1.正常时序为：onWillAppear>>onDidAppear>>(onDateAccept/onCancel/onDateChange)>>onWillDisappear>>onDidDisappear。 2.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置弹窗背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| dateTimeOptions12+ | DateTimeOptions | 否 | 是 | 设置时分是否显示前导0，目前只支持设置hour和minute参数。 默认值： hour: 24小时制默认为"2-digit"，设置hour是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"；12小时制默认为"numeric"，即没有前导0。 minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态。 - true：响应悬停态。 - false：不响应悬停态。 默认值：false 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 悬停态下弹窗默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| enableHapticFeedback18+ | boolean | 否 | 是 | 设置是否开启触控反馈。 - true：开启触控反馈。 - false：不开启触控反馈。 默认值：true 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 说明： 1. 设置为true后，其生效情况取决于系统的硬件是否支持。 2. 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下： "requestPermissions": [{"name": "ohos.permission.VIBRATE"}] |
+| canLoop20+ | boolean | 否 | 是 | 设置是否可循环滚动。 默认值：true 说明： true：可循环，年份随着月份的循环滚动进行联动加减，月份随着日的循环滚动进行联动加减。 false：不可循环，年、月、日到达本列的顶部或底部时，无法再进行滚动，年、月、日之间也无法再联动加减。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
 
@@ -102,6 +102,8 @@ static show(options?: DatePickerDialogOptions)
 定义了DatePickerDialog组件中农历切换开关的样式。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -548,7 +550,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/s0foZT-FQ4ewXxvXsWgqwA/zh-cn_image_0000002581436192.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=FA1D577C5A36BD68D4DDA00285EF00389B6DFA72AA2A77D08C6E53E3D3F2AE5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/cCvrAD-pQ72yIJz2UVzeTw/zh-cn_image_0000002628862808.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=882158C6C8B0E632076D2413C9FCE6105B2A693A4038F3EDB14052E0414F981C)
 
 
 
@@ -596,7 +598,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/1Ah_aiKlS7m6VNntEiCF2g/zh-cn_image_0000002611836023.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=27EED8C4D4B811AE748812607A956CED62B3172AF0C17717EA95D57410E51440)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/cz-32WsSTZmgib5KAaBPyg/zh-cn_image_0000002659222121.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=C496959BA23CE47B4192E3D95B1E56B3B74B459B19C6DEC5F916A75B6D7DE71B)
 
 
 
@@ -639,7 +641,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/X3iI5AmXTpG-Qx7hPyde1A/zh-cn_image_0000002581276276.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=83B236F42AC0A918BEF81459700EF20A1EE7AD91DFCA6CA59C0907F56383379A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/dzy7afDSQBmF2QbwPkia9w/zh-cn_image_0000002628702930.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=E62493976FD9EED8C63D45750BE661C507CAD25DC2446B063D2DB0061587AC8B)
 
 
 
@@ -684,4 +686,4 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/BJadF-AWSa-gkouGu3sMlw/zh-cn_image_0000002611756131.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=CD01486518D7DF81E651B6E417B1B15CC3258ECB91AF759726160FBA5DEEAD4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/48l6NeibTGadkuPFdXx0gg/zh-cn_image_0000002659102157.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=80001A3F1EA848D9BC0AEAC8ABB90D550F062F6DE8CC350EF698859F3D8A31C3)

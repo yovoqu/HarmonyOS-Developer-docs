@@ -1,12 +1,12 @@
 # 如何自定义Tabs页签导航栏及其对齐方式
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-5
 
 可以自定义页签，并设置页签的对齐方式。具体操作可参考代码：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct CustomizeTheTabsBarAndItsAlignment {
@@ -15,7 +15,7 @@ struct CustomizeTheTabsBarAndItsAlignment {
   tabArray = [0, 1];
 
 
-  // Custom tab
+  <em>// Custom tab</em>
   @Builder
   tabBuilder(tabName: string, tabItem: number, tabIndex: number) {
     Column({ space: 20 }) {
@@ -36,7 +36,7 @@ struct CustomizeTheTabsBarAndItsAlignment {
   build() {
     Column() {
       Column() {
-        // tab
+        <em>// tab</em>
         Row({ space: 6 }) {
           Scroll() {
             Row() {
@@ -46,7 +46,7 @@ struct CustomizeTheTabsBarAndItsAlignment {
             }
             .justifyContent(FlexAlign.Start)
           }
-          // Set left alignment
+          <em>// Set left alignment</em>
           .align(Alignment.Start)
           .scrollable(ScrollDirection.Horizontal)
           .scrollBar(BarState.Off)
@@ -57,7 +57,7 @@ struct CustomizeTheTabsBarAndItsAlignment {
         .backgroundColor('#ffb7b7b7')
 
 
-        // tabs
+        <em>// tabs</em>
         Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
           ForEach(this.tabArray, (item: number, index: number) => {
             TabContent() {

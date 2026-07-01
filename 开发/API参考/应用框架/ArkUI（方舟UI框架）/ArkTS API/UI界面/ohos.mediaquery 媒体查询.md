@@ -1,6 +1,6 @@
 # @ohos.mediaquery (媒体查询)
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-mediaquery
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -44,7 +44,7 @@ matchMediaSync(condition: string): MediaQueryListener
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| condition | string | 是 | 媒体事件的匹配条件，具体可参考媒体查询语法规则。 |
+| condition | string | 是 | 媒体查询的匹配条件，具体可参考媒体查询语法规则。 |
 
 
 **返回值：**
@@ -157,7 +157,7 @@ listener.off('change', onPortrait) // 注销回调
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于执行媒体查询操作。
+用于表示媒体查询的结果。
 
 **卡片能力：** 从API version 12开始，该类型支持在ArkTS卡片中使用。
 
@@ -172,7 +172,7 @@ listener.off('change', onPortrait) // 注销回调
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | matches | boolean | 是 | 否 | 是否符合匹配条件。true表示满足查询条件，false表示不满足查询条件。 |
-| media | string | 是 | 否 | 媒体事件的匹配条件。 |
+| media | string | 是 | 否 | 媒体查询的匹配条件。 |
 
 
 
@@ -224,4 +224,4 @@ struct MediaQueryExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/fOUYHbrvR2m7TFrbxXKcsg/zh-cn_image_0000002581435550.png?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=82D9F4A58455ECF3F73782C65C98C2B75A64806329F7451A4D400DC5EA58A417)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/MTgtqXa5QMa9UDFbk_bvPA/zh-cn_image_0000002659101497.png?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=2F2EAE8BDF48FE514DA6F24CF9C5C0C53CDA85C25EB3D39D510096D5B47BDA00)

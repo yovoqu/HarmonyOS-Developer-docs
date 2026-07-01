@@ -1,19 +1,19 @@
 # Native侧如何通过char指针构造ArrayBuffer数组
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-59
 
 可以通过napi_create_arraybuffer接口实现。
  
-```cpp
+```text
 #include "CharToArrBuffer.h" 
 napi_value CharToArrBuffer::TestCharBuf(napi_env env, napi_callback_info info) { 
     napi_value result = nullptr; 
     char *buf = nullptr; 
-    // Create an Array buffer 
+   <em> // Create an Array buffer </em>
     napi_create_arraybuffer(env, 100, reinterpret_cast<void **>(&buf), &result); 
-    // Assign an ArrayBuffer 
+   <em> // Assign an ArrayBuffer </em>
     for (int i = 0; i < 100; i++) { 
         buf[i] = i + 2; 
     } 

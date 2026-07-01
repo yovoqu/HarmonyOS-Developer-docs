@@ -1,6 +1,6 @@
 # ArkUI_ProgressLinearStyleOption
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-progresslinearstyleoption
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_ProgressLinearStyleOption ArkUI_ProgressLinearStyleOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义线性进度条样式。
+定义线性进度条样式选项。
  
 **起始版本：** 15
  

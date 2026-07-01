@@ -1,6 +1,6 @@
 # NodeController
 
-更新时间：2026-03-09 07:25:19
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 NodeController用于实现自定义节点的创建、显示、更新等操作的管理，并负责将自定义节点挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上。
 
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 NodeController对象不支持使用JSON序列化。
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 NodeController对象不支持使用JSON序列化。
 
 
 
@@ -362,7 +362,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/WoCIlyIJQFiHJW5IbBBAwQ/zh-cn_image_0000002611835413.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=08DF9BDC348D2DDB50981B869754D8F047372A3863041730DA80BBED3E0D7223)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/k3ZthZRITc-Mf5qP4I1_yw/zh-cn_image_0000002659221491.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=EAC7636DAC63E4C33EE50F1E145C148FB36A558523F2E0D7BF0694002B29FFE8)
 
 
 
@@ -462,4 +462,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/K45E3tNOROuIHmMnM4Qu5g/zh-cn_image_0000002581275666.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=AEA9C20D7A4F809D9245AD7464E9C48B85B92BEF24FD8FF4B850A66DB740B805)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/BOMolo26TpWxv8XskdwKXw/zh-cn_image_0000002628702302.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=4125CF09036346BAC85265A6644AF52C1DE6472F8A7F8761554F2612238D5942)

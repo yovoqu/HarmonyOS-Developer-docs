@@ -1,12 +1,12 @@
 # 如何避免Badge在数量显示切换时的Image闪烁问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-352
 
-通过@Stage装饰器修饰变量，动态设置badgeSize以控制Badge状态，当值设为0时Badge自动隐藏。
+通过@State装饰器修饰变量，动态设置badgeSize以控制Badge状态，当值设为0时Badge自动隐藏。
  
-```ArkTS
+```text
 @Entry
 @Component
 struct BadgeDemo {
@@ -19,7 +19,7 @@ struct BadgeDemo {
         .fontSize(50)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-          // change the Badge size
+        <em>  // change the Badge size</em>
           this.badgeSize = this.badgeSize === 0 ? 15 : 0;
         })
       Badge({

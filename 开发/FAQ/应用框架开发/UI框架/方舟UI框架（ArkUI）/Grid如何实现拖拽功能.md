@@ -1,6 +1,6 @@
 # Grid如何实现拖拽功能
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-211
 
@@ -10,13 +10,13 @@
  
 可以参考如下示例代码：
  
-```ArkTS
+```text
 @Component
 export struct GridExample {
   @State numbers: string[] = [];
   scroller: Scroller = new Scroller();
 
-  // Drag and drop process style
+  <em>// Drag and drop process style</em>
   @Builder
   pixelMapBuilder(text: string) {
     Column() {
@@ -35,7 +35,7 @@ export struct GridExample {
     }
   }
 
-  // Swap array positions
+ <em> // Swap array positions</em>
   changeIndex(index1: number, index2: number) {
     let temp: string;
     temp = this.numbers[index1];
@@ -58,14 +58,14 @@ export struct GridExample {
       .width('90%')
       .backgroundColor(0xFAEEE0)
       .height(500)
-      .editMode(true) // Set whether the Grid enters editing mode. When entering editing mode, you can drag and drop the GridItem inside the Grid component
-      .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { // 第一次拖拽此事件绑定的组件时，触发回调。
-        // Set the image displayed during the drag and drop process
+      .editMode(true) <em>// Set whether the Grid enters editing mode. When entering editing mode, you can drag and drop the GridItem inside the Grid component</em>
+      .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { <em>// 第一次拖拽此事件绑定的组件时，触发回调。</em>
+      <em>  // Set the image displayed during the drag and drop process</em>
         return this.pixelMapBuilder(this.numbers[itemIndex]);
       })
       .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
-        // The component bound to this event can be used as a drag and drop release target. When the drag behavior stops within the scope of this component, a callback is triggered.
-        // When isSuccess=false, it indicates that the drop is located outside the grid; When insertIndex>length, it indicates that an event of adding new elements has occurred
+        <em>// The component bound to this event can be used as a drag and drop release target. When the drag behavior stops within the scope of this component, a callback is triggered.</em>
+<em>        // When isSuccess=false, it indicates that the drop is located outside the grid; When insertIndex>length, it indicates that an event of adding new elements has occurred</em>
         if (!isSuccess || insertIndex >= this.numbers.length) {
           return;
         }

@@ -1,6 +1,6 @@
 # 真机设备连接后，在DevEco Studio中无法识别设备
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-3
 
@@ -27,7 +27,7 @@
  
 **解决措施**
  1. 在设备上打开“[开发者选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-developer-mode)”开关，打开“USB调试”开关或“无线调试”开关。
-2. 务必确认版本的配套关系是否与当前所使用的开发套件是一致的，可参考[版本概览](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-502-release)使用对应的配套版本。如无真机设备，可使用Device Manager模拟器。
+2. 务必确认版本的配套关系是否与当前所使用的开发套件是一致的，可参考[版本概览](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-2600)使用对应的配套版本。如无真机设备，可使用Device Manager模拟器。
 ![](assets/真机设备连接后，在DevEco%20Studio中无法识别设备/file-20260515130304353-2.png)
 
 3. 请更换为符合USB2.0标准的数据线；建议直接连接，不要使用拓展坞。

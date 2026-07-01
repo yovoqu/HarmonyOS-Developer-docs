@@ -1,6 +1,6 @@
 # Flex
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,7 +60,7 @@ Flex布局容器。
 | justifyContent | FlexAlign | 否 | 是 | 所有子组件在Flex容器主轴上的对齐格式。 默认值：FlexAlign.Start 异常值按默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | alignItems | ItemAlign | 否 | 是 | 所有子组件在Flex容器交叉轴上的对齐格式。 默认值：ItemAlign.Start 异常值按默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | alignContent | FlexAlign | 否 | 是 | 当交叉轴存在额外空间时，多行内容之间的对齐方式。仅在wrap为Wrap或WrapReverse下生效。 默认值：FlexAlign.Start 异常值按默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| space12+ | FlexSpaceOptions12+ | 否 | 是 | 所有子组件在Flex容器主轴或交叉轴的间距。 默认值：{main: LengthMetrics.px(0), cross: LengthMetrics.px(0)} 非法值：按默认值处理。 space为负数、百分比或者justifyContent设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| space12+ | FlexSpaceOptions12+ | 否 | 是 | 所有子组件在Flex容器主轴或交叉轴的间距。 默认值：{main: LengthMetrics.px(0), cross: LengthMetrics.px(0)} 非法值：按默认值处理。 space为负数、百分比或者justifyContent设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -72,6 +72,8 @@ Flex布局容器。
 设置Flex容器的子组件在主轴或交叉轴的间距。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -523,4 +525,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/TemSR8gpQ-K1oVohGRXtog/zh-cn_image_0000002581275804.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=D1EFD76B9FC28AD428B5D0CDE3667599FE3978B19DCC2A98730F14B4AEF8EED1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/WUAqOouHTEuA4e2kdpyEkw/zh-cn_image_0000002628702446.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=F7F738842076D4E16BC63B6DC0ECF233429DACB7FEE227B5F26ED6C08C9E6710)

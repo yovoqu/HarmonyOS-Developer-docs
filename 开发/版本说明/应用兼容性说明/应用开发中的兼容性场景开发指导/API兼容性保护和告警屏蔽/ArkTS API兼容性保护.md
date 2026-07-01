@@ -1,6 +1,6 @@
 # ArkTS API兼容性保护
 
-更新时间：2026-06-12 06:54:02
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/arkts-api-compatibility-warning-elim
 

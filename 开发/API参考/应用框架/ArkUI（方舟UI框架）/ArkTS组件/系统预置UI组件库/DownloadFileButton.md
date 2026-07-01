@@ -1,6 +1,6 @@
 # DownloadFileButton
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-downloadfilebutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,7 +42,7 @@ import { DownloadFileButton } from '@kit.ArkUI';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-DownloadFileButton{( contentOptions: DownloadContentOptions, styleOptions: DownloadStyleOptions )}
+DownloadFileButton({ contentOptions: DownloadContentOptions, styleOptions: DownloadStyleOptions })
  
 下载文件按钮组件，默认显示图标和文字。
  
@@ -241,4 +241,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/3W3Axa2fT8iUaMXJkhjniA/zh-cn_image_0000002592380504.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=D3A78BBF095A4E5010329251826247341B33468B514D99A68E801B1EAFE39396)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/d9kiBR8cR6CR_-3yDt2DCA/zh-cn_image_0000002628702976.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=36C274FF3278581B58E24E5435B430817325B259C9665530686C167F599EDEE2)

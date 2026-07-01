@@ -1,6 +1,6 @@
 # AlphabetIndexer
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -52,6 +52,8 @@ AlphabetIndexer(options: AlphabetIndexerOptions)
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -114,7 +116,7 @@ selectedColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 选中项文本颜色。 默认值：0xFF007DFF，显示为蓝色。 |
+| value | ResourceColor | 是 | 选中项文本颜色。 默认值：0xFF007DFF，显示为半透明蓝色。 |
 
 
 
@@ -135,7 +137,7 @@ popupColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 提示弹窗一级索引项文本颜色。 默认值：0xFF007DFF，显示为蓝色。 |
+| value | ResourceColor | 是 | 提示弹窗一级索引项文本颜色。 默认值：0xFF007DFF，显示为半透明蓝色。 |
 
 
 
@@ -169,6 +171,14 @@ popupBackground(value: ResourceColor)
 
 设置提示弹窗背景颜色。
 
+该接口未被主动调用或参数value传入undefined时：
+
+API version 11及以前版本，提示弹窗背景颜色默认为0xFFFFFFFF，显示为白色。
+
+对于API version 12至API version 24版本，默认为#66808080，显示为半透明的灰色。
+
+从API版本26.0.0开始，如果和[popupBackgroundBlurStyle](#popupbackgroundblurstyle12)均未被主动调用或参数value传入undefined，高档、中档算力设备默认显示为沉浸式材质[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)的THIN样式，低档算力设备默认显示为白色背景。如果popupBackgroundBlurStyle被主动调用且参数value传入有效值，提示弹窗背景颜色默认为#66808080，显示为半透明的灰色。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -177,7 +187,7 @@ popupBackground(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 提示弹窗背景颜色。 弹窗的背景模糊材质效果会对背景色产生影响，可通过设置popupBackgroundBlurStyle属性值为NONE关闭背景模糊材质效果。 默认值： API version 11及以前：0xFFFFFFFF，显示为白色。 API version 12及以后：#66808080，显示为半透明的灰色。 |
+| value | ResourceColor | 是 | 提示弹窗背景颜色。 弹窗的背景模糊材质效果会对背景色产生影响，可通过设置popupBackgroundBlurStyle属性值为NONE关闭背景模糊材质效果。 |
 
 
 
@@ -363,6 +373,8 @@ popupSelectedColor(value: ResourceColor)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -383,6 +395,8 @@ popupUnselectedColor(value: ResourceColor)
 设置提示弹窗二级索引未选中项文本颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -405,6 +419,8 @@ popupItemFont(value: Font)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -425,6 +441,8 @@ popupItemBackgroundColor(value: ResourceColor)
 设置提示弹窗二级索引项背景颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -455,6 +473,8 @@ autoCollapse(value: boolean)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -475,6 +495,8 @@ popupItemBorderRadius(value: number)
 设置提示弹窗索引项背板圆角半径。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -497,6 +519,8 @@ itemBorderRadius(value: number)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -514,9 +538,11 @@ itemBorderRadius(value: number)
 
 popupBackgroundBlurStyle(value: BlurStyle)
 
-设置提示弹窗的背景模糊材质。未通过该接口设置时，默认为组件普通材质模糊，对应取值为BlurStyle中的COMPONENT_REGULAR。
+设置提示弹窗的背景模糊材质。API版本26.0.0之前版本，未通过该接口设置时，默认为组件普通材质模糊，对应取值为BlurStyle中的COMPONENT_REGULAR。从API版本26.0.0开始，[popupBackground](#popupbackground)和popupBackgroundBlurStyle均未被主动调用或者传入undefined时，在高档、中档算力设备默认显示为沉浸式材质[ImmersiveStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivestyle)的THIN样式，低档算力设备默认显示为白色背景。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -539,6 +565,8 @@ popupTitleBackground(value: ResourceColor)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -559,6 +587,8 @@ enableHapticFeedback(value: boolean)
 设置是否开启触控反馈。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -583,8 +613,8 @@ enableHapticFeedback(value: boolean)
 | --- | --- | --- |
 | Left | 0 | 提示弹窗显示在索引条右侧。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Right | 1 | 提示弹窗显示在索引条左侧。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| START12+ | 2 | 在从左到右（LTR）场景下，提示弹窗显示在索引条右侧的位置。在RTL场景下，提示弹窗显示在索引条左侧的位置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| END12+ | 3 | 在从左到右（LTR）场景下，提示弹窗显示在索引条左侧的位置。在RTL场景下，提示弹窗显示在索引条右侧的位置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| START12+ | 2 | 在从左到右（LTR）场景下，提示弹窗显示在索引条右侧的位置。在RTL场景下，提示弹窗显示在索引条左侧的位置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| END12+ | 3 | 在从左到右（LTR）场景下，提示弹窗显示在索引条左侧的位置。在RTL场景下，提示弹窗显示在索引条右侧的位置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -693,6 +723,8 @@ type OnAlphabetIndexerSelectCallback = (index: number) => void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -714,6 +746,8 @@ type OnAlphabetIndexerPopupSelectCallback = (index: number) => void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -734,6 +768,8 @@ type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array&lt;str
 [usingPopup](#usingpopup)设置值为true，索引项被选中时触发的事件。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -874,7 +910,7 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/i9o3G2AsTu-fWvKqk8GYgA/zh-cn_image_0000002611835863.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=1601CBE9E5B434C4624B586BB39E7C78C94119F40CBDEC258C49D33A5705973E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/_qbY-dQhQb68Ft5eVItcSg/zh-cn_image_0000002659101995.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=4C145D0832C41A19D4B2D2233CADF3FFFBBF02D82019D14EA84873546881CCDF)
 
 
 
@@ -1020,7 +1056,7 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HLNUmapRAi3nInoQEb3AA/zh-cn_image_0000002581276118.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=DF2C085E68AA8A111F432654B7E85DA60978C2D35067F60487DC1F11D52D1B28)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/y644ICQXSkmo2Lg8OWwd_A/zh-cn_image_0000002628862646.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=244C607081208A6852408D5D80FAF7F20EDCD61808C8B6FA3E8ED5D03069D9E8)
 
 
 
@@ -1155,4 +1191,4 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/1rZqsomSQXOi4_bJAYl50Q/zh-cn_image_0000002611755973.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=EFAA3F4DE44D0D85593ED5677BA6DAF1827FA4719120185B6D85E4BBB63E5B90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ds8szW0_TCOiYRFi-M8J8Q/zh-cn_image_0000002659221961.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=547BA7180DD416E4541A5A40BE7D83B7DBACE400349A748F7675234BD66BF852)

@@ -1,6 +1,6 @@
 # @ohos.ability.screenLockFileManager (锁屏敏感数据管理)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-screenlockfilemanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -82,7 +82,7 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 | --- | --- | --- |
 | KEY_NOT_EXIST | -2 | 应用未开启锁屏敏感数据保护功能。 |
 | KEY_RELEASED | -1 | 锁屏敏感数据访问权限已释放。 |
-| KEY_EXIST | 0 | 应用可以访问锁屏敏感数据。 |
+| KEY_EXIST | 0 | 当前应用已获得锁屏状态下访问敏感数据的权限，可正常获取相关数据。 |
 
 
 

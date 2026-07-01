@@ -1,6 +1,6 @@
 # 如何修改代码工程所支持的C++语言版本
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-9
 
@@ -25,12 +25,12 @@
 
   set(CMAKE_CXX_STANDARD 17)# 设置C++标准为17
 - 修改模块级的build-profile.json5文件，添加“"cppFlags": "--std=c++17"”。
-```json
+```text
 "buildOption": {
   "externalNativeOptions": {
     "path": "./src/main/cpp/CMakeLists.txt",
     "arguments": "",
-    // Modify the following line
+  <em>  // Modify the following line</em>
     "cppFlags": "--std=c++17"
   },
 },

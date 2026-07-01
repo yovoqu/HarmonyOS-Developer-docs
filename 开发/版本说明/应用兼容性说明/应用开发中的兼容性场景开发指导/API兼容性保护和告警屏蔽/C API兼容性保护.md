@@ -1,6 +1,6 @@
 # C API兼容性保护
 
-更新时间：2026-04-30 07:49:00
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/c-api-compatibility-warning-elim
 

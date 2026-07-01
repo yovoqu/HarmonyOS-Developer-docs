@@ -1,6 +1,6 @@
 # HapModuleInfo
 
-更新时间：2026-04-17 08:12:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-hapmoduleinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -43,7 +43,7 @@ import { bundleManager } from '@kit.AbilityKit';
 | metadata | Array&lt;Metadata&gt; | 是 | 否 | 当前模块的元数据。通过调用getBundleInfoForSelf接口，bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_METADATA获取。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | deviceTypes | Array&lt;string&gt; | 是 | 否 | 模块支持安装运行的设备类型的集合。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | installationFree | boolean | 是 | 否 | 模块是否支持免安装（无需用户通过应用市场显式安装），取值为true表示支持免安装，取值为false表示不支持免安装。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| hashValue | string | 是 | 否 | 模块的Hash值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| hashValue | string | 是 | 否 | 模块的Hash值，唯一标识模块。Hash值根据模块内容计算生成，可校验模块完整性和比对版本。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | type | bundleManager.ModuleType | 是 | 否 | 标识当前模块的类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | preloads | Array&lt;PreloadItem&gt; | 是 | 否 | 元服务中模块的预加载列表。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | dependencies | Array&lt;Dependency&gt; | 是 | 否 | 模块运行依赖的动态共享库列表。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |

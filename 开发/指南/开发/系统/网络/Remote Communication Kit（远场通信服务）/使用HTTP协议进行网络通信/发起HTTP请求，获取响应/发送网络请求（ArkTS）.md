@@ -1,6 +1,6 @@
 # 发送网络请求（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netsend-arkts
 
@@ -12,7 +12,7 @@
 
 #### 如何使用FETCH发起网络请求
 
-发送一个HTTP请求，也可以设置请求头和请求体等参数，并返回来自服务器的HTTP响应。使用Promise异步回调。常用于获取资源，支持流处理和通过拦截器来处理请求和响应。
+发送HTTP请求，可设置请求头和请求体等参数，并返回来自服务器的HTTP响应。使用Promise异步回调。常用于获取资源，支持流处理和通过拦截器来处理请求和响应。
 
 
 
@@ -22,7 +22,7 @@
 
 | 接口名 | 描述 |
 | --- | --- |
-| fetch(request: Request): Promise&lt;Response&gt; | 发送一个HTTP请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
+| fetch(request: Request): Promise&lt;Response&gt; | 发送HTTP请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
 
 
 
@@ -78,7 +78,7 @@ HTTP GET请求是常用的通信方式之一。为了有效地实现这一目标
 
 | 接口名 | 描述 |
 | --- | --- |
-| get(url: URLOrString, destination?: ResponseBodyDestination): Promise&lt;Response&gt; | 发送一个带有默认HTTP参数的HTTP GET请求，参数为开发者需要请求的地址及响应的目标，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
+| get(url: URLOrString, destination?: ResponseBodyDestination): Promise&lt;Response&gt; | 发送带有默认HTTP参数的HTTP GET请求，参数为开发者需要请求的地址及响应的目标，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
 
 
 
@@ -116,7 +116,7 @@ session.get(getURL).then((response) => {
 
 #### 如何发起POST网络请求
 
-发送一个带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用Promise异步回调。常用于向服务器提交数据。与GET请求不同，POST请求将参数包含在请求主体中，适用于创建新资源、提交表单数据或执行某些操作。
+发送带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用Promise异步回调。常用于向服务器提交数据。与GET请求不同，POST请求将参数包含在请求主体中，适用于创建新资源、提交表单数据或执行某些操作。
 
 
 
@@ -126,7 +126,7 @@ session.get(getURL).then((response) => {
 
 | 接口名 | 描述 |
 | --- | --- |
-| post(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestination): Promise&lt;Response&gt; | 发送一个带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
+| post(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestination): Promise&lt;Response&gt; | 发送带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
 
 
 
@@ -183,7 +183,7 @@ session.post(postURL, postContent)
 
 | 接口名 | 描述 |
 | --- | --- |
-| put(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestination): Promise&lt;Response&gt; | 发送一个带有默认HTTP参数的HTTP PUT请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
+| put(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestination): Promise&lt;Response&gt; | 发送带有默认HTTP参数的HTTP PUT请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
 
 
 
@@ -238,7 +238,7 @@ HTTP HEAD请求可高效访问服务器资源头信息。它与GET请求类似�
 
 | 接口名 | 描述 |
 | --- | --- |
-| head(url: URLOrString): Promise&lt;Response&gt; | 发送一个带有默认HTTP参数的HTTP HEAD请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
+| head(url: URLOrString): Promise&lt;Response&gt; | 发送带有默认HTTP参数的HTTP HEAD请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
 
 
 
@@ -274,7 +274,7 @@ session.head('http://www.example.com/head').then((response) => {
 
 #### 如何发起DELETE网络请求
 
-在远场通信服务的框架中，Remote Communication Kit采用了一种结合发起 HTTP DELETE 请求与 Promise 异步处理的方法。具体操作如下：通过向预定义的 URL 发送一个包含默认 HTTP 参数的 HTTP DELETE 请求，即可实现对目标 URL 上相关资源的有效删除。这种机制不仅简化了请求的发送过程，还增强了异步处理的效率，确保了资源管理的灵活性和响应速度。
+在远场通信服务的框架中，Remote Communication Kit采用了一种结合发起HTTP DELETE请求与Promise异步处理的方法。具体操作如下：通过向预定义的URL发送包含默认HTTP参数的HTTP DELETE请求，即可实现对目标URL上相关资源的有效删除。这种机制不仅简化了请求的发送过程，还增强了异步处理的效率，确保了资源管理的灵活性和响应速度。
 
 
 
@@ -284,7 +284,7 @@ session.head('http://www.example.com/head').then((response) => {
 
 | 接口名 | 描述 |
 | --- | --- |
-| delete(url: URLOrString): Promise&lt;Response&gt; | 发送一个带有默认HTTP参数的HTTP DELETE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
+| delete(url: URLOrString): Promise&lt;Response&gt; | 发送带有默认HTTP参数的HTTP DELETE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。 |
 
 
 

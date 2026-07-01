@@ -1,6 +1,6 @@
 # @ohos.arkui.drawableDescriptor (DrawableDescriptor)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,6 +35,8 @@ import {
 传入的图片资源或地址的加载结果。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -101,6 +103,8 @@ getPixelMap(): image.PixelMap
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -125,6 +129,8 @@ loadSync(): DrawableDescriptorLoadedResult
 发起图片资源的同步加载，并返回加载结果。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -159,6 +165,8 @@ load(): Promise&lt;DrawableDescriptorLoadedResult&gt;
 发起图片资源的异步加载，并返回加载结果。使用Promise异步回调。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -201,6 +209,8 @@ constructor(src?: image.PixelMap)
 PixelMapDrawableDescriptor的构造函数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -326,6 +336,8 @@ LayeredDrawableDescriptor的构造函数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -348,6 +360,8 @@ getForeground(): DrawableDescriptor
 获取前景的DrawableDescriptor对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -414,6 +428,8 @@ getBackground(): DrawableDescriptor
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -473,6 +489,8 @@ getMask(): DrawableDescriptor
 获取蒙版的DrawableDescriptor对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -534,6 +552,8 @@ LayeredDrawableDescriptor的静态方法，获取系统内置的裁切路径参�
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -580,6 +600,8 @@ setBlendMode(mode: drawing.BlendMode): void
 设置LayeredDrawableDescriptor的混合模式。对同一LayeredDrawableDescriptor对象多次调用setBlendMode接口时，仅在绘制完成前的最后一次调用生效。该接口不支持动态切换。LayeredDrawableDescriptor的默认绘制顺序为背景、蒙版、前景。设置了混合模式后，绘制顺序变为背景、前景、蒙版。若设置的值无效，则按照未设置混合模式进行绘制。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -642,9 +664,9 @@ struct Index {
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 **模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -660,6 +682,8 @@ struct Index {
 
 动画播放参数。包括播放时延，迭代次数，单帧播放时间，是否自动播放。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -668,7 +692,7 @@ struct Index {
 | iterations | number | 否 | 是 | 设置图片数组播放次数。 值为-1时表示无限播放，值为0时表示不播放，值大于0时表示有限的播放次数。 默认值为1。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | frameDurations21+ | Array&lt;number&gt; | 否 | 是 | 设置动图中的单帧播放时间。不设置则按照总时间播放。 设置的优先级高于duration，即同时设置了duration和frameDurations时，duration不生效。 当设置的frameDurations长度与图片的数量不一致时，按照总时间播放。 单位：毫秒 元服务API： 从API version 21开始，该接口支持在元服务中使用。 |
 | autoPlay21+ | boolean | 否 | 是 | 设置动图是否自动播放。 true表示自动播放，false表示不自动播放。 默认值为true。 元服务API： 从API version 21开始，该接口支持在元服务中使用。 |
-| stopMode24+ | AnimationStopMode | 否 | 是 | 设置动图的停止模式。 默认值：AnimationStopMode.FIRST_FRAME，表示动图停止时回到首帧。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| stopMode24+ | AnimationStopMode | 否 | 是 | 设置动图的停止模式。 默认值：AnimationStopMode.FIRST_FRAME，表示动图停止时回到首帧。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
 **示例：**
@@ -744,6 +768,8 @@ AnimatedDrawableDescriptor的构造函数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -765,6 +791,8 @@ constructor(src: ResourceStr | Array<image.PixelMap>, options?: AnimationOptions
 AnimatedDrawableDescriptor的构造函数。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -819,6 +847,8 @@ getAnimationController(id?: string): AnimationController | undefined
 获取动画控制器。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -932,6 +962,8 @@ start(): void
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **示例：**
@@ -972,6 +1004,8 @@ stop(): void
 停止动图的播放并回到首帧。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1014,6 +1048,8 @@ resume(): void
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **示例：**
@@ -1055,6 +1091,8 @@ pause(): void
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **示例：**
@@ -1095,6 +1133,8 @@ getStatus(): AnimationStatus
 获取当前动图播放的状态。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

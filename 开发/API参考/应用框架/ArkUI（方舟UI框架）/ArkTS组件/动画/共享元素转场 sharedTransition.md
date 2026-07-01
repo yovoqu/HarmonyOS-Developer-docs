@@ -1,6 +1,6 @@
 # 共享元素转场 (sharedTransition)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-shared-elements
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -118,4 +118,4 @@ struct PageBExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/EXkqVLxjQ_KGBp1M_Hn75Q/zh-cn_image_0000002611835995.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=BE78F6FE4A5BDB3F97B8FDEDE954E37BE07DD8983E210B8A1A5662F63B202035)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/9xZ-1sGXQimfRmXF4kWhsA/zh-cn_image_0000002628702900.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=1CB87462B921C1DD52DD83624B13AC4D17CA573BF26DA275B8422FA77D7FA533)

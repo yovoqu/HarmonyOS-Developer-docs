@@ -1,6 +1,6 @@
 # 模块级build-profile.json5文件
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-06-30 08:29:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile
 
@@ -153,6 +153,8 @@
 <span style="color: rgb(48,48,48);">    └── </span>expandImportPath
 <span style="color: rgb(48,48,48);">        └── </span>enable
 <span style="color: rgb(48,48,48);">        └── </span>exclude
+    └── widget
+        └── transitiveDeps
 <span style="color: rgb(48,48,48);">    └── apPath</span>
 <span style="color: rgb(48,48,48);">    └── hostPGO</span>
 <span style="color: rgb(48,48,48);">└── </span>packingOptions
@@ -682,6 +684,7 @@ arkOptions是ArkTS编译配置。
 > [!TIP]
 > HAR模块不支持配置。
  |
+| widget | 对象 | 可选 | 卡片编译相关配置。 |
 | apPath | 字符串 | 可选 | 
 > [!TIP]
 > API 11及以上版本不再支持，即该字段配置后不再生效。
@@ -733,6 +736,11 @@ if (VERSION_CODE === 100){XXX} // 若需要裁剪代码，使用该方式，显�
 > import XXX from 'A'，A必须为本地HAR模块，并且仅当A为包名时支持进行展开，A为相对路径或包名+路径都不支持展开。
  |
 | exclude | 字符串数组 | 可选 | 配置oh-package.json5中的依赖别名，用于指定不展开import语句的依赖，仅支持本地HAR模块。 |
+
+
+            | 字段名称 | 类型 | 可选/必选 | 含义 |
+| --- | --- | --- | --- |
+| transitiveDeps | 布尔值 | 可选 | 卡片依赖字节码HAR，编译卡片时是否收集字节码HAR的直接和间接依赖。 true：收集。 false（缺省默认值）：不收集。 从DevEco Studio 6.1.1 Release (6.1.1.290)版本开始支持。 |
 
 
 arkOptions字段示例：

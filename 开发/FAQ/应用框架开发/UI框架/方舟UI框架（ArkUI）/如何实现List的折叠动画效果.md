@@ -1,12 +1,12 @@
 # 如何实现List的折叠动画效果
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-348
 
 可以使用显式动画animateTo结合条件渲染if控制 ListItem内容区域的展开和收起，示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct ListCollapseExpand {
@@ -38,7 +38,7 @@ struct ListCollapseExpand {
               .width('100%')
               .justifyContent(FlexAlign.SpaceBetween)
 
-              // Display the content area only when the current item is selected and is in an expanded state.
+          <em>    // Display the content area only when the current item is selected and is in an expanded state.</em>
               if (this.isContentShow && this.selectItem === item) {
                 Text('This is the content area')
                   .backgroundColor(Color.Gray)

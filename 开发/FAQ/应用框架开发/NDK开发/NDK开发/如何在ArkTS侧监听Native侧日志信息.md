@@ -1,6 +1,6 @@
 # 如何在ArkTS侧监听Native侧日志信息
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-64
 
@@ -10,18 +10,15 @@
  
 **解决措施**
  1. 在ArkTS侧新建Log.ts文件（注意文件扩展名为ts，而非ets），并使用单例模式封装日志监听接口。
-```ts
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
-
 
 export class GlobalThisAdapter {
   private constructor() {
   }
 
-
   private static instance: GlobalThisAdapter;
   private _logListener: LogsListener = new LogsListener();
-
 
   public static getInstance(): GlobalThisAdapter {
     if (!GlobalThisAdapter.instance) {
@@ -30,22 +27,18 @@ export class GlobalThisAdapter {
     return GlobalThisAdapter.instance;
   }
 
-
   getLogsListener(): LogsListener | undefined {
     return this._logListener;
   }
-
 
   setLogsListener(value: LogsListener): void {
     this._logListener = value;
   }
 }
 
-
 export class LogsListener implements OnLogsListener {
   public constructor() {
   }
-
 
   onLogs(level: LogLevel, message: string): void {
     switch (level) {
@@ -70,7 +63,6 @@ export class LogsListener implements OnLogsListener {
   }
 }
 
-
 enum LogLevel {
   DEBUG = 3,
   INFO,
@@ -79,19 +71,17 @@ enum LogLevel {
   FATAL
 }
 
-
 export default interface OnLogsListener {
   onLogs(level: number, message: string): void;
 }
 ```
 
 2. 在Native侧代码中添加接口实现。注意，napi_create_reference用于创建引用，napi_ref由开发者管理对象的生命周期，不受NativeScope影响。通过napi_get_named_property和napi_call_function获取OnLogsListener和onLogs，实现与 ArkTS 侧的绑定。
-```cpp
+```text
 #include "napi/native_api.h"
 #include <bits/alltypes.h>
 #include <cstring>
 #include <hilog/log.h>
-
 
 napi_ref logListenerRef = nullptr;
 napi_ref onLogsFuncRef = nullptr;
@@ -100,29 +90,24 @@ static napi_value RegisterLogListener(napi_env env, napi_callback_info info) {
     napi_value globalThisAdapter = nullptr;
     napi_get_cb_info(env, info, &argc, &globalThisAdapter, nullptr, nullptr);
 
-
     napi_value getLogListenerFunc = nullptr;
     napi_get_named_property(env, globalThisAdapter, "getLogsListener", &getLogListenerFunc);
-
 
     napi_value logListener = nullptr;
     napi_call_function(env, globalThisAdapter, getLogListenerFunc, 0, nullptr, &logListener);
 
-
     napi_value onLogsFunc = nullptr;
     napi_get_named_property(env, logListener, "onLogs", &onLogsFunc);
 
-
     napi_create_reference(env, logListener, 1, &logListenerRef);
     napi_create_reference(env, onLogsFunc, 1, &onLogsFuncRef);
-
 
     return nullptr;
 }
 ```
 
 3. 在Native侧添加接口映射，以实现功能。
-```cpp
+```text
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports) {
     napi_property_descriptor desc[] = {
@@ -135,14 +120,14 @@ EXTERN_C_END
 ```
 
 4. 在index.t.ets中导出相关接口。
-```ts
+```text
 import { GlobalThisAdapter } from '../../../ets/interface/Log'
 export const add: () => void;
 export const registerLogListener: (a: GlobalThisAdapter) => void;
 ```
 
 5. 注册日志接口，调用registerLogListener将ArkTS侧的日志实现注册到Native侧。此处选择在EntryAbility.ets文件的onCreate方法中进行注册。
-```ArkTS
+```text
 onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   let globalThisAdapter: GlobalThisAdapter = GlobalThisAdapter.getInstance();
   testNapi.registerLogListener(globalThisAdapter);
@@ -151,13 +136,11 @@ onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
 ```
 
 6. 添加调用接口时的回调方法。在Native侧调用该方法即可实现ArkTS侧onLogs方法的回调。
-```cpp
+```text
 static void callOnLogs(napi_env env, LogLevel level, const char *message) {
-
 
     size_t argc = 2;
     napi_value argv[2] = {nullptr};
-
 
     int32_t tem = level;
     napi_create_int32(env, tem, &argv[0]);
@@ -167,13 +150,12 @@ static void callOnLogs(napi_env env, LogLevel level, const char *message) {
     napi_get_reference_value(env, logListenerRef, &logListener);
     napi_get_reference_value(env, onLogsFuncRef, &onLogsFunc);
 
-
     napi_call_function(env, logListener, onLogsFunc, argc, argv, nullptr);
 }
 ```
 
 7. 调用其他业务代码。此处以Add方法为例，在该方法中调用callOnLogs方法，即可实现对ArkTS侧onLogs方法的回调。
-```cpp
+```text
 static napi_value Add(napi_env env, napi_callback_info info) {
     callOnLogs(env, LogLevel::LOG_INFO, "execute native Add function success");
     return nullptr;

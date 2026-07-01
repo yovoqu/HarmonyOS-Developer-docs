@@ -1,6 +1,6 @@
 # @ohos.app.ability.PhotoEditorExtensionAbility (支持图片编辑能力的ExtensionAbility组件)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-photoeditorextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
@@ -19,7 +19,7 @@ PhotoEditorExtensionAbility继承自[ExtensionAbility](https://developer.huawei.
 下图为通过PhotoEditorExtensionAbility实现的图片编辑扩展页面示意图，页面的布局与功能可以根据实际需要开发。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/PzQmawiiT8OhtnOtRwbHRw/zh-cn_image_0000002581435520.png?HW-CC-KV=V1&HW-CC-Date=20260528T025636Z&HW-CC-Expire=86400&HW-CC-Sign=FDF30E3E7B281028D1C099D0B3EF5696F143EC6594788F94AD82C1A3CF531488)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/G-or-yXpRvOHeVGOd1evYA/zh-cn_image_0000002659101465.png?HW-CC-KV=V1&HW-CC-Date=20260701T014232Z&HW-CC-Expire=86400&HW-CC-Sign=8284B95D527D03A83684E0B38661BC4772A5CDD982316009A7D0DE85D78289A8)
 
  
   

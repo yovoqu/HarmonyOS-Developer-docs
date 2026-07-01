@@ -1,6 +1,6 @@
-# Deveco Studio中Cmake编译选项的优先级说明
+# DevEco Studio中Cmake编译选项的优先级说明
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-196
 
@@ -56,9 +56,9 @@ Cmakelists.txt中通过CACHE FORCE设置的参数。
 
 6. hvigor默认配置的-DCMAKE_BUILD_TYPE参数。
 ```text
-<span style="color: rgb(128,128,128);">//</span><span style="color: rgb(132,63,161);">"debuggable"</span>缺省或为true，或者buildMode为debug
+<em>//</em><em><span style="color: rgb(132,63,161);"> "debuggable"</span>缺省或为true，或者buildMode为debug</em>
 <span style="color: rgb(128,128,128);">-DCMAKE_BUILD_TYPE=debug</span>
-<span style="color: rgb(128,128,128);">//</span><span style="color: rgb(132,63,161);">"debuggable"为false</span>，或者buildMode为release
+<em>// </em><em><span style="color: rgb(132,63,161);">"debuggable"为false</span>，或者buildMode为release</em>
 <span style="color: rgb(128,128,128);">-DCMAKE_BUILD_TYPE=release</span>
 ```
 

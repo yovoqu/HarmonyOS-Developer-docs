@@ -1,12 +1,12 @@
 # 如何进行base64编码
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-92
 
 可使用util中的Base64Helper()方法进行base64编码，参考代码如下：
  
-```ArkTS
+```text
 import { util } from '@kit.ArkTS';
 
 @Entry
@@ -25,8 +25,8 @@ struct Base64Encode {
             let arr = new Uint8Array([48, 49, 2, 1, 1, 4, 32, 115, 56]);
             let base64Str = base64.encodeToStringSync(arr); // Uint8Array to base64
             console.log('encodeToStringSync',base64Str);
-            // base64.decodeSync(''); // base64 to Uint8Array
-            // console.log('decodeSync',base64.decodeSync(''));
+          <em>  // base64.decodeSync(''); // base64 to Uint8Array</em>
+<em>            // console.log('decodeSync',base64.decodeSync(''));</em>
           })
       }
       .width('100%')

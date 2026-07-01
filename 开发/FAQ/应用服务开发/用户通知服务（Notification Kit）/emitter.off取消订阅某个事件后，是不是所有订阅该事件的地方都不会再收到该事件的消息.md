@@ -1,6 +1,6 @@
 # emitter.off取消订阅某个事件后，是不是所有订阅该事件的地方都不会再收到该事件的消息
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-9
 
@@ -8,10 +8,11 @@
  
 参考代码如下：
  
-```ArkTS
+```text
 emitter.off(1);
 ```
  
-**参考链接**
- 
+
+#### 参考链接
+
 [emitter.off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter#emitteroff)

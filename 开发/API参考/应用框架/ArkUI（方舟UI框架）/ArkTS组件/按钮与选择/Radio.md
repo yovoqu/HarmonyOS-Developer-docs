@@ -1,6 +1,6 @@
 # Radio
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-radio
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,8 +55,8 @@ Radio(options: RadioOptions)
 | --- | --- | --- | --- | --- |
 | value | string | 否 | 否 | 当前单选框的值。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | group | string | 否 | 否 | 当前单选框的所属群组名称，相同group的Radio只能有一个被选中。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| indicatorType12+ | RadioIndicatorType | 否 | 是 | 配置单选框的选中样式。未设置时按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| indicatorBuilder12+ | CustomBuilder | 否 | 是 | 配置单选框的选中样式为自定义组件。自定义组件与Radio组件为中心点对齐显示。indicatorBuilder设置为undefined时，按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| indicatorType12+ | RadioIndicatorType | 否 | 是 | 配置单选框的选中样式。未设置时按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| indicatorBuilder12+ | CustomBuilder | 否 | 是 | 配置单选框的选中样式为自定义组件。自定义组件与Radio组件为中心点对齐显示。indicatorBuilder设置为undefined时，按照RadioIndicatorType.TICK进行显示。 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -70,6 +70,8 @@ Radio(options: RadioOptions)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -131,6 +133,8 @@ checked(isChecked: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -154,6 +158,8 @@ radioStyle(value?: RadioStyle)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -175,6 +181,8 @@ contentModifier(modifier: ContentModifier&lt;RadioConfiguration&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -195,6 +203,8 @@ contentModifier(modifier: Optional<ContentModifier&lt;RadioConfiguration&gt;>)
 定制Radio内容区的方法。与[contentModifier](#contentmodifier12)12+相比，modifier参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -250,6 +260,8 @@ onChange(callback: Optional&lt;OnRadioChangeCallback&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -271,6 +283,8 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -290,6 +304,8 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -308,6 +324,8 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -510,4 +528,4 @@ struct refreshExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/2FqbHo6uR9-MaNZeDRKDVg/zh-cn_image_0000002611755789.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=B749C7A119429BD9B7DE8BE0FD0F28FB82FAC86BA04654D49774F19978BA34CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/aVuDyaPMSZOn5IBMXbyfvw/zh-cn_image_0000002659221769.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=065D17152F2E940438E016748961527CD2A6717805828B18FBA76EAA383B68A1)

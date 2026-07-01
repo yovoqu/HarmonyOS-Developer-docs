@@ -1,6 +1,6 @@
 # AR Engine简介
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-overview
 
@@ -17,35 +17,35 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
 
 #### 环境识别与运动跟踪能力
 
- - [运动跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-pose-conversion)：实时获取设备位置和姿态
- - [平面识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane-conversion)：识别环境中的平面
- - [命中检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arworld-conversion)：获取碰撞检测结果后可以在识别的平面上放置虚拟物体
- - [平面语义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-semantics-conversion)：识别环境中的平面类型
- - [物体语义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane-shape-conversion)：识别平面上的物体形状
- - [环境Mesh识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-mesh-conversion)：获取环境Mesh数据
- - [深度估计](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-depth-conversion)：获取环境的深度信息
- - [高精几何重建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-volume-measurement-conversion)：输出环境中的稠密点云，识别立方体、嵌入式立方体空间
+ - [运动跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-pose-conversion)：实时获取设备位置和姿态。
+ - [平面识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane-conversion)：识别环境中的平面。
+ - [命中检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arworld-conversion)：获取碰撞检测结果后可以在识别的平面上放置虚拟物体。
+ - [平面语义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-semantics-conversion)：识别环境中的平面类型。
+ - [物体语义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane-shape-conversion)：识别平面上的物体形状。
+ - [环境Mesh识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-mesh-conversion)：获取环境Mesh数据。
+ - [深度估计](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-depth-conversion)：获取环境的深度信息。
+ - [高精几何重建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-volume-measurement-conversion)：高精几何重建主要包含稠密点云绘制、体积测量、空间识别三大能力。
 
 
 
 
 #### 人体骨骼识别与跟踪能力
 
- - [人体骨骼点识别与跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-body-conversion)：识别环境中的人体骨骼点信息
+ - [人体骨骼点识别与跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-body-conversion)：识别环境中的人体骨骼点信息。
 
 
 
 
 #### 人脸识别与跟踪能力
 
- - [人脸识别与跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-face-conversion)：识别环境中的人脸信息
+ - [人脸识别与跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-face-conversion)：识别环境中的人脸信息。
 
 
 
 
 #### 图像识别与跟踪能力
 
- - [图像跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-image-track-conversion)：识别环境中已预置在AR Engine中的图像并输出图像位置和姿态
+ - [图像跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-image-track-conversion)：识别环境中已预置在AR Engine中的图像并输出图像位置和姿态。
 
 
 

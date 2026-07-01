@@ -1,6 +1,6 @@
 # ArcScrollBar
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-arcscrollbar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -108,4 +108,4 @@ struct ArcScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/XSyHA23STPWD6bU4ZKfAYg/zh-cn_image_0000002581435790.png?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=20C3A06C24B07C5CFAC92CFC0E1D9BFEDF2966FD2B2919DCA0DA2BA596E8E204)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/GH8pVXxGTHi6cpVe6bTj1A/zh-cn_image_0000002628862394.png?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=992915F72CF63B453D7316FC1F2E81F4B2E9F90225D32D123308E45AAA4AB2BD)

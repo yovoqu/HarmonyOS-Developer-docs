@@ -1,6 +1,6 @@
 # Component3D
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-component3d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -79,7 +79,7 @@ Component3D组件配置选项。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type Scene = Scene
+type Scene = import('../api/@ohos.graphics.scene').Scene
 
 设置3D场景。
 
@@ -89,7 +89,7 @@ type Scene = Scene
 
 | 类型 | 说明 |
 | --- | --- |
-| Scene | 用于设置场景。 |
+| import('../api/@ohos.graphics.scene').Scene | 用于设置场景。 |
 
 
 

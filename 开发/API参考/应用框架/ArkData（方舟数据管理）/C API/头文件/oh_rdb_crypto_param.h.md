@@ -1,6 +1,6 @@
 # oh_rdb_crypto_param.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-crypto-param-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -200,7 +200,7 @@ int OH_Rdb_DestroyCryptoParam(OH_Rdb_CryptoParam *param)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -232,7 +232,7 @@ int OH_Crypto_SetEncryptionKey(OH_Rdb_CryptoParam *param, const uint8_t *key, in
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -263,7 +263,7 @@ int OH_Crypto_SetIteration(OH_Rdb_CryptoParam *param, int64_t iteration)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -294,7 +294,7 @@ int OH_Crypto_SetEncryptionAlgo(OH_Rdb_CryptoParam *param, int32_t algo)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -325,7 +325,7 @@ int OH_Crypto_SetHmacAlgo(OH_Rdb_CryptoParam *param, int32_t algo)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -356,7 +356,7 @@ int OH_Crypto_SetKdfAlgo(OH_Rdb_CryptoParam *param, int32_t algo)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -387,4 +387,4 @@ int OH_Crypto_SetCryptoPageSize(OH_Rdb_CryptoParam *param, int64_t size)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |

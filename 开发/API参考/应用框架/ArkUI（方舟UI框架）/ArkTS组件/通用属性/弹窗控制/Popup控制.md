@@ -1,6 +1,6 @@
 # Popup控制
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,33 +60,35 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 | secondaryButton | { value: string, action: () => void } | 否 | 是 | 第二个按钮。 value：气泡里辅助按钮的文本。 action：点击辅助按钮的回调函数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onStateChange | (event: { isVisible: boolean }) => void | 否 | 是 | 气泡状态变化事件回调，参数isVisible为气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | showInSubWindow9+ | boolean | 否 | 是 | 气泡是否显示在创建的子窗里。 true：气泡会显示在创建的子窗里；false：气泡会显示在对应的主窗中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| mask10+ | boolean \| { color : ResourceColor } | 否 | 是 | 设置气泡是否有遮罩层及遮罩颜色。 true：显示透明色遮罩层；false：不显示遮罩层。 Color：显示指定颜色的遮罩层。 默认值：true 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| messageOptions10+ | PopupMessageOptions | 否 | 是 | 设置气泡信息文本参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| targetSpace10+ | Length | 否 | 是 | 设置Popup与宿主节点的间距。不支持设置百分比。 默认值：8 单位：vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| placement10+ | Placement | 否 | 是 | 设置Popup组件相对于宿主节点的显示位置，默认值为Placement.Bottom。 如果同时设置了placementOnTop和placement，则以placement的设置为准。如果开发者设置的位置上无法完整显示气泡，气泡会自动避让至可以完整显示的位置。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| offset10+ | Position | 否 | 是 | 设置Popup组件相对于placement设置的显示位置的偏移。 默认值：{ x: 0, y: 0 } 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| enableArrow10+ | boolean | 否 | 是 | 设置是否显示箭头。 true：显示箭头；false：不显示箭头。 默认值：true 说明： 当页面可用空间无法让气泡完全避让时，气泡会覆盖到组件上并且不显示箭头。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| arrowPointPosition11+ | ArrowPointPosition | 否 | 是 | 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有Start、Center、End三个位置点可选。以上所有位置点均位于父组件区域的范围内，不会超出父组件的边界范围。 默认值：ArrowPointPosition.CENTER 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| arrowWidth11+ | Dimension | 否 | 是 | 设置箭头宽度。若所设置的箭头宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。 默认值：16 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| mask10+ | boolean \| { color : ResourceColor } | 否 | 是 | 设置气泡是否有遮罩层及遮罩颜色。 true：显示透明色遮罩层；false：不显示遮罩层。 Color：显示指定颜色的遮罩层。 默认值：true 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| messageOptions10+ | PopupMessageOptions | 否 | 是 | 设置气泡信息文本参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| targetSpace10+ | Length | 否 | 是 | 设置Popup与宿主节点的间距。不支持设置百分比。 默认值：8 单位：vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| placement10+ | Placement | 否 | 是 | 设置Popup组件相对于宿主节点的显示位置，默认值为Placement.Bottom。 如果同时设置了placementOnTop和placement，则以placement的设置为准。如果开发者设置的位置上无法完整显示气泡，气泡会自动避让至可以完整显示的位置。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| offset10+ | Position | 否 | 是 | 设置Popup组件相对于placement设置的显示位置的偏移。 默认值：{ x: 0, y: 0 } 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| enableArrow10+ | boolean | 否 | 是 | 设置是否显示箭头。 true：显示箭头；false：不显示箭头。 默认值：true 说明： 当页面可用空间无法让气泡完全避让时，气泡会覆盖到组件上并且不显示箭头。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| arrowPointPosition11+ | ArrowPointPosition | 否 | 是 | 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有Start、Center、End三个位置点可选。以上所有位置点均位于父组件区域的范围内，不会超出父组件的边界范围。 默认值：ArrowPointPosition.CENTER 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| arrowWidth11+ | Dimension | 否 | 是 | 设置箭头宽度。若所设置的箭头宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。 默认值：16 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | arrowOffset9+ | Length | 否 | 是 | Popup箭头在气泡处的偏移。 箭头在气泡上下方时，数值为0表示箭头居最左侧，偏移量为箭头至最左侧的距离，默认居中。 箭头在气泡左右侧时，偏移量为箭头至最上侧的距离，默认居中。 显示在屏幕边缘时，气泡会自动左右偏移，数值为0时箭头始终指向绑定组件。 单位：vp 说明： 1. 没设置arrowOffset的情况下，气泡箭头与四个角的距离不能小于圆角半径。 2. 只有arrowPointPosition不设置或者设置为null、undefined时，arrowOffset属性才生效。 3. 不支持设置百分比。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| arrowHeight11+ | Dimension | 否 | 是 | 设置箭头高度。 默认值：8 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| popupColor11+ | Color \| string \| Resource \| number | 否 | 是 | 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。 默认值：透明色TRANSPARENT加模糊背景填充效果COMPONENT_ULTRA_THICK。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| autoCancel11+ | boolean | 否 | 是 | 页面有操作时，气泡是否自动关闭。 true：自动关闭气泡；false：气泡不会自动关闭。 默认值：true 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| width11+ | Dimension | 否 | 是 | 气泡宽度，未设置或者异常值场景下，气泡自适应内容宽度。 单位：vp 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| radius11+ | Dimension | 否 | 是 | 设置气泡圆角半径。 默认值：20 单位：vp 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| shadow11+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置气泡阴影。 默认值：ShadowStyle.OUTER_DEFAULT_MD 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 设置气泡模糊背景参数。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| transition12+ | TransitionEffect | 否 | 是 | 自定义设置Popup气泡显示和退出的动画效果。 说明： 1. 不设置时使用默认的显示/退出动效。 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。 3. 退出动效中按back键，不会打断退出动效，back键不被响应。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onWillDismiss12+ | boolean \| Callback&lt;DismissPopupAction&gt; | 否 | 是 | 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数show值为false时才退出；如果设置为true，则正常响应退出事件； 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。 说明： 在onWillDismiss回调中，不能再做onWillDismiss拦截。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| followTransformOfTarget13+ | boolean | 否 | 是 | 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。 true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。 默认值：false 元服务API： 从API version 13开始，该接口支持在元服务中使用。 |
-| keyboardAvoidMode15+ | KeyboardAvoidMode | 否 | 是 | 气泡是否避让软键盘，默认不避让。设置为避让后，气泡显示空间不足时，由原先居中覆盖父组件的方式改为平移覆盖父组件，且气泡箭头不指向宿主时，不再显示箭头。 默认值：KeyboardAvoidMode.NONE 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| enableHoverMode18+ | boolean | 否 | 是 | Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。 说明： 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。 2. 2in1设备从API version 20开始生效。 3. 2in1设备仅在窗口瀑布模式下生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| outlineWidth20+ | Dimension | 否 | 是 | 设置Popup组件外描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。 3. 当设置双描边时，建议外描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| borderWidth20+ | Dimension | 否 | 是 | 设置Popup组件内描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。 3. 当设置双描边时，建议内描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| outlineLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件外描边线性渐变的颜色。 说明： 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| borderLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件内描边线性渐变的颜色。 说明： 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| avoidTarget20+ | AvoidanceMode | 否 | 是 | 设置Popup避让时是否覆盖指向组件。 默认值：AvoidanceMode.COVER_TARGET 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| arrowHeight11+ | Dimension | 否 | 是 | 设置箭头高度。 默认值：8 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| popupColor11+ | Color \| string \| Resource \| number | 否 | 是 | 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。 默认值：透明色TRANSPARENT加模糊背景填充效果COMPONENT_ULTRA_THICK。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| autoCancel11+ | boolean | 否 | 是 | 页面有操作时，气泡是否自动关闭。 true：自动关闭气泡；false：气泡不会自动关闭。 默认值：true 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| width11+ | Dimension | 否 | 是 | 气泡宽度，未设置或者异常值场景下，气泡自适应内容宽度。 单位：vp 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| radius11+ | Dimension | 否 | 是 | 设置气泡圆角半径。 默认值：20 单位：vp 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| shadow11+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置气泡阴影。 默认值：ShadowStyle.OUTER_DEFAULT_MD 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 设置气泡模糊背景参数。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| transition12+ | TransitionEffect | 否 | 是 | 自定义设置Popup气泡显示和退出的动画效果。 说明： 1. 不设置时使用默认的显示/退出动效。 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。 3. 退出动效中按back键，不会打断退出动效，back键不被响应。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| onWillDismiss12+ | boolean \| Callback&lt;DismissPopupAction&gt; | 否 | 是 | 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数show值为false时才退出；如果设置为true，则正常响应退出事件； 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。 说明： 在onWillDismiss回调中，不能再做onWillDismiss拦截。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| followTransformOfTarget13+ | boolean | 否 | 是 | 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。 true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。 默认值：false 元服务API： 从API version 13开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| keyboardAvoidMode15+ | KeyboardAvoidMode | 否 | 是 | 气泡是否避让软键盘，默认不避让。设置为避让后，气泡显示空间不足时，由原先居中覆盖父组件的方式改为平移覆盖父组件，且气泡箭头不指向宿主时，不再显示箭头。 默认值：KeyboardAvoidMode.NONE 元服务API： 从API version 15开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| enableHoverMode18+ | boolean | 否 | 是 | Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。 说明： 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。 2. 2in1设备从API version 20开始生效。 3. 2in1设备仅在窗口瀑布模式下生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| outlineWidth20+ | Dimension | 否 | 是 | 设置Popup组件外描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。 3. 当设置双描边时，建议外描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| borderWidth20+ | Dimension | 否 | 是 | 设置Popup组件内描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。 3. 当设置双描边时，建议内描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| outlineLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件外描边线性渐变的颜色。 说明： 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| borderLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件内描边线性渐变的颜色。 说明： 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| avoidTarget20+ | AvoidanceMode | 否 | 是 | 设置Popup避让时是否覆盖指向组件。 默认值：AvoidanceMode.COVER_TARGET 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置组件的系统材质。 默认值：undefined，会清除由该接口设置的材质效果。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，当设置系统材质时，上述接口不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 | placementOnTop(deprecated) | boolean | 否 | 是 | 是否在组件上方显示，默认值为false。取值为true：气泡显示到绑定组件的上方，取值false：气泡显示到绑定组件的下方。 说明： 从API version 7开始支持，从API version 10开始废弃，建议使用placement替代。 |
+| colorMode | AnchoredColorMode | 否 | 是 | 设置气泡深浅色模式，默认跟随绑定组件深浅色模式。 默认值：AnchoredColorMode.FOLLOW_TARGET 说明： 1. 仅当绑定组件使用了WithTheme标签时，该属性才会生效。 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -98,6 +100,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 气泡文本的样式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -117,6 +121,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -132,6 +138,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 关闭原因类型。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -163,29 +171,31 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 | onStateChange | (event: { isVisible: boolean }) => void | 否 | 是 | 气泡状态变化事件回调，参数为气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | enableArrow | boolean | 否 | 是 | 是否显示箭头。 true：显示箭头；false：不显示箭头。 从API version 9开始，如果箭头所在方位侧的气泡长度不足以显示下箭头，则会默认不显示箭头。比如：placement设置为Left，此时如果气泡高度小于箭头的宽度（32vp）与气泡圆角两倍（48vp）之和（80vp），则实际不会显示箭头。 默认值：true 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | arrowOffset9+ | Length | 否 | 是 | Popup箭头在气泡处的偏移。 箭头在气泡上下方时，数值为0表示箭头居最左侧，偏移量为箭头至最左侧的距离，默认居中。 箭头在气泡左右侧时，偏移量为箭头至最上侧的距离，默认居中。 显示在屏幕边缘时，气泡会自动左右偏移，数值为0时箭头始终指向绑定组件。 单位：vp 说明： 1. 没设置arrowOffset的情况下，气泡箭头与四个角的距离不能小于圆角半径。 2. 只有arrowPointPosition不设置或者设置为null、undefined时，arrowOffset属性才生效。 3. 不支持设置百分比。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| arrowPointPosition11+ | ArrowPointPosition | 否 | 是 | 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有Start、Center、End三个位置点可选。以上所有位置点均位于父组件区域的范围内，不会超出父组件的边界范围。 默认值：ArrowPointPosition.CENTER 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| arrowWidth11+ | Dimension | 否 | 是 | 设置箭头宽度。若所设置的箭头宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。 默认值：16 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| arrowHeight11+ | Dimension | 否 | 是 | 设置箭头高度。 默认值：8 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| arrowPointPosition11+ | ArrowPointPosition | 否 | 是 | 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有Start、Center、End三个位置点可选。以上所有位置点均位于父组件区域的范围内，不会超出父组件的边界范围。 默认值：ArrowPointPosition.CENTER 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| arrowWidth11+ | Dimension | 否 | 是 | 设置箭头宽度。若所设置的箭头宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。 默认值：16 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| arrowHeight11+ | Dimension | 否 | 是 | 设置箭头高度。 默认值：8 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | showInSubWindow9+ | boolean | 否 | 是 | 气泡是否显示在创建的子窗里。 true：气泡会显示在创建的子窗里；false：气泡会显示在对应的主窗中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | maskColor(deprecated) | Color \| string \| Resource \| number | 否 | 是 | 设置气泡遮罩层颜色。 说明： 从 API version 10 开始废弃，建议使用mask替代。 |
-| mask10+ | boolean \| { color : ResourceColor } | 否 | 是 | 设置气泡是否有遮罩层及遮罩颜色。如果设置为false，则没有遮罩层；如果设置为true，则设置有遮罩层并且颜色为透明色；如果设置为Color，则为遮罩层的颜色。默认值：true 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| targetSpace10+ | Length | 否 | 是 | 设置Popup与宿主节点的间距。不支持设置百分比。 默认值：8 单位：vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| offset10+ | Position | 否 | 是 | 设置Popup组件相对于placement设置的显示位置的偏移。 说明： 不支持设置百分比。 默认值：{ x: 0, y: 0 } 单位：vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| width11+ | Dimension | 否 | 是 | 气泡宽度，未设置或者异常值场景下，气泡自适应内容宽度。 单位：vp 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| radius11+ | Dimension | 否 | 是 | 设置气泡圆角半径。 默认值：20 单位：vp 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| shadow11+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置气泡阴影。 默认值：ShadowStyle.OUTER_DEFAULT_MD 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 设置气泡模糊背景参数。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| focusable11+ | boolean | 否 | 是 | 设置气泡弹出后是否获焦。 true：气泡可以获焦；false：气泡不会获焦。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| transition12+ | TransitionEffect | 否 | 是 | 自定义设置Popup气泡显示和退出的动画效果。 说明： 如果不设置，则使用默认的显示/退出动效。 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。 3. 退出动效中按back键，不会打断退出动效，退出动效继续执行，back键不被响应。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onWillDismiss12+ | boolean \| Callback&lt;DismissPopupAction&gt; | 否 | 是 | 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数show值为false时才退出；如果设置为true，则正常响应退出事件； 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。 说明： 在onWillDismiss回调中，不能再做onWillDismiss拦截。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| followTransformOfTarget13+ | boolean | 否 | 是 | 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。 true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。 默认值：false 元服务API： 从API version 13开始，该接口支持在元服务中使用。 |
-| keyboardAvoidMode15+ | KeyboardAvoidMode | 否 | 是 | 气泡是否避让软键盘，默认不避让。设置为避让后，气泡显示空间不足时，由原先居中覆盖父组件的方式改为平移覆盖父组件，且气泡箭头不指向宿主时，不再显示箭头。 默认值：KeyboardAvoidMode.NONE 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| enableHoverMode18+ | boolean | 否 | 是 | Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。 说明： 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。 2. 2in1设备从API version 20开始生效。 3. 2in1设备仅在窗口瀑布模式下生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| outlineWidth20+ | Dimension | 否 | 是 | 设置Popup组件外描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。 3. 当设置双描边时，建议外描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| borderWidth20+ | Dimension | 否 | 是 | 设置Popup组件内描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。 3. 当设置双描边时，建议内描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| outlineLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件外描边线性渐变的颜色。 说明： 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| borderLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件内描边线性渐变的颜色。 说明： 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| avoidTarget20+ | AvoidanceMode | 否 | 是 | 设置Popup避让时是否覆盖指向组件。 说明： 设置avoidTarget为AvoidanceMode.AVOID_AROUND_TARGET时，气泡在剩余显示空间不足的情况下会进行压缩，此时气泡内容需结合Scroll使用，否则气泡内容会出现遮挡。 默认值：AvoidanceMode.COVER_TARGET 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| mask10+ | boolean \| { color : ResourceColor } | 否 | 是 | 设置气泡是否有遮罩层及遮罩颜色。如果设置为false，则没有遮罩层；如果设置为true，则设置有遮罩层并且颜色为透明色；如果设置为Color，则为遮罩层的颜色。默认值：true 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| targetSpace10+ | Length | 否 | 是 | 设置Popup与宿主节点的间距。不支持设置百分比。 默认值：8 单位：vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| offset10+ | Position | 否 | 是 | 设置Popup组件相对于placement设置的显示位置的偏移。 说明： 不支持设置百分比。 默认值：{ x: 0, y: 0 } 单位：vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| width11+ | Dimension | 否 | 是 | 气泡宽度，未设置或者异常值场景下，气泡自适应内容宽度。 单位：vp 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| radius11+ | Dimension | 否 | 是 | 设置气泡圆角半径。 默认值：20 单位：vp 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| shadow11+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置气泡阴影。 默认值：ShadowStyle.OUTER_DEFAULT_MD 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 设置气泡模糊背景参数。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| focusable11+ | boolean | 否 | 是 | 设置气泡弹出后是否获焦。 true：气泡可以获焦；false：气泡不会获焦。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| transition12+ | TransitionEffect | 否 | 是 | 自定义设置Popup气泡显示和退出的动画效果。 说明： 如果不设置，则使用默认的显示/退出动效。 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。 3. 退出动效中按back键，不会打断退出动效，退出动效继续执行，back键不被响应。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| onWillDismiss12+ | boolean \| Callback&lt;DismissPopupAction&gt; | 否 | 是 | 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数show值为false时才退出；如果设置为true，则正常响应退出事件； 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。 说明： 在onWillDismiss回调中，不能再做onWillDismiss拦截。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| followTransformOfTarget13+ | boolean | 否 | 是 | 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。 true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。 默认值：false 元服务API： 从API version 13开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| keyboardAvoidMode15+ | KeyboardAvoidMode | 否 | 是 | 气泡是否避让软键盘，默认不避让。设置为避让后，气泡显示空间不足时，由原先居中覆盖父组件的方式改为平移覆盖父组件，且气泡箭头不指向宿主时，不再显示箭头。 默认值：KeyboardAvoidMode.NONE 元服务API： 从API version 15开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| enableHoverMode18+ | boolean | 否 | 是 | Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。 说明： 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。 2. 2in1设备从API version 20开始生效。 3. 2in1设备仅在窗口瀑布模式下生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| outlineWidth20+ | Dimension | 否 | 是 | 设置Popup组件外描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。 3. 当设置双描边时，建议外描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| borderWidth20+ | Dimension | 否 | 是 | 设置Popup组件内描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。 3. 当设置双描边时，建议内描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| outlineLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件外描边线性渐变的颜色。 说明： 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| borderLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件内描边线性渐变的颜色。 说明： 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| avoidTarget20+ | AvoidanceMode | 否 | 是 | 设置Popup避让时是否覆盖指向组件。 说明： 设置avoidTarget为AvoidanceMode.AVOID_AROUND_TARGET时，气泡在剩余显示空间不足的情况下会进行压缩，此时气泡内容需结合Scroll使用，否则气泡内容会出现遮挡。 默认值：AvoidanceMode.COVER_TARGET 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| colorMode | AnchoredColorMode | 否 | 是 | 设置气泡深浅色模式，默认跟随绑定组件深浅色模式。 默认值：AnchoredColorMode.FOLLOW_TARGET 说明： 1. 仅当绑定组件使用了WithTheme标签时，该属性才会生效。 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置组件的系统材质。 默认值：undefined，会清除由该接口设置的材质效果。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，当设置系统材质时，上述接口不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -194,7 +204,9 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-配置弹出气泡的参数。使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getPromptAction()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction)方法获取到[PromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction)对象，再通过该对象调用[openPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openpopup18)和[updatePopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#updatepopup18)时options的属性。
+配置弹出气泡的参数。使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getPromptAction()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction)方法获取到[PromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction)对象，再通过该对象调用[openPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openpopup18)和[updatePopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#updatepopup18)时传入的options参数。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -222,11 +234,13 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 | onWillDismiss | boolean\|Callback&lt;DismissPopupAction&gt; | 否 | 是 | 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数show值为false时才退出；如果设置为true，则正常响应退出事件； 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。 说明： 1. 在onWillDismiss回调中，不能再做onWillDismiss拦截。 2. 不支持通过updatePopup进行更新。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | followTransformOfTarget | boolean | 否 | 是 | 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。 true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | enableHoverMode | boolean | 否 | 是 | Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。 说明： 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。 2. 2in1设备从API version 20开始生效。 3. 2in1设备仅在窗口瀑布模式下生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| outlineWidth20+ | Dimension | 否 | 是 | 设置Popup组件外描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。 3. 当设置双描边时，建议外描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| borderWidth20+ | Dimension | 否 | 是 | 设置Popup组件内描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。 3. 当设置双描边时，建议内描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| outlineLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件外描边线性渐变的颜色。 说明： 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| borderLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件内描边线性渐变的颜色。 说明： 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| avoidTarget20+ | AvoidanceMode | 否 | 是 | 设置Popup避让时是否覆盖指向组件。 说明： 设置avoidTarget为AvoidanceMode.AVOID_AROUND_TARGET时，气泡在剩余显示空间不足的情况下会进行压缩，此时气泡内容需结合Scroll使用，否则气泡内容会出现遮挡。 默认值：AvoidanceMode.COVER_TARGET 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| outlineWidth20+ | Dimension | 否 | 是 | 设置Popup组件外描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。 3. 当设置双描边时，建议外描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| borderWidth20+ | Dimension | 否 | 是 | 设置Popup组件内描边的宽度。 默认值：1 单位：vp 说明： 1. 不支持设置百分比，设置百分比时按0处理。 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。 3. 当设置双描边时，建议内描边宽度不超过10vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| outlineLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件外描边线性渐变的颜色。 说明： 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| borderLinearGradient20+ | PopupBorderLinearGradient | 否 | 是 | 设置Popup组件内描边线性渐变的颜色。 说明： 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| avoidTarget20+ | AvoidanceMode | 否 | 是 | 设置Popup避让时是否覆盖指向组件。 说明： 设置avoidTarget为AvoidanceMode.AVOID_AROUND_TARGET时，气泡在剩余显示空间不足的情况下会进行压缩，此时气泡内容需结合Scroll使用，否则气泡内容会出现遮挡。 默认值：AvoidanceMode.COVER_TARGET 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| colorMode | AnchoredColorMode | 否 | 是 | 设置气泡深浅色模式，默认跟随绑定组件深浅色模式。 默认值：AnchoredColorMode.FOLLOW_TARGET 说明： 1. 仅当绑定组件使用了WithTheme标签时，该属性才会生效。 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置组件的系统材质。 默认值：undefined，会清除由该接口设置的材质效果。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，当设置系统材质时，上述接口不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -238,6 +252,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 气泡的显示状态。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -258,6 +274,8 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -277,6 +295,8 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -293,6 +313,8 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 设置描边线性渐变的颜色和方向。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -312,12 +334,36 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEFAULT | 0 | 默认避让软键盘并在到达极限高度之后进行高度压缩。 |
 | NONE | 1 | 不避让软键盘。 |
+
+
+
+
+#### AnchoredColorMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+配置组件主题跟随的颜色模式。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| FOLLOW_SYSTEM | 0 | 跟随系统深浅色模式。 |
+| FOLLOW_TARGET | 1 | 跟随绑定组件深浅色模式。 |
 
 
 
@@ -745,12 +791,12 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/wOrZRzrlQbCmvYzcCpishw/zh-cn_image_0000002581435678.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025545Z&HW-CC-Expire=86400&HW-CC-Sign=4C03CCB234479314DED5B0278CB5039F9DAA1FE922E320D133D401EA124C2280)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/dhCFa-chTVqLVWi5zPUXBQ/zh-cn_image_0000002659101629.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=06A9575480820D880A1BC05A97DE291DA7A27B18C83E65C40EF77EDC969C548E)
 
 
 
 
-#### 示例8（为气泡设置避让宿主模式）
+#### 示例8（设置气泡避让绑定的组件模式）
 
 该示例通过配置[PopupOptions](#popupoptions类型说明)的avoidTarget属性，实现气泡对其绑定组件的避让。
 
@@ -781,4 +827,55 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/4uw9DviJSfO80VqJgF3KeQ/zh-cn_image_0000002611835509.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025545Z&HW-CC-Expire=86400&HW-CC-Sign=A49554B0F6247A74F71879D0881ACA3C4056BF2751DF6326BA3D6369CBF62995)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/5g0ymPirREmT7wKuoaUCbg/zh-cn_image_0000002628862280.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=DC91D3412A8930534C70D0D6BC8257F69A6EED6E4A07F1A026A8341DFD93BA8C)
+
+
+
+
+#### 示例9（设置Popup的系统材质视觉效果）
+
+该示例通过设置[PopupOptions](#popupoptions类型说明)中的systemMaterial属性，实现了Popup的系统材质视效。
+
+从API版本26.0.0开始，在PopupOptions中新增了systemMaterial属性。
+
+```text
+import { uiMaterial } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct PopupExample {
+  @State handlePopup: boolean = false;
+
+  build() {
+    Flex({ direction: FlexDirection.Column }) {
+      Button('PopupOptions')
+        .onClick(() => {
+          this.handlePopup = !this.handlePopup
+        })
+        .bindPopup(this.handlePopup!!, {
+          message: 'This is a popup with PopupOptions',
+          placement: Placement.Top,
+          // 控制是否设置系统材质
+          systemMaterial: new uiMaterial.ImmersiveMaterial({
+            style: uiMaterial.ImmersiveStyle.THIN
+          })
+        })
+        .position({ x: 100, y: 300 })
+    }.width('100%')
+    // 请开发者替换为实际资源文件
+    .backgroundImage($r("app.media.img"))
+    .backgroundImageSize({width: '100%', height: '100%'})
+  }
+}
+```
+
+未设置系统材质时：
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/JhlwmOFMTbCkLC7KVCaE2g/zh-cn_image_0000002628700580.png?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=9EEF7A25DFFA893ED47A1FC81E9F004673EA501487E4148E0E2757F0627659F5)
+
+
+设置系统材质后：
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/IpUlnTQSSVqHdbB3yVKYjw/zh-cn_image_0000002659099809.png?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=07E14C2D3AC8185FCF3B40A2CB66127A43DF98E1FB10302DC5D8E54B4D32AD97)

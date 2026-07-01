@@ -1,6 +1,6 @@
 # recommended推荐规则清单
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-coderlinter-recommended-rules
 
@@ -34,7 +34,7 @@
 | @security/no-unsafe-dsa | 该规则禁止使用不安全的DSA签名算法。 |
 | @security/no-unsafe-dsa-key | 该规则禁止使用不安全的DSA密钥。 |
 | @security/no-unsafe-ecdsa | 该规则禁止在ECDSA签名算法中使用不安全的SHA1摘要算法。 |
-| @security/no-unsafe-hash | 该规则使用禁止不安全的哈希算法。 |
+| @security/no-unsafe-hash | 该规则禁止使用不安全的哈希算法。 |
 | @security/no-unsafe-mac | 该规则禁止在MAC消息认证算法中使用不安全的哈希算法。 |
 | @security/no-unsafe-rsa-encrypt | 该规则禁止使用不安全的RSA非对称加密算法。 |
 | @security/no-unsafe-rsa-key | 该规则禁止使用不安全的RSA密钥。 |

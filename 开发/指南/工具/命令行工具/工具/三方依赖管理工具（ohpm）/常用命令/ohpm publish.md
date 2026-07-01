@@ -1,6 +1,6 @@
 # ohpm publish
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-publish
 
@@ -21,7 +21,7 @@ ohpm publish [options] <har_or_tgz_file>
 
 #### 功能描述
 
- - 将三方库发布到 OpenHarmony 三方库中心仓，以便可按名称安装它。 发布前，需要完成公钥私钥生成，把公钥上传服务端，并在ohpmrc 文件中配置公仓的发布码和私钥路径。
+ - 将三方库发布到 OpenHarmony 三方库中心仓，以便可按名称安装它。发布前，需要完成公钥私钥生成，把公钥上传服务端，并在ohpmrc 文件中配置公仓的发布码和私钥路径。
  - 默认情况下，ohpm 将发布到 [OpenHarmony 三方库中心仓](https://ohpm.openharmony.cn/#/cn/home)，但仍可以通过指定不同的 publish_registry 值（详情可查阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc) 章节 中 publish_registry 描述信息），发布到指定的仓库。
  - 如果指定的仓库中已存在三方库名称和版本组合，则发布失败。
  - 一旦三方库以给定的名称和版本发布并审核通过后，该特定名称及对应的版本号将被占用，无法再次使用，即使它已被 [ohpm unpublish](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-unpublish) 下架。
@@ -221,4 +221,4 @@ ohpm publish publish_test.har
 结果示例：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/6vi5zeg_T-yPr8bwVqK_Rg/zh-cn_image_0000002625073811.png?HW-CC-KV=V1&HW-CC-Date=20260624T020704Z&HW-CC-Expire=86400&HW-CC-Sign=6148ABBE25FA5C2F318AAB41A14A789A073B0B95CE992F1CD5C8AC3226B8CE20)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/Rq2kRJBwT5u0fSrBnj3zMA/zh-cn_image_0000002625073811.png?HW-CC-KV=V1&HW-CC-Date=20260701T014605Z&HW-CC-Expire=86400&HW-CC-Sign=64C1552F569C589A2F3A4C7031985519BC5264743817B01D7B9B20A0A8F81BBB)

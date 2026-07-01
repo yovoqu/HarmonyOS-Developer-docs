@@ -1,6 +1,6 @@
 # @ohos.PiPWindow (画中画窗口)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pipwindow
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -718,6 +718,7 @@ startPiP(): Promise&lt;void&gt;
 | 1300013 | Failed to create the PiP window. |
 | 1300014 | PiP internal error. |
 | 1300015 | Repeated PiP operation. |
+| 1300034 | This operation conflicts with other floating windows. Possible cause: App has already started float view. 适用版本：26.0.0+ |
 
 
 **示例：**

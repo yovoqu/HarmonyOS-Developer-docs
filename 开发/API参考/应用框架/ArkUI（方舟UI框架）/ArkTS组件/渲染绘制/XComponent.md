@@ -1,6 +1,6 @@
 # XComponent
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,6 +36,8 @@ XComponent(params: NativeXComponentParameters)
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -56,6 +58,8 @@ XComponent(options: XComponentOptions)
 创建XComponent组件，支持在ArkTS侧获取SurfaceId、注册XComponent持有的Surface的生命周期回调和触摸、鼠标、按键等组件事件回调，支持AI分析。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -79,6 +83,8 @@ XComponent(value: {id: string, type: XComponentType, libraryname?: string, contr
 该接口从API version 12开始不再演进，推荐使用[XComponent(options: XComponentOptions)](#xcomponent12)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -126,6 +132,8 @@ XComponent(value: {id: string, type: string, libraryname?: string, controller?: 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -144,6 +152,8 @@ XComponent(value: {id: string, type: string, libraryname?: string, controller?: 
 定义XComponent的具体配置参数。通过这种构造参数创建的XComponent，可以将其对应的[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)对象传递至Native侧，使用NDK接口进行Surface生命周期的相关设置和[添加事件监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-add-component-events)。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -181,6 +191,8 @@ enableAnalyzer(enable: boolean)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -206,6 +218,8 @@ enableSecure(isSecure: boolean)
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -229,7 +243,13 @@ hdrBrightness(brightness: number)
 
 用于调整组件播放HDR视频的亮度。
 
+> [!NOTE]
+> 仅XComponent构造参数中的type为 XComponentType .SURFACE时该接口生效，否则该接口不生效。 不支持 ArkUI NDK接口 创建的XComponent组件。
+
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -237,11 +257,7 @@ hdrBrightness(brightness: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| brightness | number | 是 | 用于调整组件播放HDR视频的亮度; brightness的取值范围为0.0~1.0; 小于0.0的值等价于0.0，大于1.0的值等价于1.0，异常值按1.0处理; 0.0 表示SDR视频的亮度，1.0 表示HDR视频的亮度。 默认值：1.0 |
-
-
-> [!NOTE]
-> 仅type为SURFACE时有效。 不支持 ArkUI NDK接口 创建的XComponent组件。
+| brightness | number | 是 | HDR视频的亮度。 默认值：1.0 取值范围：[0.0, 1.0]。小于0.0的值按0.0处理，大于1.0的值按1.0处理，其他异常值按1.0处理。 0.0表示视频按照SDR亮度显示，1.0表示视频按照当前允许的最高HDR亮度显示。 |
 
 
 
@@ -252,10 +268,25 @@ hdrBrightness(brightness: number)
 
 hdrBrightness(brightness: number, type?: HdrType)
 
-调整组件播放HDR视频时的亮度，该接口仅对HDR视频生效。
+调整组件显示HDR内容时的亮度。
 
-> [!TIP]
-> 仅XComponent构造参数中的type为 XComponentType .SURFACE时该接口生效，否则该接口不生效。 如果将参数type设置为 HdrType .AIHDR，调用该接口前需先检查 Display 的hdrFormats性是否包含 HDRFormat .VIDEO_AIHDR。仅当包含HDRFormat.VIDEO_AIHDR时，当前设备才支持AI HDR类型，参数设置才会生效；否则按默认值HdrType.DEFAULT处理。 不支持 ArkUI NDK接口 创建的XComponent组件。
+当参数type设置为非[HdrType](#hdrtype24枚举说明).DEFAULT时，调用该接口前需先检查[Display](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#display)的hdrFormats属性是否包含对应的[HDRFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hdrcapability#hdrformat)。
+
+仅当hdrFormats包含对应的HDRFormat时，当前设备才支持对应的HDR类型，参数设置才会生效；否则将使用默认值[HdrType](#hdrtype24枚举说明).DEFAULT。
+
+其映射关系如下：
+
+| type取值 | hdrFormats需包含的HDRFormat |
+| --- | --- |
+| HdrType.AIHDR | HDRFormat.VIDEO_AIHDR |
+| HdrType.EDR | HDRFormat.EDR |
+
+
+> [!NOTE]
+> 仅XComponent构造参数中的type为 XComponentType .SURFACE时该接口生效，否则该接口不生效。
+
+
+ - 不支持[ArkUI NDK接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-ui-overview)创建的XComponent组件。
 
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
@@ -280,16 +311,15 @@ hdrBrightness(brightness: number, type?: HdrType)
 
 HDR视频的高动态范围渲染类型。
 
-**元服务API：** 从API version 24开始，该接口支持在元服务中使用。
-
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| DEFAULT | 0 | 默认HDR类型，使用标准高动态范围渲染模式。 |
-| AIHDR | 1 | AI HDR类型，使用AI算法对非HDR内容进行智能动态范围扩展，实现HDR的显示效果。 |
+| DEFAULT | 0 | 默认HDR类型，使用标准高动态范围渲染模式。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| AIHDR | 1 | AI HDR类型，使用AI算法对非HDR内容进行智能动态范围扩展，实现HDR的显示效果。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| EDR | 2 | EDR类型，应用完成HDR色调映射后，与SDR内容混合至SDR色彩空间。通过对混合后的EDR图层设置提亮系数，实现自绘制图层HDR提亮效果。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -359,6 +389,8 @@ type OnNativeLoadCallback = (event?: object) => void
 XComponent持有的Surface创建后回调事件。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -470,8 +502,8 @@ setXComponentSurfaceSize(value: {surfaceWidth: number, surfaceHeight: number}): 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| surfaceWidth | number | 是 | XComponent持有Surface的宽度。 |
-| surfaceHeight | number | 是 | XComponent持有Surface的高度。 |
+| surfaceWidth | number | 是 | XComponent持有Surface的宽度。 单位：px。 |
+| surfaceHeight | number | 是 | XComponent持有Surface的高度。 单位：px。 |
 
 
 
@@ -507,6 +539,8 @@ setXComponentSurfaceRect(rect: SurfaceRect): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -532,6 +566,8 @@ getXComponentSurfaceRect(): SurfaceRect
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -552,6 +588,8 @@ onSurfaceCreated(surfaceId: string): void
 当XComponent持有的Surface创建后进行该回调，仅XComponent类型为SURFACE("surface")或TEXTURE时有效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -578,6 +616,8 @@ onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -603,6 +643,8 @@ onSurfaceDestroyed(surfaceId: string): void
 当XComponent持有的Surface销毁后进行该回调，仅XComponent类型为SURFACE("surface")或TEXTURE时有效，具体可以参考指南[创建XComponent和管理Surface生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-xcomponent-guidelines#创建xcomponent和管理surface生命周期)章节。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -636,6 +678,8 @@ startImageAnalyzer(config: ImageAnalyzerConfig): Promise&lt;void&gt;
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -680,6 +724,8 @@ stopImageAnalyzer(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -693,6 +739,8 @@ setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void
 设置XComponent持有Surface在屏幕旋转时是否锁定方向，仅XComponent类型为SURFACE("surface")时有效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -719,6 +767,8 @@ getXComponentSurfaceRotation(): Required&lt;SurfaceRotationOptions&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -739,6 +789,8 @@ lockCanvas(): DrawingCanvas | null
 返回可用于向XComponent上绘制内容的画布对象。具体绘制方法请参考[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas)。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -764,6 +816,8 @@ unlockCanvasAndPost(canvas: DrawingCanvas): void
 将画布对象中的内容绘制在XComponent区域，并释放该画布对象。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -794,6 +848,8 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -813,6 +869,8 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -829,6 +887,8 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 用于描述XComponent持有Surface的显示区域。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -853,6 +913,8 @@ setXComponentSurfaceConfig(config: SurfaceConfig): void
 用于描述XComponent持有的Surface在渲染时是否需要被视为不透明。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1001,7 +1063,7 @@ struct XComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/uQLFlMk9QvqQXs1i4jWZgw/zh-cn_image_0000002617670299.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=82760976C4C47489BB2370ACF2DB7737770E9716A744AEC05063DC4999597A8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/qWK34EWbSm-M3qGBUKOKbg/zh-cn_image_0000002659222081.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=2833188DA35B5B1E0B622466E2E319BFDE8B824126C05553D8EF6D1FF4145731)
 
 
 
@@ -1119,7 +1181,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/VPp8h8WcR1W8tWr5YEFyzQ/zh-cn_image_0000002587270524.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=7166A5CF85390B6D28519F15DF805D0B02D25693EFAA2F49AC54B2B867A22EC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/W2YYBltzSJOFh4Kb97_GQg/zh-cn_image_0000002628702890.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=5D8088E393011C904BD5A2D0EA1B1096D5F9DFF2D74AF7654E9130DCC4C3A18F)
 
 
 
@@ -1172,7 +1234,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/9vnjYOsRRf6NrDMqdQuMXQ/zh-cn_image_0000002617710203.jpeg?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=F6DA412E489F22266B0B5887CFA1CF82801B2A3DAF0E00641213590C0F76990B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/o9hHyJtbSg25uQfdEXRQJQ/zh-cn_image_0000002659102117.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=630AA34A776A17F29CAC8B3EA84136266BE48706306C61C529047EC179CA10E7)
 
 
 
@@ -1278,4 +1340,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/1IcjNzyCRgaKY3x5oTawBw/zh-cn_image_0000002587110622.jpeg?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=2C55C660BC1F01454E2BAD1B2BD1935DF2C98519486085538584C18F6AC33388)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/dFqT44e3SPuyRmzuw3ncRg/zh-cn_image_0000002628862770.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=FE24C6876256418DE78A5E8920068FC3AE11B73BF326AFBB4B4A939441C6C60E)

@@ -1,12 +1,12 @@
 # Toggle组件设置拖动的同时如何屏蔽其本身的点击手势
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-303
 
 通过isDragging状态变量区分拖动与点击操作，在拖动过程中屏蔽toggleIsOn的状态变更，示例代码如下：
  
-```ArkTS
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 
@@ -18,7 +18,7 @@ struct ToggleDrag {
   @State positionX: number = 0;
   @State positionY: number = 0;
   @State toggleIsOn: boolean = true;
-  // Marks whether the current drag state is used to block click events
+ <em> // Marks whether the current drag state is used to block click events</em>
   private isDragging: boolean = false;
 
 
@@ -28,7 +28,7 @@ struct ToggleDrag {
         Text('Toggle')
       }
       .selectedColor(Color.Pink)
-      // Onchange callback precedes onActionEnd
+    <em>  // Onchange callback precedes onActionEnd</em>
       .onChange((isOn: boolean) => {
         hilog.info(0x0000, 'TOGGLE_DRAG', 'xxx %{public}s', `onClick Toggle, isOn: ${isOn}`);
         console.info('isDragging======' + this.isDragging);

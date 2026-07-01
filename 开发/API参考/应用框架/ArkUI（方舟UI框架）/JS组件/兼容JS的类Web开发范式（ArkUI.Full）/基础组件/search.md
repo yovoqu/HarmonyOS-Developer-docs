@@ -1,6 +1,6 @@
 # search
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-search
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -112,4 +112,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/TKoohKB6TuiTJALEEuXtWw/zh-cn_image_0000002581276422.png?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=A47E69C1B9044943087AE7406528B54D84E3FBBA4CA72925D545D67DDD3A5911)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/utVGpTP8RQSmMchiAdXCZw/zh-cn_image_0000002659222267.png?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=F6DB15D3DC822B4E268CDAA64824FEB87B18E84F8CA6428A270C1A7D14C63F8B)

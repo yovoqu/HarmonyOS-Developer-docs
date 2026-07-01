@@ -1,6 +1,6 @@
 # GetDataType
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensordesc-getdatatype
 
@@ -41,4 +41,4 @@ DataType GetDataType() const;
 
 #### 约束说明
 
-由于返回的DataType信息为值拷贝，因此修改返回的DataType信息，不影响TensorDesc中已有的DataType信息。
+无

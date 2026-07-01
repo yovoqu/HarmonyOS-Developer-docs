@@ -1,6 +1,6 @@
 # 固定输入/输出顺序的算子json配置
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-json-configuration
 
@@ -76,7 +76,7 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2,
  
 **表1** 固定输入/输出顺序的算子json全量参数说明
   
-| 配置项 | 配置项 | 数据类型 | 参数说明 | 取值说明 | 是否必选 |
+| 参数名 | 配置项 | 数据类型 | 参数说明 | 取值说明 | 是否必选 |
 | --- | --- | --- | --- | --- | --- |
 | op_type | N/A | string | 算子名。 | 与待调测算子严格匹配。 | 是 |
 | data_script | N/A | string | 数据生成脚本（python），用于生成输入和标杆数据。 | 根据实际情况设置，如"/home/flash_attention_golden.py"。 说明： 若无数据生成脚本，填写空字符或null。 | 否 |

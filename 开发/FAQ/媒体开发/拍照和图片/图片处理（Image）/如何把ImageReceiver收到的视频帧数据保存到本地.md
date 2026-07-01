@@ -1,12 +1,12 @@
 # 如何把ImageReceiver收到的视频帧数据保存到本地
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-11
 
 如示例代码所示，保存接收到的前3帧数据，可根据业务需求进行调整。
  
-```ArkTS
+```text
 let size: image.Size = {
   width: 640,
   height: 480

@@ -1,6 +1,6 @@
 # 触摸事件的TouchEvent调用stopPropagation时无法阻止事件分发
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-188
 
@@ -8,13 +8,13 @@
  
 当Button嵌套在另一个Button中时，外部调用stopPropagation方法无法阻止内部Button的onTouch事件触发。
  
-```ArkTS
+```text
 Button() {
   Button()
     .onTouch(xx)
 }
 .onTouch((event: TouchEvent) => {
-  // 没有阻止内部的button触发onTouch事件
+<em>  // 没有阻止内部的button触发onTouch事件</em>
   event.stopPropagation();
 })
 ```

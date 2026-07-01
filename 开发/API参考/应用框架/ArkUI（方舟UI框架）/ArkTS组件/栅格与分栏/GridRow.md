@@ -1,6 +1,6 @@
 # GridRow
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridrow
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,7 +40,7 @@ GridRow(option?: GridRowOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| option | GridRowOptions | 否 | 栅格布局子组件参数。 |
+| option | GridRowOptions | 否 | 栅格行布局容器的布局选项。 |
 
 
 
@@ -209,7 +209,7 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 栅格元素排列方向。
 
 > [!NOTE]
-> 栅格元素仅支持Row/RowReverse排列，不支持column/ColumnReverse方向排列。 栅格子组件仅能通过span、offset计算子组件位置与大小。多个子组件span超过规定列数时自动换行。 单个元素span大小超过最大列数时后台默认span为最大column数。 新一行的Offset加上子组件的span超过总列数时，将下一个子组件在新的一行放置。 例：Item1: GridCol({ span: 6 })， Item2: GridCol({ span: 8, offset:11 })。
+> 栅格元素仅支持Row/RowReverse排列，不支持column/ColumnReverse方向排列。 栅格子组件仅能通过span、offset计算子组件位置与大小。多个子组件span超过规定列数时自动换行。 单个元素span大小超过最大列数时后台默认span为最大列数。 新一行的Offset加上子组件的span超过总列数时，将下一个子组件在新的一行放置。 例：Item1: GridCol({ span: 6 })， Item2: GridCol({ span: 8, offset:11 })。
 
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -245,6 +245,8 @@ alignItems(value: ItemAlign)
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -335,7 +337,7 @@ struct GridRowExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/LDteEXTTTW6brMZBS1UKqA/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=5C57FF75E7D33FC0B3D050CD693078A2C5891B97D752713AA6A5D6861913830A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/1A4YFB5kRBm0yEnH8FzZhw/zh-cn_image_0000002659221649.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=4FD22AE4D564D1A5E58762624B118809DB1ED94094F3E4FB40D4D2F1CB502F91)
 
 
 
@@ -407,4 +409,4 @@ struct GridRowExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Lcd6FV9oRRWBLA3_DSqfyw/zh-cn_image_0000002581435730.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=CBE6040D5AB07327E7BA2C6F29DEDB5098CA4466E6DADBE5617595AF33F88BAE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/qsC4is65Tfurcs_JJvNQ6g/zh-cn_image_0000002628702458.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=3DD6EBF718F37A7392A18794ED1F47DF17BE64EFB8165E92F04C1BF613CBE6D7)

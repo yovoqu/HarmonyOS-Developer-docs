@@ -1,6 +1,6 @@
 # oh_preferences_option.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-preferences-option-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -90,7 +90,7 @@ enum Preferences_StorageType
 | 枚举项 | 描述 |
 | --- | --- |
 | PREFERENCES_STORAGE_XML = 0 | XML存储模式，对数据的操作发生在内存中，调用OH_Preferences_Close时落盘，不支持多进程。 |
-| PREFERENCES_STORAGE_GSKV | GSKV存储模式，对数据的操作实时落盘，可支持多进程 |
+| PREFERENCES_STORAGE_GSKV | GSKV存储模式，对数据的操作实时落盘，可支持多进程。 |
  
  
   
@@ -283,4 +283,4 @@ int OH_PreferencesOption_Destroy(OH_PreferencesOption *option)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回接口操作执行的状态码。 PREFERENCES_OK，表示操作成功。 PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 |
+| int | 返回接口操作执行的状态码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 |

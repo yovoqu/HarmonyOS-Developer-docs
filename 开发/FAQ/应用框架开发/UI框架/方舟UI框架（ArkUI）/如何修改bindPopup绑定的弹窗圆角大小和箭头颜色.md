@@ -1,12 +1,12 @@
 # 如何修改bindPopup绑定的弹窗圆角大小和箭头颜色
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-349
 
 通过radius参数调整圆角大小，但箭头颜色需通过popupColor间接设置。示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct BindPopupDemo {
@@ -14,7 +14,7 @@ struct BindPopupDemo {
   @State customPopup: boolean = false;
 
 
-  // Popup constructor defines the content of the popup box
+<em>  // Popup constructor defines the content of the popup box</em>
   @Builder
   popupBuilder() {
     Row({ space: 2 }) {

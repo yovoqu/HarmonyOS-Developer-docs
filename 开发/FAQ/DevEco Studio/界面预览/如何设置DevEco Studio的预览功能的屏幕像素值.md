@@ -1,6 +1,6 @@
-# 如何设置DevEco Studio的预览功能的屏幕像素值
+# 如何设置DevEco Studio 的预览功能的屏幕像素值
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-1
 

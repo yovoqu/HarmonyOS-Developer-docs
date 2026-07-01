@@ -1,6 +1,6 @@
 # 如果有多个UIAbility，如何判断应用进入后台
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-94
 

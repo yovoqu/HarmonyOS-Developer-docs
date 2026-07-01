@@ -1,6 +1,6 @@
 # 如何解析JSON字符串为实例对象
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-75
 
@@ -12,11 +12,11 @@
  
 **完整示例如下：**
  
-```ArkTS
+```json
 import { Type, plainToClass } from 'class-transformer'
 import "reflect-metadata"
 
-// Assuming accepted JSON data
+<em>// Assuming accepted JSON data</em>
 let testJSON: Record<string, ESObject> = {
   'id': 1,
   'firstName': "Johny",
@@ -35,7 +35,7 @@ let testJSON: Record<string, ESObject> = {
   },
 }
 
-// If there is a corresponding nested structure, the corresponding type needs to be specified
+<em>// If there is a corresponding nested structure, the corresponding type needs to be specified</em>
 class A {
   name: string = 'john';
 
@@ -44,7 +44,7 @@ class A {
   }
 }
 
-// When attempting to convert an object with nested objects, it is necessary to know the object type to be converted and use the @ Type decorator to implicitly specify the object type contained in each attribute
+<em>// When attempting to convert an object with nested objects, it is necessary to know the object type to be converted and use the @ Type decorator to implicitly specify the object type contained in each attribute</em>
 class User {
   id: number = 0;
   firstName: string = '';

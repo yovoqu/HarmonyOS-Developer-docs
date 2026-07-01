@@ -1,6 +1,6 @@
 # gbk字符串TextEncoder编码结果属性buffer长度为何比编码结果长度略大
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-137
 
@@ -24,7 +24,7 @@ TextEncoder编码结果属性buffer的长度比编码结果的长度略大。
  
 如果需要使用TextEncoder编码结果属性buffer的byteLength准确长度，可以通过buffer自带函数slice，依据TextEncoder编码结果长度获取buffer的byteLength准确长度。示例如下：
  
-```ArkTS
+```text
 let textEncoder = util.TextEncoder.create('gbk');
 let rstEncodeData: Uint8Array = textEncoder.encodeInto('你好abc');
 let length = rstEncodeData.length;
@@ -32,5 +32,5 @@ console.info("rstEncodeData.length = " + length);
 let byteLength = rstEncodeData.buffer.byteLength;
 console.info("rstEncodeData.buffer.byteLength = " + byteLength);
 console.info("rstEncodeData.buffer.slice(0, length).byteLength = " + rstEncodeData.buffer.slice(0, length).byteLength);
-// rstEncodeData.buffer.slice(0, length).byteLength = 7
+<em>// rstEncodeData.buffer.slice(0, length).byteLength = 7</em>
 ```

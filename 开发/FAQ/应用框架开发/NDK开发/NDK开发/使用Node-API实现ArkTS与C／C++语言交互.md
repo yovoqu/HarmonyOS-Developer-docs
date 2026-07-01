@@ -1,6 +1,6 @@
-# 使用Node-API实现ArkTS与C/C++语言交互
+# 在ArkTS层往C++层注册一个object或function，C++层可以按需往这个回调上进行扔消息同步到上层应用么，请提供示例？在注册object或function时，napi_env是否可以被长时持有？扔消息同步到上层应用时，是否需要在特定线程
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-49
 

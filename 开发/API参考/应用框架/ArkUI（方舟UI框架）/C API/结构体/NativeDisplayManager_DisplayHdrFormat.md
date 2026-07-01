@@ -1,6 +1,6 @@
 # NativeDisplayManager_DisplayHdrFormat
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaymanager-displayhdrformat
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,5 +36,5 @@ typedef struct {...} NativeDisplayManager_DisplayHdrFormat
  
 | 名称 | 描述 |
 | --- | --- |
-| uint32_t hdrFormatLength | 显示设备的HDR格式长度。 |
-| uint32_t* hdrFormats | 显示设备的HDR格式数据。 |
+| uint32_t hdrFormatLength | 显示设备支持的HDR格式数量。 |
+| uint32_t* hdrFormats | 显示设备支持的HDR格式数据。 |

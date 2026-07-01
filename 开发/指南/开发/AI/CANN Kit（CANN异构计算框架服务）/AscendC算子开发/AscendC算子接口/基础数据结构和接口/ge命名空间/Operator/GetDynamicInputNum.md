@@ -1,6 +1,6 @@
 # GetDynamicInputNum
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getdynamicinputnum
 
@@ -36,7 +36,7 @@ int32_t GetDynamicInputNum(const char_t *name) const;
  
 | 类型 | 描述 |
 | --- | --- |
-| int | 实际动态Input的个数。 当name非法，或者算子无动态Input时，返回-1。 |
+| int | 实际动态Input的个数。 当name非法，或者算子无动态Input时，返回0。 |
  
  
   

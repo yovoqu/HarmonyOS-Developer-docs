@@ -1,6 +1,6 @@
 # 如何通过多个xxx.d.ts文件导出Native侧接口
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-63
 
@@ -22,13 +22,13 @@
  
 在index1.d.ts文件中导出接口。
  
-```ts
+```text
 export const sub: (a: number, b: number) => number;
 ```
  
 在index.d.ts文件中重导出这些接口。
  
-```ts
+```text
 export {sub} from './index1'
 export const add: (a: number, b: number) => number;
 ```

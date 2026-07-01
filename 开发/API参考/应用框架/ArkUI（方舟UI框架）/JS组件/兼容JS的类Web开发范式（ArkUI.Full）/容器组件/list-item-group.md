@@ -1,6 +1,6 @@
 # list-item-group
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-list-item-group
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -203,4 +203,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/aLhjDY-7TSOWUFWDdvadDQ/zh-cn_image_0000002611836151.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025444Z&HW-CC-Expire=86400&HW-CC-Sign=085B229BDFB183194969A18EF75D62A00235F8F66DB61A3D9C17B100028FC303)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/sGXRWK23S8KtAVlTCXBhOQ/zh-cn_image_0000002628862938.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014359Z&HW-CC-Expire=86400&HW-CC-Sign=830AE2D00C75F0E26DB835696556F97A23A637FF5DD0857A4CD4ACC87A3F69A8)

@@ -1,6 +1,6 @@
 # 日历选择器弹窗 (CalendarPickerDialog)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-calendarpicker-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,6 +28,8 @@ static show(options?: CalendarDialogOptions): void
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -36,7 +38,7 @@ static show(options?: CalendarDialogOptions): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | CalendarDialogOptions | 否 | 配置日历选择器弹窗参数。 |
+| options | CalendarDialogOptions | 否 | 配置日历选择器弹窗参数。参数缺省时无法弹出弹窗。 |
 
 
 
@@ -48,6 +50,8 @@ static show(options?: CalendarDialogOptions): void
 日历选择器弹窗选项。
 
 继承自[CalendarOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker#calendaroptions对象说明)。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -408,7 +412,7 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/g-Abj26MT--BzH1YjtWXTA/zh-cn_image_0000002611756125.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=F427AF3593DE168F43E6D0C0EFD4B71170D45C141DE2BEC37926E3490177B3B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/uCdMRegcQjeMZmJsGt8hog/zh-cn_image_0000002659102151.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=8B44422D00484A302B50905EDF5CC750ADBB25E067A2A313B05F18BBA05679BB)
 
 
 
@@ -452,4 +456,4 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/QPyQbJdNQDC9Qq9KMkTazw/zh-cn_image_0000002581436188.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=A3D2A18DA694C6BAD45B80D2C783C015AA4098520A3C67E70493A610CAE66E35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/4G9baC9jTlK0k-tuXgf2Rg/zh-cn_image_0000002628862804.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=74959F43536118D0D080EAE19590291240BB7CBF61D0C761803226FF2BA0B1B4)

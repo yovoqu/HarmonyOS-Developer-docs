@@ -1,6 +1,6 @@
 # 智慧化数据检索-C++
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/dataaugmentation-retrieval-c
 
@@ -182,7 +182,7 @@ ret = OH_Rdb_SetArea(rdbConfig, RDB_SECURITY_AREA_EL1);
 // 设置数据库配置
 ret = OH_Retrieval_SetDbConfig(dbConfig, rdbConfig);
 // 把数据库配置添加到检索器中
-ret = OH_Retrieval_AddConfig(config, Retrieval_TYPE_VECTOR, dbConfig);
+ret = OH_Retrieval_AddConfig(config, RETRIEVAL_TYPE_VECTOR, dbConfig);
 ```
 
 5. 执行检索：使用前一步获取到的检索器，配合检索条件进行检索。

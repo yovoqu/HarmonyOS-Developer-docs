@@ -1,6 +1,6 @@
 # ProcessInformation
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-processinformation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,6 +37,7 @@ import { appManager } from '@kit.AbilityKit';
 | state10+ | appManager.ProcessState | 否 | 否 | 当前进程运行状态。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | bundleType12+ | bundleManager.BundleType | 否 | 否 | 当前进程运行的包类型。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | appCloneIndex12+ | number | 否 | 是 | 分身应用索引。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| isPreload | boolean | 否 | 是 | 进程是否为预加载。当进程是预加载且还未被某个组件启动请求所使用时为true；反之为false。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 起始版本：26.0.0 |
  
  
 **示例：**

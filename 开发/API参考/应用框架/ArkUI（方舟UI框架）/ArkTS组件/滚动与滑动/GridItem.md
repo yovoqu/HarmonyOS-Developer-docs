@@ -1,6 +1,6 @@
 # GridItem
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ GridItem(value?: GridItemOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value11+ | GridItemOptions | 否 | 为GridItem提供可选参数，该对象内含有GridItemStyle枚举类型的style参数。 |
+| value11+ | GridItemOptions | 否 | 为GridItem提供可选参数，该对象内含有GridItemStyle枚举类型的style参数。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -214,6 +214,8 @@ selected(value: boolean)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -233,6 +235,8 @@ GridItem样式对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -249,6 +253,8 @@ GridItem样式对象。
 GridItem样式枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -420,4 +426,4 @@ struct GridItemExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/W_7TytotTfCTS_ob7kuLjA/zh-cn_image_0000002581435764.png?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=B12208C2229E5D5446A334974615B2FE11A706A63D9301D80C12313345926E04)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/OPkdgCInTIus1O_7gxFpAA/zh-cn_image_0000002659101717.png?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=086B7BCE20C71EFE65F91FDC87AFCFE60E691BA40286355EB2F18CD83A608128)

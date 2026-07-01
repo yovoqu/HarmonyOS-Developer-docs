@@ -1,6 +1,6 @@
 # native_interface_accessibility.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-accessibility-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -44,8 +44,8 @@
 | ArkUI_AccessibleGridItemInfo | ArkUI_AccessibleGridItemInfo | 用于特定组件设置组件的属性值，如List、Flex、Select、Swiper组件。 |
 | ArkUI_AccessibilityProviderCallbacks | ArkUI_AccessibilityProviderCallbacks | 第三方操作provider回调函数结构定义，需要第三方平台实现的相关函数，通过OH_ArkUI_AccessibilityProviderRegisterCallback注册到系统侧。 |
 | ArkUI_AccessibilityProviderCallbacksWithInstance | ArkUI_AccessibilityProviderCallbacksWithInstance | 适配多实例场景第三方操作provider回调函数结构定义，需要第三方平台实现的相关函数，通过OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance注册到系统侧。 |
-| ArkUI_AccessibilityElementInfo | ArkUI_AccessibilityElementInfo | 无障碍节点信息，用于向无障碍服务、辅助应用（屏幕朗读）传递节点信息。 |
-| ArkUI_AccessibilityEventInfo | ArkUI_AccessibilityEventInfo | 无障碍事件信息。当无障碍服务或辅助应用要求控件执行操作后，需要发送执行成功事件。 |
+| ArkUI_AccessibilityElementInfo | ArkUI_AccessibilityElementInfo | 无障碍节点信息，用于向无障碍服务、无障碍辅助应用传递节点信息。 |
+| ArkUI_AccessibilityEventInfo | ArkUI_AccessibilityEventInfo | 无障碍事件信息。当无障碍服务或辅助应用要求控件执行操作后，需要发送执行成功事件。控件自身交互需求要同步状态给无障碍服务或辅助应用时，也需要主动发送事件。 |
 | ArkUI_AccessibilityProvider | ArkUI_AccessibilityProvider | 该结构体为第三方操作提供者，用于承载回调函数的实现。 |
 | ArkUI_AccessibilityActionArguments | ArkUI_AccessibilityActionArguments | 用于设置无障碍操作的具体参数。 |
 | ArkUI_AccessibilityElementInfoList | ArkUI_AccessibilityElementInfoList | 提供封装的ArkUI_AccessibilityElementInfo的List实例。 |
@@ -76,51 +76,51 @@
 
 | 名称 | 描述 |
 | --- | --- |
-| int32_t OH_ArkUI_AccessibilityProviderRegisterCallback(ArkUI_AccessibilityProvider* provider, ArkUI_AccessibilityProviderCallbacks* callbacks) | 第三方操作provider回调函数结构定义，需要第三方平台实现的相关函数，通过OH_ArkUI_AccessibilityProviderRegisterCallback注册到系统侧。 |
+| int32_t OH_ArkUI_AccessibilityProviderRegisterCallback(ArkUI_AccessibilityProvider* provider, ArkUI_AccessibilityProviderCallbacks* callbacks) | 注册回调函数。 |
 | int32_t OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance(const char* instanceId,ArkUI_AccessibilityProvider* provider, ArkUI_AccessibilityProviderCallbacksWithInstance* callbacks) | 无障碍多实例场景第三方平台注册回调函数。 |
 | void OH_ArkUI_SendAccessibilityAsyncEvent(ArkUI_AccessibilityProvider* provider, ArkUI_AccessibilityEventInfo* eventInfo,void (*callback)(int32_t errorCode)) | 主动上报事件接口，通知无障碍服务。 |
 | ArkUI_AccessibilityElementInfo* OH_ArkUI_AddAndGetAccessibilityElementInfo(ArkUI_AccessibilityElementInfoList* list) | 在指定的list中增加element成员，并返回element结构。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetElementId(ArkUI_AccessibilityElementInfo* elementInfo, int32_t elementId) | 为ArkUI_AccessibilityElementInfo设置componentId。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetParentId(ArkUI_AccessibilityElementInfo* elementInfo, int32_t parentId) | 为ArkUI_AccessibilityElementInfo设置parentId。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetElementId(ArkUI_AccessibilityElementInfo* elementInfo, int32_t elementId) | 为ArkUI_AccessibilityElementInfo设置无障碍元素的唯一标识（elementId）。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetParentId(ArkUI_AccessibilityElementInfo* elementInfo, int32_t parentId) | 为ArkUI_AccessibilityElementInfo设置父节点的无障碍编号（parentId）。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetComponentType(ArkUI_AccessibilityElementInfo* elementInfo, const char* componentType) | 为ArkUI_AccessibilityElementInfo设置组件类型。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetContents(ArkUI_AccessibilityElementInfo* elementInfo, const char* contents) | 为ArkUI_AccessibilityElementInfo设置组件文本内容。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetHintText(ArkUI_AccessibilityElementInfo* elementInfo, const char* hintText) | 为ArkUI_AccessibilityElementInfo设置提示文本。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityText(ArkUI_AccessibilityElementInfo* elementInfo, const char* accessibilityText) | 为ArkUI_AccessibilityElementInfo设置Accessibility文本。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityDescription(ArkUI_AccessibilityElementInfo* elementInfo, const char* accessibilityDescription) | 为ArkUI_AccessibilityElementInfo设置Accessibility描述信息。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetChildNodeIds(ArkUI_AccessibilityElementInfo* elementInfo, int32_t childCount, int64_t* childNodeIds) | 为ArkUI_AccessibilityElementInfo设置childCount和childNodeIds。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetOperationActions(ArkUI_AccessibilityElementInfo* elementInfo,int32_t operationCount, ArkUI_AccessibleAction* operationActions) | 为ArkUI_AccessibilityElementInfo设置operationActions。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetScreenRect(ArkUI_AccessibilityElementInfo* elementInfo, ArkUI_AccessibleRect* screenRect) | 为ArkUI_AccessibilityElementInfo设置屏幕区域。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetCheckable(ArkUI_AccessibilityElementInfo* elementInfo, bool checkable) | 为ArkUI_AccessibilityElementInfo设置是否可查。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetChecked(ArkUI_AccessibilityElementInfo* elementInfo, bool checked) | 为ArkUI_AccessibilityElementInfo设置是否被检查。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityText(ArkUI_AccessibilityElementInfo* elementInfo, const char* accessibilityText) | 为ArkUI_AccessibilityElementInfo设置无障碍专用的替代文本。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityDescription(ArkUI_AccessibilityElementInfo* elementInfo, const char* accessibilityDescription) | 为ArkUI_AccessibilityElementInfo设置无障碍描述信息。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetChildNodeIds(ArkUI_AccessibilityElementInfo* elementInfo, int32_t childCount, int64_t* childNodeIds) | 为ArkUI_AccessibilityElementInfo设置孩子节点数量和孩子节点ID集合。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetOperationActions(ArkUI_AccessibilityElementInfo* elementInfo,int32_t operationCount, ArkUI_AccessibleAction* operationActions) | 为ArkUI_AccessibilityElementInfo设置组件支持的无障碍操作列表。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetScreenRect(ArkUI_AccessibilityElementInfo* elementInfo, ArkUI_AccessibleRect* screenRect) | 为ArkUI_AccessibilityElementInfo设置组件在屏幕上的矩形区域。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetCheckable(ArkUI_AccessibilityElementInfo* elementInfo, bool checkable) | 为ArkUI_AccessibilityElementInfo设置是否可勾选。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetChecked(ArkUI_AccessibilityElementInfo* elementInfo, bool checked) | 为ArkUI_AccessibilityElementInfo设置当前的勾选状态。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetFocusable(ArkUI_AccessibilityElementInfo* elementInfo, bool focusable) | 为ArkUI_AccessibilityElementInfo设置是否可聚焦。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetFocused(ArkUI_AccessibilityElementInfo* elementInfo, bool isFocused) | 为ArkUI_AccessibilityElementInfo设置是否聚焦。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetVisible(ArkUI_AccessibilityElementInfo* elementInfo, bool isVisible) | 为ArkUI_AccessibilityElementInfo设置是否可见。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityFocused(ArkUI_AccessibilityElementInfo* elementInfo, bool accessibilityFocused) | 为ArkUI_AccessibilityElementInfo设置元素是否处于无障碍焦点状态。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetSelected(ArkUI_AccessibilityElementInfo* elementInfo, bool selected) | 为ArkUI_AccessibilityElementInfo设置是否被选中。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetClickable(ArkUI_AccessibilityElementInfo* elementInfo, bool clickable) | 为ArkUI_AccessibilityElementInfo设置是否支持点击。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetLongClickable(ArkUI_AccessibilityElementInfo* elementInfo, bool longClickable) | 为ArkUI_AccessibilityElementInfo设置是否支持长按。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetEnabled(ArkUI_AccessibilityElementInfo* elementInfo, bool isEnabled) | 为ArkUI_AccessibilityElementInfo设置是否启用。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetIsPassword(ArkUI_AccessibilityElementInfo* elementInfo, bool isPassword) | 为ArkUI_AccessibilityElementInfo设置是否为密码。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetScrollable(ArkUI_AccessibilityElementInfo* elementInfo, bool scrollable) | 为ArkUI_AccessibilityElementInfo设置是否支持滚动。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetEditable(ArkUI_AccessibilityElementInfo* elementInfo, bool editable) | 为ArkUI_AccessibilityElementInfo设置是否支持编辑。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetIsHint(ArkUI_AccessibilityElementInfo* elementInfo, bool isHint) | 为ArkUI_AccessibilityElementInfo设置提示状态。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetRangeInfo(ArkUI_AccessibilityElementInfo* elementInfo, ArkUI_AccessibleRangeInfo* rangeInfo) | 为ArkUI_AccessibilityElementInfo设置rangeInfo。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetFocused(ArkUI_AccessibilityElementInfo* elementInfo, bool isFocused) | 为ArkUI_AccessibilityElementInfo设置是否已聚焦。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetVisible(ArkUI_AccessibilityElementInfo* elementInfo, bool isVisible) | 为ArkUI_AccessibilityElementInfo设置组件是否在屏幕上可见。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityFocused(ArkUI_AccessibilityElementInfo* elementInfo, bool accessibilityFocused) | 为ArkUI_AccessibilityElementInfo设置当前的无障碍辅助焦点状态。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetSelected(ArkUI_AccessibilityElementInfo* elementInfo, bool selected) | 为ArkUI_AccessibilityElementInfo设置是否处于选中状态。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetClickable(ArkUI_AccessibilityElementInfo* elementInfo, bool clickable) | 为ArkUI_AccessibilityElementInfo设置是否支持点击操作。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetLongClickable(ArkUI_AccessibilityElementInfo* elementInfo, bool longClickable) | 为ArkUI_AccessibilityElementInfo设置是否支持长按操作。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetEnabled(ArkUI_AccessibilityElementInfo* elementInfo, bool isEnabled) | 为ArkUI_AccessibilityElementInfo设置组件是否处于启用状态。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetIsPassword(ArkUI_AccessibilityElementInfo* elementInfo, bool isPassword) | 为ArkUI_AccessibilityElementInfo设置是否为密码输入框。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetScrollable(ArkUI_AccessibilityElementInfo* elementInfo, bool scrollable) | 为ArkUI_AccessibilityElementInfo设置是否支持滚动操作。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetEditable(ArkUI_AccessibilityElementInfo* elementInfo, bool editable) | 为ArkUI_AccessibilityElementInfo设置文本内容是否可编辑。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetIsHint(ArkUI_AccessibilityElementInfo* elementInfo, bool isHint) | 为ArkUI_AccessibilityElementInfo设置是否处于提示文本状态。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetRangeInfo(ArkUI_AccessibilityElementInfo* elementInfo, ArkUI_AccessibleRangeInfo* rangeInfo) | 为ArkUI_AccessibilityElementInfo设置范围值信息。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetGridInfo(ArkUI_AccessibilityElementInfo* elementInfo, ArkUI_AccessibleGridInfo* gridInfo) | 为ArkUI_AccessibilityElementInfo设置网格信息。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetGridItemInfo(ArkUI_AccessibilityElementInfo* elementInfo, ArkUI_AccessibleGridItemInfo* gridItem) | 为ArkUI_AccessibilityElementInfo设置网格容器中单项内容容器。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetGridItemInfo(ArkUI_AccessibilityElementInfo* elementInfo, ArkUI_AccessibleGridItemInfo* gridItem) | 为ArkUI_AccessibilityElementInfo设置网格容器中子项的属性信息。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetSelectedTextStart(ArkUI_AccessibilityElementInfo* elementInfo, int32_t selectedTextStart) | 为ArkUI_AccessibilityElementInfo设置选中文本的起始位置。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetSelectedTextEnd(ArkUI_AccessibilityElementInfo* elementInfo, int32_t selectedTextEnd) | 为ArkUI_AccessibilityElementInfo设置选中文本的结束位置。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetCurrentItemIndex(ArkUI_AccessibilityElementInfo* elementInfo, int32_t currentItemIndex) | 为ArkUI_AccessibilityElementInfo设置当前获焦控件的位置信息。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetStartItemIndex(ArkUI_AccessibilityElementInfo* elementInfo, int32_t startItemIndex) | 为ArkUI_AccessibilityElementInfo设置当前屏幕中显示的第一个元素的位置信息。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetEndItemIndex(ArkUI_AccessibilityElementInfo* elementInfo, int32_t endItemIndex) | 为ArkUI_AccessibilityElementInfo设置当前屏幕中显示的最后一个元素的位置信息。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetItemCount(ArkUI_AccessibilityElementInfo* elementInfo, int32_t itemCount) | 为ArkUI_AccessibilityElementInfo设置特定组件的元素总数。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityOffset(ArkUI_AccessibilityElementInfo* elementInfo, int32_t offset) | 为ArkUI_AccessibilityElementInfo设置内容区相对于元素顶部坐标的滚动像素偏移量。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetCurrentItemIndex(ArkUI_AccessibilityElementInfo* elementInfo, int32_t currentItemIndex) | 为ArkUI_AccessibilityElementInfo设置当前获焦或高亮子项的位置索引。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetStartItemIndex(ArkUI_AccessibilityElementInfo* elementInfo, int32_t startItemIndex) | 为ArkUI_AccessibilityElementInfo设置当前屏幕可见区域中第一个元素的位置索引。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetEndItemIndex(ArkUI_AccessibilityElementInfo* elementInfo, int32_t endItemIndex) | 为ArkUI_AccessibilityElementInfo设置当前屏幕可见区域中最后一个元素的位置索引。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetItemCount(ArkUI_AccessibilityElementInfo* elementInfo, int32_t itemCount) | 为ArkUI_AccessibilityElementInfo设置容器中子项的总数。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityOffset(ArkUI_AccessibilityElementInfo* elementInfo, int32_t offset) | 为ArkUI_AccessibilityElementInfo设置滚动偏移量。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityGroup(ArkUI_AccessibilityElementInfo* elementInfo, bool accessibilityGroup) | 为ArkUI_AccessibilityElementInfo设置无障碍分组。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityLevel(ArkUI_AccessibilityElementInfo* elementInfo, const char* accessibilityLevel) | 为ArkUI_AccessibilityElementInfo设置无障碍重要性。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetZIndex(ArkUI_AccessibilityElementInfo* elementInfo, int32_t zIndex) | 为ArkUI_AccessibilityElementInfo设置组件z序。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityLevel(ArkUI_AccessibilityElementInfo* elementInfo, const char* accessibilityLevel) | 为ArkUI_AccessibilityElementInfo设置无障碍重要性级别。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetZIndex(ArkUI_AccessibilityElementInfo* elementInfo, int32_t zIndex) | 为ArkUI_AccessibilityElementInfo设置组件的Z序。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityOpacity(ArkUI_AccessibilityElementInfo* elementInfo, float opacity) | 为ArkUI_AccessibilityElementInfo设置透明度。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundColor(ArkUI_AccessibilityElementInfo* elementInfo, const char* backgroundColor) | 为ArkUI_AccessibilityElementInfo设置背景色。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundImage(ArkUI_AccessibilityElementInfo* elementInfo, const char* backgroundImage) | 为ArkUI_AccessibilityElementInfo设置背景图。 |
-| int32_t OH_ArkUI_AccessibilityElementInfoSetBlur(ArkUI_AccessibilityElementInfo* elementInfo, const char* blur) | 为ArkUI_AccessibilityElementInfo设置模糊度。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundImage(ArkUI_AccessibilityElementInfo* elementInfo, const char* backgroundImage) | 为ArkUI_AccessibilityElementInfo设置背景图片。 |
+| int32_t OH_ArkUI_AccessibilityElementInfoSetBlur(ArkUI_AccessibilityElementInfo* elementInfo, const char* blur) | 为ArkUI_AccessibilityElementInfo设置模糊效果。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetHitTestBehavior(ArkUI_AccessibilityElementInfo* elementInfo, const char* hitTestBehavior) | 为ArkUI_AccessibilityElementInfo设置触摸测试的响应逻辑及节点阻塞规则。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetComponentIdentifier(ArkUI_AccessibilityElementInfo* elementInfo, const char* identifier) | 为无障碍节点信息ArkUI_AccessibilityElementInfo设置组件标识，可用于自动化测试识别特定组件。 |
 | ArkUI_AccessibilityElementInfo* OH_ArkUI_CreateAccessibilityElementInfo(void) | 创建一个ArkUI_AccessibilityElementInfo对象，创建后需要调用OH_ArkUI_DestoryAccessibilityElementInfo释放。 |
@@ -328,7 +328,7 @@ int32_t OH_ArkUI_AccessibilityProviderRegisterCallback(ArkUI_AccessibilityProvid
 
 **描述：**
 
-第三方操作provider回调函数结构定义，需要第三方平台实现的相关函数，通过OH_ArkUI_AccessibilityProviderRegisterCallback注册到系统侧。
+注册回调函数。
 
 **起始版本：** 13
 
@@ -401,7 +401,7 @@ void OH_ArkUI_SendAccessibilityAsyncEvent(ArkUI_AccessibilityProvider* provider,
 | --- | --- |
 | ArkUI_AccessibilityProvider* provider | 第三方平台接入provider句柄。 |
 | ArkUI_AccessibilityEventInfo* eventInfo | 表示指向Accessibility事件信息的指针。 |
-| void (*callback)(int32_t errorCode) | 表示指向SendAccessibilityAsyncEvent的回调。 |
+| void (*callback)(int32_t errorCode) | 表示指向SendAccessibilityAsyncEvent回调。 |
 
 
 
@@ -446,7 +446,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetElementId(ArkUI_AccessibilityElement
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置componentId。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置无障碍元素的唯一标识（elementId）。
+
+> [!NOTE]
+> elementId是无障碍组件树中节点的唯一标识，用于无障碍服务定位和引用特定节点。无障碍服务查找节点信息、执行操作和移动焦点时均依赖此标识。 三方框架需保证同一组件树中各节点的elementId全局唯一，否则可能导致无障碍服务无法正确查找节点。 elementId的值由三方框架自行分配和维护，建议使用递增整数或稳定的组件标识。
+
 
 **起始版本：** 13
 
@@ -455,7 +459,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetElementId(ArkUI_AccessibilityElement
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | ArkUI_AccessibilityElementInfo指针。 |
-| int32_t elementId | 无障碍元素的唯一编号。 |
+| int32_t elementId | 无障碍元素的唯一编号，在当前组件树中必须唯一。 |
 
 
 **返回：**
@@ -477,7 +481,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetParentId(ArkUI_AccessibilityElementI
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置parentId。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置父节点的无障碍编号（parentId）。
+
+> [!NOTE]
+> parentId用于构建无障碍组件树的层级关系，标识当前节点的父节点。无障碍服务在遍历节点树、查找兄弟节点时依赖父子关系。 若当前节点为根节点，建议将parentId设置为-1或0（与根节点自身的elementId不同即可）。 parentId指向的父节点elementId必须在组件树中真实存在，否则无障碍服务向上遍历时可能出现异常。
+
 
 **起始版本：** 13
 
@@ -486,7 +494,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetParentId(ArkUI_AccessibilityElementI
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t parentId | 表示元素的父组件无障碍编号。 |
+| int32_t parentId | 表示元素的父组件无障碍编号，应指向已存在的父节点elementId。 |
 
 
 **返回：**
@@ -508,7 +516,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetComponentType(ArkUI_AccessibilityEle
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置组件类型。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置组件类型。
+
+> [!NOTE]
+> componentType用于标识无障碍节点的组件类型，如Button、Text、Image、List。 无障碍服务（如无障碍辅助应用）根据组件类型决定如何向用户描述和交互该节点。例如，Button类型会被朗读为按钮，Text类型会被朗读为文本。三方框架可使用自身组件类型名称，建议使用与ArkUI组件名称一致的字符串以便获得最佳朗读效果。 建议使用的组件类型名称包括： Button 、 Text 、 Image 、 List 、 TextInput 、 Slider 、 Rating 、 Progress 、 CheckBox 、 Toggle 、 Grid 、 Swiper 、 Select 、 Tab 。
+
 
 **起始版本：** 13
 
@@ -517,7 +529,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetComponentType(ArkUI_AccessibilityEle
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* componentType | 表示元素所属的组件类型。 |
+| const char* componentType | 表示元素所属的组件类型字符串，不能为空指针。 |
 
 
 **返回：**
@@ -539,7 +551,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetContents(ArkUI_AccessibilityElementI
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置组件文本内容。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置组件文本内容。
+
+> [!NOTE]
+> contents是组件的主要文本内容，无障碍辅助应用会将其作为主要播报内容朗读给用户。 对于文本类组件（如 Text 、 TextInput ），contents通常设置为组件显示的文本。 对于非文本类组件（如 Button 、 Image ），若设置了accessibilityText，则无障碍辅助应用优先使用accessibilityText。 通过 OH_ArkUI_AccessibilityElementInfoSetAccessibilityText 设置accessibilityText，否则使用contents作为朗读内容。 当组件同时设置了contents和accessibilityText时，无障碍辅助应用优先使用accessibilityText。 contents不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -548,7 +564,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetContents(ArkUI_AccessibilityElementI
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* contents | 表示元素被无障碍服务所识别的文本内容。 |
+| const char* contents | 表示元素被无障碍服务所识别的文本内容，不能为空指针。 |
 
 
 **返回：**
@@ -570,7 +586,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetHintText(ArkUI_AccessibilityElementI
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置提示文本。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置提示文本。
+
+> [!TIP]
+> hintText用于为组件提供辅助说明，通常用于可编辑组件的占位提示文本（例如输入框）。无障碍辅助应用在组件处于提示状态（isHint为true）时，会朗读hintText代替contents。例如，当输入框为空时显示的占位文本“请输入用户名”，应通过hintText传递。 hintText与isHint配合使用：当isHint为true时，无障碍辅助应用播报hintText；当isHint为false时，播报contents。isHint通过 OH_ArkUI_AccessibilityElementInfoSetIsHint 设置，contents通过 OH_ArkUI_AccessibilityElementInfoSetContents 设置。 hintText不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -579,7 +599,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetHintText(ArkUI_AccessibilityElementI
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* hintText | 表示提示文本。 默认为""。 |
+| const char* hintText | 表示提示文本，不能为空指针。默认为""。 |
 
 
 **返回：**
@@ -601,7 +621,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityText(ArkUI_Accessibilit
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置Accessibility文本。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置无障碍专用的替代文本。
+
+> [!NOTE]
+> accessibilityText是无障碍专用的替代文本，用于覆盖contents提供给无障碍辅助应用的内容。 当组件设置了accessibilityText且不为空时，无障碍辅助应用会优先播报accessibilityText而非contents。适用于视觉内容需要额外描述的场景，例如：图片组件可设置accessibilityText为“一张大海照片”，即使图片本身无文本内容，无障碍辅助应用也能向用户描述图片含义。 若accessibilityText为空字符串，无障碍辅助应用会回退使用contents。 accessibilityText不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -610,7 +634,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityText(ArkUI_Accessibilit
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* accessibilityText | 表示Accessibility文本。默认为""。 |
+| const char* accessibilityText | 表示Accessibility文本，不能为空指针。默认为""。 |
 
 
 **返回：**
@@ -632,7 +656,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityDescription(ArkUI_Acces
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置Accessibility描述信息。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置无障碍描述信息。
+
+> [!TIP]
+> accessibilityDescription用于为组件提供额外的无障碍描述信息。 无障碍辅助应用在播报完组件的主要内容（accessibilityText或contents）后，会继续播报accessibilityDescription。例如，一个按钮的contents为“提交”，accessibilityDescription可设置为“点击提交表单数据”，无障碍辅助应用将播报“提交，点击提交表单数据”。此属性适用于需要为用户提供额外操作提示或状态说明的场景。 accessibilityDescription不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -641,7 +669,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityDescription(ArkUI_Acces
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* accessibilityDescription | 表示Accessibility描述信息。 默认为""。 |
+| const char* accessibilityDescription | 表示Accessibility描述信息，不能为空指针。默认为""。 |
 
 
 **返回：**
@@ -663,7 +691,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetChildNodeIds(ArkUI_AccessibilityElem
 
 **描述：**
 
-设置ArkUI_AccessibilityElementInfo的childCount和childNodeIds。
+设置[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)的子节点数量和子节点ID集合。
+
+> [!NOTE]
+> childNodeIds用于构建无障碍组件树的父子关系，标识当前节点的所有直接子节点。无障碍服务通过childNodeIds遍历子节点来获取完整的无障碍树结构。 每次调用本接口将清空之前设置的所有子节点信息，替换为本次传入的子节点集合（覆盖式更新，非追加）。childNodeIds中的每个值对应已存在的子节点的elementId。 childCount必须大于0，且childNodeIds数组中至少包含childCount个有效元素。 childNodeIds和elementInfo不支持传入空指针，childCount不支持小于等于0，否则返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -672,8 +704,8 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetChildNodeIds(ArkUI_AccessibilityElem
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t childCount | 表示孩子节点数量。默认值为0。 |
-| int64_t* childNodeIds | 表示孩子节点id集合。 |
+| int32_t childCount | 表示孩子节点数量，必须大于0。 |
+| int64_t* childNodeIds | 表示子节点id集合，每个ID应指向已存在的子节点elementId，不能为空指针。 |
 
 
 **返回：**
@@ -695,7 +727,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetOperationActions(ArkUI_Accessibility
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置operationActions。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置组件支持的无障碍操作列表。
 
 **起始版本：** 13
 
@@ -704,8 +736,8 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetOperationActions(ArkUI_Accessibility
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t operationCount | 组件支持的action数量。 |
-| ArkUI_AccessibleAction* operationActions | 组件支持的action。 |
+| int32_t operationCount | 组件支持的action数量，必须大于0。 |
+| ArkUI_AccessibleAction* operationActions | 组件支持的action数组，不能为空指针。具体支持的action类型可以参考ArkUI_Accessibility_ActionType。 |
 
 
 **返回：**
@@ -727,7 +759,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetScreenRect(ArkUI_AccessibilityElemen
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置屏幕区域。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置组件在屏幕上的矩形区域。
+
+> [!NOTE]
+> screenRect定义了组件在屏幕上的位置和大小，以像素为单位。无障碍服务使用screenRect进行焦点高亮绘制、触摸目标定位和元素可见性判断。 无障碍辅助应用等辅助应用依赖screenRect来确定焦点框的显示位置，帮助用户了解当前聚焦元素在屏幕上的位置。 如果screenRect的区域面积为0或不在屏幕可见范围内，该节点可能不会被辅助应用聚焦。 screenRect和elementInfo不支持传入空指针，否则返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -736,7 +772,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetScreenRect(ArkUI_AccessibilityElemen
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| ArkUI_AccessibleRect* screenRect | 表示屏幕区域。 |
+| ArkUI_AccessibleRect* screenRect | 表示屏幕区域，包含左上角和右下角坐标，不能为空指针。 |
 
 
 **返回：**
@@ -758,7 +794,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetCheckable(ArkUI_AccessibilityElement
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否可查。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否可勾选。
+
+> [!NOTE]
+> 适用于具备可勾选语义的组件（例如ArkUI的 CheckBox 、 Toggle 、 Radio ）。 无障碍辅助应用会根据checkable状态向用户播报“可勾选”提示，并告知用户可以通过操作来切换勾选状态。 设置checkable为true时，应同时通过 OH_ArkUI_AccessibilityElementInfoSetChecked 来设置checked来表示当前勾选状态。
+
 
 **起始版本：** 13
 
@@ -767,7 +807,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetCheckable(ArkUI_AccessibilityElement
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| bool checkable | 表示是否可查。true表示可查，false表示不可查。默认值为false。 |
+| bool checkable | 表示是否可勾选。true表示可勾选，false表示不可勾选。默认值为false。 |
 
 
 **返回：**
@@ -789,10 +829,10 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetChecked(ArkUI_AccessibilityElementIn
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否被检查。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置当前的勾选状态。
 
 > [!NOTE]
-> 本接口仅设置是否被检查，不会设置是否可查。若需要设置是否可查，需调用 OH_ArkUI_AccessibilityElementInfoSetCheckable 。
+> 无障碍辅助应用会根据checked状态播报“已勾选”或“未勾选”。本接口仅设置勾选状态，不会自动设置checkable属性。 若需要组件被识别为可勾选，需同时调用 OH_ArkUI_AccessibilityElementInfoSetCheckable 设置checkable属性为true。 仅设置checked而不设置checkable为true时，checked状态不会在辅助应用中体现。
 
 
 **起始版本：** 13
@@ -802,7 +842,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetChecked(ArkUI_AccessibilityElementIn
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| bool checked | 表示是否被检查。true表示被检查过，false表示未被检查。默认值false。 |
+| bool checked | 表示是否被勾选。true表示已勾选，false表示未勾选。默认值false。 |
 
 
 **返回：**
@@ -824,7 +864,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetFocusable(ArkUI_AccessibilityElement
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否可聚焦。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否可聚焦。
+
+> [!NOTE]
+> 适用于可聚焦的交互组件（例如ArkUI的 TextInput 、 Button ）。 无障碍辅助应用等辅助应用在遍历可聚焦节点时，会跳过focusable为false的节点。 设置focusable为true的组件通常也需要通过 OH_ArkUI_AccessibilityElementInfoSetClickable 设置clickable为true，并注册相应的操作动作。 focusable与accessibilityFocused是不同的概念：focusable表示输入焦点能力，accessibilityFocused表示无障碍辅助焦点的当前状态。
+
 
 **起始版本：** 13
 
@@ -855,7 +899,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetFocused(ArkUI_AccessibilityElementIn
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否聚焦。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否已聚焦。
+
+> [!NOTE]
+> 无障碍辅助应用在获焦时会播报当前焦点元素的信息。 设置isFocused为true时，通常应同时通过 OH_ArkUI_AccessibilityElementInfoSetFocusable 设置focusable为true，否则焦点状态的含义不完整。 isFocused与accessibilityFocused是不同的概念：isFocused表示输入焦点状态，accessibilityFocused（由 OH_ArkUI_AccessibilityElementInfoSetAccessibilityFocused 设置）表示无障碍辅助焦点状态。
+
 
 **起始版本：** 13
 
@@ -886,7 +934,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetVisible(ArkUI_AccessibilityElementIn
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否可见。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置组件是否在屏幕上可见。
+
+> [!NOTE]
+> 无障碍辅助应用等辅助应用在遍历节点时，默认会跳过isVisible为false的节点，不会对这些节点聚焦或播报。对于因滚动而暂时不在可视区域的组件，建议设置isVisible为false。 若一个可交互组件被错误地设置为不可见，用户将无法通过辅助应用访问该组件。
+
 
 **起始版本：** 13
 
@@ -895,7 +947,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetVisible(ArkUI_AccessibilityElementIn
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| bool isVisible | 表示是否可见。true表示可见，false表示不可见。默认值false。 |
+| bool isVisible | 表示是否可见。true表示可见，false表示不可见。默认值false。所有需要被辅助应用识别的组件必须显式设置为true。 |
 
 
 **返回：**
@@ -917,7 +969,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityFocused(ArkUI_Accessibi
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置元素是否处于无障碍焦点状态。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置当前的无障碍辅助焦点状态。
+
+> [!NOTE]
+> 当用户通过辅助应用的焦点移动操作浏览界面时，被聚焦的节点accessibilityFocused应为true。 无障碍辅助应用会对accessibilityFocused为true的节点播报其内容，并在屏幕上绘制焦点高亮框。 无障碍服务在执行 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_GAIN_ACCESSIBILITY_FOCUS 和 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CLEAR_ACCESSIBILITY_FOCUS 操作时，三方框架应相应更新此状态，并通过发送 ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_ACCESSIBILITY_FOCUSED 或 ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_ACCESSIBILITY_FOCUS_CLEARED 事件通知系统。 accessibilityFocused与isFocused不同：前者是无障碍辅助焦点，后者是输入焦点（键盘焦点）。
+
 
 **起始版本：** 13
 
@@ -948,7 +1004,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetSelected(ArkUI_AccessibilityElementI
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否被选中。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否处于选中状态。
+
+> [!NOTE]
+> 适用于具备选中语义的组件（例如ArkUI的 Tab 、 ListItem ）。 无障碍辅助应用会根据selected状态播报“已选中”或“未选中”。在 Tab 页签场景中，selected为true的Tab页签会被朗读为当前活动页签。 在列表场景中，selected可与accessibilityGroup（通过 OH_ArkUI_AccessibilityElementInfoSetAccessibilityGroup 设置）配合使用，标记当前激活的列表项。
+
 
 **起始版本：** 13
 
@@ -979,7 +1039,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetClickable(ArkUI_AccessibilityElement
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否支持点击。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否支持点击操作。
+
+> [!NOTE]
+> 无障碍辅助应用会向用户提示该组件可点击，用户可通过辅助应用执行点击操作时，系统会通过 ArkUI_AccessibilityProviderCallbacks 中的executeAccessibilityAction回调通知三方框架。 设置clickable为true时，通常需要通过 OH_ArkUI_AccessibilityElementInfoSetOperationActions 在operationActions中添加 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CLICK ，否则用户无法通过辅助应用对该组件执行点击操作。 clickable与enabled（通过 OH_ArkUI_AccessibilityElementInfoSetEnabled 设置）应配合使用：当clickable为true但enabled为false时，无障碍辅助应用会播报“已禁用”，提示用户该组件虽可点击但当前不可用。
+
 
 **起始版本：** 13
 
@@ -1010,7 +1074,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetLongClickable(ArkUI_AccessibilityEle
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否支持长按。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否支持长按操作。
+
+> [!NOTE]
+> 无障碍辅助应用会向用户提示该组件支持长按，用户可通过辅助应用执行长按操作时，系统会通过 ArkUI_AccessibilityProviderCallbacks 中的executeAccessibilityAction回调通知三方框架。 设置longClickable为true时，通常需要通过 OH_ArkUI_AccessibilityElementInfoSetOperationActions 在operationActions中添加 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_LONG_CLICK 。 否则用户无法通过辅助应用对该组件执行长按操作。
+
 
 **起始版本：** 13
 
@@ -1041,7 +1109,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetEnabled(ArkUI_AccessibilityElementIn
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否启用。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置组件是否处于启用状态。
+
+> [!NOTE]
+> 当isEnabled为false时，无障碍辅助应用会播报“已禁用”或“不可用”，提示用户该组件当前不可交互。 对于被禁用的组件（如灰色按钮），应设置isEnabled为false，并通过 OH_ArkUI_AccessibilityElementInfoSetClickable 设置clickable为true，这样无障碍辅助应用会提示用户该组件存在但当前不可用。 如果isEnabled为false且clickable也为false，无障碍辅助应用可能完全跳过该组件。 所有需要被用户交互的组件必须显式设置为true。
+
 
 **起始版本：** 13
 
@@ -1072,7 +1144,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetIsPassword(ArkUI_AccessibilityElemen
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否为密码。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否为密码输入框。
+
+> [!NOTE]
+> 当isPassword为true时，无障碍辅助应用不会朗读具体的密码字符内容，而是播报“密码框”或“已输入密码”等替代提示，以防止密码被朗读泄露。 对于 TextInput 等文本输入组件，若用于密码输入场景，必须设置isPassword为true。 若未设置或设置为false，无障碍辅助应用可能直接朗读密码内容，造成安全隐患。
+
 
 **起始版本：** 13
 
@@ -1103,7 +1179,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetScrollable(ArkUI_AccessibilityElemen
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否支持滚动。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否支持滚动操作。
+
+> [!NOTE]
+> 适用于支持内容滚动的容器组件（例如ArkUI的 List 、 Grid 、 Scroll 、 Swiper ）。 无障碍辅助应用等辅助应用会根据scrollable状态向用户提供滚动操作提示，用户可通过辅助应用执行向前滚动（ ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_FORWARD ）或向后滚动（ ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_BACKWARD ）操作。 设置scrollable为true时，需要通过 OH_ArkUI_AccessibilityElementInfoSetOperationActions 在operationActions中添加滚动操作，包括 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_FORWARD 和 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_BACKWARD ，否则用户无法通过辅助应用对该组件执行滚动操作。
+
 
 **起始版本：** 13
 
@@ -1134,7 +1214,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetEditable(ArkUI_AccessibilityElementI
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置是否支持编辑。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置文本内容是否可编辑。
+
+> [!NOTE]
+> editable表示该组件的文本内容是否可以被用户编辑，适用于 TextInput 、 TextArea 等可编辑文本组件。 无障碍辅助应用会根据editable状态向用户提示该组件可编辑，并允许用户通过辅助应用输入或修改文本。 设置editable为true的组件，通常还应通过 OH_ArkUI_AccessibilityElementInfoSetOperationActions 注册相应的无障碍操作动作，如 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SET_TEXT 、 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_COPY 、 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_PASTE 、 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CUT 等，以便用户通过辅助应用执行编辑操作。 editable为true且isPassword（通过 OH_ArkUI_AccessibilityElementInfoSetIsPassword 设置）为true时，无障碍辅助应用会播报“密码编辑框”。默认值为false。
+
 
 **起始版本：** 13
 
@@ -1165,7 +1249,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetIsHint(ArkUI_AccessibilityElementInf
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置提示状态。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置是否处于提示文本状态。
+
+> [!NOTE]
+> 当isHint为true时，无障碍辅助应用会朗读hintText（提示文本，通过 OH_ArkUI_AccessibilityElementInfoSetHintText 设置）而非contents（主文本内容，通过 OH_ArkUI_AccessibilityElementInfoSetContents 设置）。 此属性主要用于可编辑文本组件（如 TextInput ）在用户尚未输入内容时显示占位提示文本的场景。 例如：输入框显示“请输入用户名”时，isHint应设为true，hintText应设为“请输入用户名”；用户输入内容后，isHint应设为false，contents应设为用户输入的文本。 若isHint设置为true但未设置hintText，无障碍辅助应用可能播报空内容。
+
 
 **起始版本：** 13
 
@@ -1174,7 +1262,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetIsHint(ArkUI_AccessibilityElementInf
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| bool isHint | 表示是否为提示状态。true表示是提示状态，false表示不是提示状态。在提示状态下才会获取hintText信息。 |
+| bool isHint | 表示是否为提示状态。true表示是提示状态，false表示不是提示状态。在提示状态下无障碍辅助应用播报hintText，否则播报contents。 |
 
 
 **返回：**
@@ -1196,7 +1284,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetRangeInfo(ArkUI_AccessibilityElement
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置rangeInfo。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置范围值信息。
+
+> [!NOTE]
+> rangeInfo用于设置具有连续范围值的组件的当前值、最小值和最大值，适用于在连续数值范围内取值的组件（例如 Slider 、 Rating 、 Progress 、SeekBar）。 无障碍辅助应用会根据rangeInfo播报当前值和范围，例如“进度50%，范围0到100”。 rangeInfo中的current表示当前值，min表示最小值，max表示最大值。 设置rangeInfo时，应确保min不大于max，current应在min和max之间。 rangeInfo和elementInfo不支持传入空指针，否则返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -1205,7 +1297,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetRangeInfo(ArkUI_AccessibilityElement
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| ArkUI_AccessibleRangeInfo* rangeInfo | 表示特定组件的当前值、最大值、最小值。 |
+| ArkUI_AccessibleRangeInfo* rangeInfo | 表示特定组件的当前值、最大值、最小值，不能为空指针。 |
 
 
 **返回：**
@@ -1227,7 +1319,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetGridInfo(ArkUI_AccessibilityElementI
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置网格信息。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置网格信息。
+
+> [!NOTE]
+> gridInfo用于设置网格类容器的行数、列数和选择模式，适用于 Grid 、 List 、 Flex 、 Select 、 Swiper 等容器组件。 无障碍辅助应用会根据gridInfo播报网格的结构信息，如“第2行，共5行3列”。 rowCount表示行数，columnCount表示列数，selectionMode表示选择模式（值为0表示单行选择，非0表示多行选择）。 gridInfo和elementInfo不支持传入空指针，否则返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -1236,7 +1332,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetGridInfo(ArkUI_AccessibilityElementI
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| ArkUI_AccessibleGridInfo* gridInfo | 表示特定组件的行数、列数以及选择模式。 |
+| ArkUI_AccessibleGridInfo* gridInfo | 表示特定组件的行数、列数以及选择模式，不能为空指针。 |
 
 
 **返回：**
@@ -1258,7 +1354,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetGridItemInfo(ArkUI_AccessibilityElem
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置网格容器中单项内容容器。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置网格容器中子项的属性信息。
+
+> [!NOTE]
+> gridItem用于设置 Grid 组件中每个子项的属性，包括是否为标题、是否被选中、所在行列下标及跨度信息。适用于网格/列表类容器的子项（例如ArkUI的 Grid 、 List 、 Flex 、 Select 、 Swiper 的子项）。 无障碍辅助应用会根据gridItem的rowIndex和columnIndex播报子项的位置信息，如“第2行第3列”。 ArkUI_AccessibleGridItemInfo 中的heading为true时，无障碍辅助应用会播报“标题”。 gridItem和elementInfo不支持传入空指针，否则返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -1267,7 +1367,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetGridItemInfo(ArkUI_AccessibilityElem
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| ArkUI_AccessibleGridItemInfo* gridItem | 表示特定组件的属性值。 |
+| ArkUI_AccessibleGridItemInfo* gridItem | 表示网格子项的属性值，不能为空指针。 |
 
 
 **返回：**
@@ -1289,7 +1389,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetSelectedTextStart(ArkUI_Accessibilit
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置选中文本的起始位置。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置选中文本的起始位置。
+
+> [!NOTE]
+> selectedTextStart用于文本类可编辑组件，标记当前选中文本的起始字符索引位置（从0开始计数）。 无障碍辅助应用等辅助应用会根据selectedTextStart和selectedTextEnd播报当前选中的文本范围。 当用户通过辅助应用执行 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SELECT_TEXT 操作时，三方框架应获取起始位置。 通过 ArkUI_AccessibilityActionArguments 中的selectTextBegin参数获取起始位置。 selectedTextStart应与selectedTextEnd（通过 OH_ArkUI_AccessibilityElementInfoSetSelectedTextEnd 设置）配合使用，且selectedTextStart不应大于selectedTextEnd。
+
 
 **起始版本：** 13
 
@@ -1298,7 +1402,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetSelectedTextStart(ArkUI_Accessibilit
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t selectedTextStart | 文本类控件使用，设置选中文本的起始位置。 |
+| int32_t selectedTextStart | 文本类控件使用，设置选中文本的起始位置索引（从0开始）。应与selectedTextEnd配合使用。 |
 
 
 **返回：**
@@ -1320,7 +1424,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetSelectedTextEnd(ArkUI_AccessibilityE
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置选中文本的结束位置。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置选中文本的结束位置。
+
+> [!NOTE]
+> selectedTextEnd用于文本类可编辑组件，标记当前选中文本的结束字符索引位置（从0开始计数）。 无障碍辅助应用等辅助应用会根据selectedTextStart和selectedTextEnd计算并播报选中的文本内容。 selectedTextEnd应与selectedTextStart配合使用，且selectedTextEnd不应小于selectedTextStart。其中selectedTextStart通过 OH_ArkUI_AccessibilityElementInfoSetSelectedTextStart 设置。 当没有文本被选中时，selectedTextStart和selectedTextEnd可以设置为相同的值（即光标位置）。
+
 
 **起始版本：** 13
 
@@ -1329,7 +1437,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetSelectedTextEnd(ArkUI_AccessibilityE
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t selectedTextEnd | 文本类控件使用，设置选中文本的结束位置。 |
+| int32_t selectedTextEnd | 文本类控件使用，设置选中文本的结束位置索引（从0开始）。应与selectedTextStart配合使用。 |
 
 
 **返回：**
@@ -1351,7 +1459,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetCurrentItemIndex(ArkUI_Accessibility
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置当前获焦控件的位置信息。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置当前获焦或高亮子项的位置索引。
+
+> [!NOTE]
+> currentItemIndex用于 List 、 Select 、 Swiper 、 Tab 等容器类组件，表示当前获得焦点或处于激活状态的子项在容器中的位置索引（从0开始计数）。 无障碍辅助应用会播报当前项的位置信息，如“第3项，共10项”。 currentItemIndex应与itemCount（通过 OH_ArkUI_AccessibilityElementInfoSetItemCount 设置）配合使用，以便辅助应用播报“第X项，共Y项”的完整信息。 currentItemIndex的值应在0到itemCount-1的范围内。
+
 
 **起始版本：** 13
 
@@ -1360,7 +1472,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetCurrentItemIndex(ArkUI_Accessibility
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t currentItemIndex | 当前获焦控件的位置信息。 |
+| int32_t currentItemIndex | 当前获焦控件的位置索引（从0开始），应与itemCount配合使用。适用于List、Select、Swiper、Tab等容器组件。 |
 
 
 **返回：**
@@ -1382,7 +1494,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetStartItemIndex(ArkUI_AccessibilityEl
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置当前屏幕中显示的第一个元素的位置信息。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置当前屏幕可见区域中第一个元素的位置索引。
+
+> [!NOTE]
+> startItemIndex用于 List 、 Select 、 Swiper 、 Tab 等可滚动容器组件，表示当前屏幕可见区域中第一个子项的位置索引（从0开始计数）。 无障碍辅助应用等辅助应用根据startItemIndex和endItemIndex（通过 OH_ArkUI_AccessibilityElementInfoSetEndItemIndex 设置）判断可见区域范围，用于优化焦点移动和播报。 startItemIndex应小于等于endItemIndex，且两者均应在0到itemCount-1的范围内。
+
 
 **起始版本：** 13
 
@@ -1391,7 +1507,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetStartItemIndex(ArkUI_AccessibilityEl
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t startItemIndex | 当前屏幕中显示的第一个元素的位置信息。List、Select、Swiper、Tab_Bar等组件使用。 |
+| int32_t startItemIndex | 当前屏幕可见区域中第一个元素的位置索引（从0开始）。List、Select、Swiper、Tab_Bar等容器组件使用。 |
 
 
 **返回：**
@@ -1413,7 +1529,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetEndItemIndex(ArkUI_AccessibilityElem
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置当前屏幕中显示的最后一个元素的位置信息。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置当前屏幕可见区域中最后一个元素的位置索引。
+
+> [!NOTE]
+> endItemIndex用于 List 、 Select 、 Swiper 、 Tab 等可滚动容器组件，表示当前屏幕可见区域中最后一个子项的位置索引（从0开始计数）。 无障碍辅助应用等辅助应用根据startItemIndex（通过 OH_ArkUI_AccessibilityElementInfoSetStartItemIndex 设置）和endItemIndex判断可见区域范围，当用户执行滚动操作时，辅助应用可据此播报滚动进度。 endItemIndex应大于等于startItemIndex，且两者均应在0到itemCount-1的范围内。
+
 
 **起始版本：** 13
 
@@ -1422,7 +1542,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetEndItemIndex(ArkUI_AccessibilityElem
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t endItemIndex | 当前屏幕中显示的最后一个元素的位置信息。List、Select、Swiper、Tab_Bar等组件使用。 |
+| int32_t endItemIndex | 当前屏幕可见区域中最后一个元素的位置索引（从0开始）。List、Select、Swiper、Tab_Bar等容器组件使用。 |
 
 
 **返回：**
@@ -1444,7 +1564,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetItemCount(ArkUI_AccessibilityElement
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置特定组件的元素总数。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置容器中子项的总数。
+
+> [!NOTE]
+> itemCount用于 List 、 Select 、 Swiper 、 Tab 等容器类组件，表示容器中子项的总数量。 无障碍辅助应用等辅助应用结合currentItemIndex（通过 OH_ArkUI_AccessibilityElementInfoSetCurrentItemIndex 设置）和itemCount播报位置信息，如“第3项，共10项”。 itemCount的值应为容器中所有子项的总数（包括可见和不可见的），而不仅是当前屏幕可见区域的子项数。 itemCount应为非负整数，设置为0表示容器为空。
+
 
 **起始版本：** 13
 
@@ -1453,7 +1577,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetItemCount(ArkUI_AccessibilityElement
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t itemCount | 表示特定组件的元素总数。如List、Select、Swiper、Tab_Bar等组件使用。 |
+| int32_t itemCount | 表示容器中子项的总数（包括可见和不可见的），用于辅助应用播报“第X项，共Y项”。如List、Select、Swiper、Tab等容器组件使用。 |
 
 
 **返回：**
@@ -1475,7 +1599,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityOffset(ArkUI_Accessibil
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置内容区相对于元素顶部坐标的滚动像素偏移量。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置滚动偏移量。
+
+> [!NOTE]
+> offset用于可滚动类容器组件（如 List 、 Grid 、 Scroll ），表示内容区相对于元素顶部坐标的滚动像素偏移量。 无障碍服务使用offset来判断滚动位置，辅助应用可据此播报滚动进度。 当用户执行 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_FORWARD 或 ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_BACKWARD 操作后，三方框架应在更新后的节点信息中同步更新offset值。 offset为0表示内容区未滚动（处于初始位置），正值表示向下/向右滚动的像素距离。
+
 
 **起始版本：** 13
 
@@ -1484,7 +1612,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityOffset(ArkUI_Accessibil
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t offset | 对于可滚动类控件，如List、Grid，内容区相对于元素顶部坐标的滚动像素偏移量。 |
+| int32_t offset | 对于可滚动类控件，如List、Grid，内容区相对于元素顶部坐标的滚动像素偏移量（单位：像素）。offset为0表示未滚动，正值表示已滚动的距离。 |
 
 
 **返回：**
@@ -1506,7 +1634,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityGroup(ArkUI_Accessibili
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置无障碍分组。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置无障碍分组。
+
+> [!NOTE]
+> accessibilityGroup表示是否将该组件及其所有子组件作为一个整体对待。 当accessibilityGroup为true时，无障碍辅助应用会将该节点视为一个整体，不会单独聚焦或播报其子节点的信息，而是将子节点的文本内容合并后一起播报。 此属性适用于将一组相关内容（如一个列表项包含图标和文本）作为一个无障碍单元的场景。例如：一个列表项包含商品图片和商品名称，设置accessibilityGroup为true后，无障碍辅助应用会将整个列表项作为一个节点播报，而不是分别播报图片和文本。 accessibilityGroup为false时，无障碍辅助应用会逐个遍历子节点。
+
 
 **起始版本：** 13
 
@@ -1515,7 +1647,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityGroup(ArkUI_Accessibili
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| bool accessibilityGroup | 表示是否启用无障碍分组。true表示启用，false表示不启用。 |
+| bool accessibilityGroup | 表示是否启用无障碍分组。true表示将组件及其子组件作为一个整体播报，false表示逐个遍历子节点。 |
 
 
 **返回：**
@@ -1537,7 +1669,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityLevel(ArkUI_Accessibili
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置无障碍重要性。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置无障碍重要性级别。
+
+> [!NOTE]
+> accessibilityLevel用于控制组件是否被无障碍辅助服务识别，影响无障碍节点树中该节点的可见性。 无障碍辅助应用等辅助应用根据accessibilityLevel决定是否向用户展示该节点。 取值范围及含义如下： “auto”：由系统根据当前组件的属性自动判断该组件是否重要，决定是否让辅助服务识别该组件。通常具有可交互属性（如clickable）或文本内容的组件会被自动识别为重要。 “yes”：表示该组件重要，允许辅助服务识别该组件。无论组件属性如何，辅助服务都会识别。 “no”：表示该组件不重要，不允许辅助服务识别该组件。辅助服务会跳过该节点，但其子节点仍可被识别。 “no-hide-descendants”：表示该组件及其所有子孙节点都不重要，辅助服务不会识别该组件及其子孙节点。适用于纯装饰性容器，避免辅助服务播报无意义的内容。 accessibilityLevel不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -1546,7 +1682,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityLevel(ArkUI_Accessibili
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* accessibilityLevel | 表示组件的无障碍重要性，用于控制某个组件是否被无障碍辅助服务所识别。 - auto：由系统根据当前组件的属性自动判断该组件是否重要，决定是否让无障碍辅助服务识别该组件。 - yes：表示该组件重要，允许无障碍辅助服务识别该组件。 - no：表示该组件不重要，不允许无障碍辅助服务识别该组件。 - no-hide-descendants：表示该组件及其子孙节点都不重要，不允许无障碍辅助服务识别该组件及其子孙节点。 |
+| const char* accessibilityLevel | 表示组件的无障碍重要性级别，取值为“auto”/“yes”/“no”/“no-hide-descendants”，不能为空指针。 |
 
 
 **返回：**
@@ -1568,7 +1704,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetZIndex(ArkUI_AccessibilityElementInf
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置组件z序。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置组件的Z序。
+
+> [!NOTE]
+> zIndex用于控制元素在垂直于屏幕的Z轴上的层级位置。当多个组件在屏幕上重叠时，zIndex值较大的组件会覆盖zIndex值较小的组件。 此属性主要供UiTest自动化测试框架使用，用于识别组件的层叠顺序。 无障碍服务在确定焦点移动方向时也可能参考zIndex进行判断。
+
 
 **起始版本：** 13
 
@@ -1599,7 +1739,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetAccessibilityOpacity(ArkUI_Accessibi
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置透明度。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置透明度。
+
+> [!WARNING]
+> opacity表示组件的透明度。此属性主要供UiTest自动化测试框架使用，用于识别组件的视觉透明状态。取值范围为0到1，其中1表示完全不透明，0表示完全透明。 注意：传入NaN值将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER ，但超出0到1范围的值（如负数或大于1的值）不会被自动修正，建议始终传入0到1之间的有效值。
+
 
 **起始版本：** 13
 
@@ -1630,7 +1774,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundColor(ArkUI_AccessibilityE
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置背景色。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置背景色。
+
+> [!NOTE]
+> backgroundColor表示组件的背景颜色。此属性主要供UiTest自动化测试框架使用，用于识别组件的视觉背景色。 数据格式为“#ARGB”字符串，例如非透明白色为“#FFFFFFFF”，半透明红色为“#80FF0000”。 backgroundColor不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -1639,7 +1787,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundColor(ArkUI_AccessibilityE
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* backgroundColor | 表示背景色。数据为"#ARGB"格式，例如非透明白色，即"#FFFFFFFF"。UiTest需要使用。 |
+| const char* backgroundColor | 表示背景色。数据为“#ARGB”格式，例如非透明白色即“#FFFFFFFF”。不能为空指针。UiTest需要使用。 |
 
 
 **返回：**
@@ -1661,7 +1809,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundImage(ArkUI_AccessibilityE
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置背景图片。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置背景图片。
+
+> [!NOTE]
+> backgroundImage表示组件的背景图片资源。此属性主要供UiTest自动化测试框架使用，用于识别组件的视觉背景图。 backgroundImage不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -1670,7 +1822,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBackgroundImage(ArkUI_AccessibilityE
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* backgroundImage | 表示背景图片。UiTest需要使用。 |
+| const char* backgroundImage | 表示背景图片资源路径或描述。不能为空指针。UiTest需要使用。 |
 
 
 **返回：**
@@ -1692,7 +1844,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBlur(ArkUI_AccessibilityElementInfo*
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置模糊度。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置模糊效果。
+
+> [!NOTE]
+> blur表示组件的模糊效果参数。此属性主要供UiTest自动化测试框架使用，用于识别组件的视觉模糊状态。 blur不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -1701,7 +1857,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetBlur(ArkUI_AccessibilityElementInfo*
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* blur | 表示模糊度。UiTest需要使用。 |
+| const char* blur | 表示模糊度。不能为空指针。UiTest需要使用。 |
 
 
 **返回：**
@@ -1723,7 +1879,11 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetHitTestBehavior(ArkUI_AccessibilityE
 
 **描述：**
 
-为ArkUI_AccessibilityElementInfo设置触摸测试的响应逻辑及节点阻塞规则。
+为[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置触摸测试的响应逻辑及节点阻塞规则。
+
+> [!NOTE]
+> hitTestBehavior用于控制组件在触摸测试过程中的响应行为，决定触摸事件是否可以穿透该组件。 此属性主要供UiTest自动化测试框架使用。取值范围参考HitTestMode，包括： “Default”：默认行为，不阻断触摸事件。 “Block”：阻断自身及子组件的触摸事件。 “Transparent”：自身不响应触摸事件，但子组件可以响应。 “None”：自身和子组件都不响应触摸事件。 hitTestBehavior不支持传入空指针，传入空指针将返回 ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER 。
+
 
 **起始版本：** 13
 
@@ -1732,7 +1892,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetHitTestBehavior(ArkUI_AccessibilityE
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| const char* hitTestBehavior | 表示hitTest模式，取值范围参考HitTestMode。 |
+| const char* hitTestBehavior | 表示hitTest模式，不能为空指针。 |
 
 
 **返回：**
@@ -1754,7 +1914,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetComponentIdentifier(ArkUI_Accessibil
 
 **描述：**
 
-为无障碍节点信息ArkUI_AccessibilityElementInfo设置组件标识，可用于自动化测试识别特定组件。
+为无障碍节点信息[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)设置组件标识，可用于自动化测试识别特定组件。
 
 **起始版本：** 24
 
@@ -1785,7 +1945,7 @@ ArkUI_AccessibilityElementInfo* OH_ArkUI_CreateAccessibilityElementInfo(void)
 
 **描述：**
 
-创建一个ArkUI_AccessibilityElementInfo对象，创建后需要调用OH_ArkUI_DestoryAccessibilityElementInfo释放。
+创建一个[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)对象，创建后需要调用[OH_ArkUI_DestoryAccessibilityElementInfo](#oh_arkui_destoryaccessibilityelementinfo)释放。
 
 **起始版本：** 13
 
@@ -1808,7 +1968,7 @@ void OH_ArkUI_DestoryAccessibilityElementInfo(ArkUI_AccessibilityElementInfo* el
 
 **描述：**
 
-销毁一个ArkUI_AccessibilityElementInfo对象。
+销毁一个[ArkUI_AccessibilityElementInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo)对象。
 
 **起始版本：** 13
 
@@ -1831,7 +1991,7 @@ ArkUI_AccessibilityEventInfo* OH_ArkUI_CreateAccessibilityEventInfo(void)
 
 **描述：**
 
-创建一个ArkUI_AccessibilityEventInfo对象，创建后需要调用OH_ArkUI_DestoryAccessibilityEventInfo释放。
+创建一个[ArkUI_AccessibilityEventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityeventinfo)对象，创建后需要调用[OH_ArkUI_DestoryAccessibilityEventInfo](#oh_arkui_destoryaccessibilityeventinfo)释放。
 
 **起始版本：** 13
 
@@ -1854,7 +2014,7 @@ void OH_ArkUI_DestoryAccessibilityEventInfo(ArkUI_AccessibilityEventInfo* eventI
 
 **描述：**
 
-销毁ArkUI_AccessibilityEventInfo对象。
+销毁[ArkUI_AccessibilityEventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityeventinfo)对象。
 
 **起始版本：** 13
 
@@ -1877,7 +2037,7 @@ int32_t OH_ArkUI_AccessibilityEventSetEventType(ArkUI_AccessibilityEventInfo* ev
 
 **描述：**
 
-为ArkUI_AccessibilityEventInfo设置事件类型。
+为[ArkUI_AccessibilityEventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityeventinfo)设置事件类型。
 
 **起始版本：** 13
 
@@ -1908,7 +2068,7 @@ int32_t OH_ArkUI_AccessibilityEventSetTextAnnouncedForAccessibility(ArkUI_Access
 
 **描述：**
 
-为ArkUI_AccessibilityEventInfo设置主动播报的内容。
+为[ArkUI_AccessibilityEventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityeventinfo)设置主动播报的内容。
 
 **起始版本：** 13
 
@@ -1939,7 +2099,7 @@ int32_t OH_ArkUI_AccessibilityEventSetRequestFocusId(ArkUI_AccessibilityEventInf
 
 **描述：**
 
-为ArkUI_AccessibilityEventInfo设置请求焦点id。
+为[ArkUI_AccessibilityEventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityeventinfo)设置请求焦点id。
 
 **起始版本：** 13
 
@@ -1970,7 +2130,7 @@ int32_t OH_ArkUI_AccessibilityEventSetElementInfo(ArkUI_AccessibilityEventInfo* 
 
 **描述：**
 
-为ArkUI_AccessibilityEventInfo设置elementInfo。
+为[ArkUI_AccessibilityEventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityeventinfo)设置elementInfo。
 
 **起始版本：** 13
 
@@ -2001,7 +2161,7 @@ int32_t OH_ArkUI_FindAccessibilityActionArgumentByKey(ArkUI_AccessibilityActionA
 
 **描述：**
 
-获取ArkUI_AccessibilityActionArguments中指定key的value值。
+获取[ArkUI_AccessibilityActionArguments](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityactionarguments)中指定key的value值。
 
 **起始版本：** 13
 

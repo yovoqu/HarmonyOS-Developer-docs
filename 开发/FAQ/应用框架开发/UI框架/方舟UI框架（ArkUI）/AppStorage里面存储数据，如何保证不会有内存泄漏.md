@@ -1,6 +1,6 @@
 # AppStorage里面存储数据，如何保证不会有内存泄漏
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-461
 

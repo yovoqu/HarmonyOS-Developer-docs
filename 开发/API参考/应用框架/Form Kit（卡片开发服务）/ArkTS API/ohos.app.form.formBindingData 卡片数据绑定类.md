@@ -1,6 +1,6 @@
 # @ohos.app.form.formBindingData (卡片数据绑定类)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formbindingdata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -120,7 +120,7 @@ struct Index {
         'imgSrc': 'image',
         'formImages': formImagesParam
       };
-      formBindingData.createFormBindingData(createFormBindingDataParam);
+      let formBindingDataObj = formBindingData.createFormBindingData(createFormBindingDataParam);
     } catch (error) {
       console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message})`);
     }

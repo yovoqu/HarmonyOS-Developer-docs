@@ -1,6 +1,6 @@
 # GetAddr
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getaddr
 
@@ -40,6 +40,6 @@ tensor地址。
 
 ```text
 auto addr0 = reinterpret_cast<void *>(0x10);
-TensorData td(addr, nullptr);
+TensorData td(addr0, nullptr);
 auto addr1 = td.GetAddr(); // 0x10
 ```

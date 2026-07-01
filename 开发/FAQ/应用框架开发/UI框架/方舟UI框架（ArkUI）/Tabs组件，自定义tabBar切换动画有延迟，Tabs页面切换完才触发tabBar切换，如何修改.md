@@ -1,6 +1,6 @@
 # Tabs组件，自定义tabBar切换动画有延迟，Tabs页面切换完才触发tabBar切换，如何修改
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-451
 
@@ -10,7 +10,7 @@
  
 可参考如下示例：
  
-```ArkTS
+```text
 @Component
 struct TabsDemo {
   @State tabArray: Array<number> = [0, 1, 2, 3];
@@ -41,7 +41,7 @@ struct TabsDemo {
     Column() {
       Tabs({ barPosition: BarPosition.Start, index: this.currentIndex, controller: this.controller }) {
         ForEach(this.tabArray,(item: number, index:number) => {
-          // The system has its own tab.
+        <em>  // The system has its own tab.</em>
           TabContent() {
             Text('我的内容' + item)
               .fontSize(30)
@@ -50,14 +50,14 @@ struct TabsDemo {
         })
       }
       .onChange((index: number) => {
-        // CurrentIndex Control TabContent Display Tab.
+    <em>    // CurrentIndex Control TabContent Display Tab.</em>
         this.currentIndex = index;
       })
       .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
         if(index === targetIndex) {
           return;
         }
-        // SelectedIndex controls the color switching between Image and Text in the custom TabBar.
+       <em> // SelectedIndex controls the color switching between Image and Text in the custom TabBar.</em>
         this.selectedIndex = targetIndex;
       })
     }

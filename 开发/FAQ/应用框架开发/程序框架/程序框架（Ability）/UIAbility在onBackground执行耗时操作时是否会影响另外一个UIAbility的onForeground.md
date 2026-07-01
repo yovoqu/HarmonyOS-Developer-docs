@@ -1,6 +1,6 @@
 # UIAbility在onBackground执行耗时操作时是否会影响另外一个UIAbility的onForeground
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-26
 

@@ -1,6 +1,6 @@
 # GridCol
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridcol
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,7 +38,7 @@ GridCol(option?: GridColOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| option | GridColOptions | 否 | 栅格布局子组件参数。 |
+| option | GridColOptions | 否 | 栅格列布局组件布局选项。 |
  
  
   
@@ -238,4 +238,4 @@ struct GridColExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/vBvIq44RQHKgz75e2AoeLg/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=76520A0DE8AB88D713F267281D451B04695959736AC6FB14CF57EF934B5C382E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/YkXhS12mRk2jEKq0moRlWg/zh-cn_image_0000002659221649.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=1FDAA045565D4F4E4B831BCEA4B9CBFEC9B2B16EABB48FE5A3A087C083D25E25)

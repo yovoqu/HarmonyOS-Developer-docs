@@ -1,6 +1,6 @@
 # 如何在Native侧调用ArkTS侧异步方法，并获取异步计算结果到Native侧
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-32
 
@@ -26,8 +26,8 @@
  
 （一）ArkTS侧实现
  
-```ArkTS
-// ...
+```text
+<em>// ...</em>
 import testNapi from 'libentry.so';
 
 @Entry
@@ -37,22 +37,22 @@ struct Index {
     Row() {
       Column() {
         Text('testPromise')
-          // ...
+         <em> // ...</em>
           .onClick(() => {
             hilog.info(0x0000, 'testTag-ArkTS', 'Before calling the native interface.');
-            // Call the Native interface and return the call information
+          <em>  // Call the Native interface and return the call information</em>
             testNapi.testPromise(() => {
-              // Callback is used to create ArkTS side Promise objects
+             <em> // Callback is used to create ArkTS side Promise objects</em>
               return new Promise((resolve: Function, reject: Function) => {
-                // Simulate ArkTS side asynchronous method through setTimeout interface
-                // Scenario: After 2 seconds, trigger the setTimeout timer callback to generate a random number randomNumber. By judging the size of the random number, it is used to trigger different states of the promise object, and then perform different callback processing
+              <em>  // Simulate ArkTS side asynchronous method through setTimeout interface</em>
+<em>                // Scenario: After 2 seconds, trigger the setTimeout timer callback to generate a random number randomNumber. By judging the size of the random number, it is used to trigger different states of the promise object, and then perform different callback processing</em>
                 setTimeout(()=>{
                   const randomNumber: number = 100 * Math.random();
                   if (randomNumber > 50) {
-                    // If randomNumber is greater than 50, call the resolve method to transition the state of the Promise object to the fulfilled state, and pass the random number to the Native side as a callback parameter for the then method
+                   <em> // If randomNumber is greater than 50, call the resolve method to transition the state of the Promise object to the fulfilled state, and pass the random number to the Native side as a callback parameter for the then method</em>
                     resolve(randomNumber);
                   } else {
-                    // If randomNumber is less than/equal to 50, call the reject method to transfer the state of the Promise object to the rejected state, and pass the exception information to the Native side as the callback parameter of the catch method
+                  <em>  // If randomNumber is less than/equal to 50, call the reject method to transfer the state of the Promise object to the rejected state, and pass the exception information to the Native side as the callback parameter of the catch method</em>
                     reject('The random number is less than 50, so the promise object is rejected.')
                   }
                 }, 2000);
@@ -71,34 +71,34 @@ struct Index {
  
 （二）Native侧实现
  
-```cpp
+```text
 #include "napi/native_api.h" 
 #include "hilog/log.h" 
  
-// Define callback methods for the then property of Promise objects 
-// The callback method of the then attribute can have no return value 
-// In the following text, it is necessary to create an ArkTS function object through napi_make_function, so set the return value to napi_value and return nullptr at the end of the function
+<em>// Define callback methods for the then property of Promise objects </em>
+<em>// The callback method of the then attribute can have no return value </em>
+<em>// In the following text, it is necessary to create an ArkTS function object through napi_make_function, so set the return value to napi_value and return nullptr at the end of the function</em>
 napi_value ThenCallBack(napi_env env, napi_callback_info info) { 
     size_t argc = 1; 
     napi_value args[1] = {nullptr}; 
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr); 
-    int32_t asyncResult = 0; // ArkTS side asynchronous method calculation results 
+    int32_t asyncResult = 0;<em> // ArkTS side asynchronous method calculation results </em>
     napi_get_value_int32(env, args[0], &asyncResult); 
     OH_LOG_Print(LOG_APP, LOG_INFO, 0xFF00, "testTag-Native", "ArkTS Async Method Calculation Success, Result: %{public}d", 
                  asyncResult); 
     return nullptr; 
 } 
-// Define callback methods for catch properties of Promise objects 
-// The callback method of the catch property can have no return value 
-// In the following text, it is necessary to create an ArkTS function object through napi_make_function, so set the return value to napi_value and return nullptr at the end of the function 
+<em>// Define callback methods for catch properties of Promise objects </em>
+<em>// The callback method of the catch property can have no return value </em>
+<em>// In the following text, it is necessary to create an ArkTS function object through napi_make_function, so set the return value to napi_value and return nullptr at the end of the function </em>
 napi_value CatchCallBack(napi_env env, napi_callback_info info) { 
     size_t argc = 1; 
     napi_value args[1] = {nullptr}; 
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr); 
     size_t strLen = 0; 
-    napi_get_value_string_utf8(env, args[0], nullptr, 0, &strLen);            // Get string length to strLen 
-    char *strBuffer = new char[strLen + 1];                                   // Allocate a char array of appropriate size 
-    napi_get_value_string_utf8(env, args[0], strBuffer, strLen + 1, &strLen); // Get a string representing the information about the abnormal calculation of the ArkTS side asynchronous method
+    napi_get_value_string_utf8(env, args[0], nullptr, 0, &strLen);           <em> // Get string length to strLen </em>
+    char *strBuffer = new char[strLen + 1];                                  <em> // Allocate a char array of appropriate size </em>
+    napi_get_value_string_utf8(env, args[0], strBuffer, strLen + 1, &strLen); <em>// Get a string representing the information about the abnormal </em><em>calculation of the ArkTS side asynchronous method</em>
     OH_LOG_Print(LOG_APP, LOG_INFO, 0xFF00, "testTag-Native", 
                  "ArkTS Async Method Calculation Exception: %{public}s", strBuffer); 
     return nullptr; 
@@ -106,29 +106,29 @@ napi_value CatchCallBack(napi_env env, napi_callback_info info) {
 static napi_value TestPromise(napi_env env, napi_callback_info info) { 
     size_t argc = 1; 
     napi_value args[1] = {nullptr}; 
-    napi_get_cb_info(env, info, &argc, args, nullptr, nullptr); // Analyze the callback passed by ArkTS side 
+    napi_get_cb_info(env, info, &argc, args, nullptr, nullptr); <em>// Analyze the callback passed by ArkTS side </em>
  
     napi_value arktsPromise = nullptr; 
-    // Execute callback through napi_call_function to return the promise object created by ArkTS side
+   <em> // Execute callback through napi_call_function to return the promise object created by ArkTS side</em>
     napi_call_function(env, nullptr, args[0], 0, nullptr, &arktsPromise); 
  
-    // Get the then property of the promise object, whose callback method is used to handle the asynchronous calculation results on the ArkTS side
+   <em> // Get the then property of the promise object, whose callback method is used to handle the asynchronous calculation results on the ArkTS side</em>
     napi_value thenProperty = nullptr; 
     napi_get_named_property(env, arktsPromise, "then", &thenProperty); 
-    // Convert the then property callback method defined in the C++language into an ArkTS function object, which is a napi_value type value
+  <em>  // Convert the then property callback method defined in the C++language into an ArkTS function object, which is a napi_value type value</em>
     napi_value thenCallback = nullptr; 
     napi_create_function(env, "thenCallback", NAPI_AUTO_LENGTH, ThenCallBack, nullptr, &thenCallback); 
  
-    // Get the catch property of the promise object, whose callback method is used to handle information about ArkTS side asynchronous computation exceptions 
+   <em> // Get the catch property of the promise object, whose callback method is used to handle information about ArkTS side asynchronous computation exceptions </em>
     napi_value catchProperty = nullptr; 
     napi_get_named_property(env, arktsPromise, "catch", &catchProperty); 
-    // Convert the catch property callback method defined in the C++language into an ArkTS function object, i.e. a napi_value type value
+  <em>  // Convert the catch property callback method defined in the C++language into an ArkTS function object, i.e. a napi_value type value</em>
     napi_value catchCallback = nullptr; 
     napi_create_function(env, "catchCallback", NAPI_AUTO_LENGTH, CatchCallBack, nullptr, &catchCallback); 
      
-    // Execute the callback of the then attribute through napi_call_function, similar to calling promise. then()=>{} on the ArkTS side
+   <em> // Execute the callback of the then attribute through napi_call_function, similar to calling promise. then()=>{} on the ArkTS side</em>
     napi_call_function(env, arktsPromise, thenProperty, 1, &thenCallback, nullptr); 
-    // Execute a callback for the catch property through napi_call_function, similar to calling promise. catch (()=>{}) on the ArkTS side
+ <em>   // Execute a callback for the catch property through napi_call_function, similar to calling promise. catch (()=>{}) on the ArkTS side</em>
     napi_call_function(env, arktsPromise, catchProperty, 1, &catchCallback, nullptr); 
     return nullptr; 
 }

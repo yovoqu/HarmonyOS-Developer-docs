@@ -1,6 +1,6 @@
-# 手表设备，熄屏2分钟才能收到onPageHide回调
+# 手表设备，息屏2分钟才能收到onHidden回调
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-433
 

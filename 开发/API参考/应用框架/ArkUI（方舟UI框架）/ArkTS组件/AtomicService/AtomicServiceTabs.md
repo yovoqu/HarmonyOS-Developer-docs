@@ -1,6 +1,6 @@
 # AtomicServiceTabs
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicetabs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -70,23 +70,25 @@ AtomicServiceTabs({
  
 **装饰器类型：**@Component
  
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| tabContents | [TabContentBuilder?,TabContentBuilder?, TabContentBuilder?,TabContentBuilder?, TabContentBuilder?] | 否 | @BuilderParam | 内容视图容器数组，默认值为空，无内容展示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| tabBarOptionsArray | [TabBarOptions,TabBarOptions, TabBarOptions?,TabBarOptions?, TabBarOptions?] | 是 | @Prop | 页签容器数组。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| tabBarPosition | TabBarPosition | 否 | @Prop | 设置页签栏位置，默认值为TabBarPosition.Bottom。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| tabContents | [TabContentBuilder?,TabContentBuilder?, TabContentBuilder?,TabContentBuilder?, TabContentBuilder?] | 否 | @BuilderParam | 内容视图容器数组，默认值为空，无内容展示。 |
+| tabBarOptionsArray | [TabBarOptions,TabBarOptions, TabBarOptions?,TabBarOptions?, TabBarOptions?] | 是 | @Prop | 页签容器数组。 |
+| tabBarPosition | TabBarPosition | 否 | @Prop | 设置页签栏位置，默认值为TabBarPosition.Bottom。 |
 | layoutMode18+ | LayoutMode | 否 | @Prop | 设置底部页签的图片、文字排布的方式，默认值为LayoutMode.VERTICAL。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| barBackgroundColor | ResourceColor | 否 | @Prop | 设置TabBar的背景颜色，默认值为透明。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| index | number | 否 | @Prop | 设置当前显示页签的索引，索引值从0开始。默认值为0。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| barOverlap | boolean | 否 | @Prop | 设置TabBar是否背景变模糊并叠加在TabContent之上。true表示TabBar背景变模糊并叠加在TabContent之上。默认值：true。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| controller | TabsController | 否 | - | Tabs组件的控制器，用于控制Tabs组件进行页签切换。默认值为new TabsController()。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onChange | Callback&lt;number&gt; | 否 | - | Tabs页签切换后触发的事件。默认值为空。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onTabBarClick | Callback&lt;number&gt; | 否 | - | Tabs页签点击后触发的事件。默认值为空。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onContentWillChange | OnContentWillChangeCallback | 否 | - | Tabs页面切换拦截事件能力，新页面即将显示时触发该回调。默认值为空。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| barBackgroundColor | ResourceColor | 否 | @Prop | 设置TabBar的背景颜色，默认值为透明。 |
+| index | number | 否 | @Prop | 设置当前显示页签的索引，索引值从0开始。默认值为0。 |
+| barOverlap | boolean | 否 | @Prop | 设置TabBar是否背景变模糊并叠加在TabContent之上。true表示TabBar背景变模糊并叠加在TabContent之上。默认值：true。 |
+| controller | TabsController | 否 | - | Tabs组件的控制器，用于控制Tabs组件进行页签切换。默认值为new TabsController()。 |
+| onChange | Callback&lt;number&gt; | 否 | - | Tabs页签切换后触发的事件。默认值为空。 |
+| onTabBarClick | Callback&lt;number&gt; | 否 | - | Tabs页签点击后触发的事件。默认值为空。 |
+| onContentWillChange | OnContentWillChangeCallback | 否 | - | Tabs页面切换拦截事件能力，新页面即将显示时触发该回调。默认值为空。 |
  
  
   
@@ -205,7 +207,7 @@ struct Index {
     console.info('OnContentWillChangeCallback')
      return true;
   }
-  onTabClick: Callback<number> = (index:number)=>{
+  onTabClick: Callback<number> = (index: number)=>{
     this.onClickNumber ++;
     console.info('onTabClick');
   }
@@ -282,7 +284,7 @@ struct Index {
     console.info('OnContentWillChangeCallback');
     return true;
   }
-  onTabClick: Callback<number> = (index:number)=>{
+  onTabClick: Callback<number> = (index: number)=>{
     this.onClickNumber ++;
     console.info('onTabClick');
   }
@@ -365,7 +367,7 @@ struct AtomicserviceTabs  {
     this.onClickNumber++;
     console.info('onTabClick');
   }
-  onChange: Callback<number, void> = (Index: number) => {
+  onChange: Callback<number> = (index: number) => {
     console.info('onChange');
     console.info('onChange2');
   }
@@ -434,4 +436,4 @@ struct AtomicserviceTabs  {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/Z4V0wW47Ryy8eEKOWHuw-w/zh-cn_image_0000002611756163.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025538Z&HW-CC-Expire=86400&HW-CC-Sign=FA007BFEE6DFDF00525E62324C3AF7FE5101FA1B5E564EBB0759CCDB43FF059F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/axV7DQLRTKC4cMLj38AfVg/zh-cn_image_0000002628862840.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=BBFDF1AFB89D22753C301B00B03070A252B10E053CE4F94AFE846883DCA4EF8E)

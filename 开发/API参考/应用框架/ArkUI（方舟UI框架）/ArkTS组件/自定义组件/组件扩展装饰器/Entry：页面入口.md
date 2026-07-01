@@ -1,6 +1,6 @@
 # @Entry：页面入口
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-entry
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -44,6 +44,8 @@ struct Index {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 命名路由跳转选项。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

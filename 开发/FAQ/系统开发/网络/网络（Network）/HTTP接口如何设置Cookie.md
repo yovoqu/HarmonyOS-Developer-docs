@@ -1,12 +1,12 @@
 # HTTP接口如何设置Cookie
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-7
 
 HttpRequestOptions中的header是一个Object类型，可以直接在header里设置cookie。调用httpRequest.request()需要申请权限：ohos.permission.INTERNET。使用时，httpRequest.request()接口中的“EXAMPLE_URL”需要替换成实际请求地址。参考代码如下：
  
-```ArkTS
+```json
 import { http } from '@kit.NetworkKit';
 
 @Entry
@@ -31,7 +31,7 @@ struct HttpRequest {
         console.info('code:' + data.responseCode);
         console.info('type:' + JSON.stringify(data.resultType));
         console.info('header:' + JSON.stringify(data.header));
-        console.info('cookies:' + data.cookies); // Starting from API version 8, cookies are supported
+        console.info('cookies:' + data.cookies); <em>// Starting from API version 8, cookies are supported</em>
       } else {
         console.info('error:' + JSON.stringify(err));
       }

@@ -1,6 +1,6 @@
 # 组件截图（ComponentSnapshot）返回错误码100001，可能原因为截图尺寸过大，文档说明其与具体硬件限制有关，如何查看具体限制是多少
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-481
 
@@ -15,7 +15,7 @@ hdc shell hidumper -s 10 -a 'vktextureLimit'
 如需实现离屏组件的长截图，可参考以下实现：
  
 ```ArkTS
-// src/main/ets/utils/Utils.ets
+<em>// src/main/ets/utils/Utils.ets</em>
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -24,7 +24,7 @@ export class Utils {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  // Calculate the valid screenshot area
+ <em> // Calculate the valid screenshot area</em>
   static async getSnapshotArea(context: UIContext, pixelMap: PixelMap, scrollYOffsets: number[], listWidth: number,
     listHeight: number): Promise<image.PositionArea> {
     let stride = pixelMap.getBytesNumberPerRow();
@@ -73,7 +73,7 @@ export class Utils {
     return area;
   }
 
-  // Graphic splicing
+ <em> // Graphic splicing</em>
   static async mergeImage(context: UIContext, areaArray: image.PositionArea[], lastOffsetY: number, listWidth: number,
     listHeight: number): Promise<PixelMap> {
     let opts: image.InitializationOptions = {
@@ -116,7 +116,7 @@ export class Utils {
 ```
  
 ```ArkTS
-// src/main/ets/pages/Index.ets
+<em>// src/main/ets/pages/Index.ets</em>
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Utils } from '../utils/Utils';
@@ -182,18 +182,18 @@ struct SnapshotExample {
 
   async snapAndMerge() {
     try {
-      // Record the current scrolling position
+     <em> // Record the current scrolling position</em>
       this.scrollYOffsets.push(this.scroller.currentOffset().yOffset);
-      // Take a screenshot of the current display part of the component
+      <em>// Take a screenshot of the current display part of the component</em>
       const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.listId);
-      // Calculate the valid screenshot area
+    <em>  // Calculate the valid screenshot area</em>
       let area: image.PositionArea =
         await Utils.getSnapshotArea(this.getUIContext(), pixelMap, this.scrollYOffsets, this.listComponentWidth,
           this.listComponentHeight);
       this.areaArray.push(area);
-      // Determine whether to scroll to the bottom
+    <em>  // Determine whether to scroll to the bottom</em>
       if (!this.scroller.isAtEnd()) {
-        // Not to the bottom: Scroll down by one screen height
+      <em>  // Not to the bottom: Scroll down by one screen height</em>
         this.scroller.scrollTo({
           xOffset: 0,
           yOffset: (this.scroller.currentOffset().yOffset + this.listComponentHeight),
@@ -242,7 +242,7 @@ struct SnapshotExample {
           this.onceSnapshot();
         })
       Stack() {
-        // Screenshot component
+       <em> // Screenshot component</em>
         List({ space: 12, scroller: this.scroller }) {
           LazyForEach(this.data, (item: string) => {
             ListItem() {
@@ -264,13 +264,13 @@ struct SnapshotExample {
           this.listComponentWidth = newValue.width as number;
           this.listComponentHeight = newValue.height as number;
         })
-        // Set the Z-sequence to -1 to ensure that this component is invisible
+     <em>   // Set the Z-sequence to -1 to ensure that this component is invisible</em>
         .zIndex(-1)
 
-        // Use a mask to cover the screenshot area
+      <em>  // Use a mask to cover the screenshot area</em>
         Column()
           .width('100%').height('100%').backgroundColor(Color.White)
-        // Long screenshot
+       <em> // Long screenshot</em>
         Scroll() {
           Image(this.mergedImage)
         }

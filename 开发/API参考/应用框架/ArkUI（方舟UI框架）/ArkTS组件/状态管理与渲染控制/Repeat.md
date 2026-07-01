@@ -1,12 +1,12 @@
 # Repeat
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 Repeat基于数组类型数据来进行循环渲染，一般与滚动容器组件配合使用。
@@ -194,6 +194,8 @@ template(type: string, itemBuilder: RepeatItemBuilder&lt;T&gt;, templateOptions?
 
 由template type渲染对应的template子组件。
 
+当所有.template()的type和.templateId()返回值不匹配（即当前item不适用任何template定义的样式）时，将使用[.each()](#each)的组件生成函数处理数据项。当.each()的组件生成函数也为空时，将不渲染子组件。
+
 > [!NOTE]
 > 该接口不支持在 attributeModifier 中调用。
 
@@ -217,11 +219,13 @@ template(type: string, itemBuilder: RepeatItemBuilder&lt;T&gt;, templateOptions?
 // arr是Array<string>类型的数组
 // 在List容器组件中使用Repeat，并打开virtualScroll
 // 创建模板temp，该模板为数据创建Text组件
+// 所有数据项都使用temp模板
 List() {
   Repeat<string>(this.arr)
     .each((obj: RepeatItem<string>) => {})
     .virtualScroll()
     .template('temp', (obj: RepeatItem<string>) => { ListItem() { Text(obj.item) }})
+    .templateId((item: string, index: number) => { return 'temp' })
 }
 ```
 
@@ -313,7 +317,7 @@ Repeat数据源参数联合类型。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-配置懒加载模式下期望加载的数据项总数、复用能力、数据精准懒加载能力。
+配置懒加载模式下期望加载的数据项总数、复用能力、数据精准懒加载能力。从API版本26.0.0开始，支持配置内存优化策略。
 
 
 
@@ -329,6 +333,7 @@ Repeat数据源参数联合类型。
 | --- | --- | --- | --- | --- |
 | totalCount | number | 否 | 是 | 期望加载的数据项总数，可以不等于数据源长度（实际传入Repeat的数组的长度）。 取值范围：自然数。 totalCount缺省或超出取值范围时，totalCount取值为数据源长度，列表正常滚动。 totalCount = 0时，不加载数据。 0 < totalCount <= 数据源长度时，界面中只渲染区间[0, totalCount - 1]范围内的数据。 totalCount > 数据源长度时，Repeat将渲染区间[0, totalCount - 1]范围内的数据，容器组件滚动条样式根据totalCount值变化。在容器组件滚动过程中，应用需要保证在列表即将滑动到数据源末尾时请求后续数据。开发者需要对数据请求的错误场景（如网络延迟）进行保护操作，直到数据源全部加载完成，否则列表滑动过程中会出现滚动效果异常。建议配合使用onLazyLoading实现数据懒加载。 除totalCount属性外，开发者也可以通过onTotalCount方法设置自定义方法，计算期望加载的数据项总数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | reusable18+ | boolean | 否 | 是 | 是否开启复用功能。当Repeat的子组件为@ReusableV2装饰的自定义组件时，Repeat自身的复用能力优先于@ReusableV2的复用能力，若开发者希望使用@ReusableV2的复用能力，建议关闭Repeat自身的复用能力。 true：开启复用。 false：关闭复用。 默认值：true 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| memoryOptimizationStrategy | RepeatMemOptStrategy | 否 | 是 | Repeat的内存优化策略。该参数在创建Repeat时设定，不支持动态修改。 默认值：DEFAULT 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 **示例**
@@ -493,3 +498,84 @@ type TemplateTypedFunc&lt;T&gt; = (item: T, index: number) => string
 | --- | --- | --- | --- |
 | item | T | 否 | arr中每一个数据项。T为开发者传入的数据类型。 缺省时默认忽略该参数，请勿在闭包函数的实现中使用该参数，否则会编译报错。 |
 | index | number | 否 | 当前数据项对应的索引。 缺省时默认忽略该参数，请勿在闭包函数的实现中使用该参数，否则会编译报错。 |
+
+
+
+
+#### RepeatMemOptStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+Repeat内存优化策略枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| DEFAULT | 0 | 无内存优化策略。 |
+| ENABLE_AUTO_CACHE_OPTIMIZATION | 1 << 0 | 自动内存优化策略，当Repeat子节点内存占用较高时，建议使用此策略以降低内存使用量。 当应用退后台时、Repeat所在组件不可见时（visibility属性设置为Visible以外的值，或组件面积为0，不考虑遮挡）、整机低内存时（MemoryLevel达到MEMORY_LEVEL_LOW或MEMORY_LEVEL_CRITICAL），释放缓存池内的所有节点。 当应用恢复前台时、Repeat所在组件恢复显示时，恢复缓存池内的节点。 在释放和恢复节点时，会触发自定义组件生命周期。 |
+
+
+
+
+#### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+
+
+#### 示例1（使用自动内存优化策略）
+
+以下示例中，通过[VirtualScrollOptions](#virtualscrolloptions)的memoryOptimizationStrategy属性使用了自动内存优化策略。点击Scroll按钮，使列表跳转，旧节点进入缓存池。应用退后台时，清理缓存。应用恢复前台时，恢复缓存。
+
+从API版本26.0.0开始，VirtualScrollOptions新增memoryOptimizationStrategy属性。
+
+```text
+@ComponentV2
+struct ChildComponent {
+  aboutToAppear() {
+    console.info('ChildComponent aboutToAppear');
+  }
+  aboutToDisappear() {
+    console.info('ChildComponent aboutToDisappear');
+  }
+  build() {
+    Text('ChildComponent')
+  }
+}
+
+@Entry
+@ComponentV2
+struct MemoryOptimizeDemo {
+  @Local data: Array<number> = [];
+  private scroller: Scroller = new Scroller()
+  aboutToAppear() {
+    for (let i = 0; i < 100; i++) {
+      this.data.push(i);
+    }
+  }
+  build() {
+    Column() {
+      Button('Scroll').onClick(() => { // 点击按钮触发列表跳转，旧组件进入缓存池
+        this.scroller.scrollToIndex(30)
+      })
+      List({ scroller: this.scroller }) {
+        Repeat<number>(this.data)
+          .each((obj: RepeatItem<number>) => {
+            ListItem() {
+              ChildComponent()
+            }
+          })
+          .virtualScroll({ memoryOptimizationStrategy: RepeatMemOptStrategy.ENABLE_AUTO_CACHE_OPTIMIZATION }) // 使用自动内存优化策略
+      }
+      .cachedCount(5)
+    }
+  }
+}
+```

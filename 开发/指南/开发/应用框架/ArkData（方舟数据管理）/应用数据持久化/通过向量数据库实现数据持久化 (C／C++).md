@@ -1,6 +1,6 @@
 # 通过向量数据库实现数据持久化 (C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-vector-store-guidelines
 
@@ -73,6 +73,7 @@ libnative_rdb_ndk.z.so
 #include <database/data/oh_data_values.h>
 #include <database/rdb/oh_cursor.h>
 #include <database/rdb/relational_store.h>
+#include <database/rdb/relational_store_error_code.h>
 ```
 1. 判断当前系统是否支持向量数据库，若不支持，则表示当前系统不具备向量数据库能力。示例代码如下：
 

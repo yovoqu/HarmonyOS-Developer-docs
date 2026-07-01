@@ -1,6 +1,6 @@
 # 使用HiLog打印日志是否有长度限制
 
-更新时间：2026-06-15 08:32:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-58
 
@@ -12,12 +12,12 @@
  
 封装LogUtil类：
  
-```ArkTS
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const HILOG_MAX_BYTES = 4096;
 
-// Split the string by byte limit.
+<em>// Split the string by byte limit.</em>
 function splitByByteLimit(str: string, limit: number): string[] {
   const result: string[] = [];
   let start = 0;

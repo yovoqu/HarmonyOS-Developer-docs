@@ -1,6 +1,6 @@
 # getContext
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-getcontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,7 +50,7 @@ getContext(component?: Object):Context
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type Context = Context
+type Context = import('../api/application/Context').default
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -60,7 +60,7 @@ type Context = Context
 
 | 类型 | 说明 |
 | --- | --- |
-| Context | 返回当前组件所在Ability的Context，Context的具体类型为当前Ability关联的Context对象。例如：在UIAbility窗口中的页面调用该接口，返回类型为UIAbilityContext。在ExtensionAbility窗口中的页面调用该接口，返回类型为ExtensionContext。 |
+| import('../api/application/Context').default | 返回当前组件所在Ability的Context，Context的具体类型为当前Ability关联的Context对象。例如：在UIAbility窗口中的页面调用该接口，返回类型为UIAbilityContext。在ExtensionAbility窗口中的页面调用该接口，返回类型为ExtensionContext。 |
 
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 # 基于resizable实现图片拉伸效果
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-06-30 03:03:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-resizable
 
@@ -59,7 +59,7 @@ Image($r('app.media.bg_right_message'))
 
 通过设置lattice参数，可以利用原图水平和垂直方向的坐标点数组（px像素点）将图片划分为规则矩形网格，行列数为数组长度+1。其中，偶数行与偶数列交叉处的格子为固定区域（如下图中蓝色部分所示），其余区域为可拉伸区域。拉伸时，固定区域保持原尺寸，其他区域根据需要进行拉伸。
  
-例如，下图使用x轴坐标点数组[1, 50, 648]和y轴坐标点数组，将图像划分为3行3列的网格，图中蓝色区域即为偶数行与偶数列相交的固定区域。
+例如，下图使用x轴坐标点数组[1, 150, 648]和y轴坐标点数组，将图像划分为3行3列的网格，图中蓝色区域即为偶数行与偶数列相交的固定区域。
  
 
 ![](assets/基于resizable实现图片拉伸效果/file-20260515114540711-2.png)
@@ -197,7 +197,7 @@ Text(this.message)
   为解决此问题，可在x轴和y轴各增加一个坐标点，使Logo区域位于第2行第2列（偶数行和列）的交叉点。为避免影响显示效果，可在原坐标前添加一个较小的坐标值，如1。如此，新的x轴坐标点数组变为[1, 150, 648]，y轴坐标点数组变为[1, 150, 733]，如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/xF61IQSpRk-DziXR8Nt2mA/zh-cn_image_0000002506712870.png?HW-CC-KV=V1&HW-CC-Date=20260528T024729Z&HW-CC-Expire=86400&HW-CC-Sign=55705BAC50794AEE84EE6D871DC443789B9B65FC28B72C7DD6CD7D220D53BD93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/4BJYJqY6T0a6_NLDY9f6kg/zh-cn_image_0000002506712870.png?HW-CC-KV=V1&HW-CC-Date=20260701T015315Z&HW-CC-Expire=86400&HW-CC-Sign=03AD914BAA0D258D88C7F041537DBA541F583170BF79C7959C2E022BAE43CE6E)
 
 2. 实现可拉伸占位图布局。根据上述获得的x轴和y轴坐标点数组，使用[createImageLattice()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-lattice#createimagelattice12)方法创建矩形网格对象，并设置给lattice参数。
 

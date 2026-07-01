@@ -1,6 +1,6 @@
 # 下载与安装DevEco Studio
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-software-install
 
@@ -39,7 +39,7 @@ DevEco Studio支持Windows和macOS系统，下面将针对两种操作系统的�
   
 ![](assets/下载与安装DevEco%20Studio/file-20260514134308631-1.png)
 
-3. 安装完成后，单击**Finish**完成安装。安装完成后，如有需要请根据[配置代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config)，检查和配置开发环境。
+3. 单击**Finish**完成安装。安装完成后，如有需要请根据[配置代理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-environment-config)，检查和配置开发环境。
 
   
 ![](assets/下载与安装DevEco%20Studio/file-20260514134308631-2.png)
@@ -108,9 +108,9 @@ DevEco Studio开发环境诊断项包括电脑的配置、网络的连通情况�
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/Ce1WstfFSAOIomdFAMzTxg/zh-cn_image_0000002594634378.png?HW-CC-KV=V1&HW-CC-Date=20260624T020657Z&HW-CC-Expire=86400&HW-CC-Sign=DA2CFF650D9C1952DCAF243A068785FABCCBDC95CBBDFEB343B086EF3CECBE4A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/7gP90kZQQMOHDjNOuF0QDA/zh-cn_image_0000002594634378.png?HW-CC-KV=V1&HW-CC-Date=20260701T014605Z&HW-CC-Expire=86400&HW-CC-Sign=471FB4A022B4089B6EDB283B7FB6719029CE9FAEC3FCB4283CD7E9D4E8CDB5AF)
 
 
 
  - 若使用DevEco Studio 6.0.0 Beta1以下版本，请在菜单栏进入**File > Settings **（macOS为**DevEco Studio > Preferences****/Settings** ）**> Plugins**，选择**Installed**页签，在搜索框输入“Chinese”，搜索结果里将出现**Chinese(Simplified)**，在右侧单击**Enable**，点击**OK**，在弹窗中单击**Restart**，重启DevEco Studio后即可生效。      
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/YCAPE64VSHWV5KSCsay2-Q/zh-cn_image_0000002594474458.png?HW-CC-KV=V1&HW-CC-Date=20260624T020657Z&HW-CC-Expire=86400&HW-CC-Sign=9885495C7A2BBBF80739B41CA280EE14C21051996BF99BA2EE9153BBA6C4A7AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/4QUWORCjRj-jpjhCnP-2fw/zh-cn_image_0000002594474458.png?HW-CC-KV=V1&HW-CC-Date=20260701T014605Z&HW-CC-Expire=86400&HW-CC-Sign=36D790BE11969F78BC3511725F93FCC4004ECCC8BB7AAEA7393A1F14DA1FC633)

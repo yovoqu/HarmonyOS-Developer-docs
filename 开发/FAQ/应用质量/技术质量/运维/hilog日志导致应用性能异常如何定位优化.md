@@ -1,6 +1,6 @@
-# hilog日志导致应用性能异常如何定位优化
+# hilog日志导致应用性能异常怎么定位优化
 
-更新时间：2026-06-15 08:32:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-63
 

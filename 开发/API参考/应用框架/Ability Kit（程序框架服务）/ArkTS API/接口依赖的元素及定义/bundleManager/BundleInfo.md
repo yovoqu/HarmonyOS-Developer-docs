@@ -1,6 +1,6 @@
 # BundleInfo
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-bundleinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -80,7 +80,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-描述权限使用的场景和时机。
+描述权限的使用场景和时机，帮助开发者合理申请和使用权限。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -98,7 +98,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-描述应用包的签名信息。
+描述应用包的签名信息，可标识应用来源、确保应用完整性，并用于应用安全校验与识别。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -125,4 +125,4 @@ import { bundleManager } from '@kit.AbilityKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bundleName | string | 是 | 否 | 应用的bundleName。 |
-| appIndex | number | 是 | 否 | 应用包的分身索引信息。 |
+| appIndex | number | 是 | 否 | 应用包的分身索引信息。取值为整数，范围：[0-5]，0表示主应用，1-5等表示分身应用。 |

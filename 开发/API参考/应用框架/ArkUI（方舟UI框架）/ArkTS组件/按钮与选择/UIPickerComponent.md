@@ -1,6 +1,6 @@
 # UIPickerComponent
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-ui-picker-component
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 UIPickerComponent容器是用于实现用户选择操作的组件。它支持从一组有限的选项中让用户进行单选，可应用于时间选择、日期选择、地区选择、状态选择等多种场景。UIPickerComponent容器的显示效果为立体滚轮样式，支持选项按需定制，包括文本类型、图片类型和图文组合类型。
 
 > [!NOTE]
-> 该组件从API version 22开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 UIPickerComponent容器的选项行高固定为40vp，最多可显示7个选项。由于显示效果为立体滚轮样式，因此除选中项外的其他选项会进行不同角度的旋转，实际的可视高度会小于40vp。 UIPickerComponent容器的 height 建议设置为200vp。当设置的高度大于等于该建议值时，可完全显示7个选项；小于该建议值时，显示范围会从上下边缘向中间裁剪，可显示的选项数量也会相应减少，始终保持选中项垂直居中。 当UIPickerComponent容器未设置 width 时，取当前视图中可见子组件的最大宽度作为容器宽度。建议为UIPickerComponent容器设置宽度，或为每个子组件设置相同宽度，以避免滑动过程中容器宽度动态发生变化，影响显示效果。 UIPickerComponent容器的子组件的对齐方式固定为居中对齐，不支持通过 align 属性改变子组件的对齐方式。 UIPickerComponent容器当前不支持智能手表设备。
+> 该组件从API version 22开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 UIPickerComponent容器的选项行高固定为40vp，最多可显示7个选项。由于显示效果为立体滚轮样式，因此除选中项外的其他选项会进行不同角度的旋转，实际的可视高度会小于40vp。 UIPickerComponent容器的 height 建议设置为200vp。当设置的高度大于等于该建议值时，可完全显示7个选项；小于该建议值时，显示范围会从上下边缘向中间裁剪，可显示的选项数量也会相应减少，始终保持选中项垂直居中。 当UIPickerComponent容器未设置 width 时，取当前视图中可见子组件的最大宽度作为容器宽度。建议为UIPickerComponent容器设置宽度，或为每个子组件设置相同宽度，以避免滑动过程中容器宽度动态发生变化，影响显示效果。 UIPickerComponent容器的子组件的对齐方式固定为居中对齐，不支持通过 align 属性改变子组件的对齐方式。 UIPickerComponent容器当前不支持智能手表设备。 该组件从API版本26.0.0开始支持 WithTheme 。
 
 
 
@@ -45,7 +45,7 @@ UIPickerComponent(options?: UIPickerComponentOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | UIPickerComponentOptions | 否 | 配置UIPickerComponent容器的参数。 |
+| options | UIPickerComponentOptions | 否 | 配置UIPickerComponent容器的参数。参数缺省时组件占位，但内容显示为空。 |
 
 
 
@@ -936,7 +936,7 @@ struct RegionUIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/-Adp5hxhTT65AtWyVVZMEw/zh-cn_image_0000002611835667.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=D3415DA0A121E443CAB5D4651AEFE50366E72F80E27EBB9EAA53030CCA1650B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/bqHq-cwQTeeb5e-BCppkVQ/zh-cn_image_0000002659101791.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=14104D17A16577BF3190911EBAC59C5C0EEDFE97F7C67BB2B8DB9C8CA3E6B1FE)
 
 
 
@@ -1037,7 +1037,7 @@ struct UIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h6bcxfv0QmKr9yry-usvCA/zh-cn_image_0000002581275918.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=71CF92E74DE77F69A883EB179EE63EAFDBA6F1879D5901A755369211C8EF82F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/Vjk9I2G2Qa6RI3-kYC1JiA/zh-cn_image_0000002628862442.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=2961D88DD9F7223F99BD017D35AD5A46EEC6E5CF3609F32D01F58B09F1D84854)
 
 
 
@@ -1502,4 +1502,4 @@ struct TimeUIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/ezWlv2SpQPWiZkz77vDCPA/zh-cn_image_0000002611755775.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=584BA85C4194A221BDEB9008EE1E4B76BDCC61AFF2C89E56DDE4C2C5BAFA4952)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/979jiKNnS5qTa4Np4KpgvQ/zh-cn_image_0000002659221755.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=654B6CA396B5FD886D19D770AA5A0079F284D071D57515F3D0C89FDC28B75204)

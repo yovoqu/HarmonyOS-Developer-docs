@@ -1,6 +1,6 @@
 # 基于ScrollComponents实现瀑布流
 
-更新时间：2026-06-23 06:26:30
+更新时间：2026-06-30 03:03:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-waterflow-based-on-scrollcomponents
 
@@ -663,42 +663,30 @@ Refresh({ refreshing: $$this.isRefreshing }) {
 核心代码参考如下：
  
 ```ArkTS
-Refresh({ refreshing: $$this.isRefreshing }) {
-  Column() {
-    RecyclerView({
-      viewManager: this.waterFlowView
-    })
-
-    if (this.isLoadMore) {
-      Row() {
-        LoadingProgress()
-          .width(20)
-          .height(20)
-          .color('#999999')
-        Text($r('app.string.loading'))
-          .fontSize(14)
-          .fontColor('#999999')
-          .margin({ left: 8 })
-      }
-      .width(CommonConstants.FULL_WIDTH)
-      .height(50)
-      .justifyContent(FlexAlign.Center)
-    }
-  }
+this.waterFlowView.setViewStyle({ scroller: this.scroller })
+  .edgeEffect(EdgeEffect.Spring)
   .width(CommonConstants.FULL_WIDTH)
   .height(CommonConstants.FULL_HEIGHT)
-}
-.layoutWeight(1)
-.onRefreshing(()=>{
-  generateRandomBlogData().then((data:BlogData[])=>{
-    this.isRefreshing = false
-    this.data = data
-    this.waterFlowView.setDataSource(data)
+  .columnsTemplate(CommonConstants.WATER_FLOW_COLUMNS_TEMPLATE)
+  .columnsGap(CommonConstants.COLUMNS_GAP)
+  .rowsGap(CommonConstants.ROWS_GAP)
+  .padding({
+    top: CommonConstants.PADDING,
+    left: CommonConstants.PADDING,
+    right: CommonConstants.PADDING
   })
-})
+  .onReachEnd(() => {
+    if (!this.isLoadMore) {
+      this.isLoadMore = true;
+      setTimeout(() => {
+        generateRandomBlogData().then((data: ESObject) => {
+          this.waterFlowView.nodeAdapter.pushData(data);
+          this.isLoadMore = false;
+        });
+      }, 100);
+    }
+  })
 ```
- 
-
  
 > [!TIP]
 > FrameNode创建WaterFlow目前暂不支持设置 footer和footerContent 。

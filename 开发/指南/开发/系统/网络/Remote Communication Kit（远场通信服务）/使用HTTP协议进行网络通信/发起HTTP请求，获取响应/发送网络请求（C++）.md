@@ -1,6 +1,6 @@
 # 发送网络请求（C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-netsend-c
 
@@ -12,7 +12,7 @@
 
 #### 如何使用fetchsync发起网络请求
 
-发送一个同步HTTP请求，也可以设置请求头和请求体等参数，并返回来自服务器的HTTP响应。常用于获取资源，支持通过拦截器来处理请求和响应。
+发送同步HTTP请求，可设置请求头和请求体等参数，并返回来自服务器的HTTP响应。常用于获取资源，支持通过拦截器来处理请求和响应。
 
 
 
@@ -22,7 +22,7 @@
 
 | 接口名 | 描述 |
 | --- | --- |
-| Rcp_Response *HMS_Rcp_FetchSync(Rcp_Session *session, Rcp_Request *request, uint32_t *errCode); | 发送一个HTTP请求，并直接返回来自服务器的HTTP响应。 |
+| Rcp_Response *HMS_Rcp_FetchSync(Rcp_Session *session, Rcp_Request *request, uint32_t *errCode); | 发送HTTP请求，并直接返回来自服务器的HTTP响应。 |
 
 
 
@@ -91,7 +91,7 @@ errCode = HMS_Rcp_CloseSession(&session);
 
 #### 如何使用fetch发起异步网络请求
 
-发送一个异步HTTP请求，也可以设置请求头和请求体等参数，并返回来自服务器的HTTP响应。常用于获取资源，支持通过拦截器来处理请求和响应。
+发送异步HTTP请求，可设置请求头和请求体等参数，并返回来自服务器的HTTP响应。常用于获取资源，支持通过拦截器来处理请求和响应。
 
 
 
@@ -101,7 +101,7 @@ errCode = HMS_Rcp_CloseSession(&session);
 
 | 接口名 | 描述 |
 | --- | --- |
-| uint32_t HMS_Rcp_Fetch(Rcp_Session *session, Rcp_Request *request, const Rcp_ResponseCallbackObject *responseCallback); | 发送一个HTTP请求，并返回来自服务器的HTTP响应。使用responseCallback异步回调。 |
+| uint32_t HMS_Rcp_Fetch(Rcp_Session *session, Rcp_Request *request, const Rcp_ResponseCallbackObject *responseCallback); | 发送HTTP请求，并返回来自服务器的HTTP响应。使用responseCallback异步回调。 |
 
 
 
@@ -199,7 +199,7 @@ int main() {
 
 #### 如何使用get发送网络请求
 
-发送一个带有默认HTTP参数的HTTP GET请求，并返回来自服务器的HTTP响应。采用异步回调的方式进行处理，提高应用的响应性和效率。常用于从服务器获取数据。
+发送带有默认HTTP参数的HTTP GET请求，并返回来自服务器的HTTP响应。采用异步回调的方式进行处理，提高应用的响应性和效率。常用于从服务器获取数据。
 
 
 
@@ -279,7 +279,7 @@ int main() {
 
 #### 如何使用post发送网络请求
 
-发送一个带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用异步回调。常用于向服务器提交数据。与GET请求不同，POST请求将参数包含在请求主体中，适用于创建新资源、提交表单数据或执行某些操作。
+发送带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用异步回调。常用于向服务器提交数据。与GET请求不同，POST请求将参数包含在请求主体中，适用于创建新资源、提交表单数据或执行某些操作。
 
 
 
@@ -367,7 +367,7 @@ int main() {
 
 #### 如何使用put发送网络请求
 
-发送一个带有默认HTTP参数的HTTP PUT请求，并返回来自服务器的HTTP响应。使用异步回调。常用于向服务器更新资源。PUT请求将更新的数据发送到特定的URL，用于替换指定资源的全部内容。
+发送带有默认HTTP参数的HTTP PUT请求，并返回来自服务器的HTTP响应。使用异步回调。常用于向服务器更新资源。PUT请求将更新的数据发送到特定的URL，用于替换指定资源的全部内容。
 
 
 
@@ -457,7 +457,7 @@ int main() {
 
 #### 如何使用head发送网络请求
 
-发送一个带有默认HTTP参数的HTTP HEAD请求，并返回来自服务器的HTTP响应。使用异步回调。类似GET请求，但只返回响应头，不返回实体内容。可以获取资源的元信息，如文件大小、修改日期等。
+发送带有默认HTTP参数的HTTP HEAD请求，并返回来自服务器的HTTP响应。使用异步回调。类似GET请求，但只返回响应头，不返回实体内容。可以获取资源的元信息，如文件大小、修改日期等。
 
 
 
@@ -537,7 +537,7 @@ int main() {
 
 #### 如何使用delete发送网络请求
 
-发送一个带有默认HTTP参数的HTTP DELETE请求，并返回来自服务器的HTTP响应，用于从服务器删除资源，通过向指定URL发送DELETE请求，可以删除该URL上对应的资源。使用异步回调。
+发送带有默认HTTP参数的HTTP DELETE请求，并返回来自服务器的HTTP响应，用于从服务器删除资源，通过向指定URL发送DELETE请求，可以删除该URL上对应的资源。使用异步回调。
 
 
 

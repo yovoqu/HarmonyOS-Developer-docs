@@ -1,6 +1,6 @@
 # 针对API 12应用的变更
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-targeting-api12-b031
 
@@ -619,7 +619,7 @@ struct SubHeaderExample {
 在PC/2in1设备下，全屏状态下的状态栏显示控制由系统布局约束，无需再调用接口去控制状态栏的显示和隐藏。即设置的setWindowSystemBarEnable、setSystemBarEnable在PC/2in1设备上不生效。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/81FT3xYKQiCTnfds2maD9w/zh-cn_image_0000001993261849.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=E58A340B98CB5EC5D77AA4E0E9D19C7A74F5D01CEDABD78E1C9EA2E9D7235CE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/nbryWWU4QPatO22iU38WBw/zh-cn_image_0000001993261849.png?HW-CC-KV=V1&HW-CC-Date=20260701T015209Z&HW-CC-Expire=86400&HW-CC-Sign=340832A06E47DC0112E7093E5958424470B9E95060600E6248178965A527BA17)
 
  
 **变更影响**

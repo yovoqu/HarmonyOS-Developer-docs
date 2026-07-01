@@ -1,6 +1,6 @@
 # ArkWeb_JavaScriptObject
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-javascriptobject
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,6 +37,6 @@ typedef struct {...} ArkWeb_JavaScriptObject
 | 名称 | 描述 |
 | --- | --- |
 | const uint8_t* buffer | 注入的JavaScript代码。 |
-| size_t size | JavaScript代码长度。 |
+| size_t size | JavaScript代码长度。单位：字节 |
 | ArkWeb_OnJavaScriptCallback callback | JavaScript执行完成的回调。 |
 | void* userData | 需要在回调中携带的自定义数据。 |

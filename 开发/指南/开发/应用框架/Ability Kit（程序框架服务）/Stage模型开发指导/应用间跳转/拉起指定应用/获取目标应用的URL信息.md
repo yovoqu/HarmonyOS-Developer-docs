@@ -1,6 +1,6 @@
 # 获取目标应用的URL信息
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/obtaining-target-app-url-info
 
@@ -169,7 +169,7 @@ appurl://www.example.com/path1
 
 
   
-```text
+```ArkTS
 import { common } from '@kit.AbilityKit'
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -209,4 +209,4 @@ struct SpecifiedPage {
   **图1** 拉起目标应用演示
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/-xyxWwlmQNey6rDzkcc-wg/zh-cn_image_0000002611753483.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030509Z&HW-CC-Expire=86400&HW-CC-Sign=DB510F16242259284130B4A475E020D4C24F109E2973BCC24B37D9B6A2B763D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/jMCpJAXLSvKSulBQB3GABQ/zh-cn_image_0000002628859960.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=22E4FE93DA3B050522A020EE01BD7CDFEA057C2F9DAF7E5D5DA50D4F0E6BE338)

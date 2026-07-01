@@ -1,6 +1,6 @@
 # 物体摆放（ArkTS）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arworld
 
@@ -27,7 +27,7 @@ AR物体摆放主要依赖[ARViewContext](https://developer.huawei.com/consumer/
 | ARViewContext.scene | 获得的AR呈现场景，用于管理空间节点。 |
 | ARViewContext.session | 获取AR会话，用于获取相关AR环境跟踪、相机跟踪、命中检测等能力，如相机位姿、平面信息、创建锚点等。 |
 | ARViewContext.config | 设置AR会话的配置文件，如北向坐标、性能模式等。 |
-| ARViewContext.callback | 设置回调函数，以根据回调功能实现对应业务逻辑。 |
+| ARViewContext.callback | 设置回调函数，可根据回调功能实现对应业务逻辑。 |
 | ARFrame.getCamera | 获取当前帧的摄像机参数对象。 |
 | ARFrame.getUpdatedTrackables | 获取更新后的指定类型的可追踪对象。 |
 | ARFrame.hitTest | 根据相机投射光线，获取预览区域中的像素坐标（pixelX和pixelY）来确定射线方向，然后检测这个射线在平面或点云中是否有交点。 |

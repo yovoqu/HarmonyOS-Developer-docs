@@ -1,6 +1,6 @@
 # rcp（数据请求）
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -98,7 +98,7 @@ Session类表示可用于发出HTTP请求的通信会话。它提供了各种HTT
 
 fetch(request: Request): Promise&lt;Response&gt;
  
-发送一个HTTP请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送HTTP请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -149,7 +149,7 @@ session.fetch(req).then((response) => {
 
 fetchForSendable(request: Request): Promise&lt;ResponseSendable&gt;
  
-发送一个HTTP请求，并返回服务器的HTTP响应，该响应消息支持[Sendable](https://developer.huawei.com/consumer/cn/doc/HarmonyOS-Guides/arkts-sendable)。使用Promise异步回调。
+发送HTTP请求，并返回服务器的HTTP响应，该响应消息支持[Sendable](https://developer.huawei.com/consumer/cn/doc/HarmonyOS-Guides/arkts-sendable)。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -222,7 +222,7 @@ async function test() {
 
 get(url: URLOrString, destination?: ResponseBodyDestination): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP GET请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP GET请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -273,7 +273,7 @@ session.get("http://example.com/get").then((response) => {
 
 post(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestination): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -325,7 +325,7 @@ session.post("http://example.com/post", "data to send").then((response) => {
 
 put(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestination): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP PUT请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP PUT请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -340,7 +340,7 @@ put(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestin
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP PUT请求资源的URL。 |
-| content | RequestContent | 否 | 请求正文发送的内容。默认为undefined。 |
+| content | RequestContent | 否 | 请求的正文内容。默认为undefined。 |
 | destination | ResponseBodyDestination | 否 | HTTP响应的目标位置或目的地。 起始版本： 5.0.0(12) |
  
  
@@ -377,7 +377,7 @@ session.put("http://example.com/put", "data to send").then((response) => {
 
 downloadToFile(url: URLOrString, downloadTo: DownloadToFile): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP DOWNLOADTOFILE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP DOWNLOADTOFILE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -392,7 +392,7 @@ downloadToFile(url: URLOrString, downloadTo: DownloadToFile): Promise&lt;Respons
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP DOWNLOADTOFILE请求资源的URL。 |
-| downloadTo | DownloadToFile | 是 | HTTP中用于将服务器上下载的文件保存到本地文件系统中的指定位置。 |
+| downloadTo | DownloadToFile | 是 | 将服务器上下载的文件保存到本地文件系统中的指定位置。 |
  
  
 **返回值：**
@@ -432,7 +432,7 @@ session.downloadToFile("http://www.example.com", downloadToFile).then((response)
 
 uploadFromFile(url: URLOrString, uploadFrom: UploadFromFile): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP UPLOADFROMFILE请求，完成上传文件功能，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP UPLOADFROMFILE请求，完成上传文件功能，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -447,7 +447,7 @@ uploadFromFile(url: URLOrString, uploadFrom: UploadFromFile): Promise&lt;Respons
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP UPLOADFROMFILE请求资源的URL。 |
-| uploadFrom | UploadFromFile | 是 | HTTP中从本地计算机上传文件到服务器的请求。 |
+| uploadFrom | UploadFromFile | 是 | 从本地计算机上传文件到服务器的请求。 |
  
  
 **返回值：**
@@ -502,7 +502,7 @@ downloadToStream(url: URLOrString, downloadTo: DownloadToStream): Promise&lt;Res
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP DOWNLOADTOSTREAM请求资源的URL。 |
-| downloadTo | DownloadToStream | 是 | HTTP中将请求文件从服务器下载到客户端，并将其写入到一个数据流中。 |
+| downloadTo | DownloadToStream | 是 | 将请求文件从服务器下载到客户端，并将其写入到一个数据流中。 |
  
  
 **返回值：**
@@ -563,7 +563,7 @@ uploadFromStream(url: URLOrString, uploadFrom: UploadFromStream): Promise&lt;Res
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP UPLOADFROMSTREAM请求资源的URL。 |
-| uploadFrom | UploadFromStream | 是 | HTTP中从一个输入流中上传数据到服务器的请求。 |
+| uploadFrom | UploadFromStream | 是 | 从一个输入流中上传数据到服务器的请求。 |
  
  
 **返回值：**
@@ -602,7 +602,7 @@ session.uploadFromStream("http://example.com/head", uploadFromStream).then((resp
 
 head(url: URLOrString): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP HEAD请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP HEAD请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -652,7 +652,7 @@ session.head("http://example.com/head").then((response) => {
 
 delete(url: URLOrString): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP DELETE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP DELETE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -702,7 +702,7 @@ session.delete("http://example.com/delete").then((response) => {
 
 cancel(requestToCancel?: Request | Request[]): void
  
-取消指定或正在进行的会话请求。
+取消指定或所有正在进行的会话请求。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -828,7 +828,7 @@ DefaultSession类表示一个默认的通信会话，可用于发送HTTP请求�
 
 fetch(request: Request): Promise&lt;Response&gt;
  
-发送一个HTTP请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送HTTP请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -879,7 +879,7 @@ defaultSession.fetch(req).then((response) => {
 
 fetchForSendable(request: Request): Promise&lt;ResponseSendable&gt;
  
-发送一个HTTP请求，并返回服务器的HTTP响应，该响应消息支持[Sendable](https://developer.huawei.com/consumer/cn/doc/HarmonyOS-Guides/arkts-sendable)。使用Promise异步回调。
+发送HTTP请求，并返回服务器的HTTP响应，该响应消息支持[Sendable](https://developer.huawei.com/consumer/cn/doc/HarmonyOS-Guides/arkts-sendable)。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -952,7 +952,7 @@ async function test() {
 
 get(url: URLOrString, destination?: ResponseBodyDestination): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP GET请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP GET请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -1003,7 +1003,7 @@ defaultSession.get("http://example.com/get").then((response) => {
 
 post(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestination): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP POST请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -1055,7 +1055,7 @@ defaultSession.post("http://example.com/post", "data to send").then((response) =
 
 put(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestination): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP PUT请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP PUT请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -1070,7 +1070,7 @@ put(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestin
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP PUT请求资源的URL。 |
-| content | RequestContent | 否 | 请求正文发送的内容。默认为undefined。 |
+| content | RequestContent | 否 | 请求的正文内容。默认为undefined。 |
 | destination | ResponseBodyDestination | 否 | HTTP响应的目标位置或目的地。 |
  
  
@@ -1107,7 +1107,7 @@ defaultSession.put("http://example.com/put", "data to send").then((response) => 
 
 downloadToFile(url: URLOrString, downloadTo: DownloadToFile): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP DOWNLOADTOFILE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP DOWNLOADTOFILE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -1122,7 +1122,7 @@ downloadToFile(url: URLOrString, downloadTo: DownloadToFile): Promise&lt;Respons
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP DOWNLOADTOFILE请求资源的URL。 |
-| downloadTo | DownloadToFile | 是 | HTTP中用于将服务器上下载的文件保存到本地文件系统中的指定位置。 |
+| downloadTo | DownloadToFile | 是 | 将服务器上下载的文件保存到本地文件系统中的指定位置。 |
  
  
 **返回值：**
@@ -1162,7 +1162,7 @@ defaultSession.downloadToFile("http://www.example.com", downloadToFile).then((re
 
 uploadFromFile(url: URLOrString, uploadFrom: UploadFromFile): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP UPLOADFROMFILE请求，完成上传文件功能，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP UPLOADFROMFILE请求，完成上传文件功能，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -1177,7 +1177,7 @@ uploadFromFile(url: URLOrString, uploadFrom: UploadFromFile): Promise&lt;Respons
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP UPLOADFROMFILE请求资源的URL。 |
-| uploadFrom | UploadFromFile | 是 | HTTP中从本地计算机上传文件到服务器的请求。 |
+| uploadFrom | UploadFromFile | 是 | 从本地计算机上传文件到服务器的请求。 |
  
  
 **返回值：**
@@ -1232,7 +1232,7 @@ downloadToStream(url: URLOrString, downloadTo: DownloadToStream): Promise&lt;Res
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP DOWNLOADTOSTREAM请求资源的URL。 |
-| downloadTo | DownloadToStream | 是 | HTTP中将请求文件从服务器下载到客户端，并将其写入到一个数据流中。 |
+| downloadTo | DownloadToStream | 是 | 将请求文件从服务器下载到客户端，并将其写入到一个数据流中。 |
  
  
 **返回值：**
@@ -1293,7 +1293,7 @@ uploadFromStream(url: URLOrString, uploadFrom: UploadFromStream): Promise&lt;Res
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | URLOrString | 是 | HTTP UPLOADFROMSTREAM请求资源的URL。 |
-| uploadFrom | UploadFromStream | 是 | HTTP中从一个输入流中上传数据到服务器的请求。 |
+| uploadFrom | UploadFromStream | 是 | 从一个输入流中上传数据到服务器的请求。 |
  
  
 **返回值：**
@@ -1332,7 +1332,7 @@ defaultSession.uploadFromStream("http://example.com/head", uploadFromStream).the
 
 head(url: URLOrString): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP HEAD请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP HEAD请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -1382,7 +1382,7 @@ defaultSession.head("http://example.com/head").then((response) => {
 
 delete(url: URLOrString): Promise&lt;Response&gt;
  
-发送一个带有默认HTTP参数的HTTP DELETE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
+发送带有默认HTTP参数的HTTP DELETE请求，并返回来自服务器的HTTP响应。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -1432,7 +1432,7 @@ defaultSession.delete("http://example.com/delete").then((response) => {
 
 cancel(requestToCancel?: Request | Request[]): void
  
-取消指定或正在进行的会话请求。
+取消指定或所有正在进行的会话请求。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -1650,7 +1650,7 @@ function testInterceptor() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-SessionConfiguration接口定义了会话的配置参数，为开发者提供了对HTTP会话各个方面的详细控制。
+定义会话的配置参数，为开发者提供了对HTTP会话各个方面的详细控制。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  

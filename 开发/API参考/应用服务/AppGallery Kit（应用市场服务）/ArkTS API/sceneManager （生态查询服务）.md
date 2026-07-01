@@ -1,6 +1,6 @@
 # sceneManager （生态查询服务）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-scenemanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -31,6 +31,8 @@ import { sceneManager } from '@kit.AppGalleryKit';
 getSelfSceneCode(): string
  
 查询自身场景值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -68,6 +70,8 @@ try {
 getAdsVerificationVersion(): number
  
 获取广告验签版本。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.BundleManager.EcologicalRuleManager.SceneManager
  

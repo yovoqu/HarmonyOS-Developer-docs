@@ -1,6 +1,6 @@
 # AppFreeze（应用冻屏）检测
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines
 
@@ -72,7 +72,7 @@
 **图2**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/i2q58Wa3SiyrdUJuznrKRg/zh-cn_image_0000002656348483.png?HW-CC-KV=V1&HW-CC-Date=20260624T020856Z&HW-CC-Expire=86400&HW-CC-Sign=06F6FBB199A427FB6E43677C354E5313DF19E56C39E4EEBC7ED3D0288A13C2A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/bmCaCUWETX2h0tUxuqDFmw/zh-cn_image_0000002628861102.png?HW-CC-KV=V1&HW-CC-Date=20260701T014620Z&HW-CC-Expire=86400&HW-CC-Sign=DC51A47C44DFA436903F6E9EA77D531E43376547DF8F3A23824EC31D472DAB02)
 
 
 
@@ -86,7 +86,7 @@
 从**API版本26.0.0**开始，应用在AppScope/app.json5文件中配置如下环境变量，可获取故障日志，获取方式参考[日志获取](#日志获取)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/HAKObd7QTpaKbxk6MxsWbw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020856Z&HW-CC-Expire=86400&HW-CC-Sign=1E6AAD590778DFE5DBF4D989FAD6E7C2E7EE5244C2BA8600F23C94EFA5CDAB91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/XGWCaVg7ToqiAysAxXgS-Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014620Z&HW-CC-Expire=86400&HW-CC-Sign=85D280A6AD47F0169D29EB4DF7401AF441526BDA6FF55AE9770B231A41759831)
 
 
 配置日志获取后，该类型日志将以Appfreeze类型上报给三方应用，会增加Appfreeze故障统计，计入Appfreeze故障指标。
@@ -117,7 +117,7 @@
 **图3**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/6yAA8W2dT72mwsOB6gRMbQ/zh-cn_image_0000002626229070.png?HW-CC-KV=V1&HW-CC-Date=20260624T020856Z&HW-CC-Expire=86400&HW-CC-Sign=9A5C1D3DE149FED54118C489CBC11A11D02385B3BD4302DE7DF03842CECBF404)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/vMmQmwVNTz-3DY7a_SC0tg/zh-cn_image_0000002659220419.png?HW-CC-KV=V1&HW-CC-Date=20260701T014620Z&HW-CC-Expire=86400&HW-CC-Sign=283208C615B9E1A83A03BA0438AB796BD9974F06B130DF3E56ADE2B96E6634EE)
 
 
 
@@ -421,7 +421,7 @@ pid context     request started max ready   free_async_space
 | code | 客户端和服务端达成一致约束的业务码。 |
 | wait | 通信等待时长。 |
 | frz_state | 进程冻结状态。 -1 未知； 1 默认； 2 正在向用户态发送binder状态信息； 3 走到了binder接收线程。 |
-| ns | 客户端进程号、线程号 to 服务端进程号、线程号（非卓易通内进程显示-1）。 |
+| ns | 客户端进程号、线程号 to 服务端进程号、线程号。 |
 | debug | IPC通信双方的信息补充。 |
 | active_code | 正在处理的异步消息code。 |
 | active_thread | 处理这个异步消息的线程。 |
@@ -658,7 +658,7 @@ DisplayPowerInfo:powerState:AWAKE
 
 
 
-#### AppFreeze（应用冻屏）增强日志信息
+#### AppFreeze（应用冻屏）增强日志信息（采样栈）
 
 从API version 21开始，支持获取AppFreeze的增强日志。该日志通过采集整机及主线程的运行负载，并抓取多份主线程调用栈，帮助开发者分析问题根源。相比原有日志，AppFreeze的增强日志主要解决了以下两个不足：
 1. 难以定位故障期间的主线程热点。
@@ -863,7 +863,7 @@ AppFreeze故障日志信息中的故障线程信息表示业务线程发生故�
 AppFreeze故障信息聚类方法同Cpp Crash一致，参考[CppCrash聚类](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#cppcrash聚类)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/HofPIG4ASuq8WfN6Zl0k_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020856Z&HW-CC-Expire=86400&HW-CC-Sign=60590C215733AF901ADECA2E3C081CD4DE5CB8CD73FAE43FC100F5F9E108A345)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/47adt1HxRrGZmqoynlGd6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014620Z&HW-CC-Expire=86400&HW-CC-Sign=7E23321374D1C202B7CFB89611331C0886B56718B9EF2A558BE70A6620180B7F)
 
 
 如果故障线程堆栈中有IPC栈帧，可获取[binder堆栈](#对端信息与当前故障进程通信的进程信息)信息用于聚类。

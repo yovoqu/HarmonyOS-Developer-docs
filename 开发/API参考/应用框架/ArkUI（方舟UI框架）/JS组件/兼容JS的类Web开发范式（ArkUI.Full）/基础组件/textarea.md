@@ -1,6 +1,6 @@
 # textarea
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-textarea
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -70,7 +70,7 @@
 | color | &lt;color&gt; | #e6000000 | 否 | 多行文本框的文本颜色。 |
 | font-size | &lt;length&gt; | 16px | 否 | 多行文本框的文本尺寸。 |
 | allow-scale | boolean | true | 否 | 多行文本框的文本尺寸是否跟随系统设置字体缩放尺寸进行放大缩小。true表示跟随系统放大缩小，false表示不跟随系统放大缩小。 如果在config描述文件中针对ability配置了fontSize的config-changes标签，则应用不会重启而直接生效。 |
-| placeholder-color | &lt;color&gt; | #99000000 | 否 | 多行文本框的提示文本颜色，type为text\|email\|date\|time\|number\|password时生效。 |
+| placeholder-color | &lt;color&gt; | #99000000 | 否 | 多行文本框的提示文本颜色。 |
 | font-weight | number \| string | normal | 否 | 多行文本框的字体粗细，见text组件font-weight的样式属性。 |
 | font-family | string | sans-serif | 否 | 多行文本框的字体列表，用逗号分隔，每个字体用字体名或者字体族名设置。列表中第一个系统中存在的或者通过自定义字体指定的字体，会被选中作为文本的字体。 |
 | caret-color6+ | &lt;color&gt; | - | 否 | 设置输入光标的颜色。 |
@@ -137,4 +137,4 @@ change(e){
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/PV4SbswlQQim1yxLzgJihw/zh-cn_image_0000002581436342.png?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=CC1923726A443CFEDD26A5AA8F4D42B6B8457E4E5451B5848E04DCBB64E7A78F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/QWBnpaTgSWKtD9nj8cuLwA/zh-cn_image_0000002659102305.png?HW-CC-KV=V1&HW-CC-Date=20260701T014403Z&HW-CC-Expire=86400&HW-CC-Sign=8CBEB9FCC819B7743CF426E3498EC65BC924D552EEFA0BD1B4E8462868BB872B)

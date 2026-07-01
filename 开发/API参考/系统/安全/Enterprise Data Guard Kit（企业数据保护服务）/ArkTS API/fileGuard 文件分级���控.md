@@ -1,6 +1,6 @@
 # fileGuard (文件分级管控)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard
 **支持设备：** PC/2in1
@@ -2153,10 +2153,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 
 async function testSetKiaWaterMarkImage() {
+  let fd: number = -1;
   try {
     let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
-    let imagePath: string = '/data/service/el2/{account_id}/hmdfs/account/files/Docs/Documents/1.png';
-    let fd: number = await guard.openFile(imagePath);
+    let imagePath: string = `/data/service/el2/test_water.png`;
+    fd = await guard.openFile(imagePath);
     let stat: fileIo.Stat = fileIo.statSync(fd);
     let buffer: ArrayBuffer = new ArrayBuffer(stat.size);
     fileIo.readSync(fd, buffer);
@@ -2170,6 +2171,10 @@ async function testSetKiaWaterMarkImage() {
     })
   } catch (e) {
     console.error(`testSetKiaWaterMarkImage Exception, Code: ${e.code}, message: ${e.message}`);
+  } finally {
+    if (fd !== -1) {
+      fileIo.close(fd);
+    }
   }
 }
 ```
@@ -2395,7 +2400,7 @@ async function getUnrestrictedApplicationList() {
 
 setHdcAuthenticationKey(devType: AuthenticateDeviceType, keyType: AuthenticateKeyType, key: Uint8Array): Promise&lt;void&gt;
 
-设置上下位机间的HDC认证密钥。使用Promise异步回调。
+设置上下位机间的[HDC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)认证密钥。使用Promise异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -2411,7 +2416,7 @@ setHdcAuthenticationKey(devType: AuthenticateDeviceType, keyType: AuthenticateKe
 | --- | --- | --- | --- |
 | devType | AuthenticateDeviceType | 是 | HDC认证的设备类型枚举。当设备类型为上位机时，需分别设置公钥和私钥；当设备类型为下位机时，仅需设置私钥。 |
 | keyType | AuthenticateKeyType | 是 | HDC认证的密钥类型枚举。 |
-| key | Uint8Array | 是 | PEM格式的RAS-3072密钥。 |
+| key | Uint8Array | 是 | PEM格式的RSA-3072密钥。 |
 
 
 **返回值：**

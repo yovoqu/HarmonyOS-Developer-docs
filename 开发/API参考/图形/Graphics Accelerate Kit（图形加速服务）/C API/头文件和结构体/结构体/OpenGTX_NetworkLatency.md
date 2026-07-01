@@ -1,6 +1,6 @@
 # OpenGTX_NetworkLatency
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_open_g_t_x___network_latency
 **支持设备：** Phone | Tablet | TV
@@ -31,9 +31,9 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| int32_t total | 游戏的总延迟，以ms为单位，取值范围[0,200]。 |
-| int32_t up | 游戏上行时延，以ms为单位，取值范围[0,200]。 |
-| int32_t down | 游戏下行时延，以ms为单位，取值范围[0,200]。 |
+| int32_t total | 游戏的总时延，单位：ms，取值范围：[0,200]。 |
+| int32_t up | 游戏上行时延，单位：ms，取值范围：[0,200]。 |
+| int32_t down | 游戏下行时延，单位：ms，取值范围：[0,200]。 |
  
  
   
@@ -54,7 +54,7 @@ int32_t OpenGTX_NetworkLatency::down
  
 **描述**
  
-游戏下行时延，以ms为单位，取值范围[0,200]。
+游戏下行时延，单位：ms，取值范围：[0,200]。
  
   
 
@@ -68,7 +68,7 @@ int32_t OpenGTX_NetworkLatency::total
  
 **描述**
  
-游戏的总延迟，以ms为单位，取值范围[0,200]。
+游戏的总时延，单位：ms，取值范围：[0,200]。
  
   
 
@@ -82,4 +82,4 @@ int32_t OpenGTX_NetworkLatency::up
  
 **描述**
  
-游戏上行时延，以ms为单位，取值范围[0,200]。
+游戏上行时延，单位：ms，取值范围：[0,200]。

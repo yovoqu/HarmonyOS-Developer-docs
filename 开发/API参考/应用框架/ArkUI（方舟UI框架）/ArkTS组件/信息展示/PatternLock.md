@@ -1,6 +1,6 @@
 # PatternLock
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ PatternLock(controller?: PatternLockController)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controller | PatternLockController | 否 | 设置PatternLock组件控制器，可用于控制组件状态重置。 |
+| controller | PatternLockController | 否 | 设置PatternLock组件控制器，可用于重置组件状态和设置图案密码状态。 |
 
 
 
@@ -220,7 +220,7 @@ pathStrokeWidth(value: number | string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 连线的宽度。 默认值：12vp 取值范围：(0, sideLength/3]，设置为0或负数时连线不显示，超过最大值按最大值处理。 |
+| value | number \| string | 是 | 连线的宽度。 默认值：12 单位：vp 取值范围：(0, sideLength/3]，设置为0或负数时连线不显示，超过最大值按最大值处理。 |
 
 
 
@@ -256,6 +256,8 @@ activateCircleStyle(options: Optional&lt;CircleStyleOptions&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -276,6 +278,8 @@ skipUnselectedPoint(skipped: boolean)
 设置未选中的宫格圆点在密码路径经过时是否自动选中。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -321,7 +325,7 @@ onPatternComplete(callback: (input: Array&lt;number&gt;) => void)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-onDotConnect(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;number&gt;)
+onDotConnect(callback: import('../api/@ohos.base').Callback&lt;number&gt;)
 
 密码输入选中宫格圆点时触发该回调。
 
@@ -333,13 +337,15 @@ onDotConnect(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/h
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;number&gt; | 是 | 密码输入选中宫格圆点时触发该回调。 |
+| callback | import('../api/@ohos.base').Callback&lt;number&gt; | 是 | 密码输入选中宫格圆点时触发该回调。 |
 
 
 
@@ -349,6 +355,8 @@ onDotConnect(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 圆环样式的参数说明。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -366,7 +374,7 @@ onDotConnect(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/h
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-PatternLock组件的控制器，用于重置组件状态。
+PatternLock组件的控制器，用于重置组件状态和设置图案密码状态。
 
 
 
@@ -416,6 +424,8 @@ setChallengeResult(result: PatternLockChallengeResult): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -434,6 +444,8 @@ setChallengeResult(result: PatternLockChallengeResult): void
 图案密码状态。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -487,14 +499,14 @@ struct PatternLockExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/y8Larou2TB2SkvdPeQHH3g/zh-cn_image_0000002581276130.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=F49ED956063158CD8ABE8A371132D793AA74156994EBCBE2DF92C9B8EE7380E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/i34V2xEZS2e6zqr4OQG2BQ/zh-cn_image_0000002659221973.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014343Z&HW-CC-Expire=86400&HW-CC-Sign=F293DFD68BC4180BA976C826D69E4BC7A6DCA03F858F5B1A6B89E8881282E0ED)
 
 
 
 
 #### 示例2（判断密码是否正确）
 
-该示例通过[sideLength](#sidelength)属性设置九宫格的大小、[circleRadius](#circleradius)属性设置宫格圆点样式、[onPatternComplete](#onpatterncomplete)属性设置密码输入时的回调。
+该示例通过[sideLength](#sidelength)属性设置九宫格的大小、[circleRadius](#circleradius)属性设置宫格中圆点的半径、[onPatternComplete](#onpatterncomplete)属性设置密码输入完成时的回调。
 
 当用户密码输入完成后，按输入的密码不同，给予不同的回应：输入的密码长度小于5时，提示重新输入；第一次输入完成后，提示第二次输入密码；第二次输入完成后，判断两次输入的密码是否相同，相同则提示密码设置成功，否则提示重新输入。
 
@@ -566,4 +578,4 @@ struct PatternLockExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Rh8c_jyLRmyafO9oEmZi1A/zh-cn_image_0000002611755985.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=E4DE6F60073E0153915536B17C01766B9AA47D402E774D4C9735B85ED5394E8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/u1J9rSiGSjWtjKq4FC1Izw/zh-cn_image_0000002628702782.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014343Z&HW-CC-Expire=86400&HW-CC-Sign=55E55EDDDBCFAEDD000126DE6377F5B505758C32F785221813C3900F2EE08FA0)

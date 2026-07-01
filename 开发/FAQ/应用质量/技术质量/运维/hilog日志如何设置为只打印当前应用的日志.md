@@ -1,6 +1,6 @@
-# hilog日志如何设置为只打印当前应用的日志
+# hilog日志如何设置为只打印当前应用的日
 
-更新时间：2026-06-15 08:32:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-2
 

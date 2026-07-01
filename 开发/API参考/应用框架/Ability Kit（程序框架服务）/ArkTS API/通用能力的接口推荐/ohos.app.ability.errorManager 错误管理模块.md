@@ -1,6 +1,6 @@
 # @ohos.app.ability.errorManager (错误管理模块)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-errormanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -499,7 +499,7 @@ on(type: 'freeze', observer: FreezeObserver): void
 仅在主线程中使用。使用线程出错时，将抛出错误码，因此建议使用try-catch逻辑进行处理。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/lPPzeRP4SA6Hokz83Dv-Xg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025625Z&HW-CC-Expire=86400&HW-CC-Sign=7BE55057D163114A67BB2D2EB18BBB01DF2801228DFF800F7ECA6C3406C30CED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/UGU8RlFNTb2tdaPa75Km9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014236Z&HW-CC-Expire=86400&HW-CC-Sign=6CA61D6E47ED01022694ACAA0277046B8FFCC2501D57BB6BE4FC088D54A37DC3)
 
 
 如果该回调函数执行时间超过1s，可能导致[AppRecovery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-apprecovery)功能不可用。通过解析hilog日志中的begin与Freeze callback execution completed两者的时间差可以计算回调函数执行时长，如果超过1秒，可以尝试采用异步处理、减少阻塞操作、优化数据结构等方法优化回调逻辑，降低执行时长。
@@ -901,6 +901,82 @@ oldObserver = errorManager.setDefaultResourceUsageObserver(resourceUsageObserver
 
 
 
+#### errorManager.setDefaultFreezeObserver
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setDefaultFreezeObserver(defaultObserver?: FreezeObserver) : FreezeObserver
+
+发生APP_FREEZE时，支持链式回调，返回上一次注册的处理器，仅限主线程调用。
+
+如果传入非法参数或在子线程调用，将抛出错误码并返回undefined，因此建议使用try-catch逻辑进行处理。
+
+> [!NOTE]
+> 该接口请勿与 on('freeze') 或 off('freeze') 接口混用。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| defaultObserver | FreezeObserver | 否 | 新注册的错误处理器，默认值为空。 当参数为空时，后续注册的处理器将无法与前序已注册的处理器建立关联，从而中断链式调用。 |
+
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| FreezeObserver | 返回上一次注册的错误处理器。 |
+
+
+**错误码**：
+
+以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 16000205 | The API is not called on the main thread. |
+
+
+**示例**：
+
+```text
+import { errorManager } from '@kit.AbilityKit';
+
+// 用于保存上一次注册的处理器。如果是第一次注册，无前置处理器。
+let oldHandler: errorManager.FreezeObserver = () => {};
+const freezeHandler: errorManager.FreezeObserver = () => {
+    // 自定义的FreezeHandler实现逻辑
+    console.info('[freezeHandler] freeze handler invoked.');
+    if (oldHandler) {
+        oldHandler();
+    } else {
+        console.info('[freezeHandler] freeze handler end.');
+    }
+};
+
+export function setFreezeHandler() {
+    try {
+        oldHandler = errorManager.setDefaultFreezeObserver(freezeHandler);
+    } catch (paramError) {
+        let code = (paramError as BusinessError).code;
+        let message = (paramError as BusinessError).message;
+        console.error('setFreezeHandler',`error: ${code}, ${message}`);
+    }
+    console.info('Registered freeze Handler.');
+}
+```
+
+
+
 #### ErrorObserver
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -915,7 +991,7 @@ ErrorObserver模块。
 
 | 类型 | 说明 |
 | --- | --- |
-| _ErrorObserver.default | ErrorObserver模块。 |
+| ErrorObserver | ErrorObserver模块。 |
 
 
 
@@ -934,7 +1010,7 @@ LoopObserver模块。定义异常监听，可作为 errormanager.on 函数的参
 
 | 类型 | 说明 |
 | --- | --- |
-| _LoopObserver | LoopObserver模块。 |
+| LoopObserver | LoopObserver模块。 |
 
 
 

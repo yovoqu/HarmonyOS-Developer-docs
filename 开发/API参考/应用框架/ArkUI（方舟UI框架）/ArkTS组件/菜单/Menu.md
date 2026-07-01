@@ -1,6 +1,6 @@
 # Menu
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -29,7 +29,7 @@ Menu()
 作为菜单的固定容器，无参数。
  
 > [!NOTE]
-> 菜单和菜单项宽度计算规则： 布局过程中，期望每个菜单项的宽度一致。若子组件设置了宽度，则以尺寸计算规则 constraintSize 为准。 Menu不设置宽度的情况：Menu会对子组件MenuItem、MenuItemGroup设置默认2栅格的宽度，若菜单项内容区比2栅格宽，则会自适应撑开。 Menu设置宽度的情况：Menu会对子组件MenuItem、MenuItemGroup设置减去padding后的固定宽度。 Menu支持设置的最小宽度为64vp。 Menu不支持的通用属性： outline 下的属性、 shadow 。
+> 菜单和菜单项宽度计算规则： 布局过程中，期望每个菜单项的宽度一致。若子组件设置了宽度，则以 constraintSize 为准。 Menu不设置宽度的情况：Menu会对子组件MenuItem、MenuItemGroup设置默认2栅格的宽度，若菜单项内容区比2栅格宽，则会自适应撑开。 Menu设置宽度的情况：Menu会对子组件MenuItem、MenuItemGroup设置减去padding后的固定宽度。 Menu支持设置的最小宽度为64vp。 Menu不支持的通用属性： 外描边设置 下的属性、 shadow 。
 
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -56,6 +56,8 @@ font(value: Font)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -77,6 +79,8 @@ fontColor(value: ResourceColor)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -97,6 +101,8 @@ radius(value: Dimension | BorderRadiuses)
 设置Menu边框圆角半径。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -121,6 +127,8 @@ startMargin + endMargin 超过组件宽度后startMargin和endMargin会被置0�
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -141,6 +149,8 @@ menuItemGroupDivider(options: DividerStyleOptions | undefined)
 设置menuItemGroup上下分割线的样式，不设置该属性则默认展示分割线。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -163,6 +173,8 @@ subMenuExpandingMode(mode: SubMenuExpandingMode)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -183,6 +195,8 @@ subMenuExpandSymbol(symbol: SymbolGlyphModifier)
 设置Menu子菜单展开符号。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -225,6 +239,8 @@ fontSize(value: Length)
 Menu子菜单展开样式枚举。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -391,7 +407,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/QcoLNatOQFO7nkbDMbB43g/zh-cn_image_0000002622700051.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=AFFD0C949E26A1F6FF6A5783B521167CEB20F11D124887AEB9EE5952875730D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/SNAULv4aQsuIglt882OrTA/zh-cn_image_0000002659102119.png?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=28DCEF0DBA84A2D587C422CE41AD4DD9A5EBF8FAA37F5C59D960C7E99C0B3D5F)
 
  
   
@@ -459,7 +475,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/C1qSZfywQla0HnMy7TGyBQ/zh-cn_image_0000002592220492.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=686C3D7B005E5B980EDB3B23A5BD1A29FB6A7D578B2D56999E4A199E3CF4355D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/ksrfYNxESg2i4Ue9zjT5Nw/zh-cn_image_0000002628862772.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=2F3BD746EE1CFE2481A7A2BFAC07A9BAB786F27E3AEB27F2D8C50A1DD18AF7F8)
 
  
   
@@ -511,4 +527,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/KTHLIue9R2OJ--XB1Hs2mg/zh-cn_image_0000002592380424.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=E757B00A720BCDB5AD355C10CBB70161FCAEBB6D828419FEF1020FA7030C7480)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/WX4V7zuFRFCDTwyfnpXxfA/zh-cn_image_0000002659222085.png?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=A51396948C9A0E9DD35E4CC158486A15BA8F66F19B47188AF1907C5586CD4F28)

@@ -1,6 +1,6 @@
 # 如何解决Text组件文本为中文、数字、英文混合时显示省略号截断异常的问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-347
 
@@ -8,7 +8,7 @@
  
 从API 11开始，建议优先使用将 wordBreak 属性设置为 WordBreak.BREAK_ALL 的方式，以实现按字母截断。示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct TextEllipsisDemo {
@@ -17,11 +17,11 @@ struct TextEllipsisDemo {
   build() {
     RelativeContainer() {
       Text(this.text)
-        .width(200)// Set maximum number of rows
+        .width(200)<em>// Set maximum number of rows</em>
         .maxLines(1)
-        .textOverflow({ overflow: TextOverflow.Ellipsis })// Long text display ellipsis
-        .ellipsisMode(EllipsisMode.END)// Set the line breaking rule WordBreak.BREAK_ALL and implement truncation on a letter by letter basis
-        .wordBreak(WordBreak.BREAK_ALL)// API11+ required, for letter-level truncation
+        .textOverflow({ overflow: TextOverflow.Ellipsis })<em>// Long text display ellipsis</em>
+        .ellipsisMode(EllipsisMode.END)<em>// Set the line breaking rule WordBreak.BREAK_ALL and implement truncation on a letter by letter basis</em>
+        .wordBreak(WordBreak.BREAK_ALL)<em>// API11+ required, for letter-level truncation</em>
         .textAlign(TextAlign.JUSTIFY)
         .backgroundColor(Color.Green)
         .fontSize(16)

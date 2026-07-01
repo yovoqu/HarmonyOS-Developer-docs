@@ -1,6 +1,6 @@
-# Webview accessBackward不符合预期的可能情况
+# Webview设置UA的时候为什么accessBackward返回都是false
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-88
 

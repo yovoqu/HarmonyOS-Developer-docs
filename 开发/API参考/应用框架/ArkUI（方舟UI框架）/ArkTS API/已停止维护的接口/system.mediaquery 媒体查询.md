@@ -1,6 +1,6 @@
 # @system.mediaquery (媒体查询)
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-mediaquery
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -57,7 +57,7 @@ matchMedia(condition: string): MediaQueryList
   
 | 类型 | 说明 |
 | --- | --- |
-| MediaQueryList | 表示创建MediaQueryList对象的属性，详情见下表说明。 |
+| MediaQueryList | 创建MediaQueryList对象，详情见下表说明。 |
  
  
 **示例：**

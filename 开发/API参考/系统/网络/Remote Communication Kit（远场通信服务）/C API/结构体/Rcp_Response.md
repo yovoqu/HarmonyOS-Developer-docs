@@ -1,6 +1,6 @@
 # Rcp_Response
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___response
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -92,7 +92,7 @@ Rcp_DebugInfo* Rcp_Response::debugInfo
  
 请求/响应处理调试信息。
  
-收集的事件取决于[Rcp_TracingConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___tracing_configuration)配置信息。
+收集的事件取决于[Rcp_TracingConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___tracing_configuration)配置。
  
   
 

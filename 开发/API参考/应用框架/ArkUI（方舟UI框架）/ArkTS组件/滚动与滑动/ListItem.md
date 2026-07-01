@@ -1,6 +1,6 @@
 # ListItem
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,6 +37,8 @@ ListItem(value?: ListItemOptions)
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -163,6 +165,8 @@ selected(value: boolean)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -270,7 +274,7 @@ start和end对应的@builder函数中顶层必须是单个组件，否则会引�
 | start | CustomBuilder \| SwipeActionItem | 否 | 是 | ListItem向右划动时item左边的组件（List垂直布局时）或ListItem向下划动时item上方的组件（List水平布局时）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | end | CustomBuilder \| SwipeActionItem | 否 | 是 | ListItem向左划动时item右边的组件（List垂直布局时）或ListItem向上划动时item下方的组件（List水平布局时）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | edgeEffect | SwipeEdgeEffect | 否 | 是 | 滑动效果。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| onOffsetChange11+ | (offset: number) => void | 否 | 是 | 当列表项向左或向右滑动（当列表方向为“垂直”时），向上或向下滑动（当列表方向为“水平”时）位置发生变化触发，以vp为单位。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onOffsetChange11+ | (offset: number) => void | 否 | 是 | 当列表项向左或向右滑动（当列表方向为“垂直”时），向上或向下滑动（当列表方向为“水平”时）位置发生变化触发，以vp为单位。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -282,6 +286,8 @@ start和end对应的@builder函数中顶层必须是单个组件，否则会引�
 List垂直布局，ListItem向右滑动时，item左边的长距离滑动删除选项。向左滑动时，item右边的长距离滑动删除选项。
 
 List水平布局，ListItem向上滑动时，item下边的长距离滑动删除选项。向下滑动时，item上边的长距离滑动删除选项。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -306,6 +312,8 @@ ListItem组件参数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -322,6 +330,8 @@ ListItem组件参数。
 List组件卡片样式枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -340,6 +350,8 @@ List组件卡片样式枚举。
 列表项滑动状态枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -399,6 +411,8 @@ expand(node: FrameNode, direction: ListItemSwipeActionDirection): void
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -435,6 +449,8 @@ collapse(node: FrameNode): void
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -463,6 +479,8 @@ collapse(node: FrameNode): void
 ListItem划出菜单的展开方向。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -784,7 +802,7 @@ struct ListItemExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/mlD-NzEFS6aT6sBcSaa8Ug/zh-cn_image_0000002581275828.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=10111E60CE7BE5BD87C5BF11B90474A831948BA8E2E9579AEAB37BF3B6CC8CC4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/T5PcWIBGR5WQojduhsG6-g/zh-cn_image_0000002659221663.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=12E20D4E5A6A97B71F9031E367724CABB0E2B08C37A5B271C2AE49C49A68FC7F)
 
 
 
@@ -877,4 +895,4 @@ struct ListItemExample5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/saoG73VwRGaa-0u1H2f3bg/zh-cn_image_0000002611755685.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=669E664742DBDB5B291A0F61B89A6C9F00338413533CE13F901BCC34EDB17104)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/FQc8FgFtRZevH-SaU2kywA/zh-cn_image_0000002628702472.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=8CB2095B7BD6BBB3F30DAF6A82A9A6AF55B0C8B1D8CDE6048D49FCB450CD6E6A)

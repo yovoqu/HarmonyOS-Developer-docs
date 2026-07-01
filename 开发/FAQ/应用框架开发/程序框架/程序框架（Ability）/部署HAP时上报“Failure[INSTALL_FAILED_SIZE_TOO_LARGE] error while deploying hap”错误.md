@@ -1,6 +1,6 @@
 # 部署HAP时上报“Failure[INSTALL_FAILED_SIZE_TOO_LARGE] error while deploying hap”错误
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-13
 

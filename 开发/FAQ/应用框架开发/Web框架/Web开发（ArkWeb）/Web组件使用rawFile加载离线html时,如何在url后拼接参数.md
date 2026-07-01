@@ -1,6 +1,6 @@
 # Web组件使用rawFile加载离线html时,如何在url后拼接参数
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-45
 
@@ -10,7 +10,7 @@
  
 通过Web组件使用rawFile加载离线HTML，URL中包含参数。
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb'
 
 @Entry

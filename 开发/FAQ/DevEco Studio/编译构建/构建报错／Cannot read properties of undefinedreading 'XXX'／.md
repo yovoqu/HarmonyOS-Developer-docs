@@ -1,6 +1,6 @@
 # 构建报错"Cannot read properties of undefined(reading 'XXX')"
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-108
 
@@ -18,11 +18,11 @@
 ```text
 import { hvigor, getHvigorNode } from "@ohos/hvigor"
 import { hapTasks} from '@ohos/hvigor-ohos-plugin';
-// Problem Code
-getHvigorNode(__filename).getTaskByName('XXX').setEnabled(false)；
+<em>// Problem Code</em>
+getHvigorNode(__filename).getTaskByName('XXX').setEnabled(false);
 export default {
-    system: hapTasks, /* Built-in plugin of Hvigor. It cannot be modified. */
-    plugins: []         /* Custom plugin to extend the functionality of Hvigor. */
+    system: hapTasks, <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
+    plugins: []         <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
 }
 ```
  **解决措施**
@@ -54,12 +54,12 @@ export default {
   确保hvigorfile.ts里export default的对象中的字段system的值是appTasks/hapTasks/hspTasks/harTasks之一。
 
   
-```ts
+```text
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 
 export default {
-    system: harTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
-    plugins:[]         /* Custom plugin to extend the functionality of Hvigor. */
+    system: harTasks,  <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
+    plugins:[]         <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
 }
 ```
 
@@ -106,7 +106,7 @@ export default {
 
   
 ```text
-// Incorrect writing: empty array 
+<em>// Incorrect writing: empty array</em> 
 class w {
   public a: [][] = []
   test() {
@@ -115,8 +115,8 @@ class w {
 }
 ```
  
-```ArkTS
-// Correct writing
+```text
+<em>// Correct writing</em>
 class w {
   public a: string[][] = []
   test() {
@@ -145,7 +145,7 @@ class w {
 {
   "debugging": {
     "stacktrace": true
-    /* Disable stacktrace compilation. Value: [ true | false ]. Default: false */
+    <em>/* Disable stacktrace compilation. Value: [ true | false ]. Default: false */</em>
   },
 }
 ```
@@ -158,7 +158,7 @@ class w {
   **解决措施**
 
   确认DevEco Studio是否有使用安全加固等三方插件。如果有，可以先禁用三方插件，看是否会复现问题，还能复现就参考下面的最终方案。
-- **场景十****问题现象**
+- **场景十：****问题现象**
 
   执行hap覆盖率测试时，出现报错：“Error Message: Cannot read properties of undefined (reading 'module')”。
 
@@ -186,7 +186,7 @@ class w {
 {
   "debugging": {
     "stacktrace": true
-    /* Disable stacktrace compilation. Value: [ true | false ]. Default: false */
+    <em>/* Disable stacktrace compilation. Value: [ true | false ]. Default: false */</em>
   },
 }
 ```

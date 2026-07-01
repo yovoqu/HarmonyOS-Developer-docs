@@ -1,6 +1,6 @@
 # @ohos.font (注册自定义字体)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-font
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -155,6 +155,8 @@ getSystemFontList(): Array&lt;string&gt;
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -208,6 +210,8 @@ getFontByName(fontName: string): FontInfo
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -234,6 +238,8 @@ getFontByName(fontName: string): FontInfo
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -253,7 +259,7 @@ getFontByName(fontName: string): FontInfo
 **示例：**
 
 > [!NOTE]
-> 直接使用font可能导致实例不明确的问题，推荐通过使用 UIContext 中的 getFont 方法获取当前UI上下文关联的 Font 对象。
+> 直接使用font可能导致 UI上下文不明确 的问题，推荐通过使用 UIContext 中的 getFont 方法获取当前UI上下文关联的 Font 对象。
 
 
 ```ArkTS
@@ -303,6 +309,8 @@ getUIFontConfig() : UIFontConfig
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -321,6 +329,8 @@ getUIFontConfig() : UIFontConfig
 系统的UI字体配置信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -341,6 +351,8 @@ getUIFontConfig() : UIFontConfig
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -360,6 +372,8 @@ getUIFontConfig() : UIFontConfig
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -377,6 +391,8 @@ getUIFontConfig() : UIFontConfig
 别名列表。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -396,6 +412,8 @@ getUIFontConfig() : UIFontConfig
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -413,6 +431,8 @@ getUIFontConfig() : UIFontConfig
 该字体集的备用字体。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

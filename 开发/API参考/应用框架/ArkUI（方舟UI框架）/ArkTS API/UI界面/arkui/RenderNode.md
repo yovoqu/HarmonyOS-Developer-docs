@@ -1,6 +1,6 @@
 # RenderNode
 
-更新时间：2026-03-27 08:08:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供自绘制渲染节点RenderNode，支持开发者通过C API进行开发，完成自定义绘制需求。
 
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 不建议对 BuilderNode 中的RenderNode进行修改操作。BuilderNode中持有的 FrameNode 仅用于将该BuilderNode作为子节点挂载到其他FrameNode上，对该FrameNode或对应的RenderNode进行属性设置与子节点操作可能会产生未定义行为，包括但不限于显示异常、事件异常、稳定性问题等。 RenderNode对象不支持使用JSON序列化。
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 不建议对 BuilderNode 中的RenderNode进行修改操作。BuilderNode中持有的 FrameNode 仅用于将该BuilderNode作为子节点挂载到其他FrameNode上，对该FrameNode或对应的RenderNode进行属性设置与子节点操作可能会产生未定义行为，包括但不限于显示异常、事件异常、稳定性问题等。 RenderNode对象不支持使用JSON序列化。
 
 
 
@@ -3016,7 +3016,7 @@ set markNodeGroup(isNodeGroup: boolean)
 标记是否优先绘制节点及其子节点。若设置为true，则透明度等属性将在节点绘制完毕后再进行合成。设置效果如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Xj0WpJOTSVmVw62W1tZ4hA/zh-cn_image_0000002611835415.png?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=7143B308ABB7A54C752CD875E990BC3466964FA606D6B9581B0DD9F78DB85D4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/yo3_96G4RWWEVpcrINOvYQ/zh-cn_image_0000002659221493.png?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=B89D33E21DD579553789625D2FA8CA0A59074C10A52BB1DD1BF57A8A5B8F9529)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -3302,4 +3302,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/qC5O2kLiSiKJ7WFwhTeZuw/zh-cn_image_0000002581275668.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=B95D1B253F9CDE33D5929622A887E32190DFF914725618A3DD8955C3F07374AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/s8CM5QfWRLeHLmUFnHSLNQ/zh-cn_image_0000002628702304.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=0A70300511C769A69DA14E0DDDEB73813354C8ACF7B2B94A34D93383A68ABA61)

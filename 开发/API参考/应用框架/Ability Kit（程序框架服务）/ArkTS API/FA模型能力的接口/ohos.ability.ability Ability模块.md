@@ -1,6 +1,6 @@
 # @ohos.ability.ability (Ability模块)
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-ability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,8 +50,6 @@ type PacMap = _PacMap
 PacMap二级模块。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
- 
-**模型约束**：此接口仅可在FA模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |

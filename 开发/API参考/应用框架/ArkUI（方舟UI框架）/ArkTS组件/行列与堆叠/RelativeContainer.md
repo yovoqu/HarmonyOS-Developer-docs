@@ -1,6 +1,6 @@
 # RelativeContainer
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -56,6 +56,8 @@ guideLine(value: Array&lt;GuideLineStyle&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -76,6 +78,8 @@ barrier(value: Array&lt;BarrierStyle&gt;)
 设置RelativeContainer容器内的[屏障](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-relative-layout#多个组件的屏障)，Array中每个项目即为一条barrier。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -98,6 +102,8 @@ barrier(barrierStyle: Array&lt;LocalizedBarrierStyle&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -116,6 +122,8 @@ barrier(barrierStyle: Array&lt;LocalizedBarrierStyle&gt;)
 guideLine参数，用于定义一条guideLine的id、方向和位置。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -136,6 +144,8 @@ guideLine位置参数，用于定义guideLine的位置。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -153,6 +163,8 @@ guideLine位置参数，用于定义guideLine的位置。
 barrier参数，用于定义一条barrier的id、方向和生成时所依赖的组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -172,6 +184,8 @@ barrier参数，用于定义一条barrier的id、方向和生成时所依赖的�
 定义屏障线的方向。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -193,6 +207,8 @@ barrier参数，用于定义一条barrier的id、方向和生成时所依赖的�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -211,6 +227,8 @@ barrier参数，用于定义一条barrier的id、方向和生成时所依赖的�
 定义支持镜像模式的屏障线的方向。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -483,7 +501,7 @@ struct Index {
 
 #### 示例4（设置偏移）
 
-本示例通过[bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias对象说明)实现了子组件的位置在垂直方向的两个锚点间偏移的效果。
+本示例通过[bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias11对象说明)实现了子组件的位置在垂直方向的两个锚点间偏移的效果。
 
 ```text
 @Entry
@@ -793,7 +811,7 @@ struct Index {
 
 #### 示例8（链中设置偏移）
 
-本示例通过[chainMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainmode12)和[bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias对象说明)接口实现了水平方向的带偏移的[PACKED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainstyle12)链。
+本示例通过[chainMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainmode12)和[bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias11对象说明)接口实现了水平方向的带偏移的[PACKED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainstyle12)链。
 
 ```text
 @Entry

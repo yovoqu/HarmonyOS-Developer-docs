@@ -1,12 +1,12 @@
 # 解决冷启动picker选择器无权限问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-46
 
 应用在冷启动后，系统可能不会自动授予之前通过picker等系统能力获取的URI的持续读取权限，直接使用这些URI会导致访问失败。可以在用户首次选择文件后，立即将文件复制到应用沙箱目录内，后续操作都基于沙箱内的副本进行。这样，在冷启动时，应用可以直接访问自己沙箱内的文件，无需再次申请权限。示例代码如下：
  
-```ArkTS
+```json
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { fileIo as fs, fileUri } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -21,7 +21,7 @@ struct ColdStartPickerSelector {
   @State imagePath: string = '';
   private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
-  // When loading the page, attempt to read the last saved draft (cold start recovery logic).
+ <em> // When loading the page, attempt to read the last saved draft (cold start recovery logic).</em>
   async aboutToAppear() {
     try {
       let pref = await preferences.getPreferences(this.context, PREF_NAME);
@@ -36,7 +36,7 @@ struct ColdStartPickerSelector {
     }
   }
 
-  // Select image and save draft.
+  <em>// Select image and save draft.</em>
   async pickAndSaveDraft() {
     try {
       let photoPicker = new photoAccessHelper.PhotoViewPicker();
@@ -45,26 +45,26 @@ struct ColdStartPickerSelector {
       if (result.photoUris.length > 0) {
         const tempUri = result.photoUris[0];
 
-        // Open the temporary URI returned by Picker in read-only mode.
+      <em>  // Open the temporary URI returned by Picker in read-only mode.</em>
         let srcFile = fs.openSync(tempUri, fs.OpenMode.READ_ONLY);
 
-        // Define the target save path in the sandbox.
+      <em>  // Define the target save path in the sandbox.</em>
         let destPath = `${this.context.cacheDir}/draft_image_${Date.now()}.jpg`;
         let destFile = fs.openSync(destPath, fs.OpenMode.CREATE | fs.OpenMode.WRITE_ONLY);
 
-        // Execute file copying.
+      <em>  // Execute file copying.</em>
         fs.copyFileSync(srcFile.fd, destFile.fd);
 
-        // Close file descriptor to free up resources.
+    <em>    // Close file descriptor to free up resources.</em>
         fs.closeSync(srcFile);
         fs.closeSync(destFile);
 
-        // Persist the sandbox path locally.
+       <em> // Persist the sandbox path locally.</em>
         let pref = await preferences.getPreferences(this.context, PREF_NAME);
         await pref.put(KEY_IMAGE_PATH, destPath);
         await pref.flush();
 
-        // Convert the file path in the application sandbox to a system recognizable file URI.
+      <em>  // Convert the file path in the application sandbox to a system recognizable file URI.</em>
         this.imagePath = fileUri.getUriFromPath(destPath);
         console.info('Draft saved successfully, cache path: ' + destPath);
       }
@@ -79,7 +79,7 @@ struct ColdStartPickerSelector {
         .fontSize(24)
         .fontWeight(FontWeight.Bold)
 
-      // Cold start read: directly render sandbox path.
+     <em> // Cold start read: directly render sandbox path.</em>
       if (this.imagePath) {
         Image(this.imagePath)
           .width('100%')

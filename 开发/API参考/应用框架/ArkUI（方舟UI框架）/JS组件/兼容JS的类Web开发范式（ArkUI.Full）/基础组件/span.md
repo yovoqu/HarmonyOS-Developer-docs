@@ -1,6 +1,6 @@
 # span
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-span
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -108,4 +108,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/UQchKBquQ_-Uh4gK0kdeyg/zh-cn_image_0000002611836171.png?HW-CC-KV=V1&HW-CC-Date=20260528T025438Z&HW-CC-Expire=86400&HW-CC-Sign=D4E7CB361C85331892620B30679A5581B65A5AD90B5FB615DDD7C5C5832E568E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/TwDug9JlT2OpED-R-apOLA/zh-cn_image_0000002628862956.png?HW-CC-KV=V1&HW-CC-Date=20260701T014403Z&HW-CC-Expire=86400&HW-CC-Sign=33AA869539E2EC7CC431DBF32540754846C7D271B315AB20C68DEEFC50A114FD)

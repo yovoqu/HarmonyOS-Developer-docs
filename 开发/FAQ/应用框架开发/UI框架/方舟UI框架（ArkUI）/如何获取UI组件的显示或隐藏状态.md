@@ -1,6 +1,6 @@
 # 如何获取UI组件的显示或隐藏状态
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-30
 
@@ -10,16 +10,16 @@
  
 具体可参考示例代码：
  
-```ArkTS
+```text
 @Component
 struct ComponentA {
   aboutToAppear(): void {
-    // Perception components are visible and hidden
+   <em> // Perception components are visible and hidden</em>
     console.log('Component A display');
   }
 
   aboutToDisappear(): void {
-    // Perception components are visible and hidden
+ <em>   // Perception components are visible and hidden</em>
     console.log('Component A hidden');
   }
 
@@ -37,7 +37,7 @@ struct ComponentA {
 struct ComponentB {
   @State @Watch('onCompAShowStatusChange') isShowA: boolean = false;
   onCompAShowStatusChange() {
-    // Perception components are visible and hidden
+   <em> // Perception components are visible and hidden</em>
     console.log('Monitor component A：' + `${this.isShowA ? 'display' : 'hide'}`);
   }
 

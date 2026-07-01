@@ -1,6 +1,6 @@
 # 页面存在透明的部分，使用组件截图保存为jpg图片，为什么变成了黑色
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-456
 

@@ -1,6 +1,6 @@
 # DatePicker
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,10 +51,10 @@ DatePicker(options?: DatePickerOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| start | Date | 否 | 是 | 指定选择器的起始日期。 默认值：Date('1970-1-1') 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| end | Date | 否 | 是 | 指定选择器的结束日期。 默认值：Date('2100-12-31') 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| start | Date | 否 | 是 | 指定选择器的起始日期。 该组件的列显示效果与设备ROM版本相关。如果设置了有效的起始日期，HarmonyOS 7.0.0.17之前，不影响列循环效果。HarmonyOS 7.0.0.17及之后版本，设置该属性后列不可循环滚动，canLoop属性不生效，边界日期外的日期不显示。 默认值：Date('1970-1-1') 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| end | Date | 否 | 是 | 指定选择器的结束日期。 该组件的列显示效果与设备ROM版本相关。如果设置了有效的结束日期，HarmonyOS 7.0.0.17之前，不影响列循环效果。HarmonyOS 7.0.0.17及之后版本，设置该属性后列不可循环滚动，canLoop属性不生效，边界日期外的日期不显示。 默认值：Date('2100-12-31') 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | selected | Date | 否 | 是 | 设置选中项的日期。 默认值：当前系统日期。 取值范围：[Date('1900-01-31'), Date('2100-12-31')] 从API version 10开始，该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| mode18+ | DatePickerMode | 否 | 是 | 设置日期展示模式。 默认值：DatePickerMode.DATE，显示年、月、日三列。 在DatePickerDialog中，当DatePickerDialogOptions的showTime设置为true时，此参数不生效，默认显示年、月、日三列。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| mode18+ | DatePickerMode | 否 | 是 | 设置日期展示模式。 默认值：DatePickerMode.DATE，显示年、月、日三列。 在DatePickerDialog中，当DatePickerDialogOptions的showTime设置为true时，此参数不生效，默认显示年、月、日三列。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 > [!TIP]
@@ -93,6 +93,8 @@ DatePicker(options?: DatePickerOptions)
 设置日期展示模式。
 
 **元服务API：** 从API version 18开始，该类型支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -152,6 +154,8 @@ lunar(isLunar: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -172,6 +176,8 @@ disappearTextStyle(value: PickerTextStyle)
 设置边缘项（以选中项为基准向上或向下的第二项）的文本样式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -198,6 +204,8 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -222,6 +230,8 @@ textStyle(value: PickerTextStyle)
 设置待选项（以选中项为基准向上或向下的第一项）的文本样式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -248,6 +258,8 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -273,6 +285,8 @@ selectedTextStyle(value: PickerTextStyle)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -294,6 +308,8 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -314,6 +330,8 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 设置是否开启触控反馈。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -346,6 +364,8 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -370,6 +390,8 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 设置是否可循环滚动。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -421,6 +443,8 @@ onDateChange(callback: Callback&lt;Date&gt;)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -445,6 +469,8 @@ onDateChange(callback: Optional<Callback&lt;Date&gt;>)
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -518,7 +544,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/j7TDLvd0T2aGbZykgobqiQ/zh-cn_image_0000002611755777.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=83458747A0596BF7E15ACF6700D57FD773774F353FF75413EAAC8F3028D064AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/ROgrct2aTcSwtZMBd85tyQ/zh-cn_image_0000002659221757.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=FFB2C6B17AEAD1CBED2B22D26944E72AC02AEBFED007704C970D190AD23A766B)
 
 
 
@@ -555,7 +581,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/BvbzMLiXSTmNnbe-mXvGug/zh-cn_image_0000002581435840.png?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=E3412AF77229FF017600E586C3701627FEF656DECE3C7FBD7E92483CF68B6C4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/npv0fBaOSQet0sJ3icMTPQ/zh-cn_image_0000002628702568.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=2186D0F4285AF1A6E666FCAF147698C3A1C803D5A4024ED325E493F66CE9986A)
 
 
 
@@ -612,7 +638,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/GC1axiGKRCqw0XbSL7hAZw/zh-cn_image_0000002611835671.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=11CECDC1EADE2E846331E7DDEAB9AC9EBEB1516F0662560081BC29627A3CB443)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/M8gsws9EStm9FsxkaWmHTA/zh-cn_image_0000002659101795.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=7D76ECA9887304666BE1CD915CFF0FBB93279ADD6DAD83B7616412B5030683D4)
 
 
 
@@ -654,4 +680,4 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/H3Yn3vwFRF2mNnAKJDo4eA/zh-cn_image_0000002581275922.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=4D1526F91753ED55945B1FF9D0EEFB0BD34FBB1CC411FCB8D1EE8D9342BE0A96)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/Wk85-Er9Sm2v7RSH09ldng/zh-cn_image_0000002628862446.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=F669B460D6D73AA9A7389F1E59241EB9D23EA0641E440B5CEF7B69DAD1A772C7)

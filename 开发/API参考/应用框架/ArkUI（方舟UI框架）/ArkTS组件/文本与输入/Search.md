@@ -1,6 +1,6 @@
 # Search
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,6 +51,8 @@ Search初始化参数。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -92,7 +94,7 @@ Wearable设备上默认字体大小为18fp。
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ResourceStr | 是 | 搜索框末尾搜索按钮文本内容。 从API version 20开始，支持Resource类型。 |
-| option | SearchButtonOptions | 否 | 配置搜索框末尾搜索按钮文本样式。 默认值： { fontSize: '16fp', fontColor: '#ff3f97e9' } |
+| option | SearchButtonOptions | 否 | 配置搜索框末尾搜索按钮样式。 默认值： { fontSize: '16fp', fontColor: '#ff3f97e9' } |
 
 
 
@@ -201,6 +203,8 @@ textDirection(direction: TextDirection | undefined)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -247,6 +251,8 @@ Wearable设备上默认图标大小为16vp。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -270,6 +276,8 @@ Wearable设备上默认图标大小为18fp。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -291,6 +299,8 @@ fontColor(value: ResourceColor)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -311,6 +321,8 @@ caretStyle(value: CaretStyle)
 设置光标样式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -339,6 +351,8 @@ enableKeyboardOnFocus(value: boolean)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -359,6 +373,8 @@ selectionMenuHidden(value: boolean)
 设置是否不弹出系统文本选择菜单。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -399,6 +415,8 @@ customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: Ke
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -423,6 +441,8 @@ type(value: SearchType)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -443,6 +463,8 @@ maxLength(value: number)
 设置文本的最大输入字符数。默认不设置最大输入字符数限制。到达文本最大字符限制，将无法继续输入字符。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -465,6 +487,8 @@ enterKeyType(value: EnterKeyType)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -486,9 +510,17 @@ enableSelectedDataDetector(enable: boolean | undefined)
 
 当enableSelectedDataDetector设置为true时，默认识别所有类型的实体。
 
+启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。默认启用AI菜单功能。
+
+AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括[TextMenuItemId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitemid12)中的url（打开链接）、email（新建邮件）、phoneNumber（呼叫）、address（导航前往）、dateTime（新建日程）。
+
+AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体，才能展示对应的选项。该菜单项与[TextMenuItemId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitemid12)中的askAI菜单项不同时出现。
+
 需要[CopyOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#copyoptions9)为CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，本功能生效。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -496,7 +528,7 @@ enableSelectedDataDetector(enable: boolean | undefined)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean \| undefined | 是 | 开启选中词文本识别。 true：开启识别，false：关闭识别。默认值为：true。 |
+| enable | boolean \| undefined | 是 | 开启选中文本实体识别。 true：开启识别，false：关闭识别。默认值为：true。 |
 
 
 
@@ -510,6 +542,8 @@ lineHeight(value: number | string | Resource)
 设置文本的文本行高，设置值不大于0时，不限制文本行高，自适应字体大小，number类型时单位为fp。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -536,13 +570,15 @@ decoration(value: TextDecorationOptions)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | TextDecorationOptions | 是 | 文本装饰线对象。 默认值：{ type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID } |
+| value | TextDecorationOptions | 是 | 文本装饰线对象。 默认值：{ type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID, thicknessScale: 1.0 } |
 
 
 > [!NOTE]
@@ -564,6 +600,8 @@ letterSpacing(value: number | string | Resource)
 对每个字符生效，包括行尾字符。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -594,6 +632,8 @@ fontFeature(value: string)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -621,6 +661,8 @@ selectedBackgroundColor(value: ResourceColor)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -646,6 +688,8 @@ inputFilter(value: ResourceStr, error?: Callback< string >)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -667,6 +711,8 @@ textIndent(value: Dimension)
 设置首行文本缩进。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -695,6 +741,8 @@ minFontSize小于或等于0时，自适应字号不生效，此时按照[textFon
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -722,6 +770,8 @@ maxFontSize小于等于0或者maxFontSize小于minFontSize时，自适应字号�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -742,6 +792,8 @@ halfLeading(halfLeading: Optional&lt;boolean&gt;)
 设置文本在行内垂直居中，将行间距平分至行的顶部与底部。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -764,6 +816,8 @@ minFontScale(scale: Optional<number | Resource>)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -784,6 +838,8 @@ maxFontScale(scale: Optional<number | Resource>)
 设置文本最大的字体缩放倍数。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -808,6 +864,8 @@ editMenuOptions(editMenu: EditMenuOptions)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -830,6 +888,8 @@ enablePreviewText(enable: boolean)
 预上屏内容定义为文字暂存态，目前不支持文字拦截功能。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -866,6 +926,8 @@ enableHapticFeedback(isEnabled: boolean)
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -886,6 +948,8 @@ autoCapitalizationMode(mode: AutoCapitalizationMode)
 设置自动大小写模式的文本模式，只提供接口能力，具体实现以输入法应用为主。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -908,6 +972,8 @@ keyboardAppearance(appearance: Optional&lt;KeyboardAppearance&gt;)
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -928,6 +994,8 @@ strokeWidth(width: Optional&lt;LengthMetrics&gt;)
 设置文本描边的宽度。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -950,6 +1018,8 @@ strokeColor(color: Optional&lt;ResourceColor&gt;)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -970,6 +1040,8 @@ stopBackPress(isStopped: Optional&lt;boolean&gt;)
 设置是否阻止返回键传递。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -992,6 +1064,8 @@ enableAutoSpacing(enabled: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1013,6 +1087,8 @@ selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1033,6 +1109,8 @@ dividerColor(color: Optional&lt;ColorMetrics&gt;)
 设置输入框分割线颜色。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1059,6 +1137,8 @@ compressLeadingPunctuation(enabled: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1079,6 +1159,8 @@ includeFontPadding(include: Optional&lt;boolean&gt;)
 设置是否在首行和尾行增加间距以避免文字截断。不通过该接口设置，默认不增加间距。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1120,6 +1202,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1134,6 +1218,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 #### SearchButtonOptions10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1152,6 +1238,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 说明 |
@@ -1168,6 +1256,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 搜索输入框类型。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1190,6 +1280,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1205,6 +1297,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1254,6 +1348,8 @@ onSubmit(callback: SearchSubmitCallback)
 点击搜索图标、搜索按钮或者按下软键盘搜索按钮时触发该回调事件，提交事件时提供保持Search编辑状态的方法。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1310,6 +1406,31 @@ onCopy(callback:Callback&lt;string&gt;)
 
 
 
+#### onWillCopy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onWillCopy(callback: Callback<string, boolean>)
+
+在进行复制操作前，触发该回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<string, boolean> | 是 | 复制操作前的回调。回调参数类型为string时，表示将要被复制的文本内容。回调参数类型为boolean时，表示当前选中文本是否允许被复制，true：允许文本被复制；false：不允许文本被复制。 |
+
+
+
+
 #### onCut
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1327,6 +1448,31 @@ onCut(callback:Callback&lt;string&gt;)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;string&gt; | 是 | 剪切回调，其返回值为剪切的文本内容。 |
+
+
+
+
+#### onWillCut
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onWillCut(callback: Callback<string, boolean>)
+
+在进行剪切操作前，触发该回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<string, boolean> | 是 | 剪切操作前的回调。回调参数类型为string时，表示将要被剪切的文本内容。回调参数类型为boolean时，表示当前选中文本是否允许被剪切，true：允许文本被剪切；false：不允许文本被剪切。 |
 
 
 
@@ -1362,6 +1508,8 @@ onTextSelectionChange(callback: OnTextSelectionChangeCallback)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1382,6 +1530,8 @@ onContentScroll(callback: OnContentScrollCallback)
 文本内容滚动时，触发该回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1404,6 +1554,8 @@ onEditChange(callback: Callback< boolean >)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1424,6 +1576,8 @@ onWillInsert(callback: Callback<InsertValue, boolean>)
 在将要输入时，触发该回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1446,6 +1600,8 @@ onDidInsert(callback: Callback&lt;InsertValue&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1467,6 +1623,8 @@ onWillDelete(callback: Callback<DeleteValue, boolean>)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1487,6 +1645,8 @@ onDidDelete(callback: Callback&lt;DeleteValue&gt;)
 在删除完成时，触发该回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1514,6 +1674,8 @@ onWillChange(callback: Callback<EditableTextChangeValue, boolean>)
 onWillChange的回调时序晚于onWillInsert、onWillDelete，早于onDidInsert、onDidDelete。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1544,6 +1706,8 @@ IMEClient仅在onWillAttachIME执行期间有效，不可进行异步调用。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1559,7 +1723,7 @@ IMEClient仅在onWillAttachIME执行期间有效，不可进行异步调用。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Search组件的控制器继承自[TextContentControllerBase](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#textcontentcontrollerbase)，涉及的接口有[getTextContentRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#gettextcontentrect)、[getTextContentLineCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#gettextcontentlinecount)、[getCaretOffset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#getcaretoffset11)、[addText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#addtext15)、[deleteText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#deletetext15)、[getSelection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#getselection15)、[clearPreviewText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#clearpreviewtext17)、[setStyledPlaceholder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#setstyledplaceholder22)、[deleteBackward](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#deletebackward23)。
+Search组件的控制器继承自[TextContentControllerBase](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#textcontentcontrollerbase)，涉及的接口有[getTextContentRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#gettextcontentrect)、[getTextContentLineCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#gettextcontentlinecount)、[getCaretOffset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#getcaretoffset11)、[addText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#addtext15)、[deleteText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#deletetext15)、[getSelection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#getselection15)、[clearPreviewText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#clearpreviewtext17)、[setStyledPlaceholder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#setstyledplaceholder22)、[deleteBackward](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#deletebackward23)、[scrollToVisible](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#scrolltovisible23)。
 
 
 
@@ -1616,6 +1780,8 @@ stopEditing(): void
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -1629,6 +1795,8 @@ setTextSelection(selectionStart: number, selectionEnd: number, options?: Selecti
 组件在获焦状态下，调用该接口设置文本选择区域并高亮显示，且只有在selectionStart小于selectionEnd时，文字才会被选取并高亮显示。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1656,6 +1824,8 @@ type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void
 点击搜索图标、搜索按钮或者按下软键盘搜索按钮时的回调事件。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2348,7 +2518,9 @@ struct SearchExample {
 
 #### 示例12（设置文本是否可复制）
 
-从API version 9开始，该示例通过[copyOption](#copyoption9)属性展示如何设置文本是否可复制。
+该示例通过[copyOption](#copyoption9)、[onWillCopy](#onwillcopy)、[onWillCut](#onwillcut)接口展示如何设置文本复制、如何拦截系统复制、如何拦截系统剪切。
+
+从API版本26.0.0开始，新增[onWillCopy](#onwillcopy)、[onWillCut](#onwillcut)接口。
 
 ```ArkTS
 // xxx.ets
@@ -2371,6 +2543,11 @@ struct SearchExample {
         .onCopy((value: string) => {
           this.copyValue = value;
         })
+        // 从API版本26.0.0开始支持onWillCopy
+        .onWillCopy((value: string) => {
+          this.copyValue = value;
+          return false;
+        })
         .onCut((value: string) => {
           this.cutValue = value;
         })
@@ -2383,6 +2560,11 @@ struct SearchExample {
         })
         .onCut((value: string) => {
           this.cutValue = value;
+        })
+        // 从API版本26.0.0开始支持onWillCut
+        .onWillCut((value: string) => {
+          this.cutValue = value;
+          return false;
         })
       Search({ value: 'Search CopyOption:LocalDevice', controller: this.controller })
         .width('95%')
@@ -3178,3 +3360,36 @@ struct SearchExample {
 
 
 ![](assets/Search/file-20260525091220702-013.gif)
+
+
+
+
+#### 示例31（设置文本选择的AI菜单）
+
+该示例通过[enableSelectedDataDetector](#enableselecteddatadetector22)，配置文本选择AI菜单功能。
+
+从API version 22开始，新增enableSelectedDataDetector。
+
+```text
+@Entry
+@Component
+struct Demo31 {
+  exampleText: string = '示例网址：www.example.com';
+
+  build() {
+    Column() {
+      Row() {
+        Search({ value: this.exampleText })
+          .copyOption(CopyOptions.LocalDevice)
+          .enableSelectedDataDetector(true)
+          .border({ width: 1, color: Color.Black })
+          .height(300)
+          .margin(10)
+      }
+    }
+  }
+}
+```
+
+
+![](assets/Search/file-20260525091220702-014.gif)

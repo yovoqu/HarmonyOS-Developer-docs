@@ -1,6 +1,6 @@
 # ExtensionAbility如何与主进程通信
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-35
 
@@ -8,12 +8,12 @@
  
 ExtensionAbility端发布事件：
  
-```ArkTS
+```text
 import { commonEventManager } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 
-// Publish public event callbacks
+<em>// Publish public event callbacks</em>
 function publishCB(err: BusinessError) {
   if (err) {
     console.error(`Failed to publish common event. Code is ${err.code}, message is ${err.message}`);
@@ -21,7 +21,7 @@ function publishCB(err: BusinessError) {
     console.info(`Succeeded in publishing common event.`);
   }
 }
-// Publish public events
+<em>// Publish public events</em>
 try {
   commonEventManager.publish("event", publishCB);
 } catch (error) {
@@ -32,17 +32,17 @@ try {
  
 主进程端订阅事件：
  
-```ArkTS
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { commonEventManager } from '@kit.BasicServicesKit';
 
-// Define subscribers to save successfully created subscriber objects, which can be used to complete subscription and unsubscribe actions in the future
+<em>// Define subscribers to save successfully created subscriber objects, which can be used to complete subscription and unsubscribe</em> actions in the future
 let subscriber: commonEventManager.CommonEventSubscriber;
-// Subscriber information
+<em>// Subscriber information</em>
 let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
   events: ["event"]
 };
-// Subscribe to public event callbacks
+<em>// Subscribe to public event callbacks</em>
 function SubscribeCB(err: BusinessError, data: commonEventManager.CommonEventData) {
   if (err) {
     console.error(`Failed to subscribe. Code is ${err.code}, message is ${err.message}`);
@@ -50,12 +50,12 @@ function SubscribeCB(err: BusinessError, data: commonEventManager.CommonEventDat
     console.info(`Succeeded in subscribing, data is ` + JSON.stringify(data));
   }
 }
-// Create subscriber callback
+<em>// Create subscriber callback</em>
 function createCB(err: BusinessError, commonEventSubscriber: commonEventManager.CommonEventSubscriber) {
   if(!err) {
     console.info(`Succeeded in creating subscriber.`);
     subscriber = commonEventSubscriber;
-    // Subscribe to public events
+    <em>// Subscribe to public events</em>
     try {
       commonEventManager.subscribe(subscriber, SubscribeCB);
     } catch (error) {
@@ -66,7 +66,7 @@ function createCB(err: BusinessError, commonEventSubscriber: commonEventManager.
     console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
   }
 }
-// Create subscribers
+<em>// Create subscribers</em>
 try {
   commonEventManager.createSubscriber(subscribeInfo, createCB);
 } catch (error) {

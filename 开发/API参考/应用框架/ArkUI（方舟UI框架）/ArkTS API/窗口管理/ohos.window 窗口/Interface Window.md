@@ -1,6 +1,6 @@
 # Interface (Window)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -797,7 +797,7 @@ try {
 
 moveWindowToGlobalDisplay(x: number, y: number): Promise&lt;void&gt;
 
-基于[全局坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#全局坐标系)移动窗口位置，使用Promise异步回调。
+基于[全局坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#global-coordinate-system全局坐标系)移动窗口位置，使用Promise异步回调。
 
 该接口仅在窗口为自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING，窗口模式可通过[getWindowStatus()](#getwindowstatus12)获取）时调用生效，在其他窗口模式下调用返回错误码1300010错误码。
 
@@ -1002,7 +1002,7 @@ resize(width: number, height: number, callback: AsyncCallback&lt;void&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 1300002 | This window state is abnormal. |
+| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Internal task error; 3. Invalid window status type. Only supports windows in floating window mode. |
 | 1300003 | This window manager service works abnormally. |
 
 
@@ -1077,7 +1077,7 @@ resize(width: number, height: number): Promise&lt;void&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 1300002 | This window state is abnormal. |
+| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Internal task error; 3. Invalid window status type. Only supports windows in floating window mode. |
 | 1300003 | This window manager service works abnormally. |
 
 
@@ -1270,7 +1270,7 @@ setWindowContainerColor(activeColor: string, inactiveColor: string): void
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 在HarmonyOS 6.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码；从HarmonyOS 6.1.0开始，该接口在2in1和Tablet设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 在HarmonyOS 6.1.0之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码；从HarmonyOS 6.1.0开始，该接口在2in1和Tablet设备中可正常调用，在其他设备中返回801错误码。
 
 **需要权限：** ohos.permission.SET_WINDOW_TRANSPARENT
 
@@ -1324,6 +1324,85 @@ export default class EntryAbility extends UIAbility {
         let inactiveColor: string = '#FF000000';
         try {
           windowClass.setWindowContainerColor(activeColor, inactiveColor);
+          console.info('Succeeded in setting window container color.');
+        } catch (exception) {
+          console.error(`Failed to set the window container color. Cause code: ${exception.code}, message: ${exception.message}`);
+        };
+      });
+    });
+  }
+}
+```
+
+
+
+#### setWindowContainerModalColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setWindowContainerModalColor(activeColor: string, inactiveColor: string): void
+
+设置主窗口容器在焦点态和非焦点态时的背景色。该接口需在调用[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)后使用。
+
+窗口容器背景色覆盖整个窗口区域，包括标题栏和内容区域。内容区域背景色默认跟随系统深浅色，当同时使用该接口和[setWindowBackgroundColor()](#setwindowbackgroundcolor9)设置背景色时，内容区域显示窗口背景色，标题栏显示窗口容器背景色。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
+
+**需要权限：** ohos.permission.SET_WINDOW_ALPHA
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| activeColor | string | 是 | 窗口容器处于焦点态时的背景色，为十六进制RGB或ARGB颜色，不区分大小写，例如'#00FF00'或'#FF00FF00'。 |
+| inactiveColor | string | 是 | 窗口容器处于非焦点态时的背景色，为十六进制RGB颜色或ARGB颜色，不区分大小写，例如'#00FF00'或'#FF00FF00'。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission verification failed. The application does not have the permission required or a non-system application calls the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 1300002 | This window state is abnormal. |
+| 1300004 | Unauthorized operation. |
+
+
+**示例：**
+
+```ArkTS
+// EntryAbility.ets
+import { UIAbility } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+export default class EntryAbility extends UIAbility {
+  onWindowStageCreate(windowStage: window.WindowStage) {
+    windowStage.loadContent("pages/Index", (err: BusinessError) => {
+      let errCode: number = err.code;
+      if (errCode) {
+        console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
+        return;
+      }
+      console.info('Succeeded in loading the content.');
+      // 获取应用主窗口。
+      let windowClass: window.Window | undefined = undefined;
+      windowStage.getMainWindow((err: BusinessError, data) => {
+        let errCode: number = err.code;
+        if (errCode) {
+          console.error(`Failed to obtain the main window. Cause code: ${err.code}, message: ${err.message}`);
+          return;
+        }
+        windowClass = data;
+        let activeColor: string = '#00000000';
+        let inactiveColor: string = '#FF000000';
+        try {
+          windowClass.setWindowContainerModalColor(activeColor, inactiveColor);
           console.info('Succeeded in setting window container color.');
         } catch (exception) {
           console.error(`Failed to set the window container color. Cause code: ${exception.code}, message: ${exception.message}`);
@@ -1391,7 +1470,7 @@ getWindowAvoidArea(type: AvoidAreaType): AvoidArea
 
 主窗口/子窗口：
 
- - [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的自由悬浮窗口模式（即窗口模式为[window.WindowStatusType.FLOATING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)）下，仅存在固定态软键盘（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_KEYBOARD）类型的避让区域。
+ - [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的自由悬浮窗口模式（即窗口模式为[window.WindowStatusType.FLOATING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)）下，仅存在固定态软键盘（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_KEYBOARD）类型的避让区域。
  - 主窗口在非自由窗口状态的自由悬浮窗口模式下，仅存在系统栏（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_SYSTEM）类型的避让区域。
  - 主窗口在其余场景下，仅当在非自由悬浮窗口模式下或设备类型为Phone和Tablet，才能通过此接口获取计算后的避让区域，否则获取的避让区域为空。
  - 子窗口在非自由窗口状态或非自由悬浮窗口模式下，仅当窗口的位置和大小与主窗口一致时，才能通过此接口获取计算后的避让区域，否则获取的避让区域为空。
@@ -1459,7 +1538,7 @@ getWindowAvoidAreaIgnoringVisibility(type: AvoidAreaType): AvoidArea
 
 主窗口/子窗口：
 
- - 主窗口在非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的自由悬浮窗口模式（即窗口模式为[window.WindowStatusType.FLOATING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)）下，仅存在系统栏（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_SYSTEM）类型的避让区域。
+ - 主窗口在非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的自由悬浮窗口模式（即窗口模式为[window.WindowStatusType.FLOATING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)）下，仅存在系统栏（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_SYSTEM）类型的避让区域。
  - 主窗口在其余场景下，仅当在非自由悬浮窗口模式下或设备类型为Phone和Tablet，才能通过此接口获取计算后的避让区域，否则获取的避让区域为空。
  - 子窗口在非自由窗口状态或非自由悬浮窗口模式下，仅当窗口的位置和大小与主窗口一致时，才能通过此接口获取计算后的避让区域，否则获取的避让区域为空。
 
@@ -1693,7 +1772,7 @@ setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolea
 
 **系统能力**：SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -1769,11 +1848,11 @@ export default class EntryAbility extends UIAbility {
 
 setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise&lt;void&gt;
 
-设置应用主窗口或应用子窗口的布局是否为沉浸式布局，使用Promise异步回调。其余窗口调用不生效也不报错。
+设置应用主窗口或应用子窗口的布局是否为[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)，使用Promise异步回调。其余窗口调用不生效也不报错。
 
-沉浸式布局生效时，布局不避让状态栏与底部导航区域，组件可能产生与其重叠的情况。
+沉浸式布局生效时，布局不避让状态栏与导航条或者三键导航，组件可能产生与其重叠的情况。
 
-非沉浸式布局生效时，布局避让状态栏与底部导航区域，组件不会与其重叠。
+非沉浸式布局生效时，布局避让状态栏与导航条或者三键导航，组件不会与其重叠。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
 
@@ -1783,13 +1862,13 @@ setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise&lt;void&gt;
 
 在HarmonyOS 5.0.2之前，该接口在所有设备中可正常调用。
 
-从HarmonyOS 5.0.2开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态时生效；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+从HarmonyOS 5.0.2开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态时生效；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isLayoutFullScreen | boolean | 是 | 窗口的布局是否为沉浸式布局（该沉浸式布局状态栏、底部导航区域仍然显示）。true表示沉浸式布局；false表示非沉浸式布局。 |
+| isLayoutFullScreen | boolean | 是 | 窗口的布局是否为沉浸式布局（该沉浸式布局状态栏、导航条或者三键导航仍然显示）。true表示沉浸式布局；false表示非沉浸式布局。 |
 
 
 **返回值：**
@@ -1854,7 +1933,7 @@ export default class EntryAbility extends UIAbility {
 
 setImmersiveModeEnabledState(enabled: boolean): void
 
-设置当前窗口是否开启沉浸式布局，该调用不会改变窗口模式和窗口大小。仅主窗口和子窗口可调用。
+设置当前窗口是否开启[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)，该调用不会改变窗口模式和窗口大小。仅主窗口和子窗口可调用。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
 
@@ -1864,7 +1943,7 @@ setImmersiveModeEnabledState(enabled: boolean): void
 
 在HarmonyOS 5.0.2之前，该接口在所有设备中可正常调用。
 
-从HarmonyOS 5.0.2开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+从HarmonyOS 5.0.2开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
@@ -1904,7 +1983,7 @@ try {
 
 getImmersiveModeEnabledState(): boolean
 
-查询当前窗口是否开启沉浸式布局。
+查询当前窗口是否开启[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 仅支持主窗和子窗调用。
 
@@ -1943,13 +2022,113 @@ try {
 
 
 
+#### setFloatNavigationAvoidAreaEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setFloatNavigationAvoidAreaEnabled(enabled: boolean): Promise&lt;void&gt;
+
+设置当前窗口是否支持获取三键导航类型的避让区域。未调用此接口设置前，系统默认不支持获取三键导航类型的避让区域。使用Promise异步回调。
+
+调用该接口使能后才可以通过[getWindowAvoidArea()](#getwindowavoidarea9)获取到[TYPE_FLOAT_NAVIGATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)避让类型对应的避让区域或通过[on('avoidAreaChange')](#onavoidareachange9)监听TYPE_FLOAT_NAVIGATION避让类型对应的避让区域的变化。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | boolean | 是 | 是否支持获取三键导航类型的避让区域。 true表示支持，false表示不支持。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Create js value failed. |
+| 1300003 | This window manager service works abnormally. |
+
+
+**示例：**
+
+```text
+try {
+  let enabled = false;
+  windowClass.setFloatNavigationAvoidAreaEnabled(enabled);
+} catch (exception) {
+  console.error(`Failed to set the window float navigation avoid area enabled status. Cause code: ${exception.code}, message: ${exception.message}`);
+}
+```
+
+
+
+#### isFloatNavigationAvoidAreaEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isFloatNavigationAvoidAreaEnabled(): boolean
+
+查询当前窗口是否支持获取三键导航类型的避让区域。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 是否支持获取三键导航类型的避让区域。 true表示支持，false表示不支持。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Create js value failed. |
+
+
+**示例：**
+
+```text
+try {
+  let isEnabled = windowClass.isFloatNavigationAvoidAreaEnabled();
+} catch (exception) {
+  console.error(`Failed to check if the window is enabled float navigation avoid area. Cause code: ${exception.code}, message: ${exception.message}`);
+}
+```
+
+
+
 #### isImmersiveLayout20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isImmersiveLayout(): boolean
 
-查询当前窗口是否处于沉浸式布局状态。
+查询当前窗口是否处于[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 **系统能力**：SystemCapability.Window.SessionManager
 
@@ -1957,7 +2136,7 @@ isImmersiveLayout(): boolean
 
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 是否处于沉浸式布局状态。true表示处于沉浸式布局状态，false表示不处于沉浸式布局状态。 |
+| boolean | 是否处于沉浸式布局。true表示处于沉浸式布局，false表示不处于沉浸式布局。 |
 
 
 **错误码：**
@@ -1998,7 +2177,7 @@ setWindowDelayRaiseOnDrag(isEnabled: boolean): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用； 在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用； 在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
@@ -2041,9 +2220,9 @@ setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise&lt;KeyFramePolicy
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 在HarmonyOS 6.1.0之前，该接口在2in1设备可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 在HarmonyOS 6.1.0之前，该接口在PC/2in1设备可正常调用，在其他设备中返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在2in1设备、其他设备的电脑模式中可正常调用；在其他设备和其他模式中不生效不报错。
+从HarmonyOS 6.1.0开始，该接口在PC/2in1设备、其他设备的电脑模式中可正常调用；在其他设备和其他模式中不生效不报错。
 
 **参数：**
 
@@ -2118,9 +2297,9 @@ export default class EntryAbility extends UIAbility {
 
 setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise&lt;void&gt;
 
-设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果，使用Promise异步回调。
+设置主窗口状态栏、导航条或者三键导航的可见模式，状态栏、导航条或者三键导航通过status控制，navigation参数无效果，使用Promise异步回调。
 
-调用生效后返回并不表示状态栏和底部导航区域的显示或隐藏已完成。主窗口在非全屏/最大化模式（自由悬浮窗口模式、分屏等场景）下配置不生效，进入全屏/最大化模式后配置生效。
+调用生效后返回并不表示状态栏、导航条或者三键导航的显示或隐藏已完成。主窗口在非全屏/最大化模式（自由悬浮窗口模式、分屏等场景）下配置不生效，进入全屏/最大化模式后配置生效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2130,13 +2309,13 @@ setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise&lt;void
 
 在HarmonyOS 5.0.0之前，该接口在所有设备中可正常调用。
 
-从HarmonyOS 5.0.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+从HarmonyOS 5.0.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| names | Array<'status'\|'navigation'> | 是 | 设置窗口全屏/最大化模式时状态栏、底部导航区域是否显示。 例如，需全部显示，该参数设置为['status', 'navigation']；设置为[]，则不显示。 |
+| names | Array<'status'\|'navigation'> | 是 | 设置窗口全屏/最大化模式时状态栏、导航条或者三键导航是否显示。 例如，需全部显示，该参数设置为['status', 'navigation']；设置为[]，则不显示。 |
 
 
 **返回值：**
@@ -2202,9 +2381,9 @@ export default class EntryAbility extends UIAbility {
 
 setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, enableAnimation?: boolean): Promise&lt;void&gt;
 
-设置主窗口状态栏、底部导航区域的显示或隐藏，使用Promise异步回调。
+设置主窗口状态栏、导航条或者三键导航的显示或隐藏，使用Promise异步回调。
 
-调用生效后返回并不表示状态栏和底部导航区域的显示或隐藏已完成。子窗口调用后不生效。主窗口在非全屏/最大化模式（自由悬浮窗口模式、分屏等场景）下配置不生效，进入全屏/最大化模式后配置生效。
+调用生效后返回并不表示状态栏、导航条或者三键导航的显示或隐藏已完成。子窗口调用后不生效。主窗口在非全屏/最大化模式（自由悬浮窗口模式、分屏等场景）下配置不生效，进入全屏/最大化模式后配置生效。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -2214,15 +2393,15 @@ setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, enableAnim
 
 在HarmonyOS 5.0.0之前，该接口在所有设备中可正常调用。
 
-从HarmonyOS 5.0.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+从HarmonyOS 5.0.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | SpecificSystemBar | 是 | 设置窗口全屏模式时，显示或隐藏的系统栏类型。 |
-| enable | boolean | 是 | 设置窗口全屏模式时状态栏或底部导航区域是否显示，true表示显示， false表示隐藏。 |
-| enableAnimation12+ | boolean | 否 | 设置状态栏或底部导航区域显示状态变化时是否使用动画，true表示使用， false表示不使用，默认值为false。 |
+| enable | boolean | 是 | 设置窗口全屏模式时状态栏或导航条或者三键导航是否显示，true表示显示， false表示隐藏。 |
+| enableAnimation12+ | boolean | 否 | 设置状态栏或导航条或者三键导航显示状态变化时是否使用动画，true表示使用， false表示不使用，默认值为false。 |
 
 
 **返回值：**
@@ -2296,7 +2475,7 @@ setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise&
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
@@ -2444,7 +2623,7 @@ setStatusBarColor(color: ColorMetrics): Promise&lt;void&gt;
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
@@ -2578,7 +2757,7 @@ export default class EntryAbility extends UIAbility {
 
 getWindowStateSnapshot(): Promise&lt;string&gt;
 
-获取当前窗口的设备形态信息，比如是否处于[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#电脑模式)，是否支持自由窗口等，使用Promise异步回调，仅限测试使用。
+获取当前窗口的设备形态信息，比如是否处于[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#pc-mode电脑模式)，是否支持自由窗口等，使用Promise异步回调，仅限测试使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -2637,8 +2816,8 @@ setPreferredOrientation(orientation: Orientation, callback: AsyncCallback&lt;voi
 
 **设备行为差异：**
 
- - 设备支持sensor旋转且未处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态：立即生效。
- - 设备支持sensor旋转且处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态：调用不生效不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效。
+ - 设备支持sensor旋转且未处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态：立即生效。
+ - 设备支持sensor旋转且处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态：调用不生效不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效。
  - 其他情况：不生效不报错。
 
 
@@ -2714,8 +2893,8 @@ setPreferredOrientation(orientation: Orientation): Promise&lt;void&gt;
 
 **设备行为差异：**
 
- - 设备支持sensor旋转且未处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态：立即生效。
- - 设备支持sensor旋转且处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态：调用不生效不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效。
+ - 设备支持sensor旋转且未处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态：立即生效。
+ - 设备支持sensor旋转且处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态：调用不生效不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效。
  - 其他情况：不生效不报错。
 
 
@@ -2768,6 +2947,91 @@ export default class EntryAbility extends UIAbility {
         let promise = windowClass.setPreferredOrientation(orientation);
         promise.then(() => {
           console.info('Succeeded in setting the window orientation.');
+        }).catch((err: BusinessError) => {
+          console.error(`Failed to set the window orientation. Cause code: ${err.code}, message: ${err.message}`);
+        });
+      } catch (exception) {
+        console.error(`Failed to set window orientation. Cause code: ${exception.code}, message: ${exception.message}`);
+      }
+    });
+  }
+}
+```
+
+
+
+#### setPreferredOrientationWithResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setPreferredOrientationWithResult(orientation: Orientation): Promise&lt;OrientationResult&gt;
+
+设置主窗口的显示方向属性，通过Promise异步返回显示方向的执行结果。非主窗口调用后不生效，OrientationResult返回window.[OrientationExecutionResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#orientationexecutionresult).ORIENTATION_IGNORED。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**设备行为差异：**
+
+ - 设备支持sensor旋转且未处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态：立即生效。
+ - 设备支持sensor旋转且处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态：调用不生效，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效。
+ - 其他情况：不生效不报错。
+
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| orientation | Orientation | 是 | 窗口显示方向的属性。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;OrientationResult&gt; | Promise对象。设置窗口显示方向的执行结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Internal task error. |
+| 1300003 | This window manager service works abnormally. |
+
+
+**示例：**
+
+```ArkTS
+// EntryAbility.ets
+import { UIAbility } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { window } from '@kit.ArkUI';
+
+export default class EntryAbility extends UIAbility {
+  // ...
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+    console.info('onWindowStageCreate');
+    let windowClass: window.Window | undefined = undefined;
+    windowStage.getMainWindow((err: BusinessError, data) => {
+      const errCode: number = err.code;
+      if (errCode) {
+        console.error(`Failed to obtain the main window. Cause code: ${err.code}, message: ${err.message}`);
+        return;
+      }
+      windowClass = data;
+      let orientation = window.Orientation.LANDSCAPE;
+      try {
+        windowClass.setPreferredOrientationWithResult(orientation).then((result: window.OrientationResult) => {
+          console.info(`Succeeded in setting the window orientation. Result: ${JSON.stringify(result)}`);
         }).catch((err: BusinessError) => {
           console.error(`Failed to set the window orientation. Cause code: ${err.code}, message: ${err.message}`);
         });
@@ -3543,7 +3807,7 @@ on(type: 'avoidAreaChange', callback: Callback&lt;AvoidAreaOptions&gt;): void
 
 主窗口/子窗口：
 
- - [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的自由悬浮窗口模式（即窗口模式为[window.WindowStatusType.FLOATING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)）下触发回调时，仅存在固定态软键盘（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_KEYBOARD）类型的避让区域。
+ - [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的自由悬浮窗口模式（即窗口模式为[window.WindowStatusType.FLOATING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)）下触发回调时，仅存在固定态软键盘（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_KEYBOARD）类型的避让区域。
  - 主窗口在非自由窗口状态的自由悬浮窗口模式下触发回调时，仅存在系统栏（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_SYSTEM）类型的避让区域。
  - 主窗口在其余场景下触发回调时，仅当在非自由悬浮窗口模式下或设备类型为Phone和Tablet，才能返回计算后的避让区域，否则直接返回空的避让区域。
  - 子窗口在非自由窗口状态或非自由悬浮窗口模式下触发回调时，仅当子窗口的位置和大小与主窗口一致时，才能返回计算后的子窗口避让区域，否则直接返回空的避让区域。
@@ -4520,7 +4784,7 @@ try {
 
 on(type: 'windowEvent', callback: Callback&lt;WindowEventType&gt;): void
 
-开启窗口生命周期变化的监听。
+开启窗口生命周期状态变化的监听。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
 
@@ -4530,7 +4794,7 @@ on(type: 'windowEvent', callback: Callback&lt;WindowEventType&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 监听事件，固定为'windowEvent'，即窗口生命周期变化事件。 |
+| type | string | 是 | 监听事件，固定为'windowEvent'，即窗口生命周期状态变化事件。 |
 | callback | Callback&lt;WindowEventType&gt; | 是 | 回调函数。返回当前的窗口生命周期状态。 |
 
 
@@ -4563,7 +4827,7 @@ try {
 
 off(type: 'windowEvent', callback?: Callback&lt;WindowEventType&gt;): void
 
-关闭窗口生命周期变化的监听。
+关闭窗口生命周期状态变化的监听。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
 
@@ -4573,8 +4837,8 @@ off(type: 'windowEvent', callback?: Callback&lt;WindowEventType&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 监听事件，固定为'windowEvent'，即窗口生命周期变化事件。 |
-| callback | Callback&lt;WindowEventType&gt; | 否 | 回调函数。返回当前的窗口生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有窗口生命周期变化的监听。 |
+| type | string | 是 | 监听事件，固定为'windowEvent'，即窗口生命周期状态变化事件。 |
+| callback | Callback&lt;WindowEventType&gt; | 否 | 回调函数。返回当前的窗口生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭窗口所有生命周期状态变化的监听。 |
 
 
 **错误码：**
@@ -5655,7 +5919,7 @@ try {
 
 on(type: 'rectChangeInGlobalDisplay', callback: Callback&lt;RectChangeOptions&gt;): void
 
-开启[全局坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#全局坐标系)下窗口矩形（窗口位置及窗口大小）变化的监听事件。
+开启[全局坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#global-coordinate-system全局坐标系)下窗口矩形（窗口位置及窗口大小）变化的监听事件。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -5700,7 +5964,7 @@ try {
 
 off(type: 'rectChangeInGlobalDisplay', callback?: Callback&lt;RectChangeOptions&gt;): void
 
-关闭[全局坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#全局坐标系)下窗口矩形（窗口位置及窗口大小）变化的监听事件。
+关闭[全局坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#global-coordinate-system全局坐标系)下窗口矩形（窗口位置及窗口大小）变化的监听事件。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -5863,9 +6127,9 @@ on(type: 'windowWillClose', callback: Callback<void, Promise&lt;boolean&gt;>): v
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效。
+从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效。
 
 **参数：**
 
@@ -5932,9 +6196,9 @@ off(type: 'windowWillClose', callback?: Callback<void, Promise&lt;boolean&gt;>):
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效。
+从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效。
 
 **参数：**
 
@@ -6106,9 +6370,9 @@ on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, 
 
 针对PC/2in1设备：在API version 23之前，调用该接口会返回801错误码；从API version 23开始，可正常调用该接口且立即生效。
 
-针对非PC/2in1且支持sensor旋转但不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备：可正常调用且立即生效。
+针对非PC/2in1且支持sensor旋转但不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备：可正常调用且立即生效。
 
-针对非PC/2in1且支持sensor旋转，支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备：当处于非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态时可正常调用该接口且立即生效；当处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态时，调用该接口时不生效也不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下生效。
+针对非PC/2in1且支持sensor旋转，支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备：当处于非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态时可正常调用该接口且立即生效；当处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态时，调用该接口时不生效也不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下生效。
 
 针对其他设备：调用该接口不生效也不报错。
 
@@ -6221,9 +6485,9 @@ off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo
 
 针对PC/2in1设备：在API version 23之前，调用该接口会返回801错误码；从API version 23开始，可正常调用该接口且立即生效。
 
-针对非PC/2in1且支持sensor旋转但不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备：可正常调用且立即生效。
+针对非PC/2in1且支持sensor旋转但不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备：可正常调用且立即生效。
 
-针对非PC/2in1且支持sensor旋转，支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备：当处于非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态时可正常调用该接口且立即生效；当处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态时，调用该接口时不生效也不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下生效。
+针对非PC/2in1且支持sensor旋转，支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备：当处于非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态时可正常调用该接口且立即生效；当处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态时，调用该接口时不生效也不报错，切换到非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下生效。
 
 针对其他设备：调用该接口不生效也不报错。
 
@@ -6454,7 +6718,7 @@ promise.then((data) => {
 
 setWindowColorSpace(colorSpace:ColorSpace, callback: AsyncCallback&lt;void&gt;): void
 
-设置当前窗口为广色域模式或默认色域模式，使用callback异步回调。
+设置当前窗口的色域模式，使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -6464,7 +6728,7 @@ setWindowColorSpace(colorSpace:ColorSpace, callback: AsyncCallback&lt;void&gt;):
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| colorSpace | ColorSpace | 是 | 设置色域模式。 |
+| colorSpace | ColorSpace | 是 | 色域模式。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
@@ -6505,7 +6769,7 @@ try {
 
 setWindowColorSpace(colorSpace:ColorSpace): Promise&lt;void&gt;
 
-设置当前窗口为广色域模式或默认色域模式，使用Promise异步回调。
+设置当前窗口的色域模式，使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -6515,7 +6779,7 @@ setWindowColorSpace(colorSpace:ColorSpace): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| colorSpace | ColorSpace | 是 | 设置色域模式。 |
+| colorSpace | ColorSpace | 是 | 色域模式。 |
 
 
 **返回值：**
@@ -6560,7 +6824,7 @@ try {
 
 getWindowColorSpace(): ColorSpace
 
-获取当前窗口色域模式。
+获取当前窗口的色域模式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -6669,8 +6933,8 @@ setWindowShadowEnabled(enable: boolean): Promise&lt;void&gt;
 
 **设备行为差异：**
 
- - 在HarmonyOS 6.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
- - 从HarmonyOS 6.1.0开始，该接口在2in1和Tablet设备中可正常调用，在Tablet设备时仅在开启[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由多窗模式)或[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#电脑模式)下生效，在其他设备中返回801错误码。
+ - 在HarmonyOS 6.1.0之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
+ - 从HarmonyOS 6.1.0开始，该接口在2in1和Tablet设备中可正常调用，在Tablet设备时仅在开启[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#free-multi-window-mode自由多窗模式)或[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#pc-mode电脑模式)下生效，在其他设备中返回801错误码。
 
 
 **需要权限：** ohos.permission.SET_WINDOW_TRANSPARENT
@@ -7946,8 +8210,8 @@ minimize(callback: AsyncCallback&lt;void&gt;): void
 
 此接口根据调用对象不同，实现不同的功能：
 
- - 当调用对象为主窗口时，实现最小化功能，可在Dock栏中还原，2in1 设备上可以使用[restore()](#restore14)进行还原。
- - 当调用对象为子窗口或全局悬浮窗时，实现隐藏功能，不可在Dock栏中还原，可以使用[showWindow()](#showwindow9)进行还原。
+ - 当调用对象为主窗口时，实现最小化功能，可在多任务中还原，在PC/2in1设备上可通过Dock栏或使用[restore()](#restore14)进行还原。
+ - 当调用对象为子窗口或全局悬浮窗时，实现隐藏功能，可以使用[showWindow()](#showwindow9)进行还原。
 
 
 该接口仅支持主窗口、子窗口或全局悬浮窗，其它窗口调用返回1300002错误码，使用callback异步回调。
@@ -7999,8 +8263,8 @@ minimize(): Promise&lt;void&gt;
 
 此接口根据调用对象不同，实现不同的功能：
 
- - 当调用对象为主窗口时，实现最小化功能，可在Dock栏中还原，2in1 设备上可以使用[restore()](#restore14)进行还原。
- - 当调用对象为子窗口或全局悬浮窗时，实现隐藏功能，不可在Dock栏中还原，可以使用[showWindow()](#showwindow9)进行还原。
+ - 当调用对象为主窗口时，实现最小化功能，可在多任务中还原，在PC/2in1设备上可通过Dock栏或使用[restore()](#restore14)进行还原。
+ - 当调用对象为子窗口或全局悬浮窗时，实现隐藏功能，可以使用[showWindow()](#showwindow9)进行还原。
 
 
 该接口仅支持主窗口、子窗口或全局悬浮窗，其它窗口调用返回1300002错误码，使用Promise异步回调。
@@ -8054,7 +8318,7 @@ maximize(presentation?: MaximizePresentation): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错。
 
 **参数：**
 
@@ -8127,7 +8391,7 @@ maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise&
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错。
 
 **参数：**
 
@@ -8193,7 +8457,7 @@ export default class EntryAbility extends UIAbility {
 
 setResizeByDragEnabled(enable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
-禁止/使能通过拖拽方式缩放主窗口或启用装饰的子窗口的功能。使用callback异步回调。
+禁止/使能通过拖拽方式缩放主窗口或启用标题栏的子窗口的功能。使用callback异步回调。
 
 > [!NOTE]
 > 针对主窗口，仅在 自由窗口 状态下生效，非自由窗口状态下不生效不报错。
@@ -8248,7 +8512,7 @@ try {
 
 setResizeByDragEnabled(enable: boolean): Promise&lt;void&gt;
 
-禁止/使能通过拖拽方式缩放主窗口或启用装饰的子窗口的功能。使用Promise异步回调。
+禁止/使能通过拖拽方式缩放主窗口或启用标题栏的子窗口的功能。使用Promise异步回调。
 
 > [!NOTE]
 > 针对主窗口，仅在 自由窗口 状态下生效，非自由窗口状态下不生效不报错。
@@ -8316,7 +8580,7 @@ recover(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **返回值：**
 
@@ -8381,7 +8645,7 @@ restore(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备、其他设备的[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#pc-mode电脑模式)下可正常调用，在其他设备和其他模式下返回801错误码。
 
 **返回值：**
 
@@ -8757,11 +9021,11 @@ setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise&lt;Win
 
 **设备行为差异：**
 
-在HarmonyOS 5.1.1之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 5.1.1之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-从HarmonyOS 5.1.1开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+从HarmonyOS 5.1.1开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在Phone、Tablet、PC/2in1设备可正常调用，在其他设备调用返回801错误码。主窗在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效。
+从HarmonyOS 6.1.0开始，该接口在Phone、Tablet、PC/2in1设备可正常调用，在其他设备调用返回801错误码。主窗在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效。
 
 **参数：**
 
@@ -8887,6 +9151,78 @@ try {
 
 
 
+#### setWindowMaskWithAlpha
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setWindowMaskWithAlpha(windowMask: Uint8Array, maskWidth: number, maskHeight: number): Promise&lt;void&gt;
+
+通过按像素顺序排列的Alpha数组设置异形窗口的掩码，像素顺序以窗口左上角为像素起点，同行内从左到右依次排列，从上至下逐行排列。使用Promise异步回调。异形窗口为非常规形状的窗口，掩码用于描述异形窗口的形状。此接口仅限子窗和全局悬浮窗可用。
+
+当异形窗口大小发生变化时，实际的显示内容为掩码大小和窗口大小的交集部分。
+
+异形窗口蒙层设置不会影响窗口可见状态（可通过[on('windowVisibilityChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowvisibilitychange11)或[on('occlusionStateChanged')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onocclusionstatechanged22)监听）计算。即使掩码全部设置为0，窗口仍可见，窗口依然按照其原本矩形大小参与可见状态计算。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| windowMask | Uint8Array | 是 | 异形窗口的掩码，为按像素顺序排列的Alpha数组，该数组中每个元素代表对应像素的透明度，取值范围[0, 255]，0表示完全透明，255表示完全不透明，数组长度等于maskWidth乘以maskHeight。 |
+| maskWidth | number | 是 | 表示异形窗口掩码的宽度，必须等于窗口宽度。 |
+| maskHeight | number | 是 | 表示异形窗口掩码的高度，必须等于窗口高度。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 1300002 | This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Internal task error. |
+| 1300003 | This window manager service works abnormally. |
+| 1300004 | Unauthorized operation. Possible cause: Invalid window type. Only subwindows and float windows are supported. |
+| 1300016 | Parameter error. Possible cause: 1. The maskWidth is not equal to the window width or the maskHeight is not equal to the window height. 2. The length of windowMask is not equal to maskWidth multiplied by maskHeight. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+try {
+  let maskWidth = windowClass.getWindowProperties().windowRect.width;
+  let maskHeight = windowClass.getWindowProperties().windowRect.height;
+  let windowMask = new Uint8Array(maskWidth * maskHeight);
+  for (let i = 0 ; i < maskHeight; i++) {
+    for (let j = 0 ; j < maskWidth; j++) {
+      windowMask[i * maskWidth + j] = (i + j) > (maskWidth + maskHeight) / 2 ? 255 : 0;
+    }
+  }
+  windowClass.setWindowMaskWithAlpha(windowMask, maskWidth, maskHeight).then(() => {
+    console.info('Succeeded in setting the window mask.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to set the window mask. Cause code: ${err.code}, message: ${err.message}`);
+  });
+} catch (exception) {
+  console.error(`Failed to set the window mask. Cause code: ${exception.code}, message: ${exception.message}`);
+}
+```
+
+
+
 #### clearWindowMask24+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8944,6 +9280,76 @@ try {
   });
 } catch (exception) {
   console.error(`Failed to set or clear the window mask. Cause code: ${exception.code}, message: ${exception.message}`);
+}
+```
+
+
+
+#### setTouchableAreas
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setTouchableAreas(rects: Array&lt;Rect&gt;): Promise&lt;void&gt;
+
+设置当前窗口的可触摸区域，使用Promise异步回调。
+
+默认情况下，整个窗口区域都是可触摸的；可触摸区域外的触摸事件将被透传至下层。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**需要权限：** ohos.permission.SET_WINDOW_TOUCH_AREAS
+
+**设备行为差异：**
+
+在PC/2in1设备、其他设备的[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#pc-mode电脑模式)下，当窗口的大小或位置发生变化后，通过该接口设置的可触摸区域不会被重置；在其他设备和其他模式下，当窗口的大小或位置发生变化后，通过该接口设置的可触摸区域会被重置，需调用此接口重新设置。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| rects | Array&lt;Rect&gt; | 是 | 窗口可触摸区域。可触摸区域最大个数不能超过10个，否则抛错误码1300016，且范围不能超出窗口区域。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission verification failed. The application does not have the permission required or a non-system application calls the API. |
+| 1300002 | This window state is abnormal. |
+| 1300003 | This window manager service works abnormally. |
+| 1300016 | Parameter error. Possible cause: Invalid parameter range. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+const touchableRects: Array<window.Rect> = [
+  { left: 100, top: 100, width: 200, height: 200 },
+  { left: 0, top: 50, width: 150, height: 200 }
+];
+try {
+  windowClass.setTouchableAreas(touchableRects).then(() => {
+    console.info('Succeeded in setting the touchable areas.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to set the touchable areas. Cause code: ${err.code}, message: ${err.message}`);
+  });
+} catch (exception) {
+  console.error(`Failed to set touchable areas. Cause code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
@@ -9061,7 +9467,7 @@ getWindowDecorVisible(): boolean
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **返回值：**
 
@@ -9112,18 +9518,18 @@ setWindowTitle(titleName: string): Promise&lt;void&gt;
  - 对于主窗口：
 
   
-本接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；
- - 在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；
- - 在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回1300002或801错误码。
+本接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；
+ - 在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；
+ - 在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回1300002或801错误码。
 
-      - 对于显示装饰栏的子窗口（即创建子窗口时设置[SubWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)中的decorEnabled为true）：
+      - 对于显示标题栏的子窗口（即创建子窗口时设置[SubWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)中的decorEnabled为true）：
 
   
-在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；
- - 在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；
- - 在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；
+ - 在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；
+ - 在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
-      - 对于不显示装饰栏的子窗口（即创建子窗口时设置[SubWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)中的decorEnabled为false），调用本接口将返回1300002或801错误码。
+      - 对于不显示标题栏的子窗口（即创建子窗口时设置[SubWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)中的decorEnabled为false），调用本接口将返回1300002或801错误码。
 
 
 **参数：**
@@ -9182,7 +9588,7 @@ setWindowTitleMoveEnabled(enabled: boolean): void
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
@@ -9236,9 +9642,9 @@ setSubWindowModal(isModal: boolean): Promise&lt;void&gt;
 
 设置子窗的模态属性是否启用，使用Promise异步回调。
 
-子窗口调用该接口时，设置子窗口模态属性是否启用。启用子窗口模态属性后，其父级窗口不能响应用户操作，直到子窗口关闭或者子窗口的模态属性被禁用。
+启用子窗口模态属性后，其父级窗口不能响应用户操作，直到子窗口关闭或者子窗口的模态属性被禁用。
 
-子窗口之外的窗口调用该接口时，会报错。
+非[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)支持调用。[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)调用该接口不生效也不报错。子窗之外的窗口调用该接口时会返回1300004错误码。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -9315,15 +9721,15 @@ export default class EntryAbility extends UIAbility {
 
 setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise&lt;void&gt;
 
-设置子窗的模态类型，使用Promise异步回调。
+设置子窗的模态属性是否启用，并设置其模态类型，使用Promise异步回调。
 
-当子窗口模态类型为模窗口子窗时，其父级窗口不能响应用户操作，直到子窗口关闭或者子窗口的模态类型被禁用。
+当子窗口模态类型为[WINDOW_MODALITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#modalitytype14)时，其父级窗口不能响应用户操作，直到子窗口关闭或者子窗口的模态类型被禁用。
 
-当子窗口模态类型为模应用子窗时，其父级窗口与该应用其他实例的窗口不能响应用户操作，直到子窗口关闭或者子窗口的模态类型被禁用。
+当子窗口模态类型为[APPLICATION_MODALITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#modalitytype14)时，其父级窗口与该应用其他实例的窗口不能响应用户操作，直到子窗口关闭或者子窗口的模态类型被禁用。
 
 此接口仅支持设置子窗口模态类型，当需要禁用子窗口模态属性时，建议使用[setSubWindowModal12+](#setsubwindowmodal12)。
 
-子窗口之外的窗口调用该接口时，会报错。
+非[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)支持调用。[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)调用该接口不生效也不报错。子窗之外的窗口调用该接口时会返回1300004错误码。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -9333,7 +9739,7 @@ setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise&lt;void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isModal | boolean | 是 | 设置子窗口模态属性是否启用，true为启用，false为不启用。当前仅支持设置为true。 |
+| isModal | boolean | 是 | 设置子窗口模态属性是否启用，true为启用，false为不启用。当前仅支持设置为true，为false将返回401错误码。 |
 | modalityType | ModalityType | 是 | 子窗口模态类型。 |
 
 
@@ -9411,7 +9817,7 @@ setWindowDecorHeight(height: number): void
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效。
 
 **参数：**
 
@@ -9453,7 +9859,7 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 setDecorButtonStyle(dectorStyle: DecorButtonStyle): void
 
-设置装饰栏按钮样式，仅对主窗和子窗生效。如果使用Stage模型，该接口需要在[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)调用生效后使用。
+设置标题栏按钮样式，仅对主窗和子窗生效。如果使用Stage模型，该接口需要在[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)调用生效后使用。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -9461,15 +9867,15 @@ setDecorButtonStyle(dectorStyle: DecorButtonStyle): void
 
 **设备行为差异：**
 
-在HarmonyOS 5.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 5.1.0之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-从HarmonyOS 5.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+从HarmonyOS 5.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dectorStyle | DecorButtonStyle | 是 | 要设置的装饰栏按钮样式。 |
+| dectorStyle | DecorButtonStyle | 是 | 要设置的标题栏按钮样式。 |
 
 
 **错误码：**
@@ -9524,7 +9930,7 @@ export default class EntryAbility extends UIAbility {
 
 getDecorButtonStyle(): DecorButtonStyle
 
-获取装饰栏按钮样式，仅对主窗和子窗生效。
+获取标题栏按钮样式，仅对主窗和子窗生效。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -9532,9 +9938,9 @@ getDecorButtonStyle(): DecorButtonStyle
 
 **设备行为差异：**
 
-在HarmonyOS 5.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 5.1.0之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-从HarmonyOS 5.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+从HarmonyOS 5.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 从HarmonyOS 6.1.0开始，该接口在各设备均可正常调用。
 
@@ -9542,7 +9948,7 @@ getDecorButtonStyle(): DecorButtonStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| DecorButtonStyle | 返回当前窗口装饰栏上的按钮样式，窗口装饰按钮区域位于窗口的右上角。 |
+| DecorButtonStyle | 返回当前窗口标题栏上的按钮样式，窗口标题栏按钮区域位于窗口的右上角。 |
 
 
 **错误码：**
@@ -9584,7 +9990,7 @@ getWindowDecorHeight(): number
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错。
+**设备行为差异：** 该接口在支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错。
 
 **返回值：**
 
@@ -9624,7 +10030,7 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 getTitleButtonRect(): TitleButtonRect
 
-获取主窗口或启用装饰的子窗口的标题栏上的最小化、最大化、关闭按钮矩形区域。
+获取主窗口或启用标题栏的子窗口的标题栏上的最小化、最大化、关闭按钮矩形区域。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -9774,7 +10180,12 @@ try {
 
 createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise&lt;Window&gt;
 
-创建主窗口、子窗口或全局悬浮窗下的子窗口，使用Promise异步回调。
+创建子窗口，使用Promise异步回调。
+
+ - 可以在主窗口下创建子窗口（包括[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)、非独立子窗）。
+ - 可以在子窗口下创建子窗口（只能创建非独立子窗，否则返回1300004错误码）。
+ - 可以在全局悬浮窗下创建子窗口（只能创建非独立子窗，否则返回1300004错误码）。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -9782,7 +10193,7 @@ createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise&lt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回undefined。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回undefined。
 
 **参数：**
 
@@ -9848,13 +10259,15 @@ setParentWindow(windowId: number): Promise&lt;void&gt;
 
 如果该子窗口处于获焦状态，且新的父窗口的子窗口存在层级更高的模态子窗口，则焦点会转移给该模态子窗口。
 
+针对[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)，仅支持迁移至主窗口下，否则返回1300009错误码。
+
 **系统能力：** SystemCapability.Window.SessionManager
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 6.1.0之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -9919,7 +10332,7 @@ getParentWindow(): Window
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 6.1.0之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
 从HarmonyOS 6.1.0开始，该接口在各设备均可正常调用。
 
@@ -9965,13 +10378,15 @@ try {
 
 setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void
 
-设置主窗标题栏上的最大化、最小化、关闭按钮是否可见。
+设置标题栏上的最大化、最小化、关闭按钮是否可见。
+
+仅支持主窗和[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)，其他窗口调用时将返回1300004错误码。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
@@ -10045,7 +10460,7 @@ setWindowTopmost(isWindowTopmost: boolean): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **需要权限：** ohos.permission.WINDOW_TOPMOST
 
@@ -10144,6 +10559,8 @@ raiseToAppTop(): Promise&lt;void&gt;
 应用子窗口调用，提升应用子窗口到顶层，只在当前应用同一个父窗口下的相同类型子窗范围内生效，对于自定义了zLevel属性的子窗口，只在当前应用同一个父窗口下相同zLevel值的子窗范围内生效。使用Promise异步回调。
 
 使用该接口需要先创建子窗口，并确保该子窗口调用[showWindow()](#showwindow9)并执行完毕。
+
+非[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)支持调用。[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)调用该接口不生效也不报错。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
 
@@ -10575,7 +10992,7 @@ startMoving(): Promise&lt;void&gt;
 
 开始移动窗口，使用Promise异步回调。
 
-[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下，对系统窗口、应用主窗口、应用子窗口、全局悬浮窗和模态窗口生效。非自由窗口状态下，仅对系统窗口、应用子窗口、全局悬浮窗和模态窗口生效，应用主窗口调用该接口返回801或1300004错误码。
+[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下，对系统窗口、应用主窗口、应用子窗口、全局悬浮窗和模态窗口生效。非自由窗口状态下，仅对系统窗口、应用子窗口、全局悬浮窗和模态窗口生效，应用主窗口调用该接口返回801或1300004错误码。
 
 仅在[onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)事件（其中，事件类型必须为TouchType.Down）的回调方法中调用此接口才会有移动效果，成功调用此接口后，窗口将跟随鼠标或触摸点移动。
 
@@ -10674,7 +11091,7 @@ startMoving(offsetX: number, offsetY: number): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -10766,7 +11183,7 @@ stopMoving(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -11203,7 +11620,7 @@ setWindowShadowRadius(radius: number): void
 
 **设备行为差异：**
 
-在HarmonyOS 5.1.0之前，该接口在2in1设备、Tablet设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 5.1.0之前，该接口在PC/2in1设备、Tablet设备中可正常调用，在其他设备中返回801错误码。
 
 从HarmonyOS 5.1.0开始，该接口在Phone设备、Tablet设备和2in1设备中可正常调用，在其他设备中返回801错误码。
 
@@ -11256,7 +11673,7 @@ setWindowCornerRadius(cornerRadius: number): Promise&lt;void&gt;
 
 **设备行为差异：**
 
-在HarmonyOS 6.0.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+在HarmonyOS 6.0.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 从HarmonyOS 6.0.0开始，该接口在Phone设备、Tablet设备和2in1设备下可正常调用，在其他设备中返回801错误码。
 
@@ -11320,7 +11737,7 @@ getWindowCornerRadius(): number
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 从HarmonyOS 6.1.0开始，该接口在Phone、Tablet、PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
@@ -11479,7 +11896,7 @@ setFollowParentMultiScreenPolicy(enabled: boolean): Promise&lt;void&gt;
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 从HarmonyOS 6.1.0开始，该接口在Phone、Tablet、PC/2in1设备可正常调用，在其他设备调用返回801错误码。
 
@@ -11541,7 +11958,7 @@ setFollowParentWindowLayoutEnabled(enabled: boolean): Promise&lt;void&gt;
 
 设置子窗或模态窗口（即WindowType为TYPE_DIALOG的窗口）的布局信息（position和size）是否跟随主窗，使用Promise异步回调。
 
-1、只支持主窗的一级子窗或模态窗口使用该接口。
+1、只支持主窗的一级子窗或模态窗口使用该接口。其中非[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)支持调用。[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)调用此接口时，将返回1300004错误码。
 
 2、当子窗或模态窗口调用该接口后，立即使其布局信息与主窗完全一致并保持，除非传入false再次调用该接口，否则效果将持续。
 
@@ -11635,13 +12052,15 @@ setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor
 
 该接口调用生效后，[setFollowParentWindowLayoutEnabled()](#setfollowparentwindowlayoutenabled17)接口调用不生效。
 
+[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)调用此接口时，将返回1300004错误码。
+
 **系统能力：** SystemCapability.Window.SessionManager
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备（Phone设备除外，在Phone设备上调用该接口会返回801错误码）上可正常调用；在支持并不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不报错不生效；在不支持自由窗口的设备中返回801错误码。
+在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备（Phone设备除外，在Phone设备上调用该接口会返回801错误码）上可正常调用；在支持并不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不报错不生效；在不支持自由窗口的设备中返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在Phone、Tablet、2in1设备上可调用且不报错（当设备处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态时可正常调用此接口并生效；当设备不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态时调用此接口不生效不报错，设备切换到自由窗口状态时生效）；在其他设备中调用返回801错误码。
+从HarmonyOS 6.1.0开始，该接口在Phone、Tablet、2in1设备上可调用且不报错（当设备处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态时可正常调用此接口并生效；当设备不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态时调用此接口不生效不报错，设备切换到自由窗口状态时生效）；在其他设备中调用返回801错误码。
 
 **参数：**
 
@@ -11724,7 +12143,7 @@ setWindowTransitionAnimation(transitionType: WindowTransitionType, animation: Tr
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用，在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用，在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
@@ -11815,7 +12234,7 @@ getWindowTransitionAnimation(transitionType: WindowTransitionType): TransitionAn
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用，在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用，在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
@@ -11886,6 +12305,8 @@ setSubWindowZLevel(zLevel: number): Promise&lt;void&gt;
 设置当前子窗口层级级别，设置了模态属性的子窗不支持。使用Promise异步回调。
 
 通过该接口改变子窗口的显示层级时，不会发生焦点切换。推荐使用[shiftAppWindowFocus()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-f#windowshiftappwindowfocus11)进行焦点切换。
+
+非[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)支持调用。[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)调用该接口不生效也不报错。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -11964,6 +12385,8 @@ getSubWindowZLevel(): number
 
 获取当前子窗口层级级别。不支持主窗、系统窗调用。
 
+非[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)支持调用。[独立子窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#辅助窗口)调用该接口不生效也不报错，返回默认值0。
+
 **系统能力：** SystemCapability.Window.SessionManager
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -12025,7 +12448,7 @@ export default class EntryAbility extends UIAbility {
 
 isInFreeWindowMode(): boolean
 
-查询当前窗口是否为[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)模式。
+查询当前窗口是否为[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)模式。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
 
@@ -12160,6 +12583,18 @@ convertOrientationAndRotation(from: RotationInfoType, to: RotationInfoType, valu
 提供窗口方向、屏幕方向和屏幕角度互相转换的能力。
 
 窗口方向指窗口所在屏幕的方向，以窗口模块对横竖屏的定义方式表示，窗口的方向分别用0、1、2和3表示竖屏、反向横屏、反向竖屏和横屏四个方向，其对横竖屏的定义与[RotationChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rotationchangeinfo19)和枚举类[Orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#orientation9)中对横竖屏的定义一致，如Orientation设置为LANDSCAPE时，窗口方向为横屏。
+
+> [!NOTE]
+> 示意图和表格展示了直板机窗口方向、屏幕方向和屏幕角度的关系。
+
+
+| 屏幕角度 | 屏幕方向 | 窗口方向 |
+| --- | --- | --- |
+| 0 | PORTRAIT | PORTRAIT |
+| 90 | LANDSCAPE | LANDSCAPE_INVERTED |
+| 180 | PORTRAIT_INVERTED | PORTRAIT_INVERTED |
+| 270 | LANDSCAPE_INVERTED | LANDSCAPE |
+
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -12298,11 +12733,11 @@ export default class EntryAbility extends UIAbility {
 
 setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback&lt;void&gt;): void
 
-设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果，使用callback异步回调。
+设置主窗口状态栏、导航条或者三键导航的可见模式，状态栏、导航条或者三键导航通过status控制，navigation参数无效果，使用callback异步回调。
 
 从API version 12开始，该接口在2in1设备上调用不生效，其他设备在分屏模式（即窗口模式为window.WindowStatusType.SPLIT_SCREEN）、自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING）、自由多窗模式（可点击设备控制中心中的自由多窗按钮开启）下调用不会立刻生效，只有进入全屏主窗口才会生效。
 
-调用生效后返回并不表示状态栏和底部导航区域的显示或隐藏已完成。子窗口调用后不生效。非全屏模式（自由悬浮窗口模式、分屏等场景）下配置不生效。
+调用生效后返回并不表示状态栏、导航条或者三键导航的显示或隐藏已完成。子窗口调用后不生效。非全屏模式（自由悬浮窗口模式、分屏等场景）下配置不生效。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 12开始废弃，建议使用Promise方式的 setWindowSystemBarEnable() 替代。
@@ -12316,7 +12751,7 @@ setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncC
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| names | Array<'status'\|'navigation'> | 是 | 设置窗口全屏模式时状态栏和底部导航区域是否显示。 例如，需全部显示，该参数设置为['status', 'navigation']；设置为[]，则不显示。 |
+| names | Array<'status'\|'navigation'> | 是 | 设置窗口全屏模式时状态栏和导航条或者三键导航是否显示。 例如，需全部显示，该参数设置为['status', 'navigation']；设置为[]，则不显示。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
@@ -12378,11 +12813,11 @@ export default class EntryAbility extends UIAbility {
 
 setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback&lt;void&gt;): void
 
-设置主窗口或子窗口的布局是否为沉浸式布局，使用callback异步回调。系统窗口调用不生效。
+设置主窗口或子窗口的布局是否为[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)，使用callback异步回调。系统窗口调用不生效。
 
-沉浸式布局生效时，布局不避让状态栏与底部导航区域，组件可能产生与其重叠的情况。
+沉浸式布局生效时，布局不避让状态栏与导航条或者三键导航，组件可能产生与其重叠的情况。
 
-非沉浸式布局生效时，布局避让状态栏与底部导航区域，组件不会与其重叠。
+非沉浸式布局生效时，布局避让状态栏与导航条或者三键导航，组件不会与其重叠。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 12开始废弃，建议使用Promise方式的 setWindowLayoutFullScreen() 替代。
@@ -12396,13 +12831,13 @@ setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback&l
 
 在HarmonyOS 5.0.2之前，该接口在所有设备中可正常调用。
 
-从HarmonyOS 5.0.2开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+从HarmonyOS 5.0.2开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isLayoutFullScreen | boolean | 是 | 窗口的布局是否为沉浸式布局（该沉浸式布局状态栏、底部导航区域仍然显示）。true表示沉浸式布局；false表示非沉浸式布局。 |
+| isLayoutFullScreen | boolean | 是 | 窗口的布局是否为沉浸式布局（该沉浸式布局状态栏、导航条或者三键导航仍然显示）。true表示沉浸式布局；false表示非沉浸式布局。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
@@ -12889,7 +13324,7 @@ getAvoidArea(type: AvoidAreaType, callback: AsyncCallback&lt;AvoidArea&gt;): voi
 
 主窗口/子窗口：
 
- - [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING）下，仅存在固定态软键盘（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_KEYBOARD）类型的避让区域。
+ - [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING）下，仅存在固定态软键盘（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_KEYBOARD）类型的避让区域。
  - 主窗口在非自由窗口状态的自由悬浮窗口模式下，仅存在系统栏（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_SYSTEM）类型的避让区域。
  - 主窗口在其余场景下，仅当在非自由悬浮窗口模式下或设备类型为Phone和Tablet，才能通过此接口获取计算后的避让区域，否则获取的避让区域为空。
  - 子窗口在非自由窗口状态或非自由悬浮窗口模式下，仅当窗口的位置和大小与主窗口一致时，才能通过此接口获取计算后的避让区域，否则获取的避让区域为空。
@@ -12942,7 +13377,7 @@ getAvoidArea(type: AvoidAreaType): Promise&lt;AvoidArea&gt;
 
 主窗口/子窗口：
 
- - [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING）下，仅存在固定态软键盘（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_KEYBOARD）类型的避让区域。
+ - [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING）下，仅存在固定态软键盘（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_KEYBOARD）类型的避让区域。
  - 主窗口在非自由窗口状态的自由悬浮窗口模式下，仅存在系统栏（[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)为TYPE_SYSTEM）类型的避让区域。
  - 主窗口在其余场景下，仅当在非自由悬浮窗口模式下或设备类型为Phone和Tablet，才能通过此接口获取计算后的避让区域，否则获取的避让区域为空。
  - 子窗口在非自由窗口状态或非自由悬浮窗口模式下，仅当窗口的位置和大小与主窗口一致时，才能通过此接口获取计算后的避让区域，否则获取的避让区域为空。
@@ -12997,9 +13432,9 @@ setFullScreen(isFullScreen: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置主窗口或子窗口的布局是否为全屏布局，使用callback异步回调。
 
-全屏布局生效时，布局不避让状态栏与底部导航区域，组件可能产生与其重叠的情况。
+全屏布局生效时，布局不避让状态栏与导航条或者三键导航，组件可能产生与其重叠的情况。
 
-非全屏布局生效时，布局避让状态栏与底部导航区域，组件不会与其重叠。
+非全屏布局生效时，布局避让状态栏与导航条或者三键导航，组件不会与其重叠。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议联合使用 setWindowSystemBarEnable() 和 setWindowLayoutFullScreen() 替代实现全屏。
@@ -13011,7 +13446,7 @@ setFullScreen(isFullScreen: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isFullScreen | boolean | 是 | 是否设为全屏布局（该全屏布局影响状态栏、底部导航区域显示）。true表示全屏；false表示非全屏。 |
+| isFullScreen | boolean | 是 | 是否设为全屏布局（该全屏布局影响状态栏、导航条或者三键导航显示）。true表示全屏；false表示非全屏。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
@@ -13059,9 +13494,9 @@ setFullScreen(isFullScreen: boolean): Promise&lt;void&gt;
 
 设置主窗口或子窗口的布局是否为全屏布局，使用Promise异步回调。
 
-全屏布局生效时，布局不避让状态栏与底部导航区域，组件可能产生与其重叠的情况。
+全屏布局生效时，布局不避让状态栏与导航条或者三键导航，组件可能产生与其重叠的情况。
 
-非全屏布局生效时，布局避让状态栏与底部导航区域，组件不会与其重叠。
+非全屏布局生效时，布局避让状态栏与导航条或者三键导航，组件不会与其重叠。
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议联合使用 setWindowSystemBarEnable() 和 setWindowLayoutFullScreen() 替代实现全屏。
@@ -13073,7 +13508,7 @@ setFullScreen(isFullScreen: boolean): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isFullScreen | boolean | 是 | 是否设为全屏布局（该全屏布局影响状态栏、底部导航区域显示）。true表示全屏；false表示非全屏。 |
+| isFullScreen | boolean | 是 | 是否设为全屏布局（该全屏布局影响状态栏、导航条或者三键导航显示）。true表示全屏；false表示非全屏。 |
 
 
 **返回值：**
@@ -13123,11 +13558,11 @@ export default class EntryAbility extends UIAbility {
 
 setLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback&lt;void&gt;): void
 
-设置主窗口或子窗口的布局是否为沉浸式布局，使用callback异步回调。
+设置主窗口或子窗口的布局是否为[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)，使用callback异步回调。
 
-沉浸式布局生效时，布局不避让状态栏与底部导航区域，组件可能产生与其重叠的情况。
+沉浸式布局生效时，布局不避让状态栏与导航条或者三键导航，组件可能产生与其重叠的情况。
 
-非沉浸式布局生效时，布局避让状态栏与底部导航区域，组件不会与其重叠。
+非沉浸式布局生效时，布局避让状态栏与导航条或者三键导航，组件不会与其重叠。
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 setWindowLayoutFullScreen() 替代。
@@ -13139,7 +13574,7 @@ setLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback&lt;void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isLayoutFullScreen | boolean | 是 | 窗口的布局是否为沉浸式布局（该沉浸式布局不影响状态栏、底部导航区域显示）。true表示沉浸式布局；false表示非沉浸式布局。 |
+| isLayoutFullScreen | boolean | 是 | 窗口的布局是否为沉浸式布局（该沉浸式布局不影响状态栏、导航条或者三键导航显示）。true表示沉浸式布局；false表示非沉浸式布局。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
@@ -13185,11 +13620,11 @@ export default class EntryAbility extends UIAbility {
 
 setLayoutFullScreen(isLayoutFullScreen: boolean): Promise&lt;void&gt;
 
-设置主窗口或子窗口的布局是否为沉浸式布局，使用Promise异步回调。
+设置主窗口或子窗口的布局是否为[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)，使用Promise异步回调。
 
-沉浸式布局生效时，布局不避让状态栏与底部导航区域，组件可能产生与其重叠的情况。
+沉浸式布局生效时，布局不避让状态栏与导航条或者三键导航，组件可能产生与其重叠的情况。
 
-非沉浸式布局生效时，布局避让状态栏与底部导航区域，组件不会与其重叠。
+非沉浸式布局生效时，布局避让状态栏与导航条或者三键导航，组件不会与其重叠。
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 setWindowLayoutFullScreen() 替代。
@@ -13201,7 +13636,7 @@ setLayoutFullScreen(isLayoutFullScreen: boolean): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isLayoutFullScreen | boolean | 是 | 窗口的布局是否为沉浸式布局（该沉浸式布局不影响状态栏、底部导航区域显示）。true表示沉浸式布局；false表示非沉浸式布局。 |
+| isLayoutFullScreen | boolean | 是 | 窗口的布局是否为沉浸式布局（该沉浸式布局不影响状态栏、导航条或者三键导航显示）。true表示沉浸式布局；false表示非沉浸式布局。 |
 
 
 **返回值：**
@@ -13251,11 +13686,11 @@ export default class EntryAbility extends UIAbility {
 
 setSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback&lt;void&gt;): void
 
-设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果，使用callback异步回调。
+设置主窗口状态栏、导航条或者三键导航的可见模式，状态栏、导航条或者三键导航通过status控制，navigation参数无效果，使用callback异步回调。
 
 从API version 12开始，该接口在2in1设备上调用不生效，其他设备在分屏模式（即窗口模式为window.WindowStatusType.SPLIT_SCREEN）、自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING）、自由多窗模式（可点击设备控制中心中的自由多窗按钮开启）下调用不会立刻生效，只有进入全屏主窗口才会生效。
 
-调用生效后返回并不表示状态栏和底部导航区域的显示或隐藏已完成。子窗口调用后不生效。非全屏模式（自由悬浮窗口模式、分屏等场景）下配置不生效。
+调用生效后返回并不表示状态栏、导航条或者三键导航的显示或隐藏已完成。子窗口调用后不生效。非全屏模式（自由悬浮窗口模式、分屏等场景）下配置不生效。
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 setWindowSystemBarEnable() 替代。
@@ -13267,7 +13702,7 @@ setSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallbac
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| names | Array<'status'\|'navigation'> | 是 | 设置窗口全屏模式时状态栏和底部导航区域是否显示。 例如，需全部显示，该参数设置为['status', 'navigation']；设置为[]，则不显示。 |
+| names | Array<'status'\|'navigation'> | 是 | 设置窗口全屏模式时状态栏和导航条或者三键导航是否显示。 例如，需全部显示，该参数设置为['status', 'navigation']；设置为[]，则不显示。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
@@ -13314,11 +13749,11 @@ export default class EntryAbility extends UIAbility {
 
 setSystemBarEnable(names: Array<'status' | 'navigation'>): Promise&lt;void&gt;
 
-设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果，使用Promise异步回调。
+设置主窗口状态栏、导航条或者三键导航的可见模式，状态栏、导航条或者三键导航通过status控制，navigation参数无效果，使用Promise异步回调。
 
 从API version 12开始，该接口在2in1设备上调用不生效，其他设备在分屏模式（即窗口模式为window.WindowStatusType.SPLIT_SCREEN）、自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING）、自由多窗模式（可点击设备控制中心中的自由多窗按钮开启）下调用不会立刻生效，只有进入全屏主窗口才会生效。
 
-调用生效后返回并不表示状态栏和底部导航区域的显示或隐藏已完成。子窗口调用后不生效。非全屏模式（自由悬浮窗口模式、分屏等场景）下配置不生效。
+调用生效后返回并不表示状态栏、导航条或者三键导航的显示或隐藏已完成。子窗口调用后不生效。非全屏模式（自由悬浮窗口模式、分屏等场景）下配置不生效。
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 setWindowSystemBarEnable() 替代。
@@ -13330,7 +13765,7 @@ setSystemBarEnable(names: Array<'status' | 'navigation'>): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| names | Array<'status'\|'navigation'> | 是 | 设置窗口全屏模式时状态栏和底部导航区域是否显示。 例如，需全部显示，该参数设置为['status', 'navigation']；设置为[]，则不显示。 |
+| names | Array<'status'\|'navigation'> | 是 | 设置窗口全屏模式时状态栏和导航条或者三键导航是否显示。 例如，需全部显示，该参数设置为['status', 'navigation']；设置为[]，则不显示。 |
 
 
 **返回值：**
@@ -13823,7 +14258,7 @@ promise.then((data) => {
 
 setColorSpace(colorSpace:ColorSpace, callback: AsyncCallback&lt;void&gt;): void
 
-设置当前窗口为广色域模式或默认色域模式，使用callback异步回调。
+设置当前窗口的色域模式，使用callback异步回调。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 setWindowColorSpace() 替代。
@@ -13835,7 +14270,7 @@ setColorSpace(colorSpace:ColorSpace, callback: AsyncCallback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| colorSpace | ColorSpace | 是 | 设置色域模式。 |
+| colorSpace | ColorSpace | 是 | 色域模式。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
@@ -13862,7 +14297,7 @@ windowClass.setColorSpace(window.ColorSpace.WIDE_GAMUT, (err: BusinessError) => 
 
 setColorSpace(colorSpace:ColorSpace): Promise&lt;void&gt;
 
-设置当前窗口为广色域模式或默认色域模式，使用Promise异步回调。
+设置当前窗口的色域模式，使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 setWindowColorSpace() 替代。
@@ -13874,7 +14309,7 @@ setColorSpace(colorSpace:ColorSpace): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| colorSpace | ColorSpace | 是 | 设置色域模式。 |
+| colorSpace | ColorSpace | 是 | 色域模式。 |
 
 
 **返回值：**

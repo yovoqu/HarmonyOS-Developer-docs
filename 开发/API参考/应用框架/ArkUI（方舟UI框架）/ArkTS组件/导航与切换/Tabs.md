@@ -1,6 +1,6 @@
 # Tabs
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,6 +50,8 @@ Tabs(options?: TabsOptions)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Tabs组件参数，设置Tabs的页签位置，当前显示页签的索引，Tabs控制器和TabBar的[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -148,7 +150,7 @@ barMode(value: BarMode, options?: ScrollableBarModeOptions)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | BarMode | 是 | 布局模式。 默认值：BarMode.Fixed |
-| options10+ | ScrollableBarModeOptions | 否 | Scrollable模式下的TabBar的布局样式。 说明： 仅Scrollable且水平模式下有效。 |
+| options10+ | ScrollableBarModeOptions | 否 | Scrollable模式下的TabBar的布局样式。 说明： 仅Scrollable且水平模式下有效。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -162,6 +164,8 @@ barMode(value: BarMode.Fixed)
 设置TabBar布局模式为BarMode.Fixed。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -183,6 +187,8 @@ barMode(value: BarMode.Scrollable, options: ScrollableBarModeOptions)
 设置TabBar布局模式为BarMode.Scrollable。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -250,6 +256,8 @@ barHeight(height: Length, noMinHeightLimit: boolean)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -271,6 +279,8 @@ animationCurve(curve: Curve | ICurve)
 设置Tabs翻页动画曲线。常用曲线参考[Curve](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#curve)枚举说明，也可以通过[插值计算](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-curve)模块提供的接口创建自定义的插值曲线对象。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -322,6 +332,8 @@ animationMode(mode: Optional&lt;AnimationMode&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -364,6 +376,8 @@ divider(value: DividerStyle | null)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -384,6 +398,8 @@ fadingEdge(value: boolean)
 设置页签超过容器宽度时是否渐隐消失。建议配合[barBackgroundColor](#barbackgroundcolor10)属性一起使用，如果barBackgroundColor属性没有定义，会默认显示页签末端为白色的渐隐效果。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -406,6 +422,8 @@ barOverlap(value: boolean)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -426,6 +444,8 @@ barBackgroundColor(value: ResourceColor)
 设置TabBar的背景颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -452,6 +472,8 @@ barBackgroundBlurStyle(value: BlurStyle)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -472,6 +494,8 @@ barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions)
 为TabBar提供一种在背景和内容之间的模糊能力，通过枚举值的方式封装了不同的模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -494,6 +518,8 @@ barGridAlign(value: BarGridColumnOptions)
 以栅格化方式设置TabBar的可见区域。具体参见BarGridColumnOptions对象。仅水平模式下有效，[不适用于XS、XL和XXL设备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -520,6 +546,8 @@ edgeEffect(edgeEffect: Optional&lt;EdgeEffect&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -540,6 +568,8 @@ barBackgroundEffect(options: BackgroundEffectOptions)
 设置TabBar背景属性，包含背景模糊半径，亮度，饱和度，颜色等参数。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -562,6 +592,8 @@ pageFlipMode(mode: Optional&lt;PageFlipMode&gt;)
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -582,6 +614,8 @@ cachedMaxCount(count: number, mode: TabsCacheMode)
 设置子组件的最大缓存个数及缓存模式。未设置该属性时默认缓存所有子组件且缓存后不会释放。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -618,6 +652,35 @@ nestedScroll(value: TabsNestedScrollMode | undefined)
 
 
 
+#### barFloatingStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+barFloatingStyle(style: Optional&lt;FloatingTabBarStyle&gt;)
+
+设置TabBar悬浮样式。
+
+> [!NOTE]
+> 悬浮样式可以让TabBar以悬浮的方式显示在Tabs的底部。仅当同时满足属性 barOverlap 为true， vertical 为false， barPosition 为BarPosition.End时，该接口设置才有效。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| style | Optional&lt;FloatingTabBarStyle&gt; | 是 | TabBar的悬浮样式配置。 设置undefined时，取消悬浮样式，恢复默认样式。 |
+
+
+
+
 #### DividerStyle10+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -625,6 +688,8 @@ nestedScroll(value: TabsNestedScrollMode | undefined)
 分割线样式对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -645,6 +710,8 @@ nestedScroll(value: TabsNestedScrollMode | undefined)
 TabBar栅格化方式设置的对象，包括栅格模式下的column边距和间隔，以及小、中、大屏下，页签占用的columns数量。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -667,12 +734,102 @@ Scrollable模式下的TabBar的布局样式对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | margin | Dimension | 否 | 是 | Scrollable模式下的TabBar的左右边距（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞)。 |
 | nonScrollableLayoutStyle | LayoutStyle | 否 | 是 | Scrollable模式下不滚动时的页签排布方式。 默认值：LayoutStyle.ALWAYS_CENTER |
+
+
+
+
+#### FloatingTabBarWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+不同Tabs宽度下TabBar的宽度。
+
+> [!NOTE]
+> barWidth 生效优先级高于该接口，barWidth和该接口都没有生效时，TabBar宽度使用默认计算规则。 TabBar宽度默认计算规则如下表。子节点数量等于4个时，TabBar最大宽度为328vp。子节点数量大于等于5个时，TabBar最大宽度为360vp。Tabs宽度大于等于1140vp时，TabBar的宽高会放大到1.15倍。
+
+
+| 子节点数量 | Tabs宽度 | 计算规则 |
+| --- | --- | --- |
+| 小于等于2个 | 小于600vp | 固定值168vp。 |
+| 小于等于2个 | 大于等于600vp | 固定值184vp。 |
+| 3个 | 小于600vp | 固定值248vp。 |
+| 3个 | 大于等于600vp | 固定值272vp。 |
+| 大于等于4个 | 小于600vp | Tabs宽度 - 2 * barSideMargin。 |
+| 大于等于4个 | 大于等于600vp，小于840vp | Tabs宽度 - 2 * (barSideMargin + 12vp + TabBar高度)。 |
+| 大于等于4个 | 大于840vp | (Tabs宽度 / 2 - 2 * barSideMargin) * 2。 |
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| smallBarWidth | Length | 否 | 是 | Tabs宽度小于440vp时，TabBar的宽度。 |
+| mediumBarWidth | Length | 否 | 是 | Tabs宽度处于440vp到600vp之间，或宽度在600-840vp之间且高宽比小于0.8时，TabBar的宽度。 |
+| largeBarWidth | Length | 否 | 是 | Tabs宽度大于840vp，或宽度在600vp到840vp之间且高宽比大于0.8时，TabBar的宽度。 |
+
+
+
+
+#### UIMaterial
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type UIMaterial = import('../api/@ohos.arkui.uiMaterial').uiMaterial
+
+系统材质模块。在设置tabBar悬浮样式系统材质属性时使用其中的ImmersiveMaterial类型。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 类型 | 说明 |
+| --- | --- |
+| import('../api/@ohos.arkui.uiMaterial').uiMaterial | 系统材质模块。 |
+
+
+
+
+#### FloatingTabBarStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+TabBar悬浮样式。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| barWidth | FloatingTabBarWidth | 否 | 是 | 不同Tabs宽度下TabBar的宽度。宽度默认计算规则见FloatingTabBarWidth说明。 |
+| barSideMargin | Length | 否 | 是 | TabBar宽度默认计算规则中的左右边距。 Tabs宽度小于600vp时，默认值为16vp。Tabs宽度处于600vp到840vp时，默认值为24vp。Tabs宽度大于840vp时，默认值为32vp。 |
+| barBottomMargin | Length | 否 | 是 | TabBar距离Tabs底部的距离。默认值为28vp。 |
+| maskColor | ResourceColor | 否 | 是 | 蒙层的颜色。蒙层显示区域在纵向会基于蒙层的颜色进行透明度渐变显示，从下到上不透明度变小。浅色模式下默认值为#CCF1F3F5，显示为白色。深色模式下默认值为#99000000，显示为黑色。 |
+| maskHeight | Length | 否 | 是 | 蒙层的高度。蒙层显示上边缘默认比TabBar上边缘高16vp。 |
+| adaptToHandedness | boolean | 否 | 是 | 是否跟随操作手左右布局显示。 true表示跟随操作手左右布局显示；false表示不跟随操作手左右布局显示。 默认值：false |
+| systemMaterial | UIMaterial.ImmersiveMaterial | 否 | 是 | TabBar的背板沉浸式材质样式。 |
 
 
 
@@ -701,6 +858,8 @@ TabBar布局模式枚举。
 
 点击[TabBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#tabbar)页签时切换TabContent的动画形式枚举。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -722,6 +881,8 @@ TabBar布局模式枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -737,17 +898,19 @@ TabBar布局模式枚举。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type CommonModifier = CommonModifier
+type CommonModifier = import('../api/arkui/CommonModifier').CommonModifier
 
 作为Tabs组件的参数对象。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
-| CommonModifier | 设置TabBar的通用属性。 |
+| import('../api/arkui/CommonModifier').CommonModifier | 设置TabBar的通用属性。 |
 
 
 
@@ -759,6 +922,8 @@ type CommonModifier = CommonModifier
 子组件的缓存模式。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -843,6 +1008,8 @@ Tab页签点击后触发的事件。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -863,6 +1030,8 @@ onAnimationStart(handler: OnTabsAnimationStartCallback)
 切换动画开始时触发该回调。当[animationDuration](#animationduration)为0时动画关闭且[scrollable](#scrollable)为false时，不触发该回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -885,6 +1054,8 @@ onAnimationEnd(handler: OnTabsAnimationEndCallback)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -905,6 +1076,8 @@ onGestureSwipe(handler: OnTabsGestureSwipeCallback)
 在页面跟手滑动过程中，逐帧触发该回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -940,6 +1113,8 @@ customContentTransition(delegate: TabsCustomContentTransitionCallback)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -978,6 +1153,8 @@ onContentWillChange(handler: OnTabsContentWillChangeCallback)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1008,6 +1185,8 @@ onSelected(event: Callback&lt;number&gt;)
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1040,6 +1219,8 @@ onUnselected(event: Callback&lt;number&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1063,6 +1244,8 @@ onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1083,6 +1266,8 @@ type OnTabsAnimationStartCallback = (index: number, targetIndex: number, extraIn
 切换动画开始时触发的回调。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1107,6 +1292,8 @@ type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimationEvent)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1129,6 +1316,8 @@ type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimationEvent)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1150,6 +1339,8 @@ type TabsCustomContentTransitionCallback = (from: number, to: number) => TabCont
 自定义Tabs页面切换动画开始时触发的回调。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1180,6 +1371,8 @@ type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex: numbe
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1207,6 +1400,8 @@ Tabs组件动画相关信息集合。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1228,6 +1423,8 @@ Tabs自定义切换动画相关信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1248,6 +1445,8 @@ Tabs自定义切换动画执行过程中，返回给开发者的proxy对象。�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -1262,7 +1461,7 @@ Tabs自定义切换动画执行过程中，返回给开发者的proxy对象。�
 
 
 
-#### finishTransition
+#### finishTransition11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1273,6 +1472,8 @@ finishTransition(): void
 **卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1291,6 +1492,8 @@ Tabs滑动时触发的回调。
 
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1367,6 +1570,8 @@ preloadItems(indices: Optional<Array&lt;number&gt;>): Promise&lt;void&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1408,6 +1613,8 @@ setTabBarTranslate(translate: TranslateOptions): void
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1432,6 +1639,8 @@ setTabBarOpacity(opacity: number): void
 
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1525,7 +1734,7 @@ struct TabsExample {
 ```
 
 
-![](assets/Tabs/file-20260514164009755-3.gif)
+![](assets/Tabs/file-20260514164009755-5.gif)
 
 
 
@@ -1647,7 +1856,7 @@ struct TabsExample6 {
 ```
 
 
-![](assets/Tabs/file-20260514164009755-4.gif)
+![](assets/Tabs/file-20260514164009755-6.gif)
 
 
 
@@ -1728,7 +1937,7 @@ struct TabsExample {
 ```
 
 
-![](assets/Tabs/file-20260514164009755-5.gif)
+![](assets/Tabs/file-20260514164009755-7.gif)
 
 
 
@@ -1842,7 +2051,7 @@ struct TabsDivider1 {
 ```
 
 
-![](assets/Tabs/file-20260514164009755-6.gif)
+![](assets/Tabs/file-20260514164009755-8.gif)
 
 
 
@@ -1959,7 +2168,7 @@ struct TabsOpaque {
 ```
 
 
-![](assets/Tabs/file-20260514164009755-7.gif)
+![](assets/Tabs/file-20260514164009755-9.gif)
 
 
 
@@ -2015,7 +2224,7 @@ struct barHeightTest {
 ```
 
 
-![](assets/Tabs/file-20260514164009755-8.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/T81gLjUVR7G6HDsOToUiWA/zh-cn_image_0000002628862414.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=933124A4E43BA9609C858F9CCA37756E9164AF37F283D920CB24F9464524AA4A)
 
 
 
@@ -2124,7 +2333,7 @@ struct TabsExample5 {
 ```
 
 
-![](assets/Tabs/file-20260514164009755-9.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/EKgCqv6oSxKLtaasbMsgYw/zh-cn_image_0000002659221727.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=1AEF2F55BC2ED56BC4A0E980B9DB89A31B216A34DAD45801222737DF65023196)
 
 
 
@@ -2218,7 +2427,7 @@ struct TabsCustomAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/vYm3uMhaQpaiLCpdOJhexg/zh-cn_image_0000002581275892.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=CDA6B32133613F61D2D8A6F9B6F51EA3019FE7FF6924A761EF3D5191ABD0864B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/rc7MB7zSQ6y1_3yR8T3GlA/zh-cn_image_0000002628702538.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=E213DED7B4259C1A3E4191AB8248228A581EDD961726CFF8D1B3D144BE9CD561)
 
 
 
@@ -2314,7 +2523,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/rEA2o2EgQAmqNh1GekCyTw/zh-cn_image_0000002611755749.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=E95D45962993FD3FF0CAB98BCF38FE04499C16D91A61A6F98738E428F51B3591)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/UXBOhMHmQHGN6eXaa9-yIw/zh-cn_image_0000002659101765.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=C693C3940C1039B9CED6C4C23B0DA25C94BB9BC48CA73C5E1F30ECF664935A08)
 
 
 
@@ -2489,7 +2698,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/hcIhkqeOQIaTFw83AtH_hQ/zh-cn_image_0000002581435812.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=A33E4CE613C699BC60D1C1E4D6555816D16537F3663576DF6A2D487EEF66A402)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/whpb1XnUQVeRzi2YjgXmnA/zh-cn_image_0000002628862416.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A1B44BD7B28778147852ED1A7D05C8F8F1A4DC70192B01F744F73814430D4D54)
 
 
 
@@ -2624,7 +2833,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/LzNGwURoTv2b0-463W8Fuw/zh-cn_image_0000002611835643.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=83EE19CDEE0C604715CB2A455BBF8F3C292A1EDB4CD9BBB2C4BB0A4213295BD9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/KHtzHfcdTFSyHkyMyV1-aw/zh-cn_image_0000002659221729.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=6C142F05BCA5612712BB22CBC8D972C9D791B93DBD74CCED161B6D5911EC7E3D)
 
 
 
@@ -2736,7 +2945,7 @@ struct TabsSwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/mIi0p5l0TuyLmXauW72N0g/zh-cn_image_0000002581275894.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=A90B6FEB02839C5022FA3EAF9A5AE12E2BE81097C0B657F3510CEE394ABBC68E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/icABwvOMTMCKSsGrKwOGPg/zh-cn_image_0000002628702540.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=EB646F14622EEAF2CEDEE98CAF87860BBCEE093CB2ADC4A33E6AA15BD1D1C717)
 
 
 
@@ -2814,7 +3023,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/BUXnsgHgQjuN_EIQOuKIyA/zh-cn_image_0000002611755751.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=135949FC1E39B04AE1DECBCB213BEA21FC8F70FB771CE95E7CAB78C85B3431AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/VG2pfFefRMuShGNdZ05goA/zh-cn_image_0000002659101767.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A839CA57F22D0DCB8474BD3D2060D816D65685E231EBCB976F713D49A9EE637C)
 
 
 
@@ -2910,7 +3119,7 @@ struct TabsBarModifierExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/SWeg79fxRLeAoWmmwt7IgQ/zh-cn_image_0000002581435814.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=A0A53C59F5B276D2FEA2819D2EB3BC479A9D021B80FDD013E97272213FDA99E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/XLmWKDyqQT678e5omfYfGA/zh-cn_image_0000002628862418.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=5B0A22B74C6C11F4BC9AE2128690B07E412C495443F1A26848B1C5663F34ED30)
 
 
 
@@ -3019,7 +3228,7 @@ struct TabsBarModifierExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/FQdoPZ-5RjiEci4Z2MHMxw/zh-cn_image_0000002611835645.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=DE6C1E1C7F8FC72BB9BF1F876782BAA74413FE69D34D9EF4626DEE29B7D36697)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/sncvgBNmTyiCOAqqp7bimg/zh-cn_image_0000002659221731.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=6B19624C4F3A800A6AEC7B90327EC2FE151A448EA0F79B0B2FBFF53D32816EDC)
 
 
 
@@ -3101,7 +3310,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Q4rkh15LT0-UpbG1x7h9QA/zh-cn_image_0000002581275896.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=049207A160A979B533D6455837F3539E3888A470CD2D3AC31F41C37D5B0A9695)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/jVsJor73SSyDOc_5KWdmnA/zh-cn_image_0000002628702542.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=51AF18AD1092EAF08B9E292895768E1398B5DC81D204C55EBD9448C01DF7F572)
 
 
 
@@ -3235,7 +3444,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/vv7QrcF0QnOGgWEew1dYlw/zh-cn_image_0000002611755753.png?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=F17E75FE73F5DCE858D7C954D3BD1E80C4227D7366287872627B9EEE25854B0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/jRSl37K_QZyYtj6jNlYlbw/zh-cn_image_0000002659101769.png?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=150ED19489379CDA9FF6F1AD179FC61CFD90D753385BC1117234BEEFDB4AFE8D)
 
 
 
@@ -3296,7 +3505,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/NLaeCvFjQwCbTBUptMTDmQ/zh-cn_image_0000002581435816.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=23AE67F36AFCF7CB569BAF60F9ED3D57F617B46144EFE979BE0F5DAEB95B0378)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Q7u-Nv7BSU2G8fItLxLmXg/zh-cn_image_0000002628862420.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=F10CF088EDF3A1AB3AA5EF04286F5168905F3738C17C785D097F72CB0642412A)
 
 
 
@@ -3392,7 +3601,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/OBXd6BacQzC3Nck1Xm-org/zh-cn_image_0000002611835647.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=079CEE924E98260671949CBD4405F2A467C3191CB44486AE216B1628A64463B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/Aw2H9FLuQR6EKmkFKAok7Q/zh-cn_image_0000002659221733.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=85E86560F6E11A2E3C80D50105B171B7952A18198FF10C1CB8A85BA0191C5F17)
 
 
 
@@ -3497,7 +3706,7 @@ struct TabsDidScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/EuO6-_oOSvyhiutNMSxKww/zh-cn_image_0000002581275898.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=4FE78DFCC44914CCAACA4A8B9E53AF707F334D57482EB09E991C4543999AEC9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/eQwUwwseQiq1kKw-MjoLOg/zh-cn_image_0000002628702544.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=8F5EB0497DF9FE65D5A77606507AB6411DA16306B845ED577BFF3DC2D7648B4D)
 
 
 
@@ -3569,4 +3778,60 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/dBY1_PKTRMWYBc8rqJn__g/zh-cn_image_0000002611755755.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=0B5EA7332982BD25BA6404DF5E8B13646C75944F685CAF1C480802BF776E70D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/EzwQ3lpERiqxLxLG5J2sWw/zh-cn_image_0000002659101771.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A34A6A1E5CCD67CCCAC941FBB62FFDD22ADCDC53BA46CF781A78532D1BBD218F)
+
+
+
+
+#### 示例24（TabBar悬浮样式）
+
+本示例展示了如何通过[barFloatingStyle](#barfloatingstyle)接口设置TabBar的悬浮样式和背板沉浸式材质。
+
+从API版本26.0.0开始，新增barFloatingStyle接口。
+
+```ArkTS
+// xxx.ets
+import { uiMaterial } from '@kit.ArkUI';
+@Entry
+@Component
+struct TabsFloatingStyleExample {
+  build() {
+    Column() {
+      Tabs({ barPosition: BarPosition.End }) {
+        TabContent() {
+          Column().width('100%').height('100%').backgroundColor(Color.Blue)
+        }.tabBar('Blue')
+
+        TabContent() {
+          Column().width('100%').height('100%').backgroundColor(Color.Green)
+        }.tabBar('Green')
+
+        TabContent() {
+          Column().width('100%').height('100%').backgroundColor(Color.Orange)
+        }.tabBar('Orange')
+
+        TabContent() {
+          Column().width('100%').height('100%').backgroundColor(Color.Pink)
+        }.tabBar('Pink')
+      }
+      .barFloatingStyle({
+        adaptToHandedness: true, systemMaterial: new uiMaterial.ImmersiveMaterial(
+          {
+            style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
+            applyShadow: true,
+            interactive: true,
+            lightEffect: { color: Color.White }
+          }
+        )
+      })
+      .barOverlap(true)
+      .height('100%')
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/SFGT9_uXTV2ddQMziJgRVw/zh-cn_image_0000002628862422.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A7A9725E101D8F9ED22D0B3A3C2BA3311A7E8A3187518D1116D12436C7848FBA)

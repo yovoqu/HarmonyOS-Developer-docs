@@ -1,6 +1,6 @@
 # ContainerSpan
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-containerspan
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 [Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件的子组件，用于统一管理多个[Span](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span)、[ImageSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imagespan)的背景色及圆角弧度。
  
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -136,7 +136,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/tKWMt-fXRbatk9ftAkH8PA/zh-cn_image_0000002581435948.png?HW-CC-KV=V1&HW-CC-Date=20260528T025601Z&HW-CC-Expire=86400&HW-CC-Sign=BACEE7383204D48F70254C370BB7B2567B0CD476777D76AF1AAF03A7325B6DBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/-pT1XTHcQFiZEShirCQWuA/zh-cn_image_0000002628862560.png?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=E54A14C6A763CF5CF70BD464C2A0D83E33A78A268BA9D9F8407A149822AEC0FE)
 
  
   
@@ -178,4 +178,4 @@ struct ContainerSpanModifierExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/EupByy8lS2S7xUm-xgXjFw/zh-cn_image_0000002611835779.png?HW-CC-KV=V1&HW-CC-Date=20260528T025601Z&HW-CC-Expire=86400&HW-CC-Sign=A0B6B78C5148842DC95DD1AD41B18028AFC4F82555643D71840D99748E22C547)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/pRGoa4uUQw2aCoXOfgLZGA/zh-cn_image_0000002659221875.png?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=59052A48C1CD43C8F93F4562A7F33D302C56317123AE037D9B5072950E1C5E87)

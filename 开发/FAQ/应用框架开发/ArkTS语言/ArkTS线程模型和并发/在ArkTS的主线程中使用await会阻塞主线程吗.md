@@ -1,6 +1,6 @@
-# 在ArkTS的主线程中使用await会阻塞主线程吗
+# 在ArkTS的主线程中使用await会堵塞主线程吗
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-43
 

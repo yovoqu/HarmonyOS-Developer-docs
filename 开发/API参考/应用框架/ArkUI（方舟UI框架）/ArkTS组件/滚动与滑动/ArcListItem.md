@@ -1,6 +1,6 @@
 # ArcListItem
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -167,4 +167,4 @@ struct ArcListItemExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/AaWW0X8eR-eW8qRwmlkHwA/zh-cn_image_0000002611835579.png?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=7DA9EF9331DF7B0DD44EB41237473C9643406457FEB231888629353AE823D6DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/qEeMVyOkT6mn6ZJaBiB_1Q/zh-cn_image_0000002628862354.png?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=6B89C4EFB148BF19EA8B3E953C704738AFE809623E32EED7E7F74D9ABCBBB3EE)

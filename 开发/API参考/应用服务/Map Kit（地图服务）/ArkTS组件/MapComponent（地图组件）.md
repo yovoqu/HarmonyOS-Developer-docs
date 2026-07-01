@@ -1,6 +1,6 @@
 # MapComponent（地图组件）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -135,7 +135,7 @@ struct MarkerDemo {
 
 build(): void
  
-struct的默认构造函数，无法直接调用此方法。
+MapComponent的默认构造函数，无法直接调用此方法。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  

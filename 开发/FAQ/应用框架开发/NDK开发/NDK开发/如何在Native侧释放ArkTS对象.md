@@ -1,19 +1,19 @@
 # 如何在Native侧释放ArkTS对象
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-82
 
 使用napi_wrap接口时，如果最后一个参数result不为nullptr，需在适当时机调用napi_remove_wrap函数删除创建的napi_ref对象。
  
-```cpp
-// Usage 1: Napi_wrap does not need to receive the created napi_ref, and the last parameter is passed as nullptr. The created napi_ref is a weak reference, managed by the system, and does not require manual release by the user
+```text
+<em>// Usage 1: Napi_wrap does not need to receive the created napi_ref, and the last parameter is passed as nullptr. The created napi_ref is a weak </em>reference, managed by the system, and does not require manual release by the user
 napi_wrap(env, jsobject, nativeObject, cb, nullptr, nullptr);
 
-// Usage 2: napi_wrap needs to receive the created napi_ref, the last parameter is not null ptr, and the returned napi_ref is a strong reference that needs to be manually released by the user, otherwise it will cause memory leakage
+<em>// Usage 2: napi_wrap needs to receive the created napi_ref, the last parameter is not null ptr, and the returned napi_ref is a strong reference that needs to be manually released by the user, otherwise it will cause memory leakage</em>
 napi_ref result;
 napi_wrap(env, jsobject, nativeObject, cb, nullptr, &result);
-// When jsobject and result are no longer used in the future, promptly call napi_remove_wrap to release result
+<em>// When jsobject and result are no longer used in the future, promptly call napi_remove_wrap to release result</em>
 void** result1;
 napi_remove_wrap(env, jsobject, result1);
 ```

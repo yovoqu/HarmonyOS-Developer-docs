@@ -1,6 +1,6 @@
 # 编译告警“The re-export name 'xx' need to be marked as type”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-3
 
@@ -17,12 +17,12 @@
 DevEco Studio 3.1 Beta2 Release版本默认启用模块化编译。如果应用中存在re-export语法，将会触发告警。反例如下：
  
 ```ArkTS
-// index.ets
+<em>// index.ets</em>
   import {test} from "./test"
   export {test}
   let b : test = {a : 'index'}
 
-  // test.ets
+  <em>// test.ets</em>
   export interface test {
     a: string
   }
@@ -33,14 +33,14 @@ DevEco Studio 3.1 Beta2 Release版本默认启用模块化编译。如果应用�
  
 如编译构建期间提示上述告警信息，请根据提示信息进行以下修改：添加type显式声明类型符号的引用，以使编译转换后的JS模块能够消除类型符号的引用。
  
-```ArkTS
-import type {test} from "./test"  //Here, add a type declaration
+```text
+import type {test} from "./test"  <em>// Here, add a type declaration</em>
 export {test}
 let b : test = {a : 'index'}
 ```
  
 ```ArkTS
-// test.ets
+<em>// test.ets</em>
 export interface test {
   a: string
 }

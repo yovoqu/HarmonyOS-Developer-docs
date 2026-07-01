@@ -1,12 +1,10 @@
 # @typescript-eslint/prefer-reduce-type-parameter
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-reduce-type-parameter
 
 调用“Array#reduce”时推荐使用类型参数而不是类型断言。
- 
-
  
 
 #### 规则配置

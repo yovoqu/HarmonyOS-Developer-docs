@@ -1,13 +1,13 @@
 # pdfService（PDF服务）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice
 **支持设备：** Phone | PC/2in1 | Tablet
 
 本模块为应用提供统一的管理PDF页面的页眉页脚、水印和背景、文档的多种批注风格和书签便捷的PDF能力。
  
-**注：** 涉及到尺寸和坐标的属性都是以点（Points）为单位，一英寸等于72点。
+**注：** 涉及到尺寸和坐标的属性都是以点（Points）为单位，一英寸等于72Points。
  
 **系统能力：** SystemCapability.OfficeService.PDFService.Core
  
@@ -36,7 +36,7 @@ import { pdfService } from '@kit.PDFKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-PDF文件类。
+PDF文档类。
  
 **系统能力：** SystemCapability.OfficeService.PDFService.Core
  

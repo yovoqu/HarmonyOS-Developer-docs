@@ -1,6 +1,6 @@
 # ScrollBar
 
-更新时间：2026-03-27 08:08:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-scrollbar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -59,6 +59,8 @@ enableNestedScroll(enabled: Optional&lt;boolean&gt;)
  
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -83,6 +85,8 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
 设置滚动条滑块的颜色，仅滚动条不放置子组件时生效。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -187,7 +191,7 @@ struct ScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/47C0BgjwTECDz8yYEzyT7g/zh-cn_image_0000002611755721.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025550Z&HW-CC-Expire=86400&HW-CC-Sign=CD5C6D0EAAF0F29551E6DC5044CBF27D759D76DE1B0C552D7877038BEDADB694)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/7wyPWI8xTeeyzJWP5ZVokg/zh-cn_image_0000002659101737.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=AFD91460A7D7015FC37B345912AA148D9C7FF730F86615905D10C32A4CF60291)
 
  
   
@@ -240,7 +244,7 @@ struct ScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HQpjYAqhTdeHj8nDlrRf7Q/zh-cn_image_0000002581435784.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025550Z&HW-CC-Expire=86400&HW-CC-Sign=ED1BC710CC461C505F6BD33941F484B287EBE314ED2CFA69C98A1408CB9CDC20)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/OJuVIgNmQ9GFmHzFTj8Qwg/zh-cn_image_0000002628862388.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=E0335A67103DC4928AE464818CFAFFE80E11997F81A336682369236DE682B1B1)
 
  
   
@@ -318,4 +322,4 @@ struct StickyNestedScroll {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/WlCfh6e7TV-bwvBmEKNkUQ/zh-cn_image_0000002611835613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025550Z&HW-CC-Expire=86400&HW-CC-Sign=841FA41BD6674A316ADC08E4FA9DC81F8FC40F38E2BABD746104E2347CF2AA3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/Ibks68HATBuI19skz67nKA/zh-cn_image_0000002659221701.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=F560BB5BF3FCE2AAF6B0AE9B631D2FC390D60B8466B4AC25A727F45223826353)

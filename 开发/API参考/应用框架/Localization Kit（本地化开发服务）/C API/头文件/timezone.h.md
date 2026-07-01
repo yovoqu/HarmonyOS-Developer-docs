@@ -1,6 +1,6 @@
 # timezone.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-timezone-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -470,8 +470,8 @@ I18n_ErrorCode OH_i18n_GetStartTimeAt(TimeArrayTimeZoneRule* rule, int32_t index
 | 参数项 | 描述 |
 | --- | --- |
 | TimeArrayTimeZoneRule* rule | 起始时间戳数组定义的时区规则TimeArrayTimeZoneRule。 |
-| int32_t index | 起始时间的索引。 |
-| double* result | 规则生效的起始时间。 |
+| int32_t index | 起始时间的索引。取值范围：[0, rule.numStartTimes - 1]。 |
+| double* result | 规则生效的起始时间，单位为毫秒（ms），采用Unix时间戳格式。 |
  
  
 **返回：**

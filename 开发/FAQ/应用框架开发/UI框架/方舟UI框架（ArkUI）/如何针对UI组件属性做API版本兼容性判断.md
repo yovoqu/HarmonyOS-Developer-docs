@@ -1,6 +1,6 @@
 # 如何针对UI组件属性做API版本兼容性判断
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-449
 
@@ -14,7 +14,7 @@
  
 假设要使用列表List组件的backToTop属性，需要做兼容性判断的实现方案，示例代码如下：
  
-```ArkTS
+```text
 import { deviceInfo } from '@kit.BasicServicesKit';
 
 @Entry
@@ -24,7 +24,7 @@ struct ComponentAttributeCompatibilityJudgment {
 
   build() {
     List() {
-      // List content
+   <em>   // List content</em>
     }
     .height('100%')
     .width('100%')
@@ -34,10 +34,10 @@ struct ComponentAttributeCompatibilityJudgment {
 
 class MyListModifier implements AttributeModifier<ListAttribute> {
   applyNormalAttribute(instance: ListAttribute): void {
-    // Determine based on the API version information of deviceInfo
+  <em>  // Determine based on the API version information of deviceInfo</em>
     if (deviceInfo.sdkApiVersion > 14) {
-      // The property to be adapted is the backToTop attribute of the List component
-      // The instance is an attribute object of the List, and its properties can be modified through the instance
+    <em>  // The property to be adapted is the backToTop attribute of the List component</em>
+<em>      // The instance is an attribute object of the List, and its properties can be modified through the instance</em>
       instance.backToTop(true);
     }
   }

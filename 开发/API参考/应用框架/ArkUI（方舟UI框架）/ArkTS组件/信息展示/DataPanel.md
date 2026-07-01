@@ -1,6 +1,6 @@
 # DataPanel
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 数据面板组件，用于将多个数据占比情况使用占比图进行展示。
  
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
 
   
 
@@ -58,7 +58,7 @@ DataPanel(options: DataPanelOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | values | number[] | 否 | 否 | 数据值列表，最多包含9个数据，大于9个数据则取前9个数据。若数据值小于0则置为0。 |
-| max | number | 否 | 是 | - max大于0时，表示数据的最大值。 - max小于等于0时，max等于value数组各项的和，按比例显示。 默认值：100 |
+| max | number | 否 | 是 | - max大于0时，表示数据的最大值。 - max小于等于0时，max等于values数组各项的和，按比例显示。 默认值：100 |
 | type8+ | DataPanelType | 否 | 是 | 数据面板的类型（不支持动态修改）。 默认值：DataPanelType.Circle |
  
  
@@ -125,6 +125,8 @@ valueColors(value: Array<ResourceColor | LinearGradient>)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -145,6 +147,8 @@ trackBackgroundColor(value: ResourceColor)
 设置底板颜色。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -167,6 +171,8 @@ strokeWidth(value: Length)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -187,6 +193,8 @@ trackShadow(value: DataPanelShadowOptions)
 设置投影样式。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -209,6 +217,8 @@ contentModifier(modifier: ContentModifier&lt;DataPanelConfiguration&gt;)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -227,6 +237,8 @@ contentModifier(modifier: ContentModifier&lt;DataPanelConfiguration&gt;)
 DataPanelShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-information-display-common#multishadowoptions)，具有MultiShadowOptions的全部属性。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -253,6 +265,8 @@ constructor(colorStops: ColorStop[])
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -268,9 +282,11 @@ constructor(colorStops: ColorStop[])
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-颜色断点类型，用于描述渐进色颜色断点。
+颜色断点类型，用于描述渐变色颜色断点。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -289,6 +305,8 @@ constructor(colorStops: ColorStop[])
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   

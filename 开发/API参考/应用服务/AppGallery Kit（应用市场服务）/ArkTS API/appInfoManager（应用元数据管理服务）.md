@@ -1,6 +1,6 @@
 # appInfoManager（应用元数据管理服务）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/appgallery-appinfomanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,6 +30,8 @@ import { appInfoManager } from '@kit.AppGalleryKit';
 
 动态图标信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.AppGalleryService.AppInfoManager
  
 **起始版本：** 5.0.3(15)
@@ -50,6 +52,8 @@ import { appInfoManager } from '@kit.AppGalleryKit';
 queryDynamicIcons(): Promise<DynamicIconInfo[]>
  
 查询动态图标信息。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.AppGalleryService.AppInfoManager
  
@@ -135,6 +139,8 @@ selectDynamicIcon(iconId: string): Promise&lt;void&gt;
  
 选择动态图标。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.AppGalleryService.AppInfoManager
  
 **起始版本：** 5.0.3(15)
@@ -197,6 +203,8 @@ try {
 disableDynamicIcon(): Promise&lt;void&gt;
  
 禁用动态图标，恢复默认图标。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.AppGalleryService.AppInfoManager
  

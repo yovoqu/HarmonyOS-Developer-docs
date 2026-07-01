@@ -1,6 +1,6 @@
 # MultiNavigation
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-multinavigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 MultiNavigation用于在大尺寸设备上分栏显示、进行路由跳转。
 
 > [!TIP]
-> 该组件从API version 14开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 由于MultiNavigation存在多重栈嵌套，调用本文档明确说明的不支持接口或不在本文档支持接口列表中的接口(例如 getParent 、 setInterception 、 pushDestination 等)，可能会发生无法预期的问题。 MultiNavigation在深层嵌套场景下，可能存在路由动效异常的问题。
+> 该组件从API version 14开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 由于MultiNavigation存在多重栈嵌套，调用本文档明确说明的不支持接口或不在本文档支持接口列表中的接口(例如 getParent 、 setInterception 、 pushDestination 等)，可能会发生无法预期的问题。 MultiNavigation在深层嵌套场景下，可能存在路由动效异常的问题。
 
 
 
@@ -1756,16 +1756,16 @@ export struct PagePlaceholder {
 分栏效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/xRIVhyGmRWC_WCHnV6Y69A/zh-cn_image_0000002581435806.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=FCCA512DF0FBC82730D8AFBA5B2874DA16D6D18E5DA7CBD322D9662794D8F578)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/INa1qeH-QBKj69ryTbQBFQ/zh-cn_image_0000002628862410.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=94E5AC04A17B5D2B810B785B58D0A3B4591D94D886E0C343F9CFBA9E098FB6C8)
 
 
 主页跳转详情页效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/WD3_eHynTYqTXe1b3vmzDQ/zh-cn_image_0000002611835637.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=DAFCD03421A2E930CD7DCF7DF6BBC3D0AC82C155652252BF6087CEB13BC8C3DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/LUpozsjASh2ekFn8Ir7SIg/zh-cn_image_0000002659221723.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=74AD23AC0E2226260D3A5D34C0C22706168F6AE7E3F5448739C7D007DB4CD47D)
 
 
 全屏类型页面效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/zHLS9AuiSf689htIcYxCfQ/zh-cn_image_0000002581275888.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=0AF6206DF5E925CCF0FC82A95174C98D9213C183E3312B2E66663A10936EFCA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Y3qpoL5FT9Cng8EVvFd6Yw/zh-cn_image_0000002628702534.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=04EC02398466FFB123399033B528DBCE4809020ED73A464D4B4647007EF8FAF4)

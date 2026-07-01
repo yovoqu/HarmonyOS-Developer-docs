@@ -1,6 +1,6 @@
 # 编译打包CPU架构设置
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-86
 
@@ -15,15 +15,15 @@
 ```json
 "externalNativeOptions": {
   "path": "./src/main/cpp/CMakeLists.txt",
-  //CMake configuration file, providing CMake build scripts
+  <em>// CMake configuration file, providing CMake build scripts</em>
   "arguments": "",
-  //Optional compilation parameters passed to CMake
+  <em>// Optional compilation parameters passed to CMake</em>
   "abiFilters": [
     "x86_64",
     "arm64-v8a"
   ],
-  //Used to set up the local ABI compilation environment
+  <em>// Used to set up the local ABI compilation environment</em>
   "cppFlags": ""
-  //Set optional parameters for the C++ compiler
+  <em>// Set optional parameters for the C++ compiler</em>
 },
 ```

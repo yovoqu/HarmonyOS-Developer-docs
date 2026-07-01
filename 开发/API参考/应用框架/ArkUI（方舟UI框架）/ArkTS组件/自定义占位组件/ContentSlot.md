@@ -1,6 +1,6 @@
 # ContentSlot
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-contentslot
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@
 支持混合模式开发，当容器是ArkTS组件，子组件在Native侧创建时，推荐使用ContentSlot占位组件。
  
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -39,7 +39,7 @@ ContentSlot(content: Content)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type Content = Content
+type Content = import('../api/@ohos.arkui.node').Content
  
 定义ComponentContent和NodeContent的基类。
  
@@ -49,7 +49,7 @@ type Content = Content
   
 | 类型 | 说明 |
 | --- | --- |
-| Content | 定义ComponentContent和NodeContent的基类。 |
+| import('../api/@ohos.arkui.node').Content | 定义ComponentContent和NodeContent的基类。 |
  
  
   

@@ -1,6 +1,6 @@
 # AIPP部署
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-aipp-deployment
 
@@ -128,6 +128,10 @@ for (size_t i = 0; i < inputCount; ++i) {
     // 创建executor可参考CANN Kit Codelab
     NN_TensorDesc* desc = OH_NNExecutor_CreateInputTensorDesc(executor, i);
     NN_Tensor* tensor = OH_NNTensor_Create(deviceID, desc); // 获取deviceID可参考CANN Kit Codelab
+    if (tensor == nullptr) {
+        // 处理错误
+        return;
+    }
     inputTensors.push_back(tensor);
 }
 // 准备aipp输入Tensor

@@ -1,6 +1,6 @@
 # @ohos.application.appManager (appManager)
 
-更新时间：2026-04-13 09:29:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-appmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

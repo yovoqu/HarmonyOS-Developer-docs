@@ -1,6 +1,6 @@
 # FormMenu
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-formmenu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -251,7 +251,7 @@ struct WidgetCard {
 **高级自定义控件界面**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/_NUDXbPBTOqiqF7zYjwgxw/zh-cn_image_0000002581436254.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=3AC2C654908FA3B1EA43E4C7B407A8B826F048EC555D0F631341033F4C5AB238)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/FVHLBeL8RvaUNV14EV3CXA/zh-cn_image_0000002628702992.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=D69B2276C63C4C79CBCE9E2E84D643EF1B27F6E7ACE90FAC1C614445F1DA4566)
 
 
 **调用高级自定义控件桌面加桌结果**
@@ -259,4 +259,4 @@ struct WidgetCard {
 左侧是formbindingdata为空加桌结果，右侧是formbindingdata为{ data: 'share' }的加桌结果。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/AvHNqH3tT6WP-_g4oWL5-w/zh-cn_image_0000002611836085.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=BF7C54798B371475662146C5C46F60C07ED896606E954C2C6403A202A3DECE85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/EFXbPMwxQ5et-N4ORF-SRg/zh-cn_image_0000002659102219.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=9D64AF4B5EDC817E180B088E1547691BC29E3F5771BAC697F70E52F4D7F6157F)

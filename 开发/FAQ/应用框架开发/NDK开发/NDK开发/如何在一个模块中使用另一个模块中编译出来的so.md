@@ -1,6 +1,6 @@
 # 如何在一个模块中使用另一个模块中编译出来的so
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-72
 
@@ -8,27 +8,18 @@
  
 在a module的Native侧集成b module编译出来的so，可以按照以下步骤操作：
  
-
- 
 1. 确保b module中的so文件已经成功编译，并且路径正确。
  
 2. 在a module的`CMakeLists.txt`，添加对b module中so文件的引用。
  
-
- 
 例如，在CMakeLists.txt中添加如下内容：
  
-
- 
+```text
 cmake
- 
 add_library(b SHARED IMPORTED)
- 
 set_target_properties(b PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/path/to/b/libb.so)
- 
 target_link_libraries(a b)
- 
-
+```
  
 3. 确保a module的构建脚本能够正确找到并链接b module的so文件。
  
@@ -39,6 +30,17 @@ target_link_libraries(a b)
 2. 依赖上述的HAR或HSP后，使用已链接的头文件方式，在链接时直接写库文件名即可。这样，纯C++的SO库实现了多模块共享。需要通过NAPI使用的模块，只需单独编写NAPI代码。NAPI封装后的功能也可以通过模块依赖的方式被其他模块使用。
  
 **操作步骤**
- 1. 在HAR/HSP模块的build-profile.json5中，指定buildOption/nativeLib/headerPath为接口文件目录。buildOption: { nativeLib: { headerPath: "src/main/cpp/include" } }
-2. 调用方依赖HAR或HSP包。// oh-package.json dependencies: { curl: "1.0.0" }
-3. 调用方配置CMake链接SO，格式为 packageName::soName。target_link_libraries(entry PUBLIC curl::curl)
+ 1. 在HAR/HSP模块的build-profile.json5中，指定buildOption/nativeLib/headerPath为接口文件目录。
+```json
+buildOption: { nativeLib: { headerPath: "src/main/cpp/include" } }
+```
+
+2. 调用方依赖HAR或HSP包。
+```json
+<em>// oh-package.json dependencies: { curl: "1.0.0" }</em>
+```
+
+3. 调用方配置CMake链接SO，格式为 packageName::soName。
+```text
+target_link_libraries(entry PUBLIC curl::curl)
+```

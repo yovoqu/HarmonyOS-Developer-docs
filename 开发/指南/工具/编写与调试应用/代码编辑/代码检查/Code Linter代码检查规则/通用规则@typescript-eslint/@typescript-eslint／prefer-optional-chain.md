@@ -1,12 +1,10 @@
 # @typescript-eslint/prefer-optional-chain
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-optional-chain
 
 强制使用链式可选表达式，而不是链式逻辑与、否定逻辑或、或空对象。
- 
-
  
 
 #### 规则配置

@@ -1,6 +1,6 @@
 # 如何理解AspectRatio对布局的影响
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-371
 
@@ -14,7 +14,7 @@ aspectRatio在布局中发挥两个主要作用：
  
 **示例代码**
  
-```ArkTS
+```text
 @Entry
 @Component
 struct VideoAdaptPage {

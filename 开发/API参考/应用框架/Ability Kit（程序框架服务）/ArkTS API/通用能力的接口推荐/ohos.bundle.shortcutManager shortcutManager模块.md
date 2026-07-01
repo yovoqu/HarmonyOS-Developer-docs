@@ -1,11 +1,11 @@
 # @ohos.bundle.shortcutManager (shortcutManager模块)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-shortcutmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供应用对于[快捷方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/typical-scenario-configuration)的管理能力，包括设置快捷方式是否显示等。
+本模块提供应用对于[快捷方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/typical-scenario-configuration)的管理能力，包括设置快捷方式是否显示等。通过快捷方式，用户可以从桌面快速启动应用的特定功能，提升应用的使用便捷性和用户粘性。典型使用场景包括：应用向用户提供常用功能的快速入口、根据用户使用习惯动态调整快捷方式的显示等。
 
 > [!NOTE]
 > 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -102,6 +102,44 @@ shortcutManager.getAllShortcutInfoForSelf()
   }).catch((err: BusinessError) => {
   console.error(`getAllShortcutInfoForSelf errData is errCode:${err.code}  message:${err.message}`);
 });
+```
+
+
+
+#### shortcutManager.isShortcutSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isShortcutSupported(): boolean
+
+查询当前设备是否支持快捷方式。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.BundleManager.BundleFramework.Launcher
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 表示当前设备是否支持快捷方式。 返回值为true表示当前设备支持快捷方式；返回值为false表示当前设备不支持快捷方式。 |
+
+
+**示例：**
+
+```json
+import { shortcutManager } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+try {
+  let data = shortcutManager.isShortcutSupported();
+  console.info('isShortcutSupported data is' + JSON.stringify(data));
+} catch (err) {
+  let message = (err as BusinessError).message;
+  console.error(`isShortcutSupported errData is errCode:${err.code}  message:${err.message}`);
+}
 ```
 
 

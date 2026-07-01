@@ -1,6 +1,6 @@
 # Interface (BuildingOverlay)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-buildingoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -176,7 +176,7 @@ let buildingOverlayOptions: mapCommon.BuildingOverlayParams =
     // 3D建筑的选中楼层颜色
     floorColor: 0xff000000,
     // 3D建筑的展示层级
-    showLevel: 14,
+    showLevel: 16,
     // 3D建筑选中楼层从底部升起的动画时长
     animationDuration: 5000,
     // 3D建筑侧面的纹理
@@ -192,7 +192,7 @@ let buildingOverlayOptions: mapCommon.BuildingOverlayParams =
       width: 3
     }
   }
-let buildingOverlay: map.BuildingOverlay= await this.mapController.addBuildingOverlay(buildingOverlayOptions);
+let buildingOverlay: map.BuildingOverlay = await this.mapController.addBuildingOverlay(buildingOverlayOptions);
 ```
  
   

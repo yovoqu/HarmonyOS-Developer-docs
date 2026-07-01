@@ -1,6 +1,6 @@
-# 双层嵌套list，如何使用LazyForEach起作用
+# 双层嵌套list,如何使用LazyForEach起作用
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-337
 
@@ -12,7 +12,7 @@
  
 固定内层List高度。参考如下代码：
  
-```ArkTS
+```text
 const bgColors: ResourceColor[] = [Color.Blue, Color.Gray];
 const rowHeight = 60;
 
@@ -50,29 +50,29 @@ export class BaseDataSource<T> implements IDataSource {
     return this.dataset[index];
   }
 
-  /**
-   * Notify LazyForEach component to reload all child components
-   */
+ <em> /**</em>
+<em>   * Notify LazyForEach component to reload all child components</em>
+<em>   */</em>
   notifyDataReload(): void {
     this.listeners.forEach(listener => {
       listener.onDataReloaded();
     })
   }
 
-  /**
-   * Notify LazyForEach component to add a sub component at the index corresponding to the index
-   * @param index
-   */
+<em>  /**</em>
+<em>   * Notify LazyForEach component to add a sub component at the index corresponding to the index</em>
+<em>   * @param index</em>
+<em>   */</em>
   notifyDataAdd(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataAdd(index);
     })
   }
 
-  /**
-   * Notify LazyForEach component that there is a change in data at the index corresponding to the index, and that the sub component needs to be rebuilt
-   * @param index
-   */
+  <em>/**</em>
+<em>   * Notify LazyForEach component that there is a change in data at the index corresponding to the index, and that the sub component needs to be rebuilt</em>
+<em>   * @param index</em>
+<em>   */</em>
   notifyDataChange(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataChange(index);
@@ -89,26 +89,26 @@ export class BaseDataSource<T> implements IDataSource {
     })
   }
 
-  /**
-   * Notify LazyForEach component to swap the subcomponents at the from index and to index
-   * @param from
-   * @param to
-   */
+ <em> /**</em>
+<em>   * Notify LazyForEach component to swap the subcomponents at the from index and to index</em>
+<em>   * @param from</em>
+<em>   * @param to</em>
+<em>   */</em>
   notifyDataMove(from: number, to: number): void {
     this.listeners.forEach(listener => {
       listener.onDataMove(from, to);
     })
   }
 
-  //----------------------------------------------------------------------------------------------------
-  // This method is called on the framework side to add listener listening to the LazyForEach component at its data source
+ <em> //----------------------------------------------------------------------------------------------------</em>
+<em>  // This method is called on the framework side to add listener listening to the LazyForEach component at its data source</em>
   registerDataChangeListener(listener: DataChangeListener): void {
     if (this.listeners.indexOf(listener) < 0) {
       this.listeners.push(listener);
     }
   }
 
-  // This method is called on the framework side to remove listener listening for the corresponding LazyForEach component at the data source
+<em>  // This method is called on the framework side to remove listener listening for the corresponding LazyForEach component at the data source</em>
   unregisterDataChangeListener(listener: DataChangeListener): void {
     const pos = this.listeners.indexOf(listener);
     if (pos >= 0) {
@@ -139,10 +139,10 @@ class NestedListItemDataSource extends BaseDataSource<string> {
   }
 }
 
-/*
- * Header component for nested list items
- * @param title - Display text for header
- */
+<em>/*</em>
+<em> * Header component for nested list items</em>
+<em> * @param title - Display text for header</em>
+<em> */</em>
 @Component
 struct header {
   title: string = '';

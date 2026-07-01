@@ -1,6 +1,6 @@
 # @ohos.accessibility (辅助功能)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-accessibility
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -113,7 +113,7 @@ type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clea
 
 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
 
-'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common'
+'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' | 'injectAction'
 
 应用所支持的目标动作，需要配置参数的目标动作已在描述中标明。
 
@@ -148,6 +148,7 @@ type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clea
 | 'notificationCenter'12+ | 表示打开通知栏操作。 |
 | 'controlCenter'12+ | 表示打开控制中心操作。 |
 | 'setCursorPosition'12+ | 表示设置光标位置操作，需配置参数offset。 |
+| 'injectAction' | 表示注入动作，需配置参数injectActionType。 起始版本： 26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
 
 
 
@@ -642,7 +643,7 @@ type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
 
 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
 
-'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive'
+'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate'
 
 无障碍事件类型。
 
@@ -671,6 +672,7 @@ type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
 | 'announceForAccessibilityNotInterrupt'18+ | 表示主动播报不打断的事件。 |
 | 'scrolling'18+ | 表示滚动视图中有item被滚出屏幕的事件。 |
 | 'pageActive'23+ | 表示页面变化的事件，值固定为'pageActive'字符串。 |
+| 'notificationUpdate' | 表示通知变化的事件，值固定为'notificationUpdate'字符串。 起始版本： 26.0.0 |
 
 
 
@@ -1567,6 +1569,57 @@ struct Index {
 
 
 
+#### accessibility.onSeniorModeStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+onSeniorModeStateChange(callback: Callback&lt;boolean&gt;): void
+
+监听关怀模式启用状态变化事件。使用callback异步回调。
+
+> [!NOTE]
+> 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。 调用此方法后，务必在对象生命周期结束前使用 accessibility.offSeniorModeStateChange 取消监听，否则可能会导致崩溃。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.BarrierFree.Accessibility.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;boolean&gt; | 是 | 回调函数。返回true表示关怀模式已开启；返回false表示关怀模式已关闭。 |
+
+
+**示例：**
+
+```json
+import { accessibility } from '@kit.AccessibilityKit';
+
+@Entry
+@Component
+struct Index {
+  callback: (data: boolean) => void = this.eventCallback;
+  eventCallback(data: boolean): void {
+    console.info(`subscribe senior mode state change, result: ${JSON.stringify(data)}`);
+  }
+
+  aboutToAppear(): void {
+    accessibility.onSeniorModeStateChange(this.callback);
+  }
+
+  build() {
+    Column() {
+    }
+  }
+}
+```
+
+
+
 #### accessibility.off('accessibilityStateChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -1893,6 +1946,57 @@ struct Index {
 
   aboutToDisappear(): void {
     accessibility.offAudioMonoStateChange(this.callback);
+  }
+
+  build() {
+    Column() {
+    }
+  }
+}
+```
+
+
+
+#### accessibility.offSeniorModeStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+offSeniorModeStateChange(callback?: Callback&lt;boolean&gt;): void
+
+取消监听关怀模式变化事件。使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.BarrierFree.Accessibility.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;boolean&gt; | 否 | 回调函数。返回true表示关怀模式已开启；返回false表示关怀模式已关闭。取消指定callback对象的事件响应。需与accessibility.onSeniorModeStateChange的callback一致。缺省时，表示注销所有已注册事件。 |
+
+
+**示例：**
+
+```json
+import { accessibility } from '@kit.AccessibilityKit';
+
+@Entry
+@Component
+struct Index {
+  callback: (data: boolean) => void = this.eventCallback;
+  eventCallback(data: boolean): void {
+    console.info(`subscribe senior mode state change, result: ${JSON.stringify(data)}`);
+  }
+
+  aboutToAppear(): void {
+    accessibility.onSeniorModeStateChange(this.callback);
+  }
+
+  aboutToDisappear(): void {
+    accessibility.offSeniorModeStateChange(this.callback);
   }
 
   build() {
@@ -2395,6 +2499,62 @@ struct Index {
   aboutToAppear(): void {
     let status: boolean = accessibility.isAudioMonoEnabledSync();
     console.info(`status: ${JSON.stringify(status)}`);
+  }
+
+  build() {
+    Column() {
+    }
+  }
+}
+```
+
+
+
+#### accessibility.isSeniorModeEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+isSeniorModeEnabled(): Promise&lt;boolean&gt;
+
+判断关怀模式是否开启。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.BarrierFree.Accessibility.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;boolean&gt; | Promise对象。返回true表示关怀模式已开启；返回false表示关怀模式已关闭。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[无障碍子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-accessibility)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9300000 | System abnormality. |
+
+
+**示例：**
+
+```json
+import { accessibility } from '@kit.AccessibilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+@Entry
+@Component
+struct Index {
+  aboutToAppear(): void {
+    accessibility.isSeniorModeEnabled().then((data: boolean) => {
+      console.info(`success data:isSeniorModeEnabled : ${JSON.stringify(data)}`);
+    }).catch((err: BusinessError) => {
+      console.error(`failed to call isSeniorModeEnabled, Code is ${err.code}, message is ${err.message}`);
+    });
   }
 
   build() {

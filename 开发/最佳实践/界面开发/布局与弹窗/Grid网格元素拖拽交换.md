@@ -1,6 +1,6 @@
 # Grid网格元素拖拽交换
 
-更新时间：2026-03-17 02:20:01
+更新时间：2026-06-30 03:03:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-grid-drag-swap
 
@@ -544,7 +544,7 @@ isDraggable(index: number): boolean {
           } else if (this.offsetX >= this.FIX_VP_X / 2 && (this.offsetY <= 50 && this.offsetY >= -50) &&
             ![3, 4].includes(index)) {
             this.right(index);
-          } else if (this.offsetX <= -this.FIX_VP_Y / 2 && (this.offsetY <= 50 && this.offsetY >= -50) &&
+          } else if (this.offsetX <= -this.FIX_VP_X / 2 && (this.offsetY <= 50 && this.offsetY >= -50) &&
             ![4].includes(index)) {
             this.left(index);
           } else if (this.offsetX >= this.FIX_VP_X / 2 && this.offsetY >= this.FIX_VP_Y / 2) {
@@ -584,7 +584,7 @@ isDraggable(index: number): boolean {
 示意效果图如下。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/ZcHzH82wTuanLINyWtqrdA/zh-cn_image_0000002421306206.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024730Z&HW-CC-Expire=86400&HW-CC-Sign=569CA7FBD1902CDD6E6C676A553368729966E3389B00F940CC43409CA6081411)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/9Wy2U5xzTCOkAVmvctXK-g/zh-cn_image_0000002421306206.gif?HW-CC-KV=V1&HW-CC-Date=20260701T015314Z&HW-CC-Expire=86400&HW-CC-Sign=EB1F7F058DBD9FC65DE7B9958B2D1990C77EE2043CDC988DB25DC910AE52C9A7)
 
  
 
@@ -745,7 +745,7 @@ private stopJump() {
               this.right(index);
               this.stopJump();
               this.jumpWithSpeed(5);
-            } else if (this.offsetX <= -this.FIX_VP_Y / 2 &&
+            } else if (this.offsetX <= -this.FIX_VP_X / 2 &&
               (this.offsetY <= 50 && this.offsetY >= -50) &&
               ![...this.leftArr].includes(index)) {
               this.left(index);

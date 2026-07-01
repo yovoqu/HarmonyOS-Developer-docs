@@ -1,6 +1,6 @@
 # UX样式或效果的变更
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-b031
 
@@ -197,13 +197,13 @@ popupPosition属性设置为undefined时应该重置为默认值，但当前实�
 API version 12之前，popupPosition属性设置为undefined时会保持现有状态，提示弹窗位置不发生变化。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/dkqrUC_UQUuraJyf-XppMQ/zh-cn_image_0000001987151785.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=A66D428C40AAEA37FC14FE4EDA0C762DC8ABEDA21DCD2A37BF676391D9F94FC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/oLT_6eiVQI6v_mqS1SIGug/zh-cn_image_0000001987151785.png?HW-CC-KV=V1&HW-CC-Date=20260701T015423Z&HW-CC-Expire=86400&HW-CC-Sign=08B15298A569C293C96B736B7C7A07173E7CCBEA4D594C96B2DF1EEE20962ACD)
 
  
 API version 12及以后，popupPosition属性设置为undefined时会重置为默认值，提示弹窗位置会发生变化。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/3SJL1Zf2SKadzWbWox5W-w/zh-cn_image_0000001953232366.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=4100B537F434EAD5606AD371EBFBE3B9A645B27F25AA0CF53C3261170210AC54)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/bhz_usVwTrOqk9wOVzk6cw/zh-cn_image_0000001953232366.png?HW-CC-KV=V1&HW-CC-Date=20260701T015423Z&HW-CC-Expire=86400&HW-CC-Sign=8E968B7ED7797D7D99C5AE841720B9968631070BF72DC1AE7A276C0445F92714)
 
  
 **变更的接口/组件**
@@ -587,13 +587,13 @@ struct ListExample {
 API version 12之前：autoCollapse属性默认值为false，当AlphabetIndexer组件高度不足时，不会折叠显示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/SZh9K1qNRdidnokiL7fSWw/zh-cn_image_0000001987311653.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=8CD0BDAF71433AAB259728192AD148F72114F658D44B6B436AF1B9C778DC6D6A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/TC71X7oTRhaFdsr2WNQ-GQ/zh-cn_image_0000001987311653.png?HW-CC-KV=V1&HW-CC-Date=20260701T015423Z&HW-CC-Expire=86400&HW-CC-Sign=82F1B5A7136AC4D7CF3A40C6A2494719A1EDB03565A26AF19B442B7DE0952C86)
 
  
 API version 12及之后：autoCollapse属性默认值为true，当AlphabetIndexer组件高度不足时，会折叠显示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/UGd459t0TnGJX2cR6yH21w/zh-cn_image_0000001987151797.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=5F8CD72EBFBA13AB0DDBD66A51B35468FBD2BAB652F05C89D5B44E3BC00680A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/ARHxMhq0Sm6TUizwnaUpqA/zh-cn_image_0000001987151797.png?HW-CC-KV=V1&HW-CC-Date=20260701T015423Z&HW-CC-Expire=86400&HW-CC-Sign=4D342111DBD9A48201C2687813B7D7A964C4D45BF56BD521F37AE867A80EE453)
 
  
 **变更的接口/组件**

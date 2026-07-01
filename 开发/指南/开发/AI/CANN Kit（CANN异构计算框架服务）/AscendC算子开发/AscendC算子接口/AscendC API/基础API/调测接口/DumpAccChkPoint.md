@@ -1,6 +1,6 @@
 # DumpAccChkPoint
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-dumpaccch
 
@@ -11,7 +11,7 @@
 在算子kernel侧实现代码中需要打印偏移后Tensor数据的地方调用DumpAccChkPoint接口打印相关内容。样例如下。
  
 ```text
-AscendC::DumpAccChkPoint(srcLocal,5, 32, dataLen);
+AscendC::DumpAccChkPoint(srcLocal, 5, 32, dataLen);
 ```
  
 > [!NOTE]
@@ -21,7 +21,7 @@ AscendC::DumpAccChkPoint(srcLocal,5, 32, dataLen);
 Dump时，每个block核的dump信息前会增加对应信息头DumpHead（32字节大小），用于记录核号和资源使用信息。每次Dump的Tensor数据前也会添加信息头DumpTensorHead（32字节大小），用于记录Tensor的相关信息。如下图所示，展示了多核打印场景下的打印信息结构。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/iaDJs6HsT8CorPJv096ArA/zh-cn_image_0000002581435382.png?HW-CC-KV=V1&HW-CC-Date=20260528T025934Z&HW-CC-Expire=86400&HW-CC-Sign=6F5F7AF109F4BB5FFE4F5545BEE0217FE3EF0A654DE71C043CFE3ACF605490D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/FMfDBRwfQ7yvO3huirPCyA/zh-cn_image_0000002659221275.png?HW-CC-KV=V1&HW-CC-Date=20260701T015308Z&HW-CC-Expire=86400&HW-CC-Sign=180B0E9205C148265232C31D0D454C29E215CC4C01DA2C06F94BC6E69C2D2DF9)
 
  
 **DumpHead的具体信息如下。**
@@ -100,7 +100,7 @@ KirinX90系列处理器
 - 操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
 - 待dump的元素总长度需要32Byte对齐。
 - 偏移量需保证32字节对齐，即：偏移元素个数 * sizeof（T）需按32B对齐。
-- 程序中调用[printf](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-printf)接口使用的空间+[assert](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-assert)接口使用的空间+调用DumpTensor及DumpAccChkPoint接口使用的空间+框架dump功能所使用的空间，每个核上不可超过1M。请开发者自行控制待打印的内容数据量，超出则不会打印。
+- 程序中调用[printf](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-printf)接口使用的空间+[assert](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-assert)接口使用的空间+调用[DumpTensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-dumptensor)及DumpAccChkPoint接口使用的空间+框架dump功能所使用的空间，每个核上不可超过1M。请开发者自行控制待打印的内容数据量，超出则不会打印。
 
  
   

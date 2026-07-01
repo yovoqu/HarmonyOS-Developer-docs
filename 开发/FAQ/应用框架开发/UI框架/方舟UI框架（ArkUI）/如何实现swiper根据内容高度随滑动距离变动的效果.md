@@ -1,12 +1,12 @@
 # 如何实现swiper根据内容高度随滑动距离变动的效果
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-397
 
 可通过[onContentDidScroll()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#oncontentdidscroll12)监听Swiper页面滑动事件来实现，示例代码如下：
  
-```ArkTS
+```text
 let COLUMN_NUMBER = 5;
 let COLUMN_GAP = 20;
 let ROWS_GAP = 20;
@@ -101,14 +101,14 @@ struct GridDemo {
         .indicator(false)
         .loop(false)
         .onContentDidScroll((selectedIndex: number, index: number, position: number, mainAxisLength: number) => {
-          // The direct scrolling positions of the two indices change the height of the parent control
+         <em> // The direct scrolling positions of the two indices change the height of the parent control</em>
           if (selectedIndex != index && Math.abs(selectedIndex - index) == 1) {
             let curHeight = this.gridHeights[selectedIndex];
             let targetHeight = this.gridHeights[index];
             this.swiperHeight = targetHeight +
               (selectedIndex < index ? (curHeight - targetHeight) : (targetHeight - curHeight)) * position;
           }
-          // Switch the subscript of the selected status
+         <em> // Switch the subscript of the selected status</em>
           if (selectedIndex == index) {
             let curIndex = -1 / this.tipList.length * position + selectedIndex / this.tipList.length;
             this.tipImageX = (curIndex * 100).toFixed(2) + '%';

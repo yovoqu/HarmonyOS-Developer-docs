@@ -1,6 +1,6 @@
 # HiDebug_SystemMemInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-hidebug-systemmeminfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct HiDebug_SystemMemInfo {...} HiDebug_SystemMemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-系统内存信息结构类型定义。
+系统内存信息结构类型定义。用于获取系统内存的总量、空闲量、可用量等关键信息，适用于系统性能分析、内存监控、故障诊断等场景，帮助开发者了解系统内存使用状况，优化内存管理策略。
  
 **起始版本：** 12
  

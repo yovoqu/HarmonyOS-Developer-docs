@@ -1,6 +1,6 @@
 # CanvasRenderingContext2D
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@ CanvasRenderingContext2D对象与Canvas组件绑定后，可在Canvas组件上�
 
 
 
-#### 构造函数
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -52,6 +52,8 @@ constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -134,7 +136,7 @@ struct LengthMetricsUnitDemo {
 
 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- |
-| string \|number10+ \|CanvasGradient \| CanvasPattern | 否 | 否 | - 类型为string时，表示设置填充区域的颜色，颜色格式参考ResourceColor中string类型说明。 - 类型为number时，表示设置填充区域的颜色，不支持设置全透明色，颜色格式参考ResourceColor中number类型说明。 - 类型为CanvasGradient时，表示渐变对象，使用createLinearGradient方法创建。 - 类型为CanvasPattern时，使用createPattern方法创建。 默认值：'#000000'（黑色） 异常值设置无效，保持设置前效果。 |
+| string \| number10+ \| CanvasGradient \| CanvasPattern | 否 | 否 | - 类型为string时，表示设置填充区域的颜色，颜色格式参考ResourceColor中string类型说明。 - 类型为number时，表示设置填充区域的颜色，不支持设置全透明色，颜色格式参考ResourceColor中number类型说明。 - 类型为CanvasGradient时，表示渐变对象，使用createLinearGradient方法创建。 - 类型为CanvasPattern时，使用createPattern方法创建。 默认值：'#000000'（黑色） 异常值设置无效，保持设置前效果。 |
 
 
 ```ArkTS
@@ -230,7 +232,7 @@ struct LineWidthExample {
 
 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- |
-| string \|number10+ \|CanvasGradient \| CanvasPattern | 否 | 否 | - 类型为string时，表示设置线条使用的颜色，颜色格式参考ResourceColor中string类型说明。 - 类型为number时，表示设置线条使用的颜色，不支持设置全透明色，颜色格式参考ResourceColor中number类型说明。 - 类型为CanvasGradient时，表示渐变对象，使用createLinearGradient方法创建。 - 类型为CanvasPattern时，使用createPattern方法创建。 默认值：'#000000'（黑色） 异常值设置无效，保持设置前效果。 |
+| string \| number10+ \| CanvasGradient \| CanvasPattern | 否 | 否 | - 类型为string时，表示设置线条使用的颜色，颜色格式参考ResourceColor中string类型说明。 - 类型为number时，表示设置线条使用的颜色，不支持设置全透明色，颜色格式参考ResourceColor中number类型说明。 - 类型为CanvasGradient时，表示渐变对象，使用createLinearGradient方法创建。 - 类型为CanvasPattern时，使用createPattern方法创建。 默认值：'#000000'（黑色） 异常值设置无效，保持设置前效果。 |
 
 
 ```ArkTS
@@ -556,7 +558,7 @@ struct CanvasExample {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-设置文本绘制中的水平对齐方式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
+设置文本绘制中的基线类型，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -2855,6 +2857,8 @@ roundRect(x: number, y: number, w: number, h: number, radii?: number | Array&lt;
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -2872,9 +2876,9 @@ roundRect(x: number, y: number, w: number, h: number, radii?: number | Array&lt;
 
 以下错误码的详细介绍请参见[Canvas组件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-canvas)。
 
-| 错误码ID | 错误信息 | 可能原因 |
-| --- | --- | --- |
-| 103701 | Parameter error. | 1. The param radii is a list that has zero or more than four elements; 2. The param radii contains negative value. |
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 103701 | Parameter error. Possible causes: 1. The param radii is a list that has zero or more than four elements. 2. The param radii contains negative value. |
 
 
 **示例：**
@@ -3187,6 +3191,10 @@ reset(): void
 
 将CanvasRenderingContext2D重置为其默认状态，清除后台缓冲区、绘制状态栈、绘制路径和样式。
 
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **示例：**
@@ -3231,6 +3239,10 @@ struct Reset {
 saveLayer(): void
 
 创建一个图层。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3284,6 +3296,10 @@ build() {
 restoreLayer(): void
 
 恢复图像变换和裁剪状态至saveLayer前的状态，并将图层绘制在canvas上。restoreLayer示例代码同saveLayer。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3457,7 +3473,7 @@ struct Scale {
 
 transform(a: number, b: number, c: number, d: number, e: number, f: number): void
 
-transform方法对应一个变换矩阵，想对一个图形进行变化的时候，只要设置此变换矩阵相应的参数，对图形的各个定点的坐标分别乘以这个矩阵，就能得到新的定点的坐标。矩阵变换效果可叠加。
+transform方法对应一个变换矩阵，想对一个图形进行变换的时候，只要设置此变换矩阵相应的参数，对图形的各个顶点的坐标分别乘以这个矩阵，就能得到新的顶点的坐标。矩阵变换效果可叠加。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -4823,6 +4839,8 @@ createConicGradient(startAngle: number, x: number, y: number): CanvasGradient
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -4882,11 +4900,13 @@ struct CanvasExample {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-on(type: 'onAttach', callback: () => void): void
+on(type: 'onAttach', callback: Callback&lt;void&gt;): void
 
 订阅CanvasRenderingContext2D与Canvas组件发生绑定的场景。
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4895,7 +4915,16 @@ on(type: 'onAttach', callback: () => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅CanvasRenderingContext2D与Canvas组件发生绑定的回调。 异常值undefined或null按无效值处理。 |
-| callback | () => void | 是 | 订阅CanvasRenderingContext2D与Canvas组件发生绑定后触发的回调。 异常值undefined或null按无效值处理。 |
+| callback | Callback&lt;void&gt; | 是 | 订阅CanvasRenderingContext2D与Canvas组件发生绑定后触发的回调。 异常值undefined或null按无效值处理。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Input parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types;3. Parameter verification failed. |
 
 
 > [!NOTE]
@@ -4908,11 +4937,13 @@ on(type: 'onAttach', callback: () => void): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-on(type: 'onDetach', callback: () => void): void
+on(type: 'onDetach', callback: Callback&lt;void&gt;): void
 
 订阅CanvasRenderingContext2D与Canvas组件解除绑定的场景。
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4921,7 +4952,16 @@ on(type: 'onDetach', callback: () => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅CanvasRenderingContext2D与Canvas组件解除绑定的回调。 异常值undefined或null按无效值处理。 |
-| callback | () => void | 是 | 订阅CanvasRenderingContext2D与Canvas组件解除绑定后触发的回调。 异常值undefined或null按无效值处理。 |
+| callback | Callback&lt;void&gt; | 是 | 订阅CanvasRenderingContext2D与Canvas组件解除绑定后触发的回调。 异常值undefined或null按无效值处理。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Input parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types;3. Parameter verification failed. |
 
 
 > [!NOTE]
@@ -4934,11 +4974,13 @@ on(type: 'onDetach', callback: () => void): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-off(type: 'onAttach', callback?: () => void): void
+off(type: 'onAttach', callback?: Callback&lt;void&gt;): void
 
 取消订阅CanvasRenderingContext2D与Canvas组件发生绑定的场景。
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4947,7 +4989,16 @@ off(type: 'onAttach', callback?: () => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消订阅CanvasRenderingContext2D与Canvas组件发生绑定的回调。 异常值undefined或null按无效值处理。 |
-| callback | () => void | 否 | 为空表示取消所有订阅CanvasRenderingContext2D与Canvas组件发生绑定后触发的回调。 非空则取消订阅发生绑定对应的回调。 异常值undefined或null按无效值处理。 |
+| callback | Callback&lt;void&gt; | 否 | 为空表示取消所有订阅CanvasRenderingContext2D与Canvas组件发生绑定后触发的回调。 非空则取消订阅发生绑定对应的回调。 异常值undefined或null按无效值处理。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Input parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types;3. Parameter verification failed. |
 
 
 
@@ -4956,11 +5007,13 @@ off(type: 'onAttach', callback?: () => void): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-off(type: 'onDetach', callback?: () => void): void
+off(type: 'onDetach', callback?: Callback&lt;void&gt;): void
 
 取消订阅CanvasRenderingContext2D与Canvas组件解除绑定的场景。
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4969,7 +5022,16 @@ off(type: 'onDetach', callback?: () => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消订阅CanvasRenderingContext2D与Canvas组件解除绑定的回调。 异常值undefined或null按无效值处理。 |
-| callback | () => void | 否 | 为空代表取消所有订阅CanvasRenderingContext2D与Canvas组件解除绑定后触发的回调。 非空代表取消订阅解除绑定对应的回调。 异常值undefined或null按无效值处理。 |
+| callback | Callback&lt;void&gt; | 否 | 为空代表取消所有订阅CanvasRenderingContext2D与Canvas组件解除绑定后触发的回调。 非空代表取消订阅解除绑定对应的回调。 异常值undefined或null按无效值处理。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Input parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types;3. Parameter verification failed. |
 
 
 **示例：**
@@ -5131,6 +5193,8 @@ stopImageAnalyzer(): void
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

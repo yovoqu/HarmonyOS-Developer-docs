@@ -1,11 +1,11 @@
 # 如何获取应用签名证书的hash值
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-2
 
 - “应用指纹”signatureInfo.fingerprint是应用签名证书（.cer文件）的SHA-256哈希值，当前支持获取本应用的指纹。示例代码如下：
-```ArkTS
+```json
 import { bundleManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -14,7 +14,7 @@ let bundleFlags = bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_SIGNATURE_INFO;
 try {
   bundleManager.getBundleInfoForSelf(bundleFlags).then((data) => {
     hilog.info(0x0000, 'testTag', 'getBundleInfoForSelf successfully. Data: %{public}s', JSON.stringify(data));
-    //In the data, you can obtain the signtureInfo, which is the signature certificate information of the application
+    <em>// In the data, you can obtain the signtureInfo, which is the signature certificate information of the application</em>
   }).catch((err: BusinessError) => {
     hilog.error(0x0000, 'testTag', 'getBundleInfoForSelf failed. Cause: %{public}s', err.message);
   });

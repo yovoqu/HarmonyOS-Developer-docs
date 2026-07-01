@@ -1,6 +1,6 @@
 # NavPathStack清空页面栈或者按返回键，为什么显示的是导航栏，如何实现退出Navigation所在的页面
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-430
 
@@ -16,7 +16,7 @@ NavPathStack清空页面栈或者按返回键，为什么没有退出Navigation�
  
 - 设置Navigation属性[hideNavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#hidenavbar9)为true，隐藏返回导航栏。
 - 使用[onBackPressed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onbackpressed10)方法重写返回键逻辑，通过[router.back()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back)退出Navigation所在的页面。
-```ArkTS
+```text
 @Entry
 @Component
 struct NavPathStackExitsTheNavigationPage {
@@ -60,7 +60,7 @@ struct NavPathStackExitsTheNavigationPage {
     .titleMode(NavigationTitleMode.Mini)
     .navDestination(this.myRouter)
     .hideBackButton(true)
-    .hideNavBar(true) // Set the Navigation property's hideNavBar to true.
+    .hideNavBar(true) <em>// Set the Navigation property's hideNavBar to true.</em>
   }
 }
 
@@ -83,7 +83,7 @@ export struct PageOne {
     }
     .title('PageOne')
     .onBackPressed(() => {
-      this.getUIContext().getRouter().back(); // Override the return button logic to exit the navigation page.
+      this.getUIContext().getRouter().back(); <em>// Override the return button logic to exit the navigation page.</em>
       return true;
     })
   }

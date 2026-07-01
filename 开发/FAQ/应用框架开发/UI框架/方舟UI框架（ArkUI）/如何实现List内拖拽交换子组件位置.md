@@ -1,6 +1,6 @@
 # 如何实现List内拖拽交换子组件位置
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-276
 
@@ -9,7 +9,7 @@
  
 参考如下示例：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct Index {
@@ -33,7 +33,7 @@ struct Index {
     }
   }
 
-  // Swap the position of listItem in the listArr array
+<em>  // Swap the position of listItem in the listArr array</em>
   changeListItemIndex(index1: number, index2: number) {
     let tempItem = this.listArr[index1];
     this.listArr[index1] = this.listArr[index2];

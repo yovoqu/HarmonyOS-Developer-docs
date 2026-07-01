@@ -1,6 +1,6 @@
 # ArcSwiper
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arcswiper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -926,7 +926,7 @@ struct TestNewInterface {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/LwGplpmeTIuluuw1Mzrekw/zh-cn_image_0000002581435776.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=B79D710DFEE695F49E486D16A17DE7219062E24D4C9367244AC360A2C2D73EDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/16PXtR97RtSm2X2-PqId6g/zh-cn_image_0000002659101729.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=45B5F8459D59F437A26885CEC74AAD7AF1228331FF7C462F2C12FCA7F96512E7)
 
 
 
@@ -994,4 +994,4 @@ struct TestNewInterface {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/TaZFRl9STd-_09EHe77xWg/zh-cn_image_0000002611835605.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=53713C8181C194925D25BE33DC20CF5EDF460F387726B98973584CBA0979C772)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/k1ZZobwCSoC72ErEUOFcHA/zh-cn_image_0000002628862380.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=38402BEF596E96AEC070FEAF8F9E984D7853E160E08BCE4C88A1D77520E787B0)

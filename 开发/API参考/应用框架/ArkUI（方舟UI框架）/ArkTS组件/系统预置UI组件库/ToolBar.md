@@ -1,6 +1,6 @@
 # ToolBar
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-toolbar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -544,4 +544,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/ajJp4DZhSAGNCKtSPG27jQ/zh-cn_image_0000002592220610.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=6AFEB57F577E69A04F25943577517D4D754CC658F64031BCC35781E97AF69102)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/eauFpwJDRBKqQ9YT8ETBUQ/zh-cn_image_0000002628703014.png?HW-CC-KV=V1&HW-CC-Date=20260701T014355Z&HW-CC-Expire=86400&HW-CC-Sign=8467F7035FF7D5DEAD6B20765BCBBEFEBCC4B74DEB9478CA8B119D35491AB0A4)

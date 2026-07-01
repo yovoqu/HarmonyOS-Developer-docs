@@ -1,6 +1,6 @@
 # 如何监听Tabs里面TabContent页面显示
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-454
 
@@ -27,7 +27,7 @@ Q：如果要感知TabContent的子组件的出现或消失，如何实现？
  
 A：可以使用onVisibleAreaChange监控子组件在屏幕上的显示或消失，当组件的可见面积与自身面积的比值变大为出现，比值变小为消失。示例代码如下：
  
-```ArkTS
+```text
 @Component
 struct MonitorTabContent {
   build() {
@@ -36,7 +36,7 @@ struct MonitorTabContent {
         TabContent() {
           ChildrenComponent1();
         }
-        // ...
+     <em>   // ...</em>
       }
       .height('60%')
       .barMode(BarMode.Fixed)

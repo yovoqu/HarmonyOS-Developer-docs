@@ -1,6 +1,6 @@
 # UX样式或效果的变更
 
-更新时间：2026-01-16 08:15:00
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-b123sp16
 
@@ -88,13 +88,13 @@ API version 14及以后，设备宽度在600-840vp间时，默认显示居中弹
 变更前：设备宽度在600-840vp间时，SheetOptions中的preferType设置为SheetType.POPUP，实际显示居中弹窗样式。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/3PaqJ3ftSkGsLFfnppWu-w/zh-cn_image_0000002334372189.png?HW-CC-KV=V1&HW-CC-Date=20260528T025911Z&HW-CC-Expire=86400&HW-CC-Sign=672FB5453D033352195CEEDBA043668B030FEB97C68806305473491080F8F932)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/Kgq_DuGgTCK0lP7mNxU1mw/zh-cn_image_0000002334372189.png?HW-CC-KV=V1&HW-CC-Date=20260701T015159Z&HW-CC-Expire=86400&HW-CC-Sign=B1377624F6E7891A8088705ECC2844426D851D4AF7467C76E8525F44264B0F51)
 
  
 变更后：设备宽度在600-840vp间时，SheetOptions中的preferType设置为SheetType.POPUP，实际显示跟手弹窗样式。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Je6hbNwKQWmaYLDfWyeyOw/zh-cn_image_0000002334332009.png?HW-CC-KV=V1&HW-CC-Date=20260528T025911Z&HW-CC-Expire=86400&HW-CC-Sign=7265F7E3461DBF354512FCB8FE2086DDE5C98ADCE022A2351C50C7D863E57D68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/ZWsp2eJ-Ttekf37uxB1Vqg/zh-cn_image_0000002334332009.png?HW-CC-KV=V1&HW-CC-Date=20260701T015159Z&HW-CC-Expire=86400&HW-CC-Sign=E677C79BDF0CED9B758FC267483EAFF1CE79E686347AFCCE250E53B6437E7713)
 
  
 **起始API Level**

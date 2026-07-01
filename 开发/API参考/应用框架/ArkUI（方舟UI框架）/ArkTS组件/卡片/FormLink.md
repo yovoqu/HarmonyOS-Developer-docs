@@ -1,6 +1,6 @@
 # FormLink
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-formlink
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -151,7 +151,7 @@ struct FormLinkDemo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/QLQTIDHvRRCRg-KZMUJxyA/zh-cn_image_0000002611756147.png?HW-CC-KV=V1&HW-CC-Date=20260528T025550Z&HW-CC-Expire=86400&HW-CC-Sign=DBA91D8755C4E7A0EF6CCDBFCD63A21FA312D345B8915660D302EF7BA915E9BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/oRs6T6dHSz-BY8CEfLk99A/zh-cn_image_0000002659102173.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=638357C19F2F586CBA64FE27C4C193BA29D8B2EE47A7B1D28B13648D992C8F23)
 
 
 **待跳转应用 [module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签) uris 配置示例：**

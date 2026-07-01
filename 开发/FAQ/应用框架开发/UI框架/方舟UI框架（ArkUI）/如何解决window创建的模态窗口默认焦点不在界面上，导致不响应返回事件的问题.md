@@ -1,6 +1,6 @@
 # 如何解决window创建的模态窗口默认焦点不在界面上，导致不响应返回事件的问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-201
 
@@ -13,7 +13,7 @@
 模态窗口是给系统权限申请弹窗用的，默认不能响应back手势事件。使用setDialogBackGestureEnabled接口设置模态窗口是否响应手势返回事件，设置为true时，模态窗口可响应onBackPress回调。参考代码如下：
  
 ```ArkTS
-// EntryAbility.ets
+<em>// EntryAbility.ets</em>
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
@@ -38,7 +38,7 @@ export default class EntryAbility extends UIAbility {
         windowClass = data;
         windowClass.setUIContent('pages/Index');
         let enabled = true;
-        // Enable response to back gesture event
+       <em> // Enable response to back gesture event</em>
         let promise = windowClass.setDialogBackGestureEnabled(enabled);
         promise.then(() => {
           console.info('Succeeded in setting dialog window to respond back gesture.');

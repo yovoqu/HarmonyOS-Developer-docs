@@ -1,6 +1,6 @@
 # SymbolSpan
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 作为Text组件的子组件，用于显示图标小符号的组件。
  
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件支持继承父组件Text的属性，即如果子组件未设置属性且父组件设置属性，则继承父组件设置的全部属性。 SymbolSpan拖拽不会置灰显示。
+> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 该组件支持继承父组件Text的属性，即如果子组件未设置属性且父组件设置属性，则继承父组件设置的全部属性。 SymbolSpan拖拽不会置灰显示。
 
   
 
@@ -113,7 +113,7 @@ fontSize(value: number | string | Resource)
 
 fontWeight(value: number | FontWeight | string)
  
-设置SymbolSpan组件粗细。number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular” 、“medium”分别对应FontWeight中相应的枚举值。
+设置SymbolSpan组件字体粗细。number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular" 、"medium"分别对应FontWeight中相应的枚举值。
  
 sys.symbol.ohos_lungs图标不支持设置fontWeight。
  
@@ -131,7 +131,7 @@ sys.symbol.ohos_lungs图标不支持设置fontWeight。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| FontWeight \| string | 是 | SymbolSpan组件粗细。 默认值：FontWeight.Normal |
+| value | number \| FontWeight \| string | 是 | SymbolSpan组件字体粗细。 默认值：FontWeight.Normal |
  
  
   
@@ -164,7 +164,7 @@ renderingStrategy(value: SymbolRenderingStrategy)
 不同渲染策略效果可参考以下示意图。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/F9NJLGxfQRqL2nf3_UTRZg/zh-cn_image_0000002581276032.png?HW-CC-KV=V1&HW-CC-Date=20260528T025600Z&HW-CC-Expire=86400&HW-CC-Sign=E184464BFDD0BE6E24983F1B302428480E92DB8B7A9F8F8B78B99C9848F4B84B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/j9Qf9S-TTqy8nXcGof8HqA/zh-cn_image_0000002628702684.png?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=BCE58FCD5B73D9E065DE59D4D6D30AF9F7D83B3CA664265ADB9469BD90C12122)
 
  
   
@@ -337,7 +337,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/Njdt9fxBTBCyEuUhvjARhw/zh-cn_image_0000002611755887.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025600Z&HW-CC-Expire=86400&HW-CC-Sign=72D902D6F42692FF58398DC75AB4E261487372E6E452C428BF4746DC71194E43)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/-vYVXicoST-SVApjkXdFRg/zh-cn_image_0000002659101911.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=897A2DE5D305E99BE367D9FC4C40611F8226B2F9E60362FCB02876CDCA330236)
 
  
   
@@ -375,4 +375,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/IINveTJFQNO1ac7gYa_YUA/zh-cn_image_0000002581435950.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025600Z&HW-CC-Expire=86400&HW-CC-Sign=69D19B337C544FE87D3608DED9E597A6B9DB22268882B4F1B10C4A549BAFC1D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/TcjAazTCRUK7R0sphq1ABg/zh-cn_image_0000002628862562.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=30C9A3F6C8C7DA76AB0C39AD640FB2FED87EA131CE35C9C6691B53243C63BC92)

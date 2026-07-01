@@ -1,6 +1,6 @@
 # ArkWeb_WebMessageAPI
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-webmessageapi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -144,6 +144,13 @@ ArkWeb_WebMessageType (*getType)(ArkWeb_WebMessagePtr webMessage)
 | 参数项 | 描述 |
 | --- | --- |
 | ArkWeb_WebMessagePtr webMessage | 消息结构体指针。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| ArkWeb_WebMessageType | 消息类型。 |
  
  
   

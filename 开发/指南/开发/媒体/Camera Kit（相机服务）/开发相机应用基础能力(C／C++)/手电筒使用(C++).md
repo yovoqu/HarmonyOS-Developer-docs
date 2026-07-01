@@ -1,6 +1,6 @@
 # 手电筒使用(C++)
 
-更新时间：2026-03-23 08:10:50
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-torch-use
 
@@ -74,12 +74,12 @@ bool IsTorchSupportedByTorchMode(Camera_Manager* cameraManager, Camera_TorchMode
     bool torchModeSupported = false;
     Camera_ErrorCode ret = OH_CameraManager_IsTorchSupportedByTorchMode(cameraManager, torchMode, &torchModeSupported);
     if (ret != CAMERA_OK) {
-         OH_LOG_ERROR(LOG_APP, "OH_CameraManager_IsTorchSupported failed.");
+         OH_LOG_ERROR(LOG_APP, "OH_CameraManager_IsTorchSupportedByTorchMode failed.");
     }
     if (torchModeSupported) {
-         OH_LOG_INFO(LOG_APP, "isTorchModeSupported success.");
+         OH_LOG_INFO(LOG_APP, "IsTorchSupportedByTorchMode success.");
     } else {
-         OH_LOG_ERROR(LOG_APP, "isTorchModeSupported failed. %{public}d ", ret);
+         OH_LOG_ERROR(LOG_APP, "IsTorchSupportedByTorchMode failed. %{public}d ", ret);
     }
     return torchModeSupported;
 }

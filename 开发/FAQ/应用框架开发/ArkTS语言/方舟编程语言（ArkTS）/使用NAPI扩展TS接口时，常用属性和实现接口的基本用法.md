@@ -1,11 +1,11 @@
 # 使用NAPI扩展TS接口时，常用属性和实现接口的基本用法
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-21
 
 1. env是使用NAPI的模块化编程，注册模块后，通过回调函数调用。
-```cpp
+```text
 static napi_value CallNapi(napi_env env, napi_callback_info info) { 
     size_t argc = 1; 
     napi_value object = nullptr; 
@@ -23,7 +23,7 @@ NAPI_MODULE_INIT() {
 ```
 
 2. 实现回调：
-```cpp
+```text
 #include "napi/native_api.h" 
 #include <assert.h> 
 static napi_value NativeCall(napi_env env, napi_callback_info info) { 
@@ -75,10 +75,10 @@ extern "C" __attribute__((constructor)) void RegisterCallbackModule(void) {
 ```
 
 3. Promise实现参考：
-```cpp
+```text
 #include "napi/native_api.h" 
-// Empty value so that macros here are able to return NULL or void 
-#define NAPI_RETVAL_NOTHING  // Intentionally blank 
+<em>// Empty value so that macros here are able to return NULL or void </em>
+#define NAPI_RETVAL_NOTHING <em> // Intentionally blank </em>
 #define GET_AND_THROW_LAST_ERROR(env)                                                                    
     do {                                                                                               
         const napi_extended_error_info* errorInfo = nullptr;                                             
@@ -147,7 +147,7 @@ static napi_value NativeCall(napi_env env, napi_callback_info info) {
     NAPI_CALL(env, napi_get_cb_info(env, info, &argc, args, nullptr, nullptr)); 
     int32_t arg; 
     NAPI_CALL(env, napi_get_value_int32(env, args[0], &arg)); 
-    // Create promise 
+    <em>// Create promise </em>
     napi_deferred deferred; 
     napi_value promise; 
     NAPI_CALL(env, napi_create_promise(env, &deferred, &promise)); 

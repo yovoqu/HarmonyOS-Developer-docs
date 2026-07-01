@@ -1,6 +1,6 @@
 # Text
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,7 +41,7 @@ Text(content?: string | Resource , value?: TextOptions)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | content | string \| Resource | 否 | 文本内容。当不包含子组件Span和未设置属性字符串时该参数生效。 默认值：' ' 说明： 显示内容的优先级：属性字符串>Span>Text的文本内容。 |
-| value11+ | TextOptions | 否 | 文本组件初始化选项。 |
+| value11+ | TextOptions | 否 | 文本组件初始化选项。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -77,6 +77,7 @@ Text(content?: string | Resource , value?: TextOptions)
 | fontStyle | 设置字体样式。 |
 | fontWeight | 设置文本的字体粗细。 |
 | fontWeight12+ | 设置文本字重，支持设置字体配置项。 |
+| fontVariations | 设置可变字体的属性。起始版本： 26.0.0 |
 | letterSpacing | 设置文本字符间距。 |
 | shaderStyle20+ | 设置文本渐变或纯色效果。 |
 | textCase | 设置文本大小写。 |
@@ -186,7 +187,7 @@ baselineOffset(value: number | ResourceStr)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| ResourceStr | 是 | 文本基线的偏移量。 默认值：0 从API version 20开始，支持Resource类型。 |
+| value | number \| ResourceStr | 是 | 文本基线的偏移量。 默认值：0 单位：fp 从API version 20开始，支持Resource类型。 |
 
 
 
@@ -203,11 +204,19 @@ bindSelectionMenu的长按响应时长为600ms，[bindContextMenu](https://devel
 
 自定义菜单超长时，建议内部嵌套使用[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)组件，避免键盘被遮挡。
 
+从API版本26.0.0开始，文本组件调用该接口时，options中的menuType属性传入MenuType.PREVIEW_MENU，设置图片预览菜单的能力生效。
+
+如果要使用图片预览菜单，需要同时把spanType设置为TextSpanType.IMAGE，responseType设置为TextResponseType.LONG_PRESS，options中的menuType设置为MenuType.PREVIEW_MENU才会生效。
+
+当[copyOption](#copyoption9)为CopyOptions.None时，设置图片预览菜单将不会生效。
+
 > [!NOTE]
 > 该接口不支持在 attributeModifier 中调用。 通过 editMenuOptions 设置文本选择菜单时，保留系统默认的风格，触发菜单弹出的条件不变。 通过 bindSelectionMenu 设置文本选择菜单时，风格由开发者定义，触发菜单弹出的条件由开发者定义。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -233,6 +242,8 @@ caretColor(color: ResourceColor)
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -253,6 +264,8 @@ contentTransition(transition: Optional&lt;ContentTransition&gt;)
 可以设置为数字翻牌动效[NumericTextTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#numerictexttransition20)。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -316,6 +329,8 @@ dataDetectorConfig(config: TextDataDetectorConfig)
 需配合[enableDataDetector](#enabledatadetector11)一起使用，设置enableDataDetector为true时，dataDetectorConfig的配置才能生效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -396,6 +411,8 @@ editMenuOptions(editMenu: EditMenuOptions)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -421,6 +438,8 @@ EllipsisMode.START和EllipsisMode.CENTER仅在单行超长文本生效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -441,6 +460,8 @@ enableAutoSpacing(enabled: Optional&lt;boolean&gt;)
 设置是否开启中文与西文的自动间距。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -478,6 +499,8 @@ decoration:{
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -513,6 +536,8 @@ enableHapticFeedback(isEnabled: boolean)
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -534,9 +559,17 @@ enableSelectedDataDetector(enable: boolean | undefined)
 
 当enableSelectedDataDetector设置为true时，默认识别所有类型的实体。
 
+启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。默认启用AI菜单功能。
+
+AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括[TextMenuItemId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitemid12)中的url（打开链接）、email（新建邮件）、phoneNumber（呼叫）、address（导航前往）、dateTime（新建日程）。
+
+AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体，才能展示对应的选项。该菜单项与[TextMenuItemId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitemid12)中的askAI菜单项不同时出现。
+
 需要[CopyOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#copyoptions9)为CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，本功能生效。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -544,7 +577,7 @@ enableSelectedDataDetector(enable: boolean | undefined)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean \| undefined | 是 | 开启选中词文本识别。 true：开启识别，false：关闭识别。默认值为：true。 |
+| enable | boolean \| undefined | 是 | 是否对选中文本进行实体识别。 true：开启识别，false：关闭识别。默认值为：true。 |
 
 
 
@@ -560,6 +593,8 @@ font(value: Font)
 包括字体大小、字体粗细、字体族和字体风格。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -585,6 +620,8 @@ font(fontValue: Font, options?: FontSettingOptions)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -671,6 +708,8 @@ fontFeature(value: string)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -776,6 +815,8 @@ fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptio
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -784,6 +825,31 @@ fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptio
 | --- | --- | --- | --- |
 | weight | number \| FontWeight \| ResourceStr | 是 | 设置文本字重。number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 从API version 20开始，支持Resource类型。 |
 | options | FontSettingOptions | 否 | 设置字体配置项。 当options的参数enableVariableFontWeight取值false时，禁用可变字重调节，weight取值为[100, 900]范围内的整百数值时，字重取值为weight。weight是非整百数值时，字重取默认值400。 当options的参数enableVariableFontWeight取值true时，启用可变字重调节，weight取值为[100, 900]范围内任意整数时，字重取值为weight。 |
+
+
+
+
+#### fontVariations
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+fontVariations(fontVariations: Array&lt;FontVariation&gt;)
+
+设置可变字体的属性。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| fontVariations | Array&lt;FontVariation&gt; | 是 | 可变字体的属性数组，数组成员为可变字体的各种属性。fontVariations属性的优先级高于fontWeight。 |
 
 
 
@@ -797,6 +863,8 @@ halfLeading(halfLeading: boolean)
 设置文本是否垂直居中。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -825,6 +893,8 @@ heightAdaptivePolicy(value: TextHeightAdaptivePolicy)
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -875,6 +945,8 @@ lineBreakStrategy(strategy: LineBreakStrategy)
 设置折行规则。该属性在[wordBreak](#wordbreak11)不等于WordBreak.BREAK_ALL的时候生效，且不支持连词符。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -934,6 +1006,8 @@ lineHeightMultiple(value: number | undefined)
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -955,6 +1029,8 @@ lineSpacing(value: LengthMetrics)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -975,6 +1051,8 @@ lineSpacing(value: LengthMetrics, options?: LineSpacingOptions)
 设置文本的行间距。当不配置LineSpacingOptions时，首行上方和尾行下方默认会有行间距。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1000,6 +1078,8 @@ marqueeOptions(options: Optional&lt;TextMarqueeOptions&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1020,6 +1100,8 @@ maxFontScale(scale: number | Resource)
 设置文本最大的字体缩放倍数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1079,6 +1161,8 @@ maxLineHeight小于minLineHeight时，maxLineHeight按照minLineHeight属性的�
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1099,6 +1183,8 @@ selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined)
 设置文本拖拽时的背板样式。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1145,6 +1231,8 @@ minFontScale(scale: number | Resource)
 设置文本最小的字体缩放倍数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1202,6 +1290,8 @@ minLineHeight(value: LengthMetrics | undefined)
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1223,13 +1313,15 @@ minLines(minLines: Optional&lt;number&gt;)
 
 如果实际文本高度小于最小行数对应的高度，最后显示高度为最小行数对应的高度。
 
-与[maxLines](#maxlines)同时配置时，最小行高显示范围不会超过最大行高限制。
+与[maxLines](#maxlines)同时配置时，最小行数对应的显示高度不会超过最大行数对应的高度限制。
 
 如果文本设置了[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)，那么组件最后显示高度会在[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)约束内。
 
 **卡片能力：** 从API version 22开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1252,6 +1344,8 @@ includeFontPadding(include: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1272,6 +1366,8 @@ fallbackLineSpacing(enabled: Optional&lt;boolean&gt;)
 针对多行文字叠加，支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。不通过该接口设置，默认行高不基于文字实际高度自适应。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1303,6 +1399,8 @@ optimizeTrailingSpace(optimize: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1328,6 +1426,8 @@ compressLeadingPunctuation(enabled: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1335,6 +1435,31 @@ compressLeadingPunctuation(enabled: Optional&lt;boolean&gt;)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enabled | Optional&lt;boolean&gt; | 是 | 是否开启行首标点符号压缩。 true表示开启行首标点符号压缩；false表示不开启行首标点符号压缩。 |
+
+
+
+
+#### orphanCharOptimization
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+orphanCharOptimization(enabled: Optional&lt;boolean&gt;)
+
+设置文本排版时是否使能孤字优化。不通过该接口设置，默认不使能孤字优化。
+
+孤字优化通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[wordBreak](#wordbreak11)为非BREAK_ALL并且待排版文本首个[TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#textstyle)的[locale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#textstyle)为“zh-Hans”或“zh-Hant”时生效。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | Optional&lt;boolean&gt; | 是 | 段落最后一行是否使能孤字优化。 true表示使能孤字优化，false表示不使能孤字优化。 值为undefined或null时，不使能孤字优化。 |
 
 
 
@@ -1350,6 +1475,8 @@ privacySensitive(supported: boolean)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1371,6 +1498,8 @@ selectedBackgroundColor(color: ResourceColor)
 设置文本选中底板颜色。如果未设置不透明度，默认为20%不透明度。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1405,6 +1534,8 @@ selection(selectionStart: number, selectionEnd: number)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1426,6 +1557,8 @@ shaderStyle(shader: ShaderStyle)
 可以显示为径向渐变[RadialGradientStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#radialgradientstyle20)或线性渐变[LinearGradientStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#lineargradientstyle20)或纯色[ColorShaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#colorshaderstyle20)的效果，shaderStyle的优先级高于[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontcolor)和AI识别，纯色建议使用[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontcolor)。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1511,13 +1644,15 @@ textContentAlign(textContentAlign: Optional&lt;TextContentAlign&gt;)
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| textContentAlign | Optional&lt;TextContentAlign&gt; | 是 | 文本段落在垂直方向的对齐方式。 默认(undefined和异常值情况下)和align属性设置为Center效果一致。 |
+| textContentAlign | Optional&lt;TextContentAlign&gt; | 是 | 文本内容区在组件内的垂直对齐方式。 默认(undefined和异常值情况下)和align属性设置为Center效果一致。 |
 
 
 
@@ -1531,6 +1666,8 @@ textDirection(direction: TextDirection | undefined)
 指定文本排版方向，未通过该接口设置时，默认文本排版方向遵循组件布局方向。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1552,6 +1689,8 @@ textIndent(value: Length)
 设置首行文本缩进。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1619,6 +1758,8 @@ textSelectable(mode: TextSelectableMode)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1646,6 +1787,8 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1670,6 +1813,8 @@ textVerticalAlign(textVerticalAlign: Optional&lt;TextVerticalAlign&gt;)
 
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1696,6 +1841,8 @@ WordBreak.BREAK_ALL与{overflow: TextOverflow.Ellipsis}、maxLines组合使用�
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1712,6 +1859,8 @@ WordBreak.BREAK_ALL与{overflow: TextOverflow.Ellipsis}、maxLines组合使用�
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Span](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span)类型信息。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1734,6 +1883,8 @@ WordBreak.BREAK_ALL与{overflow: TextOverflow.Ellipsis}、maxLines组合使用�
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 选择菜单的响应类型。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1765,6 +1916,8 @@ WordBreak.BREAK_ALL与{overflow: TextOverflow.Ellipsis}、maxLines组合使用�
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1792,6 +1945,8 @@ onCopy(callback:(value: string) => void)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1799,6 +1954,31 @@ onCopy(callback:(value: string) => void)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string | 是 | 复制的文本内容。 |
+
+
+
+
+#### onWillCopy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onWillCopy(callback: Callback<string, boolean>)
+
+在进行复制操作前，触发该回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback<string, boolean> | 是 | string为将要被复制的文本内容；boolean表示当前文本是否允许被复制，true：允许文本被复制；false：不允许文本被复制。 |
 
 
 
@@ -1812,6 +1992,8 @@ onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) =
 文本选择的位置发生变化时，触发该回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1835,6 +2017,8 @@ onMarqueeStateChange(callback: Callback&lt;MarqueeState&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1854,6 +2038,8 @@ Text初始化参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1870,6 +2056,8 @@ Text初始化参数。
 Text组件的控制器。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1893,6 +2081,8 @@ closeSelectionMenu(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -1906,6 +2096,8 @@ setStyledString(value: StyledString): void
 触发绑定或更新属性字符串。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1932,6 +2124,8 @@ getLayoutManager(): LayoutManager
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1957,6 +2151,8 @@ setTextSelection(selectionStart: number | undefined, selectionEnd: number | unde
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1975,6 +2171,8 @@ setTextSelection(selectionStart: number | undefined, selectionEnd: number | unde
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Marquee初始化参数。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2001,6 +2199,8 @@ Marquee的滚动方式，可选择默认持续滚动或条件触发滚动。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -2019,6 +2219,8 @@ Marquee的滚动方式，可选择默认持续滚动或条件触发滚动。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -2036,6 +2238,8 @@ Marquee的滚动方式，可选择默认持续滚动或条件触发滚动。
 Marquee状态回调的返回值。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2470,7 +2674,9 @@ struct TextExample4 {
 
 #### 示例5（设置文本选中和复制）
 
-该示例通过[selection](#selection11)（从API version 11开始）、[onCopy](#oncopy11)（从API version 11开始）、[draggable](#draggable9)（从API version 9开始）、[caretColor](#caretcolor14)（从API version 14开始）、[selectedBackgroundColor](#selectedbackgroundcolor14)（从API version 14开始）接口展示了文本选中、触发复制回调、设置文本选中可拖拽以及修改手柄和选中颜色的效果。
+该示例通过[selection](#selection11)（从API version 11开始）、[onCopy](#oncopy11)（从API version 11开始）、[draggable](#draggable9)（从API version 9开始）、[caretColor](#caretcolor14)（从API version 14开始）、[selectedBackgroundColor](#selectedbackgroundcolor14)（从API version 14开始）、[onWillCopy](#onwillcopy)接口展示了文本选中、触发复制回调、设置文本选中可拖拽、修改手柄和选中颜色的效果以及如何拦截系统复制。
+
+从API版本26.0.0开始，新增[onWillCopy](#onwillcopy)接口。
 
 ```ArkTS
 // xxx.ets
@@ -2495,6 +2701,11 @@ struct TextExample5 {
           .selection(this.start, this.end)
           .onCopy((value: string) => {
             this.onCopy = value;
+          })
+          // 从API版本26.0.0开始支持onWillCopy
+          .onWillCopy((value: string) => {
+            this.onCopy = value;
+            return false;
           })
           .draggable(true)
           .caretColor(Color.Red)
@@ -3692,3 +3903,164 @@ struct TextExample10 {
 
 
 ![](assets/Text/file-20260525091212696-019.gif)
+
+
+
+
+#### 示例28（设置文本排版时是否使能孤字优化）
+
+该示例通过[orphanCharOptimization](#orphancharoptimization)接口设置使能孤字优化，确保段落最后一行不出现孤字。
+
+从API版本26.0.0开始，新增orphanCharOptimization接口。
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct TextExample {
+  @State text: string = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa文本aaaaaaaaaaaaa';
+
+  build() {
+    Column({ space: 3 }) {
+      Text('Text不使能孤字优化')
+        .fontSize(12).width('90%').margin(5)
+      Text(this.text)
+        .fontSize(20)
+        .width('456')
+        .borderWidth(1)
+      Text('Text使能孤字优化')
+        .fontSize(12).width('90%').margin(5)
+      Text(this.text)
+        .fontSize(20)
+        .width('456')
+        .borderWidth(1)
+        .orphanCharOptimization(true)
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+该效果图会因设备尺寸差异有显示区别，仅供参考。
+
+
+![](assets/Text/file-20260525091212696-020.png)
+
+
+
+
+#### 示例29（设置可变字体的属性）
+
+该示例通过[fontVariations](#fontvariations)接口设置可变字体的属性。
+
+从API版本26.0.0开始，新增[fontVariations](#fontvariations)接口。
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct TextExample {
+  @State weightValue: number = 400;
+
+  build() {
+    Column() {
+      Text('Hello World !')
+        // wght代表可变字体的字重属性
+        .fontVariations([{ axis: 'wght', value: this.weightValue }])
+      Button('字重: ' + this.weightValue)
+        .margin(10)
+        .onClick(() => {
+          this.weightValue += 100;
+        })
+    }.width('100%')
+  }
+}
+```
+
+
+![](assets/Text/file-20260525091212696-021.png)
+
+
+
+
+#### 示例30（设置图片预览菜单）
+
+该示例通过[bindSelectionMenu](#bindselectionmenu11)接口实现了文本设置图片预览菜单的功能。
+
+从API版本26.0.0开始，文本组件调用该接口时，options中的menuType属性传入MenuType.PREVIEW_MENU，设置图片预览菜单的能力生效。
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct TextExample {
+  @Builder
+  panel() {
+    Column() {
+      Text('abc').backgroundColor('#F0F0F0')
+    }.width(256)
+  }
+
+  build() {
+    Column() {
+      Column() {
+        Text() {
+          Span('Hello')
+            .fontSize(50)
+          // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。
+          ImageSpan($r('app.media.startIcon'))
+            .width(30).height(30)
+            .verticalAlign(ImageSpanAlignment.FOLLOW_PARAGRAPH)// 从API version 20开始，支持ImageSpanAlignment.FOLLOW_PARAGRAPH
+          Span('World')
+        }
+        .textVerticalAlign(TextVerticalAlign.CENTER)
+        .borderWidth(1)
+        .copyOption(CopyOptions.InApp)
+        .bindSelectionMenu(TextSpanType.IMAGE, this.panel, TextResponseType.LONG_PRESS, {
+          menuType : MenuType.PREVIEW_MENU,
+          previewMenuOptions : {
+            hapticFeedbackMode : HapticFeedbackMode.ENABLED
+          }
+        })
+      }.width('100%').backgroundColor(Color.White)
+    }.height('100%')
+  }
+}
+```
+
+
+![](assets/Text/file-20260525091212696-022.png)
+
+
+
+
+#### 示例31（设置文本选择的AI菜单）
+
+该示例通过[enableSelectedDataDetector](#enableselecteddatadetector22)，配置文本选择AI菜单功能。
+
+从API version 22开始，新增enableSelectedDataDetector。
+
+```text
+@Entry
+@Component
+struct Demo31 {
+  exampleText: string = '示例网址：www.example.com';
+
+  build() {
+    Column() {
+      Row(){
+        Text(this.exampleText)
+          .copyOption(CopyOptions.LocalDevice)
+          .enableSelectedDataDetector(true)
+          .border({ width: 1, color: Color.Black })
+          .padding(10)
+          .margin(10)
+      }
+    }.width('100%')
+  }
+}
+```
+
+
+![](assets/Text/file-20260525091212696-023.gif)

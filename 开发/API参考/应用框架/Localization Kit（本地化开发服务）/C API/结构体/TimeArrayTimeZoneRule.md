@@ -1,6 +1,6 @@
 # TimeArrayTimeZoneRule
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-i18n-timearraytimezonerule
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,8 +37,8 @@ typedef struct TimeArrayTimeZoneRule {...} TimeArrayTimeZoneRule
 | 名称 | 描述 |
 | --- | --- |
 | char* name | 时区规则的名称。 |
-| int32_t rawOffset | 时区的原始偏移量。 |
-| int32_t dstSavings | 夏令时的偏移量。 |
-| double* startTimes | 规则生效的起始时间戳数组。 |
+| int32_t rawOffset | 时区的原始偏移量，单位为毫秒（ms）。 |
+| int32_t dstSavings | 夏令时的偏移量，单位为毫秒（ms）。 |
+| double* startTimes | 规则生效的起始时间戳数组，起始时间戳单位为毫秒（ms）。 |
 | int32_t numStartTimes | 规则生效的起始时间戳数组的大小。 |
 | TimeRuleType timeRuleType | 时间规则类型。 |

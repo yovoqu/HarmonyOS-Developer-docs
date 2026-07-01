@@ -1,11 +1,11 @@
 # 如何将C++侧接收的PixelMap转换成cv::mat格式
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-18
 
-**解决措施：**
- 
+#### 解决措施
+
 将PixelMap转换成cv::mat有两种方法：
  
 - 将PixelMap的arraybuffer转换成cv::mat。
@@ -18,7 +18,7 @@
  
 ArkTS侧传递参数：
  
-```ArkTS
+```text
 import cPixelMapToMat from 'libcpixelmaptomat.so';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
@@ -97,9 +97,9 @@ struct Index {
 }
 ```
  
-方案一：将arraybuffer转换成cv::mat代码如下：
  
-```cpp
+- 方案一：将arraybuffer转换成cv::mat代码如下：
+```text
 #include "napi/native_api.h"
 #include <multimedia/image_framework/image_mdk.h>
 #include <multimedia/image_framework/image_mdk_common.h>
@@ -117,18 +117,18 @@ static napi_value ArrayBufferToMat(napi_env env, napi_callback_info info) {
     napi_value error;
     napi_create_int32(env, -1, &error);
 
-    // Initialize PixelMap object data 
+  <em>  // Initialize PixelMap object data </em>
     NativePixelMap *native = OH_PixelMap_InitNativePixelMap(env, args[0]);
     if (native == nullptr) {
         return error;
     }
-    // Obtaining Image Information
+   <em> // Obtaining Image Information</em>
     struct OhosPixelMapInfos pixelMapInfos;
     if (OH_PixelMap_GetImageInfo(native, &pixelMapInfos) != IMAGE_RESULT_SUCCESS) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, 0xFF00, "Test", "Pure : -1");
         return error;
     }
-    // Obtains the buffer
+  <em>  // Obtains the buffer</em>
     napi_value buffer = args[1];
     napi_valuetype valueType;
     napi_typeof(env, buffer, &valueType);
@@ -145,14 +145,14 @@ static napi_value ArrayBufferToMat(napi_env env, napi_callback_info info) {
     napi_get_arraybuffer_info(env, buffer, &data, &byteLength);
     int32_t *saveBuffer = (int32_t *)(data);
 
-    // Convert to Mat
+   <em> // Convert to Mat</em>
     cv::Mat originMat(pixelMapInfos.height, pixelMapInfos.width, CV_8UC4, saveBuffer);
     if (!originMat.data) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, 0xFF00, "Read Image", "Pure : -1");
         return error;
     }
 
-    // openCV defaults to BGRA or BGR. If the pixelmap is not created in one of these formats, a format conversion is required
+  <em>  // openCV defaults to BGRA or BGR. If the pixelmap is not created in one of these formats, a format conversion is required</em>
     cv::Mat saveMat;
     cv::cvtColor(originMat, saveMat, cv::COLOR_BGRA2RGBA);
     char pathArray[1024];
@@ -170,10 +170,9 @@ static napi_value ArrayBufferToMat(napi_env env, napi_callback_info info) {
     return res;
 }
 ```
- 
-方案二：使用OH_PixelMap_AccessPixels获取PixelMap的内存地址，将这个内存地址中的数据转换为cv::mat的代码如下：
- 
-```cpp
+
+- 方案二：使用OH_PixelMap_AccessPixels获取PixelMap的内存地址，将这个内存地址中的数据转换为cv::mat的代码如下：
+```text
 static napi_value AccessToMat(napi_env env, napi_callback_info info) {
     size_t argc = 2;
     napi_value args[2] = {nullptr};
@@ -193,17 +192,17 @@ static napi_value AccessToMat(napi_env env, napi_callback_info info) {
     }
 
     void *pixel;
-    // Obtain the memory address of the NativePixelMap object and lock the memory
+   <em> // Obtain the memory address of the NativePixelMap object and lock the memory</em>
     OH_PixelMap_AccessPixels(native, &pixel);
 
-    // Convert to Mat, pay attention to alignment, so rowSize needs to be passed in
+   <em> // Convert to Mat, pay attention to alignment, so rowSize needs to be passed in</em>
     cv::Mat originMat(pixelMapInfos.height, pixelMapInfos.width, CV_8UC4, pixel, pixelMapInfos.rowSize);
     if (!originMat.data) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, 0xFF00, "Read Image", "Pure : -1");
         return error;
     }
 
-    // openCV defaults to BGRA or BGR. If the pixelmap is not created in one of these formats, a format conversion is required
+   <em> // openCV defaults to BGRA or BGR. If the pixelmap is not created in one of these formats, a format conversion is required</em>
     cv::Mat saveMat;
     cv::cvtColor(originMat, saveMat, cv::COLOR_BGRA2RGBA);
     char pathArray[1024];
@@ -221,5 +220,7 @@ static napi_value AccessToMat(napi_env env, napi_callback_info info) {
     return res;
 }
 ```
+
+
  
 在HarmonyOS开发中，针对图库支持硬解码的操作，需要指定图像的内存空间大小。OH_PixelMap_AccessPixels() 获取图片的内存地址并锁定该内存。实际图像的大小需要按 lineStride 对齐。因此，在构造成 mat 时，需指定 lineStride 对齐。lineStride即 rowSize。可以使用 OH_GetImageInfo 获取 imageInfo，其中包含 width、height 和 rowSize 等信息。

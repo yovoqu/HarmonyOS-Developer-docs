@@ -1,6 +1,6 @@
 # TILING_KEY_IS
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tiling-key-is
 
@@ -67,7 +67,7 @@ ge::graphStatus TilingFunc(gert::TilingContext* context)
 {
     // 其他代码逻辑
     // ...
-    if (context->GetInputShape(0) > 10) {
+    if (context->GetInputShape(0) != nullptr && context->GetInputShape(0)->GetDims().size() > 10) {
         context->SetTilingKey(1);
     } else if (some condition) {
         context->SetTilingKey(2);

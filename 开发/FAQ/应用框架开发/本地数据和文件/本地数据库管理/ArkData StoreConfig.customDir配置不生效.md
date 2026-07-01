@@ -1,6 +1,6 @@
 # ArkData StoreConfig.customDir配置不生效
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-44
 

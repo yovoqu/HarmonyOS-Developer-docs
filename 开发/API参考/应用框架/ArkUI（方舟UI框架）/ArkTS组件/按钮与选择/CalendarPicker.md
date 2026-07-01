@@ -1,6 +1,6 @@
 # CalendarPicker
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 日历选择器组件，提供下拉日历弹窗，可以让用户选择日期。
  
 > [!NOTE]
-> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
 
   
 
@@ -29,6 +29,8 @@ CalendarPicker(options?: CalendarOptions)
 日历选择器。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -61,6 +63,8 @@ edgeAlign(alignType: CalendarAlign, offset?: Offset)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -84,6 +88,8 @@ edgeAlign(alignType: Optional&lt;CalendarAlign&gt;, offset?: Offset)
 设置选择器与入口组件的对齐方式。与[edgeAlign](#edgealign)相比，alignType参数新增了对undefined类型的支持。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -109,6 +115,8 @@ textStyle(value: PickerTextStyle)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -132,6 +140,8 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -154,6 +164,8 @@ markToday(enabled: boolean)
 设置日历选择器中系统当前日期是否保持高亮显示。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -186,6 +198,8 @@ onChange(callback: Callback&lt;Date&gt;)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -213,6 +227,8 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -231,6 +247,8 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 日历选择器组件的参数说明。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -266,6 +284,8 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
 对齐方式类型。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -353,7 +373,7 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/BlCdMwv9TB20R78ekx8viA/zh-cn_image_0000002611835669.png?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=1E4EB982E2BCDCE1E97B18776CFDEFB60D760F3000DF866EAAD0788A6FFAB38C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/vbyIhOsvTo2w528D9bqFqA/zh-cn_image_0000002659101793.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=4FF28B49AEF0D409E87858E40587C51FF4312DFD188C1214F0DEA9C74516C30D)
 
  
   
@@ -391,4 +411,4 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/IQ03usffRVOhKoTgTtkEKg/zh-cn_image_0000002581275920.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=368CEFAA1F4D3B6953156CB56853FEF1BA3511A7010254DC81EBE8C44CF586A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ptFUzTHGTgu9h3HkW0BZSw/zh-cn_image_0000002628862444.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=906906A8D6FE144FA6E2C2FFF139706381B20B22543D34B426D4ED0BF03926A5)

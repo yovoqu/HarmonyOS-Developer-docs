@@ -1,6 +1,6 @@
 # HAR
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package
 
@@ -369,7 +369,7 @@ struct Index {
 
 #### 混淆配置
 
-HAR可以作为二方库和三方库提供给其他应用使用，如果需要对代码资产进行保护，建议[开启混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide#开启源码混淆)。
+HAR可以作为二方库和三方库提供给其他应用使用，如果需要对代码资产进行保护，建议按照[HAR包混淆建议](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-practice#har包混淆建议)来进行源码混淆。
 
 [混淆能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation)开启后，DevEco Studio在构建HAR时，会对代码进行编译、混淆及压缩处理，保护代码资产。
 

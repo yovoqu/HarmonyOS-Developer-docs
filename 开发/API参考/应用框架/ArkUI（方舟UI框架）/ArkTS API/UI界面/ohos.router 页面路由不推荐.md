@@ -1,6 +1,6 @@
 # @ohos.router (页面路由)(不推荐)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
@@ -51,7 +51,7 @@ pushUrl(options: RouterOptions): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -210,7 +210,7 @@ pushUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -369,7 +369,7 @@ replaceUrl(options: RouterOptions): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -506,7 +506,7 @@ replaceUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -630,6 +630,8 @@ pushNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -643,7 +645,7 @@ pushNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -714,6 +716,8 @@ pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&gt;)
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -790,6 +794,8 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;void&g
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -804,7 +810,7 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;void&g
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -873,6 +879,8 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCal
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -950,6 +958,8 @@ replaceNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -963,7 +973,7 @@ replaceNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1021,6 +1031,8 @@ replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&g
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1086,6 +1098,8 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;voi
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1100,7 +1114,7 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;voi
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1158,6 +1172,8 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: Async
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1254,6 +1270,8 @@ back(index: number, params?: Object): void;
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1381,6 +1399,8 @@ getStateByIndex(index: number): RouterState | undefined
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1425,6 +1445,8 @@ getStateByUrl(url: string): Array&lt;RouterState&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1468,7 +1490,7 @@ for (let i: number = 0; i < options.length; i++) {
 | index | number | 否 | 否 | 表示当前页面在页面栈中的索引。从栈底到栈顶，index从1开始递增。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | name | string | 否 | 否 | 表示当前页面的名称，即对应文件名。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | path | string | 否 | 否 | 表示当前页面的路径。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| params12+ | Object | 否 | 否 | 表示当前页面携带的参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| params12+ | Object | 否 | 否 | 表示当前页面携带的参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1641,8 +1663,8 @@ this.getUIContext().getRouter().getParams();
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | string | 否 | 否 | 表示目标命名路由页面的name。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
-| params | Object | 否 | 是 | 表示路由跳转时要同时传递到目标页面的数据。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 说明： params参数不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
+| name | string | 否 | 否 | 表示目标命名路由页面的name。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
+| params | Object | 否 | 是 | 表示路由跳转时要同时传递到目标页面的数据。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 说明： params参数不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
 | recoverable14+ | boolean | 否 | 是 | 表示对应的页面是否可恢复，默认为true。当为true时，表示可恢复，当为false时，表示不可恢复。 说明： 当应用退到后台，并且在未来的某个时间点，由于系统资源限制等原因被系统杀死，如果某个页面被设置成可恢复，那么该应用再次被拉到前台后系统可以恢复出页面，详细说明请参考UIAbility备份恢复。 系统能力： SystemCapability.ArkUI.ArkUI.Lite |
 
 
@@ -1948,3 +1970,222 @@ disableAlertBeforeBackPage(): void
 ```text
 router.disableAlertBeforeBackPage();
 ```
+
+
+
+#### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
+
+该示例展示了类Web范式下router.[replace](#routerreplacedeprecated)以及router.[replaceUrl](#routerreplaceurldeprecated)接口的跳转功能。
+
+示例树状结构如下：
+
+```text
+pages
+├─ index
+│  ├─ index.css
+│  ├─ index.hml
+│  └─ index.js
+└─ routerPages
+   ├─ routerPage.css
+   ├─ routerPage.hml
+   └─ routerPage.js
+```
+
+```text
+/* index.css */
+.page {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #050816;
+}
+
+.page-name {
+  width: 78%;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #f8fafc;
+}
+
+.tips {
+  width: 82%;
+  margin-top: 12px;
+  font-size: 12px;
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.status {
+  width: 82%;
+  margin-top: 8px;
+  font-size: 12px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.action-button {
+  width: 190px;
+  height: 42px;
+  border-radius: 21px;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.action-button-primary {
+  margin-top: 22px;
+  background-color: #2563eb;
+}
+
+.action-button-secondary {
+  margin-top: 10px;
+  background-color: #16a34a;
+}
+```
+
+```text
+<!--index.hml-->
+<div class="page">
+    <text class="page-name">{{ pageName }}</text>
+    <text class="tips">{{ tips }}</text>
+    <text class="status">{{ statusText }}</text>
+    <input class="action-button action-button-primary" type="button" value="replace to routerPage" onclick="replaceToRouterPage"></input>
+    <input class="action-button action-button-secondary" type="button" value="replaceUrl to routerPage" onclick="replaceUrlToRouterPage"></input>
+</div>
+```
+
+```text
+// index.js
+import router from '@ohos.router';
+
+export default {
+    data: {
+        pageName: 'Index Page',
+        tips: 'Use replace or replaceUrl to open routerPage.',
+        statusText: 'Current page: index'
+    },
+    replaceToRouterPage: function() {
+        router.replace({
+            uri: 'pages/routerPages/routerPage',
+            params: {
+                statusText: 'Opened by router.replace.'
+            }
+        });
+    },
+    replaceUrlToRouterPage: function() {
+        router.replaceUrl({
+            uri: 'pages/routerPages/routerPage',
+            params: {
+                statusText: 'Opened by router.replaceUrl.'
+            }
+        });
+    }
+}
+```
+
+```text
+/* routerPage.css */
+.page {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #050816;
+}
+
+.page-name {
+  width: 78%;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #f8fafc;
+}
+
+.tips {
+  width: 82%;
+  margin-top: 12px;
+  font-size: 12px;
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.status {
+  width: 82%;
+  margin-top: 8px;
+  font-size: 12px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.action-button {
+  width: 190px;
+  height: 42px;
+  border-radius: 21px;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.action-button-primary {
+  margin-top: 22px;
+  background-color: #2563eb;
+}
+
+.action-button-secondary {
+  margin-top: 10px;
+  background-color: #16a34a;
+}
+```
+
+```text
+<!--routerPage.hml-->
+<div class="page">
+    <text class="page-name">{{ pageName }}</text>
+    <text class="tips">{{ tips }}</text>
+    <text class="status">{{ statusText }}</text>
+    <input class="action-button action-button-primary" type="button" value="replace to index" onclick="replaceToIndex"></input>
+    <input class="action-button action-button-secondary" type="button" value="replaceUrl to index" onclick="replaceUrlToIndex"></input>
+</div>
+```
+
+```text
+// routerPage.js
+import router from '@ohos.router';
+
+export default {
+    data: {
+        pageName: 'Router Page',
+        tips: 'Use replace or replaceUrl to return to index.',
+        statusText: 'Current page: routerPage'
+    },
+    replaceToIndex: function() {
+        router.replace({
+            uri: 'pages/index/index',
+            params: {
+                statusText: 'Returned by router.replace.'
+            }
+        });
+    },
+    replaceUrlToIndex: function() {
+        router.replaceUrl({
+            uri: 'pages/index/index',
+            params: {
+                statusText: 'Returned by router.replaceUrl.'
+            }
+        });
+    }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/QWzZtStuQdG5GIsZ3349RQ/zh-cn_image_0000002659221465.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014316Z&HW-CC-Expire=86400&HW-CC-Sign=92F04B70CAC05B45325660E9E74973F0FB93B5C72AEF77603BDFA6355031728B)

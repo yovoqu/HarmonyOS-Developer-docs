@@ -1,6 +1,6 @@
 # 如何判断App的启动来源
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-99
 
@@ -10,7 +10,7 @@
  
 拉起端：
  
-```ArkTS
+```text
 import { common, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -32,11 +32,11 @@ struct Index {
             let context = this.context.getHostContext() as common.UIAbilityContext;
             context.startAbility(want, (err: BusinessError) => {
               if (err.code) {
-                // 处理业务逻辑错误
+                <em>// 处理业务逻辑错误</em>
                 hilog.error(0x0000, 'testTag', `startAbility failed, code is ${err.code}, message is ${err.message}`);
                 return;
               }
-              // 执行正常业务
+              <em>// 执行正常业务</em>
               hilog.info(0x0000, 'testTag', 'startAbility succeed');
             });
           })

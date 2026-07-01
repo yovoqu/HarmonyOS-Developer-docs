@@ -1,6 +1,6 @@
 # PushExtensionAbility（推送扩展Ability）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-extension-ability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -87,11 +87,11 @@ const LOG_TAG = 'PushExtAbility';
 
 // 此处以PushExtAbility继承PushExtensionAbility为例
 export default class PushExtAbility extends PushExtensionAbility {
-  async onReceiveMessage(payload: pushCommon.PushPayload): void {
+  onReceiveMessage(payload: pushCommon.PushPayload): void {
     hilog.info(LOG_DOMAIN, LOG_TAG,'onReceiveMessage');
 
     try {
-      await this.updateData(payload.data);
+      this.updateData(payload.data);
     } catch (err) {
       const e: BusinessError = err as BusinessError;
       hilog.error(LOG_DOMAIN, LOG_TAG, 'updateData failed, code=%{public}d, message=%{public}s', e.code, e.message);
@@ -103,7 +103,7 @@ export default class PushExtAbility extends PushExtensionAbility {
    * 开发者可根据透传数据自定义实现数据更新逻辑
    * @param data 透传数据
    */
-  private async updateData(data: string): void {
+  private updateData(data: string): void {
     // 开发者自行实现数据更新逻辑
   }
 }

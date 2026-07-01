@@ -1,6 +1,6 @@
 # Rect
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-rect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -21,6 +21,35 @@
   
 
 #### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+  
+
+#### Rect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+new Rect(options?: RectOptions | RoundedRectOptions)
+ 
+用于绘制矩形的构造函数。
+ 
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | RectOptions \| RoundedRectOptions | 否 | Rect绘制属性。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+ 
+ 
+  
+
+#### Rect
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -57,6 +86,8 @@ Rect(options?: RectOptions | RoundedRectOptions)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -81,6 +112,8 @@ Rect(options?: RectOptions | RoundedRectOptions)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -246,7 +279,7 @@ stroke(value: ResourceColor)
 
 strokeDashArray(value: Array&lt;any&gt;)
  
-设置边框间隙，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。取值范围≥0。异常值将按默认值处理。
+设置边框的虚线长度和虚线间隙长度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。取值范围≥0。异常值将按默认值处理。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -258,7 +291,7 @@ strokeDashArray(value: Array&lt;any&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;any&gt; | 是 | 定义Rect轮廓的虚线模式的数组，数组元素交替表示线段长度和间隙长度。 默认值：[]（空数组） 默认单位：vp 异常值undefined和null按照默认值处理。 说明： 空数组：实线 偶数多元素数组：数组元素按顺序循环，如[a, b, c, d]表示线段长度a->间隙长度b->线段长度c->间隙长度d->线段长度a->... 奇数多元素数组：重复一次该数组元素，按偶数多元素数组的规则顺序循环，如[a, b, c]等效于[a, b, c, a, b, c]，表示线段长度a->间隙长度b->线段长度c->间隙长度a->线段长度b->间隙长度c->线段长度a->... |
+| value | Array&lt;any&gt; | 是 | 定义Rect边框的虚线模式的数组，数组元素交替表示线段长度和间隙长度。 默认值：[]（空数组） 默认单位：vp 异常值undefined和null按照默认值处理。 说明： 空数组：实线 偶数多元素数组：数组元素按顺序循环，如[a, b, c, d]表示线段长度a->间隙长度b->线段长度c->间隙长度d->线段长度a->... 奇数多元素数组：重复一次该数组元素，按偶数多元素数组的规则顺序循环，如[a, b, c]等效于[a, b, c, a, b, c]，表示线段长度a->间隙长度b->线段长度c->间隙长度a->线段长度b->间隙长度c->线段长度a->... |
  
  
   
@@ -526,7 +559,7 @@ struct RectExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/CKoU22G3SBalWaAc5gU9kw/zh-cn_image_0000002611835981.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=DB294FAE51F9BFAAE0A3EC20A4296B01DDC492E38882BA53A94C6FE2EF74F0CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/QaIyz0SbRvaH-86gFLxQqA/zh-cn_image_0000002628702886.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=B27E1A45F8FAFDCE71C3AA302D3C6833750CB374658EFE7BDBCA742F58CF6F32)
 
  
   
@@ -565,7 +598,7 @@ struct RectExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/s_8SiRYWR5GJKV9Jm6ANzA/zh-cn_image_0000002581276234.png?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=E713F4B6CA59F66FFAC04C6820F0FBF1876401FE0981F49E97D174A42E55AD34)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/MP7ETJw9R2aX6wEDI4Qr0Q/zh-cn_image_0000002659102113.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=77D8911F55264EB028A30357BBB2EE5694B0E7B35627F2ABE8447A3DC10D445B)
 
  
   
@@ -611,4 +644,4 @@ struct RectModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/agv5G-luSpiD6l7sgLEB0A/zh-cn_image_0000002611756089.png?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=041AC025364095199C1A2F05B64DCFD41960309605BE2DBFEF73693D39F9ABC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/hfuFfeDGSN-7nyasaYNdEw/zh-cn_image_0000002628862766.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=1BE0C77B95C593F8D90D1A9F890EF555A363ABB757A0E2A1C2BBC2C7A0E336E7)

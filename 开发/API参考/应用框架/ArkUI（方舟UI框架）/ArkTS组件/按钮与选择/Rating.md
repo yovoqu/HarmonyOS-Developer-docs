@@ -1,6 +1,6 @@
 # Rating
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-rating
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -82,6 +82,8 @@ stars(starCount: Optional&lt;number&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -127,6 +129,8 @@ stepSize(size: Optional&lt;number&gt;)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -184,6 +188,8 @@ starStyle(options: Optional&lt;StarStyleOptions&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -209,6 +215,8 @@ contentModifier(modifier: ContentModifier&lt;RatingConfiguration&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -229,6 +237,8 @@ contentModifier(modifier: Optional<ContentModifier&lt;RatingConfiguration&gt;>)
 定制Rating内容区的方法。与[contentModifier](#contentmodifier12)相比，modifier参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -282,6 +292,8 @@ onChange(callback:Optional&lt;OnRatingChangeCallback&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -302,6 +314,8 @@ type OnRatingChangeCallback = (rating: number) => void
 操作评分条的评星变化时触发该回调。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -337,6 +351,8 @@ type OnRatingChangeCallback = (rating: number) => void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -364,6 +380,8 @@ type OnRatingChangeCallback = (rating: number) => void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -387,6 +405,8 @@ type OnRatingChangeCallback = (rating: number) => void
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -466,7 +486,7 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/xIrY0sNuQxWevRP59LUbZg/zh-cn_image_0000002581435852.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=87B43C53D3CA460F1840271A7EFCAE1477ADB6985806772E58904C7791BF6102)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/je3VsGs8T-GvsZzIDOzbgw/zh-cn_image_0000002628702580.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=F63D7E8498B26C46433D4E35FBC03A2BAC94220D96CA5491B2A3599C62DAD03E)
 
 
 
@@ -675,7 +695,7 @@ struct ratingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/mzRr2Kf2RqWcGZzBpq06hA/zh-cn_image_0000002611835683.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=4CC585DDEFC88895296E6E84AC3ED7A2ECD5E170F688EB6350FEA5BF2ECC3828)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/2ZlBTGDNSsSPAiSZUBqr9A/zh-cn_image_0000002659101807.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=429CBF035EEDA28F845B6A0E3B772C1669D458281B4AC19E0CBCC6ACAFBC885F)
 
 
 
@@ -716,7 +736,7 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/wLXDnTovSgmaygAlEHlKPQ/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=57D3F546A0E9DBEF88A99900B410F5613D1C124AB08FF3B64892F7C72C4B67E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/M9OZKiT4RkugNPEGZDIS9A/zh-cn_image_0000002628862458.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=37511C19498926DC250108C78FF64EB3F215B33EAC9C27FDBD2168E25460D260)
 
 
 
@@ -760,4 +780,4 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EQxerdU2RzyZ325OcbfrVg/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=C0407F9740CCA53614FC28BFC25F013C5533E0A92B31CCF18FA5BB5D45C5BB37)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/u4ITF-nSR5OXWmTTWjBiMg/zh-cn_image_0000002628862458.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=49E936CF2EEE50C322D59B3AC2DA7C54C8DA5263F8774C96E80C57AEE68E739D)

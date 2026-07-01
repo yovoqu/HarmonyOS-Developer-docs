@@ -1,6 +1,6 @@
 # ohpm list错误码
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-list-errorcode
 
@@ -20,7 +20,7 @@ parameterFile配置问题。
  
 **处理步骤**
  
-检查和确保parameterFile配置正确，具体修改可参考[parameterFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5#section122411462820)。
+确保parameterFile配置正确，具体修改可参考[parameterFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5#section122411462820)。
  
  
 

@@ -1,6 +1,6 @@
 # @ohos.bundle.launcherBundleManager (launcherBundleManager模块)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-launcherbundlemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,7 +51,7 @@ getLauncherAbilityInfoSync(bundleName: string, userId: number) : Array<[Launcher
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -68,8 +68,8 @@ import { launcherBundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let data = launcherBundleManager.getLauncherAbilityInfoSync("com.example.demo", 100);
-  console.info("data is " + JSON.stringify(data));
+  let launcherAbilityInfos = launcherBundleManager.getLauncherAbilityInfoSync("com.example.demo", 100);
+  console.info("data is " + JSON.stringify(launcherAbilityInfos));
 } catch (errData) {
   let code = (errData as BusinessError).code;
   let message = (errData as BusinessError).message;
@@ -85,7 +85,7 @@ try {
 
 type LauncherAbilityInfo = _LauncherAbilityInfo
 
-LauncherAbilityInfo信息。
+桌面应用Ability的基础信息，包含应用标识、图标、名称等核心属性。详细信息请参见[LauncherAbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-launcherabilityinfo)。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Launcher
 

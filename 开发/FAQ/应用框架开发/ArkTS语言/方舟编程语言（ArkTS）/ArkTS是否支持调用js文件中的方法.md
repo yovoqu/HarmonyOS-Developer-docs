@@ -1,6 +1,6 @@
-# ArkTS是否支持调用js文件中的方法
+# ArkTS是否支持调用js文件中的方法--张子烨 30072890
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-146
 
@@ -12,7 +12,7 @@ ArkTS是否支持调用js文件中的方法，如果支持，能否提供一下A
  
 ets文件调用js文件和正常ts/ets模块一样，import然后调用就行。
  
-```ArkTS
+```text
 import {jsFunc} from './JsLib';
 @Entry
 @Component
@@ -23,7 +23,7 @@ struct Index {
       Text("Import Js Demo")
       Button("Call Js")
         .onClick(() => {
-          jsFunc(); // Call jsFunc from js file
+          jsFunc(); <em>// Call jsFunc from js file</em>
         })
     }
     .width("100%")
@@ -35,7 +35,7 @@ struct Index {
  
 JsLib.js文件中的demo如下：
  
-```text
+```json
 export function jsFunc(){
     console.info("this is a js function");
 }

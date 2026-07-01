@@ -1,6 +1,6 @@
 # JsLeakWatcher错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-jsleakwatcher
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,7 +30,7 @@ The parameter isEnabled is invalid.
 
 **处理步骤**
 
-确保传入参数isEnabled的类型正确。
+确保传入参数isEnabled的类型正确，且必填参数已指定。
 
 
 
@@ -56,7 +56,7 @@ The parameter config is invalid.
 
 **处理步骤**
 
-确保传入参数config的类型正确。
+确保传入参数config的类型正确，必填参数已指定，且数组元素包含XComponent、NodeContainer、Window、CustomComponent或Ability中的一个或多个。
 
 
 
@@ -82,6 +82,6 @@ The parameter callback is invalid.
 
 **处理步骤**
 
-确保传入参数callback的类型正确。callback是一个回调函数，该回调函数入参是一个包含两个元素字符串类型数组。
+确保传入参数callback的类型正确，必填参数已指定，且该回调函数入参是一个包含两个元素字符串类型数组。
 
-索引0为泄露列表文件名，后缀为.jsleaklist；索引1为虚拟机内存快照文件名，后缀为.rawheap。
+索引0为泄漏列表文件名，后缀为.jsleaklist；索引1为虚拟机内存快照文件名，后缀为.rawheap。

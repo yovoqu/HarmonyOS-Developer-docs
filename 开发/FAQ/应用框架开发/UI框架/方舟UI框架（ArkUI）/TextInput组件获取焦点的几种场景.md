@@ -1,6 +1,6 @@
 # TextInput组件获取焦点的几种场景
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-13
 
@@ -8,7 +8,7 @@
 
   
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 @Entry
 @Component
 struct TextInputExample {
@@ -17,7 +17,7 @@ struct TextInputExample {
       Column() {
         Button('The second focus acquisition')
           .onClick(() => {
-            focusControl.requestFocus('BBB'); // Get focus on the second input box
+            focusControl.requestFocus('BBB'); <em>// Get focus on the second input box</em>
           })
 
 
@@ -43,7 +43,7 @@ struct TextInputExample {
 
   
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 @Entry
 @Component
 struct TextInputExample {
@@ -58,7 +58,7 @@ struct TextInputExample {
 
         TextInput({ placeholder: 'Please enter the content.' })
           .showUnderline(true)
-          .defaultFocus(true) // When the page is first opened, this TextInput gets focus
+          .defaultFocus(true) <em>// When the page is first opened, this TextInput gets focus</em>
           .width(380)
           .height(60)
       }
@@ -73,7 +73,7 @@ struct TextInputExample {
 
   
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 @Entry
 @Component
 struct TextInputExample {
@@ -81,8 +81,8 @@ struct TextInputExample {
     Row() {
       Column() {
         TextInput({ placeholder: 'Please enter the content.' })
-          .defaultFocus(true) // When the page is first opened, this TextInput gets focus
-          .enableKeyboardOnFocus(false) // Is TextInput bound to an input method when focusing through methods other than clicking.
+          .defaultFocus(true) <em>// When the page is first opened, this TextInput gets focus</em>
+          .enableKeyboardOnFocus(false) <em>// Is TextInput bound to an input method when focusing through methods other than clicking.</em>
           .placeholderColor(Color.Grey)
           .placeholderFont({ size: 14, weight: 400 })
           .caretColor(Color.Blue)
@@ -101,7 +101,7 @@ struct TextInputExample {
 
   
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 @Entry
 @Component
 struct TextInputExample {

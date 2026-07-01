@@ -1,6 +1,6 @@
 # SetAttr
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setattr
 
@@ -111,8 +111,6 @@ Operator &SetAttr(const char_t *name, const std::vector<ge::NamedAttrs> &attr_va
 | attr_value | 输入 | 需设置的Tensor类型的属性值。 |
 | attr_value | 输入 | 需设置的Tensor列表类型的属性值。 |
 | attr_value | 输入 | 需设置的Bytes，即字节数组类型的属性值，OpBytes即vector&lt;uint8_t&gt;。 |
-| data | 输入 | 需设置的Bytes，即字节数组类型的属性值，指定了字节流的首地址。 |
-| size | 输入 | 需设置的Bytes，即字节数组类型的属性值，指定了字节流的长度。 |
 | attr_value | 输入 | 需设置的量化数据的属性值。 |
 | attr_value | 输入 | 需设置的vector<vector&lt;int64_t&gt;>表示的整型二维列表类型属性值。 |
 | attr_value | 输入 | 需设置的vector<ge::DataType>表示的DataType列表类型属性值。 |

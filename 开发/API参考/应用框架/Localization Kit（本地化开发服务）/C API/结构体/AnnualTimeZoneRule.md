@@ -1,6 +1,6 @@
 # AnnualTimeZoneRule
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-i18n-annualtimezonerule
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -39,6 +39,6 @@ typedef struct AnnualTimeZoneRule {...} AnnualTimeZoneRule
 | char* name | 时区规则的名称。 |
 | int32_t startYear | 时区规则生效的起始年份。 |
 | int32_t endYear | 时区规则生效的终止年份。 |
-| int32_t rawOffset | 时区的原始偏移量。 |
-| int32_t dstSavings | 夏令时的偏移量。 |
+| int32_t rawOffset | 时区的原始偏移量，单位为毫秒（ms）。 |
+| int32_t dstSavings | 夏令时的偏移量，单位为毫秒（ms）。 |
 | DateTimeRule dateTimeRule | 时间日期规则。 |

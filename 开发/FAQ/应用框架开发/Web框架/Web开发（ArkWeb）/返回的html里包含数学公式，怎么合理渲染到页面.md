@@ -1,6 +1,6 @@
 # 返回的html里包含数学公式，怎么合理渲染到页面
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-97
 
@@ -8,7 +8,7 @@ HarmonyOS目前没有提供专门的数学公式渲染组件，可以使用WebVi
  
 示例代码如下：
  
-```ArkTS
+```text
 import { webview } from "@kit.ArkWeb"
 
 @Component

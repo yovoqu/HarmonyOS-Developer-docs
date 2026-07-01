@@ -1,6 +1,6 @@
 # Interface (ResultSet)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -250,7 +250,7 @@ getColumnType(columnIdentifier: number | string): Promise&lt;ColumnType&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;ColumnType&gt; | Promise对象。返回指定列的数据类型。当结果集中包含重名列时，通过列名获取的结果会不符合预期。 |
+| Promise&lt;ColumnType&gt; | Promise对象。返回指定列的数据类型。当结果集中包含重名列时，通过列名获取的结果会不符合预期，建议使用列索引形式获取。 |
 
 
 **错误码：**
@@ -321,7 +321,7 @@ getColumnTypeSync(columnIdentifier: number | string): ColumnType
 
 | 类型 | 说明 |
 | --- | --- |
-| ColumnType | 返回指定列的数据类型。当结果集中包含重名列时，通过列名获取的结果会不符合预期。 |
+| ColumnType | 返回指定列的数据类型。当结果集中包含重名列时，通过列名获取的结果会不符合预期，建议使用列索引形式获取。 |
 
 
 **错误码：**
@@ -717,7 +717,7 @@ if (resultSet != undefined) {
 
 getValue(columnIndex: number): ValueType
 
-获取当前行中指定列的值，如果值类型是ValueType中指定的任意类型，返回指定类型的值，否则返回14800000。如果值类型为INTEGER，值大于 Number.MAX_SAFE_INTEGER 或小于 Number.MIN_SAFE_INTEGER 且不希望丢失精度，建议使用[getString](#getstring)接口获取。
+获取当前行中指定列的值，如果值类型是ValueType中指定的任意类型，返回指定类型的值，否则抛出错误码14800000。如果值类型为INTEGER，值大于 Number.MAX_SAFE_INTEGER 或小于 Number.MIN_SAFE_INTEGER 且不希望丢失精度，建议使用[getString](#getstring)接口获取。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -785,7 +785,7 @@ if (resultSet !== undefined) {
 
 getBlob(columnIndex: number): Uint8Array
 
-以字节数组的形式获取当前行中指定列的值，如果当前列的数据类型为INTEGER、DOUBLE、TEXT、BLOB类型，会转成字节数组类型返回指定值，如果该列内容为空时，会返回空字节数组，其他类型则返回14800000。
+以字节数组的形式获取当前行中指定列的值，如果当前列的数据类型为INTEGER、DOUBLE、TEXT、BLOB类型，会转成字节数组类型返回指定值，如果该列内容为空时，会返回空字节数组，其他类型则抛出错误码14800000。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -847,7 +847,7 @@ if (resultSet != undefined) {
 
 getString(columnIndex: number): string
 
-以字符串形式获取当前行中指定列的值，如果当前列中的值为INTEGER、DOUBLE、TEXT、BLOB类型，会以字符串形式返回指定值，如果是当前列中的值为INTEGER，并且为空，则会返回空字符串""，其他类型则返回14800000。如果当前列中的值为DOUBLE类型，可能存在精度的丢失，建议使用[getDouble](#getdouble)接口获取。
+以字符串形式获取当前行中指定列的值，如果当前列中的值为INTEGER、DOUBLE、TEXT、BLOB类型，会以字符串形式返回指定值，如果是当前列中的值为INTEGER，并且为空，则会返回空字符串""，其他类型则抛出错误码14800000。如果当前列中的值为DOUBLE类型，可能存在精度的丢失，建议使用[getDouble](#getdouble)接口获取。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -909,7 +909,7 @@ if (resultSet != undefined) {
 
 getLong(columnIndex: number): number
 
-以Long形式获取当前行中指定列的值，如果当前列的数据类型为INTEGER、DOUBLE、TEXT、BLOB类型，会转成Long类型返回指定值，如果该列内容为空时，会返回0，其他类型则返回14800000。如果当前列的数据类型为INTEGER，值大于 Number.MAX_SAFE_INTEGER 或小于 Number.MIN_SAFE_INTEGER 且不希望丢失精度，建议使用[getString](#getstring)接口获取。如果当前列的数据类型为DOUBLE且不希望丢失精度，建议使用[getDouble](#getdouble)接口获取。
+以Long形式获取当前行中指定列的值，如果当前列的数据类型为INTEGER、DOUBLE、TEXT、BLOB类型，会转成Long类型返回指定值，如果该列内容为空时，会返回0，其他类型则抛出错误码14800000。如果当前列的数据类型为INTEGER，值大于 Number.MAX_SAFE_INTEGER 或小于 Number.MIN_SAFE_INTEGER 且不希望丢失精度，建议使用[getString](#getstring)接口获取。如果当前列的数据类型为DOUBLE且不希望丢失精度，建议使用[getDouble](#getdouble)接口获取。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -977,7 +977,7 @@ if (resultSet !== undefined) {
 
 getDouble(columnIndex: number): number
 
-以double形式获取当前行中指定列的值，如果当前列的数据类型为INTEGER、DOUBLE、TEXT、BLOB类型，会转成double类型返回指定值，如果该列内容为空时，会返回0.0，其他类型则返回14800000。
+以double形式获取当前行中指定列的值，如果当前列的数据类型为INTEGER、DOUBLE、TEXT、BLOB类型，会转成double类型返回指定值，如果该列内容为空时，会返回0.0，其他类型则抛出错误码14800000。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1045,7 +1045,7 @@ if (resultSet !== undefined) {
 
 getAsset(columnIndex: number): Asset
 
-以[Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#asset10)形式获取当前行中指定列的值，如果当前列的数据类型为Asset类型，会以Asset类型返回指定值，如果当前列中的值为null时，会返回null，其他类型则返回14800000。
+以[Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#asset10)形式获取当前行中指定列的值，如果当前列的数据类型为Asset类型，会以Asset类型返回指定值，如果当前列中的值为null时，会返回null，其他类型则抛出错误码14800000。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1107,7 +1107,7 @@ if (resultSet != undefined) {
 
 getAssets(columnIndex: number): Assets
 
-以[Assets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#assets10)形式获取当前行中指定列的值，如果当前列的数据类型为Assets类型，会以Assets类型返回指定值，如果当前列中的值为null时，会返回null，其他类型则返回14800000。
+以[Assets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#assets10)形式获取当前行中指定列的值，如果当前列的数据类型为Assets类型，会以Assets类型返回指定值，如果当前列中的值为null时，会返回null，其他类型则抛出错误码14800000。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1487,7 +1487,8 @@ getSendableRow(): sendableRelationalStore.ValuesBucket
 
 示例代码中this.context定义见Stage模型的应用[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { window } from '@kit.ArkUI';
 import { UIAbility } from '@kit.AbilityKit';
 import { relationalStore } from '@kit.ArkData';
@@ -1606,7 +1607,7 @@ if (resultSet !== undefined) {
 
 close(): void
 
-关闭结果集，若不关闭可能会引起FD（File Descriptor）泄露和内存泄露。
+关闭结果集，若不关闭可能会引起FD（File Descriptor）泄漏和内存泄漏。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 

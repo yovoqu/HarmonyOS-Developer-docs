@@ -1,6 +1,6 @@
 # @ohos.prompt (弹窗)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-prompt
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -309,7 +309,7 @@ prompt.showActionMenu({
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/iX5IyZuAQEmyqik31wEMDA/zh-cn_image_0000002611755493.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=1CB3859AEBB308C3C304132B54337A65378152CC1441F61DEA7F1422D56C704B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/POk7BCz_RRCnss9ttsGCXg/zh-cn_image_0000002628702274.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014320Z&HW-CC-Expire=86400&HW-CC-Sign=061F3F194F39BADD72B53E14417985793D6989C8E159EF992A5220BC0EED8192)
 
  
   

@@ -1,6 +1,6 @@
 # switch
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-switch
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -152,4 +152,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/D2NiuTg-R_6CZRWszFsAOw/zh-cn_image_0000002581276424.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=A316F72D36426305DC2FA35D7CEAE8EFFC6A35CBCDD03907CE72E4FA36B0BECD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/V1yZbUe4TVSjAo7QZ_tFrg/zh-cn_image_0000002659222269.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014403Z&HW-CC-Expire=86400&HW-CC-Sign=180FF601EFB263CDEC44850AAA44F9104DA892C2903F8C6FF7CC6A25B7704942)

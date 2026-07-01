@@ -1,6 +1,6 @@
 # 如何在Native侧调用ArkTS侧的系统能力
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-18
 
@@ -15,22 +15,22 @@
  
 具体方法请参考以下示例代码，用于获取设备的屏幕宽高。
  
-```cpp
+```text
 #include "CallSystemModule.h" 
 #include "napi/native_api.h" 
 #include <hilog/log.h> 
 #define LOG_TAG "Pure" 
  
 napi_value CallSystemModule::GetDisplaySize(napi_env env, napi_callback_info info) { 
-    // Obtain the system library path on the arkts side
+  <em>  // Obtain the system library path on the arkts side</em>
     char path[64] = "@ohos.display"; 
     size_t typeLen = 0; 
     napi_value string; 
     napi_create_string_utf8(env, path, typeLen, &string); 
-    // Loading system libraries 
+   <em> // Loading system libraries </em>
     napi_value sysModule; 
     napi_load_module(env, path, &sysModule); 
-    // Retrieve the 'getDefault Display Sync' method from the system library 
+   <em> // Retrieve the 'getDefault Display Sync' method from the system library </em>
     napi_value func = nullptr; 
     napi_get_named_property(env, sysModule, "getDefaultDisplaySync", &func); 
     napi_value funcResult; 
@@ -45,7 +45,7 @@ napi_value CallSystemModule::GetDisplaySize(napi_env env, napi_callback_info inf
     double height; 
     napi_get_value_double(env, heightValue, &height); 
     OH_LOG_INFO(LOG_APP, "height: %{public}f", height); 
-    // By obtaining the width and height of the business, specific business logic can be further processed
+  <em>  // By obtaining the width and height of the business, specific business logic can be further processed</em>
     return nullptr; 
 }
 ```

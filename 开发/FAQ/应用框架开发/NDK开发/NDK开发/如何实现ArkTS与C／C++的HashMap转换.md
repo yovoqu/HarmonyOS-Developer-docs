@@ -1,6 +1,6 @@
 # 如何实现ArkTS与C/C++的HashMap转换
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-67
 
@@ -15,7 +15,7 @@
   ArkTS侧传递数组。
 
   
-```ArkTS
+```text
 let hashMap: HashMap<string, number> = new HashMap();
 hashMap.set("Abc", 123);
 hashMap.set("Bcd", 234);
@@ -28,14 +28,14 @@ testNapi.tsPutMap(keysArray, valuesArray, hashMap.length);
  在Native侧组装Map。
 
   
-```cpp
-// Convert value to string and return
+```text
+<em>// Convert value to string and return</em>
 std::string HashMap::value2String(napi_env env, napi_value value) {
     size_t stringSize = 0;
-    napi_get_value_string_utf8(env, value, nullptr, 0, &stringSize); // 获取字符串长度
+    napi_get_value_string_utf8(env, value, nullptr, 0, &stringSize); <em>// 获取字符串长度</em>
     std::string valueString;
     valueString.resize(stringSize + 1);
-    napi_get_value_string_utf8(env, value, &valueString[0], stringSize + 1, &stringSize); // 根据长度转换成字符串
+    napi_get_value_string_utf8(env, value, &valueString[0], stringSize + 1, &stringSize);<em> // 根据长度转换成字符串</em>
     return valueString;
 }
 napi_value HashMap::TsPutMap(napi_env env, napi_callback_info info) {
@@ -43,10 +43,9 @@ napi_value HashMap::TsPutMap(napi_env env, napi_callback_info info) {
     size_t argc = 3;
     napi_value args[3] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
-    napi_value mapKey = args[0]; // key
-    napi_value mapVal = args[1]; // value
-    napi_value mapNum = args[2]; // length
-
+    napi_value mapKey = args[0]; <em>// key</em>
+    napi_value mapVal = args[1]; <em>// value</em>
+    napi_value mapNum = args[2]; <em>// length</em>
 
     uint32_t mapCNum = 0;
     napi_get_value_uint32(env, mapNum, &mapCNum);
@@ -69,13 +68,13 @@ napi_value HashMap::TsPutMap(napi_env env, napi_callback_info info) {
   ArkTS侧转JSON。
 
 1. JSON.stringify不支持对HashMap操作，需要先将其转成Record
-```ArkTS
+```text
 map2rec(map: HashMap<string, ESObject>): Record<string, ESObject> {
-  // Map to Record
+<em>  // Map to Record</em>
   let Rec: Record<string, ESObject> = {}
   map.forEach((value: ESObject, key: string) => {
     if (value instanceof HashMap) {
-      //Value may be HashMap
+     <em> //Value may be HashMap</em>
       let vRec: Record<string, ESObject> = this.map2rec(value)
       value = vRec
     }
@@ -87,7 +86,7 @@ map2rec(map: HashMap<string, ESObject>): Record<string, ESObject> {
 
 
 2. 然后使用JSON.stringify序列化
-```ArkTS
+```json
 let myRec: Record<string, ESObject> = this.map2rec(hashMap);
 let str: string = JSON.stringify(myRec);
 testNapi.mapJson(str);
@@ -99,7 +98,7 @@ testNapi.mapJson(str);
   C++没有直接反序列化的接口，需要使用三方库，本demo采用lycium交叉编译工具编译json三方库。
 
   
-```cpp
+```json
 napi_value HashMap::MapJson(napi_env env, napi_callback_info info) {
 
     size_t argc = 1;

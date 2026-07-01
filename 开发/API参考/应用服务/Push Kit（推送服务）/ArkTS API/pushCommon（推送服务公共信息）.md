@@ -1,6 +1,6 @@
 # pushCommon（推送服务公共信息）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -66,7 +66,7 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
 
 #### data取值样例
 
-- type为'IM'时，data取值样例（格式化后）如下：
+- type为'IM'时，data取值样例（格式化后）：
 
   
 ```json
@@ -88,7 +88,7 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
 }
 ```
 
-- type为 'VoIP' 时，data取值样例（格式化后）
+- type为 'VoIP' 时，data取值样例（格式化后）：
 
   
 ```json
@@ -100,7 +100,7 @@ PushPayload是推送服务向应用传递数据的核心接口，开发者可以
 }
 ```
 
-- type为 'BACKGROUND'时，data取值样例（格式化后）
+- type为 'BACKGROUND'时，data取值样例（格式化后）：
 
   
 ```json

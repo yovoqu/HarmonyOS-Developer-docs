@@ -1,6 +1,6 @@
 # Stack
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -61,6 +61,8 @@ Stack(options?: StackOptions)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -101,6 +103,31 @@ alignContent(value: Alignment)
  
   
 
+#### syncLoad
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+syncLoad(enable: boolean)
+ 
+设置是否同步加载Stack区域内所有子组件。
+ 
+**起始版本：** 26.0.0
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enable | boolean | 是 | 是否同步加载Stack区域内所有子组件。 true表示同步加载；false表示异步加载。 默认值：true 说明： 设置为false时，在首次显示场景，若当前帧布局耗时超过50ms，会将Stack区域内尚未布局的子组件延后到下一帧进行布局。 |
+ 
+ 
+  
+
 #### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -113,7 +140,9 @@ alignContent(value: Alignment)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Stack的alignContent设置为Alignment.Bottom条件下子组件显示效果。
+当Stack的[alignContent](#aligncontent)属性设为Alignment.Bottom，且[syncLoad](#syncload)为true时，其子组件的显示效果表现为在Stack组件底部横向居中并且所有子组件在同一帧内加载完成。
+ 
+从API版本26.0.0开始，新增syncLoad属性。
  
 ```ArkTS
 // xxx.ets
@@ -125,9 +154,11 @@ struct StackExample {
       Text('First child, show in bottom').width('90%').height('100%').backgroundColor(0xd2cab3).align(Alignment.Top)
       Text('Second child, show in top').width('70%').height('60%').backgroundColor(0xc1cbac).align(Alignment.Top)
     }.width('100%').height(150).margin({ top: 5 })
+    // 从API版本26.0.0开始，新增syncLoad属性。
+    .syncLoad(true)
   }
 }
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/wYcC1S8xQCOWPtLs8mu0SQ/zh-cn_image_0000002611755663.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=4DFCDAC3D3EC60FB373DC65CDF32AC873E5866B51C8DFFF09A52F380C8A518AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/fR9lW22nRMiqJvtkWbaolw/zh-cn_image_0000002659101677.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=17794A499B0DBED1098232DE4EC72A2EB0B40DF7283B3469471BC948A802FC8C)

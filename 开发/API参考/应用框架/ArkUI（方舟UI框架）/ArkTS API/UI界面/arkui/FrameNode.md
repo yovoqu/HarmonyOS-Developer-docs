@@ -1,6 +1,6 @@
 # FrameNode
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,6 +30,8 @@ import { FrameNode, LayoutConstraint, ExpandMode, typeNode, NodeAdapter } from "
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -49,11 +51,14 @@ import { FrameNode, LayoutConstraint, ExpandMode, typeNode, NodeAdapter } from "
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| attributeSetting | boolean | 否 | 是 | FrameNode是否支持跨ArkTS语言进行属性设置。 true表示支持跨ArkTS语言进行属性设置，false表示不支持跨ArkTS语言进行属性设置。 默认为false。 |
+| attributeSetting | boolean | 否 | 是 | FrameNode是否支持跨ArkTS语言进行属性设置。 true表示支持跨ArkTS语言进行属性设置，false表示不支持跨ArkTS语言进行属性设置。 默认值为false。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| treeOperating | boolean | 否 | 是 | FrameNode是否支持跨ArkTS语言进行组件树操作。 true表示支持跨ArkTS语言进行组件树操作，false表示不支持跨ArkTS语言进行组件树操作。 默认值为false。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 说明： 当FrameNode启用了跨ArkTS语言进行组件树操作的选项后，支持该FrameNode跨ArkTS语言调用addChild、insertChildAfter、insertChildAt、insertChildBefore和removeChild。 |
 
 
 
@@ -65,6 +70,8 @@ import { FrameNode, LayoutConstraint, ExpandMode, typeNode, NodeAdapter } from "
 子节点展开模式枚举。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -85,6 +92,8 @@ import { FrameNode, LayoutConstraint, ExpandMode, typeNode, NodeAdapter } from "
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -104,6 +113,8 @@ import { FrameNode, LayoutConstraint, ExpandMode, typeNode, NodeAdapter } from "
 多态样式状态枚举，用于处理多态样式。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -127,6 +138,8 @@ type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) => void
 当UI状态发生变化时触发的回调。接收回调触发时的[UIState](#uistate20)状态，该参数的取值为UIState状态枚举值或其运算结果。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -156,6 +169,8 @@ FrameNode的构造函数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -176,6 +191,8 @@ getRenderNode(): RenderNode | null
 获取FrameNode中持有的[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -234,6 +251,8 @@ isModifiable(): boolean
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -258,6 +277,8 @@ appendChild(node: FrameNode): void
 在FrameNode最后一个子节点后添加新的子节点。当前FrameNode如果不可修改，抛出异常信息。[typeNode](#typenode12)在appendChild时会校验子组件类型或个数，不满足时抛出异常信息，限制情况请查看[typeNode](#typenode12)描述。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -293,6 +314,8 @@ insertChildAfter(child: FrameNode, sibling: FrameNode | null): void
 在FrameNode指定子节点之后添加新的子节点。当前FrameNode如果不可修改，抛出异常信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -330,6 +353,8 @@ removeChild(node: FrameNode): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -364,6 +389,8 @@ clearChildren(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **错误码：**
@@ -390,6 +417,8 @@ getChild(index: number): FrameNode | null
 获取当前节点指定位置的子节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -422,6 +451,8 @@ getChild(index: number, expandMode?: ExpandMode): FrameNode | null
 获取当前节点指定位置的子节点，支持指定子节点展开模式。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -456,6 +487,8 @@ getFirstChildIndexWithoutExpand(): number
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -480,6 +513,8 @@ getLastChildIndexWithoutExpand(): number
 获取当前节点最后一个在主节点树上的子节点的序列号。子节点序列号按所有子节点计算。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -506,6 +541,8 @@ getFirstChild(): FrameNode | null
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -530,6 +567,8 @@ getNextSibling(): FrameNode | null
 获取当前FrameNode的下一个同级节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -556,6 +595,8 @@ getPreviousSibling(): FrameNode | null
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -581,6 +622,8 @@ getParent(): FrameNode | null
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -605,6 +648,8 @@ getChildrenCount(): number
 获取当前FrameNode的子节点数量。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -634,6 +679,8 @@ moveTo(targetParent: FrameNode, index?: number): void
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -670,6 +717,8 @@ getPositionToWindow(): Position
 获取FrameNode相对于窗口的位置偏移，单位为VP。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -757,6 +806,8 @@ getPositionToParent(): Position
 获取FrameNode相对于父组件的位置偏移，单位为VP。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -846,6 +897,8 @@ getPositionToScreen(): Position
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -934,6 +987,8 @@ getGlobalPositionOnDisplay(): Position
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -958,6 +1013,8 @@ getPositionToParentWithTransform(): Position
 获取FrameNode相对于父组件带有绘制属性的位置偏移，单位为VP，绘制属性比如[transform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#transform), [translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)等，返回的坐标是组件布局时左上角变换后的坐标。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1047,6 +1104,8 @@ getPositionToWindowWithTransform(): Position
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1133,6 +1192,8 @@ getPositionToScreenWithTransform(): Position
 获取FrameNode相对于屏幕带有绘制属性的位置偏移，单位为VP，绘制属性比如[transform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#transform), [translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)等，返回的坐标是组件布局时左上角变换后的坐标。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1222,6 +1283,8 @@ getMeasuredSize(): Size
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1246,6 +1309,8 @@ getLayoutPosition(): Position
 获取FrameNode布局后相对于父组件的位置偏移，单位为PX。该偏移是父容器对该节点进行布局之后的结果，因此布局之后生效的offset属性和不参与布局的position属性不影响该偏移值。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1272,6 +1337,8 @@ getUserConfigBorderWidth(): Edges&lt;LengthMetrics&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1296,6 +1363,8 @@ getUserConfigPadding(): Edges&lt;LengthMetrics&gt;
 获取用户设置的内边距。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1322,6 +1391,8 @@ getUserConfigMargin(): Edges&lt;LengthMetrics&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1346,6 +1417,8 @@ getUserConfigSize(): SizeT&lt;LengthMetrics&gt;
 获取用户设置的宽高。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1372,6 +1445,8 @@ getId(): string
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1396,6 +1471,8 @@ getUniqueId(): number
 获取系统分配的唯一标识的节点UniqueID。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1422,6 +1499,8 @@ getNodeType(): string
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1446,6 +1525,8 @@ getOpacity(): number
 获取节点的不透明度，最小值为0，最大值为1。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1476,6 +1557,8 @@ isVisible(): boolean
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1500,6 +1583,8 @@ isClipToFrame(): boolean
 获取节点是否是剪裁到组件区域。当调用[dispose](#dispose12)解除对实体FrameNode节点的引用关系之后，返回值为true。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1526,6 +1611,8 @@ isAttached(): boolean
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1550,6 +1637,8 @@ isDisposed(): boolean
 查询当前FrameNode对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用接口可能会出现crash、返回默认值的情况。由于业务需求，可能存在节点在dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1579,6 +1668,8 @@ getInspectorInfo(): Object
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1631,6 +1722,8 @@ getCustomProperty(name: string): Object | undefined
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1662,6 +1755,8 @@ dispose(): void
 立即解除当前FrameNode对象对实体FrameNode节点的引用关系。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1779,6 +1874,8 @@ get commonAttribute(): CommonAttribute
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1806,6 +1903,8 @@ LazyForEach场景下，由于存在节点的销毁重建，对于重建的节点
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1830,6 +1929,8 @@ get gestureEvent(): UIGestureEvent
 获取FrameNode中持有的UIGestureEvent对象，用于设置组件绑定的手势事件。通过gestureEvent接口设置的手势不会覆盖通过[绑定手势事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings)绑定的手势，两者同时设置了手势时，优先回调绑定手势事件设置的手势事件。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1858,6 +1959,8 @@ FrameNode的自绘制方法，该方法会重写默认绘制方法，在FrameNod
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1882,6 +1985,8 @@ onMeasure(constraint: LayoutConstraint): void
 FrameNode的自定义测量方法，该方法会重写默认测量方法，在FrameNode进行测量时被调用，测量FrameNode及其内容的大小。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1908,6 +2013,8 @@ FrameNode的自定义布局方法，该方法会重写默认布局方法，在Fr
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1932,6 +2039,8 @@ setMeasuredSize(size: Size): void
 设置FrameNode的测量后的尺寸，默认单位PX。若设置的宽高为负数，自动取零。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1958,6 +2067,8 @@ setLayoutPosition(position: Position): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1982,6 +2093,8 @@ measure(constraint: LayoutConstraint): void
 调用FrameNode的测量方法，根据父容器的布局约束，对FrameNode进行测量，计算出尺寸，如果测量方法被重写，则调用重写的方法。建议在[onMeasure](#onmeasure12)方法中调用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2008,6 +2121,8 @@ layout(position: Position): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -2033,6 +2148,8 @@ setNeedsLayout(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **示例：**
@@ -2051,6 +2168,8 @@ invalidate(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -2064,6 +2183,8 @@ addComponentContent&lt;T&gt;(content: ComponentContent&lt;T&gt; | ReactiveCompon
 支持添加ComponentContent类型的组件内容。要求当前节点是一个可修改的节点，即[isModifiable](#ismodifiable12)的返回值为true，否则抛出异常信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2145,6 +2266,8 @@ disposeTree(): void
 下树并递归释放当前节点为根的子树。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2328,7 +2451,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/GRPmMvK_RS2zgG5XIFxW3Q/zh-cn_image_0000002587110012.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=533E446232FEB74948EAEE6AC22D60E477E1F6282DB6AFDFC058FEE3923F6C48)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/1b4BSi5dRGyooOTDp2rsvA/zh-cn_image_0000002659101521.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=82B70261BFD09F6B7AC92AE1A799C968EA7DEE3FF9A414D5DBDE0FF6D383A21B)
 
 
 
@@ -2339,13 +2462,15 @@ struct Index {
 
 setCrossLanguageOptions(options: CrossLanguageOptions): void
 
-设置当前FrameNode的跨ArkTS语言访问选项。例如ArkTS语言创建的节点，设置该节点是否可通过非ArkTS语言进行属性设置。当前FrameNode如果不可修改或不可设置跨ArkTS语言访问选项，抛出异常信息。
+设置当前FrameNode的跨ArkTS语言访问选项。例如ArkTS语言创建的节点，设置该节点是否可通过非ArkTS语言进行属性设置，从API版本26.0.0开始支持设置是否可通过非ArkTS语言进行组件树操作。当前FrameNode如果不可修改或不可设置跨ArkTS语言访问选项，抛出异常信息。
 
 > [!NOTE]
 > 当前仅支持 Scroll , Swiper ， List ， ListItem ， ListItemGroup ， WaterFlow ， FlowItem ， Grid ， GridItem ， TextInput ， TextArea ， Column ， Row ， Stack ， Flex ， RelativeContainer ， Progress ， LoadingProgress ， Image ， Button ， CheckBox ， Radio ， Slider ， Toggle ， XComponent 类型的 TypedFrameNode 设置跨ArkTS语言访问选项。
 
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2377,9 +2502,11 @@ setCrossLanguageOptions(options: CrossLanguageOptions): void
 
 getCrossLanguageOptions(): CrossLanguageOptions
 
-获取当前FrameNode的跨ArkTS语言访问选项。例如ArkTS语言创建的节点，返回该节点是否可通过非ArkTS语言进行属性设置。
+获取当前FrameNode的跨ArkTS语言访问选项。例如ArkTS语言创建的节点，返回该节点是否可通过非ArkTS语言进行属性设置和跨语言组件树操作，从API版本26.0.0开始支持获取是否可通过非ArkTS语言进行组件树操作。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2405,6 +2532,8 @@ getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindi
 获取目标节点的事件绑定信息，如果该组件节点上没有绑定要查询的交互事件类型时，返回 undefined。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2438,6 +2567,8 @@ recycle(): void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **示例：**
@@ -2456,6 +2587,8 @@ reuse(): void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **示例：**
@@ -2473,6 +2606,8 @@ addSupportedUIStates(uiStates: number, statesChangeHandler: UIStatesChangeHandle
 设置组件支持的多态样式状态。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2501,6 +2636,8 @@ removeSupportedUIStates(uiStates: number): void
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -2525,6 +2662,8 @@ createAnimation(property: AnimationPropertyType, startValue: Optional<number[]>,
 创建FrameNode上属性的动画。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2561,6 +2700,8 @@ cancelAnimations(properties: AnimationPropertyType[]): boolean
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -2592,6 +2733,8 @@ getNodePropertyValue(property: AnimationPropertyType): number[]
 获取FrameNode上的属性值。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2628,6 +2771,8 @@ invalidateAttributes(): void
 此功能强制当前帧内即时节点更新，确保同步应用渲染效果。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2819,6 +2964,8 @@ convertPosition(position: Position, targetNode: FrameNode): Position
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -2929,6 +3076,8 @@ isInRenderState(): boolean
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -3016,6 +3165,8 @@ isOnMainTree(): boolean
 查询节点是否被挂载到主节点树上。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3568,6 +3719,8 @@ convertPositionToWindow(positionByLocal: Position): Position
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -3610,6 +3763,8 @@ convertPositionFromWindow(positionByWindow: Position): Position
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -3642,6 +3797,250 @@ convertPositionFromWindow(positionByWindow: Position): Position
 
 
 
+#### createFrameNodes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static createFrameNodes(uiContext: UIContext, count: number): FrameNode[]
+
+批量创建指定数量的FrameNode，返回FrameNode数组。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| uiContext | UIContext | 是 | 创建对应节点时所需的UI上下文。 |
+| count | number | 是 | 指定创建节点的数量，取值范围为大于零的整型。若给定值小于等于0或不是整数，则返回空数组。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| FrameNode[] | 创建的FrameNode数组。 |
+
+
+**示例：**
+
+```text
+import { NodeController, FrameNode } from '@kit.ArkUI';
+
+// 继承NodeController实现自定义UI控制器
+class MyNodeController extends NodeController {
+  public rootNode: FrameNode | null = null;
+
+  makeNode(uiContext: UIContext): FrameNode | null {
+    this.rootNode = new FrameNode(uiContext);
+    // 创建20个FrameNode添加到根节点中。
+    const children: FrameNode[] = FrameNode.createFrameNodes(uiContext, 20);
+    for (let i = 0; i < children.length; i++) {
+      this.rootNode.appendChild(children[i]);
+    }
+    return this.rootNode;
+  }
+}
+
+@Entry
+@Component
+struct Index {
+  private myNodeController: MyNodeController = new MyNodeController();
+
+  build() {
+    Column() {
+      NodeContainer(this.myNodeController)
+        .borderWidth(1)
+        .width(300)
+        .height(300)
+    }.width("100%")
+  }
+}
+```
+
+
+
+#### getFrameNodeById
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getFrameNodeById(id: string): FrameNode | null
+
+以当前节点为根节点，逐层查找所有子节点，返回第一个匹配指定id的节点。查找顺序为：先查找直接子节点，再查找二级子节点，依此类推，找到后立即返回。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| id | string | 是 | 查询的子节点id，为通用属性设置的组件标识。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| FrameNode \| null | 以当前节点为根节点，逐层查找所有子节点，返回第一个匹配指定id的节点。若当前节点所有的子节点中都不存在匹配该id的节点，则返回空对象null。 |
+
+
+**示例：**
+
+```text
+import { NodeController, FrameNode, typeNode } from '@kit.ArkUI';
+
+// 继承NodeController实现自定义UI控制器
+class MyNodeController extends NodeController {
+  public rootNode: FrameNode | null = null;
+  private id: string = 'text';
+
+  makeNode(uiContext: UIContext): FrameNode | null {
+    this.rootNode = new FrameNode(uiContext);
+    // 创建Column。
+    let col = typeNode.createNode(uiContext, 'Column');
+    col.initialize({ space: 5 });
+    this.rootNode.appendChild(col);
+
+    // 创建Text组件添加到Column中。
+    let text = typeNode.createNode(uiContext, 'Text');
+    text.initialize('Hello').id(this.id);
+    col.appendChild(text);
+
+    // 再次创建相同ID的Text组件添加到Column中。
+    let text1 = typeNode.createNode(uiContext, 'Text');
+    text1.initialize('World').id(this.id);
+    col.appendChild(text1);
+    this.update();
+    return this.rootNode;
+  }
+
+  update() {
+    if (this.rootNode) {
+      // 查询并返回首个ID为“text”的组件，并设置backgroundColor属性。
+      let node = this.rootNode.getFrameNodeById(this.id);
+      node?.commonAttribute.backgroundColor('rgb(39,135,217)');
+    }
+  }
+}
+
+@Entry
+@Component
+struct Index {
+  private myNodeController: MyNodeController = new MyNodeController();
+
+  build() {
+    Column() {
+      NodeContainer(this.myNodeController)
+        .borderWidth(1)
+        .width(300)
+        .height(300)
+    }.width("100%")
+  }
+}
+```
+
+
+
+#### getFrameNodeByUniqueId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getFrameNodeByUniqueId(id: number): FrameNode | null
+
+以当前节点为根节点，查找并返回指定UniqueID（系统分配的节点唯一标识，该标识可通过[getUniqueId](#getuniqueid12)接口获取）的子节点。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| id | number | 是 | 查询的子节点的唯一标识UniqueID。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| FrameNode \| null | 以当前节点为根节点，查找到指定UniqueID的子节点。若当前节点无法查找到该UniqueID的子节点，则返回空对象null。 |
+
+
+**示例：**
+
+```text
+import { NodeController, FrameNode, typeNode } from '@kit.ArkUI';
+
+// 继承NodeController实现自定义UI控制器
+class MyNodeController extends NodeController {
+  public rootNode: FrameNode | null = null;
+  private uniqueId: number = 0;
+
+  makeNode(uiContext: UIContext): FrameNode | null {
+    this.rootNode = new FrameNode(uiContext);
+    // 创建Column。
+    let col = typeNode.createNode(uiContext, 'Column');
+    col.initialize({ space: 5 });
+    this.rootNode.appendChild(col);
+
+    // 创建Text组件添加到Column中。
+    let text = typeNode.createNode(uiContext, 'Text');
+    text.initialize('Hello');
+    col.appendChild(text);
+
+    // 再次创建Text组件添加到Column中。
+    let text1 = typeNode.createNode(uiContext, 'Text');
+    text1.initialize('World');
+    this.uniqueId = text1.getUniqueId();
+    col.appendChild(text1);
+    this.update();
+    return this.rootNode;
+  }
+
+  update() {
+    if (this.rootNode) {
+      // 查询并返回指定UniqueID的组件，并设置backgroundColor属性。
+      let node = this.rootNode.getFrameNodeByUniqueId(this.uniqueId);
+      node?.commonAttribute.backgroundColor('rgb(39,135,217)');
+    }
+  }
+}
+
+@Entry
+@Component
+struct Index {
+  private myNodeController: MyNodeController = new MyNodeController();
+
+  build() {
+    Column() {
+      NodeContainer(this.myNodeController)
+        .borderWidth(1)
+        .width(300)
+        .height(300)
+    }.width("100%")
+  }
+}
+```
+
+
+
 #### TypedFrameNode12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3655,6 +4054,8 @@ TypedFrameNode继承自[FrameNode](#framenode-1)，用于声明具体类型的Fr
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3694,6 +4095,8 @@ Text类型的FrameNode节点类型。不允许添加子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -3712,6 +4115,8 @@ createNode(context: UIContext, nodeType: 'Text'): Text
 创建Text类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3777,6 +4182,8 @@ getAttribute(node: FrameNode, nodeType: 'Text'): TextAttribute | undefined
 获取Text节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3847,6 +4254,8 @@ bindController(node: FrameNode, controller: TextController, nodeType: 'Text'): v
 将文本控制器[TextController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textcontroller11)绑定到[Text](#text12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3928,6 +4337,8 @@ Column类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -3946,6 +4357,8 @@ createNode(context: UIContext, nodeType: 'Column'): Column
 创建Column类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4010,6 +4423,8 @@ getAttribute(node: FrameNode, nodeType: 'Column'): ColumnAttribute | undefined
 获取Column节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4080,6 +4495,8 @@ Row类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -4098,6 +4515,8 @@ createNode(context: UIContext, nodeType: 'Row'): Row
 创建Row类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4162,6 +4581,8 @@ getAttribute(node: FrameNode, nodeType: 'Row'): RowAttribute | undefined
 获取Row节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4232,6 +4653,8 @@ Stack类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -4250,6 +4673,8 @@ createNode(context: UIContext, nodeType: 'Stack'): Stack
 创建Stack类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4318,6 +4743,8 @@ getAttribute(node: FrameNode, nodeType: 'Stack'): StackAttribute | undefined
 获取Stack节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4388,6 +4815,8 @@ GridRow类型的FrameNode节点类型。只允许添加GridCol类型子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -4406,6 +4835,8 @@ createNode(context: UIContext, nodeType: 'GridRow'): GridRow
 创建GridRow类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4478,6 +4909,8 @@ GridCol类型的FrameNode节点类型。不允许添加子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -4496,6 +4929,8 @@ createNode(context: UIContext, nodeType: 'GridCol'): GridCol
 创建GridCol类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4568,6 +5003,8 @@ Flex类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -4586,6 +5023,8 @@ createNode(context: UIContext, nodeType: 'Flex'): Flex
 创建Flex类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4650,6 +5089,8 @@ getAttribute(node: FrameNode, nodeType: 'Flex'): FlexAttribute | undefined
 获取Flex节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4720,6 +5161,8 @@ Swiper类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -4738,6 +5181,8 @@ createNode(context: UIContext, nodeType: 'Swiper'): Swiper
 创建Swiper类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4822,6 +5267,8 @@ getAttribute(node: FrameNode, nodeType: 'Swiper'): SwiperAttribute | undefined
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -4854,6 +5301,8 @@ bindController(node: FrameNode, controller: SwiperController, nodeType: 'Swiper'
 将控制器[SwiperController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#swipercontroller)绑定到[Swiper](#swiper12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4892,6 +5341,8 @@ Progress类型的FrameNode节点类型。不允许添加子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -4910,6 +5361,8 @@ createNode(context: UIContext, nodeType: 'Progress'): Progress
 创建Progress类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4977,6 +5430,8 @@ getAttribute(node: FrameNode, nodeType: 'Progress'): ProgressAttribute | undefin
 获取Progress节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5046,6 +5501,8 @@ Scroll类型的FrameNode节点类型。允许添加一个子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -5064,6 +5521,8 @@ createNode(context: UIContext, nodeType: 'Scroll'): Scroll
 创建Scroll类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5146,6 +5605,8 @@ getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -5179,6 +5640,8 @@ getEvent(node: FrameNode, nodeType: 'Scroll'): UIScrollEvent | undefined
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -5208,9 +5671,11 @@ getEvent(node: FrameNode, nodeType: 'Scroll'): UIScrollEvent | undefined
 
 bindController(node: FrameNode, controller: Scroller, nodeType: 'Scroll'): void
 
-将滚动控制器[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)绑定到[Scroll](#scroll12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口不支持声明式方式创建的节点。
+将滚动控制器[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)绑定到[Scroll](#scroll12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。从API version 26.0.0开始，该接口支持声明式方式创建的节点，API version 26.0.0以下版本不支持。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5230,7 +5695,7 @@ bindController(node: FrameNode, controller: Scroller, nodeType: 'Scroll'): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. the type of the node is error. 2. the node is null or undefined. |
-| 100021 | The FrameNode is not modifiable. |
+| 100021 | The FrameNode is not modifiable. 适用版本：15-24 |
 
 
 **示例：**
@@ -5251,6 +5716,8 @@ RelativeContainer类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -5269,6 +5736,8 @@ createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer
 创建RelativeContainer类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5333,6 +5802,8 @@ getAttribute(node: FrameNode, nodeType: 'RelativeContainer'): RelativeContainerA
 获取RelativeContainer节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5403,6 +5874,8 @@ Divider类型的FrameNode节点类型。不允许添加子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -5421,6 +5894,8 @@ createNode(context: UIContext, nodeType: 'Divider'): Divider
 创建Divider类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5492,6 +5967,8 @@ LoadingProgress类型的FrameNode节点类型。不允许添加子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -5510,6 +5987,8 @@ createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress
 创建LoadingProgress类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5575,6 +6054,8 @@ getAttribute(node: FrameNode, nodeType: 'LoadingProgress'): LoadingProgressAttri
 获取[LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5642,6 +6123,8 @@ Search类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -5660,6 +6143,8 @@ createNode(context: UIContext, nodeType: 'Search'): Search
 创建Search类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5727,6 +6212,8 @@ Blank类型的FrameNode节点类型。不允许添加子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -5745,6 +6232,8 @@ createNode(context: UIContext, nodeType: 'Blank'): Blank
 创建Blank类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5817,6 +6306,8 @@ Image类型的FrameNode节点类型。不允许添加子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -5835,6 +6326,8 @@ createNode(context: UIContext, nodeType: 'Image'): Image
 创建Image类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -5911,6 +6404,8 @@ getAttribute(node: FrameNode, nodeType: 'Image'): ImageAttribute | undefined
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -5986,6 +6481,8 @@ List类型的FrameNode节点类型。只允许添加[ListItem](#listitem12)、[L
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -6004,6 +6501,8 @@ createNode(context: UIContext, nodeType: 'List'): List
 创建List类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6093,6 +6592,8 @@ getEvent(node: FrameNode, nodeType: 'List'): UIListEvent | undefined
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -6126,6 +6627,8 @@ getAttribute(node: FrameNode, nodeType: 'List'): ListAttribute | undefined
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -6155,9 +6658,11 @@ getAttribute(node: FrameNode, nodeType: 'List'): ListAttribute | undefined
 
 bindController(node: FrameNode, controller: Scroller, nodeType: 'List'): void
 
-将滚动控制器[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)绑定到[List](#list12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口不支持声明式方式创建的节点。
+将滚动控制器[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)绑定到[List](#list12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。从API version 26.0.0开始，该接口支持声明式方式创建的节点，API version 26.0.0以下版本不支持。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6177,7 +6682,7 @@ bindController(node: FrameNode, controller: Scroller, nodeType: 'List'): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 100023 | Parameter error. Possible causes: 1. The component type of the node is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined. |
-| 100021 | The FrameNode is not modifiable. |
+| 100021 | The FrameNode is not modifiable. Introduced in API 20 and will not be threw above API 24. [since 20 - 24] |
 
 
 **示例：**
@@ -6198,6 +6703,8 @@ ListItem类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -6216,6 +6723,8 @@ createNode(context: UIContext, nodeType: 'ListItem'): ListItem
 创建ListItem类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6250,6 +6759,8 @@ getAttribute(node: FrameNode, nodeType: 'ListItem'): ListItemAttribute | undefin
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -6283,6 +6794,8 @@ TextInput类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -6301,6 +6814,8 @@ createNode(context: UIContext, nodeType: 'TextInput'): TextInput
 创建TextInput类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6365,6 +6880,8 @@ getAttribute(node: FrameNode, nodeType: 'TextInput'): TextInputAttribute | undef
 获取TextInput节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6431,6 +6948,8 @@ bindController(node: FrameNode, controller: TextInputController, nodeType: 'Text
 将输入框控制器[TextInputController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#textinputcontroller8)绑定到[TextInput](#textinput12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6505,6 +7024,8 @@ Button类型的FrameNode节点类型。以子组件模式创建允许添加一�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -6523,6 +7044,8 @@ createNode(context: UIContext, nodeType: 'Button'): Button
 创建Button类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6594,6 +7117,8 @@ getAttribute(node: FrameNode, nodeType: 'Button'): ButtonAttribute | undefined
 获取Button节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6667,6 +7192,8 @@ ListItemGroup类型的FrameNode节点类型。只允许添加[ListItem](https://
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -6685,6 +7212,8 @@ createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup
 创建ListItemGroup类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6718,6 +7247,8 @@ getAttribute(node: FrameNode, nodeType: 'ListItemGroup'): ListItemGroupAttribute
 获取ListItemGroup节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6754,6 +7285,8 @@ WaterFlow类型的FrameNode节点类型。只允许添加[FlowItem](https://deve
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -6772,6 +7305,8 @@ createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow
 创建WaterFlow类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6865,6 +7400,8 @@ getEvent(node: FrameNode, nodeType: 'WaterFlow'): UIWaterFlowEvent | undefined
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -6898,6 +7435,8 @@ getAttribute(node: FrameNode, nodeType: 'WaterFlow'): WaterFlowAttribute | undef
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -6927,9 +7466,11 @@ getAttribute(node: FrameNode, nodeType: 'WaterFlow'): WaterFlowAttribute | undef
 
 bindController(node: FrameNode, controller: Scroller, nodeType: 'WaterFlow'): void
 
-将滚动控制器[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)绑定到[WaterFlow](#waterflow12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口不支持声明式方式创建的节点。
+将滚动控制器[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)绑定到[WaterFlow](#waterflow12)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。从API version 26.0.0开始，该接口支持声明式方式创建的节点，API version 26.0.0以下版本不支持。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -6949,7 +7490,7 @@ bindController(node: FrameNode, controller: Scroller, nodeType: 'WaterFlow'): vo
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 100023 | Parameter error. Possible causes: 1. The component type of the node is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined. |
-| 100021 | The FrameNode is not modifiable. |
+| 100021 | The FrameNode is not modifiable. Introduced in API 20 and will not be threw above API 24. [since 20 - 24] |
 
 
 **示例：**
@@ -6970,6 +7511,8 @@ FlowItem类型的FrameNode节点类型。允许添加一个子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -6988,6 +7531,8 @@ createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem
 创建FlowItem类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7022,6 +7567,8 @@ getAttribute(node: FrameNode, nodeType: 'FlowItem'): FlowItemAttribute | undefin
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -7055,6 +7602,8 @@ XComponent类型的FrameNode节点类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7073,6 +7622,8 @@ createNode(context: UIContext, nodeType: 'XComponent'): XComponent
 创建XComponent类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7138,6 +7689,8 @@ createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOption
 按照options中的配置参数创建XComponent类型的FrameNode节点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7211,6 +7764,8 @@ createNode(context: UIContext, nodeType: 'XComponent', parameters: NativeXCompon
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -7281,6 +7836,8 @@ getAttribute(node: FrameNode, nodeType: 'XComponent'): XComponentAttribute | und
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -7316,6 +7873,8 @@ QRCode类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7334,6 +7893,8 @@ createNode(context: UIContext, nodeType: 'QRCode'): QRCode
 创建QRCode类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7370,6 +7931,8 @@ Badge类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7388,6 +7951,8 @@ createNode(context: UIContext, nodeType: 'Badge'): Badge
 创建Badge类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7424,6 +7989,8 @@ Grid类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7442,6 +8009,8 @@ createNode(context: UIContext, nodeType: 'Grid'): Grid
 创建Grid类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7530,6 +8099,8 @@ getEvent(node: FrameNode, nodeType: 'Grid'): UIGridEvent | undefined
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -7563,6 +8134,8 @@ getAttribute(node: FrameNode, nodeType: 'Grid'): GridAttribute | undefined
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -7592,9 +8165,11 @@ getAttribute(node: FrameNode, nodeType: 'Grid'): GridAttribute | undefined
 
 bindController(node: FrameNode, controller: Scroller, nodeType: 'Grid'): void
 
-将滚动控制器[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)绑定到[Grid](#grid14)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口不支持声明式方式创建的节点。
+将滚动控制器[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)绑定到[Grid](#grid14)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。从API version 26.0.0开始，该接口支持声明式方式创建的节点，API version 26.0.0以下版本不支持。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7614,7 +8189,7 @@ bindController(node: FrameNode, controller: Scroller, nodeType: 'Grid'): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 100023 | Parameter error. Possible causes: 1. The component type of the node is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined. |
-| 100021 | The FrameNode is not modifiable. |
+| 100021 | The FrameNode is not modifiable. Introduced in API 20 and will not be threw above API 24. [since 20 - 24] |
 
 
 **示例：**
@@ -7635,6 +8210,8 @@ GridItem类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7653,6 +8230,8 @@ createNode(context: UIContext, nodeType: 'GridItem'): GridItem
 创建GridItem类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7687,6 +8266,8 @@ getAttribute(node: FrameNode, nodeType: 'GridItem'): GridItemAttribute | undefin
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -7720,6 +8301,8 @@ TextClock类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7738,6 +8321,8 @@ createNode(context: UIContext, nodeType: 'TextClock'): TextClock
 创建TextClock类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7774,6 +8359,8 @@ TextTimer类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7792,6 +8379,8 @@ createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer
 创建TextTimer类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7828,6 +8417,8 @@ Marquee类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7846,6 +8437,8 @@ createNode(context: UIContext, nodeType: 'Marquee'): Marquee
 创建Marquee类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7912,6 +8505,8 @@ TextArea类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -7930,6 +8525,8 @@ createNode(context: UIContext, nodeType: 'TextArea'): TextArea
 创建TextArea类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -7994,6 +8591,8 @@ getAttribute(node: FrameNode, nodeType: 'TextArea'): TextAreaAttribute | undefin
 获取TextArea节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8060,6 +8659,8 @@ bindController(node: FrameNode, controller: TextAreaController, nodeType: 'TextA
 将输入框控制器[TextAreaController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#textareacontroller8)绑定到[TextArea](#textarea14)节点。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8134,6 +8735,8 @@ SymbolGlyph类型的FrameNode节点类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -8152,6 +8755,8 @@ createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph
 创建SymbolGlyph类型的FrameNode节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8217,6 +8822,8 @@ Checkbox类型的FrameNode节点类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -8235,6 +8842,8 @@ createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox
 创建Checkbox类型的FrameNode节点。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8308,6 +8917,8 @@ getAttribute(node: FrameNode, nodeType: 'Checkbox'): CheckboxAttribute | undefin
 获取Checkbox节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8383,6 +8994,8 @@ CheckboxGroup类型的FrameNode节点类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -8401,6 +9014,8 @@ createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup
 创建CheckboxGroup类型的FrameNode节点。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8477,6 +9092,8 @@ Rating类型的FrameNode节点类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -8495,6 +9112,8 @@ createNode(context: UIContext, nodeType: 'Rating'): Rating
 创建Rating类型的FrameNode节点。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8564,6 +9183,8 @@ Radio类型的FrameNode节点类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -8582,6 +9203,8 @@ createNode(context: UIContext, nodeType: 'Radio'): Radio
 创建Radio类型的FrameNode节点。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8654,6 +9277,8 @@ getAttribute(node: FrameNode, nodeType: 'Radio'): RadioAttribute | undefined
 获取Radio节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8728,6 +9353,8 @@ Slider类型的FrameNode节点类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -8746,6 +9373,8 @@ createNode(context: UIContext, nodeType: 'Slider'): Slider
 创建Slider类型的FrameNode节点。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8813,6 +9442,8 @@ getAttribute(node: FrameNode, nodeType: 'Slider'): SliderAttribute | undefined
 获取Slider节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8882,6 +9513,8 @@ Select类型的FrameNode节点类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -8900,6 +9533,8 @@ createNode(context: UIContext, nodeType: 'Select'): Select
 创建Select类型的FrameNode节点。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -8967,6 +9602,8 @@ type Toggle = TypedFrameNode<ToggleInterface, ToggleAttribute>
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -8985,6 +9622,8 @@ createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Tog
 创建Toggle类型的FrameNode节点。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9054,6 +9693,8 @@ getAttribute(node: FrameNode, nodeType: 'Toggle'): ToggleAttribute | undefined
 获取Toggle节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9139,6 +9780,8 @@ NodeAdapter的构造函数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -9152,6 +9795,8 @@ dispose(): void
 立即释放当前的NodeAdapter。如果是已绑定的状态，会先进行解绑操作，再释放当前的NodeAdapter。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9167,6 +9812,8 @@ set totalNodeCount(count: number)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -9181,6 +9828,8 @@ get totalNodeCount(): number
 获取数据节点总数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9203,6 +9852,8 @@ reloadAllItems(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -9216,6 +9867,8 @@ reloadItem(start: number, count: number): void
 从索引值开始重新加载指定数量的节点数据。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9239,6 +9892,8 @@ removeItem(start: number, count: number): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -9260,6 +9915,8 @@ insertItem(start: number, count: number): void
 从索引值开始新增指定数量的节点数据。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9283,6 +9940,8 @@ moveItem(from: number, to: number): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -9305,6 +9964,8 @@ getAllAvailableItems(): Array&lt;FrameNode&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -9325,6 +9986,8 @@ onAttachToNode?(target: FrameNode): void
 FrameNode绑定NodeAdapter时回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9347,6 +10010,8 @@ onDetachFromNode?(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -9360,6 +10025,8 @@ onGetChildId?(index: number): number
 节点首次加载或新节点滑入时回调。传入的index参数用于自定义生成Id，需要开发者自行保证根据不同index生成Id的唯一性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9389,6 +10056,8 @@ onCreateChild?(index: number): FrameNode
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -9417,6 +10086,8 @@ onDisposeChild?(id: number, node: FrameNode): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -9438,6 +10109,8 @@ onUpdateChild?(id: number, node: FrameNode): void
 重新加载的数据节点被复用时回调。已缓存节点的key值与被复用节点一致时进行节点复用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9464,6 +10137,8 @@ static attachNodeAdapter(adapter: NodeAdapter, node: FrameNode): boolean
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9494,6 +10169,8 @@ static detachNodeAdapter(node: FrameNode): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -9514,6 +10191,8 @@ isDisposed(): boolean
 查询当前NodeAdapter对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用接口可能会出现crash、返回默认值的情况。由于业务需求，可能存在节点在dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -9573,7 +10252,7 @@ struct FrameNodeTypeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/XL2r6YYlQgyE0m3H3EHMBg/zh-cn_image_0000002617669693.png?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=9B0070488DB367F21F11555D9EEAE648F2AEB8DEAE4E110045906220803AF35A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/cJqsVqESR2y5_8BqonXX5Q/zh-cn_image_0000002628862172.png?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=D39B91A865397699115A1F014A24FBFCC3AD1313087D784151A4804D22E3C371)
 
 
 
@@ -11571,7 +12250,7 @@ struct CreateAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/aGkV-HctQsOHmYkdTUZSrg/zh-cn_image_0000002587269918.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=F940151EAC29204DD6F9D2738CBF62C56091D593F2233D7FB9979E306FC68AC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/6cKwFKjhQiumfzqpklEqSg/zh-cn_image_0000002659221483.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=1170BB8A998A92D505A89A2FCA8B34939567E84A5D3FE36440A68F9EC332511C)
 
 
 
@@ -11788,7 +12467,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/iSYosZ4pSYSnEl5kT_2QuA/zh-cn_image_0000002617709599.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=46BF24641D7C37B1FB25CC904AEC94031A4F733CCB6A0914CB22E1FBC9B38548)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/qiWfYvB6Q4KdMl4jnlurwQ/zh-cn_image_0000002628702294.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=F452435BC63FF16BD659E645E9241C6AA5407C732B8AB1DE17E6781BCDD92FF4)
 
 
 
@@ -11913,7 +12592,7 @@ struct ListNodeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/yt4xuOyaRCmvae_kFQmWQg/zh-cn_image_0000002587110014.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=504C3841639F5F3B0541CA3B52167486372F481F18B88763CA4E335AC4D306F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/D2KbZNxqSEic4L9cki7oew/zh-cn_image_0000002659101523.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=302ECCCDF4A248AB9DE9CE06D9E4CB34A65481AA51D2C35A3AFDD095E29006BF)
 
 
 

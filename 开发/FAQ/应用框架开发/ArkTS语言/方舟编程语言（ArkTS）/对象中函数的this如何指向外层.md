@@ -1,12 +1,12 @@
 # 对象中函数的this如何指向外层
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-139
 
 通过箭头函数实现。参考代码如下：
  
-```ArkTS
+```text
 interface T {
   start: () => number
 }

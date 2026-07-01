@@ -1,6 +1,6 @@
 # Progress
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-progress
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -117,6 +117,8 @@ Progress(options: ProgressOptions)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 |
@@ -221,6 +223,8 @@ contentModifier(modifier:ContentModifier&lt;ProgressConfiguration&gt;)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -248,6 +252,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -267,6 +273,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -285,6 +293,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -301,6 +311,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 扫光效果选项。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -328,7 +340,7 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | strokeWidth | Length | 否 | 是 | 设置进度条宽度（不支持百分比设置）。 默认值：4.0vp 超出取值范围按默认值处理。 |
-| scaleCount | number | 否 | 是 | 设置环形进度条总刻度数。 默认值：120vp 取值范围：[2, min(width, height)/scaleWidth/2/π]，超出取值范围时，样式显示为环形无刻度进度条。默认情况下宽高最小为77vp。 |
+| scaleCount | number | 否 | 是 | 设置环形进度条总刻度数。 默认值：120 取值范围：[2, min(width, height)*π/scaleWidth]，超出取值范围时，样式显示为环形无刻度进度条。当总刻度数为120、刻度粗细为2vp时，设置组件宽度或高度小于77vp会显示为环形无刻度进度条。 |
 | scaleWidth | Length | 否 | 是 | 设置环形进度条刻度粗细（不支持百分比设置）。刻度粗细大于进度条宽度时，为系统默认粗细。 默认值：2.0vp |
  
  
@@ -343,6 +355,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 继承自[ScanEffectOptions](#scaneffectoptions10)和[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -369,6 +383,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -390,6 +406,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -410,12 +428,14 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | strokeWidth | Length | 否 | 是 | 设置进度条宽度（不支持百分比设置）。 默认值：4.0vp |
-| scaleCount | number | 否 | 是 | 设置环形进度条总刻度数。 默认值：120vp 取值范围：[2, min(width, height)/scaleWidth/2/π]，超出取值范围时，样式显示为环形无刻度进度条。默认情况下宽高最小为77vp。 |
+| scaleCount | number | 否 | 是 | 设置环形进度条总刻度数。 默认值：120 取值范围：[2, min(width, height)*π/scaleWidth]，超出取值范围时，样式显示为环形无刻度进度条。当总刻度数为120、刻度粗细为2vp时，设置组件宽度或高度小于77vp会显示为环形无刻度进度条。 |
 | scaleWidth | Length | 否 | 是 | 设置环形进度条刻度粗细（不支持百分比设置）。刻度粗细大于进度条宽度时，为系统默认粗细。 默认值：2.0vp |
  
  
@@ -431,6 +451,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
   
@@ -442,6 +464,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 进度条的当前状态。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   

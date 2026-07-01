@@ -1,6 +1,6 @@
 # Filter
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-filter
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -188,4 +188,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Cb0QWvSMQ6CkA7nqSPDvbQ/zh-cn_image_0000002581276330.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=B486E6DFD5BB76E5E4F519A38F33A644C99B27C2DF411A86656C74073E7F9F25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/ycF4VDnCSL6DXVFxzicsHw/zh-cn_image_0000002628862862.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=76DE382970C4155B2ECD6FAA58DBD0F6FCB1EC3D4EDDB61B40B20F7B42F284C2)

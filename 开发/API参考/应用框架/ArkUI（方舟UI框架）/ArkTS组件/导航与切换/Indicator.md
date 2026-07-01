@@ -1,6 +1,6 @@
 # Indicator
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-swiper-components-indicator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@
 当一个导航点组件和多个Swiper绑定时，只有最后一个Swiper能成功和导航点组件绑定。
  
 > [!NOTE]
-> 该组件从API version 15开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 15开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -371,7 +371,7 @@ struct DotIndicatorDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/5Ce1z2NGQSmsHSFRLLlcww/zh-cn_image_0000002581435792.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=5B7F8388AFD9FC1FBC1F036DCCCEFCEF463A5B309A06B4CAAAD1FDB7D84D90A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/r9rzDVI3T063_HMzUz6UdQ/zh-cn_image_0000002628862396.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=F2D091D7F2D3D510E208CB3E2599C1266C20AC7C398FA285E5C9959542319954)
 
  
   
@@ -437,4 +437,4 @@ struct DigitIndicatorDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/bFQ-hriBQx2XlvJbVDa01g/zh-cn_image_0000002611835621.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=1B952A43A1FB91D7AA6CF92ECDA76FA832E6595084CAE7D71AE06A79D1AD2133)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/v_BgVMfDQhqPdPFz7vbdog/zh-cn_image_0000002659221709.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=31C57BB9C3A13B0A2B6E49C638FF82D25C6770AC0C60C3B67F7BE26F33D9BBE3)

@@ -1,6 +1,6 @@
 # Line
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-line
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -21,6 +21,35 @@
   
 
 #### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+  
+
+#### Line
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+new Line(options?: LineOptions)
+ 
+用于绘制直线的构造函数。
+ 
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | LineOptions | 否 | Line绘制区域。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+ 
+ 
+  
+
+#### Line
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,6 +85,8 @@ Line(options?: LineOptions)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -599,7 +630,7 @@ struct LineTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/fOBBE2UpToGv-K_AodII2g/zh-cn_image_0000002611835973.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=A134214B0093FF271E82C1698B8CADC918A91293121042E201756FE0736B45E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/F91sdt4gRa-0X0U78iY7Rw/zh-cn_image_0000002628702880.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=9A3987508282AF25EC3D353AF08FEA955C1A3B350D0EBD22DBA43EAEF5608C74)
 
  
   
@@ -641,4 +672,4 @@ struct LineModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/VhHtkdZ5TzOcT-G3OPpGOw/zh-cn_image_0000002581276228.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=5917E8B6F29107D2578E25BA903C5433CF21EA4654E724388895D57A2612B2F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/ZqE2xCA_QvCyrasdAP3gqQ/zh-cn_image_0000002659102107.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=0C546EFB5DB4349EE0573530C1E5CA2D243DCBC0697C8B3BAF73C81D9A0BDF72)

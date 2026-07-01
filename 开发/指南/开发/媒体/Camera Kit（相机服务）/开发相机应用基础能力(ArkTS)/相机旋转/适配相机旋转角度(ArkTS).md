@@ -1,6 +1,6 @@
 # 适配相机旋转角度(ArkTS)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation
 
@@ -37,7 +37,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
   相机使用预览等功能前，均需创建相机会话，调用[CameraManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager)中的[createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createsession11)方法创建一个会话，创建会话时需指定创建[SceneMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#scenemode11)为NORMAL_PHOTO或NORMAL_VIDEO，创建的session处于拍照或者录像模式。
 
   
-```text
+```ArkTS
 createPhotoSession(cameraManager: camera.CameraManager): camera.Session | undefined {
   let session: camera.Session | undefined = undefined;
   try {
@@ -110,7 +110,7 @@ previewRotation：预览旋转角度，取上一步[getPreviewRotation](https://
  1. 在[会话配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)过程中调用预览旋转接口，即：使用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)接口提交相关配置后调用，建议在[Start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)起流前调用。
 
   
-```text
+```ArkTS
 // previewOutput是创建的预览输出
 try {
   let initDisplayRotation = display.getDefaultDisplaySync().rotation;
@@ -127,7 +127,7 @@ try {
 2. 应用使用相机时，通过监听[Display对象变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displayonaddremovechange)，感知窗口当前状态，如当前相机窗口发生旋转时，需对预览流进行角度修正。推荐在[会话配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)中完成调用预览旋转接口后，直接创建监听。
 
   
-```text
+```ArkTS
 import { display } from '@kit.ArkUI';
 
 // previewOutput是创建的预览输出
@@ -210,7 +210,7 @@ getVideoRotation(videoOutput: camera.VideoOutput, deviceDegree: number): camera.
  
 **录像流旋转接口适配示例代码：**
  
-```text
+```ArkTS
 async getVideoRotationAndUpdate(videoOutput: camera.VideoOutput, deviceDegree: number, avRecorder: media.AVRecorder) {
   let videoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
@@ -235,7 +235,7 @@ async getVideoRotationAndUpdate(videoOutput: camera.VideoOutput, deviceDegree: n
  
 如果无法获得重力传感器数据，需要申请重力传感器权限ohos.permission.ACCELEROMETER。权限申请请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)，如何获取传感器数据请参考[传感器开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines)。
  
-```text
+```ArkTS
 getRealData(data: sensor.GravityResponse): number {
   let getDeviceDegree: number = 0;
   let x = data.x;

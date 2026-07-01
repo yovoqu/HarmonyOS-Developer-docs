@@ -1,6 +1,6 @@
 # Blank
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-blank
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -163,4 +163,4 @@ struct BlankExample {
 Blank父组件未设置宽度时，子组件间无空白填充，使用min参数设置填充尺寸
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/F16NTLl_R0eF05wRCiwL3w/zh-cn_image_0000002611755997.png?HW-CC-KV=V1&HW-CC-Date=20260528T025604Z&HW-CC-Expire=86400&HW-CC-Sign=B7360EA5517DFB87AA541AA5B4D9646127EC4ED1303503447975788D7F36A410)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/mXjniuW7SXuXRxhJPyuUyQ/zh-cn_image_0000002659102021.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=FEA79A5B2B7351AAC9E3DF350C353A33084494599B6F351E775A52565106F6E1)

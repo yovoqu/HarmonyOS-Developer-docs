@@ -1,6 +1,6 @@
 # 关于emitter、eventHub的使用场景
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-68
 
@@ -14,20 +14,20 @@ import { emitter } from '@kit.BasicServicesKit';
 const TAG: string = 'ThreadModel';
 ```
  
-```ArkTS
-// Define an event with an eventId of 1
+```json
+<em>// Define an event with an eventId of 1</em>
 let event: emitter.InnerEvent = {
   eventId: 1
 };
 
-// Execute the callback after receiving an event with eventId 1
+<em>// Execute the callback after receiving an event with eventId 1</em>
 let callback = (eventData: emitter.EventData): void => {
   this.getUIContext().getPromptAction().showToast({
     message: JSON.stringify(eventData)
   });
 };
 
-// Subscribe to events with eventId 1
+<em>// Subscribe to events with eventId 1</em>
 emitter.on(event,callback);
 this.getUIContext().getPromptAction().showToast({
   message: 'subscribe_success'
@@ -41,8 +41,8 @@ this.getUIContext().getPromptAction().showToast({
 import { emitter } from '@kit.BasicServicesKit';
 ```
  
-```ArkTS
-// Define an event with an eventId of 1 and a priority of Low 
+```text
+<em>// Define an event with an eventId of 1 and a priority of Low </em>
 let event: emitter.InnerEvent = {
   eventId: 1,
   priority: emitter.EventPriority.LOW
@@ -56,7 +56,7 @@ let eventData: emitter.EventData = {
   }
 };
 
-// Send an event with eventId 1 and the event content is eventData
+<em>// Send an event with eventId 1 and the event content is eventData</em>
 emitter.emit(event,eventData);
 ```
  EventHub提供同线程内事件的发送与处理功能，包括事件订阅、取消订阅及触发。以UIAbility组件与UI的数据同步为例，具体使用方法请参考相关文档。

@@ -1,13 +1,13 @@
 # 如何通过Index获取ArrayList中的元素
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-85
 
 - 方式一：JS语法基础中可以通过数组元素的下标直接访问数组中的对象。示例如下：
 
   
-```ArkTS
+```text
 import { ArrayList } from '@kit.ArkTS';
 
 let arrayList: ArrayList<number> = new ArrayList();
@@ -45,7 +45,7 @@ struct Index {
 - 方式二：使用[subArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arraylist#subarraylist)，subArrayList可以截取ArrayList中的一段元素，并返回这一段ArrayList实例。示例如下：
 
   
-```ArkTS
+```json
 import { ArrayList } from '@kit.ArkTS';
 
 let arrayList: ArrayList<number> = new ArrayList();
@@ -72,7 +72,7 @@ struct Index {
       Column() {
         Button(this.message)
           .onClick(() => {
-            console.info('subArrayList result:', JSON.stringify(result)); // subArrayList result {"0":"2","1":"3"}
+            console.info('subArrayList result:', JSON.stringify(result)); <em>// subArrayList result {"0":"2","1":"3"}</em>
           })
       }
       .width('100%')

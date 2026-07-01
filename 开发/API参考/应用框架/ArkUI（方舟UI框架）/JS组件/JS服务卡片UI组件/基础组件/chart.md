@@ -1,11 +1,11 @@
 # chart
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-chart
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-图表组件，用于呈现线形图、柱状图、量规图界面。
+图表组件，用于呈现线形图、柱状图、量规图、进度类圆形图表、加载类圆形图表、占比类圆形图表界面。
  
 > [!NOTE]
 > 从API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
@@ -42,7 +42,7 @@
 | --- | --- | --- | --- | --- |
 | xAxis | ChartAxis | - | 是 | x轴参数设置。可以设置x轴最小值、最大值、刻度数以及是否显示。 |
 | yAxis | ChartAxis | - | 是 | y轴参数设置。可以设置y轴最小值、最大值、刻度数以及是否显示。 |
-| series | ChartAxis | - | 否 | 数据序列参数设置，仅线形图支持。可以设置： - 线的样式，如线宽、是否平滑。 - 线最前端位置白点的样式和大小。 |
+| series | ChartAxis | - | 否 | 数据序列参数设置，仅线形图支持。可以设置： - 线的样式，如线宽、是否平滑。 - 线最前端位置白点的样式和大小。 - 最高点和最低点的样式和大小。 - 屏幕显示满时，是否需要重头开始绘制。 |
  
  
  **表2** ChartDataset
@@ -100,7 +100,7 @@
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
-| margin | &lt;length&gt; | 1 | 否 | 擦除点的个数（最新绘制的点与最老的点之间的横向距离）。 margin和topPoint/bottomPoint/headPoint同时使用时，有概率出现point正好位于擦除区域的情况，导致point不可见，因此不建议同时使用。 |
+| margin | &lt;length&gt; | 1 | 否 | 擦除点的横向距离（最新绘制的点与最老的点之间的横向距离）。 margin和topPoint/bottomPoint/headPoint同时使用时，有概率出现point正好位于擦除区域的情况，导致point不可见，因此不建议同时使用。 |
 | gradient | boolean | false | 否 | 是否需要渐变擦除。 默认值：false，表示不需要渐变擦除。 |
  
  
@@ -113,7 +113,7 @@
 | description | string | - | 否 | 表示当前点的注释内容。 |
 | textLocation | string | - | 否 | 可选值为： - "top"：注释的绘制位置位于点的上方。 - "bottom"：注释的绘制位置位于点的下方。 - "none"：不绘制。 |
 | textColor | &lt;color&gt; | #000000 | 否 | 表示注释文字的颜色。 |
-| lineDash | string | solid | 否 | 表示绘制当前线段虚线的样式。 - "dashed, 5, 5"：表示纯虚线，绘制5px的实线后留5px的空白。 - “solid”：表示绘制实线。 |
+| lineDash | string | solid | 否 | 表示绘制当前线段的样式。 - "dashed, 5, 5"：表示纯虚线，绘制5px的实线后留5px的空白。 - "solid"：表示绘制实线。 |
 | lineColor | &lt;color&gt; | #000000 | 否 | 表示绘制当前线段的颜色。此颜色不设置会默认使用整体的strokeColor。 |
  
  
@@ -165,7 +165,7 @@
 | radius | &lt;length&gt; | - | 否 | 量规组件刻度条半径，该样式优先于通用样式的width和height样式，仅量规图支持。 该样式需要和center-x和center-y一起配置才能生效。 |
 | colors | Array | - | 否 | 量规组件刻度条每一个区段的颜色，仅量规图支持。 如：colors: #ff0000, #00ff00。 |
 | weights | Array | - | 否 | 量规组件刻度条每一个区段的权重，仅量规图支持。 如：weights: 2, 2。 |
-| font-family | Array | - | 否 | 表示绘制注释的字体样式，支持自定义字体。 |
+| font-family | Array | - | 否 | 表示绘制注释的字体族，支持自定义字体。 |
 | font-size | &lt;length&gt; | - | 否 | 表示绘制注释的字体的大小。 |
  
  
@@ -382,4 +382,4 @@
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/B-n_m9dBRSy9vBeI4BCaJw/zh-cn_image_0000002626231128.png?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=25DF13858D4B369A88A247FF767C45DA22E3723EF162E2DDCBCDD0EF03DC8BE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/WWTgE5qoTWarGLmqw4F1cQ/zh-cn_image_0000002659222497.png?HW-CC-KV=V1&HW-CC-Date=20260701T014405Z&HW-CC-Expire=86400&HW-CC-Sign=885CAF42D10560A4E9C1C4039B85370BDF2C7E1AA8F87ECAEA2891B23E071325)

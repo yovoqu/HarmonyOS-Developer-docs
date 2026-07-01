@@ -1,6 +1,6 @@
 # Popup
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 Popup是用于显示特定样式气泡。
  
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 建议结合 Popup控制 中的自定义气泡功能。
+> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 建议结合 Popup控制 中的自定义气泡功能。
 
   
 
@@ -92,7 +92,7 @@ PopupOptions定义Popup的具体样式参数。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | text | ResourceStr | 否 | 否 | 设置文本内容。 |
-| fontSize | number \| string \| Resource | 否 | 是 | 设置文本字体大小。 默认值：\$r('sys.float.ohos_id_text_size_body2') string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。 number：取值范围(0,+∞)。 |
+| fontSize | number \| string \| Resource | 否 | 是 | 设置文本字体大小。 默认值：\$r('sys.float.ohos_id_text_size_body2') string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。 number：取值范围(0,+∞)。为number类型时单位：fp。 |
 | fontColor | ResourceColor | 否 | 是 | 设置文本字体颜色。 默认值：\$r('sys.color.ohos_id_color_text_secondary') |
 | fontWeight | number \| FontWeight \| string | 否 | 是 | 设置文本字体粗细。 number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。 string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular” 、“medium”分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Regular |
  
@@ -115,7 +115,7 @@ PopupButtonOptions定义按钮的相关属性和事件。
 | --- | --- | --- | --- | --- |
 | text | ResourceStr | 否 | 否 | 设置按钮内容。 |
 | action | () => void | 否 | 是 | 设置按钮click回调。 默认不执行任何操作。 |
-| fontSize | number \| string \| Resource | 否 | 是 | 设置按钮文本字体大小。 默认值：\$r('sys.float.ohos_id_text_size_button2') string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。 设置值为异常值时取默认值。 |
+| fontSize | number \| string \| Resource | 否 | 是 | 设置按钮文本字体大小。 默认值：\$r('sys.float.ohos_id_text_size_button2') string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。 为number类型时单位：fp。 设置值为异常值时取默认值。 |
 | fontColor | ResourceColor | 否 | 是 | 设置按钮文本字体颜色。 默认值：\$r('sys.color.ohos_id_color_text_primary_activated') |
  
  
@@ -369,4 +369,4 @@ struct PopupPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/frdhDkyPQRyEulYaOMmFbw/zh-cn_image_0000002581276342.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=1B44872D4BC077177A830C08E9D1903C0EAF3A91EFB8680EE79A6B17A3B8612D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/P4Ae3fl_QXmV9kLhrlcTlA/zh-cn_image_0000002659102221.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=AC43F1BDBFEF449B52FB752F69293B56E568F2F44BC52A21246234169B739E31)

@@ -1,6 +1,6 @@
 # pushService（推送服务基础能力）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -13,7 +13,7 @@
 Push Token是Push Kit为应用分配的推送令牌，每台设备上每个应用的Push Token具有唯一性。开发者获取Push Token后需上报到应用服务器，用于向终端设备推送消息，Push Cloud将根据消息体中携带的Push Token，将消息下发至目标设备的目标应用。推送消息流程图如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/hpbF0gnPQxSysl1dniTeoA/zh-cn_image_0000002626071702.png?HW-CC-KV=V1&HW-CC-Date=20260624T020353Z&HW-CC-Expire=86400&HW-CC-Sign=FC7B3D2CF02FA49427CC1DC22BA94140C8E1C697D8E5EAB2EF283F1B2F6F0162)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/feZ0vU1yTvyshBMu7fbqsg/zh-cn_image_0000002628703792.png?HW-CC-KV=V1&HW-CC-Date=20260701T014448Z&HW-CC-Expire=86400&HW-CC-Sign=5FB56A8C89F03DBD2C7E823FF3DA93AE9FB073FACFCAF81C26CFE3D6BE83C083)
 
 
 若应用服务器未及时更新Push Token，将影响消息的正常推送。
@@ -54,7 +54,7 @@ Push Token是设备与应用实例的唯一标识，与应用内账号无关。�
 接收消息流程图如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/6LfYZvkDQCCO1ZzqTuzE3w/zh-cn_image_0000002656470979.png?HW-CC-KV=V1&HW-CC-Date=20260624T020353Z&HW-CC-Expire=86400&HW-CC-Sign=1A87C5A072B98375A44B6F852A9A4975DCC6FEEA76072525D9AD60A7F9ABDB14)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/ev3FTes5QMuQUbj4oNtgCQ/zh-cn_image_0000002659103021.png?HW-CC-KV=V1&HW-CC-Date=20260701T014448Z&HW-CC-Expire=86400&HW-CC-Sign=AAA2AE42B4D4C5FB6A8ABB287881956BE903E806625FA908EFCB6920CA299E31)
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -160,7 +160,7 @@ export default class EntryAbility extends UIAbility {
           this.handleTokenRetry(err.code);
         }else {
         hilog.info(LOG_DOMAIN, LOG_TAG, 'Succeeded in getting push token');
-          this.reportToServer(token);// 将Push Token上报到应用服务器
+          this.reportToServer(token); // 将Push Token上报到应用服务器
         }
       });
     } catch (err) {
@@ -189,7 +189,7 @@ export default class EntryAbility extends UIAbility {
   /**
    * 上报 Token 到服务端
    */
-  private reportToServer(_token: string): void {
+  private reportToServer(token: string): void {
     // 业务自行实现
   }
 }
@@ -307,7 +307,7 @@ export default class EntryAbility extends UIAbility {
   /**
    * 将Push Token上报到应用服务器
    */
-  private reportToServer(_token: string): void {
+  private reportToServer(token: string): void {
     // 业务逻辑自行实现
   }
 }
@@ -382,7 +382,7 @@ export default class EntryAbility extends UIAbility {
     });
   } catch (err) {
     let e: BusinessError = err as BusinessError;
-    hilog.error(LOG_DOMAIN, LOG_TAG, 'Push token occur err: %{public}d %{public}s', e.code, e.message);
+    hilog.error(LOG_DOMAIN, LOG_TAG, 'Delete push token occur err: %{public}d %{public}s', e.code, e.message);
     }
   }
 }
@@ -456,7 +456,7 @@ export default class EntryAbility extends UIAbility {
         });
     } catch (err) {
       let e: BusinessError = err as BusinessError;
-      hilog.error(LOG_DOMAIN, LOG_TAG, 'push token occur err: %{public}d %{public}s', e.code, e.message);
+      hilog.error(LOG_DOMAIN, LOG_TAG, 'Delete push token occur err: %{public}d %{public}s', e.code, e.message);
     }
   }
 }
@@ -789,8 +789,7 @@ export default class EntryAbility extends UIAbility {
    */
   private unbindAppProfileId(): void {
     try {
-      pushService.unbindAppProfileId(profileId
-).then(() => {
+      pushService.unbindAppProfileId(profileId).then(() => {
         hilog.info(LOG_DOMAIN, LOG_TAG, 'Succeeded in unbinding app profile id.');
       }).catch((err: BusinessError) => {
         hilog.error(LOG_DOMAIN, LOG_TAG, 'Failed to unbind app profile id: %{public}d %{public}s', err.code, err.message);

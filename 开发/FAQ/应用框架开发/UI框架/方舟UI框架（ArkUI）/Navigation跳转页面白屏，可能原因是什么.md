@@ -1,6 +1,6 @@
 # Navigation跳转页面白屏，可能原因是什么
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-390
 
@@ -13,8 +13,8 @@
 路由表配置时，可以根据[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)配置步骤一步一步来配置。
  
 - 路由表中的页面，需要配置入口函数Builder，并且需要使用NavDestination组件才能展示页面。
-```ArkTS
-// Jump Page Entry Function 
+```text
+<em>// Jump Page Entry Function </em>
 @Builder
 export function pageOneBuilder() {
   NavigationJumpToPageWithWhiteScreen();
@@ -27,7 +27,7 @@ struct NavigationJumpToPageWithWhiteScreen {
 
   build() {
     NavDestination() {
-      // ...
+     <em> // ...</em>
     }
     .title('PageOne')
     .onReady((context: NavDestinationContext) => {
@@ -42,7 +42,7 @@ struct NavigationJumpToPageWithWhiteScreen {
 "module": {
   "name": "feature_splash",
   "type": "feature",
-  // The type needs to be either "har" or "shared"
+ <em> // The type needs to be either "har" or "shared"</em>
 ```
  即使配置正确，跳转时仍可能出现白屏。可以尝试清理项目，以恢复正常跳转。
 

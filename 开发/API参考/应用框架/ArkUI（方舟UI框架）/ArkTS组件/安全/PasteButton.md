@@ -1,6 +1,6 @@
 # PasteButton
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-security-components-pastebutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,6 +36,8 @@ PasteButton()
 
 为避免因控件样式不合法而导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -51,6 +53,8 @@ PasteButton(options: PasteButtonOptions)
 创建包含指定元素的粘贴控件。
 
 为避免因控件样式不合法而导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -75,6 +79,8 @@ PasteButton(options: PasteButtonOptions)
 > icon或text需至少传入一个。 如果icon、text都不传入，PasteButton中的options参数不生效，创建的PasteButton为默认样式。 PasteIconStyle默认样式为LINES。 PasteDescription默认样式为PASTE。 ButtonType默认样式为Capsule。 icon、text和buttonType不支持动态修改。
 
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -96,11 +102,13 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-#### PasteIconStyle枚举说明
+#### PasteIconStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 粘贴控件的图标风格。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -113,11 +121,13 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-#### PasteDescription枚举说明
+#### PasteDescription
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 粘贴控件的文本描述。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -130,11 +140,13 @@ PasteButton(options: PasteButtonOptions)
 
 
 
-#### PasteButtonOnClickResult枚举说明
+#### PasteButtonOnClickResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 粘贴控件点击后的授权结果。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -155,6 +167,8 @@ PasteButton(options: PasteButtonOptions)
 type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult, error?: BusinessError&lt;void&gt;) => void
 
 点击粘贴控件触发该回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -186,6 +200,8 @@ type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult,
 onClick(event: PasteButtonCallback)
 
 点击动作触发该回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -257,4 +273,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/EHNvT6O5SbmGT0cKO1cskQ/zh-cn_image_0000002581436212.png?HW-CC-KV=V1&HW-CC-Date=20260528T025559Z&HW-CC-Expire=86400&HW-CC-Sign=DC63BF8660FC3411C67AE3941598E530F1E920D42EB680A075F15CD5CAE77258)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/pveYWSj_QXCwWnh913m7rQ/zh-cn_image_0000002628862828.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=E61BD88741A181D8D1257F06F6D261A653CAC06AE285E4AFDFAD8A3EC1DF9D34)

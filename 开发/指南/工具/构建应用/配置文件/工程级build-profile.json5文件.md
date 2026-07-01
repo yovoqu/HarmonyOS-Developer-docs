@@ -1,6 +1,6 @@
 # 工程级build-profile.json5文件
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-06-30 08:29:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app
 
@@ -249,17 +249,18 @@ signingConfigs是一个对象数组，用于配置签名方案，可配置多个
             | 字段名称 | 类型 | 可选/必选 | 含义 |
 | --- | --- | --- | --- |
 | storePassword | 字符串 | 必选 | 密钥库密码，以密文形式呈现。 |
-| certpath | 字符串 | 必选 | 调试或发布证书文件地址，文件后缀为.cer。 |
+| certpath | 字符串 | 必选 | 调试或发布证书文件地址，文件后缀为.cer，支持绝对路径和相对路径，相对路径以工程根目录为起点。 |
 | keyAlias | 字符串 | 必选 | 密钥别名信息。 |
 | keyPassword | 字符串 | 必选 | 密钥密码，以密文形式呈现。 |
-| profile | 字符串 | 必选 | 调试或发布证书Profile文件地址，文件后缀为.p7b。 |
+| profile | 字符串 | 必选 | 调试或发布证书Profile文件地址，文件后缀为.p7b，支持绝对路径和相对路径，相对路径以工程根目录为起点。 |
 | signAlg | 字符串 | 必选 | 密钥库signAlg参数。当前可配置值SHA256withECDSA。 |
-| storeFile | 字符串 | 必选 | 密钥库文件地址，文件后缀为.p12。 |
+| storeFile | 字符串 | 必选 | 密钥库文件地址，文件后缀为.p12，支持绝对路径和相对路径，相对路径以工程根目录为起点。 |
 
 
 signingConfigs字段示例：
 
 ```json
+// 使用绝对路径
 {
   "app": { 
     "signingConfigs": [
@@ -268,12 +269,32 @@ signingConfigs字段示例：
         "type": "HarmonyOS",
         "material": {  
           "certpath": "D:\\SigningConfig\\debug_hos.cer",
-          "storePassword": "******",
+          "storePassword": "************************************",  // 密文形式的密钥库密码
           "keyAlias": "debugKey",
-          "keyPassword": "******",
+          "keyPassword": "************************************",  // 密文形式的密钥密码
           "profile": "D:\\SigningConfig\\debug_hos.p7b", 
           "signAlg": "SHA256withECDSA",
           "storeFile": "D:\\SigningConfig\\debug_hos.p12"
+        }
+      }
+    ]
+  }
+}
+// 使用相对路径
+{
+  "app": { 
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {  
+          "certpath": "./SigningConfig/debug_hos.cer",
+          "storePassword": "************************************",  // 密文形式的密钥库密码
+          "keyAlias": "debugKey",
+          "keyPassword": "************************************",  // 密文形式的密钥密码
+          "profile": "./SigningConfig/debug_hos.p7b", 
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "./SigningConfig/debug_hos.p12"
         }
       }
     ]

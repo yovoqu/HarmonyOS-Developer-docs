@@ -1,6 +1,6 @@
 # AR Engine
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine
 **支持设备：** Phone | Tablet | TV
@@ -93,6 +93,7 @@
 | typedef struct AREngine_ARTrackableList AREngine_ARTrackableList | 可跟踪对象列表。 |
 | typedef void (*HMS_AREngine_PhotoAvailableCallback)(OH_NativeBuffer *photoBuffer) | 输出拍照流图像回调。 |
 | typedef struct AREngine_ARBody AREngine_ARBody | 人体对象。 |
+| typedef struct AREngine_ARFaceLandmark AREngine_ARFaceLandmark | 人脸关键点对象。 |
 
 
 
@@ -145,7 +146,7 @@
 
 | 名称 | 描述 |
 | --- | --- |
-| AREngine_ARStatus HMS_AREngine_CheckSupported(AREngine_FeatureType type) | 判断当前设备支不支持AR特性的使用。 说明： 在进行正式开发前，可通过此接口来判断AR特性是否能够正常运行在当前设备。 |
+| AREngine_ARStatus HMS_AREngine_CheckSupported(AREngine_FeatureType type) | 判断当前设备是否支持AR特性的使用。 说明： 在进行正式开发前，可通过此接口来判断AR特性是否能够正常运行在当前设备。 |
 | AREngine_ARStatus HMS_AREngine_ARAnchor_Detach(AREngine_ARSession *session, AREngine_ARAnchor *anchor) | 通知AR Engine停止跟踪并解绑一个锚点。 说明： 由于此函数并没有释放锚点AREngine_ARAnchor，开发者需要通过调用 HMS_AREngine_ARAnchor_Release来释放锚点。 |
 | AREngine_ARStatus HMS_AREngine_ARAnchor_GetPose(const AREngine_ARSession *session, const AREngine_ARAnchor *anchor, AREngine_ARPose *outPose) | 获取指定锚点在世界坐标系中的位姿信息。 |
 | AREngine_ARStatus HMS_AREngine_ARAnchor_GetTrackingState(const AREngine_ARSession *session, const AREngine_ARAnchor *anchor, AREngine_ARTrackingState *outTrackingState) | 获取指定锚点位姿的追踪状态。 |
@@ -168,7 +169,7 @@
 | AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_GetCapacity(const AREngine_ARAugmentedImageDatabase *database, uint32_t *outCapacity) | 获取可以添加的最大图像数。 |
 | AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_GetImageCount(const AREngine_ARAugmentedImageDatabase *database, uint32_t *outImageCount) | 获取数据库中存储的图像数量。 |
 | AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_Serialize(const AREngine_ARAugmentedImageDatabase *database, uint8_t **outBuffer, uint64_t *outBufSize) | 序列化特征数据库。 |
-| AREngine_ARStatus HMS_AREngine_ARCamera_GetDisplayOrientedPose(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ARPose *outPose) | 设置outPose为虚拟相机（面向显示）在世界空间中的位姿，用以将AR内容渲染到最新帧中。 |
+| AREngine_ARStatus HMS_AREngine_ARCamera_GetDisplayOrientedPose(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ARPose *outPose) | 获取虚拟相机（面向显示）在世界空间中的位姿，用以将AR内容渲染到最新帧中。 |
 | AREngine_ARStatus HMS_AREngine_ARCamera_GetImageIntrinsics(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ARCameraIntrinsics *outIntrinsics) | 获取物理相机离线内参的对象，可通过该对象获取相机的焦距、图像尺寸、主轴点和畸变参数。 |
 | AREngine_ARStatus HMS_AREngine_ARCamera_GetPose(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ARPose *outPose) | 设置outPose为最新帧中物理相机在世界空间中的位姿。该位姿是OpenGL相机的位姿。 |
 | AREngine_ARStatus HMS_AREngine_ARCamera_GetProjectionMatrix(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ClipPlaneDistance clipPlaneDistance, float *outDestColMajor4x4, int32_t destColMajor4x4Num) | 获取用于在相机图像上层渲染虚拟内容的投影矩阵，可用于相机坐标系到裁剪坐标系转换。 |
@@ -345,6 +346,11 @@
 | AREngine_ARStatus HMS_AREngine_ARBody_GetBodyTrackId(const AREngine_ARSession *session, const AREngine_ARBody *body, const int32_t *outBodyTrackId) | 获取指定人体对象的标识。 |
 | AREngine_ARStatus HMS_AREngine_ARBody_GetBodyTimeStamp(const AREngine_ARSession *session, const AREngine_ARBody *body, int64_t *timeStamp) | 获取人体对象的检测时间点，表示触发检测人体对象距离启动相机的时间间隔，单位为ns。 |
 | AREngine_ARStatus HMS_AREngine_ARConfig_SetBodyDetectedNum(const AREngine_ARSession *session, AREngine_ARConfig *config, int32_t maxNum) | 设置追踪人数。 |
+| AREngine_ARStatus HMS_AREngine_ARFace_AcquireLandmark(const AREngine_ARSession *session, const AREngine_ARFace *face, AREngine_ARFaceLandmark **outLandmark) | 获取人脸关键点对象。 |
+| AREngine_ARStatus HMS_AREngine_ARFaceLandmark_AcquireVertices2D(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, const float **outData) | 获取人脸关键点的2D位姿信息。 |
+| AREngine_ARStatus HMS_AREngine_ARFaceLandmark_AcquireVertices3D(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, const float **outData) | 获取人脸关键点的3D位姿信息。 |
+| AREngine_ARStatus HMS_AREngine_ARFaceLandmark_GetCount(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, int32_t *outSize) | 获取人脸关键点个数。 |
+| void HMS_AREngine_ARFaceLandmark_Release(AREngine_ARFaceLandmark *landmark) | 释放landmark对象，即由HMS_AREngine_ARFace_AcquireLandmark创建的对象。 |
 
 
 
@@ -948,7 +954,7 @@ enum AREngine_ARAddAugmentedImageReason
 | 枚举值 | 描述 |
 | --- | --- |
 | ARENGINE_ADD_AUGMENTED_IMAGE_REASON_NONE | 添加的图像符合质量要求。 |
-| ARENGINE_ADD_AUGMENTED_IMAGE_REASON_SIZE_NOT_MATCH | 尝试将质量不足（尺寸不匹配）的图像添加到图像数据库。 说明： 图像尺寸评价从宽高比、分辨率两个维度进行。建议宽高比、分辨率的评价为Unfit以上。 |
+| ARENGINE_ADD_AUGMENTED_IMAGE_REASON_SIZE_NOT_MATCH | 尝试将质量不足（尺寸不匹配）的图像添加到图像数据库。 说明： 图像尺寸评价从宽高比、分辨率两个维度进行。建议宽高比、分辨率的评价优于Unfit。 |
 | ARENGINE_ADD_AUGMENTED_IMAGE_REASON_LIGHT_ANOMALY | 尝试将质量不足（太亮或太暗）的图像添加到图像数据库中。 |
 | ARENGINE_ADD_AUGMENTED_IMAGE_REASON_FEATURE_LIMIT | 尝试将质量不足（图像颜色比较单一）的图像添加到图像数据库中。 |
 | ARENGINE_ADD_AUGMENTED_IMAGE_REASON_OTHER | 尝试将质量不足（其他场景，如图片有反光、光斑，重复性内容等）添加到图像数据库中。 |
@@ -1562,15 +1568,15 @@ enum AREngine_ARSemanticPlaneLabel
 | ARENGINE_PLANE_UNKNOWN | 未知类型。 |
 | ARENGINE_PLANE_WALL | 墙面。 |
 | ARENGINE_PLANE_FLOOR | 地面。 |
-| ARENGINE_PLANE_SEAT | 座椅。 |
-| ARENGINE_PLANE_TABLE | 桌子。 |
+| ARENGINE_PLANE_SEAT | 座椅面。 |
+| ARENGINE_PLANE_TABLE | 桌面。 |
 | ARENGINE_PLANE_CEILING | 天花板。 |
-| ARENGINE_PLANE_DOOR | 门。 |
-| ARENGINE_PLANE_WINDOW | 窗户。 |
-| ARENGINE_PLANE_BED | 床。 |
-| ARENGINE_PLANE_SPACE | 平面空间。 起始版本： 6.0.0(20) |
-| ARENGINE_CUBE_VOLUME | 立方体体积。 起始版本： 6.0.0(20) |
-| ARENGINE_CUBE_SPACE | 立方体空间。 起始版本： 6.0.0(20) |
+| ARENGINE_PLANE_DOOR | 门面。 |
+| ARENGINE_PLANE_WINDOW | 窗面。 |
+| ARENGINE_PLANE_BED | 床面。 |
+| ARENGINE_PLANE_SPACE | 平面空间。仅在高精几何重建模式下支持。 起始版本： 6.0.0(20) |
+| ARENGINE_CUBE_VOLUME | 立方体体积。仅在高精几何重建模式下支持。 起始版本： 6.0.0(20) |
+| ARENGINE_CUBE_SPACE | 立方体空间。仅在高精几何重建模式下支持。 起始版本： 6.0.0(20) |
 
 
 
@@ -2643,7 +2649,7 @@ AREngine_ARStatus HMS_AREngine_ARCamera_GetDisplayOrientedPose(const AREngine_AR
 
 **描述**
 
-设置outPose为虚拟相机（面向显示）在世界空间中的位姿，用以将AR内容渲染到最新帧中。
+获取虚拟相机（面向显示）在世界空间中的位姿，用以将AR内容渲染到最新帧中。
 
 该位姿是OpenGL相机的位姿，其中X轴正方向为右，Y轴正方向为上，Z轴负方向为相机的观察方向。相机位置即物理相机位置，而相机X轴与Y轴指向受屏幕方向（考虑显示旋转）的影响。
 
@@ -5925,7 +5931,7 @@ AREngine_ARStatus HMS_AREngine_ARFrame_HitTest(const AREngine_ARSession *session
 
 **描述**
 
-从摄像头发射一条射线，该射线的方向由预览区上的点（pixelX，pixelY）确定，（pixelX，pixelY）可以通过XComponent的[DispatchTouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ent-native-xcomponent-oh-nativexcomponent-callback#dispatchtouchevent)事件获取。
+从摄像头发射一条射线，该射线的方向由预览区上的点（pixelX，pixelY）确定，（pixelX，pixelY）可以通过XComponent的[DispatchTouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-callback#dispatchtouchevent)事件获取。
 
 射线与系统跟踪的平面或者是点云中的点碰撞（点云正常识别），从而产生交点，形成碰撞结果。按照交点与设备的距离从近到远进行排序，存放在列表中。(pixelX，pixelY)是像素在预览区上坐标。
 

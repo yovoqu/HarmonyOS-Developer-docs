@@ -1,6 +1,6 @@
 # 自定义组件节点 (FrameNode)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-framenode
 
@@ -815,7 +815,7 @@ FrameNode提供了查询节点相对窗口、父组件以及屏幕位置偏移�
 [getPositionToWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontowindow12)，[getPositionToParent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontoparent12)，[getPositionToScreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontoscreen12)三个接口获取到的位置信息关系如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/XUBpVRV2RY-19kTi-iqtzg/zh-cn_image_0000002656347939.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=6DF66A324D69CA3EEA7239D4FE8EBB0FD0CF1BCE5432A0DB4F740FF369D169AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/tgsVD3meT4WhwCMwnsMm-w/zh-cn_image_0000002659219865.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=B755D9603267C116C24BFB1FC82B57AE2AA76A68F49087B8C3F9FDEE11DD25DE)
 
 
 ```ArkTS
@@ -2103,7 +2103,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/dfc6o7AjQHmLGBflR7x7vg/zh-cn_image_0000002626228524.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=EDECD62BE160E4432E7B87755BAA1223EE7EC4984F58732D275F3732F38689DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/2REuYVbjT-OVz5Sh2KqXrg/zh-cn_image_0000002628700670.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=B68F08C2613299A96F601FD03160D0E4DC5AE0102A8BC5813D4C3B046D1C0572)
 
 
 
@@ -2117,8 +2117,8 @@ import { FrameNode, NodeController, typeNode, NodeContent } from '@kit.ArkUI';
 
 // 继承NodeController实现自定义NodeAdapter控制器
 class MyNodeAdapterController extends NodeController {
-  rootNode: FrameNode | null = null;
-  imageUrl: string = "";
+  public rootNode: FrameNode | null = null;
+  public imageUrl: string = '';
 
   constructor(imageUrl: string) {
     super();
@@ -2126,7 +2126,7 @@ class MyNodeAdapterController extends NodeController {
   }
 
   makeNode(uiContext: UIContext): FrameNode | null {
-    let imageNode = typeNode.createNode(uiContext, "Image");
+    let imageNode = typeNode.createNode(uiContext, 'Image');
     imageNode.initialize($r(this.imageUrl))
     imageNode.commonAttribute.margin({ left: 100 })
     imageNode.attribute.syncLoad(true).width(100).height(100);
@@ -2143,7 +2143,7 @@ struct NodeComponent3 {
 
   aboutToAppear(): void {
     const uiContext = this.getUIContext();
-    let imageNode = typeNode.createNode(uiContext, "Image");
+    let imageNode = typeNode.createNode(uiContext, 'Image');
     imageNode.initialize($r('app.media.startIcon'))
     imageNode.attribute.syncLoad(true).width(100).height(100);
     imageNode.invalidateAttributes();
@@ -2162,7 +2162,7 @@ struct NodeComponent4 {
 
   aboutToAppear(): void {
     const uiContext = this.getUIContext();
-    let imageNode = typeNode.createNode(uiContext, "Image");
+    let imageNode = typeNode.createNode(uiContext, 'Image');
     imageNode.initialize($r('app.media.startIcon'))
     imageNode.attribute.syncLoad(true).width(100).height(100);
     imageNode.invalidateAttributes();
@@ -2182,13 +2182,13 @@ struct ListNodeTest {
 
   build() {
     Column() {
-      Text("NodeComponent")
+      Text('NodeComponent')
       if (this.flag) {
         NodeComponent3()
       } else {
         NodeComponent4()
       }
-      Text("NodeContainer").margin({ top: 20 })
+      Text('NodeContainer').margin({ top: 20 })
       if (this.flag) {
         NodeContainer(this.adapterController)
           .width(300).height(100)
@@ -2201,13 +2201,13 @@ struct ListNodeTest {
         this.flag = !this.flag;
       }).margin({ top: 20 })
     }
-    .width("100%")
+    .width('100%')
   }
 }
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/po0YSRQJT-2y_Bj8iQzTjw/zh-cn_image_0000002626068616.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=8DEBDE4CCCD1707FA8EE36CAE185508E776E61772B9F3C404D6BA9F3669235BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/lvy5XqBTShKJb1QxrpmI4Q/zh-cn_image_0000002659099899.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=862F26D54C632194281B03C7681FD980958E168A1126A8CC3C103B23D0A0C5CA)
 
 
 
@@ -2228,7 +2228,7 @@ struct Index {
 
   // 监听状态变化后打印是否处于渲染状态
   change() {
-    let buttonNode = this.getUIContext().getFrameNodeById("testButton");
+    let buttonNode = this.getUIContext().getFrameNodeById('testButton');
     if (buttonNode == null) {
       return;
     }
@@ -2260,14 +2260,14 @@ struct Index {
       }
       .width('30%')
       .alignSelf(ItemAlign.Center)
-      .height("10%")
+      .height('10%')
       .onReachEnd(() => {
-        let textNode8 = this.getUIContext().getFrameNodeById("hello8");
+        let textNode8 = this.getUIContext().getFrameNodeById('hello8');
         if (textNode8 != null) {
           let isOnRenderTree = textNode8!.isInRenderState();
           hilog.info(1, 'frameNode', 'is hello8 on RenderTree: %{public}s', isOnRenderTree);
         }
-        let textNode1 = this.getUIContext().getFrameNodeById("hello1");
+        let textNode1 = this.getUIContext().getFrameNodeById('hello1');
         if (textNode1 != null) {
           let isOnRenderTree = textNode1!.isInRenderState();
           isOnRenderTree ? this.message = 'is on render tree' : 'is not no render tree'
@@ -2282,4 +2282,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/uSiyKo2TSU6pdlZwd1Q0IQ/zh-cn_image_0000002656467893.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=AE360BCE393A10F639F9059E2F992CD88671E585572FE1B87DB2E33513E54415)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/sFgKgI3oSyO8sNGMN3Qpnw/zh-cn_image_0000002628860550.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=27B8AEBE8B873916BE2556BDBF9B7A3CBA90CD20FB239990FE2F654DC525CCA7)

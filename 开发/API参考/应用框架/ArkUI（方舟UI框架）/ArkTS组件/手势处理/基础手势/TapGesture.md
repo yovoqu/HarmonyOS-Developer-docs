@@ -1,6 +1,6 @@
 # TapGesture
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-tapgesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -44,6 +44,8 @@ TapGesture(value?: TapGestureParameters)
 
  
 点击手势参数。继承自[BaseHandlerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesturehandler#basehandleroptions15)。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -93,6 +95,14 @@ onAction(event: (event: GestureEvent) => void)
 
 用于点击手势获取点击位置坐标。
  
+  
+
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -105,6 +115,31 @@ onAction(event: (event: GestureEvent) => void)
 | displayY | number | 否 | 否 | 相对于屏幕的左上角Y坐标。 取值范围：[0, +∞) 单位：vp 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 | globalDisplayX23+ | number | 否 | 是 | 相对于主屏幕左上角为原点的坐标系中的X坐标。 单位：vp 取值范围：[0, +∞) 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
 | globalDisplayY23+ | number | 否 | 是 | 相对于主屏幕左上角为原点的坐标系中的Y坐标。 单位：vp 取值范围：[0, +∞) 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+ 
+ 
+  
+
+#### getCurrentLocalPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getCurrentLocalPosition?(): Coordinate2D
+ 
+获取点击位置相对于当前组件实时位置的左上角坐标。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Coordinate2D | 点击位置相对于当前组件实时位置的左上角坐标。 |
  
  
   
@@ -150,7 +185,7 @@ struct TapGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/PEAZoaB-SNaQ5P1MsssDqA/zh-cn_image_0000002611835539.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=AA3AC84742EA5F159D71565ACE4399B0A515ECD099B2C9D8756AAE075DAE8544)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/dSTF-xEhR0Cn90qQUDK1EQ/zh-cn_image_0000002628862312.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014330Z&HW-CC-Expire=86400&HW-CC-Sign=693F6CDEFDB2FAEB7220A41394F484D96AC7DE5A3CC77576622B1EC26E62D695)
 
  
   
@@ -195,4 +230,46 @@ struct TapGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/7vZ5dKJ6RZS4SMOXsXU32g/zh-cn_image_0000002581275792.png?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=260B174D6380B30FED7DC788BACC9E46C01C27BE844F0535DCC82C1B51D01954)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/1Z8w7zWyS-qFVvf7ZDk6MQ/zh-cn_image_0000002659221625.png?HW-CC-KV=V1&HW-CC-Date=20260701T014330Z&HW-CC-Expire=86400&HW-CC-Sign=8A110034BD82B8D47154766C50D948C227D5451FF2B733E503304EF33F84B5A1)
+
+ 
+  
+
+#### 示例3（获取组件实时位置）
+
+该示例通过[getCurrentLocalPosition](#getcurrentlocalposition)方法获取当前组件基于其实时位置的左上角坐标。
+ 
+从API版本26.0.0开始，新增支持getCurrentLocalPosition接口。
+ 
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct GetCurrentLocalPositionExample {
+  @State positionText: string = '';
+  @State textOffsetY: number = 0;
+
+  build() {
+    Column() {
+      Button('点击获取点击位置相对于当前组件实时位置左上角的坐标').translate({ y: this.textOffsetY })
+        .gesture(
+          TapGesture({ count: 1 })
+            .onAction((event: GestureEvent) => {
+              if (event) {
+                this.textOffsetY = -200;
+                setTimeout(() => {
+                  let localPos: Coordinate2D | undefined = event?.tapLocation?.getCurrentLocalPosition?.();
+                  this.positionText = `相对于当前组件实时位置左上角的坐标:\n  x: ${localPos?.x ?? 0}\n  y: ${localPos?.y ?? 0}`;
+                }, 2000);
+              }
+            })
+        )
+
+      Text(this.positionText)
+    }.width('100%')
+  }
+}
+```
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/WEvrUboDTfO72O5KtCYiOA/zh-cn_image_0000002628702310.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014330Z&HW-CC-Expire=86400&HW-CC-Sign=14D9F0ADA9F32018D8E17AD5F75FE1569C94097DCABFDACB31B5157413BE534B)

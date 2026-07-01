@@ -1,6 +1,6 @@
 # BusinessRiskIntelligentDetection（业务风险检测）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-brid-api
 **支持设备：** Phone | Tablet
@@ -10,7 +10,7 @@
  
 **起始版本：** 5.0.0(12)
  
-- 提供自动化点击、设备墙等作弊行为检测能力。
+- 提供自动化点击、设备农场等作弊行为检测能力。
 
  
 **起始版本：** 6.0.0(20)
@@ -186,7 +186,7 @@ try {
 
 detectSimulatedClickRisk(params: [SimulatedClickDetectionRequest](#simulatedclickdetectionrequest)): Promise&lt;string&gt;
  
-获取自动化点击、设备墙等作弊行为检测结果。使用Promise异步回调。
+获取自动化点击、设备农场等作弊行为检测结果。使用Promise异步回调。
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
  
@@ -257,7 +257,7 @@ try {
 
 detectSimulatedClickRiskEnhanced(params: SimulatedClickDetectionEnhancedRequest): Promise&lt;string&gt;
  
-获取自动化点击、设备墙等作弊行为的增强检测结果。使用Promise异步回调。
+获取自动化点击、设备农场等作弊行为的增强检测结果。使用Promise异步回调。
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
  

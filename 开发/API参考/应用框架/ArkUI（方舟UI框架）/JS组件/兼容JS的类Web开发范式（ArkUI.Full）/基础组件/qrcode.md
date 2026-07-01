@@ -1,6 +1,6 @@
 # qrcode
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-qrcode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -145,4 +145,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/ktN04XjkScqHGskxkj0WFQ/zh-cn_image_0000002581436338.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=FB70DD82773979D4137E16F0D4F1B3E2938155E3BA99F4C6E2AFC748FA89A78E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/cnNH7EgaQimRfdeH28VmvQ/zh-cn_image_0000002659102301.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=81B0557AB16E81EEABA570CBC88C6DEA5ABA579FBB4D7E7F0F3F1A1AD0F3A2E0)

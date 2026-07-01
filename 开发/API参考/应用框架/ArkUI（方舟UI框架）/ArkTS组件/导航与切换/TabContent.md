@@ -1,6 +1,6 @@
 # TabContent
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -110,6 +110,8 @@ tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string |
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -136,6 +138,8 @@ tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string |
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -186,6 +190,8 @@ SubTabBarStyle的构造函数。支持ComponentContent设置自定义内容。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -206,6 +212,8 @@ static of(content: ResourceStr): SubTabBarStyle
 SubTabBarStyle的静态构造函数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -235,6 +243,8 @@ SubTabBarStyle的静态构造函数。支持ComponentContent设置自定义内�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -263,6 +273,8 @@ indicator(value: IndicatorStyle): SubTabBarStyle
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -290,6 +302,8 @@ indicator(value: IndicatorStyle | DrawableTabBarIndicator): SubTabBarStyle
 设置选中子页签的下划线风格。与[indicator](#indicator10)相比，新增了图片格式的下划线风格，图片的显示效果参照[ImageFit.Cover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#imagefit)。子页签的下划线风格仅在水平模式下有效。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -323,6 +337,8 @@ selectedMode(value: SelectedMode): SubTabBarStyle
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -350,6 +366,8 @@ board(value: BoardStyle): SubTabBarStyle
 设置选中子页签的背板风格。子页签的背板风格仅在水平模式下有效。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -379,6 +397,8 @@ labelStyle(value: LabelStyle): SubTabBarStyle
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -406,6 +426,8 @@ padding(value: Padding | Dimension): SubTabBarStyle
 设置子页签的内边距属性（不支持百分比设置）。使用Dimension时，四个方向内边距同时生效。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -435,6 +457,8 @@ padding(padding: LocalizedPadding): SubTabBarStyle
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -463,6 +487,8 @@ id(value: string): SubTabBarStyle
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -489,6 +515,8 @@ id(value: string): SubTabBarStyle
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -509,6 +537,8 @@ id(value: string): SubTabBarStyle
 使用图片资源作为下划线的对象。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -533,6 +563,8 @@ type DrawableDescriptor = DrawableDescriptor
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -549,6 +581,8 @@ type DrawableDescriptor = DrawableDescriptor
 选中子页签的显示模式枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -568,6 +602,8 @@ type DrawableDescriptor = DrawableDescriptor
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -582,6 +618,8 @@ type DrawableDescriptor = DrawableDescriptor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 label文本和字体的样式对象。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -639,6 +677,8 @@ BottomTabBarStyle的静态构造函数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -668,6 +708,8 @@ padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -695,6 +737,8 @@ verticalAlign(value: VerticalAlign): BottomTabBarStyle
 设置底部页签的图片、文字在垂直方向上的对齐格式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -724,6 +768,8 @@ layoutMode(value: LayoutMode): BottomTabBarStyle
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -751,6 +797,8 @@ symmetricExtensible(value: boolean): BottomTabBarStyle
 设置底部页签的图片、文字是否可以对称借用左右底部页签的空余位置中的最小值，仅fixed水平模式下在底部页签之间有效。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -780,6 +828,8 @@ labelStyle(value: LabelStyle): BottomTabBarStyle
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -807,6 +857,8 @@ id(value: string): BottomTabBarStyle
 设置底部页签的id。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -836,6 +888,8 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -862,6 +916,8 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -879,6 +935,8 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 页签内容排布方式枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -898,6 +956,8 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 Label图标样式对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -931,6 +991,8 @@ onWillShow(event: VoidCallback)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -955,6 +1017,8 @@ onWillHide(event: VoidCallback)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1172,7 +1236,7 @@ struct TabContentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/hrgQ0k_mSceXxIVb7Xu3Rw/zh-cn_image_0000002587270176.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=87A0E8D02573F3AFA171DFF3CEA62A3F5E086BAFCB29E998435D1131193EEB7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/F-GmdQfVR6aFBINr1KsERw/zh-cn_image_0000002628702546.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=13AAEC198A0783189E6EEF75E46B7B72E34DE44876480A87F81C8BD424D0F804)
 
 
 
@@ -1348,7 +1412,7 @@ struct TabBarStyleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/3U_U1KLEQr2rdiM8l8bdSA/zh-cn_image_0000002617709853.jpeg?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=10440FD7E399AAA339EBF3E1C425CF9FA41B16569BC4FD12986945D62C6BA3B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/PgfBrG1PSaipBcc3Uc0-zw/zh-cn_image_0000002659101773.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=4276C4C845160356E944792BC0905B421F05B65D3EB4E3064F46321F9FFDA23E)
 
 
 
@@ -1590,7 +1654,7 @@ struct TabsAttr {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/G4n8d4PzQOml_q_r_PaBfg/zh-cn_image_0000002587110272.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=47365694958DD1CA9135B008D0F41D67640B5D281F72018C085CC8FF1D12FBED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/ZtCNv1WuTaKwua_Adk7-CQ/zh-cn_image_0000002628862424.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=C662442F6F824B999F53F1BF8EB34C75F7668517B1F2FF115B540E4668FCE1A1)
 
 
 
@@ -1684,7 +1748,7 @@ struct TabsTextOverflow {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/oLSDt3BxSMeOZStuCVOieQ/zh-cn_image_0000002617669955.png?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=C56C0C4861BE11F0D896F1A8F8E1CD277F00AB155D69A5154E65B7EB67A8290D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/F6PiuYF7SmK9T9VQLJRhJA/zh-cn_image_0000002659221737.png?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=E6F00312E79A6569BBD01A01E7DC29D980608F91F11F97E45FC15CBFB6CCC5F4)
 
 
 
@@ -1840,7 +1904,7 @@ struct TabContentExample6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/aVswsOHYSAGg5AQPC8nclg/zh-cn_image_0000002587270178.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=5095CA8487EFC12C0D43E94831E3EAB8BCD7B9D9037A81447BA26B3CE05AE5AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/4W0L6R9yS8Kpf8tB-o6MqQ/zh-cn_image_0000002628702548.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=2FE221D5F37446AA19F95CB2B694CB00CD8B2924591FE8759FF2E2724E88AA6D)
 
 
 
@@ -1944,7 +2008,7 @@ struct TabBarStyleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/gm04RDd2SV2Gu7062BQOxA/zh-cn_image_0000002617709855.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=452B0558C4E7AE60A549CDBE730B68343025A7B739DF3529A643DC8C04640E48)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/bWt5lFumSXWzDYrwra_CvQ/zh-cn_image_0000002659101775.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=D6AAFAD83EE87BE7845A7DB88B6BA321DB0513413AFF4FECFA472CA28FFB7C1C)
 
 
 
@@ -2032,7 +2096,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/OqVP4JVoTPWHPJJQl1hRsA/zh-cn_image_0000002587110274.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=1C35CAF6F30EDB3EB3BF377244B742C3F45B6CB283966CD0C61D3EA2EA64B93F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/-yyyNN2HTq6dzinbZreYbQ/zh-cn_image_0000002628862426.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=530D3E451A8AA8490BA65AD235DA1D52736DE2CEA42EDA9B7025346453ACD339)
 
 
 
@@ -2142,7 +2206,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/S-EbvunoTgWGQeXuRdet1Q/zh-cn_image_0000002617669957.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=6CA75A195542054F4D033081C714ED4C1B5BEBB73A4580732952E45C1CB6C41A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Ip57dOsVQRi_NaNCqU75dg/zh-cn_image_0000002659221739.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=D1F14BC39B9EB539D20ACBB9F9ED9286842FF83785CE68D8E0C1291D5F6DC3FE)
 
 
 
@@ -2322,7 +2386,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/oFV-4cLJT9SwxV4_ZETkYA/zh-cn_image_0000002587270180.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=49505387EE5804A5437162145877EF6B56D67916678D578A95EC8FA2ED92ECEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/pm1oiNIoRBK11UQVZud1Zg/zh-cn_image_0000002628702550.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=468504C38068CAB2780B8C8DC1D8884158158D0FA82A3126A5D2EC75F0E5EBF9)
 
 
 
@@ -2395,4 +2459,4 @@ struct TabsIndicatorExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/V8Wj-iyBQk204w1-edNbdA/zh-cn_image_0000002617709859.png?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=12C6329ACE8EAA56CE8ACA388211CDD4B81ECD92264ED696D399309E9236972E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/0plCCHv7QHmtlcQCvMbQ4A/zh-cn_image_0000002659101777.png?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=0F3CF6BA8DAB6E9A0113666CF423E8BF44E1FE99D204D58D7CCD72C6FD1B22E3)

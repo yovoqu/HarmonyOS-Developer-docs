@@ -1,6 +1,6 @@
 # Column
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,7 +48,7 @@ Column(options?: ColumnOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options18+ | ColumnOptions | 否 | 纵向布局元素垂直方向间距，支持设置number或string类型。 |
+| options18+ | ColumnOptions | 否 | 纵向布局元素的配置选项，可设置子组件的垂直方向间距。 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
   
@@ -65,13 +65,15 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | ColumnOptions \| ColumnOptionsV2 | 否 | 纵向布局元素垂直方向间距，支持设置number、string或Resource类型。 |
+| options | ColumnOptions \| ColumnOptionsV2 | 否 | 纵向布局元素的配置选项，可设置子组件的垂直方向间距。 |
  
  
   
@@ -89,6 +91,8 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -108,6 +112,8 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -129,6 +135,8 @@ Column组件构造函数中space支持的数据类型，取值类型为下表类
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -210,6 +218,8 @@ reverse(isReversed: Optional&lt;boolean&gt;)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -316,7 +326,7 @@ struct ColumnExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/P1D7cKXYQyikkGAiBwNSTw/zh-cn_image_0000002611755661.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=9EE4013C7B2231F684A5AAA87A9C2549B45205254631F0D16A8337DA1EF16B94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/0HKTydk7QtG8ZBWt6pFeBg/zh-cn_image_0000002659101675.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=9440504B8FCC2A1698A26FE253AD4DA674791637A0407D86CFC438A2E3909B58)
 
  
   
@@ -350,4 +360,4 @@ struct ColumnReverseSample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/9Fvzu9rASeqOiYgI-Nex_Q/zh-cn_image_0000002581435722.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=0D12449F9A162A01A942B65850B37AA3E0D6D2B11711030AB43174837FCCBC54)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/qz2AVTYbQ-yWfskK5j_ViQ/zh-cn_image_0000002628862326.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=94C3385780A4BC9859C7122AE76221F0A7FD4566A9292A58036DD33FC54B81D3)

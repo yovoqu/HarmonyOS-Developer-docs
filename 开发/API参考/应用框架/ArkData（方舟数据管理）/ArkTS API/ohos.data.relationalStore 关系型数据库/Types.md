@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -93,7 +93,7 @@ type PRIKeyType = number | string
 
 type UTCTime = Date
 
-用于表示UTC类型时间的数据类型。
+用于表示UTC时间的数据类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -116,7 +116,7 @@ type ModifyTime = Map<PRIKeyType, UTCTime>
 
 | 类型 | 说明 |
 | --- | --- |
-| Map<PRIKeyType, UTCTime> | 键表示是数据库表某一行的主键，值表示该行的最后修改时间，用UTC格式表示。 |
+| Map<PRIKeyType, UTCTime> | 键是数据库表某一行的主键，值表示该行的最后修改时间，用UTC格式表示。 |
 
 
 

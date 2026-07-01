@@ -1,6 +1,6 @@
 # Class (ComponentSnapshot)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentsnapshot
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供获取组件截图的能力，包括已加载的组件的截图和没有加载的组件的截图。
 
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需先使用UIContext中的 getComponentSnapshot() 方法获取ComponentSnapshot对象，再通过此实例调用对应方法。 缩放、平移、旋转等图形变换属性只对被截图组件的子组件生效；对目标组件本身应用图形变换属性不生效，显示的还是图形变换前的效果。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getComponentSnapshot() 方法获取ComponentSnapshot对象，再通过此实例调用对应方法。 缩放、平移、旋转等图形变换属性只对被截图组件的子组件生效；对目标组件本身应用图形变换属性不生效，显示的还是图形变换前的效果。
 
 
 
@@ -92,7 +92,7 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/GJkXX1fUT5OWv9G8f7S66Q/zh-cn_image_0000002611835363.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025453Z&HW-CC-Expire=86400&HW-CC-Sign=B4E6D6D696E53D962D509F8572D94249549CFBE6F0051DC47D54D367FEF41DC4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/p-kwmTCnRZKMyAA03CgpAQ/zh-cn_image_0000002628862128.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014311Z&HW-CC-Expire=86400&HW-CC-Sign=A170A648EA1429999F353F52D0F35EC863F94BA7C415F4E04FCA1045F69B423F)
 
 
 
@@ -801,6 +801,80 @@ struct Index {
     }
     .width('100%')
     .height('100%')
+  }
+}
+```
+
+
+
+#### getSizeLimitation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getSizeLimitation(): componentSnapshot.SnapshotSizeLimitation
+
+查询组件截图的最大尺寸限制。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| componentSnapshot.SnapshotSizeLimitation | 组件截图的尺寸限制信息。 |
+
+
+**示例：**
+
+```json
+import { image } from '@kit.ImageKit';
+import { colorSpaceManager } from '@kit.ArkGraphics2D';
+
+@Entry
+@Component
+struct SnapshotColorModeExample {
+  @State pixmap: image.PixelMap | undefined = undefined;
+
+  build() {
+    Column() {
+      Row() {
+        Image(this.pixmap).width(200).height(200).border({ color: Color.Black, width: 2 }).margin(5)
+        Image($r('app.media.startIcon'))
+          .autoResize(true)
+          .width(200)
+          .height(200)
+          .margin(5)
+          .id("root")
+      }
+
+      Button("click to generate UI snapshot")
+        .onClick(() => {
+          let componentSnapshot = this.getUIContext().getComponentSnapshot();
+          // 检查尺寸限制
+          let limitation = componentSnapshot.getSizeLimitation();
+          console.info(`Max width: ${limitation.maxWidth}, Max height: ${limitation.maxHeight}`);
+          // 验证节点尺寸是否符合最大尺寸限制
+          if (limitation.maxWidth >= this.getUIContext().vp2px(200) &&
+            limitation.maxHeight >= this.getUIContext().vp2px(200)) {
+            this.getUIContext().getComponentSnapshot().get("root", (error: Error, pixmap: image.PixelMap) => {
+              if (error) {
+                console.error(`error:${JSON.stringify(error)}`)
+                return;
+              }
+              this.pixmap = pixmap
+            })
+          }
+        }).margin(10)
+    }
+    .width('100%')
+    .height('100%')
+    .alignItems(HorizontalAlign.Center)
   }
 }
 ```

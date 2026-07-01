@@ -1,6 +1,6 @@
 # wearEngine（穿戴设备能力开放）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
 **支持设备：** Phone | Tablet | Wearable
@@ -2002,7 +2002,7 @@ try {
           remoteApp: appInfo
           // transformLocalAppInfo默认为false，不转换包名
         }
-        // 设置需要发送的文件信息
+        // 设置需要发送的消息
         let callback = (p2pMessage: wearEngine.P2pMessage) => {
           console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`)
         }
@@ -2319,7 +2319,7 @@ try {
           remoteApp: appInfo
           // transformLocalAppInfo默认为false，不转换包名指纹
         }
-        // 设置需要发送的文件信息
+        // 设置需要发送的消息
         let callback = (p2pMessage: wearEngine.P2pMessage) => {
           console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`);
         }

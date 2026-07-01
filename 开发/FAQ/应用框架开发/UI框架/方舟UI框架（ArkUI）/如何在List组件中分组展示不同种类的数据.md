@@ -1,6 +1,6 @@
 # 如何在List组件中分组展示不同种类的数据
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-101
 
@@ -13,7 +13,7 @@
 可以通过在List组件中使用ListItemGroup组件来展示ListItem分组，并单独设置ListItemGroup中的header参数以自定义每组的头部组件样式。参考代码如下：
  
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 @Entry
 @Component
 struct ListItemGroupExample {
@@ -70,7 +70,7 @@ struct ListItemGroupExample {
               }
             }, (item: string) => item)
           }
-          .divider({ strokeWidth: 1, color: Color.Blue }) // The boundary line between each row
+          .divider({ strokeWidth: 1, color: Color.Blue }) <em>// The boundary line between each row</em>
         })
       }
       .width('90%')

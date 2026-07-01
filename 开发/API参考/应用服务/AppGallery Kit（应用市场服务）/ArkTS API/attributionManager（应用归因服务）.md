@@ -1,6 +1,6 @@
 # attributionManager（应用归因服务）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-attributionmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -170,7 +170,7 @@ class  Attribution {
       // 用于计算签名的随机数，不带'-'
       let nonce: string = util.generateRandomUUID().replace(/-/g, '');
       // 时间戳
-      let timestamp: number = Date.now()
+      let timestamp: number = Date.now();
       let adSourceInfo: attributionManager.AdSourceInfo = {
         adTechId: adTechId,
         campaignId: campaignId,
@@ -262,7 +262,7 @@ class Attribution {
         // 从6.0.2（22）开始，增加事件转化时间
         adTriggerInfo.timestamp = Date.now();
         adTriggerInfo.serviceTag = 'testServiceTag';
-      };
+      }
 
       attributionManager.registerTrigger(adTriggerInfo).then(() => {
         hilog.info(0, TAG, 'Succeeded in registering triggerdata.');

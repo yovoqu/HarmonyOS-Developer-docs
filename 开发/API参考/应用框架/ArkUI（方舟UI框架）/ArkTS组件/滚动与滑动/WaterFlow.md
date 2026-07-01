@@ -1,6 +1,6 @@
 # WaterFlow
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -58,10 +58,10 @@ WaterFlow(options?: WaterFlowOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | footer | CustomBuilder | 否 | 是 | 设置WaterFlow尾部组件，用于在瀑布流末尾显示自定义内容（如加载提示、底部标识等）。不设置时不显示尾部组件。 说明： 使用方法参见示例1。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| footerContent18+ | ComponentContent | 否 | 是 | 设置WaterFlow尾部组件。 该参数的优先级高于参数footer，即同时设置footer和footerContent时，以footerContent设置的组件为准。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| footerContent18+ | ComponentContent | 否 | 是 | 设置WaterFlow尾部组件。 该参数的优先级高于参数footer，即同时设置footer和footerContent时，以footerContent设置的组件为准。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | scroller | Scroller | 否 | 是 | 可滚动组件的控制器，与可滚动组件绑定。 说明： 不允许和其他滚动类组件，如：ArcList、List、Grid、Scroll和WaterFlow绑定同一个滚动控制对象。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| sections12+ | WaterFlowSections | 否 | 是 | 设置FlowItem分组，实现同一个瀑布流组件内部各分组使用不同列数混合布局。适用于需要在不同区域使用不同列数布局的场景。不设置时使用统一列数布局。 说明： 1. 使用分组混合布局时会忽略columnsTemplate和rowsTemplate属性。 2. 使用分组混合布局时不支持单独设置footer，可以使用最后一个分组作为尾部组件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| layoutMode12+ | WaterFlowLayoutMode | 否 | 是 | 设置WaterFlow的布局模式，根据使用场景选择更切合的模式。 说明： 默认值：ALWAYS_TOP_DOWN。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| sections12+ | WaterFlowSections | 否 | 是 | 设置FlowItem分组，实现同一个瀑布流组件内部各分组使用不同列数混合布局。适用于需要在不同区域使用不同列数布局的场景。不设置时使用统一列数布局。 说明： 1. 使用分组混合布局时会忽略columnsTemplate和rowsTemplate属性。 2. 使用分组混合布局时不支持单独设置footer，可以使用最后一个分组作为尾部组件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| layoutMode12+ | WaterFlowLayoutMode | 否 | 是 | 设置WaterFlow的布局模式，根据使用场景选择更切合的模式。 说明： 默认值：ALWAYS_TOP_DOWN。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -88,6 +88,8 @@ constructor()
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -101,6 +103,8 @@ splice(start: number, deleteCount?: number, sections?: Array&lt;SectionOptions&g
 移除或者替换已存在的分组和/或添加新分组。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -132,6 +136,8 @@ push(section: SectionOptions): boolean
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -159,6 +165,8 @@ update(sectionIndex: number, section: SectionOptions): boolean
 修改指定索引分组的配置信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -189,6 +197,8 @@ values(): Array&lt;SectionOptions&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -210,6 +220,8 @@ length(): number
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -228,6 +240,8 @@ length(): number
 FlowItem分组配置信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -252,6 +266,8 @@ type GetItemMainSizeByIndex = (index: number) => number
 根据index获取指定Item的主轴大小。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -278,6 +294,8 @@ type GetItemMainSizeByIndex = (index: number) => number
 瀑布流组件布局模式枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -353,6 +371,8 @@ columnsTemplate(value: string | ItemFillPolicy)
 例如，ItemFillPolicy.BREAKPOINT_DEFAULT在组件宽度属于sm及更小的断点区间时显示2列，属于md断点区间时显示3列，属于lg及更大的断点区间时显示5列，且每列均为1fr。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -497,6 +517,8 @@ enableScrollInteraction(value: boolean)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -522,6 +544,8 @@ nestedScroll(value: NestedScrollOptions)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -542,6 +566,8 @@ friction(value: number | Resource)
 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中的链式效果有间接影响。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -565,6 +591,8 @@ cachedCount(value: number)
 只在[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)和开启了[virtualScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscroll)开关的[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)中生效，超出显示及缓存范围的FlowItem会被释放。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -591,6 +619,8 @@ cachedCount(count: number, show: boolean)
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -613,6 +643,8 @@ syncLoad(enable: boolean)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -620,6 +652,35 @@ syncLoad(enable: boolean)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enable | boolean | 是 | 是否同步加载WaterFlow区域内所有子组件。 true表示同步加载，false表示异步加载。 默认值：true。 说明： 设置为false时，在首次显示、不带动画scrollToIndex跳转场景，若当帧布局耗时超过50ms，会将WaterFlow区域内尚未布局的子组件延后到下一帧进行布局。 |
+
+
+
+
+#### supportEmptyBranchInLazyLoading
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+supportEmptyBranchInLazyLoading(supported: boolean | undefined)
+
+设置当前WaterFlow组件是否支持在LazyForEach或Repeat中使用if/else渲染控制语法生成不包含任何子组件的空分支节点。未设置时不支持空分支节点。此属性初次赋值后不支持更新，所以赋值后无法在支持空分支、不支持空分支行为之间切换。
+
+> [!TIP]
+> 当通过 sections 参数设置了 WaterFlowSections 分组，或通过 layoutMode 设置 SLIDING_WINDOW 布局模式时，supportEmptyBranchInLazyLoading设为true、false、undefined或不设置supportEmptyBranchInLazyLoading，空分支后的FlowItem都会显示。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| supported | boolean \| undefined | 是 | 当前WaterFlow组件是否支持在LazyForEach或Repeat中使用if/else渲染控制语法生成一个不含任何子组件的空分支节点。 true表示显示空分支后的FlowItem；false表示不显示空分支后的FlowItem。 值为undefined时，按false处理。 |
 
 
 
@@ -694,6 +755,8 @@ onScrollFrameBegin(event: OnScrollFrameBeginCallback)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -720,6 +783,8 @@ onScrollIndex(event: (first: number, last: number) => void)
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -766,6 +831,8 @@ setOnWillScroll(callback: OnWillScrollCallback | undefined): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -788,6 +855,8 @@ setOnDidScroll(callback: OnScrollCallback | undefined): void
 方法入参为undefined时，会重置事件回调。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -812,6 +881,8 @@ setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -832,6 +903,8 @@ type OnWaterFlowScrollIndexCallback = (first: number, last: number) => void
 WaterFlow组件可见区域item变化事件的回调类型。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1146,7 +1219,7 @@ struct WaterFlowDemo {
 ```
 
 
-![](assets/WaterFlow/file-20260514163958676-4.gif)
+![](assets/WaterFlow/file-20260514163958676-5.gif)
 
 
 
@@ -1222,7 +1295,7 @@ struct WaterFlowDemo {
 ```
 
 
-![](assets/WaterFlow/file-20260514163958676-5.gif)
+![](assets/WaterFlow/file-20260514163958676-6.gif)
 
 
 
@@ -1483,7 +1556,7 @@ struct WaterFlowDemo {
 ```
 
 
-![](assets/WaterFlow/file-20260514163958676-6.gif)
+![](assets/WaterFlow/file-20260514163958676-7.gif)
 
 
 
@@ -1687,7 +1760,7 @@ struct WaterFlowDemo {
 ```
 
 
-![](assets/WaterFlow/file-20260514163958676-7.gif)
+![](assets/WaterFlow/file-20260514163958676-8.png)
 
 
 
@@ -1764,7 +1837,7 @@ struct WaterFlowDemo {
 ```
 
 
-![](assets/WaterFlow/file-20260514163958676-8.png)
+![](assets/WaterFlow/file-20260514163958676-9.png)
 
 
 
@@ -1841,7 +1914,7 @@ struct WaterFlowDemo {
 ```
 
 
-![](assets/WaterFlow/file-20260514163958676-9.png)
+![](assets/WaterFlow/file-20260525091201313-001.gif)
 
 
 
@@ -1956,7 +2029,7 @@ struct Index {
 ```
 
 
-![](assets/WaterFlow/file-20260525091201313-001.gif)
+![](assets/WaterFlow/file-20260525091201313-002.png)
 
 
 
@@ -2051,7 +2124,7 @@ struct WaterFlowDemo {
 ```
 
 
-![](assets/WaterFlow/file-20260525091201313-002.png)
+![](assets/WaterFlow/file-20260525091201314-003.png)
 
 
 
@@ -2127,19 +2200,19 @@ struct WaterFlowDemo {
 WaterFlow宽度属于sm及更小的断点区间时显示2列。
 
 
-![](assets/WaterFlow/file-20260525091201314-003.png)
+![](assets/WaterFlow/file-20260525091201315-004.gif)
 
 
 WaterFlow宽度属于md断点区间时显示3列。
 
 
-![](assets/WaterFlow/file-20260525091201315-004.gif)
+![](assets/WaterFlow/file-20260525091201315-005.gif)
 
 
 WaterFlow宽度属于lg及更大的断点区间时显示5列。
 
 
-![](assets/WaterFlow/file-20260525091201315-005.gif)
+![](assets/WaterFlow/file-20260525091201315-006.gif)
 
 
 
@@ -2248,7 +2321,7 @@ struct WaterFlowContentSizeDemo {
 ```
 
 
-![](assets/WaterFlow/file-20260525091201315-006.gif)
+![](assets/WaterFlow/file-20260525091201316-007.gif)
 
 
 

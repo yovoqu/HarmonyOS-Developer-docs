@@ -1,12 +1,12 @@
 # 如何更改TextInput密码输入模式下passwordIcon的大小、颜色、位置
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-356
 
 使用Stack容器作为父容器，子组件使用Image组件自定义passwordIcon。通过该方式可调整Image组件的位置、大小和颜色。示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct TextInputDemo {
@@ -24,14 +24,14 @@ struct TextInputDemo {
           size: 16,
           weight: 400
         })
-        .showPasswordIcon(false)// You need to disable the native password icon (showPasswordIcon(false)) for it to take effect.
+        .showPasswordIcon(false)<em>// You need to disable the native password icon (showPasswordIcon(false)) for it to take effect.</em>
         .width(336)
         .height(56)
         .padding({ right: 50 })
         .onChange((value: string) => {
           this.text = value;
         })
-      //Image overlay passwordIcon implementation
+<em>      //Image overlay passwordIcon implementation</em>
       Image($r(this.isVisible ? 'app.media.startIcon' : 'app.media.invisible'))
         .margin({ left: 280 })
         .backgroundColor('#E7E8EA')

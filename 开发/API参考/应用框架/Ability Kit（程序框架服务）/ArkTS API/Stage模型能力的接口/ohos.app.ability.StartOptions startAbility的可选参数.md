@@ -1,6 +1,6 @@
 # @ohos.app.ability.StartOptions (startAbility的可选参数)
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -33,8 +33,9 @@ StartOptions用于指定启动目标UIAbility时的选项。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | windowMode12+ | number | 否 | 是 | 启动UIAbility时的窗口模式，详见WindowMode。 |
+| splitRatio | window.SplitRatioPreference | 否 | 是 | 启动UIAbility时的窗口分配比例。 起始版本： 26.0.0 |
 | displayId | number | 否 | 是 | 屏幕ID，取值为大于等于-1的整数。 - 取值为-1，表示当前屏幕。 - 取值为0，表示主屏幕。 - 取值为正整数，表示指定ID的屏幕。 说明： 从API version 14开始，默认值是-1，即当前屏幕。 在API version 14之前版本，默认值为0，即主屏幕。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| withAnimation11+ | boolean | 否 | 是 | 启动UIAbility时是否具有动画效果。 传入true时，跟随系统默认动画效果。传入false时，表示关闭启动UIAbility动画效果。 约束： 该功能仅在2in1设备和自由多窗状态下的Tablet设备上生效，且调用方和目标方必须是同一应用。 此参数不填时，默认为undefined，跟随系统默认动画效果。 从HarmonyOS 6.1.0开始支持。 |
+| withAnimation11+ | boolean | 否 | 是 | 启动UIAbility时是否具有动画效果。 传入true时，跟随系统默认动画效果。传入false时，表示关闭启动UIAbility动画效果。 约束： 该功能仅在自由窗口状态下生效，且调用方和目标方必须是同一应用。 此参数不填时，默认为undefined，跟随系统默认动画效果。 从HarmonyOS 6.1.0开始支持。 |
 | windowLeft11+ | number | 否 | 是 | 以指定displayId的屏幕的左顶点为原点，窗口在x轴方向偏移量，单位为px，值为正表示在原点右侧，值为负表示在原点左侧。该参数为整数，非整数将向下取整。当窗口左顶点超出指定displayId的屏幕区域时，限制窗口在指定displayId的屏幕范围内可见。配置该字段时，建议同时配置windowTop。 约束： 该功能仅在自由窗口状态下生效。 |
 | windowTop11+ | number | 否 | 是 | 以指定displayId的屏幕的左顶点为原点，窗口在y轴方向偏移量，单位为px，值为正表示在原点下方，值为负表示在原点上方。该参数为整数，非整数将向下取整。当窗口顶部超出指定displayId的屏幕区域时，限制窗口在指定displayId的屏幕范围内可见。配置该字段时，建议同时配置windowLeft。 约束： 该功能仅在自由窗口状态下生效。 |
 | windowWidth11+ | number | 否 | 是 | 窗口的宽度，单位为px。 取值范围为[minWindowWidth, maxWindowWidth]，取值范围单位为vp，可参考vp2px换算为对应的px值。 约束： 该功能仅在自由窗口状态下生效。 |

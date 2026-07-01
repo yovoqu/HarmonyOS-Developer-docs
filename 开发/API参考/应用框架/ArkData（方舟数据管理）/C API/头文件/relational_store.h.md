@@ -1,6 +1,6 @@
 # relational_store.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-relational-store-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -444,7 +444,7 @@ int OH_Rdb_SetSemanticIndex(OH_Rdb_ConfigV2 *config, bool enableSemanticIndex)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。错误码定义详见OH_Rdb_ErrCode。 若返回RDB_OK，指向成功。 若返回RDB_E_INVALID_ARGS，表示传入了无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -501,7 +501,7 @@ int OH_Rdb_DestroyConfig(OH_Rdb_ConfigV2 *config)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -525,14 +525,14 @@ int OH_Rdb_SetDatabaseDir(OH_Rdb_ConfigV2 *config, const char *databaseDir)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Rdb_ConfigV2 *config | 指向OH_Rdb_ConfigV2对象的指针，即与此RDB存储相关的数据库配置。 |
-| const char *dataBaseDir | 表示数据库文件路径。包含数据库名称在内的全路径长度不超过1024个字符。 |
+| const char *dataBaseDir | 表示数据库文件路径，不能为空，包含数据库名称在内的全路径长度不超过1024个字符。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -556,14 +556,14 @@ int OH_Rdb_SetStoreName(OH_Rdb_ConfigV2 *config, const char *storeName)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Rdb_ConfigV2 *config | 指向OH_Rdb_ConfigV2对象的指针，即与此RDB存储相关的数据库配置。 |
-| const char *storeName | 表示数据库名称。 |
+| const char *storeName | 表示数据库名称，不能为空且不能包含路径分隔符/。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -587,14 +587,14 @@ int OH_Rdb_SetBundleName(OH_Rdb_ConfigV2 *config, const char *bundleName)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Rdb_ConfigV2 *config | 指向OH_Rdb_ConfigV2对象的指针，即与此RDB存储相关的数据库配置。 |
-| const char *bundleName | 表示数据库应用包名。 |
+| const char *bundleName | 表示数据库应用包名，不能为空。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -618,14 +618,14 @@ int OH_Rdb_SetModuleName(OH_Rdb_ConfigV2 *config, const char *moduleName)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Rdb_ConfigV2 *config | 指向OH_Rdb_ConfigV2对象的指针，即与此RDB存储相关的数据库配置。 |
-| const char *moduleName | 表示数据库应用模块名。 |
+| const char *moduleName | 表示数据库应用模块名，不能为空。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -656,7 +656,7 @@ int OH_Rdb_SetEncrypted(OH_Rdb_ConfigV2 *config, bool isEncrypted)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -689,7 +689,7 @@ int OH_Rdb_SetSecurityLevel(OH_Rdb_ConfigV2 *config, int securityLevel)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -722,7 +722,7 @@ int OH_Rdb_SetArea(OH_Rdb_ConfigV2 *config, int area)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -753,7 +753,7 @@ int OH_Rdb_SetDbType(OH_Rdb_ConfigV2 *config, int dbType)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 RDB_E_NOT_SUPPORTED表示不支持当前操作。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 RDB_E_NOT_SUPPORTED 表示不支持当前操作。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -784,7 +784,7 @@ int OH_Rdb_SetCustomDir(OH_Rdb_ConfigV2 *config, const char *customDir)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -815,7 +815,7 @@ int OH_Rdb_SetReadOnly(OH_Rdb_ConfigV2 *config, bool readOnly)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -847,7 +847,7 @@ int OH_Rdb_SetPlugins(OH_Rdb_ConfigV2 *config, const char **plugins, int32_t len
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -878,7 +878,7 @@ int OH_Rdb_SetCryptoParam(OH_Rdb_ConfigV2 *config, const OH_Rdb_CryptoParam *cry
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -909,7 +909,7 @@ int OH_Rdb_IsTokenizerSupported(Rdb_Tokenizer tokenizer, bool *isSupported)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回接口操作执行的状态码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -940,7 +940,7 @@ int OH_Rdb_SetTokenizer(OH_Rdb_ConfigV2 *config, Rdb_Tokenizer tokenizer)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回接口操作执行的状态码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 RDB_E_NOT_SUPPORTED表示不支持当前操作。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 RDB_E_NOT_SUPPORTED 表示不支持当前操作。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -971,7 +971,7 @@ int OH_Rdb_SetPersistent(OH_Rdb_ConfigV2 *config, bool isPersistent)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的状态代码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1001,7 +1001,7 @@ const int *OH_Rdb_GetSupportedDbType(int *typeCount)
   
 | 类型 | 说明 |
 | --- | --- |
-| const int * | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| const int * | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1181,7 +1181,7 @@ int OH_Rdb_CloseStore(OH_Rdb_Store *store)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1211,7 +1211,7 @@ int OH_Rdb_DeleteStore(const OH_Rdb_Config *config)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1243,7 +1243,7 @@ int OH_Rdb_DeleteStoreV2(const OH_Rdb_ConfigV2 *config)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1510,7 +1510,7 @@ int OH_Rdb_Execute(OH_Rdb_Store *store, const char *sql)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
 **参考：**
@@ -1692,7 +1692,7 @@ int OH_Rdb_BeginTransaction(OH_Rdb_Store *store)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1722,7 +1722,7 @@ int OH_Rdb_RollBack(OH_Rdb_Store *store)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1752,7 +1752,7 @@ int OH_Rdb_Commit(OH_Rdb_Store *store)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1783,7 +1783,7 @@ int OH_Rdb_BeginTransWithTrxId(OH_Rdb_Store *store, int64_t *trxId)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 RDB_E_NOT_SUPPORTED表示不支持当前操作。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 RDB_E_NOT_SUPPORTED 表示不支持当前操作。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1880,7 +1880,7 @@ int OH_Rdb_Backup(OH_Rdb_Store *store, const char *databasePath)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
 **参考：**
@@ -1915,7 +1915,7 @@ int OH_Rdb_Restore(OH_Rdb_Store *store, const char *databasePath)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1946,7 +1946,7 @@ int OH_Rdb_GetVersion(OH_Rdb_Store *store, int *version)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -1977,7 +1977,7 @@ int OH_Rdb_SetVersion(OH_Rdb_Store *store, int version)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
 **参考：**
@@ -2015,7 +2015,7 @@ int OH_Rdb_SetDistributedTables(OH_Rdb_Store *store, const char *tables[], uint3
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
 **参考：**
@@ -2134,7 +2134,7 @@ int OH_Rdb_Subscribe(OH_Rdb_Store *store, Rdb_SubscribeType type, const Rdb_Data
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2166,7 +2166,7 @@ int OH_Rdb_Unsubscribe(OH_Rdb_Store *store, Rdb_SubscribeType type, const Rdb_Da
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2282,7 +2282,7 @@ int OH_Rdb_CloudSync(OH_Rdb_Store *store, Rdb_SyncMode mode, const char *tables[
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2315,7 +2315,7 @@ int OH_Rdb_SubscribeAutoSyncProgress(OH_Rdb_Store *store, const Rdb_ProgressObse
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2346,7 +2346,7 @@ int OH_Rdb_UnsubscribeAutoSyncProgress(OH_Rdb_Store *store, const Rdb_ProgressOb
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2377,7 +2377,7 @@ int OH_Rdb_LockRow(OH_Rdb_Store *store, OH_Predicates *predicates)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回锁定结果。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2408,7 +2408,7 @@ int OH_Rdb_UnlockRow(OH_Rdb_Store *store, OH_Predicates *predicates)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回解锁结果。 RDB_OK表示成功。 RDB_E_INVALID_ARGS表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2673,7 +2673,7 @@ int OH_Rdb_RegisterCorruptedHandler(const OH_Rdb_ConfigV2 *config, void *context
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 返回RDB_E_SUB_LIMIT_REACHED表示注册数量超过限制。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 返回RDB_E_SUB_LIMIT_REACHED表示注册数量超过限制。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2707,7 +2707,7 @@ handler和context必须要和订阅时保持一致，否则取消失败。
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2814,7 +2814,7 @@ int OH_Rdb_BatchInsertWithReturning(OH_Rdb_Store *store, const char *table, cons
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 返回RDB_E_WAL_SIZE_OVER_LIMIT表示WAL文件大小超过默认限制。 返回RDB_E_NOT_SUPPORTED表示不支持的操作。 返回RDB_E_DATABASE_BUSY表示数据库忙。 返回RDB_E_SQLITE_FULL表示SQLite错误：数据库已满。 返回RDB_E_SQLITE_CORRUPT表示数据库损坏。 返回RDB_E_SQLITE_BUSY表示SQLite错误：数据库文件被锁定。 返回RDB_E_SQLITE_LOCKED表示SQLite错误：数据库中的表被锁定。 返回RDB_E_SQLITE_READONLY表示SQLite错误：尝试写入只读数据库。 返回RDB_E_SQLITE_IOERR表示SQLite错误：发生某种磁盘I/O错误。 返回RDB_E_SQLITE_TOO_BIG表示SQLite错误：TEXT或BLOB超出大小限制。 返回RDB_E_SQLITE_MISMATCH表示SQLite错误：数据类型不匹配。 返回RDB_E_SQLITE_CONSTRAINT表示SQLite错误：由于违反约束而中止。 返回RDB_E_SQLITE_ERROR表示SQLite错误。可能原因：语法错误，例如表或列不存在。 具体错误码可参考OH_Rdb_ErrCode。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 返回RDB_E_WAL_SIZE_OVER_LIMIT表示WAL文件大小超过默认限制。 返回RDB_E_NOT_SUPPORTED表示不支持的操作。 返回RDB_E_DATABASE_BUSY表示数据库忙。 返回RDB_E_SQLITE_FULL表示SQLite错误：数据库已满。 返回RDB_E_SQLITE_CORRUPT表示数据库损坏。 返回RDB_E_SQLITE_BUSY表示SQLite错误：数据库文件被锁定。 返回RDB_E_SQLITE_LOCKED表示SQLite错误：数据库中的表被锁定。 返回RDB_E_SQLITE_READONLY表示SQLite错误：尝试写入只读数据库。 返回RDB_E_SQLITE_IOERR表示SQLite错误：发生某种磁盘I/O错误。 返回RDB_E_SQLITE_TOO_BIG表示SQLite错误：TEXT或BLOB超出大小限制。 返回RDB_E_SQLITE_MISMATCH表示SQLite错误：数据类型不匹配。 返回RDB_E_SQLITE_CONSTRAINT表示SQLite错误：由于违反约束而中止。 返回RDB_E_SQLITE_ERROR表示SQLite错误。可能原因：语法错误，例如表或列不存在。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2848,7 +2848,7 @@ int OH_Rdb_UpdateWithReturning(OH_Rdb_Store *store, OH_VBucket *row, OH_Predicat
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 返回RDB_E_WAL_SIZE_OVER_LIMIT表示WAL文件大小超过默认限制。 返回RDB_E_NOT_SUPPORTED表示不支持的操作。 返回RDB_E_EMPTY_VALUES_BUCKET表示值桶为空。 返回RDB_E_DATABASE_BUSY表示数据库忙。 返回RDB_E_SQLITE_FULL表示SQLite错误：数据库已满。 返回RDB_E_SQLITE_CORRUPT表示数据库损坏。 返回RDB_E_SQLITE_BUSY表示SQLite错误：数据库文件被锁定。 返回RDB_E_SQLITE_LOCKED表示SQLite错误：数据库中的表被锁定。 返回RDB_E_SQLITE_READONLY表示SQLite错误：尝试写入只读数据库。 返回RDB_E_SQLITE_IOERR表示SQLite错误：发生某种磁盘I/O错误。 返回RDB_E_SQLITE_TOO_BIG表示SQLite错误：TEXT或BLOB超出大小限制。 返回RDB_E_SQLITE_MISMATCH表示SQLite错误：数据类型不匹配。 返回RDB_E_SQLITE_CONSTRAINT表示SQLite错误：由于违反约束而中止。 返回RDB_E_SQLITE_ERROR表示SQLite错误。可能原因：语法错误，例如表或列不存在。 具体错误码可参考OH_Rdb_ErrCode。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 返回RDB_E_WAL_SIZE_OVER_LIMIT表示WAL文件大小超过默认限制。 返回RDB_E_NOT_SUPPORTED表示不支持的操作。 返回RDB_E_EMPTY_VALUES_BUCKET表示值桶为空。 返回RDB_E_DATABASE_BUSY表示数据库忙。 返回RDB_E_SQLITE_FULL表示SQLite错误：数据库已满。 返回RDB_E_SQLITE_CORRUPT表示数据库损坏。 返回RDB_E_SQLITE_BUSY表示SQLite错误：数据库文件被锁定。 返回RDB_E_SQLITE_LOCKED表示SQLite错误：数据库中的表被锁定。 返回RDB_E_SQLITE_READONLY表示SQLite错误：尝试写入只读数据库。 返回RDB_E_SQLITE_IOERR表示SQLite错误：发生某种磁盘I/O错误。 返回RDB_E_SQLITE_TOO_BIG表示SQLite错误：TEXT或BLOB超出大小限制。 返回RDB_E_SQLITE_MISMATCH表示SQLite错误：数据类型不匹配。 返回RDB_E_SQLITE_CONSTRAINT表示SQLite错误：由于违反约束而中止。 返回RDB_E_SQLITE_ERROR表示SQLite错误。可能原因：语法错误，例如表或列不存在。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -2880,4 +2880,4 @@ int OH_Rdb_DeleteWithReturning(OH_Rdb_Store *store, OH_Predicates *predicates, O
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 返回RDB_OK表示执行成功。 返回RDB_E_INVALID_ARGS表示输入参数无效。 返回RDB_E_WAL_SIZE_OVER_LIMIT表示WAL文件大小超过默认限制。 返回RDB_E_NOT_SUPPORTED表示不支持的操作。 返回RDB_E_DATABASE_BUSY表示数据库忙。 返回RDB_E_SQLITE_FULL表示SQLite错误：数据库已满。 返回RDB_E_SQLITE_CORRUPT表示数据库损坏。 返回RDB_E_SQLITE_BUSY表示SQLite错误：数据库文件被锁定。 返回RDB_E_SQLITE_LOCKED表示SQLite错误：数据库中的表被锁定。 返回RDB_E_SQLITE_READONLY表示SQLite错误：尝试写入只读数据库。 返回RDB_E_SQLITE_IOERR表示SQLite错误：发生某种磁盘I/O错误。 返回RDB_E_SQLITE_TOO_BIG表示SQLite错误：TEXT或BLOB超出大小限制。 返回RDB_E_SQLITE_MISMATCH表示SQLite错误：数据类型不匹配。 返回RDB_E_SQLITE_ERROR表示SQLite错误。可能原因：语法错误，例如表或列不存在。 具体错误码可参考OH_Rdb_ErrCode。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 返回RDB_E_WAL_SIZE_OVER_LIMIT表示WAL文件大小超过默认限制。 返回RDB_E_NOT_SUPPORTED表示不支持的操作。 返回RDB_E_DATABASE_BUSY表示数据库忙。 返回RDB_E_SQLITE_FULL表示SQLite错误：数据库已满。 返回RDB_E_SQLITE_CORRUPT表示数据库损坏。 返回RDB_E_SQLITE_BUSY表示SQLite错误：数据库文件被锁定。 返回RDB_E_SQLITE_LOCKED表示SQLite错误：数据库中的表被锁定。 返回RDB_E_SQLITE_READONLY表示SQLite错误：尝试写入只读数据库。 返回RDB_E_SQLITE_IOERR表示SQLite错误：发生某种磁盘I/O错误。 返回RDB_E_SQLITE_TOO_BIG表示SQLite错误：TEXT或BLOB超出大小限制。 返回RDB_E_SQLITE_MISMATCH表示SQLite错误：数据类型不匹配。 返回RDB_E_SQLITE_ERROR表示SQLite错误。可能原因：语法错误，例如表或列不存在。详细信息请参阅OH_Rdb_ErrCode。 |

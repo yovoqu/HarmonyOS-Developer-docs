@@ -1,6 +1,6 @@
 # @ohos.app.ability.AbilityStage (AbilityStage组件管理器)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -465,9 +465,9 @@ class MyAbilityStage extends AbilityStage {
 
 onLaunchFromHyperSnap(): void
 
-当进程从[应用快照](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-hypersnapmanager#实现原理)启动时调用。
+当进程从[应用快启](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-hypersnapmanager#实现原理)启动时调用。
 
-开发者可以通过重写此方法来处理应用从快照恢复时的特定逻辑，例如重新初始化某些资源或状态。
+开发者可以通过重写此方法来处理应用快启启动时的特定逻辑，例如重新初始化某些资源或状态。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
@@ -479,7 +479,7 @@ import { AbilityStage } from '@kit.AbilityKit';
 export default class MyAbilityStage extends AbilityStage {
   onLaunchFromHyperSnap(): void {
     console.info('Launched from Hyper Snap, reinitializing resources...');
-    // 在此添加从快照恢复时的初始化逻辑
+    // 在此添加快启启动时的初始化逻辑
   }
 }
 ```

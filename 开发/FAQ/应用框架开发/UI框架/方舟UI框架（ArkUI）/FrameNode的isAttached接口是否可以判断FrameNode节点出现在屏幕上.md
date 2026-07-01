@@ -1,6 +1,6 @@
 # FrameNode的isAttached接口是否可以判断FrameNode节点出现在屏幕上
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-459
 
@@ -8,7 +8,7 @@ FrameNode的isAttached接口原本设计是节点是否被挂载到主节点树�
  
 如果当前想判断节点是否被挂载到主节点树上，可以使用以下替代方案：
  
-```ArkTS
+```text
 import { FrameNode, NodeController, UIContext } from '@kit.ArkUI';
 
 class MyNodeController extends NodeController {
@@ -19,10 +19,10 @@ class MyNodeController extends NodeController {
   makeNode(uiContext: UIContext): FrameNode | null {
     this.rootNode = new FrameNode(uiContext);
     this.node1 = new FrameNode(uiContext);
-    this.node1.commonAttribute.id('node1'); // Set id
+    this.node1.commonAttribute.id('node1'); <em>// Set id</em>
     this.node2 = new FrameNode(uiContext);
-    this.node2.commonAttribute.id('node2'); // Set id
-    this.rootNode.appendChild(this.node1); // Node1 on the main tree, node2 not on the main tree.
+    this.node2.commonAttribute.id('node2'); <em>// Set id</em>
+    this.rootNode.appendChild(this.node1);<em> // Node1 on the main tree, node2 not on the main tree.</em>
     return this.rootNode;
   }
 }
@@ -37,7 +37,7 @@ struct Index {
       NodeContainer(this.myNodeController)
       Button('Click')
         .onClick(() => {
-          // If the node cannot be obtained through getAttachedFrameNodeById, it indicates that the node has not been mounted to the main tree.
+         <em> // If the node cannot be obtained through getAttachedFrameNodeById, it indicates that the node has not been mounted to the main tree.</em>
           console.info(`node1 is attached to main tree: ${(this.getUIContext().getAttachedFrameNodeById('node1') !==
             null)}`);
           console.info(`node2 is attached to main tree: ${(this.getUIContext().getAttachedFrameNodeById('node2') !==

@@ -1,6 +1,6 @@
 # UX样式或效果的变更
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-b035
 
@@ -251,7 +251,7 @@ BindContextMenu上下文菜单选项过多会出现滚动条，此时手指快�
 变更后：上下文菜单选项没有滚动条时，手指快速滑动菜单选项会自动关闭菜单；上下文菜单选项过多出现滚动条时，手指快速滑动菜单选项只会上下滚动菜单选项，不再主动关闭菜单。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/N7YbHyeATS2um5u6VD55Mg/zh-cn_image_0000001977570038.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=6DDB12D3B49E3936A07AC45D93779404041293BF69098BC16549DC4A3F1732A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/NNKXHXI7TaKu7aOFLjw4rQ/zh-cn_image_0000001977570038.png?HW-CC-KV=V1&HW-CC-Date=20260701T015209Z&HW-CC-Expire=86400&HW-CC-Sign=45F6F6B714ED9AD804323F505E2AEEA466D5AB694A07FAAD39664D55C4611FA8)
 
  
 **起始API Level**
@@ -432,7 +432,7 @@ Menu组件。
 变更后：竖屏时菜单默认避让挖孔；横屏时，应用配置开启避让手机挖孔，菜单会避让挖孔。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/XsmIDY46TIq8iJkQbJGudw/zh-cn_image_0000002014049909.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=F923D28E64AF026B9476FC8F6AA20712A9AE8086629C2A92CF9F4BEBAC55370C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/SYMIJMwUTUaTSjq-bo7ujA/zh-cn_image_0000002014049909.png?HW-CC-KV=V1&HW-CC-Date=20260701T015209Z&HW-CC-Expire=86400&HW-CC-Sign=795ACB92BBA900805E9264AD1D7C414A82285B544469AA5EB725D0EB5E7B69DF)
 
  
 **起始API Level**
@@ -534,7 +534,7 @@ MenuItem设置enable为false时, 组件将处于禁用状态，此时字体颜�
 变更后：MenuItem设置enable为false时，若开发者未设置字体颜色，则组件禁用状态下的字体颜色为默认字体颜色 * 不透明度40%；若开发者设置了字体颜色，则组件禁用状态下的字体颜色为自定义字体颜色 * 不透明度40%；
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/ZWJccm00Qvmo8MNCspgjWQ/zh-cn_image_0000001977570050.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=F8A548953A853B55A02B6C38A517C03B6CCABB76A57B457EFA677B44CA9B36D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/Lg2WJZMBRu6cj79Ir5BdaQ/zh-cn_image_0000001977570050.png?HW-CC-KV=V1&HW-CC-Date=20260701T015209Z&HW-CC-Expire=86400&HW-CC-Sign=450753270AB665876F0EDC761659475410E84DC980ADC2C3929B9980F5839238)
 
  
 **起始API Level**
@@ -778,7 +778,7 @@ Popup（气泡组件）UX样式不符合规范
 2、按钮上方与文本下方间距不足8vp
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/DmyaZ__4RVKAdtpPCFgtMg/zh-cn_image_0000002013930445.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=FEB7DE0180A074E591BBDF6394B6DC86F30B44802B35EF9E1E3C1D780E603F80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/FTflfdvNT4aEJXAqqAPaoA/zh-cn_image_0000002013930445.png?HW-CC-KV=V1&HW-CC-Date=20260701T015209Z&HW-CC-Expire=86400&HW-CC-Sign=639578DC1C1E26216F1C92FFAA8BFF7AA921F6A0A0799257B4914F91972F9C30)
 
  
 变更后：
@@ -788,7 +788,7 @@ Popup（气泡组件）UX样式不符合规范
 2、按钮上方与文本下方间距8vp
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/Eh6Rgxh1T0ajCKJSHN7xDA/zh-cn_image_0000002014049929.png?HW-CC-KV=V1&HW-CC-Date=20260528T025820Z&HW-CC-Expire=86400&HW-CC-Sign=7C6188FD75EF3F650251107FE686962AA1796E9D6C1CEC3050606A7131CA9705)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/YumvpU1cR7e080yOYGZtrQ/zh-cn_image_0000002014049929.png?HW-CC-KV=V1&HW-CC-Date=20260701T015209Z&HW-CC-Expire=86400&HW-CC-Sign=AE489F4EB36F9FEA1F43A6BF027AE090B8E50C0F407875EE2BB96CAE702054D9)
 
  
 **起始API Level**

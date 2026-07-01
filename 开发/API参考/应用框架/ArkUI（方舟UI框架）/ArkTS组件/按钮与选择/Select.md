@@ -1,6 +1,6 @@
 # Select
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,7 +51,7 @@ Select(options: Array&lt;SelectOption&gt;)
 | --- | --- | --- | --- | --- |
 | value | ResourceStr | 否 | 否 | 下拉选项内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | icon | ResourceStr | 否 | 是 | 下拉选项图片。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| symbolIcon12+ | SymbolGlyphModifier | 否 | 是 | 下拉选项Symbol图片。 symbolIcon优先级高于icon。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| symbolIcon12+ | SymbolGlyphModifier | 否 | 是 | 下拉选项Symbol图片。 symbolIcon优先级高于icon。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -101,6 +101,8 @@ selected(numCount: Optional<number | Resource>)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -149,6 +151,8 @@ value(resStr: Optional&lt;ResourceStr&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -169,6 +173,8 @@ controlSize(value: ControlSize)
 设置Select组件的尺寸。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -198,6 +204,8 @@ controlSize(size: Optional&lt;ControlSize&gt;)
 设置Select组件的尺寸。与[controlSize](#controlsize12)12+相比，size参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -232,6 +240,8 @@ menuItemContentModifier(modifier: ContentModifier&lt;MenuItemConfiguration&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -257,6 +267,8 @@ menuItemContentModifier(modifier: Optional<ContentModifier&lt;MenuItemConfigurat
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -278,6 +290,8 @@ divider(options: Optional&lt;DividerOptions&gt; | null)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -298,6 +312,8 @@ dividerStyle(style: Optional&lt;DividerStyleOptions&gt;)
 设置分割线样式，不设置该属性则按“默认值”展示分割线。该属性与divider互斥，按调用顺序生效。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -341,6 +357,8 @@ font(selectFont: Optional&lt;Font&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -382,6 +400,8 @@ fontColor(resColor: Optional&lt;ResourceColor&gt;)
 设置下拉按钮本身的文本颜色。与[fontColor](#fontcolor)相比，resColor参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -425,6 +445,8 @@ selectedOptionBgColor(resColor: Optional&lt;ResourceColor&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -466,6 +488,8 @@ selectedOptionFont(selectFont: Optional&lt;Font&gt;)
 设置下拉菜单选中项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。与[selectedOptionFont](#selectedoptionfont)相比，selectFont参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -509,6 +533,8 @@ selectedOptionFontColor(resColor: Optional&lt;ResourceColor&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -550,6 +576,8 @@ optionBgColor(resColor: Optional&lt;ResourceColor&gt;)
 设置下拉菜单项的背景色。与[optionBgColor](#optionbgcolor)相比，resColor参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -595,6 +623,8 @@ optionFont(selectFont: Optional&lt;Font&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -637,6 +667,8 @@ optionFontColor(resColor: Optional&lt;ResourceColor&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -657,6 +689,8 @@ space(value: Length)
 设置下拉菜单项的文本与箭头的间距。不支持设置百分比。将间距设置为null、undefined，或者小于等于8的值时，取默认值。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -679,6 +713,8 @@ space(spaceLength: Optional&lt;Length&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -699,6 +735,8 @@ arrowPosition(value: ArrowPosition)
 设置下拉菜单项的文本与箭头之间的对齐方式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -721,6 +759,8 @@ arrowPosition(position: Optional&lt;ArrowPosition&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -741,6 +781,8 @@ menuAlign(alignType: MenuAlignType, offset?: Offset)
 设置下拉按钮与下拉菜单间的对齐方式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -763,6 +805,8 @@ menuAlign(alignType: Optional&lt;MenuAlignType&gt;, offset?: Offset)
 设置下拉按钮与下拉菜单间的对齐方式。与[menuAlign](#menualign10)10+相比，alignType参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -790,6 +834,8 @@ Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -814,6 +860,8 @@ optionWidth(width: Optional<Dimension | OptionWidthMode> )
 Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜单项的宽度设置为小于等于calc(100% - 32vp)的值，以避免下拉菜单弹出时发生偏移。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -840,6 +888,8 @@ optionHeight(value: Dimension)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -864,6 +914,8 @@ optionHeight(height: Optional&lt;Dimension&gt;)
 如果下拉菜单所有选项的实际高度小于设定的高度，下拉菜单的高度按实际高度显示。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -890,6 +942,8 @@ menuBackgroundColor(value: ResourceColor)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -910,6 +964,8 @@ menuBackgroundColor(resColor: Optional&lt;ResourceColor&gt;)
 设置下拉菜单的背景色。与[menuBackgroundColor](#menubackgroundcolor11)11+相比，resColor参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -936,6 +992,8 @@ menuBackgroundBlurStyle(value: BlurStyle)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -956,6 +1014,8 @@ menuBackgroundBlurStyle(style: Optional&lt;BlurStyle&gt;)
 设置下拉菜单的背景模糊材质。与[menuBackgroundBlurStyle](#menubackgroundblurstyle11)11+相比，style参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -978,6 +1038,8 @@ avoidance(mode: AvoidanceMode)
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -998,6 +1060,8 @@ menuOutline(outline: MenuOutlineOptions)
 设置下拉菜单框的外描边样式。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1020,6 +1084,8 @@ showDefaultSelectedIcon(show: boolean)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1035,7 +1101,7 @@ showDefaultSelectedIcon(show: boolean)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-textModifier(modifier: Optional<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier)>)
+textModifier(modifier: Optional&lt;TextModifier&gt;)
 
 定制Select按钮文本样式的方法，在应用了textModifier之后，Select按钮的文本样式将完全由开发者自定义。
 
@@ -1044,6 +1110,8 @@ textModifier(modifier: Optional<[TextModifier](https://developer.huawei.com/cons
 
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1070,6 +1138,8 @@ arrowModifier(modifier: Optional&lt;SymbolGlyphModifier&gt;)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1085,7 +1155,7 @@ arrowModifier(modifier: Optional&lt;SymbolGlyphModifier&gt;)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-optionTextModifier(modifier: Optional<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier)>)
+optionTextModifier(modifier: Optional&lt;TextModifier&gt;)
 
 定制Select下拉菜单未选中项文本样式的方法，在应用optionTextModifier之后，下拉菜单未选中项的文本样式将完全由开发者自定义。
 
@@ -1096,6 +1166,8 @@ optionTextModifier(modifier: Optional<[TextModifier](https://developer.huawei.co
 
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1112,7 +1184,7 @@ optionTextModifier(modifier: Optional<[TextModifier](https://developer.huawei.co
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-selectedOptionTextModifier(modifier: Optional<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier)>)
+selectedOptionTextModifier(modifier: Optional<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)>)
 
 定制Select下拉菜单选中项文本样式的方法，在应用selectedOptionTextModifier之后，下拉菜单选中项的文本样式将完全由开发者自定义。
 
@@ -1123,6 +1195,8 @@ selectedOptionTextModifier(modifier: Optional<[TextModifier](https://developer.h
 
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1144,6 +1218,8 @@ showInSubWindow(showInSubWindow:Optional&lt;boolean&gt;)
 设置下拉菜单是否显示在子窗中。未通过该接口设置时，下拉菜单默认不显示在子窗中。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1204,6 +1280,31 @@ minKeyboardAvoidDistance(distance:Optional&lt;LengthMetrics&gt;)
 
 
 
+#### menuSystemMaterial
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+menuSystemMaterial(material:Optional&lt;SystemUiMaterial&gt;)
+
+设置Select下拉菜单的系统材质。不同系统材质对应不同的属性影响效果，该接口影响下拉菜单背景色[menuBackgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#menubackgroundcolor18)、边框颜色[borderColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#bordercolor)、边框宽度[borderWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderwidth)、阴影[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)参数，当设置系统材质时，上述接口不生效。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| material | Optional&lt;SystemUiMaterial&gt; | 是 | 设置下拉菜单系统材质。材质设置为非法值、undefined时，按照不设置系统材质处理。 |
+
+
+
+
 #### ArrowPosition10+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1211,6 +1312,8 @@ minKeyboardAvoidDistance(distance:Optional&lt;LengthMetrics&gt;)
 箭头的位置。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1229,6 +1332,8 @@ minKeyboardAvoidDistance(distance:Optional&lt;LengthMetrics&gt;)
 下拉菜单的对齐方式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1249,6 +1354,8 @@ minKeyboardAvoidDistance(distance:Optional&lt;LengthMetrics&gt;)
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 说明 |
@@ -1266,6 +1373,8 @@ minKeyboardAvoidDistance(distance:Optional&lt;LengthMetrics&gt;)
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1288,6 +1397,8 @@ minKeyboardAvoidDistance(distance:Optional&lt;LengthMetrics&gt;)
 下拉菜单框的外描边参数对象。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1337,6 +1448,8 @@ onSelect(callback: Optional&lt;OnSelectCallback&gt; )
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1357,6 +1470,8 @@ type OnSelectCallback = (index: number, selectStr: string) => void
 下拉菜单选中某一项时触发的回调函数类型定义。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1480,7 +1595,7 @@ struct SelectExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/31sF4QK3TCqdvjzNRQaS1w/zh-cn_image_0000002617669989.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=2701A9808A0850D93FD9077693A48E092088345F3E07E3B1C2268A3B08A5097F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/Du8bsXjQQqy7FvrLq8rbfw/zh-cn_image_0000002628702582.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=F4D443310A25C3F0E2CE83D216E8F7FBC244588BEDBB22F2B469F79AFDC18DB3)
 
 
 
@@ -1559,7 +1674,7 @@ struct SelectExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/8VHcL-7QRSaLLJINKDeNNA/zh-cn_image_0000002587270212.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=EF1C511F8D1135FAA2FF668C43A07D0EF3034F9F37701793D3B00A2CAB52642A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/NYkCxFzqS4mNTp8ilZ9OXQ/zh-cn_image_0000002659101809.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=F68DC0C6A9D38813B16E94B43681FF4EAA4F16D956F44A404EB3E43206099B43)
 
 
 
@@ -1614,7 +1729,7 @@ struct SelectExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/LkMr4QxBTfuHDX2FTF7Dmg/zh-cn_image_0000002617709891.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=E2044D4E04E7396F9704D56B3D386672DCDCA188520769BEE5B2BD3E158D0D23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/LfNgqARYSOS6-_XhyMWePw/zh-cn_image_0000002628862460.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=BA2E2AC703156F7452950D2403426396FE6023C671EF53FF8188FF8DA9F9DE4C)
 
 
 
@@ -1664,7 +1779,7 @@ struct SelectExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/hdn0fUiMR6-YYs86ZCfAhA/zh-cn_image_0000002587110308.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=A47E903C0ECCEA65164702DA402FAEFA90EBC090EB10A989E16E448EE3FFDF47)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/1oKg9ZE8QZmR2oUOAqz93Q/zh-cn_image_0000002659221773.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=237D357392F6C032E7544D8A19FC8EACC22998B4FB44136438C1B4E75909BEE2)
 
 
 
@@ -1735,7 +1850,7 @@ struct SelectExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/swhjNHH-S2epDfdc3LBo3A/zh-cn_image_0000002617669991.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=2A839238F7DF676CC93067E41AE9A64AA279431C6BAE5836F5509564505BE555)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/Lu-3nxWLTGOotcTfTYS13w/zh-cn_image_0000002628702584.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=4A371A143A4BE1424AE0EFE5B6096DA8D83EC11B37C3C9E4DC3FD3DCC94D6AA8)
 
 
 
@@ -1809,7 +1924,7 @@ struct SelectExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/5jMT0wHjSaCA9WKgALKSrA/zh-cn_image_0000002587270214.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=A6E52A8E4EFF448F9CBE3220B673EFB81E4F995A404E47321A3EB016CC2DD52A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/Jdo7QHPVQaqyFy7ZWToPHA/zh-cn_image_0000002659101811.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=2F61160594D019C8DB017F1962FC8ECB2793F056AE456635B4C8873AA8995DAC)
 
 
 
@@ -1841,7 +1956,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/Aev2nUWvSDqG2o5G5in-Rw/zh-cn_image_0000002617709893.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=782605B1EAAD501A2143FB2795D53D5BA3B610A0016F3DF054C2DFE10FEBBC50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/MOm0uJ4eS-2OF7EwD633Zw/zh-cn_image_0000002628862462.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=3E3E3FB603DBCC331CC738982B516E18263CC6DFE8EDBFB66E601E424C7844C7)
 
 
 
@@ -1895,7 +2010,7 @@ struct SelectExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/Ef37WyQpReuulyfQAIuG1Q/zh-cn_image_0000002587110310.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=0C495F9736F0AFC9F981106F5F36989879B4D06EC02E80E996CDF1D0302004A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/j-BzINc4RrOw4_P4spISNA/zh-cn_image_0000002659221775.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=B39D85274C02A335F2959BEA8AAD36645055AB678F8ABB86BF9245C0C529C63D)
 
 
 
@@ -1956,4 +2071,51 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/XXkkMrPBRWii_dA700WciA/zh-cn_image_0000002617669993.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=3A2CE337AE45AF9BFE453C1AAB212BE309E6AFBE1200DF8F3BD60D57E9EC6DED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/dxbfiBXnRjy2k5o0egT9bw/zh-cn_image_0000002628702586.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=69247364A88B1A079BB8A59C2C94372F95DFE49E5C3A4674BE9AC4073FD02822)
+
+
+
+
+#### 示例11（设置Select和下拉菜单系统材质）
+
+该示例通过调用[menuSystemMaterial](#menusystemmaterial)接口实现下拉菜单系统材质效果，通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)接口实现select组件系统材质效果。
+
+从API版本26.0.0开始，新增menuSystemMaterial接口。
+
+```text
+import { uiMaterial } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct Index {
+  build() {
+    Column() {
+      Select([{ value: 'SelectOption' },
+        { value: 'SelectOption' },
+        { value: 'SelectOption' },
+        { value: 'SelectOption' },
+        { value: 'SelectOption' }])
+        .value('Click Show Options')
+        .systemMaterial(new uiMaterial.ImmersiveMaterial({
+            style: uiMaterial.ImmersiveStyle.ULTRA_THIN
+          }))
+        .menuSystemMaterial(new uiMaterial.ImmersiveMaterial({
+            style: uiMaterial.ImmersiveStyle.THICK
+          }))
+    }
+    // $r('app.media.img')需要替换为开发者所需的图像资源文件。
+    .backgroundImage($r('app.media.img'))
+  }
+}
+```
+
+未设置系统材质时：
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/bPdssqFvR1KJmdhcky8ohA/zh-cn_image_0000002659101813.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=16B2599E544AD67ECF1C2D15884CE0745BB637DFC5FD98A440BCA237574D2CFE)
+
+
+设置系统材质后：
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/gLySRoTRTHmaM913ipJwlw/zh-cn_image_0000002628862464.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=01076ED94CFC348741D48F8C040BCBF8DCB70F3E19AA7FB3AC8797A80838D747)

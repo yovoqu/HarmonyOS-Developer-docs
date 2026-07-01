@@ -1,14 +1,14 @@
 # 如何将PixelMap保存到相册
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-20
 
 PixelMap使用[imagePacker.packToFile()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtofile11)的方法将ImageSource图片源编码后直接打包进文件。
  
-**参考代码**
+参考代码：
  
-```ArkTS
+```text
 import { resourceManager } from '@kit.LocalizationKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -30,7 +30,7 @@ struct SavePixelMapToAlbum {
 
   async aboutToAppear() {
     const resourceMgr: resourceManager.ResourceManager = this.context.resourceManager;
-    // "beer.jpeg" is the name of the image file under the rawfile directory, which can be modified and used according to your own needs
+   <em> // "beer.jpeg" is the name of the image file under the rawfile directory, which can be modified and used according to your own needs</em>
     const fileData: Uint8Array = await resourceMgr.getRawFileContent('beer.jpeg');
     let buffer = new Uint8Array(fileData).buffer as object as ArrayBuffer;
     let imageResource = image.createImageSource(buffer);
@@ -39,7 +39,7 @@ struct SavePixelMapToAlbum {
   }
 
   async savePixelMapToAlbum() {
-    // Obtain the save path of the album
+   <em> // Obtain the save path of the album</em>
     let helper = photoAccessHelper.getPhotoAccessHelper(this.context);
     let uri = await helper.createAsset(photoAccessHelper.PhotoType.IMAGE, 'jpeg');
     let file = await fileIo.open(uri, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);

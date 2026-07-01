@@ -1,6 +1,6 @@
 # Tabs如何实现预加载特定的TabContent页
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-473
 
@@ -10,13 +10,13 @@
  
 参考代码：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct TabsDemo {
   @State currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
-  // Set up page switching animations instead of sliding to jump to page animations
+  <em>// Set up page switching animations instead of sliding to jump to page animations</em>
   private customContentTransition: (from: number, to: number) => TabContentAnimatedTransition =
     (from: number, to: number) => {
       let tabContentAnimatedTransition = {
@@ -69,7 +69,7 @@ struct MyComponent {
   private color: string = '';
 
   aboutToAppear(): void {
-    // It can be observed by printing the log that no intermediate page has been loaded
+  <em>  // It can be observed by printing the log that no intermediate page has been loaded</em>
     console.info('aboutToAppear backgroundColor:' + this.color);
   }
 

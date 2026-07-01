@@ -1,6 +1,6 @@
 # FullScreenLaunchComponent
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-fullscreenlaunchcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,22 +54,24 @@ FullScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, option
 
 **装饰器类型：**[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)
 
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | Callback&lt;void&gt; | 是 | @BuilderParam | 可以使用组件组合来自定义拉起元服务前的占位图标，实现类似大桌面应用图标的效果。点击占位组件后，将拉起元服务。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| appId | string | 是 | - | 需要拉起的元服务appId，appId是元服务的唯一标识。 元服务API： 从API version 12开始，该接口支持在元服务中使用。可在应用市场元服务一栏找到需要使用的元服务，在元服务隐私声明内找到对应元服务开发者的联系方式，联系对应元服务开发者获取。 |
-| options | AtomicServiceOptions | 否 | - | 拉起元服务参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| content | Callback&lt;void&gt; | 是 | @BuilderParam | 可以使用组件组合来自定义拉起元服务前的占位图标，实现类似大桌面应用图标的效果。点击占位组件后，将拉起元服务。 |
+| appId | string | 是 | - | 需要拉起的元服务appId，appId是元服务的唯一标识。 |
+| options | AtomicServiceOptions | 否 | - | 拉起元服务参数。 |
 | onError18+ | ErrorCallback | 否 | - | 被拉起的嵌入式运行元服务在运行过程中发生异常时触发本回调。可通过回调参数中的code、name和message获取错误信息并做处理。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onTerminated18+ | Callback&lt;TerminationInfo&gt; | 否 | - | 被拉起的嵌入式运行元服务通过调用terminateSelfWithResult或者terminateSelf正常退出时，触发本回调函数。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onReceive20+ | Callback<Record<string, Object>> | 否 | - | 被拉起的嵌入式运行元服务通过Window调用API时，触发本回调。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| onTerminated18+ | Callback&lt;TerminationInfo&gt; | 否 | - | 被拉起的嵌入式运行元服务通过点击元服务退出按钮、手势侧滑、调用terminateSelfWithResult或者terminateSelf正常退出时，触发本回调函数。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onReceive20+ | Callback<Record<string, Object>> | 否 | - | 被拉起的嵌入式运行元服务通过@ohos.window (窗口)调用API时，触发本回调。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
 > [!NOTE]
-> 若元服务通过调用 terminateSelfWithResult 退出，其携带的信息会传给回调函数的入参； 若元服务通过调用 terminateSelf 退出，上述回调函数的入参中，"code"取默认值"0"，"want"为"undefined"。
+> 若元服务通过调用 terminateSelfWithResult 退出，其携带的信息会传给回调函数的入参； 若元服务通过调用 terminateSelf 退出，上述回调函数的入参中，"code"取默认值"0"，"want"为"undefined"； 从API版本26.0.0开始，元服务通过手势侧滑退出触发onTerminated回调。
 
 
 
@@ -141,7 +143,7 @@ import { window } from '@kit.ArkUI';
 const DOMAIN = 0x0000;
 
 export default class EntryAbility extends EmbeddableUIAbility {
-  storage = new LocalStorage(); // 初始化示例，用于存储窗口和窗口阶段的信息
+  storage = new LocalStorage();
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
   }
@@ -184,7 +186,6 @@ const DOMAIN = 0x0000;
 @Entry
 @Component
 struct Index {
-  // 用于存储本地数据
   private storage: LocalStorage | undefined = this.getUIContext().getSharedLocalStorage();
 
   build() {
@@ -225,7 +226,6 @@ struct Index {
     .height('100%')
   }
 
-  // 设置窗口系统栏的显示状态
   testSetSystemBarEnable() {
     let window: window.Window | undefined = this.storage?.get("window");
     let p = window?.setWindowSystemBarEnable(["status"])
@@ -236,7 +236,6 @@ struct Index {
     })
   }
 
-  // 启用或禁用手势返回功能
   testSetGestureBackEnable() {
     let window: window.Window | undefined = this.storage?.get("window");
     let p = window?.setGestureBackEnabled(true)
@@ -247,7 +246,6 @@ struct Index {
     })
   }
 
-  // 启用沉浸式模式
   testSetImmersiveEnable() {
     let window: window.Window | undefined = this.storage?.get("window");
     try {
@@ -257,7 +255,6 @@ struct Index {
     }
   }
 
-  // 设置特定的系统栏的显示状态
   testSetSpecificSystemBarEnabled() {
     let window: window.Window | undefined = this.storage?.get("window");
     let p = window?.setSpecificSystemBarEnabled('navigationIndicator', false, false)
@@ -269,6 +266,3 @@ struct Index {
   }
 }
 ```
-
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/FYIpokiPTFusyRNG5LSb5A/zh-cn_image_0000002617710303.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=4623E3B9EC2B556BD4EA728641A8E803ECC99095DD73BCC0F62FB49916FEE65E)

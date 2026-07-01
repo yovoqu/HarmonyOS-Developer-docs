@@ -1,13 +1,13 @@
 # Native侧如何获取ArkTS侧类实例
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-53
 
 在ArkTS创建一个类并传递给Native侧，Native侧通过napi_call_function接口调用ArkTS侧的类函数。
  
-```ArkTS
-// Declare Demo class
+```text
+<em>// Declare Demo class</em>
 class Demo {
   add(a: number, b: number): number {
     return a + b;
@@ -23,8 +23,8 @@ export default new Demo();
  
 ArkTS侧：
  
-```ArkTS
-// Pass the parameters to the native side
+```text
+<em>// Pass the parameters to the native side</em>
 import testNapi from 'libentry.so';
 import demo from './interface/ClassDemo1'
 
@@ -54,8 +54,8 @@ struct Index {
  
 Native侧：
  
-```cpp
-// Get class information and call class functions
+```text
+<em>// Get class information and call class functions</em>
 #include "CGetArkTSObject.h" 
 napi_value CGetArkTSObject::Cal(napi_env env, napi_callback_info info) { 
     size_t argc = 4; 
@@ -68,7 +68,7 @@ napi_value CGetArkTSObject::Cal(napi_env env, napi_callback_info info) {
     double value1; 
     napi_get_value_double(env, args[1], &value1); 
  
-    // Construct class instances
+  <em>  // Construct class instances</em>
     napi_value demo; 
     napi_create_object(env, &demo); 
     napi_coerce_to_object(env, args[2], &demo); 
@@ -76,12 +76,12 @@ napi_value CGetArkTSObject::Cal(napi_env env, napi_callback_info info) {
     bool flag; 
     napi_get_value_bool(env, args[3], &flag); 
  
-    // Obtain the add and sub functions of the class instance
+   <em> // Obtain the add and sub functions of the class instance</em>
     napi_value add, sub, num; 
     napi_get_named_property(env, demo, "add", &add); 
     napi_get_named_property(env, demo, "sub", &sub); 
  
-    // Call the ArkTS function
+   <em> // Call the ArkTS function</em>
     napi_value result; 
     if (flag) { 
         napi_call_function(env, nullptr, add, 2, args, &result); 

@@ -1,20 +1,20 @@
 # 如何在Page中获取WindowStage实例
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-298
 
 方式一：在onWindowStageCreate方法中获取，此方式适用于Ability生命周期内需要持久化WindowStage实例的场景。
  
-```ArkTS
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 
 export default class EntryAbility extends UIAbility {
-  // ...
+<em>  // ...</em>
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
+  <em>  // Main window is created, set main page for this ability</em>
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err) => {
@@ -25,18 +25,18 @@ export default class EntryAbility extends UIAbility {
       hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
     });
     console.info('windowStage', JSON.stringify(windowStage))
-    // Store windowStage instance globally for cross-page access
+   <em> // Store windowStage instance globally for cross-page access</em>
     AppStorage.setAndLink('windowStage', windowStage)
   }
 
-  // ...
+ <em> // ...</em>
 }
 ```
  
 方式二：UIAbilityContext提供了获取WindowStage实例的接口，此方式适用于需要动态获取WindowStage的页面级场景，无需持久化存储。
  
 ```ArkTS
-// Index.ets
+<em>// Index.ets</em>
 import common from '@ohos.app.ability.common';
 
 @Entry

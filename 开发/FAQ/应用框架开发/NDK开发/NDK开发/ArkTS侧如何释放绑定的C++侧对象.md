@@ -1,6 +1,6 @@
 # ArkTS侧如何释放绑定的C++侧对象
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-51
 
@@ -16,10 +16,10 @@ ArkTS无法直接回收C++对象。在ArkTS侧业务完成后，可以通过接�
  
 具体接口使用示例如下：
  
-```cpp
+```text
 napi_wrap(
     env, ArkTSDemo, CDemo,
-    // Define a callback function for ArkTS object recycling to destroy C++objects and prevent memory leaks
+   <em> // Define a callback function for ArkTS object recycling to destroy C++objects and prevent memory leaks</em>
     [](napi_env env, void *finalize_data, void *finalize_hint) {
         MyDemo *cDemo = (MyDemo *)finalize_data;
         delete cDemo;

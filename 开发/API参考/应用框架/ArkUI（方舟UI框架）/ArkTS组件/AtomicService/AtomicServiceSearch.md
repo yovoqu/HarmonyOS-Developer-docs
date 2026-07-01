@@ -1,6 +1,6 @@
 # AtomicServiceSearch
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicesearch
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -119,7 +119,7 @@ AtomicServiceSearch中“搜索区”的可选属性。
 | cancelIcon | IconOptions | 否 | 是 | 右侧清除按钮样式。默认值：{style: CancelButtonStyle.INPUT, icon: {size: '16vp', color: '#99ffffff', src: ' '}}。 当style为CancelButtonStyle.CONSTANT时，默认显示清除样式。 |
 | fontColor | ResourceColor | 否 | 是 | 输入文本的字体颜色。默认值：\$r('sys.color.ohos_id_color_text_secondary')。 |
 | caretStyle | CaretStyle | 否 | 是 | 光标样式。默认值：{width: '1.5vp', color: '#007DFF'}。 |
-| enableKeyboardOnFocus | boolean | 否 | 是 | Search获焦时，是否主动拉起软键盘。true表示Search获焦时主动拉起软键盘。默认值：true。 |
+| enableKeyboardOnFocus | boolean | 否 | 是 | Search获焦时，是否主动拉起软键盘。true表示Search获焦时主动拉起软键盘。false表示Search获焦时不主动拉起键盘。默认值：true。 |
 | hideSelectionMenu | boolean | 否 | 是 | 是否不弹出系统文本选择菜单。 设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，不弹出系统文本选择菜单。设置为false时，弹出系统文本选择菜单。默认值：false。 |
 | type | SearchType | 否 | 是 | 输入框类型。默认值：SearchType.Normal。 |
 | maxLength | number | 否 | 是 | 设置文本的最大输入字符数。默认不设置最大输入字符数限制。到达文本最大字符限制，将无法继续输入字符。默认值：-1。 |
@@ -133,8 +133,8 @@ AtomicServiceSearch中“搜索区”的可选属性。
 | minFontSize | number \| string \| Resource | 否 | 是 | 设置文本最小显示字号。需要配合maxFontSize以及布局大小限制使用，单独设置不生效。默认值为undefined。 |
 | maxFontSize | number \| string \| Resource | 否 | 是 | 设置文本最大显示字号。需要配合minFontSize以及布局大小限制使用，单独设置不生效。默认值为undefined。 |
 | editMenuOptions | EditMenuOptions | 否 | 是 | 设置自定义菜单扩展项，允许用户设置扩展项的文本内容、图标、回调方法。默认值为undefined。 |
-| enablePreviewText | boolean | 否 | 是 | 是否开启输入预上屏。true表示开启输入预上屏。默认值：true。 需要配合开启输入法的预上屏功能。预上屏内容定义为文字暂存态，目前不支持文字拦截功能，因此该值为true时不触发onWillInsert、onDidInsert回调。 |
-| enableHapticFeedback | boolean | 否 | 是 | 是否开启触控反馈。true表示开启。默认值：true。 |
+| enablePreviewText | boolean | 否 | 是 | 是否开启输入预上屏。true表示开启输入预上屏。false表示不开启输入预上屏。默认值：true。 需要配合开启输入法的预上屏功能。预上屏内容定义为文字暂存态，目前不支持文字拦截功能，因此该值为true时不触发onWillInsert、onDidInsert回调。 |
+| enableHapticFeedback | boolean | 否 | 是 | 是否开启触控反馈。true表示开启触控反馈。false表示不开启触控反馈。默认值：true。 |
 | onSubmit | Callback&lt;string&gt; \| SearchSubmitCallback | 否 | 是 | 点击搜索图标、搜索按钮或者按下软键盘搜索按钮时触发该回调。默认值为undefined。 |
 | onChange | EditableTextOnChangeCallback | 否 | 是 | 输入内容发生变化时，触发该回调。默认值为undefined。 |
 | onCopy | Callback&lt;string&gt; | 否 | 是 | 进行复制操作时，触发该回调。默认值为undefined。 |
@@ -865,7 +865,7 @@ struct Index {
 该示例通过fontFeature属性实现了文本在不同文字特性下的展示效果。
  
 ```text
-​​​​import { AtomicServiceSearch } from '@kit.ArkUI';
+import { AtomicServiceSearch } from '@kit.ArkUI';
 
 @Entry
 @Component
@@ -1128,4 +1128,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/JbKyUgpXTHSlEa82tTS3ew/zh-cn_image_0000002617670369.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=279235044CD3C40288AB867527DBB78A5545FFCD611ED897E50ED752A12FEC5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/o93P7r5CTsmjsp0yQo7JrA/zh-cn_image_0000002659222151.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=BD3656D5948BD14E237C29C32C34DC8B67F36A99D00E05D4C74D572878F8A410)

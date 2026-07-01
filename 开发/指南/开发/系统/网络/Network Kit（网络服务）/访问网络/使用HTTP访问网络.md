@@ -1,6 +1,6 @@
 # 使用HTTP访问网络
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request
 
@@ -686,7 +686,7 @@ HTTPS：通过[remoteValidation](https://developer.huawei.com/consumer/cn/doc/ha
 
   
 通过API校验指定证书是否可信：可参考[networkSecurity.certVerification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-networksecurity#networksecuritycertverification)。
- - 通过openssl命令校验域名服务器证书链是否被系统信任：hdc shell openssl s_client -connect 主机名:端口 -CApath /etc/security/certificates -brief。若出现Verification: OK说明证书链可信。将-trace -showcerts替换为-brief可以打印详细的TLS握手信息。
+ - 通过openssl命令校验域名服务器证书链是否被系统信任：hdc shell openssl s_client -connect 主机名:端口 -CApath /etc/security/certificates -brief。若出现Verification: OK说明证书链可信。将-brief替换为-trace -showcerts可以打印详细的TLS握手信息。
 
 
 
@@ -716,7 +716,7 @@ openssl s_client -servername www.example.com -connect www.example.com:443 \
 直接把证书原文件预置在APP中。目前支持crt和pem格式的证书文件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/P7lIM0cyTFGLPmoxmr3Nfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020844Z&HW-CC-Expire=86400&HW-CC-Sign=83A8F1FE49CC500D82D4C3A1AE35374360CBC5EBCB8DC525B974960FED686F53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/jplFZ6HXT1aw_0Em62imig/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014619Z&HW-CC-Expire=86400&HW-CC-Sign=E14E35B61E7399FBCCA26AFBD26248C47AFFFFE84330C2525758B17CAAB7F404)
 
 
 当前ohos.net.http和Image组件的证书锁定，会匹配证书链上所有证书的哈希值，如果服务器更新了任意一本证书，都会导致校验失败。如果服务器出现了更新证书的情况，APP版本应当随之更新并推荐消费者尽快升级APP版本，否则可能导致联网失败。
@@ -839,7 +839,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 | trust-anchors | array | 受信任的CA。可以包含任意个item。item必须包含1个certificates。 |
 | certificates | string | CA证书路径。 |
 | domains | array | 域。可以包含任意个item。item必须包含1个name(string：指示域名)，可以包含0或者1个include-subdomains。 |
-| include-subdomains | boolean | 指示规则是否适用于子域。true：指示规则适用于子域；false：指示规则不适用于子域。 |
+| include-subdomains | boolean | 指示规则是否适用于子域。true：表示规则适用于该域名及其所有子域名；false：表示规则仅适用于该域名。默认为true。 |
 | pin-set | object | 证书公钥哈希设置。必须包含1个pin，可以包含0或者1个expiration。 |
 | expiration | string | 指示证书公钥哈希的过期时间。 |
 | pin | array | 证书公钥哈希。可以包含任意个item。item必须包含1个digest-algorithm，item必须包含1个digest。 |
@@ -909,7 +909,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 | base-config | object | 否 | 指示应用程序范围的明文配置。优先级最低。 |
 | cleartextTrafficPermitted18+ | boolean | 否 | 明文HTTP是否允许。true表示允许，false表示不允许，默认为true。 |
 | domain-config | array | 否 | 指示每个域的明文配置。可以包含任意个item。每个item必须包含1个domains。若相同域存在规则冲突时，以匹配到的第一条为准。优先级次于component-config。 |
-| include-subdomains | boolean | 否 | 配置为true时，name支持正则匹配。配置为false时，name不支持正则匹配。注意：每增加1000条域名配置，正则匹配的延迟将增加大约10至15毫秒。当域名配置数量超过10000条时，正则匹配会带来较高耗时。默认为true。 |
+| include-subdomains | boolean | 否 | 指示规则是否适用于子域。true：表示规则适用于该域名及其所有子域名；false：表示规则仅适用于该域名。默认为true。注意：每增加1000条域名配置，正则匹配的延迟将增加大约10至15毫秒。当域名配置数量超过10000条时，正则匹配会带来较高耗时。默认为true。 |
 | name | string | 否 | 配置主域名。 |
 | component-config20+ | object | 否 | 指示每个组件的明文配置。优先级最高。 |
 | Request | boolean | 否 | Request从API version 18开始默认支持明文HTTP功能，不可配置。从API version 20开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为true。 |

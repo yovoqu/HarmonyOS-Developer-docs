@@ -1,6 +1,6 @@
 # Class (Array)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-array
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -97,11 +97,10 @@ ArkTS Array的构造函数，通过开发者提供的元素进行初始化。
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200012 | The Array's constructor cannot be directly invoked. |
 
 
@@ -134,11 +133,10 @@ ArkTS Array的构造函数，通过开发者提供的元素进行初始化。
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200012 | The Array's constructor cannot be directly invoked. |
 
 
@@ -180,11 +178,11 @@ static create&lt;T&gt;(arrayLength: number, initialValue: T): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
+| 10200011 | The create method cannot be bound. 适用版本：12-17 |
 
 
 **示例：**
@@ -223,11 +221,11 @@ static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
+| 10200011 | The from method cannot be bound. 适用版本：12-17 |
 
 
 **示例：**
@@ -274,11 +272,11 @@ static from&lt;T&gt;(iterable: Iterable&lt;T&gt;): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 10200011 | The from method cannot be bound. 适用版本：12-17 |
 
 
 **示例：**
@@ -321,15 +319,6 @@ static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt; | Iterable&lt;T&gt;, mapFn: A
 | Array&lt;T&gt; | 新创建的ArkTS Array实例。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -365,15 +354,6 @@ static from<U, T>(arrayLike: ArrayLike&lt;U&gt; | Iterable&lt;U&gt;, mapFn: Arra
 | 类型 | 说明 |
 | --- | --- |
 | Array&lt;T&gt; | 新创建的ArkTS Array实例。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -412,15 +392,6 @@ static isArray(value: Object | undefined | null): boolean
 | boolean | 假如给定对象是ArkTS Array数组，返回true，否则返回false。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -455,15 +426,6 @@ static of&lt;T&gt;(...items: T[]): Array&lt;T&gt;
 | 类型 | 说明 |
 | --- | --- |
 | Array&lt;T&gt; | 新的ArkTS Array实例。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -505,11 +467,10 @@ copyWithin(target: number, start: number, end?: number): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200011 | The copyWithin method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -646,11 +607,10 @@ reduceRight(callbackFn: ArrayReduceCallback<T, T, Array&lt;T&gt;>): T
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
 | 10200011 | The reduceRight method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -694,11 +654,10 @@ reduceRight<U = T>(callbackFn: ArrayReduceCallback<U, T, Array&lt;T&gt;>, initia
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
 | 10200011 | The reduceRight method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -780,11 +739,10 @@ push(...items: T[]): number
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The push method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -826,11 +784,10 @@ join(separator?: string): string
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The join method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -949,11 +906,10 @@ unshift(...items: T[]): number
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The unshift method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1035,11 +991,10 @@ slice(start?: number, end?: number): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The slice method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1081,11 +1036,10 @@ sort(compareFn?: (a: T, b: T) => number): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The sort method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1129,11 +1083,10 @@ indexOf(searchElement: T, fromIndex?: number): number
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The indexOf method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1168,11 +1121,10 @@ forEach(callbackFn: (value: T, index: number, array: Array&lt;T&gt;) => void): v
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The forEach method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1216,11 +1168,10 @@ map&lt;U&gt;(callbackFn: (value: T, index: number, array: Array&lt;T&gt;) => U):
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The map method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1266,11 +1217,10 @@ filter(predicate: (value: T, index: number, array: Array&lt;T&gt;) => boolean): 
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The filter method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1312,11 +1262,10 @@ reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, arr
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The reduce method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1359,11 +1308,10 @@ reduce&lt;U&gt;(callbackFn: (previousValue: U, currentValue: T, currentIndex: nu
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The reduce method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1406,11 +1354,10 @@ at(index: number): T | undefined
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The at method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1573,11 +1520,10 @@ find(predicate: (value: T, index: number, obj: Array&lt;T&gt;) => boolean): T | 
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The find method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1620,11 +1566,10 @@ includes(searchElement: T, fromIndex?: number): boolean
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The includes method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1666,11 +1611,10 @@ findIndex(predicate: (value: T, index: number, obj: Array&lt;T&gt;) => boolean):
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The findIndex method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1714,11 +1658,10 @@ fill(value: T, start?: number, end?: number): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The fill method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1753,11 +1696,10 @@ shrinkTo(arrayLength: number): void
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The shrinkTo method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1796,11 +1738,10 @@ extendTo(arrayLength: number, initialValue: T): void
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The extendTo method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1845,11 +1786,10 @@ concat(...items: ConcatArray&lt;T&gt;[]): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Not a valid array. |
 | 10200011 | The concat method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -1894,11 +1834,10 @@ splice(start: number): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
 | 10200011 | The splice method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -2027,11 +1966,10 @@ splice(start: number, deleteCount: number, ...items: T[]): Array&lt;T&gt;
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
 | 10200011 | The splice method cannot be bound. |
 | 10200201 | Concurrent modification error. |
 
@@ -2124,11 +2062,10 @@ for (let item of array) {
 
 **错误码**：
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200001 | The value of index is out of range. |
 
 

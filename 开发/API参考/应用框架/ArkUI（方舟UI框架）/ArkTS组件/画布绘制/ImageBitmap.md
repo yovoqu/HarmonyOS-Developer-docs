@@ -1,6 +1,6 @@
 # ImageBitmap
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,13 +12,19 @@ ImageBitmap对象可以存储canvas渲染的像素数据。从API version 11开�
 
 
 
+#### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+
+
 #### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(src: string)
 
-通过ImageSrc创建ImageBitmap对象。
+通过图片数据源创建ImageBitmap对象。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -62,11 +68,13 @@ constructor(data: PixelMap)
 
 constructor(src: string, unit: LengthMetricsUnit)
 
-通过ImageSrc创建ImageBitmap对象，支持使用unit配置ImageBitmap对象的单位模式。
+通过图片数据源创建ImageBitmap对象，支持使用unit配置ImageBitmap对象的单位模式。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -98,6 +106,30 @@ constructor(data: PixelMap, unit: LengthMetricsUnit)
 | --- | --- | --- | --- |
 | data | PixelMap | 是 | 图片的数据源支持PixelMap对象。 |
 | unit | LengthMetricsUnit | 是 | 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，配置方法同CanvasRenderingContext2D。 |
+
+
+
+
+#### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+constructor(data: Resource, unit?: LengthMetricsUnit)
+
+通过Resource创建ImageBitmap对象，支持使用unit配置ImageBitmap对象的单位模式。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| data | Resource | 是 | 通过资源引用方式设置图片数据源。 |
+| unit | LengthMetricsUnit | 否 | 用来配置ImageBitmap对象的单位模式，配置后无法动态更改。 默认值：LengthMetricsUnit.DEFAULT。 |
 
 
 
@@ -221,7 +253,7 @@ struct Demo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/_fwpy3a0ScKOqs1oJ2XwLg/zh-cn_image_0000002611756043.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=60770226584B3F0F9FF14F9101FC9BF83210A47FDCE2C5EE7DA1DAFCE4CC5105)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/sIun0TJ9St-F80zPGKg6PA/zh-cn_image_0000002659102067.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=60FF01D7F49D64DA14796601738E72F513005D255EE947FBC65F6D00BAB26F55)
 
 
 
@@ -288,4 +320,43 @@ workerPort.onmessage = (e: MessageEvents) => {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/vsP6IALjQRujd5un2Hoccw/zh-cn_image_0000002581276188.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=D41ECEAAB59A11EDFEECB6338D14E1E2E9E04AFCA38448926E5CE1153D2752D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/Yjk-UUTgShqerT6Ln7ttHA/zh-cn_image_0000002628702840.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=430D976682E3C080A55A7FF3AE17C65BC2D850D7668A50AB0E1E5B3C834E0A30)
+
+
+
+
+#### 示例4（加载Resource图片）
+
+通过constructor接口创建Resource类型的ImageBitmap对象，用于Canvas绘制。
+
+从API版本26.0.0开始，新增[constructor](#constructor-2)接口。
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct ImageBitmapResourceExample {
+  private settings: RenderingContextSettings = new RenderingContextSettings(true);
+  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
+  // "app.media.example"需要替换为开发者所需的图像资源文件
+  private img: ImageBitmap = new ImageBitmap($r("app.media.example"));
+
+  build() {
+    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
+      Canvas(this.context)
+        .width('100%')
+        .height('100%')
+        .backgroundColor('#ffff00')
+        .onReady(() => {
+          this.context.drawImage(this.img, 0, 0, 500, 500, 0, 0, 400, 200)
+          this.img.close()
+        })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/cG8bxBMDQFGbmHz6DyalpQ/zh-cn_image_0000002628862720.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=AAC6F651AD4F73FF51200DF9FD2986AF9FA2EB734AF59AEAB4BC0AE63920F83A)

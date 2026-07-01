@@ -1,6 +1,6 @@
 # 通过resourceManager.getStringResource接口获取HSP资源文件报“Resource id invalid”错误
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-18
 
@@ -22,7 +22,7 @@ SourceCode：returnResource = this.context.resourceManager.getStringSync(id)。
  
 根据模块名创建上下文Context，然后使用getStringByNameSync方法获取指定资源名称对应的字符串。具体示例代码如下：
  
-```ArkTS
+```json
 import { common, application } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { JSON } from '@kit.ArkTS';
@@ -36,7 +36,7 @@ struct Index {
     Column() {
       Button()
         .onClick(() => {
-          // Create a context based on the module name
+          <em>// Create a context based on the module name</em>
           let moduleName: string = 'library';
           application.createModuleContext(this.context, moduleName)
             .then((data: common.Context) => {
@@ -47,7 +47,7 @@ struct Index {
                 });
               }
 
-              // Then run getStringByNameSync to obtain the string corresponding to the specified resource name
+              <em>// Then run getStringByNameSync to obtain the string corresponding to the specified resource name</em>
               try {
                 let str = data.resourceManager.getStringByNameSync('shared_desc');
                 console.info(`getStringByNameSync, data: ${JSON.stringify(str)}`);

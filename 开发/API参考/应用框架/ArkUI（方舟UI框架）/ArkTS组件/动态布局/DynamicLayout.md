@@ -1,6 +1,6 @@
 # DynamicLayout
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 动态布局容器组件，支持在运行时动态切换不同的布局算法，不改变子组件的状态。
 
 > [!NOTE]
-> 该组件从API version 24开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 24开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -40,7 +40,7 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| algorithm | LayoutAlgorithm | 是 | 指定动态布局组件的布局算法。取非法值时，按照堆叠布局算法布局子组件，子组件堆叠排列。 |
+| algorithm | LayoutAlgorithm | 是 | 指定动态布局容器的布局算法。取非法值时，按照StackLayoutAlgorithm布局子组件，子组件堆叠排列。 |
 
 
 
@@ -251,7 +251,7 @@ interface Product {
 
 #### 示例2（切换布局算法）
 
-该示例通过改变[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰的LayoutAlgorithm变量，实现动态切换DynamicLayout组件布局算法的功能。示例展示如何切换布局算法为[水平线性布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)、[垂直线性布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)、[堆叠布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)和[网格布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)。
+该示例通过改变[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰的[LayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#layoutalgorithm-1)类型变量，实现动态切换DynamicLayout组件布局算法的功能。示例展示如何切换布局算法为水平线性布局算法[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)、垂直线性布局算法[ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)、堆叠布局算法[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)和网格布局算法[GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)。
 
 从API version 24开始，新增RowLayoutAlgorithm、ColumnLayoutAlgorithm、StackLayoutAlgorithm、GridLayoutAlgorithm。
 
@@ -365,7 +365,7 @@ struct LayoutSwitchExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Uajj2PHPTgG-gjuRMG-p4w/zh-cn_image_0000002581275816.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025559Z&HW-CC-Expire=86400&HW-CC-Sign=B586125B98AACC8ED8A29C804D85450D68751D55187B74C9491471CC124F5B8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/BEy7BFPrS4q5Bwzh9785qw/zh-cn_image_0000002659101683.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=7871D69E45B73BF13C9FC57B346482FF275F82538423C934819193AEB1815FDC)
 
 
 
@@ -438,4 +438,4 @@ struct PropertyChangeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/xeMNpLJYTRWGLNu59GtMaQ/zh-cn_image_0000002611755673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025559Z&HW-CC-Expire=86400&HW-CC-Sign=A80D6B1354F3303E775CA2D45B62A14CDDF7D2A09797480DCC3A1B3FEDEAAD91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/afNg2zMsSHWNCppxLbG90A/zh-cn_image_0000002628862334.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=00F961101DAC8034E698DF34A3E1067E31C691AE3E7FE0B56169757B0449A7B8)

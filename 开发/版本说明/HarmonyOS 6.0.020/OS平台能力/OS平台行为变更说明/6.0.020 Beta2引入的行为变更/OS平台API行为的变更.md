@@ -1,6 +1,6 @@
 # OS平台API行为的变更
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-6002
 
@@ -392,7 +392,7 @@ CanvasRenderingContext2D和OffscreenCanvasRenderingContext2D的font接口。
 保存控件系统提示弹框：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/Wu6W2SCfTFS-O-yM2fv8LA/zh-cn_image_0000002394557509.png?HW-CC-KV=V1&HW-CC-Date=20260528T025736Z&HW-CC-Expire=86400&HW-CC-Sign=A0FF429ABBBB366C1A40BC86FAF1FA8C388E7F5E3BA687BDD30CD3180FC66D23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/tg5JPV-WQwSEgfgPEw2kvw/zh-cn_image_0000002394557509.png?HW-CC-KV=V1&HW-CC-Date=20260701T015338Z&HW-CC-Expire=86400&HW-CC-Sign=E2E2C56CCEEA56C44A6A398BAB46559BDBC358C8CC455ADD5F768F92B72D4B70)
 
  
 经评估，强制弹出系统弹框会与应用内已有弹框冲突，体验不够友好，系统将取消该系统强制弹框的行为。

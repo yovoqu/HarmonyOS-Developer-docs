@@ -1,6 +1,6 @@
 # 绑定半模态页面（bindSheet）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sheet-page
 
@@ -14,7 +14,7 @@
 #### 使用约束
 
  - 半模态内嵌[UIExtension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension)时，不支持再在UIExtension内拉起半模态/弹窗。
- - 若无二次确认或者自定义关闭行为的场景，不建议使用[shouldDismiss/onWillDismiss](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)接口。
+ - 若无二次确认或者自定义关闭行为的场景，不建议使用[shouldDismiss](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)/[onWillDismiss](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)接口。
 
 
 
@@ -160,6 +160,7 @@ struct OnWillDismiss_Dismiss {
         this.isShow = true
       })
       .margin(120)
+      // 第一步：创建半模态页面
       .bindSheet($$this.isShow, this.myBuilder(), {
         height: SheetSize.MEDIUM,
         blurStyle: BlurStyle.Thick,
@@ -320,4 +321,4 @@ struct SheetTransitionExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/SodZBAfmTfaIvvCtREp87A/zh-cn_image_0000002656467789.png?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=79D660A1A9C9D2264E7A54B86D3FC079C402CECF13AC5B986D243C8DA6E1B285)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/Y87rJ8GTTXSAbtIYBT_xFw/zh-cn_image_0000002628860446.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=84EAAA754674F37BC3D9E8D3C0DFF220FBFBBFFC3BC48E8DEBC811A8833ABA9C)

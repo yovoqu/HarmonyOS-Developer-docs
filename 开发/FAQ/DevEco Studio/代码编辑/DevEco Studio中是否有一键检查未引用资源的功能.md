@@ -1,6 +1,6 @@
-# DevEco Studio中是否有一键检查未引用资源的功能
+# DevEco中是否有一键检查未引用资源的功能
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-coding-2
 

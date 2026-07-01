@@ -1,6 +1,6 @@
 # hdc shell命令是否支持schema uri模拟跳转
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-39
 

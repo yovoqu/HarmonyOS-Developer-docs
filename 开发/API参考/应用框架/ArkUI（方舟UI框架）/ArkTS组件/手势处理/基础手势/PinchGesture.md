@@ -1,6 +1,6 @@
 # PinchGesture
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pinchgesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,6 +48,8 @@ PinchGesture(options?: PinchGestureHandlerOptions)
 设置捏合手势事件。与[PinchGesture](#pinchgesture-1)相比，options参数新增isFingerCountLimited，表示是否检查触摸屏幕的手指数量。
  
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -164,6 +166,8 @@ Pinch手势识别成功并接收到触摸取消事件的回调。与[onActionCan
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -231,7 +235,7 @@ struct PinchGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/9eSHq7HBSyqEE8--gOUtsQ/zh-cn_image_0000002581275794.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=034AE50A6ED70FD6AB678D3A8E1F29F5BFB38F74B8C8FE24C9B464381A1AA457)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/sgp7dxFNTlem6YiApUzanQ/zh-cn_image_0000002659221627.png?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=BB2CBEFB393F59CCB084BBDEEF1CFF11E9BD644F5F24D11BAF39616BE3817800)
 
  
   
@@ -332,4 +336,4 @@ struct PinchGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/30TmiqlXStCwAWpwkIScrA/zh-cn_image_0000002611755651.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=C52C8687A3D0115EEC2686CF5AA1F4D6BD0EFD58C35E4535B50E5B1A28447037)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/clVcpzg8STaCu36dJTLQYw/zh-cn_image_0000002628702436.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=55DD44F50E39C3BD26DA0A05BE435301C9C89345AC8737A439257379F31A1FAB)

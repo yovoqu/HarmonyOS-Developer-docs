@@ -1,6 +1,6 @@
 # 获取Push Token
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-get-token
 
@@ -79,12 +79,11 @@ export default class EntryAbility extends UIAbility {
     // 获取Push Token
     pushService.getToken().then(token => {
       hilog.info(DOMAIN, 'testTag', 'Succeeded in getting push token.');
+      // 将获取的Push Token上报至服务端
     }).catch((err: BusinessError) => {
       hilog.error(DOMAIN, 'testTag', 'Failed to get push token: %{public}d %{public}s', err.code, err.message);
     });
-    // 将获取的Push Token上报至服务端
   }
-
   // ...
 }
 ```

@@ -1,6 +1,6 @@
 # Grid
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -43,7 +43,7 @@ Grid(scroller?: Scroller, layoutOptions?: GridLayoutOptions)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scroller | Scroller | 否 | 可滚动组件的控制器。用于与可滚动组件进行绑定。 说明： 不允许和其他滚动类组件，如：ArcList、List、Grid、Scroll和WaterFlow绑定同一个滚动控制对象。 |
-| layoutOptions10+ | GridLayoutOptions | 否 | Grid布局选项。 |
+| layoutOptions10+ | GridLayoutOptions | 否 | Grid布局选项。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -55,6 +55,8 @@ Grid(scroller?: Scroller, layoutOptions?: GridLayoutOptions)
 Grid布局选项。其中，irregularIndexes和onGetIrregularSizeByIndex可对仅设置rowsTemplate或columnsTemplate的Grid使用，可以指定一个index数组，并为其中的index对应的GridItem设置其占据的行数与列数，使用方法参见[示例3](#示例3可滚动grid设置跨行跨列节点)；onGetRectByIndex可对同时设置rowsTemplate和columnsTemplate的Grid使用，为指定的index对应的GridItem设置位置和大小，使用方法参见[示例1](#示例1固定行列grid)。
 
 为提高Grid在跳转、列数变化等场景的性能，应该尽量使用GridLayoutOptions。即使Grid中没有任何特殊的跨行跨列节点，也可以通过使用'Grid(this.scroller, {regularSize: [1, 1]})'的方式提高跳转性能。参考[优化Grid组件加载慢丢帧问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-improve_grid_performance)。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -132,6 +134,8 @@ columnsTemplate(value: string | ItemFillPolicy)
 例如，ItemFillPolicy.BREAKPOINT_DEFAULT在组件宽度属于sm及更小的断点区间时显示2列，属于md断点区间时显示3列，属于lg及更大的断点区间时显示5列，且每列均为1fr。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -277,6 +281,8 @@ scrollBarColor(color: Color | number | string | Resource)
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -305,6 +311,33 @@ scrollBarWidth(value: number | string)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number \| string | 是 | 滚动条的宽度。 默认值：4 单位：vp 取值范围：设置为小于0的值时，按默认值处理。设置为0时，不显示滚动条。 |
+
+
+
+
+#### scrollBarWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+scrollBarWidth(value: number | string | Resource)
+
+设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过Grid组件主轴方向的高度，则滚动条的宽度会变为4vp。支持Resource资源类型。
+
+未通过该接口设置时，设置滚动条的宽度为4vp。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number \| string \| Resource | 是 | 滚动条的宽度。 单位：vp 取值范围：[0, +∞)。设置为小于0的值时，按4vp处理。设置为0时，不显示滚动条。 |
 
 
 
@@ -345,6 +378,8 @@ cachedCount(count: number, show: boolean)
 设置缓存后会在Grid显示区域上下各缓存cachedCount*列数个GridItem。配合裁剪[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip12)或内容裁剪[clipContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#clipcontent14)属性可以显示出预加载节点。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -535,6 +570,8 @@ edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -556,6 +593,8 @@ enableScrollInteraction(value: boolean)
 设置是否支持滚动手势。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -582,6 +621,8 @@ nestedScroll(value: NestedScrollOptions)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -602,6 +643,8 @@ friction(value: number | Resource)
 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中的链式效果有间接影响。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -624,6 +667,8 @@ alignItems(alignment: Optional&lt;GridItemAlignment&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -645,6 +690,8 @@ focusWrapMode(mode: Optional&lt;FocusWrapMode&gt;)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -665,6 +712,8 @@ syncLoad(enable: boolean)
 设置是否同步加载Grid区域内所有子组件。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -710,6 +759,8 @@ editModeOptions(options?: EditModeOptions)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -728,6 +779,8 @@ editModeOptions(options?: EditModeOptions)
 GridItem的对齐方式枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -788,7 +841,7 @@ onScrollIndex(event: (first: number, last: number) => void)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | first | number | 是 | 当前显示的网格起始位置的索引值。 |
-| last10+ | number | 是 | 当前显示的网格终止位置的索引值。 |
+| last10+ | number | 是 | 当前显示的网格终止位置的索引值。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -926,6 +979,8 @@ onScrollBarUpdate(event: (index: number, offset: number) => ComputedBarAttribute
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -957,6 +1012,8 @@ Grid初始化时会触发一次，Grid滚动到起始位置时触发一次。Gri
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -979,6 +1036,8 @@ onReachEnd(event: () => void)
 Grid边缘效果为弹簧效果时，划动经过末尾位置时触发一次，回弹回末尾位置时再触发一次。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1011,6 +1070,8 @@ onScrollFrameBegin(event: OnScrollFrameBeginCallback)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1032,6 +1093,8 @@ onScrollStart(event: () => void)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1052,6 +1115,8 @@ onScrollStop(event: () => void)
 网格滑动停止时触发。手指拖动网格或网格的滚动条触发的滑动，手指离开屏幕后滑动停止时会触发该事件。使用[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)滑动控制器触发的带动画的滑动，动画停止会触发该事件。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1078,6 +1143,8 @@ onScroll(event: (scrollOffset: number, scrollState: [ScrollState](https://develo
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1097,6 +1164,8 @@ onScroll(event: (scrollOffset: number, scrollState: [ScrollState](https://develo
 滚动条位置和长度对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1130,6 +1199,8 @@ setOnWillScroll(callback: OnWillScrollCallback | undefined): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1152,6 +1223,8 @@ setOnDidScroll(callback: OnScrollCallback | undefined): void
 方法入参为undefined时，会重置事件回调。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1176,6 +1249,8 @@ setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1196,6 +1271,8 @@ type OnGridScrollIndexCallback = (first: number, last: number) => void
 Grid组件可见区域item变化事件的回调类型。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

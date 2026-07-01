@@ -1,6 +1,6 @@
 # ar_engine_core.h
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-header-file
 **支持设备：** Phone | Tablet | TV
@@ -137,7 +137,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| AREngine_ARStatus HMS_AREngine_CheckSupported(AREngine_FeatureType type) | 判断当前设备支不支持AR特性的使用。 说明： 在进行正式开发前，可通过此接口来判断AR特性是否能够正常运行在当前设备。 |
+| AREngine_ARStatus HMS_AREngine_CheckSupported(AREngine_FeatureType type) | 判断当前设备是否支持AR特性的使用。 说明： 在进行正式开发前，可通过此接口来判断AR特性是否能够正常运行在当前设备。 |
 | AREngine_ARStatus HMS_AREngine_ARAnchor_Detach(AREngine_ARSession *session, AREngine_ARAnchor *anchor) | 通知AR Engine停止跟踪并解绑一个锚点。 说明： 由于此函数并没有释放锚点AREngine_ARAnchor，开发者需要通过调用 HMS_AREngine_ARAnchor_Release来释放锚点。 |
 | AREngine_ARStatus HMS_AREngine_ARAnchor_GetPose(const AREngine_ARSession *session, const AREngine_ARAnchor *anchor, AREngine_ARPose *outPose) | 获取指定锚点在世界坐标系中的位姿信息。 |
 | AREngine_ARStatus HMS_AREngine_ARAnchor_GetTrackingState(const AREngine_ARSession *session, const AREngine_ARAnchor *anchor, AREngine_ARTrackingState *outTrackingState) | 获取指定锚点位姿的追踪状态。 |
@@ -160,7 +160,7 @@
 | AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_GetCapacity(const AREngine_ARAugmentedImageDatabase *database, uint32_t *outCapacity) | 获取可以添加的最大图像数。 |
 | AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_GetImageCount(const AREngine_ARAugmentedImageDatabase *database, uint32_t *outImageCount) | 获取数据库中存储的图像数量。 |
 | AREngine_ARStatus HMS_AREngine_ARAugmentedImageDatabase_Serialize(const AREngine_ARAugmentedImageDatabase *database, uint8_t **outBuffer, uint64_t *outBufSize) | 序列化特征数据库。 |
-| AREngine_ARStatus HMS_AREngine_ARCamera_GetDisplayOrientedPose(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ARPose *outPose) | 设置outPose为虚拟相机（面向显示）在世界空间中的位姿，用以将AR内容渲染到最新帧中。 |
+| AREngine_ARStatus HMS_AREngine_ARCamera_GetDisplayOrientedPose(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ARPose *outPose) | 获取虚拟相机（面向显示）在世界空间中的位姿，用以将AR内容渲染到最新帧中。 |
 | AREngine_ARStatus HMS_AREngine_ARCamera_GetImageIntrinsics(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ARCameraIntrinsics *outIntrinsics) | 获取物理相机离线内参的对象，可通过该对象获取相机的焦距、图像尺寸、主轴点和畸变参数。 |
 | AREngine_ARStatus HMS_AREngine_ARCamera_GetPose(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ARPose *outPose) | 设置outPose为最新帧中物理相机在世界空间中的位姿。该位姿是OpenGL相机的位姿。 |
 | AREngine_ARStatus HMS_AREngine_ARCamera_GetProjectionMatrix(const AREngine_ARSession *session, const AREngine_ARCamera *camera, AREngine_ClipPlaneDistance clipPlaneDistance, float *outDestColMajor4x4, int32_t destColMajor4x4Num) | 获取用于在相机图像上层渲染虚拟内容的投影矩阵，可用于相机坐标系到裁剪坐标系转换。 |
@@ -236,7 +236,7 @@
 | AREngine_ARStatus HMS_AREngine_ARFaceLandmark_AcquireVertices2D(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, const float **outData) | 获取人脸关键点的2D位姿信息。 |
 | AREngine_ARStatus HMS_AREngine_ARFaceLandmark_AcquireVertices3D(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, const float **outData) | 获取人脸关键点的3D位姿信息。 |
 | AREngine_ARStatus HMS_AREngine_ARFaceLandmark_GetCount(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, int32_t *outSize) | 获取人脸关键点个数。 |
-| AREngine_ARStatus HMS_AREngine_ARFaceLandmark_Release(AREngine_ARFaceLandmark *landmark) | 释放landmark对象，即由HMS_AREngine_ARFace_AcquireLandmark创建的对象。 |
+| void HMS_AREngine_ARFaceLandmark_Release(AREngine_ARFaceLandmark *landmark) | 释放landmark对象，即由HMS_AREngine_ARFace_AcquireLandmark创建的对象。 |
 | AREngine_ARStatus HMS_AREngine_ARFrame_AcquireCamera(const AREngine_ARSession *session, const AREngine_ARFrame *frame, AREngine_ARCamera **outCamera) | 获取当前帧的相机参数对象。 |
 | AREngine_ARStatus HMS_AREngine_ARFrame_AcquireCameraImage(const AREngine_ARSession *session, const AREngine_ARFrame *frame, AREngine_ARImage **outImage) | 获取相机的当前帧的图像。 |
 | AREngine_ARStatus HMS_AREngine_ARFrame_AcquireCameraPhotoImage(const AREngine_ARSession *session, const AREngine_ARFrame *frame, HMS_AREngine_PhotoAvailableCallback photoCallback) | 获取当前帧的拍照流图片。 |

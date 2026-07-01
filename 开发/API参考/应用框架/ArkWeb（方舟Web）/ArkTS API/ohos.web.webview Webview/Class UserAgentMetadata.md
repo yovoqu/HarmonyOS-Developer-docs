@@ -1,6 +1,6 @@
 # Class (UserAgentMetadata)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-useragentmetadata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -278,7 +278,7 @@ setMobile(isMobile: boolean): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isMobile | boolean | 是 | 对应请求标头的Sec-CH-UA-Mobile。表示设备是否为移动设备。true为是移动设备，false为不是移动设备。默认值为true。 |
+| isMobile | boolean | 是 | 对应请求标头的Sec-CH-UA-Mobile。表示设备是否为移动设备。true为是移动设备，false为不是移动设备。 |
 
 
 **示例：**

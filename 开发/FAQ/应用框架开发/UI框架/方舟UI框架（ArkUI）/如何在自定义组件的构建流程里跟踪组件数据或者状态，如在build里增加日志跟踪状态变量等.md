@@ -1,6 +1,6 @@
 # 如何在自定义组件的构建流程里跟踪组件数据或者状态，如在build里增加日志跟踪状态变量等
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-50
 
@@ -8,12 +8,12 @@
  
 参考代码如下：
  
-```ArkTS
+```text
 @Component
 struct TotalView {
   @Prop @Watch('onCountUpdated') count: number = 0;
   @State total: number = 0;
-  // @Watch callback
+ <em> // @Watch callback</em>
   onCountUpdated(propName: string): void {
     this.total += this.count;
   }

@@ -1,6 +1,6 @@
 # AtomicServiceWeb
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicserviceweb
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -65,7 +65,7 @@ AtomicServiceWeb({
   onPageBegin?: Callback<OnPageBeginEvent>,
   onPageEnd?: Callback<OnPageEndEvent>,
   onControllerAttached?: Callback<void>,
-  onLoadIntercept?: Callback<OnLoadInterceptEvent, boolean>,
+  onLoadIntercept?: OnLoadInterceptCallback,
   onProgressChange?: Callback<OnProgressChangeEvent>
 })
 ```
@@ -76,7 +76,7 @@ AtomicServiceWeb({
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**参数**：
+**参数：**
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -92,7 +92,7 @@ AtomicServiceWeb({
 | onHttpErrorReceive | Callback&lt;OnHttpErrorReceiveEvent&gt; | 否 | - | 网页加载资源遇到的HTTP错误（响应码>=400)时触发该回调。 |
 | onPageBegin | Callback&lt;OnPageBeginEvent&gt; | 否 | - | 网页开始加载时触发该回调，且只在主frame触发，iframe或者frameset的内容加载时不会触发此回调。 |
 | onPageEnd | Callback&lt;OnPageEndEvent&gt; | 否 | - | 网页加载完成时触发该回调，且只在主frame触发。 |
-| onControllerAttached | Callback&lt;void&gt; | 否 | - | 当Controller成功绑定到Web组件时触发该回调。 |
+| onControllerAttached | Callback&lt;void&gt; | 否 | - | 当Controller成功绑定到Web组件时触发该回调，此回调中不能使用操作网页的相关接口。 |
 | onLoadIntercept | OnLoadInterceptCallback | 否 | - | 当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。默认允许加载。 |
 | onProgressChange | Callback&lt;OnProgressChangeEvent&gt; | 否 | - | 网页加载进度变化时触发该回调。 |
 
@@ -164,7 +164,7 @@ getCustomUserAgent(): string
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -200,7 +200,7 @@ setCustomUserAgent(userAgent: string): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -224,7 +224,7 @@ refresh(): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -247,7 +247,7 @@ forward(): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -270,7 +270,7 @@ backward(): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -300,7 +300,7 @@ accessForward(): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -330,7 +330,7 @@ accessBackward(): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -367,7 +367,7 @@ accessStep(step: number): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -399,7 +399,7 @@ loadUrl(url: string | Resource, headers?: Array&lt;WebHeader&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
+以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -918,7 +918,8 @@ struct WebComponent {
 
 设置嵌套滚动。
 
-```text
+```ArkTS
+// xxx.ets
 import { AtomicServiceWeb, AtomicServiceWebController } from '@kit.ArkUI';
 
 @Entry

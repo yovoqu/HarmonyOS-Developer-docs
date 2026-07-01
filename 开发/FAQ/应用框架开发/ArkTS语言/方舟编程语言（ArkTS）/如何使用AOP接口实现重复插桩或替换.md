@@ -1,6 +1,6 @@
 # 如何使用AOP接口实现重复插桩或替换
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-72
 
@@ -8,7 +8,7 @@ AOP提供的接口支持方法插桩或替换。
  
 采用addBefore（方法调用前插桩）作为参考例子，重复插桩时，后插入的代码段先执行。
  
-```ArkTS
+```text
 import { util } from '@kit.ArkTS';
 
 class Test {

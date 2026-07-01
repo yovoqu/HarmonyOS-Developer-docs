@@ -1,6 +1,6 @@
 # ImageData
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagedata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,6 +9,12 @@ ImageData对象可以存储canvas渲染的像素数据。
  
 > [!NOTE]
 > 从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 创建ImageData时，宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911px时，返回值的width和height均为0px，data为undefined。
+
+  
+
+#### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -121,4 +127,4 @@ struct Translate {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/SfytEVK6SaKQV3zahLU-jQ/zh-cn_image_0000002611835925.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=344B1C0561510B84268058CD9F877DADF60A20711DB1A92A8A06A06D9189A661)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/ZW-9guHOSnCHeJes-JtpSw/zh-cn_image_0000002659222023.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=ABD8A54E3F81412C97F7972BBA8D0D34396059546B95519CC1A7B29077162C49)

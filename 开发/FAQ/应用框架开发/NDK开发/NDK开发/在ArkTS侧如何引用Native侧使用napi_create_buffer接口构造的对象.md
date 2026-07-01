@@ -1,6 +1,6 @@
 # 在ArkTS侧如何引用Native侧使用napi_create_buffer接口构造的对象
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-58
 
@@ -12,14 +12,13 @@
  
 可以参考以下代码示例：
  1. Native侧构造buffer并写入数据。
-```cpp
+```text
 #include "CreateBuffer.h"
 napi_value CreateBuffer::TestBuffer(napi_env env, napi_callback_info) {
     size_t length = 100;
     char *data = nullptr;
     napi_value result = nullptr;
     napi_create_buffer(env, length, reinterpret_cast<void **>(&data), &result);
-
 
     char buf[50] = {0};
     for (int i = 0; i < 50; i++) {
@@ -31,20 +30,18 @@ napi_value CreateBuffer::TestBuffer(napi_env env, napi_callback_info) {
 ```
 
 2. index.d.ts文件中声明接口。
-```ts
+```text
 export const testBuffer: () => ArrayBuffer;
 ```
 
 3. ArkTS侧获取buffer信息。
-```ArkTS
+```text
 import testNapi from 'libentry.so';
-
 
 @Entry
 @Component
 struct Index {
   @State message: string = 'Hello World';
-
 
   build() {
     Row() {

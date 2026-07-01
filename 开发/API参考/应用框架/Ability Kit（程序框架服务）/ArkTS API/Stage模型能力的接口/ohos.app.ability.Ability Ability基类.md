@@ -1,6 +1,6 @@
 # @ohos.app.ability.Ability (Ability基类)
 
-更新时间：2026-03-19 08:47:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -33,7 +33,7 @@ Ability基类及其子类的继承关系如下图所示。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/e2h3pLh5QW2YGgbiD6b61w/zh-cn_image_0000002581275600.png?HW-CC-KV=V1&HW-CC-Date=20260528T025634Z&HW-CC-Expire=86400&HW-CC-Sign=334218591A4B600350D0D67E63DC078AC861E7EDC446894A3BF75FBF4007A44E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/X7UG3r4vT8yfMjUQd2UwOA/zh-cn_image_0000002659221425.png?HW-CC-KV=V1&HW-CC-Date=20260701T014229Z&HW-CC-Expire=86400&HW-CC-Sign=41FDCBD994E9BA96E14C42F3DC9119233BA82283CDE866ADC187D718B8499829)
 
 
 

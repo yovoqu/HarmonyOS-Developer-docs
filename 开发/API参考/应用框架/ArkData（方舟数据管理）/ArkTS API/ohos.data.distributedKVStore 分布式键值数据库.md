@@ -1,6 +1,6 @@
 # @ohos.data.distributedKVStore (分布式键值数据库)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -412,7 +412,7 @@ createKVManager(config: KVManagerConfig): KVManager
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | KVManagerConfig | 是 | 提供KVManager实例的配置信息，包括调用方的包名（不能为空）和用户信息。 |
+| config | KVManagerConfig | 是 | 提供KVManager实例的配置信息，包括应用的上下文和调用方的包名（不能为空）。 |
 
 
 **返回值：**
@@ -511,7 +511,7 @@ getKVStore&lt;T&gt;(storeId: string, options: Options, callback: AsyncCallback&l
 通过指定options和storeId，创建并获取分布式键值数据库，使用callback异步回调。获取数据库后，在使用完毕时需调用[closeKVStore](#closekvstore)关闭数据库释放资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/EnLMD1wyRg6KDu2STBZ_ng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074821Z&HW-CC-Expire=86400&HW-CC-Sign=6DE446F4E6FE5D6A4A04B57E6976D47B63F4900D94DA73C0616468E076CACB09)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/cYMIZcYDSlO_keB9oyUxnw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014251Z&HW-CC-Expire=86400&HW-CC-Sign=8518C06E21A73E9A78E174AA35DC78897985B7C2AB34D1C46573C487F2D2851B)
 
 
 在获取已有的分布式键值数据库时，如果数据库文件无法打开（例如文件头损坏），将触发自动重建逻辑，并返回新创建的分布式键值数据库实例。建议对重要且无法重新生成的数据使用备份恢复功能，以防止数据丢失。有关备份恢复的使用方法，请参阅[数据库备份与恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore)。
@@ -584,7 +584,7 @@ getKVStore&lt;T&gt;(storeId: string, options: Options): Promise&lt;T&gt;
 指定options和storeId，创建并获取分布式键值数据库，使用Promise回调。获取数据库后，在使用完毕时需调用[closeKVStore](#closekvstore)关闭数据库释放资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/qL2Vx3hERVmNJC9kJHcq2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074821Z&HW-CC-Expire=86400&HW-CC-Sign=7DB0BCFA671D05CEED7B4D7271D5BC08603C1E0FEF9CC7F1882470620E37B42D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/wKJi01emRfm0ViY7PuwqyA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014251Z&HW-CC-Expire=86400&HW-CC-Sign=DABBBC060FDA730A3C24584603295984DA7CC9FF772AB97C34965E8D63DE9A3A)
 
 
 获取已有的分布式键值数据库时，如果数据库文件无法打开（如文件头损坏），将触发自动重建逻辑，并返回新创建的分布式键值数据库实例。建议对重要且无法重新生成的数据使用备份恢复功能，防止数据丢失。备份恢复的使用方法详见[数据库备份与恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore)。
@@ -1357,7 +1357,7 @@ try {
     do {
       moved = resultSet.moveToNext();
       console.info("moveToNext succeed: " + moved);
-    } while (moved)
+    } while (moved);
   }).catch((err: BusinessError) => {
     console.error('getResultSet failed: ' + err);
   });
@@ -2983,7 +2983,7 @@ setSuggestIndex(index: string): Query
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | string | 是 | 指示要设置的索引，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
+| index | string | 是 | 表示要设置的索引，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
 
 
 **返回值：**
@@ -3041,7 +3041,7 @@ deviceId(deviceId:string):Query
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceId | string | 是 | 指示查询的设备ID，不能为空。 |
+| deviceId | string | 是 | 表示查询的设备ID，不能为空。 |
 
 
 **返回值：**
@@ -3723,7 +3723,7 @@ removeDeviceData(deviceId: string, callback: AsyncCallback&lt;void&gt;): void
 删除指定设备的数据，使用callback异步回调。删除成功后，指定设备的所有数据将从本地数据库中永久移除，无法再通过get等方法查询该设备的数据。
 
 > [!NOTE]
-> 其中deviceId为 DeviceBasicInfo 中的networkId，通过调用 deviceManager.getAvailableDeviceListSync 方法得到。 deviceId具体获取方式请参考 sync接口示例
+> 其中deviceId为 DeviceBasicInfo 中的networkId，通过调用 deviceManager.getAvailableDeviceListSync 方法得到。 deviceId具体获取方式请参考 sync接口示例 。
 
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -3797,7 +3797,7 @@ removeDeviceData(deviceId: string): Promise&lt;void&gt;
 删除指定设备的数据，使用Promise异步回调。删除成功后，指定设备的所有数据将从本地数据库中永久移除，无法再通过get等方法查询该设备的数据。
 
 > [!NOTE]
-> 其中deviceId为 DeviceBasicInfo 中的networkId，通过调用 deviceManager.getAvailableDeviceListSync 方法得到。 deviceId具体获取方式请参考 sync接口示例
+> 其中deviceId为 DeviceBasicInfo 中的networkId，通过调用 deviceManager.getAvailableDeviceListSync 方法得到。 deviceId具体获取方式请参考 sync接口示例 。
 
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -3834,21 +3834,21 @@ import { BusinessError } from '@kit.BasicServicesKit';
 const KEY_TEST_STRING_ELEMENT = 'key_test_string_2';
 const VALUE_TEST_STRING_ELEMENT = 'value-string-001';
 try {
-  kvStore.put(KEY_TEST_STRING_ELEMENT, VALUE_TEST_STRING_ELEMENT).then(() => {
+  kvStore!.put(KEY_TEST_STRING_ELEMENT, VALUE_TEST_STRING_ELEMENT).then(() => {
     console.info('Succeeded in putting data');
+    const deviceid = 'no_exist_device_id';
+    kvStore!.removeDeviceData(deviceid).then(() => {
+      console.info('succeeded in removing device data');
+      kvStore!.get(KEY_TEST_STRING_ELEMENT).then((data: boolean | string | number | Uint8Array) => {
+        console.info(`Succeeded in getting data. Data=${data}`);
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to get data.code is ${err.code},message is ${err.message}`);
+      });
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to remove device data.code is ${err.code},message is ${err.message}`);
+    });
   }).catch((err: BusinessError) => {
-    console.error(`Failed to put data.code is ${err.code},message is ${err.message} `);
-  });
-  const deviceid = 'no_exist_device_id';
-  kvStore.removeDeviceData(deviceid).then(() => {
-    console.info('succeeded in removing device data');
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to remove device data.code is ${err.code},message is ${err.message} `);
-  });
-  kvStore.get(KEY_TEST_STRING_ELEMENT).then((data: boolean | string | number | Uint8Array) => {
-    console.info(`Succeeded in getting data. Data=${data}`);
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to get data.code is ${err.code},message is ${err.message} `);
+    console.error(`Failed to put data.code is ${err.code},message is ${err.message}`);
   });
 } catch (e) {
   let error = e as BusinessError;
@@ -4301,7 +4301,7 @@ getResultSet(keyPrefix: string, callback: AsyncCallback&lt;KVStoreResultSet&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyPrefix | string | 是 | 表示要匹配的键前缀。不能包含'^'，包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
+| keyPrefix | string | 是 | 表示要匹配的键前缀，长度不超过MAX_KEY_LENGTH。不能包含'^'，包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
 | callback | AsyncCallback&lt;KVStoreResultSet&gt; | 是 | 回调函数。返回具有指定前缀的结果集。 |
 
 
@@ -4425,23 +4425,23 @@ try {
     }
     entries.push(entry);
   }
-  kvStore.putBatch(entries).then(async () => {
+  kvStore!.putBatch(entries).then(() => {
     console.info('Succeeded in putting batch');
+    kvStore!.getResultSet('batch_test_string_key').then((result: distributedKVStore.KVStoreResultSet) => {
+      console.info('Succeeded in getting result set');
+      resultSet = result;
+      if (kvStore != null) {
+        kvStore.closeResultSet(resultSet).then(() => {
+          console.info('Succeeded in closing result set');
+        }).catch((err: BusinessError) => {
+          console.error(`Failed to close resultset.code is ${err.code},message is ${err.message}`);
+        });
+      }
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to get resultset.code is ${err.code},message is ${err.message}`);
+    });
   }).catch((err: BusinessError) => {
     console.error(`Failed to put batch.code is ${err.code},message is ${err.message}`);
-  });
-  kvStore.getResultSet('batch_test_string_key').then((result: distributedKVStore.KVStoreResultSet) => {
-    console.info('Succeeded in getting result set');
-    resultSet = result;
-    if (kvStore != null) {
-      kvStore.closeResultSet(resultSet).then(() => {
-        console.info('Succeeded in closing result set');
-      }).catch((err: BusinessError) => {
-        console.error(`Failed to close resultset.code is ${err.code},message is ${err.message}`);
-      });
-    }
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to get resultset.code is ${err.code},message is ${err.message}`);
   });
 } catch (e) {
   let error = e as BusinessError;
@@ -4568,7 +4568,6 @@ getResultSet(query: Query): Promise&lt;KVStoreResultSet&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let resultSet: distributedKVStore.KVStoreResultSet;
   let entries: distributedKVStore.Entry[] = [];
   for (let i = 0; i < 10; i++) {
     let key = 'batch_test_string_key';
@@ -4581,18 +4580,17 @@ try {
     }
     entries.push(entry);
   }
-  kvStore.putBatch(entries).then(async () => {
+    kvStore!.putBatch(entries).then(() => {
     console.info('Succeeded in putting batch');
+    const query = new distributedKVStore.Query();
+    query.prefixKey("batch_test");
+    kvStore!.getResultSet(query).then((result: distributedKVStore.KVStoreResultSet) => {
+      console.info(`Succeeded in getting result set size=${result.getCount()}}`);
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to get resultset.code is ${err.code},message is ${err.message}`);
+    });
   }).catch((err: BusinessError) => {
     console.error(`Failed to put batch.code is ${err.code},message is ${err.message}`);
-  });
-  const query = new distributedKVStore.Query();
-  query.prefixKey("batch_test");
-  kvStore.getResultSet(query).then((result: distributedKVStore.KVStoreResultSet) => {
-    console.info('Succeeded in getting result set');
-    resultSet = result;
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to get resultset.code is ${err.code},message is ${err.message}`);
   });
 } catch (e) {
   let error = e as BusinessError;
@@ -6496,6 +6494,56 @@ try {
 
 
 
+#### rekey
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+rekey(): Promise&lt;void&gt;
+
+更新数据库的加密密钥，使用Promise异步回调。
+
+> [!NOTE]
+> rekey仅对创建时已启用加密的数据库有效，即Options中encrypt需设置为true，非加密数据库调用此接口将返回错误。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[分布式键值数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedkvstore)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 15100003 | Database corrupted. |
+| 15100005 | Database or result set already closed. |
+| 15100006 | Failed to update the key. |
+
+
+**示例：**
+
+```text
+try {
+  kvStore.rekey().then(() => {
+    console.info('Success');
+  })
+} catch (err) {
+  console.error(`Failed to rekey. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
 #### DeviceKVStore
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -7416,7 +7464,7 @@ getResultSet(keyPrefix: string, callback: AsyncCallback&lt;KVStoreResultSet&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyPrefix | string | 是 | 表示要匹配的键前缀。不能包含'^'，包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
+| keyPrefix | string | 是 | 表示要匹配的键前缀，长度不超过MAX_KEY_LENGTH。不能包含'^'，包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
 | callback | AsyncCallback&lt;KVStoreResultSet&gt; | 是 | 回调函数。返回具有指定前缀的结果集。 |
 
 

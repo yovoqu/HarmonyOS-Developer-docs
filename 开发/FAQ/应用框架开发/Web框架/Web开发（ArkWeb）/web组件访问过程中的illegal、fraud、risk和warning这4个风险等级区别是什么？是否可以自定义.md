@@ -1,6 +1,6 @@
 # web组件访问过程中的illegal、fraud、risk和warning这4个风险等级区别是什么？是否可以自定义
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-79
 

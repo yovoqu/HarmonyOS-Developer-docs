@@ -1,6 +1,6 @@
 # List控件加载的数据如何判断是否超过一屏
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-334
 
@@ -47,13 +47,13 @@ struct AllListItemHeight {
  
 2.通过getItemRect(index: number): RectResult获取子组件的大小位置，可以获取最后一个ListItem的位置大小信息进行计算。
  
-```ArkTS
+```json
 @Entry
 @Component
 struct GetLastItem {
   private itemHeightArr = [100, 150, 200, 130, 120, 110.130];
   private listHeight = 700;
-  // Scroll controller for obtaining the position information of list items
+ <em> // Scroll controller for obtaining the position information of list items</em>
   scroller = new ListScroller();
 
 
@@ -89,7 +89,7 @@ struct GetLastItem {
  
 3.通过getItemRectInGroup(index: number, indexInGroup: number): RectResult，获取最后一个ListItemGroup中的最后一个ListItem的大小和相对于List的位置进行计算
  
-```ArkTS
+```json
 @Entry
 @Component
 struct GetLastGroup {
@@ -97,7 +97,7 @@ struct GetLastGroup {
     [[30, 50, 60, 40, 90, 80.60],
       [50, 40, 50, 55, 77, 88.44],];
   private listHeight = 700;
-  // Scroll controller for obtaining the position information of list items
+  <em>// Scroll controller for obtaining the position information of list items</em>
   scroller = new ListScroller();
 
   build() {

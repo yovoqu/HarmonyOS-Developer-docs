@@ -1,6 +1,6 @@
 # OS平台API行为的变更
 
-更新时间：2026-02-09 09:24:30
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-5101
 
@@ -213,7 +213,7 @@ struct KeyboardAvoidExample1 {
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/RgCJyly9RP2N5m_HX_lxMg/zh-cn_image_0000002295394565.png?HW-CC-KV=V1&HW-CC-Date=20260528T025848Z&HW-CC-Expire=86400&HW-CC-Sign=DA19C84EE195B62BE9A51EA7107AC5C3B84220449918FAECACB0C55A79ED6715)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/HlYdwu05SjKYbDgvEhCrhA/zh-cn_image_0000002295394565.png?HW-CC-KV=V1&HW-CC-Date=20260701T015143Z&HW-CC-Expire=86400&HW-CC-Sign=C054734CEF050385CDA401C37DAF5D2665D7244A5AF16D834D9A492BE0053BF9)
 
  
 **起始API Level**
@@ -264,7 +264,7 @@ struct enableAnalyzer {
 在白名单的内置组件属性与自定义组件重名时，编译拦截报错。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/FQJ5XDoRSDexBIwf2e9x0A/zh-cn_image_0000002260714460.png?HW-CC-KV=V1&HW-CC-Date=20260528T025848Z&HW-CC-Expire=86400&HW-CC-Sign=BBF8DF0E521B58C5849829FF65FA808F7B03291D9659F569EC00CE0F984A8B32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/jlcjl_YdTOegWSPdcc_Ptw/zh-cn_image_0000002260714460.png?HW-CC-KV=V1&HW-CC-Date=20260701T015143Z&HW-CC-Expire=86400&HW-CC-Sign=AB0EB16FF1A72E796B7050F617677E8449F8EB6E3AB4735E3A6C7C5F550ED3F7)
 
  
 **起始API Level**

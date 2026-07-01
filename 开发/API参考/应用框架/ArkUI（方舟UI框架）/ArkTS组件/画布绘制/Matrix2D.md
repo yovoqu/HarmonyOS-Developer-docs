@@ -1,6 +1,6 @@
 # Matrix2D
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-matrix2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -17,7 +17,7 @@ Matrix2D的使用场景包括：
 
   
 
-#### 构造函数
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,6 +35,8 @@ constructor()
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
   
@@ -50,6 +52,8 @@ constructor(unit: LengthMetricsUnit)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -364,7 +368,7 @@ rotate(degree: number, rx?: number, ry?: number): Matrix2D
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| degree | number | 是 | 旋转弧度，取值范围无限制。顺时针方向为正弧度，可以通过角度 * Math.PI / 180将角度转换为弧度值传入该接口。 异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。 默认单位：弧度 |
+| degree | number | 是 | 旋转角度，取值范围无限制。顺时针方向为正弧度，可以通过角度 * Math.PI / 180将角度转换为弧度值传入该接口。 异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。 默认单位：弧度 |
 | rx | number | 否 | 旋转点的水平方向坐标，取值范围无限制。 默认单位：vp 异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。 默认值：0 |
 | ry | number | 否 | 旋转点的垂直方向坐标，取值范围无限制。 默认单位：vp 异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。 默认值：0 |
  
@@ -484,7 +488,7 @@ struct Translate {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/wMDu6_iUR4uh-BEQ7D1srw/zh-cn_image_0000002611835937.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=BD690643C4B1E7D9F70DB147DDD8AEF75EC96069585CEF966C8AF6469CECD665)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/u_XqAtwZSOykEm5PsLNxoA/zh-cn_image_0000002628702844.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=176E451BF38B281DE8C12E31C1A11B26DA549C80D5E57FCEAAB1FF9A0233B3DB)
 
  
   
@@ -505,7 +509,7 @@ scale(sx?: number, sy?: number): Matrix2D
  
 **参数：**
   
-| 参数 | 类型 | 必填 | 描述 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sx | number | 否 | 水平缩放比例系数，取值范围无限制。 异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。 默认值：1.0 |
 | sy | number | 否 | 垂直缩放比例系数，取值范围无限制。 异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。 默认值：1.0 |
@@ -555,4 +559,4 @@ struct Scale {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/YHivEQITQcyE3J1qi5_d1A/zh-cn_image_0000002581276192.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=7AB2359167946D15823C9A2AA827E34725E985505B03175BAC5DC21B7A869C98)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/YkE461qHSBi0RfWAQC5rEA/zh-cn_image_0000002659102071.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=256F64DFCE8ECCE34FC324EDAEF814490673178A7CB418F9C3FCB5E84888B4A6)

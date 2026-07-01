@@ -1,6 +1,6 @@
 # 网络问题导致image组件加载在线图片失败
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-98
 

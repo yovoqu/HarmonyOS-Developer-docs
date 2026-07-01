@@ -1,6 +1,6 @@
 # MenuItem
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menuitem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 用来展示菜单中具体的菜单选项。
 
 > [!NOTE]
-> 该组件从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
 
 
 
@@ -54,8 +54,8 @@ Menu中具体item菜单项信息。
 | endIcon | ResourceStr | 否 | 是 | MenuItem的末尾图标。不支持Symbol图标。使用Symbol图标时，须使用symbolEndIcon。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | labelInfo | ResourceStr | 否 | 是 | MenuItem结束的标签信息，如快捷方式Ctrl+C等。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | builder | CustomBuilder | 否 | 是 | 用于构建二级菜单。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| symbolStartIcon12+ | SymbolGlyphModifier | 否 | 是 | MenuItem起始的Symbol图标。配置该项时，原先startIcon图标不显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| symbolEndIcon12+ | SymbolGlyphModifier | 否 | 是 | MenuItem末尾的Symbol图标。配置该项时，原先endIcon图标不显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| symbolStartIcon12+ | SymbolGlyphModifier | 否 | 是 | MenuItem起始的Symbol图标。配置该项时，原先startIcon图标不显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| symbolEndIcon12+ | SymbolGlyphModifier | 否 | 是 | MenuItem末尾的Symbol图标。配置该项时，原先endIcon图标不显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -124,6 +124,8 @@ contentFont(value: Font)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -144,6 +146,8 @@ contentFontColor(value: ResourceColor)
 设置菜单项中内容信息的字体颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -166,6 +170,8 @@ labelFont(value: Font)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -186,6 +192,8 @@ labelFontColor(value: ResourceColor)
 设置菜单项中标签信息的字体颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

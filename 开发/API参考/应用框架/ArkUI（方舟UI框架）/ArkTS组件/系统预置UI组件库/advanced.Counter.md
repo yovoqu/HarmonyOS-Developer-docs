@@ -1,6 +1,6 @@
 # advanced.Counter
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-counter
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 Counter组件用于精确调节数值。
  
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 如果Counter设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到Counter本身。这可能导致开发者设置的通用属性或通用事件的效果不生效或不符合预期，因此，不建议Counter设置通用属性和通用事件。
+> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 如果Counter设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到Counter本身。这可能导致开发者设置的通用属性或通用事件的效果不生效或不符合预期，因此，不建议Counter设置通用属性和通用事件。
 
   
 
@@ -491,4 +491,4 @@ struct CounterPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/SXhMdTljRfWVwa0iLjV8lQ/zh-cn_image_0000002611756221.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=2C7BF8E97CDEE79FF205F119B056328442D6AE64F60C93C28325CECA02498FDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/7HmqfqXOQ0GiIN4c4nj6TA/zh-cn_image_0000002628703018.png?HW-CC-KV=V1&HW-CC-Date=20260701T014355Z&HW-CC-Expire=86400&HW-CC-Sign=0D2E46638B654AE98513453D5FB5AA81E86875DB977CE4A0B6DEBD9A59F2AA37)

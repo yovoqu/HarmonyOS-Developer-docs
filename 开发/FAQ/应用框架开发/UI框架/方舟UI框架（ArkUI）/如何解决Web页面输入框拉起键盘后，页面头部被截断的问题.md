@@ -1,6 +1,6 @@
 # 如何解决Web页面输入框拉起键盘后，页面头部被截断的问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-148
 
@@ -13,8 +13,8 @@
  
 该问题可通过监听软键盘状态解决：软键盘弹出时，将子窗口高度设置为屏幕高度减去软键盘高度；软键盘收起时，子窗口高度设置为屏幕高度。参考代码如下：
  
-```ArkTS
-// Sub-window page layout
+```text
+<em>// Sub-window page layout</em>
 import { webview } from '@kit.ArkWeb';
 import { window } from '@kit.ArkUI';
 
@@ -30,7 +30,7 @@ export struct SubWindowPage {
 
   aboutToAppear() {
     window.getLastWindow(this.getUIContext().getHostContext()).then(currentWindow => {
-      // Monitor keyboard pop-up and collapse
+      <em>// Monitor keyboard pop-up and collapse</em>
       currentWindow.on('avoidAreaChange', async data => {
         let property = currentWindow.getWindowProperties();
         let avoidArea = currentWindow.getWindowAvoidArea(window.AvoidAreaType.TYPE_KEYBOARD);

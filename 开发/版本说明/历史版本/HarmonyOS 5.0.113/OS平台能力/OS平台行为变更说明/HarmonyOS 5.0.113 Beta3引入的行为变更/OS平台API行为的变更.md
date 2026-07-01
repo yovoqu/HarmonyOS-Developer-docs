@@ -1,6 +1,6 @@
 # OS平台API行为的变更
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-b106
 
@@ -182,7 +182,7 @@ let result: ESObject = conv.convertToJSObject(xml, options);
 当开发者把中间码HAR升级为字节码HAR时使用router.getState()方法获取的是**绝对路径**。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/PhhyaRD8R5uEgOcJTW_FOQ/zh-cn_image_0000002117819161.png?HW-CC-KV=V1&HW-CC-Date=20260528T025907Z&HW-CC-Expire=86400&HW-CC-Sign=15C3F37A4D3E0E361A5ABBC7B4A8732F30E3098C38744C4C11E64AAB46E54ACE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/djNVzTmXTzmf1fudjolcMQ/zh-cn_image_0000002117819161.png?HW-CC-KV=V1&HW-CC-Date=20260701T015204Z&HW-CC-Expire=86400&HW-CC-Sign=8C44D8748DD2F41F696E74C113504303106F67E0735C619633192435DD044983)
 
  
 通过router.getState()方法获取的path信息为"library/src/main/ets/components/"。

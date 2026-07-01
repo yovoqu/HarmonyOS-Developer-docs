@@ -1,6 +1,6 @@
 # button
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-button
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -183,4 +183,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/pciaj4bPTrS8tjb4L-sOIg/zh-cn_image_0000002611836155.png?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=B4E856CF4E020FEE2073AD8175642B80436A576CCC9626E19DAB8FF7A8758A02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/CWX0GY2pSXycNgUOhPVN0w/zh-cn_image_0000002628862942.png?HW-CC-KV=V1&HW-CC-Date=20260701T014401Z&HW-CC-Expire=86400&HW-CC-Sign=99719A7AAEF3A72807EE3F28543F3854B0AAC1CBE7B8EF7EE25D3091BA8F1C6D)

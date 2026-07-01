@@ -1,6 +1,6 @@
 # Interface (ImageSource)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -952,7 +952,7 @@ createPicture(options?: DecodingOptionsForPicture): Promise&lt;Picture&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.2.Incorrect parameter types; 3.Parameter verification failed. |
-| 7700203 | Unsupported options. For example, unsupported desiredPixelFormat causes a failure in converting an image into the desired pixel format. |
+| 7700203 | Unsupported options. For example, unsupported desiredPixelFormat causes a failure in converting an image into the desired pixel format. 适用版本：24+ |
 | 7700301 | Decode failed. |
 
 

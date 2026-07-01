@@ -1,6 +1,6 @@
 # Rcp_DnsOverHttps
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___dns_over_https
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-HTTPS上的DNS配置如果设置，则首选由DOH dns服务器解析的地址。
+HTTPS上的DNS配置如果设置，则首选由DOH DNS服务器解析的地址。
  
 **起始版本：** 5.0.0(12)
  
@@ -53,7 +53,7 @@ bool Rcp_DnsOverHttps::skipCertificatesValidation
  
 **描述**
  
-判断是否跳过证书验证。默认值为false。
+判断是否跳过证书验证。true代表跳过，false代表不跳过，默认值为false。
  
   
 

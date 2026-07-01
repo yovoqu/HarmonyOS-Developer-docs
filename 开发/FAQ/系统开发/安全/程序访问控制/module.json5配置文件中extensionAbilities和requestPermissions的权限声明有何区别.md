@@ -1,6 +1,6 @@
 # module.json5配置文件中extensionAbilities和requestPermissions的权限声明有何区别
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-access-control-14
 
@@ -8,6 +8,7 @@
 - extensionAbilities.permissions：标识当前ExtensionAbility组件自定义的权限信息。其他应用访问该 ExtensionAbility 时，需申请相应权限，仅用于权限校验。
 
  
-**参考链接**
- 
+
+#### 参考链接
+
 [module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)

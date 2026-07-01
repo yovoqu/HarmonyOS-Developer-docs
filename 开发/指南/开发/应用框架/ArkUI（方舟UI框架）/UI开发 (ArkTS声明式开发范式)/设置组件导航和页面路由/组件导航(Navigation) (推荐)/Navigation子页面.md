@@ -1,6 +1,6 @@
 # Navigation子页面
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navdestination
 
@@ -85,7 +85,7 @@ export struct DialogPage {
 
 #### 页面生命周期
 
-页面生命周期承载在NavDestination组件上，可分为三类：自定义组件生命周期、通用组件生命周期和[NavDestination生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#事件)。其中，[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)和[aboutToDisappear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear)是自定义组件的生命周期（NavDestination外层包含的自定义组件），[onAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#onappear)和[onDisAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#ondisappear)是组件的通用生命周期。剩下的生命周期为NavDestination独有。
+页面生命周期承载在NavDestination组件上，可分为三类：自定义组件生命周期、通用组件生命周期和NavDestination生命周期[事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#事件)。其中，[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)和[aboutToDisappear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear)是自定义组件的生命周期（NavDestination外层包含的自定义组件），[onAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#onappear)和[onDisAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#ondisappear)是组件的通用生命周期。剩下的生命周期为NavDestination独有。
 
 生命周期时序如下图所示：
 

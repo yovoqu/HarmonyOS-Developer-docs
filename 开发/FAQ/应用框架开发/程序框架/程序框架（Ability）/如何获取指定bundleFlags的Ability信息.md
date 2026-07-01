@@ -1,6 +1,6 @@
 # 如何获取指定bundleFlags的Ability信息
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-72
 
@@ -8,8 +8,8 @@ bundleManager.getBundleInfoForSelf :getBundleInfoForSelf(bundleFlags: number): P
  
 根据给定的bundleFlags，异步获取当前应用的BundleInfo，返回结果使用Promise形式。参考示例代码如下：
  
-```ArkTS
-// Get appInfo with metadataArray information
+```json
+<em>// Get appInfo with metadataArray information</em>
 import { bundleManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';

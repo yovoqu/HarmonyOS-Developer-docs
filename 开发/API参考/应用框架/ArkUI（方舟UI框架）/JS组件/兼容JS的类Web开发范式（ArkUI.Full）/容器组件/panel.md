@@ -1,6 +1,6 @@
 # panel
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-panel
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -190,4 +190,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/6zHl4j6nQne-fOo26aFkSg/zh-cn_image_0000002581276406.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025444Z&HW-CC-Expire=86400&HW-CC-Sign=1DCB5F82A4324DCA890A1A613F8DD8A411C32FBA4932C9D40C9136DABEDF0B76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/1vYzyL1PR_uezfL7ooqlgw/zh-cn_image_0000002659222251.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014400Z&HW-CC-Expire=86400&HW-CC-Sign=7D86EA3BC6F31AE4E19DDC4D45835739B3DF9533971C41A678A0C62AC35262D5)

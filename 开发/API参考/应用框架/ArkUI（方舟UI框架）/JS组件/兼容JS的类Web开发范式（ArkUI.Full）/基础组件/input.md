@@ -1,6 +1,6 @@
 # input
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-input
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -46,7 +46,7 @@
 | headericon | string | - | 否 | 在文本输入前的图标资源路径，该图标不支持点击事件（button，checkbox和radio不生效），图标格式为jpg，png和svg。 |
 | showcounter5+ | boolean | false | 否 | 文本输入框是否显示计数下标，需要配合maxlength一起使用。 true表示显示，false表示不显示。 |
 | menuoptions5+ | Array&lt;MenuOption&gt; | - | 否 | 设置文本选择弹框点击更多按钮之后显示的菜单项。 |
-| autofocus6+ | boolean | false | 否 | 是否自动获焦。 应用首页中设置不生效，可在onActive中延迟（100-500ms左右）调用focus方法实现输入框在首页中自动获焦。 true表示文本框自动获焦，false表示文本框不自动获焦。 |
+| autofocus6+ | boolean | false | 否 | 是否自动获取焦点。应用首页中设置不生效，可在onActive中延迟（100-500ms左右）调用focus方法实现输入框在首页中自动获取焦点。true表示文本框自动获取焦点，false表示文本框不自动获取焦点。 |
 | selectedstart6+ | number | -1 | 否 | 开始选择文本时初始选择位置。 |
 | selectedend6+ | number | -1 | 否 | 开始选择文本时结尾选择位置。 |
 | softkeyboardenabled6+ | boolean | true | 否 | 编辑时是否弹出系统软键盘。 true表示会弹出系统软键盘，false表示不会弹出。 |
@@ -105,7 +105,7 @@
 
 | optionselect5+ | { index: optionIndex, value: selectedText } | 文本选择弹窗中设置menuoptions属性后，用户在文本选择操作后，点击菜单项后触发该回调，返回点击的菜单项序号和选中的文本内容。 |
 
-| selectchange6+ | { start: number, end: number } | 文本选择变化时触发事件。 |
+| selectchange6+ | { start: number, end: number } | 文本选择变化时触发该事件，返回文本选择的起始和结束位置。 |
 - 当input类型为checkbox、radio时，支持如下事件：
 
 | 名称 | 参数 | 描述 |
@@ -289,4 +289,4 @@ export default {
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/wqUrG5x8RgGGOOWEfGyJLA/zh-cn_image_0000002581436332.png?HW-CC-KV=V1&HW-CC-Date=20260528T025439Z&HW-CC-Expire=86400&HW-CC-Sign=E258162D52BCF262BAE0154CB465BE5F0B94BA638A2CB345814247C3AAE84EF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/1HPknPNhQsyYwu68_y5Qog/zh-cn_image_0000002659102295.png?HW-CC-KV=V1&HW-CC-Date=20260701T014401Z&HW-CC-Expire=86400&HW-CC-Sign=AEB1180A128BA8D2FAAC65C4FA7CE9F6DCC800DFFA453AD2E4BC8292DE4C7FAB)

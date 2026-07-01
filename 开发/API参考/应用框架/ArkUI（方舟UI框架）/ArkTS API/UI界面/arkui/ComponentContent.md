@@ -1,6 +1,6 @@
 # ComponentContent
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@ ComponentContent表示组件内容的实体封装，其对象支持在非UI组�
 ReactiveComponentContent表示组件内容的实体封装，其对象支持在非UI组件中创建与传递，便于开发者对弹窗类组件进行解耦封装。其底层使用了ReactiveBuilderNode，具体使用规格参考[ReactiveBuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#reactivebuildernode22)。
 
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 当前不支持在预览器中使用ComponentContent和ReactiveComponentContent。 ComponentContent对象不支持使用JSON序列化。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 当前不支持在预览器中使用ComponentContent和ReactiveComponentContent。 ComponentContent对象不支持使用JSON序列化。
 
 
 
@@ -255,7 +255,7 @@ struct Index {
 
 reuse(param?: Object): void
 
-触发ComponentContent中的自定义组件的复用。组件复用请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。关于ComponentContent的解绑场景请参见[解除实体节点引用关系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#解除实体节点引用关系)。
+触发ComponentContent中的自定义组件的复用。组件复用请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。关于ComponentContent的解绑场景请参见[解除实体节点引用关系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#解除实体节点引用关系)。从API版本26.0.0开始，ComponentContent中的自定义组件支持V2组件复用，请参见[@ReusableV2装饰器：V2组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -277,7 +277,7 @@ reuse(param?: Object): void
 recycle(): void
 
  - 触发ComponentContent中自定义组件的回收。自定义组件的回收是组件复用机制中的环节，具体信息请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。
- - ComponentContent通过reuse和recycle完成其内外自定义组件之间的复用事件传递，具体使用场景请参见[BuilderNode调用reuse和recycle接口实现节点复用能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#buildernode调用reuse和recycle接口实现节点复用能力)。
+ - ComponentContent通过reuse和recycle完成其内外自定义组件之间的复用事件传递，具体使用场景请参见[BuilderNode调用reuse和recycle接口实现节点复用能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#buildernode调用reuse和recycle接口实现节点复用能力)。从API版本26.0.0开始，ComponentContent中的自定义组件支持V2组件复用，请参见[@ReusableV2装饰器：V2组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2)。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -459,6 +459,180 @@ struct Index {
 
 ![](assets/ComponentContent/file-20260514163846202-11.gif)
 
+
+从API版本26.0.0开始，ComponentContent中的自定义组件支持V2组件复用。
+
+```text
+import { NodeContent, typeNode, ComponentContent } from '@kit.ArkUI';
+
+const TEST_TAG: string = 'Reuse+Recycle';
+
+class MyDataSource {
+  private dataArray: string[] = [];
+  private listener: DataChangeListener | null = null;
+
+  public totalCount(): number {
+    return this.dataArray.length;
+  }
+
+  public getData(index: number) {
+    return this.dataArray[index];
+  }
+
+  public pushData(data: string) {
+    this.dataArray.push(data);
+  }
+
+  public reloadListener(): void {
+    this.listener?.onDataReloaded();
+  }
+
+  public registerDataChangeListener(listener: DataChangeListener): void {
+    this.listener = listener;
+  }
+
+  public unregisterDataChangeListener(): void {
+    this.listener = null;
+  }
+}
+
+class Params {
+  item: string = '';
+
+  constructor(item: string) {
+    this.item = item;
+  }
+}
+
+@Builder
+function buildNode(param: Params = new Params('hello')) {
+  Row() {
+    Text(`C${param.item} -- `)
+    ReusableChildComponent2({ item: param.item }) // 该自定义组件在ComponentContent中无法被正确复用
+  }
+}
+
+// 被回收复用的自定义组件，其状态变量会更新，而子自定义组件ReusableChildComponent3中的状态变量也会更新，但ComponentContent会阻断这一传递过程
+@ReusableV2
+@ComponentV2
+struct ReusableChildComponent {
+  @Param item: string = '';
+  @Param switch: string = '';
+  private content: NodeContent = new NodeContent();
+  private componentContent: ComponentContent<Params> = new ComponentContent<Params>(
+    this.getUIContext(),
+    wrapBuilder<[Params]>(buildNode),
+    new Params(this.item),
+    { nestingBuilderSupported: true });
+
+  aboutToAppear() {
+    let column = typeNode.createNode(this.getUIContext(), 'Column');
+    column.initialize();
+    column.addComponentContent(this.componentContent);
+    this.content.addFrameNode(column);
+  }
+
+  aboutToRecycle(): void {
+    console.info(`${TEST_TAG} ReusableChildComponent aboutToRecycle ${this.item}`);
+
+    // 当开关为open，通过ComponentContent的reuse接口和recycle接口传递给其下的自定义组件，例如ReusableChildComponent2，完成复用
+    if (this.switch === 'open') {
+      this.componentContent.recycle();
+    }
+  }
+
+  aboutToReuse(): void {
+    console.info(`${TEST_TAG} ReusableChildComponent aboutToReuse`);
+
+    // 当开关为open，通过ComponentContent的reuse接口和recycle接口传递给其下的自定义组件，例如ReusableChildComponent2，完成复用
+    if (this.switch === 'open') {
+      this.componentContent.reuse(new Params(this.item));
+    }
+  }
+
+  build() {
+    Row() {
+      Text(`A${this.item}--`)
+      ReusableChildComponent3({ item: this.item })
+      ContentSlot(this.content)
+    }
+  }
+}
+
+@ComponentV2
+struct ReusableChildComponent2 {
+  @Param item: string = 'false';
+
+  aboutToReuse() {
+    console.info(`${TEST_TAG} ReusableChildComponent2 aboutToReuse`);
+  }
+
+  aboutToRecycle(): void {
+    console.info(`${TEST_TAG} ReusableChildComponent2 aboutToRecycle ${this.item}`);
+  }
+
+  build() {
+    Row() {
+      Text(`D${this.item}`)
+        .fontSize(20)
+        .backgroundColor(Color.Yellow)
+        .margin({ left: 10 })
+    }.margin({ left: 10, right: 10 })
+  }
+}
+
+@ComponentV2
+struct ReusableChildComponent3 {
+  @Param item: string = 'false';
+
+  aboutToReuse() {
+    console.info(`${TEST_TAG} ReusableChildComponent3 aboutToReuse`);
+  }
+
+  aboutToRecycle(): void {
+    console.info(`${TEST_TAG} ReusableChildComponent3 aboutToRecycle ${this.item}`);
+  }
+
+  build() {
+    Row() {
+      Text(`B${this.item}`)
+        .fontSize(20)
+        .backgroundColor(Color.Yellow)
+        .margin({ left: 10 })
+    }.margin({ left: 10, right: 10 })
+  }
+}
+
+
+@Entry
+@ComponentV2
+struct Index {
+  @Local data: MyDataSource = new MyDataSource();
+
+  aboutToAppear() {
+    for (let i = 0; i < 100; i++) {
+      this.data.pushData(i.toString());
+    }
+  }
+
+  build() {
+    Column() {
+      List({ space: 3 }) {
+        LazyForEach(this.data, (item: string) => {
+          ListItem() {
+            ReusableChildComponent({
+              item: item,
+              switch: 'open' // 将open改为close可观察到，ComponentContent不通过reuse和recycle接口传递复用时，ComponentContent内部的自定义组件的行为表现
+            })
+          }
+        }, (item: string) => item)
+      }
+      .width('100%')
+      .height('100%')
+    }
+  }
+}
+```
 
 
 
@@ -1092,7 +1266,7 @@ struct Index {
 
 reuse(param?: Object): void
 
-触发ReactiveComponentContent中的自定义组件的复用。组件复用请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。关于ReactiveComponentContent的解绑场景请参见[解除实体节点引用关系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#解除实体节点引用关系)。
+触发ReactiveComponentContent中的自定义组件的复用。组件复用请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。关于ReactiveComponentContent的解绑场景请参见[解除实体节点引用关系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#解除实体节点引用关系)。从API版本26.0.0开始，ReactiveComponentContent中的自定义组件支持V2组件复用，请参见[@ReusableV2装饰器：V2组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2)。
 
 ReactiveComponentContent通过reuse和[recycle](#recycle)接口完成其内外自定义组件之间的复用事件传递，具体使用场景请参见[BuilderNode调用reuse和recycle接口实现节点复用能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#buildernode调用reuse和recycle接口实现节点复用能力)。
 
@@ -1119,7 +1293,7 @@ ReactiveComponentContent通过reuse和[recycle](#recycle)接口完成其内外�
 
 recycle(): void
 
-触发ReactiveComponentContent中自定义组件的回收。自定义组件的回收是组件复用机制中的环节，具体信息请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。
+触发ReactiveComponentContent中自定义组件的回收。自定义组件的回收是组件复用机制中的环节，具体信息请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。从API版本26.0.0开始，ReactiveComponentContent中的自定义组件支持V2组件复用，请参见[@ReusableV2装饰器：V2组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2)。
 
 ReactiveComponentContent通过[reuse](#reuse)和recycle完成其内外自定义组件之间的复用事件传递，具体使用场景请参见[BuilderNode调用reuse和recycle接口实现节点复用能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#buildernode调用reuse和recycle接口实现节点复用能力)。
 
@@ -1303,6 +1477,180 @@ struct Index {
 ![](assets/ComponentContent/file-20260514163846202-8.gif)
 
 
+从API版本26.0.0开始，ReactiveComponentContent中的自定义组件支持V2组件复用。
+
+```text
+import { NodeContent, typeNode, ReactiveComponentContent } from '@kit.ArkUI';
+
+const TEST_TAG: string = 'Reuse+Recycle';
+
+class MyDataSource {
+  private dataArray: string[] = [];
+  private listener: DataChangeListener | null = null;
+
+  public totalCount(): number {
+    return this.dataArray.length;
+  }
+
+  public getData(index: number) {
+    return this.dataArray[index];
+  }
+
+  public pushData(data: string) {
+    this.dataArray.push(data);
+  }
+
+  public reloadListener(): void {
+    this.listener?.onDataReloaded();
+  }
+
+  public registerDataChangeListener(listener: DataChangeListener): void {
+    this.listener = listener;
+  }
+
+  public unregisterDataChangeListener(): void {
+    this.listener = null;
+  }
+}
+
+class Params {
+  item: string = '';
+
+  constructor(item: string) {
+    this.item = item;
+  }
+}
+
+@Builder
+function buildNode(param: Params = new Params('hello')) {
+  Row() {
+    Text(`C${param.item} -- `)
+    ReusableChildComponent2({ item: param.item }) // 该自定义组件在ReactiveComponentContent中无法被正确复用
+  }
+}
+
+// 被回收复用的自定义组件，其状态变量会更新，而子自定义组件ReusableChildComponent3中的状态变量也会更新，但ReactiveComponentContent会阻断这一传递过程
+@ReusableV2
+@ComponentV2
+struct ReusableChildComponent {
+  @Param item: string = '';
+  @Param switch: string = '';
+  private content: NodeContent = new NodeContent();
+  private componentContent: ReactiveComponentContent<[Params]> = new ReactiveComponentContent<[Params]>(
+    this.getUIContext(),
+    wrapBuilder<[Params]>(buildNode),
+    { nestingBuilderSupported: true },
+    new Params(this.item));
+
+  aboutToAppear() {
+    let column = typeNode.createNode(this.getUIContext(), 'Column');
+    column.initialize();
+    column.addComponentContent(this.componentContent);
+    this.content.addFrameNode(column);
+  }
+
+  aboutToRecycle(): void {
+    console.info(`${TEST_TAG} ReusableChildComponent aboutToRecycle ${this.item}`);
+
+    // 当开关为open，通过ReactiveComponentContent的reuse接口和recycle接口传递给其下的自定义组件，例如ReusableChildComponent2，完成复用
+    if (this.switch === 'open') {
+      this.componentContent.recycle();
+    }
+  }
+
+  aboutToReuse(): void {
+    console.info(`${TEST_TAG} ReusableChildComponent aboutToReuse`);
+
+    // 当开关为open，通过ReactiveComponentContent的reuse接口和recycle接口传递给其下的自定义组件，例如ReusableChildComponent2，完成复用
+    if (this.switch === 'open') {
+      this.componentContent.reuse(new Params(this.item));
+    }
+  }
+
+  build() {
+    Row() {
+      Text(`A${this.item}--`)
+      ReusableChildComponent3({ item: this.item })
+      ContentSlot(this.content)
+    }
+  }
+}
+
+@ComponentV2
+struct ReusableChildComponent2 {
+  @Param item: string = 'false';
+
+  aboutToReuse() {
+    console.info(`${TEST_TAG} ReusableChildComponent2 aboutToReuse`);
+  }
+
+  aboutToRecycle(): void {
+    console.info(`${TEST_TAG} ReusableChildComponent2 aboutToRecycle ${this.item}`);
+  }
+
+  build() {
+    Row() {
+      Text(`D${this.item}`)
+        .fontSize(20)
+        .backgroundColor(Color.Yellow)
+        .margin({ left: 10 })
+    }.margin({ left: 10, right: 10 })
+  }
+}
+
+@ComponentV2
+struct ReusableChildComponent3 {
+  @Param item: string = 'false';
+
+  aboutToReuse() {
+    console.info(`${TEST_TAG} ReusableChildComponent3 aboutToReuse`);
+  }
+
+  aboutToRecycle(): void {
+    console.info(`${TEST_TAG} ReusableChildComponent3 aboutToRecycle ${this.item}`);
+  }
+
+  build() {
+    Row() {
+      Text(`B${this.item}`)
+        .fontSize(20)
+        .backgroundColor(Color.Yellow)
+        .margin({ left: 10 })
+    }.margin({ left: 10, right: 10 })
+  }
+}
+
+
+@Entry
+@ComponentV2
+struct Index {
+  @Local data: MyDataSource = new MyDataSource();
+
+  aboutToAppear() {
+    for (let i = 0; i < 100; i++) {
+      this.data.pushData(i.toString());
+    }
+  }
+
+  build() {
+    Column() {
+      List({ space: 3 }) {
+        LazyForEach(this.data, (item: string) => {
+          ListItem() {
+            ReusableChildComponent({
+              item: item,
+              switch: 'open' // 将open改为close可观察到，ReactiveComponentContent不通过reuse和recycle接口传递复用时，ReactiveComponentContent内部的自定义组件的行为表现
+            })
+          }
+        }, (item: string) => item)
+      }
+      .width('100%')
+      .height('100%')
+    }
+  }
+}
+```
+
 
 
 #### dispose22+
@@ -1426,7 +1774,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/QWrE0bVESJWZ_IGak5spHg/zh-cn_image_0000002581275654.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=BB94CDEF16C5FAE4C38FC33872D8290D73627610A45E6E89C0AF05E5063D0A5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/fP41yHolTmOYEZabmq_zuw/zh-cn_image_0000002628702290.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014316Z&HW-CC-Expire=86400&HW-CC-Sign=4CC689F8FAB5EFD93781146A5CC49753A8D1CA785E03B65A9793632FC328E619)
 
 
 
@@ -1550,7 +1898,7 @@ struct FrameNodeTypeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/TIUbMBNTTR-sTsjAyLUAlw/zh-cn_image_0000002611755507.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=5C95629ECAB1145D4346497EEB241A893C98B782ADECCE0D0BBD32A5CA9A42EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/nQKFgWxTTbKyRy3C-a5azQ/zh-cn_image_0000002659101517.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014316Z&HW-CC-Expire=86400&HW-CC-Sign=E05BB315AD8FA299F02D2C83CF27643108BD987503B77B4629772FD2F635001E)
 
 
 
@@ -1680,7 +2028,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/MC_ZvtzkTxujFASQscLjXA/zh-cn_image_0000002611755509.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=6778D3ED4DDBBA5E2F74F686E365E9E9C573069A390A34678ED3D83688CEB8D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/p8pycPwHS_amW0x0sv3d1g/zh-cn_image_0000002659101519.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014316Z&HW-CC-Expire=86400&HW-CC-Sign=F1AB5DD4D94F2B20E3B2FDC6EEFC480C70BD73DC24EF83F8E4228E0584AD1EA6)
 
 
 
@@ -1893,7 +2241,7 @@ struct TextBuilder {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/_zQAXUYPRxGVGTP91FZFGQ/zh-cn_image_0000002581435572.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=D1D0D838EBAA4F76B21FC7BAE7F0074C2F06D3D398A22CA248E77D08CD1DB11A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/Z8UpmOCWT7OP-vNwl2apig/zh-cn_image_0000002628862170.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014316Z&HW-CC-Expire=86400&HW-CC-Sign=180533FF68EF47D6D227037F51F529F8D6300E12E260F2CCA41CE96BB8DEC6A4)
 
 
 
@@ -2042,4 +2390,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/crHTt3opQwSWO_UhcXui4A/zh-cn_image_0000002611835403.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=016C7C5E924E62352E9DE7096C1283DB39F164F06CCC99D7B0991334B3112C1B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/DoMFp_z3Tueq_ai7aB0TXg/zh-cn_image_0000002659221481.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014316Z&HW-CC-Expire=86400&HW-CC-Sign=824ED764AC6BBD904FFD39E1B4F572D4753A780FD89586FB0432587B6C50D3C0)

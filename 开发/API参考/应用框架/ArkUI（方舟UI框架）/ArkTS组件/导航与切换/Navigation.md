@@ -1,6 +1,6 @@
 # Navigation
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -120,7 +120,7 @@ title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCus
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ResourceStr10+ \| CustomBuilder \| NavigationCommonTitle9+ \| NavigationCustomTitle9+ | 是 | 页面标题，使用NavigationCustomTitle类型设置height高度时，titleMode属性不会生效。 字符串超长时，如果不设置副标题，先缩小再换行（2行）最后截断。如果设置副标题，先缩小最后截断。 |
-| options11+ | NavigationTitleOptions | 否 | 标题栏选项。 包含标题栏背景颜色、标题栏背景模糊样式及模糊选项、标题栏背景属性、标题栏布局方式、标题栏起始端内间距、标题栏结束端内间距、主标题属性修改器、子标题属性修改器、是否响应悬停态。 |
+| options11+ | NavigationTitleOptions | 否 | 标题栏选项。包含标题栏背景颜色、标题栏背景模糊样式及模糊选项、标题栏背景属性、标题栏布局方式、标题栏起始端内间距、标题栏结束端内间距、主标题属性修改器、子标题属性修改器、是否响应悬停态。 |
 
 
 
@@ -1006,7 +1006,7 @@ pushPathByName(name: string, param: unknown, animated?: boolean): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-pushPathByName(name: string, param: Object, onPop: Callback&lt;PopInfo&gt;, animated?: boolean): void
+pushPathByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback&lt;PopInfo&gt;, animated?: boolean): void
 
 将name指定的NavDestination页面信息入栈，传递的数据为param，添加onPop回调接收入栈页面出栈时的返回结果，并进行处理。
 
@@ -1020,7 +1020,7 @@ pushPathByName(name: string, param: Object, onPop: Callback&lt;PopInfo&gt;, anim
 | --- | --- | --- | --- |
 | name | string | 是 | NavDestination页面名称。 |
 | param | Object | 是 | 开发者设置的NavDestination页面详细参数。 |
-| onPop | Callback&lt;PopInfo&gt; | 是 | Callback回调，用于页面出栈时触发该回调处理返回结果。仅pop、popToName、popToIndex中设置result参数后触发。 |
+| onPop | import('../api/@ohos.base').Callback&lt;PopInfo&gt; | 是 | Callback回调，用于页面出栈时触发该回调处理返回结果。仅pop、popToName、popToIndex中设置result参数后触发。 |
 | animated | boolean | 否 | 是否支持转场动画。 true：支持转场动画；false：不支持转场动画。 默认值：true |
 
 
@@ -1166,7 +1166,7 @@ pushDestinationByName(name: string, param: Object, animated?: boolean): Promise&
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-pushDestinationByName(name: string, param: Object, onPop: Callback&lt;PopInfo&gt;, animated?: boolean): Promise&lt;void&gt;
+pushDestinationByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback&lt;PopInfo&gt;, animated?: boolean): Promise&lt;void&gt;
 
 将name指定的NavDestination页面信息入栈，传递的数据为param，并且添加用于页面出栈时处理返回结果的onPop回调，使用Promise异步回调返回接口调用结果。
 
@@ -1184,7 +1184,7 @@ pushDestinationByName(name: string, param: Object, onPop: Callback&lt;PopInfo&gt
 | --- | --- | --- | --- |
 | name | string | 是 | NavDestination页面名称。 |
 | param | Object | 是 | 开发者设置的NavDestination页面详细参数。 |
-| onPop | Callback&lt;PopInfo&gt; | 是 | Callback回调，用于页面出栈时处理返回结果。仅pop、popToName、popToIndex中设置result参数后触发。 |
+| onPop | import('../api/@ohos.base').Callback&lt;PopInfo&gt; | 是 | Callback回调，用于页面出栈时处理返回结果。仅pop、popToName、popToIndex中设置result参数后触发。 |
 | animated | boolean | 否 | 是否支持转场动画。 true：支持转场动画；false：不支持转场动画。 默认值：true |
 
 
@@ -1892,7 +1892,7 @@ setPathStack(pathStack: Array&lt;NavPathInfo&gt;, animated?: boolean): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-constructor(name: string, param: unknown, onPop?: Callback&lt;PopInfo&gt;, isEntry?: boolean)
+constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Callback&lt;PopInfo&gt;, isEntry?: boolean)
 
 创建NavPathInfo对象。
 
@@ -1906,7 +1906,7 @@ constructor(name: string, param: unknown, onPop?: Callback&lt;PopInfo&gt;, isEnt
 | --- | --- | --- | --- |
 | name | string | 是 | NavDestination页面名称。该名称匹配开发者设置的路由表中的name，包括以下两种： 1. 自定义路由表，开发者通过navDestination方法传递。 2. 系统路由表，通过routerMap中的name设置，可参考示例2。 |
 | param | unknown | 是 | 开发者设置的NavDestination页面详细参数，unknown可以是用户自定义的类型。 |
-| onPop11+ | Callback&lt;PopInfo&gt; | 否 | NavDestination页面触发pop、popToName、popToIndex时返回的回调。仅pop、popToName、popToIndex中设置result参数后触发。 |
+| onPop11+ | import('../api/@ohos.base').Callback&lt;PopInfo&gt; | 否 | NavDestination页面触发pop、popToName、popToIndex时返回的回调。仅pop、popToName、popToIndex中设置result参数后触发。 |
 | isEntry12+ | boolean | 否 | 标记NavDestination是否为入口页面。 true：NavDestination是入口页面；false：NavDestination不是入口页面。 默认值：false 标记清理时机：1. 在当前navDestination页面触发一次全局返回事件。2. 应用退至后台。 说明： 入口NavDestination不响应应用内的全局back事件，直接触发应用间的全局back事件。 |
 
 
@@ -2209,7 +2209,7 @@ Navigation首页名字。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | ResourceStr | 否 | 否 | 工具栏单个选项的显示文本。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| icon | ResourceStr | 否 | 是 | 工具栏单个选项的图标资源路径。 说明： 当图标为SVG格式时，系统会默认设置fill颜色，覆盖SVG文件中自定义的fill属性，可能导致图标显示异常。建议在SVG文件中通过style样式设置fill来覆盖系统默认值，原始写法（fill属性会被系统默认值覆盖）：<rect fill="rgb(255,0,0)" .../>，建议修改为：<rect style="fill: rgb(255,0,0)" .../>。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| icon | ResourceStr | 否 | 是 | 工具栏单个选项的图标资源路径。 说明： 当图标为SVG格式时，系统会默认设置fill颜色，覆盖SVG文件中自定义的fill属性，可能导致图标显示异常。建议在SVG文件中通过style样式设置fill来覆盖系统默认值，示例如下： 原始写法（fill属性会被系统默认值覆盖）：<rect fill="rgb(255,0,0)" .../>，建议修改为：<rect style="fill: rgb(255,0,0)" .../>。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | action | () => void | 否 | 是 | 当前选项被选中的事件回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | status | ToolbarItemStatus | 否 | 是 | 工具栏单个选项的状态。 默认值：ToolbarItemStatus.NORMAL 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | activeIcon | ResourceStr | 否 | 是 | 工具栏单个选项处于ACTIVE态时的图标资源路径。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -2396,7 +2396,7 @@ Navigation分割线颜色及上下边距。
 | --- | --- | --- |
 | STANDARD | 0 | 指定该模式的标题栏或工具栏与内容区采用上下布局。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | STACK | 1 | 指定该模式的标题栏或工具栏与内容区采用层叠布局，标题栏或工具栏布局在内容区上层。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| SAFE_AREA_PADDING14+ | 2 | 将指定该模式的标题栏或工具栏设置为组件级安全区safeAreaPadding。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| SAFE_AREA_PADDING14+ | 2 | 将指定该模式的标题栏或工具栏设置为safeAreaPadding。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 
 
 
@@ -2524,7 +2524,7 @@ Navigation分割线颜色及上下边距。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type SystemBarStyle = SystemBarStyle
+type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle
 
 状态栏的属性。在设置页面级状态栏属性时使用。
 
@@ -2534,7 +2534,7 @@ type SystemBarStyle = SystemBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| SystemBarStyle | 状态栏文字颜色。 默认值：'#0xE5FFFFFF' |
+| import('../api/@ohos.window').default.SystemBarStyle | 状态栏文字颜色。 默认值：'#0xE5FFFFFF' |
 
 
 
@@ -5229,7 +5229,7 @@ export class CustomTransition {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/GEuwkaKyS-q8WDs22-cpEw/zh-cn_image_0000002622699695.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=B424BA1E722C50A79794927D30C45519D293C397C7DFCA9191E09F9FD530E65D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/LmsDGvoTQye4qo7x_9S5LQ/zh-cn_image_0000002628702526.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=C9ABF2B11855255AC30EEF994063CC2C7F62D069A5C38D519D2B2241D1996C1F)
 
 
 
@@ -5369,7 +5369,7 @@ struct NavigationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/lqJrCRYDROSRCR5G4fntdA/zh-cn_image_0000002592220134.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=E999D03CBF2468216B9F4FDB895A784D2143F5BBA6079A1430605F396FE7B7BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/ZAz8hZ6cQ4mZXFu8TmD5Yw/zh-cn_image_0000002659101753.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=AD85088AFC7CD26F190FE60B2F81D0B23FC7EE05422724793A7F75B9D48A5F4A)
 
 
 
@@ -5444,7 +5444,7 @@ struct NavigationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/Bbnbq8k_QeGmpefb-LbNDw/zh-cn_image_0000002592380068.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=6DF4EFDBC1C0B39F6A69420BEB42F18FDE533BB3F3E0181013C03AE89F8D007D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/eQVNSs91Ryai5nOojc8sJw/zh-cn_image_0000002628862404.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=A1D8298743289B702E1D79631B17A760266A2EDA70A7BE7A44F1EAE0F55C7B31)
 
 
 
@@ -5535,7 +5535,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/ors-8JJUTRaNJtmObHrEsw/zh-cn_image_0000002622859577.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=0ED304796ADBF9147749C3560804E6A7C5E7C242F5CEF800EB7456752F78D74C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/9hDteJ3-T32h0r0HjwSj_A/zh-cn_image_0000002659221717.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=EEE145121695D86E17F0FC6983FE066A7A38DCFF85D85488895171D221F1C851)
 
 
 
@@ -5809,7 +5809,7 @@ export struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/Qmy-g9BrQHme8YWNELed2g/zh-cn_image_0000002622699697.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=E07A71F09663ACDCA6CD5BEA78553D16A7D28565CA4B3B6D5841618E621BEF56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/oU2H2fCMQ_O__dC6bQ_voQ/zh-cn_image_0000002628702528.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=71ED7C9CFB8FC9351E8AFB3C933F49C6348FD2A2E9A20F256290B55402878D92)
 
 
 
@@ -5976,4 +5976,4 @@ export struct NavigationMenu {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/3bL2T5yMR8ah1TPZ70LG9w/zh-cn_image_0000002592220136.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=5B20613B5FF42ECE128DB2512EAF928FC75059DF12837C72EF7F1FB720EEA771)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/rqAaCyzBReedVXpnrG8KGg/zh-cn_image_0000002659101755.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=597AEE8C92B14385AC09870DEE32A6038A9FC5C7F63D90E1437838AC0A92C92E)

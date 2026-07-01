@@ -1,6 +1,6 @@
 # @ohos.data.dataSharePredicates (数据共享谓词)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datasharepredicates
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,9 +35,11 @@ import { dataSharePredicates } from '@kit.ArkData';
 
 提供用于不同实现不同查询方法的数据共享谓词。该类型不是多线程安全的，如果应用中存在多线程同时操作该类派生出的实例，注意加锁保护。
 
+**系统能力：** SystemCapability.DistributedDataManager.DataShare.Core
 
 
-#### equalTo10+
+
+#### equalTo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -75,7 +77,7 @@ predicates.equalTo("NAME", "Rose");
 
 
 
-#### and10+
+#### and
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -107,7 +109,7 @@ predicates.equalTo("NAME", "lisi")
 
 
 
-#### orderByAsc10+
+#### orderByAsc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -144,7 +146,7 @@ predicates.orderByAsc("AGE");
 
 
 
-#### orderByDesc10+
+#### orderByDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -181,7 +183,7 @@ predicates.orderByDesc("AGE");
 
 
 
-#### limit10+
+#### limit
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -219,7 +221,7 @@ predicates.equalTo("NAME", "Rose").limit(10, 3);
 
 
 
-#### in10+
+#### in
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

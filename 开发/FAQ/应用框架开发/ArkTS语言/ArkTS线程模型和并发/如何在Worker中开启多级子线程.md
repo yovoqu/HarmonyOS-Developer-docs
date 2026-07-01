@@ -1,6 +1,6 @@
 # 如何在Worker中开启多级子线程
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-121
 
@@ -11,32 +11,32 @@ import { ErrorEvent, MessageEvents, worker } from '@kit.ArkTS';
 
 const workerInstance = new worker.ThreadWorker('entry/ets/pages/Worker.ets');
 
-// The main thread passes information to the worker thread
+<em>// The main thread passes information to the worker thread</em>
 workerInstance.postMessage('123');
 
-// The main thread receives worker thread information
+<em>// The main thread receives worker thread information</em>
 workerInstance.onmessage = (e: MessageEvents): void => {
-  // Data: Information sent by the Worker thread
+ <em> // Data: Information sent by the Worker thread</em>
   let data: string = e.data;
   console.info(`main thread onmessage, data:${data}`);
   const workerInstance1 = new worker.ThreadWorker('entry/ets/pages/Work.ets');
   workerInstance1.postMessage('123');
   workerInstance1.onmessage = (e: MessageEvents): void => {
-    // data：Information sent by worker threads
+   <em> // data：Information sent by worker threads</em>
     let data1: string = e.data;
     console.info(`main thread onmessage1, data:${data1}`);
-    // Destroy Worker object
+  <em>  // Destroy Worker object</em>
     workerInstance1.terminate();
   }
-  // After calling terminate, execute onexit
+ <em> // After calling terminate, execute onexit</em>
   workerInstance1.onexit = (code) => {
     console.info(`main thread terminate, code:${code}`);
   }
-  // Destroy Worker object
+<em>  // Destroy Worker object</em>
   workerInstance.terminate();
 
 }
-// After calling terminate, execute onexit
+<em>// After calling terminate, execute onexit</em>
 workerInstance.onexit = (code) => {
   console.info(`main thread terminate, code:${code}`);
 }
@@ -47,23 +47,23 @@ workerInstance.onerror = (err: ErrorEvent) => {
 ```
  
 ```ArkTS
-// Work.ets & Worker.ets
+<em>// Work.ets & Worker.ets</em>
 import { ErrorEvent, MessageEvents, worker } from '@kit.ArkTS';
 
-// Create an object in the worker thread that communicates with the main thread
+<em>// Create an object in the worker thread that communicates with the main thread</em>
 const workerPort = worker.workerPort;
 
-// The worker thread receives information from the main thread
+<em>// The worker thread receives information from the main thread</em>
 workerPort.onmessage = (e: MessageEvents): void => {
-  // Data: Information sent by the main thread
+ <em> // Data: Information sent by the main thread</em>
   let data: string = e.data;
   console.info(`Work.ets onmessage: data ${data}`);
 
-  // Worker thread sends information to main thread
+ <em> // Worker thread sends information to main thread</em>
   workerPort.postMessage('123');
 }
 
-// Callback for worker thread error
+<em>// Callback for worker thread error</em>
 workerPort.onerror = (err: ErrorEvent) => {
   console.info('Worker.ets onerror' + err.message);
 }

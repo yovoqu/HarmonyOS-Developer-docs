@@ -1,6 +1,6 @@
 # app.json5文件与工程级build-profile.json5文件的区别
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-88
 

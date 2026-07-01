@@ -1,6 +1,6 @@
 # @ohos.worker (启动一个Worker)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -53,7 +53,7 @@ Worker构造函数的选项，用于为Worker添加其他信息。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type | 'classic' \| 'module' | 否 | 是 | Worker执行脚本的模式类型，暂不支持module类型，默认值为"classic"。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| name | string | 否 | 是 | Worker的名称。 默认值为undefined，此时线程名称为'WorkerThread'。 非默认值情况下，对应的线程名称带有'WorkerThread_'前缀。比如name为'testName'时，对应的线程名称为'WorkerThread_testName'。 线程名称可通过HeapMemoryInfo的threadName获取 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| name | string | 否 | 是 | Worker的名称。 默认值为undefined，此时线程名称为'WorkerThread'。 非默认值情况下，对应的线程名称带有'WorkerThread_'前缀。比如name为'testName'时，对应的线程名称为'WorkerThread_testName'。 线程名称可通过HeapMemoryInfo的threadName获取。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | shared | boolean | 否 | 是 | 表示Worker共享功能，此接口暂不支持。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | priority18+ | ThreadWorkerPriority | 否 | 是 | 表示Worker线程优先级。默认值为MEDIUM。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
@@ -148,11 +148,10 @@ ThreadWorker构造函数。
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200003 | Worker initialization failed. |
 | 10200007 | The worker file path is invalid. |
 
@@ -193,11 +192,10 @@ postMessage(message: Object, transfer: ArrayBuffer[]): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 | 10200006 | An exception occurred during serialization. |
 
@@ -301,11 +299,10 @@ postMessage(message: Object, options?: PostMessageOptions): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 | 10200006 | An exception occurred during serialization. |
 
@@ -349,11 +346,10 @@ postMessageWithSharedSendable(message: Object, transfer?: ArrayBuffer[]): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 | 10200006 | An exception occurred during serialization. |
 
@@ -425,11 +421,10 @@ on(type: string, listener: WorkerEventListener): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 | 10200005 | The invoked API is not supported in workers. |
 
@@ -475,11 +470,10 @@ once(type: string, listener: WorkerEventListener): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 | 10200005 | The invoked API is not supported in workers. |
 
@@ -523,11 +517,10 @@ off(type: string, listener?: WorkerEventListener): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 | 10200005 | The invoked API is not supported in workers. |
 
@@ -584,11 +577,10 @@ registerGlobalCallObject(instanceName: string, globalCallObject: Object): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 
 
@@ -662,11 +654,10 @@ unregisterGlobalCallObject(instanceName?: string): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 
 
@@ -751,11 +742,10 @@ addEventListener(type: string, listener: WorkerEventListener): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 | 10200005 | The invoked API is not supported in workers. |
 
@@ -800,11 +790,10 @@ removeEventListener(type: string, callback?: WorkerEventListener): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 
 
@@ -855,11 +844,10 @@ dispatchEvent(event: Event): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 
 
@@ -950,11 +938,10 @@ addEventListener(type: string, listener: WorkerEventListener): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 | 10200005 | The called API is not supported in the worker thread. |
 
@@ -998,11 +985,10 @@ removeEventListener(type: string, callback?: WorkerEventListener): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 
 
@@ -1053,11 +1039,10 @@ dispatchEvent(event: Event): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 
 
@@ -1166,11 +1151,10 @@ Worker线程通过转移对象所有权的方式向宿主线程发送消息。
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 | 10200006 | An exception occurred during serialization. |
 
@@ -1223,11 +1207,10 @@ Worker线程通过转移对象所有权或拷贝数据的方式向宿主线程�
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 | 10200006 | An exception occurred during serialization. |
 
@@ -1279,11 +1262,10 @@ Worker线程向宿主线程发送消息，消息中的[Sendable对象](https://d
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | The Worker instance is not running. |
 | 10200006 | An exception occurred during serialization. |
 
@@ -1363,11 +1345,10 @@ Worker线程调用宿主线程上注册的对象的指定方法，此调用对Wo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 | 10200006 | An exception occurred during serialization. |
 | 10200019 | The globalCallObject is not registered. |
@@ -1467,6 +1448,131 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 
 
+#### postMessageAtFront
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+postMessageAtFront?(message: Object, priority: Priority, transfer?: ArrayBuffer[]): void
+
+Worker线程向宿主线程发送插队消息，消息中的[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)通过引用传递，非Sendable对象通过拷贝数据的方式传递。
+
+> [!NOTE]
+> 如果是Worker线程往主线程发送插队的消息，消息能够插队并且按优先级进行发送。 如果是Worker线程之间发送插队的消息，消息只能插队，没有优先级。 postMessage和postMessageWithSharedSendable接口往主线程发送消息，默认是HIGH优先级，无插队效果。
+
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Utils.Lang
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| message | Object | 是 | 发送至宿主线程的数据，该数据对象必须是可序列化或可共享，序列化支持类型见序列化支持类型，共享支持类型见Sendable支持的数据类型。 |
+| priority | Priority | 是 | 消息发送的优先级。 |
+| transfer | ArrayBuffer[] | 否 | 表示可转移的ArrayBuffer实例对象数组，该数组中对象的所有权会被转移到宿主线程，在Worker线程中将会变为不可用，仅在宿主线程中可用，数组不可传入null。默认值为空数组。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 10200004 | The Worker instance is not running. |
+| 10200006 | An exception occurred during serialization. |
+
+
+**示例：**
+
+```ArkTS
+// worker文件路径为：entry/src/main/ets/workers/Worker.ets
+// Worker.ets
+
+import { MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
+import { Priority } from '@ohos.worker';
+
+const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
+workerPort.onmessage = (e: MessageEvents) => {
+  workerPort.postMessage("1");
+  workerPort.postMessage("2");
+  // 方式1：使用可选链操作符（推荐，最简洁）
+  workerPort.postMessageAtFront?.("3-idle", Priority.IDLE);
+  workerPort.postMessageAtFront?.("4-immediate", Priority.IMMEDIATE);
+
+  // 方式2：使用非空断言，直接调用（需要确定它一定存在）
+  workerPort.postMessageAtFront!("5-low", Priority.LOW);
+
+  // 方式3：判断方法存在后再使用
+  if (workerPort.postMessageAtFront) {
+    workerPort.postMessageAtFront("6-high", Priority.HIGH);
+  } else {
+    workerPort.postMessageWithSharedSendable("6-high");
+  }
+}
+```
+
+```ArkTS
+// Index.ets
+// 接收Worker线程传递至宿主线程的数据
+
+import { worker, MessageEvents } from '@kit.ArkTS';
+
+const workerInstance = new worker.ThreadWorker("entry/ets/workers/Worker.ets");
+workerInstance.postMessage("start");
+workerInstance.onmessage = (e: MessageEvents) => {
+  // 模拟耗时操作
+  let start = new Date().getTime();
+  while (new Date().getTime() - start < 1000) {
+    continue;
+  }
+  let res: string = e.data as string;
+  // 执行效果：
+  // result is: 1
+  // result is: 4-immediate
+  // result is: 6-high
+  // result is: 2
+  // result is: 5-low
+  // result is: 3-idle
+  console.info("result is: " + res);
+}
+```
+
+如果传递的参数是对象字面量的话，需要[显式标注对象字面量的类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/typescript-to-arkts-migration-guide#需要显式标注对象字面量的类型)。
+
+```text
+import { worker, ThreadWorkerGlobalScope, MessageEvents, ErrorEvent } from '@kit.ArkTS';
+import { Priority } from '@ohos.worker';
+
+class ClassA {
+  public obj: string = ''
+}
+
+const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
+workerPort.onmessage = (e: MessageEvents) => {
+  // 使用可选链操作符调用接口，传递字面量对象时会编译报错，需要显式标注对象字面量的类型。
+  // workerPort.postMessageAtFront?.({obj: 'obj'}, Priority.HIGH);
+
+  let a: ClassA = { obj: 'obj' };
+  workerPort.postMessageAtFront?.(a, Priority.HIGH);
+
+  // 使用非空断言，直接调用。可以直接传递对象字面量。
+  workerPort.postMessageAtFront!({ obj: 'obj' }, Priority.HIGH);
+  // 判断方法存在后再使用。可以直接传递对象字面量。
+  if (workerPort.postMessageAtFront) {
+    workerPort.postMessageAtFront({ obj: 'obj' }, Priority.HIGH);
+  } else {
+    workerPort.postMessageWithSharedSendable({ obj: 'obj' });
+  }
+}
+```
+
+
+
 #### WorkerEventListener9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1503,11 +1609,10 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200004 | Worker instance is not running. |
 | 10200005 | The invoked API is not supported in workers. |
 
@@ -1614,7 +1719,7 @@ type ErrorCallback = (err: ErrorEvent) => void
 使用以下方法前，均需先构造Worker实例，Worker类继承[EventTarget](#eventtargetdeprecated)。
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用 ThreadWorker 9+ 替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 ThreadWorker 替代。
 
 
 
@@ -2394,6 +2499,30 @@ Worker线程自身的运行环境，WorkerGlobalScope类继承[EventTarget](#eve
 | name | string | 是 | 否 | Worker的名字，new Worker时指定。 |
 | self | WorkerGlobalScope & typeof globalThis | 是 | 否 | WorkerGlobalScope本身。 |
 | onerror | (ev: ErrorEvent) => void | 否 | 是 | Worker在执行过程中发生异常被调用的回调函数，在Worker线程中执行，ev表示收到的异常数据，默认值为undefined。 |
+
+
+
+
+#### Priority
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示发送消息时的优先级。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Utils.Lang
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| IMMEDIATE | 1 | 立即执行优先级。表示消息优先于HIGH优先级发送。 |
+| HIGH | 2 | 高优先级。表示消息优先于LOW优先级发送。 |
+| LOW | 3 | 低优先级。表示消息优先于IDLE优先级发送。 |
+| IDLE | 4 | 后台优先级。表示在没有其他优先级消息的情况下，才发送该消息。 |
 
 
 

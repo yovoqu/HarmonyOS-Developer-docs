@@ -1,6 +1,6 @@
 # 如何获取网络类型：Wi-Fi，3G，4G等
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-5
 
@@ -17,7 +17,7 @@
  
 具体可参考如下示例代码：
  
-```ArkTS
+```json
 import { connection } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { radio } from '@kit.TelephonyKit';
@@ -34,11 +34,11 @@ struct Index {
         .onClick(() => {
           connection.getDefaultNet().then((netHandle: connection.NetHandle) => {
             if (netHandle.netId == 0) {
-              // When there is currently no connected network, the obtained netHandler's netid is 0, which belongs to an abnormal scenario.
-              // Here, some processing mechanisms can be added according to the actual situation.
+              <em>// When there is currently no connected network, the obtained netHandler's netid is 0, which belongs to an abnormal scenario.</em>
+              <em>// Here, some processing mechanisms can be added according to the actual situation.</em>
               return;
             }
-            // Obtain the capability information of the network corresponding to netHandle
+            <em>// Obtain the capability information of the network corresponding to netHandle</em>
             connection.getNetCapabilities(netHandle, (error: BusinessError, data: connection.NetCapabilities) => {
               if (error) {
                 console.error(`Failed to get net capabilities. Code:${error.code}, message:${error.message}`);
@@ -46,17 +46,17 @@ struct Index {
               }
               console.info("Succeeded to get data: " + JSON.stringify(data));
               if (data.bearerTypes[0] == 1) {
-                // console.info("Wi Fi network");
+                <em>// console.info("Wi Fi network");</em>
               } else if (data.bearerTypes[0] == 0) {
-                // console.info("Cellular Network");
-                let slotId: number = 0; // Slot ID, -0: Slot 1, -1: Slot 2
+                <em>// console.info("Cellular Network");</em>
+                let slotId: number = 0; <em>// Slot ID, -0: Slot 1, -1: Slot 2</em>
                 radio.getSignalInformation(slotId, (err: BusinessError, data: Array<radio.SignalInformation>) => {
                   if (err) {
                     console.error(`getSignalInformation failed, callback: err->${JSON.stringify(err)}`);
                     return;
                   }
                   console.info(`getSignalInformation success, callback: data->${JSON.stringify(data)}`);
-                  // Return an array of SignalInformation objects, where the returned signalType represents the network type NetworkType
+                  <em>// Return an array of SignalInformation objects, where the returned signalType represents the network type NetworkType</em>
                 });
               }
             })

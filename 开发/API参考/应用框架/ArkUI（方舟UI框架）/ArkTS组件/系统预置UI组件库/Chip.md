@@ -1,6 +1,6 @@
 # Chip
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chip
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 Chip用于搜索框历史记录、邮件发送列表等场景。
 
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -76,6 +76,8 @@ ChipOptions定义Chip的样式及具体式样参数。
 | suffixSymbolOptions14+ | ChipSuffixSymbolGlyphOptions | 否 | 是 | symbol类型后缀图标属性的无障碍朗读功能属性。 默认值：不显示后缀图标。 值为undefined时，按默认值处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | backgroundColor | ResourceColor | 否 | 是 | Chip背景颜色。 默认值：\$r('sys.color.ohos_id_color_button_normal')。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | activatedBackgroundColor12+ | ResourceColor | 否 | 是 | Chip激活时的背景颜色。 默认值：\$r('sys.color.ohos_id_color_emphasize')。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundSystemMaterial | uiMaterial.Material | 否 | 是 | 设置组件系统材质样式。不同材质具有不同的效果，能够影响组件的backgroundColor、border、shadow等视觉属性。 默认值：undefined 值为undefined时，不应用材质样式。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| activatedBackgroundSystemMaterial | uiMaterial.Material | 否 | 是 | 设置组件激活状态下的系统材质样式。不同材质具有不同的效果，能够影响组件的backgroundColor、border、shadow等视觉属性。 默认值：undefined 值为undefined时，不应用材质样式。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 | borderRadius | Dimension | 否 | 是 | Chip背景圆角半径大小，不支持百分比。 默认值：\$r('sys.float.ohos_id_corner_radius_button')。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | allowClose | boolean | 否 | 是 | 关闭图标是否显示。 默认值：true true：删除图标显示；false：删除图标不显示。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onClose | ()=>void | 否 | 是 | 默认关闭图标点击事件。 值为undefined时，关闭图标点击事件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -520,7 +522,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/FXlKRLRcSvmgUmoOvD_dPQ/zh-cn_image_0000002592220566.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=DF85C52B1AA10AEEB749723661B0F9EADB910AEB72049165CE004AF102B506FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/i4kACbkTRZCt7mZ9L_3IaA/zh-cn_image_0000002628862848.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=8219698863C090D00A257119BB9F16666B9264A14BB72CA66E3FFCEDB7E1B1CA)
 
 
 
@@ -582,7 +584,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/-ileFRAnQZGQ9XqeMv2JFQ/zh-cn_image_0000002592380498.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=A6C28D74AAC8F98DB51FCC1414652791C4A1FECDBCE884B28A3CD06031B3C325)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ZxG2JujCSbWKABEcXzmiJQ/zh-cn_image_0000002659222161.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=376423F66881B88A2FE4B0B346DF5253161CA8C9A5384C819635630E680EB7EB)
 
 
 
@@ -641,7 +643,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/7YhYuxKtTgCZXl4QHEYTHg/zh-cn_image_0000002622860009.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=BAF421FA3500843513EFFD7B12AB972AD5C09D4AFDB2DB36427D1CD5F4CB97F3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/5w2NhLPAQ6G90KKqk-130A/zh-cn_image_0000002628702970.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=D19AA22AA893161E168E534ED99ABDB1653E722EB7E4F20F0F8D7A6EEE580067)
 
 
 
@@ -697,7 +699,7 @@ struct ChipPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/vgrjEwiKQ5CvrCs70tIJKA/zh-cn_image_0000002622700127.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=03665F23539F952FAF2026BC4DBCEEE2DC51F9190F282CEF19A896D992AD0361)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/8VJOKaSETdui9RRvfnP8nQ/zh-cn_image_0000002659102197.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=2847BCF0DA9A1C1D0B35FB3BCA92BD4F6A490ABD599DA9089CBCA949702C9B06)
 
 
 
@@ -1025,3 +1027,62 @@ struct ChipAccessibilityExample {
   }
 }
 ```
+
+
+
+#### 示例10（设置系统材质样式）
+
+该示例通过配置backgroundSystemMaterial和activatedBackgroundSystemMaterial实现系统材质样式。
+
+从API版本26.0.0开始，[ChipOptions](#chipoptions)新增backgroundSystemMaterial和activatedBackgroundSystemMaterial属性。
+
+```text
+import { Chip, uiMaterial } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct ChipMaterialExample {
+  @State isActivated: boolean = false;
+
+  build() {
+    Column({ space: 10 }) {
+      Chip({
+        label: { text: '操作块' },
+        activated: this.isActivated,
+        // 设置普通状态下的背景颜色为透明，否则会和系统材质冲突
+        backgroundColor: Color.Transparent,
+        // 设置普通状态下的系统材质样式
+        backgroundSystemMaterial: new uiMaterial.ImmersiveMaterial({
+          style: uiMaterial.ImmersiveStyle.REGULAR
+        }),
+        // 设置激活状态下的背景颜色为透明，否则会和系统材质冲突
+        activatedBackgroundColor: Color.Transparent,
+        // 设置激活状态下的系统材质样式
+        activatedBackgroundSystemMaterial: new uiMaterial.ImmersiveMaterial({
+          style: uiMaterial.ImmersiveStyle.THICK
+        })
+      })
+
+      Button('改变激活状态')
+        .onClick(() => {
+          // 切换Chip的激活状态，演示不同材质效果
+          this.isActivated = !this.isActivated;
+        })
+    }
+    .linearGradient({
+      angle: 135, // 渐变角度，135度是从左上到右下
+      colors: [
+        ['#FF9A9E', 0.0], // 起始颜色及位置 (0.0表示起点)
+        ['#FECFEF', 0.5], // 中间颜色及位置
+        ['#A18CD1', 1.0]  // 结束颜色及位置 (1.0表示终点)
+      ]
+    })
+    .padding(12)
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/CsgvRQTxTRSMMpdfViF1og/zh-cn_image_0000002628862850.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=27E220D4EB7744E0EB0F1C796CA7EEFF81FFD00D28D3204076662FDDC844B9DC)

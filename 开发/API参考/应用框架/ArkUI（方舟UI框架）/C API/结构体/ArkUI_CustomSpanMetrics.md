@@ -1,6 +1,6 @@
 # ArkUI_CustomSpanMetrics
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-customspanmetrics
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_CustomSpanMetrics ArkUI_CustomSpanMetrics
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-自定义段落组件的度量指标。
+自定义Span组件的度量指标。
  
 **起始版本：** 12
  

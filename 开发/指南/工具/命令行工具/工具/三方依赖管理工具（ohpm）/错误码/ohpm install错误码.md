@@ -1,6 +1,6 @@
 # ohpm install错误码
 
-更新时间：2026-05-28 02:54:30
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-install-errorcode
 
@@ -182,7 +182,7 @@ Target Path UnExist Error.
 
 **可能原因**
 
-当使用--target_path选项时，指定的target_path不存在或不正确错误。
+当使用--target_path选项时，指定的target_path不存在或不正确。
 
 **处理步骤**
 
@@ -202,7 +202,7 @@ parameterFile未找到。
 
 **可能原因**
 
-配置的parameterFile文件或地址不存在错误。
+配置的parameterFile文件或地址不存在。
 
 **处理步骤**
 

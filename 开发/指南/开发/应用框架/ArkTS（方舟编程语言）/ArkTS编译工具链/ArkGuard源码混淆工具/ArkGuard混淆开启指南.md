@@ -1,14 +1,13 @@
 # ArkGuard混淆开启指南
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide
 
-#### 开启源码混淆
-
+本指南旨在帮助开发者了解和使用ArkGuard源码混淆功能，保护应用代码安全。通过启用源码混淆，开发者可以对ArkTS代码中的变量名、属性名、文件名等进行混淆处理，增加代码逆向难度，提升应用的安全性。文章将详细介绍如何在DevEco Studio中开启混淆、配置混淆规则、适配不同混淆场景，以及如何查看混淆效果和还原混淆后的报错栈。
   
 
-#### 开启混淆步骤
+#### 开启源码混淆步骤
 
 系统已集成源码混淆功能，开发者可通过以下方式在DevEco Studio中启用。
  
@@ -51,9 +50,9 @@
 -enable-toplevel-obfuscation
 -enable-filename-obfuscation
 # -enable-export-obfuscation
--keep-property-name # white list for dynamic property names
+-keep-property-name # whitelist for dynamic property names
 ```
-推荐参考[混淆选项配置指导](#混淆选项配置指导)进行混淆选项的配置。关于混淆过程中涉及的所有配置文件的详情，请参考[三种混淆配置文件](#三种混淆配置文件)。
+混淆过程中涉及的所有配置文件详情，请参阅[混淆配置文件](#混淆配置文件)。首次适配混淆时，建议参照[配置混淆选项](#配置混淆选项)章节进行配置并执行混淆。
 
   
 > [!NOTE]
@@ -61,7 +60,7 @@
 
 - 配置混淆保留选项
 
-  开启混淆后，代码中的方法、属性或路径被混淆。但是在程序运行时，如果访问未混淆的方法、属性或路径，可能导致功能不可用。因此需要根据不同的场景配置保留选项。关于保留选项的排查场景和配置方法，参考[保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#保留选项)。
+  开启混淆后，代码中的方法、属性或路径被混淆。但是在程序运行时，如果访问未混淆的方法、属性或路径，可能导致功能不可用。因此需要根据不同的场景配置保留选项。关于保留选项的排查场景和配置方法，参考[ArkGuard混淆保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options)。
 
   排查场景和配置字段时，推荐使用[混淆助手配置保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section19439175917123)，快速识别需要配置的保留选项和白名单字段。
 - 指定release编译
@@ -77,8 +76,17 @@
  
   
 
-#### 三种混淆配置文件
+#### 混淆配置文件
 
+下表简要总结了三种混淆配置文件的差异：
+  
+| 配置文件（示例） | 配置类型 | 是否可修改配置 | 是否影响本模块的混淆 | 是否影响其他模块的混淆 |
+| --- | --- | --- | --- | --- |
+| obfuscation-rules.txt | 自定义 | 是 | 是 | 否 |
+| consumer-rules.txt | 自定义 | 是 | 否 | 是 |
+| obfuscation.txt | 编译产物 | 不涉及，构建HAR或HSP时自动生成。 | 不涉及 | 是 |
+ 
+ 
 - obfuscation-rules.txt
 
   在HAP、HAR和HSP模块的build-profile.json5配置文件中，均包含arkOptions.obfuscation.ruleOptions.files字段，该字段用于指定当前模块在编译过程中所应用的混淆规则，新建工程时，系统默认会生成混淆规则文件obfuscation-rules.txt作为初始配置。
@@ -102,7 +110,7 @@
 ```
   
 > [!NOTE]
-> 如果在consumer-rules.txt文件中配置了 混淆选项 ，可能会对依赖了HAR或HSP的主模块产生影响。因此，建议仅在该文件中配置 保留选项 。
+> 如果在consumer-rules.txt文件中配置了 ArkGuard混淆配置选项 ，可能会对依赖了HAR或HSP的主模块产生影响。因此，建议仅在该文件中配置 ArkGuard混淆保留选项 。
 
 - obfuscation.txt
 
@@ -114,21 +122,12 @@
 
 
  
-下表简要总结了三种混淆配置文件的差异：
-  
-| 配置文件（示例） | 配置类型 | 是否可修改配置 | 是否影响本模块的混淆 | 是否影响其他模块的混淆 |
-| --- | --- | --- | --- | --- |
-| obfuscation-rules.txt | 自定义 | 是 | 是 | 否 |
-| consumer-rules.txt | 自定义 | 是 | 否 | 是 |
-| obfuscation.txt | 编译产物 | 不涉及，构建HAR或HSP时自动生成。 | 不涉及 | 是 |
- 
- 
   
 
-#### 混淆选项配置指导
+#### 配置混淆选项
 1. 开启-enable-toplevel-obfuscation选项时，如果代码中使用globalThis访问全局变量，可能会导致访问失败。此时，需要使用-keep-global-name选项来保留该全局变量的名称。
 2. 待上述选项应用适配成功后，开启-enable-property-obfuscation选项。此选项开启后，以下场景需要适配：
-- 若代码中存在静态定义、动态访问的情况，或动态定义、静态访问的情况，需要使用-keep-property-name保留属性名称。示例如下：
+- 若代码中存在静态定义、动态访问的情况，或动态定义、静态访问的情况，需要使用-keep-property-name保留属性名称。
 
   
 ```ts
@@ -155,7 +154,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 3. 若代码中使用点语法访问未在ArkTS/TS/JS代码中定义的字段，比如访问native实现的so库，字段固定的json文件与数据库等场景：
 
   
-若在代码中引用so库的api，如import testNapi from 'library.so';testNapi.foo();需要使用-keep-property-name foo保留属性名称，详见[选项说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep-property-name)。
+若在代码中引用so库的api，如import testNapi from 'library.so';testNapi.foo();需要使用[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name) foo 来保留属性名称。
 
 4. 若在代码中使用json文件中的字段，需要使用-keep-property-name保留json文件中的字段名称。
 
@@ -181,7 +180,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
  
   
 
-#### 说明
+#### 注意事项
 
 - 目前不支持在hvigor构建流程中添加自定义混淆插件。
 - 混淆后的远程HAR包被某模块依赖，如果该模块开启混淆，HAR包会被二次混淆。
@@ -202,7 +201,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 
   
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/pM5E18flSPGTAJvJECC5_Q/zh-cn_image_0000002626227992.png?HW-CC-KV=V1&HW-CC-Date=20260624T020740Z&HW-CC-Expire=86400&HW-CC-Sign=1E34A6344F3F917C3E0C4648DD8ED01D1092A1B1C6B152DB25213AEC7A20967D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/u7aWi_JuRGytWYjnCvQI0Q/zh-cn_image_0000002628700132.png?HW-CC-KV=V1&HW-CC-Date=20260701T014614Z&HW-CC-Expire=86400&HW-CC-Sign=60EB614F9AB98975620C1A31490273C72F479A8565E3A373D3D9F2F862F1A20C)
 
   
  
@@ -216,8 +215,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
  
 如果使用自建在线平台或流水线构建应用，则会获取不到编译过程中生成的sourceMaps.map文件和混淆名称映射文件namecache.json，可以使用本地编译生成的对应文件进行代替。
  
-- 源代码映射信息文件：sourceMaps.map，该文件记录了压缩/转换后的代码到原始源代码之间的映射关系。
-
+源代码映射信息文件：sourceMaps.map，该文件记录了压缩/转换后的代码到原始源代码之间的映射关系。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/GM3Ys-wkTH2JP0K9rxmvgA/zh-cn_image_0000002626068084.png?HW-CC-KV=V1&HW-CC-Date=20260624T020740Z&HW-CC-Expire=86400&HW-CC-Sign=60FAE84A62750798C215A0E227B790924F708F66EB077080BC41C56B82DA9F28)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/GepsW7N_RDCglhpu0bNprQ/zh-cn_image_0000002659099367.png?HW-CC-KV=V1&HW-CC-Date=20260701T014614Z&HW-CC-Expire=86400&HW-CC-Sign=6CB8F900C1523251D59053E8183BFF3DFA01BAD415F4214A7F022656BFFBB21A)

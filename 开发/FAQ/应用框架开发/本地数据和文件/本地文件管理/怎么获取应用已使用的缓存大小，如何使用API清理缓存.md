@@ -1,6 +1,6 @@
 # 怎么获取应用已使用的缓存大小，如何使用API清理缓存
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-12
 
@@ -12,14 +12,14 @@
  
 **参考代码**
  
-```ArkTS
+```json
 import { fileIo, storageStatistics } from '@kit.CoreFileKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct ClearCache {
-  // Create a file in the cache
+ <em> // Create a file in the cache</em>
   writeFile() {
     let filePath = this.getUIContext().getHostContext()!.cacheDir + '/test.txt';
     let fileStream = fileIo.createStreamSync(filePath, 'w+');
@@ -27,7 +27,7 @@ struct ClearCache {
     fileStream.close();
   }
 
-  // Obtain the size of the application data space
+ <em> // Obtain the size of the application data space</em>
   getCache() {
     storageStatistics.getCurrentBundleStats((error: BusinessError, bundleStats: storageStatistics.BundleStats) => {
       if (error) {
@@ -41,7 +41,7 @@ struct ClearCache {
     });
   }
 
-  // Clear cache
+ <em> // Clear cache</em>
   clearCache() {
     let cacheDir = this.getUIContext().getHostContext()!.cacheDir;
     console.info(cacheDir);
@@ -50,7 +50,7 @@ struct ClearCache {
       for (let i = 0; i < filenames.length; i++) {
         let dirPath = cacheDir + '/' + filenames[i];
         console.log(dirPath);
-        // Determine whether it is a folder
+     <em>   // Determine whether it is a folder</em>
         let isDirectory: boolean = false;
         try {
           isDirectory = fileIo.statSync(dirPath).isDirectory();

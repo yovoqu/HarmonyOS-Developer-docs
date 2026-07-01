@@ -1,6 +1,6 @@
 # @ohos.arkui.node (自定义节点)
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-node
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 Node将自定义节点的二级模块API组织在一起，方便开发者进行导出使用。
  
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 当前不支持在预览器中使用自定义节点。
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 当前不支持在预览器中使用自定义节点。
 
   
 

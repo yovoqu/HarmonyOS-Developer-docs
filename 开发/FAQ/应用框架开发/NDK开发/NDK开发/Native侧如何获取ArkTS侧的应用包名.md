@@ -1,6 +1,6 @@
 # Native侧如何获取ArkTS侧的应用包名
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-17
 
@@ -14,7 +14,7 @@ Native代码可以使用Native Bundle接口获取应用的包名和appId等信�
  
 具体代码如下：
  
-```cpp
+```text
 #include "CGetAppPackageName.h" 
 #include "napi/native_api.h" 
 #include <bundle/native_interface_bundle.h> 
@@ -24,13 +24,13 @@ Native代码可以使用Native Bundle接口获取应用的包名和appId等信�
  
 napi_value CGetAppPackageName::GetCurrentApplicationPackageName(napi_env env, napi_callback_info info) 
 { 
-    // Call the Native interface to obtain application information 
+   <em> // Call the Native interface to obtain application information </em>
     OH_NativeBundle_ApplicationInfo nativeApplicationInfo = OH_NativeBundle_GetCurrentApplicationInfo(); 
-    // Convert the application package name obtained by the Native interface to the bundleName property in the JS object 
+   <em> // Convert the application package name obtained by the Native interface to the bundleName property in the JS object </em>
     napi_value bundleName; 
     napi_create_string_utf8(env, nativeApplicationInfo.bundleName, NAPI_AUTO_LENGTH, &bundleName); 
     OH_LOG_INFO(LOG_APP, "napi get application package name： %{public}s", nativeApplicationInfo.bundleName); 
-    // Finally, to prevent memory leaks, manually release
+   <em> // Finally, to prevent memory leaks, manually release</em>
     free(nativeApplicationInfo.bundleName); 
     return nullptr; 
 }

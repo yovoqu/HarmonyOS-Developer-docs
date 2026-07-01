@@ -1,6 +1,6 @@
 # 人脸跟踪（ArkTS）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-face
 
@@ -58,7 +58,7 @@ let faceBlendShapes: arEngine.ARBlendShapes;
 
 首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
 
-更改type为[ARType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#artype).FACE，更改cameraLensFacing为[ARCameraLensFacing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arcameralensfacing).FRONT，更改multiFaceMode为[ARMultiFaceMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#armultifacemode).MULTIFACE_DISABLE，启用前置相机的人脸跟踪能力。
+更改type为[ARType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#artype).FACE，更改cameraLensFacing为[ARCameraLensFacing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arcameralensfacing).FRONT，更改multiFaceMode为[ARMultiFaceMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#armultifacemode).MULTIFACE_ENABLE，启用前置相机的人脸跟踪能力。
 
 ```text
 @Builder

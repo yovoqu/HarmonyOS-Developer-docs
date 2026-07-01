@@ -1,6 +1,6 @@
 # uds.h
 
-更新时间：2026-03-27 08:08:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -48,6 +48,17 @@
 
 
 
+#### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+| 名称 | typedef关键字 | 描述 |
+| --- | --- | --- |
+| Udmf_AuthPermission | Udmf_AuthPermission | 拖拽场景下的URI授权策略。 说明：此授权策略仅在拖拽场景下生效，其他场景不生效。 |
+
+
+
+
 #### 函数
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -83,7 +94,7 @@
 | const char* OH_UdsAppItem_GetIconId(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取图片ID。 |
 | const char* OH_UdsAppItem_GetLabelId(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取标签ID。 |
 | const char* OH_UdsAppItem_GetBundleName(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取bundle名称。 |
-| const char* OH_UdsAppItem_GetAbilityName(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中ability名称。 |
+| const char* OH_UdsAppItem_GetAbilityName(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取ability名称。 |
 | int OH_UdsAppItem_SetId(OH_UdsAppItem* pThis, const char* appId) | 设置桌面图标类型OH_UdsAppItem对象的应用ID。 |
 | int OH_UdsAppItem_SetName(OH_UdsAppItem* pThis, const char* appName) | 设置桌面图标类型OH_UdsAppItem对象的应用名称。 |
 | int OH_UdsAppItem_SetIconId(OH_UdsAppItem* pThis, const char* appIconId) | 设置桌面图标类型OH_UdsAppItem对象的图片ID。 |
@@ -106,7 +117,7 @@
 | int OH_UdsArrayBuffer_Destroy(OH_UdsArrayBuffer* buffer) | 销毁ArrayBuffer类型OH_UdsArrayBuffer的实例对象。 |
 | int OH_UdsArrayBuffer_SetData(OH_UdsArrayBuffer* buffer, unsigned char* data, unsigned int len) | 设置ArrayBuffer类型OH_UdsArrayBuffer对象的数据内容。 |
 | int OH_UdsArrayBuffer_GetData(OH_UdsArrayBuffer* buffer, unsigned char** data, unsigned int* len) | 从ArrayBuffer类型OH_UdsArrayBuffer实例中获取用户自定义的ArrayBuffer数据内容。 |
-| OH_UdsContentForm* OH_UdsContentForm_Create() | 创建内容卡片类型OH_UdsContentForm指针及实例对象。 |
+| OH_UdsContentForm* OH_UdsContentForm_Create() | 创建内容卡片类型OH_UdsContentForm指针及实例对象。当不再需要使用指针时，请使用OH_UdsContentForm_Destroy销毁实例对象，否则会导致内存泄漏。 |
 | void OH_UdsContentForm_Destroy(OH_UdsContentForm* pThis) | 销毁内容卡片类型数据OH_UdsContentForm指针指向的实例对象。 |
 | const char* OH_UdsContentForm_GetType(OH_UdsContentForm* pThis) | 从内容卡片类型OH_UdsContentForm中获取类型ID。 |
 | int OH_UdsContentForm_GetThumbData(OH_UdsContentForm* pThis, unsigned char** thumbData, unsigned int* len) | 从内容卡片类型OH_UdsContentForm中获取图片数据。 |
@@ -141,6 +152,62 @@
 | int OH_UdsDetails_SetValue(OH_UdsDetails* pThis, const char* key, const char* value) | 向字典类型OH_UdsDetails中添加键值对数据。 |
 | const char* OH_UdsDetails_GetValue(const OH_UdsDetails* pThis, const char* key) | 获取字典类型OH_UdsDetails中指定的键对应的值。 |
 | char** OH_UdsDetails_GetAllKeys(OH_UdsDetails* pThis, unsigned int* count) | 获取字典类型OH_UdsDetails中所有键的结果集。 |
+| int OH_UdsHtml_SetAuthPolicy(OH_UdsHtml* pThis, uint32_t authPolicy) | 给OH_UdsHtml设置授权策略。 说明：此授权策略仅在拖拽场景下生效，其他场景不生效。 |
+| int OH_UdsFileUri_SetAuthPolicy(OH_UdsFileUri* pThis, uint32_t authPolicy) | 给OH_UdsFileUri设置授权策略。 说明：此授权策略仅在拖拽场景下生效，其他场景不生效。 |
+
+
+
+
+#### 枚举类型说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+
+
+#### Udmf_AuthPermission
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+enum Udmf_AuthPermission
+```
+
+**描述**
+
+拖拽场景下的URI授权策略。
+
+> [!NOTE]
+> 此授权策略仅在拖拽场景下生效，其他场景不生效。
+
+
+支持不授权、读、写、持久化四种权限策略，可组合使用，仅以下组合生效：
+
+ - 仅使用NONE：不做任何文件授权。
+ - 仅使用READ：仅做单次只读授权。
+ - 仅使用WRITE：做单次读、写授权（写授权包含读授权）。
+ - READ+WRITE：做单次读、写授权，与仅写授权等同。
+ - READ+PERSIST：做持久化读授权。
+ - WRITE+PERSIST：做持久化读写授权。
+ - READ+WRITE+PERSIST：做持久化读写授权。
+
+
+拖拽授权策略应用规则（按优先级从高到低）：
+
+ - 单个数据级别：FileUri、HTML两个UDS支持配置授权策略参数，仅对单个record单次生效，优先级最高。
+ - [OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)级别：[OH_UdmfProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfproperty)中提供的授权参数对单次拖拽有效。若某个数据中配置了授权策略，则优先按照该数据的配置进行，优先级次之。
+ - 默认级别：若单个数据和[OH_UdmfProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfproperty)均未配置授权策略，则按照拖拽默认逻辑进行代理授权。默认逻辑如下：
+ - FileUri类型数据：拖拽场景下默认授权为READ+WRITE+PERSIST（读+写+持久化授权）。
+ - HTML类型数据，仅针对HTML文本中img标签下的uri做读授权。
+
+
+**起始版本：** 26.0.0
+
+| 枚举项 | 描述 |
+| --- | --- |
+| UDMF_PERM_NONE = 0 | 表示未授予任何权限。 |
+| UDMF_PERM_READ = 1u << 0 | 表示读取或查看数据的权限。 |
+| UDMF_PERM_WRITE = 1u << 1 | 表示修改数据的权限（包含READ）。 |
+| UDMF_PERM_PERSIST = 1u << 2 | 表示持久化文件的权限。 |
 
 
 
@@ -284,8 +351,6 @@ const char* OH_UdsPlainText_GetAbstract(OH_UdsPlainText* pThis)
 | --- | --- |
 | const char* | 输入有效入参时返回纯文本摘要信息的字符串指针，否则返回nullptr。 |
 
-
-OH_UdsPlainText
 
 
 
@@ -1506,7 +1571,7 @@ int OH_UdsPixelMap_SetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelma
 | 参数项 | 描述 |
 | --- | --- |
 | OH_UdsPixelMap* pThis | 表示指向像素图片类型OH_UdsPixelMap实例的指针。 |
-| OH_PixelmapNative* pixelmapNative | 表示指向像素图片OH_PixelmapNative实例的指针 |
+| OH_PixelmapNative* pixelmapNative | 表示指向像素图片OH_PixelmapNative实例的指针。 |
 
 
 **返回：**
@@ -1566,7 +1631,7 @@ int OH_UdsArrayBuffer_Destroy(OH_UdsArrayBuffer* buffer)
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义OH_UdsArrayBuffer。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -1598,7 +1663,7 @@ int OH_UdsArrayBuffer_SetData(OH_UdsArrayBuffer* buffer, unsigned char* data, un
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义OH_UdsArrayBuffer。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -1630,7 +1695,7 @@ int OH_UdsArrayBuffer_GetData(OH_UdsArrayBuffer* buffer, unsigned char** data, u
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义OH_UdsArrayBuffer。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -1645,7 +1710,7 @@ OH_UdsContentForm* OH_UdsContentForm_Create()
 
 **描述**
 
-创建内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)指针及实例对象。
+创建内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)指针及实例对象。当不再需要使用指针时，请使用[OH_UdsContentForm_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udscontentform_destroy)销毁实例对象，否则会导致内存泄漏。
 
 **起始版本：** 14
 
@@ -1738,7 +1803,7 @@ int OH_UdsContentForm_GetThumbData(OH_UdsContentForm* pThis, unsigned char** thu
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示出现了内部系统错误。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示出现了内部系统错误。 |
 
 
 
@@ -1830,7 +1895,7 @@ int OH_UdsContentForm_GetAppIcon(OH_UdsContentForm* pThis, unsigned char** appIc
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示出现了内部系统错误。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示出现了内部系统错误。 |
 
 
 
@@ -1922,7 +1987,7 @@ int OH_UdsContentForm_SetThumbData(OH_UdsContentForm* pThis, const unsigned char
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -1953,7 +2018,7 @@ int OH_UdsContentForm_SetDescription(OH_UdsContentForm* pThis, const char* descr
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -1984,7 +2049,7 @@ int OH_UdsContentForm_SetTitle(OH_UdsContentForm* pThis, const char* title)
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -2016,7 +2081,7 @@ int OH_UdsContentForm_SetAppIcon(OH_UdsContentForm* pThis, const unsigned char* 
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -2047,7 +2112,7 @@ int OH_UdsContentForm_SetAppName(OH_UdsContentForm* pThis, const char* appName)
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -2078,7 +2143,7 @@ int OH_UdsContentForm_SetLinkUri(OH_UdsContentForm* pThis, const char* linkUri)
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -2560,7 +2625,7 @@ int OH_UdsDetails_Remove(OH_UdsDetails* pThis, const char* key)
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -2590,7 +2655,7 @@ int OH_UdsDetails_Clear(OH_UdsDetails* pThis)
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -2622,7 +2687,7 @@ int OH_UdsDetails_SetValue(OH_UdsDetails* pThis, const char* key, const char* va
 
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
 
@@ -2685,3 +2750,73 @@ char** OH_UdsDetails_GetAllKeys(OH_UdsDetails* pThis, unsigned int* count)
 | 类型 | 说明 |
 | --- | --- |
 | char** | 执行成功时返回字典类型中键的结果集，否则返回nullptr。 当使用OH_UdsDetails_Destroy销毁字典类型OH_UdsDetails指针指向的实例对象，该返回值也会被释放。 |
+
+
+
+
+#### OH_UdsHtml_SetAuthPolicy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+int OH_UdsHtml_SetAuthPolicy(OH_UdsHtml* pThis, uint32_t authPolicy)
+```
+
+**描述**
+
+给[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)设置授权策略。
+
+> [!NOTE]
+> 此授权策略仅在拖拽场景下生效，其他场景不生效。
+
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_UdsHtml* pThis | 表示指向OH_UdsHtml实例的指针。 |
+| uint32_t authPolicy | 表示拖拽场景下的URI授权策略，默认值为READ（仅读授权），仅在img标签等场景下生效。只针对单个record使用，优先级最高。具体策略见Udmf_AuthPermission。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int | 返回执行的状态代码。 返回UDMF_E_OK表示执行成功。 返回UDMF_E_INVALID_PARAM表示传入了无效参数。 具体请参见Udmf_ErrCode。 |
+
+
+
+
+#### OH_UdsFileUri_SetAuthPolicy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+int OH_UdsFileUri_SetAuthPolicy(OH_UdsFileUri* pThis, uint32_t authPolicy)
+```
+
+**描述**
+
+给[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)设置授权策略。
+
+> [!NOTE]
+> 此授权策略仅在拖拽场景下生效，其他场景不生效。
+
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_UdsFileUri* pThis | 表示指向OH_UdsFileUri实例的指针。 |
+| uint32_t authPolicy | 表示拖拽场景下的URI授权策略，默认值为READ+WRITE+PERSIST（读+写+持久化授权），只针对单个record使用，优先级最高。具体策略见Udmf_AuthPermission。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int | 返回执行的状态代码。 返回UDMF_E_OK表示执行成功。 返回UDMF_E_INVALID_PARAM表示传入了无效参数。 具体请参见Udmf_ErrCode。 |

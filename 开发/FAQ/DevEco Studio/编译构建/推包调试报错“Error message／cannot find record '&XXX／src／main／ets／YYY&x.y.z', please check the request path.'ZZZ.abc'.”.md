@@ -1,6 +1,6 @@
 # 推包调试报错“Error message:cannot find record '&XXX/src/main/ets/YYY&x.y.z', please check the request path.'ZZZ.abc'.”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-182
 
@@ -85,7 +85,7 @@
  
 plugin.ts文件内容：
  
-```ts
+```json
 import {OhosPluginId, Target} from '@ohos/hvigor-ohos-plugin';
 import {hvigor, HvigorNode, HvigorPlugin} from '@ohos/hvigor';
 import path from "path";
@@ -201,7 +201,7 @@ export function updateAbcVersionPlugin(): HvigorPlugin {
 }
 
 
-// The generator of bytecode har uses this plugin to incrementally build ohmurl with the correct bytecode har after modifying the version number
+<em>// The generator of bytecode har uses this plugin to incrementally build ohmurl with the correct bytecode har after modifying the version number</em>
 export function updateHarAbcVersionPlugin(): HvigorPlugin {
   return {
     pluginId: 'updateHarAbcVersionPlugin',
@@ -230,14 +230,14 @@ export function updateHarAbcVersionPlugin(): HvigorPlugin {
  
 hvigorfile.ts文件内容：
  
-```ts
+```text
 import { appTasks } from '@ohos/hvigor-ohos-plugin';
 import { updateAbcVersionPlugin, updateHarAbcVersionPlugin } from './plugin.ts';
 
 
 export default {
-    system: appTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
-    plugins:[updateAbcVersionPlugin(), updateHarAbcVersionPlugin()]         /* Custom plugin to extend the functionality of Hvigor. */
+    system: appTasks,  <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
+    plugins:[updateAbcVersionPlugin(), updateHarAbcVersionPlugin()]         <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
 }
 ```
  

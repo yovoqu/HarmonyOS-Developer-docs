@@ -1,6 +1,6 @@
 # Circle
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,6 +24,35 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+  
+
+#### Circle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+new Circle(value?: CircleOptions)
+ 
+用于绘制圆形的构造函数。
+ 
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | CircleOptions | 否 | 设置圆形尺寸。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+ 
+ 
+  
+
+#### Circle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Circle(value?: CircleOptions)
  
 用于绘制圆形的构造函数。
@@ -38,7 +67,7 @@ Circle(value?: CircleOptions)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | CircleOptions | 否 | 设置圆形尺寸 异常值undefined和null按照无效值处理，本次设置不生效。 |
+| value | CircleOptions | 否 | 设置圆形尺寸。 异常值undefined和null按照无效值处理，本次设置不生效。 |
  
  
   
@@ -427,4 +456,4 @@ struct CircleModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/kD17yIznRjW4mbBOV-o63w/zh-cn_image_0000002581276224.png?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=32E63D11746FF2E58DBEFCEF9D314AB353EB18CEF34AA2D568BA54FF800A16D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/zfRb9KFwRbunHpjnfCfRVw/zh-cn_image_0000002659102103.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=B82467D032DA4A3D77E1C06E11163D1DAFC2DC5A1CE98D2BA46707F3CA06C364)

@@ -1,6 +1,6 @@
 # @ohos.bundle.bundleManager (应用程序包管理模块)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,7 +69,7 @@ import { bundleManager } from '@kit.AbilityKit';
 | DRIVER10+ | 18 | DriverExtensionAbility：驱动扩展能力，提供外设驱动扩展能力。应用配置了driver类型的ExtensionAbility后会被视为驱动应用，驱动应用在安装、卸载和恢复时不会区分用户，且创建新用户时也会安装设备上已有的驱动应用。例如，创建子用户时会默认安装主用户已有的驱动应用，在子用户上卸载驱动应用时，主用户上对应的驱动应用也会同时被卸载。 |
 | ACTION10+ | 19 | ActionExtensionAbility：自定义服务扩展能力，为开发者提供基于UIExtension的自定义操作业务模板。 |
 | EMBEDDED_UI12+ | 21 | EmbeddedUIExtensionAbility：嵌入式UI扩展能力，提供跨进程界面嵌入的能力。 |
-| INSIGHT_INTENT_UI12+ | 22 | InsightIntentUIExtensionAbility：为开发者提供能被小艺意图调用，以窗口形态呈现内容的扩展能力。 |
+| INSIGHT_INTENT_UI12+ | 22 | InsightIntentUIExtensionAbility：为开发者提供能被系统入口调用，以窗口形态呈现内容的扩展能力。 |
 | FENCE18+ | 24 | FenceExtensionAbility：为开发者提供地理围栏相关的能力，继承自ExtensionAbility。 |
 | ASSET_ACCELERATION18+ | 26 | AssetAccelerationExtensionAbility：资源预下载扩展能力，提供在设备闲时状态，进行后台资源预下载的能力。 |
 | FORM_EDIT18+ | 27 | FormEditExtensionAbility：为开发者提供卡片编辑的能力，继承自UIExtensionAbility。 |
@@ -77,7 +77,7 @@ import { bundleManager } from '@kit.AbilityKit';
 | APP_SERVICE20+ | 29 | AppServiceExtensionAbility：为企业普通应用提供后台服务能力。 |
 | LIVE_FORM20+ | 30 | LiveFormExtensionAbility：互动卡片相关扩展能力，提供互动卡片创建、销毁的生命周期回调。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 | SELECTION24+ | 31 | SelectionExtensionAbility：为开发者提供划词弹窗能力的ExtensionAbility。 模型约束：此接口仅可在Stage模型下使用。 |
-| WEB_NATIVE_MESSAGING21+ | 32 | WebNativeMessagingExtensionAbility：为开发者提供Web原生消息通信能力的ExtensionAbility。 |
+| WEB_NATIVE_MESSAGING21+ | 32 | WebNativeMessagingExtensionAbility：为开发者提供Web消息通信能力的ExtensionAbility。 |
 | FAULT_LOG21+ | 33 | FaultLogExtensionAbility：提供故障延迟通知的能力。 |
 | NOTIFICATION_SUBSCRIBER22+ | 34 | NotificationSubscriberExtensionAbility：提供通知订阅的相关功能。 |
 | CRYPTO22+ | 35 | CryptoExtensionAbility：提供外部密钥管理扩展的相关功能。 |
@@ -159,8 +159,8 @@ import { bundleManager } from '@kit.AbilityKit';
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | PAGE | 1 | UI界面类型的Ability。表示基于Page模板开发的FA，用于提供与用户交互的能力。 |
-| SERVICE | 2 | 后台服务类型的Ability，无UI界面。表示基于Service模板开发的PA（ParticleAbility），用于提供后台运行任务的能力，例如后台下载或者播放音乐。 |
-| DATA | 3 | 表示基于Data模板开发的PA（ParticleAbility），用于对外部提供统一的数据访问对象。 |
+| SERVICE | 2 | 后台服务类型的Ability，无UI界面。表示基于Service模板开发的ParticleAbility，用于提供后台运行任务的能力，例如后台下载或者播放音乐。 |
+| DATA | 3 | 表示基于Data模板开发的ParticleAbility，用于对外部提供统一的数据访问对象。 |
 
 
 
@@ -169,7 +169,7 @@ import { bundleManager } from '@kit.AbilityKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-标识该Ability的显示模式。仅适用于FA模型的[PageAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pageability-overview)。
+标识该Ability的显示模式。仅适用于FA模型的[PageAbility](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/pageability-overview)。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
 
@@ -366,7 +366,7 @@ getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback&lt;BundleInfo&
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleFlags | number | 是 | 指定返回的BundleInfo所包含的信息。 |
-| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | 回调函数，当获取成功时，err为undefined，data为获取到的当前应用的BundleInfo；否则为错误对象。 |
+| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | AsyncCallback，当获取成功时，err为undefined，data为获取到的当前应用的BundleInfo；否则为错误对象。 |
 
 
 **错误码：**
@@ -416,7 +416,7 @@ getProfileByAbility(moduleName: string, abilityName: string, metadataName: strin
 
 说明：
 
-如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
+如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -429,12 +429,12 @@ getProfileByAbility(moduleName: string, abilityName: string, metadataName: strin
 | moduleName | string | 是 | 表示Module名称。 |
 | abilityName | string | 是 | 表示UIAbility组件的名称。 |
 | metadataName | string | 是 | 表示UIAbility组件的元信息名称，即module.json5配置文件中abilities标签下的metadata标签的name。 |
-| callback | AsyncCallback<Array&lt;string&gt;> | 是 | 回调函数，当获取成功时，err为undefined，data为获取到的Array&lt;string&gt;；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;string&gt;> | 是 | AsyncCallback，当获取成功时，err为undefined，data为获取到的Array&lt;string&gt;；否则为错误对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -482,7 +482,7 @@ getProfileByAbility(moduleName: string, abilityName: string, metadataName?: stri
 
 说明：
 
-如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
+如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -506,7 +506,7 @@ getProfileByAbility(moduleName: string, abilityName: string, metadataName?: stri
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -572,7 +572,7 @@ getProfileByAbilitySync(moduleName: string, abilityName: string, metadataName?: 
 
 以同步方法根据给定的moduleName、abilityName和metadataName（module.json5中[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#metadata标签)下的name）获取自身相应配置文件的json格式字符串，返回对象为string数组。
 
-如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
+如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -596,7 +596,7 @@ getProfileByAbilitySync(moduleName: string, abilityName: string, metadataName?: 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -656,7 +656,7 @@ getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, m
 
 根据给定的moduleName、extensionAbilityName和metadataName（module.json5中[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#metadata标签)下的name）获取自身相应配置文件的json格式字符串。使用callback异步回调。
 
-如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
+如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -669,12 +669,12 @@ getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, m
 | moduleName | string | 是 | 表示Module名称。 |
 | extensionAbilityName | string | 是 | 表示ExtensionAbility组件的名称。 |
 | metadataName | string | 是 | 表示ExtensionAbility组件的元信息名称，即module.json5配置文件中extensionAbilities标签下的metadata标签的name。 |
-| callback | AsyncCallback<Array&lt;string&gt;> | 是 | 回调函数，当获取成功时，err为undefined，data为获取到的Array&lt;string&gt;；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;string&gt;> | 是 | AsyncCallback，当获取成功时，err为undefined，data为获取到的Array&lt;string&gt;；否则为错误对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -719,7 +719,7 @@ getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, m
 
 根据给定的moduleName、extensionAbilityName和metadataName（module.json5中[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#metadata标签)下的name）获取自身相应配置文件的json格式字符串。使用Promise异步回调。
 
-如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
+如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -743,7 +743,7 @@ getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, m
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -797,7 +797,7 @@ getProfileByExtensionAbilitySync(moduleName: string, extensionAbilityName: strin
 
 以同步方法根据给定的moduleName、extensionAbilityName和metadataName（module.json5中[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#metadata标签)下的name）获取自身相应配置文件的json格式字符串，返回对象为string数组。
 
-如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
+如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)的相关接口，来获取引用的资源。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -821,7 +821,7 @@ getProfileByExtensionAbilitySync(moduleName: string, extensionAbilityName: strin
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -946,7 +946,7 @@ canOpenLink(link: string): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -980,7 +980,7 @@ try {
 
 getLaunchWant(): Want
 
-获取本应用[入口UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-glossary#uiability)的Want参数。
+获取本应用[入口UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-glossary#entry-uiability入口uiability)的Want参数。
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
 
@@ -995,7 +995,7 @@ getLaunchWant(): Want
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1045,13 +1045,13 @@ getBundleInfo(bundleName: string, bundleFlags: number, userId: number, callback:
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 表示要查询的应用Bundle名称。 |
 | bundleFlags | number | 是 | 指定返回的BundleInfo所包含的信息。 |
-| userId | number | 是 | 表示用户ID，可以通过getOsAccountLocalId接口获取。 |
-| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | 回调函数，当获取成功时，err为undefined，data为获取到的bundleInfo；否则为错误对象。 |
+| userId | number | 是 | 表示用户ID，可以通过getOsAccountLocalId获取。 |
+| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | AsyncCallback，当获取成功时，err为undefined，data为获取到的bundleInfo；否则为错误对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1140,12 +1140,12 @@ getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback&l
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 表示要查询的应用Bundle名称。 |
 | bundleFlags | number | 是 | 指定返回的BundleInfo所包含的信息。 |
-| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | 回调函数，当获取成功时，err为undefined，data为获取到的BundleInfo；否则为错误对象。 |
+| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | AsyncCallback，当获取成功时，err为undefined，data为获取到的BundleInfo；否则为错误对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1207,7 +1207,7 @@ getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 表示要查询的应用Bundle名称。 |
 | bundleFlags | number | 是 | 指定返回的BundleInfo所包含的信息。 |
-| userId | number | 否 | 表示用户ID，可以通过getOsAccountLocalId接口获取，默认值：调用方所在用户，取值范围：大于等于0。 |
+| userId | number | 否 | 表示用户ID，可以通过getOsAccountLocalId获取，默认值：调用方所在用户，取值范围：大于等于0。 |
 
 
 **返回值：**
@@ -1219,7 +1219,7 @@ getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1301,7 +1301,7 @@ getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): Bund
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 表示要查询的应用Bundle名称。 |
 | bundleFlags | number | 是 | 指定返回的BundleInfo所包含的信息。 |
-| userId | number | 是 | 表示用户ID，可以通过getOsAccountLocalId接口获取。 |
+| userId | number | 是 | 表示用户ID，可以通过getOsAccountLocalId获取。 |
 
 
 **返回值：**
@@ -1313,7 +1313,7 @@ getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): Bund
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1381,7 +1381,7 @@ getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1432,12 +1432,12 @@ getBundleNameByUid(uid: number, callback: AsyncCallback&lt;string&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uid | number | 是 | 表示应用程序的UID。 |
-| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，当获取成功时，err为undefined，data为获取到的BundleName；否则为错误对象。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | AsyncCallback，当获取成功时，err为undefined，data为获取到的BundleName；否则为错误对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1502,7 +1502,7 @@ getBundleNameByUid(uid: number): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1565,7 +1565,7 @@ getBundleNameByUidSync(uid: number): string
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1620,12 +1620,12 @@ getAppCloneIdentity(uid: number): Promise&lt;AppCloneIdentity&gt;;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;AppCloneIdentity&gt; | Promise对象，返回&lt;AppCloneIdentity&gt;。 |
+| Promise&lt;AppCloneIdentity&gt; | Promise对象，返回AppCloneIdentity数组。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1685,7 +1685,7 @@ getSignatureInfo(uid: number): SignatureInfo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1745,7 +1745,7 @@ getAbilityInfo(uri: string, abilityFlags: number): Promise<Array&lt;AbilityInfo&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1836,7 +1836,7 @@ getPluginBundlePathForSelf(pluginBundleName: string): string
 
 **错误码：**
 
-错误码请参见[ohos.bundle错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+错误码请参见[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1884,7 +1884,7 @@ getLaunchWantForBundleSync(bundleName: string, userId?: number): Want
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 表示应用的包名。 |
-| userId | number | 否 | 表示用户ID，可以通过getOsAccountLocalId接口获取。 默认值：调用方所在用户。 取值范围：大于等于0。 |
+| userId | number | 否 | 表示用户ID，可以通过getOsAccountLocalId获取。 默认值：调用方所在用户。 取值范围：大于等于0。 |
 
 
 **返回值：**
@@ -1943,6 +1943,134 @@ try {
 } catch (err) {
   let message = (err as BusinessError).message;
   hilog.error(0x0000, 'testTag', 'getLaunchWantForBundleSync failed. Cause: %{public}s', message);
+}
+```
+
+
+
+#### bundleManager.getApplicationLabel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getApplicationLabel(bundleName: string, appIndex: number): Promise&lt;string&gt;
+
+获取指定包名和分身索引的应用名称。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**需要权限：** ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+
+**系统能力：** SystemCapability.BundleManager.BundleFramework.Resource
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| bundleName | string | 是 | 应用的包名。 |
+| appIndex | number | 是 | 表示应用索引。取值范围0~5，取值为0表示主应用，取值1~5表示分身应用的索引。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;string&gt; | Promise对象，调用成功返回应用名称；调用失败返回错误对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 17700001 | The specified bundle is not found. |
+| 17700061 | The specified app index is invalid. |
+
+
+**示例：**
+
+```text
+import { bundleManager } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+try {
+  bundleManager.getApplicationLabel('com.hap.myapplication', 1).then((data: string) => {
+    hilog.info(0x0000, 'testTag', 'getApplicationLabel succeed: Data: %{public}s', data);
+  }).catch((err: BusinessError) => {
+    hilog.error(0x0000, 'testTag', 'getApplicationLabel failed: %{public}d  %{public}s', err.code, err.message);
+  });
+} catch (err) {
+  let code = (err as BusinessError).code;
+  let message = (err as BusinessError).message;
+  hilog.error(0x0000, 'testTag', 'getApplicationLabel failed: error %{public}d  %{public}s', err.code, err.message);
+}
+```
+
+
+
+#### bundleManager.getInstalledBundleList
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getInstalledBundleList(bundleFlags: number): Promise<Array&lt;BundleInfo&gt;>
+
+根据给定的bundleFlags获取系统中所有的BundleInfo。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**需要权限：** ohos.permission.ENTERPRISE_GET_INSTALLED_BUNDLE_LIST
+
+**系统能力：** SystemCapability.BundleManager.BundleFramework.Core
+
+**设备行为差异：** 该接口仅在PC/2in1设备中可正常调用，在其他设备中返回201错误码。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| bundleFlags | number | 是 | 指定返回的BundleInfo所包含的信息，详情请参考BundleFlag。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;BundleInfo&gt;> | Promise对象，返回当前已安装应用的信息列表。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+
+
+**示例：**
+
+```json
+import { bundleManager } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+let bundleFlags = bundleManager.BundleFlag.GET_BUNDLE_INFO_DEFAULT;
+
+try {
+  bundleManager.getInstalledBundleList(bundleFlags).then((data) => {
+    hilog.info(0x0000, 'testTag', 'getInstalledBundleList successfully. Data: %{public}s', JSON.stringify(data));
+  }).catch((err: BusinessError) => {
+    hilog.error(0x0000, 'testTag', 'getInstalledBundleList failed. Cause: %{public}s', err.message);
+  });
+} catch (err) {
+  let message = (err as BusinessError).message;
+  hilog.error(0x0000, 'testTag', 'getInstalledBundleList failed. Cause: %{public}s', message);
 }
 ```
 

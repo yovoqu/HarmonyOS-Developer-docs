@@ -1,6 +1,6 @@
 # SwipeGesture
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-swipegesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,6 +48,8 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
 设置快滑手势事件。与[SwipeGesture](#swipegesture-1)相比，options参数新增了isFingerCountLimited，表示是否检查触摸屏幕的手指数量。
  
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -152,4 +154,4 @@ struct SwipeGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/LH3sb9XbSOSu2Jd1edKcNQ/zh-cn_image_0000002611835543.png?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=9A030F906231C5E27696AA39EB32BA3AAF1A1E7BC8DDD826DB9BA35D293BF6AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/UVpNA_b0T_mFYb5SWncGYQ/zh-cn_image_0000002628862316.png?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=E97EA4DBD2877430961EEA66CC302A3DB8720258D786B8D13FFD8B00D36010F8)

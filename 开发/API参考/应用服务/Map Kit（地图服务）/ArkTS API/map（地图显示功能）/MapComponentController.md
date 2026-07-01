@@ -1,6 +1,6 @@
 # Class (MapComponentController)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -65,7 +65,7 @@ struct HuaweiMapDemo {
         this.mapEventManager = this.mapController.getEventManager();
         let callback = () => {
           console.info(this.TAG, `on-mapLoad`);
-        }
+        };
         this.mapEventManager.on("mapLoad", callback);
 
         // 执行自定义的方法
@@ -1604,7 +1604,7 @@ this.mapController.setLogoPadding(padding);
 
 getScalePerPixel(): number
 
-获取当前缩放级别下，地图上1像素点对应的长度，单位：m。
+获取当前缩放级别下，地图上1个像素点对应的长度，单位：m。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1618,7 +1618,7 @@ getScalePerPixel(): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 地图上1像素点对应的长度，单位：m。 |
+| number | 地图上1个像素点对应的长度，单位：m。当地图对象不存在或者销毁时返回0。 |
 
 
 **示例：**
@@ -2216,7 +2216,7 @@ getDayNightMode(): mapCommon.DayNightMode
 
 | 类型 | 说明 |
 | --- | --- |
-| mapCommon.DayNightMode | 日间夜间模式。 - DayNightMode.DAY：日间模式 - DayNightMode.NIGHT：夜间模式 - DayNightMode.AUTO：自动模式，如果系统打开深色开关，显示夜间模式，否则显示日间模式 |
+| mapCommon.DayNightMode | 日间夜间模式。 - DayNightMode.DAY：日间模式。 - DayNightMode.NIGHT：夜间模式。 - DayNightMode.AUTO：自动模式，如果系统打开深色开关，显示夜间模式，否则显示日间模式。 当地图对象不存在或者销毁时，返回mapCommon.DayNightMode.DAY。 |
 
 
 **示例：**
@@ -2278,7 +2278,7 @@ getMapType(): mapCommon.MapType
 
 | 类型 | 说明 |
 | --- | --- |
-| mapCommon.MapType | 查询地图的类型。 |
+| mapCommon.MapType | 查询地图的类型，当地图对象不存在或者销毁时，返回mapCommon.MapType.STANDARD。 |
 
 
 **示例：**
@@ -2377,7 +2377,7 @@ getScaleLevel(): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 接口返回比例尺上的文本数字，单位：m。 |
+| number | 接口返回比例尺上的文本数字，单位：m。当地图对象不存在或者销毁时，返回0。 |
 
 
 **示例：**
@@ -2712,7 +2712,7 @@ let imageOverlay = await this.mapController?.addImageOverlay(imageOverlayParams)
 
 snapshot(): Promise<image.PixelMap>
 
-生成地图快照。使用Promise异步回调。
+生成地图快照。使用Promise异步回调，调用时建议增加3s超时防护。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -3537,50 +3537,6 @@ setSphereEnabled(enabled: boolean, animateDuration: number, cityLight: boolean):
 
 ```text
 this.mapController.setSphereEnabled(true, 1000, true);
-```
-
-
-
-#### setSphereMapEnabled
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
-
-setSphereMapEnabled(enabled: boolean, params?: mapCommon.SphereParams): Promise&lt;void&gt;
-
-设置3D地图开关。
-
-**模型约束：** 此接口仅可在Stage模型下使用。
-
-**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
-
-**系统能力：** SystemCapability.Map.Core
-
-**起始版本：** 26.0.0
-
-**参数**：
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| enabled | boolean | 是 | 以动画形式切换2D或3D地球，异常值不处理。取值范围： - true：开启3D地球 - false：开启2D地球 |
-| params | mapCommon.SphereParams | 否 | 球体属性。 |
-
-
-**示例：**
-
-```text
-let mSphereOptions: mapCommon.SphereParams =
-  {
-    // 开启球体太阳光
-    sunLightEnabled: true,
-    // 开启球体城市光
-    cityLightEnabled: true,
-    // 设置动画时长为1000ms
-    animateDuration: 1000,
-    // 图片需存放在resources/base/media目录下
-    backgroundImage: $r('app.media.bg_compress'),
-    coverageImage: $r('app.media.coverage_icon')
-  };
-await this.mapController.setSphereMapEnabled(true, mSphereOptions);
 ```
 
 

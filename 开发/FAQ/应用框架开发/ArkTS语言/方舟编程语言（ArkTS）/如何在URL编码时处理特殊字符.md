@@ -1,6 +1,6 @@
 # 如何在URL编码时处理特殊字符
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-150
 
@@ -18,7 +18,7 @@
 - **保留字符（Reserved）**有特殊含义，用作数据时需编码。包括 !、*、'、(、)、;、:、@、&、=、+、$、,、/、?、#、[、]，例如可以使用encodeURIComponent()对‘+’转义为‘%2B’。
 
   
-```ArkTS
+```text
 @Entry
 @Component
 export struct HandlingSpecialCharactersForURLEncoding {

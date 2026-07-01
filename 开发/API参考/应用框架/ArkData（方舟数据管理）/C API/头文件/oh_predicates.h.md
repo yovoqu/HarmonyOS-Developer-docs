@@ -1,6 +1,6 @@
 # oh_predicates.h
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-predicates-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -120,15 +120,15 @@ int OH_Predicates_NotLike(OH_Predicates *predicates, const char *field, const ch
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 表示数据库表中的列名。 |
-| const char *pattern | 表示要比较的指定值。 |
+| const char *field | 表示数据库表中的列名，不能为空。 |
+| const char *pattern | 表示谓词不匹配的模式，不能为空。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -154,15 +154,15 @@ int OH_Predicates_Glob(OH_Predicates *predicates, const char *field, const char 
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 表示数据库表中的列名。 |
-| const char *pattern | 表示与谓词匹配的值。 |
+| const char *field | 表示数据库表中的列名，不能为空。 |
+| const char *pattern | 表示谓词匹配的样式，不能为空。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -188,15 +188,15 @@ int OH_Predicates_NotGlob(OH_Predicates *predicates, const char *field, const ch
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 表示数据库表中的列名。 |
-| const char *pattern | 表示要比较的指定值。 |
+| const char *field | 表示数据库表中的列名，不能为空。 |
+| const char *pattern | 表示谓词不匹配的样式，不能为空。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行结果。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -220,7 +220,7 @@ int OH_Predicates_Having(OH_Predicates *predicates, const char *conditions, cons
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *conditions | 表示having子句中的过滤条件。 |
+| const char *conditions | 表示having子句中的过滤条件，不能为空且不能为空字符串。 |
 | const OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
  
  
@@ -228,4 +228,4 @@ int OH_Predicates_Having(OH_Predicates *predicates, const char *conditions, cons
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回错误码。 如果执行成功，返回RDB_OK。 如果输入参数无效，返回RDB_E_INVALID_ARGS。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |

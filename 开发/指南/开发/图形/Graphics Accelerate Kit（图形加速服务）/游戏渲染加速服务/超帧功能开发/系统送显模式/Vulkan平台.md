@@ -1,6 +1,6 @@
 # Vulkan平台
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-fg-systempresent-vulkan
 
@@ -243,7 +243,7 @@ while (true) {
             break;
         }
         case FG_COLLECTING_PREVIOUS_FRAMES:
-            // 传入真实帧数量未达到固定阈值，无预测帧生成，外插模式传入真实帧数量<3时返回该状态码，此时不要将预测帧送显
+            // 传入真实帧数量未达到固定阈值，无预测帧生成，基础内插模式传入真实帧数量<2时返回该状态码，此时不要将预测帧送显
             break;
         default:
             // 预测帧生成失败

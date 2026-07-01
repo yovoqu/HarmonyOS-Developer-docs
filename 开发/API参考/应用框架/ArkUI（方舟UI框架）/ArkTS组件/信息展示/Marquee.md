@@ -1,6 +1,6 @@
 # Marquee
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-marquee
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -53,12 +53,14 @@ Marquee初始化参数。
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
 
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | start8+ | boolean | 否 | 否 | 控制跑马灯是否进入播放状态。 true：播放；false：不播放。 说明： 有限的滚动次数播放完毕后，不可以通过改变start重置滚动次数重新开始播放。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| step8+ | number | 否 | 是 | 滚动动画文本滚动步长。当step大于Marquee的文本宽度时，取默认值。 默认值：6 单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| step8+ | number | 否 | 是 | 滚动动画的文本步长。当step大于Marquee的文本宽度时，取默认值。 默认值：6 单位：vp 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | loop8+ | number | 否 | 是 | 设置重复滚动的次数，小于等于零时无限循环。 默认值：-1 说明： ArkTS卡片上该参数设置任意值都仅在可见时滚动一次。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | fromStart8+ | boolean | 否 | 是 | 设置文本从头开始滚动或反向滚动。 true：表示从头开始滚动 false：表示反向滚动。 默认值：true 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | src8+ | string | 否 | 否 | 需要滚动的文本。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -201,6 +203,8 @@ marqueeUpdateStrategy(value: MarqueeUpdateStrategy)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -287,9 +291,42 @@ onFinish(event: () => void)
 
 
 
+#### onStop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onStop(event: Callback&lt;void&gt;| undefined)
+
+跑马灯滚动结束或停止时触发回调。
+
+跑马灯停止表示跑马灯将从开始位置，重新开始循环，不包含暂停场景，暂停不会触发该回调。
+
+**起始版本：** 26.0.0
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| event | Callback&lt;void&gt;\| undefined | 是 | 跑马灯滚动结束或停止时触发回调。 设置为undefined时不会执行回调。 |
+
+
+
+
 #### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+
+
+#### 示例1（跑马灯内容动态更新）
 
 该示例通过设置[MarqueeOptions](#marqueeoptions18对象说明)的start、step、loop、fromStart、src、spacing、delay属性和[marqueeUpdateStrategy](#marqueeupdatestrategy12)展示了跑马灯内容动态更新时运行的效果。
 
@@ -374,4 +411,85 @@ struct MarqueeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/4zCtYjbURb6-x8u6Ou_9lg/zh-cn_image_0000002611835875.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025556Z&HW-CC-Expire=86400&HW-CC-Sign=C03CDBBD9C1FD4B9BEF14F267345B6AAA77A07BC80AADEAACD6C4C3CD3867503)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/8uzHddAOTfW1cuUAiFizVQ/zh-cn_image_0000002659102007.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014343Z&HW-CC-Expire=86400&HW-CC-Sign=C9E3A471A04EB7F593D2DF7FAFE7BC5380A46891D9632D3A4993CF798E8B43A0)
+
+
+
+
+#### 示例2（设置跑马灯停止回调）
+
+该示例通过变更跑马灯状态来触发跑马灯的onStop回调，触发onStop回调后使停止计数器numberSTOP的值加1。
+
+从API版本26.0.0开始，新增[onStop](#onstop)接口。
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct MarqueeStop4 {
+  @State change :boolean = true;
+  @State isString: String = '正向滚动';
+  @State marqueeText: string =
+    'This is the text with the text overflow set marquee This is the text with the text overflow set marquee This is the text with the text overflow set marquee';
+  @State numberSTART: number = 0;
+  @State numberBOUNCE: number = 0;
+  @State numberSTOP: number = 0;
+
+  build() {
+    Scroll() {
+      Column() {
+        Row() {
+          Column() {
+            Text('Start')
+            Text(this.numberSTART.toString())
+          }.margin(10)
+
+          Column() {
+            Text('Bounce')
+            Text(this.numberBOUNCE.toString())
+          }.margin(10)
+
+          Column() {
+            Text('Stop')
+            Text(this.numberSTOP.toString())
+          }.margin(10)
+        }.margin(20)
+
+        Marquee({
+          start: true,
+          step: 6,
+          loop: 1,
+          fromStart: this.change,
+          src: this.marqueeText
+        })
+          .marqueeUpdateStrategy(MarqueeUpdateStrategy.DEFAULT)
+          .margin(20)
+          .onStart(() => {
+            // '收到状态: START';
+            this.numberSTART++;
+          })
+          .onBounce(() => {
+            // '收到状态: BOUNCE';
+            this.numberBOUNCE++;
+          })
+          .onStop(() => {
+            // '收到状态: STOP';
+            this.numberSTOP++;
+          })
+        Button(this.isString.toString()).onClick(() => {
+          if (this.change) {
+            this.change = false
+            this.isString = '反向滚动';
+          } else {
+            this.change = true
+            this.isString = '正向滚动';
+          }
+        }).margin(20)
+      }.height(600).width('100%').padding({ left: 35, right: 35, top: 35 })
+    }
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/YnqCzV7hTOSrfIpqA_Oozw/zh-cn_image_0000002628862658.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014343Z&HW-CC-Expire=86400&HW-CC-Sign=237BC0D763FE2BF5D60E2FBBB7484403D2C1D5D8A2814810B7209AD73D263CA4)

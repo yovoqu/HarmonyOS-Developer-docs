@@ -1,6 +1,6 @@
 # Web组件如何访问本地的资源文件，并添加查询参数
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-39
 
@@ -8,7 +8,7 @@
  
 目前不支持直接添加查询参数。但可以通过Web组件加载HTML文件，使用`window.location.href`跳转到带有参数的本地HTML页面。具体示例代码请参考文档。
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 @Entry

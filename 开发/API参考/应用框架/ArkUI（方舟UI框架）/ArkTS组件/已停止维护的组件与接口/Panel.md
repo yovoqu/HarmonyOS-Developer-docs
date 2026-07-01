@@ -1,6 +1,6 @@
 # Panel
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-panel
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -438,4 +438,4 @@ struct PanelExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/r3Dk1zm9Tjiu8RD0ixVY8A/zh-cn_image_0000002611836133.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=B86485CE67B8E9560A62DAB6B0EA263E9FDB0A75B033754E5E2A039592670927)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/wTHLHp_2TYW8OVXUPGn-Bg/zh-cn_image_0000002628862920.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014357Z&HW-CC-Expire=86400&HW-CC-Sign=130C9050765B7A600D73344B67C17AC4FDC1831EBDF6E3FF0F2F0F4049104AD5)

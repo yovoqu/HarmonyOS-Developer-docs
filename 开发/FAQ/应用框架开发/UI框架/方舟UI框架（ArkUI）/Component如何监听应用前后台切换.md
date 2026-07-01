@@ -1,6 +1,6 @@
 # Component如何监听应用前后台切换
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-230
 
@@ -8,8 +8,8 @@
  
 参考代码如下：
  
-```ArkTS
-// EntryAbility中
+```text
+<em>// EntryAbility中</em>
 export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     AppStorage.setOrCreate<boolean>('isOnForeground', undefined);

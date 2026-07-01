@@ -1,6 +1,6 @@
 # Class (OverlayManager)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供绘制浮层的能力。
  
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需先使用UIContext中的 getOverlayManager() 方法获取到OverlayManager对象，再通过该对象调用对应方法。 OverlayManager上节点的层级在Page页面层级之上，在Dialog、Popup、Menu、BindSheet、BindContentCover和Toast等之下。 OverlayManager上节点安全区域内外的绘制方式与Page一致，键盘避让方式与Page一致。 与OverlayManager相关的属性推荐采用AppStorage来进行应用全局存储，以免切换页面后属性值发生变化从而导致业务错误。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getOverlayManager() 方法获取到OverlayManager对象，再通过该对象调用对应方法。 OverlayManager上节点的层级在Page页面层级之上，在Dialog、Popup、Menu、BindSheet、BindContentCover和Toast等之下。 OverlayManager上节点安全区域内外的绘制方式与Page一致，键盘避让方式与Page一致。 与OverlayManager相关的属性推荐采用AppStorage来进行应用全局存储，以免切换页面后属性值发生变化从而导致业务错误。
 
   
 
@@ -19,6 +19,8 @@
 addComponentContent(content: ComponentContent, index?: number): void
  
 在OverlayManager上新增指定节点。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -142,6 +144,8 @@ addComponentContentWithOrder(content: ComponentContent, levelOrder?: LevelOrder)
  
 支持在浮层节点创建时指定显示的顺序。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -236,7 +240,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/un-YRfHgRzabzu9l9XdUYw/zh-cn_image_0000002581275620.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025452Z&HW-CC-Expire=86400&HW-CC-Sign=F0CE1EDF30DB97B64401514041B3878647A3A1D62A263E16C9AA6B64439853A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/gkTQ_3mcQ_KR5M6Nd4CBdA/zh-cn_image_0000002628702256.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=322FAF1D424A4CD7BFEB922A7255A775A5DC25060A1920904327D888644E5548)
 
  
   
@@ -248,6 +252,8 @@ struct Index {
 removeComponentContent(content: ComponentContent): void
  
 删除overlay上的指定节点。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -262,7 +268,7 @@ removeComponentContent(content: ComponentContent): void
  
 **示例：**
  
-请参考[addComponentContent示例](#addcomponentcontent12)。
+请参考[addComponentContent](#addcomponentcontent12)示例。
  
   
 
@@ -273,6 +279,8 @@ removeComponentContent(content: ComponentContent): void
 showComponentContent(content: ComponentContent): void
  
 在OverlayManager上显示指定节点。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -287,7 +295,7 @@ showComponentContent(content: ComponentContent): void
  
 **示例：**
  
-请参考[addComponentContent示例](#addcomponentcontent12)。
+请参考[addComponentContent](#addcomponentcontent12)示例。
  
   
 
@@ -298,6 +306,8 @@ showComponentContent(content: ComponentContent): void
 hideComponentContent(content: ComponentContent): void
  
 隐藏OverlayManager上的指定节点。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -312,7 +322,7 @@ hideComponentContent(content: ComponentContent): void
  
 **示例：**
  
-请参考[addComponentContent示例](#addcomponentcontent12)。
+请参考[addComponentContent](#addcomponentcontent12)示例。
  
   
 
@@ -324,13 +334,15 @@ showAllComponentContents(): void
  
 显示OverlayManager上所有的ComponentContent。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **示例：**
  
-请参考[addComponentContent示例](#addcomponentcontent12)。
+请参考[addComponentContent](#addcomponentcontent12)示例。
  
   
 
@@ -342,10 +354,12 @@ hideAllComponentContents(): void
  
 隐藏OverlayManager上的所有ComponentContent。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **示例：**
  
-请参考[addComponentContent示例](#addcomponentcontent12)。
+请参考[addComponentContent](#addcomponentcontent12)示例。

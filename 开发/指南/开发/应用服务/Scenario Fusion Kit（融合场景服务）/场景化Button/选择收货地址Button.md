@@ -1,6 +1,6 @@
 # 选择收货地址Button
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-ship-to
 
@@ -9,6 +9,12 @@
 选择收货地址Button功能可以帮助开发者调用对应Button组件快速拉起地址选择页面，并返回用户选择的收货地址。
 
 运行示例代码单击“选择收货地址”按钮，拉起选择地址页面选择已保存的地址，也可单击“管理/新增收货地址”进入添加收货地址页面（完整场景可参考[获取收货地址](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev)）。
+
+
+
+#### 约束与限制
+
+选择收货地址Button支持Phone、Tablet和PC/2in1设备，并且从API版本26.0.0开始，新增支持TV设备。
 
 
 

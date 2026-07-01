@@ -1,6 +1,6 @@
 # AgentExtensionContext (智能体扩展组件上下文)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agentextensioncontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

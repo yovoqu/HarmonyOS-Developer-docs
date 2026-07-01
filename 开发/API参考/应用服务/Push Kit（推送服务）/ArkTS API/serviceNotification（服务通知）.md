@@ -1,6 +1,6 @@
 # serviceNotification（服务通知）
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -117,7 +117,7 @@ export default class EntryAbility extends UIAbility {
  
   
 
-#### requestSubscribeNotification
+#### serviceNotification.requestSubscribeNotification
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -207,8 +207,7 @@ export default class EntryAbility extends UIAbility {
     let type: serviceNotification.SubscribeNotificationType =
       serviceNotification.SubscribeNotificationType.SUBSCRIBE_WITH_HUAWEI_ID;
     serviceNotification.requestSubscribeNotification(this.context, entityIds, type).then((data) => {
-      hilog.info(LOG_DOMAIN, LOG_TAG,
-        'requestSubscribeNotification succeeded, result: ${JSON.stringify(data.entityResult)}}');
+      hilog.info(LOG_DOMAIN, LOG_TAG, 'requestSubscribeNotification succeeded, result=%{public}s', JSON.stringify(data.entityResult));
     }).catch((err: BusinessError) => {
       hilog.error(LOG_DOMAIN, LOG_TAG, 'requestSubscribeNotification failed, %{public}d %{public}s', err.code, err.message);
     });
@@ -257,6 +256,41 @@ querySubscribeNotificationSetting(): Promise&lt;SubscribeNotificationSetting&gt;
 | 1000900030 | The user has not logged in with HUAWEI ID. |
 | 1000900032 | No service notification settings exist. |
  
+ 
+**示例：**
+ 
+```json
+import { UIAbility } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { serviceNotification } from '@kit.PushKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+const LOG_DOMAIN = 0x0000;
+const LOG_TAG = 'EntryAbility';
+
+export default class EntryAbility extends UIAbility {
+  async onForeground(): Promise<void> {
+    hilog.info(LOG_DOMAIN, LOG_TAG, 'onForeground');
+
+    try {
+      await this.querySubscribe();
+    } catch (err) {
+      let e: BusinessError = err as BusinessError;
+      hilog.error(LOG_DOMAIN, LOG_TAG, 'querySubscribe failed, %{public}d %{public}s', e.code, e.message);
+    }
+  }
+
+  private async querySubscribe(): Promise<void> {
+    serviceNotification.querySubscribeNotificationSetting().then((data) => {
+      hilog.info(LOG_DOMAIN, LOG_TAG,
+        `querySubscribeNotificationSetting succeeded, bundle: ${JSON.stringify(data.bundleName)},` +
+          ` enable: ${JSON.stringify(data.enable)}, entitySettings: ${JSON.stringify(data.entitySettings)}`);
+    }).catch((err: BusinessError) => {
+      hilog.error(LOG_DOMAIN, LOG_TAG, 'querySubscribeNotificationSetting failed, %{public}d %{public}s', err.code, err.message);
+    });
+  }
+}
+```
  
   
 

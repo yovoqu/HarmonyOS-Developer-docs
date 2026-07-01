@@ -1,24 +1,24 @@
 # 在进行aes加密的时候，如何把字符串转换成Key对象
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-28
 
 可参考如下代码：
  
-```ArkTS
+```json
 import { buffer, util } from '@kit.ArkTS';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 @Entry
 @Component
 struct GetKey {
-  // Convert string to byte stream
+  <em>// Convert string to byte stream</em>
   stringToUint8Array(str: string) {
     return new Uint8Array(buffer.from(str, 'utf-8').buffer);
   }
 
-  //Import key
+  <em>// Import key</em>
   async getKey() {
     let symAlgName = 'AES128';
     let symKeyGenerator = cryptoFramework.createSymKeyGenerator(symAlgName);

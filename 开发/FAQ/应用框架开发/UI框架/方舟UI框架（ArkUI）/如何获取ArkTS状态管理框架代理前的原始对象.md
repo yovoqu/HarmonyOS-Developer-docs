@@ -1,6 +1,6 @@
 # 如何获取ArkTS状态管理框架代理前的原始对象
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-367
 
@@ -8,7 +8,7 @@
  
 参考示例如下：
  
-```ArkTS
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 @Observed
@@ -26,13 +26,13 @@ struct GetTargetDemo {
       Text(`info.name: ${this.info.name}`)
       Button('Change the properties of the proxy object')
         .onClick(() => {
-          this.info.name = 'Alice'; // The Text component can refresh
+          this.info.name = 'Alice';<em> // The Text component can refresh</em>
         })
       Button('更改原始对象的属性')
         .onClick(() => {
           let rawInfo: UserInfo = UIUtils.getTarget(this.info);
           if (rawInfo) {
-            rawInfo.name = 'Bob'; // The Text component cannot be refreshed
+            rawInfo.name = 'Bob';<em> // The Text component cannot be refreshed</em>
           }
         })
     }

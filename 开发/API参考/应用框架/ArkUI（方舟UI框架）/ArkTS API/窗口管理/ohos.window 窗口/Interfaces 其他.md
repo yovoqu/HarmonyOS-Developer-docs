@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -23,9 +23,9 @@
 | name | string | 否 | 否 | 窗口名称。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
 | windowType | WindowType | 否 | 否 | 窗口类型。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
 | ctx | BaseContext | 否 | 是 | 当前应用上下文信息。不设置，则默认为空。 FA模型下不需要使用该参数，即可创建子窗口，使用该参数时会报错。 Stage模型必须使用该参数，用于创建全局悬浮窗、模态窗或系统窗口。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
-| displayId | number | 否 | 是 | 当前屏幕ID。不设置，则默认为-1，跟随父窗口，该参数应为整数。 设置后对屏幕ID进行校验，小于0或屏幕ID不存在时，返回401错误码。 扩展屏、异源虚拟屏场景下，全局悬浮窗可通过设置屏幕ID显示在指定屏幕上。 模态窗、系统窗设置屏幕ID无效，默认跟随父窗口。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
-| parentId | number | 否 | 是 | 父窗口ID。不设置，则默认为-1，默认父窗为当前应用上下文对应主窗，该参数应为整数。 FA模型下，对传入父窗口ID进行校验，小于0或父窗口ID不存在时，返回1300009错误码。 Stage模型下，该参数设置无效。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
-| decorEnabled12+ | boolean | 否 | 是 | 是否显示窗口装饰，仅在windowType为TYPE_DIALOG时生效。true表示显示，false表示不显示。此参数默认值为false。 系统能力： SystemCapability.Window.SessionManager |
+| displayId | number | 否 | 是 | 当前屏幕ID。不设置，则默认为父窗口屏幕ID。 该参数应为非负整数，且对应屏幕ID存在。 扩展屏、异源虚拟屏场景下，全局悬浮窗可通过设置屏幕ID显示在指定屏幕上。 模态窗、系统窗设置屏幕ID无效，默认为父窗口屏幕ID。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
+| parentId | number | 否 | 是 | 父窗口ID。不设置，则默认为-1，默认父窗为当前应用上下文对应主窗。 FA模型下，该参数应为非负整数，且对应父窗口ID存在。 Stage模型下，该参数设置无效。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
+| decorEnabled12+ | boolean | 否 | 是 | 是否显示窗口标题栏，仅在windowType为TYPE_DIALOG时生效。true表示显示，false表示不显示。此参数默认值为false。 系统能力： SystemCapability.Window.SessionManager |
 | title12+ | string | 否 | 是 | decorEnabled属性设置为true时，窗口的标题内容。标题显示区域最右端不超过系统三键区域最左端，超过部分以省略号表示。不设置，则默认为空字符串。 系统能力： SystemCapability.Window.SessionManager |
 
 
@@ -149,7 +149,7 @@
 
 窗口内容的避让区域。
 
-窗口内容做[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)适配时，需要按照[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)对应的AvoidArea做窗口内容避让。
+窗口内容做[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)适配时，需要按照[AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#avoidareatype7)对应的AvoidArea做窗口内容避让。
 
 在避让区域内，应用窗口内容被遮挡且无法响应用户点击事件。
 
@@ -176,7 +176,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-以vp为单位表示的窗口避让区域信息，在进行[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)适配时需关注。
+以vp为单位表示的窗口避让区域信息，在进行[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)适配时需关注。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -325,7 +325,8 @@
 | --- | --- | --- | --- | --- |
 | windowRect7+ | Rect | 否 | 否 | 窗口尺寸，其中左边界上边界是相对于窗口所在屏幕左上顶点计算，可在页面生命周期onPageShow或应用生命周期onForeground阶段获取。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
 | drawableRect11+ | Rect | 否 | 否 | 窗口内的可绘制区域尺寸，其中左边界上边界是相对于窗口左上顶点计算。在Stage模型下，需要在调用loadContent()或setUIContent()加载页面内容后获取该属性。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
-| type7+ | WindowType | 否 | 否 | 窗口类型。 当前存在主窗使用getWindowProperties()接口返回type不准确的问题，开发者在创建窗口时已指明窗口类型，无需通过getWindowProperties()接口获取窗口类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
+| type(deprecated) | WindowType | 否 | 否 | 窗口类型。 当前存在主窗使用getWindowProperties()接口返回type不准确的问题，从API版本26.0.0开始废弃，可使用windowType字段代替。 起始版本： 7 废弃版本： 26.0.0 替代接口： windowType 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
+| windowType | WindowType | 否 | 是 | 窗口类型，默认值是TYPE_MAIN。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
 | isFullScreen | boolean | 否 | 否 | 在满足isLayoutFullScreen为true的条件下如果隐藏了状态栏，返回值为true，其他情况下均返回false。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
 | isLayoutFullScreen7+ | boolean | 否 | 否 | 对于子窗，如果设置了沉浸式布局，返回值为true。 对于主窗，如果设置了沉浸式布局且处于全屏模式，返回值为true。 其他情况下均返回false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
 | focusable7+ | boolean | 否 | 否 | 窗口是否可获焦。true表示可获焦；false表示不可获焦。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.WindowManager.WindowManager.Core |
@@ -348,18 +349,18 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-系统装饰栏按钮样式。
+系统标题栏按钮样式。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | colorMode | ConfigurationConstant.ColorMode | 否 | 是 | 颜色模式。深色模式下按钮颜色适配为浅色，浅色模式下按钮颜色适配为深色。未设置则默认跟随系统颜色模式。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| buttonBackgroundSize | number | 否 | 是 | 按钮高亮显示时的大小，取值范围20vp-40vp，默认值28vp。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| spacingBetweenButtons | number | 否 | 是 | 按钮间距，取值范围8vp-24vp，默认值12vp。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| closeButtonRightMargin | number | 否 | 是 | 关闭按钮右侧距窗口边距，取值范围6vp-22vp，默认值20vp。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| buttonIconSize20+ | number | 否 | 是 | 按键icon的大小，取值范围16vp-24vp，默认值20vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| buttonBackgroundCornerRadius20+ | number | 否 | 是 | 按键背板圆角半径，取值范围4vp-8vp，默认值4vp。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| buttonBackgroundSize | number | 否 | 是 | 按钮高亮显示时的大小，单位为vp，取值范围为[20, 40]，默认值为28。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| spacingBetweenButtons | number | 否 | 是 | 按钮间距，单位为vp，取值范围为[8, 24]，默认值为12。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| closeButtonRightMargin | number | 否 | 是 | 关闭按钮右侧距窗口边距，单位为vp，取值范围为[6, 22]，默认值为20。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| buttonIconSize20+ | number | 否 | 是 | 按钮icon的大小，单位为vp，取值范围为[16, 24]，默认值为20。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| buttonBackgroundCornerRadius20+ | number | 否 | 是 | 按钮背板圆角半径，单位为vp，取值范围为[4, 8]，默认值为4。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
 
@@ -449,19 +450,41 @@
 
 
 
+#### WindowInfoOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+窗口布局信息过滤选项。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| excludeSystemWindows | boolean | 否 | 是 | 是否排除系统窗口。true表示需要排除，false表示不排除，默认为false。 |
+| foregroundAboveWindow | number | 否 | 是 | 需要过滤掉的不高于此窗口层级的窗口的ID。表示只返回层级高于这个窗口的窗口信息。默认值是0，表示忽略本选项；如果值小于0，返回1300016错误码；如果指定的窗口不存在，则与设置为0等价。 |
+| foregroundBelowWindow | number | 否 | 是 | 需要过滤掉的不低于此窗口层级的窗口的ID。表示只返回层级低于这个窗口的窗口信息。默认值是0，表示忽略本选项；如果值小于0，返回1300016错误码；如果指定的窗口不存在，则与设置为0等价。若同时指定foregroundBelowWindow和foregroundAboveWindow，且两者都是有效的窗口ID，但foregroundBelowWindow指定的窗口的层级未高于foregroundAboveWindow指定的窗口，则返回空数组。 |
+
+
+
+
 #### WindowLayoutInfo15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口布局信息。
 
-**元服务API：** 从API version 15开始，该接口支持在元服务中使用。
-
 **系统能力：** SystemCapability.Window.SessionManager
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| windowRect | Rect | 否 | 否 | 窗口尺寸，窗口在屏幕上的实际位置和大小。 |
+| windowRect | Rect | 否 | 否 | 窗口尺寸，窗口在屏幕上的实际位置和大小。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| windowAlpha | number | 否 | 是 | 窗口透明度。有效值范围为[0.0, 1.0]，0.0表示完全透明，1.0表示完全不透明。默认值是-1.0，表示未查询到窗口透明度或者查询失败。 说明：本透明度非窗口背景色透明度（可通过setWindowBackgroundColor接口设置）。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -537,6 +560,8 @@
 | windowStatusType | WindowStatusType | 否 | 否 | 窗口模式枚举。 |
 | isFocused | boolean | 否 | 是 | 窗口是否获焦。true表示窗口获焦；false表示窗口未获焦。返回值与isFocused()接口一致。 |
 | globalDisplayRect20+ | Rect | 否 | 是 | 全局坐标系下的窗口尺寸，其中的宽高是未经缩放计算过的原始值。扩展屏场景下以主屏左上角为坐标原点，虚拟屏场景下以虚拟屏左上角为坐标原点。默认值：[0, 0, 0, 0]。 |
+| displayId | number | 否 | 是 | 窗口所在屏幕的ID。默认返回主屏幕ID，该参数为整数。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| globalRect | Rect | 否 | 是 | 窗口所在物理屏幕上的真实显示区域，以所在屏幕的左上角为坐标原点。若窗口显示时经过了缩放，获取到的是缩放后窗口在屏幕上的真实位置和大小。默认值：[0, 0, 0, 0]。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -569,7 +594,7 @@
 
 仅对全屏应用生效。
 
-**设备行为差异：** 该接口在Phone设备的非[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由多窗模式)、Tablet设备的非[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由多窗模式)且非电脑模式下可正常调用，在其他设备、[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由多窗模式)或电脑模式下调用不生效也不报错。
+**设备行为差异：** 该接口在Phone设备的非[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#free-multi-window-mode自由多窗模式)、Tablet设备的非[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#free-multi-window-mode自由多窗模式)且非电脑模式下可正常调用，在其他设备、[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#free-multi-window-mode自由多窗模式)或电脑模式下调用不生效也不报错。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -672,6 +697,27 @@
 
 
 
+#### OrientationResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+设置窗口显示方向的执行结果。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| executionResult | OrientationExecutionResult | 否 | 否 | 窗口显示方向的执行结果枚举。 |
+
+
+
+
 #### SubWindowOptions11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -683,13 +729,14 @@
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | title11+ | string | 否 | 否 | 子窗口标题。标题显示区域最右端不超过系统三键区域最左端，超过部分以省略号表示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| decorEnabled11+ | boolean | 否 | 否 | 子窗口是否显示装饰。true表示子窗口显示装饰，false表示子窗口不显示装饰。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| decorEnabled11+ | boolean | 否 | 否 | 子窗口是否显示标题栏。true表示子窗口显示标题栏，false表示子窗口不显示标题栏。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | isModal12+ | boolean | 否 | 是 | 子窗口是否启用模态属性。true表示子窗口启用模态属性，false表示子窗口禁用模态属性。不设置，则默认为false。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | modalityType14+ | ModalityType | 否 | 是 | 子窗口模态类型，仅当子窗口启用模态属性时生效。不设置，则默认为WINDOW_MODALITY。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| windowRect18+ | Rect | 否 | 是 | 子窗口矩形区域，其中子窗口存在大小限制，具体参考resize()方法。不设置且未调用showWindow()显示前，则默认为{left: 0, top: 0, width: 0, height: 0}。具体参考设置应用子窗口开发指南。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| windowRect18+ | Rect | 否 | 是 | 子窗口矩形区域，其中子窗口存在大小限制，具体参考resize()方法。不设置且未调用showWindow()显示前，则默认为{left: 0, top: 0, width: 0, height: 0}。具体参考子窗口开发指导。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | zLevel18+ | number | 否 | 是 | 子窗口层级级别，仅当子窗口未启用模态属性，即未设置isModal时生效。该参数是整数，取值范围为[-10000, 10000]，浮点数输入将向下取整。不设置，则默认为0。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | maximizeSupported19+ | boolean | 否 | 是 | 子窗口是否支持最大化特性。true表示子窗口支持最大化，false表示子窗口不支持最大化。不设置，则默认为false。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 设备行为差异： 该参数在支持并处于自由窗口状态的设备上可正常调用；在不支持自由窗口状态的设备上，作为入参使用时，对应接口不生效不报错；在支持但不处于自由窗口状态的设备上，作为入参使用时，对应接口不生效不报错，切换到自由窗口状态后生效。 |
-| outlineEnabled20+ | boolean | 否 | 是 | 子窗口是否显示描边。true表示子窗口显示描边，false表示子窗口不显示描边。不设置，则默认为false。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 设备行为差异： 该参数在2in1设备、其他设备的电脑模式中可正常调用，在其他设备和其他模式中作为入参使用时，对应接口不生效不报错。 |
+| outlineEnabled20+ | boolean | 否 | 是 | 子窗口是否显示描边。true表示子窗口显示描边，false表示子窗口不显示描边。不设置，则默认为false。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 设备行为差异： 该参数在PC/2in1设备、其他设备的电脑模式中可正常调用，在其他设备和其他模式中作为入参使用时，对应接口不生效不报错。 |
+| zLevelAboveParentLoosened | boolean | 否 | 是 | 子窗是否是独立子窗。true表示子窗是独立子窗，false表示子窗不是独立子窗。不设置，则默认为false。 起始版本： 26.0.0 元服务API： 从API version 26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 

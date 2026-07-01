@@ -1,12 +1,12 @@
 # Enums
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -164,3 +164,25 @@ UIContext对象的解析策略。
 | --- | --- | --- |
 | ENABLED | 0 | 接续。 |
 | DISABLED | 1 | 不接续。 |
+ 
+ 
+  
+
+#### TextSelectionClearPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+文本选择清除策略枚举。
+ 
+**起始版本：** 26.0.0
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH | 0 | 触摸到文本组件外部时，保留文本选中和手柄。 |
+| CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH | 1 | 触摸到文本组件外部时，清除文本选中和手柄。 |

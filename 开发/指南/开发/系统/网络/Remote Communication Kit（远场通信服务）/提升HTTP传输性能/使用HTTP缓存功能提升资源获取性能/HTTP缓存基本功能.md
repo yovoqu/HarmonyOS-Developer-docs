@@ -1,12 +1,12 @@
 # HTTP缓存基本功能
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-cache-basic
 
 从6.0.0(20)开始，支持HTTP缓存。
 
-HTTP 缓存是一种在客户端存储网络资源副本的机制，当后续请求相同资源时，可直接从缓存中获取，无需再次向服务器发起完整请求。HTTP 缓存适用于静态资源（如图片、CSS）和高访问量内容，能有效提升网络资源获取性能。Remote Communication Kit模块提供HTTP缓存功能，遵循[RFC 9111](https://www.rfc-editor.org/rfc/rfc9111.html)协议，支持独立配置缓存策略与持久化存储路径，实现内存、磁盘双重缓存管理，并提供自定义缓存拦截器能力。
+HTTP缓存是一种在客户端存储网络资源副本的机制，当后续请求相同资源时，可直接从缓存中获取，无需再次向服务器发起完整请求。HTTP缓存适用于静态资源（如图片、CSS）和高访问量内容，能有效提升网络资源获取性能。Remote Communication Kit模块提供HTTP缓存功能，遵循[RFC 9111](https://www.rfc-editor.org/rfc/rfc9111.html)协议，支持独立配置缓存策略与持久化存储路径，实现内存、磁盘双重缓存管理，并提供自定义缓存拦截器能力。
 
 
 #### 约束与限制

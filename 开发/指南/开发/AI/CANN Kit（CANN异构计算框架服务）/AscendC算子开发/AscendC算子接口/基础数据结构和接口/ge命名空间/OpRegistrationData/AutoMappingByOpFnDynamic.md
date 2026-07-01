@@ -1,6 +1,6 @@
 # AutoMappingByOpFnDynamic
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingbyopfndynamic
 
@@ -68,13 +68,13 @@ struct DynamicInputOutputInfo {
 
 ```text
 Status QueueDequeueUpToMapping(const  ge::Operator& op_src, ge::Operator& op) {
-vector<DynamicInputOutputInfo> dynamic_name_attr_value;
-string port_name = "components";
-string attr_name = "component_types";
-DynamicInputOutputInfo name_attr(kOutput, port_name.c_str(), port_name.size(), attr_name.c_str(), attr_name.size());
-dynamic_name_attr_value.push_back(name_attr);
-AutoMappingByOpFnDynamic(op_src, op, dynamic_name_attr_value);
-return SUCCESS;
+  vector<DynamicInputOutputInfo> dynamic_name_attr_value;
+  string port_name = "components";
+  string attr_name = "component_types";
+  DynamicInputOutputInfo name_attr(kOutput, port_name.c_str(), port_name.size(), attr_name.c_str(), attr_name.size());
+  dynamic_name_attr_value.push_back(name_attr);
+  AutoMappingByOpFnDynamic(op_src, op, dynamic_name_attr_value);
+  return SUCCESS;
 }
  
 REGISTER_CUSTOM_OP("QueueDequeueUpTo")

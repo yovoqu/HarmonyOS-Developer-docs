@@ -1,6 +1,6 @@
 # Tabs如何设置页面margin，使得边距空白跟随页面滑动
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-442
 
@@ -12,7 +12,7 @@
  
 设置页面边距的参数下沉到每个子页面中，参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct SetTabsMarginDemo {
@@ -49,7 +49,7 @@ struct SetTabsMarginDemo {
             .width('100%')
             .backgroundColor(Color.Yellow)
           }
-          // The place where the margins are correctly set.
+   <em>       // The place where the margins are correctly set.</em>
           .margin({left : 10, right :10})
 
           TabContent() {
@@ -60,7 +60,7 @@ struct SetTabsMarginDemo {
             .width('100%')
             .backgroundColor(Color.Green)
           }
-          // The place where the margins are correctly set.
+        <em>  // The place where the margins are correctly set.</em>
           .margin({left : 10, right :10})
 
           TabContent() {
@@ -71,11 +71,11 @@ struct SetTabsMarginDemo {
             .width('100%')
             .backgroundColor(Color.Pink)
           }
-          // The place where the margins are correctly set.
+         <em> // The place where the margins are correctly set.</em>
           .margin({left : 10, right :10})
         }
-        // The parameter for adjusting the margins should not be added here, as it may affect the user experience.
-        // .margin({left : 10, right :10})
+    <em>    // The parameter for adjusting the margins should not be added here, as it may affect the user experience.</em>
+<em>        // .margin({left : 10, right :10})</em>
         .onChange((index: number) => {
           this.currentIndex = index;
         })

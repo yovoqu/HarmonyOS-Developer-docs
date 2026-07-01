@@ -1,6 +1,6 @@
 # ProgressButtonV2
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-progressbuttonv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -217,4 +217,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/wf37ktb6RL-uHOT-1sS8eA/zh-cn_image_0000002611756199.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=495B9C29D5E44C0DEEEAC35DF10945AA007D033057D398C08F2E82C9835018DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/yUq7zKrHTgGWzRve2u51Sw/zh-cn_image_0000002628862874.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=577C8C45BBA8382C1B42FE8B4023A3D58CF35C7643CE3110E080132C4DB8CD0B)

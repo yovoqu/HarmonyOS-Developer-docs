@@ -1,6 +1,6 @@
 # Tanh
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-math-tanh
 
@@ -41,8 +41,8 @@ __aicore__ inline void Tanh(const LocalTensor<T>& dstTensor, const LocalTensor<T
   
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
-| dstTensor | 输出 | 目的操作数。 类型为LocalTensor，支持的TPosition为VECIN/VECCALC/VECOUT。 |
-| srcTensor | 输入 | 源操作数。 类型为LocalTensor，支持的TPosition为VECIN/VECCALC/VECOUT。 |
+| dstTensor | 输出 | 目的操作数。 类型为LocalTensor，支持的TPosition为VECIN、VECCALC、VECOUT。 |
+| srcTensor | 输入 | 源操作数。 类型为LocalTensor，支持的TPosition为VECIN、VECCALC、VECOUT。 |
 | calCount | 输入 | 实际计算数据元素个数。 |
  
  

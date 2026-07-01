@@ -1,6 +1,6 @@
 # @ohos.arkui.componentUtils (componentUtils)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentutils
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供获取组件绘制区域坐标和大小的能力。
 
 > [!TIP]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块功能依赖UI的执行上下文，不可在 UI上下文不明确 的地方使用，参见 UIContext 说明。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块功能依赖UI的执行上下文，不可在 UI上下文不明确 的地方使用，参见 UIContext 说明。
 
 
 
@@ -278,4 +278,4 @@ struct Utils {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/PuCzIxpEQ3G6fnuJVZJRig/zh-cn_image_0000002611755465.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=2917F735E20F348FEBB6C7E5453E02BF0CDF66CEAC6CF31814C71ABBF69F6668)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/dZtwfJkNT8aSgyHGlEoIfA/zh-cn_image_0000002628702244.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=68E77956E411425B4C6D818FDA480EBFA29B906E093155161F255148B03C6095)

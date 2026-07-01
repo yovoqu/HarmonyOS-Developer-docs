@@ -1,6 +1,6 @@
 # HiDebug_StackFrame
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-hidebug-stackframe
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct HiDebug_StackFrame {...} HiDebug_StackFrame
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-栈帧内容的定义。
+栈帧内容的定义。该结构体用于表示调试时的栈帧信息，支持获取当前栈的类型以及对应的js栈帧或Native栈帧内容，帮助开发者进行问题定位和调试分析。
  
 **起始版本：** 20
  

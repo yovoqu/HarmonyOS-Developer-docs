@@ -1,6 +1,6 @@
 # Worker和宿主线程的即时消息通信
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-communicates-with-mainthread
 
@@ -78,8 +78,12 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-            postMessageTest();
-            this.message = 'success';
+            postMessageTest().then(() => {
+              this.message = 'success';
+            }).catch((e: BusinessError) => {
+              this.message = 'failed';
+              console.error(`taskpool execute postMessageTest error is: ${e}`);
+            })
           })
       }
       .width('100%')

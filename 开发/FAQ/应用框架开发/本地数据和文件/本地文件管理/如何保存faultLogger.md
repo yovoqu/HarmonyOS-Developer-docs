@@ -1,12 +1,12 @@
 # 如何保存faultLogger
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-19
 
 **参考代码**
  
-```ArkTS
+```text
 import { fileIo } from '@kit.CoreFileKit';
 import { FaultLogger, hilog } from '@kit.PerformanceAnalysisKit';
 import { AbilityConstant, common } from '@kit.AbilityKit';
@@ -29,9 +29,9 @@ export class LogUtils {
       if (len === 0) {
         return;
       }
-      // Get instance
+     <em> // Get instance</em>
       let preference: preferences.Preferences = await preferences.getPreferences(context, 'STLiveness');
-      // Query the timestamp of the last processing time
+   <em>   // Query the timestamp of the last processing time</em>
       let lastFaultHandleTime = preference.getSync('faultHandleTime', 0);
       hilog.info(0x0000, TAG, 'lastFaultHandleTime:' + lastFaultHandleTime);
       for (let i = 0; i < len; i++) {
@@ -41,7 +41,7 @@ export class LogUtils {
           hilog.error(0x00000, TAG, 'Maple No New Logs.');
           return;
         }
-        // Save the log to the application sandbox directory with the file name "timestamp.log"
+       <em> // Save the log to the application sandbox directory with the file name "timestamp.log"</em>
         await LogUtils.save(value[i].fullLog, context.filesDir + '/crash', timestamp + '.log');
         await preference.put('faultHandleTime', timestamp);
         await preference.flush();

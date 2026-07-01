@@ -1,6 +1,6 @@
 # ArkUI
 
-更新时间：2026-04-20 06:33:01
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-6101
 
@@ -107,8 +107,6 @@
 | API卡片权限变更 | 类名：curves； API声明：export interface ICurve 差异内容：form | 类名：curves； API声明：interface ICurve 差异内容：NA | api/@ohos.curves.d.ts |
 | API卡片权限变更 | 类名：ICurve； API声明：interpolate(fraction: number): number; 差异内容：form | 类名：ICurve； API声明：interpolate(fraction: number): number; 差异内容：NA | api/@ohos.curves.d.ts |
 | API废弃版本变更 | 类名：Router； API声明：getLength(): string; 差异内容：NA | 类名：Router； API声明：getLength(): string; 差异内容：23 | api/@ohos.arkui.UIContext.d.ts |
-| API废弃版本变更 | 类名：global； API声明：declare class ActionSheet 差异内容：NA | 类名：global； API声明：declare class ActionSheet 差异内容：26 | component/action_sheet.d.ts |
-| API废弃版本变更 | 类名：global； API声明：declare class AlertDialog 差异内容：NA | 类名：global； API声明：declare class AlertDialog 差异内容：26 | component/alert_dialog.d.ts |
 | 新增错误码 | 类名：ComponentSnapshot； API声明：get(id: string, callback: AsyncCallback<image.PixelMap>, options?: componentSnapshot.SnapshotOptions): void; 差异内容：NA | 类名：ComponentSnapshot； API声明：get(id: string, callback: AsyncCallback<image.PixelMap>, options?: componentSnapshot.SnapshotOptions): void; 差异内容：160003 | api/@ohos.arkui.UIContext.d.ts |
 | 新增错误码 | 类名：ComponentSnapshot； API声明：get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>; 差异内容：NA | 类名：ComponentSnapshot； API声明：get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>; 差异内容：160003 | api/@ohos.arkui.UIContext.d.ts |
 | 新增错误码 | 类名：ComponentSnapshot； API声明：createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>, delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void; 差异内容：NA | 类名：ComponentSnapshot； API声明：createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>, delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void; 差异内容：160003,160004 | api/@ohos.arkui.UIContext.d.ts |

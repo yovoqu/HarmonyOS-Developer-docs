@@ -1,6 +1,6 @@
 # select
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-select
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -115,4 +115,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/2Juny6TQQlymA4y2algCng/zh-cn_image_0000002611756279.png?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=4C7A28115E3C5C66C58ABCD9450C04F746A81BAA891ABCC0E7047CE82B765031)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/7lKiUFbMTgaKuT7I10bo5g/zh-cn_image_0000002628703076.png?HW-CC-KV=V1&HW-CC-Date=20260701T014403Z&HW-CC-Expire=86400&HW-CC-Sign=8C6B7863BA43E92871008F48DB19462BAB82F2A5E48DCE5B32569B5657FB3002)

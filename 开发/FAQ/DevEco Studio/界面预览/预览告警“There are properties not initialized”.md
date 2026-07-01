@@ -1,6 +1,6 @@
 # 预览告警“There are properties not initialized”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-4
 
@@ -34,7 +34,7 @@
   
 ```json
 "dependencies": {
-  // The version number needs to be modified according to the relationship between hvigor and the SDK
+ <em> // The version number needs to be modified according to the relationship between hvigor and the SDK</em>
   "@ohos/hamock": "1.0.0"
 }
 ```

@@ -1,9 +1,11 @@
 # TensorPlacement
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensorplacement
 
+Tensor存储位置的枚举值定义如下。
+ 
 ```text
 enum TensorPlacement {
     kOnDeviceHbm, // < Tensor位于Device上的HBM内存

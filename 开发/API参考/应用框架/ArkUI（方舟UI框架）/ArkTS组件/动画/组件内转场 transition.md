@@ -1,6 +1,6 @@
 # 组件内转场 (transition)
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,6 +54,8 @@ transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallb
 > 从API version 20开始，该接口支持在 attributeModifier 中调用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -87,6 +89,8 @@ transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallb
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 值 | 说明 |
@@ -104,6 +108,8 @@ transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallb
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TransitionEffect以函数的形式指定转场效果。提供了以下接口：
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -141,6 +147,8 @@ translate(options: TranslateOptions): TransitionEffect<"translate">
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -170,6 +178,8 @@ rotate(options: RotateOptions): TransitionEffect<"rotate">
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -201,6 +211,8 @@ scale(options: ScaleOptions): TransitionEffect<"scale">
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -230,6 +242,8 @@ opacity(alpha: number): TransitionEffect<"opacity">
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -261,6 +275,8 @@ move(edge: TransitionEdge): TransitionEffect<"move">
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -290,6 +306,8 @@ asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEff
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -322,6 +340,8 @@ constructor(type: Type, effect: Effect)
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -345,6 +365,8 @@ combine(transitionEffect: TransitionEffect): TransitionEffect
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -376,6 +398,8 @@ animation(value: AnimateParam): TransitionEffect
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -400,11 +424,13 @@ animation(value: AnimateParam): TransitionEffect
 
 type TransitionFinishCallback = (transitionIn: boolean) => void
  
-组件转场动画的结束回调类型。
+定义组件转场动画结束回调的类型，回调的入参表示该回调为出现还是消失动画的结束回调。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -496,7 +522,7 @@ struct TransitionEffectExample1 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/VCLSLZcZRXORmpLEAaa_wg/zh-cn_image_0000002581276246.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=4E601D0CCA013229363A334466D93EEE65B416B156FFE29AC09A6A40B0E39E48)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/2hA_SH-oSKyzMnUfy15pvQ/zh-cn_image_0000002659102125.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=F4B56FAC7C3B1C4B5E6C89838FAB0C4DAAFB92225B0596B30D00C11EABF19A25)
 
  
   
@@ -563,7 +589,7 @@ struct TransitionEffectExample2 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/VVOchgMLRUChIN_tgtpE6w/zh-cn_image_0000002611756101.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=E78339B9CA728FB1B2FC92269ED71BE2F44BF7B67CADA2EF0406373B3AB3C044)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/stcDF_CDSmSFIytwjUTgIw/zh-cn_image_0000002628862778.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=475CD9796A06B0190F7DA4FEBBC75E41BF6754669BF56F887188A2511FE0FAFE)
 
  
   
@@ -627,4 +653,4 @@ struct TransitionEffectExample3 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/eABVGBZqRa68KTjhDq3N8w/zh-cn_image_0000002581436164.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=002FB7F3E1814B3C05C89C2413F7D823DFBD50A6D7DDA6DC12E716D4FC829307)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/QKG3m4WBS4OIh0UaQpnEdQ/zh-cn_image_0000002659222091.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=3E7EF6BD9ED282C7BAE6168D8EC576D0260DAB6179A363DE60E414F7C7C4267F)

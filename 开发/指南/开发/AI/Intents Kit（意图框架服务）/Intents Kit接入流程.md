@@ -1,6 +1,6 @@
 # Intents Kit接入流程
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-access-flow
 
@@ -19,23 +19,23 @@
  1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，选择“开发与服务”，在项目列表选择项目。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/iMRtztANQhmuaVLrab5OTg/zh-cn_image_0000002581435410.png?HW-CC-KV=V1&HW-CC-Date=20260528T025922Z&HW-CC-Expire=86400&HW-CC-Sign=2EF3EEFF2E921FD4A3303AF45C24B5383CA311DCEB03BEFCEF2BF7E60AE87905)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/wTwZ5_n7SVSf7s6bsi6GZw/zh-cn_image_0000002659221301.png?HW-CC-KV=V1&HW-CC-Date=20260701T015310Z&HW-CC-Expire=86400&HW-CC-Sign=78BE5E6281B6D3FF8B93998A2F8853920EC8F7549363BC87DEAD82F6F783552A)
 
 2. 选择项目后，选择需要申请开通能力的应用。
 3. 进入“项目设置 > 开放能力管理”页面，点击“意图框架”对应能力的“申请”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/xPBTbqS_RpiZRhkFKCfwMQ/zh-cn_image_0000002611835239.png?HW-CC-KV=V1&HW-CC-Date=20260528T025922Z&HW-CC-Expire=86400&HW-CC-Sign=D7E940D1F4D8BB7779B684909077161154A8B5AC94B32B9324939AD75BC90570)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/BRt8f_JkTCqD6Ew2m9qFwQ/zh-cn_image_0000002628702112.png?HW-CC-KV=V1&HW-CC-Date=20260701T015310Z&HW-CC-Expire=86400&HW-CC-Sign=CF4E08CC46B68203FB172799B72F8104B984BA547AE812BDAAC429CA838EAEE4)
 
 4. 参考“申请原因”中的模版，提供必要的申请信息，然后点击“提交”按钮。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/wMBZuI_UT3GJ8rhtmNe86g/zh-cn_image_0000002581275492.png?HW-CC-KV=V1&HW-CC-Date=20260528T025922Z&HW-CC-Expire=86400&HW-CC-Sign=6CA0A0E4A955E1DE1CA946437F8C184C01E14C64FD8F8FDDE8E164DE55A310A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/vQVgArD0R2qqvsCWGUVzWA/zh-cn_image_0000002659101341.png?HW-CC-KV=V1&HW-CC-Date=20260701T015310Z&HW-CC-Expire=86400&HW-CC-Sign=DE5141D4138016ED03D593CFEE4079EB4D0D83312561D5846EDF58EBD0554FE4)
 
 5. 返回“开放能力管理”页面，原“申请”变为“申请中”，1~3个工作日内反馈申请结果。申请结果请留意互动中心的“服务开通申请”信息。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/SYcoZS0-Q42Wu6XVIttiEg/zh-cn_image_0000002611755349.png?HW-CC-KV=V1&HW-CC-Date=20260528T025922Z&HW-CC-Expire=86400&HW-CC-Sign=CE92422CBBA0104A38FEA6B7A9C0F2496C5A89AE0DDBB10D2D3669634905ACB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/osvayRnMToe2dzSQgEGp7g/zh-cn_image_0000002628861990.png?HW-CC-KV=V1&HW-CC-Date=20260701T015310Z&HW-CC-Expire=86400&HW-CC-Sign=5E5AF8E3C5937C5C1B6691951FDDE6FA7AFF2E300777A8E02AE7204B48B34B3D)
 
  
 **阶段二：开发**
@@ -60,4 +60,4 @@
 | 任务 | 任务描述 | 示例 | 指导文档 |
 | --- | --- | --- | --- |
 | 应用市场上架软件包（应用/元服务） | 开发完成并打包好软件包后，在应用市场上传软件包。 | 打包“华为音乐”软件包并通过应用市场上架。 | 应用市场上架流程 |
-| 意图框架注册 | 在小艺开放平台进行意图注册配置并提交审核。由华为工程师审核，一般情况在3个工作日内完成。 | 注册“播放歌曲”意图。 | 意图标准协议上架指导 |
+| 意图框架注册 | 在小艺开放平台进行意图注册配置并提交审核。由华为工程师审核，一般审核周期为3-5个工作日，审核通过后状态变为"已上架"。 | 注册“播放歌曲”意图。 | 意图标准协议上架指导 |

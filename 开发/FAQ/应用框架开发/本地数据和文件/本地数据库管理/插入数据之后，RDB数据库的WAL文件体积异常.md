@@ -1,6 +1,6 @@
-# 插入数据之后，RDB数据库的WAL文件体积异常
+# 插入数据之后，RDB数据库的wal文件体积异常
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-34
 

@@ -1,6 +1,6 @@
 # Tabs组件，使用tab键循环走焦，会在最后一个页面和最后一个页签之间循环，怎么解决
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-469
 
@@ -56,7 +56,7 @@ struct TabsExample {
           }
         }, (item: string) => item)
       }
-      .listDirection(Axis.Vertical) // 排列方向
+      .listDirection(Axis.Vertical)<em> // 排列方向</em>
       .scrollBar(BarState.Off)
       .friction(0.6)
       .divider({
@@ -64,8 +64,8 @@ struct TabsExample {
         color: 0xFFFFFF,
         startMargin: 20,
         endMargin: 20
-      }) // 每行之间的分界线
-      .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring
+      }) <em>// 每行之间的分界线</em>
+      .edgeEffect(EdgeEffect.Spring) <em>// 边缘效果设置为Spring</em>
     }
     .width('100%')
     .height('100%')
@@ -91,7 +91,7 @@ struct TabsExample {
       .barHeight(56)
       .animationDuration(400)
       .onChange((index: number) => {
-        // currentIndex控制TabContent显示页签
+     <em>   // currentIndex控制TabContent显示页签</em>
         this.currentIndex = index;
         this.selectedIndex = index;
       })
@@ -99,7 +99,7 @@ struct TabsExample {
         if (index === targetIndex) {
           return;
         }
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+       <em> // selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
         this.selectedIndex = targetIndex;
       })
       .width('100%')

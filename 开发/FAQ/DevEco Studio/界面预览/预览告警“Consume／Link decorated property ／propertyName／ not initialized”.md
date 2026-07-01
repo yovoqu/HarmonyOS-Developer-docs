@@ -1,6 +1,6 @@
 # 预览告警“@Consume/@Link decorated property <propertyName> not initialized”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-3
 
@@ -31,12 +31,12 @@
  
 示例代码：
  
-```ArkTS
-// Suggest adding @ Preview on ParentComp to preview the preview effect of ChildComp
+```text
+<em>// Suggest adding @ Preview on ParentComp to preview the preview effect of ChildComp</em>
 @Preview
 @Component
 struct ParentComp {
-  // @Provide decoration is provided by the entrance component ParentComp as its descendant component
+  <em>// @Provide decoration is provided by the entrance component ParentComp as its descendant component</em>
   @Provide reviewVotes: number = 10;
 
   build() {
@@ -48,10 +48,10 @@ struct ParentComp {
   }
 }
 
-// @Preview is not recommended to directly preview ChildComp
+<em>// @Preview is not recommended to directly preview ChildComp</em>
 @Component
 struct ChildComp {
-  // The variable decorated with '@Consume' is bound to the variable decorated with '@Provide' in its ancestor component ParentComp using the same attribute name
+  <em>// The variable decorated with '@Consume' is bound to the variable decorated with '@Provide' in its ancestor component ParentComp using the same attribute name</em>
   @Consume reviewVotes: number;
   build() {
     Column() {

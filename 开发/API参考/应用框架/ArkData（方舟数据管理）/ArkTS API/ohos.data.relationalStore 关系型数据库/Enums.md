@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -94,11 +94,11 @@
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NONE_TOKENIZER | 0 | 不使用分词器。 |
-| ICU_TOKENIZER | 1 | 表示使用icu分词器，支持中文以及多国语言。指定icu分词器时，可指定使用哪种语言，例如zh_CN表示中文，tr_TR表示土耳其语等。详细支持的语言种类，请查阅ICU分词器。详细的语言缩写，请查阅该目录（ICU支持的语言缩写）下的文件名。 |
+| ICU_TOKENIZER | 1 | 表示使用icu分词器，支持中文以及多国语言。指定icu分词器时，可指定使用哪种语言，例如zh_CN表示中文，tr_TR表示土耳其语等。支持的语言种类，请查阅ICU分词器。语言缩写请查阅该目录（ICU支持的语言缩写）下的文件名。 |
 | CUSTOM_TOKENIZER18+ | 2 | 表示使用自研分词器，可支持中文（简体、繁体）、英文、阿拉伯数字。CUSTOM_TOKENIZER相比ICU_TOKENIZER在分词准确率、常驻内存占用上更有优势。自研分词器支持默认分词模式和短词分词模式（short_words）两种，使用参数cut_mode可指定模式，不指定模式时使用默认模式。 |
 
 
-在使用不同的分词器时，使用的创表语句会有所区别。
+在使用不同的分词器时，使用的建表语句会有所区别。
 
 **示例：**
 
@@ -226,6 +226,7 @@ export default class EntryAbility extends UIAbility {
 | ASSET_DELETE | 4 | 表示资产需要在云端删除。 |
 | ASSET_ABNORMAL | 5 | 表示资产状态异常。 |
 | ASSET_DOWNLOADING | 6 | 表示资产正在下载到本地设备。 |
+| ASSET_TO_DOWNLOAD | 7 | 表示资产待下载。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -368,6 +369,27 @@ export default class EntryAbility extends UIAbility {
 
 
 
+#### AssetConflictPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+资产冲突策略枚举。请使用枚举名称而非枚举值。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| CONFLICT_POLICY_DEFAULT | 0 | 默认冲突策略，按照端云同步模式SyncMode执行。 |
+| CONFLICT_POLICY_TIME_FIRST | 1 | 基于时间优先的冲突策略。 |
+| CONFLICT_POLICY_TEMP_PATH | 2 | 基于临时路径的冲突策略。 |
+
+
+
+
 #### Progress10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -403,6 +425,7 @@ export default class EntryAbility extends UIAbility {
 | RECORD_LIMIT_EXCEEDED | 5 | 表示本次端云同步需要同步的条目或大小超出最大值。由云端配置最大值。 |
 | NO_SPACE_FOR_ASSET | 6 | 表示云空间剩余空间小于待同步的资产大小。 |
 | BLOCKED_BY_NETWORK_STRATEGY12+ | 7 | 表示端云同步被网络策略限制。 |
+| STOP_CLOUD_SYNC | 8 | 表示端云同步被停止。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -461,3 +484,33 @@ export default class EntryAbility extends UIAbility {
 | --- | --- | --- |
 | DEVICE_COLLABORATION | 0 | 多设备协同表，各设备的数据将被隔离存储在独立的分布式表中，而非写入本地表，分布式表名为在原来表名前拼接对端设备的DeviceID标识符。 |
 | SINGLE_VERSION | 1 | 单版本表，数据通过分布式数据管理框架直接写入对端设备的本地表中。 |
+
+
+
+
+#### SyncResultCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+描述设备同步状态的枚举。请使用枚举名称而非枚举值。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
+
+**模型约束：** 此接口仅在Stage模型下可用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| SUCCESS | 0 | 表示同步成功。 |
+| FAIL | 1 | 表示同步失败。 |
+| OFFLINE | 2 | 表示远端设备离线。 |
+| INVALID_ARGS | 3 | 表示参数无效。 |
+| DISTRIBUTED_TABLE_NOT_SET | 4 | 表示本端设备或远端设备未设置分布式表。 |
+| TABLE_FIELD_MISMATCH | 5 | 表示对端设备与本端设备本地表的同步字段不一致。 |
+| DISTRIBUTED_SCHEMA_MISMATCH | 6 | 表示对端设备与本端设备分布式表的Schema字段不一致，或者存在一个分布式表没有配置Schema。 |
+| BUSY | 7 | 表示数据库繁忙。 |
+| CORRUPTED | 8 | 表示数据库损坏。 |
+| TIMEOUT | 9 | 表示同步操作因超时失败。常见原因包括：对端设备数据库未创建、连接中断或网络抖动导致丢包。 |
+| SCHEMA_CHANGED | 10 | 表示在同步过程中表结构已更改。 |
+| CONSTRAINT_VIOLATION | 11 | 表示同步数据时违反约束条件。 |

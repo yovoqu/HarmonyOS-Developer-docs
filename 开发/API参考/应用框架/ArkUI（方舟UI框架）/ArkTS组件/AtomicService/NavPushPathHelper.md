@@ -1,6 +1,6 @@
 # NavPushPathHelper
 
-更新时间：2026-03-27 08:08:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-navpushpathhelper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -854,4 +854,4 @@ export struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/AlnOaMcLTOeJfKIHdMEufg/zh-cn_image_0000002581276310.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025538Z&HW-CC-Expire=86400&HW-CC-Sign=451A14F3DDF69951B4965D2B4B5328FBD8EA16B83010883251247BC05ADA7A4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/s2_zwMH_Q9KTmIj6xT-coQ/zh-cn_image_0000002659102189.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014351Z&HW-CC-Expire=86400&HW-CC-Sign=6AEB448730A6EF7EDF12CDA47DEC7E4289ABA8DEB2FBB1CC1C38C1329BFA267E)

@@ -1,6 +1,6 @@
 # 如何在ArkTS侧引用其他三方so库
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-21
 
@@ -22,7 +22,7 @@
 ```
 
 4. 在代码中引用并调用oh-package.json5中声明的依赖。
-```ArkTS
+```text
 import testNapi from 'libimportthirdpartylibraries.so';
 import myNapi from 'libapplication.so';
 

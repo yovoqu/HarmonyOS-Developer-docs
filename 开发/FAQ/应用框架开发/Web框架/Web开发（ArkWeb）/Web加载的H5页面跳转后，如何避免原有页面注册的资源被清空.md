@@ -1,6 +1,6 @@
 # Web加载的H5页面跳转后，如何避免原有页面注册的资源被清空
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-42
 
@@ -12,7 +12,7 @@ ArkTS页面：
  
 两个Button使用runJavaScript注册并调用test()方法和bodyOnLoadLocalStorage()，两个方法分别实现了为sessionStorage设置值和根据sessionStorage刷新H5页面。
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -131,7 +131,7 @@ ArkUI侧
  
 使用javaScriptOnDocumentStart执行test方法。
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 @Entry

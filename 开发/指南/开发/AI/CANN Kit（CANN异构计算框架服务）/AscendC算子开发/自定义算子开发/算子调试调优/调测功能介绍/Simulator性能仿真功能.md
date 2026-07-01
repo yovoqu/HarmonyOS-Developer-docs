@@ -1,6 +1,6 @@
 # Simulator性能仿真功能
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-simulator-performance-simulation
 
@@ -21,7 +21,7 @@
 #### 使用方法（命令行）
 
 通过命令行进行性能仿真的关键步骤如下。
- 1. 完成环境搭建，并准备好输入/标杆数据文件。
+ 1. [完成环境搭建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-environment-preparation)，并准备好输入/标杆数据文件。
 2. 执行如下命令进行CAModel性能仿真，仅提供关键参数项示例，其他参数请参考[Simulator仿真参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-cli-parameters#simulator仿真参数)按需设置。
 
   
@@ -163,7 +163,7 @@ TRACE_STOP(0x1);
   **图1** 仿真打点示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/zOHphygMQ7yy8hIz7W-0Jg/zh-cn_image_0000002581435346.png?HW-CC-KV=V1&HW-CC-Date=20260528T025930Z&HW-CC-Expire=86400&HW-CC-Sign=3170199E6D77BFFA0CBA9F365873ACDF52B97E0530A8262B8FFB4565079223D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/cFHTjuGpQpamkkgZI_DQWg/zh-cn_image_0000002659221239.png?HW-CC-KV=V1&HW-CC-Date=20260701T015302Z&HW-CC-Expire=86400&HW-CC-Sign=C4C27B8D470C0B74B9B5125A411314E7934DC1E5F68EF12045C1BE68EEF4774F)
 
  
   

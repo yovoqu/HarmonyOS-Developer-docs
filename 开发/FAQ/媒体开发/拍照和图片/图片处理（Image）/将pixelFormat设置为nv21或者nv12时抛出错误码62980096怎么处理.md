@@ -1,11 +1,11 @@
 # 将pixelFormat设置为nv21或者nv12时抛出错误码62980096怎么处理
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-17
 
-**问题详情：**
- 
+#### 问题详情
+
 调用createPixelMap方法时，如果将pixelFormat设置为nv21或nv12，可能会遇到错误代码62980096。建议检查以下几点：
  
 确认pixelFormat参数值是否正确。
@@ -16,15 +16,17 @@
  
 如果问题仍然存在，请参考官方文档或联系技术支持获取进一步帮助。
  
-**解决措施：**
  
+
+#### 解决措施
+
 pixelFormat枚举目前用于ImageSource。因此，如果要创建PixelMap，NV21或NV12格式的图片需要通过以下方式：
  1. 使用createImageSource方法创建ImageSource。设置createImageSource的sourceOption参数时，sourcePixelFormat参数值8对应NV21格式，9对应NV12格式。sourceSize参数需设置为原始YUV图片的宽高，且宽度值必须为偶数。
 2. 使用ImageSource的createPixelMap接口创建PixelMap。
  
 具体代码如下：
  
-```ArkTS
+```text
 import { image } from '@kit.ImageKit';
 
 @Entry
@@ -46,7 +48,7 @@ struct Index {
             let resourceManager = this.getUIContext().getHostContext()!.resourceManager
             let imageArray = await resourceManager.getMediaContent($r("app.media.sample14_NV21_fromJPG_510X510"));
             let pixelBuffer = new Uint8Array(imageArray).buffer as Object as ArrayBuffer;
-            // The value 8 of the sourcePixelFormat parameter corresponds to NV21 format, and 9 corresponds to NV12 format; The sourceSize parameter needs to set the width and height (the width and height data of the original yuv image), and the width value cannot be odd.
+           <em> //</em><em> The value 8 of the sourcePixelFormat parameter corresponds to NV21 format, and 9 corresponds to NV12 format; The sourceSize parameter needs to set the width and height (the width and height data of the original yuv image), and the width value cannot be odd.</em>
             let sourceOptions: image.SourceOptions =
               { sourceDensity: 120, sourcePixelFormat: 8, sourceSize: { width: 510, height: 510 } };
             let imageResource = image.createImageSource(pixelBuffer, sourceOptions);
@@ -55,7 +57,7 @@ struct Index {
 
             let imageArray2 = await resourceManager.getMediaContent($r('app.media.sample10_NV12_fromJPG_510X510'));
             let pixelBuffer2 = new Uint8Array(imageArray2).buffer as Object as ArrayBuffer;
-            // The value 8 of the sourcePixelFormat parameter corresponds to NV21 format, and 9 corresponds to NV12 format; The sourceSize parameter needs to set the width and height (the width and height data of the original yuv image), and the width value cannot be odd.
+            <em>// The value 8 of the sourcePixelFormat parameter corresponds to NV21 format, and 9 corresponds to NV12 format; The sourceSize parameter needs to set the width and height (the width and height data of the original yuv image), and the width value cannot be odd.</em>
             let sourceOptions2: image.SourceOptions =
               { sourceDensity: 120, sourcePixelFormat: 9, sourceSize: { width: 510, height: 510 } };
             let imageResource2 = image.createImageSource(pixelBuffer2, sourceOptions2);

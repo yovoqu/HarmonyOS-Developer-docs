@@ -1,12 +1,12 @@
 # 传入自定义类型对象到Native侧时，index.d.ts文件如何声明
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-61
 
 此处以testCb为例
  
-```ArkTS
+```text
 class testCb {
   testNum: number = 0;
   testString: string = "";
@@ -17,7 +17,7 @@ class testCb {
  
 在index.d.ts文件中使用object类型进行声明。
  
-```ts
+```text
 export const modifyObject: (a: object) => object;
 ```
  
@@ -27,7 +27,7 @@ export const modifyObject: (a: object) => object;
  
 test.ts 导出类声明。
  
-```ts
+```text
 export class testCa {
   testNum: number = 0;
   testString: string = "";
@@ -36,7 +36,7 @@ export class testCa {
  
 在index.d.ts中导入并使用。
  
-```ts
+```text
 import { testCa } from "../../../ets/pages/interface/CustomObject"
 export const test1: (a: testCa) => void;
 ```

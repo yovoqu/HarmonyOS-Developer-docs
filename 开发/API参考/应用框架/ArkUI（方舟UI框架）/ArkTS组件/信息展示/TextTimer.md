@@ -1,6 +1,6 @@
 # TextTimer
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-texttimer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -49,17 +49,14 @@ TextTimer(options?: TextTimerOptions)
 
 用于构建TextTimer组件的选项。
  
-**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isCountDown | boolean | 否 | 是 | 倒计时开关。 true：计时器开启倒计时，例如从30秒~0秒。 false：计时器开始计时，例如从0秒~30秒。 默认值：false |
-| count | number | 否 | 是 | 计时器时间（isCountDown为true时生效），单位为毫秒。最长不超过86400000毫秒（24小时）。 0<count<86400000时，count值为计时器初始值。否则，使用默认值为计时器初始值。 默认值：60000 |
-| controller | TextTimerController | 否 | 是 | TextTimer控制器。 |
+| isCountDown | boolean | 否 | 是 | 倒计时开关。 true：计时器开启倒计时，例如从30秒~0秒。 false：计时器开始计时，例如从0秒~30秒。 默认值：false 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| count | number | 否 | 是 | 计时器时间（isCountDown为true时生效），单位为毫秒。最长不超过86400000毫秒（24小时）。 0<count<86400000时，count值为倒计时初始值。否则，使用默认值为倒计时初始值。 默认值：60000 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| controller | TextTimerController | 否 | 是 | TextTimer控制器。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| startTime | number | 否 | 是 | 计时器正向计时模式下的初始时间，仅当isCountDown为false时该参数设置生效。 默认值：0 单位：毫秒 当值为负数时，计时器将从负值开始计时，经过0后继续向正数计时。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 卡片能力： 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
  
  
   
@@ -86,13 +83,15 @@ format(value: string)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | string | 是 | 自定义日期显示的格式。 默认值：'HH:mm:ss.SS' |
+| value | string | 是 | 自定义时间显示的格式。 默认值：'HH:mm:ss.SS' |
  
  
   
@@ -108,6 +107,8 @@ fontColor(value: ResourceColor)
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -132,6 +133,8 @@ fontSize(value: Length)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -154,6 +157,8 @@ fontStyle(value: FontStyle)
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -178,6 +183,8 @@ fontWeight(value: number | FontWeight | ResourceStr)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -200,6 +207,8 @@ fontFamily(value: ResourceStr)
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -226,6 +235,8 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -246,6 +257,8 @@ contentModifier(modifier: ContentModifier&lt;TextTimerConfiguration&gt;)
 定制TextTimer内容区的方法。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -276,6 +289,8 @@ onTimer(event: (utc: number, elapsedTime: number) => void)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -297,6 +312,8 @@ TextTimer组件的控制器，用于控制文本计时器。一个TextTimer组�
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
   
 
@@ -320,6 +337,8 @@ TextTimerController的构造函数。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
   
@@ -335,6 +354,8 @@ start()
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -352,6 +373,8 @@ pause()
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
   
@@ -368,6 +391,8 @@ reset()
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
   
@@ -380,16 +405,17 @@ ContentModifier接口使用的TextTimer配置。
  
 开发者需要自定义class实现ContentModifier接口。
  
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| count | number | 否 | 否 | 计时器时间（isCountDown为true时生效），单位为毫秒。最长不超过86400000毫秒（24小时）。 0<count<86400000时，count值为倒计时初始值。否则，使用默认值为倒计时初始值。 默认值：60000。 |
-| isCountDown | boolean | 否 | 否 | 是否倒计时。 true：计时器开启倒计时，例如从30秒 ~ 0秒；false：计时器开始计时，例如从0秒 ~ 30秒。 默认值：false |
-| started | boolean | 否 | 否 | 是否已经开始了计时。 true：开始计时；false：未开始计时。 默认值：false |
-| elapsedTime | number | 否 | 否 | 计时器经过的时间，单位为设置格式的最小单位。 |
+| count | number | 否 | 否 | 计时器时间（isCountDown为true时生效），单位为毫秒。最长不超过86400000毫秒（24小时）。 0<count<86400000时，count值为倒计时初始值。否则，使用默认值为倒计时初始值。 默认值：60000。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isCountDown | boolean | 否 | 否 | 是否倒计时。 true：计时器开启倒计时，例如从30秒 ~ 0秒；false：计时器开始计时，例如从0秒 ~ 30秒。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| started | boolean | 否 | 否 | 是否已经开始了计时。 true：开始计时；false：未开始计时。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| elapsedTime | number | 否 | 否 | 计时器经过的时间，单位为设置格式的最小单位。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| startTime | number | 否 | 是 | 计时器正向计时模式下的初始时间，仅当isCountDown为false时该参数设置生效。 默认值：0 单位：毫秒 当值为负数时，计时器将从负值开始计时，经过0后继续向正数计时。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
  
  
   
@@ -672,3 +698,48 @@ struct demo {
  
 
 ![](assets/TextTimer/file-20260525091257747-002.png)
+
+ 
+  
+
+#### 示例6（设置初始计时时间）
+
+该示例通过[TextTimerOptions](#texttimeroptions对象说明)的startTime属性设置计时器初始计时时间。
+ 
+从API版本26.0.0开始，[TextTimerOptions](#texttimeroptions对象说明)新增了startTime属性。
+ 
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct TextTimerExample {
+  textTimerController: TextTimerController = new TextTimerController();
+  @State format: string = 'mm:ss.SS';
+
+  build() {
+    Column() {
+      TextTimer({ isCountDown: false, controller: this.textTimerController, startTime: 30000 })
+        .format(this.format)
+        .fontColor(Color.Black)
+        .fontSize(50)
+        .onTimer((utc: number, elapsedTime: number) => {
+          console.info('textTimer notCountDown utc is：' + utc + ', elapsedTime: ' + elapsedTime);
+        })
+      Row({ space: 10 }) {
+        Button('start').onClick(() => {
+          this.textTimerController.start();
+        })
+        Button('pause').onClick(() => {
+          this.textTimerController.pause();
+        })
+        Button('reset').onClick(() => {
+          this.textTimerController.reset();
+        })
+      }
+    }
+  }
+}
+```
+ 
+
+![](assets/TextTimer/file-20260525091257747-003.gif)

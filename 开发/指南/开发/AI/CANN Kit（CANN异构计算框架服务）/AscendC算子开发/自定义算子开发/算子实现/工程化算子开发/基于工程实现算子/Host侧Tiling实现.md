@@ -1,6 +1,6 @@
 # Host侧Tiling实现
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tiling-implementation-on-the-host
 
@@ -181,12 +181,12 @@ Tiling实现开发的流程图如下。
 **图2** Tiling开发流程图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/sfsaHNeHQi6mQyGFCOOBvA/zh-cn_image_0000002622859125.png?HW-CC-KV=V1&HW-CC-Date=20260611T074934Z&HW-CC-Expire=86400&HW-CC-Sign=FEB5556E996401CE9216ABC3F887B7223B3C8BD4225807D8BED7DC00279A3A45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/WIrHjfk-RtW6Z6mGl0GYew/zh-cn_image_0000002628702048.png?HW-CC-KV=V1&HW-CC-Date=20260701T015302Z&HW-CC-Expire=86400&HW-CC-Sign=EF6F6B955FF5B42BAD2A593CB429E5515C88AA85E7336DF5DC283A276A4C36EE)
 
  
 下面将从一个简单的Add算子为例介绍Tiling的实现流程。本样例中待处理数据的Shape大小可以平均分配到每个核上，并且可以对齐到一个datablock(32B)的大小。
  
-**首先**完成算子TilingData结构定义头文件的编写，该文件命名为_“算子名称_tiling.h”_，位于算子工程的op_host目录下。样例代码如下。
+**首先**完成算子TilingData结构定义头文件的编写，该文件命名为“算子名称_tiling.h”，位于算子工程的op_host目录下。样例代码如下。
  
 ```text
 #ifndef ADD_CUSTOM_TILING_H

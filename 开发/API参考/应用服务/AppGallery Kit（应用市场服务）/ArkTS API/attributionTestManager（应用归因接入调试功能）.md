@@ -1,6 +1,6 @@
 # attributionTestManager（应用归因接入调试功能）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-attributiontestmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -112,7 +112,7 @@ class  AttributionTest {
       // 用于计算签名的随机数，不带'-'
       let nonce: string = util.generateRandomUUID().replace(/-/g, '');
       // 时间戳
-      let timestamp: number = Date.now()
+      let timestamp: number = Date.now();
       let adSourceInfo: attributionTestManager.AdSourceInfo = {
         adTechId: adTechId,
         campaignId: campaignId,

@@ -1,6 +1,6 @@
 # 如何将类Java语言的线程模型（内存共享）的实现方式转换成在ArkTS的线程模型下（内存隔离）的实现方式
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-46
 
@@ -12,27 +12,27 @@
 ```text
 class Task {
   static run(args) {
-    // Do some independent tasks
+   <em> // Do some independent tasks</em>
   }
 }
 let thread = new Thread(() => {
   let result = Task.run(args)
-  // deal with result
+ <em> // deal with result</em>
 })
 ```
  ArkTS写法：
 
   
-```ArkTS
+```text
 import { taskpool } from '@kit.ArkTS';
 
 @Concurrent
 function run(args: number) {
-  // Do some independent tasks
+ <em> // Do some independent tasks</em>
 }
 let task: taskpool.Task = new taskpool.Task(run, 100); // 100: test number
 taskpool.execute(task).then((res) => {
-  // Return result
+ <em> // Return result</em>
 });
 ```
 
@@ -42,34 +42,34 @@ taskpool.execute(task).then((res) => {
 ```text
 class Material {
   action(args) {
-    // Do some independent tasks
+  <em>  // Do some independent tasks</em>
   }
 }
 let material = new Material()
 let thread = new Thread(() => {
   let result = material.action(args)
-  // deal with result
+  <em>// deal with result</em>
 })
 ```
  ArkTS写法：
 
   
-```ArkTS
+```text
 import { taskpool } from '@kit.ArkTS';
 
 @Concurrent
 function runner(material: Material): void {
-  return material.action(100); // 100: test number
+  return material.action(100); <em>// 100: test number</em>
 }
 @Sendable
 class Material {
   action(args: number) {
-    // Do some independent tasks
+   <em> // Do some independent tasks</em>
   }
 }
 let material = new Material()
 taskpool.execute(runner, material).then((ret) => {
-  // Return result
+<em>  // Return result</em>
 })
 ```
 
@@ -79,7 +79,7 @@ taskpool.execute(runner, material).then((ret) => {
 ```text
 class Task {
     run(args) {
-        // deal with result
+       <em> // deal with result</em>
         runOnUiThread(() => {
             UpdateUI(result)
         })
@@ -88,16 +88,16 @@ class Task {
 let task = new Task()
 let thread = new Thread(() => {
     let result = task.run(args)
-    // Processing results
+  <em>  // Processing results</em>
 })
 ```
  ArkTS写法：
 
   
-```ArkTS
+```text
 import taskpool from '@ohos.taskpool'
 
-// let result: Object[] | undefined = undefined
+<em>// let result: Object[] | undefined = undefined</em>
 
 @Concurrent
 function runner(task:Task) {
@@ -106,7 +106,7 @@ function runner(task:Task) {
 @Sendable
 class Task {
   run(args?: Object[] | undefined) {
-    // Do some independent tasks
+   <em> // Do some independent tasks</em>
     taskpool.Task.sendData(JsResult)
   }
 }
@@ -116,7 +116,7 @@ run.onReceiveData((result?: Function | undefined) => {
   UpdateUI(result)
 })
 taskpool.execute(run).then((ret) => {
-  // Return result
+ <em> // Return result</em>
 })
 ```
 
@@ -131,7 +131,7 @@ class SdkU3d {
     }
 }
 let thread = new Thread(() => {
-    // In the game thread
+  <em>  // In the game thread</em>
     let sdk = SdkU3d.getInst()
     let ret = sdk.getPropStr("xx")
 })
@@ -139,7 +139,7 @@ let thread = new Thread(() => {
  ArkTS写法：
 
   
-```ArkTS
+```text
 import { MessageEvents, taskpool, worker } from '@kit.ArkTS';
 class SdkU3d {
   static getInst(): Object {
@@ -150,7 +150,7 @@ class SdkU3d {
 let workerInstance = new worker.ThreadWorker("xx/worker.ts");
 workerInstance.registerGlobalCallObject("instance_xx", SdkU3d.getInst());
 workerInstance.postMessage("start");
-// In the game worker thread
+<em>// In the game worker thread</em>
 const mainPort = worker.workerPort;
 mainPort.onmessage = (e: MessageEvents): void => {
   let ret = mainPort.callGlobalCallObjectMethod("instance_xx", "getPropStr", 100); // 100: test number

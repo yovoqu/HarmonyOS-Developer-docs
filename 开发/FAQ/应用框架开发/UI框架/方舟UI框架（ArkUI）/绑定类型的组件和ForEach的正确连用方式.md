@@ -1,6 +1,6 @@
 # 绑定类型的组件和ForEach的正确连用方式
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-311
 
@@ -14,7 +14,7 @@ bindSheet和ForEach合用的问题，$$this.isShow会弹出两次半模态，如
  
 参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 export struct BindSheetAndForEach {
@@ -34,7 +34,7 @@ export struct BindSheetAndForEach {
     .width('100%')
   }
 
-  // Each array item corresponds to an independent pop-up window displaying the status, which is index bound
+ <em> // Each array item corresponds to an independent pop-up window displaying the status, which is index bound</em>
   build() {
     Column() {
       ForEach(this.arr, (item: number, idx: number) => {

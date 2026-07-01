@@ -1,6 +1,6 @@
 # Web组件对H5页面、常用框架VUE、React的页面支持情况，包括本地和网络端的页面
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-38
 
@@ -13,7 +13,7 @@ Web组件支持加载网络页面、本地页面和HTML文本数据。详情及�
 可参考以下示例代码：
  1. 加载网络页面。
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -24,13 +24,13 @@ struct WebComponent {
   build() {
     Column() {
       Button('loadUrl').onClick(() => {
-        try { // When the button is clicked, it redirects to www.example1.com via loadUrl
+        try { <em>// When the button is clicked, it redirects to www.example1.com via loadUrl</em>
           this.webviewController.loadUrl('www.example1.com');
         } catch (error) {
           console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
         }
       })
-      // When the component is created, load www.example.com 
+    <em>  // When the component is created, load www.example.com </em>
       Web({ src: 'www.example.com', controller: this.webviewController })
     }
   }
@@ -38,7 +38,7 @@ struct WebComponent {
 ```
 
 2. 加载本地页面时，[resource协议加载本地资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-page-loading-with-web-components#resource协议加载本地资源)：
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -51,13 +51,13 @@ struct WebComponent {
       Button('loadUrl')
         .onClick(() => {
           try {
-            // When the button is clicked, load the local1.html file from the resources/rawfile directory via resource
+          <em>  // When the button is clicked, load the local1.html file from the resources/rawfile directory via resource</em>
             this.webviewController.loadUrl('resource://rawfile/local1.html');
           } catch (error) {
             console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
           }
         })
-      // When creating the component, use the resource protocol to load the local file local.html
+    <em>  // When creating the component, use the resource protocol to load the local file local.html</em>
       Web({ src: 'resource://rawfile/local.html', controller: this.webviewController })
     }
   }
@@ -87,7 +87,7 @@ struct WebComponent {
 ```
 
 3. 加载HTML格式的文本数据。
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -100,7 +100,7 @@ struct WebComponent {
       Button('loadData')
         .onClick(() => {
           try {
-            // When the button is clicked, load HTML-formatted text data using loadData
+          <em>  // When the button is clicked, load HTML-formatted text data using loadData</em>
             this.controller.loadData(
               "<html><body bgcolor=\"white\">Source:<pre>source</pre></body></html>",
               "text/html",
@@ -110,7 +110,7 @@ struct WebComponent {
             console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
           }
         })
-      // When the component is created, load www.example.com
+     <em> // When the component is created, load www.example.com</em>
       Web({ src: 'www.example.com', controller: this.controller })
     }
   }

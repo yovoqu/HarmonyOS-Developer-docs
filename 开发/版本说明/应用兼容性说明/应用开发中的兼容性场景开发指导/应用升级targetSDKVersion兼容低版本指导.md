@@ -1,33 +1,33 @@
 # 应用升级targetSDKVersion兼容低版本指导
 
-更新时间：2026-06-12 06:54:02
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-upgrade
 
 > [!TIP]
 > API版本号格式从26.0.0开始进行调整（详见 版本号格式调整说明 ），不影响对API兼容性判断的基本逻辑，因此在文档的示意性描述中暂时仍保持旧版本格式的说明。 近期API版本号的大小关系如下： 26.0.0 > 6.1.1(24) > 6.1.0(23) > 6.0.2(22) > 6.0.1(21) > 6.0.0(20) > 5.1.1(19) > 5.1.0(18) > 5.0.4(17)
 
- 
+
 应用的源码工程配置项（build-profile.json5文件）中通过targetSdkVersion和compatibleSdkVersion定义了应用运行的目标SDK版本和最低SDK版本。
- 
+
 推荐开发者适配最新发布的API版本，即推荐开发者配置targetSDKVersion和CompileSdkVersion一样，享受到最新版本特性。开发者可根据自身实际情况升级targetSDKVersion。
- 
+
 部分应用升级targetSDKVersion时，可能不升级compatibleSdkVersion，下面介绍这种场景如何进行兼容性适配。
- 
+
 例如：接口A在SDK版本5.0.2(14)产生行为变更并进行了版本隔离，应用升级targetSDKVersion≥5.0.2(14)并适配了新版本行为， compatibleSdkVersion还保持设置为5.0.1(13)， 则若应用分发到低版本设备5.0.1(13)上，需保证该应用在低版本设备能够兼容运行正常（如下图所示）。
- 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/XURF6znoQYqcrlVu06Go3A/zh-cn_image_0000002448697365.png?HW-CC-KV=V1&HW-CC-Date=20260624T021002Z&HW-CC-Expire=86400&HW-CC-Sign=845B18C17136C3B8137D87A25EAC7175569855E41253AED99CAED46858B12C26)
 
- 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/2asQT_c4Qw2GDxukVqViag/zh-cn_image_0000002448697365.png?HW-CC-KV=V1&HW-CC-Date=20260701T015445Z&HW-CC-Expire=86400&HW-CC-Sign=B34C38A7448861AF9168C083A9DAA64AECBFBED90CD8ECE974ED4C61E1F3E844)
+
+
 这种场景开发者可以使用如下方式进行兼容处理：
- 
+
 
 #### 基于C/ArkTS语言API接口兼容低版本行为
 
-- 针对HarmonyOS设备独有特性接口，即接口标记为since M.F.S(N)（文档中标记“起始版本：M.F.S(N)”, SDK物理包中hms路径下所包含的接口），使用distributionOSApiVersion接口进行兼容性判断保护。
+ - 针对HarmonyOS设备独有特性接口，即接口标记为since M.F.S(N)（文档中标记“起始版本：M.F.S(N)”, SDK物理包中hms路径下所包含的接口），使用distributionOSApiVersion接口进行兼容性判断保护。
 
-  ArkTS API:
+  ArkTS API:        
 ```text
 <span style="color: rgb(0,0,255);">import</span> { deviceInfo } <span style="color: rgb(0,0,255);">from</span> <span style="color: rgb(255,0,0);">'@kit.BasicServicesKit'</span>;
 <span style="color: rgb(80,160,79);">//针对HarmonyOS专有接口，即接口标记为since M.F.S(N)的接口</span>
@@ -59,9 +59,9 @@ getTestData(): <span style="color: rgb(0,0,255);">void</span> {
 }
 ```
 
-- 针对OpenHarmony底座接口，即接口标记为since N（文档中标记“起始版本：N”，SDK物理包中openharmony路径下所包含的接口），使用sdkApiVersion接口进行兼容性判断保护。
+ - 针对OpenHarmony底座接口，即接口标记为since N（文档中标记“起始版本：N”，SDK物理包中openharmony路径下所包含的接口），使用sdkApiVersion接口进行兼容性判断保护。
 
-  ArkTS API:
+  ArkTS API:        
 ```text
 <span style="color: rgb(0,0,255);">import</span> { deviceInfo } <span style="color: rgb(0,0,255);">from</span> <span style="color: rgb(255,0,0);">'@kit.BasicServicesKit'</span>;
 <span style="color: rgb(80,160,79);">//针对OpenHarmony底座公共接口，即接口标记为since N</span>

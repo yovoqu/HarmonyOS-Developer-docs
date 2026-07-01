@@ -1,6 +1,6 @@
 # Class (FrameCallback)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-framecallback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 用于设置下一帧渲染时需要执行的任务。
  
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需要配合 UIContext 中的 postFrameCallback 和 postDelayedFrameCallback 使用。开发者需要继承该类并重写 onFrame 或 onIdle 方法，实现具体的业务逻辑。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块接口仅可在Stage模型下使用。 以下API需要配合 UIContext 中的 postFrameCallback 和 postDelayedFrameCallback 使用。开发者需要继承该类并重写 onFrame 或 onIdle 方法，实现具体的业务逻辑。
 
   
 

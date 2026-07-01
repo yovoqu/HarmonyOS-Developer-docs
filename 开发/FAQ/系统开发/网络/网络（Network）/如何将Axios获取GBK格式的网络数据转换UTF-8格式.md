@@ -1,6 +1,6 @@
 # 如何将Axios获取GBK格式的网络数据转换UTF-8格式
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-59
 
@@ -16,7 +16,7 @@
  
 参考代码如下：
  
-```ArkTS
+```json
 import { util } from '@kit.ArkTS';
 import axios, { AxiosResponse } from '@ohos/axios';
 
@@ -33,18 +33,18 @@ struct FriendsBook {
     axios<string, AxiosResponse<string>, null>({
       method: 'get',
       url: URL,
-      // When using the util.TextDecoder method, the encoding and decoding formats must be consistent,
-      // so the data type needs to be set to ARRAY_BUFFER when retrieving, otherwise garbled characters will appear.
+      <em>// When using the util.TextDecoder method, the encoding and decoding formats must be consistent,</em>
+      <em>// so the data type needs to be set to ARRAY_BUFFER when retrieving, otherwise garbled characters will appear.</em>
       responseType: 'ARRAY_BUFFER'
     })
       .then((res: AxiosResponse) => {
-        // First, use create to construct a TextDecoder instance and set the encoding format to gbk.
+        <em>// First, use create to construct a TextDecoder instance and set the encoding format to gbk.</em>
         const textDecoder = util.TextDecoder.create('gbk', { ignoreBOM: true });
-        // Next, use the decodeWithStream method to decode the input parameters and output the corresponding UTF-8 formatted text string.
-        // The parameters passed in must be in Uint8Array format, so the obtained data needs to be converted to an array type using the Uint8Array method.
+        <em>// Next, use the decodeWithStream method to decode the input parameters and output the corresponding UTF-8 formatted text string.</em>
+        <em>// The parameters passed in must be in Uint8Array format, so the obtained data needs to be converted to an array type using the Uint8Array method.</em>
         const result = new Uint8Array(res.data);
         const resultString = textDecoder.decodeToString(result, { stream: false });
-        // Parse JSON strings.
+        <em>// Parse JSON strings.</em>
         const jsonResult = JSON.parse(resultString) as string;
       })
   }

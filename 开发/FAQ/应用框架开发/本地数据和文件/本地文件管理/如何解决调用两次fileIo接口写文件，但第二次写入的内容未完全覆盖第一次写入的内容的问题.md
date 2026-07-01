@@ -1,6 +1,6 @@
-# 如何解决调用两次fileIo接口写文件，但第二次写入的内容未完全覆盖第一次写入的内容的问题
+# 如何解决调用两次fs接口写文件，但第二次写入的内容未完全覆盖第一次写入的内容的问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-25
 

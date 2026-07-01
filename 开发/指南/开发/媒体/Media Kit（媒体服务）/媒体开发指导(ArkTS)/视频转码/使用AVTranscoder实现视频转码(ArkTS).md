@@ -1,6 +1,6 @@
 # 使用AVTranscoder实现视频转码(ArkTS)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avtranscoder-for-transcodering
 
@@ -79,9 +79,17 @@ async releaseTranscoderingProcess() {
     if (this.avTranscoder != undefined) {
       // 1.释放转码实例。
       await this.avTranscoder.release();
+      let lastFdDst = this.avTranscoder.fdDst;
+      let lastFdSrc = this.avTranscoder.fdSrc;
       this.avTranscoder = undefined;
       // 2.关闭转码目标文件fd。
-      fileIo.closeSync(this.avTranscoder!.fdDst);
+      if (lastFdDst != undefined) {
+        fs.closeSync(lastFdDst);
+      }
+      // 3.关闭转码源文件fd。
+      if (lastFdSrc != undefined) {
+        fs.closeSync(lastFdSrc.fd);
+      }
     }
   }
 }
@@ -91,7 +99,7 @@ async releaseTranscoderingProcess() {
 
   
 > [!NOTE]
-> 下面代码示例中的fdSrc仅作示意使用，开发者需根据实际情况，确认资源有效性并设置： 如果使用本地资源转码，必须确认资源文件可用，并使用应用沙箱路径访问对应资源，参考 获取应用文件路径 。应用沙箱的介绍及如何向应用沙箱推送文件，请参考 文件管理 。 应通过Context属性获取应用文件路径，建议使用getUIContext获取UIContext实例，并使用getHostContext调用绑定实例的getContext，请参考 getHostContext 。 如果使用ResourceManager.getRawFd()打开HAP资源文件描述符，使用方法可参考 ResourceManager API参考 。
+> 下面代码示例中的fdSrc仅作示意使用，开发者需根据实际情况，确认资源有效性并设置： 如果使用本地资源转码，必须确认资源文件可用，并使用应用沙箱路径访问对应资源，参考 获取应用文件路径 。应用沙箱的介绍及如何向应用沙箱推送文件，请参考 文件管理 。 应通过Context属性获取应用文件路径，建议使用getUIContext获取UIContext实例，并使用getHostContext调用绑定实例的getContext，请参考 getHostContext 。 如果使用ResourceManager.getRawFd()打开HAP资源文件描述符，使用方法可参考ResourceManager中的 getRawFd 。
 
 
   

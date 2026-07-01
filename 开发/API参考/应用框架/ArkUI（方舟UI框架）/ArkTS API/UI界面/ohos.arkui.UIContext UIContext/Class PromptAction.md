@@ -1,6 +1,6 @@
 # Class (PromptAction)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -331,10 +331,12 @@ showToast(options: promptAction.ShowToastOptions): void
 
 **示例：**
 
-该示例通过调用showToast接口，创建并显示即时反馈。
+该示例通过showToast接口，并设置options参数中的systemMaterial属性，实现了Toast的系统材质视效。
+
+从API版本26.0.0开始，参数options的类型[promptAction.ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions)中新增了systemMaterial属性。
 
 ```text
-import { PromptAction } from '@kit.ArkUI';
+import { PromptAction, uiMaterial } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -345,11 +347,16 @@ struct Index {
   build() {
     Column() {
       Button('showToast')
+        .position({x: 125, y:300})
         .onClick(() => {
           try {
             this.promptAction.showToast({
               message: 'Message Info',
-              duration: 2000
+              duration: 2000,
+              // 控制是否设置系统材质
+              systemMaterial: new uiMaterial.ImmersiveMaterial({
+                style: uiMaterial.ImmersiveStyle.THIN
+              })
             });
           } catch (error) {
             let message = (error as BusinessError).message;
@@ -357,10 +364,27 @@ struct Index {
             console.error(`showToast args error code is ${code}, message is ${message}`);
           };
         })
-    }.height('100%').width('100%').justifyContent(FlexAlign.Center)
+    }
+    .width('100%')
+    .height('100%')
+    // 请开发者替换为实际资源文件
+    .backgroundImage($r("app.media.img"))
+    .backgroundImageSize({width: '100%', height: '100%'})
   }
 }
 ```
+
+未设置系统材质时：
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/PEmPXFb-TU-Tvs-ixXzFdg/zh-cn_image_0000002628860458.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=8F2CDDEEC059BEE05DB186AA9AF13188E2715567BF97F9927DDA2C19738F03A8)
+
+
+设置系统材质后：
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/uSFgAqtKQ_i4KOOCzg0m3g/zh-cn_image_0000002659219775.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=41FA5DC5E46BD3646FB44C31BF6D725003F141D8FD87A1F273202C39679C88B4)
+
 
 
 
@@ -1134,7 +1158,7 @@ struct Index {
                 .catch((error: BusinessError) => {
                   console.error(`updateCustomDialog args error code is ${error.code}, message is ${error.message}`);
                 })
-            }, 2000); //2秒后自动更新弹窗位置
+            }, 2000); // 2秒后自动更新弹窗位置
           })
       }
       .width('100%')
@@ -1238,7 +1262,7 @@ struct Index {
                 .catch((error: BusinessError) => {
                   console.error(`OpenCustomDialog args error code is ${error.code}, message is ${error.message}`);
                 })
-            }, 2000); //2秒后自动关闭
+            }, 2000); // 2秒后自动关闭
           })
       }
       .width('100%')

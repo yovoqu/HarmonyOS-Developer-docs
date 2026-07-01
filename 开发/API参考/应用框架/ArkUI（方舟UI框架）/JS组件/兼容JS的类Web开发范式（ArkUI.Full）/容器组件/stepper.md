@@ -1,6 +1,6 @@
 # stepper
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-stepper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -220,4 +220,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/VuIrQrPlQ8GRn-PO_v4bPw/zh-cn_image_0000002581276408.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025444Z&HW-CC-Expire=86400&HW-CC-Sign=607EC730C6C2CBAA599CFDDD0FEBA9B1BBF4AE0E7788CE778A05ED307A07ED8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/pr7JA7F9S0q8O9d_8bD31Q/zh-cn_image_0000002659222253.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014400Z&HW-CC-Expire=86400&HW-CC-Sign=8662C7841ED3CA61E7D0E7CAE5DB99EB81F442C4450B9AE30FEF6149EB9A09E0)

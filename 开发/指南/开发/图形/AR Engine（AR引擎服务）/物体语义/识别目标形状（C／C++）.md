@@ -1,8 +1,11 @@
 # 识别目标形状（C/C++）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane-shape
+
+本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
+
 
 #### 约束与限制
 
@@ -18,7 +21,7 @@
 
 #### 创建AR会话
 
-创建AR会话并配置为目标形状识别模式。
+创建AR会话并配置为物体语义识别模式。
 
 ```text
 AREngine_ARSession *arSession = nullptr;
@@ -27,7 +30,7 @@ HMS_AREngine_ARSession_Create(nullptr, nullptr, &arSession);
 AREngine_ARConfig *arConfig = nullptr;
 // 创建AR会话配置器。
 HMS_AREngine_ARConfig_Create(arSession, &arConfig);
-// 设置语义识别模式为目标形状识别。
+// 设置语义识别模式为物体语义识别。
 HMS_AREngine_ARConfig_SetSemanticMode(arSession, arConfig, ARENGINE_SEMANTIC_MODE_TARGET);
 // 配置器设置给AR会话。
 HMS_AREngine_ARSession_Configure(arSession, arConfig);
@@ -74,7 +77,7 @@ HMS_AREngine_ARTrackableList_GetSize(arSession, targetList, &targetSize);
 
 
 #### 遍历并识别物体形状
-1. 当环境中存在一个或多个可跟踪对象时，依次遍历targetList中所有可跟踪对象进行目标形状识别。
+1. 当环境中存在一个或多个可跟踪对象时，依次遍历targetList中所有可跟踪对象进行物体语义识别。
 
   
 ```text

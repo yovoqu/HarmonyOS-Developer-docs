@@ -1,6 +1,6 @@
 # XEG_RTShadowAODenoiserParameters
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtshadowaodenoiserparameters
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -31,7 +31,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| float temporalBlendFactor = 0.075f | 时域滤波时当前帧与历史帧混合的权重系数。一致性校验通过后，权重值越大时越多采用当前帧的信息。此参数的值将被限制在[0.01, 1.0]范围内。默认值为0.075。 |
+| float temporalBlendFactor = 0.075f | 时域滤波时当前帧与历史帧混合的权重系数。一致性校验通过后，权重值越大，越多采用当前帧的信息。此参数的值将被限制在[0.01, 1.0]范围内。默认值为0.075。 |
 | float positionConstantDistance = 1.0f | 时域滤波中根据世界空间距离进行一致性校验的阈值，必须大于等于0，如果传负值将被视为0。默认值为1.0。 |
 | uint32_t spatialDenoiseTimes = 2 | 空域滤波器执行的次数。次数越多生成的阴影和环境光遮蔽噪声越少，但可能会导致降噪结果更模糊。此参数的值将被限制在[0, 5]范围内。默认值为2。 |
 | float ghostingAlpha = 0.0f | 时域滤波器中控制运动物体引入的鬼影问题。值为0时，不解决运动物体引入的鬼影问题。值越高，鬼影问题解决的越好，但降噪结果会稍微劣化。此参数的值将被限制在[0.0, 1.0]范围内。默认值为0.0。 |
@@ -127,4 +127,4 @@ float XEG_RTShadowAODenoiserParameters::temporalBlendFactor = 0.075f
  
 **描述**
  
-时域滤波时当前帧与历史帧混合的权重系数。一致性校验通过后，权重值越大时越多采用当前帧的信息。此参数的值将被限制在[0.01, 1.0]范围内。默认值为0.075。
+时域滤波时当前帧与历史帧混合的权重系数。一致性校验通过后，权重值越大，越多采用当前帧的信息。此参数的值将被限制在[0.01, 1.0]范围内。默认值为0.075。

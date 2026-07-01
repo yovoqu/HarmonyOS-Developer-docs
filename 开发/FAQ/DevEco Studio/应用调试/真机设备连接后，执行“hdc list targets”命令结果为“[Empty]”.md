@@ -1,6 +1,6 @@
-# 真机设备连接后，执行“hdc list targets”命令结果为“[Empty]”
+# 真机设备链接后，执行“hdc list targets”命令结果为“[Empty]”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-32
 

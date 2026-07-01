@@ -1,6 +1,6 @@
 # Video
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -67,8 +67,8 @@ Video(value: VideoOptions)
 | currentProgressRate | number \| string \| PlaybackSpeed8+ | 否 | 是 | 视频播放倍速。 说明： number格式取值仅支持：0.75，1.0，1.25，1.75，2.0。从API version 22开始，新增支持取值0.5，1.5，3，0.25和0.125。 string格式支持number格式取值的字符串形式："0.75"，"1.0"，"1.25"，"1.75"，"2.0"。从API version 22开始，新增支持取值"0.5"，"1.5"，"3"，"0.25"和"0.125"。 除此之外的取值，比如"abc"或"1.5+1.5"会按照异常值处理。 默认值：1.0 \| PlaybackSpeed.Speed_Forward_1_00_X 异常值：按默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | previewUri | string \| PixelMap \| Resource | 否 | 是 | 视频未播放时的预览图片路径，默认不显示图片。 string格式可用于加载本地图片和网络图片， - 支持网络图片地址。 - 支持相对路径引用本地图片，例如：previewUri: “common/test.jpg”。当使用相对路径引用本地图片时，不支持跨包/跨模块调用。 - 支持file://路径前缀的字符串，即应用沙箱URI（见uriOrPath）：file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。用于读取应用沙箱路径内的资源。需要保证目录包路径下的文件有可读权限。 Resource格式可以跨包/跨模块访问资源文件。 - 支持rawfile文件下的资源，即通过$rawfile引用图片。 - 支持通过$r引用系统资源或者应用资源中的图片。 默认值：空字符串 异常值：按默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | controller | VideoController | 否 | 是 | 设置视频控制器，可以控制视频的播放状态。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| imageAIOptions12+ | ImageAIOptions | 否 | 是 | 设置图像AI分析选项，可配置分析类型或绑定一个分析控制器。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| posterOptions18+ | PosterOptions | 否 | 是 | 设置视频播放的首帧送显选项，可以控制视频是否支持首帧送显。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| imageAIOptions12+ | ImageAIOptions | 否 | 是 | 设置图像AI分析选项，可配置分析类型或绑定一个分析控制器。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| posterOptions18+ | PosterOptions | 否 | 是 | 设置视频播放的首帧送显选项，可以控制视频是否支持首帧送显。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -88,11 +88,11 @@ Video(value: VideoOptions)
 | Speed_Forward_1_25_X | 1.25 | 1.25倍速播放。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Speed_Forward_1_75_X | 1.75 | 1.75倍速播放。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Speed_Forward_2_00_X | 2 | 2倍速播放。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| SPEED_FORWARD_0_50_X22+ | 0.5 | 0.5倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| SPEED_FORWARD_1_50_X22+ | 1.5 | 1.5倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| SPEED_FORWARD_3_00_X22+ | 3 | 3倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| SPEED_FORWARD_0_25_X22+ | 0.25 | 0.25倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| SPEED_FORWARD_0_125_X22+ | 0.125 | 0.125倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| SPEED_FORWARD_0_50_X22+ | 0.5 | 0.5倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| SPEED_FORWARD_1_50_X22+ | 1.5 | 1.5倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| SPEED_FORWARD_3_00_X22+ | 3 | 3倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| SPEED_FORWARD_0_25_X22+ | 0.25 | 0.25倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| SPEED_FORWARD_0_125_X22+ | 0.125 | 0.125倍速播放。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -236,6 +236,8 @@ enableAnalyzer(enable: boolean)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -265,6 +267,8 @@ analyzerConfig(config: ImageAnalyzerConfig)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -287,6 +291,8 @@ enableShortcutKey(enabled: boolean)
 目前支持在组件获焦后响应空格键播放/暂停、上下方向键调整视频音量、左右方向键快进/快退。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -313,7 +319,7 @@ enableShortcutKey(enabled: boolean)
 
 onStart(event: VoidCallback)
 
-播放时触发该事件，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
+开始播放时触发该事件，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -323,7 +329,7 @@ onStart(event: VoidCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | VoidCallback | 是 | 视频播放的回调函数。 |
+| event | VoidCallback | 是 | 视频开始播放的回调函数。 |
 
 
 
@@ -374,7 +380,7 @@ onFinish(event: VoidCallback)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-onError(event: VoidCallback | ErrorCallback)
+onError(event: VoidCallback | import('../api/@ohos.base').ErrorCallback)
 
 播放失败时触发该事件，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
 
@@ -390,7 +396,7 @@ onError(event: VoidCallback | ErrorCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | VoidCallback \| ErrorCallback20+ | 是 | 视频播放失败时的回调函数。其中ErrorCallback类型入参的回调函数用于接收异常信息，回调返回的错误码详细介绍请参见Video组件错误码和Media错误码。 |
+| event | VoidCallback \| import('../api/@ohos.base').ErrorCallback20+ | 是 | 视频播放失败时的回调函数。其中ErrorCallback类型入参的回调函数用于接收异常信息，回调返回的错误码详细介绍请参见Video组件错误码和Media错误码。 |
 
 
 
@@ -404,6 +410,8 @@ onStop(event: Callback&lt;void&gt;)
 播放停止时触发该事件(当stop()方法被调用后触发)，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -533,6 +541,8 @@ onFullscreenChange(callback: Callback&lt;FullscreenInfo&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -553,6 +563,8 @@ onFullscreenChange(callback: Callback&lt;FullscreenInfo&gt;)
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -575,6 +587,8 @@ onFullscreenChange(callback: Callback&lt;FullscreenInfo&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -589,6 +603,8 @@ onFullscreenChange(callback: Callback&lt;FullscreenInfo&gt;)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于描述当前视频是否配置首帧送显。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -685,6 +701,8 @@ reset(): void
 Video组件重置AVPlayer。显示当前帧，再次播放时从头开始播放。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -939,7 +957,7 @@ interface FullscreenObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/64xQt-N1SkuD5-8Klck96Q/zh-cn_image_0000002581435980.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=6AEE6A45F8771D4C4FAEC6955E9BDC594DBAE1D67EF8CAC407EB35BE2E65D792)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/sg13s1OsQiuxJl9ckKB2xw/zh-cn_image_0000002628702716.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=160656E791ADEE6ED43744A28E8E5DAC729C73E67AB184F6C03F4E1F1B873F6A)
 
 
 
@@ -1105,7 +1123,7 @@ struct VideoObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/tTz_qZBQQ_eJleOFnzcebg/zh-cn_image_0000002611835811.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=0F45393D15B6031025E0AAEC3EA2D28813289F71002E0D3303D1FC4C8565A099)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/37PZTNkdSpeh3E5Xncg08w/zh-cn_image_0000002659101943.png?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=A5E4C28B2554CFB92B6AB7218929ADB1C88456B8CCEEFA6B73BC4D400C271654)
 
 
 
@@ -1153,7 +1171,7 @@ struct VideoErrorComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/PtEuts0KQ9yCH1PGRU8pDA/zh-cn_image_0000002581276064.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=B389061266B7555E708867D3609910C6D2F67A2A4AACECD654893D7346C071FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/NVjaN-BRTfaIcwIUK7qmhw/zh-cn_image_0000002628862594.png?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=04F4E82E0A16D6F3A1D7723F32C10393D65729C7FD2CEE2B89A5F5FB8F091854)
 
 
 
@@ -1279,4 +1297,4 @@ interface FullscreenObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/19gGneADTSewhrYDL0VzXA/zh-cn_image_0000002611755921.png?HW-CC-KV=V1&HW-CC-Date=20260528T025536Z&HW-CC-Expire=86400&HW-CC-Sign=4A33C4A5491449401513CEB2B297D2CAB807EC60A69AFCF0569226718C077F99)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/DtqhsGEXQcC39E78nBsu3A/zh-cn_image_0000002659221909.png?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=E2AC6CEB306E4F99E90A3979A24D659CD7AF362786930AFCEB0F4360155ECC14)

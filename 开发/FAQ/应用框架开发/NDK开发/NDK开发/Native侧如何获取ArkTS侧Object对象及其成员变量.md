@@ -1,6 +1,6 @@
 # Native侧如何获取ArkTS侧Object对象及其成员变量
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-42
 
@@ -9,11 +9,10 @@
 ArkTS侧
  
 ```ArkTS
-// index.ets
+<em>// index.ets</em>
 import testNapi from 'libentry.so';
 import { PromptAction } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-
 
 class A {
   name: string = 'username'
@@ -43,24 +42,24 @@ struct NativeGetArkTSObject {
 ```
  
 ```ts
-// index.d.ts
+<em>// index.d.ts</em>
 export const callFunction: (a:object) => void;
 ```
  
 Native侧
  
-```cpp
-// Pass in an instance object and call functions in the object on the C++side 
+```text
+<em>// Pass in an instance object and call functions in the object on the C++side </em>
 #include "napi/native_api.h" 
 static napi_value CallFunction(napi_env env, napi_callback_info info) { 
-    // Get instance object 
+   <em> // Get instance object </em>
     size_t argc = 1; 
     napi_value args[1] = {nullptr}; 
     napi_get_cb_info(env, info, &argc, args, NULL, NULL); 
-    // Method for obtaining objects 
+  <em>  // Method for obtaining objects </em>
     napi_value onCall; 
     napi_get_named_property(env, args[0], "onCall", &onCall); 
-    // Call functions in the object 
+  <em>  // Call functions in the object </em>
     napi_value res; 
     napi_call_function(env, args[0], onCall, 0, nullptr, &res); 
     return onCall; 

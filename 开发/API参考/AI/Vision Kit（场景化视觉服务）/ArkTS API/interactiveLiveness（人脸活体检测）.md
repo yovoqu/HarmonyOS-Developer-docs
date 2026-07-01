@@ -1,6 +1,6 @@
 # interactiveLiveness（人脸活体检测）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness
 **支持设备：** Phone | Tablet
@@ -169,7 +169,7 @@ startLivenessDetection(config: InteractiveLivenessConfig): Promise&lt;boolean&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

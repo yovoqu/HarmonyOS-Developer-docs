@@ -1,6 +1,6 @@
 # 如何实现http并行下载
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-49
 
@@ -8,11 +8,11 @@
  
 参考代码如下：
  
-```ArkTS
+```json
 import { request } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-// Using AppStore to store UIContext in ExitAbility
+<em>// Using AppStore to store UIContext in ExitAbility</em>
 const context = AppStorage.get("context") as UIContext;
 let downloadTask: request.DownloadTask;
 try {

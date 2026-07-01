@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,19 +35,43 @@
 
 窗口内容的避让区域的类型枚举。
 
-窗口内容做[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)适配时，需要按照AvoidAreaType对应的[AvoidArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#avoidarea7)做窗口内容避让。
-
-**系统能力：** SystemCapability.WindowManager.WindowManager.Core
-
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+窗口内容做[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)适配时，需要按照AvoidAreaType对应的[AvoidArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#avoidarea7)做窗口内容避让。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| TYPE_SYSTEM | 0 | 表示系统默认区域。通常表示状态栏区域，悬浮窗状态下的应用主窗中表示三点控制栏区域。 |
-| TYPE_CUTOUT | 1 | 表示挖孔区域。 |
-| TYPE_SYSTEM_GESTURE9+ | 2 | 表示侧边返回手势区域。当前所有设备均无此类型避让区域。 |
-| TYPE_KEYBOARD9+ | 3 | 表示固定态软键盘区域。 |
-| TYPE_NAVIGATION_INDICATOR11+ | 4 | 表示底部导航区域。根据用户设置，可表现为导航条或三键导航栏。 |
+| TYPE_SYSTEM | 0 | 表示系统默认区域。通常表示状态栏区域，悬浮窗状态下的应用主窗中表示三点控制栏区域。 系统能力： SystemCapability.WindowManager.WindowManager.Core 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| TYPE_CUTOUT | 1 | 表示挖孔区域。 系统能力： SystemCapability.WindowManager.WindowManager.Core 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| TYPE_SYSTEM_GESTURE9+ | 2 | 表示侧边返回手势区域。当前所有设备均无此类型避让区域。 系统能力： SystemCapability.WindowManager.WindowManager.Core 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| TYPE_KEYBOARD9+ | 3 | 表示固定态软键盘区域。 系统能力： SystemCapability.WindowManager.WindowManager.Core 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| TYPE_NAVIGATION_INDICATOR11+ | 4 | 表示底部导航区域。当三键导航显示时，底部导航避让区域始终存在。 系统能力： SystemCapability.WindowManager.WindowManager.Core 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| TYPE_FLOAT_NAVIGATION | 5 | 表示三键导航区域。需要调用setFloatNavigationAvoidAreaEnabled()接口使能后，才能获取到三键导航的避让区域，否则直接返回空的三键导航避让区域。 系统能力： SystemCapability.Window.SessionManager 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 26.0.0开始，该接口支持在元服务中使用。 |
+
+
+
+
+#### SplitRatioPreference
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+窗口分屏比例的类型枚举。
+
+该枚举应用于[应用内分屏场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-support#应用内分屏)，不支持直板机拉起分屏。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.WindowManager.WindowManager.Core
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| EQUAL | 0 | 表示系统为主分屏和次分屏窗口分配同样大小的窗口比例。 未指定字段值时该字段为默认值。 |
+| PRIMARY_DOMINANT | 1 | 表示系统为主分屏窗口分配当前设备所允许的较大可用比例。 |
+| SECONDARY_DOMINANT | 2 | 表示系统为次分屏窗口分配当前设备所允许的较大可用比例。 |
+
+
+> [!NOTE]
+> 底部导航与三键导航是两种不同的系统导航模式，用户可以通过 设置>系统>系统导航>更多设置 进行三键导航的自定义切换。 默认情况下，底部导航表现为导航条，三键导航为关闭状态，此时三键导航区域不存在。 当用户切换为三键导航栏模式时，三键导航区域存在，导航条会隐藏，但底部导航区域仍然存在。
 
 
 
@@ -424,6 +448,29 @@ WindowStage生命周期的状态类型枚举。
 | SCROLL_SHOT_START | 2 | 滚动截屏开始。 |
 | SCROLL_SHOT_END | 3 | 滚动截屏结束。 |
 | SCROLL_SHOT_ABORT | 4 | 滚动截屏中止。 |
+
+
+
+
+#### OrientationExecutionResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+窗口显示方向的执行结果枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| ORIENTATION_APPLIED | 0 | 设置的方向已生效。 |
+| ORIENTATION_IGNORED | 1 | 设置的方向不生效。 |
+| ORIENTATION_PENDING | 2 | 设置的方向被挂起，等系统动画结束后，将生效。 |
 
 
 

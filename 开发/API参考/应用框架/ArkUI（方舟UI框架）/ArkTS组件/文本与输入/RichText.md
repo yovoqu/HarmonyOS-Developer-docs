@@ -1,6 +1,6 @@
 # RichText
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richtext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -188,7 +188,7 @@ struct RichTextExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/88oPzmYGQoqvqsLXRbvGig/zh-cn_image_0000002611835783.png?HW-CC-KV=V1&HW-CC-Date=20260528T025601Z&HW-CC-Expire=86400&HW-CC-Sign=971BEC1E52CABA339E963DA9F9B39A8811967A02B4326D3806E40299C8F69481)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/sbGCJ5qAQLG8Pr7_rRvj1Q/zh-cn_image_0000002628702688.png?HW-CC-KV=V1&HW-CC-Date=20260701T014341Z&HW-CC-Expire=86400&HW-CC-Sign=DCFC6ECA43EA333FE2FA2AF294E773B90538E2FA3C96401DB0990A4361150721)
 
  
 加载本地资源文件。

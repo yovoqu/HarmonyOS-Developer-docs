@@ -1,6 +1,6 @@
-# 对于@ohos.net.http模块是否需要使用TaskPool处理
+# 对于@ohos.net.http网络框架是否需要使用TaskPool处理
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-134
 

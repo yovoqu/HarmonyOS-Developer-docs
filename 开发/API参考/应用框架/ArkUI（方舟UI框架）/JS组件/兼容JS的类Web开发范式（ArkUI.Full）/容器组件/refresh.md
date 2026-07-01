@@ -1,6 +1,6 @@
 # refresh
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-refresh
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -168,4 +168,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/jm9yn-5PQ3iKanZ-fdfEJA/zh-cn_image_0000002581436324.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025443Z&HW-CC-Expire=86400&HW-CC-Sign=58654E3356A1F7C56F4BA2FCDDD31B02F3A9006848EBDC59821075C0ACC329D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/lQ1vb3nrSgWXGh7wGu2iHQ/zh-cn_image_0000002659102287.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014400Z&HW-CC-Expire=86400&HW-CC-Sign=E0C356C73A836D76E189DA6CD8C754B84DB8C9653ACB2F2E0BE30BF8B5229ACF)

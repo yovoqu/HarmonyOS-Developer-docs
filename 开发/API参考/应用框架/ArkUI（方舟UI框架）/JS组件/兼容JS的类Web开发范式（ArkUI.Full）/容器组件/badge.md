@@ -1,6 +1,6 @@
 # badge
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-badge
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,9 +41,9 @@
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | placement | string | rightTop | 否 | 事件提醒的数字标记或者圆点标记的位置，可选值为： - right：位于组件右边框。 - rightTop：位于组件边框右上角。 - left：位于组件左边框。 |
-| count | number | 0 | 否 | 设置提醒的消息数，默认为0，为0时不显示。当设置相应的提醒消息数大于0时，消息提醒会变成数字标记类型。 当数字设置大于maxcount时，将使用maxcount显示。count属性最大支持整数值为2147483647。 |
-| visible | boolean | false | 否 | 是否显示消息提醒，当收到新信息提醒时可以设置该属性为true，显示相应的消息提醒，如果需要使用数字标记类型，同时需要设置相应的count属性。 |
-| maxcount | number | 99 | 否 | 最大消息数限制，当收到新信息提醒大于该限制时，标识数字会进行省略，仅显示maxcount+。 maxcount属性支持的最大整数值为2147483647。 |
+| count | number | 0 | 否 | 设置提醒的事件数，默认为0，为0时不显示。当设置相应的提醒事件数大于0时，事件提醒会变成数字标记类型。 当数字设置大于maxcount时，将使用maxcount显示。count属性最大支持整数值为2147483647。 |
+| visible | boolean | false | 否 | 是否显示事件提醒，当收到新事件提醒时可以设置该属性为true，显示相应的事件提醒，如果需要使用数字标记类型，同时需要设置相应的count属性。 |
+| maxcount | number | 99 | 否 | 最大事件数限制，当收到新事件提醒大于该限制时，标识数字会进行省略，仅显示maxcount+。 maxcount属性支持的最大整数值为2147483647。 |
 | config | BadgeConfig | - | 否 | 设置新事件标记相关配置属性。 |
 | label6+ | string | - | 否 | 设置新事件提醒的文本值。 使用该属性时，count和maxcount属性不生效。 |
  
@@ -138,4 +138,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/BxNS2JnHQhKMRD3sacdnCQ/zh-cn_image_0000002611756257.png?HW-CC-KV=V1&HW-CC-Date=20260528T025444Z&HW-CC-Expire=86400&HW-CC-Sign=A41FF6365313836A3B74BD88DB5CC3E89A2AB8D6E86A8898AB1C6E94D328201E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/7dCOFv7GR2mbZEOqeob6PA/zh-cn_image_0000002628703054.png?HW-CC-KV=V1&HW-CC-Date=20260701T014359Z&HW-CC-Expire=86400&HW-CC-Sign=F0E35358B3A9AE24D09284B101D2CDE45C1FA908703647430B57C12EBC4B59EF)

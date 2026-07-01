@@ -1,11 +1,11 @@
 # @ohos.file.hash (文件哈希处理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-hash
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该模块提供文件哈希处理能力，对文件内容进行哈希处理。
+该模块提供文件哈希处理能力，对文件内容进行哈希处理，适用于数据完整性校验、版本比对与内容去重等场景，可确保计算结果的不可变性与一致性，并支持流式处理大文件。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -40,7 +40,7 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-使用该功能模块对文件/目录进行操作前，需要先获取其应用沙箱路径，获取方式及其接口用法请参考：[应用上下文Context-获取应用文件路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取应用文件路径)。
+获取沙箱路径的方式及其接口用法也可参考：[应用上下文Context-获取应用文件路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取应用文件路径)。
 
 
 
@@ -50,7 +50,11 @@ export default class EntryAbility extends UIAbility {
 
 hash(path: string, algorithm: string): Promise&lt;string&gt;
 
-计算文件的哈希值，使用Promise异步回调。
+计算文件的哈希值。使用Promise异步回调。
+
+> [!NOTE]
+> 该接口会读取整个文件内容并计算哈希值，适用于中小文件。对于大文件处理，建议使用 HashStream 流式计算。
+
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -85,6 +89,7 @@ hash(path: string, algorithm: string): Promise&lt;string&gt;
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
+
 let filePath = pathDir + "/test.txt";
 hash.hash(filePath, "sha256").then((str: string) => {
   console.info("Succeeded in calculating file hash: " + str);
@@ -101,7 +106,11 @@ hash.hash(filePath, "sha256").then((str: string) => {
 
 hash(path: string, algorithm: string, callback: AsyncCallback&lt;string&gt;): void
 
-计算文件的哈希值，使用callback异步回调。
+计算文件的哈希值。使用callback异步回调。
+
+> [!NOTE]
+> 该接口会读取整个文件内容并计算哈希值，适用于中小文件。对于大文件处理，建议使用 HashStream 流式计算。
+
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -148,7 +157,11 @@ hash.hash(filePath, "sha256", (err: BusinessError, str: string) => {
 
 createHash(algorithm: string): HashStream
 
-创建并返回 HashStream 对象，该对象可用于使用给定的 algorithm 生成哈希摘要。
+创建并返回HashStream对象，用于生成哈希摘要。可以指定哈希计算采用的算法。
+
+> [!NOTE]
+> HashStream采用流式处理机制，支持分批次更新数据，适用于大文件或数据流的哈希计算，避免一次性加载大文件到内存。
+
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
@@ -163,7 +176,7 @@ createHash(algorithm: string): HashStream
 
 | 类型 | 说明 |
 | --- | --- |
-| HashStream | HashStream 类的实例。 |
+| HashStream | HashStream类的实例，用于生成哈希摘要。 |
 
 
 **错误码：**
@@ -207,7 +220,7 @@ function hashFileWithStream() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-HashStream 类是用于创建数据的哈希摘要的实用工具。由 [createHash](#hashcreatehash12) 接口获得。
+HashStream类是用于创建数据的哈希摘要的实用工具。由[createHash](#hashcreatehash12)接口获得。该类采用增量式哈希计算设计，通过update方法多次添加数据块，最后通过digest方法计算最终哈希值，适用于处理大文件或持续产生的数据流。
 
 
 
@@ -217,7 +230,7 @@ HashStream 类是用于创建数据的哈希摘要的实用工具。由 [createH
 
 update(data: ArrayBuffer): void
 
-使用给定的 data 更新哈希内容，可多次调用。
+使用给定的数据更新哈希内容，可多次调用。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 

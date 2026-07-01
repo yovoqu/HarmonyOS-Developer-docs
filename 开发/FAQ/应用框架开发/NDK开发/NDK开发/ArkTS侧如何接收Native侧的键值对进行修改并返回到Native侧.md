@@ -1,6 +1,6 @@
 # ArkTS侧如何接收Native侧的键值对进行修改并返回到Native侧
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-41
 
@@ -12,11 +12,11 @@
  
 ArkTS侧
  
-```ArkTS
+```json
 import testNapi from 'libentry.so';
-// ...
+<em>// ...</em>
   build() {
-    // ...
+   <em> // ...</em>
           .onClick(() => {
             let data: Record<string, number> = testNapi.callbackToArkTS((value: object) => {
               let obj: Record<string, number> = value as Record<string, number>;
@@ -32,7 +32,7 @@ import testNapi from 'libentry.so';
  
 Native侧
  
-```cpp
+```text
 #include "napi/native_api.h" 
 #include "hilog/log.h" 
 #undef LOG_DOMAIN 
@@ -52,21 +52,21 @@ static  napi_value CallbackToArkTS(napi_env env, napi_callback_info info) {
     size_t argc = 1; 
     napi_value args[1] = {nullptr}; 
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr); 
-    // Native callback to ArkTS layer object
+   <em> // Native callback to ArkTS layer object</em>
     napi_value argv = nullptr; 
     napi_create_object(env, &argv); 
     Napi_AddPropertyInt32(env, argv, "type", 1); 
     Napi_AddPropertyInt32(env, argv, "index", 2); 
-    // Native callback to ArkTS layer
+   <em> // Native callback to ArkTS layer</em>
     napi_value result = nullptr; 
     napi_call_function(env, NULL, args[0], 1, &argv, &result); 
-    // Obtain the modified object of ArkTS
+  <em>  // Obtain the modified object of ArkTS</em>
     napi_value typeNumber = nullptr; 
     napi_get_named_property(env, result, "type", &typeNumber); 
     int32_t number; 
     napi_get_value_int32(env, typeNumber, &number); 
     OH_LOG_INFO(LOG_APP, "ArkTS modified type：%{public}d", number); 
-    // Return the modified object
+   <em> // Return the modified object</em>
     return result; 
 } 
 EXTERN_C_START 
@@ -83,6 +83,6 @@ EXTERN_C_END
  
 index.d.ts
  
-```ts
+```text
 export const callbackToArkTS: (a: object) => Record<string, number>
 ```

@@ -1,6 +1,6 @@
 # 编译命令行中如何传递参数并且在Hvigor编译阶段扩展插件中获取到
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-79
 
@@ -12,8 +12,8 @@
  
 获取自定义参数代码：
  
-```ts
-// hvigorfile.ts
+```text
+<em>// hvigorfile.ts</em>
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 import { hvigor } from '@ohos/hvigor';
 

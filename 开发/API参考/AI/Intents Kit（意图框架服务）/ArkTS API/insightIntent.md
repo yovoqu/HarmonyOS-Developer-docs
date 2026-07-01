@@ -1,6 +1,6 @@
 # insightIntent
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/intents-arkts-api-insightintent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -39,7 +39,7 @@ InsightIntent，包括意图名称、意图版本号、标识、Action信息、E
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | intentName | string | 否 | 否 | 表示意图名称，例如：'PlayMusic'。 |
-| intentVersion | string | 否 | 否 | 表示意图版本，当前为初始版本'1.0'。 |
+| intentVersion | string | 否 | 否 | 表示意图版本，当前为初始版本'1.0.1'。 |
 | identifier | string | 否 | 否 | 表示意图的标识符，开发者按照自身业务需要生成，作为单条共享记录的唯一标识符。该字段的生成方式可参考UUID生成方式，或基于时间戳生成随机字符串。例如：'52dac3b0-6520-4974-81e5-25f0879449b5'。 |
 | intentActionInfo | IntentActionInfo | 否 | 否 | 表示意图的执行信息，例如：已执行或预测将要执行意图的时间。示例请参考shareIntent的示例代码。 说明： - 在5.0.0(12)版本之前，参数类型为{[key: string]: Object}。 - 从5.0.0(12)版本开始，参数类型为IntentActionInfo。该类型定义与5.0.0(12)之前版本兼容。 |
 | intentEntityInfo | IntentEntityInfo | 否 | 否 | 表示意图的实体信息，包含行为和事件。示例请参考shareIntent的示例代码。 说明： 在5.0.0(12)版本之前，参数类型为{entityId: string; entityName: string; [key: string]: Object}。 从5.0.0(12)版本开始，参数类型为IntentEntityInfo。该类型定义与5.0.0(12)之前版本兼容。 |
@@ -272,8 +272,8 @@ struct Index {
                 actionMode: 'EXECUTED',
                 currentPercentage: 50,
                 executedTimeSlots: {
-                  executedEndTime: 1637393112000,
-                  executedStartTime: 1637393212000
+                  executedStartTime: 1637393112000,
+                  executedEndTime: 1637393212000
                 }
               },
               intentEntityInfo: {

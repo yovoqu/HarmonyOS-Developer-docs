@@ -1,6 +1,6 @@
 # Scroll
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -128,6 +128,8 @@ scrollBarColor(color: Color | number | string | Resource)
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -160,6 +162,33 @@ scrollBarWidth(value: number | string)
 
 
 
+#### scrollBarWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+scrollBarWidth(value: number | string | Resource)
+
+设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过Scroll组件主轴方向的高度，则滚动条的宽度会变为4vp，支持Resource资源类型。
+
+未通过该接口设置时，设置滚动条的宽度为4vp。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number \| string \| Resource | 是 | 滚动条的宽度。 单位：vp 取值范围：[0, +∞)。设置为小于0的值时，按4vp处理。设置为0时，不显示滚动条。 |
+
+
+
+
 #### scrollSnap10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -171,6 +200,8 @@ scrollSnap(value: ScrollSnapOptions)
 限位动画期间[onWillScroll](#onwillscroll12)事件上报的滚动操作来源类型为ScrollSource.FLING。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -200,7 +231,7 @@ edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | edgeEffect | EdgeEffect | 是 | Scroll组件的边缘滑动效果，支持弹簧效果和阴影效果。 默认值：EdgeEffect.None |
-| options11+ | EdgeEffectOptions | 否 | 组件内容大小小于组件自身时，是否开启滑动效果。设置为{ alwaysEnabled: true }会开启滑动效果，{ alwaysEnabled: false }不开启。 默认值：{ alwaysEnabled: true } |
+| options11+ | EdgeEffectOptions | 否 | 组件内容大小小于组件自身时，是否开启滑动效果。设置为{ alwaysEnabled: true }会开启滑动效果，{ alwaysEnabled: false }不开启。 默认值：{ alwaysEnabled: true } 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -214,6 +245,8 @@ enableScrollInteraction(value: boolean)
 设置是否支持滚动手势。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -240,6 +273,8 @@ nestedScroll(value: NestedScrollOptions)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -260,6 +295,8 @@ friction(value: number | Resource)
 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中的链式效果有间接影响。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -282,6 +319,8 @@ enablePaging(value: boolean)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -302,6 +341,8 @@ initialOffset(value: OffsetOptions)
 设置初始滚动偏移量。只在首次布局时生效，后续动态修改该属性值不生效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -324,6 +365,8 @@ maxZoomScale(scale: number)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -344,6 +387,8 @@ minZoomScale(scale: number)
 设置Scroll组件内容的最小手势缩放比例。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -370,6 +415,8 @@ zoomScale(scale: number)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -390,6 +437,8 @@ enableBouncesZoom(enable: boolean)
 启用过缩放回弹效果。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -416,7 +465,7 @@ enableBouncesZoom(enable: boolean)
 | Horizontal | 1 | 仅支持水平方向滚动。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Free(deprecated) | 2 | 支持竖直或水平方向滚动。 说明： 从API version 7开始支持，从API version 9开始废弃，建议使用FREE替代。FREE枚举值从API version 20开始支持。 |
 | None | 3 | 不可滚动。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| FREE20+ | 4 | 自由滚动。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| FREE20+ | 4 | 自由滚动。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 FREE（自由滚动）模式下支持的能力：
@@ -448,6 +497,8 @@ FREE（自由滚动）模式下支持的能力：
 限位滚动模式对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -566,6 +617,8 @@ onWillScroll(handler: ScrollOnWillScrollCallback)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -596,6 +649,8 @@ onDidScroll(handler: ScrollOnScrollCallback)
 3、越界回弹。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -730,6 +785,8 @@ onDidZoom(event: ScrollOnDidZoomCallback)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -750,6 +807,8 @@ onZoomStart(event: VoidCallback)
 手势缩放开始触发。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -772,6 +831,8 @@ onZoomStop(event: VoidCallback)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -792,6 +853,8 @@ type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollState: Sc
 Scroll滚动时触发的回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -819,6 +882,8 @@ type ScrollOnWillScrollCallback = (xOffset: number, yOffset: number, scrollState
 Scroll滚动前触发的回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -851,6 +916,8 @@ type OnScrollEdgeCallback = (side: Edge) => void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -871,6 +938,8 @@ type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) => OnScro
 Scroll每帧滚动前触发的回调。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -903,6 +972,8 @@ Scroll每帧滚动前触发的回调。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -921,6 +992,8 @@ type ScrollOnDidZoomCallback = (scale: number) => void
 Scroll每帧缩放完成时触发的回调。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1011,7 +1084,7 @@ Scroll组件默认有动画，Grid、List、WaterFlow组件默认无动画。
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Edge | 是 | 滚动到的边缘位置。 |
-| options12+ | ScrollEdgeOptions | 否 | 设置滚动到边缘位置的模式。 |
+| options12+ | ScrollEdgeOptions | 否 | 设置滚动到边缘位置的模式。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1025,6 +1098,8 @@ fling(velocity: number): void
 滚动类组件根据传入的初始速度进行惯性滚动。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1112,7 +1187,7 @@ currentOffset(): OffsetResult
 
 | 类型 | 说明 |
 | --- | --- |
-| OffsetResult11+ | 返回当前的滚动总偏移量。 |
+| OffsetResult11+ | 返回当前的滚动总偏移量。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1126,6 +1201,8 @@ offset(): OffsetResult | undefined
 获取当前的滚动总偏移量。除接口声明有undefined以外，其他与[currentOffset](#currentoffset)接口保持一致。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1163,7 +1240,7 @@ scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign, options?: Sc
 | value | number | 是 | 要滑动到的目标元素在当前容器中的索引值。 说明： value值设置成负值或者大于当前容器子组件的最大索引值，视为异常值，本次跳转不生效。 |
 | smooth | boolean | 否 | 设置滑动到列表项在列表中的索引值时是否有动效，true表示有动效，false表示没有动效。 默认值：false。 |
 | align | ScrollAlign | 否 | 指定滑动到的元素与当前容器的对齐方式。 List中的默认值为：ScrollAlign.START。Grid中默认值为：ScrollAlign.AUTO。WaterFlow中的默认值为：ScrollAlign.START。 说明： 仅List、Grid、WaterFlow组件支持该参数。 |
-| options12+ | ScrollToIndexOptions | 否 | 设置滑动到指定Index的选项，如额外偏移量。 默认值：0，单位：vp。 |
+| options12+ | ScrollToIndexOptions | 否 | 设置滑动到指定Index的选项，如额外偏移量。 默认值：0，单位：vp。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1208,6 +1285,8 @@ isAtEnd(): boolean
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1232,6 +1311,8 @@ getItemRect(index: number): RectResult
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1278,6 +1359,8 @@ getItemIndex(x: number, y: number): number
 
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1326,6 +1409,8 @@ contentSize(): SizeResult
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -1346,6 +1431,31 @@ contentSize(): SizeResult
 
 
 
+#### getFrameNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getFrameNode(): FrameNode | undefined
+
+获取与当前Scroller绑定的FrameNode。
+
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 26.0.0
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| FrameNode \| undefined | 当Scroller已绑定到Scroll、List、Grid、WaterFlow等滚动类组件时，返回对应组件的FrameNode；如果Scroller未绑定组件，则返回undefined。 |
+
+
+
+
 #### OffsetResult11+对象说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1353,6 +1463,8 @@ contentSize(): SizeResult
 滑动偏移量对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1372,6 +1484,8 @@ contentSize(): SizeResult
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1390,6 +1504,8 @@ contentSize(): SizeResult
 对齐方式枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1411,6 +1527,8 @@ contentSize(): SizeResult
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1427,6 +1545,8 @@ contentSize(): SizeResult
 翻页模式的参数选项。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1446,6 +1566,8 @@ contentSize(): SizeResult
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1463,6 +1585,8 @@ contentSize(): SizeResult
 滚动到边缘位置的参数选项。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1484,6 +1608,8 @@ contentSize(): SizeResult
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1519,6 +1645,8 @@ setOnWillScroll(callback: ScrollOnWillScrollCallback | undefined): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1541,6 +1669,8 @@ setOnDidScroll(callback: ScrollOnScrollCallback | undefined): void
 方法入参为undefined时，会重置事件回调。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1741,7 +1871,7 @@ struct NestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/lBsfnksjTNGrZcfAwoU0uA/zh-cn_image_0000002622699661.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=23D028FEB5FCEB2B3704A34B64FD61961306D793A64A337E556390374C154692)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/2XFViF7aR2S6jLD1Rh1rhg/zh-cn_image_0000002659221681.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=CE3BDEAD72946A24E539A3DAAAF58FCDE9F5E155E4AF5A2C18FCC003AEA884E5)
 
 
 
@@ -1813,7 +1943,7 @@ struct StickyNestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/WqTAZArHQc-OPkIxWIzsQw/zh-cn_image_0000002592220100.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=2DBEF8007484C84006742AC970402CE8F18514DB96DB8FE1A8B478B294F247E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/vonZArmhQ7GQT_6dzIGYfQ/zh-cn_image_0000002628702490.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=27776AD11604312CBCD949EEB69DEF3DDF7A25DDD2F7E1B3DA50484D896FA8C0)
 
 
 
@@ -1912,7 +2042,7 @@ struct NestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/BzOpeiEKQ0C8pI4o02WIyg/zh-cn_image_0000002592380034.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=111070A4E8CA1FE5B938F6F93AC76DBF83DF4F47BEFFFC27BE5CEDE2C3D1BC24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/oGWU0j7_TnOvYju7LOltIw/zh-cn_image_0000002659101719.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=2CDC3DD92562DDC2BDB633B5528412398FC5E42148888C191EDF91F629D266A1)
 
 
 
@@ -1952,7 +2082,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/GQ4jGGMyQsSoIfb6xs1P7w/zh-cn_image_0000002622859543.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=10EC57A3266E322F113E306D07C84384A5C774A8FE8328ABEEB745D4AFF60E29)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/GbiAo4SLRf6OQW8XxmBktA/zh-cn_image_0000002628862370.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=E9B3AD04A253A1F1A14F733AB7D53D03FC0D842540D6199A99968CC4A2556AEC)
 
 
 
@@ -2034,7 +2164,7 @@ struct ListExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/-9MntXbtSV-8A1x6RVhcDQ/zh-cn_image_0000002622699663.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=A0BC74F6B0DA89E95F277E724544A9C1404C37D96F2BEE9722E14983473D475D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/AtE2E9n4QXKF7VkZPCSvwA/zh-cn_image_0000002659221683.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=74E35EB02EE08FCEB765C50D3FEC268C280AD82CFB4D15B974E5D93C13BE5CF9)
 
 
 
@@ -2078,7 +2208,7 @@ struct ScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/seTgdI33QwiTheJrxOLAUA/zh-cn_image_0000002592220102.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=C9DB8AAFB471BCCC67360BF2B587D7DF23CF02DF747F2284D2E526F5554F0252)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/VP2_IOclSiW0zrIEAmgVPg/zh-cn_image_0000002628702492.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=B79B7B7CF8789517759A17729F2DC8CA81F03E38488AB7ECF0DD32A1FE8F7E47)
 
 
 
@@ -2118,7 +2248,7 @@ struct ScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/i1RumbDcQyy96UwuZDIAKg/zh-cn_image_0000002592380036.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=344D45E5EE1053887AB3C3BB41239F9F2A41132A918CB4020F529B7936474D14)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/m1GNGo5pQzKJlY9-oDqdJg/zh-cn_image_0000002659101721.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=3971CFF22B73DA4B69BA03EB368BCA513B03374630BE1CB28592972B3E480EBA)
 
 
 
@@ -2156,7 +2286,7 @@ struct EnablePagingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/V_P6aT9sS5WVGb9-yXTKnQ/zh-cn_image_0000002622859545.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=2AAF0CB7B9D3079C06728C1711A0A2CDE80C679C0B9CD71CFEBA4C8CF8ADF465)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Wtox8bTARC6_eYeLoApt0g/zh-cn_image_0000002628862372.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=419746D3BB1E6BCC75521AA65D6B0B4A0D86A0A90DF4275B9FCECC7EF77F2F84)
 
 
 
@@ -2223,7 +2353,7 @@ struct StickyNestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/VJOZPdEjRASW78EeHCwVbw/zh-cn_image_0000002622699665.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=F992E051C5B6FB513FCB29C8B7F9C22970A7F9F0609CA6DF12B5540DE2D7FCF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/Bv7rw29hRc6WZhsLoKfe0w/zh-cn_image_0000002659221685.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=F6140D60BEA5688680A539A2A720628A017DB2C0BF2A19FD5A0EA562FBF3583E)
 
 
 
@@ -2263,7 +2393,7 @@ struct ScrollZoomExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/-Tm39y9vTN25PRX_jiwrsw/zh-cn_image_0000002592220104.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=214E034EE17343D327050A2A2368FF54927670B4BA5C8047E654FC14A76E16D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/2GGQLdcsSqWiekcCGU1PKQ/zh-cn_image_0000002628702494.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=C521C75CE27A1BC191DA50BCB56C832CD867C7BF3F8EC1E48DE36262519F7405)
 
 
 
@@ -2342,7 +2472,7 @@ struct ScrollExample1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/ilk3KyHOQ7CtljM5FpsXVQ/zh-cn_image_0000002592380038.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=9D3ED1BDFC8D1D747D79474702179BA46522194CE7A66C75335819AB70CF34B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/E4cPE3jwRDy1yN-ibbL1Sw/zh-cn_image_0000002659101723.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=4CD3210E58E2E568FFE7CE8959538D706F0CA2B9EADE78EFC05E92D84DE6C005)
 
 
 

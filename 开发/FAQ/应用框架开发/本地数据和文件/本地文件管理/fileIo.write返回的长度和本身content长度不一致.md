@@ -1,6 +1,6 @@
-# fileIo.write返回的长度和本身content长度不一致
+# fs.write返回的长度和本身content长度不一致
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-39
 

@@ -1,6 +1,6 @@
 # 组件内转场(transition)新增内容动画生效，但删除内容动画不生效的可能原因是什么
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-477
 

@@ -1,6 +1,6 @@
 # 在Native侧如何处理ArkTS侧传入的字符串被截断的异常场景
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-2
 
@@ -20,7 +20,7 @@
  
 原因一：字符数组长度不足。
  
-```cpp
+```text
 static napi_value TestFunc(napi_env env, napi_callback_info info) 
 { 
     size_t argc = 1; 
@@ -28,9 +28,9 @@ static napi_value TestFunc(napi_env env, napi_callback_info info)
     napi_get_cb_info(env, info, &argc, args , nullptr, nullptr); 
      
     size_t len = 0; 
-    char buf[5];                                                            // Allocate a char array of length 5
-    napi_get_value_string_utf8(env, args[0], buf, 1024, &len);  // Get string, buf result is' abcde '
-    // ... 
+    char buf[5];                                                          <em>  // Allocate a char array of length 5</em>
+    napi_get_value_string_utf8(env, args[0], buf, 1024, &len);  <em>// Get string, buf result is' abcde '</em>
+  <em>  // ... </em>
 }
 ```
  
@@ -38,7 +38,7 @@ static napi_value TestFunc(napi_env env, napi_callback_info info)
  
 原因二：使用接口napi_get_value_string_utf8()获取字符串时，第四个参数数值太小，没超过传入的字符串长度。
  
-```cpp
+```text
 static napi_value TestFunc(napi_env env, napi_callback_info info) 
 { 
     size_t argc = 1; 
@@ -47,8 +47,8 @@ static napi_value TestFunc(napi_env env, napi_callback_info info)
      
     size_t len = 0; 
     char buf[1024];                                                 
-    napi_get_value_string_utf8(env, args[0], buf, 5, &len);                    // Get string, buf result is' abcde '
-    // ... 
+    napi_get_value_string_utf8(env, args[0], buf, 5, &len);                   <em> // Get string, buf result is' abcde '</em>
+  <em>  // ... </em>
 }
 ```
  
@@ -58,16 +58,16 @@ static napi_value TestFunc(napi_env env, napi_callback_info info)
  
 参考代码如下：
  
-```cpp
+```text
 napi_value Test::TestFunc(napi_env env, napi_callback_info info) {
     size_t argc = 1;
     napi_value args[1] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
     size_t len = 0;
-    napi_get_value_string_utf8(env, args[0], nullptr, 0, &len);   // Get string length to len
-    char *buf = new char[len + 1];                                // Allocate a char array of appropriate size
-    napi_get_value_string_utf8(env, args[0], buf, len + 1, &len); // get string
+    napi_get_value_string_utf8(env, args[0], nullptr, 0, &len);  <em> // Get string length to len</em>
+    char *buf = new char[len + 1];                               <em> // Allocate a char array of appropriate size</em>
+    napi_get_value_string_utf8(env, args[0], buf, len + 1, &len); <em>// get string</em>
     OH_LOG_ERROR(LOG_APP, "result is:  b:%{public}s.", buf);
     return nullptr;
 }

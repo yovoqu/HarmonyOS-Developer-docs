@@ -1,6 +1,6 @@
 # List的下拉加载如何回滚到当前展示位置
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-268
 
@@ -12,13 +12,13 @@ List组件顶部下拉刷新时，期望数据加载后仍保持刷新前可见�
  
 可以给List添加scroller控制器，通过控制器将列表滚动回刷新前的位置this.scroller.scrollToIndex，示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct RefreshDemo {
   @State isRefreshing: boolean = false;
   @State arr: String[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  // Used to control the scrolling position of the list and maintain consistency of the view after refreshing
+  <em>// Used to control the scrolling position of the list and maintain consistency of the view after refreshing</em>
   private listScroller: Scroller = new Scroller();
 
   build() {

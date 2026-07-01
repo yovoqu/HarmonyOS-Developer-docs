@@ -1,6 +1,6 @@
 # oh_values_bucket.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-values-bucket-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -79,7 +79,7 @@ int OH_VBucket_PutAsset(OH_VBucket *bucket, const char *field, Data_Asset *value
 | 参数项 | 描述 |
 | --- | --- |
 | OH_VBucket *bucket | 表示指向OH_VBucket实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | Data_Asset *value | 数据库表中指定列名对应的值。 |
  
  
@@ -87,7 +87,7 @@ int OH_VBucket_PutAsset(OH_VBucket *bucket, const char *field, Data_Asset *value
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
   
@@ -111,7 +111,7 @@ int OH_VBucket_PutAssets(OH_VBucket *bucket, const char *field, Data_Asset **val
 | 参数项 | 描述 |
 | --- | --- |
 | OH_VBucket *bucket | 表示指向OH_VBucket实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | Data_Asset **value | 数据库表中指定列名对应的值。 |
 | uint32_t count | 表示传入的Data_Asset对象数组元素的个数. |
  
@@ -120,7 +120,7 @@ int OH_VBucket_PutAssets(OH_VBucket *bucket, const char *field, Data_Asset **val
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
 **参考：**
@@ -148,7 +148,7 @@ int OH_VBucket_PutFloatVector(OH_VBucket *bucket, const char *field, const float
 | 参数项 | 描述 |
 | --- | --- |
 | OH_VBucket *bucket | 表示指向OH_VBucket实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | const float *vec | 表示指向float数组的指针。 |
 | size_t len | 表示float数组的大小。 |
  
@@ -157,7 +157,7 @@ int OH_VBucket_PutFloatVector(OH_VBucket *bucket, const char *field, const float
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |
  
  
 **参考：**
@@ -185,7 +185,7 @@ int OH_VBucket_PutUnlimitedInt(OH_VBucket *bucket, const char *field, int sign, 
 | 参数项 | 描述 |
 | --- | --- |
 | OH_VBucket *bucket | 表示指向OH_VBucket实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | int sign | 表示整数类型对象是正数还是负数，0表示正数，1表示负数。 |
 | const uint64_t *trueForm | 表示指向整数类型数组的指针。 |
 | size_t len | 表示整数数组的大小。 |
@@ -195,4 +195,4 @@ int OH_VBucket_PutUnlimitedInt(OH_VBucket *bucket, const char *field, int sign, 
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。 RDB_OK 表示成功。 RDB_E_INVALID_ARGS 表示无效参数。详细信息请参阅OH_Rdb_ErrCode。 |

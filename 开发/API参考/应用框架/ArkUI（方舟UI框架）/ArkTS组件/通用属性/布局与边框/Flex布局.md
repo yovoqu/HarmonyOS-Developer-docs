@@ -1,6 +1,6 @@
 # Flex布局
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -230,4 +230,4 @@ struct FlexExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/KgETMMZmQO6S8-z1WlIJCg/zh-cn_image_0000002611755561.png?HW-CC-KV=V1&HW-CC-Date=20260528T025543Z&HW-CC-Expire=86400&HW-CC-Sign=CAB13EDD385632EE78C8CBCED96C76818C1278B9E270F0BF5EB533BEABCE49E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/HG0GCkUUQ4a5pUeTlyPuYQ/zh-cn_image_0000002628702346.png?HW-CC-KV=V1&HW-CC-Date=20260701T014325Z&HW-CC-Expire=86400&HW-CC-Sign=3712B4A669330AE8BF32C87CA4BAA46D76D793C1744C2228E95E2B72CFD7054A)

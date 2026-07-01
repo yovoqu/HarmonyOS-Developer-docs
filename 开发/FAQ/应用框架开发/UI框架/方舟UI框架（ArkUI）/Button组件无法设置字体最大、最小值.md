@@ -1,12 +1,12 @@
 # Button组件无法设置字体最大、最小值
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-361
 
 Button组件的[labelStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#labelstyle10)属性可以设置按钮标签文本和字体的样式。示例代码如下
  
-```ArkTS
+```text
 @Entry
 @Component
 struct FontSizeButtonExample {
@@ -19,7 +19,7 @@ struct FontSizeButtonExample {
       Button(this.text)
         .width(this.widthShortSize)
         .height(100)
-        //// Set the font size range to 20-40vp，Automatically adjust during actual rendering.
+       <em> //// Set the font size range to 20-40vp，Automatically adjust during actual rendering.</em>
         .labelStyle({
           overflow: TextOverflow.Clip,
           maxLines: 1,

@@ -1,6 +1,6 @@
 # Interface (Transaction)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-transaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -84,7 +84,7 @@ commit(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -141,7 +141,7 @@ rollback(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -190,7 +190,11 @@ if (store != undefined) {
 
 insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise&lt;number&gt;
 
-向目标表中插入一行数据，使用Promise异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+向目标表中插入一行数据，使用Promise异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
@@ -200,7 +204,7 @@ insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Prom
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串，不应包含空格、逗号和星号，不能以点开头和结尾等，否则会抛出401错误码。 |
 | values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 | conflict | ConflictResolution | 否 | 指定冲突解决模式。默认值是relationalStore.ConflictResolution.ON_CONFLICT_NONE。 |
 
@@ -209,7 +213,7 @@ insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Prom
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。如果操作成功，返回行ID；否则返回-1。 |
+| Promise&lt;number&gt; | Promise对象。返回插入数据的行ID。 |
 
 
 **错误码：**
@@ -272,7 +276,11 @@ if (store != undefined) {
 
 insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number
 
-向目标表中插入一行数据。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+向目标表中插入一行数据。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
@@ -282,7 +290,7 @@ insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesB
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | ValuesBucket \| sendableRelationalStore.ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 | conflict | ConflictResolution | 否 | 指定冲突解决模式。默认值是relationalStore.ConflictResolution.ON_CONFLICT_NONE。 |
 
@@ -291,7 +299,7 @@ insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesB
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 如果操作成功，返回行ID；否则返回-1。 |
+| number | 返回插入数据的行ID。 |
 
 
 **错误码：**
@@ -363,9 +371,13 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;): Promise&lt;number
 
 向目标表中插入一组数据，使用Promise异步回调。
 
-按每批32766个参数，分批以[ConflictResolution.ON_CONFLICT_REPLACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)策略写入，参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小，中途失败则立即返回。
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
+按每批32766个参数，分批以[ConflictResolution.ON_CONFLICT_REPLACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)策略写入，参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小，中途失败则立即返回。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -373,7 +385,7 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;): Promise&lt;number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 
 
@@ -381,7 +393,7 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;): Promise&lt;number
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。如果操作成功，返回插入的数据个数，否则返回-1。 |
+| Promise&lt;number&gt; | Promise对象。返回批量插入的数据个数。 |
 
 
 **错误码：**
@@ -459,9 +471,13 @@ batchInsertSync(table: string, values: Array&lt;ValuesBucket&gt;): number
 
 向目标表中插入一组数据。
 
-按每批32766个参数，分批以[ConflictResolution.ON_CONFLICT_REPLACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)策略写入，参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小，中途失败则立即返回。
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
+按每批32766个参数，分批以[ConflictResolution.ON_CONFLICT_REPLACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)策略写入，参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小，中途失败则立即返回。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -469,7 +485,7 @@ batchInsertSync(table: string, values: Array&lt;ValuesBucket&gt;): number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 
 
@@ -477,7 +493,7 @@ batchInsertSync(table: string, values: Array&lt;ValuesBucket&gt;): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 如果操作成功，返回插入的数据个数，否则返回-1。 |
+| number | 返回批量插入的数据个数。 |
 
 
 **错误码：**
@@ -555,13 +571,17 @@ batchInsertWithConflictResolution(table: string, values: Array&lt;ValuesBucket&g
 
 向目标表中插入一组数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用Promise异步回调。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
 单次插入参数的最大数量限制为32766，超出上限会返回14800000错误码。参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小。
 
 例如：插入数据的所有字段的并集大小为10，则最多可以插入3276条数据（3276*10=32760）。
 
 请确保在调用接口时遵守此限制，以避免因参数数量过多而导致错误。
-
-单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -569,7 +589,7 @@ batchInsertWithConflictResolution(table: string, values: Array&lt;ValuesBucket&g
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 | conflict | ConflictResolution | 是 | 指定冲突解决模式。如果是ON_CONFLICT_ROLLBACK模式，当发生冲突时会回滚整个事务。 |
 
@@ -578,7 +598,7 @@ batchInsertWithConflictResolution(table: string, values: Array&lt;ValuesBucket&g
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。如果操作成功，返回插入的数据个数，否则返回-1。 |
+| Promise&lt;number&gt; | Promise对象。返回批量插入的数据个数。 |
 
 
 **错误码：**
@@ -664,13 +684,17 @@ batchInsertWithConflictResolutionSync(table: string, values: Array&lt;ValuesBuck
 
 向目标表中插入一组数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
 单次插入参数的最大数量限制为32766，超出上限会返回14800000错误码。参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小。
 
 例如：插入数据的所有字段的并集大小为10，则最多可以插入3276条数据（3276*10=32760）。
 
 请确保在调用接口时遵守此限制，以避免因参数数量过多而导致错误。
-
-单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -678,7 +702,7 @@ batchInsertWithConflictResolutionSync(table: string, values: Array&lt;ValuesBuck
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 | conflict | ConflictResolution | 是 | 指定冲突解决模式。如果是ON_CONFLICT_ROLLBACK模式，当发生冲突时会回滚整个事务。 |
 
@@ -687,7 +711,7 @@ batchInsertWithConflictResolutionSync(table: string, values: Array&lt;ValuesBuck
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 如果操作成功，返回插入的数据个数，否则返回-1。 |
+| number | 返回批量插入的数据个数。 |
 
 
 **错误码：**
@@ -772,6 +796,12 @@ batchInsertWithReturning(table: string, values: Array&lt;ValuesBucket&gt;, confi
 
 向目标表中插入一组数据，可以通过conflict参数指定当发生数据冲突时的解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，返回[Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#result23)。使用Promise异步回调。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
 单次插入参数的最大数量限制为32766，超出上限会返回14800001错误码。参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小。
 
 例如：插入数据的所有字段的并集大小为10，则最多可以插入3276条数据（3276*10=32760）。
@@ -779,8 +809,6 @@ batchInsertWithReturning(table: string, values: Array&lt;ValuesBucket&gt;, confi
 请确保在调用接口时遵守此限制，以避免因参数数量过多而导致错误。
 
 conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确的结果。
-
-单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -800,7 +828,7 @@ conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确�
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Result&gt; | Promise对象。如果操作成功，返回受影响的数据集。 |
+| Promise&lt;Result&gt; | Promise对象。返回受影响的数据集。 |
 
 
 **错误码：**
@@ -854,6 +882,12 @@ batchInsertWithReturningSync(table: string, values: Array&lt;ValuesBucket&gt;, c
 
 向目标表中插入一组数据，可以通过conflict参数指定当发生数据冲突时的解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，返回[Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#result23)。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
 单次插入参数的最大数量限制为32766，超出上限会返回14800001错误码。参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小。
 
 例如：插入数据的所有字段的并集大小为10，则最多可以插入3276条数据（3276*10=32760）。
@@ -861,8 +895,6 @@ batchInsertWithReturningSync(table: string, values: Array&lt;ValuesBucket&gt;, c
 请确保在调用接口时遵守此限制，以避免因参数数量过多而导致错误。
 
 conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确的结果。
-
-单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -882,7 +914,7 @@ conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确�
 
 | 类型 | 说明 |
 | --- | --- |
-| Result | 如果操作成功，返回受影响的数据集。 |
+| Result | 返回受影响的数据集。 |
 
 
 **错误码：**
@@ -934,7 +966,13 @@ function transBatchInsertWithReturningSyncExample(trans: relationalStore.Transac
 
 update(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): Promise&lt;number&gt;
 
-根据RdbPredicates的指定实例对象更新数据库中的数据，使用Promise异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+根据RdbPredicates的指定实例对象更新数据库中的数据，使用Promise异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -951,7 +989,7 @@ update(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResol
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 指定的Promise回调方法。返回受影响的行数。 |
+| Promise&lt;number&gt; | Promise对象。返回受影响的行数。 |
 
 
 **错误码：**
@@ -1016,7 +1054,13 @@ if (store != undefined) {
 
 updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): number
 
-根据RdbPredicates的指定实例对象更新数据库中的数据。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+根据RdbPredicates的指定实例对象更新数据库中的数据。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1100,6 +1144,12 @@ updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: Ret
 
 根据RdbPredicates的指定实例对象更新数据库中的数据，可以通过conflict参数指定当发生数据冲突时的解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，返回[Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#result23)，使用Promise异步回调。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
 conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确的结果。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1120,7 +1170,7 @@ conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确�
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Result&gt; | Promise对象。如果操作成功，返回受影响的数据集。 |
+| Promise&lt;Result&gt; | Promise对象。返回受影响的数据集。 |
 
 
 **错误码：**
@@ -1178,6 +1228,12 @@ updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config:
 
 根据RdbPredicates的指定实例对象更新数据库中的数据，可以通过conflict参数指定当发生数据冲突时的解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，返回[Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#result23)。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
 conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确的结果。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1198,7 +1254,7 @@ conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确�
 
 | 类型 | 说明 |
 | --- | --- |
-| Result | 如果操作成功，返回受影响的数据集。 |
+| Result | 返回受影响的数据集。 |
 
 
 **错误码：**
@@ -1419,7 +1475,7 @@ deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Result&gt; | Promise对象。如果操作成功，返回受影响的数据集。 |
+| Promise&lt;Result&gt; | Promise对象。返回受影响的数据集。 |
 
 
 **错误码：**
@@ -1490,7 +1546,7 @@ deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Res
 
 | 类型 | 说明 |
 | --- | --- |
-| Result | 如果操作成功，返回受影响的数据集。 |
+| Result | 返回受影响的数据集。 |
 
 
 **错误码：**
@@ -1559,7 +1615,7 @@ query(predicates: RdbPredicates, columns?: Array&lt;string&gt;): Promise&lt;Resu
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;ResultSet&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
+| Promise&lt;ResultSet&gt; | Promise对象。返回ResultSet对象。 |
 
 
 **错误码：**
@@ -1639,7 +1695,7 @@ querySync(predicates: RdbPredicates, columns?: Array&lt;string&gt;): ResultSet
 
 | 类型 | 说明 |
 | --- | --- |
-| ResultSet | 如果操作成功，则返回ResultSet对象。 |
+| ResultSet | 返回ResultSet对象。 |
 
 
 **错误码：**
@@ -1712,15 +1768,15 @@ querySql(sql: string, args?: Array&lt;ValueType&gt;): Promise&lt;ResultSet&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;ResultSet&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
+| Promise&lt;ResultSet&gt; | Promise对象。返回ResultSet对象。 |
 
 
 **错误码：**
@@ -1790,7 +1846,7 @@ querySqlSync(sql: string, args?: Array&lt;ValueType&gt;): ResultSet
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空。 |
 
 
@@ -1798,7 +1854,7 @@ querySqlSync(sql: string, args?: Array&lt;ValueType&gt;): ResultSet
 
 | 类型 | 说明 |
 | --- | --- |
-| ResultSet | 如果操作成功，则返回ResultSet对象。 |
+| ResultSet | 返回ResultSet对象。 |
 
 
 **错误码：**
@@ -1878,7 +1934,7 @@ queryWithoutRowCount(predicates: RdbPredicates, columns?: Array&lt;string&gt;): 
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;LiteResultSet&gt; | 如果操作成功，则返回LiteResultSet对象。 |
+| Promise&lt;LiteResultSet&gt; | 返回LiteResultSet对象。 |
 
 
 **错误码：**
@@ -1956,7 +2012,7 @@ queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array&lt;string&gt
 
 | 类型 | 说明 |
 | --- | --- |
-| LiteResultSet | 如果操作成功，则返回LiteResultSet对象。 |
+| LiteResultSet | 返回LiteResultSet对象。 |
 
 
 **错误码：**
@@ -2026,15 +2082,15 @@ querySqlWithoutRowCount(sql: string, bindArgs?: Array&lt;ValueType&gt;): Promise
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;LiteResultSet&gt; | Promise对象。如果操作成功，则返回LiteResultSet对象。 |
+| Promise&lt;LiteResultSet&gt; | Promise对象。返回LiteResultSet对象。 |
 
 
 **错误码：**
@@ -2103,7 +2159,7 @@ querySqlWithoutRowCountSync(sql: string, bindArgs?: Array&lt;ValueType&gt;):Lite
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空。 |
 
 
@@ -2111,7 +2167,7 @@ querySqlWithoutRowCountSync(sql: string, bindArgs?: Array&lt;ValueType&gt;):Lite
 
 | 类型 | 说明 |
 | --- | --- |
-| LiteResultSet | 如果操作成功，则返回LiteResultSet对象。 |
+| LiteResultSet | 返回LiteResultSet对象。 |
 
 
 **错误码：**
@@ -2186,7 +2242,7 @@ execute(sql: string, args?: Array&lt;ValueType&gt;): Promise&lt;ValueType&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
 
 
@@ -2269,7 +2325,7 @@ executeSync(sql: string, args?: Array&lt;ValueType&gt;): ValueType
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。该参数不填，或者填null或undefined，都认为是sql参数语句完整。默认值为空。 |
 
 

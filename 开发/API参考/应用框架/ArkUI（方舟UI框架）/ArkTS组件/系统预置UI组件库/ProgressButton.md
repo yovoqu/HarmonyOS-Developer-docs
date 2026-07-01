@@ -1,6 +1,6 @@
 # ProgressButton
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-progressbutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,7 +42,7 @@ ProgressButton({progress: number, content: ResourceStr, progressButtonWidth?: Le
 | clickCallback | () => void | 是 | - | 下载按钮的点击回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | enable | boolean | 是 | @Prop | 下载按钮是否可以点击。 true：可以点击。 false：不可点击。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | colorOptions18+ | ProgressButtonColorOptions | 否 | @Prop | 下载按钮颜色。用于自定义按钮各部分的颜色（进度条、描边、文本、背景）。需要自定义颜色时传入此参数，不传入时使用系统默认配色方案。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| progressButtonRadius18+ | LengthMetrics | 否 | @Prop | 下载按钮的圆角（不支持百分比百分比设置）。 取值范围：[0, height/2] 默认值：height/2 设置值小于0时按照0处理，设置其他非法数值时，按照默认值处理。当直接入参为undefined时，按照默认值处理，入参为LengthMetrics.vp时，建议传入具体数值，传入null/undefined会导致显示异常。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| progressButtonRadius18+ | LengthMetrics | 否 | @Prop | 下载按钮的圆角（不支持百分比设置）。 取值范围：[0, height/2] 默认值：height/2 设置值小于0时按照0处理，设置其他非法数值时，按照默认值处理。当直接入参为undefined时，按照默认值处理，入参为LengthMetrics.vp时，建议传入具体数值，传入null/undefined会导致显示异常。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
  
  
   
@@ -266,4 +266,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/8u-saHAfS-ihRKQTIIka5w/zh-cn_image_0000002611836089.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=3B5156CAA1447774E9D5E3542E59A9D0451E45BB906498C979515BAEF461B6A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/ZnQMTlHISruUzIFVaWR9BA/zh-cn_image_0000002628702996.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=6135A9818A8852DEF5D077FFE0A90FF2A8E26F0547571597D3220DD8EF25A792)

@@ -1,6 +1,6 @@
 # 如何管理JSVM_CallbackStruct生命周期
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-jsvm-1
 
@@ -11,7 +11,7 @@
  
 由 OH_JSVM_CreateFunction 创建的 JavaScript 函数在使用时出现应用崩溃的问题，通常是因为 JSVM_CallbackStruct 的生命周期管理不正确。错误代码示例如下：
  
-```cpp
+```text
 JSVM_Value CreateFunction(JSVM_Env env) {
     JSVM_CallbackStruct callbackStruct;
     callbackStruct.data = nullptr;
@@ -30,8 +30,8 @@ void SomeFunction() {
  
 执行以下代码时，应用程序会崩溃。
  
-```cpp
-// ...
+```text
+<em>// ...</em>
 
 auto func = CreateFunction(env);
 SomeFunction();
@@ -42,7 +42,7 @@ OH_JSVM_GetUndefined(env, &undef);
 JSVM_Value result;
 OH_JSVM_CallFunction(env, undef, func, 0, nullptr, &result);
 
-// ...
+<em>// ...</em>
 ```
  
 在 OH_JSVM_CallFunction 调用时，callbackStruct为栈上变量，OH_JSVM_CreateFunction 参数接收了栈内存地址（&callbackStruct）。调用 SomeFunction 后，栈内存被修改。在 OH_JSVM_CallFunction 中，执行 JSVM_CallbackStruct 中的回调函数时，由于 JSVM_CallbackStruct 的内存已修改，导致非法内存访问，应用崩溃。
@@ -51,7 +51,7 @@ OH_JSVM_CallFunction(env, undef, func, 0, nullptr, &result);
  
 如果使用 OH_JSVM_CreateFunction 创建的 JavaScript 函数需要跨函数使用，JSVM_CallbackStruct 必须从堆上申请，并且在 JavaScript 函数失效前不能释放。JSVM_CallbackStruct的释放可以交给虚拟机的垃圾回收机制。通过调用 OH_JSVM_AddFinalizer，可以为 JavaScript 函数设置 Finalize 方法。当 JavaScript 函数被垃圾回收时，Finalize 方法会被调用，同时释放 JSVM_CallbackStruct。示例如下：
  
-```cpp
+```text
 JSVM_Value CreateFunction(JSVM_Env env) {
     JSVM_Callback cb = new JSVM_CallbackStruct;
     cb->data = nullptr;

@@ -1,6 +1,6 @@
 # Muls
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scalar-binocular-muls
 
@@ -40,8 +40,8 @@ __aicore__ inline void Muls(const LocalTensor<T>& dstLocal, const LocalTensor<T>
   
 | 参数名称 | 类型 | 说明 |
 | --- | --- | --- |
-| dstLocal | 输出 | 目的操作数。 类型为LocalTensor，支持的TPosition为VECIN/VECCALC/VECOUT。 LocalTensor的起始地址需要32字节对齐。 Kirin9020系列处理器，支持的数据类型为： 前n个tensor：int16_t、int32_t、half、float32_t KirinX90系列处理器，支持的数据类型为： 前n个tensor：int16_t、int32_t、half、float32_t |
-| srcLocal | 输入 | 源操作数。 类型为LocalTensor，支持的TPosition为VECIN/VECCALC/VECOUT。 LocalTensor的起始地址需要32字节对齐。 数据类型需要与目的操作数保持一致。 Kirin9020系列处理器，支持的数据类型为： 前n个tensor：int16_t、int32_t、half、float32_t KirinX90系列处理器，支持的数据类型为： 前n个tensor、mask连续模式支持：int16_t、int32_t、half、float32_t |
+| dstLocal | 输出 | 目的操作数。 类型为LocalTensor，支持的TPosition为VECIN、VECCALC、VECOUT。 LocalTensor的起始地址需要32字节对齐。 Kirin9020系列处理器，支持的数据类型为： 前n个tensor：int16_t、int32_t、half、float32_t KirinX90系列处理器，支持的数据类型为： 前n个tensor：int16_t、int32_t、half、float32_t |
+| srcLocal | 输入 | 源操作数。 类型为LocalTensor，支持的TPosition为VECIN、VECCALC、VECOUT。 LocalTensor的起始地址需要32字节对齐。 数据类型需要与目的操作数保持一致。 Kirin9020系列处理器，支持的数据类型为： 前n个tensor：int16_t、int32_t、half、float32_t KirinX90系列处理器，支持的数据类型为： 前n个tensor、mask连续模式支持：int16_t、int32_t、half、float32_t |
 | scalarValue | 输入 | 源操作数，数据类型需要与目的操作数Tensor中的元素类型保持一致 Kirin9020系列处理器，支持的数据类型为： 前n个tensor：int16_t、int32_t、half、float32_t KirinX90系列处理器，支持的数据类型为： 前n个tensor：int16_t、int32_t、half、float32_t |
 | calCount | 输入 | 输入数据元素个数。 |
  

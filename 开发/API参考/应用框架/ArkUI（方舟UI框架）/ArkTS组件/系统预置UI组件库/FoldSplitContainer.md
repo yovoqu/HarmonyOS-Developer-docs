@@ -1,6 +1,6 @@
 # FoldSplitContainer
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-foldsplitcontainer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 FoldSplitContainer分栏布局，实现折叠屏二分栏、三分栏在展开态、悬停态以及折叠态的区域控制。
 
 > [!NOTE]
-> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 窗口宽度小于等于600vp时默认使用二分栏，窗口宽度大于600vp时在上下分栏的同时可支持扩展区域，窗口宽度大于600vp且在横屏半折状态下可触发悬停态布局。悬停态布局时会增加折痕区的避让并且扩展区域不可以贯穿折痕区，悬停态可设置不展示扩展区域，详情请参考 示例 。
+> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 窗口宽度小于等于600vp时默认使用二分栏，窗口宽度大于600vp时在上下分栏的同时可支持扩展区域，窗口宽度大于600vp且在横屏半折状态下可触发悬停态布局。悬停态布局时会增加折痕区的避让并且扩展区域不可以贯穿折痕区，悬停态可设置不展示扩展区域，详情请参考 示例 。
 
 
 
@@ -134,7 +134,7 @@ onHoverStatusChange事件处理。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| status | HoverModeStatus | 是 | 折叠屏进入或退出悬停模式时触发的回调函数。 |
+| status | HoverModeStatus | 是 | 折叠屏的悬停模式状态信息。 |
 
 
 
@@ -143,7 +143,7 @@ onHoverStatusChange事件处理。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-设备或应用的折叠、旋转、窗口状态信息。
+设备或应用的折叠、悬停、旋转、窗口状态信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 

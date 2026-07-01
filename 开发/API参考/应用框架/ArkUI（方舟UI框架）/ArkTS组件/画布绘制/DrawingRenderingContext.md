@@ -1,6 +1,6 @@
 # DrawingRenderingContext
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawingrenderingcontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,6 +12,12 @@ DrawingRenderingContext对象与Canvas组件绑定后，可在Canvas组件上进
 
 
 
+#### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+
+
 #### constructor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,7 +26,9 @@ constructor(unit?: LengthMetricsUnit)
 
 构造使用drawing接口进行绘制的Canvas画布对象，支持配置DrawingRenderingContext对象的单位模式。
 
-**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -43,6 +51,8 @@ get size(): Size
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -63,6 +73,8 @@ get canvas(): DrawingCanvas
 获取绘制内容的画布对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -85,6 +97,8 @@ invalidate(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -93,17 +107,19 @@ invalidate(): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type DrawingCanvas = Canvas
+type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas
 
 可用于向DrawingRenderingContext上绘制内容的画布对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
-| Canvas | 返回一个Canvas对象。 |
+| import('../api/@ohos.graphics.drawing').default.Canvas | 返回一个Canvas对象。 |
 
 
 
@@ -115,6 +131,8 @@ type DrawingCanvas = Canvas
 DrawingRenderingContext的尺寸信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -238,4 +256,4 @@ struct CanvasExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/0jYT6UBOTxGf0dqj2rPdIQ/zh-cn_image_0000002611835933.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=6BA31ECFFD15A5392DF140D662A55FDB12361D201037B33A20B20E5361CDEDF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/xM2OAdzHTta2hMfpwWNZOg/zh-cn_image_0000002659222031.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=0ECDD8A2D735F7BB53B22A866B5D95FD2A05196BCDC8B5B6269EC7426D4FACC5)

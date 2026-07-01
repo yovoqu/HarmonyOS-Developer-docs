@@ -1,6 +1,6 @@
 # WebView如何设置mixcontent策略，用以解决http与https混合加载的问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-67
 
@@ -11,14 +11,14 @@ ArkWeb提供mixedMode(mixedMode: MixedMode)接口，用于设置是否允许加�
 参考代码如下：
  
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 import { webview } from '@kit.ArkWeb';
 
 @Entry
 @Component
 struct WebComponent {
   controller: webview.WebviewController = new webview.WebviewController();
-  // MixedMode.All indicates that all mixed content is allowed to be loaded (HTTP/HTTPS)
+ <em> // MixedMode.All indicates that all mixed content is allowed to be loaded (HTTP/HTTPS)</em>
   @State mixedMode: MixedMode = MixedMode.All;
   build() {
     Column() {

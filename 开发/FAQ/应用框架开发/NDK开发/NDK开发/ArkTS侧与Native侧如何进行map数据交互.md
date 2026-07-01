@@ -1,6 +1,6 @@
 # ArkTS侧与Native侧如何进行map数据交互
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-6
 
@@ -10,7 +10,7 @@
  
 在ArkTS中声明hashmap，获取数据并传递到Native侧。
  
-```ArkTS
+```text
 let hashmap: HashMap<string, number> = new HashMap()
 hashmap.set("Abc", 123)
 hashmap.set("Bcd", 234)
@@ -23,9 +23,9 @@ for (let key of hashmap.keys()) {
  
 获取数据并重组为map。
  
-```cpp
-#define LOG_DOMAIN 0x3200 // Global domain macro, identifying the business domain
-#define LOG_TAG "MY_TAG"  // Global tag macro, identifying module log tag 
+```text
+#define LOG_DOMAIN 0x3200<em> // Global domain macro, identifying the business domain</em>
+#define LOG_TAG "MY_TAG" <em> // Global tag macro, identifying module log tag </em>
 #include "NativeMap.h"
 #include "hilog/log.h"
 #include <map>

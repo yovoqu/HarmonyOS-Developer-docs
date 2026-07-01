@@ -1,6 +1,6 @@
 # 多种网络同时连接时如何优先使用wifi网络
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-72
 
@@ -42,18 +42,18 @@
 
 2. 编写优先使用wifi网络管理类。
 ```ArkTS
-// WifiManager.ets
+<em>// WifiManager.ets</em>
 import { BusinessError } from '@kit.BasicServicesKit';
 import { connection } from '@kit.NetworkKit';
 
 export class WifiManager {
   private static instance?: WifiManager;
 
-  /**
-   * Get singleton
-   *
-   * @returns Singleton object
-   */
+<em>  /**</em>
+<em>   * Get singleton</em>
+<em>   *</em>
+<em>   * @returns Singleton object</em>
+<em>   */</em>
   public static getInstance(): WifiManager {
     if (!WifiManager.instance) {
       WifiManager.instance = new WifiManager();
@@ -61,9 +61,9 @@ export class WifiManager {
     return WifiManager.instance;
   }
 
-  /**
-   * Start listening for network changes (Wi-Fi network / Bluetooth network / cellular data)
-   */
+<em>  /**</em>
+<em>   * Start listening for network changes (Wi-Fi network / Bluetooth network / cellular data)</em>
+<em>   */</em>
   public startListenNetChange(): void {
     console.info("registerNetListener");
     let netConnectionWifi = connection.createNetConnection({
@@ -122,9 +122,9 @@ export class WifiManager {
     });
   }
 
-  /**
-   * Connect the App to the Wi-Fi network asynchronously
-   */
+<em>  /**</em>
+<em>   * Connect the App to the Wi-Fi network asynchronously</em>
+<em>   */</em>
   private async bindWifiWhenConnected(): Promise<void> {
     await connection.setAppNet(connection.getDefaultNetSync()).then(() => {
       console.info('setAppNet default success')
@@ -152,10 +152,10 @@ export class WifiManager {
 ```
 
 3. 获取实例并调用监听方法。
-```ArkTS
+```text
 import { WifiManager } from './WifiManager'
 
-// Register for change monitoring
+<em>// Register for change monitoring</em>
 WifiManager.getInstance().startListenNetChange();
 ```
 

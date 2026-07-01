@@ -1,6 +1,6 @@
 # LoadingProgress
 
-更新时间：2026-03-23 08:10:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@
 加载动效在组件不可见时停止，组件的可见状态基于[onVisibleAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)处理，可见阈值ratios大于0即视为可见状态。
  
 > [!NOTE]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
 
   
 
@@ -83,6 +83,8 @@ enableLoading(value: boolean)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -103,6 +105,8 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
 定制LoadingProgress内容区的方法。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -130,6 +134,8 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -188,7 +194,7 @@ struct LoadingProgressExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/fL3RZpryTKW-KZvLCSI7kA/zh-cn_image_0000002611755983.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=CB8559A391DA358024424158BC4B158AA0C6788EE1F7BB8D2FC09E86001A1147)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/aVihjlrEQXKShr3fJvQDDQ/zh-cn_image_0000002659221971.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=0A014EDD5F9D66F53E374FB8D450B9358E5C48C0AEB836A60E98948E5C87ACF9)
 
  
   
@@ -344,4 +350,4 @@ struct LoadingProgressDemoExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/JF12NlhISEWheLTWdBg66A/zh-cn_image_0000002581436044.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=D46CE4A82C463DA8EF967B403D0FF6FF7169CDE757C5471B8BBF5AFF54B71D6F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/YeZNmrRgSMu9fZg2C6Q6uw/zh-cn_image_0000002628702780.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=54A25C5DA26F4D9BCC8EF92C3FA701418855A431757B377C32D29BA0E0D260EC)

@@ -1,17 +1,17 @@
 # 如何使用iconfont
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-216
 
 使用iconfont时，开发者需先获取字体库的ttf文件，再通过 `font.registerFont` 接口注册。在 `Text` 上使用对应的 unicode 编码即可。参考代码如下：
  
-```ArkTS
+```text
 import { Font } from '@kit.ArkUI'
 @Entry
 @Component
 struct UseIconFont {
-  // Assuming 0000 is the Unicode for the specified icon, developers actually need to obtain Unicode from the ttf file of the registered iconFont
+ <em> // Assuming 0000 is the Unicode for the specified icon, developers actually need to obtain Unicode from the ttf file of the registered iconFont</em>
   @State unicode: string = '\u0000';
   aboutToAppear(): void {
     let font: Font = this.getUIContext().getFont();

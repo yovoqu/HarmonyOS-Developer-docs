@@ -1,6 +1,6 @@
 # 显式动画 (animateTo)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -22,15 +22,15 @@
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| duration | number | 否 | 是 | 动画持续时间，单位为毫秒。 默认值：1000 说明：1. 在ArkTS卡片上最大动画持续时间为1000毫秒，若超出则固定为1000毫秒。 2. 可以通过在持续时间为0的动画闭包函数中改变属性，以实现停止该属性动画的效果。 3. 设置小于0的值时按0处理。 4. 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 5. curve配置springMotion、responsiveSpringMotion、interpolatingSpring曲线时，duration不生效。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| duration | number | 否 | 是 | 动画持续时间，单位为毫秒。 默认值：1000 说明：1. API版本26.0.0之前，在ArkTS卡片上最大动画持续时间为1000毫秒，若超出则固定为1000毫秒。从API版本26.0.0开始，在ArkTS卡片上最大动画持续时间调整为2000毫秒。 2. 可以通过在持续时间为0的动画闭包函数中改变属性，以实现停止该属性动画的效果。 3. 设置小于0的值时按0处理。 4. 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 5. curve配置springMotion、responsiveSpringMotion、interpolatingSpring曲线时，duration不生效。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | tempo | number | 否 | 是 | 动画播放速度，值越大动画播放越快，值越小播放越慢，为0时无动画效果。 当设置为+∞时，动画会在当帧结束，动画结束回调会立即执行。 默认值：1.0 取值范围：[0, +∞) 说明：当设置小于0的值时按1处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| curve | Curve \| string \| ICurve9+ | 否 | 是 | 动画曲线。 推荐以Curve或ICurve形式指定。 当类型为string时，为动画插值曲线，仅支持以下可选值： "linear"：动画线性变化。 "ease"：动画开始和结束时的速度较慢，cubic-bezier(0.25、0.1、0.25、1.0)。 "ease-in"：动画播放速度先慢后快，cubic-bezier(0.42, 0.0, 1.0, 1.0)。 "ease-out"：动画播放速度先快后慢，cubic-bezier(0.0, 0.0, 0.58, 1.0)。 "ease-in-out"：动画播放速度先加速后减速，cubic-bezier(0.42, 0.0, 0.58, 1.0)。 "fast-out-slow-in"：标准曲线，cubic-bezier(0.4, 0.0, 0.2, 1.0)。 "linear-out-slow-in"：减速曲线，cubic-bezier(0.0, 0.0, 0.2, 1.0)。 "fast-out-linear-in"：加速曲线，cubic-bezier(0.4, 0.0, 1.0, 1.0)。 "friction"：阻尼曲线，cubic-bezier(0.2, 0.0, 0.2, 1.0)。 "extreme-deceleration"：急缓曲线，cubic-bezier(0.0, 0.0, 0.0, 1.0)。 "rhythm"：节奏曲线，cubic-bezier(0.7, 0.0, 0.2, 1.0)。 "sharp"：锐利曲线，cubic-bezier(0.33, 0.0, 0.67, 1.0)。 "smooth"：平滑曲线，cubic-bezier(0.4, 0.0, 0.4, 1.0)。 "cubic-bezier(x1, y1, x2, y2)"：三次贝塞尔曲线，x1、x2的值必须处于0-1之间。例如"cubic-bezier(0.42, 0.0, 0.58, 1.0)"。 "steps(number,step-position)"：阶梯曲线，number必须设置，为正整数，step-position参数可选，支持设置start或end，默认值为end。例如"steps(3,start)"。 "interpolating-spring(velocity,mass,stiffness,damping)"：具体参数含义参考插值弹簧曲线。 "responsive-spring-motion(response,dampingFraction,overlapDuration)"：具体参数含义参考弹性跟手动画曲线。 "spring(velocity,mass,stiffness,damping)"：具体参数含义参考弹簧曲线。 "spring-motion(response,dampingFraction,overlapDuration)"：具体参数含义参考弹性动画曲线。 默认值：Curve.EaseInOut 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| curve | Curve \| string \| ICurve9+ | 否 | 是 | 动画曲线。 推荐以Curve或ICurve形式指定。 当类型为string时，为动画插值曲线，仅支持以下可选值： "linear"：动画线性变化。 "ease"：动画开始和结束时的速度较慢，cubic-bezier(0.25、0.1、0.25、1.0)。 "ease-in"：动画播放速度先慢后快，cubic-bezier(0.42, 0.0, 1.0, 1.0)。 "ease-out"：动画播放速度先快后慢，cubic-bezier(0.0, 0.0, 0.58, 1.0)。 "ease-in-out"：动画播放速度先加速后减速，cubic-bezier(0.42, 0.0, 0.58, 1.0)。 "fast-out-slow-in"：标准曲线，cubic-bezier(0.4, 0.0, 0.2, 1.0)。 "linear-out-slow-in"：减速曲线，cubic-bezier(0.0, 0.0, 0.2, 1.0)。 "fast-out-linear-in"：加速曲线，cubic-bezier(0.4, 0.0, 1.0, 1.0)。 "friction"：阻尼曲线，cubic-bezier(0.2, 0.0, 0.2, 1.0)。 "extreme-deceleration"：急缓曲线，cubic-bezier(0.0, 0.0, 0.0, 1.0)。 "rhythm"：节奏曲线，cubic-bezier(0.7, 0.0, 0.2, 1.0)。 "sharp"：锐利曲线，cubic-bezier(0.33, 0.0, 0.67, 1.0)。 "smooth"：平滑曲线，cubic-bezier(0.4, 0.0, 0.4, 1.0)。 "cubic-bezier(x1, y1, x2, y2)"：三次贝塞尔曲线，x1、x2的值必须处于0-1之间。例如"cubic-bezier(0.42, 0.0, 0.58, 1.0)"。 "steps(number,step-position)"：阶梯曲线，number必须设置，为正整数，step-position参数可选，支持设置start或end，默认值为end。例如"steps(3,start)"。 "interpolating-spring(velocity,mass,stiffness,damping)"：具体参数含义参考插值弹簧曲线curves.interpolatingSpring。 "responsive-spring-motion(response,dampingFraction,overlapDuration)"：具体参数含义参考弹性跟手动画曲线curves.responsiveSpringMotion。 "spring(velocity,mass,stiffness,damping)"：具体参数含义参考弹簧曲线curves.springCurve。 "spring-motion(response,dampingFraction,overlapDuration)"：具体参数含义参考弹性动画曲线curves.springMotion。 默认值：Curve.EaseInOut 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | delay | number | 否 | 是 | 动画延迟播放时间，单位为ms(毫秒)，默认不延时播放。 默认值：0 取值范围：(-∞, +∞) 说明：1.delay>=0为延迟播放，delay<0表示提前播放。对于delay<0的情况：当delay的绝对值小于实际动画时长，动画将在开始后第一帧直接运动到delay绝对值的时刻的状态；当delay的绝对值大于等于实际动画时长，动画将在开始后第一帧直接运动到终点状态。其中实际动画时长等于单次动画时长乘以动画播放次数。 2. 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | iterations | number | 否 | 是 | 动画播放次数。默认播放一次，设置为-1时表示无限次播放。设置为0时表示无动画效果。 默认值：1 取值范围：[-1, +∞) 说明：设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| playMode | PlayMode | 否 | 是 | 动画播放模式，默认播放完成后重头开始播放。 默认值：PlayMode.Normal 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 相关使用约束请参考PlayMode说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| playMode | PlayMode | 否 | 是 | 动画播放模式，默认播放完成后从头开始播放。 默认值：PlayMode.Normal 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 相关使用约束请参考PlayMode说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onFinish | () => void | 否 | 是 | 动画播放完成回调。UIAbility从前台切换至后台时会立即结束仍在步进中的有限循环动画，触发播放完成回调。 在设置的开发者选项中关闭过渡动画，以及tempo设置为+∞时，动画播放完成回调会立即执行。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| finishCallbackType11+ | FinishCallbackType | 否 | 是 | 在动画中定义onFinish回调的类型。 默认值：FinishCallbackType.REMOVED 卡片能力： 从API version 11开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| expectedFrameRateRange11+ | ExpectedFrameRateRange | 否 | 是 | 设置动画的期望帧率。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| finishCallbackType11+ | FinishCallbackType | 否 | 是 | 在动画中定义onFinish回调的类型。 默认值：FinishCallbackType.REMOVED 卡片能力： 从API version 11开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| expectedFrameRateRange11+ | ExpectedFrameRateRange | 否 | 是 | 设置动画的期望帧率。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 > [!NOTE]
@@ -87,6 +87,8 @@ interpolate(fraction: number): number
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -104,6 +106,8 @@ interpolate(fraction: number): number
 设置动画期望的帧率。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -232,7 +236,7 @@ struct AnimateToExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/HMVDCBDETTmlHD-QXPxmhA/zh-cn_image_0000002611756097.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=C41C0E5588FB20D908A9F998160435C0961351977EFC29B26CF6B1E3B52578F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/XQCJKuNEQp-PQ-5QG88KnA/zh-cn_image_0000002628862774.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=C9AB596985DBF88496A4249E5896135217DC98A21EC4392AF6CDA0948525295E)
 
 
 
@@ -289,4 +293,4 @@ struct AttrAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/CmlgAE4IScW7DtF2GChI6A/zh-cn_image_0000002581436160.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=D7E02330AE13F05202361CA84A82C1848628BA6697334BF1C461A5B7EBC64570)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/8_PsBqskSsCFnfHvFgpTQQ/zh-cn_image_0000002659222087.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=A0FBAC3B6C50B6A477A18C1A2C536BC9A7AA773B1B042323A203158B31DC2795)

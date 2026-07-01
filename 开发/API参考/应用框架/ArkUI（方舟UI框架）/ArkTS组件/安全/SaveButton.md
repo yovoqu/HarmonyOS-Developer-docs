@@ -1,6 +1,6 @@
 # SaveButton
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-security-components-savebutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,6 +36,8 @@ SaveButton()
 
 为避免控件样式不合法导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -51,6 +53,8 @@ SaveButton(options: SaveButtonOptions)
 创建包含指定元素的保存控件。
 
 为避免控件样式不合法导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -75,6 +79,8 @@ SaveButton(options: SaveButtonOptions)
 > icon或text需至少传入一个。 如果icon、text都不传入，SaveButton中的options参数不生效，创建的SaveButton为默认样式，默认样式： SaveIconStyle默认样式为FULL_FILLED； SaveDescription默认样式为DOWNLOAD； ButtonType默认样式为Capsule。 icon、text、buttonType不支持动态修改。
 
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -88,11 +94,13 @@ SaveButton(options: SaveButtonOptions)
 
 
 
-#### SaveIconStyle枚举说明
+#### SaveIconStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 保存控件的图标风格。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -106,11 +114,13 @@ SaveButton(options: SaveButtonOptions)
 
 
 
-#### SaveDescription枚举说明
+#### SaveDescription
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 保存控件的文本描述。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -133,11 +143,13 @@ SaveButton(options: SaveButtonOptions)
 
 
 
-#### SaveButtonOnClickResult枚举说明
+#### SaveButtonOnClickResult
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 保存控件点击后的授权结果。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -157,6 +169,8 @@ SaveButton(options: SaveButtonOptions)
 type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, error?: BusinessError&lt;void&gt;) => void
 
 点击保存控件触发该回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -191,6 +205,8 @@ setIcon(icon: Resource)
 
 设置保存控件的图标。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.CUSTOMIZE_SAVE_BUTTON
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -201,7 +217,7 @@ setIcon(icon: Resource)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| icon | Resource | 是 | 自定义图标资源信息，仅支持Resource类型的数据源。 可支持的图片格式：png、jpg、jpeg、bmp、svg、webp、gif和heif等，支持的图片格式范围见Image。当资源为非图片资源或不支持的格式时，图标显示为空白。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则自定义图标设置不生效，保存控件保持默认样式。详见SaveButtonOptions说明。 |
+| icon | Resource | 是 | 自定义图标资源信息，仅支持Resource类型的数据源。 可支持的图片格式：png、jpg、jpeg、bmp、svg、webp、gif和heif等，支持的图片格式范围见Image。当资源为非图片资源或不支持的格式时，图标显示为空白。 从API版本26.0.0开始，支持Symbol格式的Resource类型的数据源。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则自定义图标设置不生效，保存控件保持默认样式。详见SaveButtonOptions说明。 |
 
 
 
@@ -213,6 +229,8 @@ setIcon(icon: Resource)
 setText(text: string | Resource)
 
 设置保存控件的文本。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限**：ohos.permission.CUSTOMIZE_SAVE_BUTTON
 
@@ -237,6 +255,8 @@ iconSize(size: Dimension | SizeOptions)
 
 设置保存控件的图标尺寸。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -257,6 +277,8 @@ iconSize(size: Dimension | SizeOptions)
 iconBorderRadius(radius: Dimension | BorderRadiuses)
 
 设置保存控件图标的边框圆角半径。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限**：ohos.permission.CUSTOMIZE_SAVE_BUTTON
 
@@ -281,6 +303,8 @@ stateEffect(enabled: boolean)
 
 设置保存控件的按压效果。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.CUSTOMIZE_SAVE_BUTTON
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -304,6 +328,8 @@ userCancelEvent(enabled: boolean)
 
 设置接收保存控件的用户取消授权事件。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -313,6 +339,93 @@ userCancelEvent(enabled: boolean)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enabled | boolean | 是 | 表示是否接收保存控件的用户取消授权事件，true表示接收保存控件的用户取消授权事件，false表示不接收保存控件的用户取消授权事件。 默认值：false。 |
+
+
+
+
+#### symbolIconColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+symbolIconColor(color: Array&lt;ResourceColor&gt;)
+
+设置保存控件Symbol图标颜色。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**需要权限：** ohos.permission.CUSTOMIZE_SAVE_BUTTON
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| color | Array&lt;ResourceColor&gt; | 是 | 设置保存控件Symbol图标颜色。 默认值：不同symbolrenderingstrategy下默认值不同。 |
+
+
+
+
+#### symbolFontWeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+symbolFontWeight(fontWeight: number | FontWeight | string | Resource)
+
+设置保存控件Symbol图标粗细。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**需要权限：** ohos.permission.CUSTOMIZE_SAVE_BUTTON
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| fontWeight | number \| FontWeight \| string \| Resource | 是 | 设置保存控件Symbol图标粗细。 支持number类型：取值范围为[100,900]，取值间隔为100，数值越大字体越粗。默认值为400。 支持string类型：可传入number类型的数字字符串（如"400"），或FontWeight的枚举值的小写字符串（如"normal"）。 默认值：FontWeight.Normal。 |
+
+
+
+
+#### symbolRenderingStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+symbolRenderingStrategy(strategy: SymbolRenderingStrategy)
+
+设置保存控件Symbol图标渲染策略。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**需要权限：** ohos.permission.CUSTOMIZE_SAVE_BUTTON
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| strategy | SymbolRenderingStrategy | 是 | 保存控件Symbol图标渲染策略。 默认值：SymbolRenderingStrategy.SINGLE。 |
+
+
+不同渲染策略效果可参考以下示意图。
+
+
+![](assets/SaveButton/file-20260525091331287-001.png)
 
 
 
@@ -340,6 +453,8 @@ userCancelEvent(enabled: boolean)
 onClick(event: SaveButtonCallback)
 
 点击动作触发该回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -432,7 +547,7 @@ struct Index {
 ```
 
 
-![](assets/SaveButton/file-20260525091331287-001.png)
+![](assets/SaveButton/file-20260525091331287-002.png)
 
 
 
@@ -513,4 +628,74 @@ struct SetIcon {
 ```
 
 
-![](assets/SaveButton/file-20260525091331287-002.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/87eyek8xQG6OqcQZu8_c8w/zh-cn_image_0000002628702950.png?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=CEDEE75794A67FDC13BAD41DA525B8A0B3A303BABF899AAA63BDD70D97D17D4A)
+
+
+
+
+#### 示例3
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+应用需要申请权限：ohos.permission.CUSTOMIZE_SAVE_BUTTON
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct Index {
+
+  build() {
+    Row() {
+      Column({ space: 10 }) {
+        // 设置保存控件的图标为Symbol。
+        SaveButton()
+          .setIcon($r('sys.symbol.ohos_folder_badge_plus'))
+
+        // 设置保存控件的Symbol颜色为绿色和白色，渲染策略为单色。
+        SaveButton()
+          .setIcon($r('sys.symbol.ohos_folder_badge_plus'))
+          .symbolIconColor([Color.Green, Color.White])
+          .symbolRenderingStrategy(SymbolRenderingStrategy.SINGLE)
+
+        // 设置保存控件的Symbol颜色为绿色和白色，渲染策略为多色。
+        SaveButton()
+          .setIcon($r('sys.symbol.ohos_folder_badge_plus'))
+          .symbolIconColor([Color.Green, Color.White])
+          .symbolRenderingStrategy(SymbolRenderingStrategy.MULTIPLE_COLOR)
+
+        // 设置保存控件的Symbol颜色为绿色，渲染策略为多色。
+        SaveButton()
+          .setIcon($r('sys.symbol.ohos_folder_badge_plus'))
+          .symbolIconColor([Color.Green])
+          .symbolRenderingStrategy(SymbolRenderingStrategy.MULTIPLE_COLOR)
+
+        // 设置保存控件的Symbol颜色为绿色和白色，渲染策略为分层。
+        SaveButton()
+          .setIcon($r('sys.symbol.ohos_folder_badge_plus'))
+          .symbolIconColor([Color.Green, Color.White])
+          .symbolRenderingStrategy(SymbolRenderingStrategy.MULTIPLE_OPACITY)
+
+        // 设置保存控件的Symbol粗细为Lighter。
+        SaveButton()
+          .setIcon($r('sys.symbol.ohos_folder_badge_plus'))
+          .symbolIconColor([Color.Green])
+          .symbolRenderingStrategy(SymbolRenderingStrategy.MULTIPLE_COLOR)
+          .symbolFontWeight(FontWeight.Lighter)
+
+        // 设置保存控件的Symbol粗细为Bolder。
+        SaveButton()
+          .setIcon($r('sys.symbol.ohos_folder_badge_plus'))
+          .symbolIconColor([Color.Green])
+          .symbolRenderingStrategy(SymbolRenderingStrategy.MULTIPLE_COLOR)
+          .symbolFontWeight(FontWeight.Bolder)
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/uhw1q2IrSwK7MYsnjw266A/zh-cn_image_0000002659102177.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=9F8353B46CE0D9A61757823CFA2AB6618F415F71CEA8BCE1DDDD36057ECCFAAB)

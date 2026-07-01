@@ -1,6 +1,6 @@
 # OffscreenCanvasRenderingContext2D
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@
 
 
 
-#### 构造函数
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,6 +55,8 @@ constructor(width: number, height: number, settings?: RenderingContextSettings, 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -93,7 +95,7 @@ constructor(width: number, height: number, settings?: RenderingContextSettings, 
 
 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- |
-| string \|number10+ \|CanvasGradient \| CanvasPattern | 否 | 否 | - 类型为string时，表示设置填充区域的颜色，颜色格式参考ResourceColor中string类型说明。 - 类型为number时，表示设置填充区域的颜色，不支持设置全透明色，颜色格式参考ResourceColor中number类型说明。 - 类型为CanvasGradient时，表示渐变对象，使用createLinearGradient方法创建。 - 类型为CanvasPattern时，使用createPattern方法创建。 默认值：'#000000'（黑色） 异常值设置无效。 |
+| string \| number10+ \| CanvasGradient \| CanvasPattern | 否 | 否 | - 类型为string时，表示设置填充区域的颜色，颜色格式参考ResourceColor中string类型说明。 - 类型为number时，表示设置填充区域的颜色，不支持设置全透明色，颜色格式参考ResourceColor中number类型说明。 - 类型为CanvasGradient时，表示渐变对象，使用createLinearGradient方法创建。 - 类型为CanvasPattern时，使用createPattern方法创建。 默认值：'#000000'（黑色） 异常值设置无效。 |
 
 
 ```ArkTS
@@ -229,7 +231,7 @@ struct LineWidthExample {
 
 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- |
-| string \|number10+ \|CanvasGradient \| CanvasPattern | 否 | 否 | - 类型为string时，表示设置线条使用的颜色，颜色格式参考ResourceColor中string类型说明。 - 类型为number时，表示设置线条使用的颜色，不支持设置全透明色，颜色格式参考ResourceColor中number类型说明。 - 类型为CanvasGradient时，表示渐变对象，使用createLinearGradient方法创建。 - 类型为CanvasPattern时，使用createPattern方法创建。 默认值：'#000000'（黑色） 异常值设置无效。 |
+| string \| number10+ \| CanvasGradient \| CanvasPattern | 否 | 否 | - 类型为string时，表示设置线条使用的颜色，颜色格式参考ResourceColor中string类型说明。 - 类型为number时，表示设置线条使用的颜色，不支持设置全透明色，颜色格式参考ResourceColor中number类型说明。 - 类型为CanvasGradient时，表示渐变对象，使用createLinearGradient方法创建。 - 类型为CanvasPattern时，使用createPattern方法创建。 默认值：'#000000'（黑色） 异常值设置无效。 |
 
 
 ```ArkTS
@@ -624,7 +626,7 @@ struct CanvasExample {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-设置文本绘制中的水平对齐方式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
+设置文本绘制中的基线类型，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -1717,8 +1719,8 @@ strokeRect(x: number, y: number, w: number, h: number): void
 | --- | --- | --- | --- |
 | x | number | 是 | 指定矩形的左上角x坐标。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
 | y | number | 是 | 指定矩形的左上角y坐标。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
-| width | number | 是 | 指定矩形的宽度。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
-| height | number | 是 | 指定矩形的高度。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
+| w | number | 是 | 指定矩形的宽度。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
+| h | number | 是 | 指定矩形的高度。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
 
 
 **示例：**
@@ -1777,8 +1779,8 @@ clearRect(x: number, y: number, w: number, h: number): void
 | --- | --- | --- | --- |
 | x | number | 是 | 指定矩形上的左上角x坐标。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
 | y | number | 是 | 指定矩形上的左上角y坐标。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
-| width | number | 是 | 指定矩形的宽度。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
-| height | number | 是 | 指定矩形的高度。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
+| w | number | 是 | 指定矩形的宽度。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
+| h | number | 是 | 指定矩形的高度。 异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。 默认单位：vp |
 
 
 **示例：**
@@ -2261,7 +2263,7 @@ lineTo(x: number, y: number): void
 
 **参数：**
 
-| 参数名 | 类型 | 必填 | 描述 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | x | number | 是 | 指定位置的x坐标。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
 | y | number | 是 | 指定位置的y坐标。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
@@ -2903,6 +2905,8 @@ roundRect(x: number, y: number, w: number, h: number, radii?: number | Array&lt;
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -3196,7 +3200,7 @@ clip(path: Path2D, fillRule?: CanvasFillRule): void
 
 **参数:**
 
-| 参数名 | 类型 | 必填 | 描述 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | Path2D | 是 | Path2D剪切路径。 异常值undefined或null按无效值处理。 |
 | fillRule | CanvasFillRule | 否 | 指定要剪切对象的规则。 可选参数为："nonzero"，"evenodd"。 异常值undefined或null按默认值处理。 默认值："nonzero" |
@@ -3258,6 +3262,8 @@ reset(): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **示例：**
@@ -3308,6 +3314,8 @@ saveLayer(): void
 创建一个图层。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3367,6 +3375,8 @@ restoreLayer(): void
 恢复图像变换和裁剪状态至saveLayer前的状态，并将图层绘制在canvas上。restoreLayer示例同saveLayer。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -3705,7 +3715,7 @@ setTransform(transform?: Matrix2D): void
 
 **参数：**
 
-| 参数名 | 类型 | 必填 | 描述 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | transform | Matrix2D | 否 | 变换矩阵。 异常值undefined或null按无效值处理。 默认值：null |
 
@@ -3916,7 +3926,7 @@ drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void
 
 **参数：**
 
-| 参数 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | image | ImageBitmap \| PixelMap | 是 | 图片资源，请参考ImageBitmap或PixelMap。 异常值undefined或null按无效值处理，不进行绘制。 |
 | dx | number | 是 | 绘制区域左上角在x轴的位置。 异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。 默认单位：vp |
@@ -3981,7 +3991,7 @@ drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh:
 
 **参数：**
 
-| 参数 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | image | ImageBitmap \| PixelMap | 是 | 图片资源，请参考ImageBitmap或PixelMap。 异常值undefined或null按无效值处理，不进行绘制。 |
 | dx | number | 是 | 绘制区域左上角在x轴的位置。 异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。 默认单位：vp |
@@ -4048,7 +4058,7 @@ drawImage(image: ImageBitmap | PixelMap, sx: number, sy: number, sw: number, sh:
 
 **参数：**
 
-| 参数 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | image | ImageBitmap \| PixelMap | 是 | 图片资源，请参考ImageBitmap或PixelMap。 异常值undefined或null按无效值处理，不进行绘制。 |
 | sx | number | 是 | 裁切源图像时距离源图像左上角的x坐标值。 异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。 image类型为ImageBitmap时，默认单位：vp image类型为PixelMap时，API version 18前，默认单位：px；API version 18及以后，默认单位：vp |
@@ -4136,11 +4146,17 @@ createImageData(sw: number, sh: number): ImageData
 
 #### createImageData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageData(imageData: ImageData): ImageData
 
 根据已创建的ImageData对象创建新的ImageData对象（不会复制图像数据），请参考[ImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagedata)，该接口存在内存拷贝行为，高耗时，应避免频繁使用。createImageData示例同putImageData。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
@@ -4172,7 +4188,7 @@ getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
 
 **参数：**
 
-| 参数 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sx | number | 是 | 需要输出的区域的左上角x坐标。 异常值undefined、null、NaN和Infinity按0处理。 默认单位：vp |
 | sy | number | 是 | 需要输出的区域的左上角y坐标。 异常值undefined、null、NaN和Infinity按0处理。 默认单位：vp |
@@ -4343,7 +4359,7 @@ putImageData(imageData: ImageData, dx: number | string, dy: number | string): vo
 
 **参数：**
 
-| 参数名 | 类型 | 必填 | 描述 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | imageData | ImageData | 是 | 包含像素值的ImageData对象。 异常值undefined或null按无效值处理，不进行绘制。 |
 | dx | number \| string10+ | 是 | 填充区域在x轴方向的偏移量。 异常值undefined、null、NaN和Infinity按0处理。 默认单位：vp |
@@ -4410,7 +4426,7 @@ putImageData(imageData: ImageData, dx: number | string, dy: number | string, dir
 
 **参数：**
 
-| 参数名 | 类型 | 必填 | 描述 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | imageData | ImageData | 是 | 包含像素值的ImageData对象。 异常值undefined或null按无效值处理，不进行绘制。 |
 | dx | number \| string10+ | 是 | 填充区域在x轴方向的偏移量。 异常值undefined、null、NaN和Infinity按0处理。 默认单位：vp |
@@ -4467,6 +4483,8 @@ struct PutImageData {
 
 #### setLineDash
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLineDash(segments: number[]): void
 
 设置画布的虚线样式。
@@ -4474,6 +4492,8 @@ setLineDash(segments: number[]): void
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
@@ -4522,6 +4542,8 @@ struct SetLineDash {
 
 #### getLineDash
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLineDash(): number[]
 
 获得当前画布的虚线样式。
@@ -4529,6 +4551,8 @@ getLineDash(): number[]
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
 
@@ -4980,6 +5004,8 @@ createConicGradient(startAngle: number, x: number, y: number): CanvasGradient
 创建一个圆锥渐变色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

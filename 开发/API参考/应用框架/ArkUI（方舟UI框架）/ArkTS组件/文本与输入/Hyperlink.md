@@ -1,6 +1,6 @@
 # Hyperlink
 
-更新时间：2026-04-13 09:29:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-hyperlink
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,7 +42,7 @@ Hyperlink(address: string | Resource, content?: string | Resource)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| address | string \| Resource | 是 | Hyperlink组件跳转的网页。 |
+| address | string \| Resource | 是 | Hyperlink组件跳转的网页地址。 |
 | content | string \| Resource | 否 | Hyperlink组件中超链接显示文本。 默认值：''。若不传该参数且组件内无子组件时，默认显示address参数值链接地址。 说明： 组件内有子组件时，不显示超链接文本。 |
 
 
@@ -109,4 +109,4 @@ struct HyperlinkExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/TllbxEXuTLiArCbO6MmtFg/zh-cn_image_0000002581435952.png?HW-CC-KV=V1&HW-CC-Date=20260528T025601Z&HW-CC-Expire=86400&HW-CC-Sign=D4EEA8203973905D38835BA20729F4B89C9784CA50CF9352BC6021F9EF3BB27F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/FV4TVsDYSpm4ZcpBzHElxA/zh-cn_image_0000002659221879.png?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=4B98D8A84E7E949047307C32F5774DBD83B40DE65464D97B5AD373956B6F786D)

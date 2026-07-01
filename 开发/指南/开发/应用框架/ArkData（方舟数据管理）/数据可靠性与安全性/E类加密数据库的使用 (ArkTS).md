@@ -1,6 +1,6 @@
 # E类加密数据库的使用 (ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/encrypted-estore-guidelines
 
@@ -611,7 +611,7 @@ export class Store {
       rdbStore = await relationalStore.getRdbStore(storeInfo.context, storeInfo.config);
       if (rdbStore.version == 0) {
         await rdbStore.executeSql(SQL_CREATE_TABLE);
-        console.info(`ECDB_Encry succeeded in getting Store ：${storeInfo.storeId}`);
+        console.info(`ECDB_Encry succeeded in getting Store: ${storeInfo.storeId}`);
         rdbStore.version = 1;
       }
     } catch (e) {

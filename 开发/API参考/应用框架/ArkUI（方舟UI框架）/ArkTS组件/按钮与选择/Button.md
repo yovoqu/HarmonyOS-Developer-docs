@@ -1,6 +1,6 @@
 # Button
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -103,9 +103,9 @@ Button()
 | --- | --- | --- | --- | --- |
 | type | ButtonType | 否 | 是 | 按钮显示样式。 默认值：ButtonType.ROUNDED_RECTANGLE API version 18及之后，ButtonType的默认值修改为ButtonType.ROUNDED_RECTANGLE。API version 18之前的版本，ButtonType的默认值为ButtonType.Capsule。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | stateEffect | boolean | 否 | 是 | 按钮按下时是否开启按压态显示效果。 true：开启按压效果；false：关闭按压效果。 默认值：true 说明： 当开启按压态显示效果，且开发者设置状态样式时，会基于状态样式设置完成后的背景色再进行颜色叠加。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| buttonStyle11+ | ButtonStyleMode | 否 | 是 | 按钮的样式和重要程度，根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过backgroundColor、fontColor和role接口设置，实际显示效果以最后一次设置为准。 默认值：ButtonStyleMode.EMPHASIZED 说明： 按钮重要程度：强调按钮>普通按钮>文字按钮。 卡片能力： 从API version 11开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| controlSize11+ | ControlSize | 否 | 是 | 按钮的尺寸。 默认值：ControlSize.NORMAL 卡片能力： 从API version 11开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| role12+ | ButtonRole | 否 | 是 | 按钮的角色，根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过backgroundColor、fontColor和buttonStyle接口设置，实际显示效果以最后一次设置为准。 默认值：ButtonRole.NORMAL 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| buttonStyle11+ | ButtonStyleMode | 否 | 是 | 按钮的样式和重要程度，根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过backgroundColor、fontColor和role接口设置，实际显示效果以最后一次设置为准。 默认值：ButtonStyleMode.EMPHASIZED 说明： 按钮重要程度：强调按钮>普通按钮>文字按钮。 卡片能力： 从API version 11开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| controlSize11+ | ControlSize | 否 | 是 | 按钮的尺寸。 默认值：ControlSize.NORMAL 卡片能力： 从API version 11开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| role12+ | ButtonRole | 否 | 是 | 按钮的角色，根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过backgroundColor、fontColor和buttonStyle接口设置，实际显示效果以最后一次设置为准。 默认值：ButtonRole.NORMAL 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
   
@@ -293,6 +293,8 @@ labelStyle(value: LabelStyle)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -319,6 +321,8 @@ buttonStyle(value: ButtonStyleMode)
 **卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -347,6 +351,8 @@ controlSize(value: ControlSize)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -370,6 +376,8 @@ role(value: ButtonRole)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -390,6 +398,8 @@ contentModifier(modifier: ContentModifier&lt;ButtonConfiguration&gt;)
 定制Button内容区的方法。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -412,6 +422,8 @@ minFontScale(scale: number | Resource)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -432,6 +444,8 @@ maxFontScale(scale: number | Resource)
 设置文本最大的字体缩放倍数。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -457,7 +471,7 @@ maxFontScale(scale: number | Resource)
 | Normal | 0 | 普通按钮（默认不带圆角）。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Capsule | 1 | 胶囊型按钮（圆角默认为高度的一半）。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Circle | 2 | 圆形按钮。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| ROUNDED_RECTANGLE15+ | 8 | 圆角矩形按钮（默认值：controlSize为NORMAL，圆角大小20vp，controlSize为SMALL，圆角大小14vp）。 卡片能力： 从API version 15开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| ROUNDED_RECTANGLE15+ | 8 | 圆角矩形按钮（默认值：controlSize为NORMAL，圆角大小20vp，controlSize为SMALL，圆角大小14vp）。 卡片能力： 从API version 15开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
 > [!NOTE]
@@ -472,14 +486,16 @@ maxFontScale(scale: number | Resource)
 
 Button组件的label文本及其字体样式。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | overflow | TextOverflow | 否 | 是 | 设置label文本超长时的显示方式。文本截断是按字截断。例如，英文以单词为最小单位进行截断，若需要以字母为单位进行截断，可在字母间添加零宽空格。 默认值：TextOverflow.Ellipsis 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | maxLines | number | 否 | 是 | 设置label文本的最大行数。如果指定此参数，则文本最多不会超过指定的行。如果有多余的文本，可以通过overflow来指定截断方式。 默认值：1 说明： 设置小于等于0的值时，按默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| minFontSize | number \| ResourceStr | 否 | 是 | 设置label文本最小显示字号。需配合maxFontSize以及maxLines或布局大小限制使用。 说明： minFontSize小于或等于0时，自适应字号不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| maxFontSize | number \| ResourceStr | 否 | 是 | 设置label文本最大显示字号。需配合minFontSize以及maxLines或布局大小限制使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| minFontSize | number \| ResourceStr | 否 | 是 | 设置label文本最小显示字号。需配合maxFontSize以及maxLines或布局大小限制使用。 说明： minFontSize小于或等于0时，自适应字号不生效。为number类型时单位：fp。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| maxFontSize | number \| ResourceStr | 否 | 是 | 设置label文本最大显示字号。需配合minFontSize以及maxLines或布局大小限制使用。为number类型时单位：fp。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | heightAdaptivePolicy | TextHeightAdaptivePolicy | 否 | 是 | 设置label文本自适应高度的方式。 默认值：TextHeightAdaptivePolicy.MAX_LINES_FIRST 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | font | Font | 否 | 是 | 设置label文本字体样式。 默认值： { size:'16.0fp', weight:FontWeight.Medium, style:FontStyle.Normal, family:'HarmonyOS Sans' } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | textAlign23+ | TextAlign | 否 | 是 | 设置label文本在水平方向上的对齐方式，label文本被截断时生效。当使用子节点的Text组件设置label时，此属性不生效，实际的文本对齐方式由子节点Text组件的textAlign属性决定。 Wearable设备默认值为TextAlign.Center，其他设备默认值为TextAlign.Start。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
@@ -496,6 +512,8 @@ Button组件的label文本及其字体样式。
 **卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -518,6 +536,8 @@ Button组件的label文本及其字体样式。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 值 | 说明 |
@@ -538,6 +558,8 @@ Button组件的label文本及其字体样式。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 值 | 说明 |
@@ -555,6 +577,8 @@ Button组件的label文本及其字体样式。
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -576,6 +600,8 @@ type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void
 定义ButtonConfiguration中使用的回调类型。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -789,7 +815,7 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/fq3om64sT6CqZYh7uR9SIQ/zh-cn_image_0000002581275906.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=9A675725A998FE53329564940CD486C99DA95BF03C566CAA2A9C743D88612A3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/WPFt1lQ-TOGGFJearXcs7g/zh-cn_image_0000002659101779.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=D1806D36403241F069ABAF0767C4656FB730080AAB27BE8C616161DF516D5715)
 
  
   
@@ -823,7 +849,7 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/eKFd1LQnR1WVs4vICd5Wuw/zh-cn_image_0000002611755763.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=120F37B726DC94EB566EA03EBCD5473DC4F20F2A02FACC2682DFFAD265FE0109)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/JaqkmbczRXShqpduYUH5Aw/zh-cn_image_0000002628862430.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=9E67F805D6EDAA87369672BB9D3359E4582ED90072EB34B8747DDD6A148370A6)
 
  
   
@@ -898,7 +924,7 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/y-sxQheBToawxAzvYwsBdA/zh-cn_image_0000002581435826.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=62055A487844C644A88DA297F4F55188EB9D762CD1C4A89D28EAFDE473AF7C19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/V_Q-PO-kRWeED9TXovAisQ/zh-cn_image_0000002659221743.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=1EB6339049E7D18337809B0FEEF250F9748C4650B6AF95E9158855CA9FBA0778)
 
  
   
@@ -944,7 +970,7 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/wuYd5yqbR-CqqytA2vHPzA/zh-cn_image_0000002611835657.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=CFF5C327D20FB0867E671C02AF41B53454BABEFBEB879C35BDE5E0EDCB99A3BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/Z_z7-AEmS_Cgbodq28WRSA/zh-cn_image_0000002628702554.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A87A1F93DE248001B336ED38327089F4B53E78C555A399BE2A6A71C9ED88252F)
 
  
   
@@ -974,4 +1000,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/OljZnxPcQOKl3OB_JBj6Zw/zh-cn_image_0000002581275908.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=7555DAADAE9CDA7E6ABB329C2D6AE4535A704621EA863593D415DF0976E4DD72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/ilAkIyB6Qx-E2hDTd2CyhA/zh-cn_image_0000002659101781.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=EF9F4D479E268B31D1DC003C1FF3C9BAA0C3C4BF78EE36B14010C296511AC58D)

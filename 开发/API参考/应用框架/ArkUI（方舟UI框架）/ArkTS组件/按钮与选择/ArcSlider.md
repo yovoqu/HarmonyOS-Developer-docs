@@ -1,6 +1,6 @@
 # ArcSlider
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcslider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -498,4 +498,4 @@ struct ArcSliderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/_eXd_2fJT0uNUoHtyM576w/zh-cn_image_0000002581435864.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=7FA875F5650E6E3F9001E609ECCDEA91801873CF1800317ECFB91B8B55131416)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/e3S_t24LQbGKOMZVPBf6VA/zh-cn_image_0000002628862470.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=89CE6C15874E3B7E1AE21372B80866ADD60F0C72BFB0850E798F18F168BA2244)

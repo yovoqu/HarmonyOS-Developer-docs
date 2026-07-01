@@ -1,6 +1,6 @@
 # 使用Text嵌套Span或者使用属性字符串渲染文本，部分文本颜色显示异常
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-387
 
@@ -88,8 +88,8 @@ struct Index {
  
 在对应的Text组件上添加如下代码，即可取消连字：
  
-```ArkTS
+```text
 Text()
-// ...
+<em>// ...</em>
   .fontFeature("\"liga\" 0")
 ```

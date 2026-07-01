@@ -1,23 +1,23 @@
 # UI自定义组件兼容性指导
 
-更新时间：2026-06-12 06:54:02
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-ui-component
 
 > [!TIP]
 > API版本号格式从26.0.0开始进行调整（详见 版本号格式调整说明 ），不影响对API兼容性判断的基本逻辑，因此在文档的示意性描述中暂时仍保持旧版本格式的说明。 近期API版本号的大小关系如下： 26.0.0 > 6.1.1(24) > 6.1.0(23) > 6.0.2(22) > 6.0.1(21) > 6.0.0(20) > 5.1.1(19) > 5.1.0(18) > 5.0.4(17)
 
- 
+
 在UI自定义组件中，状态管理装饰器需要通过自定义组件进行API版本隔离。
- 
+
 例如：在滚动列表滑动复用场景，@ReusableV2自定义组件复用新特性的API是在SDK版本5.1.0(18)提供，为了让应用兼容在基于API版本5.0.0(12)的老设备正常运行，开发者可以使用deviceInfo.sdkApiVersion进行兼容性判断。
- 
+
 （1）开发者需要提供基于API版本5.0.0(12)的自定义组件“V1Component” 及 5.1.0(18)的复用自定义组件“ReuseComponentV2”；
- 
+
 （2）在LazyForEach中使用 deviceInfo.sdkApiVersion进行兼容判断使用哪个自定义组件。
- 
+
 代码示例如下：
- 
+
 ```text
 import <span style="color: rgb(181,106,1);">{ </span><span style="color: rgb(255,255,255);">deviceInfo </span><span style="color: rgb(181,106,1);">} </span>from <span style="color: rgb(132,63,161);">'@kit.BasicServicesKit'</span><span style="color: rgb(181,106,1);">;</span>
 
@@ -94,9 +94,9 @@ struct <span style="color: rgb(0,0,255);">ReuseComponentV2 </span><span style="c
   <span style="color: rgb(181,106,1);">}</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">height</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(80,160,79);">200</span><span style="color: rgb(255,0,170);">)</span>
 <span style="color: rgb(181,106,1);">}</span>
 ```
- 
+
 在上述示例中，通过deviceInfo.sdkApiVersion来判断API版本：
- 
+
 （1）当识别当前设备ROM的API版本是5.1.0(18)及以上版本的设备，V2的复用组件会生效，往下滑动页面，会打印"ReuseComponentV2-- aboutToReusableV2"日志，即“ReuseComponentV2”的组件在滑动过程被复用；
- 
+
 （2）如果是5.1.0(18)以下的版本，会创建V1组件，会打印"V1Component-- aboutToAppear"的日志，即“V1Component”的组件在滑动过程被创建。

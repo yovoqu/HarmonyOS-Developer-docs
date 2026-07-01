@@ -1,12 +1,12 @@
 # 如何获取到resources下rawfile 的文件
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-30
 
 可以通过[@ohos.resourceManager (资源管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)模块中的[getRawFileContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfilecontent9)接口来获取resources/rawfile目录下对应的rawfile文件内容。参考代码如下：
  
-```ArkTS
+```text
 import { fileIo } from '@kit.CoreFileKit';
 
 @Component
@@ -21,7 +21,7 @@ export struct GetRawfile {
       }
       let fileBuffer: ArrayBufferLike = value.buffer;
       let context = this.getUIContext()
-        .getHostContext(); // Obtain the application sandbox path for storing temporary files, and perform null checking
+        .getHostContext(); <em>// Obtain the application sandbox path for storing temporary files, and perform null checking</em>
       let filePath = context!.filesDir + '/test.txt';
       console.info('testTag-filePath:' + filePath);
       let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);

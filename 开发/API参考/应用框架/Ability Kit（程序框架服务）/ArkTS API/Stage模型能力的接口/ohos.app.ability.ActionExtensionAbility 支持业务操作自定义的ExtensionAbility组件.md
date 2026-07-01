@@ -1,6 +1,6 @@
 # @ohos.app.ability.ActionExtensionAbility (支持业务操作自定义的ExtensionAbility组件)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-actionextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@ ActionExtensionAbility是为开发者提供的自定义操作业务模板，继�
 各类Ability的继承关系详见[继承关系说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability#ability的继承关系说明)。
  
 > [!NOTE]
-> 本模块首批接口从API version 10 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 10 开始支持，从API 版本26.0.0开始废弃，暂无替代接口。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -26,7 +26,7 @@ import { ActionExtensionAbility } from '@kit.AbilityKit';
  
   
 
-#### ActionExtensionAbility
+#### ActionExtensionAbility(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -35,3 +35,9 @@ ActionExtensionAbility是为开发者提供的自定义操作业务模板，继�
 ActionExtensionAbility主要用于实现宿主应用的内容查看及交互处理功能。例如，添加一个书签、将选中的文本翻译成其他语言、在当前页面编辑图像等。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
+ 
+**起始版本：** 10
+ 
+**废弃版本：** 26.0.0
+ 
+**替代接口：** 暂无替代接口

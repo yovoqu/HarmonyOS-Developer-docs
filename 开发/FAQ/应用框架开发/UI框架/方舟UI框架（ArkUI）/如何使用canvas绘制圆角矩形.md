@@ -1,12 +1,12 @@
 # 如何使用canvas绘制圆角矩形
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-313
 
 利用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象的arc绘制弧形路径，结合lineTo方法绘制直线，参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct CanvasDrawRoundedRectangle {
@@ -22,25 +22,25 @@ struct CanvasDrawRoundedRectangle {
     lineDash = lineDash || [];
     this.ctx.beginPath();
     this.ctx.setLineDash(lineDash);
-    // Draw the first arc path
+  <em>  // Draw the first arc path</em>
     this.ctx.arc(x + radius, y + radius, radius, Math.PI, Math.PI * 3 / 2);
-    // Draw the first straight path
+   <em> // Draw the first straight path</em>
     this.ctx.lineTo(width - radius + x, y);
-    // Draw the second arc path
+   <em> // Draw the second arc path</em>
     this.ctx.arc(width - radius + x, radius + y, radius, Math.PI * 3 / 2, Math.PI * 2);
-    // Draw the second straight path
+  <em>  // Draw the second straight path</em>
     this.ctx.lineTo(width + x, height + y - radius);
-    // Draw the third arc path
+<em>    // Draw the third arc path</em>
     this.ctx.arc(width - radius + x, height - radius + y, radius, 0, Math.PI / 2);
-    // Draw the third straight path
+  <em>  // Draw the third straight path</em>
     this.ctx.lineTo(radius + x, height + y);
-    // Draw the fourth arc path
+    <em>// Draw the fourth arc path</em>
     this.ctx.arc(radius + x, height - radius + y, radius, Math.PI / 2, Math.PI);
-    // Draw the fourth straight path
+   <em> // Draw the fourth straight path</em>
     this.ctx.lineTo(x, y + radius);
-    // Set brush color
+    <em>// Set brush color</em>
     this.ctx.strokeStyle = strokeColor;
-    // Stroke drawing
+  <em>  // Stroke drawing</em>
     this.ctx.stroke();
     if (fillColor) {
       this.ctx.fillStyle = fillColor;

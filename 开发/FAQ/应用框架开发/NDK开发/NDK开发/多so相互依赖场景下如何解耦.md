@@ -1,6 +1,6 @@
 # 多so相互依赖场景下如何解耦
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-71
 
@@ -15,77 +15,69 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
 
   
 ```cpp
-// a.cpp
-extern "C" {     // Be sure to enclose it with extern 'C' {}
+<em>// a.cpp</em>
+extern "C" {    <em> // Be sure to enclose it with extern 'C' {}</em>
 #include "a.h"
 #include <dlfcn.h>
 #include "stdio.h"
 typedef int (*FUNC_SUB)(int, int);
 int add(int a, int b) { return a + b; }
-int getb(char *path, int a, int b) {       // Path:The sandbox path for passing So files from ArkTS side (note that the path should be passed from ArkTS side, otherwise it may not be found, and the specific code will be listed later)
-    void *handle = dlopen(path, RTLD_LAZY);  // Open the dynamic link library with path as path
+int getb(char *path, int a, int b) {      <em> // Path:The sandbox path for passing So files from ArkTS side (note that the path should be passed from ArkTS side, otherwise it may not be found, and the specific code will be listed later)</em>
+    void *handle = dlopen(path, RTLD_LAZY); <em> // Open the dynamic link library with path as path</em>
     if (!handle) {
         return 0;
     }
-    FUNC_SUB sub_func = (FUNC_SUB)dlsym(handle, "sub"); // Get the function named sub
-    int res = sub_func(a, b);                           // caller function
-    dlclose(handle);                                    // Close dynamic link library
+    FUNC_SUB sub_func = (FUNC_SUB)dlsym(handle, "sub"); <em>// Get the function named sub</em>
+    int res = sub_func(a, b);                          <em> // caller function</em>
+    dlclose(handle);                                   <em> // Close dynamic link library</em>
     return res;
 }
 }
 ```
-
-
-  
-```cpp
-// a.h
+ 
+```text
+<em>// a.h</em>
 extern "C" {
 #ifndef DemoSO_a_H
 #define DemoSO_a_H
 int add(int a, int b);
 int getb(char *path, int a, int b);
-#endif // DemoSO_a_H
+#endif <em>// DemoSO_a_H</em>
 }
 ```
-
-
-  
+ 
 ```cpp
-// b.cpp
-extern "C" {     // Be sure to enclose it with extern 'C' {}
+<em>// b.cpp</em>
+extern "C" {    <em> // Be sure to enclose it with extern 'C' {}</em>
 #include "b.h"
 #include <dlfcn.h>
 #include "stdio.h"
 typedef int (*FUNC_ADD)(int, int);
 int sub(int a, int b) { return a - b; }
-int geta(char *path, int a, int b) {    // Path: The sandbox path for passing So files from ArkTS side (note that the path should be passed from ArkTS side, otherwise it may not be found, and the specific code will be listed later)
-    void *handle = dlopen(path, RTLD_LAZY);    // Open the dynamic link library with path as path
+int geta(char *path, int a, int b) {   <em> // Path: The sandbox path for passing So files from ArkTS side (note that the path should be passed from ArkTS side, otherwise it may not be found, and the specific code will be listed later)</em>
+    void *handle = dlopen(path, RTLD_LAZY);    <em>// Open the dynamic link library with path as path</em>
     if (!handle) {
         return 0;
     }
-    FUNC_ADD add_func = (FUNC_ADD)dlsym(handle, "add");      // Get the function named sub
-    int res = add_func(a, b);                                // caller function
-    dlclose(handle);                                         // Close dynamic link library
+    FUNC_ADD add_func = (FUNC_ADD)dlsym(handle, "add");     <em> // Get the function named sub</em>
+    int res = add_func(a, b);                               <em> // caller function</em>
+    dlclose(handle);                                        <em> // Close dynamic link library</em>
     return res;
 }
 }
 ```
-
-
-  
-```cpp
-// b.h
+ 
+```text
+<em>// b.h</em>
 extern "C" {
 #ifndef DemoSO_b_H
 #define DemoSO_b_H
 int sub(int a, int b);
 int geta(char *path, int a, int b);
-#endif // DemoSO_b_H
+#endif <em>// DemoSO_b_H</em>
 }
 ```
-
-
-  
+ 
 ```cpp
 # CMakeLists.txt
 cmake_minimum_required(VERSION 3.4.1)
@@ -117,11 +109,9 @@ add_library(demoso SHARED hello.cpp)
 # Add dependency libraries liba.so and libb.so. Please note to include the path, otherwise the corresponding SO library cannot be found
 target_link_libraries(demoso PUBLIC libace_napi.z.so ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${OHOS_ARCH}/liba.so ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${OHOS_ARCH}/libb.so)
 ```
-
-
-  
+ 
 ```ArkTS
-// index.ets
+<em>// index.ets</em>
 import testNapi from 'libdemoso.so';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -138,8 +128,8 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-            this.path = this.getUIContext().getHostContext()!.bundleCodeDir;   // get path
-            hilog.info(0x0000, 'testTag', 'Test NAPI 5 + 3 = %{public}d', testNapi.add(5, 3, this.path + '/libs/arm64/liba.so'));  // Call the native side function
+            this.path = this.getUIContext().getHostContext()!.bundleCodeDir;  <em> // get path</em>
+            hilog.info(0x0000, 'testTag', 'Test NAPI 5 + 3 = %{public}d', testNapi.add(5, 3, this.path + '/libs/arm64/liba.so')); <em> // Call the native side function</em>
             hilog.info(0x0000, 'testTag', 'Test NAPI 5 - 3 = %{public}d', testNapi.sub(5, 3, this.path + '/libs/arm64/libb.so'));
           })
       }
@@ -149,19 +139,15 @@ struct Index {
   }
 }
 ```
-
-
-  
+ 
 ```ts
-// index.d.ts
+<em>// index.d.ts</em>
 export const add: (a: number, b: number, path: string) => number;
 export const sub: (a: number, b: number, path: string) => number;
 ```
-
-
-  
+ 
 ```cpp
-// hello.cpp
+<em>// hello.cpp</em>
 #include "a.h"
 #include "b.h"
 #include "napi/native_api.h"
@@ -184,7 +170,7 @@ static napi_value Add(napi_env env, napi_callback_info info) {
     char path[255];
     size_t size = 255;
     napi_get_value_string_utf8(env, args[2], path, 255, &size);
-    int res = geta(path, value0, value1);                    // Call the function and pass the sandbox path
+    int res = geta(path, value0, value1);                  <em>  // Call the function and pass the sandbox path</em>
     napi_value sum;
     napi_create_int32(env, res, &sum);
     return sum;
@@ -207,7 +193,7 @@ static napi_value Sub(napi_env env, napi_callback_info info) {
     char path[255];
     size_t size = 255;
     napi_get_value_string_utf8(env, args[2], path, 255, &size);
-    int res = getb(path, value0, value1);                 // Call the function and pass the sandbox path
+    int res = getb(path, value0, value1);              <em>   // Call the function and pass the sandbox path</em>
     napi_value sum;
     napi_create_int32(env, res, &sum);
     return sum;

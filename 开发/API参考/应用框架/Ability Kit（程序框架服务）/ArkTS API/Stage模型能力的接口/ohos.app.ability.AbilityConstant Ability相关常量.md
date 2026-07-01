@@ -1,6 +1,6 @@
 # @ohos.app.ability.AbilityConstant (Ability相关常量)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilityconstant
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -379,6 +379,8 @@ export default class MyAbility extends UIAbility {
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**设备行为差异：** 该接口在不支持分布式业务的Wearable设备不生效。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

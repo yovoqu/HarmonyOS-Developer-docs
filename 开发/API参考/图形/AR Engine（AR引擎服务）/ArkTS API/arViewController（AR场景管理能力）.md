@@ -1,6 +1,6 @@
 # arViewController（AR场景管理能力）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller
 **支持设备：** Phone | Tablet | TV
@@ -593,7 +593,7 @@ setBlendShapeWeight(node: Node, type: arEngine.ARBlendShapeType, weight: number)
 
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 微表情权重设置结果。true代表成功，false代表失败 |
+| boolean | 返回微表情权重设置结果。返回值true表示成功，false表示失败。 |
 
 
 **错误码：**
@@ -742,7 +742,7 @@ loadGSModel(resourcePath: spatialRender.GSImportSettings, location: arEngine.ARP
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | resourcePath | spatialRender.GSImportSettings | 是 | 存储模型的路径。 |
-| location | arEngine.ARPose | 是 | 指定想要放置模型的关键点。 |
+| location | arEngine.ARPose | 是 | 指定模型的放置位姿。 |
 
 
 **返回值：**

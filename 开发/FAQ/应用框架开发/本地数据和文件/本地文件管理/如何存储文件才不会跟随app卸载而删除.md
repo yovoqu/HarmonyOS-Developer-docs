@@ -1,6 +1,6 @@
 # 如何存储文件才不会跟随app卸载而删除
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-20
 
@@ -12,23 +12,23 @@
  
 可以使用[@ohos.file.picker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker)中提供的save方法在公共目录创建文件，方法可以参考以下代码：
  
-```ArkTS
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { picker, fileIo } from '@kit.CoreFileKit';
 
 let uri: string = '';
 
-// Save content to the public directory
+<em>// Save content to the public directory</em>
 export async function saveToUser(content: string) {
   try {
     let DocumentSaveOptions = new picker.DocumentSaveOptions();
-    // New file name
+  <em>  // New file name</em>
     DocumentSaveOptions.newFileNames = ['test.txt'];
     let documentPicker = new picker.DocumentViewPicker();
     documentPicker.save(DocumentSaveOptions).then((DocumentSaveResult: Array<string>) => {
       console.info('DocumentViewPicker.save successfully, uri: ' + JSON.stringify(DocumentSaveResult));
       uri = DocumentSaveResult[0];
-      // Write the content into the newly created file
+    <em>  // Write the content into the newly created file</em>
       let file = fileIo.openSync(uri, fileIo.OpenMode.READ_WRITE);
       fileIo.writeSync(file.fd, content);
     }).catch((err: BusinessError) => {

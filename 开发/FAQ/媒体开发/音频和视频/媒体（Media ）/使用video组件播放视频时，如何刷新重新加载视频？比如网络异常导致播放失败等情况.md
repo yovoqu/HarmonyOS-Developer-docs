@@ -1,12 +1,12 @@
 # 使用video组件播放视频时，如何刷新重新加载视频？比如网络异常导致播放失败等情况
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-5
 
 先将URL设置为空，再改回原来的值，示例代码如下：
  
-```ArkTS
+```text
 @Component
 export struct VideoErrorReload {
   @State url: string = 'https://******';

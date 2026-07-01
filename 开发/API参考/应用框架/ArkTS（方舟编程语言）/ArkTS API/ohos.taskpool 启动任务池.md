@@ -1,6 +1,6 @@
 # @ohos.taskpool (启动任务池)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -67,11 +67,11 @@ execute(func: Function, ...args: Object[]): Promise&lt;Object&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
+| 10200003 | Worker initialization failed. 适用版本：9-11 |
 | 10200006 | An exception occurred during serialization. |
 | 10200014 | The function is not marked as concurrent. |
 
@@ -121,11 +121,10 @@ execute<A extends Array&lt;Object&gt;, R>(func: (...args: A) => R | Promise&lt;R
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 10200006 | An exception occurred during serialization. |
 | 10200014 | The function is not marked as concurrent. |
 
@@ -193,15 +192,15 @@ execute(task: Task, priority?: Priority): Promise&lt;Object&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
+| 10200003 | Worker initialization failed. 适用版本：9-17 |
 | 10200006 | An exception occurred during serialization. |
 | 10200014 | The function is not marked as concurrent. |
-| 10200051 | The periodic task cannot be executed again. |
-| 10200057 | The task cannot be executed by two APIs. |
+| 10200051 | The periodic task cannot be executed again. 适用版本：12+ |
+| 10200057 | The task cannot be executed by two APIs. 适用版本：18+ |
 
 
 **示例：**
@@ -332,15 +331,14 @@ execute任务的校验是结合new GenericsTask一起用的，参数、返回值
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 10200006 | An exception occurred during serialization. |
 | 10200014 | The function is not marked as concurrent. |
 | 10200051 | The periodic task cannot be executed again. |
-| 10200057 | The task cannot be executed by two APIs. |
+| 10200057 | The task cannot be executed by two APIs. 适用版本：18+ |
 
 
 **示例：**
@@ -476,7 +474,7 @@ execute(group: TaskGroup, priority?: Priority): Promise<Object[]>
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200006 | An exception occurred during serialization. |
-| 10200059 | TaskGroup cannot be re-executed. |
+| 10200059 | TaskGroup cannot be re-executed. 适用版本：24+ |
 
 
 **示例：**
@@ -613,16 +611,15 @@ executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise&lt;O
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 10200006 | An exception occurred during serialization. |
-| 10200014 | The function is not marked as concurrent. |
+| 10200006 | An exception occurred during serialization. 适用版本：12+ |
+| 10200014 | The function is not marked as concurrent. 适用版本：12+ |
 | 10200028 | The delayTime is less than zero. |
-| 10200051 | The periodic task cannot be executed again. |
-| 10200057 | The task cannot be executed by two APIs. |
+| 10200051 | The periodic task cannot be executed again. 适用版本：12+ |
+| 10200057 | The task cannot be executed by two APIs. 适用版本：18+ |
 
 
 **示例：**
@@ -680,14 +677,13 @@ executeDelayed任务的校验是结合new GenericsTask一起用的，参数、�
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 10200028 | The delayTime is less than zero. |
 | 10200051 | The periodic task cannot be executed again. |
-| 10200057 | The task cannot be executed by two APIs. |
+| 10200057 | The task cannot be executed by two APIs. 适用版本：18+ |
 
 
 **示例：**
@@ -735,16 +731,15 @@ executePeriodically(period: number, task: Task, priority?: Priority): void
 
 **错误码：**
 
-以下错误码的详细介绍，请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200006 | An exception occurred during serialization. |
 | 10200014 | The function is not marked as concurrent. |
 | 10200028 | The period is less than zero. |
 | 10200050 | The concurrent task has been executed and cannot be executed periodically. |
-| 10200057 | The task cannot be executed by two APIs. |
+| 10200057 | The task cannot be executed by two APIs. 适用版本：18+ |
 
 
 **示例：**
@@ -815,16 +810,15 @@ executePeriodically任务的校验是结合new GenericsTask一起用的，参数
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 10200006 | An exception occurred during serialization. |
 | 10200014 | The function is not marked as concurrent. |
 | 10200028 | The period is less than zero. |
 | 10200050 | The concurrent task has been executed and cannot be executed periodically. |
-| 10200057 | The task cannot be executed by two APIs. |
+| 10200057 | The task cannot be executed by two APIs. 适用版本：18+ |
 
 
 **示例：**
@@ -898,10 +892,9 @@ cancel(task: Task): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200015 | The task to cancel does not exist. |
-| 10200055 | The asyncRunner task has been canceled. |
+| 10200016 | The task to cancel is being executed. 适用版本：9-17 |
+| 10200055 | The asyncRunner task has been canceled. 适用版本：18+ |
 
-
-从API version 10开始，此接口调用时不再涉及上报错误码10200016。
 
 **正在执行的任务取消示例：**
 
@@ -983,11 +976,10 @@ cancel(group: TaskGroup): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200018 | The task group to cancel does not exist. |
 
 
@@ -1127,15 +1119,6 @@ terminateTask(longTask: LongTask): void
 | longTask | LongTask | 是 | 需要中止的长时任务。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -1186,15 +1169,6 @@ isConcurrent(func: Function): boolean
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果被检查函数标注了@Concurrent装饰器，则返回true，否则返回false。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -1409,11 +1383,10 @@ Task的构造函数。
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200014 | The function is not marked as concurrent. |
 
 
@@ -1454,11 +1427,10 @@ Task的构造函数用于创建任务，并可指定任务名称。
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200014 | The function is not marked as concurrent. |
 
 
@@ -1578,12 +1550,11 @@ setTransferList(transfer?: ArrayBuffer[]): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed. |
-| 10200029 | An ArrayBuffer cannot be set as both a transfer list and a clone list. |
+| 10200029 | An ArrayBuffer cannot be set as both a transfer list and a clone list. 适用版本：11+ |
 
 
 **示例：**
@@ -1648,11 +1619,10 @@ setCloneList(cloneList: Object[] | ArrayBuffer[]): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200029 | An ArrayBuffer cannot be set as both a transfer list and a clone list. |
 
 
@@ -1812,11 +1782,10 @@ static sendData(...args: Object[]): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200006 | An exception occurred during serialization. |
 | 10200022 | The function is not called in the TaskPool thread. |
 | 10200023 | The function is not called in the concurrent function. |
@@ -1905,15 +1874,6 @@ onReceiveData(callback?: Function): void
 | callback | Function | 否 | 处理数据的回调函数，发送到宿主线程的数据将会作为入参传入该回调函数。不传参可以取消注册的回调函数。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -1964,14 +1924,13 @@ addDependency(...tasks: Task[]): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200026 | There is a circular dependency. |
-| 10200052 | The periodic task cannot have a dependency. |
-| 10200056 | The task has been executed by the AsyncRunner. |
+| 10200052 | The periodic task cannot have a dependency. 适用版本：12+ |
+| 10200056 | The task has been executed by the AsyncRunner. 适用版本：18+ |
 
 
 **示例：**
@@ -2030,14 +1989,13 @@ removeDependency(...tasks: Task[]): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200027 | The dependency does not exist. |
-| 10200052 | The periodic task cannot have a dependency. |
-| 10200056 | The task has been executed by the AsyncRunner. |
+| 10200052 | The periodic task cannot have a dependency. 适用版本：12+ |
+| 10200056 | The task has been executed by the AsyncRunner. 适用版本：18+ |
 
 
 **示例：**
@@ -2100,11 +2058,10 @@ onEnqueued(callback: CallbackFunction): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200034 | The executed task does not support the registration of listeners. |
 
 
@@ -2154,11 +2111,10 @@ onStartExecution(callback: CallbackFunction): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200034 | The executed task does not support the registration of listeners. |
 
 
@@ -2208,11 +2164,10 @@ onExecutionFailed(callback: CallbackFunctionWithError): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200034 | The executed task does not support the registration of listeners. |
 
 
@@ -2268,11 +2223,10 @@ onExecutionSucceeded(callback: CallbackFunction): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200034 | The executed task does not support the registration of listeners. |
 
 
@@ -2452,11 +2406,10 @@ GenericsTask的构造函数。
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 10200014 | The function is not marked as concurrent. |
 
 
@@ -2511,11 +2464,10 @@ GenericsTask的构造函数，可以指定任务名称。
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 10200014 | The function is not marked as concurrent. |
 
 
@@ -2582,15 +2534,6 @@ TaskGroup的构造函数，支持指定任务组名称。
 | name | string | 是 | 任务组名称。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -2623,11 +2566,10 @@ addTask(func: Function, ...args: Object[]): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200014 | The function is not marked as concurrent. |
 
 
@@ -2667,14 +2609,13 @@ addTask(task: Task): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200014 | The function is not marked as concurrent. |
-| 10200051 | The periodic task cannot be executed again. |
-| 10200057 | The task cannot be executed by two APIs. |
+| 10200051 | The periodic task cannot be executed again. 适用版本：12+ |
+| 10200057 | The task cannot be executed by two APIs. 适用版本：18+ |
 
 
 **示例：**
@@ -2735,15 +2676,6 @@ SequenceRunner的构造函数。
 | priority | Priority | 否 | 指定任务的优先级，该参数默认值为taskpool.Priority.MEDIUM。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -2774,15 +2706,6 @@ SequenceRunner的构造函数。构造一个全局串行队列，如果名字相
 | --- | --- | --- | --- |
 | name | string | 是 | 串行队列的名字。 |
 | priority | Priority | 否 | 指定任务的优先级，该参数默认值为taskpool.Priority.MEDIUM。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
 
 
 **示例：**
@@ -2825,15 +2748,15 @@ execute(task: Task): Promise&lt;Object&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
+| 10200003 | Worker initialization failed. 适用版本：11-17 |
 | 10200006 | An exception occurred during serialization. |
 | 10200025 | dependent task not allowed. |
-| 10200051 | The periodic task cannot be executed again. |
-| 10200057 | The task cannot be executed by two APIs. |
+| 10200051 | The periodic task cannot be executed again. 适用版本：12+ |
+| 10200057 | The task cannot be executed by two APIs. 适用版本：18+ |
 
 
 **示例：**
@@ -2905,15 +2828,6 @@ AsyncRunner的构造函数。构造一个非全局的异步队列，如果参数
 | waitingCapacity | number | 否 | 指定等待任务的列表容量，取值需大于等于0，负数时报错，输入非整数时会向下取整。默认值为0，表示等待任务列表的容量没有限制。如果设置大于0的值，则表示排队策略为丢弃策略，当加入的任务数量超过该值时，等待列表中处于队头的任务会被丢弃。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -2945,15 +2859,6 @@ AsyncRunner的构造函数用于构造一个全局异步队列。如果队列名
 | name | string | 是 | 异步队列的名字。 |
 | runningCapacity | number | 是 | 指定任务执行的最大并发度，该参数应为正整数。负数时报错，非整数会向下取整。 |
 | waitingCapacity | number | 否 | 指定等待任务的列表容量，取值需大于等于0，负数时报错，非整数时会向下取整。默认值为0，表示等待任务列表的容量没有限制。如果设置大于0的值，则表示排队策略为丢弃策略，当加入的任务数量超过该值时，等待列表中处于队头的任务会被丢弃。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 
 
 **示例：**

@@ -1,6 +1,6 @@
 # Rcp_SessionConfiguration
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___session_configuration
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -62,7 +62,7 @@ const char* Rcp_SessionConfiguration::baseUrl
  
 基本URL。
  
-举例， 如果请求的url为 '?name=value', 基本url是 “https://example.com”，那么最后当请求被送往服务端时的最终url为 “https://example.com?name=value”。
+例如：请求的url为 '?name=value', 基本url是 “https://example.com”，那么最后当请求被送往服务端时的最终url为 “https://example.com?name=value”。
  
   
 

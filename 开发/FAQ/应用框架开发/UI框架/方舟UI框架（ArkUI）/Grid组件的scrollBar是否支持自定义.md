@@ -1,6 +1,6 @@
 # Grid组件的scrollBar是否支持自定义
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-136
 
@@ -8,7 +8,7 @@ Grid组件的默认滑动条scrollBar不支持自定义样式。
  
 可以通过隐藏默认滑动条并绑定ScrollBar组件来满足该场景。参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct Index {
@@ -35,7 +35,7 @@ struct Index {
         .columnsTemplate("1fr 1fr 1fr")
         .columnsGap(5)
         .rowsGap(5)
-        // Hide native scrollBar
+     <em>   // Hide native scrollBar</em>
         .scrollBar(BarState.Off)
 
         ScrollBar({ scroller: this.scroller, direction: ScrollBarDirection.Vertical, state: BarState.Auto }) {

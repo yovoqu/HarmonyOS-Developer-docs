@@ -1,6 +1,6 @@
 # 如何在ArkTS侧管理Native侧的C++对象
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-77
 
@@ -14,7 +14,7 @@ C++层分配一个类对象，返回该对象的地址给ArkTS层。ArkTS层通�
  
 声明TestClass：
  
-```cpp
+```text
 class TestClass { 
 public: 
     int GetValue() { 
@@ -30,7 +30,7 @@ private:
  
 C++层将定义的对象地址返回到ArkTS层：
  
-```cpp
+```text
 #include "napi/native_api.h" 
 #include "TestClass.h" 
 #include "hilog/log.h"
@@ -50,7 +50,7 @@ static napi_value DefineObject(napi_env env, napi_callback_info info) {
  
 C++层接收ArkTS层传递过来的对象地址完成业务：
  
-```cpp
+```text
 static napi_value CallObject(napi_env env, napi_callback_info info) { 
     OH_LOG_INFO(LOG_APP, "enter CallObject"); 
     size_t argc = 1; 
@@ -69,7 +69,7 @@ static napi_value CallObject(napi_env env, napi_callback_info info) {
  
 ArkTS侧调用接口：
  
-```ArkTS
+```text
 import testNapi from 'libentry.so';
 
 @Entry

@@ -1,6 +1,6 @@
 # Slider
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,7 +55,7 @@ Slider(options?: SliderOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| value | number | 否 | 是 | 当前进度值。 默认值：与属性min的取值一致。 从API version 10开始，该属性支持$$双向绑定变量。 该属性支持!!双向绑定变量。 取值范围： [min, max] 小于min时取min，大于max时取max。 $$运算符为系统组件提供TS变量的引用，使得TS变量和slider组件的value值保持同步。详细使用示例请参考示例7设置滑动条的双向绑定。 |
+| value | number | 否 | 是 | 当前进度值。 默认值：与属性min的取值一致。 从API version 10开始，该属性支持$$双向绑定变量。 该属性支持!!双向绑定变量。 取值范围： [min, max] 小于min时取min，大于max时取max。 $$运算符为系统组件提供TS变量的引用，使得TS变量和slider组件的value值保持同步。详细使用示例请参考示例7（设置滑动条的双向绑定）。 |
 | min | number | 否 | 是 | 设置最小值。 默认值：0 |
 | max | number | 否 | 是 | 设置最大值。 默认值：100 说明： min >= max异常情况，min取默认值0，max取默认值100。 value不在[min, max]范围之内，取min或者max，靠近min取min，靠近max取max。 |
 | step | number | 否 | 是 | 设置Slider滑动步长。 默认值：1 取值范围：[0.01, max - min] 说明： 若设置的step值小于0或大于max值，则按默认值显示。 |
@@ -78,7 +78,7 @@ Slider(options?: SliderOptions)
 | --- | --- |
 | OutSet | 滑块在滑轨上。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | InSet | 滑块在滑轨内。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| NONE12+ | 无滑块 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| NONE12+ | 无滑块 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 > [!NOTE]
@@ -142,6 +142,8 @@ blockColor(value: ResourceColor | LinearGradient)
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -173,7 +175,7 @@ trackColor(value: ResourceColor | LinearGradient)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor \| LinearGradient12+ | 是 | 滑轨的背景颜色。 默认值：\$r('sys.color.ohos_id_color_component_normal') 说明： 1. 设置渐变色时，如果颜色断点颜色值为非法值或渐变色断点为空，渐变色将不起效果。 2. 该接口中的LinearGradient类型不支持在元服务中使用。 |
+| value | ResourceColor \| LinearGradient | 是 | 滑轨的背景颜色。 默认值：\$r('sys.color.ohos_id_color_component_normal') 说明： 1. 设置渐变色时，如果颜色断点颜色值为非法值或渐变色断点为空，渐变色将不起效果。 2. 该接口中的LinearGradient类型不支持在元服务中使用。 |
 
 
 
@@ -236,6 +238,8 @@ selectedColor(selectedColor: ResourceColor | LinearGradient)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -293,7 +297,7 @@ tip的绘制区域为Slider自身节点的overlay。
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | boolean | 是 | 滑动时是否显示气泡提示。 true：显示气泡；false：不显示气泡。 默认值：false |
-| content10+ | ResourceStr | 否 | 气泡提示的文本内容，默认显示当前百分比。 |
+| content10+ | ResourceStr | 否 | 气泡提示的文本内容，默认显示当前百分比。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -345,6 +349,8 @@ blockBorderColor(value: ResourceColor)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -372,6 +378,8 @@ blockBorderWidth(value: Length)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -392,6 +400,8 @@ stepColor(value: ResourceColor)
 设置刻度颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -414,6 +424,8 @@ trackBorderRadius(value: Length)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -434,6 +446,8 @@ selectedBorderRadius(value: Dimension)
 设置已滑动部分（高亮）圆角半径。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -462,13 +476,15 @@ blockSize(value: SizeOptions)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | SizeOptions | 是 | 滑块大小。 默认值：当参数style的值设置为SliderStyle.OutSet时为{width: 18, height: 18}，当参数style的值设置为SliderStyle.InSet时为{width: 12, height: 12}，当参数style的值设置为SliderStyle.NONE时为，此字段不生效。 当设置的blockSize的宽高值不相等时，取较小值的尺寸，当设置的宽高值中有一个或两个都小于等于0的时候，取默认值。 |
+| value | SizeOptions | 是 | 滑块大小。 默认值：当参数style的值设置为SliderStyle.OutSet时为{width: 18, height: 18}，当参数style的值设置为SliderStyle.InSet时为{width: 12, height: 12}，当参数style的值设置为SliderStyle.NONE时，此字段不生效。 当设置的blockSize的宽高值不相等时，取较小值的尺寸，当设置的宽高值中有一个或两个都小于等于0的时候，取默认值。 |
 
 
 
@@ -482,6 +498,8 @@ blockStyle(value: SliderBlockStyle)
 设置滑块形状参数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -504,6 +522,8 @@ stepSize(value: Length)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -524,6 +544,8 @@ sliderInteractionMode(value: SliderInteraction)
 设置用户与滑动条组件交互方式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -546,6 +568,8 @@ minResponsiveDistance(value: number)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -566,6 +590,8 @@ contentModifier(modifier: ContentModifier&lt;SliderConfiguration&gt;)
 定制Slider内容区的方法。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -591,6 +617,8 @@ slideRange(value: SlideRange)
 设置有效滑动区间。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -623,6 +651,8 @@ enableHapticFeedback(enabled: boolean)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -648,6 +678,8 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -668,6 +700,8 @@ prefix(content: ComponentContent, options?: SliderPrefixOptions)
 设置滑动条的前缀。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -690,6 +724,8 @@ suffix(content: ComponentContent, options?: SliderSuffixOptions)
 设置滑动条的后缀。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -718,6 +754,8 @@ showSteps(value: boolean, options?: SliderShowStepOptions)
 **卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -836,6 +874,8 @@ Slider前后缀组件无障碍信息参数。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -856,6 +896,8 @@ Slider前缀组件无障碍信息参数。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 提供前缀组件的无障碍信息，继承自[SliderCustomContentOptions](#slidercustomcontentoptions20)。
@@ -870,6 +912,8 @@ Slider后缀组件无障碍信息参数。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 提供后缀组件的无障碍信息，继承自[SliderCustomContentOptions](#slidercustomcontentoptions20)。
@@ -883,6 +927,8 @@ Slider后缀组件无障碍信息参数。
 Slider刻度点的无障碍文本信息。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -901,6 +947,8 @@ Slider刻度点的无障碍文本信息映射集。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -917,6 +965,8 @@ Slider刻度点的无障碍文本信息映射集。
 Slider组件滑块形状参数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -937,6 +987,8 @@ Slider组件滑块形状枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -956,6 +1008,8 @@ Slider组件滑块形状枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -974,6 +1028,8 @@ Slider组件滑块形状枚举。
 定义SlideRange中使用的回调类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1055,6 +1111,8 @@ Begin和End状态当手势点击时都会触发，Moving和Click状态当value�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1077,6 +1135,8 @@ type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => vo
 定义SliderConfiguration中使用的回调类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1458,7 +1518,7 @@ struct SliderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/moteaf60QhavN9joDhbESg/zh-cn_image_0000002611755797.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=633F4165F0232FC7F838C6E26A0E0BC72950876B3941FDAF789E0EBEDE461711)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/-LPVA8OPRSKSPaKSnL-0mg/zh-cn_image_0000002659101815.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=5799F443AC1965225A8AC1E04EE3B38D45796F01B8291672DEC5B31F74672413)
 
 
 
@@ -1545,7 +1605,7 @@ struct SliderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/bcasXPbsSOiU7WmXsf4Azg/zh-cn_image_0000002581435860.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=138F7F3874B6C00B709AF87D13E59681E7515A810B8C5A25E043FA747686D3CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/uykZKVrJQb-_WryVLmvmfA/zh-cn_image_0000002628862466.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=B65271FC3B8205A0FA4FFD22E725D823F37843F29D3232D489829F18AFB6E1DA)
 
 
 
@@ -1766,7 +1826,7 @@ struct SliderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/SM7J8Rz-R1aAJtQmzhVRuw/zh-cn_image_0000002611835691.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=547A629DD52781E341CA17A797426766DD6FB36F32460BF6440938EFD5316BDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/3gfBmYd5T4mcnUTXbXvFBw/zh-cn_image_0000002659221779.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=BC1AA5A3505A59A9870F8427D288B5D8CF28FCA2C159C5D692855D11C7F6F70E)
 
 
 
@@ -1838,7 +1898,7 @@ struct SliderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/d8ROTwCTT4mFUClBVa3aMg/zh-cn_image_0000002581275942.png?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=05F8C3BFF9B3DA594343A0FB88A0D52BF9360BCDD68222D2955A32422984F5F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/K59kzH31TXaIIdqt5FWsYQ/zh-cn_image_0000002628702590.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=4F15254750E0162DDC2F5E5F217CE16ACDD80C603A8A8B5C1F5FA068D6BCC176)
 
 
 
@@ -1875,7 +1935,7 @@ struct SliderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/XtHAAydkQhaQ1BZHmkjIlg/zh-cn_image_0000002611755799.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=FB0F222D9F7A55FC642A859E33E640CA748F10022DB0B69CE6641DE272334D89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/BfSBGwFWSYKLn_l01gtV5Q/zh-cn_image_0000002659101817.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=DA46D4D5F85EB7A249E7A4424901F56E2CC9926329AA310394DDC5164106D6F8)
 
 
 
@@ -1998,7 +2058,7 @@ struct SliderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/n4jSnXlaQy6ByiXq0OEKdQ/zh-cn_image_0000002581435862.png?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=7B01E8A179C28DC496D61C3D4E748536D0A6003C18DC82695B5D8F1F53206660)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/qNphVkjTSGKDlWMlmL4g8Q/zh-cn_image_0000002628862468.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=06277262EB9DE3DFB21D8A47DA5A0AAA8719BC24BC0B0334F05471774B765968)
 
 
 
@@ -2046,4 +2106,4 @@ struct SliderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/GNCNP7NmRMKxOdMU_lWRuw/zh-cn_image_0000002611835693.png?HW-CC-KV=V1&HW-CC-Date=20260528T025554Z&HW-CC-Expire=86400&HW-CC-Sign=BB241F223EE6787D8610C5A8BDCC659EC34B4E9A16BA6CF5894D9F3056139426)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/ftFnHF3lQ8S4gIdHRNc37A/zh-cn_image_0000002659221781.png?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=C6F6D249C3ABEDC199C2FB83AFCF48809D5D397135CBF015357289CF2D3EEB72)

@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-05-18 09:49:01
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-600
 
@@ -201,7 +201,7 @@ voip接口新增支持wearable设备。([指南](https://developer.huawei.com/co
 
 #### Enterprise Space Kit
 
-- 新增配置空间互传单双通策略的能力。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-policy-push)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisespace-spacedatatransfer#policypush)）
+- 新增配置空间互传单双通策略的能力。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-file-transfer-control)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisespace-spacedatatransfer#policypush)）
 - 新增提供空间管理服务，包括创建工作空间、移除工作空间、订阅空间事件等功能。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisespace-spacemanager-guide)、[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisespace-spacemanager)）
 
  

@@ -1,6 +1,6 @@
 # 运行时提示“TypeError：Cannot read property xxx of undefined”错误
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-14
 
@@ -17,13 +17,13 @@
 从4.1.3.400版本开始，abiFilters字段缺省配置为"arm64-v8a"，将默认只编译arm64-v8a一种ABI，若设备不支持64位ABI，构建出的包将无法运行在设备上，请根据设备支持的ABI，在build-profile.json5中的buildOption/externalNativeOptions内手动配置abiFilters的值。
  
 ```json
-// HarmonyOS工程
+<em>// HarmonyOS工程</em>
 "buildOption": {
   "externalNativeOptions": {
     "abiFilters": ["arm64-v8a", "x86_64"]
   },
 }
-// OpenHarmony工程
+<em>// OpenHarmony工程</em>
 "buildOption": {
   "externalNativeOptions": {
     "abiFilters": ["arm64-v8a", "x86_64", "armeabi-v7a"]
@@ -57,7 +57,7 @@ ls
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/1CGiFqfsQUmkLjtUOgD14g/zh-cn_image_0000002434852810.png?HW-CC-KV=V1&HW-CC-Date=20260624T020451Z&HW-CC-Expire=86400&HW-CC-Sign=C0D71B924B1A93D67EF5CA6FAA8F9B7CE76620C8572EDC0C5673297880A59BF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/_iHDxcUqTiOjDRmehvCD6A/zh-cn_image_0000002654798145.png?HW-CC-KV=V1&HW-CC-Date=20260701T014456Z&HW-CC-Expire=86400&HW-CC-Sign=220E8BE1DF5C51192CC7F427B5D8EFB9E6C9B992D8D2EE5C97CF7533B7996909)
 
 存在lib64文件夹：则“abiFilters”参数中需要包含arm64-v8a类型。
 5. 不存在lib64文件夹：则“abiFilters”参数中需要包含armeabi类型。

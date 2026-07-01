@@ -1,6 +1,6 @@
 # UX样式或效果的变更
 
-更新时间：2026-02-14 06:44:00
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-ux-5101
 
@@ -23,7 +23,7 @@
 变更后：ButtonOptions中type的默认值为ButtonType.ROUNDED_RECTANGLE。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/6kxPXYUCT8S4FNe_oQrgUg/zh-cn_image_0000002295507629.png?HW-CC-KV=V1&HW-CC-Date=20260528T025847Z&HW-CC-Expire=86400&HW-CC-Sign=384C9E54919E640E9125130E063E539983B4EF31C2E55E8340D93CB95814D97E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/dm67u9F8SmuhTJF4aJ8EkQ/zh-cn_image_0000002295507629.png?HW-CC-KV=V1&HW-CC-Date=20260701T015144Z&HW-CC-Expire=86400&HW-CC-Sign=408BF698995E223DE4B15C25C3C6180BCEC9418464DC321D3681FAEC4D4E1C5A)
 
  
 **起始API Level**

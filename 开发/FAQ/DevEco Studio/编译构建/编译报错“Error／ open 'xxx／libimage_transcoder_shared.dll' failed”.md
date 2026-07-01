@@ -1,6 +1,6 @@
-# 编译报错“Error: open 'xxx\libimage_transcoder_shared.dll' failed”
+# 编译报错"Error: open 'xxx\libimage_transcoder_shared.dll' failed"
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-181
 

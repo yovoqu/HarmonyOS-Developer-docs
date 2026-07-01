@@ -1,12 +1,12 @@
 # 通过$r访问应用资源是否支持嵌套形式
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-102
 
 $r当前不支持嵌套。第二个参数需使用ResourceManager获取应用资源的字符串。参考代码如下：
  
-```ArkTS
+```json
 @Entry
 @Component
 struct Page16 {
@@ -16,7 +16,7 @@ struct Page16 {
     Row() {
       Column() {
         Text($r('app.string.EntryAbility1_label2',
-          this.context.getHostContext()!.resourceManager.getStringSync($r('app.string.EntryAbility_label'))))// path: resources\base\element\string.json
+          this.context.getHostContext()!.resourceManager.getStringSync($r('app.string.EntryAbility_label'))))<em>// path: resources\base\element\string.json</em>
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
       }

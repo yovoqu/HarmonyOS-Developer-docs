@@ -1,6 +1,6 @@
-# ArkTS中Worker线程、TaskPool线程如何与宿主线程通信
+# ArkTS中Worker线程、Taskpool线程如何与宿主线程通信
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-36
 
@@ -18,7 +18,7 @@ workerInstance.postMessage(buffer, [buffer]);
  
 sendData接口示例如下：
  
-```ArkTS
+```text
 import { taskpool } from '@kit.ArkTS';
 
 @Concurrent

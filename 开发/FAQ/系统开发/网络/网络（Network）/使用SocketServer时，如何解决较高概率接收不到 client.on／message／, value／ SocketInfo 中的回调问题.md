@@ -1,6 +1,6 @@
 # 使用SocketServer时，如何解决较高概率接收不到 client.on("message", (value: SocketInfo) 中的回调问题
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-44
 
@@ -12,11 +12,11 @@
  
 定义一个数组，客户端连接时，将客户端的socket添加到数组中，防止被回收，确保能接收数据。代码如下：
  
-```ArkTS
+```text
 import { socket } from '@kit.NetworkKit';
 
 let tcpServer: socket.TCPSocketServer = socket.constructTCPSocketServerInstance();
-// 定义存放客户端连接的数组
+<em>// 定义存放客户端连接的数组</em>
 let tcpConnectArray: socket.TCPSocketConnection[] = [];
 
 class SocketInfo {
@@ -31,14 +31,14 @@ struct CreateSocket {
     Column() {
       Button('创建socket').onClick(async () => {
         tcpServer.on('connect', (client: socket.TCPSocketConnection) => {
-          // 保存客户端的socket
+          <em>// 保存客户端的socket</em>
           tcpConnectArray.push(client);
-          // Subscribe to events of the TCPSocketConnection object.
+          <em>// Subscribe to events of the TCPSocketConnection object.</em>
           client.on('close', () => {
             console.log("on close success");
           });
           client.on('message', (value: SocketInfo) => {
-            // 此处高概率收不到message
+            <em>// 此处高概率收不到message</em>
             let buffer = value.message;
             let dataView = new DataView(buffer);
             let str = '';

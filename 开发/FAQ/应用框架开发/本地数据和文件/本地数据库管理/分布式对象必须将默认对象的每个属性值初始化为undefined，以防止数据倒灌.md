@@ -1,6 +1,6 @@
-# 分布式对象必须将默认对象的每个属性值初始化为undefined，以防止数据倒灌
+# 分布式对象必须要把默认obj的属性的每一个项值都设置undefined否则都会倒灌
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-26
 

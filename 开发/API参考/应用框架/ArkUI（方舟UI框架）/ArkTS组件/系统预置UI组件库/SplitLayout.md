@@ -1,6 +1,6 @@
 # SplitLayout
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-splitlayout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -111,4 +111,4 @@ struct Index {
 大于840vp布局：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/nwZRSuPcRoihoHfiRv1QHg/zh-cn_image_0000002581436268.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=BB5E77FB8218530D484AB8D04359AD60CCC78730399F723743EC2ACA9CDEB3C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/xNaSUpLsQEenQ1wVqWa6Jg/zh-cn_image_0000002659102233.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=49C8F7E4F99734ED630420CD0AFFAD1000738E5E3C9FCEDD22A14D97C44ADF35)

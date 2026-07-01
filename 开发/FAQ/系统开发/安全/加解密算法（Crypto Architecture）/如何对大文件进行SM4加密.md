@@ -1,6 +1,6 @@
 # 如何对大文件进行SM4加密
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-11
 
@@ -8,13 +8,13 @@
  
 参考代码如下：
  
-```ArkTS
+```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 function genIvParamsSpec() {
   let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   let dataIv = new Uint8Array(arr);
-  // The production environment should use randomly generated IVs. All zeros here are only for display purposes.
+  <em>// The production environment should use randomly generated IVs. All zeros here are only for display purposes.</em>
   let ivBlob: cryptoFramework.DataBlob = { data: dataIv };
   let ivParamsSpec: cryptoFramework.IvParamsSpec = {
     algName: 'IvParamsSpec',

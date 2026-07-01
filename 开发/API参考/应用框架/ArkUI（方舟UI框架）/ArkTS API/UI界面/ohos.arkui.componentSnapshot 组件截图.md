@@ -1,6 +1,6 @@
 # @ohos.arkui.componentSnapshot (组件截图)
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentsnapshot
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@
 组件截图典型使用场景（如长截图）及最佳实践请参考[使用组件截图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-uicontext-component-snapshot)。
 
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 对于使用 XComponent 的场景，例如：Video或者相机流媒体展示类组件，不建议使用组件截图相关接口，建议使用 createPixelMapFromSurface 直接获取图片。 如果组件自身内容不能填满组件大小区域，那么剩余位置截图返回的内容为透明像素。如果组件使用了 图像效果 类属性或其他的效果类属性，则可能产生非用户预期的截图结果。请排查是否需要填充组件透明内容区域，或使用窗口截图接口 snapshot 替代。 示例效果请以真机运行为准，当前 DevEco Studio预览器不支持。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 对于使用 XComponent 的场景，例如：Video或者相机流媒体展示类组件，不建议使用组件截图相关接口，建议使用 createPixelMapFromSurface 直接获取图片。 如果组件自身内容不能填满组件大小区域，那么剩余位置截图返回的内容为透明像素。如果组件使用了 图像效果 类属性或其他的效果类属性，则可能产生非用户预期的截图结果。请排查是否需要填充组件透明内容区域，或使用窗口截图接口 snapshot 替代。 示例效果请以真机运行为准，当前 DevEco Studio预览器不支持。
 
 
 
@@ -312,7 +312,7 @@ struct OffscreenSnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/rzseFgKaTiutl6jjcHNaYg/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=0383F0ACF07C04555FE4D0BC0E60F259E8B809675F2009DB2ABC7537DC422533)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/7Dy31a8-QgW7YeQ-S5InZA/zh-cn_image_0000002628862122.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=47F3F49A5BD88EB541F34964F3E3A364CF59161F0255FAC0BF3A05FA6A72EF16)
 
 
 
@@ -426,7 +426,7 @@ struct OffscreenSnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/a47XazCLTQ22NNjtfSZH6Q/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=AD511769A9C3F5B036FFD78221E6A816B03F74634F9046968CEA0D096F1507AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/KF-0VlzZTTqf-d23fLBBQw/zh-cn_image_0000002628862122.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=BADD0C227E00334C776333AC7E14335F4722A0FBD3BD2921053B63E78C48930C)
 
 
 
@@ -521,7 +521,29 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/UTzoBDUbQj6_ow3l9ico7w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=6DB7D570A4E8D12019727900594401B8D28A7B972AAD072EA8775656F9169DB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/XdDtos_3R4iYPQExg1olYA/zh-cn_image_0000002659101471.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=F90AE4C7A7496F7BDBD9744CD18975482416D2ADD77D956C7B19CF68A7F33E13)
+
+
+
+
+#### SnapshotSizeLimitation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义组件截图的尺寸限制。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| maxWidth | number | 否 | 否 | 组件截图的最大宽度限制。 取值范围：（-∞，+∞） 单位：px |
+| maxHeight | number | 否 | 否 | 组件截图的最大高度限制。 取值范围：（-∞，+∞） 单位：px |
 
 
 
@@ -607,7 +629,7 @@ struct SnapshotColorModeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/28woh4uuTOSAe3QxMxVOgw/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=C775F265D33681D782FC567917F95E4AA92C628266C825BC526A785B5A82A6F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/II9_vP_FTi2ATJvFIHF1RA/zh-cn_image_0000002659101471.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=FCDC69ABBCFBC84C2D796F700421A63DDD9EAE07B9BD3D8CC3BBB666918667C0)
 
 
 
@@ -675,7 +697,7 @@ struct SnapshotDynamicRangeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/NldmgJ1JQq-iI2LdaGe_-w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=FF568C8B31EA79E32EF1DCE4886BABC136464EA027A180B4E7AD34F71AF1E350)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/l4TMhpEyREqm6L5HdLmQ9Q/zh-cn_image_0000002659101471.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=B2B422E9295ECD29526A891D94765ED1D24936441F49A964031B34EC67F2CA5A)
 
 
 
@@ -804,4 +826,4 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/S3sMuWhIS6yfSj_6cUbBXw/zh-cn_image_0000002581275608.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=1B55026DBEEEE6B1438CF0AF23889C553CED0FC6B25B9B54B60247E82676C139)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/z8hAAcJHRc2kdZeXxyhrUQ/zh-cn_image_0000002659221433.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=589E0CE1B6806F2E8C4C22BD43590151476E09DA2C52ED210EDC43672F384189)

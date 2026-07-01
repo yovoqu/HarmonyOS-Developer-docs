@@ -1,6 +1,6 @@
 # TaskPool线程内存如何共享
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-58
 
@@ -10,7 +10,7 @@ TaskPool 底层采用 Actor 模型，线程间隔离，不共享内存。可以�
  
 参考代码如下：
  
-```ArkTS
+```text
 import { taskpool } from '@kit.ArkTS';
 
 @Concurrent
@@ -22,7 +22,7 @@ function producer(ArrayBuffer: Int32Array): void {
     for (let i = 1; i < length; i++) {
       i32a[i] = Math.random() * length;
     }
-    Atomics.notify(i32a, 0, 1); // notify customer
+    Atomics.notify(i32a, 0, 1); <em>// notify customer</em>
   }, 2000);
 }
 
@@ -45,7 +45,7 @@ function ArrayBufferShared(ArrayBuffer: Int32Array): void {
   group.addTask(consumer, ArrayBuffer);
   group.addTask(producer, ArrayBuffer);
   taskpool.execute(group, taskpool.Priority.HIGH).then((res: Object) => {
-    // Result array summary processing
+  <em>  // Result array summary processing</em>
   })
 }
 

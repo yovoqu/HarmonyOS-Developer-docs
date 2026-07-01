@@ -1,6 +1,6 @@
 # 获取手机号和风险等级Button
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-get-risklevel
 
@@ -14,7 +14,7 @@
 
 #### 约束与限制
 
-获取手机号和风险等级Button支持Phone、Tablet、PC/2in1和TV设备，并且从26.0.0版本开始，新增支持Car设备。
+获取手机号和风险等级Button支持Phone、Tablet、PC/2in1和TV设备，并且从API版本26.0.0开始，新增支持Car设备。
 
 
 

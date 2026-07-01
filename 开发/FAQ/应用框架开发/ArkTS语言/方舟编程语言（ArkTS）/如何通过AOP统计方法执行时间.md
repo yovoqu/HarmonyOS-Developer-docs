@@ -1,6 +1,6 @@
 # 如何通过AOP统计方法执行时间
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-99
 
@@ -8,7 +8,7 @@
  
 示例如下：
  
-```ArkTS
+```text
 import { util } from '@kit.ArkTS';
 import { systemDateTime } from '@kit.BasicServicesKit';
 
@@ -22,15 +22,15 @@ class Utils {
   }
 }
 
-let startTime = 0; // Initialization start time
-let endTime = 0; // Initialization end time
+let startTime = 0; <em>// Initialization start time</em>
+let endTime = 0;<em> // Initialization end time</em>
 
 util.Aspect.addBefore(Utils, 'Add', false, () => {
-  startTime = systemDateTime.getTime(true); // Return the start time in nanoseconds
+  startTime = systemDateTime.getTime(true); <em>// Return the start time in nanoseconds</em>
 })
 
 util.Aspect.addAfter(Utils, 'Add', false, () => {
-  endTime = systemDateTime.getTime(true); // Return the end time in nanoseconds
+  endTime = systemDateTime.getTime(true);<em> // Return the end time in nanoseconds</em>
 })
 
 let utilsObj = new Utils();

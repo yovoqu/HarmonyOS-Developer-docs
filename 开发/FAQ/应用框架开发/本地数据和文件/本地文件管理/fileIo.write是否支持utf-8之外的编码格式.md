@@ -1,6 +1,6 @@
 # fileIo.write是否支持utf-8之外的编码格式
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-11
 

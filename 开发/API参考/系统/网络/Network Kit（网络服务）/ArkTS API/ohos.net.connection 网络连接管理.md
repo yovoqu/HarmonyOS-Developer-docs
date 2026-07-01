@@ -1,6 +1,6 @@
 # @ohos.net.connection (网络连接管理)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1876,7 +1876,7 @@ addCustomDnsRule(host: string, ip: Array&lt;string&gt;, callback: AsyncCallback&
 为当前应用程序添加自定义host和对应的IP地址的映射。使用callback异步回调。
 
 > [!NOTE]
-> 不需要时可调用 removeCustomDnsRule 删除某一条自定义规则或调用 clearCustomDnsRules 删除当前应用程序的所有的自定义DNS规则 。
+> 不需要时可调用 removeCustomDnsRule 删除某一条自定义规则或调用 clearCustomDnsRules 删除当前应用程序的所有的自定义DNS规则 。 调用本接口添加自定义DNS规则后可持续生效，无需重复添加同一条规则。不需要时可按照上述方法删除。
 
 
 **需要权限**：ohos.permission.INTERNET
@@ -1933,7 +1933,7 @@ addCustomDnsRule(host: string, ip: Array&lt;string&gt;): Promise&lt;void&gt;
 为当前应用程序添加自定义host和对应的IP地址的映射。使用Promise异步回调。
 
 > [!NOTE]
-> 不需要时可调用 removeCustomDnsRule 删除某一条自定义规则或调用 clearCustomDnsRules 删除当前应用程序的所有的自定义DNS规则 。
+> 不需要时可调用 removeCustomDnsRule 删除某一条自定义规则或调用 clearCustomDnsRules 删除当前应用程序的所有的自定义DNS规则 。 调用本接口添加自定义DNS规则后可持续生效，无需重复添加同一条规则。不需要时可按照上述方法删除。
 
 
 **需要权限**：ohos.permission.INTERNET
@@ -1994,7 +1994,7 @@ removeCustomDnsRule(host: string, callback: AsyncCallback&lt;void&gt;): void
 删除当前应用程序中对应host的自定义DNS规则。使用callback异步回调。
 
 > [!NOTE]
-> 可调用 addCustomDnsRule 添加自定义规则。
+> 删除前需确认当前无线程正在使用该自定义规则，以避免冲突。 可调用 addCustomDnsRule 添加自定义规则。
 
 
 **需要权限**：ohos.permission.INTERNET
@@ -2050,7 +2050,7 @@ removeCustomDnsRule(host: string): Promise&lt;void&gt;
 删除当前应用程序中对应host的自定义DNS规则。使用Promise异步回调。
 
 > [!NOTE]
-> 可调用 addCustomDnsRule 添加自定义规则。
+> 删除前需确认当前无线程正在使用该自定义规则，以避免冲突。 可调用 addCustomDnsRule 添加自定义规则。
 
 
 **需要权限**：ohos.permission.INTERNET
@@ -2109,6 +2109,10 @@ clearCustomDnsRules(callback: AsyncCallback&lt;void&gt;): void
 
 删除当前应用程序的所有的自定义DNS规则。使用callback异步回调。
 
+> [!NOTE]
+> 删除前需确认当前无线程正在使用当前存在的自定义规则，以避免冲突。 可调用 addCustomDnsRule 添加自定义规则。
+
+
 **需要权限**：ohos.permission.INTERNET
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
@@ -2158,6 +2162,10 @@ clearCustomDnsRules(): Promise&lt;void&gt;
 
 删除当前应用程序的所有的自定义DNS规则。使用Promise异步回调。
 
+> [!NOTE]
+> 删除前需确认当前无线程正在使用当前存在的自定义规则，以避免冲突。 可调用 addCustomDnsRule 添加自定义规则。
+
+
 **需要权限**：ohos.permission.INTERNET
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
@@ -2205,7 +2213,7 @@ setPacFileUrl(pacFileUrl: string): void
 设置PAC脚本（Proxy Auto-Configuration Script，代理自动配置脚本）的URL地址，并启动PAC代理能力，比如：[http://127.0.0.1:21998/PacProxyScript.pac](http://127.0.0.1:21998/PacProxyScript.pac) 。可通过调用[findProxyForUrl](#connectionfindproxyforurl20)解析URL地址来获取代理信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/DBtbunXaRTqxYIyEEdz_Kw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020115Z&HW-CC-Expire=86400&HW-CC-Sign=2F88F18CA4C23FAB0FE0D71446E02D89A5D7637F38D03C946F06DE06D10E4D38)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/BNpwL-8uQLu3rOq4v7o89Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014425Z&HW-CC-Expire=86400&HW-CC-Sign=25025609C3B56D6542AF093FD92CB6782DCA16F3302026CE278968B32165EFA8)
 
 
 1、本接口当前在PC/2in120+、Phone23+、Tablet23+、TV23+设备上支持解析脚本并启用PAC代理能力，Wearable设备类型上只保存脚本地址，不会启用PAC代理能力。
@@ -3135,7 +3143,7 @@ register(callback: AsyncCallback&lt;void&gt;): void
 订阅指定网络状态变化的通知。如需监听特定事件，确保调用on监听事件后再调用register进行注册。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/ZFBxNOGAQjegE99d7kxd9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020115Z&HW-CC-Expire=86400&HW-CC-Sign=4F832BDCD64D03B5907AE519EB43B7D2E63127C3748741CD51FEAFC32D4170D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/10j__7M9RleOyy6TgBR0Mg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014425Z&HW-CC-Expire=86400&HW-CC-Sign=62E2B3B8C2E55917F5E1949E596C573B6D0A4D013A0599AB9DB8575367240F7F)
 
 
 使用完register接口后需要及时调用unregister取消注册。
@@ -4310,7 +4318,7 @@ wifiManager.addCandidateConfig(config,(error,networkId) => {
 网络连接信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/5Hxon1FbQtuVjnjQMng_Mw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020115Z&HW-CC-Expire=86400&HW-CC-Sign=F45AC12EA078CBFE5147BFDABF783A2D93877D719349EB054491CF3A76889143)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/wdeX9itfTsqyf-mbUoGXrA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014425Z&HW-CC-Expire=86400&HW-CC-Sign=5EF4285EE8B48A67C2CD5C30BA143B30C6EB8FBCB93A1A0D8EE0AEC461C487F0)
 
 
 linkAddresses、routes和dnses可能为空，需要做好空值保护，建议使用前先判断对象是否存在。

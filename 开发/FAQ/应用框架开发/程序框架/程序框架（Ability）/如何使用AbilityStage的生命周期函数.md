@@ -1,6 +1,6 @@
 # 如何使用AbilityStage的生命周期函数
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-2
 
@@ -8,16 +8,16 @@ DevEco Studio默认工程未包含AbilityStage。若需使用AbilityStage功能�
  1. 在工程Module对应的ets目录下，右键选择“New > Directory”，新建一个目录，命名为myabilitystage。
 2. 在myabilitystage目录中，右键选择“New > ArkTS File”，新建一个文件并命名为MyAbilityStage.ets。
 3. 打开MyAbilityStage.ets文件，导入AbilityStage的依赖包，自定义类继承AbilityStage并添加所需的生命周期回调。示例中添加了onCreate()生命周期回调。
-```ArkTS
+```text
 import { AbilityStage, Want } from '@kit.AbilityKit';
 
 export default class MyAbilityStage extends AbilityStage {
   onCreate(): void {
-    // When the HAP of the application is first loaded, initialize the operation for the module
+    <em>// When the HAP of the application is first loaded, initialize the operation for the module</em>
   }
 
   onAcceptWant(want: Want): string {
-    // Triggered only when UIAbility is configured in specified startup mode
+    <em>// Triggered only when UIAbility is configured in specified startup mode</em>
     return 'MyAbilityStage';
   }
 }

@@ -1,6 +1,6 @@
 # 存量设备API版本使用数量参考
 
-更新时间：2026-06-22 02:31:30
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/sdk-version-percentage
 

@@ -1,6 +1,6 @@
 # Class (MeasureUtils)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -25,6 +25,8 @@ measureText(options: MeasureOptions): number
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -79,9 +81,11 @@ struct Index {
 
 measureTextSize(options: MeasureOptions): SizeOptions
 
-计算指定文本单行布局下的宽度和高度。
+计算指定文本的宽度和高度。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -252,6 +256,8 @@ struct TextDemo {
 getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array&lt;Paragraph&gt;
 
 将属性字符串根据文本布局选项转换成对应的[Paragraph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)数组。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

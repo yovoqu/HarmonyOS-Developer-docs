@@ -1,6 +1,6 @@
 # Canvas
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -86,6 +86,8 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -142,6 +144,8 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -181,7 +185,7 @@ Canvas组件初始化完成或者发生大小变化时的事件回调，支持[a
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | VoidCallback | 是 | Canvas组件初始化完成或者发生大小变化时的事件回调事件。 |
+| event | VoidCallback | 是 | Canvas组件初始化完成或者发生大小变化时的回调事件。 |
  
  
   
@@ -282,7 +286,7 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/BPrlHrgWRHWrIbw9k-PVvg/zh-cn_image_0000002611755999.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=6E6160B282D87F125F0AF794EDFE5F49B35BB8F097C6BEE32E90111BC7769604)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/eoeTfnrGRrKQIkIgjueSjQ/zh-cn_image_0000002659102023.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=F47CEBD6918A30561819DBEDD5555400EA6F1B4DBAB473109D6B1B1A88848A9C)
 
  
   
@@ -375,7 +379,7 @@ struct attributeDemo {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/k3VJStLMRi67GvUt45akeQ/zh-cn_image_0000002581436060.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=D719765A637E4B4335B1717E42CEA2FF0A43E812B142FC46EFC931BC95D42A32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/TMVqZMRjTX6j-DelzUllBg/zh-cn_image_0000002628862674.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=DDF1A465DDEC8E8751F8ABFA91B6F53834A96A3100C85022D6EB54824F57C2A6)
 
  
   
@@ -427,4 +431,4 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/JeiMo9oxRg295kMJpb0yaA/zh-cn_image_0000002611835891.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=2FDF635EBA433BA71BBFED69ADBABCF57B43794BB99097A5159C723643083216)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/UGC12QU1RcmBVSmEbH_DwA/zh-cn_image_0000002659221989.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=BD5F1F1055DC145BC79E1F1C605A64EA4F2C07EE0FC583EF24EA62653C3302E3)

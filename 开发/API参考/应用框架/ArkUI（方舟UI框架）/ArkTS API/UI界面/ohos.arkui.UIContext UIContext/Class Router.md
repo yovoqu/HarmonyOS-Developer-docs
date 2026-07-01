@@ -1,6 +1,6 @@
 # Class (Router)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供通过不同的url访问不同的页面，包括跳转到应用内的指定页面、同应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
 
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 10开始支持。 以下API需先使用UIContext中的 getRouter() 方法获取到Router对象，再通过该对象调用对应方法。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 10开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getRouter() 方法获取到Router对象，再通过该对象调用对应方法。
 
 
 
@@ -1584,8 +1584,6 @@ getStackSize(): number
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **返回值：**
 

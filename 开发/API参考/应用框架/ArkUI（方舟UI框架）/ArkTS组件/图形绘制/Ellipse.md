@@ -1,6 +1,6 @@
 # Ellipse
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-ellipse
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,6 +24,35 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+  
+
+#### Ellipse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+new Ellipse(options?: EllipseOptions)
+ 
+用于绘制椭圆的构造函数。
+ 
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | EllipseOptions | 否 | 椭圆绘制尺寸。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+ 
+ 
+  
+
+#### Ellipse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Ellipse(options?: EllipseOptions)
  
 用于绘制椭圆的构造函数。
@@ -34,7 +63,7 @@ Ellipse(options?: EllipseOptions)
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
-**参数:**
+**参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -56,6 +85,8 @@ Ellipse(options?: EllipseOptions)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -388,7 +419,7 @@ struct EllipseTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/qBEji2K5SAu5nIt5JByBTg/zh-cn_image_0000002581436142.png?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=E47A8BAEA5723670E235B2B0302AEBC4A3237019C4E4C34200FD9758EBB901BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/BryKKAPrSEGCsye2BDImGg/zh-cn_image_0000002659222069.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=9B267044D80943696E464089A17C15D9D47ED63AB38F64DFCBFF52922ED0B682)
 
  
   
@@ -430,4 +461,4 @@ struct EllipseModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/tGiBGjIeQOeYdFM04TIcTw/zh-cn_image_0000002611835971.png?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=89B42DF16A8A18C22721725E3168AD81963B75AB3FF1B8C560BD142C410C5B35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/RXSE31LpQ02jEQo0WfmVcw/zh-cn_image_0000002628702878.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=3C077BD337FDF9F9AB3A7D246D380239DDC088B3093A4C1F07B349EE31E739DA)

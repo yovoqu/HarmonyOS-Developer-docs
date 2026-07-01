@@ -1,12 +1,12 @@
 # 人体跟踪与骨骼关键点识别（ArkTS）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-body
 
 #### 约束与限制
 
-从6.1.0(23)开始，管理AR会话能力支持部分Phone、部分Tablet、TV设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持人体骨骼点识别与跟踪特性（[ARENGINE_FEATURE_TYPE_BODY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
+从6.1.0(23)开始，人体骨骼点识别与跟踪能力支持部分Phone、部分Tablet、TV设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持人体骨骼点识别与跟踪特性（[ARENGINE_FEATURE_TYPE_BODY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
 
 

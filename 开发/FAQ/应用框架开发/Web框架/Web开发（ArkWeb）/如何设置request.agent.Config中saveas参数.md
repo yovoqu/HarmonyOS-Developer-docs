@@ -1,6 +1,6 @@
 # 如何设置request.agent.Config中saveas参数
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-73
 
@@ -24,11 +24,11 @@ saveas参数在[request.agent.Config](https://developer.huawei.com/consumer/cn/d
  
 需要在工程中的module.json5配置文件中添加网络访问权限ohos.permission.INTERNET。
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 import { request } from '@kit.BasicServicesKit';
 
-// In the utility class, retrieve the Context from the Entry Ability and save it to AppStore, then use AppStore to retrieve it in the utility class
+<em>// In the utility class, retrieve the Context from the Entry Ability and save it to AppStore, then use AppStore to retrieve it in the utility class</em>
 let context = AppStorage.get("context") as UIContext;
 let filesDir = context.getHostContext()!.filesDir;
 let config: request.agent.Config = {

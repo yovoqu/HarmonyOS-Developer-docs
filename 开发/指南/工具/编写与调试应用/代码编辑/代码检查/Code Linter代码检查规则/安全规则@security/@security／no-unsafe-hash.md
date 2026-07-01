@@ -1,10 +1,10 @@
 # @security/no-unsafe-hash
 
-更新时间：2026-03-24 06:03:01
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-unsafe-hash
 
-该规则禁止不安全的哈希算法，例如MD5、SHA1。
+该规则禁止使用不安全的哈希算法，例如MD5、SHA1。
  
 
 #### 规则配置

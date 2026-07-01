@@ -1,6 +1,6 @@
 # Path2D
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-path2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@
 
   
 
-#### 构造函数
+#### 接口
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -45,6 +45,8 @@ constructor(unit: LengthMetricsUnit)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -92,6 +94,8 @@ constructor(path: Path2D, unit: LengthMetricsUnit)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -138,6 +142,8 @@ constructor(description: string, unit: LengthMetricsUnit)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -281,7 +287,7 @@ moveTo(x: number, y: number): void
  
 **参数：**
   
-| 参数 | 类型 | 必填 | 描述 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | x | number | 是 | 目标点X轴坐标。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
 | y | number | 是 | 目标点Y轴坐标。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
@@ -406,10 +412,10 @@ bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number,
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| cp1x | number | 是 | 第一个贝塞尔参数的x坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
-| cp1y | number | 是 | 第一个贝塞尔参数的y坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
-| cp2x | number | 是 | 第二个贝塞尔参数的x坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
-| cp2y | number | 是 | 第二个贝塞尔参数的y坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
+| cp1x | number | 是 | 第一个贝塞尔控制点的x坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
+| cp1y | number | 是 | 第一个贝塞尔控制点的y坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
+| cp2x | number | 是 | 第二个贝塞尔控制点的x坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
+| cp2y | number | 是 | 第二个贝塞尔控制点的y坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
 | x | number | 是 | 路径结束时的x坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
 | y | number | 是 | 路径结束时的y坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
  
@@ -467,8 +473,8 @@ quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| cpx | number | 是 | 贝塞尔参数的x坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
-| cpy | number | 是 | 贝塞尔参数的y坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
+| cpx | number | 是 | 贝塞尔控制点的x坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
+| cpy | number | 是 | 贝塞尔控制点的y坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
 | x | number | 是 | 路径结束时的x坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
 | y | number | 是 | 路径结束时的y坐标值。 API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。 默认单位：vp |
  
@@ -743,7 +749,7 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/XwSR4Mj1QHa0zX5LBUqxsw/zh-cn_image_0000002611756077.png?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=BC552E59E5078DD61A6F2809C5616820E74C8DD02189566073EC3D5C7514FCCF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/irr7-nr9Th2FkTQwQnvPtg/zh-cn_image_0000002628862754.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=CF8B0826561F8EF50AE8CCCE758F12E41F1108A1D11AD369CA2128C3727989CC)
 
  
   
@@ -759,6 +765,8 @@ roundRect(x: number, y: number, w: number, h: number, radii?: number | Array&lt;
 **卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -777,9 +785,9 @@ roundRect(x: number, y: number, w: number, h: number, radii?: number | Array&lt;
  
 以下错误码的详细介绍请参见[Canvas组件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-canvas)。
   
-| 错误码ID | 错误信息 | 可能原因 |
-| --- | --- | --- |
-| 103701 | Parameter error. | 1. The param radii is a list that has zero or more than four elements; 2. The param radii contains negative value. |
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 103701 | Parameter error. Possible causes: 1. The param radii is a list that has zero or more than four elements. 2. The param radii contains negative value. |
  
  
 **示例：**
@@ -840,4 +848,4 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/Wmk42hZiR_G7Ph53QjS5FA/zh-cn_image_0000002581276170.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025540Z&HW-CC-Expire=86400&HW-CC-Sign=2BCA8B0A6AEAC7A157F3336AB5D7A84E4DC2211B6380AC35F8EB3F33F4AB8DF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/3ZYem0kiSFWteOaGK56yMQ/zh-cn_image_0000002628702822.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=1A1AF9F6595AE9BB982D373B31791EBEC64DB3D8ACA50FC0F1286709676ADE7B)

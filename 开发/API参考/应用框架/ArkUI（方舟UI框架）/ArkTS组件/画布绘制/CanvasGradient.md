@@ -1,6 +1,6 @@
 # CanvasGradient
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvasgradient
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -85,6 +85,8 @@ addColorStop(offset: number, color: string | ColorMetrics): void
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -92,7 +94,7 @@ addColorStop(offset: number, color: string | ColorMetrics): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | offset | number | 是 | 设置渐变点距离起点的位置占总体长度的比例，范围为[0, 1]。 设置offset&lt;0或offset&gt;1无渐变效果。 异常值undefined和null按无效值处理，不设置本次断点值，NaN会导致CanvasGradient异常，Infinity会导致整个CanvasGradient不生效。 |
-| color | string \| ColorMetrics | 是 | 设置渐变填充的颜色。 可以使用colorWithSpace方法构造指定色域属性ColorSpace为SRGB或DISPLAY_P3的颜色。每个渐变ColorMetrics的色域属性应当统一，设置不同色域的属性时将抛出异常，错误码：103701。 设置null和undefined无效，忽略本次断点值。 |
+| color | string \| ColorMetrics | 是 | 设置渐变的颜色。 可以使用colorWithSpace方法构造指定色域属性ColorSpace为SRGB或DISPLAY_P3的颜色。每个渐变ColorMetrics的色域属性应当统一，设置不同色域的属性时将抛出异常，错误码：103701。 设置null和undefined无效，忽略本次断点值。 |
  
  
 **错误码：**
@@ -165,4 +167,4 @@ struct AddColorStop {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/6FDULLxMQxSal3GJJYQUhA/zh-cn_image_0000002611756001.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=4856C940DFE9BFBEFA3837DA0F881FC64B7D5EFBD54A475D6127EFAB035A9713)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/Ef9lfViKSvK2rO-QxNE_gQ/zh-cn_image_0000002659102025.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=2B0585AFEDAD84A1D6EDA44B3788819748D58B550E5D43C083151D0F58FAECF4)

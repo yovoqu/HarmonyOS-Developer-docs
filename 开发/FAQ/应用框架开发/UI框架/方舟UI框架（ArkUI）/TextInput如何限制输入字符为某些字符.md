@@ -1,12 +1,12 @@
 # TextInput如何限制输入字符为某些字符
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-106
 
 TextInput的inputFilter属性可设置正则表达式，用于校验输入字符。校验不通过时，输入无效。参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct Index {
@@ -17,9 +17,9 @@ struct Index {
       TextInput({ placeholder: 'Please input a password', text: '123456', controller: this.controller })
         .type(InputType.Password)
         .placeholderColor(Color.Gray)
-        .inputFilter('[0-9]', (val) => { //Only allow the input of characters 0-9, other characters are invalid
+        .inputFilter('[0-9]', (val) => { <em>//Only allow the input of characters 0-9, other characters are invalid</em>
           console.error('TextInputExample : ' + val);
-          // Invalid input return 0
+      <em>    // Invalid input return 0</em>
           return 0;
         })
     }

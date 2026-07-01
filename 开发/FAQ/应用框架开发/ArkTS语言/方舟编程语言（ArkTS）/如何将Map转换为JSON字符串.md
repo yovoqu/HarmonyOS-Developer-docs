@@ -1,12 +1,12 @@
 # 如何将Map转换为JSON字符串
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-86
 
 将Map转换为Record后，再通过JSON.stringify()方法转换为JSON字符串。示例如下：
  
-```ArkTS
+```json
 let mapSource = new Map<string, string>();
 mapSource.set('name', 'name1');
 mapSource.set('width', '100');
@@ -27,7 +27,7 @@ struct Index {
     Column() {
       Button('Map to JSON')
         .onClick(() => {
-          console.log('jsonInfo:', jsonInfo); // jsonInfo: {"name":"name1","width":"100","height":"50"}
+          console.log('jsonInfo:', jsonInfo); <em>// jsonInfo: {"name":"name1","width":"100","height":"50"}</em>
         })
     }
   }

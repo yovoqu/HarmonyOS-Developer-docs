@@ -1,6 +1,6 @@
 # 粒子动画 (Particle)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-particle-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@
 粒子动画的效果通过Particle组件展现。
 
 > [!NOTE]
-> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 Particle在息屏之后再次打开或者切换后台再次唤起，粒子动画会自动暂停。
+> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 Particle在息屏之后再次打开或者切换后台再次唤起，粒子动画会自动暂停。
 
 
 
@@ -503,7 +503,7 @@ interface ParticlePropertyAnimation<T> {
 | --- | --- | --- | --- | --- |
 | strength | number | 否 | 是 | 场强，表示场从中心向外的排斥力的强度，默认值0。正数表示排斥力方向朝外，负数表示吸引力，方向朝内。 取值范围：(-∞, +∞)。 |
 | shape | DisturbanceFieldShape | 否 | 是 | 场的形状。 默认为DisturbanceFieldShape.RECT。 |
-| size | SizeT&lt;number&gt; | 否 | 是 | 场的大小。 默认值 {width:0，height:0}。 width和height的取值范围：[0, +∞)。 |
+| size | SizeT&lt;T&gt;&lt;number&gt; | 否 | 是 | 场的大小。 默认值 {width:0，height:0}。 width和height的取值范围：[0, +∞)。 |
 | position | PositionT&lt;number&gt; | 否 | 是 | 场的位置。 默认值{x:0，y:0}。 x、y的取值范围：(-∞, +∞)。 |
 | feather | number | 否 | 是 | 羽化值，表示场从中心点到场边缘的衰减程度，取值范围0到100的整数，如果0则表示场是一个刚体，所有范围内的粒子都被排斥在外。羽化值越大场的缓和程度越大，场范围内出现越多靠近中心点的粒子。 默认值为0。 |
 | noiseScale | number | 否 | 是 | 噪声尺度，用于控制噪声图案的整体大小，取值大于等于0。 默认值1。 |
@@ -545,7 +545,7 @@ interface ParticlePropertyAnimation<T> {
 | index | number | 否 | 否 | 索引，取整，按初始化参数中发射器的数组索引指定对应的发射器。异常默认值为0。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | emitRate | number | 否 | 是 | 发射器发射速率，即每秒发射粒子的数量。 未传入时保持其当前的发射速率， 传入值小于0时取默认值5。emitRate值超过5000时会极大影响性能，建议设置参数小于5000。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | position | PositionT&lt;number&gt; | 否 | 是 | 发射器位置的数组，只支持number类型。 未传入时保持其当前的发射器位置。需传入两个有效参数，若其中一个为异常值，则position不生效。 x、y的取值范围：(-∞, +∞)。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| size | SizeT&lt;number&gt; | 否 | 是 | 发射窗口的大小，只支持number类型。 未传入时保持其当前发射窗口大小。需传入两个有效参数且都大于0，若其中一个为异常值，则size不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| size | SizeT&lt;T&gt;&lt;number&gt; | 否 | 是 | 发射窗口的大小，只支持number类型。 未传入时保持其当前发射窗口大小。需传入两个有效参数且都大于0，若其中一个为异常值，则size不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | annulusRegion20+ | ParticleAnnulusRegion | 否 | 是 | 环形发射器参数。需要对应index的发射器形状为环形才生效。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
@@ -817,7 +817,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
+type Vector2T&lt;T&gt; = import('../api/arkui/Graphics').Vector2T&lt;T&gt;
 
 定义Vector2T类型。其中Vector2T类型包含x和y两个属性值。
 
@@ -827,7 +827,45 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Vector2T&lt;T&gt; | 用于表示T类型的包含x和y两个值的向量。x表示向量x轴方向的值。y表示向量y轴方向的值。 单位：vp |
+| import('../api/arkui/Graphics').Vector2T&lt;T&gt; | 用于表示T类型的包含x和y两个值的向量。x表示向量x轴方向的值。y表示向量y轴方向的值。 单位：vp |
+
+
+
+
+#### PositionT&lt;T&gt;12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type PositionT&lt;T&gt; = import('../api/arkui/Graphics').Position&lt;T&gt;
+
+用于设置或返回组件的位置。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 类型 | 说明 |
+| --- | --- |
+| import('../api/arkui/Graphics').PositionT&lt;T&gt; | 包含x和y两个值的向量。 单位：vp |
+
+
+
+
+#### SizeT&lt;T&gt;12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type SizeT&lt;T&gt; = import('../api/arkui/Graphics').SizeT&lt;T&gt;
+
+定义Size类型。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 类型 | 说明 |
+| --- | --- |
+| import('../api/arkui/Graphics').SizeT&lt;T&gt; | Size类型，包含了宽和高。 单位：vp |
 
 
 
@@ -848,7 +886,7 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 | --- | --- | --- | --- | --- |
 | shape | DisturbanceFieldShape | 否 | 是 | 粒子场的区域形状。 默认值：DisturbanceFieldShape.RECT |
 | position | PositionT&lt;number&gt; | 否 | 是 | 粒子场的区域中心位置。坐标单位为vp。 默认值：{x:0, y:0} |
-| size | SizeT&lt;number&gt; | 否 | 是 | 粒子场的区域大小。值的单位为vp。 默认值：{width:0, height:0} 取值范围： width：[0, +∞) height：[0, +∞) 当size的width（或height）设置为负值时取width（或height）的默认值。 |
+| size | SizeT&lt;T&gt;&lt;number&gt; | 否 | 是 | 粒子场的区域大小。值的单位为vp。 默认值：{width:0, height:0} 取值范围： width：[0, +∞) height：[0, +∞) 当size的width（或height）设置为负值时取width（或height）的默认值。 |
 
 
 
@@ -1020,7 +1058,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/azXbcOfsRbK1RBZFRwJVew/zh-cn_image_0000002622859943.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=0796AA044062C41447BF12CEAA74DD6D8B57FFBB64C4F554F134B0980BC3D91A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/v6cUYMvLRM-eAFu_rDI1UA/zh-cn_image_0000002628702902.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=3DBCB1F433FF4826AF18019B9974DEBF194CA48F24B93B06076DD184DFB46E8A)
 
 
 
@@ -1418,7 +1456,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/uooE5GdUTM28HVpcdaa_qw/zh-cn_image_0000002622700061.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=2ABA36AEC25197ECF95EF2BEF61DDAFB857844436B159C66F6952738330DD3FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/s_62qGjQRCyrBhsfxYheUw/zh-cn_image_0000002659102129.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=15DB9C4303E4D1654AFEE110D193FBF3E0CD2206337BB20BDC0B855638CC06E7)
 
 
 
@@ -1549,7 +1587,7 @@ struct ParticleExample3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/0cB3A8t6RzidbzNusx2eWQ/zh-cn_image_0000002592220502.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=BB3AFBBE6394ADDFFDB4F49C890398E88703C82D9ADAF3192E185399CD7EEF0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/nMP3CiD7QyW-SGqfOpNC6g/zh-cn_image_0000002628862782.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=5AC60B0F0C82462AD41FC4F935BEDF41CA642689E625A95A69DC66878F5D8C94)
 
 
 
@@ -1632,7 +1670,7 @@ struct ParticleExample4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/DojXi7KeRIedU9LFB_gXzQ/zh-cn_image_0000002592380434.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=1913F3336E1273369F7099923788D5512F00514925E664844835B09EE2E107C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/0gb_-QDSTsGT-6au_HuvNw/zh-cn_image_0000002659222095.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=FB7F350A350A540F1CDB1F731F41966E8B5A728B791570C72230E00C99CBC45E)
 
 
 
@@ -1723,7 +1761,7 @@ struct ParticleExample5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Iq7aeumYRE2CR-LFnJfO6g/zh-cn_image_0000002622859945.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=72F3999F3F4AE3469D672AD6C3B797C28EAA822D74C02987F08530D90EB44D4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/ti9sSAfCQOCCcaoPeaC9vQ/zh-cn_image_0000002628702904.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=F6F4A33436A9BD301C31D51EFBC6C3DBDB467E0CF1C9C081E55A4A037DDD677F)
 
 
 
@@ -1843,7 +1881,7 @@ struct ParticleExample6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/ElXIR0VaTRSqxiTXxfmayg/zh-cn_image_0000002622700063.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=F25354DFDF4E6B0EB81809A77DB3CD87565338DF6F4B205D3807197865EF9981)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/nPQRd019S22RiwmGbpQkBQ/zh-cn_image_0000002659102131.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=F9A31A44F5F749942A0F9F005DC9102C0ADE7FE67ABE9A2772623F3989E25DB3)
 
 
 
@@ -1976,4 +2014,4 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/3AJPELwMTIq96WT87tKz-A/zh-cn_image_0000002592220504.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=4370B64416A6633723B192B59CB3CF7CBA063B450947CAFD99FFD740A59DA563)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/-JcjPd-oTJyQU9V51cxJqQ/zh-cn_image_0000002628862784.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=6774E8350E7A5C260C78B0D31833564C68F18564E5A4408BFD88445E60119253)

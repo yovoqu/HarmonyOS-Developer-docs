@@ -1,6 +1,6 @@
 # Native侧如何打印char指针
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-47
 
@@ -12,7 +12,7 @@ OH_LOG_INFO(LOG_APP, “%s”,path); //不可正常打印
  
 示例代码如下：
  
-```cpp
+```text
 char *path = "abc";
 OH_LOG_INFO(LOG_APP, "path: %{public}s", path);
 ```

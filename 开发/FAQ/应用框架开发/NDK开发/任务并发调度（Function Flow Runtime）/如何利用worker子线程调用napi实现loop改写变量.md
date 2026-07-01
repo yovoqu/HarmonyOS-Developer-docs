@@ -1,6 +1,6 @@
 # 如何利用worker子线程调用napi实现loop改写变量
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-76
 
@@ -78,7 +78,7 @@ struct Index {
  
 在worker中调用napi函数：
  
-```ArkTS
+```text
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import testNapi from 'libentry.so';
 
@@ -96,7 +96,7 @@ Native侧：
  
 在Native侧利用loop完成消息循环：
  
-```cpp
+```text
 struct CallbackContext {
     napi_env env = nullptr;
     napi_ref callbackRef = nullptr;
@@ -104,7 +104,7 @@ struct CallbackContext {
 };
 ```
  
-```cpp
+```text
 #include "WorkerCallNapiLoop.h" 
 #include <thread> 
 #include <uv.h> 
@@ -112,7 +112,7 @@ struct CallbackContext {
 void WorkerCallNapiLoop::SubThread(CallbackContext *context) { 
     uv_loop_s *loop = nullptr; 
     napi_get_uv_event_loop(context->env, &loop); 
-    // uv_work_t is the structure that associates loop and thread pool callback functions
+  <em>  // uv_work_t is the structure that associates loop and thread pool callback functions</em>
     uv_work_t *work = new uv_work_t; 
     work->data = (CallbackContext *)context; 
     uv_queue_work( 
@@ -120,7 +120,7 @@ void WorkerCallNapiLoop::SubThread(CallbackContext *context) {
         [](uv_work_t *work, int status) { 
             CallbackContext *context = (CallbackContext *)work->data; 
             napi_handle_scope scope = nullptr; 
-            // Manage the lifecycle of napi_value to prevent memory leaks
+          <em>  // Manage the lifecycle of napi_value to prevent memory leaks</em>
             napi_open_handle_scope(context->env, &scope); 
             if (scope == nullptr) { 
                 return; 
@@ -157,7 +157,7 @@ napi_value WorkerCallNapiLoop::MainThread(napi_env env, napi_callback_info info)
     napi_add_env_cleanup_hook(asyncContext->env, func, asyncContext); 
     uv_loop_s *loop = nullptr; 
     napi_get_uv_event_loop(env, &loop); 
-    // Start sub thread 
+   <em> // Start sub thread </em>
     std::thread testThread(SubThread, asyncContext); 
     testThread.detach(); 
     return nullptr; 

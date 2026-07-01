@@ -1,6 +1,6 @@
 # Canvas绘制内容如何动态更新
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-225
 
@@ -8,7 +8,7 @@
  
 参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct CanvasContentUpdate {
@@ -17,8 +17,8 @@ struct CanvasContentUpdate {
   @State @Watch('draw')content: string = '';
 
   draw() {
-    this.context.clearRect(0, 0, 200, 200); // Clean up canvas content
-    this.context.fillText(this.content, 50, 50); // Refill
+    this.context.clearRect(0, 0, 200, 200); <em>// Clean up canvas content</em>
+    this.context.fillText(this.content, 50, 50); <em>// Refill</em>
   }
 
   build() {
@@ -28,7 +28,7 @@ struct CanvasContentUpdate {
         .height('25%')
         .backgroundColor('#F5DC62')
         .onReady(() => {
-          //You can draw content here.
+       <em>   //You can draw content here.</em>
           this.context.font = '55px sans-serif';
           this.context.fillText(this.content, 50, 50);
         })

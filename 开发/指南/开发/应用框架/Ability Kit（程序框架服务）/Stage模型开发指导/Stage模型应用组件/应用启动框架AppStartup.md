@@ -1,6 +1,6 @@
 # 应用启动框架AppStartup
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-startup
 
@@ -135,7 +135,7 @@ AppStartup提供了一种简单高效的应用启动方式，可以支持任务�
 | --- | --- | --- | --- |
 | startupTasks | 启动任务配置信息，详见定义启动任务配置。 | 对象数组 | 该标签可缺省，缺省值为空。 |
 | appPreloadHintStartupTasks | 预加载so任务配置信息，详见定义预加载so任务配置。 | 对象数组 | 该标签可缺省，缺省值为空。 |
-| configEntry | 启动参数配置文件所在路径。详见设置启动参数。 说明： - HSP、HAR中不允许配置configEntry字段。 - 如果应用开启了文件名混淆，则需要将文件路径添加到保留白名单中。具体操作详见ArkGuard混淆原理及功能的-keep-file-name部分。 | 字符串 | 该标签不可缺省。 |
+| configEntry | 启动参数配置文件所在路径。详见设置启动参数。 说明： - HSP、HAR中不允许配置configEntry字段。 - 如果应用开启了文件名混淆，则需要将文件路径添加到保留白名单中。具体操作详见ArkGuard混淆保留选项的-keep-file-name部分。 | 字符串 | 该标签不可缺省。 |
 
 
 
@@ -224,7 +224,7 @@ AppStartup提供了一种简单高效的应用启动方式，可以支持任务�
 | 属性名称 | 含义 | 数据类型 | 是否可缺省 |
 | --- | --- | --- | --- |
 | name | 启动任务名称，可自定义，推荐与类名保持一致。 | 字符串 | 该标签不可缺省。 |
-| srcEntry | 启动任务对应的文件路径。 说明： 如果应用开启了文件名混淆，则需要将文件路径添加到保留白名单中。具体操作详见ArkGuard混淆原理及功能的-keep-file-name部分。 | 字符串 | 该标签不可缺省。 |
+| srcEntry | 启动任务对应的文件路径。 说明： 如果应用开启了文件名混淆，则需要将文件路径添加到保留白名单中。具体操作详见ArkGuard混淆保留选项的-keep-file-name部分。 | 字符串 | 该标签不可缺省。 |
 | dependencies | 启动任务依赖的其他启动任务的类名数组。 | 对象数组 | 该标签可缺省，缺省值为空。 |
 | excludeFromAutoStart | 是否排除自动模式，详细介绍可以查看修改启动模式。 - true：手动模式。 - false：自动模式。 说明： HSP、HAR中startupTask里的excludeFromAutoStart标签必须配置为true。 | 布尔值 | 该标签可缺省，缺省值为false。 |
 | runOnThread | 执行初始化所在的线程。 - mainThread：在主线程中执行。 - taskPool：在异步线程中执行。 | 字符串 | 该标签可缺省，缺省值为mainThread。 |
@@ -242,7 +242,7 @@ AppStartup提供了一种简单高效的应用启动方式，可以支持任务�
 **图5** so预加载任务依赖关系图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/OE5TonwIQPiOmOjw13IVvQ/zh-cn_image_0000002656467299.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=00EBF6A105809F59B497E30D34F68BD900FD97F52FC39B17DCB943E8075FD5EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/zfp7JkTjSe-fTVkiCTgcqw/zh-cn_image_0000002628859956.png?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=BB0F8D9CF3FD5AD383F98D3CA599A98F61A9FCB4CF7C850EEABC059EA17439AA)
 
 1. 参考[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)创建so文件。本例中的6个so文件名称分别为libentry_001.so~libentry_006.so。
 2. 在启动框架配置文件startup_config.json中，添加预加载so任务配置。
@@ -423,7 +423,7 @@ export default class StartupTask_001 extends StartupTask {
 **图6** 启动任务与so预加载依赖关系图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/t3MvV1IERhiwAxyhxQKtuA/zh-cn_image_0000002656347349.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=2144DC0891B56FA0A6BB4929D762A307C1EA38987AE46A8338051C10B4EEA047)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/_hxmvejDTH22AGn-wxK0Yg/zh-cn_image_0000002659219271.png?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=5CEFA0033C5599886B2A1935BB2A1FFA8B552B0F2C79BFD8F15581368AF5B504)
 
 
 开发步骤如下：
@@ -594,7 +594,7 @@ struct Index {
 **图7** 启动任务设置匹配规则
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/YyUu7BnqRsmsgYhqXlxsPQ/zh-cn_image_0000002626227934.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=E4BD42FFEABDA409607EB2900055F83F6566EF2406C88BB81607CD3E22E732EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/Bxw-moHSQga0M4gKleilew/zh-cn_image_0000002628700072.png?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=34673FF2E667EEF6DEA5F005B1539E5B8A5B15205DA01E733789134EF7046DFF)
 
 
 可以通过以下两种方式添加匹配规则：
@@ -722,7 +722,7 @@ export default class MyStartupConfigEntry extends StartupConfigEntry {
 **图8** 设置启动任务提前调度
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/PbyxhR74QgOD38vlUnNLJQ/zh-cn_image_0000002626068026.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=999CDD6603C88B8FC07B29E6476938118B98769C9936D6FE42BF32ACD6CD8E5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/6O840_MPSbmbHeL9SyIOXA/zh-cn_image_0000002659099307.png?HW-CC-KV=V1&HW-CC-Date=20260701T014608Z&HW-CC-Expire=86400&HW-CC-Sign=790BE19481752E380EC032CF0F4D87BFDA697F50253892F7A4A0B5D3F7003448)
 
 
 例如，应用首页需要通过网络请求获取Feed流数据，且希望该任务能在异步线程中与AbilityStage模块加载并发执行。假设网络请求任务为[定义启动任务配置](#定义启动任务配置)步骤中的StartupTask_004，开发步骤如下：

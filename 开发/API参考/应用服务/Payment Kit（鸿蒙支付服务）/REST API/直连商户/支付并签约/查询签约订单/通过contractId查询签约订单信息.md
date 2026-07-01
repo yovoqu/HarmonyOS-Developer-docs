@@ -1,6 +1,6 @@
 # 通过contractId查询签约订单信息
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-pas-withhold-query-contractid
 
@@ -24,7 +24,7 @@
 
  - **承载协议：** HTTPS GET
  - **接口方向：** 开发者服务器 -> 华为支付服务器
- - **接口URL：** https://petalpay-developer.cloud.huawei.com.cn/api/v2/contract/sign/contracts/{contractId
+ - **接口URL：** https://petalpay-developer.cloud.huawei.com.cn/api/v2/contract/sign/contracts/{contractId}
  - **数据格式：**
 
   请求消息：Content-Type: application/json; charset=UTF-8

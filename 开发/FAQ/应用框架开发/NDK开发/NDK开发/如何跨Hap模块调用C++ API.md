@@ -1,6 +1,6 @@
 # 如何跨Hap模块调用C++ API
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-56
 

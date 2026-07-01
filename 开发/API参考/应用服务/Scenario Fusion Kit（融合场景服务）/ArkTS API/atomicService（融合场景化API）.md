@@ -1,6 +1,6 @@
 # atomicService（融合场景化API）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -487,6 +487,8 @@ showFollowComponent(ctx: UIContext, params: FollowComponentParams, callback: Fol
  
  
 **错误码：**
+ 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scenario-fusion-arkts-api)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -510,9 +512,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   aboutToAppear(): void {
     // 一键关注组件。
-    // pubId: 服务号id，此处以官方小助手服务号id为例。
+    // pubId: 服务号ID，此处以官方小助手服务号ID为例。
     const pubId: string = '0cca1c645526449fb89d4a83e3bc25df';
-    // channelId：渠道id，长度限制32，只能是数字或字母组成；offset：设置关注组件的位置坐标。
+    // channelId：渠道ID，长度限制32，只能是数字或字母组成；offset：设置关注组件的位置坐标。
     const params: atomicService.FollowComponentParams =
       { pubId: pubId, channelId: '', offset: { x: 0, y: 300 } };
     // 点击关注按钮的关注结果回调。
@@ -533,7 +535,7 @@ struct Index {
     }
     // 展示关注组件。
     atomicService.showFollowComponent(this.getUIContext(), params, callbacks).catch((error: BusinessError<void>) => {
-      hilog.error(0x0000, 'testTag', 'Failed to show the Follow Component, failReason: %{public}d %{public}s:', error.code,
+      hilog.error(0x0000, 'testTag', 'Failed to show the Follow Component, failReason: %{public}d %{public}s', error.code,
         error.message);
     })
   }

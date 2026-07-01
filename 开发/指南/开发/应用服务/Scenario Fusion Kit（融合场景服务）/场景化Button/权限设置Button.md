@@ -1,6 +1,6 @@
 # 权限设置Button
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-permissiononsetting
 
@@ -14,7 +14,7 @@
 
 #### 约束与限制
 
-权限设置Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备，从26.0.0版本开始，新增支持Car设备。
+权限设置Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备，从API版本26.0.0开始，新增支持Car设备。
 
 > [!NOTE]
 > 仅支持UIAbility/UIExtensionAbility。 在调用此接口前，应用需要先调用 requestPermissionsFromUser ，如果用户在首次权限设置弹框时已授权，调用当前接口将无法拉起二次授权页面。

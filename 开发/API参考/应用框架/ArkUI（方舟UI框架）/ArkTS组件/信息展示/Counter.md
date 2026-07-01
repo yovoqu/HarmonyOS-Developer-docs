@@ -1,6 +1,6 @@
 # Counter
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-counter
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 计数器组件，提供相应的增加或者减少的计数操作。
  
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API版本26.0.0开始支持 WithTheme 。
 
   
 
@@ -52,6 +52,8 @@ enableInc(value: boolean)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -72,6 +74,8 @@ enableDec(value: boolean)
 设置“减少”按钮的禁用或使能。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -184,4 +188,4 @@ struct CounterExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/V39WxPuyRtafhvO3kXT7hw/zh-cn_image_0000002581436036.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025557Z&HW-CC-Expire=86400&HW-CC-Sign=DC09ED1F8EA2F62DE420F4DF17BFAE6BF025ADD393E03548768552D9BA88745B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/qH5R_cwJRUWHItD2VWrSYw/zh-cn_image_0000002628702772.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=5DD68D2EA3EAED69C1DF180E7733766E562E6A1907BAE16C431E17F504849A3D)

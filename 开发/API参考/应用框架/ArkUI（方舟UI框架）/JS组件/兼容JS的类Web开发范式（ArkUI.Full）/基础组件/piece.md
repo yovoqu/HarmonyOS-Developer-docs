@@ -1,6 +1,6 @@
 # piece
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-piece
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -104,4 +104,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/Y1cCUVJpRpqPsnclqDWnfw/zh-cn_image_0000002581276420.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=318EC4341FE88ECB2F42BA8EE34667F30C1F870BDA872A31CEF4E2FAF40B49FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/POVBnH50RwygFeZlj_1o9g/zh-cn_image_0000002659222265.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=C2BD683AD45CA0000DF05F794DE6711014FEFA534592C390D7750CEE60E5F8C2)

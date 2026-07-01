@@ -1,6 +1,6 @@
 # 如何实现PixelMap和base64的相互转换
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-15
 
@@ -22,8 +22,9 @@ Base64编码是一种将二进制数据转换为ASCII字符串的编码方式，
 3. 将ArrayBuffer数据转换成PixelMap类型可以通过ImageSource实现ArrayBuffer数据到PixelMap类型的转化。首先通过Image模块的createImageSource方法从ArrayBuffer中构造出ImageSource实例，然后通过ImageSource的createPixelMap方法解码出PixelMap类型数据。
 
  
-**参考链接**
- 
+
+#### 参考链接
+
 [图片编码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-encoding-arts)
  
 [图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding-arts)

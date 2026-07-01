@@ -1,6 +1,6 @@
 # NavRouter
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navrouter
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,6 +60,8 @@ NavRouter(value: RouteInfo)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -93,6 +95,8 @@ mode(mode: NavRouteMode)
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -111,6 +115,8 @@ mode(mode: NavRouteMode)
 路由信息。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -133,6 +139,8 @@ mode(mode: NavRouteMode)
 
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -261,4 +269,4 @@ struct NavRouterExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/s7WZm4opRSq9sBGoiyiSxg/zh-cn_image_0000002581276388.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=832292AFF73521D38A5E4A13925C11AEC27063171CB7A5DB146613FACAD4A182)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/8sxa2SBbT4-Vtn3vmPgO6g/zh-cn_image_0000002659222233.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014357Z&HW-CC-Expire=86400&HW-CC-Sign=310C88C9B725DF627A09E12490C91B6554997353F11B26DAF4E88F2A8FAF1206)

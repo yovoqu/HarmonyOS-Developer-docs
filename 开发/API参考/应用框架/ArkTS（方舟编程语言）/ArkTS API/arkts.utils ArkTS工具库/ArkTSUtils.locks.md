@@ -1,6 +1,6 @@
 # ArkTSUtils.locks
 
-更新时间：2026-03-30 09:53:19
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-locks
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -190,11 +190,10 @@ static query(name: string): AsyncLockState
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200030 | The lock does not exist. |
 
 
@@ -281,11 +280,10 @@ lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;): Promise&lt;T&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200030 | The lock does not exist. |
 
 
@@ -329,11 +327,10 @@ lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode): P
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200030 | The lock does not exist. |
 
 
@@ -378,11 +375,10 @@ lockAsync<T, U>(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode, optio
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The input parameters are invalid. |
 | 10200030 | The lock does not exist. |
 | 10200031 | Timeout exceeded. |
 

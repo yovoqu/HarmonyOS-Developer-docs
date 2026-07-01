@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -29,7 +29,6 @@ System internal error.
 **处理步骤**
 1. 请进行重试操作。
 2. [pushService.on('tokenUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice#pushserviceontokenupdate)接口返回1000900001，优先排查是否重复注册。
-3. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
 
@@ -470,11 +469,11 @@ App is not available or not registered.
 
 **可能原因**
 1. 应用或元服务未在AGC上注册。
-2. 订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#requestsubscribenotification)与应用类型不匹配。
+2. 订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#servicenotificationrequestsubscribenotification)与应用类型不匹配。
 
 **处理步骤**
 1. 检查应用或元服务是否在AGC上完成注册，详情请参见[应用开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-overview)。
-2. 检查订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#requestsubscribenotification)与应用类型是否匹配，仅元服务支持通过华为账号订阅。
+2. 检查订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#servicenotificationrequestsubscribenotification)与应用类型是否匹配，仅元服务支持通过华为账号订阅。
 
 
 
@@ -629,3 +628,25 @@ The same type of callback can be registered only once.
 **处理步骤**
 
 排查是否调用[pushService.on('distributedMessageReceive')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice#pushserviceondistributedmessagereceive)接口重复注册。
+
+
+
+#### 1000900032 服务通知设置不存在
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+The service notification setting does not exist.
+
+**错误描述**
+
+服务通知设置不存在。
+
+**可能原因**
+
+该元服务在当前账号下不存在订阅关系。
+
+**处理步骤**
+
+请引导用户订阅元服务通知。详情见[发起基于账号的订阅请求](https://developer.huawei.com/consumer/cn/doc/atomic-guides/push-as-request-sub)。

@@ -1,6 +1,6 @@
 # @ohos.app.ability.UIAbility (带界面的应用组件)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,7 +41,7 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 **图2** Call调用示意图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/H5DK2KJ6SvmnMV2HHAc6xg/zh-cn_image_0000002611833363.png?HW-CC-KV=V1&HW-CC-Date=20260528T025637Z&HW-CC-Expire=86400&HW-CC-Sign=B9418604115810E1CA972CBCE4071F13DA2B39160781CB9A442926FF0AE1C582)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/EhbfMESeR0aE4TK2OOALwA/zh-cn_image_0000002628859944.png?HW-CC-KV=V1&HW-CC-Date=20260701T014233Z&HW-CC-Expire=86400&HW-CC-Sign=D29E40EDC15195F6C38ADB6714AB5B926DF603001A9D31D5628F8445460C370B)
 
 
  - Caller UIAbility调用[startAbilityByCall()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口获取[Caller](#caller)对象，并使用Caller对象的[call](#call)方法向Callee UIAbility发送数据。

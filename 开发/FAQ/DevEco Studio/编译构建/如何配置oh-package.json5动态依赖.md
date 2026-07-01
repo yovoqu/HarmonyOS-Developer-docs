@@ -1,6 +1,6 @@
 # 如何配置oh-package.json5动态依赖
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-48
 
@@ -31,7 +31,7 @@ oh-package.json5文件中：
   "dynamicDependencies": {
     "libtest3": "@param:dynamicDependencies.libtest3"
   },
-  "parameterFile": '.parameterFile/parameterFile.json5',// Enable parameterization and specify the path to the parameterized configuration file
+  "parameterFile": '.parameterFile/parameterFile.json5',<em>// Enable parameterization and specify the path to the parameterized </em>configuration file
 }
 ```
  

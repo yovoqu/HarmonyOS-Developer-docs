@@ -1,6 +1,6 @@
 # Tips控制
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 为组件绑定Tips悬浮气泡，当鼠标悬浮在组件上时，自动显示提示信息；鼠标离开组件时，悬浮气泡自动隐藏。
  
 > [!NOTE]
-> 从API version 19开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 目前支持通过外接鼠标、手写笔以及触控板触发。
+> 从API version 19开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 目前支持通过外接鼠标、手写笔以及触控板触发。
 
   
 
@@ -64,6 +64,7 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
 | arrowWidth | Dimension | 否 | 是 | 设置气泡箭头宽度。若所设置的宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。 默认值：16 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | arrowHeight | Dimension | 否 | 是 | 设置气泡箭头高度。 默认值：8 单位：vp 说明： 不支持设置百分比。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | showAtAnchor20+ | TipsAnchorType | 否 | 是 | 设置Tips跟随类型。 默认值：TipsAnchorType.TARGET 说明： Tips的跟随类型为TipsAnchorType.CURSOR时，Tips不显示箭头。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置组件的系统材质。 默认值：undefined，会清除由该接口设置的材质效果。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，当设置系统材质时，上述接口不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
  
  
   
@@ -122,7 +123,7 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/lUUU1EliSzubbqC0A7ZMaA/zh-cn_image_0000002581275762.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025545Z&HW-CC-Expire=86400&HW-CC-Sign=5A2F1C324A9AD958B1723BB89A60052A9B27063A79B2509DAD7AFB9367221255)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/tKio2CDbQ7aNhAV3G20-eQ/zh-cn_image_0000002659221593.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=CD1E56E75BAE0548E69AE0CA501ABD06525EC97DEFEAC3AEAF43F2E1FB546E71)
 
  
   
@@ -166,4 +167,49 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/Jsb3STSsTmi4FtMNfZ0XSQ/zh-cn_image_0000002611755619.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025545Z&HW-CC-Expire=86400&HW-CC-Sign=4DFB1E22E2A92EA91BFD4FFEA44E95A596D4485F5D8D604849432DA37F034190)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Fz4e8-ZWR76RTw8r1VNPdw/zh-cn_image_0000002628702402.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=432EABBD76E13568E7F67711AB2C1B2D3D3F7041BCA539A07A78B7CA3E74083D)
+
+ 
+  
+
+#### 示例3（设置悬浮气泡的系统材质视效）
+
+该示例通过设置[TipsOptions](#tipsoptions类型说明)中的systemMaterial属性，实现了bindTips的系统材质视效。
+ 
+从API版本26.0.0开始，在TipsOptions中新增了systemMaterial属性。
+ 
+```ArkTS
+// xxx.ets
+import { uiMaterial } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct TipsExample {
+  build() {
+    Flex({ direction: FlexDirection.Column }) {
+      Button('Hover Tips')
+        .bindTips("悬浮气泡测试", {
+          // 控制是否设置系统材质
+          systemMaterial: new uiMaterial.ImmersiveMaterial({
+            style: uiMaterial.ImmersiveStyle.THIN
+          })
+        })
+        .position({ x: 100, y: 300 })
+    }.width('100%').padding({ top: 5 })
+    // 请开发者替换为实际资源文件
+    .backgroundImage($r("app.media.img"))
+    .backgroundImageSize({width: '100%', height: '100%'})
+  }
+}
+```
+ 
+未设置系统材质时：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/wUT7gzh_T26bTwHpQxrhNQ/zh-cn_image_0000002628860460.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=B53D1C711EAA6422A559F87DCE5A12AB17F87737ACAAC1080F090AF85A93E692)
+
+ 
+设置系统材质后：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/Co6tzLIkRpmM-t0NdYaPQg/zh-cn_image_0000002659219777.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=8EBC105B5284D3E4BB2ACF695EADDF5D3440087D514C9A66AA2E0A59435D8097)

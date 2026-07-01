@@ -1,6 +1,6 @@
 # LongPressGesture
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-longpressgesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,6 +60,8 @@ LongPressGesture(options?: LongPressGestureHandlerOptions)
 当长按触发时间达到或超过500毫秒时，系统优先响应拖拽事件而非长按事件。
  
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -155,6 +157,8 @@ onActionCancel(event: Callback&lt;GestureEvent&gt;)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -208,4 +212,4 @@ struct LongPressGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/pKUHDWzsScOTfwaZ8LNp5A/zh-cn_image_0000002611755649.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=263943B84E9B87A9898D82A133B9C70C69E9A2C619B4E39B51E7F63D9208A462)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/E_Zk3MaKS4eK282SAj_bzg/zh-cn_image_0000002628702434.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=E4B794C62D234DA79B92C706FB2344F429CA6B17A965D88003B9526EADBF783A)

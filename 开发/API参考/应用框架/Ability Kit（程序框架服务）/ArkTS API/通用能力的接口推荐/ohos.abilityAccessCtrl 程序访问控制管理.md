@@ -1,6 +1,6 @@
 # @ohos.abilityAccessCtrl (程序访问控制管理)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,8 +55,6 @@ let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager()
 
 管理访问控制模块的实例。
 
-AtManager接口调用依赖于tokenID，应用可通过[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取tokenID。
-
 
 
 #### checkAccessToken9+
@@ -75,7 +73,7 @@ checkAccessToken(tokenID: number, permissionName: Permissions): Promise&lt;Grant
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过应用的ApplicationInfo的accessTokenId字段获得。 |
+| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过BundleInfo中的ApplicationInfo的accessTokenId字段获取。本应用的tokenID可通过bundleManager.getBundleInfoForSelfSync获取。 |
 | permissionName | Permissions | 是 | 需要校验的权限名称，合法的权限名取值可在应用权限列表中查询。 |
 
 
@@ -83,7 +81,7 @@ checkAccessToken(tokenID: number, permissionName: Permissions): Promise&lt;Grant
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;GrantStatus&gt; | Promise对象，返回授权状态结果。 |
+| Promise&lt;GrantStatus&gt; | Promise对象。返回授权状态结果。 |
 
 
 **错误码：**
@@ -99,14 +97,16 @@ checkAccessToken(tokenID: number, permissionName: Permissions): Promise&lt;Grant
 **示例：**
 
 ```text
-import { abilityAccessCtrl } from '@kit.AbilityKit';
+import { abilityAccessCtrl, Permissions, bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-let tokenID: number = 0; // 获取tokenID的方式可参考AtManager章节的描述。
-atManager.checkAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS').then((data: abilityAccessCtrl.GrantStatus) => {
+let bundleInfo = bundleManager.getBundleInfoForSelfSync(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION);
+let tokenID: number = bundleInfo.appInfo.accessTokenId;
+let permissionName: Permissions = 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS';
+atManager.checkAccessToken(tokenID, permissionName).then((data: abilityAccessCtrl.GrantStatus) => {
   console.info(`checkAccessToken success, result: ${data}`);
-}).catch((err: BusinessError) => {
+}).catch((err: BusinessError): void => {
   console.error(`checkAccessToken fail, code: ${err.code}, message: ${err.message}`);
 });
 ```
@@ -129,7 +129,7 @@ checkAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过应用的ApplicationInfo的accessTokenId字段获得。 |
+| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过BundleInfo中的ApplicationInfo的accessTokenId字段获取。本应用的tokenID可通过bundleManager.getBundleInfoForSelfSync获取。 |
 | permissionName | Permissions | 是 | 需要校验的权限名称，合法的权限名取值可在应用权限列表中查询。 |
 
 
@@ -153,10 +153,11 @@ checkAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus
 **示例：**
 
 ```text
-import { abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
+import { abilityAccessCtrl, Permissions, bundleManager } from '@kit.AbilityKit';
 
 let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-let tokenID: number = 0; // 获取tokenID的方式可参考AtManager章节的描述。
+let bundleInfo = bundleManager.getBundleInfoForSelfSync(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION);
+let tokenID: number = bundleInfo.appInfo.accessTokenId;
 let permissionName: Permissions = 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS';
 let data: abilityAccessCtrl.GrantStatus = atManager.checkAccessTokenSync(tokenID, permissionName);
 console.info(`Result: ${data}`);
@@ -192,7 +193,7 @@ on(type: 'selfPermissionStateChange', permissionList: Array&lt;Permissions&gt;, 
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅事件类型，固定为'selfPermissionStateChange'，自身权限状态变更事件。 |
 | permissionList | Array&lt;Permissions&gt; | 是 | 订阅的权限名列表，如果为空，则表示订阅所有的权限状态变化，合法的权限名取值可在应用权限列表中查询。 |
-| callback | Callback&lt;PermissionStateChangeInfo&gt; | 是 | 回调函数，返回订阅指定权限名状态变更事件的结果。 |
+| callback | Callback&lt;PermissionStateChangeInfo&gt; | 是 | 回调函数。订阅指定权限名状态变更事件的回调。 |
 
 
 **错误码：**
@@ -213,14 +214,15 @@ on(type: 'selfPermissionStateChange', permissionList: Array&lt;Permissions&gt;, 
 ```text
 import { abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
 
-let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-let permissionList: Array<Permissions> = ['ohos.permission.APPROXIMATELY_LOCATION'];
 try {
-    atManager.on('selfPermissionStateChange', permissionList, (data: abilityAccessCtrl.PermissionStateChangeInfo) => {
-        console.info(`receive permission state change, result: ${data}`);
-    });
+  let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
+  let permissionList: Array<Permissions> = ['ohos.permission.APPROXIMATELY_LOCATION'];
+  atManager.on('selfPermissionStateChange', permissionList, (data: abilityAccessCtrl.PermissionStateChangeInfo) => {
+    console.info('receive permission state change');
+    console.info(`data change: ${data.change}, tokenID: ${data.tokenID}, permission name: ${data.permissionName}`);
+  });
 } catch(err) {
-    console.error(`Code: ${err.code}, message: ${err.message}`);
+  console.error(`Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
@@ -246,7 +248,7 @@ off(type: 'selfPermissionStateChange', permissionList: Array&lt;Permissions&gt;,
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅事件类型，固定为'selfPermissionStateChange'，权限状态变更事件。 |
 | permissionList | Array&lt;Permissions&gt; | 是 | 取消订阅的权限名列表，为空时表示取消订阅所有的权限状态变化，必须与on的输入一致，合法的权限名取值可在应用权限列表中查询。 |
-| callback | Callback&lt;PermissionStateChangeInfo&gt; | 否 | 回调函数，返回取消订阅指定tokenID与指定权限名状态变更事件的结果。 |
+| callback | Callback&lt;PermissionStateChangeInfo&gt; | 否 | 回调函数。取消订阅指定tokenID与指定权限名状态变更事件的回调。 |
 
 
 **错误码：**
@@ -265,12 +267,12 @@ off(type: 'selfPermissionStateChange', permissionList: Array&lt;Permissions&gt;,
 ```text
 import { abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
 
-let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-let permissionList: Array<Permissions> = ['ohos.permission.APPROXIMATELY_LOCATION'];
 try {
-    atManager.off('selfPermissionStateChange', permissionList);
+  let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
+  let permissionList: Array<Permissions> = ['ohos.permission.APPROXIMATELY_LOCATION'];
+  atManager.off('selfPermissionStateChange', permissionList);
 } catch(err) {
-    console.error(`Code: ${err.code}, message: ${err.message}`);
+  console.error(`Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
@@ -372,7 +374,7 @@ requestPermissionsFromUser(context: Context, permissionList: Array&lt;Permission
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;PermissionRequestResult&gt; | Promise对象，返回接口的结果。 |
+| Promise&lt;PermissionRequestResult&gt; | Promise对象。返回接口的结果。 |
 
 
 **错误码：**
@@ -405,7 +407,7 @@ atManager.requestPermissionsFromUser(context, ['ohos.permission.CAMERA']).then((
   console.info('requestPermissionsFromUser data authResults:' + data.authResults);
   console.info('requestPermissionsFromUser data dialogShownResults:' + data.dialogShownResults);
   console.info('requestPermissionsFromUser data errorReasons:' + data.errorReasons);
-}).catch((err: BusinessError) => {
+}).catch((err: BusinessError): void => {
   console.error(`requestPermissionsFromUser fail, code: ${err.code}, message: ${err.message}`);
 });
 ```
@@ -444,12 +446,12 @@ requestPermissionOnSetting(context: Context, permissionList: Array&lt;Permission
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;GrantStatus&gt;> | Promise对象，返回授权状态结果。 |
+| Promise<Array&lt;GrantStatus&gt;> | Promise对象。返回授权状态结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[访问控制错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-access-token)。
+以下错误码的详细介绍请参见[访问控制错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-access-token)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -473,7 +475,7 @@ let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager()
 let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 atManager.requestPermissionOnSetting(context, ['ohos.permission.CAMERA']).then((data: Array<abilityAccessCtrl.GrantStatus>) => {
   console.info(`requestPermissionOnSetting success, result: ${data}`);
-}).catch((err: BusinessError) => {
+}).catch((err: BusinessError): void => {
   console.error(`requestPermissionOnSetting fail, code: ${err.code}, message: ${err.message}`);
 });
 ```
@@ -491,7 +493,7 @@ requestGlobalSwitch(context: Context, type: SwitchType): Promise&lt;boolean&gt;
 在某些情况下，如果录音、拍照等功能被禁用，应用可拉起此弹框请求用户同意开启对应功能。如果当前全局开关的状态为开启，则不拉起弹框。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/_zicMymhQq-51RKvMq7wOg/zh-cn_image_0000002622859301.png?HW-CC-KV=V1&HW-CC-Date=20260611T074821Z&HW-CC-Expire=86400&HW-CC-Sign=6F6F75BD2274A3C16A64510682083A3A0953CAD8B25DFB96256A813FAEE1ED35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/YW6R5XuuTcaHV1RjUPdb3g/zh-cn_image_0000002628862118.png?HW-CC-KV=V1&HW-CC-Date=20260701T014235Z&HW-CC-Expire=86400&HW-CC-Sign=9C7F82E3DBA80EAB070799AAF31BFA40C9EDCC0C6221931E7781C383546A40A1)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -540,7 +542,7 @@ let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager()
 let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 atManager.requestGlobalSwitch(context, abilityAccessCtrl.SwitchType.CAMERA).then((data: Boolean) => {
   console.info(`requestGlobalSwitch success, result: ${data}`);
-}).catch((err: BusinessError) => {
+}).catch((err: BusinessError): void => {
   console.error(`requestGlobalSwitch fail, code: ${err.code}, message: ${err.message}`);
 });
 ```
@@ -624,7 +626,7 @@ openPermissionOnSetting(context: Context, permission: Permissions): Promise&lt;S
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;SelectedResult&gt; | Promise对象，返回跳转设置页弹窗结果。 |
+| Promise&lt;SelectedResult&gt; | Promise对象。返回跳转设置页弹窗结果。 |
 
 
 **错误码：**
@@ -651,7 +653,7 @@ let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager()
 let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 atManager.openPermissionOnSetting(context, 'ohos.permission.HOOK_KEY_EVENT').then((data: abilityAccessCtrl.SelectedResult) => {
   console.info(`openPermissionOnSetting success, result: ${data}`);
-}).catch((err: BusinessError) => {
+}).catch((err: BusinessError): void => {
   console.error(`openPermissionOnSetting fail, code: ${err.code}, message: ${err.message}`);
 });
 ```
@@ -672,7 +674,7 @@ verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过应用的ApplicationInfo的accessTokenId字段获得。 |
+| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过BundleInfo中的ApplicationInfo的accessTokenId字段获取。本应用的tokenID可通过bundleManager.getBundleInfoForSelfSync获取。 |
 | permissionName | Permissions | 是 | 需要校验的权限名称，合法的权限名取值可在应用权限列表中查询。 |
 
 
@@ -696,12 +698,14 @@ verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus
 **示例：**
 
 ```text
-import { abilityAccessCtrl } from '@kit.AbilityKit';
+import { abilityAccessCtrl, Permissions, bundleManager } from '@kit.AbilityKit';
 
 let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-let tokenID: number = 0; // 获取tokenID的方式可参考AtManager章节的描述。
+let bundleInfo = bundleManager.getBundleInfoForSelfSync(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION);
+let tokenID: number = bundleInfo.appInfo.accessTokenId;
 try {
-  let data: abilityAccessCtrl.GrantStatus = atManager.verifyAccessTokenSync(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS');
+  let permissionName: Permissions = 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS';
+  let data: abilityAccessCtrl.GrantStatus = atManager.verifyAccessTokenSync(tokenID, permissionName);
   console.info(`verifyAccessTokenSync success, result: ${data}`);
 } catch(err) {
   console.error(`verifyAccessTokenSync fail, code: ${err.code}, message: ${err.message}`);
@@ -728,7 +732,7 @@ verifyAccessToken(tokenID: number, permissionName: Permissions): Promise&lt;Gran
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过应用的ApplicationInfo的accessTokenId字段获得。 |
+| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过BundleInfo中的ApplicationInfo的accessTokenId字段获取。本应用的tokenID可通过bundleManager.getBundleInfoForSelfSync获取。 |
 | permissionName | Permissions | 是 | 需要校验的权限名称，合法的权限名取值可在应用权限列表中查询。 |
 
 
@@ -736,21 +740,22 @@ verifyAccessToken(tokenID: number, permissionName: Permissions): Promise&lt;Gran
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;GrantStatus&gt; | Promise对象，返回授权状态结果。 |
+| Promise&lt;GrantStatus&gt; | Promise对象。返回授权状态结果。 |
 
 
 **示例：**
 
 ```text
-import { abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
+import { abilityAccessCtrl, Permissions, bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-let tokenID: number = 0; // 获取tokenID的方式可参考AtManager章节的描述。
+let bundleInfo = bundleManager.getBundleInfoForSelfSync(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION);
+let tokenID: number = bundleInfo.appInfo.accessTokenId;
 let permissionName: Permissions = 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS';
 atManager.verifyAccessToken(tokenID, permissionName).then((data: abilityAccessCtrl.GrantStatus) => {
   console.info(`verifyAccessToken success, result: ${data}`);
-}).catch((err: BusinessError) => {
+}).catch((err: BusinessError): void => {
   console.error(`verifyAccessToken fail, code: ${err.code}, message: ${err.message}`);
 });
 ```
@@ -775,7 +780,7 @@ verifyAccessToken(tokenID: number, permissionName: string): Promise&lt;GrantStat
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过应用的ApplicationInfo的accessTokenId字段获得。 |
+| tokenID | number | 是 | 要校验的目标应用的身份标识，可通过BundleInfo中的ApplicationInfo的accessTokenId字段获取。本应用的tokenID可通过bundleManager.getBundleInfoForSelfSync获取。 |
 | permissionName | string | 是 | 需要校验的权限名称，合法的权限名取值可在应用权限列表中查询。 |
 
 
@@ -783,20 +788,22 @@ verifyAccessToken(tokenID: number, permissionName: string): Promise&lt;GrantStat
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;GrantStatus&gt; | Promise对象，返回授权状态结果。 |
+| Promise&lt;GrantStatus&gt; | Promise对象。返回授权状态结果。 |
 
 
 **示例：**
 
 ```text
-import { abilityAccessCtrl } from '@kit.AbilityKit';
+import { abilityAccessCtrl, Permissions, bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
-let tokenID: number = 0; // 获取tokenID的方式可参考AtManager章节的描述。
-atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS').then((data: abilityAccessCtrl.GrantStatus) => {
+let bundleInfo = bundleManager.getBundleInfoForSelfSync(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION);
+let tokenID: number = bundleInfo.appInfo.accessTokenId;
+let permissionName: Permissions = 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS';
+atManager.verifyAccessToken(tokenID, permissionName).then((data: abilityAccessCtrl.GrantStatus) => {
   console.info(`verifyAccessToken success, result: ${data}`);
-}).catch((err: BusinessError) => {
+}).catch((err: BusinessError): void => {
   console.error(`verifyAccessToken fail, code: ${err.code}, message: ${err.message}`);
 });
 ```
@@ -871,7 +878,7 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | change | PermissionStateChangeType | 否 | 否 | 权限授权状态变化类型。 |
-| tokenID | number | 否 | 否 | 被订阅的应用身份标识，可通过应用的ApplicationInfo的accessTokenId字段获得。 |
+| tokenID | number | 否 | 否 | 被订阅的应用身份标识，可通过应用BundleInfo中的ApplicationInfo的accessTokenId字段获取。本应用的tokenID可通过bundleManager.getBundleInfoForSelfSync获取。 |
 | permissionName | Permissions | 否 | 否 | 当前授权状态发生变化的权限名，合法的权限名取值可在应用权限列表中查询。 |
 
 

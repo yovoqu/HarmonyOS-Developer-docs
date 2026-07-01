@@ -1,6 +1,6 @@
 # assetDownloadManager（资源包下载管理）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager
 **支持设备：** Phone | Tablet
@@ -134,8 +134,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | downloadTask | AssetDownloadTask | 是 | 否 | 资源包下载任务的信息。 |
-| totalBytesWritten | number | 是 | 否 | 待下载的资源总大小，单位：Byte。 默认值：0。 |
-| totalExpectedBytes | number | 是 | 否 | 已下载的资源总大小，单位：Byte。 默认值：0。 |
+| totalBytesWritten | number | 是 | 否 | 已下载的资源总大小，单位：Byte。 默认值：0。 |
+| totalExpectedBytes | number | 是 | 否 | 待下载的资源总大小，单位：Byte。 默认值：0。 |
 
 
 

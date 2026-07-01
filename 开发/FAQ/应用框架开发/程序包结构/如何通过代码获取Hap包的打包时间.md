@@ -1,26 +1,26 @@
 # 如何通过代码获取Hap包的打包时间
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-70
 
 通过hvigor构建脚本实现，打包时将时间写入到一个Json文件，保存到rawfile目录下，然后在APP中直接读取这个文件的内容即可。hvigorfile.ts文件内容：
  
-```ts
+```json
 import { appTasks } from '@ohos/hvigor-ohos-plugin';
 import { hvigor } from '@ohos/hvigor';
 import * as fileIo from 'fs';
 import * as path from 'path';
 
-// Callback function after node evaluation
+<em>// Callback function after node evaluation</em>
 hvigor.afterNodeEvaluate((hvigorNode) => {
-  // Ensure this directory exists
+  <em>// Ensure this directory exists</em>
   const resourcesDir = path.join(__dirname, 'entry/src/main/resources/rawfile');
   if (!fileIo.existsSync(resourcesDir)) {
     fileIo.mkdirSync(resourcesDir, { recursive: true });
   }
 
-  // Write the build time into the JSON file
+  <em>// Write the build time into the JSON file</em>
   const now = new Date();
   const buildTime = now.getFullYear() + '-'
     + String(now.getMonth() + 1).padStart(2, '0') + '-'
@@ -36,7 +36,7 @@ hvigor.afterNodeEvaluate((hvigorNode) => {
 })
 
 export default {
-  system: appTasks, /* Built-in plugin of Hvigor. It cannot be modified. */
-  plugins: [] /* Custom plugin to extend the functionality of Hvigor. */
+  system: appTasks, <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
+  plugins: [] <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
 }
 ```

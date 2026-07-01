@@ -1,6 +1,6 @@
 # ArkUI_TextSelectionMenuOptions
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textselectionmenuoptions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_TextSelectionMenuOptions ArkUI_TextSelectionMenuOptions
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义自定义文本选择菜单结构体。
+定义自定义文本选择菜单选项结构体。
  
 **起始版本：** 22
  

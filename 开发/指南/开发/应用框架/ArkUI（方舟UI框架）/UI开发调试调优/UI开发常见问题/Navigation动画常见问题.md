@@ -1,6 +1,6 @@
 # Navigation动画常见问题
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-animation-faq
 
@@ -53,13 +53,13 @@ export struct DialogNavDestination {
     .backgroundColor(this.backColor)
     .mode(NavDestinationMode.DIALOG)
     .onWillAppear(() => {
-      //启动时候蒙层渐现
+      // 启动时蒙层渐现
       this.getUIContext().animateTo({ duration:450 }, () => {
         this.backColor = '#66000000';
       });
     })
     .onWillDisappear(() => {
-      // 消失时候蒙层渐隐
+      // 消失时蒙层渐隐
       this.getUIContext().animateTo({ duration: 450 }, () => {
         this.backColor = '#00000000';
       });

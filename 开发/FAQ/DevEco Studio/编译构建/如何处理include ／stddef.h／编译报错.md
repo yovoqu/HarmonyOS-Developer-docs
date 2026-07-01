@@ -1,10 +1,10 @@
-# 如何处理include <stddef.h>编译报错
+# 如何处理 include <stddef.h> 编译报错
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-59
 
-# 如何处理include <stddef.h>编译报错
+# 如何处理 include <stddef.h> 编译报错
  
 
 **问题现象**

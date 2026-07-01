@@ -1,6 +1,6 @@
 # @ohos.data.distributedDataObject (分布式数据对象)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-distributedobject
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -314,7 +314,7 @@ setSessionId(callback: AsyncCallback&lt;void&gt;): void
 
 **需要权限：**
 
- - API版本20+：不需要权限
+ - API版本20+：N/A
  - API版本9-19：ohos.permission.DISTRIBUTED_DATASYNC
 
 
@@ -333,6 +333,7 @@ setSessionId(callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 201 | Permission verification failed. 适用版本：9-19 |
 | 401 | Parameter error. Incorrect parameter types. |
 | 15400001 | Failed to create the in-memory database. |
 
@@ -1245,7 +1246,7 @@ setAsset(assetKey: string, uri: string): Promise&lt;void&gt;
 设置分布式对象中的单个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/cO0ZI0OyTjWeaFzHJIGbrw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025611Z&HW-CC-Expire=86400&HW-CC-Sign=3BD04535CFB90AF5751DE1D982CE93E69815D2B031C5FA695A100C54A16E316E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/xkrN0b_GSTysFYMfll20aQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014251Z&HW-CC-Expire=86400&HW-CC-Sign=028BFCA67865640455E22E861F3E6B995EDEF90B5904C33033837C5E510BE22E)
 
 
 在设置资产时必须保证assetKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
@@ -1346,7 +1347,7 @@ setAssets(assetsKey: string, uris: Array&lt;string&gt;): Promise&lt;void&gt;
 设置分布式对象中的多个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。uris数组的数量范围为1-50。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/cXHYskGwRfWCgxEdK78_hQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025611Z&HW-CC-Expire=86400&HW-CC-Sign=365BA12443B4F8B73DB3418898A2928ADEEDDB5D30F02EDE7AC73160AA47ED23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/5lLwFN4GRvSpRJpMSH0vSw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014251Z&HW-CC-Expire=86400&HW-CC-Sign=7BB412E4AFCD41DC4CDCC2E7FBAF027AE6DBD50CFEA22A9D0AD2D724C96E3E21)
 
 
 在设置资产时必须保证assetsKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。

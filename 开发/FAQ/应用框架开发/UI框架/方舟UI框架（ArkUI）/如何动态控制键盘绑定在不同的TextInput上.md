@@ -1,16 +1,16 @@
 # 如何动态控制键盘绑定在不同的TextInput上
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-215
 
 软键盘的收起和弹出与输入框的获焦和失焦相关。可以通过 focusControl 动态控制输入框焦点的转移，从而控制软键盘的显示和隐藏。将焦点转移到目标输入框可以实现键盘的动态切换。参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct DynamicControlKeyboard {
-  // Whether focus is on "key1" TextInput
+ <em> // Whether focus is on "key1" TextInput</em>
   private flag: boolean = true;
   @Builder
   customKeyboardBuilder() {

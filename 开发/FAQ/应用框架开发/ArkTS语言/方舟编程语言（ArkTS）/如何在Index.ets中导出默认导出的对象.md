@@ -1,19 +1,19 @@
 # 如何在Index.ets中导出默认导出的对象
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-145
 
 **问题现象**
  
 ```ArkTS
-// src/main/ets/api/AppInterfaces.ets
+<em>// src/main/ets/api/AppInterfaces.ets</em>
 import { DemoService } from "../service/DemoService";
 class AppInterfaces {
   demoService?: DemoService;
 }
 export default new AppInterfaces() as AppInterfaces;
-// Index.ets
+<em>// Index.ets</em>
 export AppInterfaces from './src/main/ets/api/AppInterfaces';
 ```
  
@@ -21,7 +21,7 @@ export AppInterfaces from './src/main/ets/api/AppInterfaces';
  
 **解决措施**
  
-```ArkTS
+```text
 import { DemoService } from "../service/DemoService";
 class AppInterfaces {
   demoService?: DemoService;

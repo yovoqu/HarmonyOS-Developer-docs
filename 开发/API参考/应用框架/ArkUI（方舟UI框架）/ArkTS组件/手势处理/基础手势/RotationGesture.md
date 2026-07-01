@@ -1,6 +1,6 @@
 # RotationGesture
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-rotationgesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,6 +48,8 @@ RotationGesture(options?: RotationGestureHandlerOptions)
 设置旋转手势事件。与[RotationGesture](#rotationgesture-1)相比，options参数新增了isFingerCountLimited参数，表示是否检查触摸屏幕的手指数量。
  
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -164,6 +166,8 @@ Rotation手势识别成功，接收到触摸取消事件触发的回调。与[on
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -222,4 +226,4 @@ struct RotationGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/-LcY2IkeRha222tuTql3sw/zh-cn_image_0000002581435712.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=6678B1D307E0E95D21DA9EE27175AA25A1227EB99AEB970BE16E27D93FB33ADE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/5XqO2ir_QHSd_XvbOMyedQ/zh-cn_image_0000002659101665.png?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=B2D23F08A288253BBCCCA4A70D1F3C192DA35F46ED7442E8397F97D735DBD8B5)

@@ -1,6 +1,6 @@
-# 如何解决编译报错“Property xxx does not exist on type 'typeof BuildProfile'”
+# 如何解决编译报错“Property xxx does not exist on type 'typeof BuildProfile'
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-69
 

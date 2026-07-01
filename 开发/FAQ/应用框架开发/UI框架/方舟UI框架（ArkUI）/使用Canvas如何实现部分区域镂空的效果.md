@@ -1,6 +1,6 @@
 # 使用Canvas如何实现部分区域镂空的效果
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-346
 
@@ -9,7 +9,7 @@
  
 **参考代码**
  
-```ArkTS
+```text
 @Entry
 @Component
 struct HollowOutWithCanvas {
@@ -25,7 +25,7 @@ struct HollowOutWithCanvas {
         Stack() {
           Image($r('app.media.startIcon'))
             .height(300)
-          // Use Canvas to draw masks to cover images, cameras, etc
+         <em> // Use Canvas to draw masks to cover images, cameras, etc</em>
           Canvas(this.context)
             .width('100%')
             .height('100%')
@@ -37,7 +37,7 @@ struct HollowOutWithCanvas {
               if (this.circleRadius > this.circleCenterX) {
                 this.circleRadius = this.circleCenterX / 2;
               }
-              // Draw a circular path for semi transparent filling
+           <em>   // Draw a circular path for semi transparent filling</em>
               this.context.beginPath();
               this.context.moveTo(0, 0);
               this.context.lineTo(0, this.context.height);

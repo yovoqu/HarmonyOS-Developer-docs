@@ -1,6 +1,6 @@
 # TimePicker
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-timepicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -52,9 +52,9 @@ TimePicker(options?: TimePickerOptions)
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | selected | Date | 否 | 是 | 设置选中项的时间。 默认值：当前系统时间 从API version 10开始，该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| format11+ | TimePickerFormat | 否 | 是 | 指定需要显示的TimePicker的格式。 默认值：TimePickerFormat.HOUR_MINUTE 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| start18+ | Date | 否 | 是 | 指定时间选择组件的起始时间。 默认值：Date(0, 0, 0, 0, 0, 0) 说明： 1. 仅设置的小时和分钟生效。 2. 设置了start且为非默认值的场景下，loop不生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| end18+ | Date | 否 | 是 | 指定时间选择组件的结束时间。 默认值：Date(0, 0, 0, 23, 59, 59) 说明： 1. 仅设置的小时和分钟生效。 2. 设置了end且为非默认值的场景下，loop不生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| format11+ | TimePickerFormat | 否 | 是 | 指定需要显示的TimePicker的格式。 默认值：TimePickerFormat.HOUR_MINUTE 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| start18+ | Date | 否 | 是 | 指定时间选择组件的起始时间。 默认值：Date(0, 0, 0, 0, 0, 0) 说明： 1. 仅设置的小时和分钟生效。 2. 设置了start且为非默认值的场景下，loop不生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| end18+ | Date | 否 | 是 | 指定时间选择组件的结束时间。 默认值：Date(0, 0, 0, 23, 59, 59) 说明： 1. 仅设置的小时和分钟生效。 2. 设置了end且为非默认值的场景下，loop不生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 在TimePicker组件滑动过程中修改TimePickerOptions中的属性，会导致这些属性无法生效。
@@ -107,6 +107,8 @@ Date对象用于处理日期和时间，使用方式如下。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -156,6 +158,8 @@ useMilitaryTime(isMilitaryTime: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -176,6 +180,8 @@ disappearTextStyle(value: PickerTextStyle)
 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -202,6 +208,8 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -226,6 +234,8 @@ textStyle(value: PickerTextStyle)
 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -252,6 +262,8 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -277,6 +289,8 @@ selectedTextStyle(value: PickerTextStyle)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **设备行为差异：** 该属性在Wearable设备上使用无效果，在其他设备中可正常生效。
@@ -296,9 +310,11 @@ selectedTextStyle(value: PickerTextStyle)
 
 selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
-设置选中项的文本颜色、字号及字体粗细。与[selectedTextStyle10+](#selectedtextstyle10)相比，style参数新增了对undefined类型的支持
+设置选中项的文本颜色、字号及字体粗细。与[selectedTextStyle10+](#selectedtextstyle10)相比，style参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -323,6 +339,8 @@ loop(value: boolean)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -343,6 +361,8 @@ loop(isLoop: Optional&lt;boolean&gt;)
 设置是否启用循环模式。与[loop11+](#loop11)相比，isLoop参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -365,6 +385,8 @@ dateTimeOptions(value: DateTimeOptions)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -385,6 +407,8 @@ dateTimeOptions(timeFormat: Optional&lt;DateTimeOptions&gt;)
 设置时分秒是否显示前导0。与[dateTimeOptions12+](#datetimeoptions12)相比，timeFormat参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -421,6 +445,8 @@ enableHapticFeedback(enable: boolean)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -452,6 +478,8 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -473,6 +501,8 @@ enableCascade(enabled: boolean)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -493,6 +523,8 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 设置表冠灵敏度。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -552,6 +584,8 @@ onChange(callback: Optional&lt;OnTimePickerChangeCallback&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -579,6 +613,8 @@ onEnterSelectedArea(callback: Callback&lt;TimePickerResult&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -594,17 +630,19 @@ onEnterSelectedArea(callback: Callback&lt;TimePickerResult&gt;)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type DateTimeOptions = DateTimeOptions
+type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions
 
 时间、日期格式化时可设置的配置项。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
-| DateTimeOptions | 创建时间、日期格式化对象时可设置的配置项。 |
+| import('../api/@ohos.intl').default.DateTimeOptions | 创建时间、日期格式化对象时可设置的配置项。 |
 
 
 
@@ -618,6 +656,8 @@ type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 选择时间时触发该事件。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -644,7 +684,7 @@ type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 | --- | --- | --- | --- | --- |
 | hour | number | 否 | 否 | 选中时间的时。 取值范围：[0-23] |
 | minute | number | 否 | 否 | 选中时间的分。 取值范围：[0-59] |
-| second11+ | number | 否 | 否 | 选中时间的秒。 取值范围：[0-59] |
+| second11+ | number | 否 | 否 | 选中时间的秒。 取值范围：[0-59] 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -684,7 +724,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GRHw1iOJS-WWmR8za85bkQ/zh-cn_image_0000002581275928.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=8088C2F22C463AD2DC7F26D3C44AD231C52F106D05B02FCB15B5842B99D654F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/spQfaBErTTWSadoPAjNjGg/zh-cn_image_0000002628862452.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=AD2C9515BEDA9DDD3A05DD15C90D2175BA7258A4D738269337DA27919F58B1A1)
 
 
 
@@ -728,7 +768,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/eAvT6ZAkQTS855NGpj6Tvg/zh-cn_image_0000002611755785.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=F27AE44351D5154CEDF85163F43AA696AF061CE3E39CF5ED39AD45FD649E39F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/flhA9j7LQjOmnFVqkqm-SQ/zh-cn_image_0000002659221765.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=B143A712C70E601392285178F93D1E788BC8902E6F71A1FB2E72A0BB49C2D581)
 
 
 
@@ -763,7 +803,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/ey886HcWRimoFxWZ5rhDaA/zh-cn_image_0000002581435848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=84F152F6075724154AAE76C0E568BBD051D3E9299FE0C7CF054990CFD7E25C9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/XxQfFBNwSwmU8OKaIPb0sQ/zh-cn_image_0000002628702576.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=47075B2CC7DF87FB3B995BDD3AFE531E7B5C37CE0CE0A78C5DEF20A13F266140)
 
 
 
@@ -808,7 +848,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/dlhbPji9SvyJzixqVi34hA/zh-cn_image_0000002611835679.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=2FCA93AF57C30EC51DADDE8BA1D117218C151F575D0403F320BF2E3B709CCB24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/qEF5IHJ2QaeYWCmgji8RyA/zh-cn_image_0000002659101803.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=0331422683802BB7974B36ACA25377351347CB5BD5BA0325B6626A0E703F9E49)
 
 
 
@@ -844,7 +884,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/1z3nKicCR4KhaMgZnM997Q/zh-cn_image_0000002581275930.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=EC98D7B445B321006DA4F9D531C070AF2FDBD19553CDA8C7C0E9804031BE0F5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/sen7YL6aTla_fGWkbVTroA/zh-cn_image_0000002628862454.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=A947BDF510EA355ECF7218FCB4A9528268FA82EC4EAEF9BA54C1664D8A971B7D)
 
 
 
@@ -880,7 +920,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/5NCRrKg9SRuwUhENwKDP2g/zh-cn_image_0000002611755787.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=78F0590AA2DAF241B829D60E309B1780F1C16C628104601C185019706473ECC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/3Thc9mqcQjmn9kYHfxdb6A/zh-cn_image_0000002659221767.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=D9194E8166D458FCE860A9EFF2B56A7D8AB7351AFDC6D49541982034FCF17230)
 
 
 
@@ -917,4 +957,4 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/cMVZCqGFTtaukVz1Fx1kBA/zh-cn_image_0000002581435850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=90AFC5C01CFC40F7FC92E841BE554901B4A0DE6FF3CD30DC53D27B19CB58D5C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/w5MpYUcJSO6P7aBkUhLk3g/zh-cn_image_0000002628702578.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=55F3B0580F96ACAB29646B3AE8CF40E0BDC945DA416306440520B6FD4616E0E2)

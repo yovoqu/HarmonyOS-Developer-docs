@@ -1,6 +1,6 @@
 # OH_ArkUI_CustomSpan
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-customspan
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,7 +20,7 @@ typedef struct OH_ArkUI_CustomSpan OH_ArkUI_CustomSpan
  
  可以通过[OH_ArkUI_CustomSpan_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_customspan_destroy)接口销毁自定义绘制Span对象。 
  
- 对象创建后通过[OH_ArkUI_CustomSpan_RegisterOnMeasureCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_customspan_registeronmeasurecallback)和[OH_ArkUI_CustomSpan_RegisterOnDrawCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_customspan_registerondrawcallback)接口注册绘制回调函数。
+ 对象创建后通过[OH_ArkUI_CustomSpan_RegisterOnMeasureCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_customspan_registeronmeasurecallback)和[OH_ArkUI_CustomSpan_RegisterOnDrawCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_customspan_registerondrawcallback)接口分别注册测量和绘制回调函数。
  
 **起始版本：** 24
  

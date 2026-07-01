@@ -1,6 +1,6 @@
 # RichEditor
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 支持图文混排和文本交互式编辑的组件。
 
 > [!NOTE]
-> 该组件从API version 10开始支持。后续版本新增内容，采用上角标单独标记该内容的起始版本。
+> 该组件从API version 10开始支持。后续版本新增内容，采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 该组件从API版本26.0.0开始支持 WithTheme 。
 
 
 
@@ -162,7 +162,7 @@ copyOptions不为CopyOptions.None时，长按组件内容，会弹出文本选�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | CopyOptions | 是 | 组件支持文本内容是否可复制粘贴。 默认值：CopyOptions.LocalDevice |
+| value | CopyOptions | 是 | 文本内容是否可复制粘贴。 默认值：CopyOptions.LocalDevice |
 
 
 
@@ -254,7 +254,7 @@ enableSelectedDataDetector(enable: boolean | undefined)
 
 设置是否启用文本选择的AI菜单功能。启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。默认启用AI菜单功能。
 
-AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括[TextMenuItemId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitemid12)中的url（打开连接）、email（新建邮件）、phoneNumber（呼叫）、address（导航前往）、dateTime（新建日程）。
+AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括[TextMenuItemId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitemid12)中的url（打开链接）、email（新建邮件）、phoneNumber（呼叫）、address（导航前往）、dateTime（新建日程）。
 
 AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体，才能展示对应的选项。该菜单项与[TextMenuItemId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textmenuitemid12)中的askAI菜单项不同时出现。
 
@@ -298,7 +298,7 @@ enablePreviewText(enable: boolean)
 | enable | boolean | 是 | 使能预上屏功能。 true表示开启，false表示不开启。 默认值： true |
 
 
-该接口在CAPI场景使用时默认关闭。可以在工程的module.json5中配置[metadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-structure#metadata对象内部结构)字段控制是否启用预上屏，配置如下：
+该接口在CAPI场景使用时默认关闭。可以在工程的module.json5中配置[metadata](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/module-structure#metadata对象内部结构)字段控制是否启用预上屏，配置如下：
 
 ```json
 "metadata": [
@@ -766,6 +766,56 @@ singleLine(isEnable: boolean | undefined)
 
 
 
+#### orphanCharOptimization
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+orphanCharOptimization(enabled: Optional&lt;boolean&gt;)
+
+设置文本排版时是否使能孤字优化。不通过该接口设置，默认不使能孤字优化。
+
+孤字优化通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[RichEditorParagraphStyle](#richeditorparagraphstyle11)的wordBreak属性为非BREAK_ALL并且待排版文本首个[TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#textstyle)的[locale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#textstyle)为“zh-Hans”或“zh-Hant”时生效。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | Optional&lt;boolean&gt; | 是 | 段落最后一行是否使能孤字优化。 true表示使能孤字优化，false表示不使能孤字优化。设置为undefined或null时，不使能孤字优化。 |
+
+
+
+
+#### horizontalScrolling
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+horizontalScrolling(enabled: Optional&lt;boolean&gt;)
+
+设置当文本宽度超过内容区宽度时是否启用水平滚动。不通过该接口设置，默认禁用水平滚动。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | Optional&lt;boolean&gt; | 是 | 是否启用水平滚动。 true表示启用水平滚动，false表示禁用水平滚动，文本将自动换行。设置为undefined或null时，不启用水平滚动。 |
+
+
+
+
 #### 事件
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1219,7 +1269,7 @@ onWillAttachIME(callback: Callback&lt;IMEClient&gt; | undefined)
 | value | string | 否 | 否 | 文本Span内容或Symbol的id。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | textStyle | RichEditorTextStyleResult | 否 | 否 | 文本Span样式信息。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | offsetInSpan | [number, number] | 否 | 否 | 文本Span内容里有效内容的起始和结束位置。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| valueResource11+ | Resource | 否 | 是 | 组件SymbolSpan内容。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| valueResource11+ | Resource | 否 | 是 | SymbolSpan资源内容。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | symbolSpanStyle11+ | RichEditorSymbolSpanStyle | 否 | 是 | 组件SymbolSpan样式信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | paragraphStyle12+ | RichEditorParagraphStyle | 否 | 是 | 段落样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | previewText12+ | string | 否 | 是 | 文本Span预上屏内容。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -2366,7 +2416,7 @@ SymbolSpan样式选项。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| symbolStyle | RichEditorSymbolSpanStyle | 否 | 否 | 组件样式。 |
+| symbolStyle | RichEditorSymbolSpanStyle | 否 | 否 | SymbolSpan样式。 |
 
 
 
@@ -2562,8 +2612,8 @@ SymbolSpan样式选项。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| offset | number | 否 | 是 | 添加组件的位置。省略时，添加到所有内容的最后。 如果值小于0，添加到所有内容的最前面；如果值大于所有内容的长度，添加到所有内容的最后面。 |
-| style | RichEditorSymbolSpanStyle | 否 | 是 | 组件样式信息。省略时，使用系统默认样式信息。 |
+| offset | number | 否 | 是 | 添加SymbolSpan的位置。省略时，添加到所有内容的最后。 如果值小于0，添加到所有内容的最前面；如果值大于所有内容的长度，添加到所有内容的最后面。 |
+| style | RichEditorSymbolSpanStyle | 否 | 是 | SymbolSpan样式信息。省略时，使用系统默认样式信息。 |
 
 
 
@@ -7459,3 +7509,104 @@ struct RichEditorExample {
 
 
 ![](assets/RichEditor/file-20260525091221059-020.gif)
+
+
+
+
+#### 示例40（设置孤立字符不成行）
+
+该示例通过[orphanCharOptimization](#orphancharoptimization)接口设置使能孤字优化，确保段落最后一行不出现孤字。
+
+从API版本26.0.0开始，新增orphanCharOptimization接口。
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct RichEditorDemo {
+  controller1: RichEditorController = new RichEditorController();
+  controller2: RichEditorController = new RichEditorController();
+  @State text: string = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa文本';
+  textSpanOptions: RichEditorTextSpanOptions = { style: { fontSize: 20 } };
+
+  build() {
+    Column({ space: 10 }) {
+      Text('orphanCharOptimization: true')
+        .fontSize(12).width('90%')
+      RichEditor({ controller: this.controller1 })
+        .onReady(() => {
+          this.controller1.addTextSpan(this.text, this.textSpanOptions)
+        })
+        .orphanCharOptimization(true)
+        .width(430)
+        .borderWidth(1)
+
+      Divider()
+
+      Text('orphanCharOptimization: false')
+        .fontSize(12).width('90%')
+
+      RichEditor({ controller: this.controller2 })
+        .onReady(() => {
+          this.controller2.addTextSpan(this.text, this.textSpanOptions)
+        })
+        .orphanCharOptimization(false)
+        .width(430)
+        .borderWidth(1)
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+
+![](assets/RichEditor/file-20260525091221060-021.gif)
+
+
+
+
+#### 示例41（设置水平滚动）
+
+本示例通过[horizontalScrolling](#horizontalscrolling)设置水平滚动。
+
+从API版本26.0.0开始，新增horizontalScrolling接口。
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct HorizontalScrollDemo {
+  controller: RichEditorController = new RichEditorController();
+  textSpanOptions: RichEditorTextSpanOptions = { style: { fontSize: 30 } };
+  exampleText: string = '这是一段超长示例文本\n这是一段超长示例文本';
+  @State enableHorizontalScroll: boolean = false;
+
+  build() {
+    Column() {
+      Row() {
+        RichEditor({ controller: this.controller })
+          .onReady(() => {
+            this.controller.addTextSpan(this.exampleText, this.textSpanOptions)
+          })
+          .width('220vp')
+          .height('160vp')
+          .horizontalScrolling(this.enableHorizontalScroll)
+          .border({ width: 1, color: Color.Black })
+          .margin(10)
+      }
+      Row() {
+        Button('启用水平滚动').onClick((event: ClickEvent) => {
+          this.enableHorizontalScroll = true
+        }).margin(5)
+        Button('禁用水平滚动').onClick((event: ClickEvent) => {
+          this.enableHorizontalScroll = false
+        }).margin(5)
+      }
+    }
+  }
+}
+```
+
+
+![](assets/RichEditor/file-20260525091221060-022.gif)

@@ -1,6 +1,6 @@
 # hidebug.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义HiDebug模块的调试功能。
+定义HiDebug模块的调试功能，提供CPU使用率监控、内存信息查询、trace采集、栈回溯、性能采样、内存导出监听、维测信息记录等能力，帮助开发者进行应用性能分析、资源管理和问题诊断。
 
 **引用文件：** <hidebug/hidebug.h>
 
@@ -49,9 +49,9 @@
 | HiDebug_ErrorCode OH_HiDebug_GetGraphicsMemory(uint32_t *value) | - | 获取应用GPU显存大小。注意：由于该接口涉及多次跨进程通信，其耗时可能超过1秒，建议不要在主线程中直接调用该接口。 |
 | int OH_HiDebug_BacktraceFromFp(HiDebug_Backtrace_Object object, void* startFp, void** pcArray, int size) | - | 根据给定的fp地址进行栈回溯，该函数异步信号安全。 |
 | typedef void (*OH_HiDebug_SymbolicAddressCallback)(void* pc, void* arg, const HiDebug_StackFrame* frame) | OH_HiDebug_SymbolicAddressCallback | 若OH_HiDebug_SymbolicAddress接口调用成功，将通过该函数将解析后的栈信息返回给调用者。 注意： 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。 |
-| HiDebug_ErrorCode OH_HiDebug_SymbolicAddress(HiDebug_Backtrace_Object object, void* pc, void* arg, OH_HiDebug_SymbolicAddressCallback callback) | - | 通过给定的pc地址获取详细的符号信息，该函数非异步信号安全。 注意： 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。 |
+| HiDebug_ErrorCode OH_HiDebug_SymbolicAddress(HiDebug_Backtrace_Object object, void* pc, void* arg, OH_HiDebug_SymbolicAddressCallback callback) | - | 通过给定的pc地址获取详细的符号信息，该函数非异步信号安全。不能在异步信号处理函数中使用。 注意： 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。 |
 | HiDebug_Backtrace_Object OH_HiDebug_CreateBacktraceObject(void) | - | 创建一个用于栈回溯及栈解析的对象，该函数非异步信号安全。 注意： 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。 |
-| void OH_HiDebug_DestroyBacktraceObject(HiDebug_Backtrace_Object object) | - | 销毁由OH_HiDebug_CreateBacktraceObject创建的对象，以释放栈回溯及栈解析过程中申请的资源，该函数非异步信号安全。 |
+| void OH_HiDebug_DestroyBacktraceObject(HiDebug_Backtrace_Object object) | - | 销毁由OH_HiDebug_CreateBacktraceObject创建的对象，以释放栈回溯及栈解析过程中申请的资源，该函数非异步信号安全。由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。 |
 | HiDebug_ErrorCode OH_HiDebug_SetMallocDispatchTable(struct HiDebug_MallocDispatch *dispatchTable) | - | 通过设置基础库C库中的MallocDispatch表，将原始内存操作函数（例如：malloc/free/calloc/realloc/mmap/munmap）临时替换为开发者自定义的内存操作函数。MallocDispatch表是基础库C库中封装malloc/calloc/realloc/free等内存操作函数的结构体，HiDebug_MallocDispatch只是MallocDispatch结构体的一部分。 注意： 禁止在自定义内存操作函数中直接调用libc标准库中的malloc/free/calloc/realloc/mmap/munmap等内存操作函数，否则会导致死锁。禁止在自定义malloc方法中使用hilog打印日志，否则会导致死锁。 |
 | HiDebug_MallocDispatch* OH_HiDebug_GetDefaultMallocDispatchTable(void) | - | 获取基础库C库当前默认MallocDispatch表，调用OH_HiDebug_RestoreMallocDispatchTable可恢复。 |
 | void OH_HiDebug_RestoreMallocDispatchTable(void) | - | 恢复基础库C库MallocDispatch表。 |
@@ -162,7 +162,7 @@ void OH_HiDebug_FreeThreadCpuUsage(HiDebug_ThreadCpuUsagePtr *threadCpuUsage)
 
 | 参数项 | 描述 |
 | --- | --- |
-| HiDebug_ThreadCpuUsagePtr *threadCpuUsage | 应用的所有线程可用CPU使用缓冲区指针，见HiDebug_ThreadCpuUsagePtr。传入的参数是要由OH_HiDebug_GetAppThreadCpuUsage()得到的。 |
+| HiDebug_ThreadCpuUsagePtr *threadCpuUsage | 应用的所有线程可用CPU使用缓冲区指针，见HiDebug_ThreadCpuUsagePtr。传入的参数是要由OH_HiDebug_GetAppThreadCpuUsage()得到的。传入后该函数将释放指向的线程CPU使用数据结构，释放后该指针不可再被使用。 |
 
 
 
@@ -446,10 +446,10 @@ HiDebug_ErrorCode OH_HiDebug_SymbolicAddress(HiDebug_Backtrace_Object object, vo
 
 **描述**
 
-通过给定的pc地址获取详细的符号信息，该函数非异步信号安全。
+通过给定的pc地址获取详细的符号信息，该函数非异步信号安全。不能在异步信号处理函数中使用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/x8dpBAieRLacDb_bDrU3KA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020203Z&HW-CC-Expire=86400&HW-CC-Sign=D1A10C7B86B13D2B150624C91415F28D1C9DB8E8BB2CC74ED0DCDBE6A5F689F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/dhM4yMo-Sm-0jLv6RGtfoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014430Z&HW-CC-Expire=86400&HW-CC-Sign=1E91035819E18B97D8860308328CAB9FF788805FB2373CA8F71D130830B8A72E)
 
 
 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。
@@ -490,7 +490,7 @@ HiDebug_Backtrace_Object OH_HiDebug_CreateBacktraceObject(void)
 创建一个用于栈回溯及栈解析的对象，该函数非异步信号安全。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/0pDpOJmbQP-YUE7nnwTaOg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020203Z&HW-CC-Expire=86400&HW-CC-Sign=447328A855485681C2836E7123283F64B627C59BADDAB3726728D707766F1104)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/4GosYWovSPyVnbKCP-H94Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014430Z&HW-CC-Expire=86400&HW-CC-Sign=E61EA99FF243AEFDC1FDAC751E9D8C8984BF1400DCCB2C384ECFC4CE0DEB5D6E)
 
 
 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。
@@ -544,7 +544,7 @@ HiDebug_ErrorCode OH_HiDebug_SetMallocDispatchTable(struct HiDebug_MallocDispatc
 通过设置基础库C库中的MallocDispatch表，将原始内存操作函数（例如：malloc/free/calloc/realloc/mmap/munmap）临时替换为开发者自定义的内存操作函数。MallocDispatch表是基础库C库中封装malloc/calloc/realloc/free等内存操作函数的结构体，HiDebug_MallocDispatch只是MallocDispatch结构体的一部分。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/l6ZASZlYTUivBXtGie-5UQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020203Z&HW-CC-Expire=86400&HW-CC-Sign=24DEC0C414BB54ED0ADEA395A15DA29676DE97952B07CBE23277D21F4FA2C438)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/OosxQX0pQKeDLDmdoTHY2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014430Z&HW-CC-Expire=86400&HW-CC-Sign=B88F41F644BCBD30566EE2E320CCB0DBA4E8CAC3A8118E58E446707E6FB6415F)
 
 
 禁止在自定义内存操作函数中直接调用libc标准库中的malloc/free/calloc/realloc/mmap/munmap等内存操作函数，否则会导致死锁。
@@ -682,8 +682,8 @@ HiDebug_ErrorCode OH_HiDebug_RequestThreadLiteSampling(HiDebug_ProcessSamplerCon
 
 | 参数项 | 描述 |
 | --- | --- |
-| HiDebug_ProcessSamplerConfig* config | 指向Perf采样配置结构体HiDebug_ProcessSamplerConfig的指针。 |
-| OH_HiDebug_ThreadLiteSamplingCallback stacksCallback | 采样结束时的回调函数，用于返回采样结果。 |
+| HiDebug_ProcessSamplerConfig* config | 指向Perf采样配置结构体HiDebug_ProcessSamplerConfig的指针。配置参数决定了采样的具体行为，如采样频率、目标线程等。 |
+| OH_HiDebug_ThreadLiteSamplingCallback stacksCallback | 采样结束时的回调函数，用于返回采样结果。采样完成后，系统将调用此函数并将采样数据作为参数传递。 |
 
 
 **返回：**
@@ -714,7 +714,7 @@ uint64_t OH_HiDebug_SetCrashObj(HiDebug_CrashObjType type, void* addr)
 | 参数项 | 描述 |
 | --- | --- |
 | HiDebug_CrashObjType type | 维测信息的数据类型HiDebug_CrashObjType。 |
-| void* addr | 维测信息的地址，崩溃时该地址必须保持有效。 |
+| void* addr | 维测信息的地址，崩溃时该地址必须保持有效。设置后，若程序崩溃，系统将读取该地址指向的维测信息并记录到崩溃日志中。 |
 
 
 **返回：**
@@ -766,7 +766,7 @@ HiDebug_ErrorCode OH_HiDebug_StartProfiler(OH_HiDebug_ResourceType type, OH_HiDe
 若采集异常，则文件路径为NULL。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/pC2mpfgJQcS3HHgzimXoSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020203Z&HW-CC-Expire=86400&HW-CC-Sign=F4A3B1B09F9CF98EC9650D4237D524FE537E16B2F10FA6D3B2BF087280BFFBBC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/_82Jy4lnR1u0tUmgOPgpYQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014430Z&HW-CC-Expire=86400&HW-CC-Sign=E0F81430C1FF7EA350C4E44345EB01F4B7F732852540230122597A0BA7B7474D)
 
 1. 当前接口每24小时可调用10次；
 2. 采集资源的目标进程仅支持调用接口进程本身；
@@ -783,9 +783,9 @@ HiDebug_ErrorCode OH_HiDebug_StartProfiler(OH_HiDebug_ResourceType type, OH_HiDe
 
 | 参数项 | 描述 |
 | --- | --- |
-| OH_HiDebug_ResourceType type | 资源采集类型。 |
-| OH_HiDebug_ResProfilerConfig* config | 资源采集配置参数。 |
-| OH_HiDebug_ProfilingCallback callback | 资源采集回调结果函数。 |
+| OH_HiDebug_ResourceType type | 资源采集类型，决定了采集的具体资源类别（如CPU、内存、IO等）。不同类型对应不同资源采集场景：CPU采集用于分析CPU性能问题，内存采集用于分析内存泄漏和内存使用情况，IO采集用于分析IO性能瓶颈。根据分析需求选择合适的资源类型。 |
+| OH_HiDebug_ResProfilerConfig* config | 资源采集配置参数。配置参数决定了采集的具体行为，如采样频率、持续时间等。 |
+| OH_HiDebug_ProfilingCallback callback | 资源采集回调结果函数。采集终止时将调用此回调函数，传递采集结果和文件路径。 |
 
 
 **返回：**

@@ -1,6 +1,6 @@
 # PanGesture
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,6 +60,8 @@ PanGesture(options?: PanGestureHandlerOptions)
 创建滑动手势对象。与[PanGesture](#pangesture-1)相比，options参数新增了对isFingerCountLimited和distanceMap参数，分别表示是否检查触摸屏幕的手指数量以及指定不同输入源触发滑动手势事件的最小滑动距离。
  
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -196,6 +198,8 @@ getDirection(): PanDirection
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **返回值：**
@@ -216,6 +220,8 @@ getDistance(): number
 获取触发滑动手势事件的最小滑动距离。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -332,6 +338,8 @@ onActionCancel(event: Callback&lt;GestureEvent&gt;)
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -408,10 +416,10 @@ struct PanGestureExample {
 向左滑动：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/v1En80C_S-O3fqMrvJXgMg/zh-cn_image_0000002581435710.png?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=8454D79106565E881A3E903478774D187851CA45372540E213D07F1EFDA0D089)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/cUjJHZ3zRCWDSCvPUOnS1w/zh-cn_image_0000002659101663.png?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=58315A06B99FC0C409400BBEF9922C4BA627A9EB9288D1D556F19BA7876FBE4F)
 
  
 点击按钮时，修改PanGesture触发条件为双指向左下方滑动：
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/SnFLHr2KSrKtQjQ4idsgpg/zh-cn_image_0000002611835541.png?HW-CC-KV=V1&HW-CC-Date=20260528T025534Z&HW-CC-Expire=86400&HW-CC-Sign=7AA65CB5FD6C609E361A38E305B9A7295AE8DA158C2195808169AB099A522C20)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/5LMuugvATBOuJ7Dl7PWW0A/zh-cn_image_0000002628862314.png?HW-CC-KV=V1&HW-CC-Date=20260701T014331Z&HW-CC-Expire=86400&HW-CC-Sign=5F004FF1F04454AAF9B43AC263AC80265B14C1FCA4C96E9AB869442A8E814E73)

@@ -1,6 +1,6 @@
 # 如何让Grid组件在高度不确定的情况下，实现自适应高度
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-241
 
@@ -28,7 +28,7 @@ Grid不会自适应子节点的高度，不设置高度就是和父组件一样�
  
 参考代码如下：
  
-```ArkTS
+```text
 interface Item {
   text: string
   img: Resource
@@ -48,11 +48,11 @@ struct Index {
     { text: 'hhh', img: $r('app.media.app_icon') },
     { text: 'jjj', img: $r('app.media.app_icon') },
     { text: 'kkk', img: $r('app.media.app_icon') }]
-  // Calculate the number of rows in the grid
+ <em> // Calculate the number of rows in the grid</em>
   getCategoryRowCount() {
     return Math.ceil(this.data.length / 4);
   }
-  // Calculate the height of the grid based on the height of the item
+ <em> // Calculate the height of the grid based on the height of the item</em>
   getCategoryViewHeight() {
     return `${68.33 * this.getCategoryRowCount()}vp`;
   }

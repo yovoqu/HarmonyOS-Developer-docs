@@ -1,14 +1,14 @@
 # @ohos.arkui.shape (形状)
 
-更新时间：2026-03-12 02:57:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-shape
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 在[clipShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clipshape12)和[maskShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#maskshape12)接口中可以传入对应的形状。
  
-> [!TIP]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> [!NOTE]
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -633,4 +633,4 @@ struct ShapeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pXk4ZS_JSvCHDhUOYBCB9A/zh-cn_image_0000002581275612.png?HW-CC-KV=V1&HW-CC-Date=20260528T025449Z&HW-CC-Expire=86400&HW-CC-Sign=016E706DABFCB10DC4E38F8C6AECF0970E527ACC3268D9C09B6356BE6B2DDD9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/LzfrGYTATiCGApbMniqsdg/zh-cn_image_0000002659221437.png?HW-CC-KV=V1&HW-CC-Date=20260701T014311Z&HW-CC-Expire=86400&HW-CC-Sign=C5DCB9355B79FE93356BCDD4E7A0A0A0817A0E73F1CBBA9D8672AD06EACED5CE)

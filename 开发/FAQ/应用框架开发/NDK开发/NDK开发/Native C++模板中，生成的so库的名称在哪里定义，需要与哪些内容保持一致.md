@@ -1,6 +1,6 @@
-# Native C++模板中，生成的so库的名称在哪里定义，需要与哪些内容保持一致
+# Native C++模版中，生成的so库的名称在哪里定义，需要与哪些内容保持一致
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-46
 

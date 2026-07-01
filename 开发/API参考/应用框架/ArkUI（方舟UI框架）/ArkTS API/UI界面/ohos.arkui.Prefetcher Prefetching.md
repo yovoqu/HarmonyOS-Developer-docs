@@ -1,6 +1,6 @@
 # @ohos.arkui.Prefetcher (Prefetching)
 
-更新时间：2026-03-09 07:25:19
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-prefetcher
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 配合LazyForEach，为List、Grid、WaterFlow和Swiper等容器组件滑动浏览时提供内容预加载能力，提升用户浏览体验。
  
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块内的接口不支持在预览器中使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块内的接口不支持在预览器中使用。
 
   
 
@@ -476,7 +476,7 @@ function create10x10Bitmap(color: number): ArrayBuffer {
 演示效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/nlPplXUYSgmWtgundVwSzA/zh-cn_image_0000002611835361.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=26B74E986F92966D0D6AC6FA0C28B966D94CE5A480C4D30FDB1BB1BF2BD6B1B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/9-rtoAGqT5i0-0kB7NFBEw/zh-cn_image_0000002628862126.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014311Z&HW-CC-Expire=86400&HW-CC-Sign=0F0E9A0118E4BEA07001FB78481C93629B71D6C9FF6CB6DFA5AA6126500E53EF)
 
  
   

@@ -1,6 +1,6 @@
 # GraphicsAccelerate
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate
 **支持设备：** Phone | Tablet | TV
@@ -1073,7 +1073,7 @@ enum FG_MeMode
 | 枚举值 | 描述 |
 | --- | --- |
 | FG_ME_MODE_BASIC | 基础模式，即利用历史帧颜色信息、深度信息及相机矩阵信息进行运动估计。 |
-| FG_ME_MODE_ENHANCED | 增强模式，即利用历史帧中的几何顶点信息进行更精准的运动估计，生成的预测帧效果更优。该模式需要开发者对绘制顶点的draw call进行标记。不传入深度图的情况下切换到AI超帧算法进行预测。 |
+| FG_ME_MODE_ENHANCED | 增强模式，即利用历史帧中的几何顶点信息进行更精准的运动估计，生成的预测帧效果更优。该模式需要开发者对绘制顶点的Draw Call进行标记。不传入深度图的情况下切换到AI超帧算法进行预测。 |
  
  
   

@@ -1,6 +1,6 @@
 # Interface (BasePriorityOverlay)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-basepriorityoverlay
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -127,7 +127,7 @@ setPriority(priority: number): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| priority | number | 是 | 设置覆盖物的碰撞优先级。 |
+| priority | number | 是 | 覆盖物的碰撞优先级，值越大优先级越低。 |
  
  
 **示例：**

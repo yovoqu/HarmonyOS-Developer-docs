@@ -1,6 +1,6 @@
 # @ohos.app.ability.insightIntentProvider (意图提供方管理能力)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentprovider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

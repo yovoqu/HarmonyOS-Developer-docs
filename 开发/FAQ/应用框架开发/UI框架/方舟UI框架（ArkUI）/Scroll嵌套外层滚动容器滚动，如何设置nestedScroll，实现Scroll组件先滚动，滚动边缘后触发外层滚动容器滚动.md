@@ -1,6 +1,6 @@
 # Scroll嵌套外层滚动容器滚动，如何设置nestedScroll，实现Scroll组件先滚动，滚动边缘后触发外层滚动容器滚动
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-444
 

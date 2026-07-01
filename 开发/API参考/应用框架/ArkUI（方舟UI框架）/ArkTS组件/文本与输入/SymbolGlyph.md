@@ -1,6 +1,6 @@
 # SymbolGlyph
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 显示图标小符号的组件。相关资源可参考[系统图标](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962)。
  
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -59,7 +59,7 @@ SymbolGlyph(value?: Resource)
 
 fontColor(value: Array&lt;ResourceColor&gt;)
  
-设置SymbolGlyph组件颜色。
+设置SymbolGlyph组件字体颜色。
  
 > [!NOTE]
 > 从API version 12开始，该接口支持在 attributeModifier 中调用。
@@ -75,7 +75,38 @@ fontColor(value: Array&lt;ResourceColor&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;ResourceColor&gt; | 是 | SymbolGlyph组件颜色。 默认值：不同渲染策略下默认值不同。 |
+| value | Array&lt;ResourceColor&gt; | 是 | SymbolGlyph组件字体颜色。 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。 |
+ 
+ 
+  
+
+#### fontColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+fontColor(value: Array<ResourceColor | ColorMetrics> | undefined)
+ 
+设置SymbolGlyph组件的字体颜色，相比[fontColor](#fontcolor)接口，本接口支持传入[ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12)类型参数。
+ 
+> [!NOTE]
+> 该接口支持在 attributeModifier 中调用。
+
+ 
+**起始版本：** 26.0.0
+ 
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | Array<ResourceColor \| ColorMetrics> \| undefined | 是 | SymbolGlyph组件字体颜色。支持传入ResourceColor或ColorMetrics类型的数组。 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。 |
  
  
   
@@ -86,7 +117,7 @@ fontColor(value: Array&lt;ResourceColor&gt;)
 
 fontSize(value: number | string | Resource)
  
-设置SymbolGlyph组件大小。设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
+设置SymbolGlyph组件字体大小。设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
  
 组件的图标显示大小由fontSize控制，设置width或height后，其他通用属性仅对组件的占位大小生效。
  
@@ -104,7 +135,7 @@ fontSize(value: number | string | Resource)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string \| Resource | 是 | SymbolGlyph组件大小。 默认值：16fp 单位：fp 不支持设置百分比字符串。 |
+| value | number \| string \| Resource | 是 | SymbolGlyph组件字体大小。 默认值：16fp 单位：fp 不支持设置百分比字符串。 |
  
  
   
@@ -115,7 +146,7 @@ fontSize(value: number | string | Resource)
 
 fontWeight(value: number | FontWeight | string)
  
-设置SymbolGlyph组件粗细。number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular” 、“medium”分别对应FontWeight中相应的枚举值。
+设置SymbolGlyph组件字体粗细。number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular" 、"medium"分别对应FontWeight中相应的枚举值。
  
 sys.symbol.ohos_lungs图标不支持设置fontWeight。
  
@@ -133,7 +164,7 @@ sys.symbol.ohos_lungs图标不支持设置fontWeight。
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| FontWeight \| string | 是 | SymbolGlyph组件粗细。 默认值：FontWeight.Normal |
+| value | number \| FontWeight \| string | 是 | SymbolGlyph组件字体粗细。 默认值：FontWeight.Normal |
  
  
   
@@ -166,7 +197,7 @@ renderingStrategy(value: SymbolRenderingStrategy)
 不同渲染策略效果可参考以下示意图。
  
 
-![](assets/SymbolGlyph/file-20260525091243424-003.gif)
+![](assets/SymbolGlyph/file-20260525091243425-004.jpeg)
 
  
   
@@ -894,7 +925,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/U-nmltmeTPSVH7vSJ1mtUw/zh-cn_image_0000002611835781.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=DC2EE8990DA4A7C9EDF0510E46B5C65E2E18EEDA275F8F153541F53FD5CFF7C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/js7qJv6zR9C8f-sfov8oMQ/zh-cn_image_0000002659221877.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=1A4D33869274822B96D3BCDACE56C801F9E13D6370FED90E485F10E1011E3F1E)
 
  
   
@@ -1002,7 +1033,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/X5Ra7hn6QomNDuPqgX7ZFA/zh-cn_image_0000002581276034.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=D22A200E22FAAE627F274DCE3874D10F6C9178DDE1B05419AE56D57FDD7270E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/WylfnBzKSQufJLI7xisK-A/zh-cn_image_0000002628702686.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=15084FCF1CCA50D4FA4074594BB4BDC9820DD7524B6E2F09FCF18FDFE320A9D5)
 
  
   
@@ -1147,4 +1178,59 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/omjLwxSAS_iUKuJYy5KeEg/zh-cn_image_0000002611755889.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=15E802847BF8104F2FCB1DF8780C8F6867EEB7962DCD0FAC7557BEE21CE24ABF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/XNzSklV-TI-t7Qkbp920-w/zh-cn_image_0000002659101913.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=1A27489FC5AAA6EE1256217C89EA8E46943206ABF239E2F560652E65432B2584)
+
+ 
+  
+
+#### 示例4（设置SymbolGlyph颜色）
+
+该示例通过[fontColor](#fontcolor-1)属性传入[ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12)类型参数，设置SymbolGlyph组件的颜色。
+ 
+从API版本26.0.0开始，新增支持[fontColor](#fontcolor-1)。
+ 
+```ArkTS
+import { ColorMetrics } from '@kit.ArkUI';
+
+// xxx.ets
+@Entry
+@Component
+struct Index {
+  blueColor: ColorMetrics[] = [ColorMetrics.resourceColor(Color.Blue)];
+  greenColor: ColorMetrics[] = [ColorMetrics.numeric(0x00FF00)];
+  blackColor: ColorMetrics[] = [ColorMetrics.rgba(0, 0, 0, 1.0)];
+
+  build() {
+    Column() {
+      Row({ space: 20 }) {
+        Column() {
+          Text('resourceColor蓝色')
+          SymbolGlyph($r('sys.symbol.ohos_folder_badge_plus'))
+            .fontSize(96)
+            .renderingStrategy(SymbolRenderingStrategy.SINGLE)
+            .fontColor(this.blueColor)
+        }
+
+        Column() {
+          Text('numeric绿色')
+          SymbolGlyph($r('sys.symbol.ohos_folder_badge_plus'))
+            .fontSize(96)
+            .renderingStrategy(SymbolRenderingStrategy.SINGLE)
+            .fontColor(this.greenColor)
+        }
+
+        Column() {
+          Text('rgba黑色')
+          SymbolGlyph($r('sys.symbol.ohos_folder_badge_plus'))
+            .fontSize(96)
+            .renderingStrategy(SymbolRenderingStrategy.SINGLE)
+            .fontColor(this.blackColor)
+        }
+      }.width('100%')
+    }.width('100%')
+  }
+}
+```
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/Ge1W1-QjTFiyauJWhrQp_A/zh-cn_image_0000002628862564.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=3C08C911198C98035DA9802B30957DCCE1101F0B8A7A00EBD085C74AC1745086)

@@ -1,16 +1,16 @@
-# 如何在TaskPool和Worker获取上下文Context
+# 如何在TaskPool和Woker获取上下文Context
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-122
 
 Worker线程和TaskPool线程中无法直接获取到组件级的Context 。可以通过主线程参数传递应用级Context，通过[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)接口获取Context上下文。
  
-```ArkTS
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { taskpool } from '@kit.ArkTS';
 
-// Support for ordinary functions and passing of reference parameters as input.
+<em>// Support for ordinary functions and passing of reference parameters as input.</em>
 @Concurrent
 function printArgs(args: string, uiContext: Context | undefined): string {
   hilog.info(0x0000, 'printArgs', `func: ${args}`);
@@ -34,7 +34,7 @@ async function taskpoolExecute(uiContext: Context | undefined): Promise<void> {
 @Component
 struct TaskPoolGetContext {
   @State message: string = 'Hello World';
-  // Obtain the context.
+ <em> // Obtain the context.</em>
   uiContext = this.getUIContext().getHostContext();
 
   build() {

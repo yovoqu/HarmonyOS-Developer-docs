@@ -1,14 +1,14 @@
 # Toggle
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 组件提供勾选框样式、状态按钮样式和开关样式。
 
-> [!NOTE]
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> [!TIP]
+> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 从API版本26.0.0开始，Toggle组件支持系统材质效果。Toggle组件使用通用系统材质属性 systemMaterial 时，不同 ToggleType 类型的效果不同： ToggleType.Checkbox：当前未适配系统材质效果，设置系统材质不会出现系统材质相关的动效和视觉效果。 ToggleType.Switch：传入材质参数时，使用组件内部预设的视觉参数，传入的材质参数仅作为开启系统材质的开关标记，不影响实际视觉效果。主要影响Toggle的滑块大小、滑块样式、阴影等视觉属性。设置 switchPointColor 后会出现点光源效果，点光源颜色跟随switchPointColor的设置。传入undefined时，系统材质不生效，表现为原先的Toggle样式。 ToggleType.Button：设置系统材质的效果与 Button 组件设置系统材质的效果相同，主要影响背景颜色、边框、阴影等视觉属性。
 
 
 
@@ -54,6 +54,8 @@ Toggle的信息。
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -139,7 +141,7 @@ switchPointColor(color: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | ResourceColor | 是 | Switch类型的圆形滑块颜色。 默认值：\$r('sys.color.ohos_id_color_foreground_contrary') |
+| color | ResourceColor | 是 | Switch类型的圆形滑块颜色。 默认值：\$r('sys.color.ohos_id_color_foreground_contrary') 说明： 同时设置了systemMaterial系统材质时，设置此属性后会出现点光源效果，点光源颜色跟随此属性的设置。 |
 
 
 
@@ -153,6 +155,8 @@ switchStyle(value: SwitchStyle)
 设置Switch类型的样式。仅当type为ToggleType.Switch生效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -175,6 +179,8 @@ contentModifier(modifier: ContentModifier&lt;ToggleConfiguration&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -193,6 +199,8 @@ contentModifier(modifier: ContentModifier&lt;ToggleConfiguration&gt;)
 Switch类型的样式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -244,6 +252,8 @@ onChange(callback: (isOn: boolean) => void)
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -331,7 +341,7 @@ struct ToggleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/jRb9chQUROW5gRzQHBnPpA/zh-cn_image_0000002611755765.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=E8CD7F212DA4D32F78FAB5C6631FA52F886FDEB8754B2AC990D9D8308EBCB5D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/esG42KU1SBqvyv_HI4vksg/zh-cn_image_0000002628862432.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=CE9DD7BF95DEEC2490FE7C56AD43D86283C567C96BA58B8B72CB955DC376B8C1)
 
 
 
@@ -377,7 +387,7 @@ struct ToggleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/jcEYVX7iQ3eOw13_arZaWw/zh-cn_image_0000002581435828.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=038A034567611DE015314ADE2C294B5342BCE9F2EB169FAFB03CF88292C37319)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/ChEj99UDSIGNTn-zVFAAmA/zh-cn_image_0000002659221745.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=18B5EA3D5482E833FD48C9E028206D95FBA6E87AA4C917A012EF92047506B9F4)
 
 
 
@@ -437,4 +447,50 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Lk_mBM8aQHmF9ZqwhOOrJQ/zh-cn_image_0000002611835659.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=2D7B5F385F6E2F3070FD69E33BB54256EB35464DD952BFDD1717B5690AE970E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/9tH-UNFSQJmuTu1hetLX2A/zh-cn_image_0000002628702556.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=7330EF22C4EB9E648CCEDB76E64E764F4080594D63D14A10EE1FCDD2C75187F1)
+
+
+
+
+#### 示例4（Toggle系统材质效果）
+
+该示例展示了Toggle组件Switch类型在开启系统材质前后的效果对比，包括不设置系统材质、设置undefined、开启系统材质以及开启系统材质并配合[switchPointColor](#switchpointcolor)设置点光源的效果。示例使用通用属性[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)接口来实现系统材质效果。
+
+从API版本26.0.0开始，新增systemMaterial属性。
+
+```ArkTS
+import { uiMaterial } from '@kit.ArkUI';
+
+// xxx.ets
+@Entry
+@Component
+struct ToggleMaterialTest {
+  build() {
+    Column({ space: 10 }) {
+      // 不设置系统材质接口，无系统材质效果
+      Toggle({ type: ToggleType.Switch, isOn: true })
+        .size({ width: 80, height: 40 })
+
+      // systemMaterial设置undefined，恢复为无材质的效果
+      Toggle({ type: ToggleType.Switch, isOn: true })
+        .size({ width: 80, height: 40 })
+        .systemMaterial(undefined)
+
+      // 开启系统材质效果（systemMaterial参数任意仅作为系统材质开关，最终使用组件侧固定参数），无点光源效果
+      Toggle({ type: ToggleType.Switch, isOn: true })
+        .size({ width: 80, height: 40 })
+        .systemMaterial(new uiMaterial.Material())
+
+      // 开启系统材质效果（systemMaterial参数任意仅作为系统材质开关，最终使用组件侧固定参数），有点光源效果
+      Toggle({ type: ToggleType.Switch, isOn: true })
+        .size({ width: 80, height: 40 })
+        .systemMaterial(new uiMaterial.Material())
+        .switchPointColor(Color.White)
+    }
+    .width('100%')
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/5Omx2KQ6SBarlLOF7YGjyQ/zh-cn_image_0000002659101783.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=2D4CB03FE65B15A210D7C7CEB02FC01C7A03241C65315A03CC155C104C3A4725)

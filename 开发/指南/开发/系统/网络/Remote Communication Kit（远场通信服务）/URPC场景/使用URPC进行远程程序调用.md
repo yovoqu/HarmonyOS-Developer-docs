@@ -1,12 +1,12 @@
 # 使用URPC进行远程程序调用
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-urpccall
 
 #### 场景介绍
 
-发送一个URPC请求，可以设置优先级等参数，返回来自远程服务器的URPC响应。当发起请求后，可以选择取消指定或正在进行的URPC请求。当完成请求后，需要关闭请求来释放与此URPC关联的资源。
+发送URPC请求，可以设置优先级等参数，返回来自远程服务器的URPC响应。当发起请求后，可以选择取消指定或正在进行的URPC请求。当完成请求后，需要关闭请求来释放与此URPC关联的资源。
  
   
 

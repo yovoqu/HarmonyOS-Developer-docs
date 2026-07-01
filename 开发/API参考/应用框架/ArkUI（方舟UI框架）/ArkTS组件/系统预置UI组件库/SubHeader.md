@@ -1,6 +1,6 @@
 # SubHeader
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-subheader
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -547,7 +547,7 @@ struct SubHeaderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/x3FClJmmTqyeqILVCG6XNg/zh-cn_image_0000002581436272.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=4541018901E83FA9B6405BFBC7F382CD0C63D3FEFA9D3007271099341A783B9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/3vBB_uVySK-3XwX2rsfIkw/zh-cn_image_0000002659102237.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=1FF104C51A6AA51E8F65116501F2CC7020CC5A67FD5058B876E25AB216B2C1C6)
 
  
   
@@ -585,4 +585,4 @@ struct SubHeaderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/BIbz0AQ6S-mAVcQAwiUG1w/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=460BEFF79418F3CB464C406B5D535A238AE0D828D785495663B848041CBD801B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/MHMMbdyNQymYJTeNjpXN7Q/zh-cn_image_0000002628862890.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=4A0C406186C44C5C965D3539A8F79534B84171B421E944D022C4C0E18487F523)

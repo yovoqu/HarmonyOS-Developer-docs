@@ -1,11 +1,11 @@
 # 设置HDC鉴权密钥
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-set-hdc-authentication-key
 
 > [!NOTE]
-> 从6.1.1(24)版本开始，新增HDC鉴权密钥设置接口，支持用户在企业设备上开展安全调试，进一步强化设备安全性。
+> 从6.1.1(24)版本开始，新增H HDC 鉴权密钥设置接口，支持用户在企业设备上开展安全调试，进一步强化设备安全性。
 
 
 

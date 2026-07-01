@@ -1,6 +1,6 @@
 # ComposeListItem
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-composelistitem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -411,4 +411,4 @@ struct ComposeListItemExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/D9o6qekPSbuADU7GjQxuPA/zh-cn_image_0000002617670383.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=2267561B67D4D04AE6F9B2D695715CFECA54F1218CE2DA17C3708B1BE0D6BF1A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/a7hBeWDBQKyYtSDz_zLZQA/zh-cn_image_0000002628702974.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=4EE318782056104CECD72AE3A246DC9BC03521434A2D03EAE13335845F743A2B)

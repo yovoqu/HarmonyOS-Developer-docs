@@ -1,6 +1,6 @@
 # arEngine（AR增强现实能力）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine
 **支持设备：** Phone | Tablet | TV
@@ -36,7 +36,7 @@ import { arEngine } from '@kit.AREngine';
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| ARENGINE_FEATURE_TYPE_SLAM | 0 | 运动跟踪及平面识别特性。 |
+| ARENGINE_FEATURE_TYPE_SLAM | 0 | 运动跟踪、命中检测及平面识别等特性。 |
 | ARENGINE_FEATURE_TYPE_DEPTH | 1 | 深度估计特性。 |
 | ARENGINE_FEATURE_TYPE_MESH | 2 | 环境Mesh识别特性。 |
 | ARENGINE_FEATURE_TYPE_IMAGE | 3 | 图像跟踪特性。 |
@@ -83,7 +83,7 @@ import { arEngine } from '@kit.AREngine';
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NONE | 0 | 无失败原因，图像成功添加。 |
-| SIZE_NOT_MATCH | 1 | 图像尺寸不正确。 说明： 图像尺寸评价从宽高比、分辨率两个维度进行。建议宽高比、分辨率的评价为Unfit以上。 |
+| SIZE_NOT_MATCH | 1 | 图像尺寸不正确。 说明： 图像尺寸评价从宽高比、分辨率两个维度进行。建议宽高比、分辨率的评价优于Unfit。 |
 | LIGHT_ANOMALY | 2 | 图像亮度过亮或过暗。 |
 | FEATURE_LIMIT | 3 | 图像颜色单一，如纯色图片。 |
 | OTHER | 4 | 其他原因，如图片有反光、光斑，重复性内容等。 |

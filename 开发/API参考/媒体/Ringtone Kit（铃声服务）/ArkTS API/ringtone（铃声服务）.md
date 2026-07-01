@@ -1,6 +1,6 @@
 # ringtone（铃声服务）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-ringtone
 **支持设备：** Phone | Tablet
@@ -15,7 +15,7 @@ ringtone提供铃声设置的功能。
 **支持设备：** Phone | Tablet
 
 ```text
-import { ringtone } from '@kit.RingtoneKit'
+import { ringtone } from '@kit.RingtoneKit';
 ```
  
   
@@ -90,7 +90,7 @@ getSupportedRingtoneTypes(): Array&lt;RingtoneType&gt;
 **示例：**
  
 ```json
-import { ringtone } from '@kit.RingtoneKit'
+import { ringtone } from '@kit.RingtoneKit';
 import { JSON } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -163,7 +163,7 @@ getSupportedDataTypes(ringtoneType: RingtoneType): Array<uniformTypeDescriptor.U
 **示例：**
  
 ```json
-import { ringtone } from '@kit.RingtoneKit'
+import { ringtone } from '@kit.RingtoneKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { uniformTypeDescriptor } from '@kit.ArkData';
 import { JSON } from '@kit.ArkTS';
@@ -185,7 +185,7 @@ struct Index {
             try {
               let typeList: uniformTypeDescriptor.UniformDataType[] =
                 ringtone.getSupportedDataTypes(ringtone.RingtoneType.NOTIFICATION)
-              hilog.info(DOMAIN, APP_TAG, `getSupportedDataTypes : ${JSON.stringify(typeList)}`);
+              hilog.info(DOMAIN, APP_TAG, `getSupportedDataType: ${JSON.stringify(typeList)}`);
             } catch (error) {
               let err: BusinessError = error as BusinessError;
               hilog.error(DOMAIN, APP_TAG,
@@ -246,7 +246,7 @@ getSupportedMaxDuration(ringtoneType: RingtoneType, dataType: uniformTypeDescrip
 **示例：**
  
 ```text
-import { ringtone } from '@kit.RingtoneKit'
+import { ringtone } from '@kit.RingtoneKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { uniformTypeDescriptor } from '@kit.ArkData';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -309,7 +309,7 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
 | context | common.UIAbilityContext | 是 | UIAbility上下文。 |
 | path | string | 是 | 具有访问权限的文件路径。 |
 | name | string | 是 | 文件名，限制长度1000字符。 |
-| callback | AsyncCallback&lt;RingtoneType&gt; | 是 | Callback对象。返回用户选择设置的铃声类型。 |
+| callback | AsyncCallback&lt;RingtoneType&gt; | 是 | 回调函数。返回用户选择设置的铃声类型。 |
  
  
 **错误码：**
@@ -328,7 +328,7 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
  
 ```json
 import { common } from '@kit.AbilityKit';
-import { ringtone } from '@kit.RingtoneKit'
+import { ringtone } from '@kit.RingtoneKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { JSON } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -347,7 +347,7 @@ struct Index {
         Button('设为铃声OGG格式')
           .width(200)
           .height(50)
-          .onClick(async () => {
+          .onClick(() => {
             let audioPath: string = this.context.filesDir + '/test.ogg'
             let splitList = audioPath.split('/')
             let fileName = splitList[splitList.length - 1]
@@ -425,7 +425,7 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
  
 ```json
 import { common } from '@kit.AbilityKit';
-import { ringtone } from '@kit.RingtoneKit'
+import { ringtone } from '@kit.RingtoneKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { JSON } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -444,14 +444,14 @@ struct Index {
         Button('设为铃声OGG格式')
           .width(200)
           .height(50)
-          .onClick(async () => {
+          .onClick(() => {
             let audioPath: string = this.context.filesDir + '/test.ogg'
             let splitList = audioPath.split('/')
             let fileName = splitList[splitList.length - 1]
             hilog.info(DOMAIN, APP_TAG, `audioPath: ${audioPath}`)
             hilog.info(DOMAIN, APP_TAG, `fileName: ${fileName}`)
             try {
-              await ringtone.startRingtoneSetting(this.context, audioPath, fileName).then(res => {
+              ringtone.startRingtoneSetting(this.context, audioPath, fileName).then(res => {
                 hilog.info(DOMAIN, APP_TAG, `返回值：${JSON.stringify(res)}`)
               })
             } catch (error) {

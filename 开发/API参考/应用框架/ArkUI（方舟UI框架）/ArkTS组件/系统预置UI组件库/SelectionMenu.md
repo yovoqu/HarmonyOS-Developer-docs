@@ -1,6 +1,6 @@
 # SelectionMenu
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-selectionmenu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 文本选择菜单，适用于[RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)组件通过[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#bindselectionmenu)或[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)组件通过[bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#bindselectionmenu11)绑定自定义文本选择菜单，建议绑定鼠标右键或者鼠标选中方式弹出，不支持作为普通组件单独使用。
 
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -71,7 +71,7 @@ SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其具体配�
 | --- | --- | --- | --- | --- |
 | editorMenuOptions | Array&lt;EditorMenuOptions&gt; | 否 | 是 | 编辑菜单。 editorMenuOptions未配置时，不显示编辑菜单。 同时配置EditorMenuOptions中action和builder时，点击图标会同时响应。 点击编辑菜单图标默认不关闭整个菜单，应用可以通过action接口配置RichEditorController的closeSelectionMenu主动关闭菜单。 |
 | expandedMenuOptions | Array&lt;ExpandedMenuOptions&gt; | 否 | 是 | 扩展下拉菜单。 expandedMenuOptions参数为空时无更多按钮，不显示扩展下拉菜单。 expandedMenuOptions参数不为空时显示更多按钮，配置菜单项收起在更多按钮中，点击更多按钮展示。 |
-| controller | RichEditorController | 否 | 是 | 富文本控制器不为空时显示默认系统菜单（包含剪切复制粘贴等部分）且默认菜单功能内置。 controller为空时不显示更多按钮，expandedMenuOptions参数不为空则显示下拉菜单中。 系统默认只支持复制粘贴富文本文本内容，图文混排需要应用自定义onCopy、onPaste接口。应用自行配置onCopy \| onPaste接口时，系统菜单默认复制粘贴失效，调用应用自定义函数。 说明： 点击自定义文本选择菜单内置复制功能选项后，自定义菜单消失选中文本高亮保留。 点击自定义文本选择菜单内置全选功能选项后，自定义菜单消失文本全选高亮。 点击自定义文本选择菜单内置粘贴功能选项后，空白处粘贴或者选中文本替换粘贴均是保留被复制文本的样式。 当富文本组件RichEditor的copyOptions属性设置为CopyOptions.None时，内置的复制剪切功能不会被限制。 |
+| controller | RichEditorController | 否 | 是 | 富文本控制器不为空时显示默认系统菜单（包含剪切复制粘贴等部分）且默认菜单功能内置。 controller为空时不显示更多按钮，expandedMenuOptions参数不为空则在下拉菜单中显示。 系统默认只支持复制粘贴富文本文本内容，图文混排需要应用自定义onCopy、onPaste接口。应用自行配置onCopy \| onPaste接口时，系统菜单默认复制粘贴失效，调用应用自定义函数。 说明： 点击自定义文本选择菜单内置复制功能选项后，自定义菜单消失选中文本高亮保留。 点击自定义文本选择菜单内置全选功能选项后，自定义菜单消失文本全选高亮。 点击自定义文本选择菜单内置粘贴功能选项后，空白处粘贴或者选中文本替换粘贴均是保留被复制文本的样式。 当富文本组件RichEditor的copyOptions属性设置为CopyOptions.None时，内置的复制剪切功能不会被限制。 |
 | onCopy | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单复制项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置复制功能。 说明： event为返回信息。 |
 | onPaste | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单粘贴项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置粘贴功能。 说明： event为返回信息。 |
 | onCut | (event?: EditorEventInfo) => void | 否 | 是 | 替代内置系统菜单剪切项的事件回调。 生效前提是一定要有controller参数，有系统默认菜单才能替换内置剪切功能。 说明： event为返回信息。 |
@@ -496,14 +496,14 @@ struct Index {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/G_UIyP7zTE2RZnY_A6BVbQ/zh-cn_image_0000002617670413.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=E64320F19C8DD13D3270D96D93D18795C8825F3C73D8FD2E8CF2745C471C81F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/OD8nkHmeSYCA_mK_ASloaQ/zh-cn_image_0000002659102231.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=723117CF28A83FB9B5CAEB7634E82CAD71D6F180B7D93A23C6D5D053CAE87A5F)
 
 
 
 
 #### 示例2（设置Symbol类型图标）
 
-从API version 11开始，该示例通过设置[EditorMenuOptions](#editormenuoptions)的属性symbolStyle，展示了自定义Symbol类型图标。
+从API version 18开始，该示例通过设置[EditorMenuOptions](#editormenuoptions)的属性symbolStyle，展示了自定义Symbol类型图标。
 
 ```text
 import {
@@ -831,4 +831,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/aBM_ERY0QnuOAuxVlRMxOg/zh-cn_image_0000002587270638.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=32D6A2C31EC9A568D560CB235BEDF55D7C178144E85A30853860CD83C0E328FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/M6ukLFXTRHmddwyedGXrAw/zh-cn_image_0000002628862884.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=9FA2AFCB86E80325B9033B374F87F65BC961EA375EFEF5ED7B81763A232CD25F)

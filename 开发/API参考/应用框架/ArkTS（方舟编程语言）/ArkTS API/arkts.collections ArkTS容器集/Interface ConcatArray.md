@@ -1,6 +1,6 @@
 # Interface (ConcatArray)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-concatarray
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,11 +68,10 @@ readonly [index: number]: T
 
 **错误码**：
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Illegal index. |
 | 10200001 | The value of index is out of range. |
 
 
@@ -111,15 +110,6 @@ join(separator?: string): string
 | string | 包含所有ConcatArray元素连接成的字符串。如果ConcatArray为空，则返回空字符串。 |
 
 
-**错误码**：
-
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Invalid separator. |
-
-
 **示例：**
 
 ```text
@@ -154,15 +144,6 @@ slice(start?: number, end?: number): ConcatArray&lt;T&gt;
 | 类型 | 说明 |
 | --- | --- |
 | ConcatArray&lt;T&gt; | 包含原始ConcatArray切片的新ConcatArray。 |
-
-
-**错误码**：
-
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Invalid `start` or `end` parameters. |
 
 
 **示例：**

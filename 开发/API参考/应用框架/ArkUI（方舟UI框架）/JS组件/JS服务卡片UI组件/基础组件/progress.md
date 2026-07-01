@@ -1,6 +1,6 @@
 # progress
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-progress
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -103,7 +103,7 @@ type=arc
 | background-color | &lt;color&gt; | - | 否 | 弧形进度条的背景色。 |
 | stroke-width | &lt;length&gt; | - | 否 | 弧形进度条的宽度。 进度条宽度越大，进度条越靠近圆心。即进度条始终在半径区域内。 |
 | start-angle | &lt;deg&gt; | 240 | 否 | 弧形进度条起始角度，以时钟0点为基线。范围为0到360（顺时针）。 |
-| total-angle | &lt;deg&gt; | 240 | 否 | 弧形进度条总长度，范围为-360到360，负数标识起点到终点为逆时针。 |
+| total-angle | &lt;deg&gt; | 240 | 否 | 弧形进度条总角度，范围为-360到360，负数表示起点到终点为逆时针。 |
 | center-x | &lt;length&gt; | - | 否 | 弧形进度条中心位置，（坐标原点为组件左上角顶点）。该样式需要和center-y和radius一起。 |
 | center-y | &lt;length&gt; | - | 否 | 弧形进度条中心位置，（坐标原点为组件左上角顶点）。该样式需要和center-x和radius一起。 |
 | radius | &lt;length&gt; | - | 否 | 弧形进度条半径，该样式需要和center-x和center-y一起。 |
@@ -150,4 +150,4 @@ type=arc
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/BZtbJ8vkSLazEfZ5HI3thA/zh-cn_image_0000002656470497.png?HW-CC-KV=V1&HW-CC-Date=20260624T015950Z&HW-CC-Expire=86400&HW-CC-Sign=9990D567B89825A8691695DFA183E8D687FD9BA810593C8ACA497C33B595860C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/q7E7IhnTR8KtvsuOsuw4YQ/zh-cn_image_0000002659102537.png?HW-CC-KV=V1&HW-CC-Date=20260701T014405Z&HW-CC-Expire=86400&HW-CC-Sign=A3F66777B9A7469F3B1148ED19831971CB4A3EC1FA022855A23C31A6B1E75029)

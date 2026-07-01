@@ -1,6 +1,6 @@
 # virusRemediation（病毒检测与处置）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisethreatprotection-virusremediation-interface
 **支持设备：** PC/2in1
@@ -671,7 +671,7 @@ terminateProcess(pid: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pid | number | 是 | 待终止的威胁进程号。 |
+| pid | number | 是 | 待终止的威胁进程ID。 |
 
 
 **返回值：**

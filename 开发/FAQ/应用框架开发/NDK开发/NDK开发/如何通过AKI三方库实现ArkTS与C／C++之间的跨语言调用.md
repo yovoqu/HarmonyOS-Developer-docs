@@ -1,6 +1,6 @@
 # 如何通过AKI三方库实现ArkTS与C/C++之间的跨语言调用
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-33
 
@@ -37,17 +37,17 @@ target_link_libraries(entry PUBLIC Aki::libjsbind)
 ![](assets/如何通过AKI三方库实现ArkTS与C／C++之间的跨语言调用/file-20260515125711850-0.png)
 
 2. 在napi_init.cpp文件中定义业务，并将业务接口导出给 ArkTS。
-```cpp
+```text
 #include <aki/jsbind.h> 
 #include <string>
-// 1、User defined business 
+<em>// 1、User defined business </em>
 std::string SayHello(std::string msg){  return msg + " too.";}  
  
-// 2、Export business interface
-// Step 1: Register the AKI plugin
-JSBIND_ADDON(entry) // Register AKI plugin name: This is the compiled *. so name, following the same rules as Node API
+<em>// 2、Export business interface</em>
+<em>// Step 1: Register the AKI plugin</em>
+JSBIND_ADDON(entry)<em> // Register AKI plugin name: This is the compiled *. so name, following the same rules as Node API</em>
  
-// Step 2: Register FFI Features
+<em>// Step 2: Register FFI Features</em>
 JSBIND_GLOBAL() 
 { 
   JSBIND_FUNCTION(SayHello); 
@@ -58,8 +58,8 @@ JSBIND_GLOBAL()
 注册的AKI插件名需与模块级 oh-package.json5 文件中 dependencies 标签下的 “lib&lt;AKI插件名&gt;” 字段名称一致。例如，libentry.so。
  1. 在“src/main/cpp/types/libentry/index.d.ts”中导出 .so 文件的接口。export const SayHello: (msg: string) => string;
 2. 在ArkTS文件中调用.so文件中的接口。
-```ArkTS
-import aki from 'libentry.so' // *. so compiled from the project
+```text
+import aki from 'libentry.so' <em>// *. so compiled from the project</em>
 
 @Entry
 @Component
@@ -73,7 +73,7 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-            console.info(aki.SayHello("hello world")); // 调用.so文件中的代码接口
+            console.info(aki.SayHello("hello world")); <em>// 调用.so文件中的代码接口</em>
           })
       }
       .width('100%')

@@ -1,6 +1,6 @@
-# 获取公共下载目录API不可用
+# 获取公共下载目录api不可用
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-41
 

@@ -1,6 +1,6 @@
 # AAID（应用匿名标识符）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-aaid-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -65,7 +65,7 @@ getAAID(callback: AsyncCallback&lt;string&gt;): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取AAID成功，err为undefined，data为获取到的AAID，字符长度为36；否则为错误对象。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取AAID成功，err为undefined，aaid为获取到的AAID，字符长度为36；否则为错误对象。 |
  
  
 **错误码：**
@@ -357,7 +357,7 @@ deleteAAID(): Promise&lt;void&gt;
  
 ```text
 import { AAID } from '@kit.PushKit';
-import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 

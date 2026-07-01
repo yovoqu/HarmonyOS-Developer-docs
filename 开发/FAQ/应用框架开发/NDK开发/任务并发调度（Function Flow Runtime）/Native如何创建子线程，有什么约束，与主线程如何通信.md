@@ -1,12 +1,12 @@
 # Native如何创建子线程，有什么约束，与主线程如何通信
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-68
 
 请参照下面的代码，通过C++子线程调用arkts侧的函数：
  
-```cpp
+```text
 #include "napi/native_api.h" 
 #include "hilog/log.h" 
 #include "thread" 
@@ -27,7 +27,7 @@ static napi_value ThreadsTest(napi_env env, napi_callback_info info) {
     napi_status status; 
     status = napi_get_cb_info(env, info, &argc, &js_cb, nullptr, nullptr); 
     OH_LOG_INFO(LOG_APP, "ThreadSafeTest 0: %{public}d", status == napi_ok); 
-    // Set initial_refcount to 0 for a weak reference, >0 for a strong reference. 
+   <em> // Set initial_refcount to 0 for a weak reference, >0 for a strong reference. </em>
     status = napi_create_reference(env, js_cb, 1, &cbObj); 
     OH_LOG_INFO(LOG_APP, "napi_create_reference of js_cb to cbObj: %{public}d", status == napi_ok); 
     status = napi_create_string_utf8(env, "Work Item", NAPI_AUTO_LENGTH, &work_name); 

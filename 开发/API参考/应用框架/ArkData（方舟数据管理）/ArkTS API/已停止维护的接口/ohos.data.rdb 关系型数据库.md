@@ -1,6 +1,6 @@
-# @ohos.data.rdb (关系型数据库)
+# @ohos.data.rdb（关系型数据库）
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-rdb
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -45,7 +45,7 @@ getRdbStore(context: Context, config: StoreConfig, version: number, callback: As
 | context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
 | config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
 | version | number | 是 | 数据库版本。 目前暂不支持通过version自动识别数据库升级降级操作，只能由开发者自行维护。 |
-| callback | AsyncCallback&lt;RdbStore&gt; | 是 | 指定callback回调函数，返回RdbStore对象。 |
+| callback | AsyncCallback&lt;RdbStore&gt; | 是 | 回调函数。当操作成功，err为undefined，data为RdbStore对象；否则为错误对象。 |
 
 
 **示例：**
@@ -173,8 +173,8 @@ deleteRdbStore(context: Context, name: string, callback: AsyncCallback&lt;void&g
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
-| name | string | 是 | 数据库名称。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| name | string | 是 | 数据库名称，不能为空字符串且不能包含路径分隔符/。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当操作成功，err为undefined；否则为错误对象。 |
 
 
 **示例：**
@@ -232,14 +232,14 @@ deleteRdbStore(context: Context, name: string): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
-| name | string | 是 | 数据库名称。 |
+| name | string | 是 | 数据库名称，不能为空字符串且不能包含路径分隔符/。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -360,7 +360,7 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 数据库文件名。 |
+| name | string | 是 | 数据库文件名，不能为空字符串且不能包含路径分隔符/。 |
 
 
 
@@ -387,7 +387,7 @@ constructor(name: string)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 数据库表名。 |
+| name | string | 是 | 数据库表名，不能为空字符串。 |
 
 
 **示例：**
@@ -416,14 +416,14 @@ inDevices(devices: Array&lt;string&gt;): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| devices | Array&lt;string&gt; | 是 | 指定的组网内的远程设备ID。 |
+| devices | Array&lt;string&gt; | 是 | 指定的组网内的远程设备ID，不能为空字符串。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了指定远程设备同步条件的谓词。 |
 
 
 **示例：**
@@ -449,9 +449,6 @@ deviceManager.createDeviceManager("com.example.appdatamgrverify", (err: Business
 
 let predicates = new data_rdb.RdbPredicates("EMPLOYEE");
 predicates.inDevices(deviceIds);
-                                  
-let predicates = new data_rdb.RdbPredicates("EMPLOYEE");
-predicates.inDevices(deviceIds);
 ```
 
 
@@ -470,7 +467,7 @@ inAllDevices(): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了所有远程设备同步条件的谓词。 |
 
 
 **示例：**
@@ -488,7 +485,7 @@ predicates.inAllDevices()
 
 equalTo(field: string, value: ValueType): RdbPredicates
 
-配置谓词以匹配数据字段为ValueType且值等于指定值的字段。
+配置谓词以匹配数据字段为ValueType且值等于指定值的字段。该方法等同于SQL语句中的"="。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -496,7 +493,7 @@ equalTo(field: string, value: ValueType): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
@@ -504,7 +501,7 @@ equalTo(field: string, value: ValueType): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了等于指定值条件的谓词。 |
 
 
 **示例：**
@@ -522,7 +519,7 @@ predicates.equalTo("NAME", "lisi")
 
 notEqualTo(field: string, value: ValueType): RdbPredicates
 
-配置谓词以匹配数据字段为ValueType且值不等于指定值的字段。
+配置谓词以匹配数据字段为ValueType且值不等于指定值的字段。该方法等同于SQL语句中的"!="。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -530,7 +527,7 @@ notEqualTo(field: string, value: ValueType): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
@@ -538,7 +535,7 @@ notEqualTo(field: string, value: ValueType): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了不等于指定值条件的谓词。 |
 
 
 **示例：**
@@ -674,7 +671,7 @@ predicates.equalTo("NAME", "Lisa")
 
 contains(field: string, value: string): RdbPredicates
 
-配置谓词以匹配数据字段为string且value包含指定值的字段。
+配置谓词以匹配数据字段为string且value包含指定值的字段。该方法等同于SQL语句中的"LIKE '%xxx%'"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -682,15 +679,15 @@ contains(field: string, value: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
-| value | string | 是 | 指示要与谓词匹配的值。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
+| value | string | 是 | 指示要与谓词匹配的值，长度不超过1024字节。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了包含指定值条件的谓词。 |
 
 
 **示例：**
@@ -708,7 +705,7 @@ predicates.contains("NAME", "os")
 
 beginsWith(field: string, value: string): RdbPredicates
 
-配置谓词以匹配数据字段为string且值以指定字符串开头的字段。
+配置谓词以匹配数据字段为string且值以指定字符串开头的字段。该方法等同于SQL语句中的"LIKE 'xxx%'"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -716,15 +713,15 @@ beginsWith(field: string, value: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
-| value | string | 是 | 指示要与谓词匹配的值。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
+| value | string | 是 | 指示要与谓词匹配的值，长度不超过1024字节。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了以指定字符串开头条件的谓词。 |
 
 
 **示例：**
@@ -742,7 +739,7 @@ predicates.beginsWith("NAME", "os")
 
 endsWith(field: string, value: string): RdbPredicates
 
-配置谓词以匹配数据字段为string且值以指定字符串结尾的字段。
+配置谓词以匹配数据字段为string且值以指定字符串结尾的字段。该方法等同于SQL语句中的"LIKE '%xxx'"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -750,15 +747,15 @@ endsWith(field: string, value: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
-| value | string | 是 | 指示要与谓词匹配的值。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
+| value | string | 是 | 指示要与谓词匹配的值，长度不超过1024字节。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了以指定字符串结尾条件的谓词。 |
 
 
 **示例：**
@@ -776,7 +773,7 @@ predicates.endsWith("NAME", "se")
 
 isNull(field: string): RdbPredicates
 
-配置谓词以匹配值为null的字段。
+配置谓词以匹配值为null的字段。该方法等同于SQL语句中的"IS NULL"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -784,14 +781,14 @@ isNull(field: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了值为null条件的谓词。 |
 
 
 **示例**：
@@ -809,7 +806,7 @@ predicates.isNull("NAME")
 
 isNotNull(field: string): RdbPredicates
 
-配置谓词以匹配值不为null的指定字段。
+配置谓词以匹配值不为null的指定字段。该方法等同于SQL语句中的"IS NOT NULL"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -817,14 +814,14 @@ isNotNull(field: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了值不为null条件的谓词。 |
 
 
 **错误码：**
@@ -851,7 +848,7 @@ predicates.isNotNull("NAME")
 
 like(field: string, value: string): RdbPredicates
 
-配置谓词以匹配数据字段为string且值类似于指定字符串的字段。
+配置谓词以匹配数据字段为string且值类似于指定字符串的字段。该方法等同于SQL语句中的"LIKE"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -859,15 +856,15 @@ like(field: string, value: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
-| value | string | 是 | 指示要与谓词匹配的值。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
+| value | string | 是 | 指示要与谓词匹配的值，长度不超过1024字节。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了类似指定字符串条件的谓词。 |
 
 
 **示例：**
@@ -885,7 +882,7 @@ predicates.like("NAME", "%os%")
 
 glob(field: string, value: string): RdbPredicates
 
-配置RdbPredicates匹配数据字段为string的指定字段。
+配置RdbPredicates匹配数据字段为string且值符合指定通配符模式的字段，其中*匹配任意多个字符，?匹配单个字符。该方法等同于SQL语句中的"GLOB"
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -893,15 +890,15 @@ glob(field: string, value: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
-| value | string | 是 | 指示要与谓词匹配的值。 支持通配符，*表示0个、1个或多个数字或字符，?表示1个数字或字符。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
+| value | string | 是 | 指示要与谓词匹配的值，长度不超过1024字节 支持通配符，*表示0个、1个或多个数字或字符，?表示1个数字或字符。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了匹配指定通配符模式条件的谓词。 |
 
 
 **示例：**
@@ -919,7 +916,7 @@ predicates.glob("NAME", "?h*g")
 
 between(field: string, low: ValueType, high: ValueType): RdbPredicates
 
-将谓词配置为匹配数据字段为ValueType且value在给定范围内的指定字段。
+将谓词配置为匹配数据字段为ValueType且value在给定范围内的指定字段。该方法等同于SQL语句中的"BETWEEN"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -927,7 +924,7 @@ between(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | low | ValueType | 是 | 指示与谓词匹配的最小值。 |
 | high | ValueType | 是 | 指示要与谓词匹配的最大值。 |
 
@@ -936,7 +933,7 @@ between(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了在给定范围内条件的谓词。 |
 
 
 **示例：**
@@ -954,7 +951,7 @@ predicates.between("AGE", 10, 50)
 
 notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates
 
-配置RdbPredicates以匹配数据字段为ValueType且value超出给定范围的指定字段。
+配置RdbPredicates以匹配数据字段为ValueType且value超出给定范围的指定字段。该方法等同于SQL语句中的"NOT BETWEEN"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -962,7 +959,7 @@ notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | low | ValueType | 是 | 指示与谓词匹配的最小值。 |
 | high | ValueType | 是 | 指示要与谓词匹配的最大值。 |
 
@@ -971,7 +968,7 @@ notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了超出给定范围条件的谓词。 |
 
 
 **示例：**
@@ -989,7 +986,7 @@ predicates.notBetween("AGE", 10, 50)
 
 greaterThan(field: string, value: ValueType): RdbPredicates
 
-配置谓词以匹配数据字段为ValueType且值大于指定值的字段。
+配置谓词以匹配数据字段为ValueType且值大于指定值的字段。该方法等同于SQL语句中的">"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -997,7 +994,7 @@ greaterThan(field: string, value: ValueType): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
@@ -1005,7 +1002,7 @@ greaterThan(field: string, value: ValueType): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了大于指定值条件的谓词。 |
 
 
 **示例：**
@@ -1023,7 +1020,7 @@ predicates.greaterThan("AGE", 18)
 
 lessThan(field: string, value: ValueType): RdbPredicates
 
-配置谓词以匹配数据字段为valueType且value小于指定值的字段。
+配置谓词以匹配数据字段为valueType且value小于指定值的字段。该方法等同于SQL语句中的"<"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1031,7 +1028,7 @@ lessThan(field: string, value: ValueType): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
@@ -1039,7 +1036,7 @@ lessThan(field: string, value: ValueType): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了小于指定值条件的谓词。 |
 
 
 **示例：**
@@ -1057,7 +1054,7 @@ predicates.lessThan("AGE", 20)
 
 greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
-配置谓词以匹配数据字段为ValueType且value大于或等于指定值的字段。
+配置谓词以匹配数据字段为ValueType且value大于或等于指定值的字段。该方法等同于SQL语句中的">="。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1065,7 +1062,7 @@ greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
@@ -1073,7 +1070,7 @@ greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了大于或等于指定值条件的谓词。 |
 
 
 **示例：**
@@ -1091,7 +1088,7 @@ predicates.greaterThanOrEqualTo("AGE", 18)
 
 lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
-配置谓词以匹配数据字段为ValueType且value小于或等于指定值的字段。
+配置谓词以匹配数据字段为ValueType且value小于或等于指定值的字段。该方法等同于SQL语句中的"<="。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1099,7 +1096,7 @@ lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
@@ -1107,7 +1104,7 @@ lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了小于或等于指定值条件的谓词。 |
 
 
 **示例：**
@@ -1125,7 +1122,7 @@ predicates.lessThanOrEqualTo("AGE", 20)
 
 orderByAsc(field: string): RdbPredicates
 
-配置谓词以匹配其值按升序排序的列。
+配置谓词以匹配其值按升序排序的列。该方法等同于SQL语句中的"ORDER BY"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1133,14 +1130,14 @@ orderByAsc(field: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了按升序排序条件的谓词。 |
 
 
 **示例：**
@@ -1158,7 +1155,7 @@ predicates.orderByAsc("NAME")
 
 orderByDesc(field: string): RdbPredicates
 
-配置谓词以匹配其值按降序排序的列。
+配置谓词以匹配其值按降序排序的列。该方法等同于SQL语句中的"ORDER BY"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1166,14 +1163,14 @@ orderByDesc(field: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了按降序排序条件的谓词。 |
 
 
 **示例：**
@@ -1191,7 +1188,7 @@ predicates.orderByDesc("AGE")
 
 distinct(): RdbPredicates
 
-配置谓词以过滤重复记录并仅保留其中一个。
+配置谓词以过滤重复记录并仅保留其中一个。该方法等同于SQL语句中的"DISTINCT"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1217,7 +1214,7 @@ predicates.equalTo("NAME", "Rose").distinct()
 
 limitAs(value: number): RdbPredicates
 
-设置最大数据记录数的谓词。
+设置最大数据记录数的谓词。该方法等同于SQL语句中的"LIMIT"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1250,7 +1247,7 @@ predicates.equalTo("NAME", "Rose").limitAs(3)
 
 offsetAs(rowOffset: number): RdbPredicates
 
-配置RdbPredicates以指定返回结果的起始位置。需要同步调用limitAs接口指定查询数量，否则将无查询结果。如需查询指定偏移位置后的所有行，limitAs接口调用需传参数-1。
+配置RdbPredicates以指定返回结果的起始位置。需要同步调用limitAs接口指定查询数量，否则将无查询结果。如需查询指定偏移位置后的所有行，limitAs接口调用需传参数-1。该方法等同于SQL语句中的"OFFSET"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1283,7 +1280,7 @@ predicates.equalTo("NAME", "Rose").limitAs(-1).offsetAs(3)
 
 groupBy(fields: Array&lt;string&gt;): RdbPredicates
 
-配置RdbPredicates按指定列分组查询结果。
+配置RdbPredicates按指定列分组查询结果。该方法等同于SQL语句中的"GROUP BY"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1291,7 +1288,7 @@ groupBy(fields: Array&lt;string&gt;): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fields | Array&lt;string&gt; | 是 | 指定分组依赖的列名。 |
+| fields | Array&lt;string&gt; | 是 | 指定分组依赖的列名，不能为空字符串。 |
 
 
 **返回值**：
@@ -1316,7 +1313,7 @@ predicates.groupBy(["AGE", "NAME"])
 
 indexedBy(field: string): RdbPredicates
 
-配置RdbPredicates以指定索引列。
+配置RdbPredicates以指定索引列。该方法等同于SQL语句中的"INDEXED BY"。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1324,7 +1321,7 @@ indexedBy(field: string): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 索引列的名称。 |
+| field | string | 是 | 索引列的名称，不能为空字符串。 |
 
 
 **返回值**：
@@ -1357,7 +1354,7 @@ in(field: string, value: Array&lt;ValueType&gt;): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | value | Array&lt;ValueType&gt; | 是 | 以ValueType型数组形式指定的要匹配的值。 |
 
 
@@ -1365,7 +1362,7 @@ in(field: string, value: Array&lt;ValueType&gt;): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了值在给定范围内条件的谓词。 |
 
 
 **示例：**
@@ -1391,7 +1388,7 @@ notIn(field: string, value: Array&lt;ValueType&gt;): RdbPredicates
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 数据库表中的列名。 |
+| field | string | 是 | 数据库表中的列名，不能为空字符串。 |
 | value | Array&lt;ValueType&gt; | 是 | 以ValueType数组形式指定的要匹配的值。 |
 
 
@@ -1399,7 +1396,7 @@ notIn(field: string, value: Array&lt;ValueType&gt;): RdbPredicates
 
 | 类型 | 说明 |
 | --- | --- |
-| RdbPredicates | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回配置了值超出给定范围内条件的谓词。 |
 
 
 **示例：**
@@ -1435,9 +1432,9 @@ insert(table: string, values: ValuesBucket, callback: AsyncCallback&lt;number&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。如果操作成功，返回行ID；否则返回-1。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当操作成功，err为undefined，data为行ID；否则为错误对象。 |
 
 
 **示例：**
@@ -1485,7 +1482,7 @@ insert(table: string, values: ValuesBucket):Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 
 
@@ -1540,9 +1537,9 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;, callback: AsyncCal
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。如果操作成功，返回插入的数据个数，否则返回-1。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当操作成功，err为undefined，data为插入的数据个数；否则为错误对象。 |
 
 
 **示例：**
@@ -1611,7 +1608,7 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;):Promise&lt;number&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 
 
@@ -1689,7 +1686,7 @@ update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback&
 | --- | --- | --- | --- |
 | values | ValuesBucket | 是 | values指示数据库中要更新的数据行。键值对与数据库表的列名相关联。 |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的更新条件。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定的callback回调方法。返回受影响的行数。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当操作成功，err为undefined，data为受影响的行数；否则为错误对象。 |
 
 
 **示例：**
@@ -1797,7 +1794,7 @@ delete(predicates: RdbPredicates, callback: AsyncCallback&lt;number&gt;):void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的删除条件。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。返回受影响的行数。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当操作成功，err为undefined，data为受影响的行数；否则为错误对象。 |
 
 
 **示例：**
@@ -1871,7 +1868,7 @@ query(predicates: RdbPredicates, columns: Array&lt;string&gt;, callback: AsyncCa
 | --- | --- | --- | --- |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的查询条件。 |
 | columns | Array&lt;string&gt; | 是 | 表示要查询的列。如果值为空，则查询应用于所有列。 |
-| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 回调函数。当操作成功，err为undefined，data为ResultSet对象；否则为错误对象。 |
 
 
 **示例：**
@@ -1946,9 +1943,9 @@ querySql(sql: string, bindArgs: Array&lt;ValueType&gt;, callback: AsyncCallback&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | bindArgs | Array&lt;ValueType&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数需为空数组。 |
-| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 回调函数。当操作成功，err为undefined，data为ResultSet对象；否则为错误对象。 |
 
 
 **示例：**
@@ -1980,7 +1977,7 @@ querySql(sql: string, bindArgs?: Array&lt;ValueType&gt;):Promise&lt;ResultSet&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
 
 
@@ -2019,9 +2016,9 @@ executeSql(sql: string, bindArgs: Array&lt;ValueType&gt;, callback: AsyncCallbac
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | bindArgs | Array&lt;ValueType&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数需为空数组。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当操作成功，err为undefined；否则为错误对象。 |
 
 
 **示例：**
@@ -2053,7 +2050,7 @@ executeSql(sql: string, bindArgs?: Array&lt;ValueType&gt;):Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
 
 
@@ -2061,7 +2058,7 @@ executeSql(sql: string, bindArgs?: Array&lt;ValueType&gt;):Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -2223,7 +2220,7 @@ setDistributedTables(tables: Array&lt;string&gt;, callback: AsyncCallback&lt;voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | tables | Array&lt;string&gt; | 是 | 要设置的分布式列表表名。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当操作成功，err为undefined；否则为错误对象。 |
 
 
 **示例：**
@@ -2263,7 +2260,7 @@ setDistributedTables(tables: Array&lt;string&gt;): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -2301,7 +2298,7 @@ obtainDistributedTableName(device: string, table: string, callback: AsyncCallbac
 | --- | --- | --- | --- |
 | device | string | 是 | 远程设备ID 。 |
 | table | string | 是 | 远程设备的本地表名。 |
-| callback | AsyncCallback&lt;string&gt; | 是 | 指定的callback回调函数。如果操作成功，返回远程设备的分布式表名。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当操作成功，err为undefined，data为远程设备的分布式表名；否则为错误对象。 |
 
 
 **示例：**
@@ -2408,7 +2405,7 @@ sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[s
 | --- | --- | --- | --- |
 | mode | SyncMode | 是 | 指同步模式。该值可以是推、拉。 |
 | predicates | RdbPredicates | 是 | 约束同步数据和设备。 |
-| callback | AsyncCallback<Array<[string, number]>> | 是 | 指定的callback回调函数，用于向调用者发送同步结果。string：设备ID；number：每个设备同步状态，0表示成功，其他值表示失败。 |
+| callback | AsyncCallback<Array<[string, number]>> | 是 | 回调函数。当操作成功，err为undefined，data为同步结果，其中string为设备ID，number为每个设备同步状态，0表示成功，其他值表示失败；否则为错误对象。 |
 
 
 **示例：**

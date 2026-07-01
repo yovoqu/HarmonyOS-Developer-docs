@@ -1,6 +1,6 @@
 # 如何在Text组件关闭bindSelection自定义菜单时，取消文本的选中状态
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-323
 
@@ -12,13 +12,13 @@
  
 在该场景下，取消选中状态可通过重新设置selection来实现。在调用closeSelectionMenu()关闭自定义菜单时，通过重置selection的start和end属性来取消选中状态。示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct TextMenuUnchecked {
   controller: TextController = new TextController();
   options: TextOptions = { controller: this.controller };
-  @State start: number = -1; // Unchecked state
+  @State start: number = -1; <em>// Unchecked state</em>
   @State end: number = -1;
 
   build() {
@@ -34,7 +34,7 @@ struct TextMenuUnchecked {
         }
         .selection(this.start, this.end)
         .copyOption(CopyOptions.InApp)
-        // Long press to bring up a custom menu
+      <em>  // Long press to bring up a custom menu</em>
         .bindSelectionMenu(TextSpanType.TEXT, this.buildCustomSelectionMenu, TextResponseType.LONG_PRESS, {
           onDisappear: () => {
             console.info(`Custom selection menu callback when closed`);
@@ -43,7 +43,7 @@ struct TextMenuUnchecked {
             console.info(`Callback when custom selection menu pops up`);
           }
         })
-        // When the selected area changes, trigger a callback to update the starting and ending subscripts of the selected area
+       <em><strong> // When the selected area changes, trigger a callback to update the starting and ending subscripts of the selected area</strong></em>
         .onTextSelectionChange((selectionStart: number, selectionEnd: number) => {
           this.start = selectionStart;
           this.end = selectionEnd;
@@ -72,7 +72,7 @@ struct TextMenuUnchecked {
             content: 'Right Click Menu 1',
             labelInfo: ''
           })
-            .onClick(() => { //When clicking on the custom menu, reset the starting and ending subscripts of the selected area
+            .onClick(() => { <em>//When clicking on the custom menu, reset the starting and ending subscripts of the selected area</em>
               this.start = -1;
               this.end = -1;
               try {

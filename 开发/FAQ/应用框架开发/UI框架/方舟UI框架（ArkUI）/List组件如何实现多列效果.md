@@ -1,13 +1,13 @@
 # List组件如何实现多列效果
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-27
 
 设置[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件的lanes属性，以实现交叉轴上的多列布局。示例代码如下：
  
 ```ArkTS
-// xxx.ets
+<em>// xxx.ets</em>
 @Entry
 @Component
 struct ListExample {

@@ -1,6 +1,6 @@
 # CPU孪生调试功能
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-cpu-twin-debugging
 
@@ -30,7 +30,7 @@ CPU孪生调试主要基于开发者输入生成编译所需的二进制bin文�
 #### 使用方法（命令行）
 
 通过命令行进行CPU调测的关键步骤如下。
- 1. 完成环境搭建，并准备好输入/标杆数据文件。
+ 1. [完成环境搭建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-environment-preparation)，并准备好输入/标杆数据文件。
 2. 执行如下命令进行CPU调测，这里仅提供关键参数项示例，其他参数请参考[CPU调测参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-cli-parameters#cpu调测参数)按需设置。
 
   

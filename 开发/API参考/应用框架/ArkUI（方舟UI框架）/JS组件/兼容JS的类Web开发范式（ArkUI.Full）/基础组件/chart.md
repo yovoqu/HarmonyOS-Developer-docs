@@ -1,6 +1,6 @@
 # chart
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-chart
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 > 从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
  
-图表组件，用于呈现线形图、柱状图、量规图界面。
+图表组件，用于呈现线形图、柱状图、量规图、进度类圆形图表、加载类圆形图表、占比类圆形图表界面。
   
 
 #### 权限列表
@@ -173,7 +173,7 @@
 | radius | &lt;length&gt; | - | 否 | 量规组件刻度条半径，该样式优先于通用样式的width和height样式。该样式需要和center-x和center-y一起配置才能生效。（仅量规图支持） |
 | colors | Array | - | 否 | 量规组件刻度条每一个区段的颜色。 如：colors: #ff0000, #00ff00。（仅量规图支持） |
 | weights | Array | - | 否 | 量规组件刻度条每一个区段的权重。 如：weights: 2, 2。（仅量规图支持） |
-| font-family5+ | Array | - | 否 | 表示绘制注释的字体样式，支持自定义字体。 |
+| font-family5+ | Array | - | 否 | 表示绘制注释的字体族，支持自定义字体。 |
 | font-size5+ | &lt;length&gt; | - | 否 | 表示绘制注释的字体的大小。 |
  
  
@@ -474,4 +474,4 @@ export default {
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/ONSQddp5R4mex4Si6aCYWg/zh-cn_image_0000002611836157.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025438Z&HW-CC-Expire=86400&HW-CC-Sign=2478F7EDD4411DE63AA3F6AAA9EA9E3B9BE614D09DA8FC62BEDA8F5AE7FB86CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/Ai9VZkquQfGRQKGhgb1ugw/zh-cn_image_0000002628862944.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014401Z&HW-CC-Expire=86400&HW-CC-Sign=E5B3CD1AFDB7B40ECE90B5CC7C68E8527BF38B3C62864804AFCEE648F1FC0AE3)

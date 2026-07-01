@@ -1,6 +1,6 @@
 # Interface (RdbStore)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -107,7 +107,11 @@ class EntryAbility extends UIAbility {
 
 insert(table: string, values: ValuesBucket, callback: AsyncCallback&lt;number&gt;):void
 
-向目标表中插入一行数据，使用callback异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+向目标表中插入一行数据，使用callback异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
@@ -117,9 +121,9 @@ insert(table: string, values: ValuesBucket, callback: AsyncCallback&lt;number&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。如果操作成功，返回行ID；否则返回-1。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当插入数据成功，err为undefined，data为行ID；否则为错误对象。 |
 
 
 **错误码：**
@@ -197,7 +201,11 @@ if (store != undefined) {
 
 insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback&lt;number&gt;):void
 
-向目标表中插入一行数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用callback异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+向目标表中插入一行数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用callback异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
@@ -207,10 +215,10 @@ insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callba
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 | conflict | ConflictResolution | 是 | 指定冲突解决模式。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。如果操作成功，返回行ID；否则返回-1。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当插入数据成功，err为undefined，data为行ID；否则为错误对象。 |
 
 
 **错误码：**
@@ -289,7 +297,11 @@ if (store != undefined) {
 
 insert(table: string, values: ValuesBucket):Promise&lt;number&gt;
 
-向目标表中插入一行数据，使用Promise异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+向目标表中插入一行数据，使用Promise异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
@@ -299,7 +311,7 @@ insert(table: string, values: ValuesBucket):Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 
 
@@ -307,7 +319,7 @@ insert(table: string, values: ValuesBucket):Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。如果操作成功，返回行ID；否则返回-1。 |
+| Promise&lt;number&gt; | Promise对象。返回插入数据的行ID。 |
 
 
 **错误码：**
@@ -385,7 +397,11 @@ if (store != undefined) {
 
 insert(table: string, values: ValuesBucket, conflict: ConflictResolution):Promise&lt;number&gt;
 
-向目标表中插入一行数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用Promise异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+向目标表中插入一行数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用Promise异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
@@ -395,7 +411,7 @@ insert(table: string, values: ValuesBucket, conflict: ConflictResolution):Promis
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 | conflict | ConflictResolution | 是 | 指定冲突解决模式。 |
 
@@ -404,7 +420,7 @@ insert(table: string, values: ValuesBucket, conflict: ConflictResolution):Promis
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。如果操作成功，返回行ID；否则返回-1。 |
+| Promise&lt;number&gt; | Promise对象。返回插入数据的行ID。 |
 
 
 **错误码：**
@@ -482,7 +498,11 @@ if (store != undefined) {
 
 insertSync(table: string, values: ValuesBucket, conflict?: ConflictResolution):number
 
-向目标表中插入一行数据。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+向目标表中插入一行数据。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
@@ -492,7 +512,7 @@ insertSync(table: string, values: ValuesBucket, conflict?: ConflictResolution):n
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 | conflict | ConflictResolution | 否 | 指定冲突解决模式。默认值是relationalStore.ConflictResolution.ON_CONFLICT_NONE。 |
 
@@ -501,7 +521,7 @@ insertSync(table: string, values: ValuesBucket, conflict?: ConflictResolution):n
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 如果操作成功，返回行ID；否则返回-1。 |
+| number | 返回插入数据的行ID。 |
 
 
 **错误码：**
@@ -578,7 +598,11 @@ if (store != undefined) {
 
 insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution):number
 
-传入Sendable数据，向目标表中插入一行数据。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+传入Sendable数据，向目标表中插入一行数据。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
 
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
@@ -588,7 +612,7 @@ insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | sendableRelationalStore.ValuesBucket | 是 | 表示要插入到表中的可跨线程传递数据。 |
 | conflict | ConflictResolution | 否 | 指定冲突解决模式。默认值是relationalStore.ConflictResolution.ON_CONFLICT_NONE。 |
 
@@ -597,7 +621,7 @@ insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 如果操作成功，返回行ID；否则返回-1。 |
+| number | 返回插入数据的行ID。 |
 
 
 **错误码：**
@@ -665,6 +689,10 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;, callback: AsyncCal
 
 按每批32766个参数，分批以[ConflictResolution.ON_CONFLICT_REPLACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)策略写入，参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小，中途失败则立即返回。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 从API version 20开始，支持向量数据库（在[StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)中配置vector为true）。
@@ -675,9 +703,9 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;, callback: AsyncCal
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。如果操作成功，返回插入的数据个数，否则返回-1。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当批量插入成功，err为undefined，data为插入的数据个数；否则为错误对象。 |
 
 
 **错误码：**
@@ -769,6 +797,10 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;):Promise&lt;number&
 
 按每批32766个参数，分批以[ConflictResolution.ON_CONFLICT_REPLACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)策略写入，参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小，中途失败则立即返回。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 从API version 20开始，该接口支持向量数据库（在[StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)中配置vector为true）使用。
@@ -779,7 +811,7 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;):Promise&lt;number&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 
 
@@ -787,7 +819,7 @@ batchInsert(table: string, values: Array&lt;ValuesBucket&gt;):Promise&lt;number&
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。如果操作成功，返回插入的数据个数，否则返回-1。 |
+| Promise&lt;number&gt; | Promise对象。返回批量插入的数据个数。 |
 
 
 **错误码：**
@@ -902,6 +934,10 @@ batchInsertSync(table: string, values: Array&lt;ValuesBucket&gt;):number
 
 按每批32766个参数，分批以[ConflictResolution.ON_CONFLICT_REPLACE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)策略写入，参数数量计算方式为插入数据条数乘以插入数据的所有字段的并集大小，中途失败则立即返回。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -910,7 +946,7 @@ batchInsertSync(table: string, values: Array&lt;ValuesBucket&gt;):number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 
 
@@ -918,7 +954,7 @@ batchInsertSync(table: string, values: Array&lt;ValuesBucket&gt;):number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 如果操作成功，返回插入的数据个数，否则返回-1。 |
+| number | 返回批量插入的数据个数。 |
 
 
 **错误码：**
@@ -1015,6 +1051,10 @@ batchInsertWithConflictResolution(table: string, values: Array&lt;ValuesBucket&g
 
 请确保在调用接口时遵守此限制，以避免因参数数量过多而导致错误。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1023,7 +1063,7 @@ batchInsertWithConflictResolution(table: string, values: Array&lt;ValuesBucket&g
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 | conflict | ConflictResolution | 是 | 指定冲突解决模式。 |
 
@@ -1032,7 +1072,7 @@ batchInsertWithConflictResolution(table: string, values: Array&lt;ValuesBucket&g
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象。如果操作成功，返回插入的数据个数，否则返回-1。 |
+| Promise&lt;number&gt; | Promise对象。返回批量插入的数据个数。 |
 
 
 **错误码：**
@@ -1126,6 +1166,10 @@ batchInsertWithConflictResolutionSync(table: string, values: Array&lt;ValuesBuck
 
 请确保在调用接口时遵守此限制，以避免因参数数量过多而导致错误。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1134,7 +1178,7 @@ batchInsertWithConflictResolutionSync(table: string, values: Array&lt;ValuesBuck
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| table | string | 是 | 指定的目标表名。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 | conflict | ConflictResolution | 是 | 指定冲突解决模式。 |
 
@@ -1143,7 +1187,7 @@ batchInsertWithConflictResolutionSync(table: string, values: Array&lt;ValuesBuck
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 如果操作成功，返回插入的数据个数，否则返回-1。 |
+| number | 返回批量插入的数据个数。 |
 
 
 **错误码：**
@@ -1238,6 +1282,10 @@ batchInsertWithReturning(table: string, values: Array&lt;ValuesBucket&gt;, confi
 
 conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确的结果。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1258,7 +1306,7 @@ conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确�
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Result&gt; | Promise对象。如果操作成功，返回受影响的数据集。 |
+| Promise&lt;Result&gt; | Promise对象。返回受影响的数据集。 |
 
 
 **错误码：**
@@ -1321,6 +1369,10 @@ batchInsertWithReturningSync(table: string, values: Array&lt;ValuesBucket&gt;, c
 
 conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确的结果。
 
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
 单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1341,7 +1393,7 @@ conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确�
 
 | 类型 | 说明 |
 | --- | --- |
-| Result | 如果操作成功，返回受影响的数据集。 |
+| Result | 返回受影响的数据集。 |
 
 
 **错误码：**
@@ -1394,7 +1446,13 @@ function batchInsertWithReturningSyncExample(rdbStore: relationalStore.RdbStore)
 
 update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback&lt;number&gt;):void
 
-根据RdbPredicates的指定实例对象更新数据库中的数据，使用callback异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+根据RdbPredicates的指定实例对象更新数据库中的数据，使用callback异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1404,7 +1462,7 @@ update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback&
 | --- | --- | --- | --- |
 | values | ValuesBucket | 是 | values指示数据库中要更新的数据行。键值对与数据库表的列名相关联。 |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的更新条件。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定的callback回调方法。返回受影响的行数。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当更新数据成功，err为undefined，data为受影响的行数；否则为错误对象。 |
 
 
 **错误码：**
@@ -1484,7 +1542,13 @@ if (store != undefined) {
 
 update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution, callback: AsyncCallback&lt;number&gt;):void
 
-根据RdbPredicates的指定实例对象更新数据库中的数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用callback异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+根据RdbPredicates的指定实例对象更新数据库中的数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用callback异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1495,7 +1559,7 @@ update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolu
 | values | ValuesBucket | 是 | values指示数据库中要更新的数据行。键值对与数据库表的列名相关联。 |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的更新条件。 |
 | conflict | ConflictResolution | 是 | 指定冲突解决模式。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定的callback回调方法。返回受影响的行数。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当更新数据成功，err为undefined，data为受影响的行数；否则为错误对象。 |
 
 
 **错误码：**
@@ -1575,7 +1639,13 @@ if (store != undefined) {
 
 update(values: ValuesBucket, predicates: RdbPredicates):Promise&lt;number&gt;
 
-根据RdbPredicates的指定实例对象更新数据库中的数据，使用Promise异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+根据RdbPredicates的指定实例对象更新数据库中的数据，使用Promise异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1591,7 +1661,7 @@ update(values: ValuesBucket, predicates: RdbPredicates):Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 指定的Promise回调方法。返回受影响的行数。 |
+| Promise&lt;number&gt; | Promise对象。返回受影响的行数。 |
 
 
 **错误码：**
@@ -1671,7 +1741,13 @@ if (store != undefined) {
 
 update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution):Promise&lt;number&gt;
 
-根据RdbPredicates的指定实例对象更新数据库中的数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用Promise异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+根据RdbPredicates的指定实例对象更新数据库中的数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，使用Promise异步回调。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1688,7 +1764,7 @@ update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolu
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 指定的Promise回调方法。返回受影响的行数。 |
+| Promise&lt;number&gt; | Promise对象。返回受影响的行数。 |
 
 
 **错误码：**
@@ -1768,7 +1844,13 @@ if (store != undefined) {
 
 updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution):number
 
-根据RdbPredicates的指定实例对象更新数据库中的数据。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+根据RdbPredicates的指定实例对象更新数据库中的数据。
+
+由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。
+
+如果单条数据超过此限制，在后续通过RdbStore的[query](#query)或[querySql](#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
+
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
@@ -1868,6 +1950,8 @@ updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: Ret
 
 conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确的结果。
 
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **模型约束：** 此接口仅在Stage模型下可用。
@@ -1886,7 +1970,7 @@ conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确�
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Result&gt; | Promise对象。如果操作成功，返回受影响的数据集。 |
+| Promise&lt;Result&gt; | Promise对象。返回受影响的数据集。 |
 
 
 **错误码：**
@@ -1947,6 +2031,8 @@ updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config:
 
 conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确的结果。
 
+单条字符串类型字段最大支持写入8MB，超出部分将被截断，仅保留前8MB数据，若需存储超过8MB的内容，建议使用blob类型。
+
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **模型约束：** 此接口仅在Stage模型下可用。
@@ -1965,7 +2051,7 @@ conflict参数不建议使用ON_CONFLICT_FAIL策略，可能无法返回正确�
 
 | 类型 | 说明 |
 | --- | --- |
-| Result | 如果操作成功，返回受影响的数据集。 |
+| Result | 返回受影响的数据集。 |
 
 
 **错误码：**
@@ -2031,7 +2117,7 @@ delete(predicates: RdbPredicates, callback: AsyncCallback&lt;number&gt;):void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的删除条件。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。返回受影响的行数量。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当删除数据成功，err为undefined，data为受影响的行数量；否则为错误对象。 |
 
 
 **错误码：**
@@ -2243,7 +2329,7 @@ deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Result&gt; | Promise对象。如果操作成功，返回受影响的数据集。 |
+| Promise&lt;Result&gt; | Promise对象。返回受影响的数据集。 |
 
 
 **错误码：**
@@ -2315,7 +2401,7 @@ deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Res
 
 | 类型 | 说明 |
 | --- | --- |
-| Result | 如果操作成功，返回受影响的数据集。 |
+| Result | 返回受影响的数据集。 |
 
 
 **错误码：**
@@ -2378,7 +2464,7 @@ query(predicates: RdbPredicates, callback: AsyncCallback&lt;ResultSet&gt;):void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的查询条件。 |
-| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 回调函数。当查询成功，err为undefined，data为ResultSet对象；否则为错误对象。 |
 
 
 **错误码：**
@@ -2442,7 +2528,7 @@ query(predicates: RdbPredicates, columns: Array&lt;string&gt;, callback: AsyncCa
 | --- | --- | --- | --- |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的查询条件。 |
 | columns | Array&lt;string&gt; | 是 | 表示要查询的列。如果值为空，则查询应用于所有列。 |
-| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 回调函数。当查询成功，err为undefined，data为ResultSet对象；否则为错误对象。 |
 
 
 **错误码：**
@@ -2512,7 +2598,7 @@ query(predicates: RdbPredicates, columns?: Array&lt;string&gt;):Promise&lt;Resul
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;ResultSet&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
+| Promise&lt;ResultSet&gt; | Promise对象。返回ResultSet对象。 |
 
 
 **错误码：**
@@ -2582,7 +2668,7 @@ querySync(predicates: RdbPredicates, columns?: Array&lt;string&gt;):ResultSet
 
 | 类型 | 说明 |
 | --- | --- |
-| ResultSet | 如果操作成功，则返回ResultSet对象。 |
+| ResultSet | 返回ResultSet对象。 |
 
 
 **错误码：**
@@ -2652,7 +2738,7 @@ queryWithoutRowCount(predicates: RdbPredicates, columns?: Array&lt;string&gt;): 
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;LiteResultSet&gt; | 如果操作成功，则返回LiteResultSet对象。 |
+| Promise&lt;LiteResultSet&gt; | 返回LiteResultSet对象。 |
 
 
 **错误码：**
@@ -2722,7 +2808,7 @@ queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array&lt;string&gt
 
 | 类型 | 说明 |
 | --- | --- |
-| LiteResultSet | 如果操作成功，则返回LiteResultSet对象。 |
+| LiteResultSet | 返回LiteResultSet对象。 |
 
 
 **错误码：**
@@ -2782,15 +2868,15 @@ querySqlWithoutRowCount(sql: string, bindArgs?: Array&lt;ValueType&gt;): Promise
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;LiteResultSet&gt; | Promise对象。如果操作成功，则返回LiteResultSet对象。 |
+| Promise&lt;LiteResultSet&gt; | Promise对象。返回LiteResultSet对象。 |
 
 
 **错误码：**
@@ -2851,15 +2937,15 @@ querySqlWithoutRowCountSync(sql: string, bindArgs?: Array&lt;ValueType&gt;):Lite
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| LiteResultSet | 如果操作成功，则返回LiteResultSet对象。 |
+| LiteResultSet | 返回LiteResultSet对象。 |
 
 
 **错误码：**
@@ -2920,11 +3006,11 @@ remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: A
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| device | string | 是 | 指定的远程设备ID。 |
-| table | string | 是 | 指定的目标表名。 |
+| device | string | 是 | 指定的远程设备ID，不能为空字符串。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象，指定查询的条件。 |
 | columns | Array&lt;string&gt; | 是 | 表示要查询的列。如果值为空，则查询应用于所有列。 |
-| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 回调函数。当查询成功，err为undefined，data为ResultSet对象；否则为错误对象。 |
 
 
 **错误码：**
@@ -3010,8 +3096,8 @@ remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: A
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| device | string | 是 | 指定的远程设备ID。 |
-| table | string | 是 | 指定的目标表名。 |
+| device | string | 是 | 指定的远程设备ID，不能为空字符串。 |
+| table | string | 是 | 指定的目标表名，不能为空字符串。 |
 | predicates | RdbPredicates | 是 | RdbPredicates的实例对象，指定查询的条件。 |
 | columns | Array&lt;string&gt; | 是 | 表示要查询的列。如果值为空，则查询应用于所有列。 |
 
@@ -3020,7 +3106,7 @@ remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: A
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;ResultSet&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
+| Promise&lt;ResultSet&gt; | Promise对象。返回ResultSet对象。 |
 
 
 **错误码：**
@@ -3104,8 +3190,8 @@ querySql(sql: string, callback: AsyncCallback&lt;ResultSet&gt;):void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 回调函数。当查询成功，err为undefined，data为ResultSet对象；否则为错误对象。 |
 
 
 **错误码：**
@@ -3187,9 +3273,9 @@ querySql(sql: string, bindArgs: Array&lt;ValueType&gt;, callback: AsyncCallback&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;ValueType&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数需为空数组。 |
-| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| bindArgs | Array&lt;ValueType&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 回调函数。当查询成功，err为undefined，data为ResultSet对象；否则为错误对象。 |
 
 
 **错误码：**
@@ -3253,15 +3339,15 @@ querySql(sql: string, bindArgs?: Array&lt;ValueType&gt;):Promise&lt;ResultSet&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;ResultSet&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
+| Promise&lt;ResultSet&gt; | Promise对象。返回ResultSet对象。 |
 
 
 **错误码：**
@@ -3332,15 +3418,15 @@ querySqlSync(sql: string, bindArgs?: Array&lt;ValueType&gt;):ResultSet
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| ResultSet | 如果操作成功，则返回ResultSet对象。 |
+| ResultSet | 返回ResultSet对象。 |
 
 
 **错误码：**
@@ -3402,8 +3488,8 @@ executeSql(sql: string, callback: AsyncCallback&lt;void&gt;):void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当执行SQL成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -3470,9 +3556,9 @@ executeSql(sql: string, bindArgs: Array&lt;ValueType&gt;, callback: AsyncCallbac
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;ValueType&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数需为空数组。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| bindArgs | Array&lt;ValueType&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当执行SQL成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -3539,15 +3625,15 @@ executeSql(sql: string, bindArgs?: Array&lt;ValueType&gt;):Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -3620,8 +3706,8 @@ execute(sql: string, args?: Array&lt;ValueType&gt;):Promise&lt;ValueType&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
 
 
 **返回值**：
@@ -3737,9 +3823,9 @@ execute(sql: string, txId: number, args?: Array&lt;ValueType&gt;): Promise&lt;Va
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
 | txId | number | 是 | 通过beginTrans获取的事务ID，如果传0，该语句默认在单独事务内。 |
-| args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。该参数不填，填null或者填undefined，都认为是sql参数语句完整。 |
+| args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。默认值为空数组。 |
 
 
 **返回值**：
@@ -3826,8 +3912,8 @@ executeSync(sql: string, args?: Array&lt;ValueType&gt;): ValueType
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sql | string | 是 | 指定要执行的SQL语句。 |
-| args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。该参数不填，或者填null或undefined，都认为是sql参数语句完整。默认值为空。 |
+| sql | string | 是 | 指定要执行的SQL语句，不能为空字符串。 |
+| args | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。该参数不填，或者填null或undefined，都认为是sql参数语句完整，默认值为空数组。 |
 
 
 **返回值**：
@@ -3921,7 +4007,7 @@ getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[], call
 | table | string | 是 | 指定要查询的数据库表的表名。 |
 | columnName | string | 是 | 指定要查询的数据库表的列名。 |
 | primaryKeys | PRIKeyType[] | 是 | 指定要查询的行的主键。 如果数据库表无主键，参数columnName需传入"rowid"，此时primaryKeys为要查询的数据库表的行号。 如果数据库表无主键，参数columnName传入不为"rowid"，返回对应的错误码。 |
-| callback | AsyncCallback&lt;ModifyTime&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ModifyTime对象，表示数据的最后修改时间。 |
+| callback | AsyncCallback&lt;ModifyTime&gt; | 是 | 回调函数。当获取修改时间成功，err为undefined，data为ModifyTime对象；否则为错误对象。 |
 
 
 **错误码：**
@@ -4201,7 +4287,7 @@ createTransaction(options?: TransactionOptions): Promise&lt;Transaction&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | TransactionOptions | 否 | 表示事务对象的配置信息。 |
+| options | TransactionOptions | 否 | 表示事务对象的配置信息，默认值为DEFERRED。 |
 
 
 **返回值**：
@@ -4335,7 +4421,7 @@ commit(txId : number):Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -4485,7 +4571,7 @@ rollback(txId : number):Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -4557,8 +4643,8 @@ backup(destName:string, callback: AsyncCallback&lt;void&gt;):void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| destName | string | 是 | 指定数据库的备份文件名。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| destName | string | 是 | 指定数据库的备份文件名，不能为空字符串。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当备份成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -4621,14 +4707,14 @@ backup(destName:string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| destName | string | 是 | 指定数据库的备份文件名。 |
+| destName | string | 是 | 指定数据库的备份文件名，不能为空字符串。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -4691,8 +4777,8 @@ restore(srcName:string, callback: AsyncCallback&lt;void&gt;):void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| srcName | string | 是 | 指定数据库的备份文件名。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| srcName | string | 是 | 指定数据库的备份文件名，不能为空字符串。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当恢复成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -4754,14 +4840,14 @@ restore(srcName:string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| srcName | string | 是 | 指定数据库的备份文件名。 |
+| srcName | string | 是 | 指定数据库的备份文件名，不能为空字符串。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -4825,7 +4911,7 @@ setDistributedTables(tables: Array&lt;string&gt;, callback: AsyncCallback&lt;voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | tables | Array&lt;string&gt; | 是 | 要设置的分布式数据库的表名。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置分布式列表成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -4879,7 +4965,7 @@ setDistributedTables(tables: Array&lt;string&gt;): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -4928,7 +5014,7 @@ setDistributedTables(tables: Array&lt;string&gt;, type: DistributedType, callbac
 | --- | --- | --- | --- |
 | tables | Array&lt;string&gt; | 是 | 要设置的分布式数据库的表名。 |
 | type | DistributedType | 是 | 表的分布式类型。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置分布式列表成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -4979,7 +5065,7 @@ setDistributedTables(tables: Array&lt;string&gt;, type: DistributedType, config:
 | tables | Array&lt;string&gt; | 是 | 要设置的分布式数据库的表名。 |
 | type | DistributedType | 是 | 表的分布式类型。 |
 | config | DistributedConfig | 是 | 表的分布式配置信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置分布式列表成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -5038,7 +5124,7 @@ setDistributedTables(tables: Array&lt;string&gt;, type?: DistributedType, config
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -5092,9 +5178,9 @@ obtainDistributedTableName(device: string, table: string, callback: AsyncCallbac
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| device | string | 是 | 远程设备ID 。 |
+| device | string | 是 | 远程设备ID，不能为空字符串。 |
 | table | string | 是 | 远程设备的本地表名。 |
-| callback | AsyncCallback&lt;string&gt; | 是 | 指定的callback回调函数。如果操作成功，返回远程设备的分布式表名。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取分布式表名成功，err为undefined，data为远程设备的分布式表名；否则为错误对象。 |
 
 
 **错误码：**
@@ -5165,7 +5251,7 @@ obtainDistributedTableName(device: string, table: string): Promise&lt;string&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| device | string | 是 | 远程设备ID。 |
+| device | string | 是 | 远程设备ID，不能为空字符串。 |
 | table | string | 是 | 远程设备的本地表名。 |
 
 
@@ -5173,7 +5259,7 @@ obtainDistributedTableName(device: string, table: string): Promise&lt;string&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象。如果操作成功，返回远程设备的分布式表名。 |
+| Promise&lt;string&gt; | Promise对象。返回远程设备的分布式表名。 |
 
 
 **错误码：**
@@ -5240,7 +5326,7 @@ sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[s
 | --- | --- | --- | --- |
 | mode | SyncMode | 是 | 指同步模式。该值可以是relationalStore.SyncMode.SYNC_MODE_PUSH、relationalStore.SyncMode.SYNC_MODE_PULL。 |
 | predicates | RdbPredicates | 是 | 约束同步数据和设备。 |
-| callback | AsyncCallback<Array<[string, number]>> | 是 | 指定的callback回调函数，用于向调用者发送同步结果。string：设备ID；number：每个设备同步状态，0表示成功，1表示失败。 |
+| callback | AsyncCallback<Array<[string, number]>> | 是 | 回调函数，用于向调用者发送同步结果。string：设备ID；number：每个设备同步状态，0表示成功，1表示失败。 |
 
 
 **错误码：**
@@ -5318,7 +5404,7 @@ sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array<[string, number]>> | Promise对象，用于向调用者发送同步结果。string：设备ID；number：每个设备同步状态，0表示成功，1表示失败。 |
+| Promise<Array<[string, number]>> | Promise对象。返回同步结果。string：设备ID；number：每个设备同步状态，0表示成功，1表示失败。 |
 
 
 **错误码：**
@@ -5370,13 +5456,97 @@ if (store != undefined) {
 
 
 
+#### syncEx
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+syncEx(mode: SyncMode, predicates: RdbPredicates): Promise<Array&lt;SyncResult&gt;>
+
+在设备之间同步数据，使用Promise异步回调，可以返回具体的同步状态信息。
+
+**需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅在Stage模型下可用。
+
+**系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| mode | SyncMode | 是 | 同步模式。该值可以是relationalStore.SyncMode.SYNC_MODE_PUSH、relationalStore.SyncMode.SYNC_MODE_PULL。 |
+| predicates | RdbPredicates | 是 | 约束同步数据和设备。 |
+
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;SyncResult&gt;> | Promise对象。返回SyncResult数组。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | the application does not have permission to call this function. |
+| 14800001 | Invalid arguments. Possible causes: 1. Parameter is out of valid range. |
+| 14800014 | The target instance is already closed. |
+
+
+**示例：**
+
+```text
+import { distributedDeviceManager } from '@kit.DistributedServiceKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let dmInstance: distributedDeviceManager.DeviceManager;
+let deviceIds: Array<string> = [];
+
+try {
+  dmInstance = distributedDeviceManager.createDeviceManager("com.example.appdatamgrverify");
+  let devices: Array<distributedDeviceManager.DeviceBasicInfo> = dmInstance.getAvailableDeviceListSync();
+  for (let i = 0; i < devices.length; i++) {
+    deviceIds[i] = devices[i].networkId!;
+  }
+} catch (err) {
+  let code = (err as BusinessError).code;
+  let message = (err as BusinessError).message;
+  console.error("createDeviceManager errCode:" + code + ",errMessage:" + message);
+}
+
+let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
+predicates.inDevices(deviceIds);
+store.syncEx(relationalStore.SyncMode.SYNC_MODE_PUSH, predicates).then((result: relationalStore.SyncResult[]) => {
+  for (let i = 0; i < result.length; i++) {
+    let code = result[i].code;
+    let message = result[i].message;
+    if (code === 0) {
+      console.info(`SyncEx success`);
+    } else {
+      console.error(`SyncEx failed, message: ${message} code : ${code}`);
+    }
+  }
+}).catch((err: Error) => {
+    let code = (err as BusinessError).code;
+    let message = (err as BusinessError).message;
+    console.error("syncEx errCode:" + code + ",errMessage:" + message);
+});
+```
+
+
+
 #### cloudSync10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 cloudSync(mode: SyncMode, progress: Callback&lt;ProgressDetails&gt;, callback: AsyncCallback&lt;void&gt;): void
 
-手动执行对所有分布式表的端云同步，使用callback异步回调。使用该接口需要实现[端云服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-clouddata)功能。
+主动执行对所有分布式表的端云同步，使用callback异步回调。使用该接口需要实现云服务功能。
 
 **系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
 
@@ -5386,7 +5556,7 @@ cloudSync(mode: SyncMode, progress: Callback&lt;ProgressDetails&gt;, callback: A
 | --- | --- | --- | --- |
 | mode | SyncMode | 是 | 表示数据库的同步模式。 |
 | progress | Callback&lt;ProgressDetails&gt; | 是 | 用来处理数据库同步详细信息的回调函数。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定的callback回调函数，用于向调用者发送同步结果。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当同步成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -5424,7 +5594,7 @@ if (store != undefined) {
 
 cloudSync(mode: SyncMode, progress: Callback&lt;ProgressDetails&gt;): Promise&lt;void&gt;
 
-手动执行对所有分布式表的端云同步，使用Promise异步回调。使用该接口需要实现[端云服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-clouddata)功能。
+主动执行对所有分布式表的端云同步，使用Promise异步回调。使用该接口需要实现云服务功能。
 
 **系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
 
@@ -5440,7 +5610,7 @@ cloudSync(mode: SyncMode, progress: Callback&lt;ProgressDetails&gt;): Promise&lt
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，用于向调用者发送同步结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -5478,7 +5648,7 @@ if (store != undefined) {
 
 cloudSync(mode: SyncMode, tables: string[], progress: Callback&lt;ProgressDetails&gt;, callback: AsyncCallback&lt;void&gt;): void
 
-手动执行对指定表的端云同步，使用callback异步回调。使用该接口需要实现[端云服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-clouddata)功能。
+主动执行对指定表的端云同步，使用callback异步回调。使用该接口需要实现云服务功能。
 
 **系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
 
@@ -5489,7 +5659,7 @@ cloudSync(mode: SyncMode, tables: string[], progress: Callback&lt;ProgressDetail
 | mode | SyncMode | 是 | 表示数据库的同步模式。 |
 | tables | string[] | 是 | 指定同步的表名。 |
 | progress | Callback&lt;ProgressDetails&gt; | 是 | 用来处理数据库同步详细信息的回调函数。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定的callback回调函数，用于向调用者发送同步结果。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当同步成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -5529,7 +5699,7 @@ if (store != undefined) {
 
 cloudSync(mode: SyncMode, tables: string[], progress: Callback&lt;ProgressDetails&gt;): Promise&lt;void&gt;
 
-手动执行对指定表的端云同步，使用Promise异步回调。使用该接口需要实现[端云服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-clouddata)功能。
+主动执行对指定表的端云同步，使用Promise异步回调。使用该接口需要实现云服务功能。
 
 **系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
 
@@ -5546,7 +5716,7 @@ cloudSync(mode: SyncMode, tables: string[], progress: Callback&lt;ProgressDetail
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，用于向调用者发送同步结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -5576,6 +5746,122 @@ if (store != undefined) {
     console.error(`cloudSync failed, code is ${err.code},message is ${err.message}`);
   });
 };
+```
+
+
+
+#### cloudSyncEx
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+cloudSyncEx(config: CloudSyncConfig, progress: Callback&lt;ProgressDetails&gt;): Promise&lt;void&gt;
+
+主动执行端云同步，根据云同步配置信息进行同步，使用Promise异步回调。使用该接口需要实现云服务功能。
+
+> [!NOTE]
+> CloudSyncConfig 中仅支持以下谓词： beginWrap endWrap or and 以下谓词的数据字段类型 ValueType 仅支持number类型的整数和string： equalTo notEqualTo in notIn 以下谓词的数据字段类型 ValueType 仅支持number类型的整数： greaterThan lessThan greaterThanOrEqualTo lessThanOrEqualTo 谓词中支持使用主键（必填）和资产（可选）作为同步条件：当选择资产作为同步条件时，同步模式需要设置为relationalStore.SyncMode.SYNC_MODE_CLOUD_FIRST；指定资产的数量较多时（最多支持指定50个资产），建议谓词中仅使用主键作为同步条件。
+
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| config | CloudSyncConfig | 是 | 云同步配置。 |
+| progress | Callback&lt;ProgressDetails&gt; | 是 | 进度回调函数，返回ProgressDetails实例对象。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 14800014 | The target instance is already closed. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.in("id", ["id1", "id2"]);
+
+let config: relationalStore.CloudSyncConfig = {
+  mode: relationalStore.SyncMode.SYNC_MODE_TIME_FIRST,
+  enablePredicate: true,
+  predicate: predicates
+};
+if (store != undefined) {
+  (store as relationalStore.RdbStore).cloudSyncEx(config, (progressDetails: relationalStore.ProgressDetails) => {
+      console.info(`progress: ${progressDetails.schedule}`);
+  }).then(() => {
+      console.info('cloud sync succeeded');
+  }).catch((err: BusinessError) => {
+      console.error(`cloud sync failed, code is ${err.code}, message is ${err.message}`);
+  });
+}
+```
+
+
+
+#### stopCloudSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+stopCloudSync(): Promise&lt;void&gt;
+
+停止与云端的数据同步，使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported because the device does not support the cloud synchronization capability. |
+| 14800000 | Internal error. |
+| 14800014 | The target instance is already closed. |
+
+
+**示例：**
+
+```text
+import { relationalStore } from '@kit.ArkData';
+import { BusinessError } from '@kit.BasicServicesKit';
+if (store != undefined) {
+  (store as relationalStore.RdbStore).stopCloudSync().then(() => {
+    console.info('Succeeded in stopping cloud sync');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to stop cloud sync. Code: ${err.code}, message: ${err.message}`);
+  });
+}
 ```
 
 
@@ -5753,7 +6039,7 @@ on(event: string, interProcess: boolean, observer: Callback&lt;void&gt;): void
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅事件名称，与emit接口触发事件时的名称一致。 |
 | interProcess | boolean | 是 | 指定是进程间还是本进程订阅。 true：进程间。 false：本进程。 |
-| observer | Callback&lt;void&gt; | 是 | 回调函数。 |
+| observer | Callback&lt;void&gt; | 是 | 回调函数。当进程间或本进程数据变更时触发回调。 |
 
 
 **错误码：**
@@ -6514,7 +6800,7 @@ cleanDirtyData(table: string, cursor: number, callback: AsyncCallback&lt;void&gt
 | --- | --- | --- | --- |
 | table | string | 是 | 表示当前数据库的表的名称。 |
 | cursor | number | 是 | 整数类型，表示数据游标，小于此游标的脏数据将被清理。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定的callback回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当清理成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -6576,7 +6862,7 @@ cleanDirtyData(table: string, callback: AsyncCallback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | table | string | 是 | 表示当前数据库的表的名称。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 指定的callback回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当清理成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -6645,7 +6931,7 @@ cleanDirtyData(table: string, cursor?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -6712,8 +6998,8 @@ attach不能并发调用，否则可能出现未响应情况并报错14800015，
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fullPath | string | 是 | 表示要附加的数据库的路径。 |
-| attachName | string | 是 | 表示附加后的数据库的别名。 |
+| fullPath | string | 是 | 表示要附加的数据库的路径，不能为空字符串，路径长度不超过1024字节。 |
+| attachName | string | 是 | 表示附加后的数据库的别名，不能为空字符串。 |
 | waitTime | number | 否 | 表示附加数据库文件的等待时长，单位：s。默认值2s，最小值1s，最大值300s。 |
 
 
@@ -6793,7 +7079,7 @@ attach不能并发调用，否则可能出现未响应情况并报错14800015，
 | --- | --- | --- | --- |
 | context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
 | config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
-| attachName | string | 是 | 表示附加后的数据库的别名。 |
+| attachName | string | 是 | 表示附加后的数据库的别名，不能为空字符串。 |
 | waitTime | number | 否 | 表示附加数据库文件的等待时长，单位：s。默认值2s，最小值1s，最大值300s。 |
 
 
@@ -6911,7 +7197,7 @@ detach(attachName: string, waitTime?: number) : Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| attachName | string | 是 | 表示附加后的数据库的别名。 |
+| attachName | string | 是 | 表示附加后的数据库的别名，不能为空字符串。 |
 | waitTime | number | 否 | 表示分离数据库的等待时长，单位：s。默认值2s，最小值1s，最大值300s。 |
 
 
@@ -6992,7 +7278,7 @@ lockRow(predicates: RdbPredicates):Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -7068,7 +7354,7 @@ unlockRow(predicates: RdbPredicates):Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -7139,7 +7425,7 @@ queryLockedRow(predicates: RdbPredicates, columns?: Array&lt;string&gt;):Promise
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;ResultSet&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
+| Promise&lt;ResultSet&gt; | Promise对象。返回ResultSet对象。 |
 
 
 **错误码：**
@@ -7253,11 +7539,13 @@ rekey(cryptoParam?: CryptoParam): Promise&lt;void&gt;
 
 手动更新加密数据库的密钥。使用Promise异步回调。
 
+从API版本26.0.0开始，支持使用该接口更新向量数据库（创建数据库时配置StoreConfig的vector字段为true）的密钥。
+
+仅支持加密数据库进行密钥更新，不支持非加密数据库变加密数据库及加密数据库变非加密数据库，且需要保持加密参数和密钥生成方式与建库时一致。
+
 不支持对非WAL模式的数据库进行密钥更新。
 
 手动更新密钥时需要独占访问数据库，此时若存在任何未释放的结果集（ResultSet）、事务（Transaction）或其他进程打开的数据库均会引发失败。
-
-仅支持加密数据库进行密钥更新，不支持非加密数据库变加密数据库及加密数据库变非加密数据库，且需要保持加密参数和密钥生成方式与建库时一致。
 
 数据库越大，密钥更新所需的时间越长。
 
@@ -7274,7 +7562,7 @@ rekey(cryptoParam?: CryptoParam): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -7301,7 +7589,8 @@ rekey(cryptoParam?: CryptoParam): Promise&lt;void&gt;
 
 示例代码中this.context定义见Stage模型的应用[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 // 示例1：使用默认的加密参数
@@ -7324,20 +7613,23 @@ export default class EntryAbility extends UIAbility {
 
       if (store != undefined) {
         try {
-          (store as relationalStore.RdbStore).rekey(cryptoParam1);
-          console.info('rekey is successful');
+          await (store as relationalStore.RdbStore).rekey(cryptoParam1);
+          console.info('rekey successful');
         } catch (err) {
-          console.error(`rekey is failed, code is ${err.code},message is ${err.message}`);
+          let e = err as BusinessError;
+          console.error(`rekey failed, code is ${err.code}, message is ${err.message}`);
         }
       }
-    }).catch((err: BusinessError) => {
-      console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+    }).catch((err: Error) => {
+      let e = err as BusinessError;
+      console.error(`Get RdbStore failed, code is ${e.code}, message is ${e.message}`);
     });
   }
 }
 ```
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 // 示例2：使用自定义的加密参数
@@ -7374,14 +7666,60 @@ export default class EntryAbility extends UIAbility {
 
       if (store != undefined) {
         try {
-          (store as relationalStore.RdbStore).rekey(cryptoParam2);
-          console.info('rekey is successful');
+          await (store as relationalStore.RdbStore).rekey(cryptoParam2);
+          console.info('rekey successful');
         } catch (err) {
-          console.error(`rekey is failed, code is ${err.code},message is ${err.message}`);
+          let e = err as BusinessError;
+          console.error(`rekey failed, code is ${err.code}, message is ${err.message}`);
         }
       }
-    }).catch((err: BusinessError) => {
-      console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+    }).catch((err: Error) => {
+      let e = err as BusinessError;
+      console.error(`Get RdbStore failed, code is ${e.code}, message is ${e.message}`);
+    });
+  }
+}
+```
+
+```ArkTS
+// EntryAbility.ets
+import { UIAbility } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+// 示例3：更新向量数据库密钥
+export default class EntryAbility extends UIAbility {
+  onCreate() {
+    let store: relationalStore.RdbStore | undefined = undefined;
+    let cryptoParam: relationalStore.CryptoParam = {
+      encryptionKey: new Uint8Array([1, 2, 3, 4, 5, 6]),
+    };
+    const STORE_CONFIG1: relationalStore.StoreConfig = {
+      name: 'test.db',
+      securityLevel: relationalStore.SecurityLevel.S2,
+      encrypt: true,
+      vector: true,
+      cryptoParam: cryptoParam,
+    };
+
+    relationalStore.getRdbStore(this.context, STORE_CONFIG1).then(async (rdbStore: relationalStore.RdbStore) => {
+      store = rdbStore;
+      console.info('Get RdbStore successfully.');
+
+      let newCryptoParam: relationalStore.CryptoParam = {
+        encryptionKey: new Uint8Array([6, 5, 4, 3, 2, 1]),
+      };
+
+      if (store != undefined) {
+        try {
+          await (store as relationalStore.RdbStore).rekey(newCryptoParam);
+          console.info('rekey successful');
+        } catch (err) {
+          let e = err as BusinessError;
+          console.error(`rekey failed, code is ${err.code}, message is ${err.message}`);
+        }
+      }
+    }).catch((err: Error) => {
+      let e = err as BusinessError;
+      console.error(`Get RdbStore failed, code is ${e.code}, message is ${e.message}`);
     });
   }
 }
@@ -7405,14 +7743,14 @@ setLocale(locale: string) : Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| locale | string | 是 | 设置自定义排序的语言。该值符合ISO 639标准，如："zh"。 |
+| locale | string | 是 | 设置自定义排序的语言，不能为空字符串。该值符合ISO 639标准，如："zh"。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -7483,7 +7821,7 @@ rekeyEx(cryptoParam: CryptoParam): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -7507,7 +7845,8 @@ rekeyEx(cryptoParam: CryptoParam): Promise&lt;void&gt;
 
 **示例1：原数据库为默认参数加密数据库，更换密钥和加密参数**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -7552,7 +7891,8 @@ export default class EntryAbility extends UIAbility {
 
 **示例2：原数据库为自定义参数加密数据库，更换自定义密钥和加密参数**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -7607,7 +7947,8 @@ export default class EntryAbility extends UIAbility {
 
 **示例3：原数据库为默认参数加密库，更换自定义密钥和加密参数**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -7653,7 +7994,8 @@ export default class EntryAbility extends UIAbility {
 
 **示例4：原数据库为自定义参数加密数据库，更换数据库生成密钥和自定义加密参数**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -7708,7 +8050,8 @@ export default class EntryAbility extends UIAbility {
 
 **示例5：原数据库为自定义参数加密数据库，更换为非加密数据库**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -7759,7 +8102,8 @@ export default class EntryAbility extends UIAbility {
 
 **示例6：原数据库为非加密数据库，更换为自定义参数加密数据库**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 

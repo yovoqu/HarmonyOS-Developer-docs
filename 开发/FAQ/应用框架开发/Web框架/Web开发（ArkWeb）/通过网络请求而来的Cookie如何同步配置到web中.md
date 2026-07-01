@@ -1,12 +1,12 @@
-# 通过网络请求而来的Cookie如何同步配置到web中
+# 通过网络请求而来的 Cookie 如何同步配置到web中
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-24
 
 获取到的cookie利用[Class (WebCookieManager)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager)提供的[configCookieSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager#configcookiesync11)方法与[configCookie](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager#configcookie11)方法可以实现对Cookie值的同步与异步设置，这样将请求而来的cookie同步到web中。
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb'
 @Entry
 @Component

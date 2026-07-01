@@ -1,6 +1,6 @@
 # 定义可动画属性 (@AnimatableExtend)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-animatable-extend
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@
 
  
 > [!NOTE]
-> 该装饰器从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该装饰器从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -327,4 +327,4 @@ struct AnimatablePropertyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/85-Wvu3_Q4yfTnj29DMhsQ/zh-cn_image_0000002581436230.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025556Z&HW-CC-Expire=86400&HW-CC-Sign=D999788D3B7D3C394C51BFBB6020262B8C860B8BE6903ED27F2186722CCD10B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/saO_5GRcR_C1o6ZFph33Bg/zh-cn_image_0000002659222159.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=70CBDFF53BB1BCB03F0FA2CD6B6690F037F31B73E9CEF7DD1D03A39F559E28E6)

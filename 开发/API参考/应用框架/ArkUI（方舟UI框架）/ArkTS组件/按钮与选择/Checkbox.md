@@ -1,6 +1,6 @@
 # Checkbox
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,7 +55,7 @@ Checkbox(options?: CheckboxOptions)
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 是 | 指定多选框名称。 默认值：undefined，取值为undefined无效果。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | group | string | 否 | 是 | 用于指定多选框所属群组的名称（即所属CheckboxGroup的名称）。 默认值：undefined，默认状态下配合CheckboxGroupOptions属性group信息为undefined的节点使用。 说明： 未配合使用CheckboxGroup组件时，此值无用。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| indicatorBuilder12+ | CustomBuilder | 否 | 是 | 配置多选框的选中样式为自定义组件。自定义组件与Checkbox组件为中心点对齐显示。indicatorBuilder设置为undefined/null时，默认为indicatorBuilder未设置状态。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| indicatorBuilder12+ | CustomBuilder | 否 | 是 | 配置多选框的选中样式为自定义组件。自定义组件与Checkbox组件为中心点对齐显示。indicatorBuilder设置为undefined/null时，默认为indicatorBuilder未设置状态。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -109,6 +109,8 @@ select(isSelected: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -155,6 +157,8 @@ selectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -175,6 +179,8 @@ unselectedColor(value: ResourceColor)
 设置多选框非选中状态的边框颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -197,6 +203,8 @@ unselectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -218,6 +226,8 @@ mark(value: MarkStyle)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -238,6 +248,8 @@ mark(style: Optional&lt;MarkStyle&gt;)
 设置多选框内部图标的样式。与[mark](#mark10)10+相比，style参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -262,6 +274,8 @@ shape(value: CheckBoxShape)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -285,6 +299,8 @@ shape(shape: Optional&lt;CheckBoxShape&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -306,6 +322,8 @@ contentModifier(modifier: ContentModifier&lt;CheckBoxConfiguration&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -326,6 +344,8 @@ contentModifier(modifier: Optional<ContentModifier&lt;CheckBoxConfiguration&gt;>
 定制Checkbox内容区的方法。与[contentModifier](#contentmodifier12)12+相比，modifier参数新增了对undefined类型的支持。设置该属性时，会导致其他属性设置失效。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -381,6 +401,8 @@ onChange(callback: Optional&lt;OnCheckboxChangeCallback&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -404,6 +426,8 @@ type OnCheckboxChangeCallback = (value: boolean) => void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -422,6 +446,8 @@ type OnCheckboxChangeCallback = (value: boolean) => void
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1065,4 +1091,4 @@ enum SelectedState {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/1yNpfQeSRamES9UXktkc5Q/zh-cn_image_0000002611755769.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=D039C91823716E2FB77AC2EFFBF07CD44AE731BF6D3557D98BE55363B611C0A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/Kxysn4wLTeetcNcymNhzew/zh-cn_image_0000002659221749.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=24C19D254DC157504B66F18E932AFEC0C0A58AF4B3956D8C9685113DE7FC9353)

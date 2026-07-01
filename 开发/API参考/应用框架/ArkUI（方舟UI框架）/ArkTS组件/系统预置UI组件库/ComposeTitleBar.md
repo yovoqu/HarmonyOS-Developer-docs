@@ -1,6 +1,6 @@
 # ComposeTitleBar
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-composetitlebar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -271,7 +271,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/LOk3eDBiTt6SEoFxMWPEig/zh-cn_image_0000002617710285.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=24D8C99D58A8C5E0A821AEE1A9735CB41900185F762E6385E8002C34D9658E02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/KOhw5MhvSdel8uQ2i2fhvA/zh-cn_image_0000002628862854.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=60650FBCC503000F0632D7227514ABF9C692E30967CB4EF16D1D2EB9E0AB4E74)
 
  
   
@@ -357,4 +357,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/03H3L4iLRX656eVEBEIb-Q/zh-cn_image_0000002587110706.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=3DFD44ED83CBE62B0D4FD66719C4519351389E38C8A260D004C2E31D1A41311D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/R6RhsoHfQgeTJJMyirNx4Q/zh-cn_image_0000002659222167.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=750BF0FBC2BF38F1C275864C63D4E24CB86CE27D25D040F88A40B8D045F26A92)

@@ -1,6 +1,6 @@
 # 如何在ArkTS中实现自定义装饰器能力
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-78
 
@@ -10,11 +10,11 @@ ArkTS支持TS5.0之前（如TS4.x及以下版本）的TS装饰器语法。关于
  
 参考代码如下：
  
-```ArkTS
+```text
 function MyDescriptor(target: Object, key: string, descriptor: PropertyDescriptor) {
   const originalMethod: Function = descriptor.value
   descriptor.value = (...args: Object[]) => {
-    // Get the name, input parameters, and return value of the decorated method
+   <em> // Get the name, input parameters, and return value of the decorated method</em>
     console.log(`Calling ${target.constructor?.name} method ${key} with argument: ${args}`)
     const result: Object = originalMethod(...args)
     console.log(`Method ${key} returned: ${result}`)

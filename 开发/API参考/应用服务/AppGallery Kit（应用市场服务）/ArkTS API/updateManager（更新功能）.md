@@ -1,6 +1,6 @@
 # updateManager（更新功能）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-updatemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -318,7 +318,7 @@ on(type: 'updateChange', callback: Callback&lt;UpdateSessionState&gt;, timeout?:
 监听元服务更新检查接口，检查到有/无更新后，使用callback方式返回结果。
  
 > [!NOTE]
-> 同一设备下元服务的调用次数不超过6次/天、每30分钟调用次数不超过1次。
+> 同一设备下元服务的监听注册次数不超过6次/天、每30分钟监听注册次数不超过1次。
 
  
 **模型约束：** 此接口仅可在Stage模型下使用。

@@ -1,13 +1,13 @@
 # 如何获取设备的CPU信息
 
-更新时间：2026-06-15 08:32:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-22
 
 可以通过以下命令来查看CPU信息：
  
 ```bash
-// 查看CPU信息  
+<em>// 查看CPU信息</em>  
 hdc shell param get const.product.cpu.abilist
 ```
  

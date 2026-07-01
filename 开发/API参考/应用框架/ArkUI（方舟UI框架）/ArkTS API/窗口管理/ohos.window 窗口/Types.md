@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -102,3 +102,27 @@ type RotationChangeCallback<T, U> = (info: T) => U
 | 类型 | 说明 |
 | --- | --- |
 | U | 回调函数需要返回RotationChangeResult \| void类型的返回值。 |
+
+
+
+
+#### WindowEventListener
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type WindowEventListener = (windowId: number, event: window.WindowEventType) => void
+
+窗口生命周期事件通知的回调函数。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| windowId | number | 是 | 触发生命周期变更的窗口ID。 |
+| event | window.WindowEventType | 是 | 窗口生命周期回调的事件类型。 |

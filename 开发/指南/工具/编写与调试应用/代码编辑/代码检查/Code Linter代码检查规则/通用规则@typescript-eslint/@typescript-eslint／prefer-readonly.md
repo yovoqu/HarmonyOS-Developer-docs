@@ -1,12 +1,10 @@
 # @typescript-eslint/prefer-readonly
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-readonly
 
 如果私有成员从未在构造函数之外进行修改，则要求将其标记为“只读”。
- 
-
  
 
 #### 规则配置

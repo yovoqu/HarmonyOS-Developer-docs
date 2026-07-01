@@ -1,15 +1,15 @@
 # ArkTS中globalThis无法使用该如何替换
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-54
 
 ArkTS不支持动态更改对象布局，也不支持全局作用域和globalThis。请参考以下替换方案：
  1. 通过单例map做中转：
-```ArkTS
+```text
 import { common } from '@kit.AbilityKit';
 
-// Construct singleton objects
+<em>// Construct singleton objects</em>
 export class GlobalThis {
   private constructor() {};
   private static instance: GlobalThis;
@@ -42,7 +42,7 @@ export class GlobalThis {
 ```
 
 2. 使用：
-```ArkTS
+```text
 import { GlobalThis } from '../utils/globalThis';
 
 @Entry

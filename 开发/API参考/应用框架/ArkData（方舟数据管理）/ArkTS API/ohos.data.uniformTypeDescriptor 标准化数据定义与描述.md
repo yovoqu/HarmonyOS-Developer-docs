@@ -1,6 +1,6 @@
 # @ohos.data.uniformTypeDescriptor (标准化数据定义与描述)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-uniformtypedescriptor
 **支持设备：** Phone | PC/2in1 | Tablet | TV

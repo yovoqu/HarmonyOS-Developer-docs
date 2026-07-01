@@ -1,6 +1,6 @@
 # 应用通过对象字面量初始化class实例导致编译失败的原因和修改方案
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-148
 
@@ -12,22 +12,22 @@
  
 示例：
  
-```ts
-// SDK
+```text
+<em>// SDK</em>
 declare class Base {
-  // since 9
+ <em> // since 9</em>
   getPropA(): number;
-  // since 12 new method
+ <em> // since 12 new method</em>
   getPropB(): number;
 }
-// apply
+<em>// apply</em>
 let b: Base = {
   getPropA() {
     return 0;
   }
 }
-// Error message after upgrading to API 12.
-// Property 'getPropB' is missing in type '{ getPropA(): number; }' but required in type 'Base'.
+<em>// Error message after upgrading to API 12.</em>
+<em>// Property 'getPropB' is missing in type '{ getPropA(): number; }' but required in type 'Base'.</em>
 ```
  
 **报错原因**
@@ -42,30 +42,30 @@ ArkTS语言的类型检查要求类型和对象要匹配，Base有两个方法�
  
 会造成以下问题：
  1. 篡改SDK提供的API，应用可覆盖SDK API，在后续的使用中有安全风险。
-```ts
-// SDK API
+```text
+<em>// SDK API</em>
 declare class Person1 {
   name: string;
   age: number;
   greet(): void;
 }
-// apply
+<em>// apply</em>
 const p: Person1 = {
   name: 'Bob',
   age: 40,
-  greet() {} // Tampering with system greet behavior.
+  greet() {} <em>// Tampering with system greet behavior.</em>
 }
 ```
 
 2. 运行时与该class无关，应用使用instanceof检查该对象与class的关系，返回false。
-```ts
-// SDK API
+```text
+<em>// SDK API</em>
 declare class Person2 {
   name: string;
   age: number;
   greet(): void;
 }
-// apply
+<em>// apply</em>
 const p1: Person2 = {
   name: 'Bob',
   age: 40,
@@ -79,8 +79,8 @@ console.log(`${p1 instanceof Person2}`); // return false
  
 使用class的场景主要为：
  1. 实例化，占比65%。
-```ts
-// SDK API
+```text
+<em>// SDK API</em>
 declare class Person3 {
   name: string;
   age: number;
@@ -90,8 +90,8 @@ const p2: Person3 = new Person3();
 ```
 
 2. 子类继承，占比25%。
-```ts
-// SDK API
+```text
+<em>// SDK API</em>
 declare class Person4 {
   name: string;
   age: number;
@@ -104,8 +104,8 @@ class Student extends Person4 {
 ```
 
 3. 使用其静态方法，占比20%。
-```ts
-// SDK API
+```text
+<em>// SDK API</em>
 declare class Person5 {
   name: string;
   age: number;
@@ -115,7 +115,7 @@ Person5.greet();
 ```
 
 4. 其它用法，包括通过对象字面量初始化，占比小于0.01%。
-```ts
+```text
 declare class Person6 {
   name: string;
   age: number;
@@ -140,21 +140,21 @@ const p3: Person2 = {
  
 ```text
 declare class UIAbilityContext {
-  /**
-   * @since 9
-   */
+<em>  /**</em>
+<em>   * @since 9</em>
+<em>   */</em>
   startAbility(): void;
-  /**
-   * @since 9
-   */
+ <em> /**</em>
+<em>   * @since 9</em>
+<em>   */</em>
   startAbilityForResult(): void;
-  /**
-   * @since 10
-   */
+ <em> /**</em>
+<em>   * @since 10</em>
+<em>   */</em>
   setMissionContinueState(): void;
-  /**
-   * @since 12
-   */
+ <em> /**</em>
+<em>   * @since 12</em>
+<em>   */</em>
   backToCallerAbilityWithResult(): Promise<void>;
 }
 ```
@@ -165,16 +165,16 @@ declare class UIAbilityContext {
  
 应用不使用对象字面量的方式初始化class实例，修改为通过new的方式初始化。
  
-```ts
-// SDK
+```text
+<em>// SDK</em>
 declare class Base2 {
-  // since 9
+  <em>// since 9</em>
   getPropA(): number;
-  // since 12 new method
+ <em> // since 12 new method</em>
   getPropB(): number;
 }
 
-// Initialize an instance of a class using the new method.
+<em>// Initialize an instance of a class using the new method.</em>
 let b2: Base2 = new Base2();
-// Upgrading to API 12 SDK will not result in errors.
+<em>// Upgrading to API 12 SDK will not result in errors.</em>
 ```

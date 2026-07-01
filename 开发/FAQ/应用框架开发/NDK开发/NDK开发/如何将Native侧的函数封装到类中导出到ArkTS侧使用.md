@@ -1,6 +1,6 @@
 # 如何将Native侧的函数封装到类中导出到ArkTS侧使用
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-15
 
@@ -14,7 +14,7 @@ Native侧提供以下类方法供上层调用。
  
 具体代码如下：
  1. Native侧封装类方法。
-```cpp
+```text
 #include "napi/native_api.h" 
 #include <string> 
  
@@ -70,7 +70,7 @@ EXTERN_C_END
 ```
 
 2. 在Index.d.ts文件中导出类及其方法。
-```ts
+```text
 export declare class TestEntryA {
   static sub (a: number, b: number) : number;
   static sum (a: number, b: number) : number;
@@ -78,7 +78,7 @@ export declare class TestEntryA {
 ```
 
 3. 在ArkTS侧通过类调用方法。
-```ArkTS
+```text
 import { TestEntryA } from 'libfuncencapsulation.so';
 
 @Entry

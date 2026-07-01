@@ -1,6 +1,6 @@
 # 创建异步线程执行AVTranscoder视频转码(ArkTS)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avtranscoder-practice
 
@@ -226,7 +226,7 @@ export class AVTranscoderDemo {
 
 本示例使用的是worker线程的方式来实现异步线程进行转码，worker线程的详细使用方式，可以参见文档:
 
- - [Worker线程使用说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)
+ - [@ohos.worker (启动一个Worker)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)
  - [Worker简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)
 
 
@@ -352,14 +352,24 @@ async function doSome(context: common.Context) {
     // 转码完成回调函数。
     transcoder.on('complete', async () => {
       console.info(`transcode complete`);
-      fileIo.closeSync(transcoder.fdDst); // 关闭fdDst。
       await transcoder?.release()
+      if (transcoder.fdDst != undefined) {
+        fs.closeSync(transcoder.fdDst);
+      }
+      if (transcoder.fdSrc != undefined) {
+        fs.closeSync(transcoder.fdSrc.fd);
+      }
       workerPort.postMessage('complete');
     })
     // 转码错误回调函数。
     transcoder.on('error', async (err: BusinessError) => {
-      fileIo.closeSync(transcoder.fdDst);
       await transcoder?.release();
+      if (transcoder.fdDst != undefined) {
+        fs.closeSync(transcoder.fdDst);
+      }
+      if (transcoder.fdSrc != undefined) {
+        fs.closeSync(transcoder.fdSrc.fd);
+      }
     })
     // 转码进度更新回调函数。
     transcoder.on('progressUpdate', (progress: number) => {

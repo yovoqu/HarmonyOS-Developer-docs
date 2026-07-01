@@ -1,6 +1,6 @@
 # 在Native侧如何集成三方SO库
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-5
 
@@ -14,17 +14,15 @@
  
 参考代码如下：
  1. 系统编译SO库
-```cpp
-// sub.h 
+```text
+<em>// sub.h </em>
 extern "C" {
 double sub(double a, double b); 
 }
 ```
-
-
-  
+ 
 ```cpp
-// sub.cpp 
+<em>// sub.cpp </em>
 #include <iostream> 
 #include "sub.h" 
 double sub(double a, double b) 
@@ -32,9 +30,7 @@ double sub(double a, double b)
     return a - b; 
 }
 ```
-
-
-  
+ 
 ```cpp
 # CMakeLists.txt
 cmake_minimum_required(VERSION 3.4.1)
@@ -66,10 +62,8 @@ add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so  libhilog_ndk.z.so)
 target_link_libraries(entry PUBLIC ${NATIVERENDER_ROOT_PATH}/../../../libs/arm64-v8a/libnativeSub.so)
 ```
-
-
-  
-```cpp
+ 
+```text
 #include "sub.h"
 
 static napi_value Sub(napi_env env, napi_callback_info info)
@@ -95,7 +89,7 @@ static napi_value Sub(napi_env env, napi_callback_info info)
 3. Native侧通过dlopen方式集成将上步生成的so库置于entry/libs目录下，通过ArkTS侧传递沙箱路径到native侧，然后直接在native侧使用dlopen方式调用。注意：该方式引用的so库源码在编译时必须使用extern "C" {}包裹起来，即函数必须是使用C编译模式编译的。
 
   
-```ArkTS
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
@@ -111,8 +105,8 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-            let path = this.getUIContext().getHostContext()!.bundleCodeDir; // Get project path
-            hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.subSobyDlOpenSo(2, 3, path + '/libs/arm64/libnativeSub.so')); // Transfer parameter path information to the native side
+            let path = this.getUIContext().getHostContext()!.bundleCodeDir; <em>// Get project path</em>
+            hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.subSobyDlOpenSo(2, 3, path + '/libs/arm64/libnativeSub.so'));<em> // Transfer parameter path information to the native side</em>
           })
       }
       .width('100%')
@@ -121,10 +115,8 @@ struct Index {
   }
 }
 ```
-
-
-  
-```cpp
+ 
+```text
 #include <dlfcn.h>
 typedef double (*Sub)(double, double);
 static napi_value SubSobyDlOpenSo(napi_env env, napi_callback_info info) {
@@ -138,12 +130,12 @@ static napi_value SubSobyDlOpenSo(napi_env env, napi_callback_info info) {
     napi_get_value_double(env, args[1], &value1);
     char* path = new char[1024];
     size_t size = 1024;
-    napi_get_value_string_utf8(env, args[2], path, 255, &size); // Obtain dynamic library path information
-    void *handle = dlopen(path, RTLD_LAZY);                     // Open the dynamic link library with path as path
+    napi_get_value_string_utf8(env, args[2], path, 255, &size); <em>// Obtain dynamic library path information</em>
+    void *handle = dlopen(path, RTLD_LAZY);                     <em>// Open the dynamic link library with path as path</em>
     napi_value result;
-    Sub sub_func = (Sub)dlsym(handle, "sub");                   // Get the function named sub
+    Sub sub_func = (Sub)dlsym(handle, "sub");                   <em>// Get the function named sub</em>
     napi_create_double(env, sub_func(value0, value1), &result);
-    dlclose(handle);                                            // Finally, close the dynamic library
+    dlclose(handle);                                           <em> // Finally, close the dynamic library</em>
     return result;
 }
 ```

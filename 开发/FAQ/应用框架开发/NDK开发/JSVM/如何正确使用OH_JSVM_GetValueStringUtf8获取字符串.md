@@ -1,6 +1,6 @@
 # 如何正确使用OH_JSVM_GetValueStringUtf8获取字符串
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-jsvm-5
 
@@ -12,7 +12,7 @@
  
 函数 OH_JSVM_GetValueStringUtf8 的第三个参数用于指定字符串写入的内存地址。如果传入空指针，接口会通过最后一个参数 result 返回字符串的长度（不包含终止符）。
  
-```cpp
+```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueStringUtf8(JSVM_Env env,
                                                    JSVM_Value value,
                                                    char* buf,
@@ -24,30 +24,26 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueStringUtf8(JSVM_Env env,
  1. 调用接口获取字符串长度；
 2. 申请buffer内存空间；
 3. 调用接口获取字符串。
-```cpp
+```text
 std::string GetValueString(JSVM_Env env, JSVM_Value value) {
     constexpr size_t PREALLOC_SIZE = 256;
     char preallocMemory[PREALLOC_SIZE];
 
-
     char *buff = preallocMemory;
     
-    // Obtain length
+ <em>   // Obtain length</em>
     size_t totalLen = 0;
     OH_JSVM_GetValueStringUtf8(env, value, nullptr, 0, &totalLen);
     size_t needed = totalLen + 1;
 
-
     if (needed > PREALLOC_SIZE) {
-        // Allocate space, size must include termination character
+     <em>   // Allocate space, size must include termination character</em>
         buff = new char[needed];
     }
-    // get string
+  <em>  // get string</em>
     OH_JSVM_GetValueStringUtf8(env, value, buff, needed, nullptr);
 
-
     std::string ret(buff, totalLen);
-
 
     if (needed > PREALLOC_SIZE) {
         delete[] buff;

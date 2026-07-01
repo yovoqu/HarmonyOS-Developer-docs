@@ -1,6 +1,6 @@
 # WithTheme
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-theme
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 WithTheme组件用于设置应用局部页面自定义主题风格，可设置子组件深浅色模式和自定义配色。
 
 > [!NOTE]
-> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 WithTheme支持的系统组件如下： TextInput 、 Search 、 Button 、 Badge 、 Swiper 、 Text 、 Select 、 Menu 、 TimePicker 、 DatePicker 、 TextPicker 、 Checkbox 、 CheckboxGroup 、 Radio 、 Slider 、 Progress 、 QRCode 、 Toggle 、 TextClock 、 PatternLock 、 Divider 。 WithTheme相关使用指导请参考 设置应用内主题换肤 。
+> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 WithTheme支持的系统组件如下： TextInput 、 Search 、 Button 、 Badge 、 Swiper 、 Text 、 Select 、 Menu 、 TimePicker 、 DatePicker 、 TextPicker 、 Checkbox 、 CheckboxGroup 、 Radio 、 Slider 、 Progress 、 QRCode 、 Toggle 、 TextClock 、 PatternLock 、 Divider 。从API版本26.0.0开始，新增 CalendarPicker 、 UIPickerComponent 、 TextArea 、 属性字符串 、 Gauge 、 DataPanel 、 RichEditor 、 MenuItem 、 MenuItemGroup 、 Image 、 ImageAnimator 、 Counter 、 bindSheet 、 LoadingProgress 。 WithTheme相关使用指导请参考 设置应用内主题换肤 。
 
 
 
@@ -79,7 +79,7 @@ WithTheme(options: WithThemeOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type CustomTheme = CustomTheme
+type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme
 
 自定义配色。
 
@@ -89,7 +89,7 @@ type CustomTheme = CustomTheme
 
 | 类型 | 说明 |
 | --- | --- |
-| CustomTheme | 自定义WithTheme作用域内组件缺省配色。 |
+| import('../api/@ohos.arkui.theme').CustomTheme | 自定义WithTheme作用域内组件缺省配色。 |
 
 
 
@@ -266,4 +266,4 @@ struct IndexPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/z-vBVjyGQgykuMqSTYf7wg/zh-cn_image_0000002611836045.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=35F78EAEC1EB21199D9F5C635E85505C25B5AEAE4B01F21A47244BD33A3388A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/nQM2PTj1T7mElgRnYngN4g/zh-cn_image_0000002628702952.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=7F22AEA96560EA6AAB792B4A0FD7E359B0D2F691CA2849B9C6E4DD4327E36987)

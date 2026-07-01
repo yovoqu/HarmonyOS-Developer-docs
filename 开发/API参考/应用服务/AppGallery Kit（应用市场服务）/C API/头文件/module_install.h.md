@@ -1,6 +1,6 @@
 # module_install.h
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-module_install
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -63,21 +63,21 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| HMS_ModuleInstall_GetInstalledModule | 查询模块是否安装。 |
-| HMS_ModuleInstall_GetInstalledModuleName | 获取模块名。 |
-| HMS_ModuleInstall_GetInstalledModuleType | 获取模块类型。 |
-| HMS_ModuleInstall_GetModuleInstallStatus | 获取模块安装状态。 |
-| HMS_ModuleInstall_FetchModules | 请求下载模块。 |
-| HMS_ModuleInstall_GetFetchModulesRequestCode | 获取模块下载请求码。 |
-| HMS_ModuleInstall_GetFetchModulesTaskStatus | 获取模块下载任务状态。 |
-| HMS_ModuleInstall_GetFetchModulesTaskId | 获取模块下载任务id。 |
-| HMS_ModuleInstall_GetFetchModulesDesc | 获取模块下载描述。 |
-| HMS_ModuleInstall_GetFetchModules | 获取模块下载模块名。 |
-| HMS_ModuleInstall_GetFetchModulesTotalSize | 获取模块下载总大小。 |
-| HMS_ModuleInstall_GetFetchModulesDownloadedSize | 获取模块下载已下载大小。 |
-| HMS_ModuleInstall_CancelTask | 取消下载任务。 |
-| HMS_ModuleInstall_ShowCellularDataConfirmation | 展示流量弹窗。 |
-| HMS_ModuleInstall_CreateStatusCallback | 创建下载进度监听回调。 |
-| HMS_ModuleInstall_On | 下载进度监听。 |
-| HMS_ModuleInstall_ReleaseStatusCallback | 释放下载进度监听回调。 |
-| HMS_ModuleInstall_Off | 取消下载进度监听。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_GetInstalledModule(const char *moduleName, unsigned int length, ModuleInstall_InstalledModule **installedModule) | 查询模块是否安装。 |
+| char *HMS_ModuleInstall_GetInstalledModuleName(const ModuleInstall_InstalledModule *installedModule) | 获取模块名。 |
+| int HMS_ModuleInstall_GetInstalledModuleType(const ModuleInstall_InstalledModule *installedModule) | 获取模块类型。 |
+| ModuleInstall_InstallStatus HMS_ModuleInstall_GetModuleInstallStatus(const ModuleInstall_InstalledModule *installedModule) | 获取模块安装状态。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_FetchModules(const char *bundleName, unsigned int length, char **moduleNames, unsigned int moduleNamesLength, ModuleInstall_FetchModulesResult **fetchModulesResult) | 请求下载模块。 |
+| ModuleInstall_RequestCode HMS_ModuleInstall_GetFetchModulesRequestCode(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载请求码。 |
+| ModuleInstall_TaskStatus HMS_ModuleInstall_GetFetchModulesTaskStatus( const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载任务状态。 |
+| char *HMS_ModuleInstall_GetFetchModulesTaskId(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载任务id。 |
+| char *HMS_ModuleInstall_GetFetchModulesDesc(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载描述。 |
+| char *HMS_ModuleInstall_GetFetchModules(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载模块名。 |
+| int HMS_ModuleInstall_GetFetchModulesTotalSize(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载总大小。 |
+| int HMS_ModuleInstall_GetFetchModulesDownloadedSize(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载已下载大小。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_CancelTask(const char *taskId, unsigned int length, unsigned int cancelResult) | 取消下载任务。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_ShowCellularDataConfirmation(const char *taskId, unsigned int length, unsigned int showResult) | 展示流量弹窗。 |
+| ModuleInstall_StatusCallback *HMS_ModuleInstall_CreateStatusCallback(ModuleInstall_OnStatusCallback *onStatusCallback) | 创建下载进度监听回调。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_On(const char *bundleName, unsigned int length, unsigned int appIndex, unsigned int period, ModuleInstall_StatusCallback **callback) | 下载进度监听。 |
+| void HMS_ModuleInstall_ReleaseStatusCallback(ModuleInstall_StatusCallback *statusCallback) | 释放下载进度监听回调。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_Off(const char *bundleName, unsigned int length, unsigned int appIndex) | 取消下载进度监听。 |

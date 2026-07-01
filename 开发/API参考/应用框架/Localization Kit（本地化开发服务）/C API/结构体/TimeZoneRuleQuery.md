@@ -1,6 +1,6 @@
 # TimeZoneRuleQuery
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-i18n-timezonerulequery
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,8 +36,8 @@ typedef struct TimeZoneRuleQuery {...} TimeZoneRuleQuery
  
 | 名称 | 描述 |
 | --- | --- |
-| double base | 查询的基准时间。 |
-| int32_t prevRawOffset | 上一次的时区原始偏移量。 |
-| int32_t prevDSTSavings | 上一次的夏令时偏移量。 |
+| double base | 查询的基准时间，单位为毫秒（ms），采用Unix时间戳格式。 |
+| int32_t prevRawOffset | 上一次的时区原始偏移量，单位为毫秒（ms）。 |
+| int32_t prevDSTSavings | 上一次的夏令时偏移量，单位为毫秒（ms）。 |
 | bool inclusive | 查询结果是否包含基准时间。true：查询结果包含基准时间；false：查询结果不包含基准时间。 |
-| double result | 查询结果。 |
+| double result | 查询结果，单位为毫秒（ms），采用Unix时间戳格式。 |

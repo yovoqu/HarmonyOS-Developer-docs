@@ -1,6 +1,6 @@
 # Tabs组件子组件包含if节点，if条件变更后, tabBar页签联动异常，有没有解决方案
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-478
 
@@ -16,7 +16,7 @@
  
 完整示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct Index {
@@ -97,7 +97,7 @@ struct Index {
           .tabBar(this.tabBuilder(4, 'Page Five'))
           .backgroundColor('#ff02e7c4')
         }
-        // When the page is hidden, it is necessary to ensure that the first parameter Index of the TabContent page is continuous
+      <em>  // When the page is hidden, it is necessary to ensure that the first parameter Index of the TabContent page is continuous</em>
         else {
           TabContent() {
             Text('Page Four')

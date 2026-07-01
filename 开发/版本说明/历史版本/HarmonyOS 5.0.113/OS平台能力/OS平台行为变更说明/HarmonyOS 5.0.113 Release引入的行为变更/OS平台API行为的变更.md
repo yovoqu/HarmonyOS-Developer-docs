@@ -1,6 +1,6 @@
 # OS平台API行为的变更
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-b112
 
@@ -364,7 +364,7 @@ Openharmony SDK目录下toolchains/modulecheck/app.json scheme文件。
 升级SDK版本后，如果DevEco Studio编辑器中提示如下报错，请按照新规则修改应用的bundleName。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/9IgMyreGSgyqKVJbmQl53Q/zh-cn_image_0000002143569014.png?HW-CC-KV=V1&HW-CC-Date=20260528T025908Z&HW-CC-Expire=86400&HW-CC-Sign=7694CFF35A185E08779F65C17CF38534751E2A89641118400ACB5E82B1AB4430)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/J0y-25K-RXWDZcjpZSSDdQ/zh-cn_image_0000002143569014.png?HW-CC-KV=V1&HW-CC-Date=20260701T015204Z&HW-CC-Expire=86400&HW-CC-Sign=A7035C7847B903C658C10BFC4413F39DAFA197B5A4DB9986AC3177C3D9F69AAF)
 
  
  

@@ -1,12 +1,12 @@
 # 如何通过PanGesture手势或者SwipeGesture手势实现自定义组件的惯性滚动效果
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-33
 
 可以通过PanGesture绑定滑动手势事件，并使用[onActionEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#事件)回调里的[velocityY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gestureevent对象说明)字段生成离手惯性滚动动画。示例如下，具体滚动的速率可以通过调整参数达到预期效果。
  
-```ArkTS
+```text
 @Entry
 @Component
 struct PanGestureExample {
@@ -25,21 +25,21 @@ struct PanGestureExample {
     .padding(20)
     .border({ width: 3 })
     .margin(30)
-    // 以组件左上角为坐标原点进行移动
+ <em>   // 以组件左上角为坐标原点进行移动</em>
     .translate({
       x: this.offsetX,
       y: this.offsetY,
       z: 0
     })
     .gesture(
-      // 拖动
+   <em>   // 拖动</em>
       PanGesture(this.panOption)
         .onActionStart((event?: GestureEvent) => {
           console.info('Pan start');
         })
         .onActionUpdate((event?: GestureEvent) => {
           if (event) {
-            // 最后的位置加上偏移量
+          <em>  // 最后的位置加上偏移量</em>
             this.offsetX = this.positionX + event.offsetX;
             this.offsetY = this.positionY + event.offsetY;
           }

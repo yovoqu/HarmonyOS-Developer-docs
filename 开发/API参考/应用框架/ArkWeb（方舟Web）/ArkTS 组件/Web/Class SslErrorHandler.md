@@ -1,6 +1,6 @@
 # Class (SslErrorHandler)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-sslerrorhandler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -62,4 +62,4 @@ handleCancel(abortLoading: boolean): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| abortLoading | boolean | 是 | 是否在取消请求后停止加载页面。 true表示停止加载页面，false表示继续加载页面。 默认值为false。 |
+| abortLoading | boolean | 是 | 是否在取消请求后停止加载页面。 true表示停止加载页面，false表示继续加载页面。 |

@@ -1,12 +1,12 @@
 # 登录信息的cookie应该在什么时机注入？如何确保刚刚打开的web能注入登录信息cookie
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-26
 
 [webview.once](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-f#webviewonce)可以订阅一次指定类型Web事件的回调。一般在web初始化完成后可以注入。
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb'
 
 webview.once("webInited", () => {

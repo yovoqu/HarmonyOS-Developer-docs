@@ -1,6 +1,6 @@
 # Inspector双向预览
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-06-30 08:29:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer-inspector
 
@@ -24,11 +24,11 @@ DevEco Studio提供HarmonyOS应用/元服务的UI预览界面与源代码文件�
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/w0mxGWq9R7imwarL1kQnXA/zh-cn_image_0000002594474556.png?HW-CC-KV=V1&HW-CC-Date=20260624T020709Z&HW-CC-Expire=86400&HW-CC-Sign=D356BB377BDEC557EABB6DD555438D50A251074AE51D39BB66393305AADF7AA9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/crQr18qHRaWIUkutzrQDbw/zh-cn_image_0000002594474556.png?HW-CC-KV=V1&HW-CC-Date=20260701T014607Z&HW-CC-Expire=86400&HW-CC-Sign=D5B1C36C43C9D9B5B11156D46D435F9C80CAD6EB5358057344A95A51DA63E2A4)
 
  
 
  
-在预览界面还可以通过组件的属性面板修改可修改的属性或样式，在预览界面修改后，预览器会自动同步到代码编辑器中修改源码，并实时的刷新UI界面；同样的，如果在代码编辑器中修改源码，也会实时刷新UI界面，并更新组件树信息及组件属性。
+在预览界面还可以通过组件的属性面板修改可修改的属性或样式，在预览界面修改后，预览器会自动同步到代码编辑器中修改源码，并实时刷新UI界面；同样的，如果在代码编辑器中修改源码，也会实时刷新UI界面，并更新组件树信息及组件属性。
 > [!NOTE]
 > 如果组件有做数据绑定，则其属性不支持在属性面板修改。 如果界面有使用动画效果或者带动画效果组件，则其属性不支持在属性面板修改。 多设备预览时，不支持双向预览。

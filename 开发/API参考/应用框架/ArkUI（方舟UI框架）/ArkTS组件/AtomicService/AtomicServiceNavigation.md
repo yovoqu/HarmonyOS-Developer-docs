@@ -1,6 +1,6 @@
 # AtomicServiceNavigation
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicenavigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -61,7 +61,7 @@ AtomicServiceNavigation({
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
-**参数**：
+**参数：**
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -300,7 +300,7 @@ struct Index {
       ],
       tabBarPosition: TabBarPosition.BOTTOM,
       barBackgroundColor: $r('sys.color.ohos_id_color_bottom_tab_bg'),
-      onTabBarClick: (index: Number) => {
+      onTabBarClick: (index: number) => {
         if (index == 0) {
           this.message = '功能1';
         } else if (index == 1) {
@@ -443,7 +443,7 @@ struct Index {
       ],
       tabBarPosition: TabBarPosition.BOTTOM,
       barBackgroundColor: $r('sys.color.ohos_id_color_bottom_tab_bg'),
-      onTabBarClick: (index: Number) => {
+      onTabBarClick: (index: number) => {
         if (index == 0) {
           this.message = '功能1';
         } else if (index == 1) {
@@ -590,7 +590,7 @@ struct Index {
       ],
       tabBarPosition: TabBarPosition.BOTTOM,
       barBackgroundColor: $r('sys.color.ohos_id_color_bottom_tab_bg'),
-      onTabBarClick: (index: Number) => {
+      onTabBarClick: (index: number) => {
         if (index == 0) {
           this.message = '功能1';
         } else if (index == 1) {
@@ -688,4 +688,4 @@ export struct PageTwo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/hIv6JX9xTim_YSCt4iEPyg/zh-cn_image_0000002592380482.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=B6BDD119603F4FC167E4C25B43DA795F054560B15BB525E028369205C24819F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/u3QGwHYxQ3uMddUEHBAx6g/zh-cn_image_0000002659222145.png?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=8C1A789EF984BF2A92C46882658649069DE78FEA7E6C570DFE5F0B5DF58CBBED)

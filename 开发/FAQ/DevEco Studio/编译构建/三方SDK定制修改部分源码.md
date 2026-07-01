@@ -1,6 +1,6 @@
 # 三方SDK定制修改部分源码
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-192
 
@@ -49,7 +49,7 @@ SDK使用方需在SDK上定制功能开发，SDK提供方仅希望提供SDK和�
 "buildOption": {
     "packingOptions": {
       "customizedOptions": {
-        "basePackage": "./basePackage/modules.abc" //相对路径
+        "basePackage": "./basePackage/modules.abc" <em>// 相对路径</em>
       }
     }
   },

@@ -1,6 +1,6 @@
 # PDF预览如何隐藏PDF操作按钮栏
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-54
 
@@ -10,7 +10,7 @@
  
 **参考代码**
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -20,7 +20,7 @@ struct HidePDFToolbar {
 
   build() {
     Column() {
-      // Hide the toolbar (toolbar=0) and navigation pane (navpanes=0) through URL parameters
+     <em> // Hide the toolbar (toolbar=0) and navigation pane (navpanes=0) through URL parameters</em>
       Web({ src: 'resource://rawfile/test.pdf#toolbar=0&navpanes=0', controller: this.controller })
         .domStorageAccess(true)
         .width('100%')

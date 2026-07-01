@@ -1,6 +1,6 @@
 # Image组件长按和拖拽的系统手势和自定义手势冲突
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-365
 
@@ -10,7 +10,7 @@
  
 **参考代码****：**
  
-```ArkTS
+```text
 @Entry
 @Component
 struct Index {
@@ -20,22 +20,22 @@ struct Index {
         .width('80%')
         .parallelGesture(GestureGroup(GestureMode.Exclusive,
           TapGesture({ count: 2, fingers: 1 })
-          // Double click
+        <em>  // Double click</em>
             .onAction(() => {
               console.log('TapGesture--double click');
             }),
           TapGesture({ count: 1, fingers: 1 })
-          // TapGesture single
+       <em>   // TapGesture single</em>
             .onAction(() => {
               console.log('TapGesture--single click');
             }),
           LongPressGesture({ repeat: true })
-          // LongPressGesture Long
+        <em>  // LongPressGesture Long</em>
             .onAction(() => {
               console.log('LongPressGesture--Long press');
             }),
           PanGesture()
-          // PanGesture drag
+        <em>  // PanGesture drag</em>
             .onActionStart((gestureEvent: GestureEvent | undefined) => {
               console.info('PanGesture--drag');
             })

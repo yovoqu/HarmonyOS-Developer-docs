@@ -1,6 +1,6 @@
 # 如何在Native侧跨模块访问资源
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-23
 
@@ -11,13 +11,13 @@
 具体使用方式可参考以下代码：
  1. 在CMakeLists.txt中添加librawfile.z.so依赖。target_link_libraries(nativecrossmoduleaccessres PUBLIC libace_napi.z.so libhilog_ndk.z.so librawfile.z.so)
 2. 在src/main/cpp/types/libentry/index.d.ts文件中，声明应用侧函数getRawFileContent。
-```ts
+```text
 import { resourceManager } from "@kit.LocalizationKit";
 export const getRawFileContent: (resMgr: resourceManager.ResourceManager, path: string) => Uint8Array;
 ```
 
 3. 在napi_init.cpp中实现功能代码。
-```cpp
+```text
 #include <memory>
 #include "string"
 #include "napi/native_api.h" 
@@ -57,34 +57,34 @@ static napi_value GetRawFileContent(napi_env env, napi_callback_info info)
     size_t requireArgc = 3; 
     size_t argc = 2; 
     napi_value argv[2] = { nullptr }; 
-    // Obtain parameter information 
+  <em>  // Obtain parameter information </em>
     napi_get_cb_info(env, info, &argc, argv, nullptr, nullptr); 
-    // argv[0] is the first parameter of the function, the js resource object. OH_ResourceManager_InitNativeResourceManager convert to Native object. 
+   <em> // argv[0] is the first parameter of the function, the js resource object. OH_ResourceManager_InitNativeResourceManager convert to Native object. </em>
     NativeResourceManager *mNativeResMgr = OH_ResourceManager_InitNativeResourceManager(env, argv[0]); 
     size_t strSize; 
     char strBuf[256]; 
     napi_get_value_string_utf8(env, argv[1], strBuf, sizeof(strBuf), &strSize); 
     std::string filename(strBuf, strSize); 
-    // Get rawfile pointer object 
+  <em>  // Get rawfile pointer object </em>
     RawFile *rawFile = OH_ResourceManager_OpenRawFile(mNativeResMgr, filename.c_str()); 
     if (rawFile != nullptr) { 
         OH_LOG_Print(LOG_APP, LOG_ERROR, GLOBAL_RESMGR, TAG, "OH_ResourceManager_OpenRawFile success"); 
     } 
-    // Obtain the size of the rawfile and allocate memory 
+   <em> // Obtain the size of the rawfile and allocate memory </em>
     long len = OH_ResourceManager_GetRawFileSize(rawFile); 
     std::unique_ptr<uint8_t[]> data= std::make_unique<uint8_t[]>(len); 
-    // Read the entire content of the rawfile one-off 
+   <em> // Read the entire content of the rawfile one-off </em>
     int res = OH_ResourceManager_ReadRawFile(rawFile, data.get(), len); 
-    // Close the open pointer object  
+   <em> // Close the open pointer object  </em>
     OH_ResourceManager_CloseRawFile(rawFile); 
     OH_ResourceManager_ReleaseNativeResourceManager(mNativeResMgr); 
-    // Convert to js object  
+   <em> // Convert to js object  </em>
     return CreateJsArrayValue(env, data, len);
 }
 ```
 
 4. 在ArkTS侧调用，传入资源对象。
-```ArkTS
+```text
 import { application } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import testNapi from 'libnativecrossmoduleaccessres.so';

@@ -1,13 +1,11 @@
 # 如何生成带logo的二维码
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-23
 
 1. 使用Canvas组件绘制二维码图片和logo图片。
-
-  
-```ArkTS
+```text
 Canvas(this.context)
   .width(300)
   .height(300)
@@ -17,9 +15,7 @@ Canvas(this.context)
 ```
 
 2. 首先调用createBarcode接口生成码图pixelMap，再调用drawImage接口绘制码图pixelMap，最后再次调用drawImage接口绘制logo叠加到码图之上。
-
-  
-```ArkTS
+```json
 let options: generateBarcode.CreateOptions = {
   scanType: scanCore.ScanType.QR_CODE,
   height: this.QRCodeWidth,
@@ -39,7 +35,7 @@ generateBarcode.createBarcode(content, options).then((pixelMap: image.PixelMap) 
  
 API version 18之前的示例代码如下：
  
-```ArkTS
+```json
 import { image } from '@kit.ImageKit';
 import { generateBarcode, scanCore } from '@kit.ScanKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -91,7 +87,7 @@ struct Index {
  
 API version 18及以后的示例代码如下：
  
-```ArkTS
+```json
 import { image } from '@kit.ImageKit';
 import { generateBarcode, scanCore } from '@kit.ScanKit';
 import { BusinessError } from '@kit.BasicServicesKit';

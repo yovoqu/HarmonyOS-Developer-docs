@@ -1,6 +1,6 @@
 # GetFormatName
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getformatname
 
@@ -22,7 +22,7 @@ const char_t *GetFormatName(Format format)
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
-| format | 输入 | format枚举值。 |
+| format | 输入 | format枚举值，请参见Format。 |
  
  
   

@@ -1,6 +1,6 @@
 # Image
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 Image为图片组件，常用于在应用中显示图片。Image支持加载[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)、[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)和[DrawableDescriptor](#drawabledescriptor10)类型的数据源，支持png、jpg、jpeg、bmp、svg、webp、gif、heif和tiff类型的图片格式，不支持apng和svga格式。
 
 > [!TIP]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 从API version 23开始，图片类型新增支持tiff格式。 使用快捷组合键对Image组件复制时，Image组件必须处于获焦状态，如何获焦请参考 设置组件是否可获焦 。Image组件默认不获焦，需将 focusable 属性设置为true，即可使用Tab键将焦点切换到组件上，再将 focusOnTouch 属性设置为true，即可实现点击获焦。 图片格式支持SVG图源，SVG标签文档请参考 SVG标签说明 。 动图的播放依赖于Image节点的可见性变化，其默认行为是不播放的。当节点可见时，通过回调启动动画，当节点不可见时，停止动画。可见性状态的判断是通过 onVisibleAreaChange 事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。 Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时，系统会将其修正为100ms；当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。 如果图片加载过程中出现白色块，请参考 Image白块问题解决方案 。如果图片加载时间过长，请参考 预置图片资源加载优化 。
+> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 从API version 23开始，图片类型新增支持tiff格式。 该组件从API版本26.0.0开始支持 WithTheme 。 使用快捷组合键对Image组件复制时，Image组件必须处于获焦状态，如何获焦请参考 设置组件是否可获焦 。Image组件默认不获焦，需将 focusable 属性设置为true，即可使用Tab键将焦点切换到组件上，再将 focusOnTouch 属性设置为true，即可实现点击获焦。 图片格式支持SVG图源，SVG标签文档请参考 SVG标签说明 。 动图的播放依赖于Image节点的可见性变化，其默认行为是不播放的。当节点可见时，通过回调启动动画，当节点不可见时，停止动画。可见性状态的判断是通过 onVisibleAreaChange 事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。 Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时，系统会将其修正为100ms；当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。 如果图片加载过程中出现白色块，请参考 Image白块问题解决方案 。如果图片加载时间过长，请参考 预置图片资源加载优化 。
 
 
 
@@ -49,7 +49,7 @@ Image组件默认按照居中裁剪，例如组件宽高设置相同，原图长
 Image加载成功且组件不设置宽高时，其显示大小自适应父组件。
 
 > [!NOTE]
-> Image直接传入URL可能会带来的潜在性能问题，例如：(1) 大图加载时无法提前下载，白块显示的时间较长；(2) 小图设置同步加载，在弱网环境下，可能会阻塞UI线程造成冻屏问题；(3) 在快速滑动的瀑布流中，无法提前对即将要显示的图片进行下载，导致滑动白块较多。不同场景下，性能问题会有不同的表现，建议将网络下载部分与Image的显示剥离，可提前下载或者异步下载。如果图片加载过程中出现白色块，请参考 Image白块解决方案 。如果图片加载时间过长，请参考 预置图片资源加载优化 。 src由有效值（可正常解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，组件保持显示此前成功加载的图片内容，不进行清除或重置操作。 当Image组件入参为 PixelMap 类型时，只有当PixelMap对象发生变化（即指向一个新的PixelMap实例），Image组件才能感知到数据的变化。仅修改PixelMap对象的内容（如像素值）而不更换对象引用，无法触发数据变化的感知。 Image组件入参为Base64字符串时，Base64字符串通用格式为data:image/subtype;base64,Base64EncodedData，其中subtype为类型声明，Base64EncodedData为数据对应的base64编码，其他为固定字符串。例如：png图像对应的入参为data:image/png;base64,iVBORw0KGgo...。 image/subType用于声明数据内容的类型。Image组件不会强制校验声明的类型与Base64解码后的实际图片格式是否完全一致。在部分场景下，即使声明的类型与真实格式不一致，图片仍可能正常显示。为避免未来行为变化或未知问题，建议始终保持类型与实际图片格式一致。 Image组件不支持data:image/*;base64,Base64EncodedData的通配写法，subType必须显式声明具体的图片类型。 Image组件不支持通过Base64字符串形式加载SVG图片。
+> Image直接传入URL可能会带来的潜在性能问题，例如：(1) 大图加载时无法提前下载，白块显示的时间较长；(2) 小图设置同步加载，在弱网环境下，可能会阻塞UI线程造成冻屏问题；(3) 在快速滑动的瀑布流中，无法提前对即将要显示的图片进行下载，导致滑动白块较多。不同场景下，性能问题会有不同的表现，建议将网络下载部分与Image的显示剥离，可提前下载或者异步下载。如果图片加载过程中出现白色块，请参考 Image白块解决方案 。如果图片加载时间过长，请参考 预置图片资源加载优化 。 src由有效值（可正常解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，组件保持显示此前成功加载的图片内容，不进行清除或重置操作。 当Image组件入参为 PixelMap 类型时，只有当PixelMap对象发生变化（即指向一个新的PixelMap实例），Image组件才能感知到数据的变化。仅修改PixelMap对象的内容（如像素值）而不更换对象引用，无法触发数据变化的感知。 Image组件入参为Base64字符串时，Base64字符串通用格式为data:image/subtype;base64,Base64EncodedData，其中subtype为类型声明，Base64EncodedData为数据对应的base64编码，其他为固定字符串。例如：png图像对应的入参为data:image/png;base64,iVBORw0KGgo...。 image/subType用于声明数据内容的类型。从API版本26.0.0开始，Image组件接受任意data:image/xxx;base64,Base64EncodedData格式的Base64字符串，具体图片类型由系统多媒体能力根据实际数据内容识别，无需枚举所有支持的MIME类型。对于API版本26.0.0之前版本，Image组件不会强制校验声明的类型与Base64解码后的实际图片格式是否完全一致。在部分场景下，即使声明的类型与真实格式不一致，图片仍可能正常显示。为避免未来行为变化或未知问题，建议始终保持类型与实际图片格式一致。 Image组件从API版本26.0.0开始支持通过data:image/*;base64,Base64EncodedData的通配写法，对于API版本26.0.0之前版本，Image组件不支持data:image/*;base64,Base64EncodedData的通配写法，subType必须显式声明具体的图片类型。 Image组件从API版本26.0.0开始支持通过Base64加载SVG图片，对于API版本26.0.0之前版本，Image组件不支持通过Base64字符串形式加载SVG图片。
 
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -79,6 +79,8 @@ src新增[ImageContent](#imagecontent12)类型，可指定对应的图形内容�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -96,9 +98,11 @@ src新增[ImageContent](#imagecontent12)类型，可指定对应的图形内容�
 
 Image(src: PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions: ImageAIOptions)
 
-Image新增[imageAIOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-common#imageaioptions12)参数，为组件设置AI分析选项。
+Image新增[ImageAIOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-common#imageaioptions12)参数，为组件设置AI分析选项。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -171,6 +175,8 @@ alt(src: ResourceStr | PixelMap | ImageAlt)
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -218,6 +224,8 @@ imageMatrix(matrix: ImageMatrix)
 该属性与[objectFit](#objectfit)属性强关联，仅在[objectFit](#objectfit)属性设置为ImageFit.MATRIX时生效。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -421,6 +429,8 @@ fillColor(color: ResourceColor|ColorContent)
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -443,6 +453,8 @@ fillColor(color: ResourceColor|ColorContent|ColorMetrics)
 当组件的参数类型为[AnimatedDrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor#animateddrawabledescriptor12)时设置该属性不生效。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -630,6 +642,8 @@ enableAnalyzer(enable: boolean)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -661,6 +675,8 @@ resizable(value: ResizableOptions)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -684,6 +700,8 @@ privacySensitive(supported: boolean)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -706,6 +724,8 @@ dynamicRangeMode(value: DynamicRangeMode)
 **设备行为差异：** 该接口在手机、PC/2in1和Tablet设备中可正常生效，在其他设备类型中无效果。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -732,6 +752,8 @@ orientation(orientation: ImageRotateOrientation)
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -756,6 +778,8 @@ SVG类型图源不支持该属性。
 该属性与[dynamicRangeMode](#dynamicrangemode12)属性同时设置时，[dynamicRangeMode](#dynamicrangemode12)属性不生效。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -782,6 +806,8 @@ Image组件创建后，不支持动态修改该属性的值。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -802,6 +828,8 @@ contentTransition(transition: ContentTransitionEffect)
 图片内容发生变化时，触发过渡动效。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -828,6 +856,8 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -848,6 +878,8 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -908,6 +940,8 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -934,6 +968,8 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -951,6 +987,8 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 期望展示的图像动态范围。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -970,6 +1008,8 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 期望的图像内容显示方向。
 
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1002,6 +1042,8 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1016,17 +1058,19 @@ antialiased(isAntialiased: Optional&lt;boolean&gt;)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type DrawableDescriptor = DrawableDescriptor
+type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor
 
 作为Image组件的入参对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
-| DrawableDescriptor | 返回一个DrawableDescriptor对象。 |
+| import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor | 返回一个DrawableDescriptor对象。 |
 
 
 
@@ -1035,17 +1079,19 @@ type DrawableDescriptor = DrawableDescriptor
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type DrawingColorFilter = ColorFilter
+type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter
 
 颜色滤波器对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
-| ColorFilter | 返回一个颜色滤波器。 |
+| import('../api/@ohos.graphics.drawing').default.ColorFilter | 返回一个颜色滤波器。 |
 
 
 
@@ -1054,17 +1100,19 @@ type DrawingColorFilter = ColorFilter
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type DrawingLattice = Lattice
+type DrawingLattice = import('../api/@ohos.graphics.drawing').default.Lattice
 
 将图片按照矩形网格进行划分。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
-| Lattice | 返回一个矩阵网格对象。 |
+| import('../api/@ohos.graphics.drawing').default.Lattice | 返回一个矩阵网格对象。 |
 
 
 
@@ -1078,6 +1126,8 @@ type ImageMatrix = Matrix4Transit
 当前的矩阵对象。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1095,6 +1145,8 @@ type ImageMatrix = Matrix4Transit
 指定颜色填充内容。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1138,10 +1190,10 @@ onComplete(callback: (event?: { width: number, height: number, componentWidth: n
 | componentWidth | number | 是 | 组件的宽。 单位：px 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
 | componentHeight | number | 是 | 组件的高。 单位：px 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
 | loadingStatus | number | 是 | 图片加载成功的状态值。 说明： 返回的状态值为0时，表示图片数据加载成功。返回的状态值为1时，表示图片解码成功。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
-| contentWidth10+ | number | 是 | 图片实际绘制的宽度。 单位：px 说明： 仅在loadingStatus返回1时有效。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 |
-| contentHeight10+ | number | 是 | 图片实际绘制的高度。 单位：px 说明： 仅在loadingStatus返回1时有效。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 |
-| contentOffsetX10+ | number | 是 | 实际绘制内容相对于组件自身的x轴偏移。 单位：px 说明： 仅在loadingStatus返回1时有效。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 |
-| contentOffsetY10+ | number | 是 | 实际绘制内容相对于组件自身的y轴偏移。 单位：px 说明： 仅在loadingStatus返回1时有效。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 |
+| contentWidth10+ | number | 是 | 图片实际绘制的宽度。 单位：px 说明： 仅在loadingStatus返回1时有效。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| contentHeight10+ | number | 是 | 图片实际绘制的高度。 单位：px 说明： 仅在loadingStatus返回1时有效。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| contentOffsetX10+ | number | 是 | 实际绘制内容相对于组件自身的x轴偏移。 单位：px 说明： 仅在loadingStatus返回1时有效。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| contentOffsetY10+ | number | 是 | 实际绘制内容相对于组件自身的y轴偏移。 单位：px 说明： 仅在loadingStatus返回1时有效。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1235,9 +1287,9 @@ type ImageErrorCallback = (error: ImageError) => void
 | --- | --- | --- | --- | --- |
 | componentWidth | number | 否 | 否 | 组件的宽。 单位：px 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | componentHeight | number | 否 | 否 | 组件的高。 单位：px 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| message10+ | string | 否 | 否 | 报错信息。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| error20+ | BusinessError&lt;void&gt; | 否 | 是 | 图片加载异常返回的报错信息，其中code为错误码，message为错误信息。报错信息请参考以下错误信息的详细介绍。 默认值：{ code : -1, message : "" } 卡片能力： 从API version 20开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| downloadInfo23+ | RequestDownloadInfo | 否 | 是 | 网络图片下载的详细信息，包含下载资源、网络、性能等信息。当图片来源为网络图片且下载失败时将携带此字段。 默认值：null 卡片能力： 从API version 23开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| message10+ | string | 否 | 否 | 报错信息。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| error20+ | BusinessError&lt;void&gt; | 否 | 是 | 图片加载异常返回的报错信息，其中code为错误码，message为错误信息。报错信息请参考以下错误信息的详细介绍。 默认值：{ code : -1, message : "" } 卡片能力： 从API version 20开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| downloadInfo23+ | RequestDownloadInfo | 否 | 是 | 网络图片下载的详细信息，包含下载资源、网络、性能等信息。当图片来源为网络图片且下载失败时将携带此字段。 默认值：null 卡片能力： 从API version 23开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1246,7 +1298,7 @@ type ImageErrorCallback = (error: ImageError) => void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type BusinessError<T = void> = BusinessError&lt;T&gt;
+type BusinessError<T = void> = import('../api/@ohos.base').BusinessError&lt;T&gt;
 
 图片加载异常返回的错误信息。
 
@@ -1254,11 +1306,13 @@ type BusinessError<T = void> = BusinessError&lt;T&gt;
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
-| BusinessError&lt;T&gt; | 图片加载异常返回的错误信息。 |
+| import('../api/@ohos.base').BusinessError&lt;T&gt; | 图片加载异常返回的错误信息。 |
 
 
 以下是错误信息的详细介绍：ImageError的error属性为错误信息对象，其中code为错误码，message为错误信息。
@@ -1296,7 +1350,7 @@ type BusinessError<T = void> = BusinessError&lt;T&gt;
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type RequestDownloadInfo = DownloadInfo
+type RequestDownloadInfo = import('../api/@ohos.request.cacheDownload').default.DownloadInfo
 
 用于描述网络图片加载失败或异常时的下载信息。该对象包含本次下载任务的资源信息、网络信息以及性能统计信息，可用于定位加载异常的具体原因。
 
@@ -1304,11 +1358,13 @@ type RequestDownloadInfo = DownloadInfo
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
 | --- | --- |
-| DownloadInfo | 网络资源加载异常时返回的下载信息，包含资源信息、网络请求信息与性能统计信息。 |
+| import('../api/@ohos.request.cacheDownload').default.DownloadInfo | 网络资源加载异常时返回的下载信息，包含资源信息、网络请求信息与性能统计信息。 |
 
 
 

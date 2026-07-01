@@ -1,6 +1,6 @@
 # 如何控制CustomDialog显示层级
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-325
 
@@ -12,7 +12,7 @@
  
 原因是CustomDialog的默认层级高于页面。可以使用navigation方式跳转，它主要用于实现页面间以及组件内部的页面跳转，页面层级由导航栈管理，默认后打开的页面层级高于之前的页面，navigation跳转时系统会自动处理页面层级关系，包括关闭前页面的所有弹窗。具体请参考如下示例代码：
  
-```ArkTS
+```text
 @Component
 struct PrivacyDetailPage {
   @State message: string = 'Hello World';
@@ -39,10 +39,10 @@ struct PrivacyDetailPage {
 @Entry
 @Component
 struct CustomDialogDisplayLevel {
-  // Used for navigation stack management
+  <em>// Used for navigation stack management</em>
   @Provide('pageInfos') pageInfos: NavPathStack = new NavPathStack();
   @State textValue: string = 'Input';
-  // Visible and hidden control is set to not occupied
+ <em> // Visible and hidden control is set to not occupied</em>
   @State visible: Visibility = Visibility.None;
 
   @Builder
@@ -91,7 +91,7 @@ struct CustomDialogDisplayLevel {
             })
             .width('100%')
             .height('100%')
-            // set opacity
+         <em>   // set opacity</em>
             .opacity(0.5)
             .backgroundColor(Color.Black)
             .visibility(this.visible)
@@ -164,7 +164,7 @@ struct CustomDialogDisplayLevel {
               }
             }
           }
-          // set dialog width
+       <em>   // set dialog width</em>
           .width('100%')
         }
       }

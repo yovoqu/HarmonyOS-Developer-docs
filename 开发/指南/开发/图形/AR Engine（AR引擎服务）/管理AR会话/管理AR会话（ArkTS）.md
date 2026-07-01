@@ -1,6 +1,6 @@
 # 管理AR会话（ArkTS）
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession
 
@@ -27,7 +27,7 @@ AR会话主要依赖[ARViewContext](https://developer.huawei.com/consumer/cn/doc
 | ARViewContext.scene | 获得的AR呈现场景，用于管理空间节点。 |
 | ARViewContext.session | 获取AR会话，用于获取相关AR环境跟踪、相机跟踪、命中检测等能力，如相机位姿、平面信息、创建锚点等。 |
 | ARViewContext.config | 设置AR会话的配置文件，如北向坐标、性能模式等。 |
-| ARViewContext.callback | 设置回调函数，以根据回调功能实现对应业务逻辑。 |
+| ARViewContext.callback | 设置回调函数，可根据回调功能实现对应业务逻辑。 |
 
 
 

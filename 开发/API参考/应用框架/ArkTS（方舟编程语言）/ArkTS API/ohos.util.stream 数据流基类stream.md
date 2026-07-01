@@ -1,6 +1,6 @@
 # @ohos.util.stream (数据流基类stream)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-stream
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -103,11 +103,10 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200035 | The doWrite method has not been implemented. |
 | 10200036 | The stream has been ended. |
 | 10200037 | The callback is invoked multiple times consecutively. |
@@ -163,11 +162,10 @@ end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writab
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200035 | The doWrite method has not been implemented. |
 
 
@@ -220,15 +218,6 @@ setDefaultEncoding(encoding?: string): boolean
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回是否设置成功。true表示成功，false表示失败。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -355,15 +344,6 @@ on(event: string, callback: Callback<emitter.EventData>): void
 | callback | Callback<emitter.EventData> | 是 | 回调函数，返回事件传输的数据。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -406,15 +386,6 @@ off(event: string, callback?: Callback<emitter.EventData>): void
 | --- | --- | --- | --- |
 | event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'drain' \|'error' \| 'finish' 。 - 'close'：完成end()调用，结束写入操作，触发该事件。 - 'drain'：在可写流缓冲区中数据清空时触发该事件。 - 'error'：在可写流发生异常时触发该事件。 - 'finish'：在数据缓冲区全部写入到目标后触发该事件。 |
 | callback | Callback<emitter.EventData> | 否 | 回调函数。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 
 
 **示例：**
@@ -465,15 +436,6 @@ doInitialize(callback: Function): void
 | callback | Function | 是 | 回调函数。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
-
-
 **示例：**
 
 ```text
@@ -514,15 +476,6 @@ doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 | callback | Function | 是 | 回调函数。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -561,15 +514,6 @@ doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 | --- | --- | --- | --- |
 | chunks | string[] \| Uint8Array[] | 是 | 待批量写出的数据块数组。 |
 | callback | Function | 是 | 回调函数。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -682,15 +626,6 @@ Readable的构造函数。
 | options | ReadableOptions | 是 | Readable构造函数的选项信息。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -730,11 +665,10 @@ read(size?: number): string | null
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200038 | The doRead method has not been implemented. |
 
 
@@ -863,15 +797,6 @@ setEncoding(encoding?: string): boolean
 | boolean | 返回是否设置成功。true表示设置成功，false表示设置失败。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
-
-
 **示例：**
 
 ```text
@@ -957,15 +882,6 @@ pipe(destination: Writable, options?: Object): Writable
 | Writable | 返回当前可写流对象。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -1024,15 +940,6 @@ unpipe(destination?: Writable): Readable
 | Readable | 返回当前可读流对象。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -1089,15 +996,6 @@ on(event: string, callback: Callback<emitter.EventData>): void
 | callback | Callback<emitter.EventData> | 是 | 回调函数，返回事件数据。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
-
-
 **示例：**
 
 ```text
@@ -1138,15 +1036,6 @@ off(event: string, callback?: Callback<emitter.EventData>): void
 | --- | --- | --- | --- |
 | event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'data' \|'end' \| 'error'\|'readable'\|'pause'\|'resume' 。 - 'close'：完成push()调用，传入null值，触发该事件。 - 'data'：当流传递给消费者一个数据块时触发该事件。 - 'end'：完成push()调用，传入null值，触发该事件。 - 'error'：流发生异常时触发。 - 'readable'：当有可从流中读取的数据时触发该事件。 - 'pause'：完成pause()调用，触发该事件。 - 'resume'：完成resume()调用，触发该事件。 |
 | callback | Callback<emitter.EventData> | 否 | 回调函数。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 
 
 **示例：**
@@ -1195,15 +1084,6 @@ doInitialize(callback: Function): void
 | callback | Function | 是 | 回调函数。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -1241,15 +1121,6 @@ doRead(size: number): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | size | number | 是 | 读取数据的字节数。 取值范围：0 <= size <= Number.MAX_VALUE。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -1400,11 +1271,10 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200036 | The stream has been ended. |
 | 10200037 | The callback is invoked multiple times consecutively. |
 | 10200039 | The doTransform method has not been implemented for a class that inherits from Transform. |
@@ -1464,11 +1334,10 @@ end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writab
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 10200039 | The doTransform method has not been implemented for a class that inherits from Transform. |
 
 
@@ -1521,15 +1390,6 @@ setDefaultEncoding(encoding?: string): boolean
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回是否设置成功。true表示设置成功，false表示设置失败。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -1652,15 +1512,6 @@ doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 | callback | Function | 是 | 回调函数。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -1702,15 +1553,6 @@ doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 | --- | --- | --- | --- |
 | chunks | string[] \| Uint8Array[] | 是 | 待批量写出的数据块数组。 |
 | callback | Function | 是 | 回调函数。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -1793,15 +1635,6 @@ doTransform(chunk: string, encoding: string, callback: Function): void
 | callback | Function | 是 | 回调函数。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```text
@@ -1841,15 +1674,6 @@ doFlush(callback: Function): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Function | 是 | 回调函数。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**

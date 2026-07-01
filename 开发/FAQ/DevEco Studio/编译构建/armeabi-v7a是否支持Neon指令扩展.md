@@ -1,6 +1,6 @@
 # armeabi-v7a是否支持Neon指令扩展
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-91
 
@@ -24,9 +24,9 @@ D:/DeveloperTools/Huawei/SDK/default/base/native/llvm/lib/clang/15.0.4/include/a
     "x86_64",
     "arm64-v8a"
   ],
-  // This is a configuration item to be added
+  <em>// This is a configuration item to be added</em>
   "cppFlags": "-mfloat-abi=hard",
-  // This is a configuration item to be added
+  <em>// This is a configuration item to be added</em>
 },
 ```
  

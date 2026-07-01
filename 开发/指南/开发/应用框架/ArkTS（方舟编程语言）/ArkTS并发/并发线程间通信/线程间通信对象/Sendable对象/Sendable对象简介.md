@@ -1,6 +1,6 @@
 # Sendable对象简介
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable
 
@@ -172,7 +172,7 @@ struct enumusage {
 **SharedHeap与LocalHeap关系图**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/f7IwQtn4SeerLAGI24N9Lg/zh-cn_image_0000002656347393.png?HW-CC-KV=V1&HW-CC-Date=20260624T020735Z&HW-CC-Expire=86400&HW-CC-Sign=9C090CE672EB7C1D54A87DE1D8A59BEFC86D7319250370E770DEFF8CAB70BAD1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/EJCgCojxQX-nNTy7kHd-IQ/zh-cn_image_0000002659219317.png?HW-CC-KV=V1&HW-CC-Date=20260701T014613Z&HW-CC-Expire=86400&HW-CC-Sign=41635D2F13F1BFFB99815E4D7D3250C7F95A5849E5363A467B8B791562FF218C)
 
 
 各个并发实例的LocalHeap是隔离的。SharedHeap是进程级别的堆，可以被所有并发实例共享，但SharedHeap不能引用LocalHeap中的对象。
@@ -192,7 +192,7 @@ struct enumusage {
 | 装饰的对象内的属性类型限制 | 1. 支持string、number、boolean、bigint、null、undefined、const enum、Sendable class、collections容器集、ArkTSUtils.locks.AsyncLock、ArkTSUtils.SendableLruCache、ArkTSUtils.locks.ConditionVariable以及自定义的Sendable函数类型。 2. 禁止使用闭包变量，定义在顶层的Sendable class和Sendable function除外。 3. 不支持通过#定义私有属性，需用private。 4. 不支持计算属性。 5. 不支持类型别名。 |
 | 装饰的对象内的属性的其他限制 | 1. 成员属性必须显式初始化，不能使用感叹号。 2. 不支持增加或删除属性，允许修改属性，修改前后属性的类型必须一致，不支持修改方法。 |
 | 装饰的函数或类对象内的方法参数限制 | 允许使用local变量、入参和通过import引入的变量。禁止使用闭包变量，但定义在顶层的Sendable class和Sendable function除外。从API version 18开始，支持访问本文件导出的变量。 |
-| 适用场景 | 1. 在TaskPool或Worker中使用类方法或Sendable函数。 2. 传输对象数据量较大的场景。序列化耗时会随着数据量增大而增大，使用Sendable对数据进行改造后，传输100KB数据效率提升约20倍，传输1M数据效率提升约100倍。 |
+| 适用场景 | 1. 在TaskPool或Worker中使用类方法或Sendable函数。 2. 传输对象数据量较大的场景。序列化耗时会随着数据量增大而增大，使用Sendable对数据进行改造后，传输100KB数据效率提升约20倍，传输1MB数据效率提升约100倍。 |
 
 
 **装饰器修饰Class使用示例：**

@@ -1,6 +1,6 @@
 # 在Web组件的H5页面中，如何使用a标签实现打开各种页面
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-41
 
@@ -12,7 +12,7 @@
  
 ArkTS页面一：
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -45,7 +45,7 @@ struct WebComponent {
  
 ArkTS页面二：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct Second {
@@ -129,7 +129,7 @@ H5侧页面二：
  
 ArkTS页面：
  
-```ArkTS
+```text
 import { webview } from '@kit.ArkWeb'
 import { common } from '@kit.AbilityKit';
 import { Want } from '@kit.AbilityKit';
@@ -143,7 +143,7 @@ function startSettingsInfo(context: common.UIAbilityContext,uri : string): void 
   };
   context.startAbility(want)
     .then(() => {
-      // ...
+     <em> // ...</em>
     })
     .catch((err: BusinessError) => {
       console.error(`Failed to startAbility. Code: ${err.code}, message: ${err.message}`);
@@ -205,7 +205,7 @@ H5侧：
  
 ArkTS页面
  
-```ArkTS
+```json
 import { webview } from '@kit.ArkWeb'
 import { common } from '@kit.AbilityKit';
 import { Want } from '@kit.AbilityKit';
@@ -220,14 +220,14 @@ struct WebComponent {
       Column() {
         Web({ src: $rawfile('hello.html'), controller: this.controller })
           .onLoadIntercept((event) => {
-            let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext; // UIAbilityContext
+            let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext; <em>// UIAbilityContext</em>
             let want: Want = {
-              deviceId: '', // An empty DeviceId indicates that this device
-              bundleName: '***', // BundleName of the third-party application you want to jump to
-              moduleName: 'entry', // ModuleName is not mandatory
+              deviceId: '', <em>// An empty DeviceId indicates that this device</em>
+              bundleName: '***', <em>// BundleName of the third-party application you want to jump to</em>
+              moduleName: 'entry', <em>// ModuleName is not mandatory</em>
               abilityName: 'EntryAbility',
               parameters: {
-                // Customize parameters to transmit page information
+               <em> // Customize parameters to transmit page information</em>
                 router: 'index'
               }
             }

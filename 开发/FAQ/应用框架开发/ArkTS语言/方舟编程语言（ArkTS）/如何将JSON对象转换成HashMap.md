@@ -1,12 +1,12 @@
 # 如何将JSON对象转换成HashMap
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-89
 
 可以参考如下示例代码：
  
-```ArkTS
+```json
 import { HashMap } from '@kit.ArkTS';
 
 let str: string = '{\"common_params\": {' +
@@ -38,7 +38,7 @@ struct Index {
       Column() {
         Button('JSON to HashMap')
           .onClick(() => {
-            // common_params: {"city_id":1,"nav_id_list":"","show_hook_card":2,"use_one_stop_structure":1,"version_tag":"homepageonestop"}
+          <em>  // common_params: {"city_id":1,"nav_id_list":"","show_hook_card":2,"use_one_stop_structure":1,"version_tag":"homepageonestop"}</em>
             console.log('common_params:', JSON.stringify(hashMapData.get('common_params')));
           })
       }

@@ -1,6 +1,6 @@
 # 如何申请workspace作为临时内存
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-workspace
 
@@ -23,7 +23,7 @@ workspace是设备侧Global Memory上的一块内存。workspace内存分为两�
  
 - 工程化算子开发方式
 
-  在tiling函数中先通过[GetWorkspaceSizes](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getworkspacesizes)接口获取workspace大小的存放位置，再设置workspace的大小，框架侧会为其在申请对应大小的设备侧Global Memory，在对应的算子kernel侧实现时可以使用这块workspace内存。在使用[Matmul](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-matmul-usage-description)等需要系统workspace的高阶API时，设置的workspace空间大小为系统workspace和开发者workspace之和。
+  在tiling函数中先通过[GetWorkspaceSizes](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getworkspacesizes)接口获取workspace大小的存放位置，再设置workspace的大小，框架侧会为其申请对应大小的设备侧Global Memory，在对应的算子kernel侧实现时可以使用这块workspace内存。在使用[Matmul](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-matmul-usage-description)等需要系统workspace的高阶API时，设置的workspace空间大小为系统workspace和开发者workspace之和。
 
   
 ```text
@@ -34,7 +34,7 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
     // ...
     size_t usrSize = 256; // 设置开发者需要使用的workspace大小。
     // 如需要使用系统workspace需要调用GetLibApiWorkSpaceSize获取系统workspace的大小。
-    auto ascendcPlatform = platform_ascendc:: PlatformAscendC(context->GetPlatformInfo());
+    auto ascendcPlatform = platform_ascendc::PlatformAscendC(context->GetPlatformInfo());
     uint32_t sysWorkspaceSize = ascendcPlatform.GetLibApiWorkSpaceSize();
     size_t *currentWorkspace = context->GetWorkspaceSizes(1); // 通过框架获取workspace的指针，GetWorkspaceSizes入参为所需workspace的块数。当前限制使用一块。
     currentWorkspace[0] = usrSize + sysWorkspaceSize; // 设置总的workspace的数值大小，总的workspace空间由框架来申请并管理。

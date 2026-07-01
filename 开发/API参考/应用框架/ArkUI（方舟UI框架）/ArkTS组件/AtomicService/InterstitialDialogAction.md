@@ -1,6 +1,6 @@
 # InterstitialDialogAction
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-interstitialdialogaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -446,4 +446,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/azkDVDQ9ScyWNMSQ96bD5Q/zh-cn_image_0000002587270596.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=F7C97C373F555759DEB18F8259ABAD049935853552D3F3C3172BDC6F083C3CD4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/TmAvvSjqTcq7aIflBUt_iw/zh-cn_image_0000002628702962.png?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=D0CBFA9A85B59D807F3554B6ED6A83EDD111AA710DD29A5DA538C34E84338C66)

@@ -1,6 +1,6 @@
 # 如何在系统深色模式下使用getColorSync(resource)返回深色颜色值
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-354
 

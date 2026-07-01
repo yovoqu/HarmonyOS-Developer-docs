@@ -1,6 +1,6 @@
 # 为什么ArkTS API接口注释中@since版本看起来比接口实际引入时间更晚
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-coding-19
 
@@ -27,21 +27,21 @@ HarmonyOS目前采用“多段式注释”策略来记录ArkTS API的变更历�
 ```text
 <span style="color: rgb(0,0,255);">declare</span> <span style="color: rgb(0,0,255);">namespace</span> inputMethodEngine {
     <span style="color: rgb(0,0,255);">interface</span> <span style="color: rgb(0,0,255);">InputClient</span> {
-        <span style="color: rgb(80,160,79);">/**</span>
-<span style="color: rgb(80,160,79);">         * Get input attachOptions.</span>
-<span style="color: rgb(80,160,79);">         *</span>
-<span style="color: rgb(80,160,79);">         * @returns { AttachOptions } return attach options.</span>
-<span style="color: rgb(80,160,79);">         * @throws { BusinessError } 801 - Capability not supported.</span>
-<span style="color: rgb(80,160,79);">         * @syscap SystemCapability.MiscServices.InputMethodFramework</span>
-<span style="color: rgb(80,160,79);">         * @since 19</span>
-<span style="color: rgb(80,160,79);">         */</span>
-        <span style="color: rgb(80,160,79);">/**</span>
-<span style="color: rgb(80,160,79);">         * Get input attachOptions.</span>
-<span style="color: rgb(80,160,79);">         *</span>
-<span style="color: rgb(80,160,79);">         * @returns { AttachOptions } return attach options.</span>
-<span style="color: rgb(80,160,79);">         * @syscap SystemCapability.MiscServices.InputMethodFramework</span>
-<span style="color: rgb(80,160,79);">         * @since 20</span>
-<span style="color: rgb(80,160,79);">         */</span>
+<em>        <span style="color: rgb(80,160,79);">/**</span></em>
+<em><span style="color: rgb(80,160,79);">         * Get input attachOptions.</span></em>
+<em><span style="color: rgb(80,160,79);">         *</span></em>
+<em><span style="color: rgb(80,160,79);">         * @returns { AttachOptions } return attach options.</span></em>
+<em><span style="color: rgb(80,160,79);">         * @throws { BusinessError } 801 - Capability not supported.</span></em>
+<em><span style="color: rgb(80,160,79);">         * @syscap SystemCapability.MiscServices.InputMethodFramework</span></em>
+<em><span style="color: rgb(80,160,79);">         * @since 19</span></em>
+<em><span style="color: rgb(80,160,79);">         */</span></em>
+<em>        <span style="color: rgb(80,160,79);">/**</span></em>
+<em><span style="color: rgb(80,160,79);">         * Get input attachOptions.</span></em>
+<em><span style="color: rgb(80,160,79);">         *</span></em>
+<em><span style="color: rgb(80,160,79);">         * @returns { AttachOptions } return attach options.</span></em>
+<em><span style="color: rgb(80,160,79);">         * @syscap SystemCapability.MiscServices.InputMethodFramework</span></em>
+<em><span style="color: rgb(80,160,79);">         * @since 20</span></em>
+<em><span style="color: rgb(80,160,79);">         */</span></em>
         getAttachOptions(): <span style="color: rgb(0,0,255);">AttachOptions</span>;
     }
 }

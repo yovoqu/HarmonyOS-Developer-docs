@@ -1,6 +1,6 @@
 # 如何在Native侧获取屏幕亮度
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-10
 
@@ -15,15 +15,13 @@ Native侧可通过napi_load_module接口访问到获取屏幕亮度的模块，�
 代码示例如下：
  1. ArkTS侧传入模块名称。
 ```ArkTS
-// Screenbrightness/src/main/ets/pages/Index.ets
+<em>// Screenbrightness/src/main/ets/pages/Index.ets</em>
 import testNapi from 'libscreenbrightness.so';
-
 
 @Entry
 @Component
 struct Index {
   @State message: string = 'Get Screen Brightness';
-
 
   build() {
     Row() {
@@ -44,14 +42,12 @@ struct Index {
 
 2. 在Native侧获取屏幕亮度。
 ```cpp
-// Screenbrightness/src/main/cpp/napi_init.cpp
+<em>// Screenbrightness/src/main/cpp/napi_init.cpp</em>
 #include "hilog/log.h"
 #include "napi/native_api.h"
 #include <string>
 
-
 #define LOG_TAG "Pure"
-
 
 static napi_value Success(napi_env env, napi_callback_info info) {
     size_t argc = 1;
@@ -105,7 +101,6 @@ static napi_value Init(napi_env env, napi_value exports) {
 }
 EXTERN_C_END
 
-
 static napi_module demoModule = {
     .nm_version = 1,
     .nm_flags = 0,
@@ -120,7 +115,7 @@ extern "C" __attribute__((constructor)) void RegisterScreenBrightnessModule(void
 
 3. 在Index.d.ts文件中声明映射到ArkTS侧的Native接口。
 ```ts
-// Screenbrightness/src/main/cpp/types/libscreenbrightness/Index.d.ts
+<em>// Screenbrightness/src/main/cpp/types/libscreenbrightness/Index.d.ts</em>
 export const napiLoadModule: (a: string) => object;
 ```
 

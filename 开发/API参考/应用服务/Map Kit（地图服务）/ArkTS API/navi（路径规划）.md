@@ -1,6 +1,6 @@
 # navi（路径规划）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -336,24 +336,22 @@ getWalkingRoutes(context: common.Context, params: RouteParams): Promise&lt;Route
 **示例：**
  
 ```text
-let params: navi.DrivingRouteParams = {
+let params: navi.RouteParams = {
   origins: [{
-    "latitude": 31.982129213545843,
-    "longitude": 120.27745557768591
+    latitude: 39.992281,
+    longitude: 116.31088
+  }, {
+    latitude: 39.996,
+    longitude: 116.311
   }],
   destination: {
-    "latitude": 31.9821213545843,
-    "longitude": 120.277557768591
+    latitude: 39.94,
+    longitude: 116.311
   },
-  waypoints: [
-    { "latitude": 31.967236140819114, "longitude": 120.27142088866847 },
-    { "latitude": 31.972868002238872, "longitude": 120.2943211817165 },
-    { "latitude": 31.98469327973332, "longitude": 120.29101107384068 }
-  ],
   language: "zh_CN"
 };
 const result = await navi.getWalkingRoutes(this.getUIContext().getHostContext(), params);
-console.info("Succeeded in getting walking routes.");
+console.info("Succeeded in getting cycling routes.");
 ```
  
   

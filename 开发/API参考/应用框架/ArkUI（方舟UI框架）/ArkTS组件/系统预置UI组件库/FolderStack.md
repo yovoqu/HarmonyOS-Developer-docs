@@ -1,6 +1,6 @@
 # FolderStack
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-folderstack
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 FolderStack继承于[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)(层叠布局)控件，新增了[折叠屏悬停](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-folded-hover)能力，通过在FolderStack的配置项[FolderStackOptions](#folderstackoptions18对象说明)的upperItems数组上设置子组件id，使相应子组件自动避让折叠屏折痕区后移到上半屏。
 
 > [!NOTE]
-> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件的悬停态能力针对 双折叠 设计，只在双折叠设备生效。 当该组件的父组件为 if/else：条件渲染 节点时，折叠屏悬停能力将会失效。
+> 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 该组件的悬停态能力针对 双折叠 设计，只在双折叠设备生效。 当该组件的父组件为 if/else：条件渲染 节点时，折叠屏悬停能力将会失效。
 
 
 
@@ -169,7 +169,7 @@ autoHalfFold(value: boolean)
 
 onFolderStateChange(callback: OnFoldStatusChangeCallback)
 
-当前设备的折叠状态改变时触发回调，仅在横屏状态下生效。
+当前设备的折叠状态改变时触发回调。
 
 > [!NOTE]
 > 从API version 20开始，该接口支持在 attributeModifier 中调用。
@@ -246,7 +246,7 @@ type OnHoverStatusChangeCallback = (param: HoverEventParam) => void
 
 type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
-当前设备的折叠状态。
+当折叠状态改变时触发的回调。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -258,7 +258,7 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | OnFoldStatusChangeInfo | 是 | 当前设备的折叠状态。 |
+| event | OnFoldStatusChangeInfo | 是 | 折叠状态改变时的信息。 |
 
 
 
@@ -267,7 +267,7 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-当折叠状态改变的时候回调，仅在横屏状态下生效。
+折叠状态改变时的信息。
 
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -300,7 +300,7 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 | --- | --- | --- | --- | --- |
 | foldStatus | FoldStatus | 否 | 否 | 当前设备的折叠状态。 |
 | isHoverMode | boolean | 否 | 否 | 当前是否为悬停态。设置为true时表示当前为悬停态，设置为false时表示当前为非悬停态。 |
-| appRotation | AppRotation | 否 | 否 | 当前应用方向。 |
+| appRotation | AppRotation | 否 | 否 | 当前应用方向的旋转角度。 |
 | windowStatusType | WindowStatusType | 否 | 否 | 窗口模式枚举。 |
 
 
@@ -310,7 +310,7 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type WindowStatusType = WindowStatusType
+type WindowStatusType = import('../api/@ohos.window').default.WindowStatusType
 
 窗口模式枚举。
 
@@ -322,7 +322,7 @@ type WindowStatusType = WindowStatusType
 
 | 类型 | 说明 |
 | --- | --- |
-| WindowStatusType | 窗口模式枚举。 |
+| import('../api/@ohos.window').default.WindowStatusType | 窗口模式枚举。 |
 
 
 
@@ -411,13 +411,13 @@ struct Index {
 **图1** 横屏展开
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/CYzM34ZlQ4OAYtfC64XfmA/zh-cn_image_0000002611756185.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=A0A0A48BBB51C02198BCBE6975AE91C9EEBC7A8242BA35C66EBDF74DD3726895)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/kgJUqbt3QCKoRLYO7ciZYg/zh-cn_image_0000002659222175.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=DD00A435AD8A337AD96F5FAE88DA45A4FC794C44E3A184409CFE16FCA176092D)
 
 
 **图2** 横屏半折叠
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/uypVXkv8RXeHI9SiTu3biw/zh-cn_image_0000002581436246.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=D76BF8E45335BA642BF84BB01933216FEED163DB7946AF3925E7EEA96AFDB9BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/TqvsRhVBS_KmNFdxsa31Lg/zh-cn_image_0000002628702984.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=549E1C2A26D233EB485A8B8018828426B6596A1E7048D164DE1F490B6DEACF4F)
 
 
 
@@ -522,7 +522,7 @@ this appRotation:3
 this windowStatusType:1
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Hy94Lqz6R-yu-YnQu9t7bQ/zh-cn_image_0000002611836077.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=2F93F115CEAB382245E0B33C083811A87332F9D41CF07E0ECDD0B59909E6833A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/zcCayCKSQHWrvmGHto5D7w/zh-cn_image_0000002659102211.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=506A94FE56C903DCF409CEE6D1BB1B3B8B3CBAB466484F176F2CAE5328727D21)
 
 
 **图2** 横屏半折叠
@@ -540,4 +540,4 @@ this appRotation:3
 this windowStatusType:1
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/9XuKKu-nT5CE1RBx2pE5Uw/zh-cn_image_0000002581276332.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=3C98C63B10A2C17FCABD45C711B06018909BD1BF4D34CB2CF75733A7C5C7304A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/nlaoJRDwRD-OfDOll-FHmw/zh-cn_image_0000002628862864.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=1BD002B43A9E0F2FAD97C29115B30C5E13447BA69484D3CE639AB9A1AE8EAAC3)

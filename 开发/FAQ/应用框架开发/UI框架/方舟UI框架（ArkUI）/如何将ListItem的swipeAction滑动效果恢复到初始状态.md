@@ -1,12 +1,12 @@
 # 如何将ListItem的swipeAction滑动效果恢复到初始状态
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-277
 
 使用 ListScroller 提供的 closeAllSwipeActions() 方法恢复滑动效果，示例代码如下：
  
-```ArkTS
+```text
 @Component
 export struct SwiperActionRecover {
   @State arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -18,7 +18,7 @@ export struct SwiperActionRecover {
       Button('Delete')
       Button('Set')
         .onClick(() => {
-          this.scrollerForList.closeAllSwipeActions(); // This is the key line of code
+          this.scrollerForList.closeAllSwipeActions();<em> // This is the key line of code</em>
         })
     }
     .justifyContent(FlexAlign.SpaceEvenly)

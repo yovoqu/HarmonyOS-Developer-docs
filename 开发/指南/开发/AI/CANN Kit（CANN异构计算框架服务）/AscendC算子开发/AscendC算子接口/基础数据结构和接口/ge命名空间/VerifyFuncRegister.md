@@ -1,6 +1,6 @@
 # VerifyFuncRegister
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-verifyfuncregister
 
@@ -36,7 +36,7 @@ VerifyFuncRegister(const char_t *const operator_type, const VerifyFunc &verify_f
 
 #### 返回值
 
-VerifyFuncRegister构造函数返回VerifyFuncRegister类型的对象。
+无
  
   
 

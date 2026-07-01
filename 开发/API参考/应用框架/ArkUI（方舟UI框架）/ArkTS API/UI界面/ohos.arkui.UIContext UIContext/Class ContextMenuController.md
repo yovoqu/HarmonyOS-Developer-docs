@@ -1,6 +1,6 @@
 # Class (ContextMenuController)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-contextmenucontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供控制菜单关闭的能力。
  
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需先使用UIContext中的 getContextMenuController() 方法获取ContextMenuController实例，再通过此实例调用对应方法。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getContextMenuController() 方法获取ContextMenuController实例，再通过此实例调用对应方法。
 
   
 
@@ -19,6 +19,8 @@
 close(): void
  
 关闭菜单。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -74,4 +76,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/RYbGvMM9ToCKjDHJMCGtMQ/zh-cn_image_0000002581275614.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025453Z&HW-CC-Expire=86400&HW-CC-Sign=4E7F5616C83A94C7913F433F19643EF7CA7ABD80B05D24D27C6374FCD0FF82B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/nxmB33djS8iiEm5u2wjp_g/zh-cn_image_0000002659221439.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014312Z&HW-CC-Expire=86400&HW-CC-Sign=1505D872F5B7EA2E7E7CB97392E7C46C34D98A590BC044288158719E47CDC2C1)

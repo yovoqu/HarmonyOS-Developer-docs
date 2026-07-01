@@ -1,6 +1,6 @@
 # 如何实现Scroll、List单边回弹效果
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-316
 
@@ -10,8 +10,8 @@
  
 参考代码如下：
  
-```ArkTS
-// Single side rebound effect of Scroll component
+```text
+<em>// Single side rebound effect of Scroll component</em>
 @Entry
 @Component
 struct ScrollSideRebound {
@@ -37,12 +37,12 @@ struct ScrollSideRebound {
         }
         .width('100%')
       }
-      .scrollable(ScrollDirection.Vertical) // Rolling direction vertically
-      .scrollBar(BarState.On) // Scroll bar permanent display
-      .scrollBarColor(Color.Gray) // Scroll bar color
-      .scrollBarWidth(2) // Scroll bar width
+      .scrollable(ScrollDirection.Vertical) <em>// Rolling direction vertically</em>
+      .scrollBar(BarState.On) <em>// Scroll bar permanent display</em>
+      .scrollBarColor(Color.Gray) <em>// Scroll bar color</em>
+      .scrollBarWidth(2) <em>// Scroll bar width</em>
       .friction(0.6)
-      .edgeEffect(this.yOffset <= 0 ? EdgeEffect.Spring : EdgeEffect.None) // Rebound after rolling to the edge
+      .edgeEffect(this.yOffset <= 0 ? EdgeEffect.Spring : EdgeEffect.None) <em>// Rebound after rolling to the edge</em>
       .onDidScroll(() => {
         this.yOffset = this.scroller.currentOffset().yOffset;
       })
@@ -54,8 +54,8 @@ struct ScrollSideRebound {
 }
 ```
  
-```ArkTS
-// Single side rebound effect of List component
+```text
+<em>// Single side rebound effect of List component</em>
 @Entry
 @Component
 struct ListSideRebound {
@@ -77,10 +77,10 @@ struct ListSideRebound {
           }
         }, (item: string) => item)
       }
-      .listDirection(Axis.Vertical) // Arrangement direction
+      .listDirection(Axis.Vertical) <em>// Arrangement direction</em>
       .scrollBar(BarState.Off)
       .friction(0.6)
-      .edgeEffect(this.isTop ? EdgeEffect.Spring : EdgeEffect.None) // Enable the flex effect only on the top boundary
+      .edgeEffect(this.isTop ? EdgeEffect.Spring : EdgeEffect.None)<em> // Enable the flex effect only on the top boundary</em>
       .onScrollIndex((firstIndex: number) => {
         if (this.arr.length === 0 || firstIndex === 0) {
           this.isTop = true;

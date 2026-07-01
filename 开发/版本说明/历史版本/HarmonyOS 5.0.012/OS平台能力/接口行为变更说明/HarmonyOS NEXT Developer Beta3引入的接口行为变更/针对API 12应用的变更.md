@@ -1,6 +1,6 @@
 # 针对API 12应用的变更
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-targeting-api12-b035
 

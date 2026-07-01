@@ -1,6 +1,6 @@
 # rating
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-rating
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -124,4 +124,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/Pq-ObT0lTWip3HjzURU-_g/zh-cn_image_0000002611836167.png?HW-CC-KV=V1&HW-CC-Date=20260528T025438Z&HW-CC-Expire=86400&HW-CC-Sign=04A318196E42E140BF59D77EE54D9316020E516CCC0D4121D6431501508E7FDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/kD3q_wt3SsilZxS8lO09ew/zh-cn_image_0000002628862954.png?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=C3074D4D32C3881A147887A0D938454577B4B129C5C527997A1B5305B88F2E73)

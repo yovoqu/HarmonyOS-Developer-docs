@@ -1,6 +1,6 @@
 # 路径动画 (motionPath)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-motion-path-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -93,4 +93,4 @@ struct MotionPathExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/MvpGWuYLT4CYSsyO9L_vkQ/zh-cn_image_0000002611756103.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=64CE4C205ECFB3611A31E79DEB127BE34C77285E56FE3F607006E40CB78E48FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/_xny8n-kRCCybGjLqEpZOg/zh-cn_image_0000002628862780.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=0B815175DE8181E1D8C8452849ED3E9F4A010141984BB93B2A6C7D6F2ADFB0DA)

@@ -1,12 +1,12 @@
 # TextInput在聚焦时如何使光标回到起点
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-88
 
 1. TextInput组件绑定[onEditChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#oneditchange8)事件，该事件可以在TextInput输入状态变化时触发。
 2. 在事件回调用TextInputController.[caretPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#caretposition10)方法设置光标位置，并需要用到setTimeout延迟方法。
-```ArkTS
+```text
 @Entry
 @Component
 struct TextInputDemo {
@@ -18,7 +18,7 @@ struct TextInputDemo {
         .onEditChange((isEditing: boolean) => {
           if (isEditing) {
             setTimeout(() => {
-              // The cursor will reset to the beginning of the text after 100ms
+             <em> // The cursor will reset to the beginning of the text after 100ms</em>
               this.controller.caretPosition(0);
             }, 100)
           }

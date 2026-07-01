@@ -1,6 +1,6 @@
 # marquee
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-marquee
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
-| scrollamount | number | 6 | 否 | 跑马灯每次滚动时移动的最大长度。 |
+| scrollamount | number | 6 | 否 | 跑马灯每次滚动时移动的步长。 |
 | loop | number | -1 | 否 | 跑马灯滚动的次数。如果未指定，则默认值为-1，当该值小于等于零时表示marquee将连续滚动。 |
 | direction | string | left | 否 | 设置跑马灯的文字滚动方向，可选值为left和right。 |
  
@@ -167,4 +167,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/2i5inKDsQwqB4AeKSHXXRQ/zh-cn_image_0000002581276416.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=4DBB719AA895B94A39BE3B87F48E115B55243666E8E5A4D9165BBB481A3D74C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/7zfWINJXSJWbjmhleBB0BA/zh-cn_image_0000002659222261.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=DB94377059C287D40AE5A8C201927201938CFFDBB1F6CC32F2EF12E0B19F8B7C)

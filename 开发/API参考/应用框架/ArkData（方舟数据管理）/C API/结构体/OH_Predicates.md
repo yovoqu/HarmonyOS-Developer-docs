@@ -1,6 +1,6 @@
 # OH_Predicates
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-predicates
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -128,7 +128,7 @@ OH_Predicates *(*notEqualTo)(OH_Predicates *predicates, const char *field, OH_VO
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -290,7 +290,7 @@ OH_Predicates *(*isNull)(OH_Predicates *predicates, const char *field)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
  
  
 **返回：**
@@ -323,7 +323,7 @@ OH_Predicates *(*isNotNull)(OH_Predicates *predicates, const char *field)
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
  
  
 **返回：**
@@ -356,7 +356,7 @@ OH_Predicates *(*like)(OH_Predicates *predicates, const char *field, OH_VObject 
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -390,7 +390,7 @@ OH_Predicates *(*between)(OH_Predicates *predicates, const char *field, OH_VObje
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -424,7 +424,7 @@ OH_Predicates *(*notBetween)(OH_Predicates *predicates, const char *field, OH_VO
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -458,7 +458,7 @@ OH_Predicates *(*greaterThan)(OH_Predicates *predicates, const char *field, OH_V
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -492,7 +492,7 @@ OH_Predicates *(*lessThan)(OH_Predicates *predicates, const char *field, OH_VObj
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -526,7 +526,7 @@ OH_Predicates *(*greaterThanOrEqualTo)(OH_Predicates *predicates, const char *fi
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -560,7 +560,7 @@ OH_Predicates *(*lessThanOrEqualTo)(OH_Predicates *predicates, const char *field
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -594,7 +594,7 @@ OH_Predicates *(*orderBy)(OH_Predicates *predicates, const char *field, OH_Order
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 数据库表中的列名。 |
+| const char *field | 数据库表中的列名，不能为空。 |
 | OH_VObject type | 表示排序类型OH_VObject。 |
  
  
@@ -726,7 +726,7 @@ OH_Predicates *(*groupBy)(OH_Predicates *predicates, char const *const *fields, 
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| char const *const *fields | 指定分组依赖的列名。 |
+| char const *const *fields | 指定分组依赖的列名，不能为空。 |
 | int length | 该参数为输入参数，表示开发者传入的fields数值的长度。 |
  
  
@@ -760,7 +760,7 @@ OH_Predicates *(*in)(OH_Predicates *predicates, const char *field, OH_VObject *v
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 表示数据库表中的列名。 |
+| const char *field | 表示数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -794,7 +794,7 @@ OH_Predicates *(*notIn)(OH_Predicates *predicates, const char *field, OH_VObject
 | 参数项 | 描述 |
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
-| const char *field | 表示数据库表中的列名。 |
+| const char *field | 表示数据库表中的列名，不能为空。 |
 | OH_VObject *valueObject | 表示指向OH_VObject实例的指针，指示要与谓词匹配的值。 |
  
  
@@ -862,4 +862,4 @@ int (*destroy)(OH_Predicates *predicates)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回操作是否成功，出错时返回对应的错误码。 |
+| int | 返回操作是否成功，出错时返回对应的错误码。详细信息请参阅OH_Rdb_ErrCode。 |

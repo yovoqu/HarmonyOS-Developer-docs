@@ -1,6 +1,6 @@
 # menu
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-menu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -131,4 +131,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/GBmHv2vnSNCkT0hQtKzPGg/zh-cn_image_0000002611756273.png?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=620D28A9653338AD948558A2B7C556DA4F8D13ACE4A4A0EDE38FD7C5CE15E226)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/-Y6ULoDAQdOVPO1Y5640XQ/zh-cn_image_0000002628703070.png?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=E24922F507E85D2DE61F45C5035CE69321BC0F0F1CFABE87E2042D32DC1618F3)

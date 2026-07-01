@@ -1,6 +1,6 @@
 # gdb调试
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gdb
 
@@ -60,7 +60,7 @@ Num Description
 * 1 process 19613
 2 process 19626
 ```
-  这个时候可以使用切换到第二个进程，也就是第一个子进程，再打上断点进行调试，此时主进程是暂停状态：
+  这个时候可以切换到第二个进程，也就是第一个子进程，再打上断点进行调试，此时主进程是暂停状态：
 
   
 ```bash

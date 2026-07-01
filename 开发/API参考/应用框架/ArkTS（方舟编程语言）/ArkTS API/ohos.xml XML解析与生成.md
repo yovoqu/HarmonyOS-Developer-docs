@@ -1,6 +1,6 @@
 # @ohos.xml (XML解析与生成)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-xml
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -66,15 +66,6 @@ XmlSerializer的构造函数。
 | encoding | string | 否 | 编码格式，默认'utf-8'（目前仅支持'utf-8'）。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```xml
@@ -106,15 +97,6 @@ setAttributes(name: string, value: string): void
 | --- | --- | --- | --- |
 | name | string | 是 | 属性。 |
 | value | string | 是 | 属性值。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -155,15 +137,6 @@ addEmptyElement(name: string): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 元素的名称。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -230,15 +203,6 @@ startElement(name: string): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 当前元素的元素名。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -317,15 +281,6 @@ setNamespace(prefix: string, namespace: string): void
 | namespace | string | 是 | 当前元素及其子元素的命名空间。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```xml
@@ -361,15 +316,6 @@ setComment(text: string): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 当前元素的注释内容。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -410,15 +356,6 @@ setCDATA(text: string): void
 | text | string | 是 | CDATA属性的内容。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```xml
@@ -451,15 +388,6 @@ setText(text: string): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | text属性的内容。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -497,15 +425,6 @@ setDocType(text: string): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | DocType属性的内容。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -1099,15 +1018,6 @@ constructor(buffer: ArrayBuffer | DataView, encoding?: string)
 | encoding | string | 否 | 编码格式，默认'utf-8'（目前仅支持'utf-8'）。 |
 
 
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-
-
 **示例：**
 
 ```xml
@@ -1138,15 +1048,6 @@ parseXml(option: ParseOptions): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | option | ParseOptions | 是 | XML解析选项。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 
 
 **示例：**
@@ -1199,15 +1100,6 @@ parse(option: ParseOptions): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | option | ParseOptions | 是 | XML解析选项。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 
 
 **示例：**

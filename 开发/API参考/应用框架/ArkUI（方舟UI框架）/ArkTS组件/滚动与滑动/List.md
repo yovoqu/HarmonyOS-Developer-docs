@@ -1,6 +1,6 @@
 # List
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -79,12 +79,15 @@ List(options?: [ListOptions](#listoptions18对象说明))
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | initialIndex7+ | number | 否 | 是 | 设置当前List初次加载时显示区域起始位置的item索引值。 默认值：0 说明： 设置为负数或超过了当前List最后一个item的索引值时视为无效取值，无效取值按默认值显示。 从API version 14开始，如果在List组件创建完成后首次布局前（如List的onAttach事件中），调用Scroller滚动控制器中不带动画的scrollToIndex或scrollEdge方法，会覆盖initialIndex设置的值。 设置了initialIndex后，List从initialIndex对应的子组件开始布局，在这之前的子组件未参与布局，无法计算准确大小，因此通过currentOffset接口获取到的List的滚动总偏移量通过估算得出，可能会有误差。可通过设置childrenMainSize确保List的滚动总偏移量的准确性。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | space7+ | number \| string | 否 | 是 | 子组件主轴方向的间隔。 默认值：0 参数类型为number时单位为vp。 说明： 设置为负数或者大于等于List内容区长度时，按默认值显示。 space参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。 List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| spaceWidth | Dimension | 否 | 是 | 子组件主轴方向的间隔。 默认值：0 说明： 设置为负数或者大于等于List内容区长度时，按默认值显示。 space参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。 List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。如果同时设置了spaceWidth和space，则spaceWidth优先生效。当spaceWidth为undefined或null时，space生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 卡片能力： 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 | scroller7+ | Scroller | 否 | 是 | 可滚动组件的控制器。与List绑定后，可以通过它控制List的滚动。 说明： 不允许和其他滚动类组件，如：ArcList、List、Grid、Scroll和WaterFlow绑定同一个滚动控制对象。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
@@ -222,6 +225,8 @@ List设置cachedCount后，显示区域外上下各会预加载并布局cachedCo
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -258,6 +263,8 @@ cachedCount(count: number | CacheCountInfo, show: boolean)
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -293,7 +300,7 @@ edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | EdgeEffect | 是 | List组件的边缘滑动效果，支持弹簧效果和阴影效果。 默认值：EdgeEffect.Spring |
-| options11+ | EdgeEffectOptions | 否 | 组件内容大小小于组件自身时，是否开启滑动效果。设置为{ alwaysEnabled: true }会开启滑动效果，{ alwaysEnabled: false }不开启。 默认值：{ alwaysEnabled: false } |
+| options11+ | EdgeEffectOptions | 否 | 组件内容大小小于组件自身时，是否开启滑动效果。设置为{ alwaysEnabled: true }会开启滑动效果，{ alwaysEnabled: false }不开启。 默认值：{ alwaysEnabled: false } 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -375,7 +382,7 @@ lanes(value: number | LengthConstrain, gutter?: Dimension)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number \| LengthConstrain | 是 | List组件的布局列数或行数。 默认值：1 取值范围：[1, +∞) |
-| gutter10+ | Dimension | 否 | 列间距或行间距。 默认值：0 取值范围：[0, +∞) 说明： gutter为列间距或行间距，当列数或行数大于1时生效。 |
+| gutter10+ | Dimension | 否 | 列间距或行间距。 默认值：0 取值范围：[0, +∞) 说明： gutter为列间距或行间距，当列数或行数大于1时生效。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -391,6 +398,8 @@ lanes(value: number | LengthConstrain | ItemFillPolicy, gutter?: Dimension)
 **卡片能力：** 从API version 22开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -466,6 +475,8 @@ scrollSnapAlign(value: ScrollSnapAlign)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -487,6 +498,8 @@ scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed)
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -507,6 +520,8 @@ enableScrollInteraction(value: boolean)
 设置是否支持滚动手势。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -533,6 +548,8 @@ nestedScroll(value: NestedScrollOptions)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -553,6 +570,8 @@ friction(value: number | Resource)
 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程。设置为小于等于0的值时，按默认值处理。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -577,6 +596,8 @@ contentStartOffset + contentEndOffset超过List内容区长度后contentStartOff
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -599,6 +620,8 @@ contentStartOffset(offset: number | Resource)
 contentStartOffset + contentEndOffset超过List内容区长度后contentStartOffset和contentEndOffset会置0。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -623,6 +646,8 @@ contentStartOffset + contentEndOffset超过List内容区长度后contentStartOff
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -645,6 +670,8 @@ contentEndOffset(offset: number | Resource)
 contentStartOffset + contentEndOffset超过List内容区长度后contentStartOffset和contentEndOffset会置0。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -671,6 +698,8 @@ childrenMainSize(value: ChildrenMainSize)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -691,6 +720,8 @@ maintainVisibleContentPosition(enabled: boolean)
 设置显示区域上方插入或删除数据时是否要保持可见内容位置不变。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -717,6 +748,8 @@ stackFromEnd(enabled: boolean)
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -742,6 +775,8 @@ focusWrapMode(mode: Optional&lt;FocusWrapMode&gt;)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -763,6 +798,8 @@ syncLoad(enable: boolean)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -783,6 +820,8 @@ editModeOptions(options?: EditModeOptions)
 配置编辑模式选项参数。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -841,6 +880,31 @@ supportEmptyBranchInLazyLoading(supported: boolean | undefined)
 
 
 
+#### backPressBehavior
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+backPressBehavior(behavior: ListBackPressBehavior | undefined)
+
+设置List组件的系统返回键行为。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| behavior | ListBackPressBehavior \| undefined | 是 | List组件的系统返回键行为选项。当前支持通过ListBackPressBehavior参数，配置系统返回键生效时，是否收起已展开的ListItem的划出组件。 设置为undefined时，恢复默认行为，即系统返回键生效时，收起已展开的ListItem的划出组件。 |
+
+
+
+
 #### ListItemAlign9+枚举说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -875,7 +939,7 @@ ListItemGroup吸顶或吸底效果枚举。
 | None | 0 | ListItemGroup的header不吸顶，footer不吸底。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Header | 1 | ListItemGroup的header吸顶，footer不吸底。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Footer | 2 | ListItemGroup的footer吸底，header不吸顶。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| BOTH20+ | 3 | ListItemGroup的header吸顶，footer吸底。 卡片能力： 从API version 20开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| BOTH20+ | 3 | ListItemGroup的header吸顶，footer吸底。 卡片能力： 从API version 20开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -887,6 +951,8 @@ ListItemGroup吸顶或吸底效果枚举。
 设置列表项滚动结束对齐效果。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -908,12 +974,35 @@ ListItemGroup吸顶或吸底效果枚举。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NORMAL | 0 | 默认列表限位动画速度，通常用于列表项尺寸较大，划一下滚动一个列表项场景。 |
 | SLOW | 1 | 列表限位动画速度较慢，通常用于列表项尺寸较小，划一下滚动多个列表项场景。 |
+
+
+
+
+#### ListBackPressBehavior
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义List组件的系统返回键行为。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| closeSwipeAction | boolean | 否 | 是 | 系统返回键生效时是否收起ListItem的划出组件。 true表示收起ListItem的划出组件；false表示不收起ListItem的划出组件。 默认值：true |
 
 
 
@@ -925,6 +1014,8 @@ ListItemGroup吸顶或吸底效果枚举。
 收起[EXPANDED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem#swipeactionstate11枚举说明)状态[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)回调事件集合，用于设置收起动画完成后回调事件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -948,6 +1039,8 @@ ListItemGroup吸顶或吸底效果枚举。
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -995,7 +1088,7 @@ List的边缘效果为弹簧效果时，在List划动到边缘继续划动和松
 | --- | --- | --- | --- |
 | start | number | 是 | List显示区域内第一个子组件的索引值 |
 | end | number | 是 | List显示区域内最后一个子组件的索引值。 |
-| center10+ | number | 是 | List显示区域内中间位置子组件的索引值。 |
+| center10+ | number | 是 | List显示区域内中间位置子组件的索引值。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1295,6 +1388,8 @@ List的边缘效果为弹簧效果时，在List划动到边缘继续划动和松
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1393,6 +1488,8 @@ List组件的滚动控制器，通过它控制List组件的滚动，仅支持一
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 > [!NOTE]
@@ -1418,6 +1515,8 @@ getItemRectInGroup(index: number, indexInGroup: number): RectResult
 获取[ListItemGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitemgroup)中的[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)的大小和相对于List的位置。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1462,6 +1561,8 @@ getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1505,6 +1606,8 @@ scrollToItemInGroup(index: number, indexInGroup: number, smooth?: boolean, align
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1538,6 +1641,8 @@ closeAllSwipeActions(options?: CloseSwipeActionOptions): void
 将[EXPANDED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem#swipeactionstate11枚举说明)状态的[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)收起，并设置回调事件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1582,6 +1687,8 @@ start和end的index同时返回0，代表List内只有一个子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1602,6 +1709,8 @@ start和end的index同时返回0，代表List内只有一个子组件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1620,6 +1729,8 @@ start和end的index同时返回0，代表List内只有一个子组件。
 枚举了ListItemGroup各个区域。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1655,6 +1766,8 @@ setOnWillScroll(callback: OnWillScrollCallback | undefined): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1677,6 +1790,8 @@ setOnDidScroll(callback: OnScrollCallback | undefined): void
 方法入参为undefined时，会重置事件回调。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1701,6 +1816,8 @@ setOnScrollIndex(callback: OnListScrollIndexCallback | undefined): void
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1724,6 +1841,8 @@ setOnScrollVisibleContentChange(callback: OnScrollVisibleContentChangeCallback |
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -1746,6 +1865,8 @@ List组件可见区域item变化事件的回调类型。
 **卡片能力：** 从API version 19开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2736,7 +2857,7 @@ struct ListExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/5EwGI7BWSGKXTp99o5Paww/zh-cn_image_0000002592220078.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=CF723FBB99782FE25BF6080369A643388011CDE209B93722A971842EE18DDE41)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/rdb4rj78Q7KoHM91j8iPyA/zh-cn_image_0000002628702468.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=26E4CAA389EA9F7DA9AEE5C0B651D831B102B98C2CEAC0F687F67C674C33FD3D)
 
 
 
@@ -2860,7 +2981,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/06phcIZTSYq9QNNn-fG8jw/zh-cn_image_0000002592380012.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=156E097581AC3E35503382B4D7318AC1D393EC83A87A40E7B0CFF101A5B848F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/DcPY2e1wQXSbyFw12prJ2g/zh-cn_image_0000002659101697.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=8BC4351C30AEF8549F541CA13D1B02333C543281F4BFD108928A843B20983CEA)
 
 
 
@@ -2968,7 +3089,7 @@ struct ContactsList {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/8L53Pg8ZT_ezrfi2CRTu4w/zh-cn_image_0000002622859521.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=EF62EE0CBCABE3F5CB7D21ED4918FBF288C0224E64171C49D740D09E677EAC2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/txUi8fk7TH2rKWwVeEnCSg/zh-cn_image_0000002628862348.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=EFBFF3E0850B829473C4154FED83F4144BAE3ACB32D719707482E46EDDC55E55)
 
 
 
@@ -3071,4 +3192,4 @@ struct ListExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/yfa2zaqCTuKBWi46qYRbRQ/zh-cn_image_0000002622699641.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=CB789A74D521D134117D4426B4B35C38977E7D950F9C0209C44A29755881B8B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/lbJZ4ExpSnGpDRvICIbDgA/zh-cn_image_0000002659221661.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=E70373FF02A1FAAC7BA203155623BD66B8042660EA08A16CFF2B83F45A485CA0)

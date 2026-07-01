@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type WebviewController = WebviewController
+type WebviewController = import('../api/@ohos.web.webview').default.WebviewController
  
 提供Web控制器的方法。
  
@@ -22,7 +22,7 @@ type WebviewController = WebviewController
   
 | 类型 | 说明 |
 | --- | --- |
-| WebviewController | 通过WebviewController可以控制Web组件各种行为。一个WebviewController对象只能控制一个Web组件，且必须在Web组件和WebviewController绑定后，才能调用WebviewController上的方法（静态方法除外）。 |
+| import('../api/@ohos.web.webview').default.WebviewController | 通过WebviewController可以控制Web组件各种行为。一个WebviewController对象只能控制一个Web组件，且必须在Web组件和WebviewController绑定后，才能调用WebviewController上的方法（静态方法除外）。 |
  
  
   

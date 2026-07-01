@@ -1,6 +1,6 @@
 # CanvasGradient对象
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvasgradient
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,4 +54,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/aXhYzOI2Sf2oifKJz_3fWQ/zh-cn_image_0000002581276454.png?HW-CC-KV=V1&HW-CC-Date=20260528T025435Z&HW-CC-Expire=86400&HW-CC-Sign=B5210043EB47E4C4D21F553920FB01A7CCCFCE1B3DFA79CC1C16EDCBE23C1B8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/1nVKgVajTgyqZISneJja3Q/zh-cn_image_0000002659222299.png?HW-CC-KV=V1&HW-CC-Date=20260701T014404Z&HW-CC-Expire=86400&HW-CC-Sign=A431BD686D2E2D41702C15C6004767BA0BFA2828DDAB29D9FA95238EA08327E1)

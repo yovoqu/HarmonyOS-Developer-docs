@@ -1,6 +1,6 @@
 # ArkGuard混淆常见问题
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-questions
 
@@ -11,13 +11,13 @@
 #### 排查功能异常步骤
 1. 在obfuscation-rules.txt中配置-disable-obfuscation选项关闭混淆，确认问题是否由混淆引起。
 2. 若确认开启混淆后功能出现异常，请先阅读文档，了解模块已配置的混淆规则的能力和需要配置白名单的语法场景，以确保应用功能正常。下文简要介绍默认开启的四项选项功能，详情请参阅对应选项的完整描述。
-- [-enable-toplevel-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-toplevel-obfuscation)为顶层作用域名称混淆开关。
+- [-enable-toplevel-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-toplevel-obfuscation)为顶层作用域名称混淆开关。
 
-3. [-enable-property-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-property-obfuscation)为属性混淆开关。配置白名单的主要场景包括网络数据访问、json字段访问、动态属性访问、调用so库接口等。需要使用[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep-property-name)来保留指定的属性名称。
+3. [-enable-property-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-property-obfuscation)为属性混淆开关。配置白名单的主要场景包括网络数据访问、json字段访问、动态属性访问、调用so库接口等。需要使用[-keep-property-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-property-name)来保留指定的属性名称。
 
-4. [-enable-export-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-export-obfuscation)为导入/导出名称混淆。一般与-enable-toplevel-obfuscation和-enable-property-obfuscation选项配合使用。配置白名单的主要场景为模块对外接口不能混淆。需要使用[-keep-global-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep-global-name)来保留指定的导出/导入名称。
+4. [-enable-export-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-export-obfuscation)为导入/导出名称混淆。一般与-enable-toplevel-obfuscation和-enable-property-obfuscation选项配合使用。配置白名单的主要场景为模块对外接口不能混淆。需要使用[-keep-global-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-global-name)来保留指定的导出/导入名称。
 
-5. [-enable-filename-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-enable-filename-obfuscation)为文件名混淆。配置白名单的主要场景为动态import或运行时直接加载的文件路径。需要使用[-keep-file-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation#section-keep-file-name)来保留这些文件路径及名称。
+5. [-enable-filename-obfuscation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-rule-options#section-enable-filename-obfuscation)为文件名混淆。配置白名单的主要场景为动态import或运行时直接加载的文件路径。需要使用[-keep-file-name](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-keep-options#section-keep-file-name)来保留这些文件路径及名称。
 - 排查需要配置的白名单场景时，推荐使用[混淆助手配置保留选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation#section19439175917123)，可以快速识别需要配置的保留选项和白名单字段。也可以参考以下典型报错案例，若遇到相似场景，可参照对应解决方法快速处理。
 - 若以下报错案例中未找到相似场景，建议依据各项配置功能正向定位（若不需要相应功能，可删除对应配置项）。
 - 应用运行时崩溃分析方法：1. 打开应用运行日志，或点击DevEco Studio中出现的Crash弹窗，找到运行时崩溃栈。
@@ -39,8 +39,6 @@
 #### 排查非预期的混淆能力
 
 若出现预期外的混淆效果，检查是否由于依赖的本地模块或三方库开启了某些混淆选项。
- 
-示例：
  
 假设当前模块未配置-compact，但混淆的中间产物中代码都被压缩成一行，可按照以下步骤排查混淆选项：
  1. 查看当前模块的oh-package.json5中的dependencies，此字段记录了当前模块的依赖信息。
@@ -101,7 +99,7 @@ let jsonProp = jsonData.i.j;
  
 **解决方案**
  
-将JSON文件中的字段配置到属性白名单中。示例如下：
+将JSON文件中的字段配置到属性白名单中。
  
 ```json
 -keep-property-name
@@ -162,7 +160,7 @@ namespace中的foo属于export元素，当通过NS.foo调用时被视为属性�
  
 方案一：开启-enable-property-obfuscation选项。
  
-方案二：使用-keep-global-name选项将namespace中导出的方法配置到白名单中。示例如下：
+方案二：使用-keep-global-name选项将namespace中导出的方法配置到白名单中。
  
 ```text
 -keep-global-name
@@ -217,7 +215,7 @@ export function c1(d1: number, e1: number): number {
 async function i() {
     try {
         const a1 = await import("@normalized:N&&&entry/src/main/ets/pages/utils&");
-        const b1 = a1.addNum(2, 3);
+        const b1 = a1.add(2, 3);
     }
     catch (z) {
         console.error('Failure reason:', z);
@@ -228,17 +226,17 @@ i();
  
 **问题原因**
  
-函数addNum在定义时位于顶层作用域，但通过.addNum访问时被视为属性。由于未开启-enable-property-obfuscation选项，导致addNum被使用时未进行混淆。
+函数add在定义时位于顶层作用域，但通过.add访问时被视为属性。由于未开启-enable-property-obfuscation选项，导致add被使用时未进行混淆。
  
 **解决方案**
  
 方案一：开启-enable-property-obfuscation选项。
  
-方案二：使用-keep-global-name选项将add配置到白名单中。示例如下：
+方案二：使用-keep-global-name选项将add配置到白名单中。
  
 ```text
 -keep-global-name
-addNum
+add
 ```
  
 **场景三：调用so库的方法后导致crash**
@@ -281,7 +279,7 @@ testNapi.m();
  
 **解决方案**
  
-将so库导出的方法配置到属性白名单中。示例如下：
+将so库导出的方法配置到属性白名单中。
  
 ```text
 -keep-property-name
@@ -344,7 +342,7 @@ n();
  
 **解决方案**
  
-将HSP模块导出的方法配置到-keep-global-name下，并且需要在HSP的consumer-rules.txt和obfuscation-rules.txt文件中都进行对应配置。示例如下：
+将HSP模块导出的方法配置到-keep-global-name下，并且需要在HSP的consumer-rules.txt和obfuscation-rules.txt文件中都进行对应配置。
  
 ```text
 // consumer-rules.txt
@@ -402,7 +400,7 @@ let petalMapWant: Want = {
  
 **解决方案**
  
-将混淆后会出现问题的属性名配置到属性白名单中，示例如下：
+将混淆后会出现问题的属性名配置到属性白名单中。
  
 ```text
 -keep-property-name
@@ -477,7 +475,7 @@ const person: MyInfo = {
  
 **解决方案**
  
-方案一：使用interface定义该属性的类型，并使用export进行导出，这样该属性将被自动加入到属性白名单中。示例如下：
+方案一：使用interface定义该属性的类型，并使用export进行导出，这样该属性将被自动加入到属性白名单中。
  
 ```ts
 // FileOutside.ts
@@ -490,7 +488,7 @@ export interface MyInfo2 {
 }
 ```
  
-方案二：使用-keep-property-name选项，将未直接导出的类型内的属性配置到属性白名单中。示例如下：
+方案二：使用-keep-property-name选项，将未直接导出的类型内的属性配置到属性白名单中。
  
 ```text
 -keep-property-name
@@ -537,7 +535,30 @@ person["m"] = 20;
 
 **问题现象**
  
-HiLog日志中报错信息为：table Account has no column named a23 in 'INSERT INTO Account(a23)'。
+HiLog日志中报错信息为：table Account has no column named a1 in 'INSERT INTO Account(a1)'。
+ 
+```ts
+import { ValuesBucket } from '@kit.ArkData';
+// ...
+const valueBucket: ValuesBucket = {
+  ID1: 'ID1', // ID1应该被保留
+  NAME1: 'jack', // NAME1应该被保留
+  AGE1: 20, // AGE1应该被保留
+  SALARY1: 100 // SALARY1应该被保留
+}
+```
+ 
+```text
+// 混淆后
+import { ValuesBucket } from '@kit.ArkData';
+// ...
+const valueBucket: ValuesBucket = {
+  a1: 'ID1',
+  b1: 'jack',
+  c1: 20,
+  d1: 100
+};
+```
  
 **问题原因**
  
@@ -546,3 +567,11 @@ HiLog日志中报错信息为：table Account has no column named a23 in 'INSERT
 **解决方案**
  
 使用-keep-property-name选项将使用到的数据库字段配置到白名单。
+ 
+```text
+-keep-property-name
+ID1
+NAME1
+AGE1
+SALARY1
+```

@@ -1,6 +1,6 @@
 # Refresh
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -56,9 +56,9 @@ Refresh(value: RefreshOptions)
 | refreshing | boolean | 否 | 否 | 组件当前是否处于刷新中状态。true表示处于刷新中状态，false表示未处于刷新中状态。 默认值：false 该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | offset(deprecated) | number \| string | 否 | 是 | 下拉起点距离组件顶部的距离。 默认值：16，单位vp。类型为string时，需要显式指定像素单位，如'10px'；未指定像素单位时，如'10'，单位为vp。 说明： 从API version 8开始支持，从API version 11开始废弃，无替代接口。 说明： offset取值范围[0vp,64vp]。大于64vp按照64vp处理。不支持百分比，不支持负数。 |
 | friction(deprecated) | number \| string | 否 | 是 | 下拉摩擦系数，取值范围为0到100。 默认值：62 - 0表示下拉刷新容器不跟随手势下拉而下拉。 - 100表示下拉刷新容器紧紧跟随手势下拉而下拉。 - 数值越大，下拉刷新容器跟随手势下拉的反应越灵敏。 说明： 从API version 8开始支持，从API version 11开始废弃，建议使用pullDownRatio替代。 |
-| builder10+ | CustomBuilder | 否 | 是 | 自定义刷新区域显示内容。 说明： API version 10及之前版本，自定义组件的高度限制在64vp之内。API version 11及以后版本没有此限制。 自定义组件设置了固定高度时，自定义组件会以固定高度显示在刷新区域下方；自定义组件未设置高度时，自定义组件高度会自适应刷新区域高度，会发生自定义组件高度跟随刷新区域变化至0的现象。建议对自定义组件设置最小高度约束来避免自定义组件高度小于预期的情况发生，具体可参照示例3。 从API version 12开始，建议使用refreshingContent参数替代builder参数自定义刷新区域显示内容，以避免刷新过程中因自定义组件销毁重建造成的动画中断问题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| promptText12+ | ResourceStr | 否 | 是 | 设置刷新区域底部显示的自定义文本。 说明： 输入文本的限制参考Text组件，使用builder或refreshingContent参数自定义刷新区域显示内容时，promptText不显示。 promptText设置有效时，refreshOffset属性默认值为96vp。 自定义文本最大的字体缩放倍数maxFontScale为2。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| refreshingContent12+ | ComponentContent | 否 | 是 | 自定义刷新区域显示内容。 说明： 与builder参数同时设置时builder参数不生效。 自定义组件设置了固定高度时，自定义组件会以固定高度显示在刷新区域下方；自定义组件未设置高度时，自定义组件高度会自适应刷新区域高度，会发生自定义组件高度跟随刷新区域变化至0的现象。建议对自定义组件设置最小高度约束来避免自定义组件高度小于预期的情况发生，具体可参照示例4。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| builder10+ | CustomBuilder | 否 | 是 | 自定义刷新区域显示内容。 说明： API version 10及之前版本，自定义组件的高度限制在64vp之内。API version 11及以后版本没有此限制。 自定义组件设置了固定高度时，自定义组件会以固定高度显示在刷新区域下方；自定义组件未设置高度时，自定义组件高度会自适应刷新区域高度，会发生自定义组件高度跟随刷新区域变化至0的现象。建议对自定义组件设置最小高度约束来避免自定义组件高度小于预期的情况发生，具体可参照示例3。 从API version 12开始，建议使用refreshingContent参数替代builder参数自定义刷新区域显示内容，以避免刷新过程中因自定义组件销毁重建造成的动画中断问题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| promptText12+ | ResourceStr | 否 | 是 | 设置刷新区域底部显示的自定义文本。 说明： 输入文本的限制参考Text组件，使用builder或refreshingContent参数自定义刷新区域显示内容时，promptText不显示。 promptText设置有效时，refreshOffset属性默认值为96vp。 自定义文本最大的字体缩放倍数maxFontScale为2。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| refreshingContent12+ | ComponentContent | 否 | 是 | 自定义刷新区域显示内容。 说明： 与builder参数同时设置时builder参数不生效。 自定义组件设置了固定高度时，自定义组件会以固定高度显示在刷新区域下方；自定义组件未设置高度时，自定义组件高度会自适应刷新区域高度，会发生自定义组件高度跟随刷新区域变化至0的现象。建议对自定义组件设置最小高度约束来避免自定义组件高度小于预期的情况发生，具体可参照示例4。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 > [!NOTE]
@@ -85,6 +85,8 @@ refreshOffset(value: number)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -92,6 +94,33 @@ refreshOffset(value: number)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 下拉偏移量，单位vp。 默认值：未设置promptText参数时为64vp，设置了promptText参数时为96vp。 如果取值为0或负数的时候此接口采用默认值。 |
+
+
+
+
+#### refreshOffset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+refreshOffset(value: number | Resource)
+
+设置触发刷新的下拉偏移量，当下拉距离小于该属性设置值时离手不会触发刷新，支持Resource资源类型。
+
+未通过该接口设置时，当未设置[promptText](#refreshoptions对象说明)参数时，默认偏移量为64vp；设置了[promptText](#refreshoptions对象说明)参数时，默认偏移量为96vp。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number \| Resource | 是 | 下拉偏移量。 单位：vp 取值范围：(0, +∞)。值为0或负数时，按默认值处理。 |
 
 
 
@@ -105,6 +134,8 @@ pullToRefresh(value: boolean)
 设置当下拉距离超过[refreshOffset](#refreshoffset12)时是否能触发刷新。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -127,6 +158,8 @@ pullUpToCancelRefresh(enabled: boolean | undefined)
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -147,6 +180,8 @@ pullDownRatio(ratio: [Optional](https://developer.huawei.com/consumer/cn/doc/har
 设置下拉跟手系数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -169,6 +204,8 @@ maxPullDownDistance(distance: Optional&lt;number&gt;)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -176,6 +213,33 @@ maxPullDownDistance(distance: Optional&lt;number&gt;)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | distance | Optional&lt;number&gt; | 是 | 最大下拉距离。最大下拉距离的最小值为0，小于0按0处理。当该值小于刷新的下拉偏移量refreshOffset时，Refresh下拉离手不会触发刷新。 undefined和null按没有设置此属性处理。 默认值：undefined 单位：vp |
+
+
+
+
+#### maxPullDownDistance
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+maxPullDownDistance(distance: number | Resource | undefined)
+
+设置最大下拉距离，支持Resource资源类型。
+
+未通过该接口设置时，设置最大下拉距离为undefined。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| distance | number \| Resource \| undefined | 是 | 最大下拉距离。 默认值：undefined 单位：vp 取值范围：[0, +∞)，值小于0时按0处理。当该值小于刷新的下拉偏移量refreshOffset时，Refresh下拉离手不会触发刷新。 undefined和null按没有设置此属性处理，即没有最大下拉距离限制。 |
 
 
 
@@ -243,6 +307,8 @@ onOffsetChange(callback: Callback&lt;number&gt;)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

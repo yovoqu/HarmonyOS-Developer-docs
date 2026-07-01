@@ -1,6 +1,6 @@
 # Code Linter代码检查
 
-更新时间：2026-03-09 07:00:31
+更新时间：2026-06-24 07:08:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter
 
@@ -115,7 +115,7 @@ Code Linter支持对模块内文件或文件夹中的代码进行最佳实践/�
 
 #### 操作方法
 
-在已打开的代码编辑器窗口单击右键点击**Code Linter**，或在工程管理窗口中鼠标选中单个或多个工程文件/目录，右键选择**Code Linter**** > Full Linter**执行代码全量检查。
+在已打开的代码编辑器窗口右键点击**Code Linter**，或在工程管理窗口中鼠标选中单个或多个工程文件/目录，右键选择**Code Linter**** > Full Linter**执行代码全量检查。
 
 
 ![](assets/Code%20Linter代码检查/file-20260514132807764-1.png)
@@ -241,7 +241,7 @@ class <span style="color: rgb(0,169,158);">Foo </span><span style="color: rgb(23
 对pages/Index.ets文件执行代码检查，检查结果如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/k-42Lj2HSMqMiAWXYpYeNg/zh-cn_image_0000002602066619.png?HW-CC-KV=V1&HW-CC-Date=20260528T030559Z&HW-CC-Expire=86400&HW-CC-Sign=B6C3248807155E4F09D2CCCFD00596F3B338274EE133D8AD33B975723707817B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/gG84N89yQh6v2tMfjSNETw/zh-cn_image_0000002625074559.png?HW-CC-KV=V1&HW-CC-Date=20260701T014606Z&HW-CC-Expire=86400&HW-CC-Sign=E69E40D46BC6C0CC54B77FFF6E369E4B4A19DF29BABC15F274AF0E8D8E22859C)
 
 
 
@@ -307,7 +307,7 @@ class <span style="color: rgb(0,169,158);">foo </span><span style="color: rgb(23
 对pages/Index.ets文件执行代码检查，检查结果如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/DzGjhMCBTBKlKMEKQLNkkw/zh-cn_image_0000002602186679.png?HW-CC-KV=V1&HW-CC-Date=20260528T030559Z&HW-CC-Expire=86400&HW-CC-Sign=FA65802FF780E34CFBFC1EC5D80F02DF0F5D7EA39D837DFD94B5549C3048693E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/FeEdp6QATIadGuYCvWCpyQ/zh-cn_image_0000002625074561.png?HW-CC-KV=V1&HW-CC-Date=20260701T014606Z&HW-CC-Expire=86400&HW-CC-Sign=267A60B98B1C41AB225DE59977E130814890514A3210F44BF5889B02FE7799BE)
 
 
 
@@ -346,4 +346,4 @@ class <span style="color: rgb(0,169,158);">foo </span><span style="color: rgb(23
 对pages/test.ets文件执行代码检查，检查结果如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/oFw661rzRPK_drz4vuZZpA/zh-cn_image_0000002602186669.png?HW-CC-KV=V1&HW-CC-Date=20260528T030559Z&HW-CC-Expire=86400&HW-CC-Sign=75FEB978254862DA68910B3E1DD8B399900D504F2A6DACBE9E9D689A4BE9C812)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/JFTwjuRzSVmEbj-UNE36OA/zh-cn_image_0000002594475056.png?HW-CC-KV=V1&HW-CC-Date=20260701T014606Z&HW-CC-Expire=86400&HW-CC-Sign=4702EDA351C199975CFBAD4A4A29F2C854428BD0CBE2D63310D7BF531BF6B9F6)

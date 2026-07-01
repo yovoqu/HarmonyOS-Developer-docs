@@ -1,6 +1,6 @@
 # @ohos.inputMethodEngine (输入法服务)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethodengine
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2765,7 +2765,7 @@ setKeepScreenOn(isKeepScreenOn: boolean): Promise&lt;void&gt;
 
 设置屏幕常亮。使用Promise异步回调。
 
-> [!NOTE]
+> [!TIP]
 > 当键盘拉起时设置常亮生效，键盘关闭则自动失效。 规范使用该接口：必要场景（例如：语音输入）下，设置该属性为true；退出必要场景后，重置该属性为false；其他场景下，不使用该接口。
 
 
@@ -5290,7 +5290,7 @@ getAttachOptions(): AttachOptions
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/zSnscMcWRdC245iKsFQHEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020039Z&HW-CC-Expire=86400&HW-CC-Sign=34B89576D081C69F5077C5D28FB682C256CFAF648ED8AB189833F9E5FEC5308A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/4zMzu96PS-aMoUzHJ8sOtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014421Z&HW-CC-Expire=86400&HW-CC-Sign=918B031A542E2905E6858018594F31536259AF35127CE61BFDC4C47AA90B23CD)
 
 
 从API version 20 开始，错误码801 Capability not supported.被移除。
@@ -5334,7 +5334,7 @@ on(type: 'attachOptionsDidChange', callback: Callback&lt;AttachOptions&gt;): voi
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/gC-GCygbTIOEjXD2AMdf9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020039Z&HW-CC-Expire=86400&HW-CC-Sign=0D94CA9DB533547A11AC63F780B9E7E8D19937A45FD01508D1E3CDF9C34F05BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Zh1rt-xsRfudOXXDlsUGVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014421Z&HW-CC-Expire=86400&HW-CC-Sign=C02D0B5F8A553D48D6B16D6860E556DEDA71D44093CC7AE7CB000D71C2F23B2B)
 
 
 从API version 20 开始，错误码801 Capability not supported.被移除。
@@ -5528,9 +5528,9 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 | --- | --- | --- | --- | --- |
 | landscapeRect | window.Rect | 否 | 是 | 横屏状态时输入法面板窗口的位置大小。 - 当fullScreenMode不填写或值为false时，此属性为必选。 |
 | portraitRect | window.Rect | 否 | 是 | 竖屏状态时，输入法面板窗口的位置大小。 - 当fullScreenMode不填写或值为false时，此属性为必选。 |
-| landscapeAvoidY | number | 否 | 是 | 横屏状态时，面板中的避让线距离面板顶部的距离，单位px。默认值为0。 - 应用内其他系统组件会对避让线以下的输入法面板区域进行避让。 - 面板为固定态时，避让线到屏幕底部的高度不能超过屏幕高度的70%。 |
+| landscapeAvoidY | number | 否 | 是 | 横屏状态时，面板中的避让线距离面板顶部的距离，单位px。默认值为0。 - 应用内其他系统组件会对避让线以下的输入法面板区域进行避让。 - 面板为固定态时，避让线到屏幕底部的高度不能超过屏幕高度的70%。当面板高度大于屏幕高度70%时，取默认值0将无法通过此校验，需要开发者手动设置，使得避让线到屏幕底部的高度不超过屏幕高度的70%。 |
 | landscapeInputRegion | Array<window.Rect> | 否 | 是 | 横屏状态时，面板接收输入事件的区域。 - 数组大小限制为[1, 4]。默认值为横屏时的面板大小。 - 传入的热区位置是相对于输入法面板窗口左顶点的位置。 |
-| portraitAvoidY | number | 否 | 是 | 竖屏状态时，面板中的避让线距离面板顶部的距离，单位px。默认值为0。 - 应用内其他系统组件会对避让线以下的输入法面板区域进行避让。 - 面板为固定态时，避让线到屏幕底部的高度不能超过屏幕高度的70%。 |
+| portraitAvoidY | number | 否 | 是 | 竖屏状态时，面板中的避让线距离面板顶部的距离，单位px。默认值为0。 - 应用内其他系统组件会对避让线以下的输入法面板区域进行避让。 - 面板为固定态时，避让线到屏幕底部的高度不能超过屏幕高度的70%。当面板高度大于屏幕高度70%时，取默认值0将无法通过此校验，需要开发者手动设置，使得避让线到屏幕底部的高度不超过屏幕高度的70%。 |
 | portraitInputRegion | Array<window.Rect> | 否 | 是 | 竖屏状态时，面板接收输入事件的区域。 - 数组大小限制为[1, 4]。默认值为竖屏时的面板大小。 - 传入的热区位置是相对于输入法面板窗口左顶点的位置。 |
 | fullScreenMode | boolean | 否 | 是 | 是否开启全屏模式。默认值为false。 - 值为true，landscapeRect和portraitRect可不填写。 - 值为false，landscapeRect和portraitRect为必选属性。 |
 

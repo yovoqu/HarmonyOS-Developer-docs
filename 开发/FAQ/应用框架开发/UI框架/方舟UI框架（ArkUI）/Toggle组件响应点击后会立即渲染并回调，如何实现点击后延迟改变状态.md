@@ -1,12 +1,12 @@
-# Toggle组件响应点击后会立即渲染并回调，如何实现点击后延迟改变状态
+# Toggle组件响应点击后会立即渲染并回调。如何实现点击后延迟改变状态并时回调
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-353
 
 使用hitTestBehavior和setTimeout解决。示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct ToggleDemo {
@@ -27,7 +27,7 @@ struct ToggleDemo {
             this.getUIContext().getHostContext()!.getApplicationContext().setColorMode(this.isDarkMode ? 0 : 1);
           })
       }
-      // Set hitTestBehavior property to HitTestMode.Block to block Toggle component's event response.
+     <em> // Set hitTestBehavior property to HitTestMode.Block to block Toggle component's event response.</em>
       .hitTestBehavior(HitTestMode.Block)
       .onClick(() => {
         this.timeoutID = setTimeout(() => {

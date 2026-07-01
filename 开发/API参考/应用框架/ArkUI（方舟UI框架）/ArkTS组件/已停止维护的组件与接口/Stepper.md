@@ -1,6 +1,6 @@
 # Stepper
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -296,7 +296,7 @@ struct StepperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/lp3RK0IkRj-N3QwJIUPzlw/zh-cn_image_0000002611836137.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=9D394FEB5CCE6F6876C09687410A994AB264FFB3C19D1DAAB69B2A57B81E8C0E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/pb-_4IVtSC67cg5LxePujA/zh-cn_image_0000002628862924.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014358Z&HW-CC-Expire=86400&HW-CC-Sign=AC8820242A03A5972A86199CD3900C284E900F1315FB9E1B62468492A0592EF6)
 
 
 

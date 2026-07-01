@@ -1,6 +1,6 @@
 # GridContainer
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridcontainer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -181,4 +181,4 @@ struct GridContainerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/Jf5V2unBS3aGpn_5ooHg4Q/zh-cn_image_0000002581436304.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025558Z&HW-CC-Expire=86400&HW-CC-Sign=895A58DD523E0292C7487C93A9375F62C67F1BDAA68B6FE33CE81029D492D66F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/RlxrHNDzSsCeY1K-LWDE7w/zh-cn_image_0000002659102267.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014357Z&HW-CC-Expire=86400&HW-CC-Sign=6A4856F6DDA13617A2E2CA480A36840D362E03891E2B3EC556CD26519391DA00)

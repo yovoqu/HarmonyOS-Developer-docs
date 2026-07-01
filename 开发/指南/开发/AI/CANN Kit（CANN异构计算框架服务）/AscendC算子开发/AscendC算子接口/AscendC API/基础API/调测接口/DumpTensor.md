@@ -1,6 +1,6 @@
 # DumpTensor
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-interfaces-dumptensor
 
@@ -97,7 +97,7 @@ KirinX90系列处理器
 
   
 ```text
-AscendC::DumpTensor(srcLocal,5, dataLen);
+AscendC::DumpTensor(srcLocal, 5, dataLen);
 ```
 
 - 带Tensor shape的打印

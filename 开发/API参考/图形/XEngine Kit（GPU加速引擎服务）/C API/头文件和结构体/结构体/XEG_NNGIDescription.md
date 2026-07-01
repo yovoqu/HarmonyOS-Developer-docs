@@ -1,6 +1,6 @@
 # XEG_NNGIDescription
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-nngidescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -152,7 +152,7 @@ bool XEG_NNGIDescription::isSceneUnbounded = false
  
 **描述**
  
-渲染场景是否无界，当前只支持false。
+渲染场景是否无界。true表示场景无边界，false表示场景有边界。当前只支持false。
  
   
 

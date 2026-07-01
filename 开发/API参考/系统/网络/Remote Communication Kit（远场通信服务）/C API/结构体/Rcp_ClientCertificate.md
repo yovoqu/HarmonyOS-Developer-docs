@@ -1,6 +1,6 @@
 # Rcp_ClientCertificate
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___client_certificate
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -31,8 +31,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| char * content | 客户端证书内容。它应采用“PEM”、“DER”或“P12”格式。 |
-| char * filePath | 客户端证书的路径。文件的格式应为“PEM”、“DER”或“P12”格式。 |
+| char * content | 客户端证书内容。它应采用PEM、DER或P12格式。 |
+| char * filePath | 客户端证书的路径。文件的格式应为PEM、DER或P12格式。 |
 | char * key | 客户端证书私钥的文件名。 |
 | char * keyPassword | 客户端证书私钥的密码。 |
 | Rcp_CertType type | 客户端证书类型。 |

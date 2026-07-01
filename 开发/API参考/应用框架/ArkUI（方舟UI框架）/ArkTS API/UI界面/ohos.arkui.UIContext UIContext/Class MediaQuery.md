@@ -1,6 +1,6 @@
 # Class (MediaQuery)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-mediaquery
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -22,13 +22,15 @@ matchMediaSync(condition: string): mediaQuery.MediaQueryListener
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| condition | string | 是 | 媒体事件的匹配条件，具体可参考媒体查询语法规则。 |
+| condition | string | 是 | 媒体查询的匹配条件，具体可参考媒体查询语法规则。 |
 
 
 **返回值：**

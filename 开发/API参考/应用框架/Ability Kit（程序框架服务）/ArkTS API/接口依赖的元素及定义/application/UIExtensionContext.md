@@ -1,6 +1,6 @@
 # UIExtensionContext
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiextensioncontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -70,20 +70,20 @@ startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
 | 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
-| 16000019 | No matching ability is found. |
+| 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
 | 16000055 | Installation-free timed out. |
-| 16000069 | The extension cannot start the third party application. |
-| 16000070 | The extension cannot start the service. |
-| 16000071 | App clone is not supported. |
-| 16000072 | App clone or multi-instance is not supported. |
-| 16000073 | The app clone index is invalid. |
-| 16000076 | The app instance key is invalid. |
-| 16000077 | The number of app instances reaches the limit. |
-| 16000078 | The multi-instance is not supported. |
-| 16000079 | The APP_INSTANCE_KEY cannot be specified. |
-| 16000080 | Creating a new instance is not supported. |
+| 16000069 | The extension cannot start the third party application. 适用版本：12+ |
+| 16000070 | The extension cannot start the service. 适用版本：12+ |
+| 16000071 | App clone is not supported. 适用版本：14+ |
+| 16000072 | App clone or multi-instance is not supported. 适用版本：14+ |
+| 16000073 | The app clone index is invalid. 适用版本：12+ |
+| 16000076 | The app instance key is invalid. 适用版本：14+ |
+| 16000077 | The number of app instances reaches the limit. 适用版本：14+ |
+| 16000078 | The multi-instance is not supported. 适用版本：14+ |
+| 16000079 | The APP_INSTANCE_KEY cannot be specified. 适用版本：14+ |
+| 16000080 | Creating a new instance is not supported. 适用版本：14+ |
 | 16200001 | The caller has been released. |
 
 
@@ -165,20 +165,20 @@ startAbility(want: Want, options: StartOptions, callback: AsyncCallback&lt;void&
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
 | 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
-| 16000019 | No matching ability is found. |
+| 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
 | 16000055 | Installation-free timed out. |
-| 16000069 | The extension cannot start the third party application. |
-| 16000070 | The extension cannot start the service. |
-| 16000071 | App clone is not supported. |
-| 16000072 | App clone or multi-instance is not supported. |
-| 16000073 | The app clone index is invalid. |
-| 16000076 | The app instance key is invalid. |
-| 16000077 | The number of app instances reaches the limit. |
-| 16000078 | The multi-instance is not supported. |
-| 16000079 | The APP_INSTANCE_KEY cannot be specified. |
-| 16000080 | Creating a new instance is not supported. |
+| 16000069 | The extension cannot start the third party application. 适用版本：12+ |
+| 16000070 | The extension cannot start the service. 适用版本：12+ |
+| 16000071 | App clone is not supported. 适用版本：14+ |
+| 16000072 | App clone or multi-instance is not supported. 适用版本：14+ |
+| 16000073 | The app clone index is invalid. 适用版本：12+ |
+| 16000076 | The app instance key is invalid. 适用版本：14+ |
+| 16000077 | The number of app instances reaches the limit. 适用版本：14+ |
+| 16000078 | The multi-instance is not supported. 适用版本：14+ |
+| 16000079 | The APP_INSTANCE_KEY cannot be specified. 适用版本：14+ |
+| 16000080 | Creating a new instance is not supported. 适用版本：14+ |
 | 16200001 | The caller has been released. |
 
 
@@ -271,20 +271,20 @@ startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
 | 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
-| 16000019 | No matching ability is found. |
+| 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
 | 16000055 | Installation-free timed out. |
-| 16000069 | The extension cannot start the third party application. |
-| 16000070 | The extension cannot start the service. |
-| 16000071 | App clone is not supported. |
-| 16000072 | App clone or multi-instance is not supported. |
-| 16000073 | The app clone index is invalid. |
-| 16000076 | The app instance key is invalid. |
-| 16000077 | The number of app instances reaches the limit. |
-| 16000078 | The multi-instance is not supported. |
-| 16000079 | The APP_INSTANCE_KEY cannot be specified. |
-| 16000080 | Creating a new instance is not supported. |
+| 16000069 | The extension cannot start the third party application. 适用版本：12+ |
+| 16000070 | The extension cannot start the service. 适用版本：12+ |
+| 16000071 | App clone is not supported. 适用版本：14+ |
+| 16000072 | App clone or multi-instance is not supported. 适用版本：14+ |
+| 16000073 | The app clone index is invalid. 适用版本：12+ |
+| 16000076 | The app instance key is invalid. 适用版本：14+ |
+| 16000077 | The number of app instances reaches the limit. 适用版本：14+ |
+| 16000078 | The multi-instance is not supported. 适用版本：14+ |
+| 16000079 | The APP_INSTANCE_KEY cannot be specified. 适用版本：14+ |
+| 16000080 | Creating a new instance is not supported. 适用版本：14+ |
 | 16200001 | The caller has been released. |
 
 
@@ -374,20 +374,20 @@ startAbilityForResult(want: Want, callback: AsyncCallback&lt;AbilityResult&gt;):
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
 | 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
-| 16000019 | No matching ability is found. |
+| 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
 | 16000055 | Installation-free timed out. |
-| 16000069 | The extension cannot start the third party application. |
-| 16000070 | The extension cannot start the service. |
-| 16000071 | App clone is not supported. |
-| 16000072 | App clone or multi-instance is not supported. |
-| 16000073 | The app clone index is invalid. |
-| 16000076 | The app instance key is invalid. |
-| 16000077 | The number of app instances reaches the limit. |
-| 16000078 | The multi-instance is not supported. |
-| 16000079 | The APP_INSTANCE_KEY cannot be specified. |
-| 16000080 | Creating a new instance is not supported. |
+| 16000069 | The extension cannot start the third party application. 适用版本：12+ |
+| 16000070 | The extension cannot start the service. 适用版本：12+ |
+| 16000071 | App clone is not supported. 适用版本：14+ |
+| 16000072 | App clone or multi-instance is not supported. 适用版本：14+ |
+| 16000073 | The app clone index is invalid. 适用版本：12+ |
+| 16000076 | The app instance key is invalid. 适用版本：14+ |
+| 16000077 | The number of app instances reaches the limit. 适用版本：14+ |
+| 16000078 | The multi-instance is not supported. 适用版本：14+ |
+| 16000079 | The APP_INSTANCE_KEY cannot be specified. 适用版本：14+ |
+| 16000080 | Creating a new instance is not supported. 适用版本：14+ |
 | 16200001 | The caller has been released. |
 
 
@@ -473,20 +473,20 @@ startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
 | 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
-| 16000019 | No matching ability is found. |
+| 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
 | 16000055 | Installation-free timed out. |
-| 16000069 | The extension cannot start the third party application. |
-| 16000070 | The extension cannot start the service. |
-| 16000071 | App clone is not supported. |
-| 16000072 | App clone or multi-instance is not supported. |
-| 16000073 | The app clone index is invalid. |
-| 16000076 | The app instance key is invalid. |
-| 16000077 | The number of app instances reaches the limit. |
-| 16000078 | The multi-instance is not supported. |
-| 16000079 | The APP_INSTANCE_KEY cannot be specified. |
-| 16000080 | Creating a new instance is not supported. |
+| 16000069 | The extension cannot start the third party application. 适用版本：12+ |
+| 16000070 | The extension cannot start the service. 适用版本：12+ |
+| 16000071 | App clone is not supported. 适用版本：14+ |
+| 16000072 | App clone or multi-instance is not supported. 适用版本：14+ |
+| 16000073 | The app clone index is invalid. 适用版本：12+ |
+| 16000076 | The app instance key is invalid. 适用版本：14+ |
+| 16000077 | The number of app instances reaches the limit. 适用版本：14+ |
+| 16000078 | The multi-instance is not supported. 适用版本：14+ |
+| 16000079 | The APP_INSTANCE_KEY cannot be specified. 适用版本：14+ |
+| 16000080 | Creating a new instance is not supported. 适用版本：14+ |
 | 16200001 | The caller has been released. |
 
 
@@ -584,20 +584,20 @@ startAbilityForResult(want: Want, options?: StartOptions): Promise&lt;AbilityRes
 | 16000012 | The application is controlled. |
 | 16000013 | The application is controlled by EDM. |
 | 16000018 | Redirection to a third-party application is not allowed in API version greater than 11. |
-| 16000019 | No matching ability is found. |
+| 16000019 | No matching ability is found. 适用版本：12+ |
 | 16000050 | Internal error. |
 | 16000053 | The ability is not on the top of the UI. |
 | 16000055 | Installation-free timed out. |
-| 16000069 | The extension cannot start the third party application. |
-| 16000070 | The extension cannot start the service. |
-| 16000071 | App clone is not supported. |
-| 16000072 | App clone or multi-instance is not supported. |
-| 16000073 | The app clone index is invalid. |
-| 16000076 | The app instance key is invalid. |
-| 16000077 | The number of app instances reaches the limit. |
-| 16000078 | The multi-instance is not supported. |
-| 16000079 | The APP_INSTANCE_KEY cannot be specified. |
-| 16000080 | Creating a new instance is not supported. |
+| 16000069 | The extension cannot start the third party application. 适用版本：12+ |
+| 16000070 | The extension cannot start the service. 适用版本：12+ |
+| 16000071 | App clone is not supported. 适用版本：14+ |
+| 16000072 | App clone or multi-instance is not supported. 适用版本：14+ |
+| 16000073 | The app clone index is invalid. 适用版本：12+ |
+| 16000076 | The app instance key is invalid. 适用版本：14+ |
+| 16000077 | The number of app instances reaches the limit. 适用版本：14+ |
+| 16000078 | The multi-instance is not supported. 适用版本：14+ |
+| 16000079 | The APP_INSTANCE_KEY cannot be specified. 适用版本：14+ |
+| 16000080 | Creating a new instance is not supported. 适用版本：14+ |
 | 16200001 | The caller has been released. |
 
 
@@ -1345,7 +1345,7 @@ openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback&lt;Ab
 | 16000069 | The extension cannot start the third party application. |
 | 16200001 | The caller has been released. |
 | 16000053 | The ability is not on the top of the UI. |
-| 16000136 | The UIAbility is prohibited from launching itself via App Linking. |
+| 16000136 | The UIAbility is prohibited from launching itself via App Linking. 适用版本：23+ |
 
 
 **示例：**

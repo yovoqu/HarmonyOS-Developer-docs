@@ -1,6 +1,6 @@
 # Span
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -277,6 +277,8 @@ lineHeight(value: Length)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -297,6 +299,8 @@ font(value: Font)
 设置文本样式。包括字体大小、字体粗细、字体族和字体风格。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -343,6 +347,8 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -350,6 +356,31 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | ShadowOptions \| Array&lt;ShadowOptions&gt; | 是 | 文字阴影效果。 |
+
+
+
+
+#### fontVariations
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+fontVariations(fontVariations: Array&lt;FontVariation&gt;)
+
+设置可变字体的属性。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| fontVariations | Array&lt;FontVariation&gt; | 是 | 可变字体的属性数组，数组成员为可变字体的各种属性。fontVariations属性的优先级高于fontWeight。 |
 
 
 
@@ -384,9 +415,11 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 textBackgroundStyle(style: TextBackgroundStyle): T
 
-设置背景样式。作为[ContainerSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-containerspan)的子组件时可以继承它的此属性值，优先使用其自身的此属性。
+设置文本背景样式。作为[ContainerSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-containerspan)的子组件时可以继承它的此属性值，优先使用其自身的此属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -394,7 +427,7 @@ textBackgroundStyle(style: TextBackgroundStyle): T
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | TextBackgroundStyle | 是 | 背景样式。 默认值: { color: Color.Transparent, radius: 0 } |
+| style | TextBackgroundStyle | 是 | 文本背景样式。 默认值： { color: Color.Transparent, radius: 0 } |
 
 
 **返回值：**
@@ -415,6 +448,8 @@ baselineOffset(value: LengthMetrics): T
 设置Span基线的偏移量。此属性与父组件的baselineOffset是共存的。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -439,6 +474,8 @@ baselineOffset(value: LengthMetrics): T
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -756,3 +793,40 @@ struct SpanExample {
 
 
 ![](assets/Span/file-20260525091220554-004.png)
+
+
+
+
+#### 示例5（设置文本可变字体的属性）
+
+该示例通过[fontVariations](#fontvariations)属性设置可变字体的属性。
+
+从API版本26.0.0开始，新增[fontVariations](#fontvariations)接口。
+
+```ArkTS
+// xxx.ets
+@Entry
+@Component
+struct SpanExample {
+  @State weightValue: number = 400;
+
+  build() {
+    Column() {
+      Text() {
+        Span('Hello World !')
+          // wght代表可变字体的字重属性
+          .fontVariations([{ axis: 'wght', value: this.weightValue }])
+      }
+
+      Button('字重: ' + this.weightValue)
+        .margin(10)
+        .onClick(() => {
+          this.weightValue += 100;
+        })
+    }.width('100%')
+  }
+}
+```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/ZxYnliGXQZ6Fh9FoKm2bdA/zh-cn_image_0000002628702608.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=D6975CA26C5326D6245B414401945A933D1EAD1F6AA76FA00B2B472BD4C9480D)

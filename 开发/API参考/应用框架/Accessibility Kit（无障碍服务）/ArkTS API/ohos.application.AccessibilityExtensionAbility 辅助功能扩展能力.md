@@ -1,6 +1,6 @@
 # @ohos.application.AccessibilityExtensionAbility (辅助功能扩展能力)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-accessibilityextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -19,27 +19,6 @@ AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能�
 ```text
 import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
 ```
-
-
-
-#### AccessibilityExtensionAbility
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
-
-AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能业务的能力。
-
-
-
-#### 属性
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
-
-**系统能力**：SystemCapability.BarrierFree.Accessibility.Core
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
-| --- | --- | --- | --- | --- |
-| context | AccessibilityExtensionContext | 否 | 否 | 表示辅助扩展能力上下文。 |
-
 
 
 
@@ -250,7 +229,7 @@ let rect: Rect;
 
 type AccessibilityExtensionContext = _AccessibilityExtensionContext.default
 
-表示辅助功能扩展的上下文环境，请参考[AccessibilityExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext)。
+表示辅助功能扩展的上下文环境，请参考[AccessibilityExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext#accessibilityextensioncontext)。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -364,7 +343,28 @@ type TouchGuideType = 'touchBegin' | 'touchEnd'
 
 
 
-#### AccessibilityExtensionAbility.onConnect(deprecated)
+#### AccessibilityExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能业务的能力。
+
+
+
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+**系统能力**：SystemCapability.BarrierFree.Accessibility.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| context | AccessibilityExtensionContext | 否 | 否 | 表示辅助扩展能力上下文。 |
+
+
+
+
+#### onConnect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -392,7 +392,7 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 
 
 
-#### AccessibilityExtensionAbility.onDisconnect(deprecated)
+#### onDisconnect(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -420,7 +420,7 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 
 
 
-#### AccessibilityExtensionAbility.onAccessibilityEvent(deprecated)
+#### onAccessibilityEvent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -458,7 +458,7 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 
 
 
-#### AccessibilityExtensionAbility.onKeyEvent(deprecated)
+#### onKeyEvent(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

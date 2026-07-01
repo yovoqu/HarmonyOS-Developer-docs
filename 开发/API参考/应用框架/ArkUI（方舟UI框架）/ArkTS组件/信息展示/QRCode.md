@@ -1,6 +1,6 @@
 # QRCode
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-qrcode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -106,6 +106,8 @@ contentOpacity(value: number | Resource)
 设置二维码内容颜色的不透明度。不透明度最小值为0，最大值为1。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  

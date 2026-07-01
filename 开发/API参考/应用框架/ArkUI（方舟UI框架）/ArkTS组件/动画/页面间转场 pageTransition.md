@@ -1,6 +1,6 @@
 # 页面间转场 (pageTransition)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -288,6 +288,8 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -333,8 +335,8 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 | Right | 2 | 设置到入场时表示从右边滑入，出场时表示滑出到右边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Top | 3 | 设置到入场时表示从上边滑入，出场时表示滑出到上边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | Bottom | 4 | 设置到入场时表示从下边滑入，出场时表示滑出到下边。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| START12+ | 5 | 设置LTR入场时表示从左边滑入，出场时表示滑出到左边。RTL入场时表示从右边滑入，出场时表示滑出到右边。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| END12+ | 6 | 设置LTR入场时表示从右边滑入，出场时表示滑出到右边。RTL入场时表示从左边滑入，出场时表示滑出到左边。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| START12+ | 5 | 设置LTR入场时表示从左边滑入，出场时表示滑出到左边。RTL入场时表示从右边滑入，出场时表示滑出到右边。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| END12+ | 6 | 设置LTR入场时表示从右边滑入，出场时表示滑出到右边。RTL入场时表示从左边滑入，出场时表示滑出到左边。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -646,4 +648,4 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/1QxmDhfFTX6aVNlayMH8iA/zh-cn_image_0000002611835993.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=3CFEDAE31A725108F5389FA345698AAFEEAD627AFEBFBF86C906A82282165F9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/g15OO6SFRIuHRl94MrYHTg/zh-cn_image_0000002628702898.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=CFE99E075E29507BA916840AB5409258A95697D6C61468A881531CD9A57F8564)

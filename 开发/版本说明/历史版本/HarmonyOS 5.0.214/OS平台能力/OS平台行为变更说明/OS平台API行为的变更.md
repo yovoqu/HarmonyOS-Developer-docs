@@ -1,6 +1,6 @@
 # OS平台API行为的变更
 
-更新时间：2026-04-20 06:33:01
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-for-all-apps-b123sp16
 
@@ -674,7 +674,7 @@ struct zIndexTest {
 实现效果如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/k3bJxgmiTKeecUwEw0_PEw/zh-cn_image_0000002300492512.png?HW-CC-KV=V1&HW-CC-Date=20260528T025912Z&HW-CC-Expire=86400&HW-CC-Sign=DE680091699ECBEEC25DEDB357C8E3BE9AD2AACEEC98A871F8E724F88A6A936C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/ybbHMdDbR0yJGZ6gr8MBgg/zh-cn_image_0000002300492512.png?HW-CC-KV=V1&HW-CC-Date=20260701T015159Z&HW-CC-Expire=86400&HW-CC-Sign=E479938ABE0AE99A17DC544780AD939FB9A05CC5FB2FEBD0447C5270B2007116)
 
  
  
@@ -1814,7 +1814,7 @@ hidumper --mem `pidof render_service_`
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/aN3B6bzYQMWAOJGsrvsUog/zh-cn_image_0000002334331997.png?HW-CC-KV=V1&HW-CC-Date=20260528T025912Z&HW-CC-Expire=86400&HW-CC-Sign=D0BF783EBC6A84E9E99016DC7C1A34E234B5C079D4819ACB13DF160276401BF8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/nZOjj6QBTaqOK7sqTXqEjA/zh-cn_image_0000002334331997.png?HW-CC-KV=V1&HW-CC-Date=20260701T015159Z&HW-CC-Expire=86400&HW-CC-Sign=3FCB749D139B3B8CC8B1E6CBCEB66DDDE40BA0F02FACB4DEF9D0C3964215F801)
 
  
 变更后：每一列数据后新增一个空格
@@ -1824,7 +1824,7 @@ hidumper --mem `pidof render_service_`
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/p4WZ3LyrSaCnf5TpNhG8FQ/zh-cn_image_0000002334372173.png?HW-CC-KV=V1&HW-CC-Date=20260528T025912Z&HW-CC-Expire=86400&HW-CC-Sign=F84AE5C5AD634ECD241CCE5DFB12EC9EEC36F35AB9B7D2AC5B8FE15FA62B600F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/YHuAwBPCQtOTg0c3kh00dQ/zh-cn_image_0000002334372173.png?HW-CC-KV=V1&HW-CC-Date=20260701T015159Z&HW-CC-Expire=86400&HW-CC-Sign=65B4481670127DF9C2DADE24CA5EBD2D8CB431CF17F927BB73DAEF33E1863816)
 
  
 其中hidumper、hidumper --mem、hidumper -c [system]变更效果与hidumper --mem [pid]命令效果一致。

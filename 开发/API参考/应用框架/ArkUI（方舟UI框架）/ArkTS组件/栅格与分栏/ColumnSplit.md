@@ -1,6 +1,6 @@
 # ColumnSplit
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-columnsplit
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -56,7 +56,7 @@ ColumnSplit()
 
 resizeable(value: boolean)
  
-设置分割线是否可拖拽。
+设置分割线是否可拖动。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -66,7 +66,7 @@ resizeable(value: boolean)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 分割线是否可拖拽。设置为true时表示分割线可拖拽，设置为false时表示分割线不可拖拽。 默认值：false 非法值：按默认值处理。 |
+| value | boolean | 是 | 分割线是否可拖动。设置为true时表示分割线可拖动，设置为false时表示分割线不可拖动。 默认值：false 非法值：按默认值处理。 |
  
  
   
@@ -80,6 +80,8 @@ divider(value: ColumnSplitDividerStyle | null)
 设置分割线的margin。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -99,6 +101,8 @@ divider(value: ColumnSplitDividerStyle | null)
 设置子组件与上下分割线的距离。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -156,7 +160,7 @@ struct ColumnSplitExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/9dHsCkNbT56mBOD2-N751g/zh-cn_image_0000002611835561.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025552Z&HW-CC-Expire=86400&HW-CC-Sign=1175DD17616E8A43E5A7E69608BEE65B5A52083CDE8C8DB4C987E5532D225A5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/oayclQEUTvO-Q2F4mYpFAQ/zh-cn_image_0000002659101687.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=5A8A3818F083B71A02DF7061D522487AD8790DB10B881F1B69A7CB15F5509298)
 
  
   
@@ -190,4 +194,4 @@ struct ColumnSplitDividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/Ajyd6BvhSXSdKeSsxtmMCg/zh-cn_image_0000002581275814.png?HW-CC-KV=V1&HW-CC-Date=20260528T025552Z&HW-CC-Expire=86400&HW-CC-Sign=D8D6DA8E75D3E46FF4FDD789074E435F92460A49A633C9C2F8A05059812F9C7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/VpppzU83ShWzMqybJ5hPOA/zh-cn_image_0000002628862338.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=B9AA068B8AE1B99E9F75E00085D166C91DA5ED90DF121B1FF5E8E5CEF0BF5137)

@@ -1,11 +1,11 @@
 # generateBarcode (码图生成)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-generatebarcode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块支持通过文本或字节数组生成码图。目前已支持的码制式为EAN-8、EAN-13、UPC-A、UPC-E、Codabar、Code 39、Code 93、Code 128、ITF-14、QR Code、Data Matrix、PDF417、Aztec。暂时不支持MULTIFUNCTIONAL CODE生成。
+本模块支持通过文本或字节数组生成码图。目前已支持的码制式为EAN-8、EAN-13、UPC-A、UPC-E、Codabar、Code 39、Code 93、Code 128、ITF-14、QR Code、Data Matrix、PDF417、Aztec。暂不支持MULTIFUNCTIONAL CODE生成。
  
 为了方便开发者接入，我们提供了详细的样例工程供参考，推荐参考[示例工程](https://gitcode.com/HarmonyOS_Samples/scankit-samplecode-clientdemo-arkts)接入。
  

@@ -1,6 +1,6 @@
 # HMAC加密报错：Error message:convertSymKey key failed!
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-22
 
@@ -14,25 +14,25 @@ HMAC加密报错：Error message:convertSymKey key failed!
  
 以消息认证码算法：HMAC、摘要算法：SHA224为例。当密钥长度为28字节时，代码运行成功。当密钥长度为26字节时，程序运行报错："convertSymKey key failed!"。
  
-```ArkTS
+```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
 @Entry
 @Component
 struct HMACFailed {
-  // ...
+  <em>// ...</em>
   ConvertKeySync() {
-    // The symmetric key length is 28 bytes, 224 bits
-    let keyMessage = '87654321abcdefgh87654321abcd'; // Execution successful
-    // Execution successful. key encoded data：56,55,54,53,52,51,50,49,97,98,99,100,101,102,103,104,56,55,54,53,52,51,50,49,97,98,99,100
-    // The symmetric key length is 26 bytes, 208 bits
-    // let keyMessage = '87654321abcdefgh87654321ab'; // Execution failed
-    // Execution failed,error message: convertSymKey key failed! 
+    <em>// The symmetric key length is 28 bytes, 224 bits</em>
+    let keyMessage = '87654321abcdefgh87654321abcd'; <em>// Execution successful</em>
+    <em>// Execution successful. key encoded data：</em>56,55,54,53,52,51,50,49,97,98,99,100,101,102,103,104,56,55,54,53,52,51,50,49,97,98,99,100
+    <em>// The symmetric key length is 26 bytes, 208 bits</em>
+    <em>// let keyMessage = '87654321abcdefgh87654321ab'; // Execution failed</em>
+    <em>// Execution failed,error message: convertSymKey key failed! </em>
     let keyBlob: cryptoFramework.DataBlob = {
       data: new Uint8Array(buffer.from(keyMessage, 'utf-8').buffer)
     }
-    // Message Authentication Code Algorithm: HMAC, Digest Algorithm: SHA224, Key Length (bits): 224, String Parameter: HMAC|SHA224 
+    <em>// Message Authentication Code Algorithm: HMAC, Digest Algorithm: SHA224, Key Length (bits): 224, String Parameter: HMAC|SHA224</em> 
     let symKeyGenerator = cryptoFramework.createSymKeyGenerator('HMAC|SHA224');
     let key = symKeyGenerator.convertKeySync(keyBlob);
     let encodedKey = key.getEncoded();
@@ -41,8 +41,6 @@ struct HMACFailed {
   // ...
 }
 ```
- 
-
  
 **参考链接**
  

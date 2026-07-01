@@ -1,6 +1,6 @@
 # ArkTS编程规范
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-coding-style-guide
 
@@ -870,7 +870,7 @@ export function getObject1(value: number): I {
 // Index.ets
 import { getObject1 } from './lib';
 // ...
-let obj1: I = getObject1(123);
+let obj1: ESObject = getObject1(123);
 ```
  
 **【正例】**

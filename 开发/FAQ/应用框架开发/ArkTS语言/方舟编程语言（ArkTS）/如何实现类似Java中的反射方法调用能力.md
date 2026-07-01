@@ -1,19 +1,19 @@
 # 如何实现类似Java中的反射方法调用能力
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-62
 
 可以通过[动态import](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-dynamic-import#动态import实现方案介绍)的方式实现类似反射能力，具体实现可参考以下代码。
  
-```ArkTS
+```text
 import('./module').then(
   module => {
     const t = module.DataTable.tagName();
   });
 ```
  
-```ArkTS
+```text
 export class DataTable {
   constructor() {
   }

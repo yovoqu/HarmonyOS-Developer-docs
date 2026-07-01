@@ -1,16 +1,18 @@
 # LazyVGridLayout
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该组件用于实现支持懒加载的网格布局，其父组件仅限于[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)或[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)，并支持使用自定义组件、[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件封装后，在WaterFlow或FlowItem组件下应用。
+该组件用于实现支持懒加载的网格布局。
  
-该组件仅在WaterFlow组件的单列模式或分段布局中的单列分段，并且布局方向[FlexDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexdirection)设置为FlexDirection.Column的情况下支持懒加载。在WaterFlow的多列模式或布局方向为横向（FlexDirection.Row或FlexDirection.RowReverse）的情况下使用该组件，则不支持懒加载。此外，在布局方向为FlexDirection.ColumnReverse的WaterFlow组件下使用该组件会导致显示异常。当懒加载功能生效时，该组件仅加载WaterFlow显示区域内的子组件，并在帧间空闲时隙预加载显示区域上方和下方各半屏的内容。
+API版本26.0.0之前，其父组件支持[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)和[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)组件，并支持使用自定义组件或[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件封装后应用在WaterFlow或FlowItem中。
+ 
+从API版本26.0.0开始，其父组件新增支持[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)，同时新增支持使用自定义组件或[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件封装后应用在List或Scroll中。
  
 > [!NOTE]
-> 该组件从API version 19开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 LazyVGridLayout组件高度默认自适应内容，不建议设置高度、高度约束或宽高比，设置后会导致显示异常。
+> 该组件从API version 19开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 LazyVGridLayout组件高度默认自适应内容，不建议设置会固定或约束组件垂直方向尺寸的属性，设置后会导致显示异常或无法正常滚动。涉及的属性包括 height 、 size 中的height、 constraintSize 中的minHeight/maxHeight、 aspectRatio 、 layoutWeight ，以及 height 取 LayoutPolicy 值的场景。 当父组件设置主轴方向尺寸时，LazyVGridLayout按照父组件可视区域进行懒加载；当父组件未设置主轴方向尺寸时，LazyVGridLayout会被内容撑开，导致所有子组件都会被加载布局。 该组件在不同父组件下的懒加载支持条件如下： 在WaterFlow组件下，仅在WaterFlow组件的单列模式或分段布局中的单列分段，并且布局方向 FlexDirection 设置为FlexDirection.Column的情况下支持懒加载。在WaterFlow的多列模式或横向布局（FlexDirection.Row或FlexDirection.RowReverse）下使用该组件，则不支持懒加载。此外，在布局方向为FlexDirection.ColumnReverse的WaterFlow组件下使用该组件会导致显示异常。 在List组件下，要求List组件布局方向必须是竖直方向（即 listDirection 属性设置为Axis.Vertical）。在非竖直方向的List中使用该组件会导致应用崩溃。当List设置了 lanes 、 chainAnimation 、 scrollSnapAlign 属性中的任意一个时，该组件的懒加载功能会失效。 在Scroll组件下，要求Scroll组件布局方向必须是竖直方向（即 scrollable 属性设置为ScrollDirection.Vertical）。在非竖直方向的Scroll中使用该组件会导致应用崩溃。 当懒加载功能生效时，该组件仅加载父组件显示区域内的子组件，并在帧间空闲时隙预加载显示区域上方和下方各半屏的内容。
 
   
 
@@ -135,7 +137,39 @@ rowsGap(value: LengthMetrics): T
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-仅支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
+ 
+  
+
+#### onVisibleIndexesChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): T
+ 
+设置onVisibleIndexesChange回调函数。当LazyVGridLayout可视区域内子组件的索引值发生变化时触发回调，返回可视区域内子组件的起始索引值和结束索引值。使用callback异步回调。
+ 
+**起始版本：** 26.0.0
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | OnVisibleIndexesChangeCallback \| undefined | 是 | onVisibleIndexesChange事件的回调函数。方法入参为undefined时，取消监听。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| T | 返回当前组件。 |
+ 
  
   
 
@@ -143,9 +177,11 @@ rowsGap(value: LengthMetrics): T
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该示例通过WaterFlow和LazyVGridLayout实现懒加载网格布局。
+该示例通过[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)和[LazyVGridLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout)实现懒加载网格布局，并通过[onVisibleIndexesChange](#onvisibleindexeschange)在显示区域发生变化时回调索引。
  
 MyDataSource实现了[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)数据源接口[IDataSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#idatasource)，用于通过LazyForEach给LazyVGridLayout提供子组件。
+ 
+从API版本26.0.0开始，新增onVisibleIndexesChange事件。
  
 ```text
 import { LengthMetrics } from '@kit.ArkUI'
@@ -172,6 +208,10 @@ struct LazyVGridLayoutSample1 {
         }
         .columnsTemplate('1fr') // 单列布局
         .rowsGap(LengthMetrics.vp(10)) // 行间距10vp
+        // 从API版本26.0.0开始，新增onVisibleIndexesChange事件。
+        .onVisibleIndexesChange((start: number, end: number) => {
+          console.info('visible indexes: start= ' + 'start,' + 'end= ' + 'end');
+      })
 
         // 第二个LazyVGridLayout：双列布局
         LazyVGridLayout() {
@@ -297,4 +337,4 @@ export class MyDataSource<T> extends BasicDataSource<T> {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/Qxpyl_j-T56ZdRoTXCd2xg/zh-cn_image_0000002622699679.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074825Z&HW-CC-Expire=86400&HW-CC-Sign=19313385206D880BC0BA843F8744381A3BAC95281A7618B5243DD29601C9F3A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/soHofwr1TGuNEBgBJfE0Gg/zh-cn_image_0000002659221699.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=EAF98F3CC4662C12375D59B49F77581D1FC115779E27C614276C1E54FFBD1FF5)

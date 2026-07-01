@@ -1,6 +1,6 @@
 # 是否有处理"9图"（又称"draw9patch"、".9图"、"点9图"等）的平替方案
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-208
 
@@ -24,7 +24,7 @@ struct NineMapPrinciple {
  
 点九图的常见用法是实现聊天气泡的拉伸效果，参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct ChatBubbleStretchDemo {
@@ -46,8 +46,8 @@ struct ChatBubbleStretchDemo {
           (Number(`${this.textSize.width}`)) : 350)
           .height(this.text.length < 40 ? 50 + px2vp(Number(`${this.textSize.height}`))
             : 50 + (this.getUIContext().px2vp(Number(`${this.textSize.height}`)) * this.line))
-          // The reason for using the px unit is that the image itself is a physical pixel, and the segmentation algorithm is executed on the image itself. Therefore, these values are ultimately converted into physical pixel values.
-          // Therefore, these divided lines must not exceed the size of the picture itself.
+         <em> // The reason for using the px unit is that the image itself is a physical pixel, and the segmentation algorithm is executed on the image itself. Therefore, these values are ultimately converted into physical pixel values.</em>
+<em>          // Therefore, these divided lines must not exceed the size of the picture itself.</em>
           .resizable({
             slice: {
               top: `${this.top}px`,
@@ -89,13 +89,13 @@ struct ChatBubbleStretchDemo {
  
 上述示例实现的是图片拉伸中间，四周保持不变。还有另一种拉伸方式，实现图片拉伸四周，中间保持不变，示例如下。
  
-```ArkTS
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 @Entry
 @Component
 struct DrawingLatticeResizeDemo {
-  // lattice grid definition
+  <em>// lattice grid definition</em>
   private xDivs: Array<number> = [40, 100, 120, 180];
   private yDivs: Array<number> = [];
   private fXCount: number = 4;
@@ -112,7 +112,7 @@ struct DrawingLatticeResizeDemo {
           .fontSize(22)
           .fontWeight(FontWeight.Bold)
 
-        // The picture shows
+       <em> // The picture shows</em>
         Image($r('app.media.lightBluexhdpi'))
           .width(String(this.widthValue) + 'px')
           .height(String(this.heightValue) + 'px')
@@ -121,7 +121,7 @@ struct DrawingLatticeResizeDemo {
             lattice: this.drawingLatticeFirst
           })
 
-        // Width adjustment
+       <em> // Width adjustment</em>
         Column({ space: 5 }) {
           Text(`Width: ${this.widthValue.toFixed(0)} px`)
           Slider({
@@ -135,7 +135,7 @@ struct DrawingLatticeResizeDemo {
             })
         }
 
-        // Height adjustment
+     <em>   // Height adjustment</em>
         Column({ space: 5 }) {
           Text(`Width: ${this.heightValue.toFixed(0)} px`)
           Slider({

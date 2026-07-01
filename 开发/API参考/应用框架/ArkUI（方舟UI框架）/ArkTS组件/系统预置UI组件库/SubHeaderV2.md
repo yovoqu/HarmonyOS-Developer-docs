@@ -1,6 +1,6 @@
 # SubHeaderV2
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-subheaderv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1045,4 +1045,4 @@ struct SubHeaderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/cKvN5QvpQkuRq2JMYk8YCg/zh-cn_image_0000002587270644.png?HW-CC-KV=V1&HW-CC-Date=20260604T012554Z&HW-CC-Expire=86400&HW-CC-Sign=2153CD83889A5AC08FB58DBBB4571EBA57B8D7FA3C3F5033A83E95E4D2AB471C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/XB2b1TnXSSiQkC3EWQ4PGA/zh-cn_image_0000002628862890.png?HW-CC-KV=V1&HW-CC-Date=20260701T014355Z&HW-CC-Expire=86400&HW-CC-Sign=AAC3DA9B15A7F74C7B0787EA03DC035158C84D2FFEE5CD2E679B5D140C8C08ED)

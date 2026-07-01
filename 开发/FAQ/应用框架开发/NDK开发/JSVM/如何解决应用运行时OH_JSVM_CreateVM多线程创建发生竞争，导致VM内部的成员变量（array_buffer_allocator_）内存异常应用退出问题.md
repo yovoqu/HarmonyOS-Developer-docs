@@ -1,6 +1,6 @@
 # 如何解决应用运行时OH_JSVM_CreateVM多线程创建发生竞争，导致VM内部的成员变量（array_buffer_allocator_）内存异常应用退出问题
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-jsvm-7
 
@@ -25,7 +25,7 @@
  
 从调用栈分析，错误发生在 libjsvm.so 库中的 v8::internal::Heap::AllocateExternalBackingStore 函数。该函数在尝试分配外部存储时调用了 allocate 函数，并在 allocate 函数中出现了空指针异常。
  
-```cpp
+```text
 std::unique_ptr<BackingStore> BackingStore::Allocate(
     Isolate* isolate, size_t byte_length, SharedFlag shared,
     InitializedFlag initialized) {
@@ -38,8 +38,8 @@ std::unique_ptr<BackingStore> BackingStore::Allocate(
       }
       void* buffer_start = allocator->Allocate(byte_length);
       if (buffer_start) {
-        // TODO(wasm): node does not implement the zero-initialization API.
-        // Reenable this debug check when node does implement it properly.
+      <em>  // TODO(wasm): node does not implement the zero-initialization API.</em>
+<em>        // Reenable this debug check when node does implement it properly.</em>
         constexpr bool
             kDebugCheckZeroDisabledDueToNodeNotImplementingZeroInitAPI = true;
         if ((!(kDebugCheckZeroDisabledDueToNodeNotImplementingZeroInitAPI)) &&
@@ -63,8 +63,8 @@ std::unique_ptr<BackingStore> BackingStore::Allocate(
  
 应用方需加锁处理，确保 OH_JSVM_CreateVM 调用期间，其他线程无法同时进入该代码块。这样可以确保每次只有一个线程可以创建 VM 实例，从而避免竞争条件。示例如下：
  
-```cpp
-// Create an instance of JSVM.
+```text
+<em>// Create an instance of JSVM.</em>
 const JSVM_CreateVMOptions* options = new JSVM_CreateVMOptions();
 JSVM_Status res = USVM_OK;
 {
@@ -74,5 +74,5 @@ JSVM_Status res = USVM_OK;
 if (res != JSVM_OK vm_ == nullptr) {
   XLOG(ERROR) << "JSVM create vm failed";
 }
-// When we start, open vm scope.
+<em>// When we start, open vm scope.</em>
 ```

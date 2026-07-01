@@ -1,6 +1,6 @@
 # 如何在Native侧直接使用其他模块的ArkTS方法
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-20
 
@@ -18,7 +18,7 @@
 声明ArkTS侧方法：
  
 ```ArkTS
-// src/main/ets/pages/Test.ets
+<em>// src/main/ets/pages/Test.ets</em>
 let value = 123;
 function test() {
   console.log('Hello HarmonyOS');
@@ -49,24 +49,24 @@ export {value, test};
  
 使用napi_load_module加载Test文件，调用函数test，并获取变量value。
  
-```cpp
+```text
 #include "napi/native_api.h" 
 #include <string> 
  
 static napi_value LoadModule(napi_env env, napi_callback_info info) { 
     napi_value result; 
-    // 1. Load modules from the Test file using napi_load_module 
+  <em>  // 1. Load modules from the Test file using napi_load_module </em>
     napi_status status = napi_load_module(env, "ets/pages/Test", &result); 
     napi_value testFn; 
-    // 2. Use napi_get_named_property to obtain the test function 
+  <em>  // 2. Use napi_get_named_property to obtain the test function </em>
     napi_get_named_property(env, result, "test", &testFn); 
-    // 3. Call the function test using napi_call_function 
+   <em> // 3. Call the function test using napi_call_function </em>
     napi_call_function(env, result, testFn, 0, nullptr, nullptr); 
     napi_value value; 
     napi_value key; 
     std::string keyStr = "value"; 
     napi_create_string_utf8(env, keyStr.c_str(), keyStr.size(), &key); 
-    // 4. Get variable value using napi_get_property 
+  <em>  // 4. Get variable value using napi_get_property </em>
     napi_get_property(env, result, key, &value); 
     return value; 
 }

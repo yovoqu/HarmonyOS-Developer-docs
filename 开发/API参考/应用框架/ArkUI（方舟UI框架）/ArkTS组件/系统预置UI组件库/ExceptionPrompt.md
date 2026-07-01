@@ -1,6 +1,6 @@
 # ExceptionPrompt
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-exceptionprompt
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -324,4 +324,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/RnLaEjyqTrSTcKZ_8jSTfQ/zh-cn_image_0000002587270616.png?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=965D903093DAEA22A07A07984220C3491E4F808FA6B5A8B1D6AF3A67AA1524C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/5Bm8_MLsQ3yjKw5h7_lVfQ/zh-cn_image_0000002659102209.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=EBFB0175F6CABA99215C39A07CB5D461A411D06A4629FC1919D334928A7A96F3)

@@ -1,6 +1,6 @@
 # CPP编译报错“A 'undefined symbol' error has occurred”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-116
 
@@ -36,10 +36,10 @@ add_library(myProgram SHARED main.cpp myLibrary.cpp)
  
 **myLibrary.cpp**
  
-```cpp
+```text
 #include "myLibrary.h" 
 void myFunction() {     
-// Function implementation
+<em>// Function implementation</em>
 }
 ```
  

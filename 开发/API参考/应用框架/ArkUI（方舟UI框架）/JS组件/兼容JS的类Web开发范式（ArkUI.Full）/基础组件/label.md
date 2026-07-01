@@ -1,6 +1,6 @@
 # label
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-label
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,14 +50,14 @@
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | color | &lt;color&gt; | #e5000000 | 否 | 设置文本的颜色。 |
-| font-size | &lt;length&gt; | 30px | 否 | 设置文本的尺寸。 |
+| font-size | &lt;length&gt; | 30px | 否 | 设置文本的字号。 |
 | allow-scale | boolean | true | 否 | 文本尺寸是否跟随系统设置字体缩放尺寸进行放大缩小。true表示跟随系统放大缩小，false表示不跟随系统放大缩小。 如果需要支持动态生效，请参看config描述文件中config-changes标签。 |
 | letter-spacing | &lt;length&gt; | 0px | 否 | 设置文本的字符间距。 |
 | font-style | string | normal | 否 | 设置文本的字体样式，可选值为： - normal：标准的字体样式； - italic：斜体的字体样式。 |
 | font-weight | number \| string | normal | 否 | 设置文本的字体粗细，number类型取值[100, 900]，默认为400，取值越大，字体越粗。 number取值必须为100的整数倍。 string类型取值支持如下四个值：lighter、normal、bold、bolder。 |
-| text-decoration | string | none | 否 | 设置文本的文本修饰，可选值为： - underline：文字下划线修饰。 - line-through：穿过文本的修饰线。 - none：标准文本。 |
-| text-align | string | start | 否 | 设置文本的文本对齐方式，可选值为： - left：文本左对齐。 - center：文本居中对齐。 - right：文本右对齐。 - start：根据文字书写相同的方向对齐。 - end：根据文字书写相反的方向对齐。 如文本宽度未指定大小，文本的宽度和父容器的宽度大小相等的情况下，对齐效果可能会不明显。 |
-| line-height | &lt;length&gt; | 0px | 否 | 设置文本的文本行高，设置为0px时，不限制文本行高，自适应字体大小。 |
+| text-decoration | string | none | 否 | 设置文本修饰，可选值为： - underline：文字下划线修饰。 - line-through：穿过文本的修饰线。 - none：标准文本。 |
+| text-align | string | start | 否 | 设置文本的对齐方式，可选值为： - left：文本左对齐。 - center：文本居中对齐。 - right：文本右对齐。 - start：根据文字书写相同的方向对齐。 - end：根据文字书写相反的方向对齐。 如文本宽度未指定大小，文本的宽度和父容器的宽度大小相等的情况下，对齐效果可能会不明显。 |
+| line-height | &lt;length&gt; | 0px | 否 | 设置文本的行高，设置为0px时，不限制文本行高，自适应字体大小。 |
 | text-overflow | string | clip | 否 | 在设置了最大行数的情况下生效，可选值为： - clip：将文本根据父容器大小进行裁剪显示。 - ellipsis：根据父容器大小显示，显示不下的文本用省略号代替。需配合max-lines使用。 |
 | font-family | string | sans-serif | 否 | 设置文本的字体列表，用逗号分隔，每个字体用字体名或者字体族名设置。列表中第一个系统中存在的或者通过自定义字体指定的字体，会被选中作为文本的字体。 |
 | max-lines | number | - | 否 | 设置文本的最大行数。 |
@@ -127,4 +127,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/OuGsjFyLTPaJi8dlZtxmmQ/zh-cn_image_0000002611836161.png?HW-CC-KV=V1&HW-CC-Date=20260528T025438Z&HW-CC-Expire=86400&HW-CC-Sign=A4F6D193E0D32DF863ED38570401AA613F1FE90CBFC1748AEC2B9C659A93212F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/a9R_soerSrOJpxj4yYvQ2g/zh-cn_image_0000002628862948.png?HW-CC-KV=V1&HW-CC-Date=20260701T014401Z&HW-CC-Expire=86400&HW-CC-Sign=40216900121D9A49F54F05A6EDCD2F5D54D2F30FAC12EF0ECE12B2E7589F06D4)

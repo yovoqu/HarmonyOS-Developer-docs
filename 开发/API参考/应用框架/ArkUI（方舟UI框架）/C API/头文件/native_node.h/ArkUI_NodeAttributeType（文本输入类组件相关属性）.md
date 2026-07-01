@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（文本输入类组件相关属性）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-textinputcategory
 
@@ -1606,14 +1606,14 @@ NODE_TEXT_AREA_CARET_COLOR = 8005
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].u32 | 背景色数值，0xargb格式，形如 0xFFFF0000 表示红色。 |
+| .value[0].u32 | 光标颜色数值，0xargb格式，形如 0xFFFF0000 表示红色。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].u32 | 背景色数值，0xargb格式。 |
+| .value[0].u32 | 光标颜色数值，0xargb格式。 |
  
  
   

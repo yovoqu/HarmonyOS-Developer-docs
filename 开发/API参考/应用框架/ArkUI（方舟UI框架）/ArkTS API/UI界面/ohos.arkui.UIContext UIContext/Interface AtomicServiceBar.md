@@ -1,42 +1,42 @@
 # Interface (AtomicServiceBar)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-atomicservicebar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供设置元服务menuBar的属性。
- 
-> [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 11开始支持。 以下接口需要先使用UIContext中的 getAtomicServiceBar 方法获取到AtomicServiceBar对象，再通过该对象调用对应方法。 从API version 12开始元服务menuBar样式变更，以下接口将失效。
 
-  
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 11开始支持。 本模块接口仅可在Stage模型下使用。 以下接口需要先使用UIContext中的 getAtomicServiceBar 方法获取到AtomicServiceBar对象，再通过该对象调用对应方法。 从API version 12开始元服务menuBar样式变更，以下接口将失效。
+
+
 
 #### setVisible11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setVisible(visible: boolean): void
- 
+
 通过该方法设置元服务menuBar是否可见。
- 
+
 > [!NOTE]
 > 从API version 12开始，元服务menuBar默认隐藏并以悬浮按钮替代。 在元服务中调用setVisible()时，visible参数将被忽略，无法实现menuBar的显示或隐藏。
 
- 
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | visible | boolean | 是 | 元服务menuBar是否可见。true表示设置menuBar可见，false表示设置menuBar不可见。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { UIAbility } from '@kit.AbilityKit';
 import { UIContext, AtomicServiceBar, window } from '@kit.ArkUI';
@@ -59,34 +59,34 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### setBackgroundColor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBackgroundColor(color:Nullable<Color | number | string>): void
- 
+
 通过该方法设置元服务menuBar的背景颜色。
- 
+
 > [!NOTE]
 > 从API version 12开始，元服务menuBar背景默认隐藏。 在元服务中调用setBackgroundColor()时，color参数将被忽略，无法设置menuBar的背景颜色。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | color | Nullable<Color \| number \| string> | 是 | 通过该方法设置元服务menuBar的背景颜色，undefined代表使用默认颜色。number为HEX格式颜色，支持rgb或者argb，示例：0xffffff。string为rgb或者argb格式颜色，示例：'#ffffff'。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { UIAbility } from '@kit.AbilityKit';
 import { UIContext, AtomicServiceBar, window } from '@kit.ArkUI';
@@ -109,34 +109,34 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### setTitleContent11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTitleContent(content:string): void
- 
+
 通过该方法设置元服务menuBar的标题内容。
- 
+
 > [!NOTE]
 > 从API version 12开始，元服务menuBar标题默认隐藏。 在元服务中调用setTitleContent()时，content参数将被忽略，无法设置menuBar的标题内容。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | content | string | 是 | 元服务menuBar中的标题内容。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { UIAbility } from '@kit.AbilityKit';
 import { UIContext, AtomicServiceBar, window } from '@kit.ArkUI';
@@ -159,34 +159,34 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### setTitleFontStyle11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTitleFontStyle(font:FontStyle):void
- 
+
 通过该方法设置元服务menuBar的字体样式。
- 
+
 > [!NOTE]
 > 从API version 12开始，元服务menuBar标题默认隐藏。 在元服务中调用setTitleFontStyle()时，font参数将被忽略，无法设置menuBar标题的字体样式，例如斜体显示。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full。
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | font | FontStyle | 是 | 元服务menuBar中的字体样式。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { UIAbility } from '@kit.AbilityKit';
 import { UIContext, AtomicServiceBar, window } from '@kit.ArkUI';
@@ -209,34 +209,34 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### setIconColor11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setIconColor(color:Nullable<Color | number | string>): void
- 
+
 通过该方法设置元服务图标的颜色。
- 
+
 > [!NOTE]
 > 从API version 12开始，元服务menuBar默认隐藏并以悬浮按钮替代。 在元服务中调用setIconColor()时，color参数将被忽略，无法设置menuBar图标颜色。
 
- 
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
+
 **参数：**
-  
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | color | Nullable<Color \| number \| string> | 是 | 元服务图标的颜色，undefined代表使用默认颜色。number为HEX格式颜色，支持rgb或者argb，示例：0xffffff。string为rgb或者argb格式颜色，示例：'#ffffff'。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { UIAbility } from '@kit.AbilityKit';
 import { UIContext, AtomicServiceBar, window } from '@kit.ArkUI';
@@ -259,34 +259,34 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
- 
-  
+
+
 
 #### getBarRect15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBarRect(): Frame
- 
+
 获取元服务menuBar相对窗口的布局信息。
- 
+
 > [!NOTE]
 > 布局信息包含了元服务menuBar的左右margin。
 
- 
+
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
- 
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
+
 **返回值：**
-  
+
 | 类型 | 说明 |
 | --- | --- |
 | Frame | 元服务menuBar的大小和位置。 |
- 
- 
+
+
 **示例：**
- 
+
 ```text
 import { AtomicServiceBar } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -307,6 +307,55 @@ struct Index {
           hilog.info(0x0000, 'testTag', 'Get AtomicServiceBar failed.');
         }
       })
+  }
+}
+```
+
+
+
+#### onBarRectChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onBarRectChange(callback: Callback&lt;Frame&gt;): void
+
+当元服务AtomicServiceMenuBar（右上角菜单功能胶囊）的大小或位置发生变化时，触发注册的回调，返回AtomicServiceMenuBar最新的布局信息。该布局信息包含了AtomicServiceMenuBar的大小和位置。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;Frame&gt; | 是 | AtomicServiceBar布局变化时的回调，返回变化后的布局信息。 |
+
+
+**示例：**
+
+```text
+import { AtomicServiceBar, UIContext, Frame } from '@kit.ArkUI';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+@Entry
+@Component
+struct Index {
+  aboutToAppear() : void {
+    let uiContext: UIContext = this.getUIContext();
+    let currentBar: Nullable<AtomicServiceBar> = uiContext.getAtomicServiceBar();
+    if (currentBar != undefined) {
+      currentBar.onBarRectChange((rect: Frame) => {
+        hilog.info(0x0000, 'testTag', 'trigger onBarRectChange callback success. X: %{public}d, Y: %{public}d, Width: %{public}d, height: %{public}d.', rect.x, rect.y, rect.width, rect.height);
+      });
+    } else {
+      hilog.info(0x0000, 'testTag', 'set onBarRectChange callback failed.');
+    }
+  }
+  build() {
+    Text('hello world')
   }
 }
 ```

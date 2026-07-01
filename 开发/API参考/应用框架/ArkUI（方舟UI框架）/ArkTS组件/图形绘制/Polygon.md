@@ -1,6 +1,6 @@
 # Polygon
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polygon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -21,6 +21,35 @@
   
 
 #### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+  
+
+#### Polygon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+new Polygon(options?: PolygonOptions)
+ 
+用于绘制多边形的构造函数。
+ 
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | PolygonOptions | 否 | Polygon绘制区域。 异常值undefined和null按照无效值处理，本次设置不生效。 |
+ 
+ 
+  
+
+#### Polygon
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -56,6 +85,8 @@ Polygon(options?: PolygonOptions)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -173,7 +204,7 @@ stroke(value: ResourceColor)
 
 strokeDashArray(value: Array&lt;any&gt;)
  
-设置边框间隙，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。取值范围≥0。异常值按照默认值处理。
+设置边框的虚线长度和虚线间隙长度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。取值范围≥0。异常值按照默认值处理。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -185,7 +216,7 @@ strokeDashArray(value: Array&lt;any&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;any&gt; | 是 | 定义Polygon轮廓的虚线模式的数组，数组元素交替表示线段长度和间隙长度。 默认值：[]（空数组） 默认单位：vp 异常值undefined和null按照默认值处理。 说明： 空数组：实线 偶数多元素数组：数组元素按顺序循环，如[a, b, c, d]表示线段长度a->间隙长度b->线段长度c->间隙长度d->线段长度a->... 奇数多元素数组：重复一次该数组元素，按偶数多元素数组的规则顺序循环，如[a, b, c]等效于[a, b, c, a, b, c]，表示线段长度a->间隙长度b->线段长度c->间隙长度a->线段长度b->间隙长度c->线段长度a->... |
+| value | Array&lt;any&gt; | 是 | 定义Polygon边框的虚线模式的数组，数组元素交替表示线段长度和间隙长度。 默认值：[]（空数组） 默认单位：vp 异常值undefined和null按照默认值处理。 说明： 空数组：实线 偶数多元素数组：数组元素按顺序循环，如[a, b, c, d]表示线段长度a->间隙长度b->线段长度c->间隙长度d->线段长度a->... 奇数多元素数组：重复一次该数组元素，按偶数多元素数组的规则顺序循环，如[a, b, c]等效于[a, b, c, a, b, c]，表示线段长度a->间隙长度b->线段长度c->间隙长度a->线段长度b->间隙长度c->线段长度a->... |
  
  
   
@@ -430,7 +461,7 @@ struct PolygonTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/GRSlvyPjSdmsyfKCAXw78g/zh-cn_image_0000002611756085.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=DEE57C6D3B46C743A7AC9F6BE99EF80E6551D0740F27D8C29D572AB178E2CD52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/TdpVjevnS7GO-Il6-ohEnA/zh-cn_image_0000002628862762.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=E1FF8B0180A17BF3355A1D1ECBB0F32A393084F61EE3A856D78C70C8F25D302E)
 
  
   
@@ -477,4 +508,4 @@ struct PolygonModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/mTatUqYFSJCmANqldjU5nA/zh-cn_image_0000002581436148.png?HW-CC-KV=V1&HW-CC-Date=20260528T025533Z&HW-CC-Expire=86400&HW-CC-Sign=09431DA9E368583827C5A49656AA3D7B0E2E877A06901E55DD6AB6B5F02819B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/AgT7BLyoQBWV7Per1QOquA/zh-cn_image_0000002659222075.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=525FB1FB8CADA9DB98C7081FCCF8BD7B0B4BD5209085B7031079819DEDBE36FD)

@@ -1,6 +1,6 @@
 # Class (Map)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-map
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,11 +68,10 @@ constructor(entries?: readonly (readonly [K, V])[] | null)
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200012 | The ArkTS Map's constructor cannot be directly invoked. |
 
 
@@ -129,11 +128,10 @@ constructor(iterable: Iterable<readonly [K, V]>)
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200012 | The ArkTS Map's constructor cannot be directly invoked. |
 
 
@@ -376,11 +374,10 @@ delete(key: K): boolean
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The delete method cannot be bound with non-sendable. |
 | 10200201 | Concurrent modification error. |
 
@@ -431,11 +428,10 @@ callbackFn的参数说明：
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The forEach method cannot be bound with non-sendable. |
 | 10200201 | Concurrent modification error. |
 
@@ -495,11 +491,10 @@ get(key: K): V | undefined
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The get method cannot be bound with non-sendable. |
 | 10200201 | Concurrent modification error. |
 
@@ -534,7 +529,7 @@ has(key: K): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | K | 是 | 待查找元素的值。 |
+| key | K | 是 | 待查找元素的键。 |
 
 
 **返回值：**
@@ -546,11 +541,10 @@ has(key: K): boolean
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The has method cannot be bound with non-sendable. |
 | 10200201 | Concurrent modification error. |
 
@@ -598,11 +592,10 @@ set(key: K, value: V): Map<K, V>
 
 **错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
+以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. |
 | 10200011 | The set method cannot be bound with non-sendable. |
 | 10200201 | Concurrent modification error. |
 

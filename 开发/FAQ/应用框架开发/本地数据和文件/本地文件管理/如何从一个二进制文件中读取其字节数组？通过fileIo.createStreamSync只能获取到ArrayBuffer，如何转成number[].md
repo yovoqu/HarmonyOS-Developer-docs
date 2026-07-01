@@ -1,17 +1,17 @@
-# 如何从一个二进制文件中读取其字节数组？通过fileIo.createStreamSync只能获取到ArrayBuffer，如何转成number[]
+# 如何从一个二进制文件中读取其字节数组？通过fs.createStreamSync只能获取到ArrayBuffer，如何转成number[]
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-28
 
-```ArkTS
+```text
 @Component
 export struct ArrayBufferConversionArray {
   @State fileLength: number = 10;
   private tempData: number[] = [];
 
   aboutToAppear(): void {
-    // Convert ArrayBuffer to a number array
+   <em> // Convert ArrayBuffer to a number array</em>
     let arrayBuffer: ArrayBuffer = new ArrayBuffer(this.fileLength);
     let dataView: DataView = new DataView(arrayBuffer);
     for (let index = 0; index < this.fileLength; index++) {

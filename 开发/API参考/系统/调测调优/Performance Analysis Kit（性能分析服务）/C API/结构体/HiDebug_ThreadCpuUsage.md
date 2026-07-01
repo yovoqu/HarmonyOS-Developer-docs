@@ -1,6 +1,6 @@
 # HiDebug_ThreadCpuUsage
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-hidebug-threadcpuusage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,15 @@ typedef struct HiDebug_ThreadCpuUsage {...} HiDebug_ThreadCpuUsage
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-应用程序所有线程的CPU使用率结构体定义。
+当前进程所有线程的CPU使用率结构体定义。
+ 
+使用场景：
+ 
+应用性能监控：获取线程CPU使用率，监控应用的运行状态和性能瓶颈。
+ 
+线程性能优化：分析各线程的CPU占用情况，优化线程调度和资源分配。
+ 
+系统调试：在调试阶段追踪线程的CPU使用情况，定位性能问题。
  
 **起始版本：** 12
  

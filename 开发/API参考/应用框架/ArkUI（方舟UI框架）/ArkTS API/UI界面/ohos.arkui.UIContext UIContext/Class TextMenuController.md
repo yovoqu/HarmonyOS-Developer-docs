@@ -1,6 +1,6 @@
 # Class (TextMenuController)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -21,6 +21,8 @@ setMenuOptions(options: TextMenuOptions): void
 设置菜单选项。
  
 **元服务API：** 从API version 16开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -88,13 +90,15 @@ static disableSystemServiceMenuItems(disable: boolean): void
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| disable | boolean | 是 | 是否禁用系统服务菜单。true表示禁用，false表示不禁用。 默认值: false |
+| disable | boolean | 是 | 是否禁用系统服务菜单项。true表示禁用，false表示不禁用。 默认值：false |
  
  
 **示例：**
@@ -156,6 +160,8 @@ static disableMenuItems(items: Array&lt;TextMenuItemId&gt;): void
 
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  

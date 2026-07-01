@@ -1,6 +1,6 @@
 # Worker线程内存如何共享
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-66
 
@@ -52,7 +52,7 @@ export struct ThreadWorkerView {
  
 Atomics.notify(typedArray, index, count)是静态方法可以唤醒一些在等待队列中休眠的代理。typedArray是基于SharedArrayBuffer的Int32Array，index是typedArray中要唤醒的位置，count是要唤醒的休眠代理的数量。
  
-```ArkTS
+```text
 import { MessageEvents, worker } from '@kit.ArkTS';
 
 const workerPort = worker.workerPort;
@@ -64,7 +64,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
     for (let i = 1; i < length; i++) {
       i32a[i] = Math.random() * length;
     }
-    Atomics.notify(i32a, 0, 1); // notify customer
+    Atomics.notify(i32a, 0, 1); <em>// notify customer</em>
   }, 2000);
 }
 ```
@@ -73,7 +73,7 @@ workerPort.onmessage = (e: MessageEvents): void => {
  
 Atomics.wait(typedArray, index, value) 静态方法验证共享内存特定位置是否仍然包含给定值，如果是则休眠，直到被唤醒或超时。typedArray是基于SharedArrayBuffer的Int32Array，index是typedArray中要等待的位置，value是测试期望值。
  
-```ArkTS
+```text
 import { MessageEvents, worker } from '@kit.ArkTS';
 
 const workerPort = worker.workerPort;

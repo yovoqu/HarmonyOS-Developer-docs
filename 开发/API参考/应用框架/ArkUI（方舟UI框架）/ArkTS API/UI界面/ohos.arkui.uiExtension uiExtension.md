@@ -1,6 +1,6 @@
 # @ohos.arkui.uiExtension (uiExtension)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -111,6 +111,8 @@ on(type: 'avoidAreaChange', callback: Callback&lt;AvoidAreaInfo&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -121,11 +123,12 @@ on(type: 'avoidAreaChange', callback: Callback&lt;AvoidAreaInfo&gt;): void
 
 **错误码**：
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
+| 1300002 | Abnormal state. Possible causes: 1. The listening type is not supported. 2. The listener has been registered. 3. The UIExtension window proxy is abnormal. |
 
 
 **示例：**
@@ -160,6 +163,8 @@ off(type: 'avoidAreaChange', callback?: Callback&lt;AvoidAreaInfo&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -170,11 +175,12 @@ off(type: 'avoidAreaChange', callback?: Callback&lt;AvoidAreaInfo&gt;): void
 
 **错误码**：
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
+| 1300002 | Abnormal state. Possible causes: 1. The listening type is not supported. 2. The listening type is not registered. 3. The listener has not been registered. 4. The UIExtension window proxy is abnormal. |
 
 
 **示例：**
@@ -206,6 +212,8 @@ on(type: 'windowSizeChange', callback: Callback<window.Size>): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -216,11 +224,12 @@ on(type: 'windowSizeChange', callback: Callback<window.Size>): void
 
 **错误码**：
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
+| 1300002 | Abnormal state. Possible causes: 1. The listening type is not supported. 2. The listener has been registered. 3. The UIExtension window proxy is abnormal. |
 
 
 **示例：**
@@ -255,6 +264,8 @@ off(type: 'windowSizeChange', callback?: Callback<window.Size>): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -265,11 +276,12 @@ off(type: 'windowSizeChange', callback?: Callback<window.Size>): void
 
 **错误码**：
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
+| 1300002 | Abnormal state. Possible causes: 1. The listening type is not supported. 2. The listening type is not registered. 3. The listener has not been registered. 4. The UIExtension window proxy is abnormal. |
 
 
 **示例：**
@@ -301,7 +313,9 @@ on(type: 'rectChange', reasons: number, callback: Callback&lt;RectChangeOptions&
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
 **参数：**
 
@@ -314,12 +328,13 @@ on(type: 'rectChange', reasons: number, callback: Callback&lt;RectChangeOptions&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 1300002 | Abnormal state. Possible causes: 1. The listening type is not supported. 2. The listener has been registered. 3. The UIExtension window proxy is abnormal. |
 
 
 **示例：**
@@ -354,7 +369,9 @@ off(type: 'rectChange', callback?: Callback&lt;RectChangeOptions&gt;): void
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
 **参数：**
 
@@ -366,12 +383,13 @@ off(type: 'rectChange', callback?: Callback&lt;RectChangeOptions&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 1300002 | Abnormal state. Possible causes: 1. The listening type is not supported. 2. The listening type is not registered. 3. The listener has not been registered. 4. The UIExtension window proxy is abnormal. |
 
 
 **示例：**
@@ -405,7 +423,7 @@ createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptio
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**设备行为差异：** 当[subWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)中isModal为true且[modalityType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#modalitytype14)为APPLICATION_MODALITY时，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 当[subWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)中isModal为true且[modalityType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#modalitytype14)为APPLICATION_MODALITY时，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 
@@ -495,7 +513,7 @@ createSubWindowWithOptions(name: string, subWindowConfig: window.SubWindowOption
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**设备行为差异：** 当[subWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)中isModal为true且[modalityType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#modalitytype14)为APPLICATION_MODALITY时，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+**设备行为差异：** 当[subWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)中isModal为true且[modalityType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#modalitytype14)为APPLICATION_MODALITY时，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
 **参数：**
 

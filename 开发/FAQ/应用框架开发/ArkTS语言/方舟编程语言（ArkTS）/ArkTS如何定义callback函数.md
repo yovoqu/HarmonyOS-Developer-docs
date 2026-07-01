@@ -1,6 +1,6 @@
 # ArkTS如何定义callback函数
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-138
 
@@ -8,17 +8,17 @@
  1. 定义回调函数
 
   
-```ArkTS
-// Define 2 parameters on the page, return empty callback function
+```text
+<em>// Define 2 parameters on the page, return empty callback function</em>
 myCallback: (a: number,b: string) => void = () => {}
 ```
 
 2. 在使用时进行初始化赋值
 
   
-```ArkTS
+```text
 aboutToAppear() {
-  // Initialization of callback function
+ <em> // Initialization of callback function</em>
   this.myCallback = (a,b) => {
     console.info(`handle myCallback a=${a},b=${b}`)
   }

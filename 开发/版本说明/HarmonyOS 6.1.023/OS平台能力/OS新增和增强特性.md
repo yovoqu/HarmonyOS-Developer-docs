@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-06-12 06:54:02
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-610
 
@@ -41,7 +41,7 @@ BundleInfo新增buildVersion。（[API参考](https://developer.huawei.com/consu
 
 #### Connectivity Kit
 
-新增支持带有卡在位状态周期性检测的NFC Tag读卡事件订阅能力。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon23)）
+新增支持带有卡在位状态周期性检测的NFC Tag读卡事件订阅能力。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagonreadermodewithinterval23)）
  
  
 

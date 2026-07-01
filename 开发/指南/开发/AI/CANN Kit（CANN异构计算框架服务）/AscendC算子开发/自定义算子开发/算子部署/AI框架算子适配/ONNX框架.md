@@ -1,6 +1,6 @@
 # ONNX框架
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-onnx-framework
 
@@ -61,7 +61,7 @@ ParseParamByOpFunc：函数名称，开发者自定义。
 在完成如下步骤之前，开发者需要先参考上文内容完成自定义AddCustom算子kernel侧和host侧的开发、ONNX适配插件的开发，并完成算子的编译部署。
  
 完整样例请参考[AddCustom算子实现](https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_add_custom_cpp)和[ONNX框架调用示例](https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_add_custom_cpp/blob/master/FrameworkLaunch/Onnx/create_addcustom_onnx.py) 。
- 1. 通过pytorch代码生成该自定义算子。
+ 1. 通过python代码生成该自定义算子。
 
   
 ```text

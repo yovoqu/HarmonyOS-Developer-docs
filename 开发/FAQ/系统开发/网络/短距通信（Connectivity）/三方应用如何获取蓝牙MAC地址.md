@@ -1,16 +1,16 @@
-# 三方应用如何获取蓝牙MAC地址
+# 三方应用如何获取蓝牙mac地址
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-1
 
 调用connection.startBluetoothDiscovery()接口，使用蓝牙扫描功能，在扫描结果中即可获取蓝牙MAC地址。需要权限：ohos.permission.ACCESS_BLUETOOTH。参考代码如下：
  
-```ArkTS
+```json
 import { connection } from '@kit.ConnectivityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function onReceiveEvent(data: Array<string>) { // data is a collection of Bluetooth device addresses
+function onReceiveEvent(data: Array<string>) { <em>// data is a collection of Bluetooth device addresses</em>
   console.info('bluetooth device find = '+ JSON.stringify(data));
 }
 

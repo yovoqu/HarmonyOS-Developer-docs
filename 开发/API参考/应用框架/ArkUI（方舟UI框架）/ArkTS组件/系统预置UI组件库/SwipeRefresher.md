@@ -1,6 +1,6 @@
 # SwipeRefresher
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-swiperefresher
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -94,4 +94,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/10jaskk0SPCxDco8vhFkcg/zh-cn_image_0000002587110742.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012554Z&HW-CC-Expire=86400&HW-CC-Sign=4A4A88915BEE7C770264685398D886870FD1F685941F546191C5147462CBEBF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/xJTnD8xuSEeBat9GIPbmwg/zh-cn_image_0000002628703012.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014355Z&HW-CC-Expire=86400&HW-CC-Sign=8DFFEC1BC2D832B406CD9B2E4A92ACCFF2078B312CA3FF41239B965CCFAC5F87)

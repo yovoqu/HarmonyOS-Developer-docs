@@ -1,6 +1,6 @@
 # AttributeUpdater
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-attributeupdater
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 将属性直接设置给组件，无需标记为状态变量即可直接触发UI更新。
 
 > [!NOTE]
-> 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -273,7 +273,7 @@ struct attributeDemo3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/0XAs07NuR2SOXcUujYlV5Q/zh-cn_image_0000002611835417.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025450Z&HW-CC-Expire=86400&HW-CC-Sign=FF749C9A813ECFD5E16531E0E62D6B0D32FAC850E8FE444E55EF62C6A4699A22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/jc1s4-I9TsK1gr1XGCnLVw/zh-cn_image_0000002659221495.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=17020FA4229E2881858F356EB6FD672A7F87E5A25BC2BB938B47D6202D63A8BB)
 
 
 
@@ -347,4 +347,4 @@ struct updaterDemo4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/QpbzmdiLR_K2ksGHqQ94pg/zh-cn_image_0000002581275670.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025450Z&HW-CC-Expire=86400&HW-CC-Sign=1BAD0BF4C805801B84B88A9D0C3D7E4B93B4667F0BCEF190C4887731ED84B786)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/UNYqB2ztQaW5OKTMYkcltg/zh-cn_image_0000002628702306.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=A7D765EE1EB19CEC67226C295BF7EDC668F3F65C6BEFF057636ADEA6CC01A997)

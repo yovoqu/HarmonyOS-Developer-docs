@@ -1,6 +1,6 @@
 # ChipGroup
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 ChipGroup组件提供操作块群组，用于文件或资源内容的分类等场景。
  
 > [!NOTE]
-> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -49,22 +49,20 @@ ChipGroup({
  
 **装饰器类型：**@Component
  
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| items | ChipGroupItemOptions[] | 是 | @Require @Prop | 每个Chip的特定属性，参考ChipGroupItemOptions[]类型。 若为undefined时，ChipGroup默认为空。 |
-| itemStyle | ChipItemStyle | 否 | @Prop | Chip的style属性，如颜色，大小等，参考ChipItemStyle类型。 默认值： { size: ChipSize.NORMAL, backgroundColor: \$r('sys.color.ohos_id_color_button_normal'), fontColor: \$r('sys.color.ohos_id_color_text_primary'), selectedFontColor: \$r('sys.color.ohos_id_color_text_primary_contrary'), selectedBackgroundColor: \$r('sys.color.ohos_id_color_emphasize') } 值为undefined时，按默认值处理。 |
-| selectedIndexes | Array&lt;number&gt; | 否 | @Prop | 被选中Chip的索引。 默认值：[0] 值为undefined时，按默认值处理。 |
-| multiple | boolean | 否 | @Prop | 是否选中多个Chip。 true：支持多个Chip选中；false：仅支持单个Chip选中。 默认值：false 值为undefined时，按默认值处理。 |
-| chipGroupSpace | ChipGroupSpaceOptions | 否 | @Prop | 左右内边距及Chip之间间距。参考ChipGroupSpaceOptions类型。 默认值：{ itemSpace: 8, startSpace: 16, endSpace: 16 } 单位：vp 值为undefined时，按默认值处理。 |
-| chipGroupPadding | ChipGroupPaddingOptions | 否 | @Prop | 设置ChipGroup的上下内边距，以控制整体高度。类型为ChipGroupPaddingOptions。 默认值：{ top: 14, bottom: 14 } 单位：vp 值为undefined时，按默认值处理。 |
-| onChange | Callback<Array&lt;number&gt;> | 否 | - | Chip状态改变时的回调方法。 若为undefined，表示解绑事件。 |
-| suffix | Callback&lt;void&gt; | 否 | @BuilderParam | 支持开发者自定义builder，如需在组件最右侧显示自定义内容可配置suffix属性，使用属性suffix需引用IconGroupSuffix接口。 默认不传入时，没有suffix。 值为undefined时，没有suffix。 |
+| items | ChipGroupItemOptions[] | 是 | @Require @Prop | 每个Chip的特定属性，参考ChipGroupItemOptions[]类型。 若为undefined时，ChipGroup默认为空。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| itemStyle | ChipItemStyle | 否 | @Prop | Chip的style属性，如颜色，大小等，参考ChipItemStyle类型。 默认值： { size: ChipSize.NORMAL, backgroundColor: \$r('sys.color.ohos_id_color_button_normal'), fontColor: \$r('sys.color.ohos_id_color_text_primary'), selectedFontColor: \$r('sys.color.ohos_id_color_text_primary_contrary'), selectedBackgroundColor: \$r('sys.color.ohos_id_color_emphasize') } 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| selectedIndexes | Array&lt;number&gt; | 否 | @Prop | 被选中Chip的索引。 默认值：[0] 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| multiple | boolean | 否 | @Prop | 是否选中多个Chip。 true：支持多个Chip选中；false：仅支持单个Chip选中。 默认值：false 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| chipGroupSpace | ChipGroupSpaceOptions | 否 | @Prop | 左右内边距及Chip之间间距。参考ChipGroupSpaceOptions类型。 默认值：{ itemSpace: 8, startSpace: 16, endSpace: 16 } 单位：vp 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| chipGroupPadding | ChipGroupPaddingOptions | 否 | @Prop | 设置ChipGroup的上下内边距，以控制整体高度。类型为ChipGroupPaddingOptions。 默认值：{ top: 14, bottom: 14 } 单位：vp 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onChange | Callback<Array&lt;number&gt;> | 否 | - | Chip状态改变时的回调方法。 若为undefined，表示解绑事件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| suffix | Callback&lt;void&gt; | 否 | @BuilderParam | 支持开发者自定义builder，如需在组件最右侧显示自定义内容可配置suffix属性，使用属性suffix需引用IconGroupSuffix接口。 默认不传入时，没有suffix。 值为undefined时，没有suffix。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
  
  
 > [!TIP]
@@ -222,12 +220,12 @@ ChipGroup的尾部图标选项类型。
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-IconGroupSuffix({items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>})
+IconGroupSuffix({
+  items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>,
+})
 ```
  
 **装饰器类型：**@Component
- 
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -235,7 +233,7 @@ IconGroupSuffix({items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItem
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| items | Array<IconItemOptions \| SymbolGlyphModifier \| SymbolItemOptions> | 是 | @Require @Prop | 尾部区域显示的自定义项数组，支持IconItemOptions（Image图标）、SymbolGlyphModifier（Symbol图标）或SymbolItemOptions（Symbol图标配置）类型。 |
+| items | Array<IconItemOptions \| SymbolGlyphModifier \| SymbolItemOptions> | 是 | @Require @Prop | 尾部区域显示的自定义项数组，支持IconItemOptions（Image图标）、SymbolGlyphModifier（Symbol图标）或SymbolItemOptions（Symbol图标配置）类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
  
  
 > [!NOTE]
@@ -383,7 +381,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/R22T4eRBQcGciXGmYUi2YA/zh-cn_image_0000002587110702.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=F91FE3732A495C68922F7AAD329D8026DF1A2940484B2FEF797EC6C72D86DBC9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/aIr2TcK3Riy-5OxCK2OgAg/zh-cn_image_0000002659222163.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=440FE44C1E600A67F6EB3425E637D41877FBE22D2B350DA3A73416BDFADA1225)
 
  
   
@@ -484,7 +482,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/wpHA2TkUQlaAw9NYX4OIXQ/zh-cn_image_0000002617670381.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=5F1EFFF14A433E133339474E5C74588EACE9D53EA96DF496A8154F3A1059C507)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/3A_qAWSBQ2aTf3Z597y5Rg/zh-cn_image_0000002628702972.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=CE12B89504ACC4DDFAAFC56B0F716E3B21E0E04F7B1ADCF06243CA0E898F616A)
 
  
   
@@ -589,7 +587,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/1PDKR6uwRiyN-Z7qtzi5jg/zh-cn_image_0000002587270606.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=EAE21E202328B2C31C4165CB42313F0495F078CEFC09B51BA75159304779C9A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/M8YdyBQcSDOV1lRVvCIZzg/zh-cn_image_0000002659102199.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=FE25AAFC9DAA8A4B23BC78996B997E98560C1D54E044F967B343C7BB2B09BDCF)
 
  
   

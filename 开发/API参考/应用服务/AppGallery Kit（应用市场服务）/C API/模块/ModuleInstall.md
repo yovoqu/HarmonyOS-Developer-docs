@@ -1,6 +1,6 @@
 # ModuleInstall
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-c-moduleinstall
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -52,10 +52,10 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| ModuleInstall_ErrCode | 枚举错误码。 |
-| ModuleInstall_InstallStatus | 枚举安装状态。 |
-| ModuleInstall_RequestCode | 枚举请求码。 |
-| ModuleInstall_TaskStatus | 枚举任务状态。 |
+| ModuleInstall_ErrCode { E_NO_ERROR = 0, E_PARAMS = 401, E_QUERY_MODULE = 1006500001, E_REPEATED_CALL = 1006500002, E_CONNECT_SA = 1006500004, E_OFF_WITHOUT_ON = 1006500006, E_CONNECT_SERVICE_EXTENSION = 1006500007, E_WRITE_PARAM = 1006500008, E_REQUEST_SERVER = 1006500009, E_RESPONSE_INVALID = 1006500010, E_INNER_ERROR = 1006500011 } | 枚举错误码。 |
+| ModuleInstall_InstallStatus { INSTALLED = 0, NOT_INSTALLED = 1 } | 枚举安装状态。 |
+| ModuleInstall_RequestCode { MODULE_ALREADY_EXISTS = -8, MODULE_UNAVAILABLE = -7, INVALID_REQUEST = -6, NETWORK_ERROR = -5, INVOKER_VERIFICATION_FAILED = -4, FOREGROUND_REQUIRED = -3, ACTIVE_SESSION_LIMIT_EXCEEDED = -2, FAILURE = -1, SUCCESS = 0, DOWNLOAD_WAIT_WIFI = 1 } | 枚举请求码。 |
+| ModuleInstall_TaskStatus { CREATE_TASK_FAILED = -4, HIGHER_VERSION_INSTALLED = -3, TASK_ALREADY_EXISTS = -2, TASK_UNFOUND = -1, TASK_CREATED = 0, DOWNLOADING = 1, DOWNLOAD_PAUSED = 2, DOWNLOAD_WAITING = 3, DOWNLOAD_SUCCESSFUL = 4, DOWNLOAD_FAILED = 5, DOWNLOAD_WAIT_FOR_WIFI = 6, INSTALL_WAITING = 20, INSTALLING = 21, INSTALL_SUCCESSFUL = 22, INSTALL_FAILED = 23 } | 枚举任务状态。 |
  
  
   
@@ -66,24 +66,24 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| HMS_ModuleInstall_GetInstalledModule | 查询模块是否安装。 |
-| HMS_ModuleInstall_GetInstalledModuleName | 获取模块名。 |
-| HMS_ModuleInstall_GetInstalledModuleType | 获取模块类型。 |
-| HMS_ModuleInstall_GetModuleInstallStatus | 获取模块安装状态。 |
-| HMS_ModuleInstall_FetchModules | 请求下载模块。 |
-| HMS_ModuleInstall_GetFetchModulesRequestCode | 获取模块下载请求码。 |
-| HMS_ModuleInstall_GetFetchModulesTaskStatus | 获取模块下载任务状态。 |
-| HMS_ModuleInstall_GetFetchModulesTaskId | 获取模块下载任务id。 |
-| HMS_ModuleInstall_GetFetchModulesDesc | 获取模块下载描述。 |
-| HMS_ModuleInstall_GetFetchModules | 获取模块下载模块名。 |
-| HMS_ModuleInstall_GetFetchModulesTotalSize | 获取模块下载总大小。 |
-| HMS_ModuleInstall_GetFetchModulesDownloadedSize | 获取模块下载已下载大小。 |
-| HMS_ModuleInstall_CancelTask | 取消下载任务。 |
-| HMS_ModuleInstall_ShowCellularDataConfirmation | 展示流量弹窗。 |
-| HMS_ModuleInstall_CreateStatusCallback | 创建下载进度监听回调。 |
-| HMS_ModuleInstall_On | 下载进度监听。 |
-| HMS_ModuleInstall_ReleaseStatusCallback | 释放下载进度监听回调。 |
-| HMS_ModuleInstall_Off | 取消下载进度监听。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_GetInstalledModule(const char *moduleName, unsigned int length, ModuleInstall_InstalledModule **installedModule) | 查询模块是否安装。 |
+| char *HMS_ModuleInstall_GetInstalledModuleName(const ModuleInstall_InstalledModule *installedModule) | 获取模块名。 |
+| int HMS_ModuleInstall_GetInstalledModuleType(const ModuleInstall_InstalledModule *installedModule) | 获取模块类型。 |
+| ModuleInstall_InstallStatus HMS_ModuleInstall_GetModuleInstallStatus(const ModuleInstall_InstalledModule *installedModule) | 获取模块安装状态。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_FetchModules(const char *bundleName, unsigned int length, char **moduleNames, unsigned int moduleNamesLength, ModuleInstall_FetchModulesResult **fetchModulesResult) | 请求下载模块。 |
+| ModuleInstall_RequestCode HMS_ModuleInstall_GetFetchModulesRequestCode(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载请求码。 |
+| ModuleInstall_TaskStatus HMS_ModuleInstall_GetFetchModulesTaskStatus( const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载任务状态。 |
+| char *HMS_ModuleInstall_GetFetchModulesTaskId(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载任务id。 |
+| char *HMS_ModuleInstall_GetFetchModulesDesc(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载描述。 |
+| char *HMS_ModuleInstall_GetFetchModules(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载模块名。 |
+| int HMS_ModuleInstall_GetFetchModulesTotalSize(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载总大小。 |
+| int HMS_ModuleInstall_GetFetchModulesDownloadedSize(const ModuleInstall_FetchModulesResult *fetchModulesResult) | 获取模块下载已下载大小。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_CancelTask(const char *taskId, unsigned int length, unsigned int cancelResult) | 取消下载任务。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_ShowCellularDataConfirmation(const char *taskId, unsigned int length, unsigned int showResult) | 展示流量弹窗。 |
+| ModuleInstall_StatusCallback *HMS_ModuleInstall_CreateStatusCallback(ModuleInstall_OnStatusCallback *onStatusCallback) | 创建下载进度监听回调。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_On(const char *bundleName, unsigned int length, unsigned int appIndex, unsigned int period, ModuleInstall_StatusCallback **callback) | 下载进度监听。 |
+| void HMS_ModuleInstall_ReleaseStatusCallback(ModuleInstall_StatusCallback *statusCallback) | 释放下载进度监听回调。 |
+| ModuleInstall_ErrCode HMS_ModuleInstall_Off(const char *bundleName, unsigned int length, unsigned int appIndex) | 取消下载进度监听。 |
  
  
   

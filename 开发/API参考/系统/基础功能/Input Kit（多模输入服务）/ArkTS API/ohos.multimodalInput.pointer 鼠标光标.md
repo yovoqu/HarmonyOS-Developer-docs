@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.pointer (鼠标光标)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pointer
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -47,7 +47,7 @@ setPointerVisible(visible: boolean, callback: AsyncCallback&lt;void&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例**：
@@ -114,7 +114,7 @@ setPointerVisible(visible: boolean): Promise&lt;void&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例**：

@@ -1,12 +1,12 @@
 # Tab组件页面切换时，如何不显示中间过渡的tab页
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-328
 
 如果需要做动画，可以通过设置[.animationDuration(0)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#animationduration)跳过中间过渡页显示，示例代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct TABTransitionAnimation {
@@ -78,7 +78,7 @@ struct TABTransitionAnimation {
       .barMode(BarMode.Fixed)
       .backgroundColor('#F1F3F5')
       .margin({ top: 52 })
-      .animationDuration(0) // Setting the animation time to 0 can solve the problem of switching between pages and displaying intermediate transition pages
+      .animationDuration(0) <em>// Setting the animation time to 0 can solve the problem of switching between pages and displaying intermediate transition pages</em>
       .onChange((index: number) => {
         if (index >= 0 && index <= 3) {
           this.currentIndex = index;

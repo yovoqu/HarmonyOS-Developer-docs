@@ -1,6 +1,6 @@
 # TextPicker
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ TextPicker(options?: TextPickerOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | TextPickerOptions | 否 | 配置文本选择器的参数。 |
+| options | TextPickerOptions | 否 | 配置文本选择器的参数。参数缺省时组件无法显示。 |
 
 
 
@@ -54,7 +54,7 @@ TextPicker(options?: TextPickerOptions)
 | range | string[] \| string[][]10+ \| Resource \| TextPickerRangeContent[]10+ \| TextCascadePickerRangeContent[]10+ | 否 | 否 | 选择器的数据选择列表。不可设置为空数组，若设置为空数组，则不显示；若动态变化为空数组，则保持当前正常值显示。 说明： 1. 单列数据选择器使用string[]，Resource，TextPickerRangeContent[]类型。 2. 多列非联动数据选择器使用string[][]类型。 3. 多列联动数据选择器使用TextCascadePickerRangeContent[]类型。 4. Resource类型只支持strarray.json。 5. range的类型及列数不可以动态修改。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | selected | number \| number[]10+ | 否 | 是 | 设置选中项在数据选择列表中的索引值，索引从0开始。 默认值：0 说明： 1. 单列数据选择器使用number类型。 2. 多列数据选择器使用number[]类型。 3. 从API version 10开始，该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | value | ResourceStr \| ResourceStr[] | 否 | 是 | 设置选中项的值，优先级低于selected。 默认值：数据选择列表中第一个元素的值。 说明： 1. 从API version 10开始，该参数支持$$双向绑定变量。 2. 从API version 20开始，支持Resource类型。 3. 只有显示文本列表时该值有效。显示图片或图文混排的列表时，该值无效。 4. 单列数据选择器使用ResourceStr类型。 5. 多列数据选择器使用ResourceStr[]类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| columnWidths18+ | LengthMetrics[] | 否 | 是 | 设置每一列的列宽。 默认值：每一列的列宽相等，为组件宽度除以列数。 说明： 1. 当文本长度大于列宽时，文本被截断。 2. 当设置为异常值时，使用默认值。 3. 支持设置为Undefined和Null，不支持Undefined[]和Null[]。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| columnWidths18+ | LengthMetrics[] | 否 | 是 | 设置每一列的列宽。 默认值：每一列的列宽相等，为组件宽度除以列数。 说明： 1. 当文本长度大于列宽时，文本被截断。 2. 当设置为异常值时，使用默认值。 3. 支持设置为Undefined和Null，不支持Undefined[]和Null[]。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
 
@@ -66,6 +66,8 @@ TextPicker(options?: TextPickerOptions)
 单列数据选择器的数据选项内容。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -85,6 +87,8 @@ TextPicker(options?: TextPickerOptions)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -102,6 +106,8 @@ TextPicker(options?: TextPickerOptions)
 分割线的信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -154,6 +160,8 @@ defaultPickerItemHeight(height: Optional<number | string>)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -174,6 +182,8 @@ disappearTextStyle(value: PickerTextStyle)
 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -200,6 +210,8 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -224,6 +236,8 @@ disappearTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[disappearTextStyle](#disappeartextstyle18)18+相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -250,6 +264,8 @@ textStyle(value: PickerTextStyle)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -274,6 +290,8 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。与[textStyle10+](#textstyle10)相比，style参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -300,6 +318,8 @@ textStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -325,6 +345,8 @@ selectedTextStyle(value: PickerTextStyle)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **设备行为差异：** 该属性在Wearable设备上使用无效果，在其他设备中可正常生效。
@@ -347,6 +369,8 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 设置选中项的文本颜色、字号、字体粗细。与[selectedTextStyle10+](#selectedtextstyle10)相比，style参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -371,6 +395,8 @@ selectedTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **设备行为差异：** 该属性在Wearable设备上使用无效果，在其他设备中可正常生效。
@@ -394,6 +420,8 @@ selectedIndex(value: number | number[])
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -414,6 +442,8 @@ selectedIndex(index: Optional<number | number[]>)
 设置选中项在数据选择列表中的索引值，优先级高于[TextPickerOptions](#textpickeroptions对象说明)中的"value"属性。单列数据选择器使用number类型，多列数据选择器使用number[]类型。与[selectedIndex10+](#selectedindex10)相比，index参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -436,6 +466,8 @@ canLoop(value: boolean)
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -456,6 +488,8 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 设置是否可循环滚动。与[canLoop10+](#canloop10)相比，isLoop参数新增了对undefined类型的支持。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -480,6 +514,8 @@ divider(value: DividerOptions | null)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -503,6 +539,8 @@ divider(textDivider: Optional<DividerOptions | null>)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -523,6 +561,8 @@ gradientHeight(value: Dimension)
 设置渐隐效果的高度。若未设置该属性，则显示默认渐隐效果。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -545,6 +585,8 @@ gradientHeight(height: Optional&lt;Dimension&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -566,6 +608,8 @@ disableTextStyleAnimation(disabled: boolean)
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -586,6 +630,8 @@ defaultTextStyle(style: TextPickerTextStyle)
 设置关闭滑动过程中文本样式变化的动效时，各个选项的文本样式。仅当[disableTextStyleAnimation](#disabletextstyleanimation15)为true时生效。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -618,6 +664,8 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -649,6 +697,8 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -673,6 +723,8 @@ selectedBackgroundStyle(style: Optional&lt;PickerBackgroundStyle&gt;)
 设置选中项的背景样式。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -729,6 +781,8 @@ onChange(callback: Optional&lt;OnTextPickerChangeCallback&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -755,6 +809,8 @@ onScrollStop(callback: TextPickerScrollStopCallback)
 
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -783,6 +839,8 @@ onScrollStop(callback: Optional&lt;TextPickerScrollStopCallback&gt;)
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -807,6 +865,8 @@ onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback)
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -870,6 +930,8 @@ onCancel(callback: () => void)
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -890,6 +952,8 @@ type OnTextPickerChangeCallback = (selectItem: string | string[], index: number 
 定义触发onChange事件的回调类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -913,6 +977,8 @@ type TextPickerScrollStopCallback = (value: string | string[], index: number | n
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -935,6 +1001,8 @@ type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: num
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -954,6 +1022,8 @@ type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: num
 选择器选中项的背景样式，包括选中项的背景颜色和边框圆角半径。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1067,7 +1137,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/4cgiGm4BT12XR4JCcW6Zjg/zh-cn_image_0000002611755779.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=25DAD8C07FA22F0F1818F51037479A1338E8FA94E7F32A9004DD81D9474AAC0E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/abzDUe_iSpuSFlisVNDnQg/zh-cn_image_0000002659221759.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=2B8A19869ED91C31CF9CDFA1A665E7F94E0AFAADB614AA0870B60B5A62F73C4E)
 
 
 
@@ -1109,7 +1179,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/0-TKpboxQxO63M6R7YNhAg/zh-cn_image_0000002581435842.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=9C90761DCE4C6790E943F3394037BCBB4375100BEA060EABEE12C8434DAB5667)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/AWO4RKLDSVyIXxslIbIMEw/zh-cn_image_0000002628702570.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=5B59F4378E1676D5C6CCAF1FE6C1B77324545CB5A53CAABEE92A2733F6A979A8)
 
 
 
@@ -1145,7 +1215,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/aWbQFarvTLiM1Jw24Nhiug/zh-cn_image_0000002611835673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=92A852904E78863887192A3CC328F7B2F7E7809660932B670CF10C6512149FB2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/NXqviiCdQdGSpB8ImNkLcg/zh-cn_image_0000002659101797.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=E79E716B45BCB16FE0568028CEB9147ADC77E5BE1FD14A54B0FDBE5C58C7F133)
 
 
 
@@ -1186,7 +1256,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/oda7csD2RLGMFhi3rRJk5Q/zh-cn_image_0000002581275924.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=BC915EF1BA46B0CB1899585B866DC8DA4862369DFC9CC45EC0B49ECE3E3BFB32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/jipuOoIVRtSeRw8VNi3oUw/zh-cn_image_0000002628862448.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=74BCD48439559B021DB708061F55CACF7261DAD584144D52731D820DA1C6043B)
 
 
 
@@ -1222,7 +1292,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/M4oDmbruRHuivkl7XXBNhg/zh-cn_image_0000002611755781.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=D7319634C064F5456EEC102D90786696EC4B8055098273DE2FD1DFF3B31E207D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/cJWqN4cSTs2k9Sd2f0c3CA/zh-cn_image_0000002659221761.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=ABEDB67DB8C9A6BA556F3E18129636713E7645F6A973E98F6A19CF94E8ED526E)
 
 
 
@@ -1255,7 +1325,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/rmaP29RMSYibleeeQX1Z2w/zh-cn_image_0000002581435844.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=173D14721F457BDD896904A555958410B4897455DE9D9C22F1DCB2B2FD9BA105)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/NZPee742T8qRGIGil0yqqQ/zh-cn_image_0000002628702572.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=359D9E29608004297ACCEFBE74392EF85D8FE04A05099140A68DFC7E5C7B2D7C)
 
 
 
@@ -1299,7 +1369,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/EENMH4jySD61vwYNsB3SUw/zh-cn_image_0000002611835675.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=2D09BC50DF25F3A064815E233383D470606CD1C0A9C83576EC1B03076D9A0B69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/tCAKJygTRK29DtRYDOkVqg/zh-cn_image_0000002659101799.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=F19540E195148F0B9C6D5C9A3BEF6F2AA7951D3DB92C7D5AA02763770BC6C3E4)
 
 
 
@@ -1331,7 +1401,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/iJK-pwrfT8yN5BRQLujqTg/zh-cn_image_0000002581275926.png?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=6C8D18E457EC64B55C36EEDFA92E889C8157214098849CE7CA1A9817EB6D1F4C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/JsZ6suMDTEW0hr-d5_zaGA/zh-cn_image_0000002628862450.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=C16A5DB1B35B083FADB5722759D4DE47C340C1ED385BB2ADC376C413951779D5)
 
 
 
@@ -1372,7 +1442,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/tdfShiqlT3KRgNZaEJENXQ/zh-cn_image_0000002611755783.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=1FFDF79245CDFEFB563661DE2B7A13C1330ED9D71901059A638E37CA655A8743)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/EpX14TgLRBKOiE2be81FiQ/zh-cn_image_0000002659221763.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=9EEF37C509AEA1331CECBBF63A61C13717252E082204080D3CEFF8C2E1E7176B)
 
 
 
@@ -1438,7 +1508,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/3iAOIuP4QmiMl5isLkOnXg/zh-cn_image_0000002581435846.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=DE0FFF4E0A8ECA4B290D9438DD9E815E4B3BB4EC60EF7A90BDD1C2099F9DAAB0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/EOOW5yn7QV6V4FhdychsZw/zh-cn_image_0000002628702574.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=77CF12C91C5B35A043C6B34DED1068C1EC9A0A45FEDCE215B6AAE7EF62F4CB5B)
 
 
 
@@ -1490,4 +1560,4 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/_vujWthvTsS0RPW6t59tRw/zh-cn_image_0000002611835677.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025553Z&HW-CC-Expire=86400&HW-CC-Sign=5A5FBE3D7224C7B85F5005A5CC38B72B6F300CFBDA32C15780921EAFF3AC107E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/d3FLNZbbQB-oxLIXpTgrvQ/zh-cn_image_0000002659101801.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=55645943B44A6451E21CCF62CCD7480F09F0606D9A13EB1D2009168574F69ADE)

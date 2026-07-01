@@ -1,6 +1,6 @@
 # 显式动画立即下发 (animateToImmediately)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animatetoimmediately
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ animateToImmediately接口用来提供[显式动画](https://developer.huawei.co
 因此，建议开发者优先使用[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)，以防止干扰框架的显示时序，避免在动画启动时因状态设置不完整而导致的显示错误。
  
 > [!NOTE]
-> 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -109,4 +109,4 @@ struct AnimateToImmediatelyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Ic2aexr9SXa6nv2_ZMPmLg/zh-cn_image_0000002581436170.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025532Z&HW-CC-Expire=86400&HW-CC-Sign=EED87C60E5D41F0A17197375E49A95AF9920749F829409C462B1A3D1CE42CCDF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/n9pjGw7eQieI6AYP8Ci-wg/zh-cn_image_0000002659222097.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=5A42F99AE36AF178A487C0AA743C8B0527724D0C695D5231A10F4981989BBD03)

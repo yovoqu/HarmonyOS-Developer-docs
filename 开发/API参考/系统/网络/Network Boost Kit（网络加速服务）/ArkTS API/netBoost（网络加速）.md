@@ -1,6 +1,6 @@
 # netBoost（网络加速）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netboost
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,7 +32,7 @@ setSceneDesc(sceneDesc : SceneDesc): void
  
 **需要权限：** ohos.permission.INTERNET
  
-**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -204,7 +204,7 @@ try {
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -346,7 +346,7 @@ Socket文件描述符。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
-**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  

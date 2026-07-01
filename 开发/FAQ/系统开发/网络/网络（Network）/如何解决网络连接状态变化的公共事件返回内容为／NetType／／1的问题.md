@@ -1,6 +1,6 @@
 # 如何解决网络连接状态变化的公共事件返回内容为"NetType":1的问题
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-60
 
@@ -10,14 +10,14 @@
  
 代码示例如下：
  
-```ArkTS
+```json
 import { connection } from '@kit.NetworkKit';
 import { BusinessError, commonEventManager } from '@kit.BasicServicesKit';
 
 function  listen_network() {
   let netSpecifier: connection.NetSpecifier = {
     netCapabilities: {
-      //Assuming the current default network is WiFi, a cellular network connection needs to be created, and the network type can be specified as cellular network
+      <em>// Assuming the current default network is WiFi, a cellular network connection needs to be created, and the network type can be specified as cellular network</em>
       bearerTypes: [connection.NetBearType.BEARER_CELLULAR, connection.NetBearType.BEARER_WIFI],
     },
   };
@@ -27,45 +27,45 @@ function  listen_network() {
     console.warn('register Network ' + JSON.stringify(err))
   });
 
-  // Subscription event, network available
+  <em>// Subscription event, network available</em>
   conn.on('netAvailable', ((data: connection.NetHandle) => {
     console.warn('Network available, netId is ' + data.netId);
   }));
 
-  // Subscription event, network available
+  <em>// Subscription event, network available</em>
   conn.on('netCapabilitiesChange', ((data: connection.NetCapabilityInfo) => {
     console.warn('Network netCapabilitiesChange bearerTypes ' + data.netCap.bearerTypes);
     console.warn('Network netCapabilitiesChange networkCap ' + data.netCap.networkCap);
   }));
 
-  // Subscription event, network unavailable
+  <em>// Subscription event, network unavailable</em>
   conn.on('netUnavailable', ((data: void) => {
     console.warn('The network is unavailable, data is ' + JSON.stringify(data));
   }));
 
-  // Subscription event, network disconnection
+  <em>// Subscription event, network disconnection</em>
   conn.on('netLost', ((data: connection.NetHandle) => {
     console.warn('Network lost, netId is ' + data.netId);
   }));
 }
 
-// After monitoring an event, it is necessary to obtain the network status through a network interface
+<em>// After monitoring an event, it is necessary to obtain the network status through a network interface</em>
 function sub_network() {
   console.warn('into sub_network')
-  // Public event monitoring code:
+  <em>// Public event monitoring code:</em>
   let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
-    // Subscription message exception public event
+    <em>// Subscription message exception public event</em>
     events: ['usual.event.CONNECTIVITY_CHANGE']
   }
 
-  // Create subscriber callback
+  <em>// Create subscriber callback</em>
   commonEventManager.createSubscriber(subscribeInfo, (err: BusinessError, subscriber: commonEventManager.CommonEventSubscriber) => {
     if (err) {
       console.warn(`Failed to create netWorkSubscribeInfo. Code is ${err.code}, message is ${err.message}`);
       return;
     }
     if (subscribeInfo && subscribeInfo != null) {
-      // Subscribe to public event callbacks
+      <em>// Subscribe to public event callbacks</em>
       commonEventManager.subscribe(subscriber, (err: BusinessError, data: commonEventManager.CommonEventData) => {
         if (err) {
           console.warn(`Failed to netWorkSubscribe common event. Code is ${err.code}, message is ${err.message}`);
@@ -78,7 +78,7 @@ function sub_network() {
             console.log(JSON.stringify(error))
             console.log(JSON.stringify(data))
           }) }, 500);
-        // The log printed here is{'NetType':1,'moduleName':''}
+        <em>// The log printed here is{'NetType':1,'moduleName':''}</em>
       })
     }
   })

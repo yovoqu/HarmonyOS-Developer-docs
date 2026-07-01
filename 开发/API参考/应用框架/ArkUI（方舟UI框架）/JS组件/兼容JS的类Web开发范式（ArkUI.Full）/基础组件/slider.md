@@ -1,6 +1,6 @@
 # slider
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-slider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -101,4 +101,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/X46Fyh7zQrec3mMGWQ9UTQ/zh-cn_image_0000002581436340.png?HW-CC-KV=V1&HW-CC-Date=20260528T025438Z&HW-CC-Expire=86400&HW-CC-Sign=1D15A8BC659AD9712F1390DFDA4EEF346CEE9B3D13C22C6BFD41C94B3DB99BD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/S3nNUCdNQ_OuYmvObK1XSw/zh-cn_image_0000002659102303.png?HW-CC-KV=V1&HW-CC-Date=20260701T014403Z&HW-CC-Expire=86400&HW-CC-Sign=770B9259CB0FB73BDBA05A6F40405236422C8066A4B4E380AE287C5CE244FE08)

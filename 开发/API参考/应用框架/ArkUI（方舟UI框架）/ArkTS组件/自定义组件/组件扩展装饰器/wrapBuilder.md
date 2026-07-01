@@ -1,6 +1,6 @@
 # wrapBuilder
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-wrapbuilder
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 使用wrapBuilder封装全局@Builder，可以帮助维护代码。开发指南见[wrapBuilder：封装全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder)。
 
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。 后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 11开始支持。 本模块接口仅可在Stage模型下使用。 后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
 

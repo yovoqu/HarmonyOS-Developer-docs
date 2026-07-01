@@ -1,6 +1,6 @@
 # 如何实现Tabs切换页签，强制重新刷新页面数据
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-468
 
@@ -14,7 +14,7 @@
  
 请参考如下示例：
  
-```ArkTS
+```text
 import { SubTabContent } from './SubTabContent'
 import { emitter } from '@kit.BasicServicesKit'
 
@@ -70,11 +70,11 @@ export struct TabContentExample {
         this.currentIndex = index
         this.selectedIndex = index
         if (index === 0) {
-          // 事件携带的数据
+         <em> // 事件携带的数据</em>
           let eventData: emitter.EventData = {
             data: {}
           };
-          // 通过emitter.emit('refreshTable')发送指定的事件
+         <em> // 通过emitter.emit('refreshTable')发送指定的事件</em>
           emitter.emit("refreshTable", eventData);
         }
       })
@@ -82,7 +82,7 @@ export struct TabContentExample {
         if (index === targetIndex) {
           return
         }
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+        <em>// selectedIndex控制自定义TabBar内Image和Text颜色切换</em>
         this.selectedIndex = targetIndex
       })
       .width('100%')
@@ -103,7 +103,7 @@ export struct TabContentExample {
  
 请参考如下代码：
  
-```ArkTS
+```text
 import { emitter } from '@kit.BasicServicesKit';
 
 @Component
@@ -111,7 +111,7 @@ export struct SubTabContent {
   @State counter: number = 0
 
   aboutToAppear(): void {
-    // Tabs子组件通过emitter.on('refreshTable')持续订阅该事件去刷新数据
+   <em> // Tabs子组件通过emitter.on('refreshTable')持续订阅该事件去刷新数据</em>
     emitter.on("refreshTable", () => {
       this.counter += 1
     });

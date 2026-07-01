@@ -1,6 +1,6 @@
 # base64字符串如何转为图片并保存
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-library-3
 
@@ -8,18 +8,18 @@
  
 参考代码如下：
  
-```ArkTS
+```text
 import { buffer } from '@kit.ArkTS';
 import { fileIo } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
 import { fileUri } from "@kit.CoreFileKit";
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-// In the utility class, retrieve the Context from the Entry Ability and save it to AppStore, then use AppStore to retrieve it in the utility class
+<em>// In the utility class, retrieve the Context from the Entry Ability and save it to AppStore, then use AppStore to retrieve it in the utility class</em>
 let context = AppStorage.get("context") as UIContext;
 let filesDir = context.getHostContext()!.filesDir;
 
-// Data is the base64 string that needs to be converted, and returns the sandbox path URI
+<em>// Data is the base64 string that needs to be converted, and returns the sandbox path URI</em>
 export async function writeFile(data: string): Promise<string> {
   let uri = ''
   try {

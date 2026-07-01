@@ -1,6 +1,6 @@
 # NavDestination
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -109,6 +109,33 @@ hideTitleBar(hide: boolean, animated: boolean)
 | --- | --- | --- | --- |
 | hide | boolean | 是 | 是否隐藏标题栏。 默认值：false true：隐藏标题栏。 false：显示标题栏。 |
 | animated | boolean | 是 | 设置是否使用动画显隐标题栏。 默认值：false true：使用动画显示隐藏标题栏。 false：不使用动画显示隐藏标题栏。 |
+
+
+
+
+#### fullScreenOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+fullScreenOverlay(fullScreenOverlay: Optional&lt;boolean&gt;)
+
+设置NavDestination是否以全屏覆盖模式显示。
+
+当参数设置为true时，在Navigation分栏模式下，当前页面会覆盖整个Navigation容器，包括NavBar和内容区。该配置作用于当前NavDestination的所有实例；当路由栈中已有页面以全屏覆盖模式显示时，其后入栈的[DIALOG](#navdestinationmode枚举说明11)页面与未设置fullScreenOverlay为false的[STANDARD](#navdestinationmode枚举说明11)页面也会继承为全屏覆盖显示。未通过该接口设置时，NavDestination默认是普通显示模式，遵循Navigation分栏显示规则。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| fullScreenOverlay | Optional&lt;boolean&gt; | 是 | 是否以全屏覆盖模式显示。 true：全屏覆盖模式，覆盖整个Navigation容器。 false：普通显示模式，遵循Navigation分栏显示规则。指定为false的STANDARD类型页面不会继承全屏显示。 undefined：普通显示模式，遵循Navigation分栏显示规则。指定为undefined的页面会继承全屏显示。 |
 
 
 
@@ -776,7 +803,7 @@ onBackPressed(callback: () => boolean)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-onReady(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)<[NavDestinationContext](#navdestinationcontext11)>)
+onReady(callback: import('../api/@ohos.base').Callback<[NavDestinationContext](#navdestinationcontext11)>)
 
 当NavDestination即将构建子组件之前会触发此回调。
 
@@ -792,7 +819,7 @@ onReady(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/harmon
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;NavDestinationContext&gt; | 是 | 当NavDestination即将构建子组件之前会触发此回调。 |
+| callback | import('../api/@ohos.base').Callback&lt;NavDestinationContext&gt; | 是 | 当NavDestination即将构建子组件之前会触发此回调。 |
 
 
 
@@ -1104,7 +1131,7 @@ NavDestination自定义转场动画的代理函数。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type Orientation = Orientation
+type Orientation = import('../api/@ohos.window').default.Orientation
 
 Orientation实例对象。
 
@@ -1114,7 +1141,7 @@ Orientation实例对象。
 
 | 类型 | 说明 |
 | --- | --- |
-| Orientation | 返回Orientation实例对象。 |
+| import('../api/@ohos.window').default.Orientation | 返回Orientation实例对象。 |
 
 
 
@@ -1270,7 +1297,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/4uVXEvnFQtyDLVjvTwtLgQ/zh-cn_image_0000002617669935.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=05E3E0C9DAD63BAC66FE08E06471B48C731969723BAEB85EF401930F32C80ED6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/DHZtidDtRo2tiDVZPHGrZw/zh-cn_image_0000002628862406.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=54D68EF5B4651C30B0EB776A8B2D0C02612BB8D5FCB6BA37BC1016A6C78CD567)
 
 
 
@@ -1416,7 +1443,7 @@ struct NavDest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/2n81LkUbSd2-Az32jHmIMQ/zh-cn_image_0000002587270156.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=CBF4CF672D0EACC3CD0758822C7E4B88EA899374ABA1DB891630AEB99ABE628F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/9QQVMm-LQbCoT8AwJRK5vg/zh-cn_image_0000002659221719.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=1AA2456D5CD8F7B441E43C624B8F9E1B09C2418755102FCFD80763590023BDBD)
 
 
 
@@ -1668,19 +1695,19 @@ struct HomeBody {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/BnG30vi5S1-C_R-0RKGuWA/zh-cn_image_0000002617709837.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=C18FAA7B0D02420563C7DBB9F43D2C5AB9E624E8F4A985B87A715EA19A1D3B17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/bc2Eb09sQ6yl4NMAtDyN3w/zh-cn_image_0000002628702530.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=C5220CB581F934AEBCC624E8AE4EE9EF6FA13B567AA035F45473B99BAF789FF3)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/FPoGHxQXRjGuSDiyQY52aQ/zh-cn_image_0000002587110256.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=0EB41D6F5634FA80A5F0B8C862E22305150F32A2613BECD652F854F5F3C45ED1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/6SqdfILISdGg_ewHo-gAzg/zh-cn_image_0000002659101757.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=93CC2AF7DD69473A90C8DFEE9E9701F2CAAE018BB4F65DDC724D6448BFCA4274)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/-VO_al3_QDa7zmb6B7unjg/zh-cn_image_0000002617669939.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=66DD9840E8B8D6FA9EF636A3BDDC45592514270801AA6D8DCC02E8A6829DDC05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/y2_VEWTdSyuLWIugpO3QCQ/zh-cn_image_0000002628862408.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=1D9C2793D6D483BF586329D724AA00C3A31A664A1EAC6223D2A2612CB58FBFFA)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/DuowfNQVRcav_gA7kA0EWA/zh-cn_image_0000002587270158.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=F2DF453722B9B7F75D7623289E372812791DE1551F58583BAC5C32EE4D9E9003)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/YVGcf-1jS6GMuelkIAlKDw/zh-cn_image_0000002659221721.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=3945E5B729BC4AA720B0014C360C138E11A9772BDACBB2294142E634C32CE70B)
 
 
 
@@ -1775,7 +1802,7 @@ struct ExamplePage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/p8EFXCIsRNGJSrRCMiZHBw/zh-cn_image_0000002617709839.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=D37C59A97D50BB78D3989208092E4D9C63DDD67660CFD468DD6F56EE3F021729)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/NBy9r1KvSSu5IPMJBVuY2Q/zh-cn_image_0000002628702532.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=804327DFE031D7652203C3EEFE03D63C51713DA74D62024DC5E233488DA787CA)
 
 
 
@@ -1996,7 +2023,7 @@ struct NavBody {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/2dLmXU3rSWuMhGskC2VAtA/zh-cn_image_0000002587110258.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=A9F3C975177FD35BEBD379F36F154BF7536B1F6F117F7655200DDD81284C9157)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/axJD3meQQ2OWQ0Ldbm686w/zh-cn_image_0000002659101759.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=C959CEB11429EAA571976BEFF36BF742B73527B4163DDE4EBB15441A3AB15EAF)
 
 
 NavDestination其他用法可参考[Navigation示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例)。

@@ -1,6 +1,6 @@
 # Worker简介
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction
 
@@ -593,7 +593,7 @@ import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit
 // 子Worker与父Worker通信的对象
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
-// 接收子Worker返回的消息
+// 子Worker接收返回的消息
 workerPort.onmessage = (e: MessageEvents) => {
   console.info('子Worker收到信息 ' + e.data);
 }

@@ -1,6 +1,6 @@
 # Transferable对象 (NativeBinding对象)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/transferabled-object
 
@@ -45,11 +45,11 @@ struct Index {
   @State message: string = 'Hello World';
   @State pixelMap: PixelMap | undefined = undefined;
 
-  private loadImageFromThread(): void {
+  private async loadImageFromThread(): Promise<void> {
     const resourceMgr = this.uiContext?.getHostContext()?.resourceManager;
     // 此处‘startIcon.png’为media下复制到rawfile文件夹中，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
-    resourceMgr?.getRawFd('startIcon.png').then(rawFileDescriptor => {
-      taskpool.execute(loadPixelMap, rawFileDescriptor).then(pixelMap => {
+    await resourceMgr?.getRawFd('startIcon.png').then(async rawFileDescriptor => {
+      await taskpool.execute(loadPixelMap, rawFileDescriptor).then(pixelMap => {
         if (pixelMap) {
           this.pixelMap = pixelMap as PixelMap;
           console.info('Succeeded in creating pixelMap.');
@@ -77,8 +77,12 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
         .onClick(() => {
-          this.loadImageFromThread();
-          this.message = 'success';
+          this.loadImageFromThread().then(() => {
+            this.message = 'success';
+          }).catch((e: BusinessError) => {
+            this.message = 'failed';
+            console.error('taskpool execute loadImageFromThread failed. Code: ' + e.code + ', message: ' + e.message);
+          })
         })
     }
     .height('100%')

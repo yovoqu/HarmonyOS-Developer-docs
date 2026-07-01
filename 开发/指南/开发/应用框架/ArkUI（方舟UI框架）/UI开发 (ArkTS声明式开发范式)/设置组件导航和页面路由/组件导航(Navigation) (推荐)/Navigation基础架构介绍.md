@@ -1,6 +1,6 @@
 # Navigation基础架构介绍
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture
 
@@ -81,7 +81,7 @@ Navigation组件主要包含导航栏（NavBar）和子页（NavDestination）�
 
 Navigation子页面的根容器，每个子页面都需要包裹在一个NavDestination中，通过NavPathStack提供的栈操作方法（push、pop等）将子页面挂载到Navigation上显示或删除。
 
-NavDestination作为页面根容器，除了支持普通组件的通用属性外，还支持页面相关的属性，如：[页面的生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#事件)，页面[工具栏](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#toolbarconfiguration13)、[标题栏](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#title)与[菜单栏](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#menus12)，[自定义页面转场动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#customtransition15)，页面级窗口属性控制（横竖屏、系统状态栏、系统导航条）等能力。
+NavDestination作为页面根容器，除了支持普通组件的通用属性外，还支持页面相关的属性，如：页面的生命周期[事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#事件)，页面工具栏[toolbarConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#toolbarconfiguration13)、标题栏[title](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#title)与菜单栏[menus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#menus12)，自定义页面转场动画[customTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#customtransition15)，页面级窗口属性控制（横竖屏、系统状态栏、系统导航条）等能力。
 
 
 
@@ -182,7 +182,7 @@ struct NavigationDemo {
 }
 ```
 
- - 方式二：从API version 20开始，使用[主页类型NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigation20)将某个NavDestination直接指定为导航栏内容，此方法需要配置路由表，配置方式请参考[路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#路由表能力对比)。
+ - 方式二：从API version 20开始，使用[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigation20)将某个NavDestination直接指定为导航栏内容，此方法需要配置路由表，配置方式请参考[路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#路由表能力对比)。
 
 
 
@@ -312,7 +312,7 @@ let menuItem: NavigationMenuItem  = {
 **图8** 工具栏
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/pP2aX4v7TIC4flk_u8ZBsw/zh-cn_image_0000002656347561.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=72CA55DB82932102C2B2D8AFCED195AF08A032B72238909271291B8D0B70BE49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/f9GmVLc9S1yN1y5ZUzqrvg/zh-cn_image_0000002659219487.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=0E580E0B2F2FCD37DC93C1CA8383131B701E2B912D5228BC4CBF6897C0327B52)
 
 
 ```ArkTS

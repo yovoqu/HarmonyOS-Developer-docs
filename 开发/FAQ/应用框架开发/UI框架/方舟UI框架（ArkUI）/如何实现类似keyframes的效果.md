@@ -1,12 +1,12 @@
 # 如何实现类似keyframes的效果
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-157
 
 可以通过设置动画的延迟播放时间（delay）或在onFinish回调中启动新动画来实现类似效果。参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct AnimateToExample {
@@ -25,7 +25,7 @@ struct AnimateToExample {
         .opacity(this.opacityValue)
         .onClick(() => {
           if (this.flag) {
-            // Implement multi-stage animations by animateTo
+          <em>  // Implement multi-stage animations by animateTo</em>
             this.getUIContext().animateTo({
               duration: 2000,
               curve: Curve.EaseOut,
@@ -40,12 +40,12 @@ struct AnimateToExample {
                   onFinish: () => {
                   }
                 }, () => {
-                  // Second stage, opacityValue becomes 0.2
+               <em>   // Second stage, opacityValue becomes 0.2</em>
                   this.opacityValue = 0.2;
                 })
               }
             }, () => {
-              // First stage, opacityValue becomes 0.5 
+             <em> // First stage, opacityValue becomes 0.5 </em>
               this.opacityValue = 0.5;
             })
           }

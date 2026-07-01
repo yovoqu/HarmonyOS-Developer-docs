@@ -1,6 +1,6 @@
 # Interface (WindowStage)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -231,7 +231,7 @@ createSubWindow(name: string, callback: AsyncCallback&lt;Window&gt;): void
 
 创建该WindowStage实例下的子窗口，使用callback异步回调。
 
-子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -304,7 +304,7 @@ createSubWindow(name: string): Promise&lt;Window&gt;
 
 创建该WindowStage实例下的子窗口，使用Promise异步回调。
 
-子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -375,7 +375,7 @@ createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise&lt;
 
 创建该WindowStage实例下的子窗口，使用Promise异步回调。
 
-非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下，子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下，子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)。
 
 自由窗口状态下，子窗口参数[decorEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口创建后为非沉浸式布局。
 
@@ -1414,9 +1414,9 @@ on(eventType: 'windowStageClose', callback: Callback&lt;void&gt;): void
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+在HarmonyOS 6.1之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效。
+从HarmonyOS 6.1开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效。
 
 **参数：**
 
@@ -1479,9 +1479,9 @@ off(eventType: 'windowStageClose', callback?: Callback&lt;void&gt;): void
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用返回801错误码。
+在HarmonyOS 6.1之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效。
+从HarmonyOS 6.1开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效。
 
 **参数：**
 
@@ -1537,7 +1537,7 @@ export default class EntryAbility extends UIAbility {
 
 setDefaultDensityEnabled(enabled: boolean): void
 
-设置应用主窗口是否使用系统默认Density，子窗和系统窗口会跟随主窗生效。调用此接口前，需先调用[WindowStage.loadContent()](#loadcontent9)初始化布局，确保接口调用时序正确。
+设置应用主窗口是否使用系统默认Density，子窗和系统窗口会跟随主窗生效。调用此接口前，需先调用[WindowStage.loadContent()](#loadcontent9)或[WindowStage.loadContentByName()](#loadcontentbyname11)初始化布局，确保接口调用时序正确。
 
 不调用此接口进行设置，则表示不使用系统默认Density。
 
@@ -1610,7 +1610,7 @@ setCustomDensity(density: number): void
 
 已创建的子窗和系统窗口不会立即跟随主窗的customDensity变化重新布局，而是在子窗或系统窗口下一次位置、大小、系统缩放大小等窗口布局信息变化时跟随主窗的customDensity变化重新布局。
 
-当存在同时使用该接口和使用[setDefaultDensityEnabled()](#setdefaultdensityenabled12)接口传入true的情况时，以最后调用的设置效果为准。
+当存在同时使用该接口和使用setDefaultDensityEnabled()接口传入true的情况时，以最后调用的设置效果为准。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1668,7 +1668,7 @@ setCustomDensity(density: number, applyToSubWindow?: boolean): void
 
 支持应用主窗口自定义显示大小缩放系数，并设置已创建的子窗和系统窗口跟随主窗重新布局的生效时机。
 
-当存在同时使用该接口和使用[setDefaultDensityEnabled()](#setdefaultdensityenabled12)接口传入true的情况时，以最后调用的设置效果为准。
+当存在同时使用该接口和使用setDefaultDensityEnabled()接口传入true的情况时，以最后调用的设置效果为准。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1734,7 +1734,7 @@ setWindowModal(isModal: boolean): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备中可正常调用；在支持但不处于自由窗口状态的设备中返回801错误码；在不支持自由窗口状态的设备中返回801错误码。
+**设备行为差异：** 该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备中可正常调用；在支持但不处于自由窗口状态的设备中返回801错误码；在不支持自由窗口状态的设备中返回801错误码。
 
 **参数：**
 
@@ -1884,9 +1884,9 @@ setWindowRectAutoSave(enabled: boolean): Promise&lt;void&gt;
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 6.1之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效。
+从HarmonyOS 6.1开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效。
 
 **参数：**
 
@@ -1973,9 +1973,9 @@ setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 6.1之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错不生效。
+从HarmonyOS 6.1开始，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效，切换到[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态后生效；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错不生效。
 
 **参数：**
 
@@ -2048,9 +2048,9 @@ isWindowRectAutoSave(): Promise&lt;boolean&gt;
 
 **设备行为差异：**
 
-在HarmonyOS 6.1.0之前，该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+在HarmonyOS 6.1之前，该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-从HarmonyOS 6.1.0开始，该接口在支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备正常调用；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备调用不报错，返回false。
+从HarmonyOS 6.1开始，该接口在支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备正常调用；在不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备调用不报错，返回false。
 
 **返回值：**
 
@@ -2098,6 +2098,179 @@ export default class EntryAbility extends UIAbility {
 
 
 
+#### setImageForRecent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setImageForRecent(imageResource: number | image.PixelMap, value: ImageFit): Promise&lt;void&gt;
+
+设置应用在多任务中和Dock栏悬停时显示的图片，使用Promise异步回调。
+
+> [!NOTE]
+> 调用该接口前，建议先通过 loadContent 方法或者 setUIContent 方法完成页面加载。如果应用窗口未完成页面加载就直接调用该接口，功能将不会生效。此时多任务中只显示应用启动页。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Window.SessionManager
+
+**需要权限：** ohos.permission.MANAGE_RECENT_SNAPSHOT
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| imageResource | number \| image.PixelMap | 是 | 应用自定义的图片资源，可传入资源id或PixelMap位图。传入资源id时，图片资源需放在resources/base/media目录下，通过$r资源访问方式获取对应图片的资源id，这里以获取startIcon图片的资源id为例给出示意：\$r("app.media.startIcon").id。 |
+| value | ImageFit | 是 | 应用自定义图片的填充方式。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission verification failed. The application does not have the permission required or a non-system application calls the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 1300002 | This window state is abnormal. |
+| 1300003 | This window manager service works abnormally. |
+| 1300016 | Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length. |
+
+
+**示例：**
+
+```json
+import { UIAbility } from '@kit.AbilityKit';
+import { window } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { image } from '@kit.ImageKit';
+
+export default class EntryAbility extends UIAbility {
+  // ...
+
+  onWindowStageCreate(windowStage: window.WindowStage) {
+    windowStage.loadContent('pages/Index', (err) => {
+      if (err.code) {
+        console.error('Failed to load the content. Cause: %{public}s', JSON.stringify(err));
+        return;
+      }
+      console.info('Succeeded in loading the content.');
+      let color = new ArrayBuffer(512 * 512 * 4); // 创建一个ArrayBuffer对象，用于存储图像像素。该对象的大小为（height * width * 4）字节。
+      let pixelMap: image.PixelMap;
+      let bufferArr = new Uint8Array(color);
+      for (let i = 0; i < bufferArr.length; i += 4) {
+        bufferArr[i] = 255;
+        bufferArr[i+1] = 0;
+        bufferArr[i+2] = 122;
+        bufferArr[i+3] = 255;
+      }
+      image.createPixelMap(color, {
+        editable: true, pixelFormat: image.PixelMapFormat.RGBA_8888, size: { height: 512, width: 512 }
+      }).then((data) => {
+        pixelMap = data;
+        console.info(`Succeeded in creating pixelMap`);
+        try {
+          let promise = windowStage.setImageForRecent(pixelMap, ImageFit.Fill);
+          promise.then(() => {
+            console.info(`Succeeded in setting image for recent`);
+          }).catch((err: BusinessError) => {
+            console.error(`Failed to set image for recent. Cause code: ${err.code}, message: ${err.message}`);
+          });
+        } catch (exception) {
+          console.error(`Failed to set image for recent.`);
+        }
+      })
+
+      let imgResourceId = $r("app.media.startIcon").id
+      try {
+        let promise2 = windowStage.setImageForRecent(imgResourceId, ImageFit.Fill);
+        promise2.then(() => {
+          console.info(`Succeeded in setting image for recent`);
+        }).catch((err: BusinessError) => {
+          console.error(`Failed to set image for recent. Cause code: ${err.code}, message: ${err.message}`);
+        });
+      } catch (exception) {
+        console.error(`Failed to set image for recent.`);
+      }
+    });
+  }
+};
+```
+
+
+
+#### removeImageForRecent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+removeImageForRecent(): Promise&lt;void&gt;
+
+移除应用设置的在多任务中和Dock栏悬停时显示的图片，下次进多任务查看应用卡片时生效，使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Window.SessionManager
+
+**需要权限：** ohos.permission.MANAGE_RECENT_SNAPSHOT
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission verification failed. The application does not have the permission required or a non-system application calls the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+| 1300002 | This window state is abnormal. |
+| 1300003 | This window manager service works abnormally. |
+
+
+**示例：**
+
+```text
+import { UIAbility } from '@kit.AbilityKit';
+import { window } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { image } from '@kit.ImageKit';
+
+export default class EntryAbility extends UIAbility {
+  // ...
+
+  onWindowStageCreate(windowStage: window.WindowStage) {
+    try {
+      let promise = windowStage.removeImageForRecent();
+      promise.then(() => {
+        console.info(`Succeeded in removing image for recent`);
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to remove image for recent. Cause code: ${err.code}, message: ${err.message}`);
+      });
+    } catch (exception) {
+      console.error(`Failed to remove image for recent.`);
+    }
+  }
+};
+```
+
+
+
 #### setSupportedWindowModes15+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2114,7 +2287,7 @@ setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowM
 
 **设备行为差异：**
 
-在HarmonyOS 6.0.2之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备中可正常调用；在支持但不处于自由窗口状态的设备中返回801错误码；在不支持自由窗口状态的设备中返回801错误码。
+在HarmonyOS 6.0.2之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备中可正常调用；在支持但不处于自由窗口状态的设备中返回801错误码；在不支持自由窗口状态的设备中返回801错误码。
 
 从HarmonyOS 6.0.2开始，该接口在支持并处于自由窗口状态的设备中可正常调用且立即生效；在支持但不处于自由窗口状态的设备中可正常调用，切换为自由窗口状态时生效；在不支持自由窗口状态的设备中返回801错误码。
 
@@ -2189,7 +2362,7 @@ setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowM
 
 **设备行为差异：**
 
-在HarmonyOS 6.0.2之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备中可正常调用；在支持但不处于自由窗口状态的设备中返回801错误码；在不支持自由窗口状态的设备中返回801错误码。
+在HarmonyOS 6.0.2之前，该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备中可正常调用；在支持但不处于自由窗口状态的设备中返回801错误码；在不支持自由窗口状态的设备中返回801错误码。
 
 从HarmonyOS 6.0.2开始，该接口在支持并处于自由窗口状态的设备中可正常调用且立即生效；在支持但不处于自由窗口状态的设备中可正常调用，切换为自由窗口状态时生效；在不支持自由窗口状态的设备中返回801错误码。
 

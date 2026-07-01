@@ -1,6 +1,6 @@
 # 针对API 12应用的变更
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-27 01:41:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-targeting-api12-b065
 
@@ -510,7 +510,7 @@ SystemCapability.Security.Huks.Core为必选基础能力，SystemCapability.Secu
 2. 新增输入法Extension与应用的主入口的共享沙箱，基础访问模式下输入法Extension对共享沙箱只读，完整访问模式下可读可写；应用的主入口对共享沙箱保持可读可写。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/Isest5YpSpioPIgetgnukQ/zh-cn_image_0000002117367217.png?HW-CC-KV=V1&HW-CC-Date=20260528T025821Z&HW-CC-Expire=86400&HW-CC-Sign=A8C99AAAFA528BE9C3AD3F9F3AA9A4596775B06C3157D3A27A10C3E91E5EB7DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/0fd2UnC7RfKtEiL6Fna1NQ/zh-cn_image_0000002117367217.png?HW-CC-KV=V1&HW-CC-Date=20260701T015208Z&HW-CC-Expire=86400&HW-CC-Sign=38872E83DD3C6544E639ACEC4243D8D3256B4B9254349B2F0E54D8A9F23E9497)
 
 3. 基础访问模式下，输入法应用Extension进程无法拉起其他Extension应用进程以及其他UIAbility。
 4. 基础访问模式下，输入法Extension进程会受到系统管控，不能使用涉及访问或泄漏用户个人数据的各种接口，同时无法将数据传递出进程。管控功能包括但不限于：网络、短信、电话、麦克风、定位、相机、蓝牙、壁纸、支付、日历、游戏、扬声器、Wi-Fi、剪切板、多媒体、联系人、公共事件、系统账号、健康数据、地图服务、推送服务、融合搜索、共享内存、分布式特性、广告设备标识等。

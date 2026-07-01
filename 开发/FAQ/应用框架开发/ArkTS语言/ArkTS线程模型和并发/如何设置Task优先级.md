@@ -1,12 +1,12 @@
 # 如何设置Task优先级
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-26
 
 设置任务优先级，示例如下：
  
-```ArkTS
+```text
 import { taskpool } from '@kit.ArkTS';
 
 @Concurrent

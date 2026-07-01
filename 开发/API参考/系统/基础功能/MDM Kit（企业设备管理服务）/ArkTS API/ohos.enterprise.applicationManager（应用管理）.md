@@ -1,6 +1,6 @@
 # @ohos.enterprise.applicationManager（应用管理）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-applicationmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -1627,7 +1627,7 @@ removeUserNonStopApps(admin: Want, applicationInstances: Array<common.Applicatio
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用无效果。
+**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用无效果。从API version 24开始，该接口在PC/2in1设备可正常调用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1696,7 +1696,7 @@ getUserNonStopApps(admin: Want): Array<common.ApplicationInstance>
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用无效果。
+**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用无效果。从API version 24开始，该接口在PC/2in1设备可正常调用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

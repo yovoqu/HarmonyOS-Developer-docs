@@ -1,6 +1,6 @@
-# 如何使用SM3算法进行消息鉴别码计算
+# 如何使用SM3算法进行消息认证码计算
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-24
 
@@ -12,7 +12,7 @@
  
 核心代码如下：
  
-```ArkTS
+```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
@@ -37,7 +37,7 @@ struct Hmac {
   }
 }
 
-// Convert understandable strings into byte streams
+<em>// Convert understandable strings into byte streams</em>
 function stringToUint8Array(str: string) {
   let arr = new Uint8Array(str.length);
   for (let i = 0, j = str.length; i < j; ++i) {

@@ -1,16 +1,15 @@
 # 如何通过key获取对象值
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-108
 
 ArkTS中不支持通过索引访问字段，要使用索引的话可以考虑Record<key, value>，参考代码如下：
  
-```ArkTS
+```text
 class Student {
   data: Record<string, string> = { 'name': 'aaa', 'age': 'bbb' };
 }
-
 
 @Entry
 @Component

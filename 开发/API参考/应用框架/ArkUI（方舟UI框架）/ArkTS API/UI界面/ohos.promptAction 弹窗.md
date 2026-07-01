@@ -1,6 +1,6 @@
 # @ohos.promptAction (弹窗)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,6 +35,8 @@ openToast(options: ShowToastOptions): Promise&lt;number&gt;
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -129,6 +131,8 @@ closeToast(toastId: number): void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数**
@@ -168,15 +172,16 @@ Toast的选项。
 | message | string \| Resource | 否 | 否 | 显示的文本信息。 说明： 默认字体为'Harmony Sans'，不支持设置其他字体。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | duration | number | 否 | 是 | 设置Toast弹出的持续时间。 默认值：1500ms 取值范围：[1500, 10000] 若小于1500ms则取默认值，若大于10000ms则取上限值10000ms。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | bottom | string \| number | 否 | 是 | 设置Toast底部边框距离导航条的高度，软键盘拉起时，如果bottom值过小，Toast要被软键盘遮挡时，会自动避让至距离软键盘80vp处。 默认值：80vp 说明： 当底部没有导航条时，bottom为设置弹窗底部边框距离窗口底部的高度。 设置对齐方式alignment后，bottom不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| alignment12+ | Alignment | 否 | 是 | 对齐方式。 默认值：undefined，当未设置alignment且存在导航条或软键盘时，Toast会自动根据导航条或软键盘位置进行调整，可参考bottom的说明。 说明： 不同alignment下，Toast位置对齐效果，如下图所示。 Toast的文本显示默认自左向右，不支持其他对齐方式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| offset12+ | Offset | 否 | 是 | 在对齐方式上的偏移。 默认值：{ dx: 0, dy: 0 }，默认没有偏移。 说明： 仅支持设置px类型的数值。如需设置其他类型的数值，应将其他类型转换为px类型后传入。例如，若需设置vp，应将其转换为px后传入。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| showMode11+ | ToastShowMode | 否 | 是 | 设置Toast层级。 默认值：ToastShowMode.DEFAULT，默认显示在应用内。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundColor12+ | ResourceColor | 否 | 是 | Toast的背板颜色。 默认值：Color.Transparent 说明： backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| textColor12+ | ResourceColor | 否 | 是 | Toast的文本颜色。 默认值：Color.Black 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle12+ | BlurStyle | 否 | 是 | Toast的背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | Toast的背板阴影。 默认值：ShadowStyle.OUTER_DEFAULT_MD 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 响应悬停态时，弹窗的显示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN，默认显示在下半屏。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| alignment12+ | Alignment | 否 | 是 | 对齐方式。 默认值：undefined，当未设置alignment且存在导航条或软键盘时，Toast会自动根据导航条或软键盘位置进行调整，可参考bottom的说明。 说明： 不同alignment下，Toast位置对齐效果，如下图所示。 Toast的文本显示默认自左向右，不支持其他对齐方式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| offset12+ | Offset | 否 | 是 | 在对齐方式上的偏移。 默认值：{ dx: 0, dy: 0 }，默认没有偏移。 说明： 仅支持设置px类型的数值。如需设置其他类型的数值，应将其他类型转换为px类型后传入。例如，若需设置vp，应将其转换为px后传入。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| showMode11+ | ToastShowMode | 否 | 是 | 设置Toast层级。 默认值：ToastShowMode.DEFAULT，默认显示在应用内。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundColor12+ | ResourceColor | 否 | 是 | Toast的背板颜色。 默认值：Color.Transparent 说明： backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| textColor12+ | ResourceColor | 否 | 是 | Toast的文本颜色。 默认值：Color.Black 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundBlurStyle12+ | BlurStyle | 否 | 是 | Toast的背板模糊材质。 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | Toast的背板阴影。 默认值：ShadowStyle.OUTER_DEFAULT_MD 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 响应悬停态时，弹窗的显示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN，默认显示在下半屏。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置组件的系统材质。 默认值：如果主动设置了backgroundBlurStyle或backgroundColor接口，默认值是无系统材质效果，否则默认值是style为ImmersiveStyle.ULTRA_THICK的ImmersiveMaterial对象。设置undefined时与默认值保持一致。 说明： 不同系统材质对应不同的属性影响效果，该接口影响背景色backgroundColor、边框颜色borderColor、边框宽度borderWidth、阴影shadow，不建议与上述接口一起使用。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -188,6 +193,8 @@ Toast的选项。
 设置Toast的显示模式，默认显示在应用内，支持显示在子窗。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -212,26 +219,27 @@ Toast的选项。
 | title | string \| Resource | 否 | 是 | 标题文本。 默认值：undefined，取值为undefined默认不显示标题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | message | string \| Resource | 否 | 是 | 内容文本。 默认值：undefined，取值为undefined默认不显示内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | buttons | Array&lt;Button&gt; | 否 | 是 | 对话框中按钮的数组，结构为：{text:'button', color: '#666666'}，支持大于1个按钮。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| alignment10+ | DialogAlignment | 否 | 是 | 对话框在竖直方向上的对齐方式。 默认值：DialogAlignment.Default 说明： 若在UIExtension中设置showInSubWindow为true, 弹窗将基于UIExtension的宿主窗口对齐。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| offset10+ | Offset | 否 | 是 | 对话框相对alignment所在位置的偏移量。 默认值：{ dx: 0 , dy: 0 } 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| maskRect10+ | Rectangle | 否 | 是 | 对话框遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 说明： showInSubWindow为true时，maskRect不生效。 maskRect在设置Rectangle中的部分属性后，若未设置其余的属性，则其余属性的默认值为0。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| showInSubWindow11+ | boolean | 否 | 是 | 某对话框需要显示在主窗口之外时，是否在子窗口显示此对话框。值为true表示在子窗口显示对话框。 默认值：false，对话框显示在应用内，而非独立子窗口。 说明： showInSubWindow为true的对话框无法触发显示另一个showInSubWindow为true的对话框。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| isModal11+ | boolean | 否 | 是 | 对话框是否为模态窗口。值为true表示为模态窗口且有蒙层，不可与对话框周围其他控件进行交互，即蒙层区域无法事件透传。值为false表示为非模态窗口且无蒙层，可以与对话框周围其他控件进行交互。 默认值：true 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundColor12+ | ResourceColor | 否 | 是 | 对话框背板颜色。 默认值：Color.Transparent 说明： backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle12+ | BlurStyle | 否 | 是 | 对话框背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果。默认值请参考BackgroundBlurStyleOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。默认值请参考BackgroundEffectOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置对话框背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 说明： PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true时，可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通过设置hoverModeArea参数显示在上半屏。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 设置悬停态下对话框的默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| onWillAppear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变对话框显示效果的回调事件，二次弹出生效。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| onDidAppear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，关闭对话框时，onWillDisappear在onDidAppear前生效。 4.对话框入场动效未完成时彻底关闭对话框，动效打断，onDidAppear不会触发。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| onWillDisappear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| onDidDisappear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框消失后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| levelMode15+ | LevelMode | 否 | 是 | 设置对话框显示层级。 说明： - 默认值：LevelMode.OVERLAY - 当且仅当showInSubWindow属性设置为false时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| levelUniqueId15+ | number | 否 | 是 | 设置页面级对话框需要显示的层级下的节点UniqueID。 取值范围：大于等于0的数字。 说明： - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| immersiveMode15+ | ImmersiveMode | 否 | 是 | 设置页面内对话框蒙层效果。 说明： - 默认值：ImmersiveMode.DEFAULT - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| levelOrder18+ | LevelOrder | 否 | 是 | 设置对话框显示的顺序。 说明： - 默认值：LevelOrder.clamp(0) - 不支持动态刷新顺序。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| alignment10+ | DialogAlignment | 否 | 是 | 对话框在竖直方向上的对齐方式。 默认值：DialogAlignment.Default 说明： 若在UIExtension中设置showInSubWindow为true, 弹窗将基于UIExtension的宿主窗口对齐。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| offset10+ | Offset | 否 | 是 | 对话框相对alignment所在位置的偏移量。 默认值：{ dx: 0 , dy: 0 } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| maskRect10+ | Rectangle | 否 | 是 | 对话框遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 说明： showInSubWindow为true时，maskRect不生效。 maskRect在设置Rectangle中的部分属性后，若未设置其余的属性，则其余属性的默认值为0。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| showInSubWindow11+ | boolean | 否 | 是 | 某对话框需要显示在主窗口之外时，是否在子窗口显示此对话框。值为true表示在子窗口显示对话框。 默认值：false，对话框显示在应用内，而非独立子窗口。 说明： showInSubWindow为true的对话框无法触发显示另一个showInSubWindow为true的对话框。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isModal11+ | boolean | 否 | 是 | 对话框是否为模态窗口。值为true表示为模态窗口且有蒙层，不可与对话框周围其他控件进行交互，即蒙层区域无法事件透传。值为false表示为非模态窗口且无蒙层，可以与对话框周围其他控件进行交互。 默认值：true 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundColor12+ | ResourceColor | 否 | 是 | 对话框背板颜色。 默认值：Color.Transparent 说明： backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyle12+ | BlurStyle | 否 | 是 | 对话框背板模糊材质。 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果。默认值请参考BackgroundBlurStyleOptions类型说明。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。默认值请参考BackgroundEffectOptions类型说明。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置对话框背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| enableHoverMode14+ | boolean | 否 | 是 | 是否响应悬停态，值为true时，响应悬停态。 默认值：false，默认不响应。 说明： PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true时，可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通过设置hoverModeArea参数显示在上半屏。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| hoverModeArea14+ | HoverModeAreaType | 否 | 是 | 设置悬停态下对话框的默认展示区域。 默认值：HoverModeAreaType.BOTTOM_SCREEN 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| onWillAppear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变对话框显示效果的回调事件，二次弹出生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| onDidAppear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，关闭对话框时，onWillDisappear在onDidAppear前生效。 4.对话框入场动效未完成时彻底关闭对话框，动效打断，onDidAppear不会触发。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| onWillDisappear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| onDidDisappear19+ | Callback&lt;void&gt; | 否 | 是 | 对话框消失后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| levelMode15+ | LevelMode | 否 | 是 | 设置对话框显示层级。 说明： - 默认值：LevelMode.OVERLAY - 当且仅当showInSubWindow属性设置为false时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| levelUniqueId15+ | number | 否 | 是 | 设置页面级对话框需要显示的层级下的节点UniqueID，UniqueID可以通过getUniqueId获取。 取值范围：大于等于0的数字。 说明： - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| immersiveMode15+ | ImmersiveMode | 否 | 是 | 设置页面内对话框蒙层效果。 说明： - 默认值：ImmersiveMode.DEFAULT - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| levelOrder18+ | LevelOrder | 否 | 是 | 设置对话框显示的顺序。 说明： - 默认值：LevelOrder.clamp(0) - 不支持动态刷新顺序。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置弹窗的系统材质。 说明： - 默认值：ImmersiveOptions的style为ImmersiveStyle.ULTRA_THICK的ImmersiveMaterial对象。设置undefined时与默认值保持一致。 - 不同的材质具有不同的效果，该接口影响背景色backgroundColor、背景模糊backgroundBlurStyle、背景效果backgroundEffect、阴影shadow，不建议与上述接口一起使用。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -265,15 +273,16 @@ Toast的选项。
 | --- | --- | --- | --- | --- |
 | title | string \| Resource | 否 | 是 | 标题文本。 默认值：undefined，取值为undefined默认不显示标题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | buttons | [Button,Button?,Button?,Button?,Button?,Button?] | 否 | 否 | 菜单中菜单项按钮的数组，结构为：{text:'button', color: '#666666'}，支持1-6个按钮。按钮数量大于6个时，仅显示前6个按钮，之后的按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| showInSubWindow11+ | boolean | 否 | 是 | 某操作菜单需要显示在主窗口之外时，是否在子窗口显示此菜单。值为true表示在子窗口显示菜单。 默认值：false，在子窗口不显示菜单。 说明： - showInSubWindow为true的菜单无法触发显示另一个showInSubWindow为true的菜单。 - 若在UIExtension中设置showInSubWindow为true, 菜单将基于UIExtension的宿主窗口对齐。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| isModal11+ | boolean | 否 | 是 | 菜单是否为模态窗口。值为true表示为模态窗口且有蒙层，不可与菜单周围其他控件进行交互，即蒙层区域无法事件透传。值为false表示为非模态窗口且无蒙层，可以与菜单周围其他控件进行交互。 默认值：true 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| levelMode15+ | LevelMode | 否 | 是 | 设置菜单显示层级。 说明： - 默认值：LevelMode.OVERLAY - 当且仅当showInSubWindow属性设置为false时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| levelUniqueId15+ | number | 否 | 是 | 设置页面级菜单需要显示的层级下的节点UniqueID。 取值范围：大于等于0的数字。 说明： - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| immersiveMode15+ | ImmersiveMode | 否 | 是 | 设置页面内菜单蒙层效果。 说明： - 默认值：ImmersiveMode.DEFAULT - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| onWillAppear20+ | Callback&lt;void&gt; | 否 | 是 | 菜单显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| onDidAppear20+ | Callback&lt;void&gt; | 否 | 是 | 菜单弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.快速点击弹出，关闭菜单时，onWillDisappear在onDidAppear前生效。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| onWillDisappear20+ | Callback&lt;void&gt; | 否 | 是 | 菜单退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
-| onDidDisappear20+ | Callback&lt;void&gt; | 否 | 是 | 菜单消失后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| showInSubWindow11+ | boolean | 否 | 是 | 某操作菜单需要显示在主窗口之外时，是否在子窗口显示此菜单。值为true表示在子窗口显示菜单。 默认值：false，在子窗口不显示菜单。 说明： - showInSubWindow为true的菜单无法触发显示另一个showInSubWindow为true的菜单。 - 若在UIExtension中设置showInSubWindow为true, 菜单将基于UIExtension的宿主窗口对齐。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isModal11+ | boolean | 否 | 是 | 菜单是否为模态窗口。值为true表示为模态窗口且有蒙层，不可与菜单周围其他控件进行交互，即蒙层区域无法事件透传。值为false表示为非模态窗口且无蒙层，可以与菜单周围其他控件进行交互。 默认值：true 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| levelMode15+ | LevelMode | 否 | 是 | 设置菜单显示层级。 说明： - 默认值：LevelMode.OVERLAY - 当且仅当showInSubWindow属性设置为false时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| levelUniqueId15+ | number | 否 | 是 | 设置页面级菜单需要显示的层级下的节点UniqueID，UniqueID可以通过getUniqueId获取。 取值范围：大于等于0的数字。 说明： - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| immersiveMode15+ | ImmersiveMode | 否 | 是 | 设置页面内菜单蒙层效果。 说明： - 默认值：ImmersiveMode.DEFAULT - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| onWillAppear20+ | Callback&lt;void&gt; | 否 | 是 | 菜单显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| onDidAppear20+ | Callback&lt;void&gt; | 否 | 是 | 菜单弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 2.快速点击弹出，关闭菜单时，onWillDisappear在onDidAppear前生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| onWillDisappear20+ | Callback&lt;void&gt; | 否 | 是 | 菜单退出动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| onDidDisappear20+ | Callback&lt;void&gt; | 否 | 是 | 菜单消失后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>onWillDisappear>>onDidDisappear。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置弹窗的系统材质。 默认值：ImmersiveOptions的style为ImmersiveStyle.ULTRA_THICK的ImmersiveMaterial对象。设置undefined时与默认值保持一致。不同的材质具有不同的效果，可以影响弹窗的背景色、边框、阴影等视觉属性。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -303,6 +312,8 @@ Toast的选项。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -327,6 +338,8 @@ DialogController可作为UIContext弹出自定义弹窗的成员变量，具体�
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -338,6 +351,8 @@ DialogController可作为UIContext弹出自定义弹窗的成员变量，具体�
 公共控制器，可以控制promptAction相关组件。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -353,6 +368,8 @@ constructor()
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -367,6 +384,8 @@ close(): void
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -380,6 +399,8 @@ getState(): CommonState
 获取自定义弹窗的状态。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -400,6 +421,8 @@ getState(): CommonState
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
@@ -413,6 +436,8 @@ static clamp(order: number): LevelOrder
 创建指定顺序的弹窗层级。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -442,6 +467,8 @@ getOrder(): number
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
@@ -461,6 +488,8 @@ getOrder(): number
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -473,7 +502,7 @@ getOrder(): number
 | width | Dimension | 否 | 是 | 设置弹窗背板的宽度。 说明： - 默认最大值：400vp - 百分比参数方式：弹窗参考宽度基于所在窗口宽度调整。 |
 | height | Dimension | 否 | 是 | 设置弹窗背板的高度。 说明： - 默认最大值：0.9 *（窗口高度 - 安全区域）。 - 百分比参数方式：弹窗参考高度为（窗口高度 - 安全区域），在此基础上调小或调大。 |
 | shadow | DialogOptionsShadow | 否 | 是 | 设置弹窗背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。 |
-| backgroundBlurStyle | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 |
+| backgroundBlurStyle | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 |
 
 
 
@@ -487,6 +516,8 @@ type DialogOptionsCornerRadius = Dimension | BorderRadiuses
 表示弹窗背板的圆角半径允许的数据字段类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -508,6 +539,8 @@ type DialogOptionsBorderWidth = Dimension | EdgeWidths
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -527,6 +560,8 @@ type DialogOptionsBorderColor = ResourceColor | EdgeColors
 表示弹窗背板的边框颜色允许的数据字段类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -548,6 +583,8 @@ type DialogOptionsBorderStyle = BorderStyle | EdgeStyles
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -568,6 +605,8 @@ type DialogOptionsShadow = ShadowOptions | ShadowStyle
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 类型 | 说明 |
@@ -586,6 +625,8 @@ type DialogOptionsShadow = ShadowOptions | ShadowStyle
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -599,7 +640,7 @@ type DialogOptionsShadow = ShadowOptions | ShadowStyle
 | width12+ | Dimension | 否 | 是 | 设置弹窗背板的宽度。 说明： - 弹窗宽度默认最大值：400vp - 百分比参数方式：弹窗参考宽度基于所在窗口的宽度的基础上调整。 |
 | height12+ | Dimension | 否 | 是 | 设置弹窗背板的高度。 说明： - 弹窗高度默认最大值：0.9 *（窗口高度 - 安全区域）。 - 百分比参数方式：弹窗参考高度为（窗口高度 - 安全区域），在此基础上调小或调大。 |
 | shadow12+ | ShadowOptions \| ShadowStyle | 否 | 是 | 设置弹窗背板的阴影。 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。 |
-| backgroundBlurStyle12+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 |
+| backgroundBlurStyle12+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。 |
 
 
 
@@ -609,6 +650,8 @@ type DialogOptionsShadow = ShadowOptions | ShadowStyle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 弹窗的选项。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -636,10 +679,11 @@ type DialogOptionsShadow = ShadowOptions | ShadowStyle
 | backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。默认值请参考BackgroundEffectOptions类型说明。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | keyboardAvoidDistance15+ | LengthMetrics | 否 | 是 | 弹窗避让键盘后，和键盘之间距离。 说明： - 默认值：16vp - 默认单位：vp - 当且仅当keyboardAvoidMode属性设置为DEFAULT时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
 | levelMode15+ | LevelMode | 否 | 是 | 设置弹窗显示层级。 说明： - 默认值：LevelMode.OVERLAY - 当且仅当showInSubWindow属性设置为false时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| levelUniqueId15+ | number | 否 | 是 | 设置页面级弹窗需要显示的层级下的节点UniqueID。 取值范围：大于等于0的数字。 说明： - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| levelUniqueId15+ | number | 否 | 是 | 设置页面级弹窗需要显示的层级下的节点UniqueID，UniqueID可以通过getUniqueId获取。 取值范围：大于等于0的数字。 说明： - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
 | immersiveMode15+ | ImmersiveMode | 否 | 是 | 设置页面内弹窗蒙层效果。 说明： - 默认值：ImmersiveMode.DEFAULT - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
 | levelOrder18+ | LevelOrder | 否 | 是 | 设置弹窗显示的顺序。 说明： - 默认值：LevelOrder.clamp(0) - 不支持动态刷新顺序。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | focusable19+ | boolean | 否 | 是 | 设置弹窗是否获取焦点。值为true表示获取焦点，值为false表示不获取焦点。 默认值：true 说明： 只有弹出覆盖在当前窗口之上的弹窗才可以获取焦点。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| systemMaterial | SystemUiMaterial | 否 | 是 | 设置弹窗的系统材质。 说明： - 默认值：ImmersiveOptions的style为ImmersiveStyle.ULTRA_THICK的ImmersiveMaterial对象。设置undefined时与默认值保持一致。 - 不同的材质具有不同的效果，该接口影响背景色backgroundColor、背景模糊backgroundBlurStyle、背景效果backgroundEffect、边框颜色borderColor、边框宽度borderWidth、阴影shadow，不建议与上述接口一起使用。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -651,6 +695,8 @@ type DialogOptionsShadow = ShadowOptions | ShadowStyle
 Dialog关闭的信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -674,6 +720,8 @@ Dialog关闭的信息。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 值 | 说明 |
@@ -691,6 +739,8 @@ Dialog关闭的信息。
 页面内弹窗蒙层显示区域模式。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -714,7 +764,7 @@ Dialog关闭的信息。
 | --- | --- | --- | --- | --- |
 | text | string \| Resource | 否 | 否 | 按钮文本内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | color | string \| Resource | 否 | 否 | 按钮文本颜色。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| primary12+ | boolean | 否 | 是 | 在弹窗获焦且未进行tab键走焦时，按钮是否默认响应Enter键。多个Button时，只允许一个Button的该字段配置为true，否则所有Button均不响应。多重弹窗可自动获焦连续响应。值为true表示按钮默认响应Enter键，值为false时，按钮不默认响应Enter键。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| primary12+ | boolean | 否 | 是 | 在弹窗获焦且未进行tab键走焦时，按钮是否默认响应Enter键。多个Button时，只允许一个Button的该字段配置为true，否则所有Button均不响应。多重弹窗可自动获焦连续响应。值为true表示按钮默认响应Enter键，值为false时，按钮不默认响应Enter键。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1050,7 +1100,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/I88BSnNZQHWAHAQ-6oL0hg/zh-cn_image_0000002581275634.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=46D4833C1B62F341BB8B4AD2CC9D7AD6F346D9251DAB0C8C1FE5C8127EC1ED7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/ibg7mCy1SO-n7vnZuY855g/zh-cn_image_0000002659221461.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=01A50BA50FAC6F6935D6B0EF2B55B2B23F3A8DA75836AECC3170EBE835123261)
 
 
 当弹窗的showInSubWindow属性为true时，弹窗可显示在窗口外。
@@ -1090,7 +1140,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/7ELzBqqpTou7HL6XFbxw-g/zh-cn_image_0000002611755491.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=725B77890663E9F4CAA11BFFB17855E88680934965A51C0C398D6A9429C9D8C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/CPntft6EQuiBMtnWuqFS3w/zh-cn_image_0000002628702272.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=05991DD806D685674D0164D2AE957CB53F412D118EB952F58B30A42D0B508B72)
 
 
 从API version 19开始，该示例通过调用[ShowDialogOptions](#showdialogoptions)中的onDidAppear、onDidDisappear、onWillAppear和onWillDisappear属性展示了弹窗生命周期的相关接口的使用方法。
@@ -1155,7 +1205,7 @@ struct DialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/cxC_IZgkSrKV8z2FrfifMg/zh-cn_image_0000002581435554.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=29AFD75B27E74338ED9A7DBA4842A91191ADA1A35032A773BBF600BD59726031)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/R1pDUQmWSu2EGd80aYV0kQ/zh-cn_image_0000002659101501.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=3C890F23413FBB75CA3DDCE8EF45844CEB4CF588E9F5C992C9005A05D387DE97)
 
 
 
@@ -1228,7 +1278,7 @@ try {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/-RirAJPRSg2BSBw3rgRCGw/zh-cn_image_0000002611835385.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=06CAC5C2503D8AB4193806F999BA7CBE069805A1DBBB3FD1BE942A9967C3354F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/cTBuVhmuR42GWl2CndWRkw/zh-cn_image_0000002628862152.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=EC87F279BEC6A90E896D17F8E4D844E199082D038045631F0B84AB6C8812DB9E)
 
 
 **示例：2**
@@ -1305,7 +1355,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/fAclHdFLSu6rQOulfxp8DQ/zh-cn_image_0000002581275636.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=BCB6782428E99F675F212557575143E2558335125F472E194156BF87F86FBDA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/EzsWcGf4Q3WnFAczj_W2bQ/zh-cn_image_0000002659221463.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=E02B4C1748ABFC11CA2D2E3DEE817C80868414208D68A469CC84CB63AC5CB9FF)
 
 
 
@@ -1377,7 +1427,7 @@ promptAction.showActionMenu({
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/OZSAyXQPRrWXUEcAv7GDlQ/zh-cn_image_0000002611755493.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=63123566409F58310B97B15202CA1DDA422CD70BC15762ABC71ADF1895014CEC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/wAsNUxm6TkudO_N26nsBUQ/zh-cn_image_0000002628702274.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=791A78A5CC0E7A09034B5FADA54CA6995C5373342D9B6FD52AE465FC5CF3C244)
 
 
 
@@ -1395,6 +1445,8 @@ openCustomDialog(options: CustomDialogOptions): Promise&lt;number&gt;
 > [!NOTE]
 > 从API version 11开始支持，从API version 18开始废弃，建议使用 openCustomDialog 替代。openCustomDialog需先通过 UIContext 中的 getPromptAction 方法获取 PromptAction 对象，然后通过该对象进行调用。且直接使用openCustomDialog可能导致 UI上下文不明确 的问题。 从API version 12开始，可以通过使用 UIContext 中的 getPromptAction 方法获取当前UI上下文关联的 PromptAction 对象。
 
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1579,7 +1631,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/CMr1KdOEQai-Ic2TJbB7sg/zh-cn_image_0000002581435556.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=12527ED1D1E67F06F2A1D97414421D3EB2965BD36587E3CA52A7EB83382BA3FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/CjUkCyTARrGBi50VjTvtow/zh-cn_image_0000002659101503.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=A59C5AD78B69A6D0C213752E1F2082AECAC7FE835789CBDBDC95590ABF230065)
 
 
 该示例实现了一个页面内的弹窗。
@@ -1671,7 +1723,7 @@ struct Next {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/MpDFfs2GSXWR1pUUqsbZhQ/zh-cn_image_0000002611835387.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025448Z&HW-CC-Expire=86400&HW-CC-Sign=26AC14B073F8C8F7EA6E90EA7899ABEF7B049733248AFE1353E2A163A4CEE90A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/JLDYy0CpT36U7kdyk-JV0A/zh-cn_image_0000002628862154.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=DEAABED120725829A16496C5CD188B835B60D6D52DA7E55ABC0F4668C756D200)
 
 
 
@@ -1687,6 +1739,8 @@ closeCustomDialog(dialogId: number): void
 > [!NOTE]
 > 从API version 11开始支持，从API version 18开始废弃，建议使用 closeCustomDialog 替代。closeCustomDialog需先通过 UIContext 中的 getPromptAction 方法获取 PromptAction 对象，然后通过该对象进行调用。且直接使用closeCustomDialog可能导致 UI上下文不明确 的问题。 从API version 12开始，可以通过使用 UIContext 中的 getPromptAction 方法获取当前UI上下文关联的 PromptAction 对象。
 
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 

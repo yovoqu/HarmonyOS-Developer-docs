@@ -1,6 +1,6 @@
 # form
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-form
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -109,4 +109,4 @@ export default{
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/NXbC44kFQZSfqmrcN0Sjew/zh-cn_image_0000002611756261.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025443Z&HW-CC-Expire=86400&HW-CC-Sign=60653DA59971BB720D6A1246D83A31DED31DC4C938FC56547FDE4EB1996D503A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/xCn5-qW_R0-7sf24mME3jQ/zh-cn_image_0000002628703058.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014359Z&HW-CC-Expire=86400&HW-CC-Sign=DDBA4A18C75306CFB24E075CFC16A16B110826AF3208512C425DB16935162E22)

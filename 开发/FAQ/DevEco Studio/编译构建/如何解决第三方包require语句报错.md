@@ -1,6 +1,6 @@
 # 如何解决第三方包require语句报错
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-125
 
@@ -15,48 +15,44 @@
 **场景1**：
  
 ```json
-<span style="color: rgb(153,153,136);">// Module/src/test.json</span>
-{a: <span style="color: rgb(0,128,128);">1</span>, b: <span style="color: rgb(0,128,128);">2</span>}
-<span style="color: rgb(128,128,128);">//use.js</span>
+<em>// Module/src/test.json</em>
+{a: <span style="color: rgb(0,0,255);">1</span>, b: <span style="color: rgb(0,0,255);">2</span>}
+<em>// use.js</em>
 let test = <span style="color: rgb(0,0,255);">require</span>(<span style="color: rgb(255,0,0);">"Module/src/test.json"</span>)
 ```
  
 **需修改为：**
  
-// Module/src/test.json
- 
 ```json
+<em>// Module/src/test.json</em>
 module.exports = {a: 1, b: 2}
 ```
  
-//use.js
- 
 ```text
+<em>// use.js</em>
 let test = require("Module/src/test")
 ```
  
 **场景2：**
  
 ```json
-<span style="color: rgb(153,153,136);">// Module/package.json</span>
+<em>// Module/package.json</em>
 ...
 main: <span style="color: rgb(221,17,68);">"./src"</span>
 ...
-<span style="color: rgb(153,153,136);">// use.js</span>
+<em>// use.js</em>
 let module = <span style="color: rgb(0,134,179);">require</span>(<span style="color: rgb(221,17,68);">"Module"</span>)
 ```
  
 **需修改为：**
  
-// Module/package.json
- 
 ```json
+<em>// Module/package.json</em>
 "main": "./src/index.js",
 ```
  
-// use.js
- 
 ```text
+<em>// use.js</em>
 let module = require("Module")
 ```
  
@@ -75,7 +71,7 @@ Plugin node-resolve: preferring built-in module 'util' over local alternative at
 ```text
 plugins: [
     resolve({
-        preferBuiltins: false,    // true or false
+        preferBuiltins: false,   <em> // true or false</em>
         mainFields: ['module', 'main'],
         extensions
     })

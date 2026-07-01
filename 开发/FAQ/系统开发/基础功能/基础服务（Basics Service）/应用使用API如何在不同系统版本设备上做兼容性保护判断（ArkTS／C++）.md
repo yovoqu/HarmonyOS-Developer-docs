@@ -1,6 +1,6 @@
 # 应用使用API如何在不同系统版本设备上做兼容性保护判断（ArkTS/C++）
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-18
 
@@ -15,14 +15,14 @@
   例如，下面的示例代码使用了6.0.0(20)版本开始支持的[HdsActionBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsactionbar)组件。在6.0.0(20)及以上版本时，使用HdsActionBar组件来实现操作栏组件；在6.0.0(20)以下版本时，采用Row和Button组件的组合方式来实现。
 
   
-```ArkTS
+```text
 NavDestination() {
   Column() {
-    // Regarding the proprietary interfaces of HarmonyOS, specifically the interfaces marked as since M.F.S(N).
-    // Compatibility judgment, the value corresponding to version 6.0.0(20) is 60000,
-    // which is derived from the new interface's since field 6*10000 + 0*100 + 0.
+    <em>// Regarding the proprietary interfaces of HarmonyOS, specifically the interfaces marked as since M.F.S(N).</em>
+    <em>// Compatibility judgment, the value corresponding to version 6.0.0(20) is 60000,</em>
+    <em>// which is derived from the new interface's since field 6*10000 + 0*100 + 0.</em>
     if (deviceInfo.distributionOSApiVersion >= 60000) {
-      // Component that calls the API of version 6.0.0(20)
+      <em>// Component that calls the API of version 6.0.0(20)</em>
       HdsActionBar({
         startButtons: [new ActionBarButton({
           baseIcon: $r('sys.symbol.stopwatch_fill')
@@ -33,7 +33,7 @@ NavDestination() {
         // ...
       })
     } else {
-      // Downgrading plan
+      <em>// Downgrading plan</em>
       Row({ space: 25 }) {
         // ...
       }
@@ -51,15 +51,15 @@ NavDestination() {
   以Native侧的Button组件使用为例。在5.1.1（19）及以上版本时，使用[ArkUI_ButtonType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_buttontype)枚举的ARKUI_BUTTON_ROUNDED_RECTANGLE设置Button圆角效果；在5.1.1（19）以下版本时，使用ARKUI_BUTTON_TYPE_CAPSULE设置Button圆角效果。
 
   
-```cpp
+```text
 std::shared_ptr<ArkUIBaseNode> CreateButtonExample()
 {
     auto textNode = std::make_shared<ArkUIButtonNode>();
     textNode->SetTextContent(std::string("Hello World"));
-    // ...
-    // Regarding the proprietary interfaces of HarmonyOS, specifically the interfaces marked as since M.F.S(N).
-    // Compatibility judgment, the value corresponding to version 5.1.1(19) is 50101,
-    // which is derived from the new interface's since field 5*10000 + 1*100 + 1.
+    <em>// ...</em>
+    <em>// Regarding the proprietary interfaces of HarmonyOS, specifically the interfaces marked as since M.F.S(N).</em>
+    <em>// Compatibility judgment, the value corresponding to version 5.1.1(19) is 50101,</em>
+    <em>// which is derived from the new interface's since field 5*10000 + 1*100 + 1.</em>
     if (OH_GetDistributionOSApiVersion() >= MIN_API_VERSION_5_1_1) {
         textNode->SetButtonType(ARKUI_BUTTON_ROUNDED_RECTANGLE);
     } else {

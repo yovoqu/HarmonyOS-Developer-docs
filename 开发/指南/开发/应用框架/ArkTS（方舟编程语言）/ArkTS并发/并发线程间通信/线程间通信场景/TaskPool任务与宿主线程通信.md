@@ -1,6 +1,6 @@
 # TaskPool任务与宿主线程通信
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-communicates-with-mainthread
 
@@ -81,6 +81,9 @@ struct Index {
             taskpool.execute(loadPictureTask).then((res: object) => {
               iconItemSourceList = res as IconItemSource[];
               this.message = 'success';
+            }).catch((e: BusinessError) => {
+              this.message = 'failed';
+              console.error(`taskpool: execute: Code: ${e.code}, message: ${e.message}`);
             })
           })
       }

@@ -1,6 +1,6 @@
 # @ohos.arkui.theme(主题换肤)
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 支持自定义主题风格，实现App组件风格跟随Theme切换。
 
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
 
@@ -59,17 +59,17 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 | warning | ResourceColor | 否 | 否 | 一级警示色。 影响组件： TipsDialog、AlertDialog、CustomContentDialog、 Badge、Button |
 | alert | ResourceColor | 否 | 否 | 二级提示色。 影响组件： 暂无组件使用。 |
 | confirm | ResourceColor | 否 | 否 | 确认色。 影响组件： 暂无组件使用。 |
-| fontPrimary | ResourceColor | 否 | 否 | 一级文本字体颜色。 影响组件： EditableTitleBar、LoadingDialog、TipsDialog、 ConfirmDialog、AlertDialog、SelectDialog、 CustomContentDialog、Swiper、Text、 SubHeader、ProgressButton、AlphabetIndexer、 Popup、Select、Chip、 ToolBar、Menu、TextInput、 Search、Counter、TimePicker、DatePicker、 TextPicker、ComposeListItem、TreeView |
-| fontSecondary | ResourceColor | 否 | 否 | 二级文本字体颜色。 影响组件： EditableTitleBar、AlertDialog、CustomContentDialog、 SubHeader、AlphabetIndexer、Popup、 TextInput、Search、ComposeListItem、 TreeView、TextClock。 |
+| fontPrimary | ResourceColor | 否 | 否 | 一级文本字体颜色。 影响组件： EditableTitleBar、LoadingDialog、TipsDialog、 ConfirmDialog、AlertDialog、SelectDialog、 CustomContentDialog、Swiper、Text、 SubHeader、ProgressButton、AlphabetIndexer、 Popup、Select、Chip、 ToolBar、Menu、TextInput、 Search、TimePicker、DatePicker、 TextPicker、ComposeListItem、TreeView。从API版本26.0.0开始，新增CalendarPicker、UIPickerComponent、RichEditor、MenuItem、MenuItemGroup、Counter。 |
+| fontSecondary | ResourceColor | 否 | 否 | 二级文本字体颜色。 影响组件： EditableTitleBar、AlertDialog、CustomContentDialog、 SubHeader、AlphabetIndexer、Popup、 TextInput、Search、ComposeListItem、 TreeView、TextClock。从API版本26.0.0开始，新增MenuItem、MenuItemGroup。 |
 | fontTertiary | ResourceColor | 否 | 否 | 三级文本字体颜色。 影响组件： ComposeListItem |
 | fontFourth | ResourceColor | 否 | 否 | 四级文本字体颜色。 影响组件： 暂无组件使用。 |
-| fontEmphasize | ResourceColor | 否 | 否 | 高亮字体颜色。 影响组件： TipsDialog、ConfirmDialog、AlertDialog、 SelectDialog、CustomContentDialog、SubHeader、 AlphabetIndexer、Popup、Button、 Select、ToolBar、Search、 TimePicker、DatePicker、TextPicker |
+| fontEmphasize | ResourceColor | 否 | 否 | 高亮字体颜色。 影响组件： TipsDialog、ConfirmDialog、AlertDialog、 SelectDialog、CustomContentDialog、SubHeader、 AlphabetIndexer、Popup、Button、 Select、ToolBar、Search、 TimePicker、DatePicker、TextPicker。从API版本26.0.0开始，新增RichEditor。 |
 | fontOnPrimary | ResourceColor | 否 | 否 | 一级文本反转颜色，用于彩色背景。 影响组件： Badge、Button、Chip |
 | fontOnSecondary | ResourceColor | 否 | 否 | 二级文本反转颜色，用于彩色背景。 影响组件： 暂无组件使用。 |
 | fontOnTertiary | ResourceColor | 否 | 否 | 三级文本反转颜色，用于彩色背景。 影响组件： 暂无组件使用。 |
 | fontOnFourth | ResourceColor | 否 | 否 | 四级文本反转颜色，用于彩色背景。 影响组件： 暂无组件使用。 |
-| iconPrimary | ResourceColor | 否 | 否 | 一级图标颜色。 影响组件： EditableTitleBar、Swiper、ToolBar、 TreeView |
-| iconSecondary | ResourceColor | 否 | 否 | 二级图标颜色。 影响组件： LoadingDialog、SubHeader、LoadingProgress、 Popup、Chip、Search、 TreeView |
+| iconPrimary | ResourceColor | 否 | 否 | 一级图标颜色。 影响组件： EditableTitleBar、Swiper、ToolBar、 TreeView。从API版本26.0.0开始，新增MenuItem。 |
+| iconSecondary | ResourceColor | 否 | 否 | 二级图标颜色。 影响组件： LoadingDialog、SubHeader、 Popup、Chip、Search、 TreeView。从API版本26.0.0开始，新增LoadingProgress。 |
 | iconTertiary | ResourceColor | 否 | 否 | 三级图标颜色。 影响组件： SubHeader |
 | iconFourth | ResourceColor | 否 | 否 | 四级图标颜色。 影响组件： Checkbox、CheckboxGroup、Radio |
 | iconEmphasize | ResourceColor | 否 | 否 | 高亮图标颜色。 影响组件： ToolBar |
@@ -89,23 +89,23 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 | compBackgroundPrimaryContrary | ResourceColor | 否 | 否 | 常亮背景。 影响组件： Toggle、Slider |
 | compBackgroundGray | ResourceColor | 否 | 否 | 灰色背景。 影响组件： 暂无组件使用。 |
 | compBackgroundSecondary | ResourceColor | 否 | 否 | 二级背景。 影响组件： Swiper、Slider |
-| compBackgroundTertiary | ResourceColor | 否 | 否 | 三级背景。 影响组件： EditableTitleBar、Progress、AlphabetIndexer、 Button、Select、Toggle、 Chip、TextInput、Search |
+| compBackgroundTertiary | ResourceColor | 否 | 否 | 三级背景。 影响组件： EditableTitleBar、Progress、AlphabetIndexer、 Button、Select、Toggle、 Chip、TextInput、Search。从API版本26.0.0开始，新增UIPickerComponent、TextPicker。 |
 | compBackgroundEmphasize | ResourceColor | 否 | 否 | 高亮背景。 影响组件： Swiper、Toggle、Chip、 Checkbox、CheckboxGroup、Radio |
 | compBackgroundNeutral | ResourceColor | 否 | 否 | 黑色中性高亮背景颜色。 影响组件： PatternLock |
 | compEmphasizeSecondary | ResourceColor | 否 | 否 | 20%高亮背景颜色。 影响组件： Progress、ProgressButton、AlphabetIndexer、 Select、Toggle |
 | compEmphasizeTertiary | ResourceColor | 否 | 否 | 10%高亮背景颜色。 影响组件： 暂无组件使用。 |
-| compDivider | ResourceColor | 否 | 否 | 通用分割线颜色。 影响组件： SelectDialog、PatternLock、Divider |
+| compDivider | ResourceColor | 否 | 否 | 通用分割线颜色。 影响组件： SelectDialog、PatternLock、Divider。从API版本26.0.0开始，新增UIPickerComponent、TextPicker、MenuItem、MenuItemGroup、Select。 |
 | compCommonContrary | ResourceColor | 否 | 否 | 通用反转颜色。 影响组件： 暂无组件使用。 |
 | compBackgroundFocus | ResourceColor | 否 | 否 | 获焦态背景颜色。 影响组件： 暂无组件使用。 |
 | compFocusedPrimary | ResourceColor | 否 | 否 | 获焦态一级反转颜色。 影响组件： 暂无组件使用。 |
 | compFocusedSecondary | ResourceColor | 否 | 否 | 获焦态二级反转颜色。 影响组件： 暂无组件使用。 |
 | compFocusedTertiary | ResourceColor | 否 | 否 | 获焦态三级反转颜色。 影响组件： Scroll |
-| interactiveHover | ResourceColor | 否 | 否 | 通用悬停交互式颜色。 影响组件： EditableTitleBar、Chip、TreeView |
-| interactivePressed | ResourceColor | 否 | 否 | 通用按压交互式颜色。 影响组件： EditableTitleBar、Chip、TreeView |
+| interactiveHover | ResourceColor | 否 | 否 | 通用悬停交互式颜色。 影响组件： EditableTitleBar、Chip、TreeView。从API版本26.0.0开始，新增RichEditor、MenuItem、Select。 |
+| interactivePressed | ResourceColor | 否 | 否 | 通用按压交互式颜色。 影响组件： EditableTitleBar、Chip、TreeView。从API版本26.0.0开始，新增RichEditor。 |
 | interactiveFocus | ResourceColor | 否 | 否 | 通用获焦交互式颜色。 影响组件： EditableTitleBar、Chip、TreeView |
 | interactiveActive | ResourceColor | 否 | 否 | 通用激活交互式颜色。 影响组件： TreeView |
 | interactiveSelect | ResourceColor | 否 | 否 | 通用选择交互式颜色。 影响组件： TreeView |
-| interactiveClick | ResourceColor | 否 | 否 | 通用点击交互式颜色。 影响组件： 暂无组件使用。 |
+| interactiveClick | ResourceColor | 否 | 否 | 通用点击交互式颜色。 影响组件： 从API版本26.0.0开始，新增MenuItem、Select。 |
 
 
 
@@ -248,8 +248,8 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/NgBmT124SkS9UeYrdOdqdg/zh-cn_image_0000002611755469.png?HW-CC-KV=V1&HW-CC-Date=20260528T025450Z&HW-CC-Expire=86400&HW-CC-Sign=8DFAED64B1EBDCC847A3AB2812B1248D230EE5179F646BCFE444A1A49D51C492)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/PxgGu6PSTj-SaxC_ycmNYQ/zh-cn_image_0000002628702248.png?HW-CC-KV=V1&HW-CC-Date=20260701T014311Z&HW-CC-Expire=86400&HW-CC-Sign=CAA54E876031E86AB272D0295DAC0A660943EDE47E34C9363BF41F659F7673A3)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/JxqKQO0fSCWR3HvXV5a7hg/zh-cn_image_0000002581435532.png?HW-CC-KV=V1&HW-CC-Date=20260528T025450Z&HW-CC-Expire=86400&HW-CC-Sign=271B886C98B22115F64B8F0715B4348CBA3E5B2901595650401AB941EC56EE87)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/-3hd-Fr8Q0qdZ5zTz9tGcQ/zh-cn_image_0000002659101477.png?HW-CC-KV=V1&HW-CC-Date=20260701T014311Z&HW-CC-Expire=86400&HW-CC-Sign=57F7276E9D29417D6F345C1E6D5243E4C1D2B2C849885FFE24CDDEF981656B1E)

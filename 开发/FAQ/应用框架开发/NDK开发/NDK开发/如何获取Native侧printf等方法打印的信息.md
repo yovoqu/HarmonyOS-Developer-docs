@@ -1,6 +1,6 @@
 # 如何获取Native侧printf等方法打印的信息
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-16
 
@@ -14,7 +14,7 @@ cout/printf是语言提供的打印函数，并不能填充到hilog日志中。�
  
 Native侧重定向方法主体。
  
-```cpp
+```text
 #include "napi/native_api.h" 
 #include <hilog/log.h> 
 #include <string> 
@@ -23,27 +23,27 @@ Native侧重定向方法主体。
 #define LOG_TAG "Pure" 
  
 static napi_value Redirect(napi_env env, napi_callback_info info) { 
-    // Get the JS parameters of the function 
+  <em>  // Get the JS parameters of the function </em>
     size_t argc = 1; 
     napi_value argv[1] = {nullptr}; 
     napi_get_cb_info(env, info, &argc, argv, nullptr, nullptr); 
-    // Resolve parameter 1, the destination directory for saving the file
+   <em> // Resolve parameter 1, the destination directory for saving the file</em>
     size_t targetDirectoryNameSize; 
     char targetDirectoryNameBuf[512]; 
     napi_get_value_string_utf8(env, argv[0], targetDirectoryNameBuf, sizeof(targetDirectoryNameBuf), 
                                &targetDirectoryNameSize); 
-    std::string targetDirectoryName(targetDirectoryNameBuf, targetDirectoryNameSize); // target directory 
+    std::string targetDirectoryName(targetDirectoryNameBuf, targetDirectoryNameSize); <em>// target directory </em>
     OH_LOG_INFO(LOG_APP, "C++Received target path on the side === %{public}s", targetDirectoryNameBuf); 
-    std::string targetSandboxPath = targetDirectoryName + "/Log.log"; // Saved file path 
+    std::string targetSandboxPath = targetDirectoryName + "/Log.log"; <em>// Saved file path </em>
      
-    // Use the freopen function to associate files with standard output 
+  <em>  // Use the freopen function to associate files with standard output </em>
     FILE *stdoutFile = NULL; 
     FILE *stderrFile = NULL; 
     stdoutFile = freopen(targetSandboxPath.c_str(), "a", stdout); 
     stderrFile = freopen(targetSandboxPath.c_str(), "a", stderr); 
     if (NULL == stdoutFile || NULL == stderrFile) { 
         OH_LOG_INFO(LOG_APP, "Recreate！"); 
-        // Opening the file output stream of the sandbox file will create a file
+      <em>  // Opening the file output stream of the sandbox file will create a file</em>
         std::ofstream outputFile(targetSandboxPath, std::ios::binary); 
         if (!outputFile) { 
             OH_LOG_ERROR(LOG_APP, "Unable to create target file!"); 
@@ -66,7 +66,7 @@ static napi_value Redirect(napi_env env, napi_callback_info info) {
  
 在EntryAbility的onCreate()方法中调用重定向。
  
-```ArkTS
+```text
 onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
   let file : string = this.context.getApplicationContext().filesDir;
   testNapi.redirect(file);

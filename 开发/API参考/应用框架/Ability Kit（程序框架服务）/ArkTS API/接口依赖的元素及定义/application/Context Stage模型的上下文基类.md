@@ -1,6 +1,6 @@
 # Context (Stage模型的上下文基类)
 
-更新时间：2026-03-19 08:47:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,7 +24,7 @@ Context是Stage模型的上下文基类，主要用于访问特定应用程序�
  - 不同类型Context的持有关系如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/M4elkyLaTjaJ5CpsiNcl8w/zh-cn_image_0000002581435524.png?HW-CC-KV=V1&HW-CC-Date=20260528T025627Z&HW-CC-Expire=86400&HW-CC-Sign=7CEFDF48267C2588C2E606C886991BE0FD6E1B268C29B16CE15D304D57B29414)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/X7vzWkb2RDalRA9GzxOVWA/zh-cn_image_0000002659101469.png?HW-CC-KV=V1&HW-CC-Date=20260701T014240Z&HW-CC-Expire=86400&HW-CC-Sign=278B8B1091C1EAE6C27ED430BBD50D0481FE93E2B82B8215FA8CA8C5ECFD3FE6)
 
 
 
@@ -68,7 +68,7 @@ Context提供了ability或application的上下文的能力，包括访问特定�
 | filesDir | string | 否 | 否 | 文件目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | databaseDir | string | 否 | 否 | 数据库目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | preferencesDir | string | 否 | 否 | preferences目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| bundleCodeDir | string | 否 | 否 | 安装包目录。不能拼接路径访问资源文件，请使用资源管理接口访问资源，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| bundleCodeDir | string | 否 | 否 | 安装包目录。不能拼接路径访问资源文件，请使用资源管理访问资源，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | distributedFilesDir | string | 否 | 否 | 分布式文件目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | cloudFileDir12+ | string | 否 | 否 | 云文件目录。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | logFileDir22+ | string | 否 | 否 | 日志文件目录。 元服务API：从API version 22开始，该接口支持在元服务中使用。 |
@@ -400,6 +400,51 @@ export default class EntryAbility extends UIAbility {
     } catch (error) {
       hilog.error(0x0000, 'testTag', 'createDisplayContext error is:%{public}s', JSON.stringify(error));
     }
+  }
+}
+```
+
+
+
+#### isContextOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isContextOf(contextType: contextConstant.ContextType): boolean
+
+判断当前Context是否为指定的ContextType类型。
+
+**起始版本**：26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| contextType | contextConstant.ContextType | 是 | 上下文类型。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 是否为指定类型的上下文。返回true表示Context类型为指定类型，返回false表示Context类型匹配失败。 |
+
+
+**示例：**
+
+```json
+import { UIAbility, contextConstant } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+export default class EntryAbility extends UIAbility {
+  onCreate() {
+    hilog.info(0x0000, 'testTag', `%{public}s`, 'Ability onCreate');
+    let result = this.context.isContextOf(contextConstant.ContextType.UIABILITY_CONTEXT);
+    hilog.info(0x0000, 'testTag', `match contextType result is:%{public}s`, JSON.stringify(result));
   }
 }
 ```

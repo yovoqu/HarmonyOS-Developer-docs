@@ -1,6 +1,6 @@
 # arkweb_type.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -273,8 +273,8 @@ typedef void (*ArkWeb_OnScrollCallback)(const char* webTag, void* userData, doub
 | --- | --- |
 | const char* webTag | Web组件名称。 |
 | void* userData | 用户自定义的数据。 |
-| double x | X轴滚动偏移。 |
-| double y | Y轴滚动偏移。 |
+| double x | X轴滚动偏移。单位：vp。 |
+| double y | Y轴滚动偏移。单位：vp。 |
  
  
   

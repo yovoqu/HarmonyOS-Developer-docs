@@ -1,6 +1,6 @@
-# Scroll嵌套List时如何让List和Scroll一起滚动
+# Scroll中嵌套List，可否设置事件响应顺序，让List不响应滚动事件，让外层的Scroll滚动整个布局
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-295
 
@@ -8,7 +8,7 @@ Scroll嵌套List的时候，如果List默认不设置高度是会默认全部展
  
 示例代码如下：
  
-```ArkTS
+```text
 @Component
 export struct ScrollNestingList {
   build() {
@@ -27,8 +27,8 @@ export struct ScrollNestingList {
           }, (item: string) => item)
         }
         .nestedScroll({
-          scrollForward: NestedScrollMode.PARENT_FIRST, // Triggering the parent scroll first when scrolling down
-          scrollBackward: NestedScrollMode.SELF_FIRST  // When scrolling up, the current List is triggered first
+          scrollForward: NestedScrollMode.PARENT_FIRST, <em>// Triggering the parent scroll first when scrolling down</em>
+          scrollBackward: NestedScrollMode.SELF_FIRST  <em>// When scrolling up, the current List is triggered first</em>
         })
         .divider({
           strokeWidth: 1,

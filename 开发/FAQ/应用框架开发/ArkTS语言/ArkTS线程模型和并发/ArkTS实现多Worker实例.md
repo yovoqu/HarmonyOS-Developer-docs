@@ -1,13 +1,13 @@
 # ArkTS实现多Worker实例
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-103
 
 实现多Worker并进行消息传递，使用registerGlobalCallObject方法传递对象及调用函数，获取缓冲区。注意：callGlobalCallObjectMethod方法在主线程中运行。
  1. 在MultipleWorkerInstances.ets文件中调用自定义函数。
-```ArkTS
-import { testMultyWorker } from './TestWorker'; // Import Method
+```text
+import { testMultyWorker } from './TestWorker'; <em>// Import Method</em>
 
 @Entry
 @Component
@@ -17,7 +17,7 @@ struct Index {
       Column() {
         Button('test workers')
           .onClick(() => {
-            testMultyWorker(); // Testing multiple workers
+            testMultyWorker(); <em>// Testing multiple workers</em>
           })
       }.width('100%')
     }.height('100%')
@@ -31,11 +31,11 @@ import { MessageEvents, worker } from '@kit.ArkTS';
 
 const mainThreadTag: string = 'mainthread';
 
-// Initialize 2 workers, if closed or terminated, it cannot be used
+<em>// Initialize 2 workers, if closed or terminated, it cannot be used</em>
 let worker1: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/worker1.ets', { name: 'worker1' });
 let worker2: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/worker2.ets', { name: 'worker2' });
 
-// Custom Single Example
+<em>// Custom Single Example</em>
 class TestObj {
   private message: string = 'this is a message from TestObj';
 
@@ -61,7 +61,7 @@ class TestObj {
   private sharedBuffer: SharedArrayBuffer = new SharedArrayBuffer(1024);
 }
 
-// Worker's onMessage monitoring
+<em>// Worker's onMessage monitoring</em>
 function onMessage(e: MessageEvents): void {
   switch (e.data.type as number) {
     case 0:
@@ -76,7 +76,7 @@ function onMessage(e: MessageEvents): void {
       break;
     default:
       console.log(mainThreadTag, 'invalid type, next to return');
-    // Add a timer to reflect worker operation
+  <em>  // Add a timer to reflect worker operation</em>
       setTimeout(() => {
         console.log(mainThreadTag, 'invalid type, next to return');
       }, 5000);
@@ -84,10 +84,10 @@ function onMessage(e: MessageEvents): void {
   }
 }
 
-// Export function
+<em>// Export function</em>
 export function testMultyWorker() {
   TestObj.registerObj.setSharedArrayBuffer();
-  // Register registrant Obj on ThreadWorker instance
+ <em> // Register registrant Obj on ThreadWorker instance</em>
   worker2.registerGlobalCallObject('myObj', TestObj.registerObj);
   worker1.registerGlobalCallObject('myObj', TestObj.registerObj);
 
@@ -110,7 +110,7 @@ export function testMultyWorker() {
 3. Worker代码如下：Worker1.ets：
 
   
-```ArkTS
+```text
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker, process } from '@kit.ArkTS';
 
 const worker1: string = 'worker1';
@@ -123,7 +123,7 @@ workerPort.onmessage = (e: MessageEvents) => {
   if (e.data.type === 0) {
     workerPort.postMessage({ 'type': 2 });
     console.log(worker1,'begin to end worker1');
-    // workerPort.close()  // Do not allow reuse after closing, otherwise it may cause a crash
+  <em>  // workerPort.close()  // Do not allow reuse after closing, otherwise it may cause a crash</em>
     return;
   }
 
@@ -160,7 +160,7 @@ workerPort.onmessage = (e: MessageEvents) => {
  Worker2.ets：
 
   
-```ArkTS
+```text
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker, process } from '@kit.ArkTS';
 
 const worker2: string = 'worker2';

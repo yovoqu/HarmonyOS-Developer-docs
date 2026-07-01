@@ -1,6 +1,6 @@
 # 如何在Native侧获取APP版本信息
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-24
 
@@ -10,7 +10,7 @@ Native侧目前没有获取APP版本信息的接口。如需获取APP版本信�
  
 ArkTS侧传递数据到Native侧可参考链接：
  
-```ArkTS
+```text
 import { bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -27,8 +27,8 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
             bundleManager.getBundleInfoForSelf(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION).then((bundleInfo)=>{
-              let versionName = bundleInfo.versionName;//Application version name
-              let versionNo = bundleInfo.versionCode;//Application version number
+              let versionName = bundleInfo.versionName;<em>//Application version name</em>
+              let versionNo = bundleInfo.versionCode;<em>//Application version number</em>
             }).catch((error : BusinessError)=>{
               console.error("get bundleInfo failed,error is "+error)})
           })

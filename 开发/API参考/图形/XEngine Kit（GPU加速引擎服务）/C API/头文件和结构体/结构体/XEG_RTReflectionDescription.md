@@ -1,6 +1,6 @@
 # XEG_RTReflectionDescription
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtreflectiondescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -110,8 +110,8 @@ uint primitiveId = (outputReflectionInfoImage.x >> 1) & (0x3ffff);
 uint instanceId = outputReflectionInfoImage.x >> 19;
 vec2 barycentrics = unpackHalf2x16(outputReflectionInfoImage.z);
 float hitT = uintBitsToFloat(outputReflectionInfoImage.w);
-uint sbtOffest = (outputReflectionInfoImage.y >> 16);
-uint geomtryIndex = (outputReflectionInfoImage.y) & 0xffff;
+uint sbtOffset = (outputReflectionInfoImage.y >> 16);
+uint geometryIndex = (outputReflectionInfoImage.y) & 0xffff;
 ```
  
   

@@ -1,6 +1,6 @@
 # TextClock
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textclock
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -56,6 +56,8 @@ TextClock(options?: TextClockOptions)
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -294,13 +296,15 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ShadowOptions \| Array&lt;ShadowOptions&gt; | 是 | 文字的字体阴影效果。 |
+| value | ShadowOptions \| Array&lt;ShadowOptions&gt; | 是 | 文字阴影效果。 |
  
  
   
@@ -325,6 +329,8 @@ fontFeature(value: string)
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -345,6 +351,8 @@ contentModifier(modifier: ContentModifier&lt;TextClockConfiguration&gt;)
 定制TextClock内容区的方法。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -368,6 +376,8 @@ dateTimeOptions(dateTimeOptions: Optional&lt;DateTimeOptions&gt;)
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -495,12 +505,14 @@ stop()
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | timeZoneOffset | number | 否 | 否 | 当前文本时钟时区偏移量。 取值范围为[-14, 12]，表示东十二区到西十二区，其中负值表示东时区，正值表示西时区，比如东八区为-8。设置值为该取值范围内的浮点数时会进行取整，舍弃小数部分。 |
-| started | boolean | 否 | 否 | 指示文本时钟是否启动。 true：表示启动文本时钟。 false：表示关闭文本时钟。 默认值：true |
+| started | boolean | 否 | 否 | 指示文本时钟是否启动。 true：表示启动文本时钟。 false：表示停止文本时钟。 默认值：true |
 | timeValue | number | 否 | 否 | 当前文本时钟时区的UTC秒数。 |
  
  

@@ -1,6 +1,6 @@
 # toggle
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-toggle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,7 +68,7 @@
   
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
-| change | { checked：isChecked } | 组件选中状态发生变化时触发。 |
+| change | { checked: isChecked } | 组件选中状态发生变化时触发。 |
  
  
   
@@ -159,4 +159,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/lVyqq_gAQxub7GFyImbKug/zh-cn_image_0000002581276426.png?HW-CC-KV=V1&HW-CC-Date=20260528T025437Z&HW-CC-Expire=86400&HW-CC-Sign=96B85795DA3B2B87749414CA05DF41F737C5BC9E5B62FBDD2F7819FB8D5D2BCB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/BS6ZmdcQR2WDhSTMFSPqNQ/zh-cn_image_0000002659222271.png?HW-CC-KV=V1&HW-CC-Date=20260701T014403Z&HW-CC-Expire=86400&HW-CC-Sign=526DD7D18B9F68A7B48FA5A0DAAB8515DCE4574CA93469569164F40D14FE70F6)

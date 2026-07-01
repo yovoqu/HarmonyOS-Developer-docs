@@ -1,6 +1,6 @@
 # ArkTS侧与Native侧分别如何动态加载SO库
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-4
 
@@ -14,9 +14,9 @@
  
 1.ArkTS 通过动态 import 加载 so 库。添加异步函数，在异步函数中通过let testNapi = await import ("libentry.so")实现动态加载so库。
  
-```ArkTS
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
-// import testNapi from 'libentry.so';
+<em>// import testNapi from 'libentry.so';</em>
 
 @Entry
 @Component
@@ -30,9 +30,9 @@ struct LoadSoLibrary {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(async() => {
-            let testNapi = await import("libentry.so")            // Load so library
-            hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.default.add(2, 3));   // Call library functions by default
-            // hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.add(2, 3));
+            let testNapi = await import("libentry.so")          <em>  // Load so library</em>
+            hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.default.add(2, 3));  <em> // Call library functions by default</em>
+          <em>  // hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.add(2, 3));</em>
           })
       }
       .width('100%')
@@ -50,7 +50,7 @@ struct LoadSoLibrary {
 ![](assets/ArkTS侧与Native侧分别如何动态加载SO库/file-20260515125705560-0.png)
 
 - 需要在ArkTS侧传递so库路径信息到Native侧。
-```ArkTS
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
@@ -66,8 +66,8 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
-            let path = this.getUIContext().getHostContext()!.bundleCodeDir;     // Get project path
-            hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.addByLibPath(2, 3, path + '/libs/arm64/liba.so'));   // Transfer parameter path information to the native side
+            let path = this.getUIContext().getHostContext()!.bundleCodeDir;    <em> // Get project path</em>
+            hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.addByLibPath(2, 3, path + '/libs/arm64/liba.so'));   <em>// Transfer parameter path information to the native side</em>
           })
       }
       .width('100%')
@@ -78,7 +78,7 @@ struct Index {
 ```
 
 - 在Native侧通过dlopen函数动态加载so库。
-```cpp
+```text
 #include "napi/native_api.h" 
 #include <dlfcn.h> 
 typedef double (*FUNC_ADD)(int, int); 
@@ -93,18 +93,18 @@ static napi_value AddByLibPath(napi_env env, napi_callback_info info) {
     napi_get_value_double(env, args[1], &value1); 
     char path[255]; 
     size_t size = 255; 
-    napi_get_value_string_utf8(env, args[2], path, 255, &size); // Obtain dynamic library path information 
-    void *handle = dlopen(path, RTLD_LAZY);                     // Open a dynamic link library, The path is "path".  
+    napi_get_value_string_utf8(env, args[2], path, 255, &size); <em>// Obtain dynamic library path information </em>
+    void *handle = dlopen(path, RTLD_LAZY);                    <em> // Open a dynamic link library, The path is "path".  </em>
     dlerror(); 
-    FUNC_ADD add_func = (FUNC_ADD)dlsym(handle, "add"); // Retrieve the function named "add" 
+    FUNC_ADD add_func = (FUNC_ADD)dlsym(handle, "add");<em> // Retrieve the function named "add" </em>
     if (dlerror()) { 
         return nullptr; 
     } 
-    double res = add_func(value0, value1);              // Call add and pass the parameter information 
-    dlclose(handle);                                    // Close the dynamic library 
+    double res = add_func(value0, value1);             <em> // Call add and pass the parameter information </em>
+    dlclose(handle);                                   <em> // Close the dynamic library </em>
     napi_value sum; 
     napi_create_double(env, res, &sum); 
     return sum; 
 } 
-// ...
+<em>// ...</em>
 ```

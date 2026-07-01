@@ -1,6 +1,6 @@
 # UIAbility和UIExtensionAbility有什么区别？分别推荐在什么场景使用
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-65
 
@@ -11,7 +11,7 @@ UIAbility 用于实现独立界面，UIExtensionAbility 用于功能扩展。
 import { UIAbility } from "@kit.AbilityKit";
 import { window } from "@kit.ArkUI";
 
-// MainAbility.ets
+<em>// MainAbility.ets</em>
 export default class MainAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     windowStage.loadContent('pages/MainPage', (err) => {

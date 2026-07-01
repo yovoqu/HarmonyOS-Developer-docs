@@ -1,6 +1,6 @@
 # Stage模型与FA模型在进程内对象共享方面有哪些差异
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-50
 

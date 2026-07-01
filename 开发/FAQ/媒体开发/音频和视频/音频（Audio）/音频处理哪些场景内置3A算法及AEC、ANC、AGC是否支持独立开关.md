@@ -1,6 +1,6 @@
 # 音频处理哪些场景内置3A算法及AEC、ANC、AGC是否支持独立开关
 
-更新时间：2026-06-15 10:36:30
+更新时间：2026-06-26 07:48:29
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-6
 
@@ -8,6 +8,7 @@
  
 配置为STREAM_USAGE_VOICE_COMMUNICATION的音频流在运行时会自动启用3A算法。普通录音场景不会启用3A，仅在VoIP通话时才会启用。在播放音频流时，需要配置相应的StreamUsage类型。
  
-**参考链接**
- 
+
+#### 参考链接
+
 [AudioCapturer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer)

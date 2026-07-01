@@ -1,6 +1,6 @@
 # Retrieval
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -63,7 +63,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| Retrieval_Channel_Type { Retrieval_TYPE_VECTOR = 1 } | 定义数据索引类型，目前仅包括向量索引数据。 |
+| Retrieval_Channel_Type { RETRIEVAL_TYPE_VECTOR = 1 } | 定义数据索引类型，目前仅包括向量索引数据。 |
  
  
   
@@ -316,7 +316,7 @@ enum Retrieval_Channel_Type
   
 | 枚举值 | 描述 |
 | --- | --- |
-| Retrieval_TYPE_VECTOR | 表示向量索引。 |
+| RETRIEVAL_TYPE_VECTOR | 表示向量索引。 |
  
  
   

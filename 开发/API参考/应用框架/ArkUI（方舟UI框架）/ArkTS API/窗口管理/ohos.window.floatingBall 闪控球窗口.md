@@ -1,6 +1,6 @@
 # @ohos.window.floatingBall (闪控球窗口)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,6 +10,20 @@
 > [!NOTE]
 > 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。
 
+
+**闪控球和闪控窗对比**
+
+ - 共同点：闪控球和[闪控窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview)均为一种特殊的应用辅助窗口，具备在应用主窗口和对应UIAbility退至后台后仍然可以在前台显示的能力。可以用于应用退至后台后，使用其继续显示UI。
+ - 区别：      
+显示形式不同。闪控球以小圆球的形式展现，适用于展示关键信息。闪控窗以小型窗口展示，展示区域较大，可以持续展示应用内容或提供快捷操作。
+ - 闪控球只能贴边展示，闪控窗则没有此限制。
+ - 闪控球模板固定，应用不能定制UI。闪控窗同样存在模板，并由系统管理并统一绘制UI，但是提供了可绘制的区域，可供应用加载指定页面内容。
+
+
+
+**与闪控窗联动：**
+
+本模块可与[@ohos.window.floatView](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview)（闪控窗）联合使用。通过[floatView.bind](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview#floatviewbind)接口将闪控窗控制器与闪控球控制器绑定后，用户点击闪控球可展开为闪控窗，点击闪控窗左上角的缩小按钮可收起为闪控球，实现两种窗口形态的相互切换。
 
 
 #### 导入模块
@@ -178,6 +192,7 @@ startFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 | 1300023 | Floating ball internal error. |
 | 1300024 | The floating ball window state is abnormal. |
 | 1300025 | The floating ball state does not support this operation. |
+| 1300034 | This operation conflicts with other floating windows. Possible cause: App has already started float view. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -606,9 +621,9 @@ setFloatingBallVisibilityInApp(isVisible: boolean): Promise&lt;void&gt;
 
 设置闪控球在应用内是否可见。使用Promise异步回调。
 
- - 当应用处于多任务界面时（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为PAUSED），闪控球不可见。
+ - 当应用处于多任务界面时（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-lifecycle#应用主窗的生命周期状态)为PAUSED），闪控球不可见。
  - 默认情况（即未调用此接口设置时）和调用此接口传入true时：除多任务界面外，闪控球均可见。
- - 调用此接口传入false时：当应用处于前台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为SHOWN或者RESUMED）时，闪控球不可见；当应用处于后台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为HIDDEN）时，闪控球可见。
+ - 调用此接口传入false时：当应用处于前台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-lifecycle#应用主窗的生命周期状态)为SHOWN或者RESUMED）时，闪控球不可见；当应用处于后台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-lifecycle#应用主窗的生命周期状态)为HIDDEN）时，闪控球可见。
 
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -669,6 +684,7 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 | content | string | 否 | 是 | 闪控球内容，大小不超过64字节。不传入时默认为空字符串，不显示闪控球内容。 |
 | backgroundColor | string | 否 | 是 | 闪控球背景颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时闪控球跟随系统深浅色模式的默认背景色。 |
 | icon | image.PixelMap | 否 | 是 | 闪控球图标，图标像素的总字节数不超过192KB（图标像素的总字节数通过getPixelBytesNumber获取）。建议图标像素宽高为128px*128px。实际显示效果依赖于设备能力和闪控球UI样式。 |
+| textUpdateAnimationType | FloatingBallTextUpdateAnimationType | 否 | 是 | 闪控球文本更新时的动画类型。默认为FloatingBallTextUpdateAnimationType.ANIMATION_NONE。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -718,3 +734,23 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | windowId | number | 是 | 否 | 闪控球窗口ID。 |
+
+
+
+
+#### FloatingBallTextUpdateAnimationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+闪控球文本更新动画类型的枚举。
+
+**系统能力：** SystemCapability.Window.SessionManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**起始版本**：26.0.0
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| ANIMATION_NONE | 0 | 无动画。 |
+| ANIMATION_OPACITY | 1 | 淡入淡出动画。 |

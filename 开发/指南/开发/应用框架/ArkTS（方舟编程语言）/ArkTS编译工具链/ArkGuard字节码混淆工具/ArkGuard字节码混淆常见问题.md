@@ -1,6 +1,6 @@
 # ArkGuard字节码混淆常见问题
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bytecode-obfuscation-questions
 
@@ -18,7 +18,7 @@
 
 #### 混淆选项差异
 1. 字节码混淆开关，默认关闭，在[开启混淆功能](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bytecode-obfuscation-guide#开启混淆步骤)后，需要额外在模块目录下obfuscation-rules.txt文件中配置-enable-bytecode-obfuscation 、-enable-bytecode-obfuscation-debugging。
-2. 字节码混淆，不支持以下混淆项-remove-comments。
+2. 字节码混淆，不支持以下混淆选项-remove-comments。
  
   
 

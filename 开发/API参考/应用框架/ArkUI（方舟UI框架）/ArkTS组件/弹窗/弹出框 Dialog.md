@@ -1,6 +1,6 @@
 # 弹出框 (Dialog)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -678,7 +678,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/V6MatXoKTBeAvfdxOVHBeg/zh-cn_image_0000002587110676.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=85E9988ADEAB93E7290D2F34465A144DBE4CC9A953321CF67496002DA1A99C8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/rhYi3gP-TrO4KAVS7rw0Gg/zh-cn_image_0000002659102171.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=88A7DA8AFA3E11F9050F1E40AF73CC831F8BB8EFF6BF1ADEECB9576DE986120D)
 
 
 
@@ -741,7 +741,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/s85F4Km1Ste4IHKQbLAKSg/zh-cn_image_0000002617670355.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=EF88473E4FBA6CB68464D0E7C93EE9B51B0761AB43B361B29627486C7FB0087D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/gYd8y6qfRaq4pmjGZMNneg/zh-cn_image_0000002628862824.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=8EA2A31830864BD771D4024848A27D8C83E7D18C7F1D4183706A4DCCFD3E3818)
 
 
 
@@ -806,7 +806,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/qTQjj1zxSvOzJPJrrDG04Q/zh-cn_image_0000002587270580.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=962D3759D0322D88DB3242729770D08624739CB290CB19207E5D2C3AF623B6BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/g2_N97obS7WhrVQu6OrYrQ/zh-cn_image_0000002659222137.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=CD4543FE815D3CF06FDF9DB210CC939ACD318667ED06241B42F37EC60F6C29C4)
 
 
 
@@ -862,4 +862,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/Vq87kjYZTYKQzly1pZM_QA/zh-cn_image_0000002617710257.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=3C48C7CA51823F193E58007A6EDF00F5B1921137A66BE8D1C322F793600EDFEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/umYxgHPcRtaaK-DJYk_9AA/zh-cn_image_0000002628702946.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=27105FB18724A8B6CFE825F2F4737F22E3303B2C2D9344493E2D0EA628880EEE)

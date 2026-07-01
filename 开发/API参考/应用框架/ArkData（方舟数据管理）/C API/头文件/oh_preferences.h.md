@@ -1,6 +1,6 @@
 # oh_preferences.h
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-preferences-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -57,7 +57,7 @@
 | int OH_Preferences_SetBool(OH_Preferences *preference, const char *key, bool value) | - | 根据Key设置Preferences实例对象中的布尔值。 |
 | int OH_Preferences_SetString(OH_Preferences *preference, const char *key, const char *value) | - | 根据Key设置Preferences实例对象中的字符串。 |
 | int OH_Preferences_Delete(OH_Preferences *preference, const char *key) | - | 在Preferences实例对象中删除Key对应的KV数据。 |
-| int OH_Preferences_RegisterDataObserver(OH_Preferences *preference, void *context,OH_PreferencesDataObserver observer, const char *keys[], uint32_t keyCount) | - | 对选取的Key注册数据变更订阅。订阅的Key的值发生变更后，在调用OH_Preferences_Close()后触发回调。 |
+| int OH_Preferences_RegisterDataObserver(OH_Preferences *preference, void *context,OH_PreferencesDataObserver observer, const char *keys[], uint32_t keyCount) | - | 对选取的Key注册数据变更订阅。订阅的Key的值发生变更后，并且在调用OH_Preferences_Close()后触发回调。 |
 | int OH_Preferences_UnregisterDataObserver(OH_Preferences *preference, void *context,OH_PreferencesDataObserver observer, const char *keys[], uint32_t keyCount) | - | 取消注册选取Key的数据变更订阅。 |
 | int OH_Preferences_IsStorageTypeSupported(Preferences_StorageType type, bool *isSupported) | - | 校验当前平台是否支持对应存储模式。 |
 | int OH_Preferences_DeletePreferences(OH_PreferencesOption *option) | - | 删除指定的Preferences对象。 |
@@ -185,7 +185,7 @@ int OH_Preferences_GetInt(OH_Preferences *preference, const char *key, int *valu
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | const char *key | 需要获取的Key的指针。 |
 | int *value | 该参数作为出参使用，表示指向获取到的整型值的指针。 |
  
@@ -217,7 +217,7 @@ int OH_Preferences_GetBool(OH_Preferences *preference, const char *key, bool *va
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | const char *key | 需要获取的Key的指针。 |
 | bool *value | 该参数作为出参使用，表示指向获取到的布尔值的指针。 |
  
@@ -249,7 +249,7 @@ int OH_Preferences_GetString(OH_Preferences *preference, const char *key, char *
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | const char *key | 需要获取的Key的指针。 |
 | char **value | 该参数作为出参使用，表示指向获取到的字符串的二级指针，使用完毕后需要调用释放函数OH_Preferences_FreeString释放内存。 |
 | uint32_t *valueLen | 该参数作为出参使用，表示获取到的字符串长度的指针。 |
@@ -305,7 +305,7 @@ int OH_Preferences_SetInt(OH_Preferences *preference, const char *key, int value
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | const char *key | 指向需要设置的Key的指针。 |
 | int value | 需要设置的整型值。 |
  
@@ -337,7 +337,7 @@ int OH_Preferences_SetBool(OH_Preferences *preference, const char *key, bool val
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | const char *key | 指向需要设置的Key的指针。 |
 | bool value | 需要设置的布尔值。 |
  
@@ -369,7 +369,7 @@ int OH_Preferences_SetString(OH_Preferences *preference, const char *key, const 
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | const char *key | 指向需要设置的Key的指针。 |
 | const char *value | 指向需要设置的字符串指针。 |
  
@@ -401,7 +401,7 @@ int OH_Preferences_Delete(OH_Preferences *preference, const char *key)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | const char *key | 指向需要删除的Key的指针。 |
  
  
@@ -424,7 +424,7 @@ int OH_Preferences_RegisterDataObserver(OH_Preferences *preference, void *contex
  
 **描述**
  
-对选取的Key注册数据变更订阅。订阅的Key的值发生变更后，在调用OH_Preferences_Close()后触发回调。
+对选取的Key注册数据变更订阅。订阅的Key的值发生变更后，并且在调用OH_Preferences_Close()后触发回调。
  
 **起始版本：** 13
  
@@ -432,7 +432,7 @@ int OH_Preferences_RegisterDataObserver(OH_Preferences *preference, void *contex
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | void *context | 应用上下文的指针。 |
 | OH_PreferencesDataObserver observer | 订阅数据变更关联的回调函数OH_PreferencesDataObserver。 |
 | const char *keys[] | 需要订阅的Key数组。 |
@@ -466,7 +466,7 @@ int OH_Preferences_UnregisterDataObserver(OH_Preferences *preference, void *cont
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_Preferences *preference | 指向目标PreferencesOH_Preferences实例对象的指针。 |
+| OH_Preferences *preference | 指向目标OH_Preferences实例对象的指针。 |
 | void *context | 应用上下文的指针。 |
 | OH_PreferencesDataObserver observer | 订阅数据变更关联的回调函数OH_PreferencesDataObserver。 |
 | const char *keys[] | 需要取消订阅的Key数组。 |
@@ -508,7 +508,7 @@ int OH_Preferences_IsStorageTypeSupported(Preferences_StorageType type, bool *is
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回接口操作执行的状态码。 PREFERENCES_OK，表示操作成功。 PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 |
+| int | 返回接口操作执行的状态码。 返回结果为PREFERENCES_OK，表示操作成功。 返回结果为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 |
  
  
   
@@ -570,7 +570,7 @@ int OH_Preferences_SetValue(OH_Preferences *preference, const char *key, OH_Pref
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。 若错误码PREFERENCES_OK表示操作成功。 若错误码PREFERENCES_ERROR_INVALID_PARAM表示参数不合法。 若错误码PREFERENCES_ERROR_STORAGE表示存储异常。 若错误码PREFERENCES_ERROR_MALLOC表示内存分配失败。 |
+| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_STORAGE，表示存储异常。 若错误码为PREFERENCES_ERROR_MALLOC，表示内存分配失败。 |
  
  
   
@@ -602,7 +602,7 @@ int OH_Preferences_GetValue(OH_Preferences *preference, const char *key, OH_Pref
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。 若错误码PREFERENCES_OK表示操作成功。 若错误码PREFERENCES_ERROR_INVALID_PARAM表示参数不合法。 若错误码PREFERENCES_ERROR_STORAGE表示存储异常。 若错误码PREFERENCES_ERROR_MALLOC表示内存分配失败。 若错误码PREFERENCES_ERROR_KEY_NOT_FOUND表示查询的Key不存在。 |
+| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_STORAGE，表示存储异常。 若错误码为PREFERENCES_ERROR_MALLOC，表示内存分配失败。 若错误码为PREFERENCES_ERROR_KEY_NOT_FOUND，表示查询的Key不存在。 |
  
  
   
@@ -634,7 +634,7 @@ int OH_Preferences_GetAll(OH_Preferences *preference, OH_PreferencesPair **pairs
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。 若错误码PREFERENCES_OK表示操作成功。 若错误码PREFERENCES_ERROR_INVALID_PARAM表示参数不合法。 若错误码PREFERENCES_ERROR_STORAGE表示存储异常。 若错误码PREFERENCES_ERROR_MALLOC表示内存分配失败。 若错误码PREFERENCES_ERROR_KEY_NOT_FOUND表示查询的Key不存在。 |
+| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_STORAGE，表示存储异常。 若错误码为PREFERENCES_ERROR_MALLOC，表示内存分配失败。 若错误码为PREFERENCES_ERROR_KEY_NOT_FOUND，表示查询的Key不存在。 |
  
  
   
@@ -695,7 +695,7 @@ int OH_Preferences_Flush(OH_Preferences *preference)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。 若错误码PREFERENCES_OK表示操作成功。 若错误码PREFERENCES_ERROR_INVALID_PARAM表示参数不合法。 若错误码PREFERENCES_ERROR_NOT_SUPPORTED表示系统能力不支持。 |
+| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_NOT_SUPPORTED，表示系统能力不支持。 |
  
  
   
@@ -725,7 +725,7 @@ int OH_Preferences_ClearCache(OH_Preferences *preference)
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。 若错误码PREFERENCES_OK表示操作成功。 若错误码PREFERENCES_ERROR_INVALID_PARAM表示参数不合法。 若错误码PREFERENCES_ERROR_NOT_SUPPORTED表示系统能力不支持。 |
+| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_NOT_SUPPORTED，表示系统能力不支持。 |
  
  
   
@@ -757,7 +757,7 @@ int OH_Preferences_RegisterMultiProcessDataObserver(OH_Preferences *preference, 
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。 若错误码PREFERENCES_OK表示操作成功。 若错误码PREFERENCES_ERROR_INVALID_PARAM表示参数不合法。 若错误码PREFERENCES_ERROR_STORAGE表示存储异常。 若错误码PREFERENCES_ERROR_MALLOC表示内存分配失败。 若错误码PREFERENCES_ERROR_GET_DATAOBSMGRCLIENT表示获取数据变更订阅服务失败。 |
+| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_STORAGE，表示存储异常。 若错误码为PREFERENCES_ERROR_MALLOC，表示内存分配失败。 若错误码为PREFERENCES_ERROR_GET_DATAOBSMGRCLIENT，表示获取数据变更订阅服务失败。 |
  
  
   
@@ -789,4 +789,4 @@ int OH_Preferences_UnregisterMultiProcessDataObserver(OH_Preferences *preference
   
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。 若错误码PREFERENCES_OK表示操作成功。 若错误码PREFERENCES_ERROR_INVALID_PARAM表示参数不合法。 若错误码PREFERENCES_ERROR_STORAGE表示存储异常。 若错误码PREFERENCES_ERROR_MALLOC表示内存分配失败。 |
+| int | 返回执行的错误码。 若错误码为PREFERENCES_OK，表示操作成功。 若错误码为PREFERENCES_ERROR_INVALID_PARAM，表示参数不合法。 若错误码为PREFERENCES_ERROR_STORAGE，表示存储异常。 若错误码为PREFERENCES_ERROR_MALLOC，表示内存分配失败。 |

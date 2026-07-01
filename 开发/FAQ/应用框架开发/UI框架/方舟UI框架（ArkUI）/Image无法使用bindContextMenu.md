@@ -1,12 +1,12 @@
 # Image无法使用bindContextMenu
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-61
 
 Image组件默认启用长按拖拽功能，会与bindContextMenu的长按弹出菜单冲突，需显式设置draggable(false)来禁用拖拽。参考代码如下：
  
-```ArkTS
+```text
 @Entry
 @Component
 struct Index {
@@ -32,7 +32,7 @@ struct Index {
       }
       .bindContextMenu(this.menuBuilder, ResponseType.LongPress)
       .onDragStart(() => {
-        // Close menu when dragging
+      <em>  // Close menu when dragging</em>
         this.getUIContext().getContextMenuController().close()
       })
 

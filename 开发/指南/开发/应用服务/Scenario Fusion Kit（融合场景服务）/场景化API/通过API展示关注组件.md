@@ -1,6 +1,6 @@
 # 通过API展示关注组件
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-api-followcomponent
 
@@ -61,9 +61,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   aboutToAppear(): void {
     // 一键关注组件。
-    // pubId: 服务号id，此处以官方小助手服务号id为例。
+    // pubId: 服务号ID，此处以官方小助手服务号ID为例。
     const pubId: string = '0cca1c645526449fb89d4a83e3bc25df';
-    // channelId：渠道id，长度限制32，只能是数字或字母组成; offset：设置关注组件的位置坐标。
+    // channelId：渠道ID，长度限制32，只能是数字或字母组成; offset：设置关注组件的位置坐标。
     const params: atomicService.FollowComponentParams =
       { pubId: pubId, channelId: '', offset: { x: 0, y: 300 } };
     // 点击关注按钮的关注结果回调。
@@ -84,7 +84,7 @@ struct Index {
     }
     // 展示关注组件。
     atomicService.showFollowComponent(this.getUIContext(), params, callbacks).catch((error: BusinessError<void>) => {
-      hilog.error(0x0000, 'testTag', 'Failed to show the Follow Component, failReason: %{public}d %{public}s:', error.code,
+      hilog.error(0x0000, 'testTag', 'Failed to show the Follow Component, failReason: %{public}d %{public}s', error.code,
         error.message);
     })
   }

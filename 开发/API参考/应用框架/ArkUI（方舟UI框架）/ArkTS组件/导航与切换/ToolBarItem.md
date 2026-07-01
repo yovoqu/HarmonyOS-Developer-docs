@@ -1,6 +1,6 @@
 # ToolBarItem
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toolbaritem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 通过[toolbar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-toolbar#toolbar)通用属性为窗口标题栏添加工具栏项。
  
 > [!NOTE]
-> 该组件从API version 20开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件一般配合 toolbar 通用属性进行使用。
+> 该组件从API version 20开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 该组件一般配合 toolbar 通用属性进行使用。
 
   
 

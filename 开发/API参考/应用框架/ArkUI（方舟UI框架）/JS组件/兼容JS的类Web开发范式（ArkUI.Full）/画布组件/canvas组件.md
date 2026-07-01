@@ -1,6 +1,6 @@
 # canvas组件
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvas
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -150,4 +150,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/XySHcTpjT56sKpVfEQ4kYQ/zh-cn_image_0000002581436344.png?HW-CC-KV=V1&HW-CC-Date=20260528T025435Z&HW-CC-Expire=86400&HW-CC-Sign=404033AFA2094FD7234B7B4E9E7CF374B426C86EF489742E5EDCE17C93390DEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/t3-8DD4GTySq9CPoz2sjDg/zh-cn_image_0000002659102307.png?HW-CC-KV=V1&HW-CC-Date=20260701T014404Z&HW-CC-Expire=86400&HW-CC-Sign=D313933523E8AAE905351DE4FA15FBCC7EAC87F7AA5F94991BBAAD3AFA1BF132)

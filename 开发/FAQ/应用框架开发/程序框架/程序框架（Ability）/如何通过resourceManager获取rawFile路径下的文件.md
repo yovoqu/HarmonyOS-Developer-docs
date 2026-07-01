@@ -1,6 +1,6 @@
 # 如何通过resourceManager获取rawFile路径下的文件
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 09:07:13
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-111
 
@@ -8,10 +8,10 @@
  
 可以通过[@ohos.resourceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)中的[getRawFileList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfilelist10)方法获取RawFile路径下的所有文件。参考代码如下：
  
-```ArkTS
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-// Passing in '' indicates obtaining a list of files in the root directory of rawfile
+<em>// Passing in '' indicates obtaining a list of files in the root directory of rawfile</em>
 try {
   let context = AppStorage.get('context') as UIContext;
   context.getHostContext()!.resourceManager.getRawFileList('', (error: BusinessError, value: Array<string>) => {

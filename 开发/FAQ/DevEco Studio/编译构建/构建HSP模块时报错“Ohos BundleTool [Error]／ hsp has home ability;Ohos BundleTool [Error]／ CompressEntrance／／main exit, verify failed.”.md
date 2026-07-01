@@ -1,6 +1,6 @@
 # 构建HSP模块时报错“Ohos BundleTool [Error]: hsp has home ability;Ohos BundleTool [Error]: CompressEntrance::main exit, verify failed.”
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-180
 
@@ -28,8 +28,8 @@
 3. 若为第三方包依赖，需删除对应配置并重新发布，更新依赖版本后重新构建。
 
 4. 如果第三方包依赖无法重新发布，可以通过Hvigor自定义插件在HSP模块中增加自定义任务，删除build/${productName}/intermediates/package/${targetName}/module.json中的入口 Ability 相关配置，然后重新构建。
-```ts
-// HSP module hvigorfile.ts
+```json
+<em>// HSP module hvigorfile.ts</em>
 import { hspTasks,OhosPluginId, Target } from '@ohos/hvigor-ohos-plugin';
 import { hvigor, HvigorNode, HvigorPlugin,FileUtil } from '@ohos/hvigor';
 export function customPlugin():HvigorPlugin {
@@ -48,16 +48,16 @@ export function customPlugin():HvigorPlugin {
     }
 }
 function hspTask(currentNode: HvigorNode) {
-    // Obtain contextual information of the HSP module
+    <em>// Obtain contextual information of the HSP module</em>
     const hspContext = currentNode.getContext(OhosPluginId.OHOS_HSP_PLUGIN) as OhosHspContext;
     hspContext?.targets((target: Target) => {
         const targetName = target.getTargetName();
         const outputPath = target.getBuildTargetOutputPath();
         const task = currentNode.getTaskByName(`${targetName}@GeneratePkgModuleJson`);
         currentNode.registerTask({
-            // TASK
+            <em>// TASK</em>
             name: `${targetName}@changeModuleJson`,
-            // Task execution logic entity function
+            <em>// Task execution logic entity function</em>
             run() {
                 const moduleJson = FileUtil.readJson5(outputPath+"/../../intermediates/package/"+targetName+"/module.json");
                 const abilities = moduleJson['module']['abilities'];
@@ -68,15 +68,15 @@ function hspTask(currentNode: HvigorNode) {
                 moduleJson['module']['abilities'] = abilities
                 FileUtil.writeFileSync(outputPath+"/../../intermediates/package/"+targetName+"/module.json",JSON.stringify(moduleJson));
             },
-            // Configure prerequisite task dependencies
+            <em>// Configure prerequisite task dependencies</em>
             dependencies: [`${targetName}@GeneratePkgModuleJson`],
-            // Post task dependencies for configuring tasks
+            <em>// Post task dependencies for configuring tasks</em>
             postDependencies: [`${targetName}@PackageSharedHar`]
         });
     });
 }
 export default {
-    system: hspTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
-    plugins:[customPlugin()]         /* Custom plugin to extend the functionality of Hvigor. */
+    system: hspTasks,  <em>/* Built-in plugin of Hvigor. It cannot be modified. */</em>
+    plugins:[customPlugin()]         <em>/* Custom plugin to extend the functionality of Hvigor. */</em>
 }
 ```

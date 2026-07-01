@@ -1,6 +1,6 @@
 # TryGetInputDesc
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-trygetinputdesc
 
@@ -37,7 +37,7 @@ graphStatus TryGetInputDesc(const char_t *name, TensorDesc &tensor_desc) const;
  
 | 类型 | 描述 |
 | --- | --- |
-| graphStatus | true：有此端口，获取TensorDesc成功。 false：无此端口，出参为空，获取TensorDesc失败。 |
+| graphStatus | GRAPH_SUCCESS：有此端口，获取TensorDesc成功。 GRAPH_FAILED：无此端口，出参为空，获取TensorDesc失败。 |
  
  
   
@@ -46,7 +46,7 @@ graphStatus TryGetInputDesc(const char_t *name, TensorDesc &tensor_desc) const;
  
 | 异常场景 | 说明 |
 | --- | --- |
-| 无对应name输入 | 返回false。 |
+| 无对应name输入 | 返回GRAPH_FAILED。 |
  
  
   

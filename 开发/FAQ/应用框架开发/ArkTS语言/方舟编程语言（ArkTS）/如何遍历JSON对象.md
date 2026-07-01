@@ -1,14 +1,13 @@
 # 如何遍历JSON对象
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-26 07:47:42
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-111
 
 具体请参考如下示例代码：
  
-```ArkTS
+```json
 import { ArrayList } from '@kit.ArkTS';
-
 
 interface Winner { num: number };
 let tmpStr: Record<string, Winner> = JSON.parse('{ "0": {"num": 1}, "1": {"num": 2} }');

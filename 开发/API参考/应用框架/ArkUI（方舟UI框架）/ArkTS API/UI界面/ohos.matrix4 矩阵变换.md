@@ -1,6 +1,6 @@
 # @ohos.matrix4 (矩阵变换)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-matrix4
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -472,6 +472,8 @@ Matrix的倾斜函数，可以为当前矩阵增加x轴/y轴倾斜效果。会�
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -660,6 +662,8 @@ setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **参数：**
@@ -710,7 +714,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/gI-X_ICWQISGUNMrvzo4Hg/zh-cn_image_0000002581275630.png?HW-CC-KV=V1&HW-CC-Date=20260528T025449Z&HW-CC-Expire=86400&HW-CC-Sign=101AAA38CEA8A6410D9ED5872A2E29361FD8186362D0869F9D95C98F545ED8B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/cQXYqwrmQJ2_lFZ_hbfEug/zh-cn_image_0000002659221457.png?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=95EC8CF558949C639DF2BC6B507FC3705CB6843E79850844566301E703355CF1)
 
  
   
@@ -785,6 +789,8 @@ struct Index {
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -805,6 +811,8 @@ struct Index {
 坐标点的数据结构。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
   
@@ -869,7 +877,7 @@ struct Test {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/WsqhfAhrTB2JQMF7-tu-Jw/zh-cn_image_0000002611755487.png?HW-CC-KV=V1&HW-CC-Date=20260528T025449Z&HW-CC-Expire=86400&HW-CC-Sign=C5971BECC0FEE8AD9B0D097037C1F5721DE98F67583016E5723188B986639E2E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/O9GYKdfORE2QhZo3O6jniQ/zh-cn_image_0000002628702268.png?HW-CC-KV=V1&HW-CC-Date=20260701T014315Z&HW-CC-Expire=86400&HW-CC-Sign=7616FE73F7B57FDCBD2C7CD8E64D037454037D2559F294DE10A1810DEB4ED615)
 
  
   

@@ -1,6 +1,6 @@
 # dialog
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -192,4 +192,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/i7ox3dIAQvWQIlF16K5GNg/zh-cn_image_0000002581436318.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025443Z&HW-CC-Expire=86400&HW-CC-Sign=49F317611A2529A7401B7E444C53D655075EBCBC2A70E2934F67DCC194DABF20)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/9vqLHc0FSd22N08WJ3vPAQ/zh-cn_image_0000002659102281.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014359Z&HW-CC-Expire=86400&HW-CC-Sign=5B42028268637CE712352AFE018667CDB7199A6F20A5BDA01A190FA9F266960B)

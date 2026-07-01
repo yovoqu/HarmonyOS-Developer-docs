@@ -1,6 +1,6 @@
 # Class (DragController)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-dragcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供发起主动拖拽的能力，当应用接收到触摸或长按等事件时可以主动发起拖拽的动作，并在其中携带拖拽信息。
 
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 11开始支持。 以下API需先使用UIContext中的 getDragController() 方法获取DragController实例，再通过此实例调用对应方法。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 11开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getDragController() 方法获取DragController实例，再通过此实例调用对应方法。
 
 
 
@@ -628,7 +628,7 @@ struct NormalEts {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/_uQWkYOjQky5qTTjIXCeGQ/zh-cn_image_0000002581435536.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025454Z&HW-CC-Expire=86400&HW-CC-Sign=0889BC0A81492B02BA81E929F78286771D0AD37233CAC68989D8B62ED44BB3F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/JYFXHu5kTR-917RRrbjEZA/zh-cn_image_0000002628862132.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014312Z&HW-CC-Expire=86400&HW-CC-Sign=76091D01C88F882C7901DC74FC46BB83473AEC93493FDDBF463415E8472A5F7E)
 
 
 
@@ -708,4 +708,4 @@ struct Index {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/nEC_nrAsStKhWDBnP58kVw/zh-cn_image_0000002611835367.png?HW-CC-KV=V1&HW-CC-Date=20260528T025454Z&HW-CC-Expire=86400&HW-CC-Sign=43EF33C3FA54D62347443423177A7B51D1331398168B0986BE1AC5B274D4489F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/gbqZPx07QKKhLnrFQVrcDg/zh-cn_image_0000002659221443.png?HW-CC-KV=V1&HW-CC-Date=20260701T014312Z&HW-CC-Expire=86400&HW-CC-Sign=A2515B15229718B693B278D192D6A7A09B29E9010C75A19DABBD4A96857AC4B3)

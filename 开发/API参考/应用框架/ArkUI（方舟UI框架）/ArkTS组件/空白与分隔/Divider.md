@@ -1,6 +1,6 @@
 # Divider
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-divider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -229,7 +229,7 @@ struct DividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/eyB0Y9MES-CcC3IjlMhB-Q/zh-cn_image_0000002581436058.png?HW-CC-KV=V1&HW-CC-Date=20260528T025604Z&HW-CC-Expire=86400&HW-CC-Sign=EFB24A0E1FC816624FABC94135D330516240C47E9DC48BA3AC2F81D36AE57469)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/Ljf_L6bgRH2cedlM7YmFVg/zh-cn_image_0000002628862672.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=A4C9C9CD295343B33F8E48C5B7BD61413196565349F6666895EE144CDBD2E601)
 
  
   
@@ -272,4 +272,4 @@ struct DividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/lh0rD0PgTh-ASUDKv_SlLg/zh-cn_image_0000002611835889.png?HW-CC-KV=V1&HW-CC-Date=20260528T025604Z&HW-CC-Expire=86400&HW-CC-Sign=7FD415605663860AB68720876E771DAA7F60F4990B513045C39637F9C72BB60C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/KfIfv7LFR12hFh3BY-TsQA/zh-cn_image_0000002659221987.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=45CDF125EA7945D09489852881B99A03E1396FAF481619CC8CCF85A76F042996)

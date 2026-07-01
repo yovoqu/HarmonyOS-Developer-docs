@@ -1,6 +1,6 @@
 # styled_string.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-06-27 10:02:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -49,7 +49,7 @@
 | OH_ArkUI_BaselineOffsetStyle | OH_ArkUI_BaselineOffsetStyle | 定义基线偏移量样式。 可以通过OH_ArkUI_BaselineOffsetStyle_Create接口创建对应的基线偏移量样式对象。 可以通过OH_ArkUI_BaselineOffsetStyle_Destroy接口销毁基线偏移量样式对象。 对象创建后通过OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset接口设置具体的基线偏移量值。 |
 | OH_ArkUI_LetterSpacingStyle | OH_ArkUI_LetterSpacingStyle | 定义字符间距样式。 可以通过OH_ArkUI_LetterSpacingStyle_Create接口创建对应的字符间距样式对象。 可以通过OH_ArkUI_LetterSpacingStyle_Destroy接口销毁字符间距样式对象。 对象创建后通过OH_ArkUI_LetterSpacingStyle_SetLetterSpacing接口设置具体的字符间距值。 |
 | OH_ArkUI_LineHeightStyle | OH_ArkUI_LineHeightStyle | 定义行高样式。 可以通过OH_ArkUI_LineHeightStyle_Create接口创建对应的行高样式对象。 可以通过OH_ArkUI_LineHeightStyle_Destroy接口销毁行高样式对象。 对象创建后可以通过OH_ArkUI_LineHeightStyle_SetLineHeight接口设置具体的固定行高值。 从API版本26.0.0开始，对象创建后可以通过OH_ArkUI_LineHeightStyle_SetLineHeightMultiple接口设置具体的行高的倍数值。 |
-| OH_ArkUI_LineSpacingStyle | OH_ArkUI_LineSpacingStyle | 定义行间距样式。 可以通过OH_ArkUI_LineSpacingStyle_Create接口创建对应的行间距样式对象。 可以通过OH_ArkUI_LineSpacingStyle_Destroy接口销毁行间距样式对象。 对象创建后可以通过OH_ArkUI_LineSpacingStyle_SetLineSpacing接口设置具体的行间距值。 对象创建后可以通过OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines接口设置行间距是否只在行间生效。 |
+| OH_ArkUI_LineSpacingStyle | OH_ArkUI_LineSpacingStyle | 定义行间距样式。 可以通过OH_ArkUI_LineSpacingStyle_Create接口创建对应的行间距样式对象，通过OH_ArkUI_LineSpacingStyle_Destroy接口销毁行间距样式对象。 对象创建后可以通过OH_ArkUI_LineSpacingStyle_SetLineSpacing接口设置具体的行间距值，通过OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines接口设置行间距是否只在行间生效。 |
 | OH_ArkUI_UrlStyle | OH_ArkUI_UrlStyle | 定义超链接样式。 可以通过OH_ArkUI_UrlStyle_Create接口创建对应的超链接样式对象。 可以通过OH_ArkUI_UrlStyle_Destroy接口销毁超链接样式对象。 对象创建后通过OH_ArkUI_UrlStyle_SetUrl接口设置链接地址。 |
 | OH_ArkUI_BackgroundColorStyle | OH_ArkUI_BackgroundColorStyle | 定义背景颜色样式。 可以通过OH_ArkUI_BackgroundColorStyle_Create接口创建对应的背景颜色样式对象。 可以通过OH_ArkUI_BackgroundColorStyle_Destroy接口销毁背景颜色样式对象。 对象创建后通过OH_ArkUI_BackgroundColorStyle_SetColor和OH_ArkUI_BackgroundColorStyle_SetRadius接口设置背景颜色和圆角。 |
 | OH_ArkUI_UserDataSpan | OH_ArkUI_UserDataSpan | 定义用户数据Span样式。 可以通过OH_ArkUI_UserDataSpan_Create接口创建对应的用户数据Span样式对象。 可以通过OH_ArkUI_UserDataSpan_Destroy接口销毁用户数据Span样式对象。 对象创建后通过OH_ArkUI_UserDataSpan_SetUserData接口绑定用户数据。 |
@@ -88,7 +88,7 @@
 | void OH_ArkUI_StyledString_Descriptor_Destroy(ArkUI_StyledString_Descriptor* descriptor) | 释放被ArkUI_StyledString_Descriptor对象占据的内存。 |
 | int32_t OH_ArkUI_UnmarshallStyledStringDescriptor(uint8_t* buffer, size_t bufferSize, ArkUI_StyledString_Descriptor* descriptor) | 将包含属性字符串信息的字节数组反序列化为属性字符串。 |
 | int32_t OH_ArkUI_MarshallStyledStringDescriptor(uint8_t* buffer, size_t bufferSize, ArkUI_StyledString_Descriptor* descriptor, size_t* resultSize) | 将属性字符串信息序列化为字节数组。 |
-| const char* OH_ArkUI_ConvertToHtml(ArkUI_StyledString_Descriptor* descriptor) | 将属性字符串信息转换成html。 |
+| const char* OH_ArkUI_ConvertToHtml(ArkUI_StyledString_Descriptor* descriptor) | 将属性字符串信息转换成HTML。 |
 | ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithString(const char* value, const OH_ArkUI_SpanStyle** styles, int32_t length) | 创建纯文本内容类型的ArkUI_StyledString_Descriptor对象。 |
 | ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithImageAttachment(const OH_ArkUI_ImageAttachment* value) | 创建图片内容类型的ArkUI_StyledString_Descriptor对象。 |
 | ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithCustomSpan(const OH_ArkUI_CustomSpan* value) | 创建自定义绘制Span内容类型的ArkUI_StyledString_Descriptor对象。 |
@@ -244,9 +244,9 @@
 | OH_ArkUI_LineSpacingStyle* OH_ArkUI_LineSpacingStyle_Create() | 创建OH_ArkUI_LineSpacingStyle对象。 |
 | void OH_ArkUI_LineSpacingStyle_Destroy(OH_ArkUI_LineSpacingStyle* lineSpacingStyle) | 释放OH_ArkUI_LineSpacingStyle对象占用的内存。 |
 | ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetLineSpacing(OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float lineSpacing) | 设置行间距。 |
-| ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetLineSpacing(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float* lineSpacing) | 查询行间距。 |
+| ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetLineSpacing(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float* lineSpacing) | 获取行间距。 |
 | ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines(OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool onlyBetweenLines) | 设置行间距是否只在行间生效。 |
-| ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool* onlyBetweenLines) | 查询行间距是否只在行间生效。 |
+| ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool* onlyBetweenLines) | 获取行间距是否只在行间生效。 |
 | OH_ArkUI_BackgroundColorStyle* OH_ArkUI_BackgroundColorStyle_Create() | 创建OH_ArkUI_BackgroundColorStyle对象。 |
 | void OH_ArkUI_BackgroundColorStyle_Destroy(OH_ArkUI_BackgroundColorStyle* style) | 释放OH_ArkUI_BackgroundColorStyle对象占用的内存。 |
 | ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_SetColor(OH_ArkUI_BackgroundColorStyle* style, uint32_t color) | 设置背景颜色样式的背景色。 |
@@ -663,7 +663,7 @@ int32_t OH_ArkUI_MarshallStyledStringDescriptor(uint8_t* buffer, size_t bufferSi
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_INVALID_STYLED_STRING 无效的属性字符串。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_INVALID_STYLED_STRING 属性字符串无效。 |
 
 
 

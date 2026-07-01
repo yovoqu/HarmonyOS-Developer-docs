@@ -1,6 +1,6 @@
 # DialogV2
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialogv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -747,7 +747,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/c_WeIwWkSsinXi_9rlNhGQ/zh-cn_image_0000002581276324.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=0128F973F7AE129BDDA4EB817A1B0964776AF1F7BF81B7E4F6E6C08758B710D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/he1bVUymTiWrzYdQR5OROA/zh-cn_image_0000002628862856.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=6BBD29DD94431E03FD3A83CE4F2772C7B118F5BC09E7F1F8E3E74107C3DCA226)
 
 
 
@@ -811,7 +811,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nBjTgBGAQEm1_VEkxKiPJA/zh-cn_image_0000002611756179.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=1AF0EB8F2BACF4E3FC2DFAE8CB7765BD4FF4754346FAC24D83118ECCCF5A2EB9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/DtHen6_pQv6E_sSapbh8uA/zh-cn_image_0000002659222169.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=EC967CA2A194B2C5119A4BA1EA16A6A34B2F30C0EFA1F5C2BE3CC5C307DA6E68)
 
 
 
@@ -872,4 +872,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/RIrbfSMtSgOc7ybEk4-LZw/zh-cn_image_0000002581436240.png?HW-CC-KV=V1&HW-CC-Date=20260528T025530Z&HW-CC-Expire=86400&HW-CC-Sign=C7D749926863700B9FFFC0594CA1EC669D0B2F4F6B64EFF11F15E87D196B07BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/BwXWbe2nSZysRtVRn9-LIA/zh-cn_image_0000002628702978.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=F50B32FA4C722BB254DDA94106817F012673D14108D3BACC8484ACBD40007637)
