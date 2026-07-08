@@ -1,6 +1,6 @@
 # 静态方式加载Native模块
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-import-native-module
 
@@ -22,7 +22,7 @@ export const add: (a: number, b: number) => number;
  
 ```ArkTS
 // NameImport.ets
-import { add } from 'libentry.so'
+import { add } from 'libentry.so';
 add(2, 3);
 ```
  
@@ -37,7 +37,7 @@ export const add: (a: number, b: number) => number;
  
 ```ArkTS
 // DefaultImport.ets
-import entry from 'libentry.so'
+import entry from 'libentry.so';
 entry.add(2, 3);
 ```
  
@@ -52,7 +52,7 @@ export const add: (a: number, b: number) => number;
  
 ```ArkTS
 // NamespaceImport.ets
-import * as entry from 'libentry.so'
+import * as entry from 'libentry.so';
 entry.add(2, 3);
 ```
  
@@ -94,12 +94,12 @@ export const add: (a: number, b: number) => number;
  
 ```ArkTS
 // NamespaceExport.ets
-export * from 'libentry.so'
+export * from 'libentry.so';
 ```
  
 ```ArkTS
 // NamespaceImportFromExport.ets
-import { add } from './NamespaceExport'
+import { add } from './NamespaceExport';
 add(2, 3);
 ```
  
@@ -115,7 +115,7 @@ add(2, 3);
  
 ```ArkTS
 // test1.ets
-export * from 'libentry.so'
+export * from 'libentry.so';
 ```
  
 ```ArkTS
@@ -150,7 +150,7 @@ import('libentry.so').then((entry:ESObject) => {
 
 ```ArkTS
 // DynamicExport.ets
-import entry from 'libentry.so'
+import entry from 'libentry.so';
 export { entry }
 ```
  
@@ -173,7 +173,7 @@ import('./DynamicExport').then((ns:ESObject) => {
  
 ```ArkTS
 // test1.ets
-export * from 'libentry.so'
+export * from 'libentry.so';
 ```
  
 ```ArkTS

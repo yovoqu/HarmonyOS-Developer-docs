@@ -1,6 +1,6 @@
 # ServiceCollaboration_SelectInfo
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-selectinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -33,7 +33,7 @@
 | --- | --- |
 | ServiceCollaborationFilterType serviceFilterType | 开发者期望的设备能力类型。 |
 | char deviceNetworkId [COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH] | 被选择的设备network Id。 |
-| uint32_t maxSize | 被选择的设备能被选中的最大图片数量。 |
+| uint32_t maxSize | 能被选中的最大图片数量。 |
  
  
   

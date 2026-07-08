@@ -1,11 +1,11 @@
 # Interface (NativeMediaPlayerHandler)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-nativemediaplayerhandler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-[CreateNativeMediaPlayerCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-t#createnativemediaplayercallback12)回调函数的参数。应用通过该对象，将播放器的状态通知给 ArkWeb 内核。
+NativeMediaPlayerHandler 是[CreateNativeMediaPlayerCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-t#createnativemediaplayercallback12)回调函数的参数。当应用使用[NativeMediaPlayerBridge](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-nativemediaplayerbridge)接管网页媒体播放时，需要通过将播放器的各种状态变化实时同步给 ArkWeb 内核，确保网页 JavaScript 能够获取正确的播放器状态，ArkWeb 内核会将这些状态转换为标准的 HTML5 Media Events，触发网页中注册的事件监听器，从而保证网页功能的正常运行。
  
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Interface首批接口从API version 12开始支持。 示例效果请以真机运行为准。

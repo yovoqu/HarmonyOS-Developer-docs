@@ -1,11 +1,11 @@
 # @ohos.multimedia.avCastPickerParam (投播组件参数)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-avcastpickerparam
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-avCastPickerParam提供了[@ohos.multimedia.avCastPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avcastpicker)组件状态枚举值。
+avCastPickerParam提供了[@ohos.multimedia.avCastPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avcastpicker)组件相关的枚举参数。
  
 > [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。

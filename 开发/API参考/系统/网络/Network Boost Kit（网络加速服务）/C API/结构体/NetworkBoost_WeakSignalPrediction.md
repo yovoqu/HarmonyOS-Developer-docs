@@ -1,6 +1,6 @@
 # NetworkBoost_WeakSignalPrediction
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-struct-weak_signal_prediction
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,8 +32,8 @@
 | 名称 | 描述 |
 | --- | --- |
 | bool isLastPredictionValid | 最近一次的弱信号预测是否有效，true表示最近一次的弱信号预测依旧有效，false表示最近一次的弱信号预测失效，此时startTime和duration参数忽略。 |
-| uint32_t startTime | 预计多长时间进入弱信号（单位：s），取值范围为0和任意正数。 |
-| uint32_t duration | 预计在弱信号区域停留时长（单位：s），取任意正数。取值0，此次预测结果无效。 |
+| uint32_t startTime | 预计多长时间进入弱信号，单位为s，取值范围为0和任意正数。 |
+| uint32_t duration | 预计在弱信号区域停留时长，单位为s，取任意正数。取值0，此次预测结果无效。 |
  
  
   

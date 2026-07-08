@@ -1,6 +1,6 @@
 # 使用Web组件菜单处理网页内容
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-menu
 
@@ -975,12 +975,15 @@ struct WebComponent {
     }
   }
   onBackPress(): boolean | void {
-    if (this.controller.accessStep(-1)) {
-      this.controller.backward();
-      return true;
-    } else {
-      return false;
+    try {
+      if (this.controller.accessStep(-1)) {
+        this.controller.backward();
+        return true;
+      }
+    } catch (err) {
+      console.error(`onBackPress failed with error: ${err.code}, ${err.message}`);
     }
+    return false;
   }
 }
 ```

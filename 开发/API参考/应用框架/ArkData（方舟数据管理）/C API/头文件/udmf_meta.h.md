@@ -1,6 +1,6 @@
 # udmf_meta.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-meta-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -112,7 +112,7 @@
 | UDMF_META_TAR_ARCHIVE "general.tar-archive" | TAR存档文件类型，归属类型为ARCHIVE。 起始版本： 12 |
 | UDMF_META_ZIP_ARCHIVE "general.zip-archive" | ZIP存档文件类型，归属类型为ARCHIVE。 起始版本： 12 |
 | UDMF_META_JAVA_ARCHIVE "com.sun.java-archive" | JAVA存档文件类型，归属类型为ARCHIVE和EXECUTABLE。 起始版本： 12 |
-| UDMF_META_GNU_TAR_ARCHIVE "org.gnu.gnu-tar-archive" | GUN存档文件类型，归属类型为ARCHIVE。 起始版本： 12 |
+| UDMF_META_GNU_TAR_ARCHIVE "org.gnu.gnu-tar-archive" | GNU存档文件类型，归属类型为ARCHIVE。 起始版本： 12 |
 | UDMF_META_GNU_ZIP_ARCHIVE "org.gnu.gnu-zip-archive" | GZIP存档文件类型，归属类型为ARCHIVE。 起始版本： 12 |
 | UDMF_META_GNU_ZIP_TAR_ARCHIVE "org.gnu.gnu-zip-tar-archive" | GZIP TAR存档文件类型，归属类型为ARCHIVE。 起始版本： 12 |
 | UDMF_META_CALENDAR "general.calendar" | 所有日程类数据的基类型，归属类型为OBJECT。 起始版本： 12 |

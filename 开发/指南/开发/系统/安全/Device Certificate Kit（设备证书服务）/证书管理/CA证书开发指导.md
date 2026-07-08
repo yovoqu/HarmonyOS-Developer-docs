@@ -1,6 +1,6 @@
 # CA证书开发指导
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/certmanager-ca-certs-guidelines
 
@@ -11,7 +11,7 @@
 您的应用可以参考[Network Kit配置证书校验](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request#配置证书校验)内容，利用Device Certificate Kit的系统CA证书、用户CA证书，对HTTPS证书链进行校验。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/1jHk2fQcSCyHxzYR1Z2-Rw/zh-cn_image_0000002656348349.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=7ECAEF3B86B224F147AC9E0E666C1D5CBD61A12DC41E62B6750E5FCE7927F96C)
+![](assets/CA证书开发指导/file-20260708103809d05cf953.png)
 
  
 场景2：采用底层或自定义的安全协议进行通信。
@@ -19,7 +19,7 @@
 如果您的应用需要采用底层或自定义的安全协议与应用服务器进行通信，则您的应用可能需要从Device Certificate Kit读取系统CA证书和用户CA证书对服务器的证书链进行校验。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/-tWZf_9QR5qmGB-ym5RGIw/zh-cn_image_0000002626228936.png?HW-CC-KV=V1&HW-CC-Date=20260624T020834Z&HW-CC-Expire=86400&HW-CC-Sign=5601084A941ED9D98243297571A0972541A38DF7C49A9AECFFD1B54F153DF4E6)
+![](assets/CA证书开发指导/file-20260708103809650d7187.png)
 
  
 Device Certificate Kit的CA证书管理功能包含如下能力：
@@ -110,7 +110,7 @@ import { UIContext } from '@kit.ArkUI';
 
 #### 样例代码
 
-```ArkTS
+```text
 import { certificateManager, certificateManagerDialog } from '@kit.DeviceCertificateKit';
 import { util } from '@kit.ArkTS';
 import { common } from '@kit.AbilityKit';

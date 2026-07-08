@@ -1,6 +1,6 @@
 # 批量转换teamPlayerId
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-teamplayerid
 
@@ -74,7 +74,7 @@
 #### 请求示例
 
 ```json
-POST https://connect-api.cloud.huawei.com/api/jas/open/players/player-accounts/team-player/convert HTTP/1.1
+POST /api/jas/open/players/player-accounts/team-player/convert HTTP/1.1
 Host: connect-api.cloud.huawei.com
 Content-Type: application/json
 client_id: 41******7168

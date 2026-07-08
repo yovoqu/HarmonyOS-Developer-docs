@@ -1,6 +1,6 @@
 # 媒体会话提供方(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avsession-developer
 
@@ -9,8 +9,8 @@
 
 #### 基本概念
 
- - 媒体会话元数据（AVMetadata）： 用于描述媒体数据相关属性，包含标识当前媒体的ID（assetId），上一首媒体的ID（previousAssetId），下一首媒体的ID（nextAssetId），标题（title），专辑作者（author），专辑名称（album），词作者（writer），媒体时长（duration）等属性。
- - 媒体播放状态（AVPlaybackState）：用于描述媒体播放状态的相关属性，包含当前媒体的播放状态（state）、播放位置（position）、播放倍速（speed）、缓冲时间（bufferedTime）、循环模式（loopMode）、是否收藏（isFavorite）、正在播放的媒体Id（activeItemId）、自定义媒体数据（extras）等属性。
+ - 媒体会话元数据（AVMetadata）：用于描述媒体数据相关属性，包含标识当前媒体的ID（assetId），上一首媒体的ID（previousAssetId），下一首媒体的ID（nextAssetId），标题（title），专辑作者（author），专辑名称（album），词作者（writer），媒体时长（duration）等属性。
+ - 媒体播放状态（AVPlaybackState）：用于描述媒体播放状态的相关属性，包含当前媒体的播放状态（state）、播放位置（position）、播放倍速（speed）、缓冲时间（bufferedTime）、循环模式（loopMode）、是否收藏（isFavorite）、正在播放的媒体ID（activeItemId）、自定义媒体数据（extras）等属性。
 
 
 
@@ -238,7 +238,7 @@ struct Index {
 
   
 > [!NOTE]
-> 媒体会话提供方在注册相关固定播控命令事件监听时，监听的事件会在媒体会话控制方的getValidCommands()方法中体现，即媒体会话控制方会认为对应的方法有效，进而根据需要触发相应暂不使用时的事件。为了保证媒体会话控制方下发的播控命令可以被正常执行，媒体会话提供方请勿进行无逻辑的空实现监听。
+> 媒体会话提供方在注册相关固定播控命令事件监听时，监听的事件会在媒体会话控制方的getValidCommands()方法中体现，即媒体会话控制方会认为对应的方法有效，进而根据需要触发相应的事件。为了保证媒体会话控制方下发的播控命令可以被正常执行，媒体会话提供方请勿进行无逻辑的空实现监听。
 
 
   Session侧的固定播控命令主要包括播放、暂停、上一首、下一首等基础操作命令，详细介绍请参见[AVControlCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avcontrolcommand10)。
@@ -341,7 +341,7 @@ struct Index {
 ```
 6.2 高级播控事件的监听。
 
-  Session侧的可以注册的高级播控事件主要包括：
+  Session侧可注册的高级播控事件主要包括：
 
   
 skipToQueueItem: 播放列表其中某项被选中的事件。
@@ -402,7 +402,7 @@ struct Index {
 
 12. 音视频应用在退出，并且不需要继续播放时，及时取消监听以及销毁媒体会话释放资源。
 
-  取消播控命令监听的示例代码如下所示 ：
+  取消播控命令监听的示例代码如下所示：
 
   
 ```ArkTS

@@ -1,6 +1,6 @@
 # 使用code cache加速编译
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-code-cache
 
@@ -33,7 +33,7 @@ JSVM提供了生成并使用code cache加速编译过程的方法，其获取和
  
 外层跨语言交互的部分可以参考 [使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)。
  
-```text
+```cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
 #include <hilog/log.h>

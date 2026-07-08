@@ -1,6 +1,6 @@
 # stepper开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-stepper
 
@@ -48,7 +48,7 @@ text{
 
 
 
-#### 设置index属性
+#### 设置index和label属性
 
 页面默认显示索引值为index的步骤。
 
@@ -232,7 +232,7 @@ stepper分别添加finish，change，next，back，skip事件。
 
 ```text
 /* xxx.css */
-.doc-page {
+.container {
   width:100%;
   height:100%;
   flex-direction: column;

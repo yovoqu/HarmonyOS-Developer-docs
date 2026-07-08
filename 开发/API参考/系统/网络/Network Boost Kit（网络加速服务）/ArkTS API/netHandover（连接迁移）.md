@@ -1,6 +1,6 @@
 # netHandover（连接迁移）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-nethandover
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -20,7 +20,7 @@ import { netHandover } from '@kit.NetworkBoostKit';
  
   
 
-#### netHandover.on( 'handoverChange')
+#### netHandover.on('handoverChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -79,7 +79,7 @@ try {
  
   
 
-#### netHandover.off( 'handoverChange')
+#### netHandover.off('handoverChange')
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
@@ -226,7 +226,7 @@ try {
   console.info('getMultiPathQuotaStats multiPathQuota.used.count is:' + multiquota.used.count)
   console.info('getMultiPathQuotaStats multiPathQuota.used.duration is:' + multiquota.used.duration)
   console.info('getMultiPathQuotaStats multiPathQuota.remaining.count is:' + multiquota.remaining.count)
-  console.info('getMultiPathQuotaStats multiPathQuota.remaining.durationis:' + multiquota.remaining.duration)
+  console.info('getMultiPathQuotaStats multiPathQuota.remaining.duration is:' + multiquota.remaining.duration)
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
@@ -577,7 +577,7 @@ try {
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| expires | number | 否 | 否 | 连接迁移全流程的超时时间，单位为秒，取值为任意正整数或者0。 |
+| expires | number | 否 | 否 | 连接迁移全流程的超时时间，单位为s，取值为任意正整数或者0。 |
 | dataSpeedAction | DataSpeedAction | 否 | 否 | 老链路的发包建议。 |
  
  
@@ -601,7 +601,7 @@ try {
 | --- | --- | --- | --- | --- |
 | result | ErrorResult | 否 | 否 | 连接迁移结果。 |
 | handoverContinue | boolean | 否 | 否 | 是否还有HandoverComplete消息。 true表示还有新链路待激活，系统还会上报HandoverComplete消息，一般发生在连接迁移到多个网络的场景。 false表示当前已经是最后一个HandoverComplete消息，连接迁移流程完成。 |
-| oldPathLifetime | number | 否 | 否 | 老链路的剩余生存时长，单位为秒，取值为任意正整数或0。 |
+| oldPathLifetime | number | 否 | 否 | 老链路的剩余生存时长，单位为s，取值为任意正整数或0。 |
 | oldDataSpeedAction | DataSpeedAction | 否 | 否 | 老链路发包建议。 |
 | pathTypeChanged | boolean | 否 | 否 | 新老链路类型是否发生变更。true表示发生变化，如WiFi<->蜂窝。false表示没有发生变化。 |
 | newNetHandle | connection.NetHandle | 否 | 是 | 新链路的NetHandle信息。 |
@@ -711,7 +711,7 @@ try {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | count | number | 否 | 否 | 配额次数信息。 |
-| duration | number | 否 | 否 | 配额时长信息，单位为秒。 |
+| duration | number | 否 | 否 | 配额时长信息，单位为s。 |
  
  
   

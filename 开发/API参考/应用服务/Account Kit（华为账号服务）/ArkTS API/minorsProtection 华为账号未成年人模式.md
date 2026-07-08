@@ -1,6 +1,6 @@
 # @hms.core.account.minorsProtection (华为账号未成年人模式)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-minorsprotection
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -401,7 +401,7 @@ verifyMinorsProtectionCredential(context: common.Context): Promise&lt;boolean&gt
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -477,7 +477,7 @@ leadToTurnOnMinorsMode(context: common.Context): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -555,7 +555,7 @@ leadToTurnOffMinorsMode(context: common.Context): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

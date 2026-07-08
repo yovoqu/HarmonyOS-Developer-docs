@@ -1,11 +1,11 @@
 # Class (PrefetchOptions)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-prefetchoptions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用来自定义网页的预取行为，包括是否忽略响应头中的Cache-Control: no-store和设置两次预取间的最小时间间隔。
+PrefetchOptions是ArkWeb框架中用于自定义网页预取行为的配置类，通过[prefetchPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#prefetchpage21)的预取相关接口设置。用来自定义网页的预取行为，包括是否忽略响应头中的Cache-Control: no-store和设置两次预取间的最小时间间隔。
  
 > [!NOTE]
 > 本模块接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 21开始支持。 示例效果请以真机运行为准。

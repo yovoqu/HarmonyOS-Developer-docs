@@ -1,6 +1,6 @@
 # AppStorage：应用全局的UI状态存储
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage
 
@@ -120,7 +120,7 @@ AppStorage中的属性可以被双向同步，并具有不同的功能，比如�
 **图2** @StorageLink初始化规则图示
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/mkwDF54lTZeIlKiX3fbDdg/zh-cn_image_0000002656347491.png?HW-CC-KV=V1&HW-CC-Date=20260624T020744Z&HW-CC-Expire=86400&HW-CC-Sign=CDF18E65D6308FBA0F13CF34EA3C0BE68CF129524C023961E55A67E6DCC9EB89)
+![](assets/AppStorage：应用全局的UI状态存储/file-2026070810395511bd0a48.png)
 
 
 
@@ -258,7 +258,7 @@ struct TestStorageProp {
         })
 
       // @StorageProp与AppStorage建立单向联系，更改数据不会同步回AppStorage中key为'propA'的值
-      // 但能被AppStorage的set/setorCreate更新值
+      // 但能被AppStorage的set/setOrCreate更新值
       Text(`storageProp ${this.storageProp}`)
         .onClick(() => {
           this.storageProp += 1;
@@ -862,6 +862,11 @@ export struct TapImage {
     emitter.on(innerEvent, data => {
       this.onTapIndexChange(data);
     });
+  }
+
+  aboutToDisappear(): void {
+    let innerEvent: emitter.InnerEvent = { eventId: this.index };
+    emitter.off(innerEvent.eventId);
   }
 
   build() {

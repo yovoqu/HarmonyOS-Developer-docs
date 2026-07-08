@@ -1,6 +1,6 @@
 # 使用AES对称密钥（GCM模式）分段加解密(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-aes-sym-encrypt-decrypt-gcm-by-segment
 
@@ -32,7 +32,10 @@
 
 8. 读取[GcmParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#gcmparamsspec).authTag作为解密认证信息。
 
-  在GCM模式下，算法库支持16字节的authTag，用于解密时的认证初始化。示例中的authTag为16字节。
+  
+> [!NOTE]
+> 在GCM模式下，一次加密流程中，将每次update和最后doFinal的结果拼接起来，会得到“密文 + authTag”, authTag为末尾的16字节。其余部分均为密文。如果doFinal的data参数传入null，则doFinal的结果就是authTag。
+
 
   **解密**
 

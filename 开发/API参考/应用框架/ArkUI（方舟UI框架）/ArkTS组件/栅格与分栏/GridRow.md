@@ -1,6 +1,6 @@
 # GridRow
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-gridrow
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -143,12 +143,12 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| xs | Length | 否 | 是 | 在最小宽度类型设备上，栅格子组件的间距。 默认值：0vp |
-| sm | Length | 否 | 是 | 在小宽度类型设备上，栅格子组件的间距。 默认值：0vp |
-| md | Length | 否 | 是 | 在中等宽度类型设备上，栅格子组件的间距。 默认值：0vp |
-| lg | Length | 否 | 是 | 在大宽度类型设备上，栅格子组件的间距。 默认值：0vp |
-| xl | Length | 否 | 是 | 在特大宽度类型设备上，栅格子组件的间距。 默认值：0vp |
-| xxl | Length | 否 | 是 | 在超大宽度类型设备上，栅格子组件的间距。 默认值：0vp |
+| xs | Length | 否 | 是 | 在最小宽度类型设备上，栅格子组件的间距。 默认值：0vp 单位：vp |
+| sm | Length | 否 | 是 | 在小宽度类型设备上，栅格子组件的间距。 默认值：0vp 单位：vp |
+| md | Length | 否 | 是 | 在中等宽度类型设备上，栅格子组件的间距。 默认值：0vp 单位：vp |
+| lg | Length | 否 | 是 | 在大宽度类型设备上，栅格子组件的间距。 默认值：0vp 单位：vp |
+| xl | Length | 否 | 是 | 在特大宽度类型设备上，栅格子组件的间距。 默认值：0vp 单位：vp |
+| xxl | Length | 否 | 是 | 在超大宽度类型设备上，栅格子组件的间距。 默认值：0vp 单位：vp |
 
 
 
@@ -337,7 +337,7 @@ struct GridRowExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/1A4YFB5kRBm0yEnH8FzZhw/zh-cn_image_0000002659221649.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=4FD22AE4D564D1A5E58762624B118809DB1ED94094F3E4FB40D4D2F1CB502F91)
+![](assets/GridRow/file-20260708103150cd4ce7e4.png)
 
 
 
@@ -381,7 +381,7 @@ struct AlignItemsDemo {
         ForEach(this.bgColors, (color: Color, index: number) => {
           GridCol({ span: 1 }) {
             Row() {
-            }.width('100%').height(`${(index + 1) * 20}%`) // GridCol设置不同的高度，方便观察alignItems属性的效果
+            }.width('100%').height(`${(index + 1) * 20}%`) // GridCol内的Row设置不同的高度，方便观察alignItems属性的效果
           }.borderColor(color).borderWidth(2)
         })
       }
@@ -409,4 +409,4 @@ struct GridRowExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/qsC4is65Tfurcs_JJvNQ6g/zh-cn_image_0000002628702458.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=3DD6EBF718F37A7392A18794ED1F47DF17BE64EFB8165E92F04C1BF613CBE6D7)
+![](assets/GridRow/file-2026070810315061e6b29c.png)

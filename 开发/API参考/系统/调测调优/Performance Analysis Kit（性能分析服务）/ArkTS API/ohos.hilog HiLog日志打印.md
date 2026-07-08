@@ -1,11 +1,21 @@
 # @ohos.hilog (HiLog日志打印)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hilog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-hilog日志系统，使应用/服务可以按照指定级别、标识和格式字符串输出日志内容，帮助开发者了解应用/服务的运行状态，更好地调试程序。
+hilog模块是HarmonyOS提供的日志打印子系统，允许应用或服务按照指定的日志类型、日志级别和格式字符串输出日志。开发者可利用hilog在应用运行过程中记录关键流程信息，异常情况和错误事件，从而了解应用的运行状态并更好地调试程序。hilog适用于应用和服务在开发调试阶段记录运行日志的场景，也适用于正式发布版本中通过级别控制减少日志输出和保护隐私数据的场景。
+
+hilog模块提供以下核心功能：
+
+**日志打印**：提供debug、info、warn、error、fatal五个级别函数，开发者可根据信息的严重程度选择合适的级别输出日志。日志内容支持格式化字符串和隐私标识，便于结构化记录和保护敏感数据。
+
+**日志级别控制**：通过setMinLogLevel设置最小日志级别过滤低级别日志输出，或通过setLogLevel配合偏好策略（PreferStrategy）灵活决定新设置级别与系统控制级别的生效关系，避免冗余日志。
+
+**日志可打印判断**：通过isLoggable在打印日志前判断指定domain、tag和级别的日志是否可输出，避免无效日志打印的性能开销。
+
+**日志输出管理**：通过setOutputType设置日志输出到控制台、私有沙箱或公有沙箱，通过setOutputTypeByDomain按域ID列表精细化控制不同域的输出方式，并提供沙箱日志目录查询、沙箱日志文件获取、沙箱日志刷新与清理等管理能力。
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -70,7 +80,7 @@ hilog.isLoggable(0x0001, "testTag", hilog.LogLevel.INFO);
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| DEBUG | 3 | 详细的流程记录，通过该级别的日志可以更详细地分析业务流程和定位分析问题。 |
+| DEBUG | 3 | 详细的流程记录，通过该级别的日志可以更详细地分析业务流程和定位问题。 |
 | INFO | 4 | 用于记录业务关键流程节点，可以还原业务的主要运行过程； 用于记录可预料的非正常情况信息，如无网络信号、登录失败等。 这些日志都应该由该业务内处于支配地位的模块来记录，避免在多个被调用的模块或低级函数中重复记录。 |
 | WARN | 5 | 用于记录较为严重的非预期情况，但是对用户影响不大，应用可以自动恢复或通过简单的操作就可以恢复的问题。 |
 | ERROR | 6 | 应用发生了错误，该错误会影响功能的正常运行或用户的正常使用，可以恢复但恢复代价较高，如重置数据等。 |
@@ -99,7 +109,7 @@ DEBUG级别的日志在正式发布版本中默认不被打印，只有在调试
 | --- | --- | --- | --- |
 | domain | number | 是 | 日志对应的领域标识，范围是0x0~0xFFFF，超出范围则日志无法打印。 建议开发者在应用内根据需要自定义划分。 |
 | tag | string | 是 | 指定日志标识，可以为任意字符串，建议用于标识调用所在的类或者业务行为。tag长度最多为31字节，超出后会截断，不建议使用中文字符，可能出现乱码或者对齐问题。 |
-| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。 |
+| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。隐私标识机制帮助开发者保护隐私敏感数据。 |
 | args | any[] | 否 | 与格式字符串format对应的可变长度参数列表。参数数目、参数类型必须与格式字符串中的标识一一对应。 |
 
 
@@ -137,7 +147,7 @@ info(domain: number, tag: string, format: string, ...args: any[]) : void
 | --- | --- | --- | --- |
 | domain | number | 是 | 日志对应的领域标识，范围是0x0~0xFFFF，超出范围则日志无法打印。 建议开发者在应用内根据需要自定义划分。 |
 | tag | string | 是 | 指定日志标识，可以为任意字符串，建议用于标识调用所在的类或者业务行为。tag长度最多为31字节，超出后会截断，不建议使用中文字符，可能出现乱码或者对齐问题。 |
-| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。 |
+| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。隐私标识机制帮助开发者保护隐私敏感数据。 |
 | args | any[] | 否 | 与格式字符串format对应的可变长度参数列表。参数数目、参数类型必须与格式字符串中的标识一一对应。 |
 
 
@@ -175,7 +185,7 @@ warn(domain: number, tag: string, format: string, ...args: any[]) : void
 | --- | --- | --- | --- |
 | domain | number | 是 | 日志对应的领域标识，范围是0x0~0xFFFF，超出范围则日志无法打印。 建议开发者在应用内根据需要自定义划分。 |
 | tag | string | 是 | 指定日志标识，可以为任意字符串，建议用于标识调用所在的类或者业务行为。tag长度最多为31字节，超出后会截断，不建议使用中文字符，可能出现乱码或者对齐问题。 |
-| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。 |
+| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。隐私标识机制帮助开发者保护隐私敏感数据。 |
 | args | any[] | 否 | 与格式字符串format对应的可变长度参数列表。参数数目、参数类型必须与格式字符串中的标识一一对应。 |
 
 
@@ -213,7 +223,7 @@ error(domain: number, tag: string, format: string, ...args: any[]) : void
 | --- | --- | --- | --- |
 | domain | number | 是 | 日志对应的领域标识，范围是0x0~0xFFFF，超出范围则日志无法打印。 建议开发者在应用内根据需要自定义划分。 |
 | tag | string | 是 | 指定日志标识，可以为任意字符串，建议用于标识调用所在的类或者业务行为。 tag长度最多为31字节，超出后会截断，不建议使用中文字符，可能出现乱码或者对齐问题。 |
-| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。 |
+| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。隐私标识机制帮助开发者保护隐私敏感数据。 |
 | args | any[] | 否 | 与格式字符串format对应的可变长度参数列表。参数数目、参数类型必须与格式字符串中的标识一一对应。 |
 
 
@@ -251,7 +261,7 @@ fatal(domain: number, tag: string, format: string, ...args: any[]) : void
 | --- | --- | --- | --- |
 | domain | number | 是 | 日志对应的领域标识，范围是0x0~0xFFFF，超出范围则日志无法打印。 建议开发者在应用内根据需要自定义划分。 |
 | tag | string | 是 | 指定日志标识，可以为任意字符串，建议用于标识调用所在的类或者业务行为。tag长度最多为31字节，超出后会截断，不建议使用中文字符，可能出现乱码或者对齐问题。 |
-| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。 |
+| format | string | 是 | 格式字符串，用于日志的格式化输出。格式字符串中可以设置多个参数，参数需要包含参数类型、隐私标识。 隐私标识分为{public}和{private}，缺省为{private}。标识{public}的内容明文输出，标识{private}的内容以&lt;private&gt;过滤回显。隐私标识机制帮助开发者保护隐私敏感数据。 |
 | args | any[] | 否 | 与格式字符串format对应的可变长度参数列表。参数数目、参数类型必须与格式字符串中的标识一一对应。 |
 
 
@@ -280,7 +290,7 @@ setMinLogLevel(level: LogLevel): void
 设置应用日志打印的最低日志级别，用于拦截低级别日志打印。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/iawhcHqWT7iscuwdXAMuFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020201Z&HW-CC-Expire=86400&HW-CC-Sign=CCD383F39B1D65AED903A92203FF0CCA9D09DA023533D88361E75964ECBE2FB3)
+![](assets/ohos.hilog%20HiLog日志打印/file-20260708103016e7f448b4.png)
 
 
 如果设置的日志级别低于[全局日志级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog#查看和设置日志级别)，设置不生效。
@@ -308,7 +318,7 @@ debug版本应用下，此函数不生效。
 hilog.info(0x0001, "testTag", 'this is an info level log, id: %{public}d', 1);
 hilog.setMinLogLevel(hilog.LogLevel.WARN);
 hilog.info(0x0001, "testTag", 'this is an info level log, id: %{public}d', 2);
-hilog.error(0x0001, 'testTag', 'this is an error level log, id: %{public}d', 3);
+hilog.error(0x0001, "testTag", 'this is an error level log, id: %{public}d', 3);
 hilog.setMinLogLevel(hilog.LogLevel.DEBUG);
 hilog.debug(0x0001, "testTag", 'this is a debug level log, id: %{public}d', 4);
 hilog.info(0x0001, "testTag", 'this is an info level log, id: %{public}d', 5);
@@ -341,7 +351,7 @@ setLogLevel(level: LogLevel, prefer: PreferStrategy): void
 可通过prefer参数配置不同的偏好策略。如果选择策略PREFER_CLOSE_LOG，等同于调用setMinLogLevel函数。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/VIaZByPKQE2ie6gX2Zoaqg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020201Z&HW-CC-Expire=86400&HW-CC-Sign=3D7408CCADBE476A81647A72D32596299FBAB0C00439F03722501EB1527ED199)
+![](assets/ohos.hilog%20HiLog日志打印/file-20260708103016e7f448b4.png)
 
 
 debug版本应用下，此函数不生效。
@@ -387,7 +397,7 @@ debug版本应用下，此函数不生效。
 hilog.info(0x0001, "testTag", 'this is an info level log, id: %{public}d', 1);
 hilog.setLogLevel(hilog.LogLevel.WARN, hilog.PreferStrategy.PREFER_OPEN_LOG);
 hilog.info(0x0001, "testTag", 'this is an info level log, id: %{public}d', 2);
-hilog.error(0x0001, 'testTag', 'this is an error level log, id: %{public}d', 3);
+hilog.error(0x0001, "testTag", 'this is an error level log, id: %{public}d', 3);
 hilog.setLogLevel(hilog.LogLevel.DEBUG, hilog.PreferStrategy.PREFER_CLOSE_LOG);
 hilog.debug(0x0001, "testTag", 'this is a debug level log, id: %{public}d', 4);
 hilog.info(0x0001, "testTag", 'this is an info level log, id: %{public}d', 5);

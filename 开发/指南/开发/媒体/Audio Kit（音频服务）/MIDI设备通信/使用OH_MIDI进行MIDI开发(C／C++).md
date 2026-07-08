@@ -1,6 +1,6 @@
 # 使用OH_MIDI进行MIDI开发(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohmidi
 
@@ -632,13 +632,14 @@ static void BuildMIDI1NoteOff(uint32_t channel, uint32_t note, uint32_t velocity
 | 74 | Filter Cutoff | 滤波器截止 |
 
 
-**发送系统专有消息(SysEx)**
+**发送系统独占消息(SysEx)**
 
-系统专有消息（System Exclusive）：用于传输制造商特定的数据。使用[OH_MIDIDevice_SendSysEx](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_mididevice_sendsysex)接口可以发送超过常规MIDI消息长度的SysEx消息。
+系统独占消息（System Exclusive）：用于传输制造商特定的数据。使用[OH_MIDIDevice_SendSysEx](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_mididevice_sendsysex)接口可以发送超过常规MIDI消息长度的SysEx消息。
 
 ```text
 // 发送大型SysEx消息。
-void SendSysExExample(OH_MIDIDevice *device, uint32_t outputPortIndex){
+void SendSysExExample(OH_MIDIDevice *device, uint32_t outputPortIndex)
+{
     // 构造SysEx数据。
     std::vector<uint8_t> sysexData;
     sysexData.push_back(0xF0);  // SysEx开始标志。

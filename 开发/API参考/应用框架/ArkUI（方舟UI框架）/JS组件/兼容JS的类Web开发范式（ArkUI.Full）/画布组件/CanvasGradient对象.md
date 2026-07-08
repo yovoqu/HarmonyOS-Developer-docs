@@ -1,6 +1,6 @@
 # CanvasGradient对象
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvasgradient
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -44,14 +44,14 @@ export default {
     const el = this.$refs.canvas;
     const ctx = el.getContext('2d');
     const gradient = ctx.createLinearGradient(50, 0, 300, 100);
-    gradient.addColorStop(0.0, '#ff0000')
-    gradient.addColorStop(0.5, '#ffffff')
-    gradient.addColorStop(1.0, '#00ff00')
-    ctx.fillStyle = gradient
-    ctx.fillRect(0, 0, 300, 300)
+    gradient.addColorStop(0.0, '#ff0000');
+    gradient.addColorStop(0.5, '#ffffff');
+    gradient.addColorStop(1.0, '#00ff00');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 300, 300);
   }
 }
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/1nVKgVajTgyqZISneJja3Q/zh-cn_image_0000002659222299.png?HW-CC-KV=V1&HW-CC-Date=20260701T014404Z&HW-CC-Expire=86400&HW-CC-Sign=A431BD686D2E2D41702C15C6004767BA0BFA2828DDAB29D9FA95238EA08327E1)
+![](assets/CanvasGradient对象/file-20260708103044752d8302.png)

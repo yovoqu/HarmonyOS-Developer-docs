@@ -1,6 +1,6 @@
 # Environment：设备环境查询
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-environment
 
@@ -40,9 +40,9 @@ import { window } from '@kit.ArkUI';
 export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     windowStage.loadContent('pages/Index');
-    let window = windowStage.getMainWindow();
-    window.then(window => {
-      let uiContext = window.getUIContext();
+    let mainWindow = windowStage.getMainWindow();
+    mainWindow.then(mainWindowInstance => {
+      let uiContext = mainWindowInstance.getUIContext();
       // Environment在UIContext.runScopedTask里调用明确上下文
       uiContext.runScopedTask(() => {
         Environment.envProp('languageCode', 'en');

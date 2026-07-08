@@ -1,6 +1,6 @@
 # 自定义组件节点 (FrameNode)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-framenode
 
@@ -815,7 +815,7 @@ FrameNode提供了查询节点相对窗口、父组件以及屏幕位置偏移�
 [getPositionToWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontowindow12)，[getPositionToParent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontoparent12)，[getPositionToScreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontoscreen12)三个接口获取到的位置信息关系如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/tgsVD3meT4WhwCMwnsMm-w/zh-cn_image_0000002659219865.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=B755D9603267C116C24BFB1FC82B57AE2AA76A68F49087B8C3F9FDEE11DD25DE)
+![](assets/自定义组件节点%20(FrameNode)/file-202607081039508d19c3e0.png)
 
 
 ```ArkTS
@@ -2103,7 +2103,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/2REuYVbjT-OVz5Sh2KqXrg/zh-cn_image_0000002628700670.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=B68F08C2613299A96F601FD03160D0E4DC5AE0102A8BC5813D4C3B046D1C0572)
+![](assets/自定义组件节点%20(FrameNode)/file-202607081039503d7c62f4.png)
 
 
 
@@ -2112,7 +2112,7 @@ struct Index {
 
 从API version 21开始，通过使用frameNode的[invalidateAttributes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#invalidateattributes21)方法，可以在当前帧触发节点更新，避免组件切换过程中出现闪烁。
 
-```text
+```ArkTS
 import { FrameNode, NodeController, typeNode, NodeContent } from '@kit.ArkUI';
 
 // 继承NodeController实现自定义NodeAdapter控制器
@@ -2207,7 +2207,7 @@ struct ListNodeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/lvy5XqBTShKJb1QxrpmI4Q/zh-cn_image_0000002659099899.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=862F26D54C632194281B03C7681FD980958E168A1126A8CC3C103B23D0A0C5CA)
+![](assets/自定义组件节点%20(FrameNode)/file-20260708103950c446e452.png)
 
 
 
@@ -2216,7 +2216,7 @@ struct ListNodeTest {
 
 从API version 23开始，通过使用FrameNode的[isInRenderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#isinrenderstate23)方法，判断FrameNode节点是否处于渲染状态。
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Entry
@@ -2282,4 +2282,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/sFgKgI3oSyO8sNGMN3Qpnw/zh-cn_image_0000002628860550.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=27B8AEBE8B873916BE2556BDBF9B7A3CBA90CD20FB239990FE2F654DC525CCA7)
+![](assets/自定义组件节点%20(FrameNode)/file-202607081039501bf31a6f.png)

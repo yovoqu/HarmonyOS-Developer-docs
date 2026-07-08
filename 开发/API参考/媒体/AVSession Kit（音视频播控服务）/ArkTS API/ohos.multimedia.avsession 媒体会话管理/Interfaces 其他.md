@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i
 **支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
@@ -70,7 +70,7 @@
 | writer | string | 否 | 是 | 词作者。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | composer | string | 否 | 是 | 作曲者。 |
 | duration | number | 否 | 是 | 媒体时长，单位毫秒（ms）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| mediaImage | image.PixelMap \| string | 否 | 是 | 图片的像素数据或者图片路径地址(本地路径或网络路径)。应用通过setAVMetadata设置图片数据。 - 设置的数据类型为PixelMap时，通过getAVMetadata获取的将为PixelMap。 - 设置为url图片路径，获取的为url图片路径。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| mediaImage | image.PixelMap \| string | 否 | 是 | 图片的像素数据或者图片路径地址（本地路径或网络路径）。应用通过setAVMetadata设置图片数据。 - 设置的数据类型为PixelMap时，通过getAVMetadata获取的将为PixelMap。 - 设置为url图片路径，获取的为url图片路径。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | bundleIcon18+ | image.PixelMap | 是 | 是 | 应用图标图片的像素数据。只读类型，不从应用侧设置。 |
 | publishDate | Date | 否 | 是 | 发行日期。 |
 | subtitle | string | 否 | 是 | 子标题。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -79,7 +79,7 @@
 | singleLyricText17+ | string | 否 | 是 | 单条媒体歌词内容。应用需将歌词内容拼接为一个字符串传入（不包含时间戳）。 字符串长度小于40960字节。 元服务API： 从API version 17开始，该接口支持在元服务中使用。 |
 | previousAssetId | string | 否 | 是 | 上一首媒体ID。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | nextAssetId | string | 否 | 是 | 下一首媒体ID。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| filter11+ | number | 否 | 是 | 当前session支持的协议，默认为TYPE_CAST_PLUS_STREAM。具体取值参考ProtocolType。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| filter11+ | number | 否 | 是 | 当前会话支持的协议，默认为TYPE_CAST_PLUS_STREAM。具体取值参考ProtocolType。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | drmSchemes12+ | Array&lt;string&gt; | 否 | 是 | 当前session支持的DRM方案，取值为DRM方案uuid。 |
 | skipIntervals11+ | SkipIntervals | 否 | 是 | 快进快退支持的时间间隔。默认为SECONDS_15，即15秒。 |
 | displayTags11+ | number | 否 | 是 | 媒体资源的金标类型，取值参考DisplayTag。 |
@@ -159,11 +159,11 @@
 | bufferedTime | number | 否 | 是 | 缓冲时间。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | loopMode | LoopMode | 否 | 是 | 循环模式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | isFavorite | boolean | 否 | 是 | 表示是否收藏。true表示收藏，false表示不收藏。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| activeItemId | number | 否 | 是 | 正在播放的媒体Id。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| activeItemId | number | 否 | 是 | 正在播放的媒体ID。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | volume | number | 否 | 是 | 正在播放的媒体音量。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | maxVolume11+ | number | 否 | 是 | 最大音量。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | muted11+ | boolean | 否 | 是 | 当前是否是静音状态。true表示是，false表示不是。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| duration11+ | number | 否 | 是 | 当前媒体资源的时长。 |
+| duration11+ | number | 否 | 是 | 当前媒体资源的时长，单位为毫秒（ms）。 |
 | videoWidth11+ | number | 否 | 是 | 媒体资源的视频宽度，单位为像素（px）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | videoHeight11+ | number | 否 | 是 | 媒体资源的视频高度，单位为像素（px）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | extras | {[key: string]: Object} | 否 | 是 | 自定义媒体数据。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -238,7 +238,7 @@
 | deviceId | string | 否 | 否 | 播放设备的ID。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | deviceName | string | 否 | 否 | 播放设备的名称。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | deviceType | DeviceType | 否 | 否 | 播放设备的类型。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| supportedProtocols11+ | number | 否 | 是 | 播放设备支持的协议。 默认为TYPE_LOCAL,具体取值来自ProtocolType，可以是protocolType中的某个协议或者多个协议的组合。 设备仅支持一种协议，返回对应枚举值；设备支持多种协议，返回对应枚举值之和。 系统能力： SystemCapability.Multimedia.AVSession.AVCast 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| supportedProtocols11+ | number | 否 | 是 | 播放设备支持的协议。 默认为TYPE_LOCAL,具体取值来自ProtocolType，可以是ProtocolType中的某个协议或者多个协议的组合。 设备仅支持一种协议，返回对应枚举值；设备支持多种协议，返回对应枚举值之和。 系统能力： SystemCapability.Multimedia.AVSession.AVCast 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | supportedDrmCapabilities12+ | Array&lt;string&gt; | 否 | 是 | 播放设备支持的DRM能力。 系统能力： SystemCapability.Multimedia.AVSession.AVCast 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | manufacturer13+ | string | 否 | 是 | 播放设备生产厂家。 系统能力： SystemCapability.Multimedia.AVSession.AVCast 元服务API： 从API version 13开始，该接口支持在元服务中使用。 |
 | modelName13+ | string | 否 | 是 | 播放设备型号名称。 系统能力： SystemCapability.Multimedia.AVSession.AVCast 元服务API： 从API version 13开始，该接口支持在元服务中使用。 |

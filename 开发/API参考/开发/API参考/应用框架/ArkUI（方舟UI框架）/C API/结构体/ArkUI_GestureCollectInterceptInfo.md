@@ -1,0 +1,23 @@
+# ArkUI_GestureCollectInterceptInfo
+
+更新时间：2026-06-13 03:51:30
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-gesturecollectinterceptinfo
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef struct ArkUI_GestureCollectInterceptInfo ArkUI_GestureCollectInterceptInfo
+```
+  
+
+#### 概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义手势收集拦截信息。
+ 
+**起始版本：** 26.0.0
+ 
+**相关模块：** [ArkUI_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule)
+ 
+**所在头文件：** [native_type.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h)

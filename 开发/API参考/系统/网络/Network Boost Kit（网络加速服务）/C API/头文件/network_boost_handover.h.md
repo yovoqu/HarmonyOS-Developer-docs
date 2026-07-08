@@ -1,6 +1,6 @@
 # network_boost_handover.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-files-handover
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -100,7 +100,7 @@
 | --- | --- |
 | int32_t HMS_NetworkBoost_RegisterHandoverChangeCallback (HMS_NetworkBoost_HandoverCallback *callback, uint32_t *callbackId) | 注册连接迁移回调。 |
 | int32_t HMS_NetworkBoost_UnregisterHandoverChangeCallback (uint32_t callbackId) | 取消注册连接迁移回调。 |
-| int32_t HMS_NetworkBoost_SetHandoverMode (NetworkBoost_HandoverMode mode) | 应用可通过该接口变更连接迁移模式，包括委托模式(由系统发起连接迁移)，和自主模式(由应用发起连接迁移)，默认为委托模式。设置失败，接口会抛出异常。 |
+| int32_t HMS_NetworkBoost_SetHandoverMode (NetworkBoost_HandoverMode mode) | 应用可通过该接口变更连接迁移模式，包括委托模式（由系统发起连接迁移），和自主模式（由应用发起连接迁移），默认为委托模式。设置失败，接口会抛出异常。 |
 | int32_t HMS_NetworkBoost_GetMultiPathQuotaStats(NetworkBoost_MultiPathQuota *quota) | 获取当前应用多网使用的配额，包括已使用的配额信息和剩余配额信息。 |
 | int32_t HMS_NetworkBoost_RequestMultiPath(HMS_NetworkBoost_OnMultiPathRequestResult result) | 发起多网请求。 |
 | int32_t HMS_NetworkBoost_ReleaseMultiPath() | 释放多网请求。 |

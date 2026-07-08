@@ -1,6 +1,6 @@
 # UpdateDynamicInputDesc
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-updatedynamicinputdesc
 
@@ -28,7 +28,7 @@ graphStatus UpdateDynamicInputDesc(const char_t *name, uint32_t index, const Ten
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
 | name | 输入 | 算子动态Input的名称。 |
-| index | 输入 | 算子动态Input编号，编号起始值从1开始。 |
+| index | 输入 | 算子动态Input编号，编号起始值从0开始。 |
 | tensor_desc | 输入 | TensorDesc对象。 |
  
  

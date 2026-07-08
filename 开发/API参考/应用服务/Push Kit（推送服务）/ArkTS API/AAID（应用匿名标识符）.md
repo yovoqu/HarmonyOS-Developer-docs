@@ -1,11 +1,11 @@
 # AAID（应用匿名标识符）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-aaid-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-AAID（Anonymous Application Identifier）是应用匿名标识符，标识运行在移动智能终端设备上的应用实例，只有该应用实例才能访问该标识符，它只存在于应用的安装期，总长度36位。与无法重置的设备级硬件ID相比，AAID具有更好的隐私权属性。
+AAID（Anonymous Application Identifier）是应用匿名标识符，标识运行在移动智能终端设备上的应用实例，只有该应用实例才能访问该标识符，它只存在于应用的安装期，总长度36个字符。与无法重置的设备级硬件ID相比，AAID具有更好的隐私权属性。
  
 AAID具有以下特性：
  

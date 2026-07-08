@@ -1,11 +1,11 @@
 # Class (ClientAuthenticationHandler)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-clientauthenticationhandler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Web组件返回的SSL客户端证书请求事件的处理对象。示例代码参考[onClientAuthenticationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onclientauthenticationrequest9)事件。
+ClientAuthenticationHandler是Web组件中处理SSL客户端证书认证请求的类。当服务器请求客户端证书进行TLS双向认证时，该处理器通过onClientAuthenticationRequest事件回调提供给应用，允许应用选择合适的证书凭据进行响应。示例代码参考[onClientAuthenticationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onclientauthenticationrequest9)事件。
 
 > [!NOTE]
 > 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。

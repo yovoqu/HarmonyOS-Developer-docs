@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（动效、视效相关属性）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-animator
 
@@ -1553,7 +1553,7 @@ NODE_PIXEL_ROUND = 109
   
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 组件的像素取整策略；参数类型为ArkUI_PixelRoundPolicy。 |
+| .object | 设置组件的像素取整策略；参数类型为ArkUI_PixelRoundPolicy。 |
  
  
 **返回：**

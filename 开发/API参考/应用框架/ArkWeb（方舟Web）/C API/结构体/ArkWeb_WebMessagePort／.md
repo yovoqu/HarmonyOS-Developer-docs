@@ -1,6 +1,6 @@
 # ArkWeb_WebMessagePort*
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-webmessageport8h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkWeb_WebMessagePort* ArkWeb_WebMessagePortPtr
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Post Message端口结构体指针。
+ArkWeb_WebMessagePort是Web消息端口结构体，定义了消息通信的端口类型和基本操作。该结构体支持通过消息端口在Native代码和Web页面之间建立双向通信通道。
  
 **起始版本：** 12
  

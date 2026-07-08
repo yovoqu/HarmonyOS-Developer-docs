@@ -1,6 +1,6 @@
 # 使用3DES对称密钥加解密(C/C++)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-3des-sym-encrypt-decrypt-ecb-ndk
 
@@ -47,7 +47,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
   
 当数据量较小时，可以在init完成后直接调用final。
 4. 当数据量较大时，可以多次调用update，即分段解密。
-5. 用户可以根据数据量大小自行决定操作方式。例如，当数据量超过20时，使用 update。
+5. 用户可以根据数据量大小自行决定操作方式。例如，当数据量超过1KB时，使用 update。
 6. 调用[OH_CryptoSymCipher_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-cipher-h#oh_cryptosymcipher_final)，获取解密数据。
 
   

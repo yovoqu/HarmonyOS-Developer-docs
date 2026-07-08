@@ -1,6 +1,6 @@
 # CanvasRenderingContext2D对象
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,8 +38,8 @@ export default {
     ctx.beginPath();
     ctx.arc(100, 75, 50, 0, 6.28);
     ctx.stroke();
-    }
   }
+}
 ```
 
  - 示意图（关闭抗锯齿）
@@ -69,7 +69,7 @@ export default {
 | miterLimit | number | 设置斜接面限制值，该值指定了线条相交处内角和外角的距离。 默认值：10 |
 | font | string | 设置文本绘制中的字体样式。 语法：ctx.font="font-style font-weight font-size font-family"5+ - font-style(可选)，用于指定字体样式，支持如下几种样式：normal, italic。 - font-weight(可选)，用于指定字体的粗细，支持如下几种类型：normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900。 - font-size(可选)，指定字号和行高，单位只支持px。 - font-family(可选)，指定字体系列，支持如下几种类型：sans-serif, serif, monospace。 默认值："normal normal 14px sans-serif" |
 | textAlign | string | 设置文本绘制中的文本对齐方式，可选值为： - left：文本左对齐。 - right：文本右对齐。 - center：文本居中对齐。 - start：文本对齐界线开始的地方。 - end：文本对齐界线结束的地方。 ltr布局模式下start和left一致，rtl布局模式下start和right一致。 默认值：left |
-| textBaseline | string | 设置文本绘制中的水平对齐方式，可选值为： - alphabetic：文本基线是标准的字母基线。 - top：文本基线在文本块的顶部。 - hanging：文本基线是悬挂基线。 - middle：文本基线在文本块的中间。 - ideographic：文字基线是表意字基线；如果字符本身超出了alphabetic 基线，那么ideographic基线位置在字符本身的底部。 - bottom：文本基线在文本块的底部。 与 ideographic 基线的区别在于 ideographic 基线不需要考虑下行字母。 默认值： alphabetic |
+| textBaseline | string | 设置文本绘制中的基线对齐方式，可选值为： - alphabetic：文本基线是标准的字母基线。 - top：文本基线在文本块的顶部。 - hanging：文本基线是悬挂基线。 - middle：文本基线在文本块的中间。 - ideographic：文字基线是表意字基线；如果字符本身超出了alphabetic 基线，那么ideographic基线位置在字符本身的底部。 - bottom：文本基线在文本块的底部。 与 ideographic 基线的区别在于 ideographic 基线不需要考虑下行字母。 默认值： alphabetic |
 | globalAlpha | number | 设置透明度。 范围为[0.0, 1.0]，0.0为完全透明，1.0为完全不透明。若给定值小于0.0，则取值0.0；若给定值大于1.0，则取值1.0。 |
 | lineDashOffset | number | 设置画布的虚线偏移量，精度为float。 默认值：0.0 |
 | globalCompositeOperation | string | 设置合成操作的方式。类型字段可选值有source-over，source-atop，source-in，source-out，destination-over，destination-atop，destination-in，destination-out，lighter，copy，xor。具体请参考类型字段说明。 默认值：source-over |
@@ -254,7 +254,7 @@ export default {
   onShow() {
     const el = this.$refs.canvas;
     const ctx = el.getContext('2d');
-    ctx.lineWidth =14;
+    ctx.lineWidth = 14;
     ctx.lineJoin = 'miter';
     ctx.miterLimit = 3;
     ctx.moveTo(30, 30);
@@ -436,7 +436,7 @@ export default {
     const el = this.$refs.canvas;
     const ctx = el.getContext('2d');
     ctx.arc(100, 75, 50, 0, 6.28);
-    ctx.setLineDash([10,20]);
+    ctx.setLineDash([10, 20]);
     ctx.lineDashOffset = 10.0;
     ctx.stroke();
   }
@@ -624,7 +624,7 @@ export default {
     ctx.shadowColor = 'rgb(0,0,0)';
     ctx.fillStyle = 'rgb(255,0,0)';
     ctx.fillRect(30, 30, 100, 100);
- }
+  }
 }
 ```
 
@@ -655,8 +655,8 @@ export default {
     // 'common/image/example.jpg'需要替换为开发者所需的图像资源文件
     img.src = 'common/image/example.jpg';
     img.onload = function() {
-    ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(img, 0, 0, 400, 200);
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(img, 0, 0, 400, 200);
     };
   }
 }
@@ -986,7 +986,7 @@ export default {
     const ctx = el.getContext('2d');
     ctx.moveTo(25, 25);
     ctx.lineTo(25, 250);
-    ctx.lineWidth = '6';
+    ctx.lineWidth = 6;
     ctx.strokeStyle = 'rgb(0,0,255)';
     ctx.stroke();
   }
@@ -1025,7 +1025,7 @@ export default {
     const el = this.$refs.canvas;
     const ctx = el.getContext('2d');
     ctx.beginPath();
-    ctx.lineWidth = '6';
+    ctx.lineWidth = 6;
     ctx.strokeStyle = '#0000ff';
     ctx.moveTo(15, 80);
     ctx.lineTo(280, 80);
@@ -1348,8 +1348,8 @@ arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, 
 | x | number | 是 | 弧线圆心的x坐标值。 单位：vp |
 | y | number | 是 | 弧线圆心的y坐标值。 单位：vp |
 | radius | number | 是 | 弧线的圆半径。 单位：vp |
-| startAngle | number | 是 | 弧线的起始弧度。 单位：vp |
-| endAngle | number | 是 | 弧线的终止弧度。 单位：vp |
+| startAngle | number | 是 | 弧线的起始弧度。 单位：弧度 |
+| endAngle | number | 是 | 弧线的终止弧度。 单位：弧度 |
 | counterclockwise | boolean | 否 | 是否逆时针绘制圆弧，true为逆时针，false为顺时针。 默认值：false |
 
 
@@ -1448,10 +1448,10 @@ ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number
 | y | number | 是 | 椭圆圆心的y轴坐标。 单位：vp |
 | radiusX | number | 是 | 椭圆x轴的半径长度。 单位：vp |
 | radiusY | number | 是 | 椭圆y轴的半径长度。 单位：vp |
-| rotation | number | 是 | 椭圆的旋转角度，单位为弧度。 单位：vp |
-| startAngle | number | 是 | 椭圆绘制的起始点角度，以弧度表示。 单位：vp |
-| endAngle | number | 是 | 椭圆绘制的结束点角度，以弧度表示。 单位：vp |
-| counterclockwise | number | 否 | 是否以逆时针方向绘制椭圆，0为顺时针，1为逆时针。其它数值均按默认值处理。 单位：vp 默认值：0 |
+| rotation | number | 是 | 椭圆的旋转角度。 单位：弧度 |
+| startAngle | number | 是 | 椭圆绘制的起始点角度。 单位：弧度 |
+| endAngle | number | 是 | 椭圆绘制的结束点角度。 单位：弧度 |
+| counterclockwise | number | 否 | 是否以逆时针方向绘制椭圆，0为顺时针，1为逆时针。其它数值均按默认值处理。 默认值：0 |
 
 
 **示例：**
@@ -1621,7 +1621,7 @@ rotate(rotate: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rotate | number | 是 | 设置顺时针旋转的弧度值，可以通过Math.PI / 180将角度转换为弧度值。 单位：vp |
+| rotate | number | 是 | 设置顺时针旋转的弧度值，可以通过Math.PI / 180将角度转换为弧度值。 单位：弧度 |
 
 
 **示例：**
@@ -1665,8 +1665,8 @@ scale(x: number, y: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | number | 是 | 设置水平方向的缩放值。 单位：vp |
-| y | number | 是 | 设置垂直方向的缩放值。 单位：vp |
+| x | number | 是 | 设置水平方向的缩放值。 |
+| y | number | 是 | 设置垂直方向的缩放值。 |
 
 
 **示例：**
@@ -1715,10 +1715,10 @@ transform方法对应一个变换矩阵，想对一个图形进行变化的时�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scaleX | number | 是 | 指定水平缩放值。 单位：vp |
-| skewX | number | 是 | 指定水平倾斜值。 单位：vp |
-| skewY | number | 是 | 指定垂直倾斜值。 单位：vp |
-| scaleY | number | 是 | 指定垂直缩放值。 单位：vp |
+| scaleX | number | 是 | 指定水平缩放值。 |
+| skewX | number | 是 | 指定水平倾斜值。 |
+| skewY | number | 是 | 指定垂直倾斜值。 |
+| scaleY | number | 是 | 指定垂直缩放值。 |
 | translateX | number | 是 | 指定水平移动值。 单位：vp |
 | translateY | number | 是 | 指定垂直移动值。 单位：vp |
 
@@ -1770,10 +1770,10 @@ setTransform方法使用的参数和transform()方法相同，但setTransform()�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scaleX | number | 是 | 指定水平缩放值。 单位：vp |
-| skewX | number | 是 | 指定水平倾斜值。 单位：vp |
-| skewY | number | 是 | 指定垂直倾斜值。 单位：vp |
-| scaleY | number | 是 | 指定垂直缩放值。 单位：vp |
+| scaleX | number | 是 | 指定水平缩放值。 |
+| skewX | number | 是 | 指定水平倾斜值。 |
+| skewY | number | 是 | 指定垂直倾斜值。 |
+| scaleY | number | 是 | 指定垂直缩放值。 |
 | translateX | number | 是 | 指定水平移动值。 单位：vp |
 | translateY | number | 是 | 指定垂直移动值。 单位：vp |
 
@@ -2395,7 +2395,7 @@ export default {
       imgData.data[i + 2] = 0;
       imgData.data[i + 3] = 255;
   }
-    ctx.putImageData(imgData, 10, 10);
+  ctx.putImageData(imgData, 10, 10);
   }
 }
 ```
@@ -2488,7 +2488,7 @@ export default {
     const el = this.$refs.canvas;
     const ctx = el.getContext('2d');
     ctx.arc(100, 75, 50, 0, 6.28);
-    ctx.setLineDash([10,20]);
+    ctx.setLineDash([10, 20]);
     ctx.stroke();
   }
 }
@@ -2572,7 +2572,7 @@ export default {
     const el = this.$refs.canvas;
     const ctx = el.getContext('2d');
     var canvas = this.$refs.canvas.getContext('2d');
-    var offscreen = new OffscreenCanvas(500,500);
+    var offscreen = new OffscreenCanvas(500, 500);
     var offscreenCanvasCtx = offscreen.getContext("2d");
     offscreenCanvasCtx.fillRect(0, 0, 200, 200);
 

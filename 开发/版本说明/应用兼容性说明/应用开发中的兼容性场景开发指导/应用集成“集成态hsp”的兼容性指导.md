@@ -1,6 +1,6 @@
 # 应用集成“集成态hsp”的兼容性指导
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-07-06 03:23:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-share-hsp
 

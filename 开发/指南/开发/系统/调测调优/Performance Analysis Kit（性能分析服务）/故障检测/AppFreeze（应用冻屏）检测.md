@@ -1,6 +1,6 @@
 # AppFreeze（应用冻屏）检测
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines
 
@@ -72,7 +72,7 @@
 **图2**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/bmCaCUWETX2h0tUxuqDFmw/zh-cn_image_0000002628861102.png?HW-CC-KV=V1&HW-CC-Date=20260701T014620Z&HW-CC-Expire=86400&HW-CC-Sign=DC51A47C44DFA436903F6E9EA77D531E43376547DF8F3A23824EC31D472DAB02)
+![](assets/AppFreeze（应用冻屏）检测/file-20260708103750b1110ad0.png)
 
 
 
@@ -86,7 +86,7 @@
 从**API版本26.0.0**开始，应用在AppScope/app.json5文件中配置如下环境变量，可获取故障日志，获取方式参考[日志获取](#日志获取)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/XGWCaVg7ToqiAysAxXgS-Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014620Z&HW-CC-Expire=86400&HW-CC-Sign=85D280A6AD47F0169D29EB4DF7401AF441526BDA6FF55AE9770B231A41759831)
+![](assets/AppFreeze（应用冻屏）检测/file-20260708103750e7f448b4.png)
 
 
 配置日志获取后，该类型日志将以Appfreeze类型上报给三方应用，会增加Appfreeze故障统计，计入Appfreeze故障指标。
@@ -117,7 +117,7 @@
 **图3**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/vMmQmwVNTz-3DY7a_SC0tg/zh-cn_image_0000002659220419.png?HW-CC-KV=V1&HW-CC-Date=20260701T014620Z&HW-CC-Expire=86400&HW-CC-Sign=283208C615B9E1A83A03BA0438AB796BD9974F06B130DF3E56ADE2B96E6634EE)
+![](assets/AppFreeze（应用冻屏）检测/file-20260708103751c52c879c.png)
 
 
 
@@ -358,7 +358,7 @@ state=S, utime=0, stime=0, priority=0, nice=-20, clk=100
 
 | 日志信息 | 说明 |
 | --- | --- |
-| has been crashed | 目标进程crash。在收到目标进程的crash请求后，10s内收到抓栈请求，请参考故障时间点附近的crash日志。 |
+| has been crashed | 目标进程crash。在收到目标进程的crash请求后，10s内收到抓栈请求，请参考故障时间点附近的crash日志。需要检查应用自身的信号处理函数使用是否正确，或者是否使用了非信号安全函数。 |
 | SIGDUMP error | 目标进程在收到抓栈请求时已经退出。 |
 | is dumping | 目标进程正在dump。 短时间内连续请求，请参考故障时间点附近该进程的其他报错日志。 |
 | State: S | 目标进程Sleep。 |
@@ -863,7 +863,7 @@ AppFreeze故障日志信息中的故障线程信息表示业务线程发生故�
 AppFreeze故障信息聚类方法同Cpp Crash一致，参考[CppCrash聚类](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#cppcrash聚类)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/47adt1HxRrGZmqoynlGd6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014620Z&HW-CC-Expire=86400&HW-CC-Sign=7E23321374D1C202B7CFB89611331C0886B56718B9EF2A558BE70A6620180B7F)
+![](assets/AppFreeze（应用冻屏）检测/file-20260708103751e7f448b4.png)
 
 
 如果故障线程堆栈中有IPC栈帧，可获取[binder堆栈](#对端信息与当前故障进程通信的进程信息)信息用于聚类。

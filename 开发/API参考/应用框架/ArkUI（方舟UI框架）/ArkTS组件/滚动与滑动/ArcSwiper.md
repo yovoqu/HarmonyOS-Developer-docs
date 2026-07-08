@@ -1,6 +1,6 @@
 # ArcSwiper
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arcswiper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -676,7 +676,7 @@ onAnimationEnd(handler: Optional&lt;AnimationEndHandler&gt;)
 
 切换动画结束时触发该回调。
 
-当ArcSwiper切换动效结束时触发，包括动画过程中手势中断，通过[SwiperController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#swipercontroller)调用finishAnimation。参数为动画结束后的index值，多列ArcSwiper时，index为最左侧组件的索引。
+当ArcSwiper切换动效结束时触发，包括动画过程中手势中断，通过[ArcSwiperController](#arcswipercontroller)调用finishAnimation。参数为动画结束后的index值，多列ArcSwiper时，index为最左侧组件的索引。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -801,9 +801,9 @@ finishTransition(): void
 
 
 
-#### 示例1（设置arcSwiper基本属性）
+#### 示例1（设置ArcSwiper基本属性）
 
-该示例通过设置arcSwiper的基本属性，展示了组件的基本功能。
+该示例通过设置ArcSwiper的基本属性，展示了组件的基本功能。
 
 ```ArkTS
 // xxx.ets
@@ -852,10 +852,6 @@ struct TestNewInterface {
   innerSelectedIndex: number = 0;
 
   aboutToAppear(): void {
-    let list: Color[] = [];
-    for (let i = 1; i <= 6; i++) {
-      list.push(i);
-    }
     this.data = new MyDataSource(this.backgroundColors);
   }
 
@@ -926,7 +922,7 @@ struct TestNewInterface {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/16PXtR97RtSm2X2-PqId6g/zh-cn_image_0000002659101729.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=45B5F8459D59F437A26885CEC74AAD7AF1228331FF7C462F2C12FCA7F96512E7)
+![](assets/ArcSwiper/file-20260708103143cfe23c3b.gif)
 
 
 
@@ -975,7 +971,7 @@ struct TestNewInterface {
         .customContentTransition({
           // 页面移除视窗时超时1000ms下渲染树
           timeout: 1000,
-          // 对视窗内所有页面逐帧回调transition，在回调中修改opacity属性值，实现自定义动画
+          // 对视窗内所有页面逐帧回调transition，在回调中修改scale属性值，实现自定义动画
           transition: (proxy: SwiperContentTransitionProxy) => {
             if (proxy.position <= -1 || proxy.position >= 1) {
               // 页面完全滑出视窗外时，重置属性值
@@ -994,4 +990,4 @@ struct TestNewInterface {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/k1ZZobwCSoC72ErEUOFcHA/zh-cn_image_0000002628862380.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=38402BEF596E96AEC070FEAF8F9E984D7853E160E08BCE4C88A1D77520E787B0)
+![](assets/ArcSwiper/file-20260708103144de9268bb.gif)

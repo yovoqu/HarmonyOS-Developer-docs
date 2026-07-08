@@ -1,6 +1,6 @@
 # native_avsession.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -59,7 +59,7 @@
 | AVSession_ErrCode OH_AVSession_Activate(OH_AVSession* avsession) | - | 激活会话。 |
 | AVSession_ErrCode OH_AVSession_Deactivate(OH_AVSession* avsession) | - | 取消激活媒体会话。 |
 | AVSession_ErrCode OH_AVSession_GetSessionType(OH_AVSession* avsession, AVSession_Type* sessionType) | - | 获取会话类型。 |
-| AVSession_ErrCode OH_AVSession_GetSessionId(OH_AVSession* avsession, const char** sessionId) | - | 获取会话id。 |
+| AVSession_ErrCode OH_AVSession_GetSessionId(OH_AVSession* avsession, const char** sessionId) | - | 获取会话ID。 |
 | AVSession_ErrCode OH_AVSession_SetAVMetadata(OH_AVSession* avsession, OH_AVMetadata* avmetadata) | - | 设置媒体元数据。 |
 | AVSession_ErrCode OH_AVSession_SetPlaybackState(OH_AVSession* avsession, AVSession_PlaybackState playbackState) | - | 设置播放状态。 |
 | AVSession_ErrCode OH_AVSession_SetPlaybackPosition(OH_AVSession* avsession, AVSession_PlaybackPosition* playbackPosition) | - | 设置播放位置。 |
@@ -228,7 +228,7 @@ AVSession_ErrCode OH_AVSession_Create(AVSession_Type sessionType, const char* se
 | AVSession_Type sessionType | 会话类型AVSession_Type。 |
 | const char* sessionTag | 会话标签。 |
 | const char* bundleName | 创建会话的包名。 |
-| const char* abilityName | 创建会话的ability名。 |
+| const char* abilityName | 创建会话的Ability组件名。 |
 | OH_AVSession** avsession | 返回的媒体会话对象。 |
  
  
@@ -372,7 +372,7 @@ AVSession_ErrCode OH_AVSession_GetSessionId(OH_AVSession* avsession, const char*
  
 **描述**
  
-获取会话id。
+获取会话ID。
  
 **起始版本：** 13
  
@@ -381,7 +381,7 @@ AVSession_ErrCode OH_AVSession_GetSessionId(OH_AVSession* avsession, const char*
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AVSession* avsession | 媒体会话对象。 |
-| const char** sessionId | 返回的会话类型id。 |
+| const char** sessionId | 返回的会话ID。 |
  
  
 **返回：**

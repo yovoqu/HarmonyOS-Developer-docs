@@ -1,6 +1,6 @@
 # 人脸跟踪（C/C++）
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-face
 
@@ -37,7 +37,7 @@
 | HMS_AREngine_ARFaceGeometry_GetTriangleCount | 获取人脸Mesh中三角形的大小。 |
 | HMS_AREngine_ARFaceGeometry_GetTriangleLabelsSize | 获取人脸Mesh中三角形标签的大小。 |
 | HMS_AREngine_ARFaceGeometry_GetVerticesSize | 获取人脸Mesh中顶点的大小。 |
-| HMS_AREngine_ARFaceGeometry_Release | 释放当前人脸Mesh对象，即由HMS_AREngine_ARFace_AcquireBlendShapes创建的对象。 |
+| HMS_AREngine_ARFaceGeometry_Release | 释放当前人脸Mesh对象，即由HMS_AREngine_ARFace_AcquireGeometry创建的对象。 |
 
 
 

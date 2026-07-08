@@ -1,11 +1,11 @@
 # Class (ConsoleMessage)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-consolemessage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Web组件获取控制台信息对象。示例代码参考[onConsole事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onconsole)。
+ConsoleMessage是Web组件中封装JavaScript控制台输出信息的对象。当网页通过console.log()、console.warn()、console.error()等方法输出日志时，该对象通过onConsole事件回调提供给应用，用于监控和检查网页调试输出。示例代码参考[onConsole事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onconsole)。
  
 > [!NOTE]
 > 该组件首批接口从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 8开始支持。 示例效果请以真机运行为准。

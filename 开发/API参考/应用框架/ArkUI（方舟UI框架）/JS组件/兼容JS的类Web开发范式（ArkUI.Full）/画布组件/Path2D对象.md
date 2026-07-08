@@ -1,6 +1,6 @@
 # Path2D对象
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-path2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -388,16 +388,16 @@ export default {
 
 arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void
  
-依据圆弧经过的点和圆弧半径创建圆弧路径。
+依据圆弧控制的点和圆弧半径创建圆弧路径。
  
 **参数：**
   
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
-| x1 | number | 圆弧经过的第一个点的x坐标值。 |
-| y1 | number | 圆弧经过的第一个点的y坐标值。 |
-| x2 | number | 圆弧经过的第二个点的x坐标值。 |
-| y2 | number | 圆弧经过的第二个点的y坐标值。 |
+| x1 | number | 圆弧控制的第一个点的x坐标值。 |
+| y1 | number | 圆弧控制的第一个点的y坐标值。 |
+| x2 | number | 圆弧控制的第二个点的x坐标值。 |
+| y2 | number | 圆弧控制的第二个点的y坐标值。 |
 | radius | number | 圆弧的圆半径值。 |
  
  
@@ -435,7 +435,7 @@ export default {
 
 ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, counterclockwise?: number): void
  
-在规定的矩形区域绘制一个椭圆。
+在规定的区域绘制一个椭圆。
  
 **参数：**
   
@@ -520,4 +520,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/B21wyPb5Qz2CCm3QfrzD5w/zh-cn_image_0000002628862992.png?HW-CC-KV=V1&HW-CC-Date=20260701T014404Z&HW-CC-Expire=86400&HW-CC-Sign=6E9C5B7AF4CBB4633A6446DEFA34F6B5765A17D75B1401EDC6BEA04AEE70E3C6)
+![](assets/Path2D对象/file-2026070810304353ac5cdb.png)

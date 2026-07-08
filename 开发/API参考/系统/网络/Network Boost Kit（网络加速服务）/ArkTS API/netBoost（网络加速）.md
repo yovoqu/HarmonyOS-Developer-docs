@@ -1,6 +1,6 @@
 # netBoost（网络加速）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netboost
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -286,7 +286,7 @@ try {
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | address | string | 是 | IP地址。 |
-| port | number | 是 | 端口号。 |
+| port | number | 是 | 端口号，取值范围是0~65535。 |
  
  
   

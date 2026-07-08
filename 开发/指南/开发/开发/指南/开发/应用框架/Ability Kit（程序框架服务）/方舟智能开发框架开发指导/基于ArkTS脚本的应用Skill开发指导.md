@@ -1,0 +1,262 @@
+# 基于ArkTS脚本的应用Skill开发指导
+
+更新时间：2026-07-03 02:18:23
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-skill-development-guide
+
+#### 概述
+
+从API版本26.0.0开始，Ability Kit支持将应用内业务能力以Skill形式开放给系统智能体调用。Skill提供一种声明式的能力外化机制：开发者将应用内可被外部调用的业务能力组织为若干能力单元，每个单元由一份描述文件（声明其触发场景、入参约束与返回值契约）与一份ArkTS入口脚本（将外部调用桥接到应用内既有业务实现）共同构成，并通过模块配置绑定到指定Ability的运行上下文。运行时，系统智能体依据描述文件完成“意图—能力”的语义匹配，并将结果转化为面向用户的自然语言回复。
+
+通过Skill，开发者得以在不改造既有业务实现的前提下，以薄封装将应用能力开放给系统智能体；系统智能体无需理解各应用的内部实现，仅依赖统一的声明契约即可完成调度。
+
+> [!NOTE]
+> 仅支持Stage模型，FA模型不可用。
+
+
+
+
+#### 接口说明
+
+以下是基于ArkTS脚本开发应用Skill使用的主要接口，更多接口及使用方式请见[@ohos.app.ability.scriptManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-scriptmanager)。
+
+| 接口名 | 描述 |
+| --- | --- |
+| ExecuteResult | ArkTS脚本执行结果。 |
+| ArkTSScriptInfo | 应用的ArkTS脚本入口函数的第一个参数，用于接收系统传递的脚本上下文信息。 |
+| completeArkTSScriptInApp(context: Context, requestCode: string, result: ExecuteResult): Promise&lt;void&gt; | 完成应用的ArkTS脚本执行，上报执行结果。使用Promise异步回调。 |
+
+
+
+
+#### 开发步骤
+
+下文以“音乐助手Skill（music-assistant）”为示例，演示如何在自有应用中，通过代码开发和封装，实现按名称播放音乐（playMusicByName）与播放控制（controlPlayback）的能力。
+1. 创建文件和目录。
+
+  在模块（entry）下按以下结构创建文件和目录：
+
+  
+```ArkTS
+Application/
+├── AppScope/
+│   ├── app.json5
+│   └── resources/
+└── entry/
+    ├── skills/                            <- 【固定值】当前模块所有Skill的根目录
+    │   └── music-assistant/               <- Skill名，需与SKILL.md的name一致
+    │       ├── scripts/                   <- 【固定值】ETS脚本目录
+    │       │   └── MusicSkill.ets         <- Skill入口脚本
+    │       └── SKILL.md                   <- 【固定值】Skill描述文件
+    └── src/
+        └── main/
+            ├── ets/
+            │   ├── entryability/
+            │   │   └── EntryAbility.ets
+            │   └── service/
+            │       └── MusicPlayer.ets    <- 应用内业务服务(被Skill入口脚本调用)
+            ├── module.json5
+            └── resources/
+```
+
+2. 配置module.json5文件。
+
+  在entry/src/main/module.json5的module标签下新增[skillProfiles标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skillprofiles标签)，将Skill注册到模块。
+
+  示例Skill运行时需要添加网络权限访问云端音乐列表，在module标签下的requestPermissions标签配置。
+
+  
+```ArkTS
+{
+  "module": {
+    // ...
+    "skillProfiles": [
+      {
+        "name": "music-assistant", // Skill名，需与SKILL.md的name一致
+        "abilityName": "EntryAbility", // 与该Skill关联的组件名称
+        "srcEntries": [  // 实现Skill的代码文件路径列表
+          "../../skills/music-assistant/scripts/MusicSkill.ets"
+        ]
+      }
+    ],
+
+    "requestPermissions": [  // Skill运行需要的权限列表
+      { "name": "ohos.permission.INTERNET" }
+    ],
+    // ...
+  }
+}
+```
+
+3. 实现ArkTS脚本。
+
+  ArkTS入口脚本（MusicSkill.ets）是Skill调用链路上的“薄适配层”，负责把系统智能体传入的字符串参数转交给应用内已有业务实现，并把业务执行结果按SKILL.md声明的契约回传。其调用的MusicPlayer属于应用既有业务实现，与Skill机制本身无耦合，本节不再展开其内部逻辑。
+
+  3.1 导入Skill相关接口。
+
+  入口脚本需要从@kit.AbilityKit引入scriptManager，同时引入待桥接的应用内业务模块。
+
+  
+```ArkTS
+import { scriptManager } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+// 应用既有业务模块
+import { MusicPlayer, Track, PlayResult } from '../../../src/main/ets/service/MusicPlayer';
+```
+3.2 定义入口类骨架。
+
+  入口脚本以export default方式导出一个类，类中每个方法**均可直接被Agent访问**，需对应SKILL.md声明的一项能力，上述能力需满足以下约定：
+
+  
+**方法名约定**：必须与SKILL.md中的functionName严格一致（本例为playMusicByName、controlPlayback）。
+4. **方法签名约定**：第一个参数类型固定为[ArkTSScriptInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-scriptmanager#arktsscriptinfo)。
+5. 编写SKILL.md。
+
+  SKILL.md是Skill的声明契约文件，是系统智能体进行“意图—能力”匹配的唯一依据。主要由“元数据->触发场景->能力契约”三段构成。
+
+  4.1 撰写元数据（YAML Front Matter）。
+
+  在文件头部使用YAML Front Matter声明 name 与 description。其中，name 必须与 Skill 目录名以及 module.json5 中 skillProfiles[].name 完全保持一致；description 应简洁地描述能力范围，作为系统智能体进行 Skill 初次筛选的关键依据。
+
+  
+```text
+---
+name: music-assistant
+description: 提供音乐搜索播放与播控能力，响应“放首歌”、“切歌”、“暂停”等播放控制类指令
+---
+```
+4.2 撰写触发场景。
+
+  用自然语言列出典型话术，并补充不要调用的情况以划清能力边界，降低误触发。典型话术应覆盖能力对应的多种说法，边界说明应覆盖容易混淆的相邻意图。
+
+  
+```text
+## 触发场景
+
+当用户明确表达**播放音乐**或**控制当前播放**时调用。典型话术：
+
+- “放一首SingerA的《SongA》”
+- “来首《SongA》”
+- “暂停”、“继续播放”
+- “切歌”、“下一首”、“上一曲”
+
+不调用的情况：
+
+- 用户说“把这首歌加入收藏”——意图是修改歌单，本Skill仅支持播放与播控。
+- 用户说“今天有什么演唱会”——意图是查询资讯，非播放。
+- 用户没有明确指向播放（如“这首歌真好听”）——情绪表达，无需调用。
+- 用户说“调小音量”——意图是系统音量控制，应走系统能力。
+```
+4.3 为每项能力撰写“执行参数”契约。
+
+  每项能力对应一个### 场景N：能力名（functionName）子小节，“执行参数”部分需包含exec-cli形式的调用示例和一份JSON Schema约束。
+
+  调用示例包含四个核心字段：command固定为ohos-arkTSScript；skillName需与SKILL.md中的name保持一致；scriptPath为相对于Skill目录的入口脚本路径；functionName必须与MusicSkill.ets中public方法名严格对应。
+
+  
+```ArkTS
+exec-cli(command: ohos-arkTSScript --skillName 'music-assistant' --scriptPath 'scripts/MusicSkill.ets' --functionName 'playMusicByName' --args '{
+    "arg1": "SongA",
+    "arg2": "SingerA"
+}'
+)
+```
+Schema的核心在于args子对象，它定义了系统智能体可填写的入参结构。playMusicByName支持“歌名”和“歌手”二选一填写，因此使用anyOf约束以确保至少包含其中之一：
+
+  
+```json
+"args": {
+  "type": "object",
+  "properties": {
+    "arg1": {
+      "type": "string",
+      "description": "歌曲名，如《SongA》"
+    },
+    "arg2": {
+      "type": "string",
+      "description": "歌手名，如SingerA"
+    }
+  },
+  "anyOf": [
+    { "required": ["arg1"] },
+    { "required": ["arg2"] }
+  ]
+}
+```
+4.4 为每项能力撰写“执行返回值”契约。
+
+  “执行返回值”部分需先列出所有可能的结果示例（成功 + 各类失败），再给出整体的JSON Schema约束。
+
+  以playMusicByName为例，需逐一列出四组示例：
+
+  
+```json
+// 1. 成功播放
+{
+    "type": "result",
+    "status": "success",
+    "data": {
+        "playingTrack": {
+            "name": "SongA",
+            "singer": "SingerA",
+            "duration": 269
+        },
+        "matchedCount": 1
+    }
+}
+
+// 2. 入参非法
+{
+    "type": "result",
+    "status": "failed",
+    "errCode": "ERR_INVALID_PARAMS",
+    "errMsg": "songName and singer are both empty",
+    "suggestion": "我没听清，你想听哪首歌？"
+}
+
+// 3. 未命中
+{
+    "type": "result",
+    "status": "failed",
+    "errCode": "ERR_NOT_FOUND",
+    "data": {
+        "searchedKeywords": ["SongA", "SingerA"]
+    },
+    "suggestion": "没有找到SingerA的《SongA》"
+}
+
+// 4. 内部错误
+{
+    "type": "result",
+    "status": "failed",
+    "errCode": "ERR_INTERNAL",
+    "errMsg": "network timeout",
+    "suggestion": "播放失败了，稍后再试试"
+}
+```
+对应的Schema顶层定义公共字段，并通过oneOf枚举上述四种分支形态：
+
+  
+```json
+{
+  "type": "object",
+  "required": ["type", "status"],
+  "properties": {
+    "type":   { "type": "string", "const": "result" },
+    "status": { "type": "string", "enum": ["success", "failed"] },
+    "data":   { "type": "object" },
+    "errCode": {
+      "type": "string",
+      "enum": ["ERR_INVALID_PARAMS", "ERR_NOT_FOUND", "ERR_INTERNAL"]
+    },
+    "errMsg":     { "type": "string", "minLength": 1 },
+    "suggestion": { "type": "string", "minLength": 1 }
+  },
+  "oneOf": [
+    /* 成功：               要求 data.playingTrack 与 data.matchedCount */
+    /* ERR_INVALID_PARAMS:  要求 errMsg 与 suggestion */
+    /* ERR_NOT_FOUND:       要求 data.searchedKeywords 与 suggestion */
+    /* ERR_INTERNAL:        要求 errMsg 与 suggestion */
+  ]
+}
+```

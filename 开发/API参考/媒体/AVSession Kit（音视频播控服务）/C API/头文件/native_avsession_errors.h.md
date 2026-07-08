@@ -1,6 +1,6 @@
 # native_avsession_errors.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -71,7 +71,7 @@ enum AVSession_ErrCode
 | AV_SESSION_ERR_CODE_SESSION_NOT_EXIST = 6600102 | 会话不存在。 |
 | AV_SESSION_ERR_CODE_COMMAND_INVALID = 6600105 | 无效会话命令。 |
 | AV_SESSION_ERR_CODE_SESSION_INACTIVE = 6600106 | 会话未激活。 |
-| AV_SESSION_ERR_CODE_MESSAGE_OVERLOAD = 6600107 | 命令&消息过载。 |
+| AV_SESSION_ERR_CODE_MESSAGE_OVERLOAD = 6600107 | 命令和消息过载。 |
 | AV_SESSION_ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109 | 远端会话不存在。 起始版本： 23 |
 | AV_SESSION_ERR_CODE_CAST_CONTROL_UNSPECIFIED = 6611000 | 投播控制器出现未知错误。 起始版本： 23 |
 | AV_SESSION_ERR_CODE_CAST_CONTROL_REMOTE_ERROR = 6611001 | 远端设备出现未知错误。 起始版本： 23 |

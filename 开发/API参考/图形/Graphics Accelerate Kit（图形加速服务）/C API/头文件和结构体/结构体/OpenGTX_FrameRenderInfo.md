@@ -1,6 +1,6 @@
 # OpenGTX_FrameRenderInfo
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_open_g_t_x___frame_render_info
 **支持设备：** Phone | Tablet | TV
@@ -31,8 +31,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| OpenGTX_Vector3 mainCameraPosition | 主摄像头的位置。x, y, z的取值范围[-360,360]。 |
-| OpenGTX_Vector3 mainCameraRotate | 主摄像头的转动，包括偏航、俯仰、侧滚。 x, y, z的取值范围[-360,360]。 |
+| OpenGTX_Vector3 mainCameraPosition | 主摄像头的位置。x、y、z的取值范围均为[-360, 360]，超出取值范围则该值不生效，并且返回 401错误码。单位：deg。 |
+| OpenGTX_Vector3 mainCameraRotate | 主摄像头的转动，包括偏航、俯仰、侧滚。x、y、z的取值范围均为[-360,360]，超出取值范围则该值不生效，并且返回401错误码。单位：deg。 |
  
  
   
@@ -67,4 +67,4 @@ OpenGTX_Vector3 OpenGTX_FrameRenderInfo::mainCameraRotate
  
 **描述**
  
-主摄像头的转动，包括偏航、俯仰、侧滚。 x, y, z的取值范围[-360,360]。
+主摄像头的转动，包括偏航、俯仰、侧滚。x、y、z的取值范围均为[-360,360]，超出取值范围则该值不生效，并且返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)错误码。单位：deg。

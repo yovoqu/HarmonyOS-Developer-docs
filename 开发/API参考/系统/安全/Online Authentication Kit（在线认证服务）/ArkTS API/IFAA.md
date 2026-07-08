@@ -1,6 +1,6 @@
 # IFAA
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-ifaa-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -49,7 +49,7 @@ getVersionSync(): number
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
  
  
 **示例：**
@@ -99,7 +99,7 @@ getAnonymousIdSync(userToken: Uint8Array): Uint8Array
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -153,7 +153,7 @@ getAnonymousId(userToken: Uint8Array): Promise&lt;Uint8Array&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -207,7 +207,7 @@ getAnonymousId(userToken: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;)
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -269,7 +269,7 @@ queryStatusSync(userToken: Uint8Array): boolean
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -326,7 +326,7 @@ queryStatus(userToken: Uint8Array): Promise&lt;boolean&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -380,7 +380,7 @@ queryStatus(userToken: Uint8Array, callback: AsyncCallback&lt;boolean&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -442,7 +442,7 @@ register(registerData: Uint8Array): Promise&lt;Uint8Array&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -496,7 +496,7 @@ register(registerData: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;): v
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -549,7 +549,7 @@ preAuthSync(): Uint8Array
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -593,7 +593,7 @@ preAuth(): Promise&lt;Uint8Array&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -644,7 +644,7 @@ preAuth(callback: AsyncCallback&lt;Uint8Array&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -705,7 +705,7 @@ IFAA免密认证，同步返回结果。
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -762,7 +762,7 @@ IFAA免密认证，使用Promise异步回调。
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -819,7 +819,7 @@ IFAA免密认证，使用Callback异步回调。
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -866,7 +866,7 @@ deregisterSync(deregisterData: Uint8Array): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deregisterData | Uint8Array | 是 | IIFAA服务器下发的TLV格式的关闭数据。 |
+| deregisterData | Uint8Array | 是 | IIFAA服务器下发的TLV格式的注销数据。 |
  
  
 **错误码：**
@@ -876,7 +876,7 @@ deregisterSync(deregisterData: Uint8Array): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -911,7 +911,7 @@ deregister(deregisterData: Uint8Array): Promise&lt;void&gt;
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deregisterData | Uint8Array | 是 | IIFAA服务器下发的TLV格式的关闭数据。 |
+| deregisterData | Uint8Array | 是 | IIFAA服务器下发的TLV格式的注销数据。 |
  
  
 **返回值：**
@@ -928,7 +928,7 @@ deregister(deregisterData: Uint8Array): Promise&lt;void&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -970,7 +970,7 @@ deregister(deregisterData: Uint8Array, callback: AsyncCallback&lt;void&gt;): voi
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deregisterData | Uint8Array | 是 | IIFAA服务器下发的TLV格式的关闭数据。 |
+| deregisterData | Uint8Array | 是 | IIFAA服务器下发的TLV格式的注销数据。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。操作成功时，err为undefined，否则为错误对象。 |
  
  
@@ -981,7 +981,7 @@ deregister(deregisterData: Uint8Array, callback: AsyncCallback&lt;void&gt;): voi
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -1034,7 +1034,7 @@ getProtocolVersionSync(): Uint8Array
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -1076,7 +1076,7 @@ getProtocolVersion(): Promise&lt;Uint8Array&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -1127,7 +1127,7 @@ getProtocolVersion(callback: AsyncCallback&lt;Uint8Array&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -1179,7 +1179,7 @@ getSupportedCertTypesSync(): Uint8Array
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -1223,7 +1223,7 @@ getSupportedCertTypes(): Promise&lt;Uint8Array&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  
@@ -1274,7 +1274,7 @@ getSupportedCertTypes(callback: AsyncCallback&lt;Uint8Array&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1006100001 | System Interruption. |
 | 1006100002 | The service is abnormal. |
  

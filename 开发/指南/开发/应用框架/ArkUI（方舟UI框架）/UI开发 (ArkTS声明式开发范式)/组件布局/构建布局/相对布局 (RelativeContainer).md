@@ -1,6 +1,6 @@
 # 相对布局 (RelativeContainer)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-relative-layout
 
@@ -77,7 +77,7 @@ let alignRue: Record<string, Record<string, string | VerticalAlign | HorizontalA
   'right': { 'anchor': '__container__', 'align': HorizontalAlign.End }
 }
 let marginLeft: Record<string, number> = { 'left': 20 }
-let bwc: Record<string, number | string> = { 'width': 2, 'color': '#6699FF' }
+let borderWidth: Record<string, number | string> = { 'width': 2, 'color': '#6699FF' }
 
 @Entry
 @Component
@@ -105,7 +105,7 @@ struct ParentRefRelativeContainer {
       .id('row2')
     }.width(300).height(300)
     .margin(marginLeft)
-    .border(bwc)
+    .border(borderWidth)
   }
 }
 ```
@@ -125,7 +125,7 @@ let relConB: Record<string, Record<string, string | VerticalAlign | HorizontalAl
   'left': { 'anchor': 'row1', 'align': HorizontalAlign.Start }
 }
 let marginLeft001: Record<string, number> = { 'left': 20 }
-let bwc001: Record<string, number | string> = { 'width': 2, 'color': '#6699FF' }
+let borderWidth001: Record<string, number | string> = { 'width': 2, 'color': '#6699FF' }
 
 @Entry
 @Component
@@ -153,7 +153,7 @@ struct SiblingRefRelativeContainer {
       .id('row2')
     }.width(300).height(300)
     .margin(marginLeft001)
-    .border(bwc001)
+    .border(borderWidth001)
   }
 }
 ```
@@ -772,7 +772,7 @@ struct RelativeGuideLineExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/l2kuGVvJRTKLuZQscWyuwg/zh-cn_image_0000002656347617.png?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=A506ECD35C9624529F01D6C77B7E51527BB366AFE8E7C302D3CCBA739F4D023A)
+![](assets/相对布局%20(RelativeContainer)/file-2026070810395815226521.png)
 
 
 
@@ -904,4 +904,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/CT6S9n1jSpClRm2eW8lGHQ/zh-cn_image_0000002626228202.png?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=A15F66969F43C5EF18110823E024A84238F5E836611426DA4C54279F387693E2)
+![](assets/相对布局%20(RelativeContainer)/file-2026070810395843025f2c.png)

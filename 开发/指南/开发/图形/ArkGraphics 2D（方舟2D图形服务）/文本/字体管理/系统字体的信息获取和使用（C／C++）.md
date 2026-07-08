@@ -1,6 +1,6 @@
 # 系统字体的信息获取和使用（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/system-font-c
 
@@ -107,7 +107,7 @@ libnative_drawing.so
 #include <hilog/log.h>
 ```
 
-3. 创建字体管理器，建议优先使用OH_Drawing_CreateSharedFontCollection创建可共享的字体集对象。
+3. 创建字体集对象，建议优先使用OH_Drawing_CreateSharedFontCollection创建可共享的字体集对象。
 
   
 > [!NOTE]
@@ -196,7 +196,7 @@ libnative_drawing.so
 #include <hilog/log.h>
 ```
 
-4. 创建字体管理器，建议优先使用OH_Drawing_CreateSharedFontCollection创建可共享的字体集对象。
+4. 创建字体集对象，建议优先使用OH_Drawing_CreateSharedFontCollection创建可共享的字体集对象。
 
   
 ```cpp
@@ -213,7 +213,7 @@ OH_Drawing_DisableFontCollectionSystemFont(fontCollection);
 6. 创建文本样式对象，使用注册成功的自定义字体。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/GlNovhovTkqYCY1pBp_HJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020915Z&HW-CC-Expire=86400&HW-CC-Sign=8020D8A1BE1C3D472FA5D85DEC90B69FFB85C90566F6572D2F068D9CE524E699)
+![](assets/系统字体的信息获取和使用（C／C++）/file-20260708104019e7f448b4.png)
  
 
   若不设置字体，文本会默认使用系统字体，而系统字体禁用后若不设置使用自定义字体，文本将无法正常显示。

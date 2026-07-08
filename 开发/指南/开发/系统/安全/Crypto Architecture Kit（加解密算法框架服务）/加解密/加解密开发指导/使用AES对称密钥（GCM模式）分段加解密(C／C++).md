@@ -1,6 +1,6 @@
 # 使用AES对称密钥（GCM模式）分段加解密(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-aes-sym-encrypt-decrypt-gcm-by-segment-ndk
 
@@ -41,14 +41,6 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
   
 由于已使用update传入数据，此处传入null。
 7. final输出结果可能为null，在访问具体数据前，需要先判断结果是否为null，以避免产生异常。
-
-  
-![](assets/使用AES对称密钥（GCM模式）分段加解密(C／C++)/file-20260514131052651-0.png)
- 
-
-  在GCM模式下，final会返回authTag，作为解密操作时初始化的认证信息，需要保存。
-
-  在GCM模式下，算法库当前只支持16字节的authTag，作为解密操作时初始化的认证信息。示例中authTag恰好为16字节。
 
 **解密**
 1. 调用[OH_CryptoSymCipher_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-cipher-h#oh_cryptosymcipher_create)，指定参数'AES128|GCM|PKCS7'，创建对称密钥类型为AES128、分组模式为GCM、填充模式为PKCS7的Cipher实例，完成解密操作。

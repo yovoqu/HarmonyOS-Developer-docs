@@ -1,6 +1,6 @@
 # healthFields (运动健康数据字段)(Lite)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields-lite
 **支持设备：** lite_wearable
@@ -162,11 +162,11 @@ import healthStore from '@hms.health.store';
 | startTime | number | 是 | 运动开始时间，Unix时间戳，单位：ms。 |
 | totalTime | number | 是 | 运动总时长，单位：s。 |
 | targetDuration | number | 否 | 目标运动时长，单位：s。 |
-| avgHeartRate | number | 否 | 运动全程平均心率，单位：bmp。 |
-| maxHeartRate | number | 否 | 运动过程最高心率，单位：bmp。 |
+| avgHeartRate | number | 否 | 运动全程平均心率，单位：bpm。 |
+| maxHeartRate | number | 否 | 运动过程最高心率，单位：bpm。 |
 | mHeartrateZoneType | number | 否 | 心率区间类型，0为最大心率区间，1为储备心率区间。 |
-| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bmp。 |
-| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bmp。 |
+| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bpm。 |
+| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bpm。 |
 | loadPeakLevel | number | 否 | 运动负荷峰值等级，等级越大运动效果越好。 |
 | aerobicTrainingStress | number | 否 | 有氧训练压力值，量化有氧运动负荷程度，取值范围：[0.0, 5.0]。 |
 | anaerobicTrainingStress | number | 否 | 无氧训练压力值，量化无氧运动负荷程度，取值范围：[0.0, 5.0]。 |
@@ -223,11 +223,11 @@ import healthStore from '@hms.health.store';
 | startTime | number | 是 | 运动开始时间，Unix时间戳，单位：ms。 |
 | totalTime | number | 是 | 运动总时长，单位：s。 |
 | targetDuration | number | 否 | 目标运动时长，单位：s。 |
-| avgHeartRate | number | 否 | 运动全程平均心率，单位：bmp。 |
-| maxHeartRate | number | 否 | 运动过程最高心率，单位：bmp。 |
+| avgHeartRate | number | 否 | 运动全程平均心率，单位：bpm。 |
+| maxHeartRate | number | 否 | 运动过程最高心率，单位：bpm。 |
 | mHeartrateZoneType | number | 否 | 心率区间类型，0为最大心率区间，1为储备心率区间。 |
-| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bmp。 |
-| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bmp。 |
+| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bpm。 |
+| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bpm。 |
 | loadPeakLevel | number | 否 | 运动负荷峰值等级，等级越大运动效果越好。 |
 | aerobicTrainingStress | number | 否 | 有氧训练压力值，量化有氧运动负荷程度，取值范围：[0.0, 5.0]。 |
 | anaerobicTrainingStress | number | 否 | 无氧训练压力值，量化无氧运动负荷程度，取值范围：[0.0, 5.0]。 |
@@ -257,11 +257,11 @@ import healthStore from '@hms.health.store';
 | startTime | number | 是 | 运动开始时间，Unix时间戳，单位：ms。 |
 | totalTime | number | 是 | 运动总时长，单位：s。 |
 | targetDuration | number | 否 | 目标运动时长，单位：s。 |
-| avgHeartRate | number | 否 | 运动全程平均心率，单位：bmp。 |
-| maxHeartRate | number | 否 | 运动过程最高心率，单位：bmp。 |
+| avgHeartRate | number | 否 | 运动全程平均心率，单位：bpm。 |
+| maxHeartRate | number | 否 | 运动过程最高心率，单位：bpm。 |
 | mHeartrateZoneType | number | 否 | 心率区间类型，0为最大心率区间，1为储备心率区间。 |
-| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bmp。 |
-| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bmp。 |
+| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bpm。 |
+| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bpm。 |
 | loadPeakLevel | number | 否 | 运动负荷峰值等级，等级越大运动效果越好。 |
 | aerobicTrainingStress | number | 否 | 有氧训练压力值，量化有氧运动负荷程度，取值范围：[0.0, 5.0]。 |
 | anaerobicTrainingStress | number | 否 | 无氧训练压力值，量化无氧运动负荷程度，取值范围：[0.0, 5.0]。 |
@@ -313,11 +313,11 @@ import healthStore from '@hms.health.store';
 | startTime | number | 是 | 运动开始时间，Unix时间戳，单位：ms。 |
 | totalTime | number | 是 | 运动总时长，单位：s。 |
 | targetDuration | number | 否 | 目标运动时长，单位：s。 |
-| avgHeartRate | number | 否 | 运动全程平均心率，单位：bmp。 |
-| maxHeartRate | number | 否 | 运动过程最高心率，单位：bmp。 |
+| avgHeartRate | number | 否 | 运动全程平均心率，单位：bpm。 |
+| maxHeartRate | number | 否 | 运动过程最高心率，单位：bpm。 |
 | mHeartrateZoneType | number | 否 | 心率区间类型，0为最大心率区间，1为储备心率区间。 |
-| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bmp。 |
-| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bmp。 |
+| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bpm。 |
+| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bpm。 |
 | loadPeakLevel | number | 否 | 运动负荷峰值等级，等级越大运动效果越好。 |
 | aerobicTrainingStress | number | 否 | 有氧训练压力值，量化有氧运动负荷程度，取值范围：[0.0, 5.0]。 |
 | anaerobicTrainingStress | number | 否 | 无氧训练压力值，量化无氧运动负荷程度，取值范围：[0.0, 5.0]。 |
@@ -368,11 +368,11 @@ import healthStore from '@hms.health.store';
 | startTime | number | 是 | 运动开始时间，Unix时间戳，单位：ms。 |
 | totalTime | number | 是 | 运动总时长，单位：s。 |
 | targetDuration | number | 否 | 目标运动时长，单位：s。 |
-| avgHeartRate | number | 否 | 运动全程平均心率，单位：bmp。 |
-| maxHeartRate | number | 否 | 运动过程最高心率，单位：bmp。 |
+| avgHeartRate | number | 否 | 运动全程平均心率，单位：bpm。 |
+| maxHeartRate | number | 否 | 运动过程最高心率，单位：bpm。 |
 | mHeartrateZoneType | number | 否 | 心率区间类型，0为最大心率区间，1为储备心率区间。 |
-| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bmp。 |
-| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bmp。 |
+| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bpm。 |
+| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bpm。 |
 | loadPeakLevel | number | 否 | 运动负荷峰值等级，等级越大运动效果越好。 |
 | aerobicTrainingStress | number | 否 | 有氧训练压力值，量化有氧运动负荷程度，取值范围：[0.0, 5.0]。 |
 | anaerobicTrainingStress | number | 否 | 无氧训练压力值，量化无氧运动负荷程度，取值范围：[0.0, 5.0]。 |
@@ -423,11 +423,11 @@ import healthStore from '@hms.health.store';
 | startTime | number | 是 | 运动开始时间，Unix时间戳，单位：ms。 |
 | totalTime | number | 是 | 运动总时长，单位：s。 |
 | targetDuration | number | 否 | 目标运动时长，单位：s。 |
-| avgHeartRate | number | 否 | 运动全程平均心率，单位：bmp。 |
-| maxHeartRate | number | 否 | 运动过程最高心率，单位：bmp。 |
+| avgHeartRate | number | 否 | 运动全程平均心率，单位：bpm。 |
+| maxHeartRate | number | 否 | 运动过程最高心率，单位：bpm。 |
 | mHeartrateZoneType | number | 否 | 心率区间类型，0为最大心率区间，1为储备心率区间。 |
-| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bmp。 |
-| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bmp。 |
+| startHeartRate | number | 否 | 恢复心率测量初始时的心率，单位：bpm。 |
+| endHeartRate | number | 否 | 恢复心率测量结束时的心率，单位：bpm。 |
 | loadPeakLevel | number | 否 | 运动负荷峰值等级，等级越大运动效果越好。 |
 | aerobicTrainingStress | number | 否 | 有氧训练压力值，量化有氧运动负荷程度，取值范围：[0.0, 5.0]。 |
 | anaerobicTrainingStress | number | 否 | 无氧训练压力值，量化无氧运动负荷程度，取值范围：[0.0, 5.0]。 |

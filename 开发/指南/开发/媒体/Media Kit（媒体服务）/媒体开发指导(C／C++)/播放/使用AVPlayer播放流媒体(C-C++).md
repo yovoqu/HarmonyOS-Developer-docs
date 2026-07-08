@@ -1,6 +1,6 @@
 # 使用AVPlayer播放流媒体(C/C++)
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avplayer-for-streaming
 
@@ -15,7 +15,7 @@
 **播放状态变化示意图：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/zpNu1K-_Rqql9FcTRrB_xQ/zh-cn_image_0000002587109098.png?HW-CC-KV=V1&HW-CC-Date=20260604T013004Z&HW-CC-Expire=86400&HW-CC-Sign=9744EDE7AACD815FB12AC818DCC2B46F61819CAA494779851D0B61FD27EA4206)
+![](assets/使用AVPlayer播放流媒体(C-C++)/file-20260708103833b6828305.png)
 
 
 
@@ -69,7 +69,7 @@ target_link_libraries(sample PUBLIC libhilog_ndk.z.so)
 1. 创建AVPlayer实例：调用[OH_AVPlayer_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_create)接口，AVPlayer初始化为[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate).AV_IDLE状态。
 
   
-```text
+```cpp
 OH_AVPlayer *player = OH_AVPlayer_Create();
 ```
 
@@ -86,14 +86,14 @@ OH_AVPlayer *player = OH_AVPlayer_Create();
 | OH_AVPlayerOnErrorCallback | 必要事件，监听播放器的错误信息。 需要播放器在AV_IDLE状态下、未调用设置资源接口前完成设置监听。如果在调用设置资源接口后再设置监听，会导致无法收到资源设置过程中上报的OH_AVPlayerOnErrorCallback事件。 |
 
   
-```text
+```cpp
 // 设置回调，监听信息。
 LOG("call OH_AVPlayer_SetPlayerOnInfoCallback");
 int32_t ret = OH_AVPlayer_SetOnInfoCallback(player, OHAVPlayerOnInfoCallback, nullptr);
 LOG("OH_AVPlayer_SetPlayerOnInfoCallback ret:%{public}d", ret);
 ```
 
-```text
+```cpp
 LOG("call OH_AVPlayer_SetPlayerOnErrorCallback");
 ret = OH_AVPlayer_SetOnErrorCallback(player, OHAVPlayerOnErrorCallback, nullptr);
 LOG("OH_AVPlayer_SetPlayerOnErrorCallback ret:%{public}d", ret);
@@ -102,7 +102,7 @@ LOG("OH_AVPlayer_SetPlayerOnErrorCallback ret:%{public}d", ret);
 3. 设置资源：调用[OH_AVPlayer_SetURLSource()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_seturlsource)，设置属性URL（支持点播和直播源），AVPlayer进入[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate).AV_INITIALIZED（初始化）状态。
 
   
-```text
+```cpp
 LOG("player %{public}s >> URL source", url);
 LOG("call %{public}s", "OH_AVPlayer_SetUrlSource");
 ret = OH_AVPlayer_SetURLSource(player, url);
@@ -112,7 +112,7 @@ LOG("OH_AVPlayer_SetUrlSource ret:%{public}d", ret);
 4. （可选）设置智能追帧：直播场景下调用[OH_AVPlayer_SetPlaybackStrategy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setplaybackstrategy)，设置AVPlayer启用智能追帧。
 
   
-```text
+```cpp
 void OHAVPlayerSetPlaybackStrategy(OH_AVPlayer *player)
 {
     // 设置播放策略。
@@ -128,7 +128,7 @@ void OHAVPlayerSetPlaybackStrategy(OH_AVPlayer *player)
 5. （可选）设置音频流类型：调用[OH_AVPlayer_SetAudioRendererInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setaudiorendererinfo)，设置AVPlayer音频流类型。
 
   
-```text
+```cpp
 // 设置音频流类型。
 LOG("call %{public}s", "OH_AVPlayer_SetAudioRendererInfo");
 OH_AudioStream_Usage streamUsage = OH_AudioStream_Usage::AUDIOSTREAM_USAGE_UNKNOWN;
@@ -139,7 +139,7 @@ LOG("OH_AVPlayer_SetAudioRendererInfo ret:%{public}d", ret);
 6. （可选）设置音频打断模式：调用[OH_AVPlayer_SetAudioInterruptMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setaudiointerruptmode)，设置AVPlayer音频流打断模式。
 
   
-```text
+```cpp
 // 设置音频流打断模式。
 LOG("call OH_AVPlayer_SetAudioInterruptMode");
 OH_AudioInterrupt_Mode interruptMode = OH_AudioInterrupt_Mode::AUDIOSTREAM_INTERRUPT_MODE_INDEPENDENT;
@@ -150,7 +150,7 @@ LOG("OH_AVPlayer_SetAudioInterruptMode ret:%{public}d", ret);
 7. 设置播放画面窗口：调用[OH_AVPlayer_SetVideoSurface()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setvideosurface)设置播放画面窗口。此函数必须在SetSource之后，Prepare之前调用。
 
   
-```text
+```cpp
 ret = OH_AVPlayer_SetVideoSurface(player, context->nativeWindow_);
 LOG("OH_AVPlayer_SetVideoSurface ret:%{public}d", ret);
 ```
@@ -158,7 +158,7 @@ LOG("OH_AVPlayer_SetVideoSurface ret:%{public}d", ret);
 8. 准备播放：调用[OH_AVPlayer_Prepare()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_prepare)，AVPlayer进入[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate).AV_PREPARED（准备）状态，此时可以获取时长，设置音量。
 
   
-```text
+```cpp
 ret = OH_AVPlayer_Prepare(player); // 设置播放源后触发该状态上报。
 if (ret != AV_ERR_OK) {
     // 处理异常。
@@ -169,7 +169,7 @@ if (ret != AV_ERR_OK) {
 9. （可选）设置音频音效模式：调用[OH_AVPlayer_SetAudioEffectMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_setaudioeffectmode)，设置AVPlayer音频音效模式。
 
   
-```text
+```cpp
 LOG("AVPlayerState AV_PREPARED");
 ret = OH_AVPlayer_SetAudioEffectMode(player, EFFECT_NONE); // 设置音频音效模式。
 LOG("OH_AVPlayer_SetAudioEffectMode ret:%{public}d", ret);
@@ -178,7 +178,7 @@ LOG("OH_AVPlayer_SetAudioEffectMode ret:%{public}d", ret);
 10. 播放控制：包含播放[OH_AVPlayer_Play()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_play)、暂停[OH_AVPlayer_Pause()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_pause)、跳转[OH_AVPlayer_Seek()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_seek)、停止[OH_AVPlayer_Stop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_stop)等操作。
 
   
-```text
+```cpp
 static napi_value NAPI_Global_Play(napi_env env, napi_callback_info info) {
     int ret = -1;
     auto context = SampleManager::GetInstance();
@@ -194,7 +194,7 @@ static napi_value NAPI_Global_Play(napi_env env, napi_callback_info info) {
 }
 ```
 
-```text
+```cpp
 static napi_value NAPI_Global_Pause(napi_env env, napi_callback_info info) {
     int ret = 100;
     auto context = SampleManager::GetInstance();
@@ -210,7 +210,7 @@ static napi_value NAPI_Global_Pause(napi_env env, napi_callback_info info) {
 }
 ```
 
-```text
+```cpp
 static napi_value NAPI_Global_Seek(napi_env env, napi_callback_info info) {
     size_t argc = 2;
     napi_value args[2] = {nullptr};
@@ -250,7 +250,7 @@ static napi_value NAPI_Global_Seek(napi_env env, napi_callback_info info) {
 }
 ```
 
-```text
+```cpp
 static napi_value NAPI_Global_Stop(napi_env env, napi_callback_info info) {
     int ret = 100;
     auto context = SampleManager::GetInstance();
@@ -269,7 +269,7 @@ static napi_value NAPI_Global_Stop(napi_env env, napi_callback_info info) {
 11. （可选）更换资源：调用[OH_AVPlayer_Reset()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_reset)重置资源，AVPlayer重新进入[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate).AV_IDLE（空闲）状态，允许更换资源URL。
 
   
-```text
+```cpp
 static napi_value NAPI_Global_Reset(napi_env env, napi_callback_info info) {
     int ret = 100;
     auto context = SampleManager::GetInstance();
@@ -288,7 +288,7 @@ static napi_value NAPI_Global_Reset(napi_env env, napi_callback_info info) {
 12. 退出播放：调用[OH_AVPlayer_Release()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_release)销毁实例，AVPlayer进入[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h#avplayerstate).AV_RELEASED（释放）状态，退出播放。如果后续再操作AVPlayer实例，则行为未知，可能导致应用进程崩溃，应用异常退出等情况。
 
   
-```text
+```cpp
 static napi_value NAPI_Global_Release(napi_env env, napi_callback_info info) {
     int ret = -1;
     auto context = SampleManager::GetInstance();

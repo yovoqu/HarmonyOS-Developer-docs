@@ -1,6 +1,6 @@
-# 转换ID
+# 通过gamePlayerId获取playerId/openId/unionId
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-convertid
 

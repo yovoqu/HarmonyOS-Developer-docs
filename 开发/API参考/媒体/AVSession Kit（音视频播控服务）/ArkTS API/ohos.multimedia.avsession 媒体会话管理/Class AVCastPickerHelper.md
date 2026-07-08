@@ -1,6 +1,6 @@
 # Class (AVCastPickerHelper)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avcastpickerhelper
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -28,7 +28,7 @@ import { avSession } from '@kit.AVSessionKit';
 
 constructor(context: Context)
 
-创建AVCastPickerHelper对象，获取context参考[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)。
+创建AVCastPickerHelper对象，获取context请参考[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -87,7 +87,7 @@ struct Index {
 
 select(options?: AVCastPickerOptions): Promise&lt;void&gt;
 
-通过选择模式拉起AVCastPicker界面，用户可以选择投播设备。接口采用Promise异步返回形式，传入可选参数AVCastPickerOptions对象，无返回值。
+通过选择模式拉起AVCastPicker界面，用户可以选择投播设备。接口采用Promise异步返回形式，传入可选参数AVCastPickerOptions对象，无返回结果。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -149,7 +149,7 @@ this.avCastPicker.select(avCastPickerOptions).then(() => {
 
 resetCommunicationDevice(): Promise&lt;void&gt;
 
-将应用通话设备恢复至默认设备。比如在语音通话场景下，手机设备的通话装置将恢复成听筒。使用Promise异步回调。
+将应用通话设备恢复至默认设备。例如，在语音通话场景下，手机设备的通话装置将恢复为听筒。使用Promise异步回调。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 

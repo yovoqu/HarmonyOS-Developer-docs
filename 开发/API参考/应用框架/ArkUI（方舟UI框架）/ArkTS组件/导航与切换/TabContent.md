@@ -1,11 +1,11 @@
 # TabContent
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-仅在[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)中使用，对应一个切换页签的内容视图。
+TabContent组件用于在[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)中定义每个页签的内容视图，支持单个子组件渲染、内容裁切控制、页签样式自定义等特性。适用于需要多页签切换的应用场景，如分类导航、功能模块切换等，帮助开发者快速实现内容分页展示和交互。
 
 > [!NOTE]
 > 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件默认设置了 clip 属性的值为true，若需要扩展内容区到组件外显示，需先关闭clip属性。
@@ -32,6 +32,10 @@ TabContent()
 
 创建TabContent页签和内容。
 
+> [!NOTE]
+> TabContent组件仅能作为Tabs组件的子组件使用，否则会导致组件无法正常显示。
+
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -53,8 +57,6 @@ TabContent()
 tabBar(options: string | Resource | CustomBuilder | TabBarOptions)
 
 设置TabBar上显示内容。
-
-如果icon采用svg格式图源，需删除svg图源内置的宽高属性值。否则，icon大小将使用svg图源内置的宽高属性值。
 
 设置的内容超出tabBar页签时进行裁切。
 
@@ -79,8 +81,12 @@ tabBar(value: SubTabBarStyle | BottomTabBarStyle)
 
 设置TabBar上显示内容。底部样式没有下划线效果。icon异常时显示灰色图块。
 
+如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。
+
+设置的内容超出TabBar页签时进行裁切。
+
 > [!NOTE]
-> 子页签（ SubTabBarStyle ）样式：通常为文字+下划线，文字+背板的页签风格，允许设置文本样式，建议放置在顶部或者底部使用。切换页签时默认支持动画跳转效果。适用于资讯类应用的顶部分类（如"关注、视频、数码"）、功能模块的二级导航场景。 底部页签/侧边页签（ BottomTabBarStyle ）样式：无下划线和背板效果，页签样式通常为图标+文字的组合方式。切换页签时默认无动画跳转效果。底部页签通常用于应用主导航（如首页、发现、推荐）。侧边页签适用于宽屏场景，可设置vertical(true)启用纵向布局，让页签在侧边显示，默认左侧显示。
+> 子页签（ SubTabBarStyle ）样式：通常为文字+下划线或文字+背板的页签风格，允许设置文本样式，建议放置在顶部或者底部使用。切换页签时默认支持动画跳转效果。适用于资讯类应用的顶部分类（如"关注、视频、数码"）、功能模块的二级导航场景。 底部页签/侧边页签（ BottomTabBarStyle ）样式：无下划线和背板效果，页签样式通常为图标+文字的组合方式。切换页签时默认无动画跳转效果。底部页签通常用于应用主导航（如首页、发现、推荐）。侧边页签适用于宽屏场景，可设置vertical(true)启用纵向布局，让页签在侧边显示，默认左侧显示。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -91,7 +97,7 @@ tabBar(value: SubTabBarStyle | BottomTabBarStyle)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | SubTabBarStyle \| BottomTabBarStyle | 是 | TabBar上显示内容。 SubTabBarStyle： 子页签样式。 BottomTabBarStyle： 底部页签和侧边页签样式。 |
+| value | SubTabBarStyle \| BottomTabBarStyle | 是 | TabBar上显示内容。 SubTabBarStyle： 子页签样式。 BottomTabBarStyle： 底部页签和侧边页签样式，底部样式没有下划线效果。 |
 
 
 
@@ -104,7 +110,7 @@ tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string |
 
 设置TabBar上显示内容。
 
-使用BottomTabBarStyle或TabBarOptions类型作为入参并设置icon，icon异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性值。否则，icon大小将使用svg图源内置的宽高属性值。
+使用BottomTabBarStyle或TabBarOptions类型作为入参并设置icon，icon异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。
 
 设置的内容超出TabBar页签时进行裁切。
 
@@ -118,7 +124,7 @@ tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string |
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| content | ComponentContent \| SubTabBarStyle \|BottomTabBarStyle \| string \| Resource \| CustomBuilder\| TabBarOptions | 是 | TabBar上显示内容。 ComponentContent： 组件内容的实体封装，可以设置自定义内容。 SubTabBarStyle： 子页签样式。 BottomTabBarStyle： 底部页签和侧边页签样式，底部样式没有下划线效果。 string： 字符串类型。 Resource： 资源引用类型，引入系统资源或者应用资源中的字符串。 CustomBuilder： 构造器，内部可以传入组件。 TabBarOptions： 设置页签内的图片和文字内容。 |
+| content | ComponentContent \| SubTabBarStyle \|BottomTabBarStyle \| string \| Resource \| CustomBuilder\| TabBarOptions | 是 | TabBar上显示内容。 ComponentContent： 组件内容的实体封装，可以设置自定义内容。 说明： 1.自定义内容不支持labelStyle属性。 2.自定义内容超出页签范围，则不显示超出部分。 3.自定义内容小于页签范围，则会居中对齐。 4.自定义内容异常或无可用显示组件，则显示空白。 SubTabBarStyle： 子页签样式。 BottomTabBarStyle： 底部页签和侧边页签样式，底部样式没有下划线效果。 string： 字符串类型。 Resource： 资源引用类型，引入系统资源或者应用资源中的字符串。 CustomBuilder： 构造器，内部可以传入组件。 TabBarOptions： 设置页签内的图片和文字内容。 |
 
 
 > [!NOTE]
@@ -145,7 +151,7 @@ tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string |
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon7+ | string \| Resource | 否 | 是 | 页签内的图片内容。未设置时不显示图片。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| icon7+ | string \| Resource | 否 | 是 | 页签内的图片内容。未设置时不显示图片。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | text7+ | string \| Resource | 否 | 是 | 页签内的文字内容。未设置时不显示文字。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
@@ -228,7 +234,7 @@ SubTabBarStyle的静态构造函数。
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回创建的SubTabBarStyle对象。 |
+| SubTabBarStyle | 返回创建的SubTabBarStyle对象，用于设置子页签样式。 |
 
 
 
@@ -258,7 +264,7 @@ SubTabBarStyle的静态构造函数。支持ComponentContent设置自定义内�
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回创建的SubTabBarStyle对象。 |
+| SubTabBarStyle | 返回创建的SubTabBarStyle对象，用于设置子页签样式。 |
 
 
 
@@ -288,7 +294,7 @@ indicator(value: IndicatorStyle): SubTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回SubTabBarStyle对象本身。 |
+| SubTabBarStyle | 返回SubTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -322,7 +328,7 @@ indicator(value: IndicatorStyle | DrawableTabBarIndicator): SubTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回SubTabBarStyle对象本身。 |
+| SubTabBarStyle | 返回SubTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -345,14 +351,14 @@ selectedMode(value: SelectedMode): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | SelectedMode | 是 | 选中子页签的显示方式。 默认值：SelectedMode.INDICATOR |
+| value | SelectedMode | 是 | 选中子页签的显示方式，用于控制子页签的选中效果样式。可选值：SelectedMode.INDICATOR（使用下划线模式，适用于需要明确指示选中状态的场景）、SelectedMode.BOARD（使用背板模式，适用于需要突出选中页签的场景）。 默认值：SelectedMode.INDICATOR |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回SubTabBarStyle对象本身。 |
+| SubTabBarStyle | 返回SubTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -382,7 +388,7 @@ board(value: BoardStyle): SubTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回SubTabBarStyle对象本身。 |
+| SubTabBarStyle | 返回SubTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -393,7 +399,7 @@ board(value: BoardStyle): SubTabBarStyle
 
 labelStyle(value: LabelStyle): SubTabBarStyle
 
-设置子页签的label文本和字体的样式。
+设置子页签的label文本和字体的样式。子页签的label文本和字体的样式仅在水平模式下有效。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -412,7 +418,7 @@ labelStyle(value: LabelStyle): SubTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回SubTabBarStyle对象本身。 |
+| SubTabBarStyle | 返回SubTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -435,14 +441,14 @@ padding(value: Padding | Dimension): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Padding \| Dimension | 是 | 子页签的内边距属性。 取值范围：[0, +∞] 异常值时取默认值。 默认值：{left:8.0vp,right:8.0vp,top:17.0vp,bottom:18.0vp} |
+| value | Padding \| Dimension | 是 | 子页签的内边距属性（不支持百分比设置）。 取值范围：[0, +∞] 异常值时取默认值。 默认值：{left:8.0vp,right:8.0vp,top:17.0vp,bottom:18.0vp} 说明： 从API version 12开始，参数支持LocalizedPadding类型，支持镜像能力。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回SubTabBarStyle对象本身。 |
+| SubTabBarStyle | 返回SubTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -465,14 +471,14 @@ padding(padding: LocalizedPadding): SubTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| padding | LocalizedPadding | 是 | 子页签的内边距属性。 异常值时取默认值。 取值范围：[0, +∞] 异常值时取默认值。 默认值：{start:LengthMetrics.vp(8),end:LengthMetrics.vp(8), top:LengthMetrics.vp(17),bottom:LengthMetrics.vp(18)} |
+| padding | LocalizedPadding | 是 | 子页签的内边距属性。 取值范围：[0, +∞] 异常值时取默认值。 默认值：{start:LengthMetrics.vp(8),end:LengthMetrics.vp(8), top:LengthMetrics.vp(17),bottom:LengthMetrics.vp(18)} |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回SubTabBarStyle对象本身。 |
+| SubTabBarStyle | 返回SubTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -502,7 +508,7 @@ id(value: string): SubTabBarStyle
 
 | 类型 | 说明 |
 | --- | --- |
-| SubTabBarStyle | 返回SubTabBarStyle对象本身。 |
+| SubTabBarStyle | 返回SubTabBarStyle对象本身，用于链式调用。 |
 
 
 
@@ -522,10 +528,10 @@ id(value: string): SubTabBarStyle
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | color | ResourceColor | 否 | 是 | 下划线的颜色和背板颜色。 默认值：#FF007DFF，浅蓝色。 |
-| height | Length | 否 | 是 | 下划线的高度（不支持百分比设置）。 默认值：2.0 单位：vp 取值范围：[0, +∞)。 |
-| width | Length | 否 | 是 | 下划线的宽度（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞)。 说明： 宽度设置为0时，按页签文本宽度显示。 |
-| borderRadius | Length | 否 | 是 | 下划线的圆角半径（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞)。 |
-| marginTop | Length | 否 | 是 | 下划线与文字的间距（不支持百分比设置）。 默认值：8.0 单位：vp 取值范围：[0, +∞)。 |
+| height | Length | 否 | 是 | 下划线的高度（不支持百分比设置）。 默认值：2.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 |
+| width | Length | 否 | 是 | 下划线的宽度（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 说明： 宽度设置为0时，按页签文本宽度显示。 |
+| borderRadius | Length | 否 | 是 | 下划线的圆角半径（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 |
+| marginTop | Length | 否 | 是 | 下划线与文字的间距（不支持百分比设置）。 默认值：8.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 |
 
 
 
@@ -545,10 +551,10 @@ id(value: string): SubTabBarStyle
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | drawable | DrawableDescriptor | 否 | 是 | 下划线的图源。 支持DrawableDescriptor、PixelMapDrawableDescriptor、LayeredDrawableDescriptor和AnimatedDrawableDescriptor类型。当传入无效图源时将显示默认的实线型下划线。 |
-| height | Length | 否 | 是 | 下划线的高度（不支持百分比设置）。 默认值：2.0 单位：vp 取值范围：[0, +∞) |
-| width | Length | 否 | 是 | 下划线的宽度（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞) 宽度设置为0时，按页签文本宽度显示。 |
-| borderRadius | Length | 否 | 是 | 下划线的圆角半径（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞) |
-| marginTop | Length | 否 | 是 | 下划线与文字的间距（不支持百分比设置）。 默认值：8.0 单位：vp 取值范围：[0, +∞) |
+| height | Length | 否 | 是 | 下划线的高度（不支持百分比设置）。 默认值：2.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 |
+| width | Length | 否 | 是 | 下划线的宽度（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 宽度设置为0时，按页签文本宽度显示。 |
+| borderRadius | Length | 否 | 是 | 下划线的圆角半径（不支持百分比设置）。 默认值：0.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 |
+| marginTop | Length | 否 | 是 | 下划线与文字的间距（不支持百分比设置）。 默认值：8.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 |
 
 
 
@@ -588,8 +594,8 @@ type DrawableDescriptor = DrawableDescriptor
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| INDICATOR | 0 | 使用下划线模式。 |
-| BOARD | 1 | 使用背板模式。 |
+| INDICATOR | 0 | 使用下划线模式。适用于需要明确指示选中状态的场景，如新闻资讯类应用。 |
+| BOARD | 1 | 使用背板模式。适用于需要明确区分选中页签的场景，如功能导航类应用。 |
 
 
 
@@ -608,7 +614,7 @@ type DrawableDescriptor = DrawableDescriptor
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| borderRadius | Length | 否 | 是 | 背板的圆角半径（不支持百分比设置）。 默认值：8.0 单位：vp 取值范围：[0, +∞)。 |
+| borderRadius | Length | 否 | 是 | 背板的圆角半径（不支持百分比设置）。 默认值：8.0 单位：vp 取值范围：[0, +∞)。异常值时取默认值。 |
 
 
 
@@ -626,9 +632,9 @@ label文本和字体的样式对象。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | overflow | TextOverflow | 否 | 是 | 设置label文本超长时的显示方式。默认值是省略号截断。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| maxLines | number | 否 | 是 | 设置label文本的最大行数。如果指定此参数，则文本最多不会超过指定的行。如果有多余的文本，可以通过textOverflow来指定截断方式。默认值是1。 取值范围：[1, +∞)。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| minFontSize | number \| ResourceStr | 否 | 是 | 设置label文本最小显示字号（不支持百分比设置）。需配合maxFontSize以及maxLines或布局大小限制使用。自适应文本大小生效后，font.size不生效。默认值是0.0fp，即默认自适应文本大小不生效。 取值范围：(0, +∞)。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| maxFontSize | number \| ResourceStr | 否 | 是 | 设置label文本最大显示字号（不支持百分比设置）。需配合minFontSize以及maxLines或布局大小限制使用。自适应文本大小生效后，font.size不生效。默认值是0.0fp，即默认自适应文本大小不生效。 取值范围：[minFontSize, +∞)。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| maxLines | number | 否 | 是 | 设置label文本的最大行数。如果指定此参数，则文本最多不会超过指定的行。如果有多余的文本，可以通过textOverflow来指定截断方式。默认值是1。 取值范围：[1, +∞)。异常值时取默认值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| minFontSize | number \| ResourceStr | 否 | 是 | 设置label文本最小显示字号（不支持百分比设置）。需配合maxFontSize以及maxLines或布局大小限制使用。自适应文本大小生效后，font.size不生效。默认值是0.0fp，即默认自适应文本大小不生效。 取值范围：(0, +∞)。异常值时不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| maxFontSize | number \| ResourceStr | 否 | 是 | 设置label文本最大显示字号（不支持百分比设置）。需配合minFontSize以及maxLines或布局大小限制使用。自适应文本大小生效后，font.size不生效。默认值是0.0fp，即默认自适应文本大小不生效。 取值范围：[minFontSize, +∞)。异常值时不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | heightAdaptivePolicy | TextHeightAdaptivePolicy | 否 | 是 | 设置Label文本自适应高度的方式。默认值是最大行数优先。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | font | Font | 否 | 是 | 设置label文本字体样式。 当页签为子页签时，默认值是字体大小16.0fp、字体类型'HarmonyOS Sans'，字体风格正常，选中时字重中等，未选中时字重正常。 当页签为底部页签时，默认值是字体大小10.0fp、字体类型'HarmonyOS Sans'，字体风格正常，字重中等。 从API version 12开始，底部页签内容左右排布时默认字体大小为12.0fp。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | unselectedColor12+ | ResourceColor | 否 | 是 | 设置label文本字体未选中时的颜色。 默认值：#99182431 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -661,7 +667,7 @@ BottomTabBarStyle的构造函数。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| icon | ResourceStr \| TabBarSymbol12+ | 是 | 页签内的图片内容。 |
+| icon | ResourceStr \| TabBarSymbol12+ | 是 | 页签内的图片内容。异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 |
 | text | ResourceStr | 是 | 页签内的文字内容。 |
 
 
@@ -685,7 +691,7 @@ BottomTabBarStyle的静态构造函数。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| icon | ResourceStr \| TabBarSymbol12+ | 是 | 页签内的图片内容。 |
+| icon | ResourceStr \| TabBarSymbol12+ | 是 | 页签内的图片内容。异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。 |
 | text | ResourceStr | 是 | 页签内的文字内容。 |
 
 
@@ -716,7 +722,7 @@ padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Padding \| Dimension \| LocalizedPadding12+ | 是 | 底部页签的内边距。 取值范围：[0, +∞] 默认值：{left:4.0vp,right:4.0vp,top:0.0vp,bottom:0.0vp} 使用LocalizedPadding时，支持镜像能力。 默认值：{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4), top:LengthMetrics.vp(0),bottom:LengthMetrics.vp(0)} |
+| value | Padding \| Dimension \| LocalizedPadding12+ | 是 | 底部页签的内边距，用于设置页签内容与边界的距离（不支持百分比设置）。当需要调整页签内部空间分布、优化视觉效果时传入自定义值。 取值范围：[0, +∞] 默认值：{left:4.0vp,right:4.0vp,top:0.0vp,bottom:0.0vp} 使用LocalizedPadding时，支持镜像能力。 默认值：{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4), top:LengthMetrics.vp(0),bottom:LengthMetrics.vp(0)} |
 
 
 **返回值：**
@@ -806,7 +812,7 @@ symmetricExtensible(value: boolean): BottomTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 底部页签的图片、文字是否可以对称借用左右底部页签的空余位置中的最小值。 默认值：false，底部页签的图片、文字不可以对称借用左右底部页签的空余位置中的最小值。 |
+| value | boolean | 是 | 底部页签的图片、文字是否可以对称借用左右底部页签的空余位置中的最小值。传入true启用对称借用功能（当需要优化页签布局、充分利用空间时选择），传入false禁用对称借用功能（当需要保持页签固定布局、避免页签内容位置变化时选择）。 默认值：false。 |
 
 
 **返回值：**
@@ -884,7 +890,7 @@ id(value: string): BottomTabBarStyle
 
 iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 
-设置底部页签的label图标的样式。
+设置底部页签图标的样式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -896,7 +902,7 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | TabBarIconStyle | 是 | 底部页签的label图标的样式。 |
+| style | TabBarIconStyle | 是 | 底部页签图标的样式。 |
 
 
 **返回值：**
@@ -943,8 +949,8 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | AUTO | 0 | 若页签宽度大于104vp，页签内容为左右排布，否则页签内容为上下排布。仅TabBar为垂直模式或Fixed水平模式时有效。 |
-| VERTICAL | 1 | 页签内容上下排布。 |
-| HORIZONTAL | 2 | 页签内容左右排布。 |
+| VERTICAL | 1 | 页签内容上下排布。适用于页签宽度有限、需要节省空间的场景。 |
+| HORIZONTAL | 2 | 页签内容左右排布。适用于页签宽度充足、需要展示更多内容的场景。 |
 
 
 
@@ -953,7 +959,7 @@ iconStyle(style: TabBarIconStyle): BottomTabBarStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Label图标样式对象。
+页签图标样式对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -963,8 +969,8 @@ Label图标样式对象。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| unselectedColor | ResourceColor | 否 | 是 | 设置Label图标未选中时的颜色。 默认值：#33182431 说明： 仅对svg图源生效，设置后会替换svg图片的填充颜色。 |
-| selectedColor | ResourceColor | 否 | 是 | 设置Label图标选中时的颜色。 默认值：#FF007DFF 说明： 仅对svg图源生效，设置后会替换svg图片的填充颜色。 |
+| unselectedColor | ResourceColor | 否 | 是 | 设置图标未选中时的颜色。 默认值：#33182431 说明： 仅对svg图源生效，设置后会替换svg图片的填充颜色。 |
+| selectedColor | ResourceColor | 否 | 是 | 设置图标选中时的颜色。 默认值：#FF007DFF 说明： 仅对svg图源生效，设置后会替换svg图片的填充颜色。 |
 
 
 
@@ -1054,8 +1060,10 @@ struct TabContentExample {
   @State selectedFontColor: string = '#007DFF';
   @State currentIndex: number = 0;
   @State selectedIndex: number = 0;
+  // 创建Tabs控制器，用于控制TabContent切换
   private controller: TabsController = new TabsController();
 
+  // 自定义TabBar构建器，根据选中状态切换图标和文字颜色
   @Builder tabBuilder(index: number) {
     Column() {
       // common目录与pages同级
@@ -1074,6 +1082,7 @@ struct TabContentExample {
 
   build() {
     Column() {
+      // 创建Tabs组件，设置TabBar位置在底部并绑定控制器
       Tabs({ barPosition: BarPosition.End, controller: this.controller }) {
         TabContent() {
           Column() {
@@ -1088,7 +1097,7 @@ struct TabContentExample {
               .color('#182431')
               .opacity(0.05)
           }.width('100%')
-        }.tabBar(this.tabBuilder(0))
+        }.tabBar(this.tabBuilder(0)) // 设置TabBar为自定义样式
 
         TabContent() {
           Column() {
@@ -1138,11 +1147,12 @@ struct TabContentExample {
       .vertical(false)
       .barHeight(56)
       .onChange((index: number) => {
-        // currentIndex控制TabContent显示页签
+        // currentIndex控制TabContent显示页签，selectedIndex控制自定义TabBar颜色切换
         this.currentIndex = index;
         this.selectedIndex = index;
       })
       .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
+        // 当前页签索引与目标索引一致时，无需更新状态
         if (index === targetIndex) {
           return;
         }
@@ -1159,7 +1169,7 @@ struct TabContentExample {
 ```
 
 
-![](assets/TabContent/file-20260514164012205-8.gif)
+![](assets/TabContent/file-20260514164012205-9.gif)
 
 
 
@@ -1201,9 +1211,10 @@ struct TabContentExample {
 
   build() {
     Column() {
+      // 创建Tabs组件，设置TabBar位置在起始端并绑定控制器
       Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
         TabContent()
-          .tabBar(this.tabBuilder(0))
+          .tabBar(this.tabBuilder(0)) // 设置TabBar为自定义样式
         TabContent()
           .tabBar(this.tabBuilder(1))
         TabContent()
@@ -1215,11 +1226,12 @@ struct TabContentExample {
       .barWidth(96)
       .barHeight(414)
       .onChange((index: number) => {
-        // currentIndex控制TabContent显示页签
+        // currentIndex控制TabContent显示页签，selectedIndex控制自定义TabBar颜色切换
         this.currentIndex = index;
         this.selectedIndex = index;
       })
       .onAnimationStart((index: number, targetIndex: number, event: TabsAnimationEvent) => {
+        // 当前页签索引与目标索引一致时，无需更新状态
         if (index === targetIndex) {
           return;
         }
@@ -1236,7 +1248,7 @@ struct TabContentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/F-GmdQfVR6aFBINr1KsERw/zh-cn_image_0000002628702546.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=13AAEC198A0783189E6EEF75E46B7B72E34DE44876480A87F81C8BD424D0F804)
+![](assets/TabContent/file-20260708103217798b6eee.gif)
 
 
 
@@ -1254,14 +1266,17 @@ struct TabBarStyleExample {
     Column({ space: 5 }) {
       Text('子页签样式')
       Column() {
+        // 创建Tabs组件，设置TabBar位置在起始端
         Tabs({ barPosition: BarPosition.Start }) {
           TabContent() {
             Column().width('100%').height('100%').backgroundColor(Color.Pink)
-          }.tabBar(new SubTabBarStyle('Pink'))
+          }.tabBar(new SubTabBarStyle('Pink')) // 设置TabBar为子页签样式
           .onWillShow(() => {
+            // TabContent将要显示时触发回调
             console.info('Pink will show');
           })
           .onWillHide(() => {
+            // TabContent将要隐藏时触发回调
             console.info('Pink will hide');
           })
 
@@ -1306,10 +1321,11 @@ struct TabBarStyleExample {
       }.width('100%').height(200)
       Text('底部页签样式')
       Column() {
+        // 创建Tabs组件，设置TabBar位置在底部
         Tabs({ barPosition: BarPosition.End }) {
           TabContent() {
             Column().width('100%').height('100%').backgroundColor(Color.Pink)
-          }.tabBar(new BottomTabBarStyle($r('sys.media.ohos_app_icon'), 'Pink'))
+          }.tabBar(new BottomTabBarStyle($r('sys.media.ohos_app_icon'), 'Pink')) // 设置TabBar为底部页签样式
           .onWillShow(() => {
             console.info('Pink will show');
           })
@@ -1399,7 +1415,8 @@ struct TabBarStyleExample {
             console.info('Green will hide');
           })
         }
-        .vertical(true).scrollable(true).barMode(BarMode.Fixed)
+        .vertical(true) // 设置为侧边页签模式
+        .scrollable(true).barMode(BarMode.Fixed)
         .onChange((index: number) => {
           console.info(index.toString());
         })
@@ -1412,7 +1429,7 @@ struct TabBarStyleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/PgfBrG1PSaipBcc3Uc0-zw/zh-cn_image_0000002659101773.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=4276C4C845160356E944792BC0905B421F05B65D3EB4E3064F46321F9FFDA23E)
+![](assets/TabContent/file-20260708103217f5d0519d.jpeg)
 
 
 
@@ -1444,7 +1461,7 @@ struct TabsAttr {
     Column() {
       Button('下划线颜色变化').width('100%').margin({ bottom: '12vp' })
         .onClick((event?: ClickEvent) => {
-          // 对Button组件的宽高属性进行动画配置
+          // 对下划线颜色属性进行动画配置
           if (this.colorFlag) {
             this.getUIContext()?.animateTo({
               duration: 1000, // 动画时长
@@ -1476,7 +1493,7 @@ struct TabsAttr {
         })
       Button('下划线高度变化').width('100%').margin({ bottom: '12vp' })
         .onClick((event?: ClickEvent) => {
-          // 对Button组件的宽高属性进行动画配置
+          // 对下划线高度属性进行动画配置
           if (this.heightFlag) {
             this.getUIContext()?.animateTo({
               duration: 1000, // 动画时长
@@ -1508,7 +1525,7 @@ struct TabsAttr {
         })
       Button('下划线宽度变化').width('100%').margin({ bottom: '12vp' })
         .onClick((event?: ClickEvent) => {
-          // 对Button组件的宽高属性进行动画配置
+          // 对下划线宽度属性进行动画配置
           if (this.widthFlag) {
             this.getUIContext()?.animateTo({
               duration: 1000, // 动画时长
@@ -1540,7 +1557,7 @@ struct TabsAttr {
         })
       Button('下划线圆角半径变化').width('100%').margin({ bottom: '12vp' })
         .onClick((event?: ClickEvent) => {
-          // 对Button组件的宽高属性进行动画配置
+          // 对下划线圆角半径属性进行动画配置
           if (this.borderFlag) {
             this.getUIContext()?.animateTo({
               duration: 1000, // 动画时长
@@ -1572,7 +1589,7 @@ struct TabsAttr {
         })
       Button('下划线间距变化').width('100%').margin({ bottom: '12vp' })
         .onClick((event?: ClickEvent) => {
-          // 对Button组件的宽高属性进行动画配置
+          // 对下划线间距属性进行动画配置
           if (this.spaceFlag) {
             this.getUIContext()?.animateTo({
               duration: 1000, // 动画时长
@@ -1654,7 +1671,7 @@ struct TabsAttr {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/ZtCNv1WuTaKwua_Adk7-CQ/zh-cn_image_0000002628862424.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=C662442F6F824B999F53F1BF8EB34C75F7668517B1F2FF115B540E4668FCE1A1)
+![](assets/TabContent/file-20260708103217ef0e342f.gif)
 
 
 
@@ -1668,9 +1685,7 @@ struct TabsAttr {
 @Entry
 @Component
 struct TabsTextOverflow {
-  @State message: string = 'Hello World';
   private controller: TabsController = new TabsController();
-  @State subTabOverflowOpaque: boolean = true;
 
   build() {
     Column() {
@@ -1748,7 +1763,7 @@ struct TabsTextOverflow {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/F6PiuYF7SmK9T9VQLJRhJA/zh-cn_image_0000002659221737.png?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=E6F00312E79A6569BBD01A01E7DC29D980608F91F11F97E45FC15CBFB6CCC5F4)
+![](assets/TabContent/file-20260708103217dba8c2c7.png)
 
 
 
@@ -1904,7 +1919,7 @@ struct TabContentExample6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/4W0L6R9yS8Kpf8tB-o6MqQ/zh-cn_image_0000002628702548.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=2FE221D5F37446AA19F95CB2B694CB00CD8B2924591FE8759FF2E2724E88AA6D)
+![](assets/TabContent/file-20260708103218fb881923.gif)
 
 
 
@@ -2008,7 +2023,7 @@ struct TabBarStyleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/bWt5lFumSXWzDYrwra_CvQ/zh-cn_image_0000002659101775.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=D6AAFAD83EE87BE7845A7DB88B6BA321DB0513413AFF4FECFA472CA28FFB7C1C)
+![](assets/TabContent/file-20260708103218de9ad27c.gif)
 
 
 
@@ -2031,7 +2046,7 @@ struct Index {
   build() {
     Column({space: 5}) {
       Text('底部页签样式')
-      Column(){
+      Column() {
         Tabs({barPosition: BarPosition.End}) {
           TabContent() {
             Column().width('100%').height('100%').backgroundColor(Color.Pink)
@@ -2084,7 +2099,7 @@ struct Index {
         .vertical(false)
         .scrollable(true)
         .barMode(BarMode.Fixed)
-        .onChange((index:number)=>{
+        .onChange((index: number) => {
           console.info(index.toString());
         })
         .width('100%')
@@ -2096,7 +2111,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/-yyyNN2HTq6dzinbZreYbQ/zh-cn_image_0000002628862426.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=530D3E451A8AA8490BA65AD235DA1D52736DE2CEA42EDA9B7025346453ACD339)
+![](assets/TabContent/file-2026070810321837cf8b3e.gif)
 
 
 
@@ -2206,7 +2221,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Ip57dOsVQRi_NaNCqU75dg/zh-cn_image_0000002659221739.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=D1F14BC39B9EB539D20ACBB9F9ED9286842FF83785CE68D8E0C1291D5F6DC3FE)
+![](assets/TabContent/file-20260708103218cbe0bd43.gif)
 
 
 
@@ -2332,7 +2347,7 @@ struct TabsPreloadItems {
               console.info('preloadItems success.');
             })
             .catch((error: BusinessError) => {
-              console.error('preloadItems failed, error code: ' + error.code + ', error message: ' + error.message);
+              console.error(`preloadItems failed. Code: ${error.code}, message: ${error.message}`);
             });
         })
 
@@ -2345,7 +2360,7 @@ struct TabsPreloadItems {
               console.info('preloadItems success.');
             })
             .catch((error: BusinessError) => {
-              console.error('preloadItems failed, error code: ' + error.code + ', error message: ' + error.message);
+              console.error(`preloadItems failed. Code: ${error.code}, message: ${error.message}`);
             });
         })
       Button('preload items: [3]')
@@ -2357,7 +2372,7 @@ struct TabsPreloadItems {
               console.info('preloadItems success.');
             })
             .catch((error: BusinessError) => {
-              console.error('preloadItems failed, error code: ' + error.code + ', error message: ' + error.message);
+              console.error(`preloadItems failed. Code: ${error.code}, message: ${error.message}`);
             });
         })
     }
@@ -2386,7 +2401,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/pm1oiNIoRBK11UQVZud1Zg/zh-cn_image_0000002628702550.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=468504C38068CAB2780B8C8DC1D8884158158D0FA82A3126A5D2EC75F0E5EBF9)
+![](assets/TabContent/file-202607081032191ef79b4e.gif)
 
 
 
@@ -2403,9 +2418,6 @@ import { DrawableDescriptor } from '@kit.ArkUI';
 @Entry
 @Component
 struct TabsIndicatorExample {
-  @State isVertical: boolean = false;
-  @State text: string = '文本';
-  @State barMode: BarMode = BarMode.Fixed;
   @State pixmapDesc: DrawableDescriptor | null = null;
 
   async aboutToAppear() {
@@ -2459,4 +2471,4 @@ struct TabsIndicatorExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/0plCCHv7QHmtlcQCvMbQ4A/zh-cn_image_0000002659101777.png?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=0F3CF6BA8DAB6E9A0113666CF423E8BF44E1FE99D204D58D7CCD72C6FD1B22E3)
+![](assets/TabContent/file-20260708103219932b2d39.png)

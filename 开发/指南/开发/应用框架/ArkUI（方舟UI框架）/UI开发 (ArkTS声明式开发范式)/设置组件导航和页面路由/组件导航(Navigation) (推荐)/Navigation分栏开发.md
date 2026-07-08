@@ -1,6 +1,6 @@
 # Navigation分栏开发
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-split-mode
 
@@ -147,7 +147,7 @@
       "pageSourceFile": "src/main/ets/pages/navigation/splitmode/NewsDetail.ets",
       "buildFunction": "NewsDetailPageBuilder",
       "data": {
-        "description": "this is DetailPageA"
+        "description": "this is NewsDetail"
       }
     }
   ]
@@ -269,4 +269,4 @@ struct Index {
 **图10** 运行效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/HYrkjAQZTViG-p3TcGHoZg/zh-cn_image_0000002656347569.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=2D8DE679B1E5DDC648FB43E9C81471AE2C99D52740FCA86795FC62C6BB4CEE27)
+![](assets/Navigation分栏开发/file-202607081039526db6b597.gif)

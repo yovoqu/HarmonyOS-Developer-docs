@@ -1,6 +1,6 @@
 # customScan (自定义界面扫码)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api
 **支持设备：** Phone | Tablet | Wearable
@@ -213,15 +213,15 @@ import { customScan, scanBarcode } from '@kit.ScanKit';
 
 // 模拟相机预览流返回数据frameResult: customScan.ScanFrame
 let frameResult: customScan.ScanFrame = {
-  "width": 1920,
-  "height": 1080,
+  'width': 1920,
+  'height': 1080,
   // buffer 为相机流
-  "byteBuffer": buffer,
-  "scanCodeRects": [{
-    "left": 84,
-    "top": 142,
-    "right": 1695,
-    "bottom": 996
+  'byteBuffer': buffer,
+  'scanCodeRects': [{
+    'left': 84,
+    'top': 142,
+    'right': 1695,
+    'bottom': 996
   }]
 };
 if (frameResult && frameResult.scanCodeRects) {

@@ -1,6 +1,6 @@
 # 自定义字体的注册和使用（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/custom-font-c
 
@@ -24,11 +24,11 @@
 
 | 接口名 | 描述 |
 | --- | --- |
-| OH_Drawing_CreateSharedFontCollection (void) | 创建可共享的字体集对象OH_Drawing_FontCollection。 |
-| OH_Drawing_RegisterFont (OH_Drawing_FontCollection* , const char* fontFamily, const char* familySrc ) | 用于在字体管理器中注册自定义字体，支持的字体文件格式包含：ttf、otf。 |
+| OH_Drawing_CreateSharedFontCollection(void) | 创建可共享的字体集对象OH_Drawing_FontCollection。 |
+| OH_Drawing_RegisterFont(OH_Drawing_FontCollection* , const char* fontFamily, const char* familySrc ) | 用于在字体管理器中注册自定义字体，支持的字体文件格式包含：ttf、otf。 |
 | OH_Drawing_CreateTextStyle(void) | 创建指向OH_Drawing_TextStyle对象的指针，用于设置文本样式。 |
-| OH_Drawing_SetTextStyleFontFamilies (OH_Drawing_TextStyle *, int, const char *fontFamilies[]) | 设置字体类型。 |
-| OH_Drawing_UnregisterFont (OH_Drawing_FontCollection* , const char* fontFamily) | 通过字体家族名称取消注册自定义字体。 |
+| OH_Drawing_SetTextStyleFontFamilies(OH_Drawing_TextStyle *, int, const char *fontFamilies[]) | 设置字体类型。 |
+| OH_Drawing_UnregisterFont(OH_Drawing_FontCollection* , const char* fontFamily) | 通过字体家族名称取消注册自定义字体。 |
 
 
 

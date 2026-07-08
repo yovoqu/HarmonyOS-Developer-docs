@@ -1,6 +1,6 @@
 # ServiceCollaboration_CollaborationDeviceInfo
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationdeviceinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -31,7 +31,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| uint32_t deviceType | 对端设备类型。只有Phone或者Tablet。Phone设备类型的值为0x14，Tablet设备类型的值为0x17。 |
+| uint32_t deviceType | 对端设备类型。 Phone设备类型的值为0x14，Tablet设备类型的值为0x17。 |
 | char deviceNetworkId [COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH] | 对端设备network Id。 |
 | char deviceName [COLLABORATIONDEVICEINFO_DEVICENAME_MAXLENGTH] | 对端设备名。 |
 | uint32_t filterNum | 对端设备支持的能力类型列表的大小。 |

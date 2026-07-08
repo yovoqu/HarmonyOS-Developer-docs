@@ -1,6 +1,6 @@
 # AlphabetIndexer
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -95,7 +95,7 @@ color(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 未选中项文本颜色。 默认值：0x99182431，显示为略带透明的棕色。 |
+| value | ResourceColor | 是 | 未选中项文本颜色。 默认值：0x99182431，显示为略带透明的深暗蓝色。 |
 
 
 
@@ -158,7 +158,7 @@ selectedBackgroundColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 选中项背景颜色。 默认值：0x1A007DFF，显示为半透明的蓝绿色。 |
+| value | ResourceColor | 是 | 选中项背景颜色。 默认值：0x1A007DFF，显示为半透明的蓝色。 |
 
 
 
@@ -910,7 +910,7 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/_qbY-dQhQb68Ft5eVItcSg/zh-cn_image_0000002659101995.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=4C145D0832C41A19D4B2D2233CADF3FFFBBF02D82019D14EA84873546881CCDF)
+![](assets/AlphabetIndexer/file-20260708103204ef78e8e9.gif)
 
 
 
@@ -994,7 +994,7 @@ struct AlphabetIndexerSample {
               .popupBackground(0xD2B48C) // 提示弹窗背景颜色
               .usingPopup(true) // 索引项被选中时显示提示弹窗
               .selectedFont({ size: 16, weight: FontWeight.Bolder }) // 选中项文本样式
-              .popupFont({ size: 30, weight: FontWeight.Bolder }) // 提示弹窗内容的文本样式
+              .popupFont({ size: 30, weight: FontWeight.Bolder }) // 提示弹窗一级索引的文本样式
               .itemSize(28) // 每一项的尺寸大小
               .alignStyle(IndexerAlign.Right) // 提示弹窗在索引条左侧弹出
               .popupTitleBackground("#D2B48C") // 设置提示弹窗一级索引项背景颜色
@@ -1056,7 +1056,7 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/y644ICQXSkmo2Lg8OWwd_A/zh-cn_image_0000002628862646.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=244C607081208A6852408D5D80FAF7F20EDCD61808C8B6FA3E8ED5D03069D9E8)
+![](assets/AlphabetIndexer/file-202607081032042a977fe0.gif)
 
 
 
@@ -1191,4 +1191,4 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ds8szW0_TCOiYRFi-M8J8Q/zh-cn_image_0000002659221961.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=547BA7180DD416E4541A5A40BE7D83B7DBACE400349A748F7675234BD66BF852)
+![](assets/AlphabetIndexer/file-202607081032043896868b.gif)

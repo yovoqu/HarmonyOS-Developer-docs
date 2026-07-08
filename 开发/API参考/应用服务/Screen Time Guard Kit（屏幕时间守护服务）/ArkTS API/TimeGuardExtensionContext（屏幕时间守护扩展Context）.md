@@ -1,6 +1,6 @@
-# @hms.utilityApplication.screenTimeGuard.TimeGuardExtensionContext.d.ts（屏幕时间守护扩展Context）
+# @hms.utilityApplication.screenTimeGuard.TimeGuardExtensionContext（屏幕时间守护扩展Context）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-timeguardextensioncontext
 **支持设备：** Phone | Tablet

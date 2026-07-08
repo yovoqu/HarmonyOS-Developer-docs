@@ -1,6 +1,6 @@
 # @BuilderParam装饰器：引用@Builder函数
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam
 
@@ -532,7 +532,7 @@ struct HelloWorldPage {
 示例效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/z-in0bTDRIKHaFXlFHNNAg/zh-cn_image_0000002656347459.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=51CFD2B714A01002E44A11545FEBD4A459C9CAAC2B887DAB27304C1705BD7D8C)
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260708103930e253b4fd.gif)
 
 
 
@@ -622,7 +622,7 @@ struct ParentPage {
 示例效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/iLpALvmbSKKDR2VFkt-Elw/zh-cn_image_0000002626228044.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=D9E561F23ECD8761D9DBFDCF32983BE40D7BD52CBE2AD2BDABA6BEC2B96DE95D)
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260708103930f75c75e8.png)
 
 
 
@@ -684,7 +684,7 @@ struct ParentPage {
         // 把this.componentBuilder传给子组件ChildPage的@BuilderParam customBuilderParam，
         // this指向的是子组件ChildPage，所以label变量的值为'Child Page'。
         customBuilderParam: this.componentBuilder,
-        // 把():void=>{this.componentBuilder()}传给子组件ChildPage的@BuilderParam customChangeThisBuilderPara
+        // 把():void=>{this.componentBuilder()}传给子组件ChildPage的@BuilderParam customChangeThisBuilderParam，
         // 因为箭头函数的this指向的是宿主对象，所以label变量的值为'Parent Page'。
         customChangeThisBuilderParam: (): void => {
           this.componentBuilder()
@@ -712,7 +712,7 @@ struct ParentPage {
 示例效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/0f0ygZgdTGimnQGfzF-yzQ/zh-cn_image_0000002626068136.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=E9D9C65D9BCE751A1566D8BBC69138EBE9BC660782D99D85B877D8B8E488D2E1)
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260708103930f75c75e8.png)
 
 
 

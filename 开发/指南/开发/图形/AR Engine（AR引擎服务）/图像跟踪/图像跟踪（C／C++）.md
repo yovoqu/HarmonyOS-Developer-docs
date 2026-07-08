@@ -1,6 +1,6 @@
 # 图像跟踪（C/C++）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-image-track
 
@@ -35,8 +35,8 @@
 | HMS_AREngine_ARAugmentedImageDatabase_AddImage | 将图像添加到图像数据库并输出对应图像的索引。 |
 | HMS_AREngine_ARTrackableList_GetSize | 获取此列表中的可跟踪对象的数量。 |
 | HMS_AREngine_ARAugmentedImage_GetCenterPose | 获取跟踪图像中心点在世界坐标系中的位姿信息。 |
-| HMS_AREngine_ARAugmentedImage_GetExtendX | 获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到X轴上的估计值。 |
-| HMS_AREngine_ARAugmentedImage_GetExtendZ | 获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到Z轴上的估计值。 |
+| HMS_AREngine_ARAugmentedImage_GetExtendX | 以图像的中心点为坐标原点，获取在X轴上的宽度值。单位：米。 |
+| HMS_AREngine_ARAugmentedImage_GetExtendZ | 以图像的中心点为坐标原点，获取在Z轴上的高度值。单位：米。 |
 | HMS_AREngine_ARAugmentedImageDatabase_Serialize | 序列化特征数据库，在添加完图片后，可以将特征库序列化为buffer，用户可以保存此buffer以供下次使用。 |
 | HMS_AREngine_ARAugmentedImageDatabase_Deserialize | 反序列化特征数据库，用户可以将上次生成的或者保存的buffer数据反序列化为特征数据库后直接使用。 |
 

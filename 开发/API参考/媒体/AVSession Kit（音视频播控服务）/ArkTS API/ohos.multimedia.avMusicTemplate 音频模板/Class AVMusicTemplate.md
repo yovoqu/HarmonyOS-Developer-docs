@@ -1,6 +1,6 @@
 # Class (AVMusicTemplate)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-avmusictemplate
 
@@ -3538,7 +3538,7 @@ setDownloadMediaEntityStatus(single: MediaEntity): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| single | MediaEntity | 是 | 媒体实体。 |
+| single | MediaEntity | 是 | 单曲。 |
 
 
 **返回值：**

@@ -1,6 +1,6 @@
 # @ohos.arkui.theme(主题换肤)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -83,10 +83,10 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 | backgroundTertiary | ResourceColor | 否 | 否 | 三级背景颜色（实色，不透明）。 影响组件： 暂无组件使用。 |
 | backgroundFourth | ResourceColor | 否 | 否 | 四级背景颜色（实色，不透明）。 影响组件： 暂无组件使用。 |
 | backgroundEmphasize | ResourceColor | 否 | 否 | 高亮背景颜色（实色，不透明）。 影响组件： Progress、Button、Slider |
-| compForegroundPrimary | ResourceColor | 否 | 否 | 前背景。 影响组件： QRCode |
+| compForegroundPrimary | ResourceColor | 否 | 否 | 前景色。 影响组件： QRCode |
 | compBackgroundPrimary | ResourceColor | 否 | 否 | 白色背景。 影响组件： 暂无组件使用。 |
 | compBackgroundPrimaryTran | ResourceColor | 否 | 否 | 白色透明背景。 影响组件： 暂无组件使用。 |
-| compBackgroundPrimaryContrary | ResourceColor | 否 | 否 | 常亮背景。 影响组件： Toggle、Slider |
+| compBackgroundPrimaryContrary | ResourceColor | 否 | 否 | 反转背景。 影响组件： Toggle、Slider |
 | compBackgroundGray | ResourceColor | 否 | 否 | 灰色背景。 影响组件： 暂无组件使用。 |
 | compBackgroundSecondary | ResourceColor | 否 | 否 | 二级背景。 影响组件： Swiper、Slider |
 | compBackgroundTertiary | ResourceColor | 否 | 否 | 三级背景。 影响组件： EditableTitleBar、Progress、AlphabetIndexer、 Button、Select、Toggle、 Chip、TextInput、Search。从API版本26.0.0开始，新增UIPickerComponent、TextPicker。 |
@@ -248,8 +248,8 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/PxgGu6PSTj-SaxC_ycmNYQ/zh-cn_image_0000002628702248.png?HW-CC-KV=V1&HW-CC-Date=20260701T014311Z&HW-CC-Expire=86400&HW-CC-Sign=CAA54E876031E86AB272D0295DAC0A660943EDE47E34C9363BF41F659F7673A3)
+![](assets/ohos.arkui.theme主题换肤/file-202607081031024a7510bb.png)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/-3hd-Fr8Q0qdZ5zTz9tGcQ/zh-cn_image_0000002659101477.png?HW-CC-KV=V1&HW-CC-Date=20260701T014311Z&HW-CC-Expire=86400&HW-CC-Sign=57F7276E9D29417D6F345C1E6D5243E4C1D2B2C849885FFE24CDDEF981656B1E)
+![](assets/ohos.arkui.theme主题换肤/file-202607081031027d9ca3b9.png)

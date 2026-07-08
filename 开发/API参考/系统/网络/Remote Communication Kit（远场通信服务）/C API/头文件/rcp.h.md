@@ -1,6 +1,6 @@
 # rcp.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/rcp_8h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -144,7 +144,7 @@
 | typedef enum Rcp_AuthenticationType Rcp_AuthenticationType | 枚举类型。服务器的身份验证类型。如果未设置，请与服务器协商。 |
 | typedef struct Rcp_Credential Rcp_Credential | 服务器身份验证中使用的身份验证凭据，包括用户名和密码。 |
 | typedef struct Rcp_ServerAuthentication Rcp_ServerAuthentication | 服务器身份验证。 |
-| typedef bool(* Rcp_ExclusionFunction) (const char *url) | 判断host是否使用代理的函数指针。 |
+| typedef bool(* Rcp_ExclusionFunction) (const char *url) | 判断host是否使用代理的函数指针，true代表使用，false代表不使用。 |
 | typedef struct Rcp_Urls Rcp_Urls | url，用于确定主机是否正在使用代理。 |
 | typedef enum Rcp_ExclusionsValueType Rcp_ExclusionsValueType | 代理排除中使用的数据类型. 用于区分Rcp_Exclusions中使用的数据。 |
 | typedef struct Rcp_Exclusions Rcp_Exclusions | 代理配置中用于过滤不使用代理的URLs。 |

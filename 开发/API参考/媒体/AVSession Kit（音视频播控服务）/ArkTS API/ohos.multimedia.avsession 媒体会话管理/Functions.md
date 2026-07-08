@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -173,7 +173,7 @@ getAVSession(context: Context): Promise&lt;AVSession&gt;
 
 获取会话对象。使用Promise异步回调。
 
-该接口可将当前进程已创建过的会话对象返回，如果没有创建过会话对象，当前接口会调用失败抛出异常。
+该接口可将当前进程已创建过的会话对象返回，如果没有创建过会话对象，该接口调用会失败并抛出异常。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 

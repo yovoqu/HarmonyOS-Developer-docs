@@ -1,6 +1,6 @@
 # 使用AES对称密钥（CCM模式）加解密(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-aes-sym-encrypt-decrypt-ccm
 
@@ -29,7 +29,10 @@
 
 7. 读取[CcmParamsSpec.authTag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ccmparamsspec)作为解密的认证信息。
 
-  在CCM模式下，算法库目前仅支持12字节的authTag，用于解密时的初始化认证信息。示例中的authTag为12字节。
+  
+> [!NOTE]
+> 在CCM模式下，一次加密流程中，将每次update和最后doFinal的结果拼接起来，会得到“密文 + authTag”, authTag为末尾的12字节。其余部分均为密文。如果doFinal的data参数传入null，则doFinal的结果就是authTag。
+
 
   **解密**
 

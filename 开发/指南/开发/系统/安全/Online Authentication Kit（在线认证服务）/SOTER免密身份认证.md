@@ -1,6 +1,6 @@
 # SOTER免密身份认证
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-soter
 
@@ -102,7 +102,7 @@ try {
   const err = error as BusinessError;
   console.error(`Failed to generate app secure key. Code is ${err.code}, message is ${err.message}`);
 }
-// 生成AuthKey
+// 生成authKey
 try {
   let authKey: Promise<soter.SignedResult> = soter.generateAuthKey(keyAlias, keyType);
 } catch (error) {

@@ -1,10 +1,12 @@
 # Types
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+本文档提供 ArkWeb 组件中使用的类型定义，包括 Web 控制器及各类事件回调函数类型。其中，WebviewController 用于控制 Web 组件的行为；各类回调函数类型为开发者提供 Web 组件运行过程中多种事件场景的事件监听和处理能力。
+ 
 > [!NOTE]
 > 该组件首批接口从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 示例效果请以真机运行为准。
 

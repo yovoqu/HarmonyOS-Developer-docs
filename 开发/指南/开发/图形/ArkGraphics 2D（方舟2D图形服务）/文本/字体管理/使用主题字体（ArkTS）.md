@@ -1,6 +1,6 @@
 # 使用主题字体（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-arkts
 
@@ -54,7 +54,7 @@ let fontCollection = text.FontCollection.getGlobalInstance();
 
   
 > [!NOTE]
-> 在生成段落对象设置段落样式入参时，不能指定fontFamilies属性，否则会变为优先使用指定字体而非主题字体。 若未在系统 主题应用 中设置一项主题字体，则将使用系统默认字体进行绘制。
+> 在生成段落对象设置段落样式入参时，不能指定fontFamilies属性，否则系统会优先使用指定字体而非主题字体。 若未在系统 主题应用 中设置一项主题字体，则将使用系统默认字体进行绘制。
 
 
   
@@ -189,4 +189,4 @@ export default class EntryAbility extends UIAbility {
 **图3** 主题字体2的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/djhFn-9mT3Wl6F5Mt4jqpg/zh-cn_image_0000002656348691.png?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=AA981062372B5E083FCE5872C3CFC5C271E109A6BE8A1EF2F1FD193F503D5663)
+![](assets/使用主题字体（ArkTS）/file-2026070810401906f90bf1.png)

@@ -1,6 +1,6 @@
 # Popup控制
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -164,7 +164,7 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| builder | CustomBuilder | 否 | 否 | 提示气泡内容的构造器。 说明： 1. Popup为通用属性，自定义Popup中不支持再次弹出Popup。对builder下的第一层容器组件不支持使用position属性，如果使用将导致气泡不显示。 2. builder中若使用自定义组件，自定义组件的aboutToAppear和aboutToDisappear生命周期与Popup气泡的显隐无关，不能使用其生命周期判断Popup气泡的显隐。 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者build方法里。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| builder | CustomBuilder | 否 | 否 | 提示气泡内容的构造器。 说明： 1. Popup为通用属性，自定义Popup中不支持再次弹出Popup。对builder下的第一层容器组件不支持使用Position属性，如果使用将导致气泡不显示。 2. builder中若使用自定义组件，自定义组件的aboutToAppear和aboutToDisappear生命周期与Popup气泡的显隐无关，不能使用其生命周期判断Popup气泡的显隐。 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者build方法里。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | placement | Placement | 否 | 是 | 气泡组件优先显示的位置，当前位置显示不下时，会自动调整位置。 默认值：Placement.Bottom 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | popupColor | Color \| string \| Resource \| number | 否 | 是 | 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。 API version 10，默认值：'#4d4d4d' API version 11及以后，默认值：透明色TRANSPARENT加模糊背景填充效果COMPONENT_ULTRA_THICK 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | autoCancel | boolean | 否 | 是 | 页面有操作时，气泡是否自动关闭。 true：自动关闭气泡；false：气泡不会自动关闭。 默认值：true 说明： 如果要实现点击气泡内消失需要在builder中先放一个布局组件，然后再将Popup高级组件放在布局组件里面，再在布局组件的onClick事件中修改控制显隐的状态变量show为false。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -399,7 +399,7 @@ struct PopupExample {
 
   build() {
     Flex({ direction: FlexDirection.Column }) {
-      // PopupOptions 类型设置弹框内容
+      // PopupOptions类型设置弹框内容
       Button('PopupOptions')
         .onClick(() => {
           this.handlePopup = !this.handlePopup;
@@ -434,7 +434,7 @@ struct PopupExample {
         .position({ x: 100, y: 150 })
 
 
-      // CustomPopupOptions 类型设置弹框内容
+      // CustomPopupOptions类型设置弹框内容
       Button('CustomPopupOptions')
         .onClick(() => {
           this.customPopup = !this.customPopup;
@@ -590,7 +590,7 @@ struct PopupExample {
 
   build() {
     Flex({ direction: FlexDirection.Column }) {
-      // PopupOptions 类型设置弹框内容
+      // PopupOptions类型设置弹框内容
       Button('PopupOptions')
         .onClick(() => {
           this.handlePopup = !this.handlePopup;
@@ -613,7 +613,7 @@ struct PopupExample {
         })
         .position({ x: 100, y: 150 })
 
-      // CustomPopupOptions 类型设置弹框内容
+      // CustomPopupOptions类型设置弹框内容
       Button('CustomPopupOptions')
         .onClick(() => {
           this.customPopup = !this.customPopup;
@@ -677,6 +677,10 @@ struct PopupExample {
               this.handlePopup = false;
             }
           },
+          /**
+           * 气泡即将关闭前拦截回调
+           * dismissPopupAction：气泡关闭行为对象，包含关闭原因与关闭方法
+           */
           onWillDismiss: (
             (dismissPopupAction: DismissPopupAction) => {
               console.info("dismissReason:" + JSON.stringify(dismissPopupAction.reason));
@@ -728,6 +732,7 @@ struct PopupExample {
           placement: Placement.Bottom,
           enableArrow: false,
           targetSpace: '15vp',
+          // 气泡跟随按钮的平移、缩放等变换同步变动
           followTransformOfTarget: true,
           onStateChange: (e) => {
             let timer = setTimeout(() => {
@@ -738,6 +743,7 @@ struct PopupExample {
               clearTimeout(timer);
             }
           },
+          // 不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数值为false时才退出
           onWillDismiss: false
         })
     }.margin(20)
@@ -770,6 +776,16 @@ struct PopupExample {
         .onClick(() => {
           this.handlePopup = !this.handlePopup
         })
+        /**
+         * 为按钮绑定气泡
+         * 第一个参数：气泡显隐控制变量
+         * message：气泡内部展示文本
+         * placement.Top：气泡从按钮上方弹出
+         * outlineWidth：外描边线宽度1vp
+         * outlineLinearGradient：外描边垂直从上到下黄到绿线性渐变
+         * borderWidth：弹窗内部边框宽度1vp
+         * borderLinearGradient：内边框垂直从下到上红到蓝线性渐变
+         */
         .bindPopup(this.handlePopup!!, {
           message: 'This is a popup with PopupOptions',
           placement: Placement.Top,
@@ -791,7 +807,7 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/dhCFa-chTVqLVWi5zPUXBQ/zh-cn_image_0000002659101629.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=06A9575480820D880A1BC05A97DE291DA7A27B18C83E65C40EF77EDC969C548E)
+![](assets/Popup控制/file-20260708103241f439e99e.gif)
 
 
 
@@ -818,6 +834,7 @@ struct PopupExample {
         .bindPopup(this.handlePopup!!, {
           message: 'popup message '.repeat(200),
           placement: Placement.Top,
+          // 设置本参数后，四周空间不足以放下Popup时，Popup会自动压缩自身高度
           avoidTarget: AvoidanceMode.AVOID_AROUND_TARGET,
         })
         .position({ x: 100, y: 150 })
@@ -827,7 +844,7 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/5g0ymPirREmT7wKuoaUCbg/zh-cn_image_0000002628862280.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=DC91D3412A8930534C70D0D6BC8257F69A6EED6E4A07F1A026A8341DFD93BA8C)
+![](assets/Popup控制/file-2026070810324293c381ab.gif)
 
 
 
@@ -852,6 +869,14 @@ struct PopupExample {
         .onClick(() => {
           this.handlePopup = !this.handlePopup
         })
+        /**
+         * 绑定气泡至按钮
+         * 第一个参数：气泡显示控制布尔值
+         * message：气泡内展示文本
+         * placement.Top：气泡弹出位置在按钮上方
+         * systemMaterial：为气泡配置沉浸式磨砂材质
+         * ImmersiveStyle.THIN：薄款磨砂，中等通透度
+         */
         .bindPopup(this.handlePopup!!, {
           message: 'This is a popup with PopupOptions',
           placement: Placement.Top,
@@ -872,10 +897,10 @@ struct PopupExample {
 未设置系统材质时：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/JhlwmOFMTbCkLC7KVCaE2g/zh-cn_image_0000002628700580.png?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=9EEF7A25DFFA893ED47A1FC81E9F004673EA501487E4148E0E2757F0627659F5)
+![](assets/Popup控制/file-202607081032424fee7655.png)
 
 
 设置系统材质后：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/IpUlnTQSSVqHdbB3yVKYjw/zh-cn_image_0000002659099809.png?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=07E14C2D3AC8185FCF3B40A2CB66127A43DF98E1FB10302DC5D8E54B4D32AD97)
+![](assets/Popup控制/file-202607081032428e2699b8.png)

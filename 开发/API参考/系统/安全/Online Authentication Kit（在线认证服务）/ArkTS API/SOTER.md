@@ -1,6 +1,6 @@
 # SOTER
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -93,7 +93,7 @@ getVersionSync(): string
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -134,7 +134,7 @@ getVersion(): Promise&lt;string&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -191,7 +191,7 @@ hasAppSecureKeySync(keyType: KeyType): boolean
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -244,7 +244,7 @@ hasAppSecureKey(keyType: KeyType): Promise&lt;boolean&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -304,7 +304,7 @@ generateAppSecureKeySync(keyType: KeyType): Uint8Array
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -357,7 +357,7 @@ generateAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -417,7 +417,7 @@ getAppSecureKeySync(keyType: KeyType): Uint8Array
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -470,7 +470,7 @@ getAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -531,7 +531,7 @@ hasAuthKeySync(keyAlias: string, keyType: KeyType): boolean
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -586,7 +586,7 @@ hasAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;boolean&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -616,7 +616,7 @@ hasAuthKeyPromise.then((result: boolean) => {
 
 generateAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
-生成AuthKey，同步返回结果。
+生成authKey，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -648,7 +648,7 @@ generateAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -658,9 +658,9 @@ generateAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
 let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256
 let keyAlias: string = 'keyAlias';
 
-// 生成AuthKey
+// 生成authKey
 let signedResult: soter.SignedResult = soter.generateAuthKeySync(keyAlias, keyType);
-let authKey: Uint8Array = signedResult?.signature; // 开发者使用结果AuthKey
+let authKey: Uint8Array = signedResult?.signature; // 开发者使用结果authKey
 console.info('Succeeded in doing generateAuthKeySync. authKey:', authKey);
 ```
  
@@ -672,7 +672,7 @@ console.info('Succeeded in doing generateAuthKeySync. authKey:', authKey);
 
 generateAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
-生成AuthKey，使用Promise异步回调。
+生成authKey，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -704,7 +704,7 @@ generateAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -716,7 +716,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256
 let keyAlias: string = 'keyAlias';
 
-// 生成AuthKey
+// 生成authKey
 let authKeyPromise: Promise<soter.SignedResult> = soter.generateAuthKey(keyAlias, keyType);
 authKeyPromise.then(result => {
   console.info('Succeeded in doing generateAuthKey. authKey:', result);
@@ -734,7 +734,7 @@ authKeyPromise.then(result => {
 
 getAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
-获取AuthKey，同步返回结果。
+获取authKey，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -766,7 +766,7 @@ getAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -776,9 +776,9 @@ getAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
 let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256
 let keyAlias: string = 'keyAlias';
 
-// 使用同步接口获取AuthKey
+// 使用同步接口获取authKey
 let signedResult: soter.SignedResult = soter.getAuthKeySync(keyAlias, keyType);
-let authKey: Uint8Array = signedResult.message; // 开发者使用结果AuthKey
+let authKey: Uint8Array = signedResult.message; // 开发者使用结果authKey
 console.info('Succeeded in doing getAuthKeySync. authKey:', authKey);
 ```
  
@@ -790,7 +790,7 @@ console.info('Succeeded in doing getAuthKeySync. authKey:', authKey);
 
 getAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
-获取AuthKey，使用Promise异步回调。
+获取authKey，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -822,7 +822,7 @@ getAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -834,7 +834,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256
 let keyAlias: string = 'keyAlias';
 
-// 获取AuthKey Promise
+// 获取authKeyPromise
 let authKeyPromise: Promise<soter.SignedResult> = soter.getAuthKey(keyAlias, keyType);
 authKeyPromise.then(result => {
   console.info('Succeeded in doing getAuthKey. authKey:', result);
@@ -883,7 +883,7 @@ generateChallengeSync(keyAlias: string): Uint8Array
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -936,7 +936,7 @@ generateChallenge(keyAlias: string): Promise&lt;Uint8Array&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -998,7 +998,7 @@ SOTER免密认证，同步返回签名的报文。
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -1054,7 +1054,7 @@ SOTER免密认证，使用Promise异步回调返回签名的报文。
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -1108,7 +1108,7 @@ deleteAuthKeySync(keyAlias: string): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -1159,7 +1159,7 @@ deleteAuthKey(keyAlias: string): Promise&lt;void&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Parameter verification failed. |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -1202,7 +1202,7 @@ deleteAppSecureKeySync(): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  
@@ -1244,7 +1244,7 @@ deleteAppSecureKey(): Promise&lt;void&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Device type error. |
+| 801 | Device type error. 适用版本：6.0.1(21)+ |
 | 1014500001 | The service is abnormal. |
  
  

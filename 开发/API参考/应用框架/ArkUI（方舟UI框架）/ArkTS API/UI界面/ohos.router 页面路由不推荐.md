@@ -1,6 +1,6 @@
 # @ohos.router (页面路由)(不推荐)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
@@ -98,7 +98,7 @@ router.pushUrl({
   params: new RouterParams('message', [123, 456, 789])
 })
   .then(() => {
-    console.error(`pushUrl finish`);
+    console.info(`pushUrl finish`);
   })
   .catch((err: ESObject) => {
     console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -128,7 +128,7 @@ pushUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | RouterOptions | 是 | 跳转页面描述信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 异常响应回调。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -257,7 +257,7 @@ router.pushUrl({
   params: new RouterParams('message', [123, 456, 789])
 }, router.RouterMode.Standard)
   .then(() => {
-    console.error(`pushUrl finish`);
+    console.info(`pushUrl finish`);
   })
   .catch((err: ESObject) => {
     console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -288,7 +288,7 @@ pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;voi
 | --- | --- | --- | --- |
 | options | RouterOptions | 是 | 跳转页面描述信息。 |
 | mode | RouterMode | 是 | 跳转页面使用的模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 异常响应回调。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -405,7 +405,7 @@ router.replaceUrl({
   params: new RouterParams('message')
 })
   .then(() => {
-    console.error(`replaceUrl finish`);
+    console.info(`replaceUrl finish`);
   })
   .catch((err: ESObject) => {
     console.error(`replaceUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -435,7 +435,7 @@ replaceUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | RouterOptions | 是 | 替换页面描述信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 异常响应回调。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -499,7 +499,7 @@ replaceUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | RouterOptions | 是 | 替换页面描述信息。 |
-| mode | RouterMode | 是 | 跳转页面使用的模式。 |
+| mode | RouterMode | 是 | 替换页面使用的模式。 |
 
 
 **返回值：**
@@ -530,9 +530,9 @@ replaceUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
-  data1:string;
+  data1: string;
 
-  constructor(str:string) {
+  constructor(str: string) {
     this.data1 = str;
   }
 }
@@ -542,7 +542,7 @@ router.replaceUrl({
   params: new RouterParams('message')
 }, router.RouterMode.Standard)
   .then(() => {
-    console.error(`replaceUrl finish`);
+    console.info(`replaceUrl finish`);
   })
   .catch((err: ESObject) => {
     console.error(`replaceUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -573,7 +573,7 @@ replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;
 | --- | --- | --- | --- |
 | options | RouterOptions | 是 | 替换页面描述信息。 |
 | mode | RouterMode | 是 | 跳转页面使用的模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 异常响应回调。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -692,7 +692,7 @@ router.pushNamedRoute({
   params: new RouterParams('message', [123, 456, 789])
 })
   .then(() => {
-    console.error(`pushNamedRoute finish`);
+    console.info(`pushNamedRoute finish`);
   })
   .catch((err: ESObject) => {
     console.error(`pushNamedRoute failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -726,7 +726,7 @@ pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&gt;)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | NamedRouterOptions | 是 | 跳转页面描述信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 异常响应回调。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -847,8 +847,8 @@ class RouterParams {
   data2: innerParams;
 
   constructor(str: string, tuple: number[]) {
-    this.data1 = str
-    this.data2 = new innerParams(tuple)
+    this.data1 = str;
+    this.data2 = new innerParams(tuple);
   }
 }
 
@@ -857,7 +857,7 @@ router.pushNamedRoute({
   params: new RouterParams('message', [123, 456, 789])
 }, router.RouterMode.Standard)
   .then(() => {
-    console.error(`pushNamedRoute finish`);
+    console.info(`pushNamedRoute finish`);
   })
   .catch((err: ESObject) => {
     console.error(`pushNamedRoute failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -890,7 +890,7 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCal
 | --- | --- | --- | --- |
 | options | NamedRouterOptions | 是 | 跳转页面描述信息。 |
 | mode | RouterMode | 是 | 跳转页面使用的模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 异常响应回调。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -1009,7 +1009,7 @@ router.replaceNamedRoute({
   params: new RouterParams('message')
 })
   .then(() => {
-    console.error(`replaceNamedRoute finish`);
+    console.info(`replaceNamedRoute finish`);
   })
   .catch((err: ESObject) => {
     console.error(`replaceNamedRoute failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -1041,7 +1041,7 @@ replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&g
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | NamedRouterOptions | 是 | 替换页面描述信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 异常响应回调。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -1107,7 +1107,7 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | NamedRouterOptions | 是 | 替换页面描述信息。 |
-| mode | RouterMode | 是 | 跳转页面使用的模式。 |
+| mode | RouterMode | 是 | 替换页面使用的模式。 |
 
 
 **返回值：**
@@ -1150,7 +1150,7 @@ router.replaceNamedRoute({
   params: new RouterParams('message')
 }, router.RouterMode.Standard)
   .then(() => {
-    console.error(`replaceNamedRoute finish`);
+    console.info(`replaceNamedRoute finish`);
   })
   .catch((err: ESObject) => {
     console.error(`replaceNamedRoute failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -1183,7 +1183,7 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: Async
 | --- | --- | --- | --- |
 | options | NamedRouterOptions | 是 | 替换页面描述信息。 |
 | mode | RouterMode | 是 | 跳转页面使用的模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 异常响应回调。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
@@ -1279,7 +1279,7 @@ back(index: number, params?: Object): void;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 跳转目标页面的索引值。 从栈底到栈顶，index从1开始递增。 |
+| index | number | 是 | 返回目标页面的索引值。 从栈底到栈顶，index从1开始递增。 |
 | params | Object | 否 | 页面返回时携带的参数。 |
 
 
@@ -1360,7 +1360,7 @@ getState(): RouterState
 获取栈顶页面的状态信息。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 18开始废弃，建议使用 getState 替代。getLength需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 8开始支持，从API version 18开始废弃，建议使用 getState 替代。getState需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1746,7 +1746,7 @@ struct Index {
     // 建议使用this.getUIContext().getRouter().pushUrl()
     this.getUIContext().getRouter().pushUrl(options)
       .then(() => {
-        console.error(`pushUrl finish`);
+        console.info(`pushUrl finish`);
       })
       .catch((err: ESObject) => {
         console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
@@ -2081,7 +2081,7 @@ export default {
     },
     replaceUrlToRouterPage: function() {
         router.replaceUrl({
-            uri: 'pages/routerPages/routerPage',
+            url: 'pages/routerPages/routerPage',
             params: {
                 statusText: 'Opened by router.replaceUrl.'
             }
@@ -2178,7 +2178,7 @@ export default {
     },
     replaceUrlToIndex: function() {
         router.replaceUrl({
-            uri: 'pages/index/index',
+            url: 'pages/index/index',
             params: {
                 statusText: 'Returned by router.replaceUrl.'
             }
@@ -2188,4 +2188,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/QWzZtStuQdG5GIsZ3349RQ/zh-cn_image_0000002659221465.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014316Z&HW-CC-Expire=86400&HW-CC-Sign=92F04B70CAC05B45325660E9E74973F0FB93B5C72AEF77603BDFA6355031728B)
+![](assets/ohos.router%20页面路由不推荐/file-2026070810310268ddfba9.gif)

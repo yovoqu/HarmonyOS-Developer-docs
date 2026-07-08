@@ -1,6 +1,6 @@
 # Vulkan平台
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-fg-interpolation-vulkan
 
@@ -64,11 +64,11 @@ target_link_libraries(entry PUBLIC
   
 ```text
 // 变量声明
-VkInstance vkInstance = VK_NULL_HANDLE;
-VkPhysicalDevice vkPhysicalDevice = VK_NULL_HANDLE;
-VkDevice vkDevice = VK_NULL_HANDLE;
+ VkInstance vkInstance = VK_NULL_HANDLE; // vkInstance通过调用vkCreateInstance创建
+ VkPhysicalDevice vkPhysicalDevice = VK_NULL_HANDLE; // vkPhysicalDevice通过调用vkEnumeratePhysicalDevices枚举
+ VkDevice vkDevice = VK_NULL_HANDLE; // vkDevice通过调用vkCreateDevice创建
 
-// 创建超帧上下文实例
+ // 创建超帧上下文实例
 FG_ContextDescription_VK contextDescription{};
 contextDescription.vkInstance = vkInstance;
 contextDescription.vkPhysicalDevice = vkPhysicalDevice;

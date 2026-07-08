@@ -1,6 +1,6 @@
 # swiper
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-swiper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,8 +37,8 @@
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | index | number | 0 | 否 | 当前在容器中显示的子组件的索引值。 |
-| autoplay | boolean | false | 否 | 子组件是否自动播放，自动播放状态下，导航点不可操作5+。true为自动轮播，false为不自动轮播。 |
-| interval | number | 3000 | 否 | 使用自动播放时播放的时间间隔，单位为ms。 |
+| autoplay | boolean | false | 否 | 子组件是否自动轮播，自动轮播状态下，导航点不可操作5+。true为自动轮播，false为不自动轮播。 |
+| interval | number | 3000 | 否 | 使用自动轮播时轮播的时间间隔，单位为ms。 |
 | indicator | boolean | true | 否 | 是否启用导航点指示器，默认true。true为启用导航点指示器，false为不启用导航点指示器。 |
 | digital5+ | boolean | false | 否 | 是否启用数字导航点，默认为false。true为启用数字导航点，false为不启用数字导航点。 必须设置indicator时才能生效数字导航点。 |
 | indicatordisabled5+ | boolean | false | 否 | 指示器是否禁止用户手势操作，设置为true时，指示器不会响应用户的点击拖拽。 |
@@ -190,4 +190,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/VLYAcbnAQuaHGyukOu_Dcg/zh-cn_image_0000002628703062.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014400Z&HW-CC-Expire=86400&HW-CC-Sign=7183CFDF64F1AC7E9816B9E7158785F39BE1D0153E37C50626BDE2A0D5566A8B)
+![](assets/swiper/file-2026070810305436a7c490.gif)

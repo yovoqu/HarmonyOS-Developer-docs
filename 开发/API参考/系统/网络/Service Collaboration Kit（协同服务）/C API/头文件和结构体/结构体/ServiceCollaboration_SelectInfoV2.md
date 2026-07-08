@@ -1,6 +1,6 @@
 # ServiceCollaboration_SelectInfoV2
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-selectinfov2
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -92,7 +92,7 @@ ServiceCollaborationFilterType ServiceCollaboration_SelectInfo::serviceFilterTyp
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-uint32_t ServiceCollaboration_SelectInfo::uri[SERVICE_COLLABORATION_URI_MAXLENGTH]
+char ServiceCollaboration_SelectInfo::uri[SERVICE_COLLABORATION_URI_MAXLENGTH]
 ```
  
 **描述**

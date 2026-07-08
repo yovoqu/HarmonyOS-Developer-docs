@@ -1,11 +1,11 @@
 # Interface (WebMessagePort)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-通过WebMessagePort可以进行消息的发送以及接收，发送[WebMessageType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-e#webmessagetype10)/[WebMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-t#webmessage)类型消息给HTML5侧。
+WebMessagePort是Web组件中用于应用侧（ArkTS）与HTML5侧（JavaScript）之间双向通信的消息端口接口。通过createWebMessagePorts创建一对关联的端口，将一个端口发送到HTML5侧，另一个保留在应用侧，实现跨运行时消息传递。WebMessagePort支持两种消息协议：基础协议使用WebMessage作为消息载体（postMessageEvent/onMessageEvent），扩展协议使用WebMessageExt支持更丰富的数据类型（postMessageEventExt/onMessageEventExt）。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Interface首批接口从API version 9开始支持。 示例效果请以真机运行为准。

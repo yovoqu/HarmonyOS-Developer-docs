@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t
 
@@ -87,7 +87,7 @@ type QueryMediaEntityEvent = (params: QueryMediaEntityParam) => Promise&lt;PageM
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | QueryMediaEntityParam | 是 | 查询媒体实例的参数。 |
+| params | QueryMediaEntityParam | 是 | 查询媒体实体的参数。 |
 
 
 **返回值：**
@@ -141,7 +141,7 @@ type QueryPlaylistEvent = (pageIndex: number, sort: Sort) => Promise&lt;PageMedi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pageIndex | number | 是 | 页面的索引。 |
-| sort | Sort | 是 | 排序的枚举值。 |
+| sort | Sort | 是 | 排序类型。 |
 
 
 **返回值：**
@@ -240,7 +240,7 @@ type QueryRecommendMediaEntityListEvent = () => Promise<MediaEntity[]>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<MediaEntity[]> | Promise对象，返回推荐的媒体实例的数组。 |
+| Promise<MediaEntity[]> | Promise对象，返回推荐的媒体实体的数组。 |
 
 
 
@@ -363,7 +363,7 @@ type RequestDialogInfoEvent = (actionType: DialogActionType, actionInfo?: Dialog
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| actionType | DialogActionType | 是 | 对话框类型。 |
+| actionType | DialogActionType | 是 | 对话框操作类型。 |
 | actionInfo | DialogActionInfo | 否 | 对话框动作结果的信息。 |
 
 
@@ -507,8 +507,8 @@ type DownloadMediaEntityEvent = (controlType: DownloadControlType, mediaEntity: 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controlType | DownloadControlType | 是 | controlType的可选项包括：用户信息，选项卡，合集，设置。 |
-| mediaEntity | MediaEntity | 是 | 媒体实例。 |
+| controlType | DownloadControlType | 是 | controlType的可选项包括：开始下载、删除下载、恢复下载、暂停下载。 |
+| mediaEntity | MediaEntity | 是 | 媒体实体。 |
 
 
 **返回值：**
@@ -641,7 +641,7 @@ type ExecuteActionEvent = (actionType: string, params: string) => Promise&lt;str
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，返回执行操作的结果对象。 |
+| Promise&lt;string&gt; | Promise对象，返回执行操作的结果字符串。 |
 
 
 

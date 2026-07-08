@@ -1,6 +1,6 @@
 # ArkWeb_JavaScriptObject
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-javascriptobject
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ArkWeb_JavaScriptObject
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-注入的JavaScript结构体。
+**ArkWeb_JavaScriptObject** 结构体用于向Web页面注入JavaScript代码并获取执行结果。开发者可通过该结构体指定待注入的JavaScript脚本内容及长度，注册执行完成回调，并通过userData传递自定义上下文数据。该结构体通常与相关接口配合使用，实现Web与原生应用之间的数据交互。
  
 **起始版本：** 12
  

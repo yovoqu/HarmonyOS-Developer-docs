@@ -1,6 +1,6 @@
 # HiDebug Trace错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hidebug-trace
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@ Capture trace already enabled.
 
 **处理步骤**
 
-等待trace采集结束或调用hidebug.stopAppTraceCapture关闭正在运行的trace采集。
+应等待trace采集结束或调用hidebug.stopAppTraceCapture接口关闭正在运行的trace采集，以解决重复采集问题。
 
 
 
@@ -50,7 +50,7 @@ No write permission on the file.
 
 **处理步骤**
 
-重新运行采集接口，再次生成正确的目录文件。
+应重新运行采集接口，再次生成正确的目录文件，以解决权限校验失败问题。
 
 
 
@@ -76,7 +76,7 @@ Abnormal trace status.
 
 **处理步骤**
 
-建议重启应用或设备。
+应重启应用或设备，以解决trace采集内部状态异常问题。
 
 
 
@@ -98,7 +98,7 @@ No capture trace running.
 
 **处理步骤**
 
-开启trace采集，然后停止。
+确保在调用停止trace采集接口前，已经成功开启trace采集。
 
 
 
@@ -122,7 +122,7 @@ Quota exceeded.
 
 **处理步骤**
 
-等待进程或整机的调用配额刷新。
+应等待进程或整机的调用配额刷新，以解决接口调用配额已超出问题。
 
 
 
@@ -144,7 +144,7 @@ Trace storage limit reached.
 
 **处理步骤**
 
-清理trace目录下的文件。
+应清理trace目录下的文件，以解决trace文件存储达到限制问题。
 
 
 
@@ -170,4 +170,4 @@ Resource unavailable.
 
 **处理步骤**
 
-当天配额用完，等待次日系统资源配额刷新。
+应等待次日系统资源配额刷新，以解决trace采集超出资源配额问题。

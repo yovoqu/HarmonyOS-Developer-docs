@@ -1,6 +1,6 @@
 # ArcAlphabetIndexer
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arc-alphabet-indexer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -415,7 +415,7 @@ type OnSelectCallback = (index: number) => void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 选中项序号。 |
+| index | number | 是 | 选中项索引值。 |
 
 
 
@@ -525,4 +525,4 @@ struct ArcListAndIndexer {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/ZdjFf5JcTL6qWU8Jc2-5ow/zh-cn_image_0000002628702770.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=E156AD58F5BCDA36E56E9ED316B1ADAAE5F160E2B390BE956E5D71E59692A448)
+![](assets/ArcAlphabetIndexer/file-20260708103205a4501939.gif)

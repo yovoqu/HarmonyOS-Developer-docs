@@ -1,6 +1,6 @@
 # OH_MIDICallbacks
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohmidi-oh-midicallbacks
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -14,7 +14,7 @@ typedef struct {...} OH_MIDICallbacks
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-客户端回调结构体，包含设备变化和错误处理的回调函数。
+客户端回调结构体，包含设备变化和错误处理的回调函数指针。
  
 **起始版本：** 24
  
@@ -36,5 +36,5 @@ typedef struct {...} OH_MIDICallbacks
  
 | 名称 | 描述 |
 | --- | --- |
-| OH_MIDICallback_OnDeviceChange onDeviceChange | 处理设备热插拔事件的回调。 起始版本： 24 |
-| OH_MIDICallback_OnError onError | 处理关键服务错误的回调。 起始版本： 24 |
+| OH_MIDICallback_OnDeviceChange onDeviceChange | 处理设备热插拔事件的回调函数指针。 起始版本： 24 |
+| OH_MIDICallback_OnError onError | 处理关键服务错误的回调函数指针。 起始版本： 24 |

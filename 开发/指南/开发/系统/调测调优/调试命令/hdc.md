@@ -1,10 +1,10 @@
 # hdc
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc
 
-hdc（HarmonyOS Device Connector）是提供给开发人员的命令行调试工具，用于与设备进行交互调试、数据传输、日志查看以及应用安装等操作。该工具支持在Windows/Linux/MacOS系统上运行，为开发者提供高效，便捷的设备调试能力。
+hdc（HarmonyOS Device Connector）是提供给开发人员的命令行调试工具，用于与设备进行交互调试、数据传输、日志查看以及应用安装等操作。该工具支持在Windows/Linux/MacOS系统上运行，为开发者提供高效、便捷的设备调试能力。
 
 hdc包含三部分：
 
@@ -579,7 +579,7 @@ Set device run mode successful.
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/uvXYBTnoTGuA1czOxMf1Iw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=C14FABCD502FAE2E893B4D8D4F8639BD9914D65188FD2C6B02F8744FA1F2697A)
+![](assets/hdc/file-20260708103747e7f448b4.png)
 
 
 切换前，请确保条件满足：远端设备与近端电脑处于同一网络，可通过ping命令检查：
@@ -763,7 +763,7 @@ hdc install [-cwd path|-r|-s|-w waitingTime|-u userId|-p|-g|-h] src
 **使用方法**：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/A3jG1unfTJuY5xZiNEGX_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=65A4BD85FDD261B501A9CCCFF0053D4CCE1463130F4CB09F3660A900A945439F)
+![](assets/hdc/file-20260708103747e7f448b4.png)
 
 
 执行install命令使用bm模块命令参数，对-w和-u参数需参数值组合使用的情况，需将参数变量和参数值放在引号内使用，如"-w 180"，"-u 100"，防止参数解析异常导致命令执行失败。
@@ -1751,7 +1751,7 @@ hdc file recv /data/log/hilog {local_path}            # 获取hilog已落盘日�
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/wGtHMcbiQ62RCmPADGDe6Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=CBD2E518E8641A6AA156A54E3C40CD3AFEAD05E1E976D536E9F081A12FF1B3E1)
+![](assets/hdc/file-20260708103747e7f448b4.png)
 
 
 如果开发者当前运行的hdc版本较低，某些功能存在兼容性问题，需要根据功能特性提升版本时，可参考对应API版本说明下载最新版本。
@@ -1934,7 +1934,7 @@ sudo udevadm control --reload
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/llfAxUuOQP2BhstmAJVyNw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=F9B30CD1934266EF3D8657BE5090D04B2866B83FA53FCA8ADE5DFF8E3FA342E6)
+![](assets/hdc/file-20260708103747e7f448b4.png)
 
 
 开启非管理员角色的USB设备操作权限可以解决在Linux环境在非管理员权限下使用hdc因权限不足无法找到设备的情况。但权限最大化可能存在潜在安全问题，请开发者根据使用场景自行评估是否开启此权限。
@@ -1968,7 +1968,7 @@ sudo udevadm control --reload
 hdc文件传输命令执行出现乱码，如使用file recv从设备端发送带有中文名称的文件到本地，报错提示[Fail]Error opening file: no such file or directory, path:XXXXX，其中path显示中文乱码。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/zmLbJw8OSKmjWN8lCiLsFg/zh-cn_image_0000002626069172.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=056C7CDFC338D2079376238205CAD8784F07DA6481ADC3BD496AF9554C34DC7B)
+![](assets/hdc/file-20260708103747b568dc60.png)
 
 
 **可能原因&解决方法**
@@ -1986,7 +1986,7 @@ hdc文件传输命令执行出现乱码，如使用file recv从设备端发送�
 使用hdc list targets命令查询已连接设备，连接设备标识后显示Unauthorized。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/EL_FjFNISC-IuQkkkwxyEw/zh-cn_image_0000002656468449.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=B87E0B10A80BB0244915A1C2F4575EACB72D8BF56350D632A0B30256B24E946B)
+![](assets/hdc/file-202607081037476977c290.png)
 
 
 **可能原因&解决方法**

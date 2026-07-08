@@ -1,6 +1,6 @@
 # Indicator
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-swiper-components-indicator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -216,7 +216,7 @@ onChange(event: Callback&lt;number&gt;)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | Callback&lt;number&gt; | 是 | 当前显示元素的索引变化时触发的回调。 |
+| event | Callback&lt;number&gt; | 是 | 当前显示的选中导航点索引变化时触发的回调。 |
  
  
   
@@ -295,7 +295,7 @@ changeIndex(index: number, useAnimation?: boolean): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 指定导航点在Swiper中的索引值。 说明： 设置的值小于0或大于最大导航点索引时，取0。 |
+| index | number | 是 | 指定导航点的索引值。 说明： 设置的值小于0或大于最大导航点索引时，取0。 |
 | useAnimation | boolean | 否 | 设置翻至指定导航点时是否有动效，true表示有动效，false表示没有动效。 默认值：false。 |
  
  
@@ -327,14 +327,14 @@ struct DotIndicatorDemo {
   build() {
     Column() {
       Swiper(this.swiperController) {
-        ForEach(this.list, (item: string) => {
+        ForEach(this.list, (item: number) => {
           Text(item.toString())
             .width('100%')
             .height(160)
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .cachedCount(2)
       .index(0)
@@ -371,7 +371,7 @@ struct DotIndicatorDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/r9rzDVI3T063_HMzUz6UdQ/zh-cn_image_0000002628862396.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=F2D091D7F2D3D510E208CB3E2599C1266C20AC7C398FA285E5C9959542319954)
+![](assets/Indicator/file-202607081032095d5a420b.gif)
 
  
   
@@ -396,14 +396,14 @@ struct DigitIndicatorDemo {
   build() {
     Column() {
       Swiper(this.swiperController) {
-        ForEach(this.list, (item: string) => {
+        ForEach(this.list, (item: number) => {
           Text(item.toString())
             .width('100%')
             .height(160)
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .cachedCount(2)
       .index(0)
@@ -437,4 +437,4 @@ struct DigitIndicatorDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/v_BgVMfDQhqPdPFz7vbdog/zh-cn_image_0000002659221709.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=31C57BB9C3A13B0A2B6E49C638FF82D25C6770AC0C60C3B67F7BE26F33D9BBE3)
+![](assets/Indicator/file-20260708103209445ac884.gif)

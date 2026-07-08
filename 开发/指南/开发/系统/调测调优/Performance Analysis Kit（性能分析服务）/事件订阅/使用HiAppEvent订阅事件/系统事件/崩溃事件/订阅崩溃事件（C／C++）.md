@@ -1,6 +1,6 @@
 # 订阅崩溃事件（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events-ndk
 
@@ -56,7 +56,7 @@ entry:
         - pages:
             - Index.ets
 ```
-该示例工程中jsoncpp库文件对应的源码来自[三方开源库jsoncpp](https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz)。
+该示例工程中jsoncpp库文件对应的源码来自[三方开源库jsoncpp](https://codeload.github.com/open-source-parsers/jsoncpp/tar.gz/refs/tags/1.9.6)。
 3. 在"CMakeLists.txt"文件中，添加源文件和动态库。
 
   
@@ -341,26 +341,26 @@ import { fileIo } from '@kit.CoreFileKit';
   
 ```ArkTS
 Button('MergeLogNativeCrash')
-.type(ButtonType.Capsule)
-.margin({
-  top: 20
-})
-.backgroundColor('#0D9FFB')
-.width('80%')
-.height('5%')
-.onClick(() => {
-  // 模拟创建 applog，假设应用包名为 com.samples.eventsub
-  let filePath : string = "/data/storage/el2/log/com.samples.eventsub_CppCrash_AppMerge.log";
-  let file = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
-  let str: string = "only test for merge app log!";
+  .type(ButtonType.Capsule)
+  .margin({
+    top: 20
+  })
+  .backgroundColor('#0D9FFB')
+  .width('80%')
+  .height('5%')
+  .onClick(() => {
+    // 模拟创建 applog，假设应用包名为 com.samples.eventsub
+    let filePath: string = "/data/storage/el2/log/com.samples.eventsub_CppCrash_AppMerge.log";
+    let file = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
+    let str: string = "only test for merge app log!";
 
-  let writeLen = fileIo.writeSync(file.fd, str);
-  console.info("hiappevent write data to file succeed and size is:" + writeLen);
-  fileIo.closeSync(file);
+    let writeLen = fileIo.writeSync(file.fd, str);
+    console.info("hiappevent write data to file succeed and size is:" + writeLen);
+    fileIo.closeSync(file);
 
-  // 在按钮点击函数中构造一个crash场景，触发应用崩溃事件
-  testNapi.testNullptr();
-})
+    // 在按钮点击函数中构造一个crash场景，触发应用崩溃事件
+    testNapi.testNullptr();
+  })
 ```
 
 11. 点击运行按钮启动应用工程。在应用界面中单击“JsError”或“MergeLogNativeCrash”按钮触发崩溃事件。系统生成崩溃日志并回调。

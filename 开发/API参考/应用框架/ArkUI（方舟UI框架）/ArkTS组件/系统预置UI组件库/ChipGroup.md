@@ -1,6 +1,6 @@
 # ChipGroup
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -287,7 +287,7 @@ IconOptions定义图标的共通属性。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Label定义图标属性。
+LabelOptions定义文本属性。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -381,7 +381,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/aIr2TcK3Riy-5OxCK2OgAg/zh-cn_image_0000002659222163.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=440FE44C1E600A67F6EB3425E637D41877FBE22D2B350DA3A73416BDFADA1225)
+![](assets/ChipGroup/file-20260708103114a61b2cf1.png)
 
  
   
@@ -482,7 +482,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/3A_qAWSBQ2aTf3Z597y5Rg/zh-cn_image_0000002628702972.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=CE12B89504ACC4DDFAAFC56B0F716E3B21E0E04F7B1ADCF06243CA0E898F616A)
+![](assets/ChipGroup/file-20260708103114b0fab08b.png)
 
  
   
@@ -587,7 +587,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/M8YdyBQcSDOV1lRVvCIZzg/zh-cn_image_0000002659102199.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=FE25AAFC9DAA8A4B23BC78996B997E98560C1D54E044F967B343C7BB2B09BDCF)
+![](assets/ChipGroup/file-20260708103115179a9f5e.png)
 
  
   

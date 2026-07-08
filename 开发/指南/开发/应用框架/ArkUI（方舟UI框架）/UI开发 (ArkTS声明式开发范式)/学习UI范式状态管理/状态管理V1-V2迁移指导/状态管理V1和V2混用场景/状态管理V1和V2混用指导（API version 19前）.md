@@ -1,6 +1,6 @@
 # 状态管理V1和V2混用指导（API version 19前）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage-before-api-version
 
@@ -109,7 +109,7 @@ struct IndexSix {
         })
       Divider()
         .color(Color.Blue)
-      // 可以只是使用无参数的V2组件
+      // 可以直接使用无参数的V2组件
       ChildSix()
     }
     .height('100%')
@@ -316,7 +316,7 @@ struct IndexFour {
 V2装饰器不能和@Observed一起使用，V1传递@Observed装饰的class类给V2自定义组件时，不直接用@Param接收数据，如下图所示先定义V1BridgeComponent组件作为桥接层。在桥接层监听V1组件的数据，同步到V2定义的单例数据。V1组件直接使用V1BridgeComponent，在V1BridgeComponent中引入V2自定义组件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/XJoZxrezTXKPQi6lmVHH_g/zh-cn_image_0000002656347511.png?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=A0F2E7BDDF2E9376F1D9E485BDEEE86A492FDA10AE76D3445236D0C37EDD88CC)
+![](assets/状态管理V1和V2混用指导（API%20version%2019前）/file-20260708103955d6c4abe6.png)
 
  
 具体实现可参考以下示例代码：
@@ -482,7 +482,7 @@ V1装饰器的观测能力是对数据本身做代理，因此当数据存在嵌
  
 **@Observed装饰的class嵌套@ObservedV2装饰的class**
  
-@ObservedV2和@Observed嵌套使用时，类对象能否被V1的装饰器装饰取决于最外层class使用的装饰器。如果最外层是@Observed修饰的类，可以和V2装饰器一起使用，比如@State。@State仅能观察第一层的变化，如果要深度观察，需要传递给@ObjectLink。
+@ObservedV2和@Observed嵌套使用时，类对象能否被V1的装饰器装饰取决于最外层class使用的装饰器。如果最外层是@Observed修饰的类，可以和V1装饰器一起使用，比如@State。@State仅能观察第一层的变化，如果要深度观察，需要传递给@ObjectLink。
  
 以下示例代码中：
  
@@ -777,9 +777,9 @@ struct IndexFive {
 }
 ```
  
-**定义@ObserveV2修饰的class**
+**定义@ObservedV2修饰的class**
  
-V1装饰器不能和@ObservedV2一起使用。在以下示例代码中，InfoNine类被@observedV2装饰，V1组件接收变量时，info变量不能被V1装饰器修饰，但通过修改可以刷新UI，依赖的是@ObservedV2+@Trace的观测能力。
+V1装饰器不能和@ObservedV2一起使用。在以下示例代码中，InfoNine类被@ObservedV2装饰，V1组件接收变量时，info变量不能被V1装饰器修饰，但通过修改可以刷新UI，依赖的是@ObservedV2+@Trace的观测能力。
  
 ```ArkTS
 @ObservedV2

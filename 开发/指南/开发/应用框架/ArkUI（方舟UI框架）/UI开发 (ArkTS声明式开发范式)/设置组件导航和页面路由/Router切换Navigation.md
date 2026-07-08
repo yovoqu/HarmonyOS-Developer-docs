@@ -1,6 +1,6 @@
 # Router切换Navigation
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation
 
@@ -239,7 +239,7 @@ this.pathStack.clear();
 // 获取路由栈大小
 let size: number = this.pathStack.size();
 
-// 删除栈中name为PageOne的所有页面
+// 删除栈中name为pageOne的所有页面
 this.pathStack.removeByName('pageOne');
 
 // 删除指定索引的页面
@@ -251,10 +251,10 @@ this.pathStack.getAllPathName();
 // 获取索引为1的页面参数
 this.pathStack.getParamByIndex(1);
 
-// 获取PageOne页面的参数
+// 获取pageOne页面的参数
 this.pathStack.getParamByName('pageOne');
 
-// 获取PageOne页面的索引集合
+// 获取pageOne页面的索引集合
 this.pathStack.getIndexByName('pageOne');
 // ...
 ```
@@ -362,7 +362,7 @@ struct CustomNode {
   aboutToAppear() {
     // query navigation info
     let navigationInfo: NavigationInfo = this.queryNavigationInfo() as NavigationInfo;
-    if (navigationInfo !=  undefined) {
+    if (navigationInfo !== undefined) {
       this.pathStack = navigationInfo.pathStack ;
     }
   }
@@ -409,7 +409,7 @@ onPageHide(): void {
 其生命周期时序如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/QGcNzQWJRAa3huV-zVY3gQ/zh-cn_image_0000002659099531.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=F94C4A00478CFF65038606AA9CE40D630E715628AA1472FC4FE559BCFB7A4600)
+![](assets/Router切换Navigation/file-20260708103921de420dfb.png)
 
 
 Navigation作为路由容器，其生命周期承载在NavDestination组件上，以组件事件的形式开放。
@@ -707,10 +707,10 @@ export default class EntryAbility extends UIAbility {
       let uiContext: UIContext = windowClass.getUIContext();
       // 获取UIObserver实例。
       let uiObserver : UIObserver = uiContext.getUIObserver();
-      // 注册DevNavigation的状态监听.
+      // 注册NavDestination的状态监听.
       uiObserver.on('navDestinationUpdate',(info) => {
         // NavDestinationState.ON_SHOWN = 0, NavDestinationState.ON_HIDE = 1
-        if (info.state == 0) {
+        if (info.state === 0) {
           // NavDestination组件显示时操作
           hilog.info(DOMAIN, TAG, 'page ON_SHOWN:' + info.name.toString())
         }

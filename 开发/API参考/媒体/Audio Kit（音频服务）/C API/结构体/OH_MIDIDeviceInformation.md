@@ -1,6 +1,6 @@
 # OH_MIDIDeviceInformation
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohmidi-oh-midideviceinformation
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -14,7 +14,7 @@ typedef struct {...} OH_MIDIDeviceInformation
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-设备信息结构体。储存设备ID等相关信息。
+设备信息结构体。存储设备ID等相关信息。
  
 **起始版本：** 24
  

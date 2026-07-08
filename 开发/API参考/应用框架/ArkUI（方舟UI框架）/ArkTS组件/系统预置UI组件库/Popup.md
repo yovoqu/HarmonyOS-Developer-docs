@@ -1,6 +1,6 @@
 # Popup
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,8 +42,6 @@ Popup(options: PopupOptions): void
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
-**设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
- 
 **参数**：
   
 | 参数名 | 类型 | 必填 | 说明 |
@@ -60,8 +58,6 @@ Popup(options: PopupOptions): void
 PopupOptions定义Popup的具体样式参数。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -86,8 +82,6 @@ PopupOptions定义Popup的具体样式参数。
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -108,8 +102,6 @@ PopupButtonOptions定义按钮的相关属性和事件。
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -130,8 +122,6 @@ PopupIconOptions定义图标的属性。
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- 
-**设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -369,4 +359,4 @@ struct PopupPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/P4Ae3fl_QXmV9kLhrlcTlA/zh-cn_image_0000002659102221.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=AC43F1BDBFEF449B52FB752F69293B56E568F2F44BC52A21246234169B739E31)
+![](assets/Popup/file-202607081031203495b66d.png)

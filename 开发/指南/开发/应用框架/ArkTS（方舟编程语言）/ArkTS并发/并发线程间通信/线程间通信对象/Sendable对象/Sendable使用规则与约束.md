@@ -1,6 +1,6 @@
 # Sendable使用规则与约束
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-constraints
 
@@ -251,21 +251,15 @@ Sendable数据不能持有非Sendable数据，因此泛型类中的Sendable数�
 **正例：**
 
 ```ArkTS
-// 正例：
 import { collections } from '@kit.ArkTS';
 
-
-// 反例：
-// import { collections } from '@kit.ArkTS';
-
-// try {
-//   let arr1: collections.Array<Array<number>> = new collections.Array<Array<number>>();
-//   let arr2: Array<number> = new Array<number>();
-//   arr2.push(1);
-//   arr1.push(arr2);
-// } catch (e) {
-//   console.error(`create collections error: Code: ${e.code}, message: ${e.message}`);
-// }
+try {
+  let arr: collections.Array<number> = new collections.Array<number>();
+  let num: number = 1;
+  arr.push(num);
+} catch (e) {
+  console.error(`create collections error: Code: ${e.code}, message: ${e.message}`);
+}
 ```
 
 **反例：**
@@ -279,7 +273,7 @@ try {
   arr2.push(1);
   arr1.push(arr2);
 } catch (e) {
-  console.error(`taskpool execute: Code: ${e.code}, message: ${e.message}`);
+  console.error(`create collections error: Code: ${e.code}, message: ${e.message}`);
 }
 ```
 

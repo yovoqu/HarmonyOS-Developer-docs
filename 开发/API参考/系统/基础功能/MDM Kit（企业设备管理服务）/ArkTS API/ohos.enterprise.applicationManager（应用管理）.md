@@ -1,6 +1,6 @@
 # @ohos.enterprise.applicationManager（应用管理）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-applicationmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -867,7 +867,7 @@ isModifyAutoStartAppsDisallowed(admin: Want, autoStartApp: Want, accountId: numb
 
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 是否禁止用户取消应用自启动，true表示禁止，false表示允许。 |
+| boolean | 是否禁止用户取消应用自启动，true表示禁止，false表示允许。设置为允许后，用户可通过设备上设置->应用和元服务->应用启动管理，取消应用自启动。 |
 
 
 **错误码**：

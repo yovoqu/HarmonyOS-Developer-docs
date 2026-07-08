@@ -1,6 +1,6 @@
 # 通过mercContractCode查询签约订单信息
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-withhold-query-contractcode
 
@@ -46,7 +46,7 @@
 
 **Request Path**
 
-| 参数 | 是否必填 | 参数类型 | 描述 |
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | mercContractCode | 是 | String | 商户签约协议号。开发者请求签约时传入的签约协议号，由商户生成，商户需保证字段唯一性。最大长度64。 |
 

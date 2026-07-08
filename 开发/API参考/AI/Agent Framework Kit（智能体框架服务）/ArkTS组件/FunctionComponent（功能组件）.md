@@ -1,13 +1,13 @@
 # FunctionComponent（功能组件）
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-function-component
 **支持设备：** Phone | Tablet
 
 Agent Framework Kit（智能体框架服务）提供了拉起指定智能体的能力。
  
-应用在[小艺开放平台](https://developer.huawei.com/consumer/cn/hag/hagindex.html?isInFrame=true&lang=zh_CN#/)上线智能体后，向用户提供应用+智能体组合的服务，让用户可以在适当的场景下通过Agent Framework Kit的UI控件能力主动拉起智能体。配置智能体请参考[快速创建智能体](https://developer.huawei.com/consumer/cn/doc/service/developing-intelligent-agents-0000002435989592)。
+应用在[小艺开放平台](https://developer.huawei.com/consumer/cn/hag/hagindex.html?isInFrame=true&lang=zh_CN#/)上线智能体后，向用户提供应用+智能体组合的服务，让用户可以在适当的场景下通过Agent Framework Kit的UI控件能力主动拉起智能体。开发智能体请参考[开发Agent](https://developer.huawei.com/consumer/cn/doc/service/developing-intelligent-agents-0000002435989592)。
  
 **起始版本：** 6.0.0(20)
   

@@ -1,6 +1,6 @@
 # 简介
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-summary
 
@@ -12,7 +12,7 @@ LLM Engine是其在大语言模型场景下的具体应用，提供的LLM计算�
 #### CANN LM Engine 组件
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/0CFIt6TYRqWIV72CwsDqQA/zh-cn_image_0000002592219728.jpg?HW-CC-KV=V1&HW-CC-Date=20260611T074937Z&HW-CC-Expire=86400&HW-CC-Sign=9C9D5932C87B80662AC2CCF21E291EC7A7277DEA05DDD9E9323D32866D0D03F3)
+![](assets/简介（LLM大模型能力开放）/file-202607081033205a18049a.png)
 
 
  - CANN LM Engine：CANN LM Engine为大模型业务提供基于[计算加速服务和标准化API接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit-llm-engine)的端到端计算链路加速封装。
@@ -30,7 +30,7 @@ LLM Engine是其在大语言模型场景下的具体应用，提供的LLM计算�
 
 #### 硬件要求
 
-kirinx90平台。
+kirin X90平台。
 
 
 
@@ -41,7 +41,7 @@ CANN LLM Engine基于CANN硬件加速能力，提供高性能，低功耗的运�
 开发者可通过本指南按照如下pipeline的顺序完成LLM模型在CANN硬件环境上的集成：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/4zOxBG4PTg-1k5dUMSemOw/zh-cn_image_0000002592379662.jpg?HW-CC-KV=V1&HW-CC-Date=20260611T074937Z&HW-CC-Expire=86400&HW-CC-Sign=36593E0C75BB280E69469A6F46FE2095B349C10BAF779A9C8F5CFE99D4D26D0B)
+![](assets/简介（LLM大模型能力开放）/file-202607081033201c3ca912.png)
 
 1. LLM模型量化，输入是用户原始模型，输出是量化后权重和量化系数文件。
 2. 将模型结构导出到ONNX格式，输入是原始模型结构和第一步生成的量化权重，输出是ONNX模型及模型结构NPU亲和适配。

@@ -1,6 +1,6 @@
 # Canvas对象
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-canvas
 
@@ -139,16 +139,16 @@ export default {
         ctx.strokeRect(100, 100, 300, 300);
     },
     getUrl() {
-        let el = this.$refs.canvas1
-        let dataUrl = el.toDataURL()
+        let el = this.$refs.canvas1;
+        let dataUrl = el.toDataURL();
         this.dataURL = dataUrl;
-        promptAction.showToast({ duration: 2000, message: "long press,get dataURL" })
+        promptAction.showToast({ duration: 2000, message: "long press,get dataURL" });
     }
 }
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/giAoqG0ASSumE4X_KjxG6A/zh-cn_image_0000002611754135.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030425Z&HW-CC-Expire=86400&HW-CC-Sign=8F7EFDE9C14FF8EAF5ECAAFA30AB2AA04B461AF4401B82C2107C0295BED88423)
+![](assets/Canvas对象/file-20260708103903340eff4b.gif)
 
 
 > [!NOTE]

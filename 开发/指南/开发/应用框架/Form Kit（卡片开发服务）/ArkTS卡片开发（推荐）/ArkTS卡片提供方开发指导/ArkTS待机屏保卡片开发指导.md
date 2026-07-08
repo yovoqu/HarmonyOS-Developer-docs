@@ -1,6 +1,6 @@
 # ArkTS待机屏保卡片开发指导
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkui-ui-standby-form-development
 
@@ -25,6 +25,7 @@
 1. 待机屏保卡片只支持 2*2尺寸的卡片。
 2. 待机屏保卡片不推荐展示用户个人隐私敏感数据。
 3. 待机屏保卡片有明确的UX设计规范。具体请参考设计指南中的[待机屏保](https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-service-widget-0000002087671904#section966618274556)。
+4. 待机屏保卡片只支持Phone中的部分机型。
  
   
 
@@ -110,7 +111,7 @@
 5. 返回“开放能力管理”页面，原“申请”按钮变为置灰显示的“申请”，待机屏保卡片的能力开关已勾选。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/HytMYODGTLK3pSwkBC-38g/zh-cn_image_0000002581434388.png?HW-CC-KV=V1&HW-CC-Date=20260528T030400Z&HW-CC-Expire=86400&HW-CC-Sign=872013934FE64EF0BE8F4D291D5000DB22EE6E24FC7C142EB03393510464E4EF)
+![](assets/ArkTS待机屏保卡片开发指导/file-202607081038376488f8ea.png)
 
 
   至此，您的应用已成功开通待机屏保开放能力。

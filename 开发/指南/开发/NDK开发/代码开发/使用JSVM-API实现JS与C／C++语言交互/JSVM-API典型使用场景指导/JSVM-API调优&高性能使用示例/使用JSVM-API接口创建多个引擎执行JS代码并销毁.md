@@ -1,6 +1,6 @@
 # 使用JSVM-API接口创建多个引擎执行JS代码并销毁
 
-更新时间：2026-03-17 02:21:50
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-runtime-task
 
@@ -16,7 +16,7 @@ JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开�
  
 创建多个JS运行时环境并运行JS代码
  
-```json
+```cpp
 #include <map>
 #include <mutex>
 #include <deque>

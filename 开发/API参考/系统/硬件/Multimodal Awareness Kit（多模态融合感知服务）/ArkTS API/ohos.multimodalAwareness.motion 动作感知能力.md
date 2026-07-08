@@ -1,6 +1,6 @@
 # @ohos.multimodalAwareness.motion (动作感知能力)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-awareness-motion
 **支持设备：** Phone
@@ -68,7 +68,11 @@ on(type: 'operatingHandChanged', callback: Callback&lt;OperatingHandStatus&gt;):
 
 如果设备不支持此功能，将返回801错误码。
 
-**需要权限**：ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
+**需要权限**：
+
+ - API版本20+：ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
+ - API版本15-19：ohos.permission.ACTIVITY_MOTION
+
 
 **系统能力**：SystemCapability.MultimodalAwareness.Motion
 
@@ -121,7 +125,11 @@ off(type: 'operatingHandChanged', callback?: Callback&lt;OperatingHandStatus&gt;
 
 取消订阅触控操作手感知事件。
 
-**需要权限**：ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
+**需要权限**：
+
+ - API版本20+：ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
+ - API版本15-19：ohos.permission.ACTIVITY_MOTION
+
 
 **系统能力**：SystemCapability.MultimodalAwareness.Motion
 
@@ -170,7 +178,11 @@ getRecentOperatingHandStatus(): OperatingHandStatus
 
 获取最新触控操作手状态。
 
-**需要权限**：ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
+**需要权限**：
+
+ - API版本20+：ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
+ - API版本15-19：ohos.permission.ACTIVITY_MOTION
+
 
 **系统能力**：SystemCapability.MultimodalAwareness.Motion
 

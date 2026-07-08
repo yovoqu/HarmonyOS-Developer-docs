@@ -1,6 +1,6 @@
 # textToSpeech（文本转语音）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -48,7 +48,7 @@ createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback&lt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -128,7 +128,7 @@ createEngine(createEngineParams: CreateEngineParams): Promise&lt;TextToSpeechEng
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -207,7 +207,7 @@ listVoices(queryParams: VoiceQuery): Promise<VoiceInfo[]>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -418,7 +418,7 @@ listVoices(params: VoiceQuery, callback: AsyncCallback<Array&lt;VoiceInfo&gt;>):
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -493,7 +493,7 @@ listVoices(params: VoiceQuery): Promise<Array&lt;VoiceInfo&gt;>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -629,7 +629,7 @@ speak(text: string, speakParams: SpeakParams): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

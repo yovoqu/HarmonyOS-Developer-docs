@@ -1,13 +1,11 @@
 # imageFeaturePicker (全局取色功能)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-imagefeaturepicker
 **支持设备：** Phone | PC/2in1 | Tablet
 
 全局取色的功能入口类。
- 
-**系统能力：** SystemCapability.Stylus.ColorPicker
  
 **起始版本：** 5.0.0(12)
   

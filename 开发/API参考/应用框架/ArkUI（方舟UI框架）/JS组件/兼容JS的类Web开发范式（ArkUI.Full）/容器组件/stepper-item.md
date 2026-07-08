@@ -1,6 +1,6 @@
 # stepper-item
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-stepper-item
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -43,7 +43,7 @@
   
 | 名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| prevLabel | string | - | 步骤导航器底部回退文本按钮的描述文本。 |
+| prevLabel | string | - | 步骤导航器底部返回文本按钮的描述文本。 |
 | nextLabel | string | - | 步骤导航器底部下一步文本按钮的描述文本。 |
 | status | string | normal | 步骤导航器当前步骤的初始状态，可选值为： - normal：正常状态，右侧文本按钮正常显示，可点击进入下一个步骤。 - disabled：不可用状态，右侧文本按钮灰度显示，不可点击进入下一个步骤。 - waiting：等待状态，右侧文本按钮不显示，使用等待进度条，不可点击进入下一个步骤。 |
  

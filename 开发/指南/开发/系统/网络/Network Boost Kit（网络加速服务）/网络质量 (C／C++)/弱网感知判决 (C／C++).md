@@ -1,10 +1,10 @@
 # 弱网感知判决 (C/C++)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-weaksignaljudge-c
 
-通过[网络质量评估（C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-qoscallback-c)和[网络场景识别（C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-scenecallback-c)章节，弱网感知判决可归纳为3种方式获取：
+通过[网络质量评估（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-qoscallback-c)和[网络场景识别（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-scenecallback-c)章节，弱网感知判决可归纳为3种方式获取：
  
 **监听系统实时判决**：
  

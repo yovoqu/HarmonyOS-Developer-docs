@@ -1,11 +1,11 @@
 # Class (ProxyConfig)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-proxyconfig
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-可以通过该类提供的接口对代理进行配置。
+ProxyConfig是ArkWeb框架中用于配置网络代理规则的类，配合[ProxyController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-proxycontroller)实现对应用中所有Web组件网络请求的代理控制。通过ProxyConfig，开发者可以灵活定义多种代理规则：指定特定URL使用特定代理服务器、指定某些URL直连服务器、定义绕过代理的规则等。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 15开始支持。 示例效果请以真机运行为准。

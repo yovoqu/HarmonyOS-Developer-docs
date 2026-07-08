@@ -1,11 +1,11 @@
 # Class (WebviewController)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-通过WebviewController可以控制Web组件各种行为（包括页面导航、生命周期状态、JavaScript交互等行为）。一个WebviewController对象只能控制一个Web组件，且必须在Web组件和WebviewController绑定后，才能调用WebviewController上的方法（静态方法除外）。
+WebviewController是Web组件各种行为的核心控制器，提供网页加载与导航控制、JavaScript交互、生命周期、滚动控制、页面缩放与内容查找、消息端口通信、缓存与证书管理等广泛功能。一个WebviewController对象只能控制一个Web组件，且必须在Web组件和WebviewController绑定后，才能调用WebviewController上的方法（静态方法除外）。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。
@@ -503,6 +503,7 @@ data数据必须使用base64编码或将内容中的任何#字符编码为%23。
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100001 | Init error. The WebviewController must be associated with a Web component. |
+| 17100002 | URL error. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048. 适用版本：9-10 |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
 
 
@@ -903,6 +904,8 @@ onActive(): void
 调用此接口通知Web组件进入前台激活状态。
 
 激活状态是应用与用户互动的状态。应用会保持这种状态，直到发生某些事件（例如收到来电或设备屏幕关闭）时将焦点从应用移开。
+
+若页面此前处于未激活状态，H5页面中通过document.addEventListener('visibilitychange',...)注册的事件监听器将被触发，document.visibilityState 从"hidden"变为"visible"。
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
@@ -6076,7 +6079,7 @@ enableIntelligentTrackingPrevention(enable: boolean): void
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常使用。从API version 18开始，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、PC/2in1、Tablet、TV设备中可正常使用。从API version 18开始，在Wearable设备类型中返回801错误码。
 
 **参数：**
 
@@ -6137,7 +6140,7 @@ isIntelligentTrackingPreventionEnabled(): boolean
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常使用。从API version 18开始，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、PC/2in1、Tablet、TV设备中可正常使用。从API version 18开始，在Wearable设备类型中返回801错误码。
 
 **返回值：**
 
@@ -6197,7 +6200,7 @@ static addIntelligentTrackingPreventionBypassingList(hostList: Array&lt;string&g
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常使用。从API version 18开始，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、PC/2in1、Tablet、TV设备中可正常使用。从API version 18开始，在Wearable设备类型中返回801错误码。
 
 **参数：**
 
@@ -6257,7 +6260,7 @@ static removeIntelligentTrackingPreventionBypassingList(hostList: Array&lt;strin
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常使用。从API version 18开始，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、PC/2in1、Tablet、TV设备中可正常使用。从API version 18开始，在Wearable设备类型中返回801错误码。
 
 **参数：**
 
@@ -6317,7 +6320,7 @@ static clearIntelligentTrackingPreventionBypassingList(): void
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
-**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常使用。从API version 18开始，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、PC/2in1、Tablet、TV设备中可正常使用。从API version 18开始，在Wearable设备类型中返回801错误码。
 
 **错误码：**
 

@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行WebAssembly模块相关开发
 
-更新时间：2026-03-17 02:21:50
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-wasm
 

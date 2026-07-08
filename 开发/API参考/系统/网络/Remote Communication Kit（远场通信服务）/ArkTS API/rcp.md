@@ -1,6 +1,6 @@
 # rcp（数据请求）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2446,7 +2446,7 @@ console.info(`session id: ${session.id}`);
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type ProxyConfiguration = 'system' | 'no-proxy' | [WebProxy](#webproxy)
+type ProxyConfiguration = 'system' | 'no-proxy' | WebProxy
  
 ProxyConfiguration接口允许开发者为会话中的HTTP请求配置代理设置，从而提供在系统、自定义或无代理之间进行选择的灵活性。
  
@@ -3041,7 +3041,7 @@ type FileDescriptor = number
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type LocalFile = [FileDescriptor](#filedescriptor) | [File](#file) | [RandomAccessFile](#randomaccessfile)
+type LocalFile = FileDescriptor | File | RandomAccessFile
  
 具有文件特性的对象，允许用户使用不同类型的文件描述符或文件对象进行操作。
  
@@ -3368,7 +3368,7 @@ readSync(buffer: ArrayBuffer): number
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type TargetFileCallback = (request: [Request](#request), suggestedPath: [Path](#path)) => [TargetFile](#targetfile) | Promise<[TargetFile](#targetfile)>
+type TargetFileCallback = (request: Request, suggestedPath: Path) => TargetFile | Promise&lt;TargetFile&gt;
  
 [TargetFile](#targetfile)回调函数，返回一个[TargetFile](#targetfile)对象，可以使用Promise异步回调。
  
@@ -3896,7 +3896,7 @@ ResponseBodyDestination类型指定了响应的目标位置或目的地，指示
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type URLOrString = [URL](#url) | string
+type URLOrString = URL | string
  
 URLOrString类型是表示URL对象或表示URL的字符串的并集类型。可以作为HTTP/HTTPS地址的入参。
  

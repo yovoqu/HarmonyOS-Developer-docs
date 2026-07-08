@@ -1,6 +1,6 @@
 # recoveryKey（企业恢复密钥）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-recoverykey
 **支持设备：** PC/2in1
@@ -173,7 +173,7 @@ recoveryKey.getAuthChallenge().then((challenge: Uint8Array) => {
 
 updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise&lt;number&gt;
 
-更新企业公钥证书流程，需要先调[getAuthChallenge](#getauthchallenge)接口获取挑战值并[签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-signature)。使用Promise异步回调。
+更新企业公钥证书流程，需要先调用[getAuthChallenge](#getauthchallenge)接口获取挑战值并[签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-signature)。使用Promise异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -222,7 +222,7 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 let signature: Uint8Array = new Uint8Array([0]);
 // 在实际应用中，cert 应需替换为企业证书数据。
 let cert: Uint8Array = new Uint8Array([0]);
-recoveryKey.updateEnterpriseCertificate(signature, cert).then((ret: number)=>{
+recoveryKey.updateEnterpriseCertificate(signature, cert).then((ret: number) => {
   console.info(`Succeeded in updating certificate. result is: ${ret}`);
 }).catch((error: BusinessError) => {
   console.error(`Failed to update certificate. Code: ${error.code}, message: ${error.message}`);
@@ -365,7 +365,7 @@ async function verifyUserIdentityEnterprise(pinCode: string) {
     recoveryKey.verifyUserIdentityEnterprise(userId, userType, pinCode).then(() => {
       console.info(`Succeeded in verifying user identity.`);
     }).catch((error: BusinessError) => {
-      console.error(`Failed to verified user identity. Code: ${error.code}, message: ${error.message}`);
+      console.error(`Failed to verify user identity. Code: ${error.code}, message: ${error.message}`);
     })
   } catch (e) {
     console.error(`Failed to verifyUserIdentityEnterprise. Code: ${e.code}, message: ${e.message}`);
@@ -432,7 +432,7 @@ async function getEnterpriseRecoveryKeyForPinByDialog() {
     recoveryKey.verifyUserByDialog(userId).then(() => {
       console.info(`Succeeded in verifying user identity by dialog.`);
     }).catch((error: BusinessError) => {
-      console.error(`Failed to verified user identity by dialog. Code: ${error.code}, message: ${error.message}`);
+      console.error(`Failed to verify user identity by dialog. Code: ${error.code}, message: ${error.message}`);
     })
   } catch (e) {
     console.error(`Failed to getEnterpriseRecoveryKeyForPinByDialog. Code: ${e.code}, message: ${e.message}`);

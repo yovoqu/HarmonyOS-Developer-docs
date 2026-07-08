@@ -1,6 +1,6 @@
 # video
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-media-video
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -134,7 +134,7 @@ export default {
         duration: '',
     },
     preparedCallback: function (e) {
-        this.event = '视频连接成功';
+        this.event = '视频准备完成';
         this.duration = e.duration;
     },
     startCallback: function () {
@@ -168,4 +168,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/68n7Ph1rRjGgYvKGjl3h4g/zh-cn_image_0000002628703080.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014404Z&HW-CC-Expire=86400&HW-CC-Sign=E9305FED76624D87833F1F5133CFB0782865BCFBC6C0601FA1F005DF7ADA32C5)
+![](assets/video/file-2026070810304994ad6d40.gif)

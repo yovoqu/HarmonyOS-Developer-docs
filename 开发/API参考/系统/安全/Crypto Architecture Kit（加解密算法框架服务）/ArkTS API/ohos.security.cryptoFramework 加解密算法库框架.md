@@ -1,6 +1,6 @@
 # @ohos.security.cryptoFramework (加解密算法库框架)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -135,7 +135,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | iv | DataBlob | 否 | 否 | 指明加解密参数iv，长度为1~128字节，常用为12字节。 |
-| aad | DataBlob | 否 | 否 | 指明加解密参数aad，长度为0~INT_MAX字节，常用为16字节。 |
+| aad | DataBlob | 否 | 否 | 指明加解密参数aad，长度为0~INT_MAX字节。 |
 | authTag | DataBlob | 否 | 否 | 指明加解密参数authTag，长度为16字节。 采用GCM模式加密时，需从doFinal()或doFinalSync()输出的DataBlob中提取末尾16字节，作为init()或initSync()方法中GcmParamsSpec的authTag。 |
 
 
@@ -1792,12 +1792,12 @@ getEncodedDer(format: string): DataBlob
 
 支持根据指定的密钥格式（如采用哪个规范），获取满足ASN.1语法、DER编码的私钥数据。
 
-在API版本12-24，仅支持获取PKCS8格式的ECC私钥数据。
+在API版本12-24，仅支持获取PKCS #8格式的ECC私钥数据。
 
-从API版本26.0.0开始，增加支持获取PKCS1和PKCS8格式的RSA私钥数据。
+从API版本26.0.0开始，增加支持获取PKCS #1和PKCS #8格式的RSA私钥数据。
 
 > [!NOTE]
-> 本接口和 Key.getEncoded() 的区别是： 本接口可根据入参决定数据的输出格式，当前支持获取PKCS8格式的ECC私钥数据。 Key.getEncoded() 接口，不支持指定密钥格式。
+> 本接口和 Key.getEncoded() 的区别是： 本接口可根据入参决定数据的输出格式，当前支持获取PKCS #8格式的ECC私钥数据。 Key.getEncoded() 接口，不支持指定密钥格式。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -4752,7 +4752,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 
 > [!NOTE]
-> 目前对称加解密中，PKCS5和PKCS7的实现相同，其padding长度和分组长度保持一致。在3DES中均按8字节填充，在AES中均按16字节填充。另有NoPadding表示不填充。 开发者需要自行了解密码学不同分组模式的差异，以便选择合适的参数规格。例如选择ECB和CBC模式时，建议启用填充，否则必须确保明文长度是分组大小的整数倍；选择其他模式时，可以不启用填充，此时密文长度和明文长度一致（即可能不是分组大小的整数倍）。 使用RSA或SM2进行非对称加解密时，必须创建两个Cipher对象，分别进行加密和解密操作，不能对同一个Cipher对象进行加解密。对称加解密没有此要求，只要算法规格一致，可以对同一个Cipher对象进行加解密操作。
+> 目前对称加解密中，PKCS #5和PKCS #7的实现相同，其padding长度和分组长度保持一致。在3DES中均按8字节填充，在AES中均按16字节填充。另有NoPadding表示不填充。 开发者需要自行了解密码学不同分组模式的差异，以便选择合适的参数规格。例如选择ECB和CBC模式时，建议启用填充，否则必须确保明文长度是分组大小的整数倍；选择其他模式时，可以不启用填充，此时密文长度和明文长度一致（即可能不是分组大小的整数倍）。
 
 
 **返回值：**
@@ -5516,7 +5516,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| algName | string | 是 | 指定签名算法：RSA、ECC、DSA、SM210+或Ed2551911+。使用RSA PKCS1模式时需设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。签名时，通过设置OnlySign参数可传入数据摘要仅作签名。 支持的规格详见签名验签规格。 |
+| algName | string | 是 | 指定签名算法：RSA、ECC、DSA、SM210+或Ed2551911+。使用RSA PKCS #1模式时需设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。签名时，通过设置OnlySign参数可传入数据摘要仅作签名。 支持的规格详见签名验签规格。 |
 
 
 **返回值**：
@@ -6280,7 +6280,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| algName | string | 是 | 指定签名算法：RSA、ECC、DSA、SM210+或Ed2551911+。使用RSA PKCS1模式时需设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。使用RSA算法验签时，设置Recover参数可支持验签恢复。 支持的规格详见签名验签规格。 |
+| algName | string | 是 | 指定签名算法：RSA、ECC、DSA、SM210+或Ed2551911+。使用RSA PKCS #1模式时需设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。使用RSA算法验签时，设置Recover参数可支持验签恢复。 支持的规格详见签名验签规格。 |
 
 
 **返回值**：
@@ -6325,9 +6325,9 @@ Verify类不支持重复初始化，当业务方需要使用新密钥验签时�
 
 业务方使用时，在createVerify时确定验签的模式，调用init接口设置密钥。
 
-当被签名的消息较短时，可在init初始化后，（无需update）直接调用verify接口传入被签名的消息和签名(signatureData)进行验签。
+当被签名的消息较短时，可在init初始化后，（无需update）直接调用verify接口传入被签名的消息和签名（signatureData）进行验签。
 
-当被签名的消息较长时，可通过update接口分段传入被签名的消息，最后调用verify接口对消息全文进行验签。verify接口的data入参在API 10之前只支持DataBlob， API 10之后增加支持null。业务方可在循环中调用update接口，循环结束后调用verify传入签名(signatureData)进行验签。
+当被签名的消息较长时，可通过update接口分段传入被签名的消息，最后调用verify接口对消息全文进行验签。verify接口的data入参在API 10之前只支持DataBlob， API 10之后增加支持null。业务方可在循环中调用update接口，循环结束后调用verify传入签名（signatureData）进行验签。
 
 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
 
@@ -7565,8 +7565,6 @@ update(input: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
 API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
 
-**设备行为差异：** 该接口仅在Phone、PC/2in1、Tablet、TV、Wearable设备中可正常调用，在Lite Wearable设备中返回undefined。
-
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -7684,8 +7682,6 @@ digest(callback: AsyncCallback&lt;DataBlob&gt;): void
 **系统能力：** SystemCapability.Security.CryptoFramework.MessageDigest
 
 API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
-
-**设备行为差异：** 该接口仅在Phone、PC/2in1、Tablet、TV、Wearable设备中可正常调用，在Lite Wearable设备中返回undefined。
 
 **参数：**
 
@@ -8717,8 +8713,6 @@ generateRandom(len: number, callback: AsyncCallback&lt;DataBlob&gt;): void
 **系统能力：** SystemCapability.Security.CryptoFramework.Rand
 
 API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Rand。
-
-**设备行为差异：** 该接口仅在Phone、PC/2in1、Tablet、TV、Wearable设备中可正常调用，在Lite Wearable设备中返回undefined。
 
 **参数：**
 

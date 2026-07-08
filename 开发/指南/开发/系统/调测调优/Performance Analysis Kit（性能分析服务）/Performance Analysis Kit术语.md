@@ -1,6 +1,6 @@
 # Performance Analysis Kit术语
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology
 
@@ -211,3 +211,9 @@ RSS（Resident Set Size）指的是进程中实际驻留在物理内存中的大
 #### NMD
 
 NMD（Native Malloc Detail）指的是进程的jemalloc快照详细信息。
+ 
+  
+
+#### minidump
+
+minidump（Mini Dump）指的是进程崩溃时生成的微型转储文件，包含了进程崩溃时的寄存器、线程、栈内存等信息。当前系统侧最大支持回溯400个线程。

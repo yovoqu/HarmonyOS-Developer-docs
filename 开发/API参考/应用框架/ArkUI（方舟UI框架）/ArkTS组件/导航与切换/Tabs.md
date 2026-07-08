@@ -1,6 +1,6 @@
 # Tabs
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -865,10 +865,10 @@ TabBar布局模式枚举。
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | CONTENT_FIRST | 0 | 先加载目标页内容，再开始切换动画。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| ACTION_FIRST | 1 | 先开始切换动画，再加载目标页内容；生效需要同时需要满足：Tabs的height、width没有设置成auto。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| ACTION_FIRST | 1 | 先开始切换动画，再加载目标页内容；生效需要同时满足：Tabs的height、width没有设置成auto。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | NO_ANIMATION | 2 | 关闭默认动画。调用TabsController的changeIndex接口切换TabContent时该枚举值不生效。 可以通过设置animationDuration为0实现调用TabsController的changeIndex接口时不带动画。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | CONTENT_FIRST_WITH_JUMP15+ | 3 | 先加载目标页内容，再无动画跳转到目标页附近，最后有动画跳转到目标页。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| ACTION_FIRST_WITH_JUMP15+ | 4 | 先无动画跳转到目标页附近，再有动画跳转到目标页，最后加载目标页内容。此项生效需要同时需要满足：Tabs的height、width没有设置成auto。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| ACTION_FIRST_WITH_JUMP15+ | 4 | 先无动画跳转到目标页附近，再有动画跳转到目标页，最后加载目标页内容。此项生效需要同时满足：Tabs的height、width没有设置成auto。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
 
 
 
@@ -1924,7 +1924,7 @@ struct TabsExample {
         if (index === targetIndex) {
           return;
         }
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+        // selectedIndex控制自定义TabBar内Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width(360)
@@ -2224,7 +2224,7 @@ struct barHeightTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/T81gLjUVR7G6HDsOToUiWA/zh-cn_image_0000002628862414.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=933124A4E43BA9609C858F9CCA37756E9164AF37F283D920CB24F9464524AA4A)
+![](assets/Tabs/file-2026070810321180a8376b.gif)
 
 
 
@@ -2333,7 +2333,7 @@ struct TabsExample5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/EKgCqv6oSxKLtaasbMsgYw/zh-cn_image_0000002659221727.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=1AEF2F55BC2ED56BC4A0E980B9DB89A31B216A34DAD45801222737DF65023196)
+![](assets/Tabs/file-202607081032119be9b361.gif)
 
 
 
@@ -2427,7 +2427,7 @@ struct TabsCustomAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/rc7MB7zSQ6y1_3yR8T3GlA/zh-cn_image_0000002628702538.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=E213DED7B4259C1A3E4191AB8248228A581EDD961726CFF8D1B3D144BE9CD561)
+![](assets/Tabs/file-202607081032124fe33871.gif)
 
 
 
@@ -2523,7 +2523,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/UXBOhMHmQHGN6eXaa9-yIw/zh-cn_image_0000002659101765.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=C693C3940C1039B9CED6C4C23B0DA25C94BB9BC48CA73C5E1F30ECF664935A08)
+![](assets/Tabs/file-20260708103212661ac08d.gif)
 
 
 
@@ -2698,7 +2698,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/whpb1XnUQVeRzi2YjgXmnA/zh-cn_image_0000002628862416.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A1B44BD7B28778147852ED1A7D05C8F8F1A4DC70192B01F744F73814430D4D54)
+![](assets/Tabs/file-20260708103212c78d07ec.gif)
 
 
 
@@ -2833,7 +2833,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/KHtzHfcdTFSyHkyMyV1-aw/zh-cn_image_0000002659221729.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=6C142F05BCA5612712BB22CBC8D972C9D791B93DBD74CCED161B6D5911EC7E3D)
+![](assets/Tabs/file-20260708103213a1be6271.gif)
 
 
 
@@ -2945,7 +2945,7 @@ struct TabsSwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/icABwvOMTMCKSsGrKwOGPg/zh-cn_image_0000002628702540.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=EB646F14622EEAF2CEDEE98CAF87860BBCEE093CB2ADC4A33E6AA15BD1D1C717)
+![](assets/Tabs/file-202607081032136cc96d49.gif)
 
 
 
@@ -2982,7 +2982,7 @@ struct TabsExample {
   build() {
     Column() {
       Tabs({ barPosition: BarPosition.End, controller: this.controller, index: this.currentIndex }) {
-        ForEach(this.data, (item: string) => {
+        ForEach(this.data, (item: number) => {
           TabContent() {
             Column(){
               Text('' + item)
@@ -3023,7 +3023,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/VG2pfFefRMuShGNdZ05goA/zh-cn_image_0000002659101767.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A839CA57F22D0DCB8474BD3D2060D816D65685E231EBCB976F713D49A9EE637C)
+![](assets/Tabs/file-20260708103213117d4503.gif)
 
 
 
@@ -3119,7 +3119,7 @@ struct TabsBarModifierExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/XLmWKDyqQT678e5omfYfGA/zh-cn_image_0000002628862418.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=5B0A22B74C6C11F4BC9AE2128690B07E412C495443F1A26848B1C5663F34ED30)
+![](assets/Tabs/file-20260708103214dbe829b2.gif)
 
 
 
@@ -3228,7 +3228,7 @@ struct TabsBarModifierExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/sncvgBNmTyiCOAqqp7bimg/zh-cn_image_0000002659221731.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=6B19624C4F3A800A6AEC7B90327EC2FE151A448EA0F79B0B2FBFF53D32816EDC)
+![](assets/Tabs/file-20260708103214b25f7cf8.gif)
 
 
 
@@ -3310,7 +3310,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/jVsJor73SSyDOc_5KWdmnA/zh-cn_image_0000002628702542.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=51AF18AD1092EAF08B9E292895768E1398B5DC81D204C55EBD9448C01DF7F572)
+![](assets/Tabs/file-202607081032146059545e.gif)
 
 
 
@@ -3444,7 +3444,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/jRSl37K_QZyYtj6jNlYlbw/zh-cn_image_0000002659101769.png?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=150ED19489379CDA9FF6F1AD179FC61CFD90D753385BC1117234BEEFDB4AFE8D)
+![](assets/Tabs/file-20260708103214557dd08b.png)
 
 
 
@@ -3505,7 +3505,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Q7u-Nv7BSU2G8fItLxLmXg/zh-cn_image_0000002628862420.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=F10CF088EDF3A1AB3AA5EF04286F5168905F3738C17C785D097F72CB0642412A)
+![](assets/Tabs/file-20260708103215958747ae.gif)
 
 
 
@@ -3601,7 +3601,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/Aw2H9FLuQR6EKmkFKAok7Q/zh-cn_image_0000002659221733.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=85E86560F6E11A2E3C80D50105B171B7952A18198FF10C1CB8A85BA0191C5F17)
+![](assets/Tabs/file-20260708103215555c1d97.gif)
 
 
 
@@ -3685,7 +3685,7 @@ struct TabsDidScrollExample {
         if (index === targetIndex) {
           return;
         }
-        // selectedIndex控制自定义TabBar内Image和Text颜色切换
+        // selectedIndex控制自定义TabBar内Text颜色切换
         this.selectedIndex = targetIndex;
       })
       .width(360)
@@ -3706,7 +3706,7 @@ struct TabsDidScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/eQwUwwseQiq1kKw-MjoLOg/zh-cn_image_0000002628702544.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=8F5EB0497DF9FE65D5A77606507AB6411DA16306B845ED577BFF3DC2D7648B4D)
+![](assets/Tabs/file-2026070810321598754449.gif)
 
 
 
@@ -3778,7 +3778,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/EzwQ3lpERiqxLxLG5J2sWw/zh-cn_image_0000002659101771.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A34A6A1E5CCD67CCCAC941FBB62FFDD22ADCDC53BA46CF781A78532D1BBD218F)
+![](assets/Tabs/file-202607081032161c3dc759.gif)
 
 
 
@@ -3834,4 +3834,4 @@ struct TabsFloatingStyleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/SFGT9_uXTV2ddQMziJgRVw/zh-cn_image_0000002628862422.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=A7A9725E101D8F9ED22D0B3A3C2BA3311A7E8A3187518D1116D12436C7848FBA)
+![](assets/Tabs/file-202607081032161dcaac6c.gif)

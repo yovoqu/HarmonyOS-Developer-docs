@@ -1,11 +1,13 @@
 # Class (WebResourceHandler)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webresourcehandler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-通过WebResourceHandler，可以提供自定义的返回头以及返回体给Web组件。
+WebResourceHandler是自定义scheme拦截场景中用于向Web组件返回拦截请求结果的处理器。当WebSchemeHandler决定拦截一个请求后，开发者通过WebResourceHandler向Web组件提供自定义的响应头（didReceiveResponse）、响应体数据（didReceiveResponseBody），并通知请求完成（didFinish）或失败（didFail）。该接口实现了应用层对网络请求的完全自定义响应。
+
+WebResourceHandler与[WebSchemeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandler)、[WebSchemeHandlerResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandlerresponse)配合使用：WebSchemeHandler的onRequestStart回调中接收WebResourceHandler实例，开发者构造WebSchemeHandlerResponse对象，通过WebResourceHandler的didReceiveResponse传入响应头，通过didReceiveResponseBody传入响应体数据，最后调用didFinish或didFail结束请求。调用didReceiveResponse是调用didFinish/didFail的前提条件。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 12开始支持。 示例效果请以真机运行为准。

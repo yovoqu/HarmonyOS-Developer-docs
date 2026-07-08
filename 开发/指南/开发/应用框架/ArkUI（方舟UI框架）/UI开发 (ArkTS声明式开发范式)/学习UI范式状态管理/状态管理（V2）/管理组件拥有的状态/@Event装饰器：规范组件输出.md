@@ -1,6 +1,6 @@
 # @Event装饰器：规范组件输出
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-event
 
@@ -104,7 +104,7 @@ struct Child {
     Column() {
       Text(`${this.title}`)
         .fontColor(this.fontColor)
-      // 使用changeFactory更改父组件中的变量type
+      // 使用changeFactory更改父组件中的变量
       Button('change to Title Two')
         .onClick(() => {
           this.changeFactory(2);

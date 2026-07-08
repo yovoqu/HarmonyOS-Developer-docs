@@ -1,6 +1,6 @@
 # Canvas
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -286,7 +286,7 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/eoeTfnrGRrKQIkIgjueSjQ/zh-cn_image_0000002659102023.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=F47CEBD6918A30561819DBEDD5555400EA6F1B4DBAB473109D6B1B1A88848A9C)
+![](assets/Canvas/file-2026070810313607c6af09.png)
 
  
   
@@ -346,8 +346,7 @@ struct attributeDemo {
                 console.info("analysis complete")
               })
               .catch((error: BusinessError) => {
-                let e: BusinessError = error as BusinessError
-                console.error(`Error code: ${e.code}, message: ${e.message}`)
+                console.error(`Error code: ${error.code}, message: ${error.message}`)
               })
           })
         Button('stop')
@@ -379,7 +378,7 @@ struct attributeDemo {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/TMVqZMRjTX6j-DelzUllBg/zh-cn_image_0000002628862674.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=DDF1A465DDEC8E8751F8ABFA91B6F53834A96A3100C85022D6EB54824F57C2A6)
+![](assets/Canvas/file-20260708103136be6eef30.png)
 
  
   
@@ -431,4 +430,4 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/UGC12QU1RcmBVSmEbH_DwA/zh-cn_image_0000002659221989.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=BD5F1F1055DC145BC79E1F1C605A64EA4F2C07EE0FC583EF24EA62653C3302E3)
+![](assets/Canvas/file-20260708103136806c781e.png)

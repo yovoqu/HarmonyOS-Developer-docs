@@ -1,6 +1,6 @@
 # thirdPaymentService(三方支付服务)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-third-payment-service
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -42,9 +42,9 @@ import { thirdPaymentService } from '@kit.PaymentKit';
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| WECHAT_PAY | wechat_pay | 微信支付。 |
-| ALI_PAY | ali_pay | 支付宝支付。 |
-| WECHAT_MINI_PROGRAM | wechat_mini_program | 拉起微信小程序。 |
+| WECHAT_PAY | 'wechat_pay' | 微信支付。 |
+| ALI_PAY | 'ali_pay' | 支付宝支付。 |
+| WECHAT_MINI_PROGRAM | 'wechat_mini_program' | 拉起微信小程序。 |
  
  
   

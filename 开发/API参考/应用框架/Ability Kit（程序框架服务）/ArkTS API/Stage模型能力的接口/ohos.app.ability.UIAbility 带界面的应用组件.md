@@ -1,6 +1,6 @@
 # @ohos.app.ability.UIAbility (带界面的应用组件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,7 +41,7 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 **图2** Call调用示意图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/EhbfMESeR0aE4TK2OOALwA/zh-cn_image_0000002628859944.png?HW-CC-KV=V1&HW-CC-Date=20260701T014233Z&HW-CC-Expire=86400&HW-CC-Sign=D29E40EDC15195F6C38ADB6714AB5B926DF603001A9D31D5628F8445460C370B)
+![](assets/ohos.app.ability.UIAbility%20带界面的应用组件/file-20260708103256d925ae03.png)
 
 
  - Caller UIAbility调用[startAbilityByCall()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口获取[Caller](#caller)对象，并使用Caller对象的[call](#call)方法向Callee UIAbility发送数据。
@@ -891,7 +891,7 @@ onPrepareToTerminate(): boolean
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
 
-**设备行为差异**：该接口仅在2in1和Tablet设备中可正常执行回调，在其他设备上不执行回调。
+**设备行为差异**：该接口仅在PC/2in1和Tablet设备中可正常执行回调，在其他设备上不执行回调。
 
 **返回值：**
 
@@ -957,8 +957,8 @@ onPrepareToTerminateAsync(): Promise&lt;boolean&gt;
 
 **设备行为差异**：
 
- - 从API version 15开始，该接口仅在2in1设备中可正常执行回调，在其他设备上不执行回调。
- - 从API version 19开始，该接口在2in1和Tablet设备中可正常执行回调，在其他设备上不执行回调。
+ - 从API version 15开始，该接口仅在PC/2in1设备中可正常执行回调，在其他设备上不执行回调。
+ - 从API version 19开始，该接口在PC/2in1和Tablet设备中可正常执行回调，在其他设备上不执行回调。
 
 
 **返回值：**

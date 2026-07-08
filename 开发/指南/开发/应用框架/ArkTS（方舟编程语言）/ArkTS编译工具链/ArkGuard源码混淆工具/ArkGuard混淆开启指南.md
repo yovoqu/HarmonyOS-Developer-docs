@@ -1,6 +1,6 @@
 # ArkGuard混淆开启指南
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide
 
@@ -201,7 +201,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 
   
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/u7aWi_JuRGytWYjnCvQI0Q/zh-cn_image_0000002628700132.png?HW-CC-KV=V1&HW-CC-Date=20260701T014614Z&HW-CC-Expire=86400&HW-CC-Sign=60EB614F9AB98975620C1A31490273C72F479A8565E3A373D3D9F2F862F1A20C)
+![](assets/ArkGuard混淆开启指南/file-2026070810400993b2557c.png)
 
   
  
@@ -213,9 +213,9 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
  
 请备份应用编译过程中生成的sourceMaps.map文件和混淆名称映射文件nameCache.json，反混淆工具需要这些文件。
  
-如果使用自建在线平台或流水线构建应用，则会获取不到编译过程中生成的sourceMaps.map文件和混淆名称映射文件namecache.json，可以使用本地编译生成的对应文件进行代替。
+如果使用自建在线平台或流水线构建应用，则会获取不到编译过程中生成的sourceMaps.map文件和混淆名称映射文件nameCache.json，可以使用本地编译生成的对应文件进行代替。
  
 源代码映射信息文件：sourceMaps.map，该文件记录了压缩/转换后的代码到原始源代码之间的映射关系。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/GepsW7N_RDCglhpu0bNprQ/zh-cn_image_0000002659099367.png?HW-CC-KV=V1&HW-CC-Date=20260701T014614Z&HW-CC-Expire=86400&HW-CC-Sign=6CB8F900C1523251D59053E8183BFF3DFA01BAD415F4214A7F022656BFFBB21A)
+![](assets/ArkGuard混淆开启指南/file-202607081040104d96352c.png)

@@ -1,6 +1,6 @@
 # 开发指导(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gameservice-gameperformance-access-procedure
 
@@ -75,7 +75,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 ```text
 let gamePackageInfo: gamePerformance.GamePackageInfo = {
   messageType: 0,
-  bundleName: 'com.example.demo', // 仅示例，请替换为实际的游戏包名
+  bundleName: 'com.example.demo', // 请替换为实际的游戏包名
   appVersion: '1.0'
 };
 try {

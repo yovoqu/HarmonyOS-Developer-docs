@@ -1,6 +1,6 @@
 # Swiper
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -642,7 +642,7 @@ nextMargin(value: Length, ignoreBlank?:boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 后边距。不支持设置百分比。 默认值：0 |
+| value | Length | 是 | 后边距。不支持设置百分比。 默认值：0 单位参考Length类型的说明。 |
 | ignoreBlank12+ | boolean | 否 | 非loop场景下尾页不显示nextMargin。在非loop场景下，设置为true时，尾页不显示空白的nextMargin，尾页的右边缘与Swiper视窗右边缘对齐；设置false时，尾页显示空白nextMargin，尾页的右边缘与Swiper视窗右边缘的距离为nextMargin。 默认值：false 说明： 尾页场景下，prevMargin和nextMargin的值相加作为左边边距显示前一个页面。 |
 
 
@@ -674,7 +674,7 @@ prevMargin(value: Length, ignoreBlank?:boolean)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 前边距。不支持设置百分比。 默认值：0 |
+| value | Length | 是 | 前边距。不支持设置百分比。 默认值：0 单位参考Length类型的说明。 |
 | ignoreBlank12+ | boolean | 否 | 非loop场景下首页不显示prevMargin。在非loop场景下，设置为true时，首页不显示空白的prevMargin，首页的左边缘与Swiper视窗左边缘对齐；设置false时，首页显示空白prevMargin，首页的左边缘与Swiper视窗左边缘的距离为prevMargin。 默认值：false 说明： 首页场景下，prevMargin和nextMargin的值相加作为右边边距显示后一个页面。 |
 
 
@@ -686,7 +686,7 @@ prevMargin(value: Length, ignoreBlank?:boolean)
 
 indicatorInteractive(value: boolean)
 
-设置禁用组件导航点交互功能。
+设置组件导航点是否可交互。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1165,7 +1165,7 @@ left(value: Length): T
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置导航点左侧相对于Swiper的位置。 未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。 设置为0时：按照0位置布局计算。 优先级：高于right属性。 取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围时，取最近的边界值。 |
+| value | Length | 是 | 设置导航点左侧相对于Swiper的位置。 未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。 设置为0时：按照0位置布局计算。 优先级：高于right属性。 取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围时，取最近的边界值。 单位参考Length类型的说明。 |
 
 
 **返回值：**
@@ -1195,7 +1195,7 @@ top(value: Length): T
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置导航点顶部相对于Swiper的位置。 未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置bottom=0一致。 设置为0时：按照0位置布局计算。 优先级：高于bottom属性。 取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。 |
+| value | Length | 是 | 设置导航点顶部相对于Swiper的位置。 未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置bottom=0一致。 设置为0时：按照0位置布局计算。 优先级：高于bottom属性。 取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。 单位参考Length类型的说明。 |
 
 
 **返回值：**
@@ -1225,7 +1225,7 @@ right(value: Length): T
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置导航点右侧相对于Swiper的位置。 未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。 设置为0时：按照0位置布局计算。 优先级：低于left属性。 取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围 时，取最近的边界值。 |
+| value | Length | 是 | 设置导航点右侧相对于Swiper的位置。 未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。 设置为0时：按照0位置布局计算。 优先级：低于left属性。 取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围 时，取最近的边界值。 单位参考Length类型的说明。 |
 
 
 **返回值：**
@@ -1255,7 +1255,7 @@ bottom(value: Length): T
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Length | 是 | 设置导航点底部相对于Swiper的位置。 未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置bottom=0一致。 设置为0时：按照0位置布局计算。 优先级：低于top属性。 取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。 |
+| value | Length | 是 | 设置导航点底部相对于Swiper的位置。 未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置bottom=0一致。 设置为0时：按照0位置布局计算。 优先级：低于top属性。 取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。 单位参考Length类型的说明。 |
 
 
 **返回值：**
@@ -1285,7 +1285,7 @@ bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bottom | LengthMetrics \| Length | 是 | 设置导航点底部相对于Swiper的位置。 未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置bottom=0一致。 设置为0时：按照0位置布局计算。 优先级：低于top属性。 取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。 |
+| bottom | LengthMetrics \| Length | 是 | 设置导航点底部相对于Swiper的位置。 未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置bottom=0一致。 设置为0时：按照0位置布局计算。 优先级：低于top属性。 取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。 单位参考Length类型的说明。 |
 | ignoreSize | boolean | 是 | 设置是否忽略导航点本身大小，默认false。 设为true时可以将导航点更靠近Swiper底部，使用方法可以参考示例9演示导航点space与bottom。 说明：当导航点为DigitIndicator的类型时，不生效的场景如下： • 当vertical 设置为false，且bottom > 0。 • 当vertical 设置为true时： 1、bottom > 0 时。 2、bottom设为undefined。 3、isSidebarMiddle设置为false时。 |
 
 
@@ -2527,14 +2527,14 @@ struct SwiperExample {
   build() {
     Column({ space: 5 }) {
       Swiper(this.swiperController) {
-        LazyForEach(this.data, (item: string) => {
+        LazyForEach(this.data, (item: number) => {
           Text(item.toString())
             .width('90%')
             .height(160)
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .cachedCount(2)
       .index(1)
@@ -2619,7 +2619,7 @@ struct SwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/Vzscq5vESUCNPgpYxcZ06A/zh-cn_image_0000002628862374.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=C5091BAE0C290A6094952BB07710727057C0775D1999B3C6A1EB9F84F60C628A)
+![](assets/Swiper/file-202607081031460e2b4b82.gif)
 
 
 
@@ -2669,14 +2669,14 @@ struct SwiperExample {
   build() {
     Column({ space: 5 }) {
       Swiper(this.swiperController) {
-        LazyForEach(this.data, (item: string) => {
+        LazyForEach(this.data, (item: number) => {
           Text(item.toString())
             .width('90%')
             .height(160)
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .cachedCount(2)
       .index(1)
@@ -2710,7 +2710,7 @@ struct SwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/q-t55nqLR5aGPQQJr9si7g/zh-cn_image_0000002659221687.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=2687DA2B3A96383D19E9E36B8FFF0C16A288E59DB98406DA1CE35F9A49ED2AEA)
+![](assets/Swiper/file-202607081031464d497adf.gif)
 
 
 
@@ -2762,14 +2762,14 @@ struct SwiperExample {
   build() {
     Column({ space: 5 }) {
       Swiper(this.swiperController) {
-        LazyForEach(this.data, (item: string) => {
+        LazyForEach(this.data, (item: number) => {
           Text(item.toString())
             .width('90%')
             .height(160)
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .displayCount(3, true) // 开启按组翻页：每页显示3个轮播项，且翻页时整组切换
       .cachedCount(1, { independent: true }) // 从API version 24开始，新增CachedCountOptions.independent参数。在显示区域外各缓存一个子节点，和displayCount的按组显示数量解耦
@@ -2804,7 +2804,7 @@ struct SwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/PHXPWrHsRDeYdZCT0zygJA/zh-cn_image_0000002628702496.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=6AABCC58D29A9DB5167B8E34D0656478B15E87213A7D749DDF40517A693BF54E)
+![](assets/Swiper/file-202607081031470b475712.gif)
 
 
 
@@ -2944,7 +2944,7 @@ struct SwiperCustomAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/EsKnvHf7SZebSYntu3LEhw/zh-cn_image_0000002659101725.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=D4C3EE52862B996CE4D9D047E8201F9FD12AE477D7B3BF983668BFC70CFEC618)
+![](assets/Swiper/file-202607081031472519aa97.gif)
 
 
 
@@ -2993,14 +2993,14 @@ struct Index {
   build() {
     Column({ space: 5 }) {
       Swiper(this.swiperController) {
-        LazyForEach(this.data, (item: string) => {
+        LazyForEach(this.data, (item: number) => {
           Text(item.toString())
             .width('90%')
             .height(160)
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .cachedCount(2)
       .index(5)
@@ -3044,7 +3044,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/pPULA_rKRPKALOsWBMyDJw/zh-cn_image_0000002628862376.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=EC7985F5EFCB95021848C7F2AF6F27DF0D2922E0E07068471B62D47F30C92F0A)
+![](assets/Swiper/file-20260708103147f8070244.gif)
 
 
 
@@ -3187,7 +3187,7 @@ struct TabsSwiperExample {
   build() {
     Column() {
       Tabs({ barPosition: BarPosition.Start, controller: this.tabsController }) {
-        ForEach(this.list, (index: number) =>{
+        ForEach(this.list, (index: number) => {
           TabContent().tabBar(this.tabBuilder(index, '页签 ' + this.list[index]))
         })
       }
@@ -3201,7 +3201,7 @@ struct TabsSwiperExample {
       .width('100%')
 
       Swiper(this.swiperController) {
-        LazyForEach(this.swiperData, (item: string) => {
+        LazyForEach(this.swiperData, (item: number) => {
           Text(item.toString())
             .onAppear(()=>{
               console.info('onAppear ' + item.toString());
@@ -3214,7 +3214,7 @@ struct TabsSwiperExample {
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .loop(false)
       // 选中/切换轮播项时触发
@@ -3231,7 +3231,7 @@ struct TabsSwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/k7pW8_KGTt20irjZpSCVkQ/zh-cn_image_0000002659221689.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=9E1F60445A386BE44B33A7526109AF71D0FF7B008754F15B0A5E9E770BD7B41F)
+![](assets/Swiper/file-20260708103148be695c29.gif)
 
 
 
@@ -3282,14 +3282,14 @@ struct SwiperExample {
   build() {
     Column({ space: 5 }) {
       Swiper(this.swiperController) {
-        LazyForEach(this.data, (item: string) => {
+        LazyForEach(this.data, (item: number) => {
           Text(item.toString())
             .width('90%')
             .height(160)
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .index(this.currentIndex)
       .loop(false)
@@ -3324,7 +3324,7 @@ struct SwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/O3Tgic3pSS6hFfQnej3s2A/zh-cn_image_0000002628702498.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=91AF2A0F77A1A58A1F23299945BD1D8052FAB86D8619647BDD6526BA41A233D3)
+![](assets/Swiper/file-202607081031484a00280f.gif)
 
 
 
@@ -3387,14 +3387,14 @@ struct SwiperExample {
     Scroll() {
       Column({ space: 20 }) {
         Swiper(this.swiperController1) {
-          LazyForEach(this.data1, (item: string) => {
+        LazyForEach(this.data1, (item: number) => {
             Text(item.toString())
               .width('90%')
               .height(120)
               .backgroundColor(0xAFEEEE)
               .textAlign(TextAlign.Center)
               .fontSize(30)
-          }, (item: string) => item)
+        }, (item: number) => item.toString())
         }
         .indicator(new DotIndicator()
           .space(this.space) // 控制导航点之间的间距
@@ -3432,7 +3432,7 @@ struct SwiperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/4SDZhD1PQcuOj5pvbCP5Wg/zh-cn_image_0000002659101727.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=95BF7DADC32D8865642AA0A5A3B79188B3D55DDBA4D2DB937CD2522F362051B5)
+![](assets/Swiper/file-20260708103148f040b675.gif)
 
 
 
@@ -3482,13 +3482,13 @@ struct SwiperExample {
   build() {
     Column() {
       Swiper() {
-        LazyForEach(this.data, (item: string) => {
+        LazyForEach(this.data, (item: number) => {
           Text(item.toString())
             .height(160)
             .backgroundColor(0xAFEEEE)
             .textAlign(TextAlign.Center)
             .fontSize(30)
-        }, (item: string) => item)
+        }, (item: number) => item.toString())
       }
       .width('100%')
       .displayCount({fillType:PresetFillType.BREAKPOINT_SM1MD2LG3}) // 按断点设置视窗内元素显示个数
@@ -3500,13 +3500,13 @@ struct SwiperExample {
 Swiper宽度属于[sm](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)及更小的断点区间时显示1列。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/sFKlAmpPRyeVJwp_H-dYNw/zh-cn_image_0000002628862378.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=081B5C80AE55679A4B97985D84517B180E601589C5CD07046EA15525789FF1E5)
+![](assets/Swiper/file-2026070810314805c57795.jpg)
 
 
 Swiper宽度属于[md](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)断点区间时显示2列。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/S3SYtb1hTAGqoGvJw9jTzQ/zh-cn_image_0000002659221691.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=7AE08B861059DA21FA179D7A18333169B85F418DC2463E638F486B348CF92DB7)
+![](assets/Swiper/file-20260708103148eccf4fdf.jpg)
 
 
 
@@ -3574,4 +3574,4 @@ struct SwiperFakeDragExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/vHCkkDvtT9WhprgC-o0svg/zh-cn_image_0000002628702500.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=9DB1307C4549AD5623942D5A7687F8D1E8739280C53B9A3A06C09FF64F64CEB4)
+![](assets/Swiper/file-20260708103149c26f61c1.gif)

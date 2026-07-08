@@ -1,6 +1,6 @@
 # UIAbilityContext
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2349,8 +2349,10 @@ moveAbilityToBackground(): Promise&lt;void&gt;
 
 **设备行为差异**：
 
- - 从API version 12开始，该接口仅在Phone、Wearable和TV设备中可正常调用，在其他设备上返回16000061错误码。
- - 从API version 13开始，该接口仅在Phone、Tablet、Wearable和TV设备中可正常调用，在其他设备上返回16000061错误码。
+ - 从API version 12开始，该接口仅在Phone设备中可正常调用，在其他设备上返回16000061错误码。
+ - 从API version 13开始，该接口仅在Phone和Tablet设备中可正常调用，在其他设备上返回16000061错误码。
+ - 从API version 18开始，该接口仅在Phone、Tablet和Wearable设备中可正常调用，在其他设备上返回16000061错误码。
+ - 从API version 19开始，该接口仅在Phone、Tablet、Wearable和TV设备中可正常调用，在其他设备上返回16000061错误码。
 
 
 **返回值：**

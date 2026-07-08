@@ -1,6 +1,6 @@
 # Interface (WindowStage)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2107,7 +2107,7 @@ setImageForRecent(imageResource: number | image.PixelMap, value: ImageFit): Prom
 设置应用在多任务中和Dock栏悬停时显示的图片，使用Promise异步回调。
 
 > [!NOTE]
-> 调用该接口前，建议先通过 loadContent 方法或者 setUIContent 方法完成页面加载。如果应用窗口未完成页面加载就直接调用该接口，功能将不会生效。此时多任务中只显示应用启动页。
+> 调用该接口前，建议先通过 loadContent 方法或者 setUIContent 方法完成页面加载。如果应用窗口未完成页面加载就直接调用该接口，功能将不会生效。此时多任务中只显示应用启动页。该接口不支持应用在后台状态时调用，否则返回错误码1300002。
 
 
 **起始版本：** 26.0.0

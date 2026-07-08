@@ -1,6 +1,6 @@
 # wearEngine（穿戴设备能力开放）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
 **支持设备：** Phone | Tablet | Wearable
@@ -1081,12 +1081,12 @@ try {
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| WEAR_STATUS | wearStatus | 佩戴状态。返回值含义： 1：佩戴 2：未佩戴 |
-| POWER_STATUS | powerStatus | 电量状态。返回值含义：剩余电量百分比（0~100）。 |
-| CHARGE_STATUS | chargeStatus | 充电状态。返回值含义： 1：正在充电 2：未充电 3：电量已充满 |
-| AVAILABLE_STORAGE_SPACE | availableStorageSpace | 可用存储空间。返回值含义：用户可用空间（KB）。 |
-| POWER_MODE | powerMode | 电源模式。返回值含义： -1：设备不区分电源模式 0：智能模式 1：超长续航模式 |
-| SPORT_STATUS | sportStatus | 运动状态。返回值含义： 3：运动开始 4：运动暂停 5：运动中 6：运动结束 起始版本： 6.1.1(24) |
+| WEAR_STATUS | 'wearStatus' | 佩戴状态。返回值含义： 1：佩戴 2：未佩戴 |
+| POWER_STATUS | 'powerStatus' | 电量状态。返回值含义：剩余电量百分比（0~100）。 |
+| CHARGE_STATUS | 'chargeStatus' | 充电状态。返回值含义： 1：正在充电 2：未充电 3：电量已充满 |
+| AVAILABLE_STORAGE_SPACE | 'availableStorageSpace' | 可用存储空间。返回值含义：用户可用空间（KB）。 |
+| POWER_MODE | 'powerMode' | 电源模式。返回值含义： -1：设备不区分电源模式 0：智能模式 1：超长续航模式 |
+| SPORT_STATUS | 'sportStatus' | 运动状态。返回值含义： 3：运动开始 4：运动暂停 5：运动中 6：运动结束 起始版本： 6.1.1(24) |
 
 
 
@@ -2619,9 +2619,9 @@ P2p通信过程中可用的设备侧应用参数类。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| DISTRIBUTED_SERVICE | DistributedService | 分布式服务组件，当要启动分布式服务组件时需设置此值。 |
-| SERVICE | Service | 服务组件，当要拉起服务时需设置此值。 |
-| UI | UI | UI组件，当要启动UI组件时需要设置此值。 |
+| DISTRIBUTED_SERVICE | 'DistributedService' | 分布式服务组件，当要启动分布式服务组件时需设置此值。 |
+| SERVICE | 'Service' | 服务组件，当要拉起服务时需设置此值。 |
+| UI | 'UI' | UI组件，当要启动UI组件时需要设置此值。 |
 
 
 
@@ -2917,9 +2917,9 @@ onAction(feedback: NotificationFeedback): void
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| FIRST_BUTTON | firstButton | 第一个按钮的Id。 |
-| SECOND_BUTTON | secondButton | 第二个按钮的Id。 |
-| THIRD_BUTTON | thirdButton | 第三个按钮的Id。 |
+| FIRST_BUTTON | 'firstButton' | 第一个按钮的Id。 |
+| SECOND_BUTTON | 'secondButton' | 第二个按钮的Id。 |
+| THIRD_BUTTON | 'thirdButton' | 第三个按钮的Id。 |
 
 
 

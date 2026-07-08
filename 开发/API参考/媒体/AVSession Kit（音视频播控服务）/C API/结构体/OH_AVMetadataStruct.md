@@ -1,6 +1,6 @@
 # OH_AVMetadataStruct
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohavsession-oh-avmetadatastruct
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_AVMetadataStruct OH_AVMetadata
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-会话元数据。资源设置的avmetadata的实例。
+会话元数据。用于存储媒体资源元数据的结构体定义。
  
 **起始版本：** 13
  

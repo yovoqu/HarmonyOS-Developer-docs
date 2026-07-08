@@ -1,6 +1,6 @@
 # 使用HiCollie监控函数执行时间超长问题（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hicollie-settimer-guidelines-ndk
 

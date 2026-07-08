@@ -1,6 +1,6 @@
 # 订阅资源泄漏事件（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events-arkts
 
@@ -130,18 +130,18 @@ hiAppEvent.addWatcher({
   
 ```ArkTS
 Button('pss leak')
-    .type(ButtonType.Capsule)
-    .margin({
-      top: 20
-    })
-    .backgroundColor('#0D9FFB')
-    .width('80%')
-    .height('5%')
-    .onClick(() => {
-      // 设置一个简单的资源泄漏场景
-      hilog.info(0x0000, 'testTag', 'click pss leak button');
-      testNapi.leakMB(3072);
-    })
+  .type(ButtonType.Capsule)
+  .margin({
+    top: 20
+  })
+  .backgroundColor('#0D9FFB')
+  .width('80%')
+  .height('5%')
+  .onClick(() => {
+    // 设置一个简单的资源泄漏场景
+    hilog.info(0x0000, 'testTag', 'click pss leak button');
+    testNapi.leakMB(3072);
+  })
 Button('js leak')
   .type(ButtonType.Capsule)
   .margin({

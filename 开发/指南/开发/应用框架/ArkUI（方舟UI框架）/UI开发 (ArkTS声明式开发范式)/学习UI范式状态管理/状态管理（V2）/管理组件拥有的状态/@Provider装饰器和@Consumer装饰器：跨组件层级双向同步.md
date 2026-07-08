@@ -1,6 +1,6 @@
 # @Provider装饰器和@Consumer装饰器：跨组件层级双向同步
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer
 
@@ -22,7 +22,7 @@
 @Consumer，即数据消费方，可以通过绑定同样的key获取其最近父节点的@Provider的数据，当查找不到@Provider的数据时，使用本地默认值。图示如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/qhhtA23pTE6nKbokz0-4WQ/zh-cn_image_0000002626068172.png?HW-CC-KV=V1&HW-CC-Date=20260624T020744Z&HW-CC-Expire=86400&HW-CC-Sign=C2337BB105BC304AF25130EDD6E6CE614B87D24CD3BE8A8BD2F2FB6BAC87824F)
+![](assets/@Provider装饰器和@Consumer装饰器：跨组件层级双向同步/file-20260708103954ee3bc254.png)
 
 
 @Provider和@Consumer装饰的数据类型需要一致。
@@ -893,7 +893,7 @@ struct TestRemove {
 
 上面的例子中：
 
- - 点击add Child，TestRemove中@Consumer向上找到最近的RemoChildDisconnectProvider中的@Provider，将@Consumer从默认值更新为@Provider的值，并回调@Consumer的@Monitor方法。
- - @Provider和@Consumer配对后，建立双向同步关系。点击change Provider和Text(change cc)，@Provider和@Consumer绑定的Text组件刷新，并回调@Provider和@Consumer的@Monitor方法。
- - 点击remove Child，BuilderNode子节点从组件树卸载，TestRemove中的@Consumer和RemoChildDisconnectProvider中的@Provider断开连接，TestRemove中的@Consumer恢复成默认值，并回调@Consumer的@Monitor方法。
- - 点击dispose Child，释放BuilderNode下的子节点TestRemove，随后该子节点销毁，执行aboutToDisappear回调。
+ - 点击add child，TestRemove中@Consumer向上找到最近的RemoChildDisconnectProvider中的@Provider，将@Consumer从默认值更新为@Provider的值，并回调@Consumer的@Monitor方法。
+ - @Provider和@Consumer配对后，建立双向同步关系。点击change Provider和change cc，@Provider和@Consumer绑定的Text组件刷新，并回调@Provider和@Consumer的@Monitor方法。
+ - 点击remove child，BuilderNode子节点从组件树卸载，TestRemove中的@Consumer和RemoChildDisconnectProvider中的@Provider断开连接，TestRemove中的@Consumer恢复成默认值，并回调@Consumer的@Monitor方法。
+ - 点击dispose child，释放BuilderNode下的子节点TestRemove，随后该子节点销毁，执行aboutToDisappear回调。

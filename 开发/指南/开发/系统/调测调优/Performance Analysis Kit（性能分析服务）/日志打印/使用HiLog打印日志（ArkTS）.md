@@ -1,6 +1,6 @@
 # 使用HiLog打印日志（ArkTS）
 
-更新时间：2026-03-12 09:39:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog-guidelines-arkts
 
@@ -161,7 +161,7 @@ struct Index {
 ```text
 'peter is %{public}o'
 ```
-其中变参"%{public}o"为公共的对象
+其中变参"%{public}o"为公共的对象。
 4. 在真机上运行该工程，单击应用/服务界面上的“Next”按钮。
 5. 在DevEco Studio的底部，切换到“Log”窗口，设置日志的过滤条件。
 

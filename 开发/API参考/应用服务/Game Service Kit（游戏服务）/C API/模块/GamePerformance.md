@@ -1,6 +1,6 @@
 # GamePerformance
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -3480,7 +3480,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetThermalLevel (GameP
 | 名称 | 描述 |
 | --- | --- |
 | thermalInfo | 指针指向GamePerformance_ThermalInfo实例。该值不可以为空，否则将返回错误码401。 |
-| thermalLevel | 温度等级，即温控档位，档位越高表示温度越高。不同档位及其建议如下： 1：无需处理。 2：建议降低无感知业务规格，例如后台更新降速或延迟运行。 3：建议暂停无感知业务，降低游戏非核心业务的规格，例如前台更新降速。 4：建议减少游戏特效，降低分辨率，画质。 5：建议降低全场景规格，进一步降低分辨率、画质等。 6：建议游戏降至最低规格。 |
+| thermalLevel | 温度等级，即温控档位。不同档位及其建议如下： 1：无需处理。 2：建议降低无感知业务规格，例如后台更新降速或延迟运行。 3：建议暂停无感知业务，降低游戏非核心业务的规格，例如前台更新降速。 4：建议减少游戏特效，降低分辨率，画质。 5：建议降低全场景规格，进一步降低分辨率、画质等。 6：建议游戏降至最低规格。 |
  
  
 **返回：**

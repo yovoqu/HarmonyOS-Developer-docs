@@ -1,6 +1,6 @@
 # Interface (AVSessionController)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsessioncontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -772,7 +772,7 @@ avcontroller.getLaunchAbility((err: BusinessError, agent: object) => {
 
 getRealPlaybackPositionSync(): number
 
-获取当前播放位置。
+使用同步方法获取当前播放位置。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 

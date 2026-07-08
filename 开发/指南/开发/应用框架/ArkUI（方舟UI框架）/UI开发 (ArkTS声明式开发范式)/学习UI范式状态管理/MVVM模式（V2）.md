@@ -1,6 +1,6 @@
 # MVVM模式（V2）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-mvvm-v2
 
@@ -1106,7 +1106,7 @@ export default class TaskListModel {
         return newTask;
       });
     } catch (e) {
-      hilog.error(DOMAIN, 'testTag', 'Failed to getRawFileContent', JSON.stringify(e) ?? '');
+      hilog.error(DOMAIN, 'testTag', 'Failed to getRawFileContent: %{public}s', JSON.stringify(e) ?? '');
     }
   }
 }
@@ -1206,7 +1206,7 @@ export default struct TitleView {
       Text('To do')
         .fontSize(40)
         .margin(10)
-      Text(`All Not Completed：${this.tasksUnfinished}`)
+      Text(`Unfinished task:${this.tasksUnfinished}`)
         .margin({ left: 10, bottom: 10 })
     }
   }
@@ -1431,4 +1431,4 @@ struct SettingPage {
 
 #### 代码示例
 
-[完整源码](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/ArkUISample/StateMgmtV2MVVM/entry)
+[完整源码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/StateMgmtV2MVVM)

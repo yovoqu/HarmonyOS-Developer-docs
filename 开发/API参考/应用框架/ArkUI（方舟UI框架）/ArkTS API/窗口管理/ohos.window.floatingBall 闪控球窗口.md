@@ -1,6 +1,6 @@
 # @ohos.window.floatingBall (闪控球窗口)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -118,7 +118,7 @@ try {
   }).catch((err: BusinessError) => {
     console.error(`Failed to create floating ball controller. Cause:${err.code}, message:${err.message}`);
   });
-} catch(e) {
+} catch (e) {
   console.error(`Failed to create floating ball controller. Cause:${e.code}, message:${e.message}`);
 }
 ```
@@ -211,7 +211,7 @@ try {
   }).catch((err: BusinessError) => {
     console.error(`Failed to start floating ball. Cause:${err.code}, message:${err.message}`);
   });
-} catch(e) {
+} catch (e) {
   console.error(`Failed to start floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
@@ -275,7 +275,7 @@ try {
   }).catch((err: BusinessError) => {
     console.error(`Failed to update floating ball. Cause:${err.code}, message:${err.message}`);
   });
-} catch(e) {
+} catch (e) {
   console.error(`Failed to update floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
@@ -362,7 +362,7 @@ let onStateChange = (state: floatingBall.FloatingBallState) => {
 };
 try {
   floatingBallController.on('stateChange', onStateChange);
-} catch(e) {
+} catch (e) {
   console.error(`Failed to on stateChange floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
@@ -406,7 +406,7 @@ let onStateChange = (state: floatingBall.FloatingBallState) => {
 };
 try {
   floatingBallController.off('stateChange', onStateChange);
-} catch(e) {
+} catch (e) {
   console.error(`Failed to off stateChange floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
@@ -451,7 +451,7 @@ let onClick = () => {
 };
 try {
   floatingBallController.on('click', onClick);
-} catch(e) {
+} catch (e) {
   console.error(`Failed to on click floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
@@ -495,7 +495,7 @@ let onClick = () => {
 };
 try {
   floatingBallController.off('click', onClick);
-} catch(e) {
+} catch (e) {
   console.error(`Failed to off click floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
@@ -606,8 +606,8 @@ try {
   }).catch((err: BusinessError) => {
     console.error(`Failed to restore floating ball main window. Cause code: ${err.code}, message: ${err.message}`);
   });
-} catch(e) {
-  console.error(`Failed to create floating ball controller. Cause:${e.code}, message:${e.message}`);
+} catch (e) {
+  console.error(`Failed to restore floating ball main window. Cause:${e.code}, message:${e.message}`);
 }
 ```
 

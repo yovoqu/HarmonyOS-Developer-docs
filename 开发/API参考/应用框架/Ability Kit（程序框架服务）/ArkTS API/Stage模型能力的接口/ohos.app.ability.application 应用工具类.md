@@ -1,6 +1,6 @@
 # @ohos.app.ability.application (应用工具类)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -412,7 +412,7 @@ exitMasterProcessRole(): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-**设备行为差异：** 该接口仅在2in1、Tablet设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口仅在PC/2in1、Tablet设备中可正常调用，在其他设备中返回801错误码。
 
 **返回值：**
 

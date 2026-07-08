@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（交互类相关属性）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-interaction
 
@@ -231,8 +231,8 @@ NODE_EXPAND_SAFE_AREA = 92
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0]?.u32 | 扩展安全区域的枚举值集合ArkUI_SafeAreaType，例如：ARKUI_SAFE_AREA_TYPE_SYSTEM \| ARKUI_SAFE_AREA_TYPE_CUTOUT。 |
-| .value[1]?.u32 | 扩展安全区域的方向枚举值集合ArkUI_SafeAreaEdge，例如：ARKUI_SAFE_AREA_EDGE_TOP \| ARKUI_SAFE_AREA_EDGE_BOTTOM。 |
+| .value[0]?.u32 | 设置扩展安全区域的枚举值集合ArkUI_SafeAreaType，例如：ARKUI_SAFE_AREA_TYPE_SYSTEM \| ARKUI_SAFE_AREA_TYPE_CUTOUT。 |
+| .value[1]?.u32 | 设置扩展安全区域的方向枚举值集合ArkUI_SafeAreaEdge，例如：ARKUI_SAFE_AREA_EDGE_TOP \| ARKUI_SAFE_AREA_EDGE_BOTTOM。 |
  
  
 **返回：**

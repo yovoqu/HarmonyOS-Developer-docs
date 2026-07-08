@@ -1,6 +1,6 @@
 # @ohos.advertising (广告服务框架)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -879,7 +879,7 @@ const adInteractionListener: advertising.AdInteractionListener = {
 | useMobileDataReminder | boolean | 否 | 使用移动数据播放视频或下载应用时是否弹框通知用户。 - true：弹框通知。 - false：不弹框通知。 - 该参数依赖流量弹窗功能，当前不支持完整功能的使用，暂不确定默认值。 |
 | mute | boolean | 否 | 广告视频播放是否静音。 - true：静音播放。 - false：非静音播放。 不填以业务逻辑为准。 |
 | audioFocusType | number | 否 | 视频播放过程中获得音频焦点的场景类型。 - 0：视频播放静音、非静音时都获取焦点。 - 1：视频静音播放时不获取焦点。 - 2：视频播放静音、非静音时都不获取焦点。 - 该接口依赖的相关功能当前不支持使用，暂不确定默认值。 |
-| [key: string] | number \| boolean \| string \| undefined | 否 | 自定义参数。 - refreshTime：AutoAdComponent组件可选自定义参数，用于控制广告的轮播时间间隔。类型number，单位：ms，取值范围[30000, 120000]。如果不设置或取值为非数字或小于等于0的数字，则不轮播，只会展示广告响应中的第一个广告内容。设置小于30000的数字取值30000，设置大于120000的数字取值120000。 - colorMode：广告的主题色。类型number。0：深色主题， 1：浅色主题 ， 2：跟随系统。设置主题色功能从8.4.80.300版本开始支持，查看方式：可在设备上选择“设置> 应用和元服务” ，右上角点击“更多应用”，在应用界面查看智慧营销服务版本。 |
+| [key: string] | number \| boolean \| string \| undefined | 否 | 自定义参数。 - refreshTime：AutoAdComponent组件可选自定义参数，用于控制广告的轮播时间间隔。类型number，单位：ms，取值范围[30000, 120000]。如果不设置或取值为非数字或小于等于0的数字，则不轮播，只会展示广告响应中的第一个广告内容。设置小于30000的数字取值30000，设置大于120000的数字取值120000。 - colorMode：广告的主题色。类型number。0：深色主题， 1：浅色主题 ， 2：跟随系统，默认值为2。设置主题色功能从8.4.80.300版本开始支持，查看方式：可在设备上选择“设置> 应用和元服务” ，右上角点击“更多应用”，在应用界面查看智慧营销服务版本。 |
 
 
 

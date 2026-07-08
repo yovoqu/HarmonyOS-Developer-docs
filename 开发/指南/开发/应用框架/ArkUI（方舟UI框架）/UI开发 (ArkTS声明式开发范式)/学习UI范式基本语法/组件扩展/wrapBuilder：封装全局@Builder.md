@@ -1,6 +1,6 @@
 # wrapBuilder：封装全局@Builder
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder
 
@@ -236,7 +236,7 @@ struct Parent {
 
 #### 重复定义wrapBuilder失效
 
-在同一个自定义组件内，同一个wrapBuilder只能初始化一次。例如，builderObj通过wrapBuilder(MyBuilderFirst)初始化后，再次对builderObj赋值wrapBuilder(MyBuilderSecond)将不会生效。
+在同一个自定义组件内，同一个wrapBuilder只能初始化一次。例如，builderObj通过wrapBuilder(myBuilderFirst)初始化后，再次对builderObj赋值wrapBuilder(myBuilderSecond)将不会生效。
 
 ```ArkTS
 @Builder

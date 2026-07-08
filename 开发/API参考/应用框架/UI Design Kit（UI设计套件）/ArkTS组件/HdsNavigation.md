@@ -1,6 +1,6 @@
 # HdsNavigation
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -1121,7 +1121,7 @@ HdsNavigation标题栏背景板样式。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| backgroundColor | ResourceColor | 否 | 是 | 标题栏背景板背景色。 默认值： 模糊样式类型为COMMON_BLUR或GRADUAL_BLUR时，背景色默认值均为透明色。 模糊样式类型为GRADIENT_BLUR时，背景色生效线性径向渐变色，具体默认值分以下场景： - 若ScrollEffectOptions.enableScrollEffect为true，在TitleBarStyleOptions.originalStyle中，backgroundColor默认值为透明色；在TitleBarStyleOptions.scrollEffectStyle中，backgroundColor默认值为#99000000。 - 若ScrollEffectOptions.enableScrollEffect为false，仅在TitleBarStyleOptions.originalStyle中，backgroundColor生效，默认值为透明色。 从6.1.0(23)开始，新增如下背景色默认规则： 当模糊样式类型为GRADIENT_BLUR并已配置systemMaterialEffect，或者模糊类型为IMMERSIVE_GRADIENT_BLUR时，对应默认值如下： - 若ScrollEffectOptions.enableScrollEffect为true，默认值为透明色；若ScrollEffectOptions.enableScrollEffect为false，默认值为\$r('sys.color.comp_background_gray')。 - 仅当ScrollEffectOptions.enableScrollEffect为true时生效，默认值为r('sys.color.comp_background_gray')。 |
+| backgroundColor | ResourceColor | 否 | 是 | 标题栏背景板背景色。 默认值： 模糊样式类型为COMMON_BLUR或GRADUAL_BLUR时，背景色默认值均为透明色。 模糊样式类型为GRADIENT_BLUR时，背景色生效线性径向渐变色，具体默认值分以下场景： - 若ScrollEffectOptions.enableScrollEffect为true，在TitleBarStyleOptions.originalStyle中，backgroundColor默认值为透明色；在TitleBarStyleOptions.scrollEffectStyle中，backgroundColor默认值为#99000000。 - 若ScrollEffectOptions.enableScrollEffect为false，仅在TitleBarStyleOptions.originalStyle中，backgroundColor生效，默认值为透明色。 从6.1.0(23)开始，新增如下背景色默认规则： 当模糊样式类型为GRADIENT_BLUR并已配置systemMaterialEffect，或者模糊类型为IMMERSIVE_GRADIENT_BLUR时，对应默认值如下： - 若ScrollEffectOptions.enableScrollEffect为true，默认值为透明色；若ScrollEffectOptions.enableScrollEffect为false，默认值为\$r('sys.color.comp_background_gray')。 - 仅当ScrollEffectOptions.enableScrollEffect为true时生效，默认值为\$r('sys.color.comp_background_gray')。 |
 | maskExtraHeight | number | 否 | 是 | 标题栏模糊蒙层超出标题栏的额外高度。该配置只在模糊样式类型配置为GRADIENT_BLUR时生效。单位：vp。 默认值：32。单位：vp。 起始版本： 6.0.0(20) |
 | blurRadius | number | 否 | 是 | 标题栏模糊半径。仅在模糊样式类型配置为渐变模糊GRADIENT_BLUR及沉浸式渐变模糊IMMERSIVE_GRADIENT_BLUR时生效。取值范围为[0.0, 128.0]。超出取值范围时，按默认值处理。 默认值： - 作为TitleBarStyleOptions.originalStyle中的属性时，当ScrollEffectOptions.enableScrollEffect为true时，默认值为0.0；当ScrollEffectOptions.enableScrollEffect为false，未配置systemMaterialEffect时，默认值为16.0，配置systemMaterialEffect时，默认值为12.0。 - 作为TitleBarStyleOptions.scrollEffectStyle中的属性时，仅在ScrollEffectOptions.enableScrollEffect为true时生效，未配置systemMaterialEffect时，默认值为16.0，配置systemMaterialEffect时，默认值为12.0。 起始版本： 6.1.0(23) |
 
@@ -2013,7 +2013,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/7tI2OrrsRjCby8kLgTCesw/zh-cn_image_0000002656470587.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=28F0E34BE9A29A6C58E952AC9E6F371F05FA25736FEE272CA166F1092042E801)
+![](assets/HdsNavigation/file-20260708103033eb0fe1ad.gif)
 
 
 
@@ -2094,7 +2094,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/nojORsxUR9-FhLLqlCvvNg/zh-cn_image_0000002656350637.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=0436EF38073B0EAFB4C1F63645643400FBF217A84062B7AD308C88DE1F278D66)
+![](assets/HdsNavigation/file-202607081030337c7468b5.jpg)
 
 
 
@@ -2191,7 +2191,7 @@ struct SheetTransitionExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/zXmRpdKXTq-zGnaC4haV6A/zh-cn_image_0000002626231224.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=534918F5DC86906F08AAC77AF6CE7F6FD67BF0BE7930D758DA9511B23EABEC40)
+![](assets/HdsNavigation/file-202607081030333c8af432.jpg)
 
 
 
@@ -2283,7 +2283,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/kHnvBrZMTumni3E2xfZ8lQ/zh-cn_image_0000002626071312.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=A5FA1CFA407FAD823FB0406ABB1CF409F1F5EF62B9B29AB80ADEEE3E6D73A9DE)
+![](assets/HdsNavigation/file-20260708103034ebc2c528.gif)
 
 
 
@@ -2340,7 +2340,7 @@ struct MultiWindowEntryInAPPTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/6Ttd-ehfRg-vO4NI7WqQCw/zh-cn_image_0000002656470589.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=BC6667EEDEA93799AC3CBE74428E2198C92E820D366A2895B560FF8C849E939F)
+![](assets/HdsNavigation/file-202607081030349e10819b.jpg)
 
 
 
@@ -2411,7 +2411,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/EYjSbDQiRUW-oOhCTyVfSw/zh-cn_image_0000002656350639.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=2D7EADCCFB3736BC1FA723D90C30B19D9EC54C42F72B133C3B40506C22C9E792)
+![](assets/HdsNavigation/file-20260708103033463529e1.gif)
 
 
 
@@ -2511,7 +2511,7 @@ struct Index {
 执行上述代码展示的效果如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/tPo8hB9fTqGSyCO3hhKEPA/zh-cn_image_0000002626231226.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=DE2CF5C9E3A21DB6470456AA7AE3FB0D0A989D14015E6243A475E2FF8B6D6A9A)
+![](assets/HdsNavigation/file-20260708103034617622df.gif)
 
 
 
@@ -2656,4 +2656,4 @@ struct NavigationExample2 {
 执行上述代码，效果展示如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/1RK1KSAOSc6H4uNvoTK3kA/zh-cn_image_0000002626071314.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=BA4F16394CC77589558BBFD0C0493DA27A31B628AAA1C2D232DA47DED6CC8BF0)
+![](assets/HdsNavigation/file-202607081030340df8f30b.gif)

@@ -1,6 +1,6 @@
 # ImageBitmap
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -98,6 +98,8 @@ constructor(data: PixelMap, unit: LengthMetricsUnit)
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
@@ -119,6 +121,8 @@ constructor(data: Resource, unit?: LengthMetricsUnit)
 通过Resource创建ImageBitmap对象，支持使用unit配置ImageBitmap对象的单位模式。
 
 **起始版本：** 26.0.0
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
@@ -253,7 +257,7 @@ struct Demo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/sIun0TJ9St-F80zPGKg6PA/zh-cn_image_0000002659102067.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=60FF01D7F49D64DA14796601738E72F513005D255EE947FBC65F6D00BAB26F55)
+![](assets/ImageBitmap/file-20260708103135b6194c4d.png)
 
 
 
@@ -304,7 +308,6 @@ Worker线程在onmessage中接收到主线程postMessage发送的ImageBitmap，�
 
 ```text
 import { MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
-import { image } from '@kit.ImageKit';
 
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 workerPort.onmessage = (e: MessageEvents) => {
@@ -320,7 +323,7 @@ workerPort.onmessage = (e: MessageEvents) => {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/Yjk-UUTgShqerT6Ln7ttHA/zh-cn_image_0000002628702840.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=430D976682E3C080A55A7FF3AE17C65BC2D850D7668A50AB0E1E5B3C834E0A30)
+![](assets/ImageBitmap/file-20260708103136d14df1a5.png)
 
 
 
@@ -359,4 +362,4 @@ struct ImageBitmapResourceExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/cG8bxBMDQFGbmHz6DyalpQ/zh-cn_image_0000002628862720.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=AAC6F651AD4F73FF51200DF9FD2986AF9FA2EB734AF59AEAB4BC0AE63920F83A)
+![](assets/ImageBitmap/file-20260708103136d14df1a5.png)

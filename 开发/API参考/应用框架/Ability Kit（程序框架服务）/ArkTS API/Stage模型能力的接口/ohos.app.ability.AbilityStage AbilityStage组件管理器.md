@@ -1,6 +1,6 @@
 # @ohos.app.ability.AbilityStage (AbilityStage组件管理器)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -293,8 +293,8 @@ onPrepareTermination(): AbilityConstant.PrepareTermination
 
 **设备行为差异**：
 
- - 从API version 15开始，该接口仅在2in1设备中可正常执行回调，在其他设备上不执行回调。
- - 从API version 19开始，该接口仅在2in1和Tablet设备中可正常执行回调，在其他设备上不执行回调。
+ - 从API version 15开始，该接口仅在PC/2in1设备中可正常执行回调，在其他设备上不执行回调。
+ - 从API version 19开始，该接口仅在PC/2in1和Tablet设备中可正常执行回调，在其他设备上不执行回调。
 
 
 **返回值：**
@@ -339,8 +339,8 @@ onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>
 
 **设备行为差异**：
 
- - 从API version 15开始，该接口仅在2in1设备中可正常执行回调，在其他设备上不执行回调。
- - 从API version 19开始，该接口仅在2in1和Tablet设备中可正常执行回调，在其他设备上不执行回调。
+ - 从API version 15开始，该接口仅在PC/2in1设备中可正常执行回调，在其他设备上不执行回调。
+ - 从API version 19开始，该接口仅在PC/2in1和Tablet设备中可正常执行回调，在其他设备上不执行回调。
 
 
 **返回值：**

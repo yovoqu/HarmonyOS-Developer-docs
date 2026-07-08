@@ -1,6 +1,6 @@
 # arEngine（AR增强现实能力）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine
 **支持设备：** Phone | Tablet | TV
@@ -184,18 +184,18 @@ import { arEngine } from '@kit.AREngine';
 | EYE_LOOK_DOWN_RIGHT | 8 | 右上眼皮微下垂。 |
 | EYE_LOOK_IN_RIGHT | 9 | 右眼内部眼皮向右扩。 |
 | EYE_LOOK_OUT_RIGHT | 10 | 右眼睑向右扩。 |
-| EYE_LOOK_UP_RIGHT | 11 | 右眼上眼皮微上抬 |
+| EYE_LOOK_UP_RIGHT | 11 | 右眼上眼皮微上抬。 |
 | EYE_SQUINT_RIGHT | 12 | 右下眼睑上抬。 |
 | EYE_WIDE_RIGHT | 13 | 右眼瞪大眼。 |
 | JAW_FORWARD | 14 | 下巴朝前。 |
-| JAW_LEFT | 15 | 下巴朝左 |
+| JAW_LEFT | 15 | 下巴朝左。 |
 | JAW_RIGHT | 16 | 下巴朝右。 |
 | JAW_OPEN | 17 | 张嘴。 |
 | MOUTH_FUNNEL | 18 | O型嘴。 |
 | MOUTH_PUCKER | 19 | 噘嘴。 |
 | MOUTH_LEFT | 20 | 嘴巴向左。 |
 | MOUTH_RIGHT | 21 | 嘴巴向右。 |
-| MOUTH_SMILE_LEFT | 22 | 左嘴角向左 |
+| MOUTH_SMILE_LEFT | 22 | 左嘴角向左。 |
 | MOUTH_SMILE_RIGHT | 23 | 右嘴角向右歪。 |
 | MOUTH_FROWN_LEFT | 24 | 左嘴角下拉 |
 | MOUTH_FROWN_RIGHT | 25 | 右嘴角下拉。 |
@@ -213,7 +213,7 @@ import { arEngine } from '@kit.AREngine';
 | BROW_DOWN_LEFT | 37 | 左侧眉毛朝下。 |
 | BROW_DOWN_RIGHT | 38 | 右侧眉毛朝下。 |
 | BROW_INNER_UP | 39 | 双侧眉毛抬眉。 |
-| BROW_OUTER_UP_LEFT | 40 | 左眉外侧向上抬 |
+| BROW_OUTER_UP_LEFT | 40 | 左眉外侧向上抬。 |
 | BROW_OUTER_UP_RIGHT | 41 | 右眉外侧向上抬。 |
 | CHEEK_PUFF | 42 | 鼓腮。 |
 | CHEEK_SQUINT_LEFT | 43 | 左脸颊上抬。 |
@@ -439,7 +439,7 @@ import { arEngine } from '@kit.AREngine';
 | --- | --- | --- |
 | FACING_HORIZONTAL_UPWARD | 0 | 朝上的水平面，如地面和桌面平台。 |
 | FACING_HORIZONTAL_DOWNWARD | 1 | 朝下的水平面，如天花板。 |
-| FACING_VERTICAL | 2 | 垂直的水平面，如墙壁。 |
+| FACING_VERTICAL | 2 | 垂直平面，如墙壁。 |
 | FACING_INVALID | 3 | 无效或不支持的平面类型。 这可能是由于环境变化、光线条件或其他因素导致。 |
 
 
@@ -1168,7 +1168,7 @@ await imageDatabase.release();
 | semanticDenseMode | ARSemanticDenseMode | 否 | 是 | 高精几何重建识别模式。 默认DISABLED。 起始版本： 6.0.0(20) |
 | cameraLensFacing | ARCameraLensFacing | 否 | 是 | 相机镜头朝向配置项。当cameraLensFacing配置为FRONT时，type配置为ARType.FACE或ARType.BODY才生效。 默认为REAR。 起始版本： 6.1.0(23) |
 | multiFaceMode | ARMultiFaceMode | 否 | 是 | 多人脸模式配置项。 默认为MULTIFACE_DISABLE。 起始版本： 6.1.0(23) |
-| maxDetectedBodyNum | number | 否 | 是 | 当类型为ARType.Body 时，需要检测的人体数量最大值。 默认为1，最大为2，超过2默认为2。 起始版本： 6.1.0(23) |
+| maxDetectedBodyNum | number | 否 | 是 | 当类型为ARType.BODY 时，需要检测的人体数量最大值。 默认为1，最大为2，超过2默认为2。 起始版本： 6.1.0(23) |
 | remoteSensorMode | ARRemoteSensorMode | 否 | 是 | 远程相机和sensor模式。 默认为LOCAL_SENSOR。 起始版本： 26.0.0 |
 
 
@@ -1890,7 +1890,7 @@ await anchors[0].release();
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| count | number | 是 | 否 | 表示混合形状的个数，最小为0，最大为64。 |
+| count | number | 是 | 否 | 表示微表情的个数，最小为0，最大为64。 |
 
 
 
@@ -1901,7 +1901,7 @@ await anchors[0].release();
 
 getData(): ArrayBuffer
 
-获取所有的表情参数。
+获取所有的微表情参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1915,7 +1915,7 @@ getData(): ArrayBuffer
 
 | 类型 | 说明 |
 | --- | --- |
-| ArrayBuffer | 混合形状数据。 |
+| ArrayBuffer | 微表情参数数据。 |
 
 
 **错误码：**
@@ -1947,7 +1947,7 @@ faceBlendShapes.getData();
 
 getTypes(): Array&lt;ARBlendShapeType&gt;
 
-获取所有表情参数类型。
+获取所有微表情类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1961,7 +1961,7 @@ getTypes(): Array&lt;ARBlendShapeType&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;ARBlendShapeType&gt; | 混合形状的类型。 |
+| Array&lt;ARBlendShapeType&gt; | 微表情的类型。 |
 
 
 **错误码：**
@@ -2049,7 +2049,7 @@ faceBlendShapes.release();
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| count | number | 是 | 否 | 表示混合形状的个数，固定为64。 |
+| count | number | 是 | 否 | 表示人脸关键点的个数，固定为84。 |
 
 
 

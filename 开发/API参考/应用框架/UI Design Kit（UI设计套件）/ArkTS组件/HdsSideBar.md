@@ -1,6 +1,6 @@
 # HdsSideBar
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssidebar
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -24,7 +24,7 @@ import { HdsSideBar } from '@kit.UIDesignKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-HdsSideBar({contentAreaMask?: boolean, isShowSideBar?: boolean, $isShowSideBar?: Callback&lt;boolean&gt;, minSideBarWidth?: Length, maxSideBarWidth?: Length, minContentWidth?: Length, sideBarColor?: ResourceColor, contentColor?: ResourceColor, sideBarWidth?: Length, autoHide?: boolean, isSideBarBlur?: boolean, sideBarPosition?: sideBarPosition, onChange?: Callback&lt;boolean&gt;, sideBarPanelBuilder: CustomBuilder, contentPanelBuilder: CustomBuilder, sideBarContainerType?: SideBarContainerType, scaleContentEnabled?: boolean, swipeEnabled?: boolean})
+HdsSideBar({contentAreaMask?: boolean, isShowSideBar?: boolean, $isShowSideBar?: Callback&lt;boolean&gt;, minSideBarWidth?: Length, maxSideBarWidth?: Length, minContentWidth?: Length, sideBarColor?: ResourceColor, contentColor?: ResourceColor, sideBarWidth?: Length, autoHide?: boolean, isSideBarBlur?: boolean, sideBarPosition?: SideBarPosition, onChange?: Callback&lt;boolean&gt;, sideBarPanelBuilder: CustomBuilder, contentPanelBuilder: CustomBuilder, sideBarContainerType?: SideBarContainerType, scaleContentEnabled?: boolean, swipeEnabled?: boolean})
  
 **装饰器类型：** @ComponentV2
  
@@ -90,8 +90,7 @@ import { HdsSideBar } from '@kit.UIDesignKit';
 struct Index {
   @Local isShowSidebar: boolean = true;
 
-  //左侧侧边栏区
-  @Builder
+  @Builder // 左侧侧边栏区
   SideBarPanelBuilder() {
     Column() {
       Text('左侧侧边栏区')
@@ -101,8 +100,7 @@ struct Index {
     .margin(40)
   }
 
-  //右侧内容区
-  @Builder
+  @Builder // 右侧内容区
   ContentPanelBuilder() {
     Text('右侧内容区')
       .margin(40)

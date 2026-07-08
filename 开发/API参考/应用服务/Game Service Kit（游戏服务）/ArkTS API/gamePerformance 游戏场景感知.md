@@ -1,6 +1,6 @@
 # gamePerformance（游戏场景感知）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -36,7 +36,7 @@ import { gamePerformance } from '@kit.GameServiceKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| tempLevel | number | 否 | 否 | 温控档位，档位越高表示温度越高。不同档位及其建议如下： 1：无需处理。 2：建议降低无感知业务规格，例如后台更新降速或延迟运行。 3：建议暂停无感知业务，降低游戏非核心业务的规格，例如前台更新降速。 4：建议减少游戏特效，降低分辨率，画质。 5：建议降低全场景规格，进一步降低分辨率、画质等。 6：建议游戏降至最低规格。 |
+| tempLevel | number | 否 | 否 | 温控档位。不同档位及其建议如下： 1：无需处理。 2：建议降低无感知业务规格，例如后台更新降速或延迟运行。 3：建议暂停无感知业务，降低游戏非核心业务的规格，例如前台更新降速。 4：建议减少游戏特效，降低分辨率，画质。 5：建议降低全场景规格，进一步降低分辨率、画质等。 6：建议游戏降至最低规格。 |
 | gpuInfo | GpuInfo | 否 | 是 | GPU性能信息。 |
 | thermalInfo | ThermalInfo | 否 | 是 | 温度变化趋势数据。 起始版本： 5.0.1(13)。 |
  
@@ -233,7 +233,7 @@ GPU性能信息类。
 **起始版本：** 5.0.0(12)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/i3j3HVz4Rg-4GrL-0ewlug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020336Z&HW-CC-Expire=86400&HW-CC-Sign=F62B14FC00A24E78F38EA5D224AEAB22C76636AA75691693C28348D29C40E1CC)
+![](assets/gamePerformance%20游戏场景感知/file-20260708103003e7f448b4.png)
  
  
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
@@ -397,7 +397,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let gamePackageInfo: gamePerformance.GamePackageInfo = {
   messageType: 0,
-  bundleName: 'com.example.demo', // 仅示例，请替换为实际的游戏包名
+  bundleName: 'com.example.demo', // 请替换为实际的游戏包名
   appVersion: '1.0'
 };
 try {

@@ -1,6 +1,6 @@
 # @ohos.app.ability.contextConstant (Context相关常量)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,7 +51,7 @@ ProcessMode作为[StartOptions](https://developer.huawei.com/consumer/cn/doc/har
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  
-**设备行为差异**：该功能仅在2in1和Tablet设备上生效，在其他设备中返回801错误码。
+**设备行为差异**：该功能仅在PC/2in1和Tablet设备上生效，在其他设备中返回801错误码。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ StartupVisibility作为[StartOptions](https://developer.huawei.com/consumer/cn/d
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
  
-**设备行为差异**：该功能仅在2in1和Tablet设备上生效，在其他设备中返回801错误码。
+**设备行为差异**：该功能仅在PC/2in1和Tablet设备上生效，在其他设备中返回801错误码。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

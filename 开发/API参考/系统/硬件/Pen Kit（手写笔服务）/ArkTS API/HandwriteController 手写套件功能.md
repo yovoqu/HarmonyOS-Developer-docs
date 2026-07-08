@@ -1,15 +1,11 @@
 # HandwriteController (手写套件功能)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecontroller
 **支持设备：** Phone | PC/2in1 | Tablet
 
 手写套件的主要功能入口类，用于管理手写内容的加载、保存等核心功能。
-
-**模型约束：** 此接口仅可在Stage模型下使用。
-
-**系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 5.0.0(12)
 

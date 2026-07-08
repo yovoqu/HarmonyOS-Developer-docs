@@ -1,6 +1,6 @@
 # hiai_single_op.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit-hiai-single-op-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -53,9 +53,9 @@
 | typedef struct HiAI_SingleOpTensor HiAI_SingleOpTensor | 单算子Tensor句柄。 |
 | typedef struct HiAI_SingleOpOptions HiAI_SingleOpOptions | 单算子选项句柄。 |
 | typedef struct HiAI_SingleOpDescriptor HiAI_SingleOpDescriptor | 单算子的算子描述句柄。 |
-| typedef struct HiAISingleOpDescriptor_ConvolutionParam | HMS_HiAISingleOpDescriptor_CreateConvolution输入参数。 |
-| typedef struct HiAI_SingleOpExecutorConvolutionParam | HMS_HiAISingleOpExecutor_CreateConvolution输入参数。 |
-| typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam | HMS_HiAISingleOpExecutor_CreateFusedConvolutionActivation输入参数。 |
+| typedef struct HiAISingleOpDescriptor_ConvolutionParam HiAISingleOpDescriptor_ConvolutionParam | HMS_HiAISingleOpDescriptor_CreateConvolution输入参数。 |
+| typedef struct HiAI_SingleOpExecutorConvolutionParam HiAI_SingleOpExecutorConvolutionParam | HMS_HiAISingleOpExecutor_CreateConvolution输入参数。 |
+| typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam HiAI_SingleOpExecutorFusedConvolutionActivationParam | HMS_HiAISingleOpExecutor_CreateFusedConvolutionActivation输入参数。 |
 | typedef struct HiAI_SingleOpExecutor HiAI_SingleOpExecutor | 单算子执行器句柄。 |
  
  

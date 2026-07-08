@@ -1,6 +1,6 @@
 # OffscreenCanvas
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -101,6 +101,8 @@ OffscreenCanvas支持以下属性：
 
 #### width
 
+**示例：**
+
 ```ArkTS
 // xxx.ets
 @Entry
@@ -140,6 +142,8 @@ struct OffscreenCanvasPage {
 
 
 #### height
+
+**示例：**
 
 ```ArkTS
 // xxx.ets

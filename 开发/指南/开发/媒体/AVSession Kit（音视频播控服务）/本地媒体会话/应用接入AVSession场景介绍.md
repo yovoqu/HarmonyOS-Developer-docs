@@ -1,6 +1,6 @@
 # 应用接入AVSession场景介绍
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene
 
@@ -35,8 +35,8 @@ AVSession会对后台音频播放、VoIP通话进行约束。因此，长音频�
 
 AVSession在构造方法中支持不同的类型参数，由 [AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10) 定义，不同的类型代表了不同场景的控制能力，对于播控中心来说，会展示不同的控制模版。
 
- - audio类型，播控中心的控制样式为：收藏，上一首，播放/暂停，下一首，循环模式。
- - video类型，播控中心的控制样式为：快退，上一首，播放/暂停，下一首，快进。
+ - audio类型，播控中心的控制样式为：收藏、上一首、播放/暂停、下一首、循环模式。
+ - video类型，播控中心的控制样式为：快退、上一首、播放/暂停、下一首、快进。
  - voice_call类型，通话类型。
 
 
@@ -281,7 +281,7 @@ struct Index {
 
 系统的播控中心会根据应用设置的信息自动计算播放进度，而不需要应用实时更新播放进度；但是当应用的state、position、speed信息发生变化的时候，必须同步更新AVPlaybackState信息，否则系统播控中心展示的应用状态信息、进度条信息等会出现异常。
 
-应用在真实播放开始时，再上报进度起始position；若播放存在buffer状态，可以先上报播放状态为AVSessionManager.PlaybackState.PLAYBACK_STATE_BUFFERING，来通知系统不刷新进度。
+应用在真实播放开始时，再上报进度起始position；若播放存在缓冲状态，可以先上报播放状态为AVSessionManager.PlaybackState.PLAYBACK_STATE_BUFFERING，来通知系统不刷新进度。
 
 关于进度条有一些特殊情况需要处理：
 1. 歌曲支持试听
@@ -294,7 +294,7 @@ struct Index {
   如果歌曲不支持试听，那么理论上应用内也不支持播放，这时可以把 duration 设置为 -1，以通知系统不显示实际的时长。
 3. 广告等内容的时长设置
 
-  对于有前贴广告、后贴广告的资源来说，建议这么处理：
+  对于有前贴片广告、后贴片广告的资源来说，建议按以下方式处理：
 
   
  - 播放广告时，单独设置广告的时长 duration。
@@ -570,7 +570,7 @@ struct Index {
 应用接入AVSession，通过on接口可以注册控制命令，实现播控中心界面上对应的控制按钮操作。
 
 > [!NOTE]
-> 创建AVSession后，请先注册应用支持的控制命令，再激活 Session。
+> 创建AVSession后，请先注册应用支持的控制命令，再激活Session。
 
 
 音视频类应用支持的控制命令列表：

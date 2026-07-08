@@ -1,6 +1,6 @@
 # I/O密集型任务开发指导 (TaskPool)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/io-intensive-task-development
 

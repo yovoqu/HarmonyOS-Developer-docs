@@ -1,6 +1,6 @@
 # Simulator性能仿真功能
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-simulator-performance-simulation
 
@@ -61,7 +61,7 @@ CAModel仿真结果存放在${root}/${work_dir}/simulator路径下，其中${roo
 
 1. 在执行ascendebug命令的目录下，会生成执行日志debug_op.log。
 
-2. 查看该日志，搜索"block finish"，可以看到类似如下日志，其中block_idx为芯片的核心序号，total tick为核函数执行的circle数，该值越大代表耗时越长。
+2. 查看该日志，搜索"block finish"，可以看到类似如下日志，其中block_idx为芯片的核心序号，total tick为核函数执行的cycle数，该值越大代表耗时越长。
 ```text
 block finish -> block_idx: 0 total tick: 4153
 ```
@@ -163,7 +163,7 @@ TRACE_STOP(0x1);
   **图1** 仿真打点示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/cFHTjuGpQpamkkgZI_DQWg/zh-cn_image_0000002659221239.png?HW-CC-KV=V1&HW-CC-Date=20260701T015302Z&HW-CC-Expire=86400&HW-CC-Sign=C4C27B8D470C0B74B9B5125A411314E7934DC1E5F68EF12045C1BE68EEF4774F)
+![](assets/Simulator性能仿真功能/file-2026070810332492642811.png)
 
  
   

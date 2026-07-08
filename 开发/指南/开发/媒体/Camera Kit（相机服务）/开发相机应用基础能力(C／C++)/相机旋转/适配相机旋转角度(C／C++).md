@@ -1,6 +1,6 @@
 # 适配相机旋转角度(C/C++)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation-native
 
@@ -45,11 +45,11 @@ void createPhotosession(Camera_Manager *cameraManager) {
     Camera_SceneMode sceneMode = NORMAL_PHOTO;
     Camera_ErrorCode ret = OH_CameraManager_CreateCaptureSession(cameraManager, &captureSession);
     if (captureSession == nullptr || ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "Create captureSession failed.");
+        OH_LOG_ERROR(LOG_APP, "Create captureSession failed.");
     }
     ret = OH_CaptureSession_SetSessionMode(captureSession, sceneMode);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_CaptureSession_SetSessionMode failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_SetSessionMode failed.");
     }
 }
 
@@ -58,11 +58,11 @@ void createVideosession(Camera_Manager *cameraManager) {
     Camera_SceneMode sceneMode = NORMAL_VIDEO;
     Camera_ErrorCode ret = OH_CameraManager_CreateCaptureSession(cameraManager, &captureSession);
     if (captureSession == nullptr || ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "Create captureSession failed.");
+        OH_LOG_ERROR(LOG_APP, "Create captureSession failed.");
     }
     ret = OH_CaptureSession_SetSessionMode(captureSession, sceneMode);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_CaptureSession_SetSessionMode failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_SetSessionMode failed.");
     }
 }
 ```
@@ -92,7 +92,7 @@ int32_t GetDefaultDisplayRotation() {
     NativeDisplayManager_Rotation displayRotation = DISPLAY_MANAGER_ROTATION_0;
     int32_t ret = OH_NativeDisplayManager_GetDefaultDisplayRotation(&displayRotation);
     if (ret != DISPLAY_MANAGER_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_NativeDisplayManager_GetDefaultDisplayRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_NativeDisplayManager_GetDefaultDisplayRotation failed.");
     }
     imageRotation = displayRotation * IAMGE_ROTATION_90;
     return imageRotation;
@@ -106,7 +106,7 @@ Camera_ImageRotation GetPreviewRotation(Camera_PreviewOutput* previewOutput, int
     Camera_ImageRotation previewRotation = IAMGE_ROTATION_0;
     Camera_ErrorCode ret = OH_PreviewOutput_GetPreviewRotation(previewOutput, imageRotation, &previewRotation);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_PreviewOutput_GetPreviewRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_PreviewOutput_GetPreviewRotation failed.");
     }
     return previewRotation;
 }
@@ -136,7 +136,7 @@ int32_t GetDefaultDisplayRotation() {
     NativeDisplayManager_Rotation displayRotation = DISPLAY_MANAGER_ROTATION_0;
     int32_t ret = OH_NativeDisplayManager_GetDefaultDisplayRotation(&displayRotation);
     if (ret != DISPLAY_MANAGER_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_NativeDisplayManager_GetDefaultDisplayRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_NativeDisplayManager_GetDefaultDisplayRotation failed.");
     }
     imageRotation = displayRotation * IAMGE_ROTATION_90;
     return imageRotation;
@@ -148,11 +148,11 @@ void InitPreviewRotation(Camera_PreviewOutput* previewOutput) {
     int32_t imageRotation = GetDefaultDisplayRotation();
     Camera_ErrorCode ret = OH_PreviewOutput_GetPreviewRotation(previewOutput, imageRotation, &previewRotation);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_PreviewOutput_GetPreviewRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_PreviewOutput_GetPreviewRotation failed.");
     }
     ret = OH_PreviewOutput_SetPreviewRotation(previewOutput, previewRotation, false);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_PreviewOutput_SetPreviewRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_PreviewOutput_SetPreviewRotation failed.");
     }
 }
 ```
@@ -172,7 +172,7 @@ int32_t GetDefaultDisplayRotation() {
     NativeDisplayManager_Rotation displayRotation = DISPLAY_MANAGER_ROTATION_0;
     int32_t ret = OH_NativeDisplayManager_GetDefaultDisplayRotation(&displayRotation);
     if (ret != DISPLAY_MANAGER_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_NativeDisplayManager_GetDefaultDisplayRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_NativeDisplayManager_GetDefaultDisplayRotation failed.");
     }
     imageRotation = displayRotation * IAMGE_ROTATION_90;
     return imageRotation;
@@ -187,11 +187,11 @@ void DisplayChangeCallback(uint64_t displayId)
     int32_t imageRotation = GetDefaultDisplayRotation();
     Camera_ErrorCode ret = OH_PreviewOutput_GetPreviewRotation(previewOutput, imageRotation, &previewRotation);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_PreviewOutput_GetPreviewRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_PreviewOutput_GetPreviewRotation failed.");
     }
     ret = OH_PreviewOutput_SetPreviewRotation(previewOutput, previewRotation, false);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_PreviewOutput_SetPreviewRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_PreviewOutput_SetPreviewRotation failed.");
     }
 }
 ```
@@ -218,7 +218,7 @@ Camera_ImageRotation GetPhotoRotation(Camera_PhotoOutput* photoOutput, int32_t d
     Camera_ImageRotation photoRotation = IAMGE_ROTATION_0;
     Camera_ErrorCode ret = OH_PhotoOutput_GetPhotoRotation(photoOutput, deviceDegree, &photoRotation);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_PhotoOutput_GetPhotoRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_PhotoOutput_GetPhotoRotation failed.");
     }
     return photoRotation;
 }
@@ -248,7 +248,7 @@ Camera_ImageRotation GetVideoRotation(Camera_VideoOutput* videoOutput, int32_t d
     Camera_ImageRotation videoRotation = IAMGE_ROTATION_0;
     Camera_ErrorCode ret = OH_VideoOutput_GetVideoRotation(videoOutput, deviceDegree, &videoRotation);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_PhotoOutput_GetPhotoRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_VideoOutput_GetVideoRotation failed.");
     }
     return videoRotation;
 }
@@ -270,12 +270,12 @@ void GetVideoRotationAndUpdate(Camera_VideoOutput* videoOutput, int32_t deviceDe
     Camera_ImageRotation videoRotation = IAMGE_ROTATION_0;
     Camera_ErrorCode ret = OH_VideoOutput_GetVideoRotation(videoOutput, deviceDegree, &videoRotation);
     if (ret != CAMERA_OK) {
-        OH_LOG_INFO(LOG_APP, "OH_PhotoOutput_GetPhotoRotation failed.");
+        OH_LOG_ERROR(LOG_APP, "OH_VideoOutput_GetVideoRotation failed.");
     }
     if (state == OH_AVRecorder_State::AVRECORDER_PREPARED) {
         OH_AVErrCode retCode = OH_AVRecorder_UpdateRotation(recorder, videoRotation);
         if (retCode != AV_ERR_OK) {
-            OH_LOG_INFO(LOG_APP, "OH_AVRecorder_UpdateRotation failed.");
+            OH_LOG_ERROR(LOG_APP, "OH_AVRecorder_UpdateRotation failed.");
         }
     }
 }

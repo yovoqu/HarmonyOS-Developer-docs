@@ -1,6 +1,6 @@
 # Cpp Crash（进程崩溃）检测
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines
 
@@ -62,7 +62,7 @@
 | 7 | SIGBUS | 非法内存访问 | 进程访问了未对齐或者不存在的物理地址。 |
 | 8 | SIGFPE | 浮点异常 | 进程执行了错误的算术运算，如除数为0、浮点溢出、整数溢出等。 |
 | 11 | SIGSEGV | 无效内存访问 | 进程访问了无效内存引用。 |
-| 16 | SIGSTKFLT | 栈错误 | 处理器执行了错误的栈操作，如栈空时弹出、栈满时压入。 |
+| 16 | SIGSTKFLT | 栈错误 | 处理器执行了错误的栈操作，如栈空时弹出、栈满时压入。 SIGSTKFLT信号不支持生成minidump。 |
 | 31 | SIGSYS | 错误系统调用 | 系统调用时使用了错误或非法参数。 |
 
 
@@ -601,7 +601,7 @@ pstate:0000000060001000 esr:0000000000000000
 原理示意图如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/OqtmBcrIR5qlHkDcNDXlxA/zh-cn_image_0000002626069158.png?HW-CC-KV=V1&HW-CC-Date=20260624T020855Z&HW-CC-Expire=86400&HW-CC-Sign=7EB35B7A12A06179082CB468E041C5C4721BD68244F469432FACDA0263194E72)
+![](assets/Cpp%20Crash（进程崩溃）检测/file-20260708103754c4cc5823.png)
 
 1. 提交线程搜集自身的调用栈信息，保存至进程特定区域内存的异步栈表中。
 2. 记录保存后，异步栈表返回唯一标识stackId。
@@ -616,7 +616,7 @@ pstate:0000000060001000 esr:0000000000000000
 以下是一份DevEco Studio归档在FaultLog的进程崩溃日志的核心内容。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/32fxAzUZSZmTLhjpwLbPjA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020855Z&HW-CC-Expire=86400&HW-CC-Sign=27C5880448782089FE45E8D386CB3D5CA6071A13DEEC99FC5EA903E69326FCB3)
+![](assets/Cpp%20Crash（进程崩溃）检测/file-20260708103754e7f448b4.png)
 
 
 异步线程栈跟踪维测功能默认仅在ARM 64位系统中开启。
@@ -780,7 +780,7 @@ Uid:0
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/Tqv0uTVcRlCr7smAU4BgzA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020855Z&HW-CC-Expire=86400&HW-CC-Sign=0D1DF73805422081FAB88484795EA5F042F72F2A3A30863E36CDE9046D834258)
+![](assets/Cpp%20Crash（进程崩溃）检测/file-20260708103754e7f448b4.png)
 
 
 仅在通过Navigation跳转到子页面时才会有页面名，页面名在[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)中定义。
@@ -990,7 +990,7 @@ onPageShow (sample|sample|1.0.0|src/main/ets/pages/Index.ts:381:36)
 从**API version 24**开始，当应用发生SIGPIPE异常退出时，可开启SIGPIPE信号打印调用栈功能，重启应用后，开发者复现问题场景，可以抓取调用栈信息并输出到HILOG。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/l4fiWBtwSaWv_9JBy413eA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020855Z&HW-CC-Expire=86400&HW-CC-Sign=F7C38E6AE03620AF3BF647917C79DDE907168C809753BA52AF0E32D6CE9420C6)
+![](assets/Cpp%20Crash（进程崩溃）检测/file-20260708103755e7f448b4.png)
 
 
 此功能只能在[debug版本应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#debug版本应用)开启。

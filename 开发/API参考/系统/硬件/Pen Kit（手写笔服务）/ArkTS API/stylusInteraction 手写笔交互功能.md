@@ -1,13 +1,11 @@
 # stylusInteraction (手写笔交互功能)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-stylusinteraction
 **支持设备：** Phone | PC/2in1 | Tablet
 
 手写笔交互功能入口类，当前包含手写笔笔身轻捏事件和手写笔笔身双击事件。
- 
-**系统能力：** SystemCapability.Stylus.StylusService
  
 **起始版本：** 5.1.1(19)
   
@@ -148,7 +146,7 @@ off(type: 'doubleTap', receiver?: Callback&lt;DoubleTapEvent&gt;): void
  
 **起始版本：** 5.1.1(19)
  
-**参数：：**
+**参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |

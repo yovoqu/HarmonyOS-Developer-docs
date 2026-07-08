@@ -1,6 +1,6 @@
 # @ohos.ai.mindSporeLite (端侧AI框架)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-mindsporelite
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -594,7 +594,7 @@ getAllNNRTDeviceDescriptions() : NNRTDeviceDescription[]
 try {
   let allDevices = mindSporeLite.getAllNNRTDeviceDescriptions();
   if (allDevices == null || allDevices.length === 0) {
-    console.error(`Failed to get NNRT device descriptions. Result: null or empty array`);
+    console.error('Failed to get NNRT device descriptions. Result: null or empty array');
   } else {
     console.info(`Succeeded in getting NNRT device descriptions. Device count: ${allDevices.length}`);
   }
@@ -1030,7 +1030,7 @@ import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-// The name of the preprocessed model input data file
+// 预处理后的模型输入数据文件名
 let inputName = 'input_data.bin';
 let modelFile: string = '/path/to/xxx.ms';
 let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;
@@ -1103,6 +1103,7 @@ import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 预处理后的模型输入数据文件名
 let inputName = 'input_data.bin';
 let modelFile = '/path/to/xxx.ms';
 let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;
@@ -1602,6 +1603,7 @@ import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 预处理后的模型输入数据文件名
 let inputName = 'input_data.bin';
 let modelFile = '/path/to/xxx.ms';
 let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;
@@ -1669,6 +1671,7 @@ import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 预处理后的模型输入数据文件名
 let inputName = 'input_data.bin';
 let modelFile = '/path/to/xxx.ms';
 let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;

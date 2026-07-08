@@ -1,6 +1,6 @@
 # 使用JSVM-API接口设置JavaScript对象的属性
 
-更新时间：2026-04-17 08:12:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-property
 
@@ -53,7 +53,7 @@
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_GetPropertyNames的样例方法
 static JSVM_Value GetPropertyNames(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -103,7 +103,7 @@ JSVM OH_JSVM_GetPropertyNames success
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_SetProperty的样例方法
 static JSVM_Value SetProperty(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -157,7 +157,7 @@ JSVM OH_JSVM_SetProperty success
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_GetProperty的样例方法
 static JSVM_Value GetProperty(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -207,7 +207,7 @@ JSVM OH_JSVM_GetProperty success
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_HasProperty的样例方法
 static JSVM_Value HasProperty(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -266,7 +266,7 @@ JSVM OH_JSVM_HasProperty success:0
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_DeleteProperty的样例方法
 static JSVM_Value DeleteProperty(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -325,7 +325,7 @@ JSVM OH_JSVM_DeleteProperty success:1
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_HasOwnProperty的样例方法
 static JSVM_Value HasOwnProperty(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -397,7 +397,7 @@ JSVM OH_JSVM_HasOwnProperty success:0
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_SetNamedProperty的样例方法
 static JSVM_Value SetNamedProperty(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -457,7 +457,7 @@ JSVM OH_JSVM_SetNamedProperty success
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_GetNamedProperty的样例方法
 static JSVM_Value GetNamedProperty(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -511,7 +511,7 @@ JSVM OH_JSVM_GetNamedProperty success
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_HasNamedProperty的样例方法
 static JSVM_Value HasNamedProperty(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -568,7 +568,7 @@ JSVM OH_JSVM_HasNamedProperty success:1
  
 cpp部分代码：
  
-```text
+```cpp
 #include <fstream>
 #include <string>
 // 属性描述符列表中defineMethodPropertiesExample属性的回调函数
@@ -713,7 +713,7 @@ JSVM getterCallback success:Hello world!
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_GetAllPropertyNames的样例方法
 static JSVM_Value GetAllPropertyNames(JSVM_Env env, JSVM_CallbackInfo info)
 {

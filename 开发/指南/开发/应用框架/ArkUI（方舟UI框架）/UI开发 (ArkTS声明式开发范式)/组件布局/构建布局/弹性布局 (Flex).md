@@ -1,6 +1,6 @@
 # 弹性布局 (Flex)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-flex-layout
 
@@ -148,7 +148,7 @@ Flex({ wrap: FlexWrap.Wrap }) {
 
   
 ```ArkTS
-Flex({ wrap: FlexWrap.WrapReverse}) {
+Flex({ wrap: FlexWrap.WrapReverse }) {
   Text('1').width('50%').height(50).backgroundColor('#F5DEB3')
   Text('2').width('50%').height(50).backgroundColor('#D2B48C')
   Text('3').width('50%').height(50).backgroundColor('#F5DEB3')

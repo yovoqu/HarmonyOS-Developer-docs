@@ -1,6 +1,6 @@
 # @ohos.security.cert (证书模块)
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -299,7 +299,7 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| data | Uint8Array | 否 | 否 | 证书数据，按照长度（2字节）-数据的形式传入。如：08ABCDEFGH07ABCDEFG，第一本证书，前2个字节表示证书的长度为8字节，后面附加8字节的证书数据；第二本证书，前2个字节表示证书的长度为7字节，后面附加7字节的证书数据。 |
+| data | Uint8Array | 否 | 否 | 证书数据，按照长度（2字节）-数据的形式传入。如：08ABCDEFGH07ABCDEFG，其中08ABCDEFGH是第一本证书，07ABCDEFG是第二本证书。第一本证书，前2个字节表示证书的长度为8字节，后面附加8字节的证书数据；第二本证书，前2个字节表示证书的长度为7字节，后面附加7字节的证书数据。 |
 | count | number | 否 | 否 | 传入的数据中，包含的证书数量。 |
 | encodingFormat | EncodingFormat | 否 | 否 | 指明证书编码格式。 |
 
@@ -2591,7 +2591,7 @@ getSignatureAlgOid() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X.509证书签名算法对象标志符OID。若OID长度超过128字节，则会被截断。 |
+| string | 表示X.509证书签名算法对象标志符OID。若OID长度超过127字节，则会被截断。 |
 
 
 **错误码：**
@@ -8564,7 +8564,7 @@ async function crlMatch() {
 
 getIssuerX500DistinguishedName(): X500DistinguishedName
 
-获取颁发者的X509可分辨名称。
+获取颁发者的X.509可分辨名称。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -8574,7 +8574,7 @@ getIssuerX500DistinguishedName(): X500DistinguishedName
 
 | 类型 | 说明 |
 | --- | --- |
-| X500DistinguishedName | X509的可分辨对象。 |
+| X500DistinguishedName | X.509的可分辨对象。 |
 
 
 **错误码：**
@@ -10598,7 +10598,7 @@ cert.createX509CRL(encodingBlob, (err, x509CRL) => {
 
 getCertIssuerX500DistinguishedName(): X500DistinguishedName
 
-获取证书颁发者的X509可分辨名称。
+获取证书颁发者的X.509可分辨名称。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -10608,7 +10608,7 @@ getCertIssuerX500DistinguishedName(): X500DistinguishedName
 
 | 类型 | 说明 |
 | --- | --- |
-| X500DistinguishedName | X509的可分辨对象。 |
+| X500DistinguishedName | X.509的可分辨对象。 |
 
 
 **错误码：**
@@ -11915,7 +11915,7 @@ buildX509CertChain(param: [CertChainBuildParameters](#certchainbuildparameters12
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| param | CertChainBuildParameters | 是 | 构建证书链的参数对象。 CertChainBuildParameters中的maxLength要小于证书集合中证书数量。 |
+| param | CertChainBuildParameters | 是 | 构建证书链的参数对象。 |
 
 
 **返回值：**
@@ -13856,14 +13856,14 @@ createX500DistinguishedName(nameStr: string): Promise&lt;X500DistinguishedName&g
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| nameStr | string | 是 | X509定义的Name字符串格式，使用斜杠'/'进行分割可分辨名称，每个可分辨名称为“属性=值”形式，常用属性包括CN（通用名）、O（组织名）、OU（组织单位）、C（国家/地区）、ST（省/州）、L（市/区）。例如：/CN=example.com/O=Example/C=CN。 |
+| nameStr | string | 是 | X.509定义的Name字符串格式，使用斜杠'/'进行分割可分辨名称，每个可分辨名称为“属性=值”形式，常用属性包括CN（通用名）、O（组织名）、OU（组织单位）、C（国家/地区）、ST（省/州）、L（市/区）。例如：/CN=example.com/O=Example/C=CN。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;X500DistinguishedName&gt; | 表示X509的可分辨对象。 |
+| Promise&lt;X500DistinguishedName&gt; | 表示X.509的可分辨对象。 |
 
 
 **错误码：**
@@ -13934,14 +13934,14 @@ createX500DistinguishedName(nameDer: Uint8Array): Promise&lt;X500DistinguishedNa
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| nameDer | Uint8Array | 是 | X509定义的Uint8Array类型的DER格式数据。 |
+| nameDer | Uint8Array | 是 | X.509定义的Uint8Array类型的DER格式数据。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;X500DistinguishedName&gt; | 表示X509的可分辨对象。 |
+| Promise&lt;X500DistinguishedName&gt; | 表示X.509的可分辨对象。 |
 
 
 **错误码：**
@@ -13994,7 +13994,7 @@ async function createX500DistinguishedName() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-X509定义的Name类型的对象。
+X.509定义的Name类型的对象。
 
 
 

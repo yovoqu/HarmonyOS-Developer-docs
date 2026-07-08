@@ -1,17 +1,17 @@
-# 设置HDC鉴权密钥
+# 设置HDC认证密钥
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-set-hdc-authentication-key
 
 > [!NOTE]
-> 从6.1.1(24)版本开始，新增H HDC 鉴权密钥设置接口，支持用户在企业设备上开展安全调试，进一步强化设备安全性。
+> 从6.1.1(24)版本开始，新增 HDC 认证密钥设置接口，支持用户在企业设备上开展安全调试，进一步强化设备安全性。
 
 
 
 #### 场景介绍
 
-该接口可为上位机和下位机配置HDC鉴权密钥，确保仅在双方均为企业设备的特定场景下才允许连接和调试，从而有效保障企业资产不被篡改和泄露。
+该接口可为上位机和下位机配置HDC认证密钥，确保仅在双方均为企业设备的特定场景下才允许连接和调试，从而有效保障企业资产不被篡改和泄露。
 
 
 
@@ -21,7 +21,7 @@
 
 | 接口名 | 描述 |
 | --- | --- |
-| setHdcAuthenticationKey(devType: AuthenticateDeviceType, keyType: AuthenticateKeyType, key: Uint8Array): Promise&lt;void&gt; | 使用Promise方式设置上下位机间的HDC鉴权密钥。 |
+| setHdcAuthenticationKey(devType: AuthenticateDeviceType, keyType: AuthenticateKeyType, key: Uint8Array): Promise&lt;void&gt; | 使用Promise方式设置上下位机间的HDC认证密钥。 |
 
 
 
@@ -32,13 +32,13 @@
   通过OpenSSL生成私钥：
 
   
-```text
+```bash
 openssl genpkey -algorithm RSA -out private_key_3072.pem -pkeyopt rsa_keygen_bits:3072
 ```
 根据私钥提取公钥：
 
   
-```text
+```bash
 openssl rsa -in private_key_3072.pem -pubout -out public_key_3072.pem
 ```
 
@@ -56,7 +56,7 @@ import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 function testSetHdcAuthenticationKey() {
   let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
   let devType: fileGuard.AuthenticateDeviceType = fileGuard.AuthenticateDeviceType.UPPER;
-  let keyType: fileGuard.AuthenticateKeyType = fileGuard.AuthenticateKeyType.PUBLIC_KEY;
+  let keyType: fileGuard.AuthenticateKeyType = fileGuard.AuthenticateKeyType.PRIVATE_KEY;
   // 将对应的密钥转为Uint8Array类型
   let key: Uint8Array = new Uint8Array([0]);
 

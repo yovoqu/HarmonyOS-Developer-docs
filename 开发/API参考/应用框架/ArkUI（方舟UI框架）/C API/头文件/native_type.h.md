@@ -1,6 +1,6 @@
 # native_type.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -204,7 +204,7 @@
 | ArkUI_ColorStrategy | ArkUI_ColorStrategy | 前景和阴影颜色的枚举值。 |
 | ArkUI_FlexAlignment | ArkUI_FlexAlignment | 定义垂直方向对齐方式。 |
 | ArkUI_FlexDirection | ArkUI_FlexDirection | 定义Flex容器的主轴方向。 |
-| ArkUI_FlexWrap | ArkUI_FlexWrap | 定义Flex行列布局模式模式。 |
+| ArkUI_FlexWrap | ArkUI_FlexWrap | 定义Flex行列布局模式。 |
 | ArkUI_Visibility | ArkUI_Visibility | 控制组件的显隐枚举值。 |
 | ArkUI_CalendarAlignment | ArkUI_CalendarAlignment | 日历选择器与入口组件对齐方式。 |
 | ArkUI_MaskType | ArkUI_MaskType | 遮罩类型枚举。遮罩是一种用于限制组件显示区域的手段，它利用特定的形状对组件内容进行裁剪，从而实现只有遮罩区域内的内容才可见的效果。 |
@@ -3441,7 +3441,7 @@ enum ArkUI_ErrorCode
 | ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR = 106202 | 传入的buffer size异常（数据过大）。 错误码的详细介绍请参见106202 传入的buffer size异常。 |
 | ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE = 106203 | 传入的节点未挂载到组件树上。错误码的详细介绍请参见106203 传入的节点未挂载到组件树上。 起始版本： 15 |
 | ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD = 106204 | 不支持在非UI线程操作传入的节点。错误码的详细介绍请参见106204 不支持在非UI线程操作传入的节点。 起始版本： 22 |
-| ARKUI_ERROR_CODE_FORCE_DARK_CONFIG_INVALID = 106205 | 反色能力入参错误。错误码的详细介绍请参见106205 反色能力入参错误。 起始版本： 20 |
+| ARKUI_ERROR_CODE_FORCE_DARK_CONFIG_INVALID = 106205 | 反色能力配置错误。错误码的详细介绍请参见106205 反色能力配置错误。 起始版本： 20 |
 | ARKUI_ERROR_CODE_NODE_IS_ADOPTED = 106206 | 节点已被接纳为附属节点。错误码的详细介绍请参见106206 节点已被接纳为附属节点。 起始版本： 22 |
 | ARKUI_ERROR_CODE_NODE_HAS_PARENT = 106207 | 被接纳的节点已有父节点。错误码的详细介绍请参见106207 被接纳的附属节点已有父节点。 起始版本： 22 |
 | ARKUI_ERROR_CODE_NODE_CAN_NOT_BE_ADOPTED = 106208 | 节点无法被接纳为附属节点。错误码的详细介绍请参见106208 节点无法被接纳为附属节点。 起始版本： 22 |
@@ -15341,7 +15341,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorPlaceholderOptions_SetFontWeight(OH_ArkUI_Tex
 | 参数项 | 描述 |
 | --- | --- |
 | OH_ArkUI_TextEditorPlaceholderOptions* options | 指向OH_ArkUI_TextEditorPlaceholderOptions对象的指针。 |
-| uint32_t fontWeight | 字体粗细。取值范围为[100, 900]中的整百数值，例如100、900。 |
+| uint32_t fontWeight | 字体粗细。取值为ArkUI_FontWeight中的枚举值，默认值为ARKUI_FONT_WEIGHT_W400。 |
 
 
 **返回：**
@@ -15372,7 +15372,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorPlaceholderOptions_GetFontWeight(OH_ArkUI_Tex
 | 参数项 | 描述 |
 | --- | --- |
 | OH_ArkUI_TextEditorPlaceholderOptions* options | 指向OH_ArkUI_TextEditorPlaceholderOptions对象的指针。 |
-| uint32_t* fontWeight | 字体粗细。取值范围为[100, 900]中的整百数值，例如100、900。 |
+| uint32_t* fontWeight | 字体粗细。取值为ArkUI_FontWeight中的枚举值，默认值为ARKUI_FONT_WEIGHT_W400。 |
 
 
 **返回：**
@@ -17173,7 +17173,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorTextStyle_SetFontWeight(OH_ArkUI_TextEditorTe
 | 参数项 | 描述 |
 | --- | --- |
 | OH_ArkUI_TextEditorTextStyle* style | TextEditor组件文本样式。 |
-| uint32_t fontWeight | 字体粗细。取值范围为[100, 900]中的整百数值，例如100、900。 |
+| uint32_t fontWeight | 字体粗细。取值为ArkUI_FontWeight中的枚举值，默认值为ARKUI_FONT_WEIGHT_W400。 |
 
 
 **返回：**
@@ -17204,7 +17204,7 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorTextStyle_GetFontWeight(OH_ArkUI_TextEditorTe
 | 参数项 | 描述 |
 | --- | --- |
 | OH_ArkUI_TextEditorTextStyle* style | TextEditor组件文本样式。 |
-| uint32_t* fontWeight | 字体粗细。取值范围为[100, 900]中的整百数值，例如100、900。 |
+| uint32_t* fontWeight | 字体粗细。取值为ArkUI_FontWeight中的枚举值，默认值为ARKUI_FONT_WEIGHT_W400。 |
 
 
 **返回：**

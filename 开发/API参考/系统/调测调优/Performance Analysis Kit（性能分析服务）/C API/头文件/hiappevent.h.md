@@ -1,6 +1,6 @@
 # hiappevent.h
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -43,7 +43,7 @@ HiAppEvent模块为应用开发者提供的事件订阅和事件打点函数定�
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| HiAppEvent_AppEventInfo | HiAppEvent_AppEventInfo | 单个事件信息，包含事件领域、事件名称、事件类型和事件携带的用json格式字符串表示的自定义参数列表。 |
+| HiAppEvent_AppEventInfo | HiAppEvent_AppEventInfo | 单个事件信息，包含事件领域、事件名称、事件类型和事件携带的用JSON格式字符串表示的自定义参数列表。 |
 | HiAppEvent_AppEventGroup | HiAppEvent_AppEventGroup | 一组事件信息，用于管理和组织具有相同名称的事件信息。该结构体包含事件组的名称，按名称分组的单个事件信息数组，事件数组的长度。 |
 | ParamListNode* | ParamList | 事件参数列表节点。用于组织和管理事件参数列表信息，通过ParamListNode可以构建参数链表，支持多参数事件的参数传递。 |
 | HiAppEvent_Watcher | HiAppEvent_Watcher | 接收应用事件的监听器。用于对应用事件进行监听和处理。 |
@@ -121,7 +121,7 @@ HiAppEvent模块为应用开发者提供的事件订阅和事件打点函数定�
 | void OH_HiAppEvent_DestroyConfig(HiAppEvent_Config* config) | - | 销毁已创建的配置对象。注意：已创建的配置对象不再使用后，需要将其销毁，释放内存，防止内存泄漏，销毁后需要将对应指针置空。 |
 | int OH_HiAppEvent_SetConfigItem(HiAppEvent_Config* config, const char* itemName, const char* itemValue) | - | 设置配置对象中的配置项。 |
 | int OH_HiAppEvent_SetEventConfig(const char* name, HiAppEvent_Config* config) | - | 事件相关的配置参数设置方法。 不同的事件有不同的配置项，目前仅支持以下事件： MAIN_THREAD_JANK（参数配置详见主线程超时事件检测） MAIN_THREAD_JANK_V2（参数配置详见主线程超时事件检测） EVENT_APP_CRASH（参数配置详见崩溃事件介绍），从API version 24开始支持该事件。 |
-| int OH_HiAppEvent_ReportFrameworkMemAnomaly(enum OH_HiAppEvent_FrameworkType frameworkType, const char* frameworkVersion, const char* description) | - | 报告应用框架内存占用异常的信息。 该接口的调用频率限制为：每分钟最多能成功调用1次，超过频率限制会返回错误码HIAPPEVENT_REPORT_FREQUENCY_EXCEEDED。 当应用检测到应用框架内存占用异常，并且调用该接口返回操作成功时： 1. 若开发者已经订阅了事件领域domain为“HIVIEWDFX”，且事件名称names为“FW_MEM_ANOMALY”的应用事件，则应用中将会收到应用框架内存占用异常信息的回调。 2. 若开发者未订阅该应用事件，则应用中将不会收到应用框架内存占用异常信息的回调。 |
+| int OH_HiAppEvent_ReportFrameworkMemAnomaly(enum OH_HiAppEvent_FrameworkType frameworkType, const char* frameworkVersion, const char* description) | - | 报告应用框架内存占用异常的信息。 该接口的调用频率限制为：1分钟最多能成功调用1次，超过频率限制会返回错误码HIAPPEVENT_REPORT_FREQUENCY_EXCEEDED。 当应用检测到应用框架内存占用异常，并且调用该接口返回操作成功时： 1. 若开发者已经订阅了事件领域domain为“HIVIEWDFX”，且事件名称names为“FW_MEM_ANOMALY”的应用事件，则应用中将会收到应用框架内存占用异常信息的回调。 2. 若开发者未订阅该应用事件，则应用中将不会收到应用框架内存占用异常信息的回调。 |
 
 
 
@@ -260,7 +260,7 @@ typedef void (*OH_HiAppEvent_OnTrigger)(int row, int size)
 | 参数项 | 描述 |
 | --- | --- |
 | int row | 监听器新接收到的事件消息的数量。 |
-| int size | 监听器新接收的事件消息的大小总和（单个事件大小计算方式为：将消息转换为json字符串后，字符串的长度）。 |
+| int size | 监听器新接收的事件消息的大小总和（单个事件大小计算方式为：将消息转换为JSON字符串后，字符串的长度）。 |
 
 
 
@@ -283,7 +283,7 @@ typedef void (*OH_HiAppEvent_OnTake)(const char* const *events, uint32_t eventLe
 
 | 参数项 | 描述 |
 | --- | --- |
-| const char* const *events | json字符串格式的事件数组。 |
+| const char* const *events | JSON字符串格式的事件数组。 |
 | uint32_t eventLen | 事件数组大小。 |
 
 
@@ -302,7 +302,7 @@ ParamList OH_HiAppEvent_CreateParamList(void)
 创建一个指向参数列表对象的指针。用于存储应用事件打点时需要携带的自定义参数。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/LBv-xJ62TdKy7AkFrhhpag/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020202Z&HW-CC-Expire=86400&HW-CC-Sign=EBEC1F27C416AD77E91CC3309BE8C28BB4AC2E571BE0862ED531F3AC54062472)
+![](assets/hiappevent.h/file-20260708103019e7f448b4.png)
 
 
 创建的指向参数列表对象的指针不再使用后，必须通过[OH_HiAppEvent_DestroyParamList](#oh_hiappevent_destroyparamlist)接口进行销毁。
@@ -940,7 +940,7 @@ HiAppEvent_Watcher* OH_HiAppEvent_CreateWatcher(const char* name)
 创建一个用于监听应用事件的监听器。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/hmSoo-o1Rricns9B2E9lKQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020202Z&HW-CC-Expire=86400&HW-CC-Sign=5C4498ED578BF50A0AAF03F7F4DE15C374BDA25F72634A38E58FD515E6DCB4D7)
+![](assets/hiappevent.h/file-20260708103019e7f448b4.png)
 
 
 创建的监听器不再使用后，必须通过[OH_HiAppEvent_DestroyWatcher](#oh_hiappevent_destroywatcher)接口进行销毁。
@@ -1010,7 +1010,7 @@ int OH_HiAppEvent_SetTriggerCondition(HiAppEvent_Watcher* watcher, int row, int 
 | --- | --- |
 | HiAppEvent_Watcher* watcher | 指向监听器的指针（即OH_HiAppEvent_CreateWatcher接口返回的指针）。 |
 | int row | 当输入值大于0，且新接收事件的数量大于等于该值时，将调用设置的onTrigger回调函数； 当输入值小于等于0时，不再以接收数量多少为维度来触发onTrigger回调。 |
-| int size | 当输入值大于0，且新接收事件的大小(单个事件大小计算方式为，将事件转换为json字符串后，字符串的长度)大于等于该值时，将调用设置的onTrigger回调函数； 当输入值小于等于0时，不再以新接收事件大小为维度触发onTrigger回调。 |
+| int size | 当输入值大于0，且新接收事件的大小(单个事件大小计算方式为，将事件转换为JSON字符串后，字符串的长度)大于等于该值时，将调用设置的onTrigger回调函数； 当输入值小于等于0时，不再以新接收事件大小为维度触发onTrigger回调。 |
 | int timeOut | 单位为秒，实际生效值为timeOut×30秒。timeOut>0时，每timeOut×30秒检查新事件，有则触发onTrigger，触发后重新计时；timeOut≤0时不启用超时触发。 |
 
 
@@ -1166,7 +1166,7 @@ int OH_HiAppEvent_AddWatcher(HiAppEvent_Watcher* watcher)
 添加监听器的接口，监听器开始监听系统消息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/vk9qyZYYStGRm12QT0ePeg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020202Z&HW-CC-Expire=86400&HW-CC-Sign=6A76682285A3AA63F3C53C7118BE09D879171EE5E3256473E7089BB1D521C55D)
+![](assets/hiappevent.h/file-20260708103019e7f448b4.png)
 
 
 OH_HiAppEvent_AddWatcher接口涉及I/O操作。在对性能敏感的业务场景中，开发者应根据实际需要确定该接口是在主线程还是在子线程中调用。
@@ -1252,7 +1252,7 @@ HiAppEvent_Processor* OH_HiAppEvent_CreateProcessor(const char* name)
 创建一个用于处理应用事件上报的处理者。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/ZhKM7Ka0Rau84dC5JAnrZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020202Z&HW-CC-Expire=86400&HW-CC-Sign=F784FD43F9AB67104C64174FBD88CE7FCE5C597FE1BE1169BD33CE87AA720E75)
+![](assets/hiappevent.h/file-20260708103020e7f448b4.png)
 
 
 创建的处理者不再使用后，必须通过[OH_HiAppEvent_DestroyProcessor](#oh_hiappevent_destroyprocessor)接口进行销毁。
@@ -1630,7 +1630,7 @@ HiAppEvent_Config* OH_HiAppEvent_CreateConfig(void)
 创建一个指向设置系统事件自定义规格的配置对象的指针。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/8yg8Y_LfQKWQHYzO7t90XQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020202Z&HW-CC-Expire=86400&HW-CC-Sign=0D36C6B7782AD7685F6AE5F54B0750B8C09B9DFBF413E53AB86E478AF879798E)
+![](assets/hiappevent.h/file-20260708103020e7f448b4.png)
 
 
 创建的指向设置系统事件自定义规格的配置对象的指针不再使用后，必须通过[OH_HiAppEvent_DestroyConfig](#oh_hiappevent_destroyconfig)接口进行销毁。
@@ -1755,7 +1755,7 @@ int OH_HiAppEvent_ReportFrameworkMemAnomaly(
 
 报告应用框架内存占用异常的信息。
 
-该接口的调用频率限制为：每分钟最多能成功调用1次，超过频率限制会返回错误码HIAPPEVENT_REPORT_FREQUENCY_EXCEEDED。
+该接口的调用频率限制为：1分钟最多能成功调用1次，超过频率限制会返回错误码HIAPPEVENT_REPORT_FREQUENCY_EXCEEDED。
 
 当应用检测到应用框架内存占用异常，并且调用该接口返回操作成功时：
 

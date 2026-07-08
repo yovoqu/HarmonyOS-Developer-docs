@@ -1,6 +1,6 @@
 # CardRecognition（卡证识别控件）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition
 **支持设备：** Phone | Tablet
@@ -123,7 +123,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 | --- | --- | --- | --- | --- |
 | code | number | 否 | 否 | 返回的结果码（200：识别成功，-1：识别失败）。 |
 | cardType | CardType | 否 | 是 | 卡证类型。默认值：CARD_AUTO。 |
-| cardInfo | Record<string, Record<string, string>> | 否 | 是 | 卡证信息。默认值：undefined。 对于双面卡证，包含信息为"front"和"back"。 对于单面卡证，包含信息为"main"。 |
+| cardInfo | Record<string, Record<string, string>> | 否 | 是 | 卡证信息。默认值：undefined。 对于双面卡证，包含信息为"front"和"back"。 对于单面卡证，包含信息为"main"。 更多信息参考 卡证信息。 |
  
  
   
@@ -146,7 +146,7 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 | --- | --- | --- | --- | --- |
 | code | number | 否 | 否 | 返回的结果码： 200：识别成功。 1008701001：未识别。 1008701002：识别失败。 1008701003：部分识别失败。 1008701004：未完成识别。 |
 | cardType | CardType | 否 | 是 | 卡证类型。默认值：CARD_AUTO。 |
-| cardInfo | Record<string, Record<string, string>> | 否 | 是 | 卡证信息。默认值：undefined。 对于双面卡证，包含信息为"front"和"back"。 对于单面卡证，包含信息为"main"。 |
+| cardInfo | Record<string, Record<string, string>> | 否 | 是 | 卡证信息。默认值：undefined。 对于双面卡证，包含信息为"front"和"back"。 对于单面卡证，包含信息为"main"。 更多信息参考 卡证信息。 |
  
  
   
@@ -256,11 +256,11 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
   
 
-#### cardInfo
+#### 卡证信息
 
 **支持设备：** Phone | Tablet
 
-具体证件相关信息，包含身份证人像面和国徽面、银行卡、护照、驾驶证正反面、行驶证正反面。
+具体证件相关信息，包含身份证人像面和国徽面、银行卡、护照、驾驶证正反面、行驶证正反面、港澳居民来往内地通行证正反面、台湾居民来往大陆通行证正反面。
  
 身份证人像面
  

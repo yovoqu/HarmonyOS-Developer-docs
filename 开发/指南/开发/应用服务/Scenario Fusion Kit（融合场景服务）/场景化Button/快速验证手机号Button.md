@@ -1,14 +1,14 @@
 # 快速验证手机号Button
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-getphonenumber
 
 #### 场景介绍
 
-快速验证手机号Button功能用于帮助开发者向用户发起手机号申请，应用在满足《[常见类型移动互联网应用程序必要个人信息范围规定](http://www.cac.gov.cn/2021-03/22/c_1617990997054277.htm)》（对第三方网站的内容，华为公司不承担任何责任）中使用手机号的必要业务场景，经用户同意后，应用可获取手机号，为用户提供相应服务（详见快速验证[场景介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-phonenumber#场景介绍)）。
+快速验证手机号Button功能用于帮助开发者向用户发起手机号申请，应用在满足《[常见类型移动互联网应用程序必要个人信息范围规定](http://www.cac.gov.cn/2021-03/22/c_1617990997054277.htm)》（对第三方网站的内容，华为公司不承担任何责任）中使用手机号的必要业务场景，经用户同意后，应用可获取手机号，为用户提供相应服务（详见获取手机号[场景介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-phonenumber#场景介绍)）。
 
-运行示例代码单击“快速验证手机号”按钮，拉起验证页面（完整场景可参考[快速验证](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-phonenumber)）。
+运行示例代码单击“快速验证手机号”按钮，拉起验证页面（完整场景可参考[获取手机号](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-phonenumber)）。
 
 
 

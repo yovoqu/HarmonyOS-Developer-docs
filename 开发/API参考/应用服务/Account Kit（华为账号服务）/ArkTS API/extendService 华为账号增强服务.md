@@ -1,6 +1,6 @@
 # @hms.core.account.extendService (华为账号增强服务)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-extendservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -236,7 +236,7 @@ verifyAccount(context: common.Context, request: VerifyRequest, callback: AsyncCa
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -325,7 +325,7 @@ verifyAccount(context: common.Context, request: VerifyRequest): Promise&lt;Verif
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -401,7 +401,7 @@ startAccountCenter(context: common.Context, callback: AsyncCallback&lt;void&gt;)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -475,7 +475,7 @@ startAccountCenter(context: common.Context): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

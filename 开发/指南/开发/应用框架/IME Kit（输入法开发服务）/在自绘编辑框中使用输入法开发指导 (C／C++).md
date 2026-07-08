@@ -1,6 +1,6 @@
 # 在自绘编辑框中使用输入法开发指导 (C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-inputmethod-in-custom-edit-box-ndk
 
@@ -49,7 +49,7 @@ textEditorProxy = OH_TextEditorProxy_Create();
 
   
 ```cpp
-// 创建InputMethod_AttachOptions实例，选项showKeyboard用于指定此次绑定成功后是否显示键盘，此处以目标显示键盘为例
+// 创建InputMethod_AttachOptions实例，选项showKeyboard用于指定此次绑定成功后是否显示键盘，设置为true 表示绑定成功后自动显示键盘；false 表示不自动显示
 bool showKeyboard = true;
 attachOptions = OH_AttachOptions_Create(showKeyboard);
 ```
@@ -363,7 +363,7 @@ void InputMethodNdkDemo()
     // 将实现好的响应处理函数设置到InputMethod_TextEditorProxy中
     ConstructTextEditorProxy(textEditorProxy);
 
-    // 创建InputMethod_AttachOptions实例，选项showKeyboard用于指定此次绑定成功后是否显示键盘，此处以目标显示键盘为例
+    // 创建InputMethod_AttachOptions实例，选项showKeyboard用于指定此次绑定成功后是否显示键盘，设置为true 表示绑定成功后自动显示键盘；false 表示不自动显示
     bool showKeyboard = true;
     attachOptions = OH_AttachOptions_Create(showKeyboard);
     if (attachOptions == nullptr) {

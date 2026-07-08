@@ -1,6 +1,6 @@
 # @LocalBuilder装饰器： 维持组件关系
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder
 
@@ -116,14 +116,14 @@ struct Parent {
  - 参数的类型必须与参数声明的类型一致，且不允许为undefined、null。
  - 在@LocalBuilder修饰的函数内部，不允许改变参数值。
  - @LocalBuilder内的UI语法遵循[UI语法规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#build函数实现规则)。
- - 按回调传递和按引用传递时，支持@Builder函数内UI组件刷新。按引用传递只在传入一个参数且该参数直接传入对象字面量时生效，有多个参数时不支持@Builder函数内UI组件刷新。
+ - 按回调传递和按引用传递时，支持@LocalBuilder函数内UI组件刷新。按引用传递只在传入一个参数且该参数直接传入对象字面量时生效，有多个参数时不支持@LocalBuilder函数内UI组件刷新。
 
 
 
 
 #### 按回调传递参数
 
-从API version 20开始，开发者可以通过使用UIUtils.makeBinding()函数、Binding类和MutableBinding类实现@Builder函数中状态变量的刷新。详情请参考[状态管理API文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makebinding20)。
+从API version 20开始，开发者可以通过使用UIUtils.makeBinding()函数、Binding类和MutableBinding类实现@Builder函数中状态变量的刷新。详情请参考[makeBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makebinding20)。
 
 ```ArkTS
 import { UIUtils, Binding } from '@kit.ArkUI';
@@ -142,7 +142,7 @@ struct Parent {
 
   build() {
     Column() {
-      // 通过UIUtils.makeBinding()方法和Binding类，实现@Builder函数中状态变量的刷新
+      // 通过UIUtils.makeBinding()方法和Binding类，实现@LocalBuilder函数中状态变量的刷新
       this.citeLocalBuilder(UIUtils.makeBinding<string>(() => this.variableValue))
       Button('Click me')
         .onClick(() => {
@@ -418,7 +418,7 @@ struct ParentPage {
       Text(`info1: ${this.info1.name}  ${this.info1.age}`) // Text1
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
-      this.privateBuilder() // 调用局部@Builder
+      this.privateBuilder() // 调用局部@LocalBuilder
       Line()
         .width('100%')
         .height(10)
@@ -427,7 +427,7 @@ struct ParentPage {
       Text(`info2: ${this.info2.name}  ${this.info2.age}`) // Text2
         .fontSize(30)
         .fontWeight(FontWeight.Bold)
-      this.privateBuilderSecond() // 调用局部@Builder
+      this.privateBuilderSecond() // 调用局部@LocalBuilder
       Line()
         .width('100%')
         .height(10)
@@ -568,7 +568,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/3QymYzw0SfWegbvD5fZE1Q/zh-cn_image_0000002656347455.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=3423C0BD398C8C10A1269FFC5597026BD7A3CDE6B6CEEB796CBBE7044D7253C5)
+![](assets/@LocalBuilder装饰器：%20维持组件关系/file-202607081039294d672d63.gif)
 
 
 
@@ -612,7 +612,7 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/aW-_M9hvSuOavdEdZD3tpA/zh-cn_image_0000002626228040.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=6A468F2CE0D912CBB7F49CB41F787D02E5C2ACEF40C7BCE294CB55F0823F4C6F)
+![](assets/@LocalBuilder装饰器：%20维持组件关系/file-202607081039295a8c4d94.png)
 
 
 【正例】
@@ -652,4 +652,4 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/IgumrCEpRU--2pEinnN_uw/zh-cn_image_0000002626068132.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=537C119AAE675E10242B6DE2DE5D2C68DF7CC42366095867CC21C7E2232257ED)
+![](assets/@LocalBuilder装饰器：%20维持组件关系/file-2026070810392987c36db6.png)

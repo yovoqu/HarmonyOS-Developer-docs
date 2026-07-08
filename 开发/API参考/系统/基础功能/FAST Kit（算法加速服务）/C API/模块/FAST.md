@@ -1,6 +1,6 @@
 # FAST
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -2359,7 +2359,7 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Create(
     FAST_ConcurrentHashmapHandle* handle,
     HMS_FAST_ConcurrentHashmap_HashFunc hasher,
     HMS_FAST_ConcurrentHashmap_KeyEqualFunc equaler,
-    double maxLoadFac,
+    float maxLoadFac,
     size_t numShards
 )
 ```

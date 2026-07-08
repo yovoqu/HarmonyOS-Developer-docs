@@ -1,11 +1,11 @@
 # Class (WebDownloadItem)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaditem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-表示下载任务，您可以使用此对象来操作相应的下载任务。
+WebDownloadItem是ArkWeb框架中用于表示和管理单个下载任务的类。通过[WebDownloadDelegate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaddelegate)的回调参数，应用可以获取到WebDownloadItem实例，进而对下载任务进行查询和控制，包括启动下载到指定路径、查询下载进度和状态、暂停/恢复/取消任务、序列化失败任务以便后续恢复等。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 11开始支持。 示例效果请以真机运行为准。 在下载过程中，下载的进度会通过WebDownloadDelegate通知给使用者，使用者可以通过参数WebDownloadItem来操作下载任务。 当前WebDownloadItem支持的下载文件名最长长度为255字节。

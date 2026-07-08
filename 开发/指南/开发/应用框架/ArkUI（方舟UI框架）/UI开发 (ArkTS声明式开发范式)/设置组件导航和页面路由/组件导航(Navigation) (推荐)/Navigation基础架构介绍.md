@@ -1,6 +1,6 @@
 # Navigation基础架构介绍
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture
 
@@ -71,7 +71,7 @@ Navigation是路由导航的根视图容器，通常作为页面（@Entry修饰�
 
 Navigation组件本身可不作为显示容器，只用于承载路由的相关功能，如绑定导航控制器对象、路由切换、分栏显示、自定义转场动画控制等。
 
-Navigation组件主要包含导航栏（NavBar）和子页（NavDestination），子页通过栈结构管理，存在NavPathStack中。导航栏又称Navbar，作为Navigation的子组件，直接挂载到Navigation上，可以通过[hideNavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#hidenavbar9)属性进行隐藏（单栏应用推荐隐藏导航页），导航栏不存在页面栈中。
+Navigation组件主要包含导航栏（NavBar）和子页（NavDestination），子页通过栈结构管理，存在NavPathStack中。导航栏又称NavBar，作为Navigation的子组件，直接挂载到Navigation上，可以通过[hideNavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#hidenavbar9)属性进行隐藏（单栏应用推荐隐藏导航页），导航栏不存在页面栈中。
 
 子页面是一个以NavDestination为根节点的子树，通过[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)构造出来，再通过NavPathStack提供的栈操作方法挂载到Navigation上显示，详见[Navigation子页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navdestination)。
 
@@ -89,7 +89,7 @@ NavDestination作为页面根容器，除了支持普通组件的通用属性外
 
 Navigation中直接加载的孩子节点称为导航栏（NavBar），单栏显示时它是整个导航的首页，分栏显示时它是固定的导航栏。分栏显示时默认显示在左边，也可以通过[navBarPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbarposition9)属性控制。
 
-开发者可以通过[hideNavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#hidenavbar9)控制导航栏的显隐，也可以通过[navBarWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbarwidth9)属性控制双栏显示下的Navbar宽度，NavBar本身不属于页面栈中的页面，不具备页面的生命周期等，不能通过NavPathStack的方法控制。 开发者可以通过[onNavBarStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#onnavbarstatechange9)去感知导航栏的显隐，通过[mode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#mode9)属性控制单双栏切换，也可以通过[onNavigationModeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#onnavigationmodechange11)去感知单双栏的切换。
+开发者可以通过[hideNavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#hidenavbar9)控制导航栏的显隐，也可以通过[navBarWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbarwidth9)属性控制双栏显示下的NavBar宽度，NavBar本身不属于页面栈中的页面，不具备页面的生命周期等，不能通过NavPathStack的方法控制。 开发者可以通过[onNavBarStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#onnavbarstatechange9)去感知导航栏的显隐，通过[mode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#mode9)属性控制单双栏切换，也可以通过[onNavigationModeChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#onnavigationmodechange11)去感知单双栏的切换。
 
 NavBar的内容区可以通过两种方式指定：
 
@@ -160,7 +160,7 @@ struct NavigationDemo {
             .onClick(() => {
               // $r('app.string.detailsPageParameters')需要替换为开发者所需的字符串资源文件,资源文件中的value值为“详情页面参数”
               this.navPathStack.pushPathByName(`${item}`,
-                // 将name指定的NaviDestination页面信息入栈,传递的参数为param
+                // 将name指定的NavDestination页面信息入栈,传递的参数为param
                 this.context!.resourceManager.getStringSync($r('app.string.detailsPageParameters').id));
             })
           }, (item: string): string => item)
@@ -312,7 +312,7 @@ let menuItem: NavigationMenuItem  = {
 **图8** 工具栏
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/f9GmVLc9S1yN1y5ZUzqrvg/zh-cn_image_0000002659219487.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=0E580E0B2F2FCD37DC93C1CA8383131B701E2B912D5228BC4CBF6897C0327B52)
+![](assets/Navigation基础架构介绍/file-20260708103951c31ed21b.jpg)
 
 
 ```ArkTS

@@ -1,6 +1,6 @@
 # HdsListItem
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdslistitem
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -465,4 +465,4 @@ export class LazyDataSource<T> implements IDataSource {
 执行上述示例中的代码效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/ED7C7pTaScCMPu7lug-sqA/zh-cn_image_0000002656470597.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=70E2BD8B7B9A3E2BA1A28F5B68E35042C4CF167AFA02F3588F5DC3B79C659448)
+![](assets/HdsListItem/file-20260708103032b2784752.gif)

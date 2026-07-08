@@ -1,11 +1,11 @@
 # Class (PermissionRequest)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-permissionrequest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Web组件返回授权或拒绝权限功能的对象。示例代码参考[onPermissionRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onpermissionrequest9)事件。
+PermissionRequest 是 Web 组件返回授权或拒绝权限功能的对象。当网页尝试访问受保护的系统资源（如摄像头、麦克风、地理位置等）时，ArkWeb 内核会通过[onPermissionRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onpermissionrequest9)事件回调向应用发送权限请求，应用通过 PermissionRequest 对象来决定是否授权这些请求。
  
 > [!NOTE]
 > 该组件首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。

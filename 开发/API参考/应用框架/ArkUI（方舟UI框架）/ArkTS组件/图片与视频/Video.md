@@ -1,6 +1,6 @@
 # Video
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -836,7 +836,6 @@ struct VideoCreateComponent {
   @State isAutoPlay: boolean = false;
   @State showControls: boolean = true;
   @State isShortcutKeyEnabled: boolean = false;
-  @State showFirstFrame: boolean = false;
   controller: VideoController = new VideoController();
 
   build() {
@@ -957,7 +956,7 @@ interface FullscreenObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/sg13s1OsQiuxJl9ckKB2xw/zh-cn_image_0000002628702716.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=160656E791ADEE6ED43744A28E8E5DAC729C73E67AB184F6C03F4E1F1B873F6A)
+![](assets/Video/file-20260708103129e5a6bac8.gif)
 
 
 
@@ -1123,7 +1122,7 @@ struct VideoObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/37PZTNkdSpeh3E5Xncg08w/zh-cn_image_0000002659101943.png?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=A5E4C28B2554CFB92B6AB7218929ADB1C88456B8CCEEFA6B73BC4D400C271654)
+![](assets/Video/file-202607081031293bcafe81.png)
 
 
 
@@ -1140,7 +1139,6 @@ struct VideoErrorComponent {
   @State videoSrc: string = 'video.mp4'; // 传入不存在的视频资源路径。
   @State isAutoPlay: boolean = false;
   @State showControls: boolean = true;
-  @State showFirstFrame: boolean = false;
   controller: VideoController = new VideoController();
   @State errorMessage: string = '';
 
@@ -1171,7 +1169,7 @@ struct VideoErrorComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/NVjaN-BRTfaIcwIUK7qmhw/zh-cn_image_0000002628862594.png?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=04F4E82E0A16D6F3A1D7723F32C10393D65729C7FD2CEE2B89A5F5FB8F091854)
+![](assets/Video/file-20260708103129a3abae62.png)
 
 
 
@@ -1297,4 +1295,4 @@ interface FullscreenObject {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/DtqhsGEXQcC39E78nBsu3A/zh-cn_image_0000002659221909.png?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=E2AC6CEB306E4F99E90A3979A24D659CD7AF362786930AFCEB0F4360155ECC14)
+![](assets/Video/file-202607081031303958bd8d.png)

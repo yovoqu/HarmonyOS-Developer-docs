@@ -1,6 +1,6 @@
 # 通过sysTransOrderNo查询订单信息
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-agent-sys-query-order
 
@@ -52,7 +52,7 @@
  
 **request path**
   
-| 参数 | 是否必填 | 参数类型 | 描述 |
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | sysTransOrderNo | 是 | String | 华为支付系统订单号。 用户支付成功后通过支付结果回调通知返回给商户或通过mercOrderNo查询订单信息接口查询获取。 |
  

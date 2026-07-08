@@ -1,6 +1,6 @@
 # 长时任务开发指导 (TaskPool)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/long-time-task-guide
 
@@ -34,7 +34,7 @@ async function sensorListener(): Promise<void> {
 }
 ```
 
-3. 给sensor添加ohos.permission.ACCELEROMETER权限。
+3. 给sensor添加ohos.permission.ACCELEROMETER权限，在module.json5中添加如下代码。
 
   
 ```json

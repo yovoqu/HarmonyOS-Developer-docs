@@ -1,6 +1,6 @@
 # 通过mercOrderNo查询订单信息
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-withhold-query-merc-order
 
@@ -50,7 +50,7 @@
  
 **Request Path**
   
-| 参数 | 是否必填 | 参数类型 | 描述 |
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | mercOrderNo | 是 | String | 商户订单号，由商户自己生成，商户需保证订单信息唯一性。最大长度46。 |
  

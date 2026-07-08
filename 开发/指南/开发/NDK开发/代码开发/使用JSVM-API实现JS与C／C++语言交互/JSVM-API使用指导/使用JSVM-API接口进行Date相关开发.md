@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行Date相关开发
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-date
 
@@ -43,7 +43,7 @@ JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开�
  
 cpp部分代码：
  
-```text
+```cpp
 #include <time.h>
 // OH_JSVM_CreateDate的样例方法
 static JSVM_Value CreateDate(JSVM_Env env, JSVM_CallbackInfo info) {
@@ -98,7 +98,7 @@ JSVM CreateDate success:Mon Jul 7 10:42:34 2025
  
 cpp部分代码：
  
-```text
+```cpp
 #include <ctime>
 // OH_JSVM_GetDateValue的样例方法
 static JSVM_Value GetDateValue(JSVM_Env env, JSVM_CallbackInfo info) {
@@ -146,7 +146,7 @@ JSVM GetDateValue success:Mon Jul 7 10:47:08 2025
  
 cpp部分代码：
  
-```text
+```cpp
 // OH_JSVM_IsDate的样例方法
 static JSVM_Value IsDate(JSVM_Env env, JSVM_CallbackInfo info) {
     size_t argc = 1;

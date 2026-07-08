@@ -1,6 +1,6 @@
 # @system.router (页面路由)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-router
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
@@ -424,7 +424,7 @@ export default new Z()
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uri7+ | string | 否 | 返回到指定uri的界面，如果页面栈上没有uri页面，则不响应该情况。如果uri未设置，则返回上一页。 系统能力： SystemCapability.ArkUI.ArkUI.Full |
-| params7+ | object | 否 | 跳转时要同时传递到目标页面的数据。 系统能力： SystemCapability.ArkUI.ArkUI.Lite |
+| params7+ | Object | 否 | 返回时要同时传递到目标页面的数据。 系统能力： SystemCapability.ArkUI.ArkUI.Lite |
  
  
   
@@ -474,8 +474,8 @@ export default new Z()
   
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | (errMsg: string) => void | 否 | 关闭询问对话框能力成功时触发，errMsg表示返回信息。 |
-| cancel | (errMsg: string) => void | 否 | 关闭询问对话框能力失败时触发，errMsg表示返回信息。 |
+| success | (errMsg: string) => void | 否 | 关闭询问对话框成功时触发，errMsg表示返回信息。 |
+| cancel | (errMsg: string) => void | 否 | 关闭询问对话框失败时触发，errMsg表示返回信息。 |
 | complete | () => void | 否 | 当对话框关闭时触发该回调。 |
  
  
@@ -676,4 +676,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/3dIMh-tuQ3KWrXGhrEhqrA/zh-cn_image_0000002659101537.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014321Z&HW-CC-Expire=86400&HW-CC-Sign=053B6D00B438248ED8C46D6441EF438D90F1BA6880C4C66F692E9A8B335B7D02)
+![](assets/system.router%20页面路由/file-20260708103055edccb079.gif)

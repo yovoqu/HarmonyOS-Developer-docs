@@ -1,6 +1,6 @@
 # @ohos.bytrace (性能打点)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bytrace
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -121,7 +121,7 @@ traceByValue(name: string, count: number): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 数值变量的名称。 |
-| count | number | 是 | 数值变量的值 |
+| count | number | 是 | 数值变量的值。 |
  
  
 **示例：**

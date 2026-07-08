@@ -1,6 +1,6 @@
 # 多网建议监听(C/C++)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-netmultipath-recommendcallback-c
 
@@ -20,7 +20,7 @@
 | 接口名 | 描述 |
 | --- | --- |
 | int32_t HMS_NetworkBoost_RegisterMultiPathRecommendationCallback(HMS_NetworkBoost_OnMultiPathRecommendationcallback, uint32_t *callbackId) | 注册系统多网建议变化事件。 |
-| int32_t HMS_NetworkBoost_UnregisterMultiPathRecommendationCallback(uint32_t callbackId) | 去系统多网建议变化事件。 |
+| int32_t HMS_NetworkBoost_UnregisterMultiPathRecommendationCallback(uint32_t callbackId) | 取消注册系统多网建议变化事件。 |
 
 
 
@@ -41,7 +41,7 @@
 libnetwork_boost.so
 ```
 
-3. 调用HMS_NetworkBoost_RegisterMultiPathRecommendationCallback接口，获取多网建议变化信息。
+3. 调用HMS_NetworkBoost_RegisterMultiPathRecommendationCallback接口，注册多网建议变化回调。
 
   
 ```text
@@ -60,7 +60,7 @@ int32_t RegisterMultiPathRecommendation()
 }
 ```
 
-4. 当应用业务流程结束，通过取消注册的方式取消多网状态监听。
+4. 当应用业务流程结束，取消注册多网建议变化回调。
 
   
 ```text

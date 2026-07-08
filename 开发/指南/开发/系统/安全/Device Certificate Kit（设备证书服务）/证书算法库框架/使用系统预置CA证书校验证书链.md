@@ -1,6 +1,6 @@
 # 使用系统预置CA证书校验证书链
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/verify-certchain-by-systemca
 
@@ -17,7 +17,7 @@
 import { cert } from '@kit.DeviceCertificateKit';
 ```
 
-2. 基于已有的证书数据，调用[cert.createX509CertChain](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatex509certchain11)创建X509证书链对象，并返回结果。
+2. 基于已有的证书数据，调用[cert.createX509CertChain](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatex509certchain11)创建X.509证书链对象，并返回结果。
 3. 调用[x509CertChain.validate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#validate11)设置校验参数trustSystemCa为true，使用系统预置CA证书校验证书链并返回结果。
 
 ```ArkTS

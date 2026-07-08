@@ -1,6 +1,6 @@
 # 通过sysRefundOrderNo查询退款订单信息
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-agent-sys-query-refund
 
@@ -46,7 +46,7 @@
  
 **Request Path**
   
-| 参数 | 是否必填 | 参数类型 | 描述 |
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | sysRefundOrderNo | 是 | String | 华为支付的退款订单号。 |
  

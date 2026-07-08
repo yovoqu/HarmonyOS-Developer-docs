@@ -1,6 +1,6 @@
 # gameNearbyTransfer（游戏近场快传）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-nearbytransfer
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -348,7 +348,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | API | 1 | API模式，即调用游戏近场快传API接口进行传输。 |
-| KNOCK | 2 | 碰一碰模式。详情请参考碰一碰分享。 |
+| KNOCK | 2 | 碰一碰分享模式。详情请参考碰一碰分享。 |
 | GESTURES | 3 | 隔空传送模式。详情请参考隔空传送。 起始版本： 6.1.0(23)。 |
 
 
@@ -483,7 +483,7 @@ on(type: 'connectNotify', callback: Callback&lt;ConnectNotification&gt;): void
 
 **起始版本：** 5.1.0(18)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -491,7 +491,7 @@ on(type: 'connectNotify', callback: Callback&lt;ConnectNotification&gt;): void
 | callback | Callback&lt;ConnectNotification&gt; | 是 | 回调函数，返回连接通知对象。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -500,7 +500,7 @@ on(type: 'connectNotify', callback: Callback&lt;ConnectNotification&gt;): void
 | 401 | Parameter error. Possible causes: 3. Parameter verification failed. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -538,7 +538,7 @@ off(type: 'connectNotify', callback?: Callback&lt;ConnectNotification&gt;): void
 
 **起始版本：** 5.1.0(18)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -546,7 +546,7 @@ off(type: 'connectNotify', callback?: Callback&lt;ConnectNotification&gt;): void
 | callback | Callback&lt;ConnectNotification&gt; | 否 | 回调函数，返回连接通知对象。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消'connectNotify'事件的所有callback订阅。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -555,7 +555,7 @@ off(type: 'connectNotify', callback?: Callback&lt;ConnectNotification&gt;): void
 | 401 | Parameter error. Possible causes: 3. Parameter verification failed. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -593,7 +593,7 @@ on(type: 'discovery', callback: Callback&lt;DiscoveryResult&gt;): void
 
 **起始版本：** 6.0.0(20)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -601,7 +601,7 @@ on(type: 'discovery', callback: Callback&lt;DiscoveryResult&gt;): void
 | callback | Callback&lt;DiscoveryResult&gt; | 是 | 回调函数，返回发现结果对象。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
@@ -610,7 +610,7 @@ on(type: 'discovery', callback: Callback&lt;DiscoveryResult&gt;): void
 | 1018300008 | Invalid parameter. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -630,6 +630,7 @@ function discoveryCallBack(callback: gameNearbyTransfer.DiscoveryResult) {
   // 获取到发现的设备 展示设备列表
   callback.nearbyGameDevices.forEach((device: gameNearbyTransfer.NearbyGameDevice, index: number) => {
     hilog.info(0x0000, 'nearby', `device info. name: ${device.deviceName}, index: ${index}`);
+    // 开发者可在此处添加展示设备列表的逻辑
   });
 }
 ```
@@ -650,7 +651,7 @@ off(type: 'discovery', callback?: Callback&lt;DiscoveryResult&gt;): void
 
 **起始版本：** 6.0.0(20)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -658,7 +659,7 @@ off(type: 'discovery', callback?: Callback&lt;DiscoveryResult&gt;): void
 | callback | Callback&lt;DiscoveryResult&gt; | 否 | 回调函数，返回发现结果对象。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消'discovery'事件的所有callback订阅。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
@@ -667,7 +668,7 @@ off(type: 'discovery', callback?: Callback&lt;DiscoveryResult&gt;): void
 | 1018300008 | Invalid parameter. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -687,6 +688,7 @@ function discoveryCallBack(callback: gameNearbyTransfer.DiscoveryResult) {
   // 获取到发现的设备 展示设备列表
   callback.nearbyGameDevices.forEach((device: gameNearbyTransfer.NearbyGameDevice, index: number) => {
     hilog.info(0x0000, 'nearby', `device info. name: ${device.deviceName}, index: ${index}`);
+    // 开发者可在此处添加展示设备列表的逻辑
   });
 }
 ```
@@ -707,7 +709,7 @@ on(type: 'receivePackageInfo', callback: Callback&lt;PackageInfo&gt;): void
 
 **起始版本：** 5.1.0(18)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -715,7 +717,7 @@ on(type: 'receivePackageInfo', callback: Callback&lt;PackageInfo&gt;): void
 | callback | Callback&lt;PackageInfo&gt; | 是 | 回调函数，返回包信息对象。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -724,7 +726,7 @@ on(type: 'receivePackageInfo', callback: Callback&lt;PackageInfo&gt;): void
 | 401 | Parameter error. Possible causes: 3. Parameter verification failed. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -761,7 +763,7 @@ off(type: 'receivePackageInfo', callback?: Callback&lt;PackageInfo&gt;): void
 
 **起始版本：** 5.1.0(18)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -769,7 +771,7 @@ off(type: 'receivePackageInfo', callback?: Callback&lt;PackageInfo&gt;): void
 | callback | Callback&lt;PackageInfo&gt; | 否 | 回调函数，返回包信息对象。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消'receivePackageInfo'事件的所有callback订阅。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -778,7 +780,7 @@ off(type: 'receivePackageInfo', callback?: Callback&lt;PackageInfo&gt;): void
 | 401 | Parameter error. Possible causes: 3. Parameter verification failed. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -816,7 +818,7 @@ on(type: 'transferNotify', callback: Callback&lt;TransferNotification&gt;): void
 
 **起始版本：** 5.1.0(18)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -824,7 +826,7 @@ on(type: 'transferNotify', callback: Callback&lt;TransferNotification&gt;): void
 | callback | Callback&lt;TransferNotification&gt; | 是 | 回调函数，返回传输通知对象。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -833,7 +835,7 @@ on(type: 'transferNotify', callback: Callback&lt;TransferNotification&gt;): void
 | 401 | Parameter error. Possible causes: 3. Parameter verification failed. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -871,7 +873,7 @@ off(type: 'transferNotify', callback?: Callback&lt;TransferNotification&gt;): vo
 
 **起始版本：** 5.1.0(18)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -879,7 +881,7 @@ off(type: 'transferNotify', callback?: Callback&lt;TransferNotification&gt;): vo
 | callback | Callback&lt;TransferNotification&gt; | 否 | 回调函数，返回传输通知对象。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消'transferNotify'事件的所有callback订阅。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -888,7 +890,7 @@ off(type: 'transferNotify', callback?: Callback&lt;TransferNotification&gt;): vo
 | 401 | Parameter error. Possible causes: 3. Parameter verification failed. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -926,7 +928,7 @@ on(type: 'error', callback: Callback&lt;ReturnResult&gt;): void
 
 **起始版本：** 5.1.0(18)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -934,7 +936,7 @@ on(type: 'error', callback: Callback&lt;ReturnResult&gt;): void
 | callback | Callback&lt;ReturnResult&gt; | 是 | 回调函数，返回结果信息对象。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -943,7 +945,7 @@ on(type: 'error', callback: Callback&lt;ReturnResult&gt;): void
 | 401 | Parameter error. Possible causes: 3. Parameter verification failed. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -980,7 +982,7 @@ off(type: 'error', callback?: Callback&lt;ReturnResult&gt;): void
 
 **起始版本：** 5.1.0(18)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -988,7 +990,7 @@ off(type: 'error', callback?: Callback&lt;ReturnResult&gt;): void
 | callback | Callback&lt;ReturnResult&gt; | 否 | 回调函数，返回结果信息对象。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消'error'事件的所有callback订阅。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -997,7 +999,7 @@ off(type: 'error', callback?: Callback&lt;ReturnResult&gt;): void
 | 401 | Parameter error. Possible causes: 3. Parameter verification failed. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -1034,14 +1036,14 @@ onRemoteInstallationInfoNotify(callback: Callback&lt;RemoteInstallationInfo&gt;)
 
 **起始版本：** 6.1.0(23)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;RemoteInstallationInfo&gt; | 是 | 回调函数，返回远程安装包结果信息对象。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
@@ -1050,7 +1052,7 @@ onRemoteInstallationInfoNotify(callback: Callback&lt;RemoteInstallationInfo&gt;)
 | 1018300008 | Invalid parameter. |
 
 
-**示例**：
+**示例：**
 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -1086,14 +1088,14 @@ offRemoteInstallationInfoNotify(callback?: Callback&lt;RemoteInstallationInfo&gt
 
 **起始版本：** 6.1.0(23)
 
-**参数**：
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;RemoteInstallationInfo&gt; | 否 | 回调函数，返回远程安装包结果信息对象。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消'offRemoteInstallationInfoNotify'事件的所有callback订阅。 |
 
 
-**错误码**：
+**错误码：**
 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 

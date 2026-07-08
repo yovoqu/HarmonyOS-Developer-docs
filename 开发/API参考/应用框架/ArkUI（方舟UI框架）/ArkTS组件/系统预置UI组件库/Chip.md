@@ -1,6 +1,6 @@
 # Chip
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chip
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -57,7 +57,7 @@ Chip(options:ChipOptions): void
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-ChipOptions定义Chip的样式及具体式样参数。
+ChipOptions定义Chip的样式及具体样式参数。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -66,26 +66,26 @@ ChipOptions定义Chip的样式及具体式样参数。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | size | ChipSize \| SizeOptions | 否 | 是 | Chip尺寸。 默认值：ChipSize.NORMAL SizeOptions类型参数不支持百分比设置，异常值按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 说明：适老化在size指定具体宽高时不生效，size设置为{ height: 0, width: 0 }除外。 |
-| enabled | boolean | 否 | 是 | Chip是否可选中。 默认值：true。 true：操作块可选中；false：操作块不可选中。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| enabled | boolean | 否 | 是 | Chip是否可用。 默认值：true。 true：操作块可用；false：操作块不可用。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | activated12+ | boolean | 否 | 是 | Chip是否为激活态。 默认值：false。 true：操作块为激活态；false：操作块为非激活态。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | prefixIcon | PrefixIconOptions | 否 | 是 | 前缀图标属性。 默认值：不显示前缀图标。 值为undefined时，按默认值处理。 prefixIcon和prefixSymbol同时设置时，显示prefixSymbol的效果，prefixIcon无效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | prefixSymbol12+ | ChipSymbolGlyphOptions | 否 | 是 | 前缀图标属性，symbol类型。 默认值：不显示前缀图标。 值为undefined时，按默认值处理。 prefixIcon和prefixSymbol同时设置时，显示prefixSymbol的效果，prefixIcon无效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | label | LabelOptions | 否 | 否 | 文本属性。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | suffixIcon | SuffixIconOptions | 否 | 是 | 后缀图标属性。 默认值：不显示后缀图标。 值为undefined时，按默认值处理。 suffixIcon和suffixSymbol同时设置时，显示suffixSymbol的效果，suffixIcon无效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | suffixSymbol12+ | ChipSymbolGlyphOptions | 否 | 是 | 后缀图标属性，symbol类型。 默认值：不显示后缀图标。 值为undefined时，按默认值处理。 suffixIcon和suffixSymbol同时设置时，显示suffixSymbol的效果，suffixIcon无效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| suffixSymbolOptions14+ | ChipSuffixSymbolGlyphOptions | 否 | 是 | symbol类型后缀图标属性的无障碍朗读功能属性。 默认值：不显示后缀图标。 值为undefined时，按默认值处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| suffixSymbolOptions14+ | ChipSuffixSymbolGlyphOptions | 否 | 是 | symbol类型后缀图标属性的无障碍朗读功能属性。 默认值：不设置对应属性。 值为undefined时，按默认值处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | backgroundColor | ResourceColor | 否 | 是 | Chip背景颜色。 默认值：\$r('sys.color.ohos_id_color_button_normal')。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | activatedBackgroundColor12+ | ResourceColor | 否 | 是 | Chip激活时的背景颜色。 默认值：\$r('sys.color.ohos_id_color_emphasize')。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | backgroundSystemMaterial | uiMaterial.Material | 否 | 是 | 设置组件系统材质样式。不同材质具有不同的效果，能够影响组件的backgroundColor、border、shadow等视觉属性。 默认值：undefined 值为undefined时，不应用材质样式。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 | activatedBackgroundSystemMaterial | uiMaterial.Material | 否 | 是 | 设置组件激活状态下的系统材质样式。不同材质具有不同的效果，能够影响组件的backgroundColor、border、shadow等视觉属性。 默认值：undefined 值为undefined时，不应用材质样式。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 | borderRadius | Dimension | 否 | 是 | Chip背景圆角半径大小，不支持百分比。 默认值：\$r('sys.float.ohos_id_corner_radius_button')。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| allowClose | boolean | 否 | 是 | 关闭图标是否显示。 默认值：true true：删除图标显示；false：删除图标不显示。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onClose | ()=>void | 否 | 是 | 默认关闭图标点击事件。 值为undefined时，关闭图标点击事件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| allowClose | boolean | 否 | 是 | 关闭图标是否显示。 默认值：true true：关闭图标显示；false：关闭图标不显示。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onClose | ()=>void | 否 | 是 | 默认关闭图标点击事件。 值为undefined时，不触发关闭图标点击事件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onClicked12+ | Callback&lt;void&gt; | 否 | 是 | Chip点击事件。 值为undefined时，Chip不能被点击。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | direction12+ | Direction | 否 | 是 | 布局方向。 默认值：Direction.Auto。 值为undefined时，按默认值处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | closeOptions14+ | CloseOptions | 否 | 是 | 默认关闭图标的无障碍朗读功能属性。 值为undefined时，按默认值处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | accessibilityDescription14+ | ResourceStr | 否 | 是 | Chip组件的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的结果。特别是当这些结果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。 默认值：空字符串。 值为undefined时，按默认值处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| accessibilityLevel14+ | string | 否 | 是 | Chip组件无障碍重要性。用于控制后缀图标是否可被无障碍辅助服务所识别。 支持的值为: "auto"：当前组件会转化为"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto"。 值为undefined时，按默认值处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
+| accessibilityLevel14+ | string | 否 | 是 | Chip组件无障碍重要性。用于控制Chip组件是否可被无障碍辅助服务所识别。 支持的值为: "auto"：当前组件会转化为"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto"。 值为undefined时，按默认值处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | accessibilitySelectedType14+ | AccessibilitySelectedType | 否 | 是 | Chip组件选中态类型。 默认值：当设置了activated属性但未指定accessibilitySelectedType时，默认使用CHECKED类型。当未设置activated属性时，默认使用CLICKED类型。 值为undefined时，按默认值处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
 | maxFontScale23+ | number \| Resource | 否 | 是 | Chip组件文本与图标的最大的字体缩放倍数。 取值范围：[1, +∞) 设置的值小于1时，按值为1处理。异常值默认不生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
 | minFontScale23+ | number \| Resource | 否 | 是 | Chip组件文本与图标的最小的字体缩放倍数。 取值范围：[0, 1] 设置的值小于0时，按值为0处理。设置的值大于1时，按值为1处理。异常值默认不生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
@@ -94,7 +94,7 @@ ChipOptions定义Chip的样式及具体式样参数。
 
 
 > [!NOTE]
-> 当suffixSymbol有传入参数时，suffixIcon和allowClose不生效；当suffixSymbol没有传入参数而suffixIcon有传入参数时，allowClose不生效；当suffixSymbol和suffixIcon都没有传入参数时，allowClose决定是否显示删除图标。 backgroundColor和activatedBackgroundColor赋值为undefined时，显示默认背景颜色；赋值为非法值时，背景颜色透明。 当prefixSymbol或suffixSymbol设置了图标时，若Chip为非激活状态，图标颜色fontColor为[\$r('sys.color.ohos_id_color_secondary')]，若Chip为激活状态，图标颜色fontColor为[\$r('sys.color.ohos_id_color_text_primary_contrary')]。此外，图标的默认大小fontSize为16fp。 当prefixIcon和suffixIcon设置了图标时，fillColor默认值均为：\$r('sys.color.ohos_id_color_secondary')。fillColor对颜色的解析与Image组件保持一致。 当prefixIcon和suffixIcon设置了图标时，activatedFillColor默认值均为：\$r('sys.color.ohos_id_color_text_primary_contrary')。activatedFillColor对颜色的解析与Image组件保持一致。
+> 当suffixSymbol有传入参数时，suffixIcon和allowClose不生效；当suffixSymbol没有传入参数而suffixIcon有传入参数时，allowClose不生效；当suffixSymbol和suffixIcon都没有传入参数时，allowClose决定是否显示删除图标。 backgroundColor和activatedBackgroundColor赋值为undefined时，显示默认背景颜色；赋值为非法值时，背景颜色透明。 当prefixSymbol或suffixSymbol设置了图标时，若Chip为非激活状态，图标颜色fontColor为[\$r('sys.color.ohos_id_color_secondary')]，若Chip为激活状态，图标颜色fontColor为[\$r('sys.color.ohos_id_color_text_primary_contrary')]。此外，当size为ChipSize.SMALL时，图标的默认字体大小fontSize为\$r('sys.float.chip_small_icon_size')；当size为ChipSize.NORMAL或自定义大小时，图标的默认字体大小fontSize为\$r('sys.float.chip_normal_icon_size')。 当prefixIcon和suffixIcon设置了图标时，fillColor默认值均为：\$r('sys.color.ohos_id_color_secondary')。fillColor对颜色的解析与Image组件保持一致。 当prefixIcon和suffixIcon设置了图标时，activatedFillColor默认值均为：\$r('sys.color.ohos_id_color_text_primary_contrary')。activatedFillColor对颜色的解析与Image组件保持一致。
 
 
 
@@ -309,7 +309,7 @@ CloseOptions用于定义Chip组件默认的关闭图标功能属性，包括无�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| fontSize23+ | Dimension | 否 | 是 | 设置Chip组件默认关闭图标的大小，不支持百分比。 默认值： size为ChipSize.SMALL时，默认值：\$r('sys.float.chip_small_font_size') 其他情况默认值：\$r('sys.float.chip_normal_font_size') 值为undefined时，按默认值处理。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| fontSize23+ | Dimension | 否 | 是 | 设置Chip组件默认关闭图标的字体大小，不支持百分比。 默认值： size为ChipSize.SMALL时，默认值：\$r('sys.float.chip_small_font_size') 其他情况默认值：\$r('sys.float.chip_normal_font_size') 值为undefined时，按默认值处理。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
 
 
 
@@ -522,7 +522,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/i4kACbkTRZCt7mZ9L_3IaA/zh-cn_image_0000002628862848.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=8219698863C090D00A257119BB9F16666B9264A14BB72CA66E3FFCEDB7E1B1CA)
+![](assets/Chip/file-20260708103116a768e775.png)
 
 
 
@@ -584,7 +584,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ZxG2JujCSbWKABEcXzmiJQ/zh-cn_image_0000002659222161.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=376423F66881B88A2FE4B0B346DF5253161CA8C9A5384C819635630E680EB7EB)
+![](assets/Chip/file-2026070810311677e9d20f.gif)
 
 
 
@@ -643,7 +643,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/5w2NhLPAQ6G90KKqk-130A/zh-cn_image_0000002628702970.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=D19AA22AA893161E168E534ED99ABDB1653E722EB7E4F20F0F8D7A6EEE580067)
+![](assets/Chip/file-20260708103116671271f3.gif)
 
 
 
@@ -699,7 +699,7 @@ struct ChipPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/8VJOKaSETdui9RRvfnP8nQ/zh-cn_image_0000002659102197.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=2847BCF0DA9A1C1D0B35FB3BCA92BD4F6A490ABD599DA9089CBCA949702C9B06)
+![](assets/Chip/file-202607081031174031633b.png)
 
 
 
@@ -762,7 +762,6 @@ struct SectionItem {
 @Entry
 @Component
 struct ChipExample2 {
-  @State activated: boolean = false;
 
   build() {
     NavDestination() {
@@ -855,7 +854,6 @@ struct SectionItem {
 @Entry
 @Component
 struct ChipExample2 {
-  @State activated: boolean = false;
 
   build() {
     NavDestination() {
@@ -1085,4 +1083,4 @@ struct ChipMaterialExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/CsgvRQTxTRSMMpdfViF1og/zh-cn_image_0000002628862850.png?HW-CC-KV=V1&HW-CC-Date=20260701T014352Z&HW-CC-Expire=86400&HW-CC-Sign=27E220D4EB7744E0EB0F1C796CA7EEFF81FFD00D28D3204076662FDDC844B9DC)
+![](assets/Chip/file-202607081031173bce0768.png)

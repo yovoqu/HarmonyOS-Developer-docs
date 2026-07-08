@@ -1,6 +1,6 @@
 # 通过contractId查询签约订单信息
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-withhold-query-contractid
 
@@ -46,7 +46,7 @@
 
 **Request Path**
 
-| 参数 | 是否必填 | 参数类型 | 描述 |
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | contractId | 是 | String | 委托代扣协议ID，签约成功后回调接口中返回。 |
 

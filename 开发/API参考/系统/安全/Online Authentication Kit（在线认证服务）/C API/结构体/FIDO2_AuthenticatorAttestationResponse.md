@@ -1,6 +1,6 @@
 # FIDO2_AuthenticatorAttestationResponse
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_attestation_response
 
@@ -24,8 +24,8 @@
 | --- | --- |
 | Uint8Buff attestationObject | 声明对象。 |
 | Uint8Buff clientDataJson | 获取客户端数据，表示WebAuthn依赖方和客户端的上下文绑定，包含类型、挑战值及源等数据。 |
-| Uint8Buff publicKey | publicKey凭证请求的选项，字节流。 |
-| Uint8Buff authenticatorData | 认证器数据，字节流。 |
+| Uint8Buff publicKey | 注册时生成的公钥数据，包含公钥算法类型和密钥参数，用于服务器保存并后续验证认证签名。 |
+| Uint8Buff authenticatorData | 认证器数据，包含依赖方ID哈希、用户存在/已验证标志位、签名计数器、凭证数据等信息，用于验证认证响应的合法性。 |
 | FIDO2_Algorithm publicKeyAlgorithm | 密码算法。 |
 | FIDO2_AuthenticatorTransportArray transports | 定义身份认证器访问类型数组。 |
  
@@ -56,7 +56,7 @@ Uint8Buff FIDO2_AuthenticatorAttestationResponse::authenticatorData
  
 **描述**
  
-认证器数据，字节流。
+认证器数据，包含依赖方ID哈希、用户存在/已验证标志位、签名计数器、凭证数据等信息，用于验证认证响应的合法性。
  
   
 
@@ -80,7 +80,7 @@ Uint8Buff FIDO2_AuthenticatorAttestationResponse::publicKey
  
 **描述**
  
-publicKey凭证请求的选项，字节流。
+注册时生成的公钥数据，包含公钥算法类型和密钥参数，用于服务器保存并后续验证认证签名。
  
   
 

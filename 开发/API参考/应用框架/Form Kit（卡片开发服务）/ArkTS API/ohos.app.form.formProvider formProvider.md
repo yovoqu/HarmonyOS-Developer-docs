@@ -1,6 +1,6 @@
 # @ohos.app.form.formProvider (formProvider)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -787,6 +787,8 @@ requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise&lt
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
+**设备行为差异：** 该接口支持Phone中的部分机型，不支持的设备调用会返回[801](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section801-该设备不支持此api)错误码。
+
 **系统能力：** SystemCapability.Ability.Form
 
 **参数：**
@@ -860,6 +862,8 @@ cancelOverflow(formId: string): Promise&lt;void&gt;
 卡片提供方发起取消互动卡片动效请求，只针对[场景动效类型互动卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration#sceneanimationparams标签)生效，使用Promise异步回调。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**设备行为差异：** 该接口支持Phone中的部分机型，不支持的设备调用会返回[801](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section801-该设备不支持此api)错误码。
 
 **系统能力：** SystemCapability.Ability.Form
 

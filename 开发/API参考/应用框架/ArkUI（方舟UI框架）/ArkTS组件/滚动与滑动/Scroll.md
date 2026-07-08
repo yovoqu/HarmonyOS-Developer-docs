@@ -1,6 +1,6 @@
 # Scroll
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1439,7 +1439,7 @@ getFrameNode(): FrameNode | undefined
 
 获取与当前Scroller绑定的FrameNode。
 
-**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1871,7 +1871,7 @@ struct NestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/2XFViF7aR2S6jLD1Rh1rhg/zh-cn_image_0000002659221681.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=CE3BDEAD72946A24E539A3DAAAF58FCDE9F5E155E4AF5A2C18FCC003AEA884E5)
+![](assets/Scroll/file-2026070810313894df8d2c.gif)
 
 
 
@@ -1943,7 +1943,7 @@ struct StickyNestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/vonZArmhQ7GQT_6dzIGYfQ/zh-cn_image_0000002628702490.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=27776AD11604312CBCD949EEB69DEF3DDF7A25DDD2F7E1B3DA50484D896FA8C0)
+![](assets/Scroll/file-20260708103139e5310f13.gif)
 
 
 
@@ -2042,7 +2042,7 @@ struct NestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/oGWU0j7_TnOvYju7LOltIw/zh-cn_image_0000002659101719.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=2CDC3DD92562DDC2BDB633B5528412398FC5E42148888C191EDF91F629D266A1)
+![](assets/Scroll/file-202607081031396ffa290a.gif)
 
 
 
@@ -2082,7 +2082,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/GbiAo4SLRf6OQW8XxmBktA/zh-cn_image_0000002628862370.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=E9B3AD04A253A1F1A14F733AB7D53D03FC0D842540D6199A99968CC4A2556AEC)
+![](assets/Scroll/file-20260708103139e6d09b0a.gif)
 
 
 
@@ -2164,7 +2164,7 @@ struct ListExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/AtE2E9n4QXKF7VkZPCSvwA/zh-cn_image_0000002659221683.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=74E35EB02EE08FCEB765C50D3FEC268C280AD82CFB4D15B974E5D93C13BE5CF9)
+![](assets/Scroll/file-202607081031392e7ada40.gif)
 
 
 
@@ -2208,7 +2208,7 @@ struct ScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/VP2_IOclSiW0zrIEAmgVPg/zh-cn_image_0000002628702492.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=B79B7B7CF8789517759A17729F2DC8CA81F03E38488AB7ECF0DD32A1FE8F7E47)
+![](assets/Scroll/file-202607081031405cc69a2a.gif)
 
 
 
@@ -2248,7 +2248,7 @@ struct ScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/m1GNGo5pQzKJlY9-oDqdJg/zh-cn_image_0000002659101721.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=3971CFF22B73DA4B69BA03EB368BCA513B03374630BE1CB28592972B3E480EBA)
+![](assets/Scroll/file-20260708103140b2a60b69.gif)
 
 
 
@@ -2286,7 +2286,7 @@ struct EnablePagingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Wtox8bTARC6_eYeLoApt0g/zh-cn_image_0000002628862372.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=419746D3BB1E6BCC75521AA65D6B0B4A0D86A0A90DF4275B9FCECC7EF77F2F84)
+![](assets/Scroll/file-2026070810314037655005.gif)
 
 
 
@@ -2353,7 +2353,7 @@ struct StickyNestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/Bv7rw29hRc6WZhsLoKfe0w/zh-cn_image_0000002659221685.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=F6140D60BEA5688680A539A2A720628A017DB2C0BF2A19FD5A0EA562FBF3583E)
+![](assets/Scroll/file-202607081031401807f9db.gif)
 
 
 
@@ -2393,7 +2393,7 @@ struct ScrollZoomExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/2GGQLdcsSqWiekcCGU1PKQ/zh-cn_image_0000002628702494.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=C521C75CE27A1BC191DA50BCB56C832CD867C7BF3F8EC1E48DE36262519F7405)
+![](assets/Scroll/file-20260708103141fc64d4d0.gif)
 
 
 
@@ -2472,7 +2472,7 @@ struct ScrollExample1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/E4cPE3jwRDy1yN-ibbL1Sw/zh-cn_image_0000002659101723.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014334Z&HW-CC-Expire=86400&HW-CC-Sign=4CD3210E58E2E568FFE7CE8959538D706F0CA2B9EADE78EFC05E92D84DE6C005)
+![](assets/Scroll/file-20260708103141f050d100.gif)
 
 
 

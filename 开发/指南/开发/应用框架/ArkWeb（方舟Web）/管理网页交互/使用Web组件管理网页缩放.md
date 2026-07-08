@@ -1,6 +1,6 @@
 # 使用Web组件管理网页缩放
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-scale-zoom
 
@@ -217,7 +217,7 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/zohZBrNNSoOMIRjiZnU9EQ/zh-cn_image_0000002626228760.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020808Z&HW-CC-Expire=86400&HW-CC-Sign=8903EA1E21D68456CC7A68EC93713471CB59B1415B34DD33A94E7F266A03087D)
+![](assets/使用Web组件管理网页缩放/file-20260708103844b40343d9.gif)
 
 
 
@@ -263,7 +263,7 @@ struct WebComponent {
       Web({ src: 'www.example.com', controller: this.controller })
         .zoomAccess(true)
         .onScaleChange((event) => {
-          console.error('onScaleChange changed from ' + event.oldScale + ' to ' + event.newScale);
+          console.info('onScaleChange changed from ' + event.oldScale + ' to ' + event.newScale);
           this.pageFactor = event.newScale;
         })
     }
@@ -272,4 +272,4 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/tgLSvcTPSIm8Wojf037Qvw/zh-cn_image_0000002626068850.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020808Z&HW-CC-Expire=86400&HW-CC-Sign=DCF7D89134D158ED6C707CF258E604E1F73E7E5188BBE6A4807894D5DFB8544F)
+![](assets/使用Web组件管理网页缩放/file-20260708103846d08fa1b6.gif)

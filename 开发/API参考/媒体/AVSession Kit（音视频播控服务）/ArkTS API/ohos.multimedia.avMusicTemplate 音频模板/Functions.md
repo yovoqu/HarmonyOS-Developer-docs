@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-f
 
@@ -31,7 +31,7 @@ createAVMusicTemplate(accessType: AVMusicTemplateType): AVMusicTemplate
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| accessType | AVMusicTemplateType | 是 | 音频模板枚举类型。 |
+| accessType | AVMusicTemplateType | 是 | 音频模板类型。 |
 
 
 **返回值：**
@@ -64,7 +64,7 @@ export class TemplateManager {
   }
 
   /**
-   * 获取模板控制器实例。
+   * 获取模板管理器实例。
    *
    * @returns 模板控制器实例。
    */
@@ -80,7 +80,7 @@ export class TemplateManager {
    */
   public createTemplate() {
     if (this.template) {
-      console.warn('createTemplate: template not undefined');
+      console.warn('createTemplate: template already exists');
       return
     }
     try {

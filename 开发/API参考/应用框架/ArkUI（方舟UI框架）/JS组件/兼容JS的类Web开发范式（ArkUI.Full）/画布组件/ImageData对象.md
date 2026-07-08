@@ -1,6 +1,6 @@
 # ImageData对象
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-imagedata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,13 +41,13 @@ ImageData对象可以存储[canvas组件](https://developer.huawei.com/consumer/
 import promptAction from '@ohos.promptAction';
 export default {
   onShow() {
-    const el =this.$refs.canvas;
+    const el = this.$refs.canvas;
     const ctx = el.getContext('2d');
-    ctx.fillRect(0,0,200,200);
-    var imageData = ctx.createImageData(1,1);
+    ctx.fillRect(0, 0, 200, 200);
+    var imageData = ctx.createImageData(1, 1);
     promptAction.showToast({
-      message:imageData,
-      duration:5000
+      message: imageData,
+      duration: 5000
     })
   }
 }

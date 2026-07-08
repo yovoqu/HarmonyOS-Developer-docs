@@ -1,6 +1,6 @@
 # MultiNavigation
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-multinavigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 MultiNavigation用于在大尺寸设备上分栏显示、进行路由跳转。
 
 > [!TIP]
-> 该组件从API version 14开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 由于MultiNavigation存在多重栈嵌套，调用本文档明确说明的不支持接口或不在本文档支持接口列表中的接口(例如 getParent 、 setInterception 、 pushDestination 等)，可能会发生无法预期的问题。 MultiNavigation在深层嵌套场景下，可能存在路由动效异常的问题。
+> 该组件从API version 14开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 由于MultiNavigation存在多层次的页面栈结构（主页、详情页、全屏页各自维护子栈，并由MultiNavPathStack统一管理），调用本文档明确说明的不支持接口或不在本文档支持接口列表中的接口(例如 getParent 、 setInterception 、 pushDestination 等)，可能会发生无法预期的问题。 MultiNavigation在深层嵌套场景下，可能存在路由动效异常的问题。
 
 
 
@@ -38,7 +38,11 @@ MultiNavigation({navDestination: NavDestinationBuildFunction, multiStack: MultiN
 
 创建并初始化MultiNavigation组件。
 
-MultiNavigation组件遵循默认的左起右清栈规则，这意味着从左侧主页点击时，会触发详情页的加载并同时清除右侧所有其他详情页，确保右侧仅展示最新加载的详情页。然而，若在右侧的详情页上再次执行详情页加载操作，系统将不会执行清栈动作。效果可参见[示例](#示例)。
+MultiNavigation组件遵循默认的左起右清栈规则：从主页触发详情页加载时，会清除栈中已有的所有详情页，确保仅展示最新加载的详情页。然而，若在右侧的详情页上再次执行详情页加载操作，系统将不会执行清栈动作。效果可参见[示例](#示例)。
+
+> [!NOTE]
+> 从主页（HOME_PAGE）点击加载详情页时：栈中已有的右侧详情页全部出栈，新详情页入栈，确保右侧仅展示最新加载的详情页。 从详情页（DETAIL_PAGE）再次点击加载详情页时：不清栈，新详情页直接入栈，原有详情页保留。 从全屏页（FULL_PAGE）加载详情页时：不影响已有详情页栈，新详情页入栈。
+
 
 **装饰器类型：** [@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)
 
@@ -50,8 +54,8 @@ MultiNavigation组件遵循默认的左起右清栈规则，这意味着从左�
 | --- | --- | --- | --- | --- |
 | multiStack | MultiNavPathStack | 是 | @State | 设置路由栈。 |
 | navDestination | NavDestinationBuildFunction | 是 | @BuilderParam | 设置加载目标页面的路由规则。 |
-| onNavigationModeChange | OnNavigationModeChangeCallback | 否 | - | 设置MultiNavigation模式变更时的回调。 |
-| onHomeShowOnTop | OnHomeShowOnTopCallback | 否 | - | 设置主页处于栈顶时的回调。 |
+| onNavigationModeChange | OnNavigationModeChangeCallback | 否 | - | 设置MultiNavigation模式变更时的回调。当需要在导航模式变化时执行特定业务逻辑（如调整页面布局、更新UI状态等）时传入此回调。不传入时不监听导航模式变更事件，导航模式变更时无回调触发。 |
+| onHomeShowOnTop | OnHomeShowOnTopCallback | 否 | - | 设置主页处于栈顶时的回调。不传入时不监听主页栈顶状态变化。 |
 
 
 
@@ -60,7 +64,7 @@ MultiNavigation组件遵循默认的左起右清栈规则，这意味着从左�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-当前，MultiNavigation的路由栈仅支持由使用方自行创建，不支持通过回调方式获取。请勿使用[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)的[onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onready11)等类似事件或接口来获取NavPathStack并进行栈操作，因为这可能会导致不可预知的问题。
+MultiNavigation的路由栈仅支持由使用方自行创建，不支持通过回调方式获取。请勿使用[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)的[onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onready11)等类似事件或接口来获取NavPathStack并进行栈操作，因为这可能会导致不可预知的问题。
 
 
 
@@ -69,6 +73,8 @@ MultiNavigation组件遵循默认的左起右清栈规则，这意味着从左�
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
+
+创建MultiNavPathStack路由栈实例。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -94,7 +100,7 @@ pushPath(info: NavPathInfo, animated?: boolean, policy?: SplitPolicy): void
 | --- | --- | --- | --- |
 | info | NavPathInfo | 是 | NavDestination页面的信息。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
-| policy | SplitPolicy | 否 | 当前入栈页面的策略。默认值：DETAIL_PAGE |
+| policy | SplitPolicy | 否 | 当前入栈页面的策略。 默认值：DETAIL_PAGE |
 
 
 
@@ -116,8 +122,8 @@ pushPath(info: NavPathInfo, options?: NavigationOptions, policy?: SplitPolicy): 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | info | NavPathInfo | 是 | NavDestination页面的信息。 |
-| options | NavigationOptions | 否 | 页面栈操作选项。仅支持其中的animated字段。 |
-| policy | SplitPolicy | 否 | 当前入栈页面的策略。默认值：DETAIL_PAGE |
+| options | NavigationOptions | 否 | 页面栈操作选项。仅支持其中的animated字段，使用其他字段将被忽略。省略时使用默认动画配置。 |
+| policy | SplitPolicy | 否 | 当前入栈页面的策略。 默认值：DETAIL_PAGE |
 
 
 
@@ -138,10 +144,10 @@ pushPathByName(name: string, param: Object, animated?: boolean, policy?: SplitPo
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | NavDestination页面名称。 |
-| param | Object | 是 | NavDestination页面详细参数。 |
+| name | string | 是 | NavDestination页面名称。需要与NavDestinationBuildFunction中注册的页面名称一致。 |
+| param | Object | 是 | NavDestination页面详细参数，用于向目标页面传递自定义数据。具体字段规格请参考NavDestination相关文档。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
-| policy | SplitPolicy | 否 | 当前入栈页面的策略。默认值：DETAIL_PAGE |
+| policy | SplitPolicy | 否 | 当前入栈页面的策略。 默认值：DETAIL_PAGE |
 
 
 
@@ -162,11 +168,11 @@ pushPathByName(name: string, param: Object, onPop?: base.Callback&lt;PopInfo&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | NavDestination页面名称。 |
-| param | Object | 是 | NavDestination页面详细参数。 |
-| onPop | base.Callback&lt;PopInfo&gt; | 否 | Callback回调，用于页面出栈时触发该回调处理返回结果。 |
+| name | string | 是 | NavDestination页面名称。需要与NavDestinationBuildFunction中注册的页面名称一致。 |
+| param | Object | 是 | NavDestination页面详细参数，用于向目标页面传递自定义数据。具体字段规格请参考NavDestination相关文档。 |
+| onPop | base.Callback&lt;PopInfo&gt; | 否 | Callback回调，用于页面出栈时触发该回调处理返回结果。省略时不触发回调处理。可通过pop方法、popToName方法、popToIndex方法的result参数传递数据给此回调。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
-| policy | SplitPolicy | 否 | 当前入栈页面的策略。默认值：DETAIL_PAGE |
+| policy | SplitPolicy | 否 | 当前入栈页面的策略。 默认值：DETAIL_PAGE |
 
 
 
@@ -254,7 +260,7 @@ removeByIndexes(indexes: Array&lt;number&gt;): number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| indexes | Array&lt;number&gt; | 是 | 待删除NavDestination页面的索引值数组。 number类型的取值范围：[0, +∞) |
+| indexes | Array&lt;number&gt; | 是 | 待删除NavDestination页面的索引值数组。 number类型的取值范围：[0, +∞)。超出范围时操作不生效。 |
 
 
 **返回值：**
@@ -282,7 +288,7 @@ removeByName(name: string): number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 待删除NavDestination页面的名字。 |
+| name | string | 是 | 待删除NavDestination页面的名称。 |
 
 
 **返回值：**
@@ -346,7 +352,7 @@ pop(result?: Object, animated?: boolean): NavPathInfo | undefined
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| result | Object | 否 | 页面自定义处理结果。 |
+| result | Object | 否 | 页面自定义处理结果。具体内容由开发者自定义，建议包含明确的业务标识和处理结果数据。该结果将传递给入栈时设置的onPop回调函数。省略时不传递结果数据。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
 
 
@@ -405,7 +411,7 @@ popToName(name: string, result: Object, animated?: boolean): number
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | NavDestination页面名称。 |
-| result | Object | 是 | 页面自定义处理结果。 |
+| result | Object | 是 | 页面自定义处理结果。具体内容由开发者自定义，建议包含明确的业务标识和处理结果数据。该结果将传递给入栈时设置的onPop回调函数。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
 
 
@@ -424,7 +430,7 @@ popToName(name: string, result: Object, animated?: boolean): number
 
 popToIndex(index: number, animated?: boolean): void
 
-回退路由栈到index指定的NavDestination页面。
+回退路由栈到index指定的NavDestination页面。当index无效（超出范围）时，不执行回退操作。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -434,7 +440,7 @@ popToIndex(index: number, animated?: boolean): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | NavDestination页面的位置索引。 取值范围：[0, +∞) |
+| index | number | 是 | NavDestination页面的位置索引。 取值范围：[0, +∞)。超出范围时操作不生效。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
 
 
@@ -457,7 +463,7 @@ popToIndex(index: number, result: Object, animated?: boolean): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | NavDestination页面的位置索引。 取值范围：[0, +∞) |
-| result | Object | 是 | 页面自定义处理结果。 |
+| result | Object | 是 | 页面自定义处理结果。具体内容由开发者自定义，建议包含明确的业务标识和处理结果数据。 |
 | animated | boolean | 否 | 是否支持转场动画。 默认值：true true：支持转场动画。 false：不支持转场动画。 |
 
 
@@ -472,7 +478,7 @@ moveToTop(name: string, animated?: boolean): number
 将由栈底开始第一个名为name的NavDestination页面移到栈顶。
 
 > [!NOTE]
-> 根据找到的第一个名为name的页面的不同，MultiNavigation会进行不同的处理： 1)当找到的是最上层主页或者全屏页，此时不做任何处理； 2)当找到的是最上层主页对应的详情页，则会将对应的详情页移到栈顶； 3)当找到的是非最上层的主页，则会将主页和对应所有详情页移到栈顶，详情页相对栈关系不变； 4)当找到的是非最上层的详情页，则会将主页和对应所有详情页移到栈顶，且将目标详情页移动到对应所有详情页的栈顶； 5)当找到的是非最上层的全屏页，则会将全屏页移动到栈顶。
+> 根据找到的第一个名为name的页面的不同，MultiNavigation会进行不同的处理： 1)当找到的是最上层主页或者全屏页，此时不做任何处理； 2)当找到的是最上层主页对应的详情页，则会将对应的详情页移到栈顶； 3)当找到的是非最上层的主页，则会将主页和对应所有详情页移到栈顶，详情页相对栈关系不变； 4)当找到的是非最上层的详情页，则会将主页和对应所有详情页移到栈顶，且将目标详情页移动到对应所有详情页的栈顶； 5)当找到的是非最上层的全屏页，则会将全屏页移动到栈顶。 场景总结： 页面已在栈顶时不操作；详情页在栈顶时仅移动该详情页；非栈顶的主页或详情页移动时会同时携带其关联的详情页组；非栈顶的全屏页仅移动自身。
 
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -505,7 +511,7 @@ moveIndexToTop(index: number, animated?: boolean): void
 将指定index的NavDestination页面移到栈顶。
 
 > [!NOTE]
-> 根据找到的第一个名为name的页面的不同，MultiNavigation会进行不同的处理： 1)当找到的是最上层主页或者全屏页，此时不做任何处理； 2)当找到的是最上层主页对应的详情页，则会将对应的详情页移到栈顶； 3)当找到的是非最上层的主页，则会将主页和对应所有详情页移到栈顶，详情页相对栈关系不变； 4)当找到的是非最上层的详情页，则会将主页和对应所有详情页移到栈顶，且将目标详情页移动到对应所有详情页的栈顶； 5)当找到的是非最上层的全屏页，则会将全屏页移动到栈顶。
+> 根据指定的index找到的页面不同，MultiNavigation会进行不同的处理： 1)当指定的是最上层主页或者全屏页的index，此时不做任何处理； 2)当指定的是最上层主页对应的详情页的index，则会将对应的详情页移到栈顶； 3)当指定的是非最上层的主页的index，则会将主页和对应所有详情页移到栈顶，详情页相对栈关系不变； 4)当指定的是非最上层的详情页的index，则会将主页和对应所有详情页移到栈顶，且将目标详情页移动到对应所有详情页的栈顶； 5)当指定的是非最上层的全屏页的index，则会将全屏页移动到栈顶。
 
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -591,7 +597,7 @@ getParamByIndex(index: number): Object | undefined
 
 | 类型 | 说明 |
 | --- | --- |
-| Object \| undefined | Object：返回对应NavDestination页面的参数信息。 undefined: 传入index无效时返回undefined。 |
+| Object \| undefined | Object：返回对应NavDestination页面的参数信息，具体字段由pushPath或pushPathByName时传入的param决定。 undefined: 传入index无效时返回undefined。 |
 
 
 
@@ -679,7 +685,11 @@ size(): number
 
 disableAnimation(disable: boolean): void
 
-关闭（true）或打开（false）当前MultiNavigation中所有转场动画。
+关闭（true）或打开（false）当前MultiNavigation中所有转场动画。适用于需要提升页面切换性能或实现自定义转场效果的场景。
+
+> [!NOTE]
+> 此配置会影响以下栈操作方法的动画效果：pushPath、pushPathByName、replacePath、replacePathByName、pop、popToName、popToIndex、moveToTop、moveIndexToTop、clear。配置立即生效，在MultiNavigation生命周期内持续有效。建议在批量栈操作前调用disableAnimation(true)关闭动画以提升性能，操作完成后调用disableAnimation(false)恢复动画。
+
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -700,7 +710,7 @@ disableAnimation(disable: boolean): void
 
 switchFullScreenState(isFullScreen?: boolean): boolean
 
-切换当前顶栈详情页面的显示模式。
+切换当前栈顶详情页面的显示模式。适用于视频播放、图片浏览等需要全屏展示的场景。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
@@ -710,7 +720,7 @@ switchFullScreenState(isFullScreen?: boolean): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isFullScreen | boolean | 否 | 是否切换为全屏。默认值为false。true表示全屏模式，false表示分栏模式。 |
+| isFullScreen | boolean | 否 | 是否切换为全屏模式。 默认值：false true：全屏模式；false：分栏模式。 |
 
 
 **返回值：**
@@ -738,8 +748,8 @@ setHomeWidthRange(minPercent: number, maxPercent: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| minPercent | number | 是 | 最小主页宽度百分比。 取值范围：[0, 100] |
-| maxPercent | number | 是 | 最大主页宽度百分比。 取值范围：[0, 100] |
+| minPercent | number | 是 | 最小主页宽度百分比。 取值范围：[0, 100]，且需小于等于maxPercent。 |
+| maxPercent | number | 是 | 最大主页宽度百分比。 取值范围：[0, 100]，且需大于等于minPercent。 |
 
 
 
@@ -789,7 +799,7 @@ setPlaceholderPage(info: NavPathInfo): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| info | NavPathInfo | 是 | 占位页页面信息。 |
+| info | NavPathInfo | 是 | 占位页页面信息，用于设置占位页。占位页在大屏设备上会与主页形成左右分栏效果。 |
 
 
 
@@ -806,9 +816,9 @@ setPlaceholderPage(info: NavPathInfo): void
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| HOME_PAGE | 0 | 主页页面类型。全屏模式显示。 |
-| DETAIL_PAGE | 1 | 详情页页面类型。分栏模式显示。 |
-| FULL_PAGE | 2 | 全屏页页面类型。全屏模式显示。 |
+| HOME_PAGE | 0 | 主页页面类型。全屏模式显示。适用于应用主页，作为导航起始页面。 |
+| DETAIL_PAGE | 1 | 详情页页面类型。分栏模式显示。适用于详情页面，在大屏设备上与主页形成左右分栏布局。 |
+| FULL_PAGE | 2 | 全屏页页面类型。全屏模式显示。适用于视频播放、图片浏览等需要全屏展示的页面。 |
 
 
 
@@ -830,7 +840,7 @@ MultiNavigation用以加载NavDestination的方法。
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 路由页面的标识符。 |
-| param | object | 否 | 路由跳转创建页面时传递的参数。 |
+| param | object | 否 | 路由跳转创建页面时传递的参数。默认效果：不传入时无参数传递。 |
 
 
 
@@ -1040,6 +1050,7 @@ export struct PageHome1 {
                 .margin(20)
                 .onClick(() => {
                   if (this.pageStack !== undefined && this.pageStack !== null) {
+                    // 弹出路由栈栈顶元素
                     this.pageStack.pop();
                   }
                 })
@@ -1225,7 +1236,7 @@ export struct PageDetail1 {
                 .margin(20)
                 .onClick(() => {
                   if (this.pageStack !== undefined && this.pageStack !== null) {
-                    // 使用PageDetail2替换当前页面
+                    // 替换当前页面为PageDetail2
                     this.pageStack.replacePathByName('PageDetail2', 'testParam');
                   }
                 })
@@ -1459,7 +1470,7 @@ export struct PageDetail2 {
                 .margin(20)
                 .onClick(() => {
                   if (this.pageStack !== undefined && this.pageStack !== null) {
-                    // 使用PageDetail2替换当前页面
+                    // 替换当前页面为PageDetail2
                     this.pageStack.replacePathByName('PageDetail2', 'testParam');
                   }
                 })
@@ -1756,16 +1767,16 @@ export struct PagePlaceholder {
 分栏效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/INa1qeH-QBKj69ryTbQBFQ/zh-cn_image_0000002628862410.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=94E5AC04A17B5D2B810B785B58D0A3B4591D94D886E0C343F9CFBA9E098FB6C8)
+![](assets/MultiNavigation/file-20260708103210bf2162f0.gif)
 
 
 主页跳转详情页效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/LUpozsjASh2ekFn8Ir7SIg/zh-cn_image_0000002659221723.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=74AD23AC0E2226260D3A5D34C0C22706168F6AE7E3F5448739C7D007DB4CD47D)
+![](assets/MultiNavigation/file-20260708103210e1f0b503.gif)
 
 
 全屏类型页面效果演示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Y3qpoL5FT9Cng8EVvFd6Yw/zh-cn_image_0000002628702534.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014336Z&HW-CC-Expire=86400&HW-CC-Sign=04EC02398466FFB123399033B528DBCE4809020ED73A464D4B4647007EF8FAF4)
+![](assets/MultiNavigation/file-2026070810321068bb165a.gif)

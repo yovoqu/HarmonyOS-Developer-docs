@@ -1,6 +1,6 @@
 # @Monitor装饰器：状态变量修改异步监听
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor
 
@@ -1634,7 +1634,7 @@ struct Child {
   @Param @Require infoWrapper: InfoWrapper;
 
   aboutToDisappear(): void {
-    hilog.info(0xFF00, 'testTag', '%{public}s', 'Child aboutToDisappear', this.infoWrapper.info?.age);
+    hilog.info(0xFF00, 'testTag', '%{public}s', `Child aboutToDisappear, age: ${this.infoWrapper.info?.age}`);
   }
 
   build() {
@@ -1723,7 +1723,7 @@ struct Child {
   }
 
   aboutToDisappear(): void {
-    hilog.info(0xFF00, 'testTag', '%{public}s', 'Child aboutToDisappear', this.infoWrapper.info?.age);
+    hilog.info(0xFF00, 'testTag', '%{public}s', `Child aboutToDisappear, age: ${this.infoWrapper.info?.age}`);
   }
 
   build() {
@@ -1808,7 +1808,7 @@ struct Child {
   @Param @Require infoWrapper: InfoWrapper;
 
   aboutToDisappear(): void {
-    hilog.info(0xFF00, 'testTag', '%{public}s', 'Child aboutToDisappear', this.infoWrapper.info?.age);
+    hilog.info(0xFF00, 'testTag', '%{public}s', `Child aboutToDisappear, age: ${this.infoWrapper.info?.age}`);
     this.infoWrapper.info = undefined; // 使InfoWrapper对info.age的监听失效
   }
 

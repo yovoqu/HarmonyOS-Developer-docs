@@ -1,6 +1,6 @@
 # ImageData
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagedata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,6 +54,8 @@ constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: Leng
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -127,4 +129,4 @@ struct Translate {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/ZW-9guHOSnCHeJes-JtpSw/zh-cn_image_0000002659222023.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=ABD8A54E3F81412C97F7972BBA8D0D34396059546B95519CC1A7B29077162C49)
+![](assets/ImageData/file-2026070810313583a27f9e.png)

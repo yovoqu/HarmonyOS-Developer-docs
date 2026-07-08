@@ -1,6 +1,6 @@
 # Navigation页面路由
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-jump
 
@@ -379,9 +379,9 @@ export struct PageOne {
 this.pageStack.getAllPathName();
 // 获取索引为1的页面参数
 this.pageStack.getParamByIndex(1);
-// 获取PageOne页面的参数
-this.pageStack.getParamByName('PageOne');
-// 获取PageOne页面的索引集合
+// 获取pageOne页面的参数
+this.pageStack.getParamByName('pageOne');
+// 获取pageOne页面的索引集合
 this.pageStack.getIndexByName('pageOne');
 ```
 
@@ -406,7 +406,7 @@ this.pageStack.setInterception({
       hilog.info(DOMAIN, 'testTag', 'target page is navigation home');
       return;
     }
-    // 将跳转到PageTwo的路由重定向到PageOne
+    // 将跳转到PageTwo的路由重定向到pageOne
     let target: NavDestinationContext = to as NavDestinationContext;
     if (target.pathInfo.name === 'pageTwo') {
       target.pathStack.pop();
@@ -728,4 +728,4 @@ export struct PageTwo {
 2. 工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置{"routerMap": "$profile:router_map"}。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/ompskfBpQoK1_P2slGcf3Q/zh-cn_image_0000002656467513.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=4D19ADEDD9340876EA0FA5502521BBA88A2C0FD0A57969B3DA8C863BC00E52E5)
+![](assets/Navigation页面路由/file-2026070810395232f12a1c.gif)

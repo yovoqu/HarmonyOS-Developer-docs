@@ -1,6 +1,6 @@
 # CanvasRenderingContext2D
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -4914,7 +4914,7 @@ on(type: 'onAttach', callback: Callback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 订阅CanvasRenderingContext2D与Canvas组件发生绑定的回调。 异常值undefined或null按无效值处理。 |
+| type | string | 是 | 订阅CanvasRenderingContext2D与Canvas组件发生绑定的事件类型，固定为'onAttach'。 异常值undefined或null按无效值处理。 |
 | callback | Callback&lt;void&gt; | 是 | 订阅CanvasRenderingContext2D与Canvas组件发生绑定后触发的回调。 异常值undefined或null按无效值处理。 |
 
 
@@ -4951,7 +4951,7 @@ on(type: 'onDetach', callback: Callback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 订阅CanvasRenderingContext2D与Canvas组件解除绑定的回调。 异常值undefined或null按无效值处理。 |
+| type | string | 是 | 订阅CanvasRenderingContext2D与Canvas组件解除绑定的事件类型，固定为'onDetach'。 异常值undefined或null按无效值处理。 |
 | callback | Callback&lt;void&gt; | 是 | 订阅CanvasRenderingContext2D与Canvas组件解除绑定后触发的回调。 异常值undefined或null按无效值处理。 |
 
 
@@ -4988,7 +4988,7 @@ off(type: 'onAttach', callback?: Callback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 取消订阅CanvasRenderingContext2D与Canvas组件发生绑定的回调。 异常值undefined或null按无效值处理。 |
+| type | string | 是 | 取消订阅CanvasRenderingContext2D与Canvas组件发生绑定的事件类型，固定为'onAttach'。 异常值undefined或null按无效值处理。 |
 | callback | Callback&lt;void&gt; | 否 | 为空表示取消所有订阅CanvasRenderingContext2D与Canvas组件发生绑定后触发的回调。 非空则取消订阅发生绑定对应的回调。 异常值undefined或null按无效值处理。 |
 
 
@@ -5021,7 +5021,7 @@ off(type: 'onDetach', callback?: Callback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 取消订阅CanvasRenderingContext2D与Canvas组件解除绑定的回调。 异常值undefined或null按无效值处理。 |
+| type | string | 是 | 取消订阅CanvasRenderingContext2D与Canvas组件解除绑定的事件类型，固定为'onDetach'。 异常值undefined或null按无效值处理。 |
 | callback | Callback&lt;void&gt; | 否 | 为空代表取消所有订阅CanvasRenderingContext2D与Canvas组件解除绑定后触发的回调。 非空代表取消订阅解除绑定对应的回调。 异常值undefined或null按无效值处理。 |
 
 
@@ -5589,8 +5589,8 @@ type ImageSmoothingQuality = "high" | "low" | "medium"
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width | number | 是 | 否 | 只读属性，文本方块的宽度。 |
-| height | number | 是 | 否 | 只读属性，文本方块的高度。 |
+| width | number | 是 | 否 | 只读属性，文本方块的宽度。 单位：vp 当CanvasRenderingContext2D对象的单位模式设置为LengthMetricsUnit.PX时，单位为px。 |
+| height | number | 是 | 否 | 只读属性，文本方块的高度。 单位：vp 当CanvasRenderingContext2D对象的单位模式设置为LengthMetricsUnit.PX时，单位为px。 |
 | actualBoundingBoxAscent | number | 是 | 否 | 只读属性，从CanvasRenderingContext2D.textBaseline属性标明的水平线到渲染文本的矩形边界顶部的距离。 |
 | actualBoundingBoxDescent | number | 是 | 否 | 只读属性，从CanvasRenderingContext2D.textBaseline属性标明的水平线到渲染文本的矩形边界底部的距离。 |
 | actualBoundingBoxLeft | number | 是 | 否 | 只读属性，平行于基线，从CanvasRenderingContext2D.textAlign属性确定的对齐点到文本矩形边界左侧的距离。 |

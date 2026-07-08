@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行array相关开发
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-array
 
@@ -287,7 +287,7 @@ JSVM CreateTypedArray success
  
 cpp 部分代码：
  
-```text
+```cpp
 static int DIFF_VALUE_FOUR = 4;
 static int DIFF_VALUE_TWELVE = 12;
 // OH_JSVM_CreateDataview的样例方法

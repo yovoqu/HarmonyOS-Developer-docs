@@ -1,11 +1,11 @@
 # 应用升级targetSDKVersion兼容低版本指导
 
-更新时间：2026-06-27 01:41:31
+更新时间：2026-07-06 03:23:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-upgrade
 
 > [!TIP]
-> API版本号格式从26.0.0开始进行调整（详见 版本号格式调整说明 ），不影响对API兼容性判断的基本逻辑，因此在文档的示意性描述中暂时仍保持旧版本格式的说明。 近期API版本号的大小关系如下： 26.0.0 > 6.1.1(24) > 6.1.0(23) > 6.0.2(22) > 6.0.1(21) > 6.0.0(20) > 5.1.1(19) > 5.1.0(18) > 5.0.4(17)
+> API版本号格式从26.0.0开始进行调整（详见 版本号格式调整说明 ），不影响对API兼容性判断的基本逻辑，因此在文档的示意性描述中暂时仍保持旧版本格式的说明。 近期API版本号的大小关系如下： 26.0.0 > 6.1.1(24) > 6.1.0(23) > 6.0.2(22) > 6.0.1(21) > 6.0.0(20) > 5.1.1(19) > 5.1.0(18) > 5.0.5(17)
 
 
 应用的源码工程配置项（build-profile.json5文件）中通过targetSdkVersion和compatibleSdkVersion定义了应用运行的目标SDK版本和最低SDK版本。
@@ -17,7 +17,7 @@
 例如：接口A在SDK版本5.0.2(14)产生行为变更并进行了版本隔离，应用升级targetSDKVersion≥5.0.2(14)并适配了新版本行为， compatibleSdkVersion还保持设置为5.0.1(13)， 则若应用分发到低版本设备5.0.1(13)上，需保证该应用在低版本设备能够兼容运行正常（如下图所示）。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/2asQT_c4Qw2GDxukVqViag/zh-cn_image_0000002448697365.png?HW-CC-KV=V1&HW-CC-Date=20260701T015445Z&HW-CC-Expire=86400&HW-CC-Sign=B34C38A7448861AF9168C083A9DAA64AECBFBED90CD8ECE974ED4C61E1F3E844)
+![](assets/应用升级targetSDKVersion兼容低版本指导/file-20260708103304a3801828.png)
 
 
 这种场景开发者可以使用如下方式进行兼容处理：

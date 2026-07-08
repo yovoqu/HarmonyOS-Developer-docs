@@ -1,6 +1,6 @@
 # 使用主题字体（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-c
 
@@ -64,7 +64,7 @@ libnative_drawing.so
 
   
 > [!NOTE]
-> 注册主题字体作用于字体管理集全局对象，故必须使用OH_Drawing_GetFontCollectionGlobalInstance获取全局字体集对象进行绘制。如若使用OH_Drawing_CreateSharedFontCollection或OH_Drawing_CreateFontCollection创建字体集对象，无法使用主题字体。OH_Drawing_GetFontCollectionGlobalInstance获取的全局字体集不允许释放，释放会造成字体绘制紊乱问题。
+> 注册主题字体作用于字体管理集全局对象，故必须使用OH_Drawing_GetFontCollectionGlobalInstance获取全局字体集对象进行绘制。如若使用OH_Drawing_CreateSharedFontCollection或OH_Drawing_CreateFontCollection创建字体集对象，无法使用主题字体。OH_Drawing_GetFontCollectionGlobalInstance获取的全局字体集不允许开发者主动释放，否则会造成字体绘制紊乱的问题。
 
 
   
@@ -116,10 +116,10 @@ OH_Drawing_Typography *typography = OH_Drawing_CreateTypography(handler);
 **图2** 主题字体1的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/Dus4uP_bREuZr8-pKm4Kcg/zh-cn_image_0000002626229280.png?HW-CC-KV=V1&HW-CC-Date=20260624T020915Z&HW-CC-Expire=86400&HW-CC-Sign=4F4AAD25CC648914C7AEAAAF0BB8787B42C39083A3CBC84F0D05F4C810CA4D8B)
+![](assets/使用主题字体（C／C++）/file-2026070810401896a0ea2f.png)
 
 
 **图3** 主题字体2的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/f4QauKMeQv6k0YgeQ0fL8A/zh-cn_image_0000002626069370.png?HW-CC-KV=V1&HW-CC-Date=20260624T020915Z&HW-CC-Expire=86400&HW-CC-Sign=DBE527769D924A94E906F494CDAF89B23A432C0A7539165E0CDB08722DF45BFB)
+![](assets/使用主题字体（C／C++）/file-20260708104018cb23504d.png)

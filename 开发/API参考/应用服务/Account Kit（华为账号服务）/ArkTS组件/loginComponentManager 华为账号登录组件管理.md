@@ -1,6 +1,6 @@
 # loginComponentManager (华为账号登录组件管理)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -110,7 +110,7 @@ onClickEvent(callback: AsyncCallback&lt;ClickEvent&gt;): LoginWithHuaweiIDButton
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;ClickEvent&gt; | 是 | 回调函数。当用户点击华为账号登录时，err为undefined，data为获取到的ClickEvent；否则为错误对象。 |
+| callback | AsyncCallback&lt;ClickEvent&gt; | 是 | 回调函数。当用户点击华为账号登录按钮时，err为undefined，data为获取到的ClickEvent；否则为错误对象。 |
 
 
 **返回值：**
@@ -156,7 +156,7 @@ onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)和[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)和[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1036,7 +1036,7 @@ onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)和[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)和[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1588,7 +1588,7 @@ fontColor(value: ResourceColor | FontColor): ButtonStyle
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor \| FontColor | 是 | 当按钮类型为BUTTON_CUSTOM时，此参数可设置按钮文字颜色。当已经设置CustomButtonParams的fontColor属性时，优先取此参数值。 不设置则为黑色。 |
+| value | ResourceColor \| FontColor | 是 | 当按钮类型为BUTTON_CUSTOM时，此参数可设置按钮文字颜色。当已经设置CustomButtonParams的fontColor属性时，优先取此参数值。 不设置则为白色。 |
 
 
 **返回值：**

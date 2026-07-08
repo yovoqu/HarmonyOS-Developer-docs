@@ -1,6 +1,6 @@
 # native_midi.h
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -61,7 +61,7 @@
 | OH_MIDIStatusCode OH_MIDIDevice_CloseInputPort(OH_MIDIDevice *device, uint32_t portIndex) | 关闭MIDI输入端口。 |
 | OH_MIDIStatusCode OH_MIDIDevice_CloseOutputPort(OH_MIDIDevice *device, uint32_t portIndex) | 关闭MIDI输出端口。 |
 | OH_MIDIStatusCode OH_MIDIDevice_Send(OH_MIDIDevice *device, uint32_t portIndex, const OH_MIDIEvent *events, uint32_t eventCount, uint32_t *eventsWritten) | 批量发送MIDI消息（非阻塞模式，每条消息具有原子性）。 |
-| OH_MIDIStatusCode OH_MIDIDevice_SendSysEx(OH_MIDIDevice *device, uint32_t portIndex, const uint8_t *data, uint32_t byteSize) | 发送超过标准MIDI消息长度的SysEx（System Exclusive，系统专用）消息，自动处理拆包和阻塞等待。这是一个实用函数，适用于将SysEx作为原始字节流（MIDI 1.0风格，F0...F7）处理的应用。 同时适用于OH_MIDI_PROTOCOL_1_0和OH_MIDI_PROTOCOL_2_0会话。 操作系统MIDI服务会自动将数据转换为设备端口所需的格式。 |
+| OH_MIDIStatusCode OH_MIDIDevice_SendSysEx(OH_MIDIDevice *device, uint32_t portIndex, const uint8_t *data, uint32_t byteSize) | 发送超过标准MIDI消息长度的SysEx（System Exclusive，系统独占）消息，自动处理拆包和阻塞等待。这是一个实用函数，适用于将SysEx作为原始字节流（MIDI 1.0风格，F0...F7）处理的应用。 同时适用于OH_MIDI_PROTOCOL_1_0和OH_MIDI_PROTOCOL_2_0会话。 操作系统MIDI服务会自动将数据转换为设备端口所需的格式。 |
 | OH_MIDIStatusCode OH_MIDIDevice_FlushOutputPort(OH_MIDIDevice *device, uint32_t portIndex) | 清空输出缓冲区中的待发送消息。立即丢弃指定端口输出缓冲区中等待的所有MIDI事件，包括用于未来时间戳的事件。 |
  
  
@@ -159,7 +159,7 @@ OH_MIDIStatusCode OH_MIDIClient_GetDeviceCount(const OH_MIDIClient *client, size
  
 获取连接的MIDI设备数量。此函数用于确定存储设备信息所需的缓冲区大小。
  
- 如果应用未获得蓝牙权限（ohos.permission.ACCESS_BLUETOOTH），蓝牙MIDI设备将不会包含在设备数量中。
+ 如果应用未获得蓝牙权限（ohos.permission.ACCESS_BLUETOOTH），蓝牙MIDI设备将不计入设备数量。
  
 **起始版本：** 24
  
@@ -268,7 +268,7 @@ OH_MIDIStatusCode OH_MIDIClient_OpenBLEDevice(OH_MIDIClient *client, const char 
 异步打开蓝牙低功耗（BLE）MIDI设备。此函数为异步操作，调用后立即返回状态码（表示请求是否成功发送），实际连接结果（成功或失败）将在BLE连接过程完成后通过提供的回调异步传递。
  
 > [!NOTE]
-> 如果蓝牙权限被拒绝， OH_MIDIClient_OnDeviceOpened 回调将以opened参数为false、device参数为null被调用。应用应检查opened参数后再尝试使用设备句柄。
+> 如果蓝牙权限被拒绝， OH_MIDIClient_OnDeviceOpened 回调将以opened参数为false、device参数为nullptr被调用。应用应检查opened参数后再尝试使用设备句柄。
 
  
 **需要权限：** ohos.permission.ACCESS_BLUETOOTH
@@ -589,7 +589,7 @@ OH_MIDIStatusCode OH_MIDIDevice_SendSysEx(OH_MIDIDevice *device, uint32_t portIn
  
 **描述**
  
-发送超过标准MIDI消息长度的SysEx（System Exclusive，系统专用）消息，自动处理拆包和阻塞等待。这是一个实用函数，适用于将SysEx作为原始字节流（MIDI 1.0风格，F0...F7）处理的应用。
+发送超过标准MIDI消息长度的SysEx（System Exclusive，系统独占消息），自动处理分包和阻塞等待。这是一个实用函数，适用于将SysEx作为原始字节流（MIDI 1.0风格，F0...F7）处理的应用。
  
  同时适用于[OH_MIDI_PROTOCOL_1_0](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-base-h#oh_midiprotocol)和[OH_MIDI_PROTOCOL_2_0](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-base-h#oh_midiprotocol)会话。
  

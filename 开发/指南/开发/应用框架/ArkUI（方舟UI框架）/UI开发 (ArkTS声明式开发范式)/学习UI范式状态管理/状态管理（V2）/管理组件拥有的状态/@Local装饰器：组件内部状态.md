@@ -1,6 +1,6 @@
 # @Local装饰器：组件内部状态
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local
 
@@ -608,7 +608,7 @@ struct SetSample {
   build() {
     Row() {
       Column() {
-        ForEach(Array.from(this.fruits.entries()), (item: [number, number]) => {
+        ForEach(Array.from(this.fruits.entries()), (item: [string, string]) => {
           Text(`${item[0]}`)
             .fontSize(20)
             .margin(10)
@@ -792,4 +792,4 @@ struct Index {
 原理为使用applySync接口同步刷新闭包函数内的状态变量变化，再执行原来的动画达成预期的效果。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/NmQzMN1USvS9q90TpmkzGg/zh-cn_image_0000002626228080.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020744Z&HW-CC-Expire=86400&HW-CC-Sign=142D3029A33C268A8882D4F3211B29F45C31083010BE1DBAF64BFCF1EBDD696F)
+![](assets/@Local装饰器：组件内部状态/file-202607081039542166d906.gif)

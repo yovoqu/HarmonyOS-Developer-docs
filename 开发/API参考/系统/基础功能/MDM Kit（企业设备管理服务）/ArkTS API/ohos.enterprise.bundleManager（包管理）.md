@@ -1,6 +1,6 @@
 # @ohos.enterprise.bundleManager（包管理）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-bundlemanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -1072,7 +1072,7 @@ installMarketApps(admin: Want, bundleNames: Array&lt;string&gt;): void
 下载并安装应用市场应用。
 
 > [!WARNING]
-> 本接口调用成功后会在桌面上生成应用下载任务，此任务与从应用市场下载所创建任务一致。下载安装结束后，安装结果会通过回调 EnterpriseAdminExtensionAbility.onMarketAppInstallResult 返回。 注意事项： 1、调用该接口时必须保证网络畅通，否则会抛出9201002错误码。 2、传入的包名必须是应用市场已上架的应用包名，并且需要 在HEM平台上加入企业应用 3、调用此接口前，此设备必须通过 HEM部署 。
+> 本接口调用成功后会在桌面上生成应用下载任务，此任务与从应用市场下载所创建任务一致。下载安装结束后，安装结果会通过回调 EnterpriseAdminExtensionAbility.onMarketAppInstallResult 返回。 注意事项： 调用此接口时必须满足以下三个要求，否则会抛出9201002错误码。 1、调用该接口时必须保证网络畅通 2、传入的包名必须是应用市场已上架的应用包名，并且需要 在HEM平台上加入企业应用 3、调用此接口前，此设备必须通过 HEM商用部署 。
 
 
 **需要权限：** ohos.permission.ENTERPRISE_INSTALL_BUNDLE

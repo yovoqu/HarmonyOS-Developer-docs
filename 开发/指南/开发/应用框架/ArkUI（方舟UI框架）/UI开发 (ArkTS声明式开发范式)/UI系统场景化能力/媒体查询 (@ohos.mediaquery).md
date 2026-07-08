@@ -1,6 +1,6 @@
 # 媒体查询 (@ohos.mediaquery)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-media-query
 
@@ -181,7 +181,6 @@ struct MediaQueryExample {
   }
 
   aboutToAppear() {
-    // 绑定当前应用实例
     // 绑定回调函数
     this.listener.on('change', (mediaQueryResult: mediaquery.MediaQueryResult) => {
       this.onPortrait(mediaQueryResult);
@@ -252,7 +251,7 @@ struct MediaQueryExample {
 
   // 当满足媒体查询条件时，触发回调
   onPortrait(mediaQueryResult: mediaquery.MediaQueryResult) {
-    if (mediaQueryResult.matches as boolean) { // 若设备为横屏状态，更改相应的文本内容与字体颜色
+    if (mediaQueryResult.matches as boolean) { // 若设备为横屏状态，更改相应的文本内容、字体颜色、布局方向及尺寸
       this.color = '#FFD700';
       this.text = 'Landscape';
       this.dir = FlexDirection.Row;
@@ -268,7 +267,6 @@ struct MediaQueryExample {
   }
 
   aboutToAppear() {
-    // 绑定当前应用实例
     // 绑定回调函数
     this.listener.on('change', (mediaQueryResult: mediaquery.MediaQueryResult) => {
       this.onPortrait(mediaQueryResult)
@@ -334,4 +332,4 @@ struct MediaQueryExample {
 **图4** 横屏
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/bqebOX6vSjKOEuwqwJrDTA/zh-cn_image_0000002626068672.png?HW-CC-KV=V1&HW-CC-Date=20260624T020800Z&HW-CC-Expire=86400&HW-CC-Sign=F1F9986DC1A297E28D15DB1BFEA04144F5B93FA6D117AFB78146F681F863287E)
+![](assets/媒体查询%20(@ohos.mediaquery)/file-2026070810391910153e9f.png)

@@ -1,6 +1,6 @@
 # addMonitor/clearMonitor接口：动态添加/取消监听
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor
 
@@ -415,7 +415,7 @@ let a: A = new A();
 UIUtils.clearMonitor(a, 'a', a.onChange1);
 // 正确用法，删除a所有的监听函数
 UIUtils.clearMonitor(a, 'a');
-// 正确用法。等于不传参数，删除b所有的监听函数
+// 正确用法。等于不传参数，删除a所有的监听函数
 UIUtils.clearMonitor(a, 'a', undefined);
 // 错误用法，传入的回调函数为匿名函数，错误码130002
 UIUtils.clearMonitor(a, 'a', (mon: IMonitor) => {});
@@ -563,7 +563,7 @@ struct Page {
         this.arr[2] += 'z';
       })
       Text(`push`).fontSize(20).onClick(() => {
-        // 在数组末尾push新数组项'd'，其index为4，index为4没有被监听
+        // 在数组末尾push新数组项'd'，其index为3，index为3没有被监听
         // 数组长度改变，length被监听
         // onChange回调：onChange: View property arr.length change from 3 to 4
         this.arr.push('d');

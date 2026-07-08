@@ -1,6 +1,6 @@
 # DrawingRenderingContext
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawingrenderingcontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -193,7 +193,7 @@ struct CanvasExample {
             green: 0,
             blue: 0
           };
-          // 使用RGBA(0, 0, 0, 0)填充画布
+          // 使用RGBA(0, 0, 0, 0)清空画布
           this.context.canvas.clear(color);
           this.context.invalidate();
         })
@@ -256,4 +256,4 @@ struct CanvasExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/xM2OAdzHTta2hMfpwWNZOg/zh-cn_image_0000002659222031.png?HW-CC-KV=V1&HW-CC-Date=20260701T014344Z&HW-CC-Expire=86400&HW-CC-Sign=0ECDD8A2D735F7BB53B22A866B5D95FD2A05196BCDC8B5B6269EC7426D4FACC5)
+![](assets/DrawingRenderingContext/file-20260708103137a9521958.png)

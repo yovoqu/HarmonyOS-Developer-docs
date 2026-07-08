@@ -1,6 +1,6 @@
 # makeObserved接口：将非观察数据变为可观察数据
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved
 
@@ -291,7 +291,7 @@ makeObserved可以在ArkUI中导入可观察的collections容器，但makeObserv
 collections.Array可以触发UI刷新的API有：
 
  - 改变数组长度：push、pop、shift、unshift、splice、shrinkTo、extendTo
- - 改变数组项本身：sort、fill
+ - 改变数组项本身：sort、fill、reverse
 
 
 其他API不会改变原始数组，所以不会触发UI刷新。
@@ -736,7 +736,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/6Jty3cUjSgy9-8KK_P48zw/zh-cn_image_0000002656347499.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020745Z&HW-CC-Expire=86400&HW-CC-Sign=895F1AC0079839847BD2C2CCEE8A3D28120FFB665E69B19A729F7D90635F5214)
+![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260708103953f7b4417a.gif)
 
 
 
@@ -808,8 +808,8 @@ struct Page10 {
         .id('textobservedObj1')
         .fontSize(50)
         .onClick(() => {
-          // 通过getTarget获取其原始对象，将this.observedObj赋值为不可观察的数据
-          let rawObj: Info= UIUtils.getTarget(this.observedObj);
+          // 通过getTarget获取this.observedObj的原始对象，原始对象为不可观察的数据
+          let rawObj: Info = UIUtils.getTarget(this.observedObj);
           // 不会触发UI刷新，但数据会正常赋值
           rawObj.id = 20;
         })

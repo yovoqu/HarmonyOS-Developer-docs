@@ -1,6 +1,6 @@
 # 页面路由 (@ohos.router)(不推荐)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing
 
@@ -114,7 +114,7 @@ const TAG = '[Sample_ArkTSRouter]';
 
 @Entry
 @Component
-struct Login {
+struct Setting {
   // 在Setting页面中
   onJumpClick(): void {
     this.getUIContext().getRouter().pushUrl({
@@ -155,7 +155,7 @@ struct SearchResult {
         hilog.error(DOMAIN, TAG, `Invoke replaceUrl failed, code is ${err.code}, message is ${err.message}`);
         return;
       }
-      hilog.error(DOMAIN, TAG, 'Invoke replaceUrl succeeded.');
+      hilog.info(DOMAIN, TAG, 'Invoke replaceUrl succeeded.');
     });
   }
 
@@ -236,7 +236,7 @@ private age: number = this.params.info.age; // 获取age属性的值
 **图2** 页面返回
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/86q18CFqScCf4ity6vWooQ/zh-cn_image_0000002626068246.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=AD59980BBD310D28CC3924DFDBB4F0FAEE913B0BA516502506761CF4A23763FB)
+![](assets/页面路由%20(@ohos.router)(不推荐)/file-20260708103921571c524a.gif)
 
 
 直接使用router可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext()获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取绑定实例的router。
@@ -422,7 +422,7 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/5z0LonRqQXGY8YglEdHxlg/zh-cn_image_0000002656467521.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=639687B492A6CC1E4013974E41EABD75BB45455FC866234861B35C093DF40778)
+![](assets/页面路由%20(@ohos.router)(不推荐)/file-2026070810392197801945.gif)
 
 
 
@@ -442,7 +442,7 @@ router自定义转场可以通过[pageTransition](https://developer.huawei.com/c
 **图3** 页面返回前增加一个询问框
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/n6f2hDSwSAqubfvJAw_rhA/zh-cn_image_0000002656347571.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=830577ED06DF04333CF288DEA25FFC497964CC3530FC7D741ED4ED4E1A50E94F)
+![](assets/页面路由%20(@ohos.router)(不推荐)/file-202607081039223e49d250.gif)
 
 
 
@@ -501,7 +501,7 @@ message：string类型，表示询问框的内容。
 在事件回调中，调用弹窗的[showDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#showdialog-1)方法：
 
 ```ArkTS
-import { promptAction} from '@kit.ArkUI';
+import { promptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 const DOMAIN = 0xF811;
@@ -556,7 +556,7 @@ onBackClick() {
 **图4** 命名路由跳转
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/MnoTSaAYTxuEBwqfsSv4wg/zh-cn_image_0000002626228156.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=01319665639A58B312941624C520C38BF335448E96A1DA46F41DAA97279964B0)
+![](assets/页面路由%20(@ohos.router)(不推荐)/file-20260708103922d16abfc1.gif)
 
 
 在想要跳转到的共享包[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)页面里，给[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)修饰的自定义组件EntryOptions命名：

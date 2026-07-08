@@ -1,6 +1,6 @@
 # mutableBuilder：实现全局@Builder动态更新
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-mutablebuilder
 
@@ -168,7 +168,7 @@ Button(`MutableBuilder`).onClick(() => {
 @State switchingBuilder: MutableBuilder<[MutableBinding]> = mutableBuilder(textBuilder);
 
 Button(`MutableBuilder`).onClick(() => {
-  // 赋值会将wrapBuilder中textBuilder中动态切换成buttonBuilder
+   // 赋值会将textBuilder动态切换成buttonBuilder
   this.switchingBuilder = mutableBuilder(buttonBuilder); // 推荐用法
 })
 ```
@@ -223,7 +223,7 @@ struct MyApp {
 点击Button，可将textBuilder动态更改为buttonBuilder，如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/TsPnavvxT6iewFFpvpXl7Q/zh-cn_image_0000002581273720.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=96B584CBDAC374887A51481EB8C609F7D4B8861D1D6B29EB50AF75B203AF0A8A)
+![](assets/mutableBuilder：实现全局@Builder动态更新/file-2026070810393132c501cf.gif)
 
 
 
@@ -331,7 +331,7 @@ struct MyApp {
 点击Click to change按钮，可将textBuilder动态切换为buttonBuilder，this.message将自动加B，界面会显示initB按钮。点击initB按钮，buttonBuilder中的p.value将自动加b，如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/-zRyHSy3QGS81_NGvA6hDw/zh-cn_image_0000002611753575.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=A0851E462F8D5CC83E94E316C52C40BD36B985857165DAECDBE0C5753D7B53D9)
+![](assets/mutableBuilder：实现全局@Builder动态更新/file-20260708103932b2a2df07.gif)
 
 
-点击Click to change按钮将textBuilder动态切换为buttonBuilder时，@Monitor将监听到全局@Builder的变化，并打印日志@Builder changed. is buttonBuilder: true。
+点击Click to change按钮将textBuilder动态切换为buttonBuilder时，@Monitor将监听到全局@Builder的变化，并打印日志Builder changed. is buttonBuilder: true。

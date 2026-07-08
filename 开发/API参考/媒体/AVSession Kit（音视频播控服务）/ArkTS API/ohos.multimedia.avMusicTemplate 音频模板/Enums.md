@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-e
 
@@ -19,7 +19,7 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| DEFAULT | 'smartCar' | 音频模板类型的默认值。 用于标识当前音频模板应用的业务类型，用户创建模板时可根据自身业务修改此值。 |
+| DEFAULT | 'smartCar' | 音频模板类型的默认值。 用于标识当前音频模板应用的业务类型，开发者创建模板时可根据自身业务修改此值。 |
  
  
   
@@ -55,7 +55,7 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| PLAYBACK_STATE_PREPARE | 0 | 准备状态。 表示媒体文件尚未准备好播放，媒体正在加载或缓冲中。 |
+| PLAYBACK_STATE_PREPARE | 0 | 准备中状态。 表示媒体文件尚未准备好播放，媒体正在加载或缓冲中。 |
 | PLAYBACK_STATE_PLAY | 1 | 正在播放状态。 |
 | PLAYBACK_STATE_PAUSE | 2 | 暂停状态。 |
 | PLAYBACK_STATE_STOP | 3 | 停止状态。 |
@@ -93,7 +93,7 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| SWITCH | 0 | 开关设置，用于控制功能的开启或关闭状态。 |
+| SWITCH | 0 | 开关设置，用于控制功能的开启或关闭。 |
 | LIST | 1 | 列表设置，用于从多个选项中选择一个选项。 |
 | JUMP | 2 | 跳转设置，用于跳转到另一个界面。 |
  
@@ -149,7 +149,7 @@
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NORMAL | 'normal' | 常规购买。 |
-| BANNER | 'banner' | 会员推广海报。 |
+| BANNER | 'banner' | 会员推广海报购买。 |
  
  
   

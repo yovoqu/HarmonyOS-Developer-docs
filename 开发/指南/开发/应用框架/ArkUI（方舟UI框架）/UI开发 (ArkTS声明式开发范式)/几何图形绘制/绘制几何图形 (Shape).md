@@ -1,6 +1,6 @@
 # 绘制几何图形 (Shape)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-geometric-shape-drawing
 
@@ -88,7 +88,7 @@ struct ViewPort1 {
 
       Row({ space: 10 }) {
         Column() {
-          // 创建一个宽高都为150的shape组件，背景色为黄色，一个宽高都为75的viewPort。
+        // 创建一个宽高都为150的shape组件，背景色为青绿色，一个宽高都为75的viewPort。
           // 用一个蓝色的矩形来填充viewPort，在viewPort中绘制一个直径为75的圆。
           // 绘制结束，viewPort会根据组件宽高放大两倍。
           // 请将$r('app.string.EnlargedCircle')替换为实际资源文件，在本示例中该资源文件的value值为"shape内放大的Circle组件"
@@ -104,8 +104,8 @@ struct ViewPort1 {
         }
 
         Column() {
-          // 创建一个宽高都为150的shape组件，背景色为黄色，一个宽高都为300的viewPort。
-          // 用一个绿色的矩形来填充viewPort，在viewPort中绘制一个直径为75的圆。
+          // 创建一个宽高都为150的shape组件，背景色为青绿色，一个宽高都为300的viewPort。
+          // 用一个灰色的矩形来填充viewPort，在viewPort中绘制一个直径为75的圆。
           // 绘制结束，viewPort会根据组件宽高缩小两倍。
           // 请将$r('app.string.ShrunkCircle')替换为实际资源文件，在本示例中该资源文件的value值为"Shape内缩小的Circle组件"
           Text($r('app.string.ShrunkCircle'))
@@ -344,11 +344,6 @@ let offCanvas: OffscreenCanvas = new OffscreenCanvas(150, 150);
 let ctx = offCanvas.getContext('2d');
 
 class DrawingRenderNode extends RenderNode {
-  private verts_: Array<number> = [0, 0, 50, 0, 410, 0, 0, 180, 50, 180, 410, 180, 0, 360, 50, 360, 410, 360];
-
-  setVerts(verts: Array<number>): void {
-    this.verts_ = verts
-  }
 
   async draw(context: DrawContext) {
     const canvas = context.canvas;
@@ -356,7 +351,6 @@ class DrawingRenderNode extends RenderNode {
     const brush = new drawing.Brush(); // 只支持brush，使用pen没有绘制效果。
     canvas.attachBrush(brush);
     let verts: number[] = [0, 0, 410, 0, 50, 0, 0, 180, 50, 180, 410, 180, 0, 360, 410, 360, 50, 360];
-    ; // 18
     canvas.drawPixelMapMesh(pixelMap, 2, 2, verts, 0, null, 0);
     canvas.detachBrush();
   }
@@ -499,7 +493,7 @@ struct Mesh {
 
 #### 绘制封闭路径
 
-在Shape的(-80, -5)点绘制一个封闭路径，填充颜色0x317AF7，线条宽度3，边框颜色红色，拐角样式锐角（默认值）。
+在Shape的(-80, -5)点绘制一个封闭路径，填充颜色rgb(213, 213, 213)，线条宽度3，边框颜色rgb(39, 135, 217)，拐角样式锐角（默认值）。
 
 > [!TIP]
 > 示例通过commands来绘制路径，commands参数说明请参考 SVG路径描述规范 。
@@ -531,7 +525,7 @@ struct ShapeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/HIe7gsR_QSWk0CuqlYhUHg/zh-cn_image_0000002626228448.png?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=C298D6B79C5F6F8F1C8FB87A32AA364AFE68628DFF33FCAA5EA4F9E9CB8DCFD5)
+![](assets/绘制几何图形%20(Shape)/file-202607081039272e68f481.png)
 
 
 
@@ -567,7 +561,7 @@ struct CircleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/JWH5XJAjSLi4V2SQZZpvAQ/zh-cn_image_0000002626068540.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=91CCA2C40085AACED6463F1EE18D8ACDA60F033DE4593F2C909593C7D3AD9A9A)
+![](assets/绘制几何图形%20(Shape)/file-20260708103928d86497cb.jpg)
 
 
 
@@ -596,4 +590,4 @@ struct CircleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/yGh29Z51T8q3_CwMI2l2yQ/zh-cn_image_0000002656467817.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=D166B8FDD206B338D9F6777FFD1E6902ED5BE2DB4DD9B5551836FE0B87EEAED0)
+![](assets/绘制几何图形%20(Shape)/file-20260708103928d49895ba.jpg)

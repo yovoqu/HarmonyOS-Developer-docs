@@ -1,6 +1,6 @@
 # Flex
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -240,7 +240,7 @@ struct FlexExample2 {
 // xxx.ets
 @Component
 struct JustifyContentFlex {
-  justifyContent : number = 0;
+  justifyContent: number = 0;
 
   build() {
     Flex({ justifyContent: this.justifyContent }) {
@@ -297,7 +297,7 @@ struct FlexExample3 {
 // xxx.ets
 @Component
 struct AlignItemsFlex {
-  alignItems : number = 0;
+  alignItems: number = 0;
 
   build() {
     Flex({ alignItems: this.alignItems }) {
@@ -424,7 +424,7 @@ import {LengthMetrics} from '@kit.ArkUI';
 
 @Entry
 @Component
-struct FlexExample2 {
+struct FlexExample6 {
   build() {
     Column() {
       Column({ space: 5 }) {
@@ -476,7 +476,7 @@ struct FlexExample2 {
 
 ```text
 @Component
-struct Demo {
+struct FlexExample7 {
   @Require @Prop text: string
 
   build() {
@@ -525,4 +525,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/WUAqOouHTEuA4e2kdpyEkw/zh-cn_image_0000002628702446.png?HW-CC-KV=V1&HW-CC-Date=20260701T014332Z&HW-CC-Expire=86400&HW-CC-Sign=F7F738842076D4E16BC63B6DC0ECF233429DACB7FEE227B5F26ED6C08C9E6710)
+![](assets/Flex/file-20260708103121f595643f.png)

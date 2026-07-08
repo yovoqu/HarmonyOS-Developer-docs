@@ -1,6 +1,6 @@
 # advanced.Counter
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-counter
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,8 +68,8 @@ CounterOptions定义Counter类型及样式。
 | type | CounterType | 否 | 否 | 指定当前Counter的类型。 |
 | direction12+ | Direction | 否 | 是 | 布局方向。 默认值：Direction.Auto 值为undefined时，按默认值处理。 |
 | numberOptions | NumberStyleOptions | 否 | 是 | 列表型和紧凑型Counter的样式。 默认值：显示计数器为0的列表型或紧凑型Counter。 值为undefined时，按默认值处理。 |
-| inlineOptions | InlineStyleOptions | 否 | 是 | 普通数字内联调节型Counter的样式。 默认值：显示计数器为0的普通数字内联调节型Counter。 值为undefined时，按默认值处理。 |
-| dateOptions | DateStyleOptions | 否 | 是 | 日期型内联型Counter的样式。 默认值：显示0001/01/01的日期型内联型Counter。 值为undefined时，按默认值处理。 |
+| inlineOptions | InlineStyleOptions | 否 | 是 | 数值内联型Counter的样式。 默认值：显示计数器为0的数值内联型Counter。 值为undefined时，按默认值处理。 |
+| dateOptions | DateStyleOptions | 否 | 是 | 日期内联型Counter的样式。 默认值：显示0001/01/01的日期内联型Counter。 值为undefined时，按默认值处理。 |
  
  
 选择不同的Counter类型，需要选择对应的Counter样式。
@@ -98,8 +98,8 @@ CounterType指定Counter类型。
 | --- | --- | --- |
 | LIST | 0 | 列表型Counter。 |
 | COMPACT | 1 | 紧凑型Counter。 |
-| INLINE | 2 | 普通数字内联调节型Counter。 |
-| INLINE_DATE | 3 | 日期型内联型Counter。 |
+| INLINE | 2 | 数值内联型Counter。 |
+| INLINE_DATE | 3 | 日期内联型Counter。 |
  
  
   
@@ -273,7 +273,7 @@ import { CounterType, CounterComponent } from '@kit.ArkUI';
 struct ListCounterExample {
   build() {
     Column() {
-      //列表型Counter
+      // 列表型Counter
       CounterComponent({
         options: {
           type: CounterType.LIST,
@@ -308,7 +308,7 @@ import { CounterType, CounterComponent } from '@kit.ArkUI';
 struct CompactCounterExample {
   build() {
     Column() {
-      //紧凑型Counter
+      // 紧凑型Counter
       CounterComponent({
         options: {
           type: CounterType.COMPACT,
@@ -344,7 +344,7 @@ import { CounterType, CounterComponent } from '@kit.ArkUI';
 struct NumberStyleExample {
   build() {
     Column() {
-      //数值内联型Counter
+      // 数值内联型Counter
       CounterComponent({
         options: {
           type: CounterType.INLINE,
@@ -383,7 +383,7 @@ import { CounterType, CounterComponent, DateData } from '@kit.ArkUI';
 struct DataStyleExample {
   build() {
     Column() {
-      //日期内联型counter
+      // 日期内联型Counter
       CounterComponent({
         options: {
           type: CounterType.INLINE_DATE,
@@ -421,7 +421,7 @@ struct CounterPage {
   build() {
     Column({}) {
 
-      //列表型Counter
+      // 列表型Counter
       CounterComponent({
         options: {
           direction: this.currentDirection,
@@ -436,7 +436,7 @@ struct CounterPage {
       })
         .width('80%')
 
-      //数值型Counter
+      // 紧凑型Counter
       CounterComponent({
         options: {
           direction: this.currentDirection,
@@ -451,7 +451,7 @@ struct CounterPage {
         }
       }).margin({ top: 20 })
 
-      //数值内联型Counter
+      // 数值内联型Counter
       CounterComponent({
         options: {
           type: CounterType.INLINE,
@@ -468,7 +468,8 @@ struct CounterPage {
           }
         }
       }).margin({ top: 20 })
-      //日期内联型counter
+      
+      // 日期内联型Counter
       CounterComponent({
         options: {
           direction: this.currentDirection,
@@ -491,4 +492,4 @@ struct CounterPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/7HmqfqXOQ0GiIN4c4nj6TA/zh-cn_image_0000002628703018.png?HW-CC-KV=V1&HW-CC-Date=20260701T014355Z&HW-CC-Expire=86400&HW-CC-Sign=0D2E46638B654AE98513453D5FB5AA81E86875DB977CE4A0B6DEBD9A59F2AA37)
+![](assets/advanced.Counter/file-20260708103113fb14d3d0.png)

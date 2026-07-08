@@ -1,6 +1,6 @@
 # @SyncMonitor装饰器：状态变量修改同步监听
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-syncmonitor
 
@@ -704,7 +704,7 @@ struct DocSampleArrayMultiPath {
           // changes arr from [ 0, 1, 2, 3, 4, 5 ] to [ 0, 100, 101, 102, 5]
           this.arr.splice(1, 4, 100, 101, 102);
           hilog.info(0xFF00, 'testTag', 'shift execute ...');
-          // changes arr from [ 1, 100, 101, 102, 5] to [ 100, 101, 102, 5]
+          // changes arr from [ 0, 100, 101, 102, 5] to [ 100, 101, 102, 5]
           this.arr.shift();
           hilog.info(0xFF00, 'testTag', '.. done');
         })

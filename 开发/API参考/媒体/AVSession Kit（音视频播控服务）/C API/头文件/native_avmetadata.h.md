@@ -1,6 +1,6 @@
 # native_avmetadata.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avmetadata-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,8 +35,8 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| OH_AVMetadataBuilderStruct | OH_AVMetadataBuilder | 会话元数据构造器。构造器用于构造会话元数据。 |
-| OH_AVMetadataStruct | OH_AVMetadata | 会话元数据。资源设置的avmetadata的实例。 |
+| OH_AVMetadataBuilderStruct | OH_AVMetadataBuilder | 会话元数据构造器。用于构造会话元数据。 |
+| OH_AVMetadataStruct | OH_AVMetadata | 会话元数据。用于存储媒体资源元数据的结构体定义。 |
  
  
   
@@ -49,7 +49,7 @@
 | --- | --- |
 | AVMetadata_Result OH_AVMetadataBuilder_Create(OH_AVMetadataBuilder** builder) | 创建一个元数据构造器。 |
 | AVMetadata_Result OH_AVMetadataBuilder_Destroy(OH_AVMetadataBuilder* builder) | 销毁元数据构造器。 |
-| AVMetadata_Result OH_AVMetadataBuilder_SetAssetId(OH_AVMetadataBuilder* builder, const char* assetId) | 设置当前媒体资源id。 |
+| AVMetadata_Result OH_AVMetadataBuilder_SetAssetId(OH_AVMetadataBuilder* builder, const char* assetId) | 设置当前媒体资源ID。 |
 | AVMetadata_Result OH_AVMetadataBuilder_SetTitle(OH_AVMetadataBuilder* builder, const char* title) | 设置资源标题。 |
 | AVMetadata_Result OH_AVMetadataBuilder_SetArtist(OH_AVMetadataBuilder* builder, const char* artist) | 设置资源所属的艺术家信息。 |
 | AVMetadata_Result OH_AVMetadataBuilder_SetAuthor(OH_AVMetadataBuilder* builder, const char* author) | 设置资源的作者。 |
@@ -57,7 +57,7 @@
 | AVMetadata_Result OH_AVMetadataBuilder_SetWriter(OH_AVMetadataBuilder* builder, const char* writer) | 设置资源词作者。 |
 | AVMetadata_Result OH_AVMetadataBuilder_SetComposer(OH_AVMetadataBuilder* builder, const char* composer) | 设置资源作曲者。 |
 | AVMetadata_Result OH_AVMetadataBuilder_SetDuration(OH_AVMetadataBuilder* builder, int64_t duration) | 设置资源播放时长。 |
-| AVMetadata_Result OH_AVMetadataBuilder_SetMediaImageUri(OH_AVMetadataBuilder* builder, const char* mediaImageUri) | 设置媒体图片数据。 |
+| AVMetadata_Result OH_AVMetadataBuilder_SetMediaImageUri(OH_AVMetadataBuilder* builder, const char* mediaImageUri) | 设置媒体图片的URI地址。 |
 | AVMetadata_Result OH_AVMetadataBuilder_SetSubtitle(OH_AVMetadataBuilder* builder, const char* subtitle) | 设置副标题。 |
 | AVMetadata_Result OH_AVMetadataBuilder_SetDescription(OH_AVMetadataBuilder* builder, const char* description) | 设置媒体描述信息。 |
 | AVMetadata_Result OH_AVMetadataBuilder_SetLyric(OH_AVMetadataBuilder* builder, const char* lyric) | 设置歌词。 |
@@ -94,7 +94,7 @@ AVMetadata_Result OH_AVMetadataBuilder_Create(OH_AVMetadataBuilder** builder)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AVMetadataBuilder** builder | 该引用指向创建的构造器实例。 |
+| OH_AVMetadataBuilder** builder | 指向创建的构造器实例。 |
  
  
 **返回：**
@@ -146,7 +146,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetAssetId(OH_AVMetadataBuilder* builder,
  
 **描述**
  
-设置当前媒体资源id。
+设置当前媒体资源ID。
  
 **起始版本：** 13
  
@@ -155,7 +155,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetAssetId(OH_AVMetadataBuilder* builder,
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AVMetadataBuilder* builder | 指向元数据构造器的实例。 |
-| const char* assetId | 资源id。 |
+| const char* assetId | 资源ID。 |
  
  
 **返回：**
@@ -394,7 +394,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetMediaImageUri(OH_AVMetadataBuilder* bu
  
 **描述**
  
-设置媒体图片数据。
+设置媒体图片的URI地址。
  
 **起始版本：** 13
  
@@ -403,7 +403,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetMediaImageUri(OH_AVMetadataBuilder* bu
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AVMetadataBuilder* builder | 指向元数据构造器的实例。 |
-| const char* mediaImageUri | 网络资源图片数据地址。 |
+| const char* mediaImageUri | 媒体图片的URI地址。 |
  
  
 **返回：**
@@ -558,7 +558,7 @@ AVMetadata_Result OH_AVMetadataBuilder_SetDisplayTags(OH_AVMetadataBuilder* buil
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AVMetadataBuilder* builder | 指向元数据构造器的实例。 |
-| int32_t tags | 用于显示在播控的媒体资源的金标类型。 |
+| int32_t tags | 用于在播控中心显示的媒体资源金标类型。 |
  
  
 **返回：**
@@ -650,7 +650,7 @@ AVMetadata_Result OH_AVMetadata_Destroy(OH_AVMetadata* avMetadata)
   
 | 参数项 | 描述 |
 | --- | --- |
-| OH_AVMetadata* avMetadata | 指向元数据的指针对象。 |
+| OH_AVMetadata* avMetadata | 指向元数据实例的指针。 |
  
  
 **返回：**

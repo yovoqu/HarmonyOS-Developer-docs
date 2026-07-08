@@ -1,6 +1,6 @@
 # liveViewManager
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-liveviewmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -664,7 +664,7 @@ async function startLiveViewByTrigger(): Promise<void> {
           content: [
             { text: "请前往" },
             { text: " XXX店 ", textColor: "#FF0A59F7" },
-            { text: "取快递" }
+            { text: "取快递" },
           ],
           keepTime: 15,
           clickAction: await buildWantAgent(),
@@ -808,7 +808,7 @@ async function stopLiveViewByTrigger(): Promise<void> {
           content: [
             { text: "请前往" },
             { text: " XXX店 ", textColor: "#FF0A59F7" },
-            { text: "取快递" }
+            { text: "取快递" },
           ],
           keepTime: 15,
           clickAction: await buildWantAgent(),
@@ -1019,7 +1019,7 @@ async function buildWantAgent(): Promise<Want> {
 | sequence | number | 否 | 是 | 支持实况窗消息更新和结束保序能力，取值范围为[0, 2147483647]，新的实况窗版本号需大于当前展示实况窗版本号，否则更新和结束会失败。若不传入参数值，Live View Kit不会自动生成（此时，调用getActiveLiveView接口查询实况信息，返回结果中sequence：4294967295为无效值，该无效值不允许用来更新实况），也不会校验实况窗版本号。对应Push Kit中的version字段。 |
 | isMute | boolean | 否 | 是 | 消息提醒方式。若您在创建或更改实况窗状态时不传入此字段，则始终默认静默提醒。 ● true：静默提醒。 ● false：铃声震动提醒。 |
 | timer | LiveViewTimer | 否 | 是 | 实况窗计时器，展示时每秒刷新一次。 配置了计时器后，可以在部分字段中使用占位符：${placeholder.timer}，系统会将占位符替换为计时器。 当前支持使用占位符的字段： ● liveViewData.primary.title ● liveViewData.primary.content ● liveViewData.primary.layoutData.content ● liveViewData.primary.layoutData.competitionTime 起始版本： 5.0.0(12) |
-| lifeCycleMode | LifeCycleMode | 否 | 是 | 实况窗生命周期模式，控制实况窗是否随应用进程结束自动结束。默认为常规生命周期，需要由开发者主动调用API结束实况窗，不跟随应用进程结束而自动结束。 仅在创建实况时生效，并且在以下场景中传入该字段不生效： ● 当event为导航场景/运动锻炼场景 ● 当调用startLiveViewByTrigger注册由条件触发创建的实况窗 说明：不传lifeCycleMode与传入lifeCycleMode为STOP_BY_APP时效果一样。 起始版本： 26.0.0 |
+| lifeCycleMode | LifeCycleMode | 否 | 是 | 实况窗生命周期模式，控制实况窗是否随应用进程结束自动结束。默认为常规生命周期，需要由开发者主动调用API结束实况窗，不跟随应用进程结束而自动结束。 仅在创建实况时生效，并且在以下场景中传入该字段不生效： ● 当event为导航场景/运动健康场景 ● 当调用startLiveViewByTrigger注册由条件触发创建的实况窗 说明：不传lifeCycleMode与传入lifeCycleMode为STOP_BY_APP时效果一样。 起始版本： 26.0.0 |
 | liveViewData | LiveViewData | 否 | 否 | 实况窗详细信息。 |
 
 
@@ -1158,7 +1158,7 @@ async function buildWantAgent(): Promise<Want> {
 **辅助区元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/g1g2gNgKQYaXebnuhbFZpw/zh-cn_image_0000002659103007.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=95941FE314A6B71BFEB949FEB87FD0B74F70D81486480F6213263D31DF8A676E)
+![](assets/liveViewManager/file-20260708103005ebcc5c97.png)
 
 
  - 1 实况卡片辅助区类型，对应type字段:       
@@ -1233,7 +1233,7 @@ async function buildWantAgent(): Promise<Want> {
 | weatherType | WeatherType | 否 | 是 | 天气类型。创建实况窗时，若不传入weatherType或传入值为undefined、WeatherType.WEATHER_TYPE_UNDEFINED、未定义的枚举值，则不展示天气效果。 |
 | locationType | WeatherLocationType | 否 | 是 | 天气位置类型。创建实况窗时，若locationType不传入或传入值为undefined、未定义的枚举值，则不展示天气效果。 |
 | highTemperature | number | 否 | 是 | 天气最高温度，当前仅支持摄氏度，需小于等于58℃且大于传入的最低温度值（lowTemperature）。仅支持左右文本模板（即layoutType为LAYOUT_TYPE_FLIGHT）展示温度信息。创建实况窗时，若不传入或传入值为undefined、超出取值范围，则不展示温度信息。 |
-| lowTemperature | number | 否 | 是 | 天气最低温度，当前仅支持摄氏度，需大于等于-95℃且小于传入的最高温度值（highTemperature）。持左右文本模板（即layoutType为LAYOUT_TYPE_FLIGHT）展示温度信息。创建实况窗时，若不传入或传入值为undefined、超出取值范围，则不展示温度信息。 |
+| lowTemperature | number | 否 | 是 | 天气最低温度，当前仅支持摄氏度，需大于等于-95℃且小于传入的最高温度值（highTemperature）。仅支持左右文本模板（即layoutType为LAYOUT_TYPE_FLIGHT）展示温度信息。创建实况窗时，若不传入或传入值为undefined、超出取值范围，则不展示温度信息。 |
 
 
 
@@ -1339,7 +1339,7 @@ async function buildWantAgent(): Promise<Want> {
 **卡片元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/PJiOhwVCTiuWP-UOfobL4Q/zh-cn_image_0000002628863658.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=B944077F47A1DE43BD9500ED92C318B9C7B218FC477FA362595C8121582FD0FA)
+![](assets/liveViewManager/file-202607081030069049e0c3.png)
 
 
  - 1 进度百分比，对应progress字段。
@@ -1379,7 +1379,7 @@ async function buildWantAgent(): Promise<Want> {
 **卡片元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/PvcpDz8HTP2WB-vlUpbzbQ/zh-cn_image_0000002659222971.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=51C040F0A0075018A40B6A695E2AF6F3DC6A846848F7D955FEE9F57EC944DA97)
+![](assets/liveViewManager/file-20260708103006b875864d.png)
 
 
  - 1 扩展区标题，对应title字段。
@@ -1415,7 +1415,7 @@ async function buildWantAgent(): Promise<Want> {
 **卡片元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/Jvz7zmTUSQGMVZmnrArHqg/zh-cn_image_0000002628703780.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=83C9853B419C93A601002F9AFED00A5DBBFADE8E123C116B8DDA742A948C2035)
+![](assets/liveViewManager/file-20260708103006577096f3.png)
 
 
  - 1 左侧文本标题，对应firstTitle字段。
@@ -1465,7 +1465,7 @@ async function buildWantAgent(): Promise<Want> {
 **卡片元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/QFL8wahMSwizZyoivzONBQ/zh-cn_image_0000002659103009.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=BCA93F59B4E547C31FD42DE91430572B652229F17FCC6BC0F5D67630BF63B736)
+![](assets/liveViewManager/file-20260708103006507841f0.png)
 
 
  - 1 左侧主队名称，对应hostName字段。
@@ -1511,7 +1511,7 @@ async function buildWantAgent(): Promise<Want> {
 **卡片元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/Yb4BDXkSRzmSCIz-gHXtEg/zh-cn_image_0000002628863660.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=ABE47DC29F3A4F3B510BCB51DC3E4FC65551601B10D10CF6E46A0F4E84EBA4B1)
+![](assets/liveViewManager/file-20260708103007c3b79976.png)
 
 
  - 1 当前导航方向，对应currentNavigationIcon字段。
@@ -1545,7 +1545,7 @@ async function buildWantAgent(): Promise<Want> {
 **胶囊元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/YVonGSscToWTXrDvQnEecQ/zh-cn_image_0000002659222973.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=395D818B13AE0C75DC156EF9A1E4B3C8E3347E8F8EE60643D9439B413DFA81E2)
+![](assets/liveViewManager/file-20260708103007e67679e0.png)
 
 
  - 1 实况胶囊类型，对应type字段。
@@ -1585,7 +1585,7 @@ async function buildWantAgent(): Promise<Want> {
 **胶囊元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/0BSbh5SJRTuUtIZUObT9Zw/zh-cn_image_0000002628703782.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=C5CBDC8B00C37F99FB0EFF0DBFF10DCA2DA90F7918C9B55EE2A2722248902767)
+![](assets/liveViewManager/file-202607081030073c1d043d.png)
 
 
  - 1 实况胶囊主文本，对应title字段。
@@ -1617,7 +1617,7 @@ async function buildWantAgent(): Promise<Want> {
 **胶囊元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/vxpZ6qxoRt6wbcj8X1t8QQ/zh-cn_image_0000002659103011.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=DA81E06162510E757396AFD5E07C38EA2F31F265C59E9071F39498263A1F21DB)
+![](assets/liveViewManager/file-202607081030087312a0ab.png)
 
 
  - 1 实况胶囊副文本，对应content字段。
@@ -1651,7 +1651,7 @@ async function buildWantAgent(): Promise<Want> {
 **胶囊元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/Oxg-PNWcQM23kilUE4hg5Q/zh-cn_image_0000002628863662.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=47205A6F7F4EA5C5B2EBDB94B9337F39F679485336139452BC083B0D5D6C7238)
+![](assets/liveViewManager/file-20260708103008a0cb3ce7.png)
 
 
  - 1 进度值显示数值占比或百分比，由indeterminate字段控制：       
@@ -1688,7 +1688,7 @@ indeterminate为false：展示数值占比，格式为x/y（x对应progress字�
 **外屏元素对应的API字段：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/7cBpwHz4S6GUsvSXO8cV9Q/zh-cn_image_0000002659222975.png?HW-CC-KV=V1&HW-CC-Date=20260701T014442Z&HW-CC-Expire=86400&HW-CC-Sign=9915A57A2C84660EA77C9BF7D6ABCB1C710D4D271BA6411E6362B3A4DF48A380)
+![](assets/liveViewManager/file-20260708103008b36f1402.png)
 
 
  - 1 外屏标题，对应title字段。

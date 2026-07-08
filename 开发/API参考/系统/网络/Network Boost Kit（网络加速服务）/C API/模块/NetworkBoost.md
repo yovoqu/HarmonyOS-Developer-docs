@@ -1,6 +1,6 @@
 # NetworkBoost
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -182,7 +182,7 @@
  
 **描述**
  
-1bps
+1bps。
  
 **起始版本：** 5.1.0(18)
  
@@ -198,7 +198,7 @@
  
 **描述**
  
-1gbps
+1gbps。
  
 **起始版本：** 5.1.0(18)
  
@@ -214,7 +214,7 @@
  
 **描述**
  
-1kbps
+1kbps。
  
 **起始版本：** 5.1.0(18)
  
@@ -230,7 +230,7 @@
  
 **描述**
  
-1mbps
+1mbps。
  
 **起始版本：** 5.1.0(18)
  
@@ -308,7 +308,7 @@ typedef void(* HMS_NetworkBoost_NetQosChange) (NetworkBoost_NetworkQosArray *net
   
 | 名称 | 描述 |
 | --- | --- |
-| networkQosArray | 网络质量变化的详细信息 |
+| networkQosArray | 网络质量变化的详细信息。 |
  
  
   
@@ -331,7 +331,7 @@ typedef void(* HMS_NetworkBoost_NetSceneChange) (NetworkBoost_NetworkScene *netw
   
 | 名称 | 描述 |
 | --- | --- |
-| networkScene | 网络场景变化的详细信息 |
+| networkScene | 网络场景变化的详细信息。 |
  
  
   
@@ -354,7 +354,7 @@ typedef void(* HMS_NetworkBoost_OnHandoverComplete) (NetworkBoost_HandoverComple
   
 | 名称 | 描述 |
 | --- | --- |
-| handoverComplete | 连接迁移完成的详细信息 |
+| handoverComplete | 连接迁移完成的详细信息。 |
  
  
   

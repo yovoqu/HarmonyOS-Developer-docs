@@ -1,6 +1,6 @@
 # LoginPanel (华为账号Panel登录组件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-loginpanel
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -41,8 +41,8 @@ import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
 | show | boolean | 是 | @Link | 该参数用于控制LoginPanel组件是否展示。 false表示不展示该组件。 true表示展示该组件，当业务需要使用LoginPanel组件时设置值为true。 说明： - 该参数必须是@State装饰的局部变量。 - LoginPanel仅支持在页面中使用，弹框、子窗口等场景暂不支持。 |
-| params | loginComponentManager.LoginPanelParams | 是 | @Require | LoginPanel组件参数。 |
-| controller | loginComponentManager.LoginPanelController | 是 | @Require | LoginPanel组件控制器用来接收组件的点击事件。 |
+| params | loginComponentManager.LoginPanelParams | 是 | @Require 适用版本：26.0.0+ | LoginPanel组件参数。 |
+| controller | loginComponentManager.LoginPanelController | 是 | @Require 适用版本：26.0.0+ | LoginPanel组件控制器用来接收组件的点击事件。 |
  
  
   

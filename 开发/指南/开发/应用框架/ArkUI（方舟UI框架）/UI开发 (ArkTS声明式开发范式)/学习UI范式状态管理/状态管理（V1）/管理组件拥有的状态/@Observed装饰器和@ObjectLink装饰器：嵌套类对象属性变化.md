@@ -1,6 +1,6 @@
 # @Observed装饰器和@ObjectLink装饰器：嵌套类对象属性变化
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink
 
@@ -917,7 +917,7 @@ struct SetSampleNestedChild {
 
 
 
-#### ObjectLink支持联合类型
+#### @ObjectLink支持联合类型
 
 @ObjectLink支持@Observed装饰类和undefined或null组成的联合类型，在下面的示例中，count类型为Source | Data | undefined，点击父组件Parent中的Button改变count的属性或者类型，Child组件中对应的Text组件刷新。
 
@@ -1119,7 +1119,7 @@ struct MyView {
 }
 ```
 
- - 最后一个Text组件Text('child: ${this.cousin.child.childId}')，当点击该组件时UI不会刷新。 因为，@State cousin : Cousin 只能观察到this.cousin属性的变化，比如this.cousin.parentId, this.cousin.cousinId 和this.cousin.child的变化，但是无法观察嵌套在属性中的属性，即this.cousin.child.childId（属性childId是内嵌在cousin中的对象Child的属性）。
+ - 最后一个Text组件Text(childId: ${this.cousin.child.childId})，当点击该组件时UI不会刷新。 因为，@State cousin : Cousin 只能观察到this.cousin属性的变化，比如this.cousin.parentId, this.cousin.cousinId 和this.cousin.child的变化，但是无法观察嵌套在属性中的属性，即this.cousin.child.childId（属性childId是内嵌在cousin中的对象Child的属性）。
  - 为了观察到嵌套于内部的Child的属性，需要做如下改变：
 
   
@@ -1692,7 +1692,7 @@ struct DelayedChangeIndex {
 }
 ```
 
-上文的示例代码将定时器修改移入到组件内，此时界面显示时会先显示“The value of renderClass is：false”。待定时器触发时，renderClass的值改变，触发[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)回调，此时界面刷新显示“The value of renderClass is：true”，日志输出“The value of renderClass is changed to：true”。
+上文的示例代码将定时器修改移入到组件内，此时界面显示时会先显示“The value of renderClass is: false”。待定时器触发时，renderClass的值改变，触发[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)回调，此时界面刷新显示“The value of renderClass is: true”，日志输出“The value of renderClass is changed to: true”。
 
 因此，更推荐开发者在组件中对@Observed装饰的类成员变量进行修改，以实现刷新。
 
@@ -1848,15 +1848,20 @@ struct Index {
 @Observed
 class DataDownloader {
   public state: number;
+  private intervalId: number = -1;
 
   constructor() {
     this.state = 0;
   }
 
   startIntervalUpdate() {
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.state += 1;
     }, 2000);
+  }
+
+  stopIntervalUpdate() {
+    clearInterval(this.intervalId);
   }
 }
 

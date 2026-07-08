@@ -1,6 +1,6 @@
 # SegmentButton
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,7 +68,7 @@ SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItem
 | selectedIndexes | number[] | 是 | @Link | 分段按钮的选中项编号，第一项的编号为0，之后顺序增加。 说明： selectedIndexes使用@Link装饰器：父子双向同步，仅支持有效的按钮编号（第一个按钮编号为0，之后按顺序累加），如没有选中项可传入空数组[]。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onItemClicked13+ | Callback&lt;number&gt; | 否 | - | 当分段按钮选项被点击时，触发的回调函数接收被点击的选项下标作为参数。若不传入此参数，则点击时不触发回调。 元服务API： 从API version 13开始，该接口支持在元服务中使用。 |
 | maxFontScale14+ | number \| Resource | 否 | @Prop | 分段按钮选项文字的最大字体放大倍数。 取值范围：[1, 2] 当设置的值小于1时，按值为1处理，设置的值大于2时，按值为2处理。 元服务API： 从API version 14开始，该接口支持在元服务中使用。 |
-| enableStateAnimation24+ | boolean | 否 | @Prop | 设置当通过变量修改selectedIndex值时，是否开启分段按钮的属性动画。 true表示开启分段按钮的属性动画；false表示不开启分段按钮的属性动画，使用原有动画。 默认值：false 元服务API： 从API version 24开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| enableStateAnimation24+ | boolean | 否 | @Prop | 设置当通过变量修改selectedIndexes值时，是否开启分段按钮的属性动画。 true表示开启分段按钮的属性动画；false表示不开启分段按钮的属性动画，使用原有动画。 默认值：false 元服务API： 从API version 24开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -915,7 +915,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/LkQ-8XMGTbOqXvJ7csAuOw/zh-cn_image_0000002659102223.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=F27DB6E3C2857614E20AC50DE296A54CD3B48E760BD55663FD9A962F03FE8608)
+![](assets/SegmentButton/file-20260708103108ea230072.png)
 
 
 
@@ -1027,7 +1027,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/DSDRCekzSumx8gIKPpFGiw/zh-cn_image_0000002628862876.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=9C99B8BC4D8FF97F1174593E1367A02A6478D35BCA2E901ECE443C49CDA814AC)
+![](assets/SegmentButton/file-20260708103108ea9422b7.png)
 
 
 
@@ -1108,7 +1108,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/-DPaT3zySy65nHm9Nff0uA/zh-cn_image_0000002659222189.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=3FE95C6165975FC3731AEAF4A36C20EEDF6D3CEBFFAEA32AA111F0B70F716FF9)
+![](assets/SegmentButton/file-202607081031080c062e11.gif)
 
 
 
@@ -1222,7 +1222,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/esMyTO95TveGyJ1QpMBABA/zh-cn_image_0000002628702998.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=8D1FB0F8EF9A70B73E551DD50B185E4210EC3E24007ADD58982F5FFD4B3F0E68)
+![](assets/SegmentButton/file-202607081031098d4e0337.png)
 
 
 
@@ -1302,7 +1302,7 @@ struct Index {
         accessibilityDescription: 'SegmentButtonIconTextItem 新手提醒' // 无障碍说明。
       },
       {
-        text: '图标1',
+        text: '图标2',
         icon: $r('sys.media.ohos_ic_public_email'),
         iconAccessibilityText: '未选中图标无障碍文本', // 未选中态按钮图标的无障碍文本。
         selectedIcon: $r('sys.media.ohos_ic_public_clock'),
@@ -1311,7 +1311,7 @@ struct Index {
         accessibilityDescription: 'SegmentButtonIconTextItem 新手提醒' // 无障碍说明。
       },
       {
-        text: '图标1',
+        text: '图标3',
         icon: $r('sys.media.ohos_ic_public_email'),
         iconAccessibilityText: '未选中图标无障碍文本', // 未选中态按钮图标的无障碍文本。
         selectedIcon: $r('sys.media.ohos_ic_public_clock'),
@@ -1320,7 +1320,7 @@ struct Index {
         accessibilityDescription: 'SegmentButtonIconTextItem 新手提醒' // 无障碍说明。
       },
       {
-        text: '图标1',
+        text: '图标4',
         icon: $r('sys.media.ohos_ic_public_email'),
         iconAccessibilityText: '未选中图标无障碍文本', // 未选中态按钮图标的无障碍文本。
         selectedIcon: $r('sys.media.ohos_ic_public_clock'),
@@ -1418,7 +1418,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/1JU0eZ33TjmzH52TumJlYQ/zh-cn_image_0000002659102225.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=87652C0B4FF60B626448F54119FE4A8D527E0384DCF3E60BB8331E44DF1F8AC4)
+![](assets/SegmentButton/file-20260708103109a8c45f54.png)
 
 
 
@@ -1498,7 +1498,7 @@ struct Index12 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/HdZ-fmVKSIm_XouGUDS24g/zh-cn_image_0000002628862878.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=A22521BBAFAF7D67E82679D0880B65FA4C7ACEC0CD09F65936C49CC37FE95B4C)
+![](assets/SegmentButton/file-20260708103109cf4d24ff.gif)
 
 
 
@@ -1549,4 +1549,72 @@ struct IndexCl {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/MEcC3WDOSuymJktYh0XBgw/zh-cn_image_0000002659222191.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=60EF8FDCA1B1B430D933571F2EE1681E8FEFD00AC5027FE133E47E0472FFAFD9)
+![](assets/SegmentButton/file-2026070810310982a08c79.png)
+
+
+
+
+#### 示例9（监听SegmentButtonOptions内属性的变化）
+
+[SegmentButtonOptions](#segmentbuttonoptions)使用了@Observed装饰器，SegmentButton组件通过@ObjectLink接收该对象。对于SegmentButtonOptions的一层基本类型属性（如fontColor、backgroundColor等），@Observed与@ObjectLink的联动机制已能观测到属性变化并触发UI刷新，无需额外处理。但对于SegmentButtonOptions中对象类型属性（如imageSize、buttonPadding等）的内部属性（如imageSize的width、height），属于更深层的嵌套属性，@State仅能观测到一层赋值变化，无法感知这类深层属性的修改，导致修改对象类型属性的内部属性时UI不会自动刷新。使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)接口对对象类型属性（如imageSize）进行包裹，可以为该对象的内部属性补充深度观察能力，使得修改内部属性（如width、height）时，框架能够监听到变化并触发UI刷新。makeObserved接口的详细说明请参考[makeObserved接口：将非观察数据变为可观察数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)。
+
+以下示例对比了两种场景：点击“修改fontColor颜色”按钮修改iconTextCapsuleOptions的fontColor属性（一层基本类型属性，已通过@Observed与@ObjectLink支持观测），UI自动刷新；点击“修改图标大小”按钮修改iconTextCapsuleOptions.imageSize的width和height属性（imageSize对象的内部属性，需通过UIUtils.makeObserved包裹imageSize才能观测），UI同样自动刷新。
+
+```text
+import {
+  SegmentButton,
+  SegmentButtonOptions,
+  SegmentButtonItemTuple,
+  UIUtils
+} from '@kit.ArkUI';
+
+@Entry
+@Component
+struct IndexCl {
+  @State iconTextCapsuleOptions: SegmentButtonOptions = SegmentButtonOptions.capsule({
+    buttons: [
+      { text: '图标1', icon: $r('sys.media.ohos_ic_public_email'), selectedIcon: $r('sys.media.ohos_ic_public_clock') },
+      { text: '图标2', icon: $r('sys.media.ohos_ic_public_email'), selectedIcon: $r('sys.media.ohos_ic_public_clock') },
+      { text: '图标3', icon: $r('sys.media.ohos_ic_public_email'), selectedIcon: $r('sys.media.ohos_ic_public_clock') },
+      { text: '图标4', icon: $r('sys.media.ohos_ic_public_email'), selectedIcon: $r('sys.media.ohos_ic_public_clock') },
+      { text: '图标5', icon: $r('sys.media.ohos_ic_public_email'), selectedIcon: $r('sys.media.ohos_ic_public_clock') }
+    ] as SegmentButtonItemTuple,
+    multiply: false,
+    // 使用UIUtils.makeObserved包裹imageSize，使内部属性width和height可被观测。
+    imageSize: UIUtils.makeObserved({ width: 30, height: 30 })
+  });
+  @State selectedIndexes: number[] = [0];
+  @State currentFontColor: ResourceColor = Color.Blue;
+
+  build() {
+    Column({ space: 20 }) {
+      SegmentButton({
+        options: this.iconTextCapsuleOptions,
+        selectedIndexes: $selectedIndexes
+      })
+      // 一层基本类型属性，已通过@Observed与@ObjectLink支持this.iconTextCapsuleOptions.fontColor的观测，UI自动刷新。
+      Button('修改fontColor颜色')
+        .onClick(() => {
+          if (this.currentFontColor === Color.Blue) {
+            this.currentFontColor = Color.Red;
+          } else {
+            this.currentFontColor = Color.Blue;
+          }
+          this.iconTextCapsuleOptions.fontColor = this.currentFontColor;
+        })
+      // 修改imageSize的内部属性，由于makeObserved包裹，UI会自动刷新。
+      Button('修改图标大小')
+        .onClick(() => {
+          this.iconTextCapsuleOptions.imageSize.width = 10;
+          this.iconTextCapsuleOptions.imageSize.height = 10;
+        })
+    }
+    .width('100%')
+    .height('50%')
+    .padding({ top: 20 })
+  }
+}
+```
+
+
+![](assets/SegmentButton/file-202607081031098bd345f5.gif)

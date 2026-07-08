@@ -1,6 +1,6 @@
 # AppStorageV2: 应用全局UI状态存储
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2
 
@@ -221,7 +221,7 @@ struct PageOne {
           })
 
         // 获取当前AppStorageV2里面的所有key
-        Text(`all keys in AppStorage: ${AppStorageV2.keys()}`)
+        Text(`all keys in AppStorageV2: ${AppStorageV2.keys()}`)
           .fontSize(30)
       }
     }
@@ -269,7 +269,7 @@ struct PageTwo {
           })
 
         // 获取当前AppStorageV2里面的所有key
-        Text(`all keys in AppStorage: ${AppStorageV2.keys()}`)
+        Text(`all keys in AppStorageV2: ${AppStorageV2.keys()}`)
           .fontSize(30)
       }
     }

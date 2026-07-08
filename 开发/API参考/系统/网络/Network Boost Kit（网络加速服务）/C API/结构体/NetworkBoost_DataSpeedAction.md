@@ -1,6 +1,6 @@
 # NetworkBoost_DataSpeedAction
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-struct-data_speed_action
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,8 +32,8 @@
 | 名称 | 描述 |
 | --- | --- |
 | NetworkBoost_DataSpeedSimpleAction dataSpeedSimpleAction | 应用发包策略的简单建议。 |
-| uint64_t linkUpBandwidth | 上行带宽。 |
-| uint64_t linkDownBandwidth | 下行带宽。 |
+| uint64_t linkUpBandwidth | 上行带宽，单位为bps。 |
+| uint64_t linkDownBandwidth | 下行带宽，单位为bps。 |
  
  
   

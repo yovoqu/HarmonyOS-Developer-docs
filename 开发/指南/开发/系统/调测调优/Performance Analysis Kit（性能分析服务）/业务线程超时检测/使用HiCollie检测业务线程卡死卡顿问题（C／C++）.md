@@ -1,6 +1,6 @@
 # 使用HiCollie检测业务线程卡死卡顿问题（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hicollie-guidelines-ndk
 
@@ -97,7 +97,7 @@ OH_HiCollie_Init_JankDetection示例，编辑“index.d.ts”文件，定义ArkT
 9. OH_HiCollie_Init_StuckDetection示例，编辑“index.d.ts”文件，定义ArkTS接口：
 10. OH_HiCollie_Init_StuckDetectionWithTimeout示例，编辑“index.d.ts”文件，定义ArkTS接口：
 11. OH_HiCollie_ReportInputBlock示例，编辑“index.d.ts”文件，定义ArkTS接口：
-12. OH_HiCollie_SetFreezeCallbac、OH_HiCollie_AssociateProcessReport示例，编辑“index.d.ts”文件，定义ArkTS接口：
+12. OH_HiCollie_SetFreezeCallback、OH_HiCollie_AssociateProcessReport示例，编辑“index.d.ts”文件，定义ArkTS接口：
 13. 编辑“Index.ets”文件：
 
   

@@ -1,6 +1,6 @@
 # FolderStack
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-folderstack
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -395,7 +395,6 @@ struct Index {
       .alignContent(Alignment.Bottom)
       .height("100%")
       .width("100%")
-      .backgroundColor('rgb(39, 135, 217)')
 
     }
     .height("100%")
@@ -411,13 +410,13 @@ struct Index {
 **图1** 横屏展开
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/kgJUqbt3QCKoRLYO7ciZYg/zh-cn_image_0000002659222175.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=DD00A435AD8A337AD96F5FAE88DA45A4FC794C44E3A184409CFE16FCA176092D)
+![](assets/FolderStack/file-20260708103118896883e8.png)
 
 
 **图2** 横屏半折叠
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/TqvsRhVBS_KmNFdxsa31Lg/zh-cn_image_0000002628702984.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=549E1C2A26D233EB485A8B8018828426B6596A1E7048D164DE1F490B6DEACF4F)
+![](assets/FolderStack/file-202607081031184c26bbd4.png)
 
 
 
@@ -495,7 +494,6 @@ struct attributeDemo {
       .alignContent(Alignment.Bottom)
       .height("100%")
       .width("100%")
-      .backgroundColor('rgb(39, 135, 217)')
     }
     .height("100%")
     .width("100%")
@@ -522,7 +520,7 @@ this appRotation:3
 this windowStatusType:1
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/zcCayCKSQHWrvmGHto5D7w/zh-cn_image_0000002659102211.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=506A94FE56C903DCF409CEE6D1BB1B3B8B3CBAB466484F176F2CAE5328727D21)
+![](assets/FolderStack/file-20260708103119896883e8.png)
 
 
 **图2** 横屏半折叠
@@ -540,4 +538,4 @@ this appRotation:3
 this windowStatusType:1
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/nlaoJRDwRD-OfDOll-FHmw/zh-cn_image_0000002628862864.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=1BD002B43A9E0F2FAD97C29115B30C5E13447BA69484D3CE639AB9A1AE8EAAC3)
+![](assets/FolderStack/file-202607081031194c26bbd4.png)

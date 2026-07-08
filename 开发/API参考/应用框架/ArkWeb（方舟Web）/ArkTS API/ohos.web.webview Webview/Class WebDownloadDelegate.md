@@ -1,11 +1,13 @@
 # Class (WebDownloadDelegate)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaddelegate
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-下载任务的状态会通过该类的回调接口通知给用户。
+WebDownloadDelegate是ArkWeb框架中用于监听和处理Web组件下载任务事件的委托类。当Web组件中的网页触发文件下载时（如用户点击下载链接或通过startDownload方法），下载任务的状态变化会通过该类的回调接口通知给应用。开发者通过setDownloadDelegate将WebDownloadDelegate实例注册到Web组件，从而接管下载流程的完整生命周期管理。
+ 
+WebDownloadDelegate定义了四个下载生命周期回调：[onBeforeDownload](#onbeforedownload11)在下载开始前触发，应用需要在此回调中调用[WebDownloadItem.start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaditem#start11)并指定下载路径，否则下载将一直处于PENDING状态；[onDownloadUpdated](#ondownloadupdated11)在下载过程中触发，可获取下载进度（百分比）、已接收字节数等更新信息；[onDownloadFinish](#ondownloadfinish11)在下载完成时触发；[onDownloadFailed](#ondownloadfailed11)在下载失败时触发，可通过[WebDownloadItem.serialize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaditem#serialize11)保存失败任务以便后续恢复。
  
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 11开始支持。 示例效果请以真机运行为准。

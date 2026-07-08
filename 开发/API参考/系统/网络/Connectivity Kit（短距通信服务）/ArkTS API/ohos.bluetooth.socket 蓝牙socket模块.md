@@ -1,6 +1,6 @@
 # @ohos.bluetooth.socket (蓝牙socket模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-socket
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -158,7 +158,7 @@ sppAccept(serverSocket: number, callback: AsyncCallback&lt;number&gt;): void
  - 当服务端不再需要已建立的连接时，可通过[socket.sppCloseClientSocket](#socketsppcloseclientsocket)主动断开指定的客户端套接字连接。
 
 
-**系统能力**：SystemCapability.Communication.Bluetooth.Core
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
 
 **参数：**
 
@@ -166,8 +166,9 @@ sppAccept(serverSocket: number, callback: AsyncCallback&lt;number&gt;): void
 | --- | --- | --- | --- |
 | serverSocket | number | 是 | 服务端套接字的ID。 该值是调用socket.sppListen接口后，通过其异步callback获取到的。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当收到客户端的连接请求且连接建立成功时，err为undefined，data是用于标识发起此次连接请求的客户端套接字ID，有效值为非负值；否则err为错误对象。 |
-| 错误码： |  |  |  |
 
+
+**错误码：**
 
 以下错误码的详细介绍请参见[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
 

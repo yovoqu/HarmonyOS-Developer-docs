@@ -1,6 +1,6 @@
 # 状态管理V1和V2混用指导（API version 19及之后）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage
 
@@ -43,7 +43,7 @@
 
 **限制条件**
 
- - 不支持[collections类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections)和[@Sendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)装饰的class。
+ - 不支持[collections](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections)类型和[@Sendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)装饰的class。
  - 不支持非object类型。
  - 不支持undefined、null。
  - 不支持@ObservedV2、[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)的返回值和V2装饰器装饰的built-in类型的变量（Array、Map、Set和Date）。
@@ -114,7 +114,7 @@ SubComponentV2({param: this.state})
 
   
 ```text
-let arr: Array<ArrayItem> = UIUtils.enableV2Compatibility(UIUtils.makeV1Observed(new ArrayItem()));
+let arr: Array<ArrayItem> = UIUtils.enableV2Compatibility(UIUtils.makeV1Observed(new Array<ArrayItem>()));
 
 arr.push(new ArrayItem()); // 新增数据不是V1状态变量，所以不会具有V2观察能力
 arr.push(UIUtils.makeV1Observed(new ArrayItem())); // 新增数据是V1的状态变量，默认在V2中可观察
@@ -127,7 +127,7 @@ arr.push(UIUtils.makeV1Observed(new ArrayItem())); // 新增数据是V1的状态
 开发者在使用这两个接口混用V1V2时，可遵循下图逻辑。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/P8cAt0QwRyu1UlvROQgJ-w/zh-cn_image_0000002626228096.png?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=988514BF791985154D8FC9F2B4ED5E4749DDDEFCBF710E93C2487015649DDE05)
+![](assets/状态管理V1和V2混用指导（API%20version%2019及之后）/file-202607081039554c719b5e.png)
 
 
 
@@ -562,7 +562,7 @@ class ObservedClass {
 
 @Entry
 @ComponentV2
-struct CompV1 {
+struct CompV2 {
   @Local observedClass: ObservedClass = UIUtils.enableV2Compatibility(new ObservedClass());
 
   build() {
@@ -576,18 +576,18 @@ struct CompV1 {
         this.observedClass.count++;
       })
 
-      CompV2({ observedClass: this.observedClass })
+      CompV1({ observedClass: this.observedClass })
     }
   }
 }
 
 @Component
-struct CompV2 {
+struct CompV1 {
   @ObjectLink observedClass: ObservedClass;
 
   build() {
     Column() {
-      Text(`count: ${this.observedClass.name}`).onClick(() => {
+      Text(`name: ${this.observedClass.name}`).onClick(() => {
         // 触发刷新
         this.observedClass.name += 'a';
       })

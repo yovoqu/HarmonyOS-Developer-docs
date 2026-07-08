@@ -1,6 +1,6 @@
 # @ReusableV2装饰器：V2组件复用
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2
 
@@ -922,7 +922,7 @@ struct Index {
 
   build() {
     Column() {
-      ForEach(this.simpleList, (num: number, index) => {
+      ForEach(this.simpleList, (num: number, index: number) => {
         Row() {
           Button('Click to change')
             .margin({ right: 10 })
@@ -963,7 +963,7 @@ struct ReusableV2Component {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/3w00yZ2YRWGxEr8DRO1Kug/zh-cn_image_0000002656467371.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020741Z&HW-CC-Expire=86400&HW-CC-Sign=30A8132011380F71101FF37C7B44A563CA1F201CAA35D6AFD6440A386F7F5379)
+![](assets/@ReusableV2装饰器：V2组件复用/file-2026070810393947ba823b.gif)
 
 
 
@@ -1108,7 +1108,7 @@ struct Index {
 @ReusableV2
 @ComponentV2
 struct ChildComponent {
-  @Param @Require data: string;
+  @Require @Param data: string;
 
   aboutToAppear(): void {
     hilog.info(DOMAIN, TAG, 'ChildComponent aboutToAppear', this.data);
@@ -1135,4 +1135,4 @@ struct ChildComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/eGWpAbriRcaK3T962SrZPQ/zh-cn_image_0000002656347421.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020741Z&HW-CC-Expire=86400&HW-CC-Sign=CAA3807B55D2BA5381CFECAAB0C74DFBBC7897CA4896C6FC9AF774FD2005FBE0)
+![](assets/@ReusableV2装饰器：V2组件复用/file-202607081039407591e700.gif)

@@ -1,6 +1,6 @@
 # Circle
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -353,6 +353,56 @@ antiAlias(value: boolean)
  
   
 
+#### stroke
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+stroke(value: ResourceColor | ColorMetrics) : CircleAttribute
+ 
+设置边框颜色，支持使用[ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12)描述颜色，可进行HDR提亮，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，不设置时，默认边框透明度为0，即没有边框。
+ 
+**起始版本：** 26.0.0
+ 
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor \| ColorMetrics | 是 | 边框颜色。 默认值：Color.Transparent 异常值undefined和null按照默认值处理，NaN和Infinity按照Color.Black处理。 |
+ 
+ 
+  
+
+#### fill
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+fill(value: ResourceColor | ColorMetrics)
+ 
+设置填充区域的颜色，支持使用[ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12)描述颜色，可进行HDR提亮，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
+ 
+**起始版本：** 26.0.0
+ 
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | ResourceColor \| ColorMetrics | 是 | 填充区域颜色。 默认值：Color.Black 异常值undefined、null、NaN和Infinity按照默认值处理。 |
+ 
+ 
+  
+
 #### 示例
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -456,4 +506,51 @@ struct CircleModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/zfRb9KFwRbunHpjnfCfRVw/zh-cn_image_0000002659102103.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=B82467D032DA4A3D77E1C06E11163D1DAFC2DC5A1CE98D2BA46707F3CA06C364)
+![](assets/Circle/file-20260708103126c834c59b.png)
+
+ 
+  
+
+#### 示例4（使用ColorMetrics设置HDR填充和边框颜色）
+
+通过[ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12)可为Circle组件设置HDR颜色，实现超出普通显示范围的亮度效果。其中，[fill](#fill)接口用于设置填充区域的颜色，[stroke](#stroke)接口用于设置边框颜色。以下示例左侧使用HDR暖金色填充和冰蓝色边框（亮度倍数大于1.0），右侧使用普通SDR颜色作为对照，在支持HDR的屏幕上可观察到左侧明显比右侧更亮且色彩更鲜艳。
+ 
+从API版本26.0.0开始，新增Circle组件专有的[fill](#fill)和[stroke](#stroke)接口，支持传入[ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12)类型以实现HDR提亮效果。
+ 
+```ArkTS
+// xxx.ets
+import { ColorMetrics } from '@kit.ArkUI';
+
+@Entry
+@Component
+struct CircleHDRDemo {
+  build() {
+    Column({ space: 30 }) {
+      Row({ space: 60 }) {
+        // HDR填充和边框：颜色分量值可以超过1.0，超过1.0的部分用于表现超出普通屏幕亮度范围的高亮效果
+        Column({ space: 8 }) {
+          Circle()
+            .width(120).height(120).strokeWidth(6)
+            .fill(ColorMetrics.createHDRColor(ColorSpace.BT2020, 2.5, 1.2, 0.0, 1)) // 高亮暖金
+            .stroke(ColorMetrics.createHDRColor(ColorSpace.BT2020, 0.0, 0.8, 2.5, 1)) // 高亮冰蓝
+          Text('HDR').fontColor(Color.White).fontSize(14)
+        }
+
+        // SDR填充和边框：颜色分量值的范围为0.0到1.0，是常规标准动态范围的颜色显示方式
+        Column({ space: 8 }) {
+          Circle()
+            .width(120).height(120).strokeWidth(6)
+            .fill('#ffc800') // 普通金黄
+            .stroke('#0066ff') // 普通深蓝
+          Text('SDR').fontColor(Color.White).fontSize(14)
+        }
+      }
+    }
+    .width('100%').height('100%')
+    .justifyContent(FlexAlign.Center)
+  }
+}
+```
+ 
+
+![](assets/Circle/file-2026070810312655409232.png)

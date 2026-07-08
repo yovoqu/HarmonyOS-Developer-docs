@@ -1,6 +1,6 @@
 # 事件订阅（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-app-events-arkts
 
@@ -158,7 +158,7 @@ Button('writeEvent ArkTS')
   .height('5%')
   .onClick(() => {
     // 在按钮点击函数中进行事件打点，以记录按钮点击事件
-    let eventParams: Record<string, number> = {'clickTime': 100};
+    let eventParams: Record<string, number> = { 'clickTime': 100 };
     let eventInfo: hiAppEvent.AppEventInfo = {
       // 事件领域定义
       domain: 'button',
@@ -172,7 +172,8 @@ Button('writeEvent ArkTS')
     hiAppEvent.write(eventInfo).then(() => {
       hilog.info(0x0000, 'testTag', `AppEvents writeEvent ArkTS success`);
     }).catch((err: BusinessError) => {
-      hilog.error(0x0000, 'testTag', `AppEvents HiAppEvent err.code: ${err.code}, err.message: ${err.message}`);
+      hilog.error(0x0000, 'testTag',
+        `AppEvents HiAppEvent err.code: ${err.code}, err.message: ${err.message}`);
     });
   })
 ```

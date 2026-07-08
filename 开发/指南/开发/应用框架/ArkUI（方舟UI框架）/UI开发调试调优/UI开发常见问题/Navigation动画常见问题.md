@@ -1,6 +1,6 @@
 # Navigation动画常见问题
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-animation-faq
 
@@ -37,7 +37,7 @@ export function DialogNavDestinationBuilder() {
 @Component
 export struct DialogNavDestination {
   stack: NavPathStack = AppStorage.get<NavPathStack>('basicNavigationStack')!;
-  @State backColor: ResourceColor = '#0000000';
+  @State backColor: ResourceColor = '#00000000';
 
   build() {
     NavDestination() {

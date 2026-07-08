@@ -1,6 +1,6 @@
 # 选项卡 (Tabs)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-tabs
 
@@ -74,7 +74,7 @@ Tabs() {
     Text($r('app.string.mine_content'))
       .fontSize(30)
   }
-  // app.string.mine_content资源文件中的value值为“我的”
+  // app.string.mine资源文件中的value值为“我的”
   .tabBar($r('app.string.mine'))
 }
 ```
@@ -537,7 +537,7 @@ export struct NumberOfCachesTabBar {
           .width(360)
           .height(296)
           .backgroundColor('#F1F3F5')
-          .cachedMaxCount(1, TabsCacheMode.CACHE_BOTH_SIDE)
+          .cachedMaxCount(2, TabsCacheMode.CACHE_BOTH_SIDE)
           // ...
   }
 }
@@ -569,28 +569,28 @@ struct MyComponent {
   **图16** 默认翻页动画，CACHE_BOTH_SIDE模式示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/oCdMUHUZQrOy0xeBjpWpgQ/zh-cn_image_0000002656347645.png?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=3F6DD24DD29EAE95691C5A318775496543FF11A87112AEDF382CEE52B967BE0F)
+![](assets/选项卡%20(Tabs)/file-20260708103959c211ea6e.png)
 
 2. 如图17所示，使用默认翻页动画，CACHE_LATEST_SWITCHED模式，n设置为2，点击TabBar切换到yellow页，TabContent1、3被缓存，TabContent2释放。再切换到red页，TabContent1、3、5被缓存，TabContent4释放。
 
   **图17** 默认翻页动画，CACHE_LATEST_SWITCHED模式示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/BG8KubPXS-Cqs2IVVRptMA/zh-cn_image_0000002626228230.png?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=2D780EBA9634F63729838D42E151FC225EF787F69EBED96150AEB724D32E798F)
+![](assets/选项卡%20(Tabs)/file-20260708103959610c61d6.png)
 
 3. 如图18所示，关闭翻页动画，CACHE_BOTH_SIDE模式，n设置为2，点击TabBar切换到yellow页，TabContent1、3被缓存。再切换到red页，TabContent3、5被缓存，TabContent1释放。
 
   **图18** 关闭翻页动画，CACHE_BOTH_SIDE模式示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/xp0Zqg1wSrS7z5k9u5yTyw/zh-cn_image_0000002626068322.png?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=F66AD03AF0D3E88220D280062DBA4D57C215BD60F4F717B9520C00DEBA5CC8BC)
+![](assets/选项卡%20(Tabs)/file-20260708103959ffde9584.png)
 
 4. 如图19所示，关闭翻页动画，CACHE_LATEST_SWITCHED模式，n设置为2，点击TabBar切换到yellow页，TabContent1、3被缓存。再切换到red页，TabContent1、3、5被缓存。
 
   **图19** 关闭翻页动画，CACHE_LATEST_SWITCHED模式示意图
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/-G05jf0fSLa6D6J8L6bWEA/zh-cn_image_0000002656467597.png?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=330FF6A3F1B87558A3B8B1B3734854B786092141F6A9A81A9802B53705F94710)
+![](assets/选项卡%20(Tabs)/file-20260708103959a3c24285.png)
 
 
 

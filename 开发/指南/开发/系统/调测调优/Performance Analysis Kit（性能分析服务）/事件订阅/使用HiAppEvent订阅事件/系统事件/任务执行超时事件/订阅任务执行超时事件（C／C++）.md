@@ -1,6 +1,6 @@
 # 订阅任务执行超时事件（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-apphicollie-events-ndk
 
@@ -50,7 +50,7 @@ entry:
         pages:
           - Index.ets
 ```
-该示例工程中jsoncpp库文件对应的源码来自[三方开源库jsoncpp](https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz)。
+该示例工程中jsoncpp库文件对应的源码来自[三方开源库jsoncpp](https://codeload.github.com/open-source-parsers/jsoncpp/tar.gz/refs/tags/1.9.6)。
 3. 编辑“CMakeLists.txt”文件，添加所需源文件及动态库。
 
   
@@ -80,6 +80,7 @@ target_include_directories(entry PRIVATE ${DEST_DIR}/jsoncpp-1.9.6/include/json)
 // 根据工程中三方库jsoncpp的位置适配引用json.h的路径
 #include "../../../build/jsoncpp-1.9.6/include/json/json.h"
 #include "hiappevent/hiappevent.h"
+#include "hiappevent/hiappevent_param.h"
 #include "hilog/log.h"
 
 #undef LOG_TAG

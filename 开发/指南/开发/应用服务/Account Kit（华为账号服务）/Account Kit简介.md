@@ -1,6 +1,6 @@
 # Account Kit简介
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-introduction
 
@@ -42,7 +42,7 @@ Account Kit（华为账号服务）提供简单、快速、安全的登录功能
 
 #### 示例代码
 
-Account Kit提供的[SampleCode示例工程](https://gitcode.com/HarmonyOS_Samples/accountkit-samplecode-clientdemo-arkts)体现了Account Kit的[华为账号一键登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login)、[静默登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-silent-login)、[获取头像昵称](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-avatar-nickname)、[快速验证手机号](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-phonenumber)、[收货地址](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev)、[发票抬头](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-select-invoice-title)、[未成年人模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-overview-minorsprotection)等特性，可参考该工程进行应用的相关内容开发。
+Account Kit提供的[SampleCode示例工程](https://gitcode.com/HarmonyOS_Samples/accountkit-samplecode-clientdemo-arkts)体现了Account Kit的[华为账号一键登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login)、[静默登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-silent-login)、[获取头像昵称](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-avatar-nickname)、[获取手机号](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-phonenumber)、[收货地址](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev)、[发票抬头](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-select-invoice-title)、[未成年人模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-overview-minorsprotection)等特性，可参考该工程进行应用的相关内容开发。
 
 
 

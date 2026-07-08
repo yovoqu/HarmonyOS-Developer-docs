@@ -1,6 +1,6 @@
 # Navigation
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1054,7 +1054,7 @@ pushDestination(info: NavPathInfo, animated?: boolean): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异步返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1099,7 +1099,7 @@ pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise&lt;void
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1145,7 +1145,7 @@ pushDestinationByName(name: string, param: Object, animated?: boolean): Promise&
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1192,7 +1192,7 @@ pushDestinationByName(name: string, param: Object, onPop: import('../api/@ohos.b
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1300,7 +1300,7 @@ replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise&lt;v
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 异常返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -2288,7 +2288,7 @@ Navigation自定义标题。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | builder | CustomBuilder | 否 | 否 | 设置标题栏内容。 |
-| height | TitleHeight \| Length | 否 | 否 | 设置标题栏高度。 |
+| height | TitleHeight \| Length | 否 | 否 | 设置标题栏高度。 取值范围：[0, +∞) 单位参考Length类型的说明。 |
 
 
 
@@ -2306,8 +2306,8 @@ Navigation分割线颜色及上下边距。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | color | ResourceColor | 否 | 是 | 分割线的颜色。 默认值：#33000000，灰色。 |
-| startMargin | Length | 否 | 是 | 分割线与侧边栏顶端的距离。 默认值：0 单位：vp 取值范围：[0, +∞) |
-| endMargin | Length | 否 | 是 | 分割线与侧边栏底端的距离。 默认值：0 单位：vp 取值范围：[0, +∞) |
+| startMargin | Length | 否 | 是 | 分割线与侧边栏顶端的距离。 默认值：0 单位参考Length类型的说明。 取值范围：[0, +∞) |
+| endMargin | Length | 否 | 是 | 分割线与侧边栏底端的距离。 默认值：0 单位参考Length类型的说明。 取值范围：[0, +∞) |
 
 
 
@@ -3576,7 +3576,7 @@ export struct PageOne {
           .margin(10)
           .onClick(() => {
             let tmp = new TmpClass();
-            // 将name指定的NavDestination页面信息入栈，传递的数据为param，添加接收处理结果的onPop回调。
+            // 将name指定的NavDestination页面信息入栈，传递的数据为param。
             this.pageInfo.pushDestination({ name: 'pageTwo', param: new ParamWithOp() })
               .catch((error: BusinessError) => {
                 console.error(`[pushDestinationWithoutOnPop]failed, error code = ${error.code}, error.message = ${error.message}.`);
@@ -3655,7 +3655,7 @@ export struct PageTwo {
           .margin(20)
           .onClick(() => {
             this.pathStack.popToName('pageOne',
-              new resultClass(11)); // 将第一个名为name的NavDestination页面移到栈顶，将处理结果传入push的onPop回调中。
+              new resultClass(11)); // 回退路由栈到第一个名为name的NavDestination页面，将处理结果传入push的onPop回调中。
           })
 
         Button('popToIndex', { stateEffect: true, type: ButtonType.Capsule })
@@ -3663,7 +3663,7 @@ export struct PageTwo {
           .height(40)
           .margin(20)
           .onClick(() => {
-            this.pathStack.popToIndex(0, new resultClass(111)); // 将index指定的NavDestination页面移到栈顶，将处理结果传入push的onPop回调中。
+            this.pathStack.popToIndex(0, new resultClass(111)); // 回退路由栈到index指定的NavDestination页面，将处理结果传入push的onPop回调中。
           })
 
         Button('popWithoutResult', { stateEffect: true, type: ButtonType.Capsule })
@@ -5229,7 +5229,7 @@ export class CustomTransition {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/LmsDGvoTQye4qo7x_9S5LQ/zh-cn_image_0000002628702526.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=C9ABF2B11855255AC30EEF994063CC2C7F62D069A5C38D519D2B2241D1996C1F)
+![](assets/Navigation/file-20260708103219fc0e2195.gif)
 
 
 
@@ -5369,7 +5369,7 @@ struct NavigationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/ZAz8hZ6cQ4mZXFu8TmD5Yw/zh-cn_image_0000002659101753.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=AD85088AFC7CD26F190FE60B2F81D0B23FC7EE05422724793A7F75B9D48A5F4A)
+![](assets/Navigation/file-20260708103219b12640c7.gif)
 
 
 
@@ -5444,7 +5444,7 @@ struct NavigationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/eQVNSs91Ryai5nOojc8sJw/zh-cn_image_0000002628862404.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=A1D8298743289B702E1D79631B17A760266A2EDA70A7BE7A44F1EAE0F55C7B31)
+![](assets/Navigation/file-202607081032200fa02ebd.gif)
 
 
 
@@ -5535,7 +5535,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/9hDteJ3-T32h0r0HjwSj_A/zh-cn_image_0000002659221717.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=EEE145121695D86E17F0FC6983FE066A7A38DCFF85D85488895171D221F1C851)
+![](assets/Navigation/file-20260708103220559dc743.gif)
 
 
 
@@ -5809,7 +5809,7 @@ export struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/oU2H2fCMQ_O__dC6bQ_voQ/zh-cn_image_0000002628702528.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=71ED7C9CFB8FC9351E8AFB3C933F49C6348FD2A2E9A20F256290B55402878D92)
+![](assets/Navigation/file-20260708103221c6d313be.gif)
 
 
 
@@ -5976,4 +5976,4 @@ export struct NavigationMenu {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/rqAaCyzBReedVXpnrG8KGg/zh-cn_image_0000002659101755.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=597AEE8C92B14385AC09870DEE32A6038A9FC5C7F63D90E1437838AC0A92C92E)
+![](assets/Navigation/file-20260708103221a71b1788.gif)

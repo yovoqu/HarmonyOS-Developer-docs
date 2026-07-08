@@ -1,6 +1,6 @@
 # Ads Kit术语
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-kit-glossary
 
@@ -10,7 +10,7 @@
  
   
 
-#### Interstital Ad 插屏广告
+#### Interstitial Ad 插屏广告
 
 插屏广告是一种在应用开启、暂停或退出时以全屏或半屏的形式弹出的广告形式，展示时机巧妙避开用户对应用的正常体验，尺寸大，曝光效果好。
  

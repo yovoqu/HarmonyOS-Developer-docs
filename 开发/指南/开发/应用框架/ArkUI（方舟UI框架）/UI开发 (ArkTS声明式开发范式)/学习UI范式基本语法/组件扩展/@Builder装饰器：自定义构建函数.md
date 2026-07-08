@@ -1,6 +1,6 @@
 # @Builder装饰器：自定义构建函数
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder
 
@@ -35,7 +35,7 @@ ArkUI提供轻量的UI元素复用机制@Builder，其内部UI结构固定，仅
 struct BuilderDemo {
   @Builder
   showTextBuilder() {
-    // @Builder装饰此函数，使其能以链式调用的方式配置并构建Text组件
+    // @Builder装饰此函数，使其成为自定义构建函数，用于配置并构建Text组件
     Text('Hello World')
       .fontSize(30)
       .fontWeight(FontWeight.Bold)
@@ -297,7 +297,7 @@ struct PrivateBuilder {
 
 
 
-#### 全局自定义构建函数
+#### 使用全局自定义构建函数
 
 创建全局的@Builder函数，并在Column中通过overBuilder()方式调用。传递参数时，可以使用对象字面量形式，无论是简单类型还是复杂类型，值的任何变化都会触发UI界面的刷新。
 

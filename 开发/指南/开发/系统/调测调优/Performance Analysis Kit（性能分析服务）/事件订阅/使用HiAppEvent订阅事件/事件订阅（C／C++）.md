@@ -1,6 +1,6 @@
 # 事件订阅（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-app-events-ndk
 
@@ -64,7 +64,7 @@ entry
     │   │   └── pages
     │   │       └── Index.ets        // 主页
 ```
-该示例工程中jsoncpp库文件对应的源码来自[三方开源库jsoncpp](https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz)。
+该示例工程中jsoncpp库文件对应的源码来自[三方开源库jsoncpp](https://codeload.github.com/open-source-parsers/jsoncpp/tar.gz/refs/tags/1.9.6)。
 2. 编辑“CMakeLists.txt”文件，添加所需的源文件和动态库。
 
   
@@ -93,6 +93,7 @@ target_include_directories(entry PRIVATE ${DEST_DIR}/jsoncpp-1.9.6/include/json)
 // 根据工程中三方库jsoncpp的位置适配引用json.h的路径
 #include "../../../build/jsoncpp-1.9.6/include/json/json.h"
 #include "hiappevent/hiappevent.h"
+#include "hiappevent/hiappevent_param.h"
 #include "hilog/log.h"
 
 #undef LOG_TAG
@@ -127,8 +128,6 @@ static napi_value WriteAppEvent(napi_env env, napi_callback_info info)
 
   
 ```cpp
-// ...
-
 static napi_value Init(napi_env env, napi_value exports)
 {
     napi_property_descriptor desc[] = {

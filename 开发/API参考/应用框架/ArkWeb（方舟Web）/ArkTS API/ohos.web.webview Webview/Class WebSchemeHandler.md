@@ -1,11 +1,13 @@
 # Class (WebSchemeHandler)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-用于拦截指定scheme的请求的拦截器。
+WebSchemeHandler是用于拦截指定scheme（协议）的网络请求的拦截器类。开发者通过实现onRequestStart回调来决定是否拦截某个请求，被拦截的请求可通过WebResourceHandler自定义响应内容。通过WebviewController的[setWebSchemeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setwebschemehandler12)方法将WebSchemeHandler实例注册到指定的scheme上，从而实现对该scheme所有请求的截获和处理。
+
+WebSchemeHandler与[WebSchemeHandlerRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandlerrequest)、[WebResourceHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webresourcehandler)、[WebSchemeHandlerResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandlerresponse)配合使用：onRequestStart回调接收WebSchemeHandlerRequest（被拦截的请求信息）和WebResourceHandler（用于返回自定义响应的处理器），返回boolean值表示是否拦截。onRequestStop在请求结束时触发（仅对已拦截的请求），用于资源清理。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 12开始支持。 示例效果请以真机运行为准。

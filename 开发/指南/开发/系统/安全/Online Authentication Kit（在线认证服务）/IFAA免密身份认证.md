@@ -1,6 +1,6 @@
 # IFAA免密身份认证
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-ifaa
 
@@ -92,7 +92,7 @@ try {
 }
 
 
-// 开发者需使用getAnonIdResult从服务端获取签名后的开通数据
+// 开发者需使用getAnonymousIdSync从服务端获取签名后的开通数据
 // 开发者将开通数据（IIFAA协议的TLV格式）转换为Uint8Array, 再使用ifaa.register接口。此处new Uint8Array([0])需要替换为有效数据。
 let registerTlvFp = new Uint8Array([0]);
 try {
@@ -128,7 +128,7 @@ try {
   console.error(`Failed to get anonymous id. Code is ${err.code}, message is ${err.message}`);
 }
 
-// 开发者需使用getAnonIdResult从服务端获取签名后的认证数据
+// 开发者需使用getAnonymousIdSync从服务端获取签名后的认证数据
 
 // 获取此次免密支付的challenge
 let ifaaChallenge: Uint8Array = new Uint8Array([0]);
@@ -143,7 +143,7 @@ let authParam: userAuth.AuthParam = {
   authType: [userAuth.UserAuthType.FINGERPRINT],
   authTrustLevel: userAuth.AuthTrustLevel.ATL4
 };
-// 使用preAuthResult请求身份认证
+
 try {
   let userAuthInstance = userAuth.getUserAuthInstance(authParam, {title: ' '});
   userAuthInstance.on('result', {
@@ -152,7 +152,7 @@ try {
       try {
         // 生物特征认证成功后，调用IFAA认证
         console.info('IFAA auth start');
-        // 开发者将认证数据（IIFAA协议的TLV格式）转换为Uint8Array, 再使用ifaa.auth接口。此处new Uint8Array([0])需要替换为有效数据。
+        // 开发者将认证数据（IIFAA协议的TLV格式）转换为Uint8Array, 再使用ifaa.authSync接口。此处new Uint8Array([0])需要替换为有效数据。
         let authTlvFp = new Uint8Array([0]);
         // 开发者根据业务需求选择同步/异步接口
         let authResult: Uint8Array = ifaa.authSync(authToken, authTlvFp);

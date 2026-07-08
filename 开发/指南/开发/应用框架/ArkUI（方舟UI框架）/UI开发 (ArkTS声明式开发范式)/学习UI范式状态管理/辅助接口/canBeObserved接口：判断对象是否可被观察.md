@@ -1,6 +1,6 @@
 # canBeObserved接口：判断对象是否可被观察
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-canbeobserved
 
@@ -623,7 +623,7 @@ reduceVolume(balloon: Balloon) {
 }
 ```
 
-两个方法调用canBeObserved接口返回结果一样（如下所示），表示两个方法接收的入参都是都是可被观察对象，且被UI组件所使用，UI可以正常刷新。
+两个方法调用canBeObserved接口返回结果一样（如下所示），表示两个方法接收的入参都是可被观察对象，且被UI组件所使用，UI可以正常刷新。
 
 ```json
 {

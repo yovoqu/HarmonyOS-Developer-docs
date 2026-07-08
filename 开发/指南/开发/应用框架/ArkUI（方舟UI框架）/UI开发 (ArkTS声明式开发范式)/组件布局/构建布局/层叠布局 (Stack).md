@@ -1,12 +1,12 @@
 # 层叠布局 (Stack)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout
 
 #### 概述
 
-层叠布局（StackLayout）用于在屏幕上预留一块区域来显示组件中的元素，提供元素可以重叠的布局。层叠布局通过[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)容器组件实现位置的固定定位与层叠，容器中的子元素依次入栈，后一个子元素覆盖前一个子元素，子元素可以叠加，也可以设置位置。
+层叠布局（Stack）用于在屏幕上预留一块区域来显示组件中的元素，提供元素可以重叠的布局。层叠布局通过[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)容器组件实现位置的固定定位与层叠，容器中的子元素依次入栈，后一个子元素覆盖前一个子元素，子元素可以叠加，也可以设置位置。
 
 层叠布局具有较强的页面层叠、位置定位能力，其使用场景有广告、卡片层叠效果等。
 
@@ -180,7 +180,7 @@ struct StackSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/bylsIssYTCW7vy9drKr9DA/zh-cn_image_0000002626068270.png?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=24D88B4E7FB7E6656F4E17138143C92BE8D7CD1EC85A0F094F07EFCFC8DBBA8A)
+![](assets/层叠布局%20(Stack)/file-2026070810395886aaf686.png)
 
 
 

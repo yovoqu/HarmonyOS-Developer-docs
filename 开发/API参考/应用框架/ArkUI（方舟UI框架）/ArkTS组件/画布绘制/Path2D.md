@@ -1,6 +1,6 @@
 # Path2D
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-path2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -500,7 +500,7 @@ struct QuadraticCurveTo {
           this.path2Db.moveTo(10, 10)
           this.path2Db.quadraticCurveTo(100, 100, 200, 20)
           this.context.stroke(this.path2Db)
-      })
+        })
     }
     .width('100%')
     .height('100%')
@@ -749,7 +749,7 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/irr7-nr9Th2FkTQwQnvPtg/zh-cn_image_0000002628862754.png?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=CF8B0826561F8EF50AE8CCCE758F12E41F1108A1D11AD369CA2128C3727989CC)
+![](assets/Path2D/file-2026070810313731edf756.png)
 
  
   
@@ -848,4 +848,4 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/3ZYem0kiSFWteOaGK56yMQ/zh-cn_image_0000002628702822.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014345Z&HW-CC-Expire=86400&HW-CC-Sign=1A1AF9F6595AE9BB982D373B31791EBEC64DB3D8ACA50FC0F1286709676ADE7B)
+![](assets/Path2D/file-20260708103137dd6d1f5f.jpeg)

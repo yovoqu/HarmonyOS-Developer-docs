@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,12 +68,12 @@ type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPr
 | 'playPrevious' | 上一首。无需传入参数。 |
 | 'fastForward' | 快进。对应参数使用number类型，单位毫秒（ms）。 |
 | 'rewind' | 快退。对应参数使用number类型，单位毫秒（ms）。 |
-| 'seek' | 跳转某一节点。对应参数使用number类型，单位毫秒（ms）。 |
-| 'setVolume' | 设置音量。对应参数使用number类型, 可通过AVPlaybackState.maxVolume获取系统最大音量 |
+| 'seek' | 跳转到指定时间点。对应参数使用number类型，单位毫秒（ms）。 |
+| 'setVolume' | 设置音量。对应参数使用number类型，可通过AVPlaybackState.maxVolume获取系统最大音量。 |
 | 'setSpeed' | 设置播放倍速。在音视频投播场景下，当远端设备使用DLNA协议进行连接时，不支持设置此项数据。对应参数使用media.PlaybackSpeed。 |
 | 'setLoopMode' | 设置循环模式。对应参数使用LoopMode。 |
-| 'toggleFavorite' | 是否收藏。无需传入参数。 |
-| 'toggleMute' | 设置静音状态。无需传入参数。 |
+| 'toggleFavorite' | 切换收藏状态。无需传入参数。 |
+| 'toggleMute' | 切换静音状态。无需传入参数。 |
  
  
   
@@ -90,7 +90,7 @@ type ExtraInfo = {[key: string]: Object;}
   
 | 类型 | 说明 |
 | --- | --- |
-| {[key: string]: Object;} | key为远端分布式事件类型。当前支持的事件类型包括： AUDIO_GET_VOLUME：获取远端设备音量。 AUDIO_GET_AVAILABLE_DEVICES：获取远端所有可连接设备。 AUDIO_GET_PREFERRED_OUTPUT_DEVICE_FOR_RENDERER_INFO：获取远端实际发声设备。 媒体提供方根据不同的远端分布式事件类型，返回对应的媒体数据包Object对象。 |
+| {[key: string]: Object;} | key为远端分布式事件类型。当前支持的事件类型包括： AUDIO_GET_VOLUME：获取远端设备音量。 AUDIO_GET_AVAILABLE_DEVICES：获取远端所有可连接设备。 AUDIO_GET_PREFERRED_OUTPUT_DEVICE_FOR_RENDERER_INFO：获取远端实际发声设备。 媒体提供方根据不同的远端分布式事件类型，返回对应的媒体数据包对象。 |
  
  
   
@@ -148,16 +148,16 @@ type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevio
 | 'playPrevious' | 上一首。无需传入参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'fastForward' | 快进。对应参数请参考SkipIntervals。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'rewind' | 快退。对应参数请参考SkipIntervals。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| 'seek' | 跳转某一节点。对应参数使用number类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| 'seek' | 跳转到指定时间点。对应参数使用number类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'setSpeed' | 设置播放倍速。对应参数使用number类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'setLoopMode' | 设置循环模式。对应参数使用LoopMode。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| 'setTargetLoopMode' 18+ | 设置目标循环模式。对应参数推荐使用LoopMode。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| 'toggleFavorite' | 是否收藏。对应参数使用AVMetadata.assetId。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| 'setTargetLoopMode' 18+ | 设置目标循环模式。对应参数使用LoopMode。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| 'toggleFavorite' | 切换收藏状态。对应参数使用AVMetadata.assetId。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'playFromAssetId' 11+ | 播放指定的assetId。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'playWithAssetId' 20+ | 播放指定的assetId。对应参数使用AVMetadata.assetId， 字符串长度<40960字节。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 | 'answer' 11+ | 接听。无需传入参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | 'hangUp' 11+ | 挂断。无需传入参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| 'toggleCallMute' 11+ | 设置通话静音状态。无需传入参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| 'toggleCallMute' 11+ | 切换通话静音状态。无需传入参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
  
  
   

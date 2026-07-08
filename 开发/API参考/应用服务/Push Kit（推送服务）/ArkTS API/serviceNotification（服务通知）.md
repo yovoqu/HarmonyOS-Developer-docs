@@ -1,6 +1,6 @@
 # serviceNotification（服务通知）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -49,7 +49,7 @@ requestSubscribeNotification(context: Context, entityIds: Array&lt;string&gt;, c
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | Context | 是 | 请求订阅消息授权上下文，仅支持传入UIAbilityContext。 |
-| entityIds | Array&lt;string&gt; | 是 | 待订阅的消息模板ID列表。 |
+| entityIds | Array&lt;string&gt; | 是 | 待订阅的消息模板ID列表，列表数量最多传入3个。 |
 | callback | AsyncCallback&lt;RequestResult&gt; | 是 | 接口调用结束的回调函数。当请求订阅成功，err为undefined，data为订阅授权结果；否则为错误对象。 |
  
  
@@ -138,7 +138,7 @@ requestSubscribeNotification(context: Context, entityIds: Array&lt;string&gt;, t
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | Context | 是 | 请求订阅消息授权上下文，仅支持传入UIAbilityContext。 |
-| entityIds | Array&lt;string&gt; | 是 | 待订阅的消息模板ID列表。 当订阅type为SUBSCRIBE_WITH_HUAWEI_ID时，详情请参见选用订阅模板。 |
+| entityIds | Array&lt;string&gt; | 是 | 待订阅的消息模板ID列表，列表数量最多传入3个。 当订阅type为SUBSCRIBE_WITH_HUAWEI_ID时，详情请参见选用订阅模板。 |
 | type | SubscribeNotificationType | 否 | 订阅类型。默认为SUBSCRIBE_WITH_TOKEN。起始版本：5.0.0(12)。 |
  
  
@@ -242,19 +242,19 @@ querySubscribeNotificationSetting(): Promise&lt;SubscribeNotificationSetting&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1000900001 | System internal error. |
-| 1000900008 | Connect push service failed. |
-| 1000900009 | Push service internal error. |
+| 1000900008 | Failed to connect to the push service. |
+| 1000900009 | Internal error of the push service. |
 | 1000900010 | Illegal application identity. |
-| 1000900011 | Network is unavailable. |
+| 1000900011 | The network is unavailable. |
 | 1000900017 | The device does not support current operation. |
 | 1000900021 | App is not available or not registered. |
 | 1000900030 | The user has not logged in with HUAWEI ID. |
-| 1000900032 | No service notification settings exist. |
+| 1000900032 | The service notification setting does not exist. |
  
  
 **示例：**
@@ -280,6 +280,9 @@ export default class EntryAbility extends UIAbility {
     }
   }
 
+  /**
+   * 查询元服务服务通知配置详情
+   */
   private async querySubscribe(): Promise<void> {
     serviceNotification.querySubscribeNotificationSetting().then((data) => {
       hilog.info(LOG_DOMAIN, LOG_TAG,

@@ -1,6 +1,6 @@
 # PersistenceV2: 持久化存储UI状态
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2
 
@@ -89,7 +89,11 @@ struct Page1 {
           .each(ri => {
             Row() {
               Text(`Item: `)
+                .fontSize(20)
+                .margin(10)
               Text(`${ri.item}`)
+                .fontSize(20)
+                .margin(10)
             }
           })
           .key((item: number, index: number) => `${index} - ${item}`)
@@ -100,44 +104,51 @@ struct Page1 {
         .onClick(() => {
           this.array.push(Math.round(0));
         })
-        .fontSize(24)
+        .width(300)
+        .margin(10)
       // 点击'array.pop()'，重启应用，Repeat数组项是：1, 2
       Button('array.pop()')
         .onClick(() => {
           this.array.pop();
         })
-        .fontSize(24)
+        .width(300)
+        .margin(10)
       // 点击'array.splice(0)'，重启应用，Repeat数组项为空
       Button('array.splice(0)')
         .onClick(() => {
           this.array.splice(0);
         })
-        .fontSize(24)
+        .width(300)
+        .margin(10)
       // 点击'splice(1, 0, random)'，重启应用：Repeat组件再次显示相同的数组项
       Button('array.splice(1, 0, random)')
         .onClick(() => {
           this.array.splice(1, 0, Math.round(100*Math.random()));
         })
-        .fontSize(24)
+        .width(300)
+        .margin(10)
       // 点击'array.splice(0, 2, random, random)'，前两个数组项目被替换，记录下来
       // 重启应用：Repeat组件再次显示数组项
       Button('array.splice(0, 2, random, random)')
         .onClick(() => {
-          this.array.splice(2, 2, Math.round(100*Math.random()), Math.round(100*Math.random()));
+          this.array.splice(0, 2, Math.round(100*Math.random()), Math.round(100*Math.random()));
         })
-        .fontSize(24)
+        .width(300)
+        .margin(10)
       // 点击'array.sort', 对数组项升序排列，重启应用，Repeat组件展示升序数组
       Button('array.sort')
         .onClick(() => {
           this.array.sort((a, b) => a -b);
         })
-        .fontSize(24)
+        .width(300)
+        .margin(10)
       // 点击'array.reverse', 对数组项降序排列，重启应用，Repeat组件展示降序数组
       Button('array.reverse')
         .onClick(() => {
           this.array.reverse();
         })
-        .fontSize(24)
+        .width(300)
+        .margin(10)
     }
     .width('100%')
   }
@@ -216,12 +227,20 @@ struct Comp {
         .each(ri => {
           Row() {
             Text(`propA '${ri.item.propA}'`)
+              .fontSize(20)
+              .margin(10)
             Text(`propB '${ri.item.propB}'`)
+              .fontSize(20)
+              .margin(10)
             Text(`report?.() '${ri.item.report?.()}'`)
+              .fontSize(20)
+              .margin(10)
           }
         })
-      // 点击'add item',显示`propA 'a' propB 'b'report?.'a' - 'b'`, 杀掉应用，再次进入，会显示上次的结果
+      // 点击'add item',显示`propA 'a' propB 'b'report?.()'a - b'`, 杀掉应用，再次进入，会显示上次的结果
       Button('add item')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           let temp: ClassA = new ClassA();
           temp.propA = 'a';
@@ -497,7 +516,7 @@ class PersistClass {
 
 集合类型是指Array&lt;V&gt;、Map<K, V>、Set&lt;V&gt;、collections.Array&lt;V&gt;、collections.Map<K, V>、collections.Set&lt;V&gt;。
 
-其中，Map<K, V>和collections.Map<k, V>中的key值类型（K）是指string或number类型。
+其中，Map<K, V>和collections.Map<K, V>中的key值类型（K）是指string或number类型。
 
 Array&lt;V&gt;、Map<K, V>和 Set&lt;V&gt;中，V的类型包括：boolean、number、string、Date、Number、Boolean、String、interface类型和class类型。
 
@@ -506,12 +525,12 @@ collections.Array&lt;V&gt;、collections.Map<K, V>、collections.Set&lt;V&gt;要
 如下展示globalConnect持久化Array&lt;ClassA&gt;的示例：
 
 ```ArkTS
-import { PersistenceV2,  UIUtils } from '@kit.ArkUI';
+import { PersistenceV2, UIUtils } from '@kit.ArkUI';
 
 class ClassA {
   public propA: number = 0;
   public classAToString() : string {
-    return this.propA.toString()
+    return this.propA?.toString()
   }
 }
 
@@ -533,15 +552,22 @@ struct Page1 {
           .each(ri => {
             Row() {
               Text(`Item: `)
-              Text(ri.item.classAToString ? ri.item.classAToString(): `classAToString() missing from object, propA: ${ri.item.propA}`)
+                .fontSize(20)
+                .margin(10)
+              Text(ri.item?.classAToString ? ri.item?.classAToString(): `classAToString() missing from object, propA: ${ri.item?.propA}`)
+                .fontSize(20)
+                .margin(10)
             }
           })
-          .key((item: ClassA, index: number) => `${index} - ${item.propA}`)
+          .key((item: ClassA, index: number) => `${index} - ${item?.propA}`)
       }
+      .width('100%')
 
       Divider().width('100%')
       // 点击'array.push(0)'，重启应用，Repeat数组项是：1, 2, 0
       Button('array.push(0)')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           let temp = new ClassA();
           temp.propA = 0;
@@ -550,18 +576,23 @@ struct Page1 {
         .fontSize(24)
       // 点击'array.pop()'，重启应用，Repeat数组项是：1, 2
       Button('array.pop()')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.arr.pop();
         })
         .fontSize(24)
       // 点击'array.splice(0)'，重启应用，Repeat数组项为空
       Button('array.splice(0)')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.arr.splice(0);
         })
         .fontSize(24)
       // 点击'splice(1, 0, random)'，重启应用：Repeat组件再次显示相同的数组项
       Button('array.splice(1, 0, random)')
+        .margin(10)
         .onClick(() => {
           let temp = new ClassA();
           temp.propA = Math.round(100 * Math.random());
@@ -571,22 +602,27 @@ struct Page1 {
       // 点击'array.splice(0, 2, random, random)'，前两个数组项目被替换，记录下来
       // 重启应用：Repeat组件再次显示数组项
       Button('array.splice(0, 2, random, random)')
+        .margin(10)
         .onClick(() => {
           let tempA = new ClassA();
           tempA.propA = Math.round(100 * Math.random());
-          this.arr.splice(2, 2,
+          this.arr.splice(0, 2,
             UIUtils.makeObserved(tempA),
             UIUtils.makeObserved(tempA));
         })
-        .fontSize(24)
+        .fontSize(18)
       // 点击'array.sort', 对数组项升序排列，重启应用，Repeat组件展示升序数组
       Button('array.sort')
+        .width(300)
+        .margin(10)
         .onClick(() => {
-          this.arr.sort((tempA, tempB)=> tempA.propA - tempB.propA);
+          this.arr.sort((tempA, tempB)=> tempA?.propA - tempB?.propA);
         })
         .fontSize(24)
       // 点击'array.reverse', 对数组项降序排列，重启应用，Repeat组件展示降序数组
       Button('array.reverse')
+        .width(300)
+        .margin(10)
         .onClick(() => {
           this.arr.reverse();
         })

@@ -1,6 +1,6 @@
 # 关系型数据库跨设备数据同步 (ArkTS)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-rdb-store
 
@@ -474,6 +474,7 @@ columnName：字段名，string类型，必填字段。
         {
           "tableName": "EMPLOYEE2",
           "deviceSyncFields": ["NAME", "AGE", "SALARY", "CODES"],
+          "cloudType": ["Local"],
           "fields": [
             {
               "columnName": "NAME",

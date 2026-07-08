@@ -1,6 +1,6 @@
 # NavDestination
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -405,7 +405,7 @@ recoverable(recoverable: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| recoverable | Optional&lt;boolean&gt; | 是 | NavDestination是否可恢复，默认为不可恢复。 默认值：false true：路由栈可恢复。 false：路由栈不可恢复。 |
+| recoverable | Optional&lt;boolean&gt; | 是 | NavDestination是否可恢复，默认为不可恢复。 默认值：false true：NavDestination可恢复。 false：NavDestination不可恢复。 |
 
 
 
@@ -621,7 +621,7 @@ NavDestination类型。
 
 
 > [!NOTE]
-> 设置系统转场动画，支持分别设置系统标题栏动画和内容动画。 系统默认转场动画中只有STANDARD页面的push和pop动画有单独的标题栏动画，存在如下限制： 设置NavigationSystemTransitionType为TITLE时，系统转场只有标题栏动画。 设置NavigationSystemTransitionType为CONTENT时，系统转场只有内容区动画。 设置NONE或者TITLE时没有系统转场动画，设置CONTENT和DEFAULT时默认系统转场动画。
+> 设置系统转场动画，支持分别设置系统标题栏动画和内容动画。 系统默认转场动画中只有STANDARD页面的push和pop动画有单独的标题栏动画，存在如下限制： 设置NavigationSystemTransitionType为TITLE时，系统转场只有标题栏动画。 设置NavigationSystemTransitionType为CONTENT时，系统转场只有内容区动画。 设置NONE时没有系统转场动画，设置TITLE时只有标题栏系统转场动画，设置CONTENT和DEFAULT时默认系统转场动画。
 
 
 
@@ -955,7 +955,7 @@ NavDestination自定义标题。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | builder | CustomBuilder | 否 | 否 | 设置标题栏内容。 |
-| height | TitleHeight \| Length | 否 | 否 | 设置标题栏高度。 取值范围：[0, +∞)。 |
+| height | TitleHeight \| Length | 否 | 否 | 设置标题栏高度。 取值范围：[0, +∞) 单位参考Length类型的说明。 |
 
 
 
@@ -1187,7 +1187,7 @@ struct MyPageOne {
                   .borderRadius(10)
                   .backgroundColor(Color.Gray)
               }
-            }, (item: string) => item);
+            }, (item: number) => item.toString());
           }.width('100%').height('80%').scrollBar(BarState.Off)
           .nestedScroll({ scrollForward: NestedScrollMode.SELF_FIRST, scrollBackward: NestedScrollMode.SELF_FIRST })
 
@@ -1202,7 +1202,7 @@ struct MyPageOne {
                 .borderRadius(10)
                 .backgroundColor(Color.Pink)
             }
-          }, (item: string) => item);
+          }, (item: number) => item.toString());
         }
       }
       .width('100%')
@@ -1248,7 +1248,7 @@ struct MyPageTwo {
               .borderRadius(10)
               .backgroundColor(Color.Gray)
           }
-        }, (item: string) => item);
+        }, (item: number) => item.toString());
       }.width('100%')
     }
     .title('PageTwo', { backgroundColor: Color.Yellow, barStyle: BarStyle.STACK })
@@ -1297,7 +1297,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/DHZtidDtRo2tiDVZPHGrZw/zh-cn_image_0000002628862406.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=54D68EF5B4651C30B0EB776A8B2D0C02612BB8D5FCB6BA37BC1016A6C78CD567)
+![](assets/NavDestination/file-202607081032221e6e26d2.gif)
 
 
 
@@ -1339,7 +1339,6 @@ declare type voidFunc = () => void;
 @Component
 struct NavDest {
   @State name: string = 'NA';
-  @State destWidth: string = '100%';
   stack: NavPathStack = new NavPathStack();
   @State translateY: string = '0';
 
@@ -1443,7 +1442,7 @@ struct NavDest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/9QQVMm-LQbCoT8AwJRK5vg/zh-cn_image_0000002659221719.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=1AA2456D5CD8F7B441E43C624B8F9E1B09C2418755102FCFD80763590023BDBD)
+![](assets/NavDestination/file-20260708103223a6cd2cbe.gif)
 
 
 
@@ -1695,19 +1694,19 @@ struct HomeBody {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/bc2Eb09sQ6yl4NMAtDyN3w/zh-cn_image_0000002628702530.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=C5220CB581F934AEBCC624E8AE4EE9EF6FA13B567AA035F45473B99BAF789FF3)
+![](assets/NavDestination/file-202607081032236a8a48ed.gif)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/6SqdfILISdGg_ewHo-gAzg/zh-cn_image_0000002659101757.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=93CC2AF7DD69473A90C8DFEE9E9701F2CAAE018BB4F65DDC724D6448BFCA4274)
+![](assets/NavDestination/file-202607081032231127ce57.gif)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/y2_VEWTdSyuLWIugpO3QCQ/zh-cn_image_0000002628862408.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=1D9C2793D6D483BF586329D724AA00C3A31A664A1EAC6223D2A2612CB58FBFFA)
+![](assets/NavDestination/file-20260708103224a57542ee.gif)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/YVGcf-1jS6GMuelkIAlKDw/zh-cn_image_0000002659221721.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=3945E5B729BC4AA720B0014C360C138E11A9772BDACBB2294142E634C32CE70B)
+![](assets/NavDestination/file-20260708103224725cd5ba.gif)
 
 
 
@@ -1802,7 +1801,7 @@ struct ExamplePage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/NBy9r1KvSSu5IPMJBVuY2Q/zh-cn_image_0000002628702532.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=804327DFE031D7652203C3EEFE03D63C51713DA74D62024DC5E233488DA787CA)
+![](assets/NavDestination/file-20260708103224e15fb56a.gif)
 
 
 
@@ -2023,7 +2022,7 @@ struct NavBody {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/axJD3meQQ2OWQ0Ldbm686w/zh-cn_image_0000002659101759.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014335Z&HW-CC-Expire=86400&HW-CC-Sign=C959CEB11429EAA571976BEFF36BF742B73527B4163DDE4EBB15441A3AB15EAF)
+![](assets/NavDestination/file-2026070810322510e4b4c3.gif)
 
 
 NavDestination其他用法可参考[Navigation示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例)。

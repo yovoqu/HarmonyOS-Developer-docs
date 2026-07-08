@@ -1,10 +1,10 @@
 # 媒体会话提供方(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohavsession-developer
 
-OHAVSession系统提供的通过使用C API实现媒体会话提供方，从而在媒体会话控制方（例如播控中心）中展示媒体相关信息，及响应媒体会话控制方下发的播控命令。
+使用OHAVSession系统提供的C API实现媒体会话提供方，从而在媒体会话控制方（例如播控中心）中展示媒体相关信息，及响应媒体会话控制方下发的播控命令。
 
 
 #### 使用入门
@@ -34,7 +34,7 @@ target_link_libraries(entry PUBLIC libohavsession.so)
 #### 开发步骤及注意事项
 
 开发者可以通过以下几个步骤在NDK接入本地会话。
-1. 创建会话并激活媒体，需要传入会话类型AVSession_Type，自定义的TAG，以及应用的包名、ability名字。
+1. 创建并激活会话，需要传入会话类型AVSession_Type，自定义的TAG，以及应用的包名、ability名字。
 
   
 ```cpp
@@ -51,7 +51,7 @@ SESSION_TYPE_AUDIO
 4. SESSION_TYPE_VIDEO_CALL
 5. 应用内播放对应的媒体资源时，同步设置媒体元数据信息。
 
-  要设置元数据，需使用OH_AVMetadataBuilder构造具体的数据，生成一个OH_AVMetadata。生成OH_AVMetadata后，使用OH_AVMetadata的各个功能接口进行资源的设置。
+  要设置元数据，需使用OH_AVMetadataBuilder构造具体的数据，生成一个OH_AVMetadata，最后将生成的OH_AVMetadata设置给OH_AVSession。
 
   使用OH_AVMetadataBuilder构造元数据示例：
 
@@ -89,7 +89,7 @@ OH_AVMetadataBuilder_GenerateAVMetadata(builder, &ohMetadata);
  */
 OH_AVSession_SetAVMetadata(avsession, ohMetadata);
 ```
-在不使用AVMetadata之后，开发者应该执行OH_AVMetadataBuilder_Destroy接口来销毁元数据，且不要继续使用。
+如果不使用AVMetadata，开发者应该执行OH_AVMetadata_Destroy接口销毁元数据对象，同时执行OH_AVMetadataBuilder_Destroy接口销毁构造器，且不能继续使用。
 
   
 ```cpp

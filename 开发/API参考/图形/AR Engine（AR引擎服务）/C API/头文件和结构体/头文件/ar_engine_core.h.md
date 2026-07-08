@@ -1,6 +1,6 @@
 # ar_engine_core.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-header-file
 **支持设备：** Phone | Tablet | TV
@@ -232,7 +232,7 @@
 | AREngine_ARStatus HMS_AREngine_ARFaceGeometry_GetTriangleCount(const AREngine_ARSession *session, const AREngine_ARFaceGeometry *geometry, int32_t *outSize) | 获取人脸Mesh三角面个数。 |
 | AREngine_ARStatus HMS_AREngine_ARFaceGeometry_GetTriangleLabelsSize(const AREngine_ARSession *session, const AREngine_ARFaceGeometry *geometry, int32_t *outSize) | 获取人脸Mesh三角面标签个数。 |
 | AREngine_ARStatus HMS_AREngine_ARFaceGeometry_GetVerticesSize(const AREngine_ARSession *session, const AREngine_ARFaceGeometry *geometry, int32_t *outSize) | 获取人脸Mesh顶点数组大小。 |
-| void HMS_AREngine_ARFaceGeometry_Release(AREngine_ARFaceGeometry *geometry) | 释放当前人脸几何体对象，即由 HMS_AREngine_ARFace_AcquireBlendShapes创建的对象。 |
+| void HMS_AREngine_ARFaceGeometry_Release(AREngine_ARFaceGeometry *geometry) | 释放当前人脸几何体对象，即由 HMS_AREngine_ARFace_AcquireGeometry创建的对象。 |
 | AREngine_ARStatus HMS_AREngine_ARFaceLandmark_AcquireVertices2D(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, const float **outData) | 获取人脸关键点的2D位姿信息。 |
 | AREngine_ARStatus HMS_AREngine_ARFaceLandmark_AcquireVertices3D(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, const float **outData) | 获取人脸关键点的3D位姿信息。 |
 | AREngine_ARStatus HMS_AREngine_ARFaceLandmark_GetCount(const AREngine_ARSession *session, const AREngine_ARFaceLandmark *landmark, int32_t *outSize) | 获取人脸关键点个数。 |

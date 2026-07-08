@@ -1,6 +1,6 @@
 # swiper开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-swiper
 
@@ -188,7 +188,7 @@ text{
 
 #### 绑定事件
 
-创建两个text组件添加点击事件，当点击后就调用showPrevious（显示上一个子组件）或showNext（显示下一个子组件）方法。添加select组件下拉选择时触发change事件后调用swipeTo方法跳转到指定轮播页面。swiper组件绑定change（当前显示的组件索引变化时触发）和finish（切换动画结束时触发）事件。
+创建两个button组件添加点击事件，当点击后就调用showPrevious（显示上一个子组件）或showNext（显示下一个子组件）方法。添加select组件下拉选择时触发change事件后调用swipeTo方法跳转到指定轮播页面。swiper组件绑定change（当前显示的组件索引变化时触发）和finish（切换动画结束时触发）事件。
 
 ```text
 <!-- xxx.hml-->
@@ -283,7 +283,7 @@ export default{
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/JzAy98pdSgm49JWPlDZEMw/zh-cn_image_0000002581274246.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030428Z&HW-CC-Expire=86400&HW-CC-Sign=3B3C01F9E88BE06C83F572EDCD38A2AA1FAF1973CFFB7D51C7FB33C329FED6C6)
+![](assets/swiper开发指导/file-20260708103907144e854a.gif)
 
 
 
@@ -364,4 +364,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/9nva-fa4SSqZJV0-GWBDSg/zh-cn_image_0000002611754101.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030428Z&HW-CC-Expire=86400&HW-CC-Sign=4FD56E18AB9DEB984611A3AB7BCD4D45CCC1B2A03D5ABDD113D8C3696D99E7EE)
+![](assets/swiper开发指导/file-202607081039082e7acbb9.gif)

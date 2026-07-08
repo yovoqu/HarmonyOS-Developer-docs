@@ -1,6 +1,6 @@
 # AIPP参数
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-aipp-parameters
 
@@ -77,12 +77,12 @@ RB/UV通道交换丰富了输入图片的格式，开启RB/UV通道交换后，A
   
 | 配置类型 | 可接受图片类型 |
 | --- | --- |
-| YUV420SP_U8 | YUV420，YVU420 + rbuv_swap_switch |
-| XRGB8888_U8 | XRGB，XBGR + rbuv_swap_switch |
-| ARGB8888_U8 | ARGB，ABGR + rbuv_swap_switch |
+| YUV420SP_U8 | YUV420, YVU420 + rbuv_swap_switch |
+| XRGB8888_U8 | XRGB, XBGR + rbuv_swap_switch |
+| ARGB8888_U8 | ARGB, ABGR + rbuv_swap_switch |
 | RGB888_U8 | BGR + rbuv_swap_switch |
-| YUYV_U8 | YUYV，YVYU + rbuv_swap_switch |
-| YUV422SP_U8 | YUV422，YVU422 + rbuv_swap_switch |
+| YUYV_U8 | YUYV, YVYU + rbuv_swap_switch |
+| YUV422SP_U8 | YUV422, YVU422 + rbuv_swap_switch |
 | AYUV444_U8 | AYUV + rbuv_swap_switch |
  
  
@@ -109,12 +109,12 @@ RB/UV通道交换丰富了输入图片的格式，开启RB/UV通道交换后，A
 - YUV转BGR
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/culUxiVBTCiWZYQd8teJ5Q/zh-cn_image_0000002581275396.png?HW-CC-KV=V1&HW-CC-Date=20260528T030039Z&HW-CC-Expire=86400&HW-CC-Sign=9CD48EB812B9813C68CBB23B424C77CD075CB31ED00F5CE343D6264387081D0E)
+![](assets/AIPP参数/file-20260708103327d50d937a.png)
 
 - BGR转YUV
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/SPgfloVQRBeEMZoa-CHABQ/zh-cn_image_0000002611755253.png?HW-CC-KV=V1&HW-CC-Date=20260528T030039Z&HW-CC-Expire=86400&HW-CC-Sign=D9FA3E2060494D7FA8FB09D68E254E857240C1DB20381E2BC2C50A9477794732)
+![](assets/AIPP参数/file-20260708103327bb1472fa.png)
 
 
  
@@ -123,17 +123,17 @@ RB/UV通道交换丰富了输入图片的格式，开启RB/UV通道交换后，A
 - BT-601 narrow
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/EMSNcd5MQ_CK76-Cp3NBVA/zh-cn_image_0000002581435314.png?HW-CC-KV=V1&HW-CC-Date=20260528T030039Z&HW-CC-Expire=86400&HW-CC-Sign=6C555823C297B1F7F529F3574769731CAFCC9D0DDD0923FFD86C155F50204001)
+![](assets/AIPP参数/file-202607081033281a580067.png)
 
 - JPEG
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/scOHLu5wQBeneeJeaQPtxA/zh-cn_image_0000002611835145.png?HW-CC-KV=V1&HW-CC-Date=20260528T030039Z&HW-CC-Expire=86400&HW-CC-Sign=DCFF63CDB140B7515E35BA1F292CBE3CD43FC9951C69C2A074875D40DA009143)
+![](assets/AIPP参数/file-2026070810332894fdbcd8.png)
 
 - BT-709 narrow
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/JdCW-OMhS_yqdQMA9WsxDg/zh-cn_image_0000002581275398.png?HW-CC-KV=V1&HW-CC-Date=20260528T030039Z&HW-CC-Expire=86400&HW-CC-Sign=2DE41828D196F6DC322AEF14E88DE6A4D8C80E3240332CFA8A8625ABA0A2BACA)
+![](assets/AIPP参数/file-20260708103329890fb844.png)
 
 
  

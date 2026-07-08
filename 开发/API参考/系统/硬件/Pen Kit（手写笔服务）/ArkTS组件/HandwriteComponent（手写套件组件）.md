@@ -1,6 +1,6 @@
 # HandwriteComponent（手写套件组件）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecomponent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -8,8 +8,6 @@
 本模块提供手写套件组件，组件包含画布和手写工具栏，集成之后可快速实现手写能力。
 
 需要提供手写画布功能入口和回调，画布将在初始化、加载和保存动作完成时触发回调，可以在回调中自定义应用的行为。
-
-**系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 5.0.0(12)
 

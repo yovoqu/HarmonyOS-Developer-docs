@@ -1,6 +1,6 @@
 # wearEngineLite（穿戴设备能力开放）（Lite）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearenginelite_api
 **支持设备：** Wearable | lite_wearable
@@ -17,6 +17,14 @@
 ```text
 import WearEngineLite from '@hms.health.WearEngineLite';
 ```
+ 
+  
+
+#### WearEngineLite
+
+**支持设备：** Wearable | lite_wearable
+
+订阅和取消订阅手表与手机之间连接状态的基类。
  
   
 

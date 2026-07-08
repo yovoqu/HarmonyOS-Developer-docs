@@ -1,6 +1,6 @@
 # Image组件是否有缓存机制
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-07-07 09:43:07
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-217
 
@@ -10,7 +10,7 @@ Image模块提供了三级Cache机制，解码后内存图片缓存、解码前�
  
 2. Image组件如何配置打开和关闭缓存
  
-- 内存图片缓存：通过[setImageCacheCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-app#setimagecachecount7)接口打开缓存，如果希望每次联网都获取最新资源，可以不设置（默认为0），不进行缓存。。
+- 内存图片缓存：通过[setImageCacheCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-app#setimagecachecount7)接口打开缓存，如果希望每次联网都获取最新资源，可以不设置（默认为0），不进行缓存。
 - 磁盘缓存：磁盘缓存是默认开启的，默认值为100M，可以将[setImageFileCacheSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-app#setimagefilecachesize7)的值设置为0关闭磁盘缓存。
 - 解码前数据缓存：通过[setImageRawDataCacheSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-app#setimagerawdatacachesize7)设置内存中缓存解码前图片数据的大小上限，单位为字节，提升再次加载同源图片的加载速度。如果不设置则默认为0，不进行缓存。
 

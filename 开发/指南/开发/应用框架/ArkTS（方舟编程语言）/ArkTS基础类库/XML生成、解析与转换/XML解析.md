@@ -1,6 +1,6 @@
 # XML解析
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xml-parsing
 
@@ -75,7 +75,7 @@ function func(name: string, value: string): boolean {
   if (name == 'title' || name == 'lens') {
     console.info('  ' + name);
   }
-  return true; //true:继续解析 false:停止解析
+  return true; // true:继续解析 false:停止解析
 }
 ```
 

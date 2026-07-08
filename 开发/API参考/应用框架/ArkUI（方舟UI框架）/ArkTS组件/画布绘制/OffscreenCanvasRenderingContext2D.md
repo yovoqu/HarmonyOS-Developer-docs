@@ -1,6 +1,6 @@
 # OffscreenCanvasRenderingContext2D
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 使用OffscreenCanvasRenderingContext2D在Canvas上进行离屏绘制，绘制对象可以是形状、文本、图片等。离屏绘制是指将需要绘制的内容先绘制在缓存区，然后将其转换成图片，一次性绘制到Canvas上。离屏绘制使用CPU进行绘制，绘制速度较慢，对绘制速度有要求的场景应避免使用离屏绘制。
 
 > [!NOTE]
-> 从 API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 OffscreenCanvasRenderingContext2D无法在ServiceExtensionAbility中使用，ServiceExtensionAbility中建议使用 绘制模块 进行离屏绘制。 beginPath 、 moveTo 、 lineTo 、 closePath 、 bezierCurveTo 、 quadraticCurveTo 、 arc 、 arcTo 、 ellipse 、 rect 和 roundRect 接口只能对OffscreenCanvasRenderingContext2D中的路径生效，无法对 CanvasRenderingContext2D 和 Path2D 对象中设置的路径生效。
+> 从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 OffscreenCanvasRenderingContext2D无法在ServiceExtensionAbility中使用，ServiceExtensionAbility中建议使用 绘制模块 进行离屏绘制。 beginPath 、 moveTo 、 lineTo 、 closePath 、 bezierCurveTo 、 quadraticCurveTo 、 arc 、 arcTo 、 ellipse 、 rect 和 roundRect 接口只能对OffscreenCanvasRenderingContext2D中的路径生效，无法对 CanvasRenderingContext2D 和 Path2D 对象中设置的路径生效。
 
 
 

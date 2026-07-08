@@ -1,6 +1,6 @@
 # 使用JSVM-API接口进行生命周期相关开发
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-life-cycle
 
@@ -65,7 +65,7 @@ JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开�
  
 cpp 部分代码：
  
-```text
+```cpp
 // OH_JSVM_OpenHandleScope、OH_JSVM_CloseHandleScope的三种样例方法
 static JSVM_Value HandleScopeFor(JSVM_Env env, JSVM_CallbackInfo info) {
     // 在for循环中频繁调用JSVM接口创建js对象时，要加handle_scope及时释放不再使用的资源。
@@ -122,7 +122,7 @@ JSVM HandleScopeFor: success
  
 cpp 部分代码：
  
-```text
+```cpp
 // OH_JSVM_OpenEscapableHandleScope、OH_JSVM_CloseEscapableHandleScope、OH_JSVM_EscapeHandle的样例方法
 static JSVM_Value EscapableHandleScopeTest(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -195,7 +195,7 @@ JSVM EscapableHandleScopeTest: success
  
 cpp 部分代码：
  
-```text
+```cpp
 static JSVM_Value UseReference(JSVM_Env env, JSVM_CallbackInfo info)
 {
     // 创建 JavaScript 对象
@@ -280,7 +280,7 @@ Finalizer 方法被注册后无法取消，如果在调用 OH_JSVM_DestroyEnv �
  
 cpp 部分代码：
  
-```text
+```cpp
 static int AddFinalizer(JSVM_VM vm, JSVM_Env env) {
     // 打开 handlescope
     JSVM_HandleScope handleScope;

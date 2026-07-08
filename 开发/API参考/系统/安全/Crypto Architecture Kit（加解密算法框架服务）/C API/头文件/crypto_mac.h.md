@@ -1,6 +1,6 @@
 # crypto_mac.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -130,7 +130,7 @@ OH_Crypto_ErrCode OH_CryptoMac_Create(const char *algoName, OH_CryptoMac **ctx)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
  
  
   
@@ -162,7 +162,7 @@ OH_Crypto_ErrCode OH_CryptoMac_SetParam(OH_CryptoMac *ctx, CryptoMac_ParamType t
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
  
  
   
@@ -193,7 +193,7 @@ OH_Crypto_ErrCode OH_CryptoMac_Init(OH_CryptoMac *ctx, const OH_CryptoSymKey *ke
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
  
  
 **参考：**
@@ -230,7 +230,7 @@ OH_Crypto_ErrCode OH_CryptoMac_Update(OH_CryptoMac *ctx, const Crypto_DataBlob *
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
  
  
 **参考：**
@@ -269,7 +269,7 @@ OH_Crypto_ErrCode OH_CryptoMac_Final(OH_CryptoMac *ctx, Crypto_DataBlob *out)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
  
  
 **参考：**
@@ -306,7 +306,7 @@ OH_Crypto_ErrCode OH_CryptoMac_GetLength(OH_CryptoMac *ctx, uint32_t *length)
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERTION_ERROR：调用三方算法库API出错。 |
  
  
   

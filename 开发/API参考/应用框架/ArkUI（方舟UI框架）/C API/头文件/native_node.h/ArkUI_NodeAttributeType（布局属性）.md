@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（布局属性）
 
-更新时间：2026-06-16 09:03:21
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-layoutattributes
 
@@ -37,7 +37,7 @@ NODE_WIDTH = 0
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 宽度数值，单位为vp。 |
+| .value[0].f32 | 设置宽度数值，单位为vp。 |
  
  
 **返回：**
@@ -65,7 +65,7 @@ NODE_HEIGHT = 1
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 高度数值，单位为vp。 |
+| .value[0].f32 | 设置高度数值，单位为vp。 |
  
  
 **返回：**
@@ -87,25 +87,29 @@ NODE_PADDING = 4
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
  
-1：上下左右四个位置的内间距值相等。
+支持传入一个或四个参数：
+ 
+1：只传入一个参数，表示统一设置上下左右四个位置的内间距值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 内间距数值，单位为vp。 |
+| .value[0].f32 | 统一设置上下左右四个位置的内间距值，单位为vp。 |
  
  
-2：分别指定上下左右四个位置的内间距值。
+2：传入四个参数，表示分别设置上下左右四个位置的内间距值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 上内间距数值，单位为vp，默认值为0vp。 |
-| .value[1].f32 | 右内间距数值，单位为vp，默认值为0vp。 |
-| .value[2].f32 | 下内间距数值，单位为vp，默认值为0vp。 |
-| .value[3].f32 | 左内间距数值，单位为vp，默认值为0vp。 |
+| .value[0].f32 | 设置上内间距数值，单位为vp，默认值为0vp。 |
+| .value[1].f32 | 设置右内间距数值，单位为vp，默认值为0vp。 |
+| .value[2].f32 | 设置下内间距数值，单位为vp，默认值为0vp。 |
+| .value[3].f32 | 设置左内间距数值，单位为vp，默认值为0vp。 |
  
  
 **返回：**
@@ -130,25 +134,29 @@ NODE_MARGIN = 7
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
  
-1：上下左右四个位置的外间距值相等。
+支持传入一个或四个参数：
+ 
+1：只传入一个参数，表示统一设置上下左右四个位置的外间距值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 上下左右四个位置的外间距值相等时的外间距数值，单位为vp。 |
+| .value[0].f32 | 统一设置上下左右四个位置的外间距值，单位为vp。 |
  
  
-2：分别指定上下左右四个位置的外间距值。
+2：传入四个参数，表示分别设置上下左右四个位置的外间距值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 上外间距数值，单位为vp，默认值为0vp。 |
-| .value[1].f32 | 右外间距数值，单位为vp，默认值为0vp。 |
-| .value[2].f32 | 下外间距数值，单位为vp，默认值为0vp。 |
-| .value[3].f32 | 左外间距数值，单位为vp，默认值为0vp。 |
+| .value[0].f32 | 设置上外间距数值，单位为vp，默认值为0vp。 |
+| .value[1].f32 | 设置右外间距数值，单位为vp，默认值为0vp。 |
+| .value[2].f32 | 设置下外间距数值，单位为vp，默认值为0vp。 |
+| .value[3].f32 | 设置左外间距数值，单位为vp，默认值为0vp。 |
  
  
 **返回：**
@@ -179,7 +187,7 @@ NODE_ALIGNMENT = 15
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 对齐方式，参数类型ArkUI_Alignment，默认值为ARKUI_ALIGNMENT_CENTER。 |
+| .value[0].i32 | 设置对齐方式，参数类型ArkUI_Alignment，默认值为ARKUI_ALIGNMENT_CENTER。 |
  
  
 **返回：**
@@ -201,35 +209,39 @@ NODE_BORDER_WIDTH = 17
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
  
-1.统一设置四条边的边框宽度。
+支持传入一个或四个参数：
+ 
+1：只传入一个参数，表示统一设置四条边的边框宽度。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 统一设置四条边的边框宽度。 |
+| .value[0].f32 | 统一设置四条边的边框宽度，单位为vp。 |
  
  
-2.分别设置四条边的边框宽度。
+2：传入四个参数，表示分别设置四条边的边框宽度。
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 设置上边框的边框宽度。 |
-| .value[1].f32 | 设置右边框的边框宽度。 |
-| .value[2].f32 | 设置下边框的边框宽度。 |
-| .value[3].f32 | 设置左边框的边框宽度。 |
+| .value[0].f32 | 设置上边框的边框宽度，单位为vp，默认值为0vp。 |
+| .value[1].f32 | 设置右边框的边框宽度，单位为vp，默认值为0vp。 |
+| .value[2].f32 | 设置下边框的边框宽度，单位为vp，默认值为0vp。 |
+| .value[3].f32 | 设置左边框的边框宽度，单位为vp，默认值为0vp。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].f32 | 设置上边框的边框宽度。 |
-| .value[1].f32 | 设置右边框的边框宽度。 |
-| .value[2].f32 | 设置下边框的边框宽度。 |
-| .value[3].f32 | 设置左边框的边框宽度。 |
+| .value[0].f32 | 上边框的边框宽度。 |
+| .value[1].f32 | 右边框的边框宽度。 |
+| .value[2].f32 | 下边框的边框宽度。 |
+| .value[3].f32 | 左边框的边框宽度。 |
  
  
   
@@ -244,27 +256,29 @@ NODE_BORDER_RADIUS = 18
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
  
 支持传入一个或四个参数：
  
-只传入一个参数，表示统一设置四条边的边框圆角。
+1：只传入一个参数，表示统一设置四条边的边框圆角。
   
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].f32 | 统一设置四条边的边框圆角。 |
  
  
-传入四个参数，表示分别设置四条边的边框圆角。
+2：传入四个参数，表示分别设置四条边的边框圆角。
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 设置左上角圆角半径。 |
-| .value[1].f32 | 设置右上角圆角半径。 |
-| .value[2].f32 | 设置左下角圆角半径。 |
-| .value[3].f32 | 设置右下角圆角半径。 |
+| .value[0].f32 | 设置左上角圆角半径，单位为vp，默认值为0vp。 |
+| .value[1].f32 | 设置右上角圆角半径，单位为vp，默认值为0vp。 |
+| .value[2].f32 | 设置左下角圆角半径，单位为vp，默认值为0vp。 |
+| .value[3].f32 | 设置右下角圆角半径，单位为vp，默认值为0vp。 |
  
  
 **返回：**
@@ -289,18 +303,22 @@ NODE_BORDER_COLOR = 19
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
  
-1.统一设置四条边的边框颜色。
+支持传入一个或四个参数：
+ 
+1：统一设置四条边的边框颜色。
   
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].u32 | 统一设置四条边的边框颜色，使用0xargb表示，如0xFFFF11FF。 |
  
  
-2.分别设置四条边的边框颜色。
+2：分别设置四条边的边框颜色。
   
 | 参数项 | 描述 |
 | --- | --- |
@@ -314,10 +332,10 @@ NODE_BORDER_COLOR = 19
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].u32 | 设置上侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
-| .value[1].u32 | 设置右侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
-| .value[2].u32 | 设置下侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
-| .value[3].u32 | 设置左侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
+| .value[0].u32 | 上侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
+| .value[1].u32 | 右侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
+| .value[2].u32 | 下侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
+| .value[3].u32 | 左侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
  
  
   
@@ -332,20 +350,22 @@ NODE_BORDER_STYLE = 20
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
  
 支持传入一个或四个参数：
  
-只传入一个参数，表示统一设置四条边的边框线条样式。
+1：只传入一个参数，表示统一设置四条边的边框线条样式。
   
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 统一设置四条边的边框线条样式，参数类型ArkUI_BorderStyle，默认值为ARKUI_BORDER_STYLE_SOLID。 |
  
  
-传入四个参数，表示分别设置四条边的边框线条样式。
+2：传入四个参数，表示分别设置四条边的边框线条样式。
   
 | 参数项 | 描述 |
 | --- | --- |
@@ -377,14 +397,16 @@ NODE_POSITION = 27
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | x轴坐标。 |
-| .value[1].f32 | y轴坐标。 |
+| .value[0].f32 | 设置x轴坐标。 |
+| .value[1].f32 | 设置y轴坐标。 |
  
  
 **返回：**
@@ -413,7 +435,7 @@ NODE_DIRECTION = 47
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 主轴方向，参数类型ArkUI_Direction，默认值为ARKUI_DIRECTION_AUTO。 |
+| .value[0].i32 | 设置主轴方向，参数类型ArkUI_Direction，默认值为ARKUI_DIRECTION_AUTO。 |
  
  
 **返回：**
@@ -435,16 +457,18 @@ NODE_CONSTRAINT_SIZE = 48
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 最小宽度，单位为vp。 |
-| .value[1].f32 | 最大宽度，单位为vp。 |
-| .value[2].f32 | 最小高度，单位为vp。 |
-| .value[3].f32 | 最大高度，单位为vp。 |
+| .value[0].f32 | 设置最小宽度，单位为vp。 |
+| .value[1].f32 | 设置最大宽度，单位为vp。 |
+| .value[2].f32 | 设置最小高度，单位为vp。 |
+| .value[3].f32 | 设置最大高度，单位为vp。 |
  
  
 **返回：**
@@ -475,8 +499,8 @@ NODE_OFFSET = 54
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | x轴偏移量，单位为vp。 |
-| .value[1].f32 | y轴偏移量，单位为vp。 |
+| .value[0].f32 | 设置x轴偏移量，单位为vp。 |
+| .value[1].f32 | 设置y轴偏移量，单位为vp。 |
  
  
 **返回：**
@@ -505,8 +529,8 @@ NODE_MARK_ANCHOR = 55
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 锚点x轴坐标，单位为vp。 |
-| .value[1].f32 | 锚点y轴坐标，单位为vp。 |
+| .value[0].f32 | 设置锚点x轴坐标，单位为vp。 |
+| .value[1].f32 | 设置锚点y轴坐标，单位为vp。 |
  
  
 **返回：**
@@ -535,7 +559,7 @@ NODE_ALIGN_RULES = 57
   
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 相对容器中子组件的对齐规则，参数类型为ArkUI_AlignmentRuleOption。 |
+| .object | 设置相对容器中子组件的对齐规则，参数类型为ArkUI_AlignmentRuleOption。 |
  
  
 **返回：**
@@ -563,7 +587,7 @@ NODE_ALIGN_SELF = 58
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 子组件在父容器交叉轴上的对齐方式，参数类型ArkUI_ItemAlignment，默认值为ARKUI_ITEM_ALIGNMENT_AUTO。 |
+| .value[0].i32 | 设置子组件在父容器交叉轴上的对齐方式，参数类型ArkUI_ItemAlignment，默认值为ARKUI_ITEM_ALIGNMENT_AUTO。 |
  
  
 **返回：**
@@ -591,7 +615,7 @@ NODE_FLEX_GROW = 59
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 组件在父容器剩余空间中所占比例。 |
+| .value[0].f32 | 设置组件在父容器剩余空间中所占比例。 |
  
  
 **返回：**
@@ -619,7 +643,7 @@ NODE_FLEX_SHRINK = 60
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 父容器压缩尺寸分配给当前组件的比例。 |
+| .value[0].f32 | 设置父容器压缩尺寸分配给当前组件的比例。 |
  
  
 **返回：**
@@ -647,7 +671,7 @@ NODE_FLEX_BASIS = 61
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 组件在父容器主轴上的基准尺寸。 |
+| .value[0].f32 | 设置组件在父容器主轴上的基准尺寸。 |
  
  
 **返回：**
@@ -675,7 +699,7 @@ NODE_ASPECT_RATIO = 67
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 组件宽高比，格式为宽度/高度。 |
+| .value[0].f32 | 设置组件宽高比，格式为宽度/高度。 |
  
  
 **返回：**
@@ -703,7 +727,7 @@ Row/Column/Flex布局下的子组件布局权重参数，支持属性设置、�
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].u32 | 组件在主轴上的布局权重。 |
+| .value[0].u32 | 设置组件在主轴上的布局权重。 |
  
  
 **返回：**
@@ -733,7 +757,7 @@ Row/Column/Flex（单行）布局下的子组件在布局容器中显示的优�
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].u32 | 组件在布局容器中的显示优先级。 |
+| .value[0].u32 | 设置组件在布局容器中的显示优先级。 |
  
  
 **返回：**
@@ -795,7 +819,7 @@ NODE_WIDTH_PERCENT = 71
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 宽度数值，单位为百分比。 |
+| .value[0].f32 | 设置宽度数值，单位为百分比。 |
  
  
 **返回：**
@@ -823,7 +847,7 @@ NODE_HEIGHT_PERCENT = 72
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 高度数值，单位为百分比。 |
+| .value[0].f32 | 设置高度数值，单位为百分比。 |
  
  
 **返回：**
@@ -845,17 +869,29 @@ NODE_PADDING_PERCENT = 73
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
+ 
+支持传入一个或四个参数：
+ 
+1：只传入一个参数，表示统一设置上下左右四个位置的内间距百分比数值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 上下左右四个位置的内间距值相等时的内间距数值，单位为百分比。 |
-| 2. .value[0].f32 | 上内间距数值，单位为百分比。 |
-| .value[1].f32 | 右内间距数值，单位为百分比。 |
-| .value[2].f32 | 下内间距数值，单位为百分比。 |
-| .value[3].f32 | 左内间距数值，单位为百分比。 |
+| .value[0].f32 | 统一设置上下左右四个位置的内间距数值，单位为百分比。 |
+ 
+ 
+2：传入四个参数，表示分别设置上下左右四个位置的内间距百分比数值。
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 设置上内间距数值，单位为百分比。 |
+| .value[1].f32 | 设置右内间距数值，单位为百分比。 |
+| .value[2].f32 | 设置下内间距数值，单位为百分比。 |
+| .value[3].f32 | 设置左内间距数值，单位为百分比。 |
  
  
 **返回：**
@@ -880,17 +916,29 @@ NODE_MARGIN_PERCENT = 74
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
+ 
+支持传入一个或四个参数：
+ 
+1：只传入一个参数，表示统一设置上下左右四个位置的外间距百分比数值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 上下左右四个位置的外间距值相等时的外间距数值，单位为百分比。 |
-| 2. .value[0].f32 | 上外间距数值，单位为百分比。 |
-| .value[1].f32 | 右外间距数值，单位为百分比。 |
-| .value[2].f32 | 下外间距数值，单位为百分比。 |
-| .value[3].f32 | 左外间距数值，单位为百分比。 |
+| .value[0].f32 | 统一设置上下左右四个位置的外间距数值，单位为百分比。 |
+ 
+ 
+2：传入四个参数，表示分别设置上下左右四个位置的外间距百分比数值。
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 设置上外间距数值，单位为百分比。 |
+| .value[1].f32 | 设置右外间距数值，单位为百分比。 |
+| .value[2].f32 | 设置下外间距数值，单位为百分比。 |
+| .value[3].f32 | 设置左外间距数值，单位为百分比。 |
  
  
 **返回：**
@@ -921,8 +969,8 @@ NODE_RELATIVE_LAYOUT_CHAIN_MODE = 76
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 链的方向。枚举ArkUI_Axis。 |
-| .value[1].i32 | 链的样式。枚举ArkUI_RelativeLayoutChainStyle。 |
+| .value[0].i32 | 设置链的方向。枚举ArkUI_Axis。 |
+| .value[1].i32 | 设置链的样式。枚举ArkUI_RelativeLayoutChainStyle。 |
  
  
 **返回：**
@@ -945,14 +993,16 @@ NODE_SIZE = 79
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 宽度数值，单位为vp。 |
-| .value[1].f32 | 高度数值，单位为vp。 |
+| .value[0].f32 | 设置宽度数值，单位为vp。 |
+| .value[1].f32 | 设置高度数值，单位为vp。 |
  
  
 **返回：**
@@ -981,10 +1031,10 @@ NODE_LAYOUT_RECT = 83
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 组件x轴坐标，单位为px。 |
-| .value[1].i32 | 组件y轴坐标，单位为px。 |
-| .value[2].i32 | 组件宽度，单位为px。 |
-| .value[3].i32 | 组件高度，单位为px。 |
+| .value[0].i32 | 设置组件x轴坐标，单位为px。 |
+| .value[1].i32 | 设置组件y轴坐标，单位为px。 |
+| .value[2].i32 | 设置组件宽度，单位为px。 |
+| .value[3].i32 | 设置组件高度，单位为px。 |
  
  
 **返回：**
@@ -1009,14 +1059,26 @@ NODE_BORDER_WIDTH_PERCENT = 85
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
+ 
+支持传入一个或四个参数：
+ 
+1：只传入一个参数，表示统一设置四条边的边框宽度百分比数值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 统一设置四条边的边框宽度，单位为百分比。 |
-| 2. .value[0].f32 | 设置上边框的边框宽度，单位为百分比。 |
+| .value[0].f32 | 统一设置四条边的边框宽度数值，单位为百分比。 |
+ 
+ 
+2：传入四个参数，表示分别设置四条边的边框宽度百分比数值。
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 设置上边框的边框宽度，单位为百分比。 |
 | .value[1].f32 | 设置右边框的边框宽度，单位为百分比。 |
 | .value[2].f32 | 设置下边框的边框宽度，单位为百分比。 |
 | .value[3].f32 | 设置左边框的边框宽度，单位为百分比。 |
@@ -1026,10 +1088,10 @@ NODE_BORDER_WIDTH_PERCENT = 85
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].f32 | 设置上边框的边框宽度，单位为百分比。 |
-| .value[1].f32 | 设置右边框的边框宽度，单位为百分比。 |
-| .value[2].f32 | 设置下边框的边框宽度，单位为百分比。 |
-| .value[3].f32 | 设置左边框的边框宽度，单位为百分比。 |
+| .value[0].f32 | 上边框的边框宽度，单位为百分比。 |
+| .value[1].f32 | 右边框的边框宽度，单位为百分比。 |
+| .value[2].f32 | 下边框的边框宽度，单位为百分比。 |
+| .value[3].f32 | 左边框的边框宽度，单位为百分比。 |
  
  
   
@@ -1044,14 +1106,26 @@ NODE_BORDER_RADIUS_PERCENT = 86
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 12
  
 **参数：**
+ 
+支持传入一个或四个参数：
+ 
+1：只传入一个参数，表示统一设置四条边的边框圆角半径百分比数值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 统一设置四条边的边框圆角半径，单位为百分比。 |
-| 2. .value[0].f32 | 设置左上角圆角半径，单位为百分比。 |
+| .value[0].f32 | 统一设置四条边的边框圆角半径数值，单位为百分比。 |
+ 
+ 
+2：传入四个参数，表示分别设置四条边的边框圆角半径百分比数值。
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 设置左上角圆角半径，单位为百分比。 |
 | .value[1].f32 | 设置右上角圆角半径，单位为百分比。 |
 | .value[2].f32 | 设置左下角圆角半径，单位为百分比。 |
 | .value[3].f32 | 设置右下角圆角半径，单位为百分比。 |
@@ -1061,10 +1135,10 @@ NODE_BORDER_RADIUS_PERCENT = 86
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].f32 | 设置左上角圆角半径，单位为百分比。 |
-| .value[1].f32 | 设置右上角圆角半径，单位为百分比。 |
-| .value[2].f32 | 设置左下角圆角半径，单位为百分比。 |
-| .value[3].f32 | 设置右下角圆角半径，单位为百分比。 |
+| .value[0].f32 | 左上角圆角半径，单位为百分比。 |
+| .value[1].f32 | 右上角圆角半径，单位为百分比。 |
+| .value[2].f32 | 左下角圆角半径，单位为百分比。 |
+| .value[3].f32 | 右下角圆角半径，单位为百分比。 |
  
  
   
@@ -1085,14 +1159,14 @@ NODE_WIDTH_LAYOUTPOLICY = 105
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 布局策略，参数类型ArkUI_LayoutPolicy。 |
+| .value[0].i32 | 设置组件宽度布局策略，参数类型ArkUI_LayoutPolicy。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 布局策略，参数类型ArkUI_LayoutPolicy。 |
+| .value[0].i32 | 组件宽度布局策略，参数类型ArkUI_LayoutPolicy。 |
  
  
   
@@ -1113,14 +1187,14 @@ NODE_HEIGHT_LAYOUTPOLICY = 106
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 布局策略，参数类型ArkUI_LayoutPolicy。 |
+| .value[0].i32 | 设置组件高度布局策略，参数类型ArkUI_LayoutPolicy。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 布局策略，参数类型ArkUI_LayoutPolicy。 |
+| .value[0].i32 | 组件高度布局策略，参数类型ArkUI_LayoutPolicy。 |
  
  
   
@@ -1141,7 +1215,7 @@ NODE_POSITION_EDGES = 107
   
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 组件相对容器内容区边界的位置，参数类型为ArkUI_PositionEdges。 |
+| .object | 设置组件相对容器内容区边界的位置，参数类型为ArkUI_PositionEdges。 |
  
  
 **返回：**
@@ -1163,14 +1237,16 @@ NODE_CHAIN_WEIGHT = 118
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 23
  
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 组件在水平方向的布局权重，默认值：0。设置异常值时，按默认值显示。 |
-| .value[1].f32 | 组件在竖直方向的布局权重，默认值：0。设置异常值时，按默认值显示。 |
+| .value[0].f32 | 设置组件在水平方向的布局权重，默认值：0。设置异常值时，按默认值显示。 |
+| .value[1].f32 | 设置组件在竖直方向的布局权重，默认值：0。设置异常值时，按默认值显示。 |
  
  
 **返回：**
@@ -1193,14 +1269,16 @@ NODE_IGNORE_LAYOUT_SAFE_AREA = 119
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 23
  
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].u32 | 扩展安全区域的类型。参数类型为ArkUI_LayoutSafeAreaType，默认值：ARKUI_LAYOUT_SAFE_AREA_TYPE_SYSTEM。设置异常值时，按默认值显示。 |
-| .value[1].u32 | 扩展安全区域的方向。参数类型为ArkUI_LayoutSafeAreaEdge，默认值：ARKUI_LAYOUT_SAFE_AREA_EDGE_ALL，例如：ARKUI_LAYOUT_SAFE_AREA_EDGE_TOP \| ARKUI_LAYOUT_SAFE_AREA_EDGE_BOTTOM。设置异常值时，按默认值显示。 |
+| .value[0].u32 | 设置扩展安全区域的类型。参数类型为ArkUI_LayoutSafeAreaType，默认值：ARKUI_LAYOUT_SAFE_AREA_TYPE_SYSTEM。设置异常值时，按默认值显示。 |
+| .value[1].u32 | 设置扩展安全区域的方向。参数类型为ArkUI_LayoutSafeAreaEdge，默认值：ARKUI_LAYOUT_SAFE_AREA_EDGE_ALL，例如：ARKUI_LAYOUT_SAFE_AREA_EDGE_TOP \| ARKUI_LAYOUT_SAFE_AREA_EDGE_BOTTOM。设置异常值时，按默认值显示。 |
  
  
 **返回：**
@@ -1223,16 +1301,18 @@ NODE_DASH_WIDTH = 120
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 23
  
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 上边框虚线的长度，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
-| .value[1].f32 | 右边框虚线的长度，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
-| .value[2].f32 | 下边框虚线的长度，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
-| .value[3].f32 | 左边框虚线的长度，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
+| .value[0].f32 | 设置上边框虚线的长度，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
+| .value[1].f32 | 设置右边框虚线的长度，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
+| .value[2].f32 | 设置下边框虚线的长度，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
+| .value[3].f32 | 设置左边框虚线的长度，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
  
  
 **返回：**
@@ -1257,16 +1337,18 @@ NODE_DASH_GAP = 121
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
+属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)中size为无效值。
+ 
 **起始版本：** 23
  
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 上边框虚线的间隙，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
-| .value[1].f32 | 右边框虚线的间隙，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
-| .value[2].f32 | 下边框虚线的间隙，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
-| .value[3].f32 | 左边框虚线的间隙，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
+| .value[0].f32 | 设置上边框虚线的间隙，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
+| .value[1].f32 | 设置右边框虚线的间隙，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
+| .value[2].f32 | 设置下边框虚线的间隙，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
+| .value[3].f32 | 设置左边框虚线的间隙，单位vp。取值范围：[0, +∞)。设置异常值时，按默认的虚线效果显示。 |
  
  
 **返回：**
@@ -1297,7 +1379,7 @@ NODE_LAYOUT_GRAVITY = 122
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | Stack容器中子组件的对齐规则。参数类型为ArkUI_LocalizedAlignment，默认值：ARKUI_ALIGNMENT_CENTER。设置异常值时，按默认值显示。 |
+| .value[0].i32 | 设置Stack容器中子组件的对齐规则。参数类型为ArkUI_LocalizedAlignment，默认值：ARKUI_ALIGNMENT_CENTER。设置异常值时，按默认值显示。 |
  
  
 **返回：**
@@ -1325,7 +1407,7 @@ NODE_BORDER_RADIUS_TYPE = 123
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 组件绘制圆角的模式。参数类型为ArkUI_RenderStrategy，默认值：ARKUI_RENDERSTRATEGY_FAST。设置异常值时，按默认值显示。 |
+| .value[0].i32 | 设置组件绘制圆角的模式。参数类型为ArkUI_RenderStrategy，默认值：ARKUI_RENDERSTRATEGY_FAST。设置异常值时，按默认值显示。 |
  
  
 **返回：**

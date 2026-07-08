@@ -1,6 +1,6 @@
 # ArkUI_SwiperArrowStyle
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-swiperarrowstyle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_SwiperArrowStyle ArkUI_SwiperArrowStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义 Swiper 组件的导航箭头风格。
+定义Swiper组件的导航箭头样式。
  
 **起始版本：** 19
  

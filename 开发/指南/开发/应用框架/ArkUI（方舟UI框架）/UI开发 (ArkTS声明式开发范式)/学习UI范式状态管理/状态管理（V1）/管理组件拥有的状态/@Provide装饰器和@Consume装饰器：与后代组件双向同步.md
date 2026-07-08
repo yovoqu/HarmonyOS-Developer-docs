@@ -1,6 +1,6 @@
 # @Provide装饰器和@Consume装饰器：与后代组件双向同步
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume
 
@@ -717,9 +717,9 @@ struct Parent {
 
 
 
-#### Provide和Consume支持联合类型实例
+#### @Provide和@Consume支持联合类型实例
 
-@Provide和@Consume支持联合类型和undefined和null。以下示例中，count类型为string | undefined，当点击父组件Parent中的Button改变count的属性或者类型时，Child中也会对应刷新。
+@Provide和@Consume支持联合类型和undefined和null。以下示例中，count类型为string | undefined，当点击祖先组件Ancestors中的Button改变count的属性或者类型时，Child中也会对应刷新。
 
 ```ArkTS
 @Component
@@ -944,7 +944,7 @@ struct Child {
 
  - Parent声明了@Provide('firstKey') provideOne: string | undefined = undefined 与 @Provide('secondKey') provideTwo: string = 'the second provider'。
  - Child声明了@Consume('firstKey') textOne: string | undefined = 'child'，@Consume('secondKey') textTwo: string 与 @Consume('thirdKey') textThree: string = 'defaultValue'。
- - Child是Parent的子组件，Child在初始化@Consume装饰的三个属性时，textOne根据'firstKey'别名绑定Parent中的provideOne属性，provideOne的值会覆盖textOne的默认值，所以textOne初始化的值为undefined；textTwo根据'secondKey'别名绑定Parent中的providedTwo属性，textTwo初始化的值为'the second provider'；textThree在祖先组件中不存在匹配结果，如果@Consume没有设置默认值，则会抛出运行时错误，示例中textThree有默认值'defaultValue'，所以textThree初始化的值为'defaultValue'。
+ - Child是Parent的子组件，Child在初始化@Consume装饰的三个属性时，textOne根据'firstKey'别名绑定Parent中的provideOne属性，provideOne的值会覆盖textOne的默认值，所以textOne初始化的值为undefined；textTwo根据'secondKey'别名绑定Parent中的provideTwo属性，textTwo初始化的值为'the second provider'；textThree在祖先组件中不存在匹配结果，如果@Consume没有设置默认值，则会抛出运行时错误，示例中textThree有默认值'defaultValue'，所以textThree初始化的值为'defaultValue'。
  - @Consume装饰的属性设置的默认值仅在祖先组件没有匹配结果时才生效，有匹配结果时无影响。
 
 
@@ -1010,7 +1010,7 @@ class TextNodeController extends NodeController {
       try {
         this.rootNode.appendChild(this.builderNode.getFrameNode());
       } catch (e) {
-        hilog.error(DOMAIN, 'testTag', 'Failed to appendChild', JSON.stringify(e) ?? '');
+        hilog.error(DOMAIN, 'testTag', 'Failed to appendChild %{public}s', JSON.stringify(e) ?? '');
       }
     }
   }
@@ -1021,7 +1021,7 @@ class TextNodeController extends NodeController {
       try {
         this.rootNode.removeChild(this.builderNode.getFrameNode());
       } catch (e) {
-        hilog.error(DOMAIN, 'testTag', 'Failed to removeChild', JSON.stringify(e) ?? '');
+        hilog.error(DOMAIN, 'testTag', 'Failed to removeChild %{public}s', JSON.stringify(e) ?? '');
       }
     }
   }

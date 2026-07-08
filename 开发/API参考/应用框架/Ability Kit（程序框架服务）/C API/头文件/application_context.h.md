@@ -1,6 +1,6 @@
 # application_context.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-application-context-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -90,7 +90,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetCacheDir(char* b
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -120,7 +120,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetAreaMode(Ability
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - areaMode为null。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - areaMode为null。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -152,7 +152,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetBundleName(char*
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -184,7 +184,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetTempDir(char* bu
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -216,7 +216,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetFilesDir(char* b
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -248,7 +248,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetDatabaseDir(char
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -280,7 +280,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetPreferencesDir(c
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -312,7 +312,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetBundleCodeDir(ch
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -344,7 +344,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetDistributedFiles
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -376,7 +376,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetCloudFileDir(cha
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -408,7 +408,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetLogFileDir(char*
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -441,7 +441,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetResourceDir(cons
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
   
@@ -462,7 +462,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_StartSelfUIAbility(AbilityBase_Want *
  
 **起始版本：** 15
  
-**设备行为差异**：该接口仅在2in1和Tablet设备中可正常调用，在其他设备中返回ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED错误码。
+**设备行为差异**：该接口仅在PC/2in1和Tablet设备中可正常调用，在其他设备中返回ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED错误码。
  
 **参数：**
   
@@ -520,7 +520,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_StartSelfUIAbilityWithStartOptions(Ab
  
 **起始版本：** 17
  
-**设备行为差异**：该接口仅在2in1和Tablet设备中可正常调用，在其他设备中返回ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED错误码。
+**设备行为差异**：该接口仅在PC/2in1和Tablet设备中可正常调用，在其他设备中返回ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED错误码。
  
 **参数：**
   
@@ -602,7 +602,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetVersionCode(int6
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参versionCode为空。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 ABILITY_RUNTIME_ERROR_CODE_GET_APPLICATION_INFO_FAILED - 获取应用信息失败。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参versionCode为空。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 ABILITY_RUNTIME_ERROR_CODE_GET_APPLICATION_INFO_FAILED - 获取应用信息失败。 |
  
  
   
@@ -619,7 +619,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_StartSelfUIAbilityWithPidResult(Abili
  
 通过StartOptions启动当前应用的UIAbility，并获取目标UIAbility的进程号。
  
-接口不能在应用主线程调用，但可以在应用创建的[子进程](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-childprocess)的主线程中调用。
+接口不能在应用主线程调用，但可以在应用创建的[ChildProcess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-childprocess)的主线程中调用。
  
 如果在应用的主线程中调用，会返回ABILITY_RUNTIME_ERROR_CODE_MAIN_THREAD_NOT_SUPPORTED错误码。
  
@@ -627,7 +627,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_StartSelfUIAbilityWithPidResult(Abili
  
 **起始版本：** 21
  
-**设备行为差异**：该接口仅在2in1和Tablet设备中可正常调用，在其他设备中返回ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED错误码。
+**设备行为差异**：该接口仅在PC/2in1和Tablet设备中可正常调用，在其他设备中返回ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED错误码。
  
 **参数：**
   
@@ -714,7 +714,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetLaunchParameter(
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
 **示例：**
@@ -770,7 +770,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetLatestParameter(
   
 | 类型 | 说明 |
 | --- | --- |
-| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的子进程中应用级别上下文不存在。 |
+| AbilityRuntime_ErrorCode | 返回执行结果。 ABILITY_RUNTIME_ERROR_CODE_NO_ERROR - 查询成功。 ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID - 入参buffer或者writeLength为空，或者缓冲区大小小于需要写入的大小。 ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST - 应用上下文不存在，如在应用创建的ChildProcess中应用级别上下文不存在。 |
  
  
 **示例：**
@@ -819,7 +819,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextNotifyPageChanged(
 | --- | --- |
 | const char* targetPageName | 目标页面路径。 |
 | int32_t targetPageNameLength | 目标页面路径长度。 |
-| int32_t windowId | 目标页面对应的窗口ID。 |
+| int32_t windowId | 目标页面对应的WindowInfo中的窗口ID。 |
  
  
 **返回：**

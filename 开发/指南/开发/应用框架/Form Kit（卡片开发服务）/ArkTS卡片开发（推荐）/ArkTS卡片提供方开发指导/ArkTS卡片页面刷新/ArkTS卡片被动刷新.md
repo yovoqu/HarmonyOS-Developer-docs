@@ -1,6 +1,6 @@
 # ArkTS卡片被动刷新
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-passive-refresh
 
@@ -45,7 +45,7 @@
  - 下次刷新：表示指定卡片的下一次刷新时间。可以通过调用[setFormNextRefreshTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formprovidersetformnextrefreshtime)接口来实现。最短刷新时间为5分钟。例如，可以在接口调用后的5分钟内刷新卡片内容。
 
   
-```json
+```ts
 // entry/src/main/ets/updatebytimeformability/UpdateByTimeFormAbility.ts
 import { formBindingData, FormExtensionAbility, formInfo, formProvider } from '@kit.FormKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

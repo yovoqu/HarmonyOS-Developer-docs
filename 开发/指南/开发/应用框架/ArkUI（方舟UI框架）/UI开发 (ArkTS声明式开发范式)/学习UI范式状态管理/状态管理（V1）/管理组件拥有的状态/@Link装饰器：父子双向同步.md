@@ -1,6 +1,6 @@
 # @Link装饰器：父子双向同步
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link
 
@@ -186,36 +186,32 @@ struct LinkExample {
 }
 ```
 
-4. @Link装饰的变量仅能被状态变量初始化，不能使用常规变量初始化，否则编译期会给出告警，并在运行时崩溃。
+![](assets/@Link装饰器：父子双向同步/file-20260525091526175-001.png)
+
+4. @Link装饰的变量仅能被状态变量初始化，不能使用常规变量初始化，否则会编译报错。
 
   【反例】
 
   
 ```text
-class Info {
-  info: string = 'Hello';
-}
-
 @Component
 struct Child {
-  @Link msg: string;
-  @Link info: string;
+  @Link message: string;
 
   build() {
-    Text(this.msg + this.info)
+    Text(`${this.message}`).margin('20%')
   }
 }
 
 @Entry
 @Component
 struct LinkExample {
-  @State message: string = 'Hello';
-  @State info: Info = new Info();
+  message: string = 'Hello';
 
   build() {
     Column() {
       // 错误写法，常规变量不能初始化@Link
-      Child({msg: 'World', info: this.info.info})
+      Child({ message: this.message })
     }
   }
 }
@@ -224,17 +220,12 @@ struct LinkExample {
 
   
 ```ArkTS
-class LinkInfo2 {
-  public info: string = 'Hello';
-}
-
 @Component
 struct LinkChild2 {
-  @Link msg: string;
-  @Link info: LinkInfo2;
+  @Link message: string;
 
   build() {
-    Text(this.msg + this.info.info)
+    Text(`${this.message}`).margin('20%')
   }
 }
 
@@ -242,16 +233,17 @@ struct LinkChild2 {
 @Component
 struct LinkExample2 {
   @State message: string = 'Hello';
-  @State info: LinkInfo2 = new LinkInfo2();
 
   build() {
     Column() {
       // 正确写法
-      LinkChild2({msg: this.message, info: this.info})
+      LinkChild2({ message: this.message })
     }
   }
 }
 ```
+
+![](assets/@Link装饰器：父子双向同步/file-20260525091526176-002.gif)
 
 5. @Link不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
 
@@ -357,7 +349,7 @@ struct ShufflingContainer {
 ```
 
 
-![](assets/@Link装饰器：父子双向同步/file-20260525091526175-001.png)
+![](assets/@Link装饰器：父子双向同步/file-20260525091526176-003.gif)
 
 
 
@@ -410,7 +402,7 @@ struct ArrayTypes {
             .backgroundColor('#11a2a2a2')
             .fontColor('#e6000000')
         },
-        (item: ForEachInterface) => item.toString()
+        (item: number) => item.toString()
       )
     }
   }
@@ -418,7 +410,7 @@ struct ArrayTypes {
 ```
 
 
-![](assets/@Link装饰器：父子双向同步/file-20260525091526176-002.gif)
+![](assets/@Link装饰器：父子双向同步/file-202607081039548c80398b.gif)
 
 
 状态管理框架可以观察到数组元素的添加、删除和替换。在该示例中，@State和@Link的类型均为number[]，不支持将@Link定义成number类型（@Link item : number），并用@State数组中的每个数据项在父组件中创建子组件。如需使用这种场景，可以参考[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)和[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)。
@@ -607,7 +599,7 @@ struct ParentComponent {
 
 通过[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)可以在双向同步时更改本地变量。
 
-以下示例中，在@Link的@Watch里面修改了一个@State装饰的变量memberMessage，实现父子组件间的变量同步。但是@State装饰的变量memberMessage在本地修改不会影响到父组件中的变量改变。
+以下示例中，在@Link的@Watch里面修改了一个@State装饰的变量memberMessage，实现父子组件间的变量同步，但是@State装饰的变量memberMessage在本地修改不会影响到父组件中的变量改变。
 
 ```ArkTS
 @Entry
@@ -619,7 +611,6 @@ struct ChangeVariables {
     Column() {
       Text(`sourceNumber of the parent component:` + this.sourceNumber)
       ChangeVariablesChild({ sourceNumber: this.sourceNumber })
-      // sourceNumber的修改不会影响到父组件中的变量改变
       Button('Change sourceNumber in Parent Component')
         .onClick(() => {
           this.sourceNumber++;
@@ -636,6 +627,7 @@ struct ChangeVariablesChild {
   @Link @Watch('onSourceChange') sourceNumber: number;
 
   onSourceChange() {
+    // memberMessage在子组件中本地修改不会影响到父组件中的变量改变
     this.memberMessage = this.sourceNumber.toString();
   }
 

@@ -1,6 +1,6 @@
 # 生成服务端请求的token
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description
 
@@ -77,7 +77,7 @@ public class JWTGenerator {
     /**
      * JWT validity period, which is a UTC timestamp in seconds. The validity period cannot exceed 1 hour.
      */
-    private static final long ACTIVE_TIME_SECOND = 3600;  // TODO: Need to replace it with the actual value.
+    private static final long ACTIVE_TIME_SECOND = 3600; // TODO: Need to replace it with the actual value.
 
     private static final Map<String, Object> JWT_HEADER = new HashMap<>();
 
@@ -89,10 +89,10 @@ public class JWTGenerator {
         // Token type. The value is always JWT.
         JWT_HEADER.put("typ", "JWT");
         // Key ID.
-        JWT_HEADER.put("kid", "Key ID");  // TODO: Need to replace it with the actual value.
+        JWT_HEADER.put("kid", "Key ID"); // TODO: Need to replace it with the actual value.
 
         // Key issuer ID.
-        JWT_PAYLOAD.put("iss", "Issuer ID");  // TODO: Need to replace it with the actual value.
+        JWT_PAYLOAD.put("iss", "Issuer ID"); // TODO: Need to replace it with the actual value.
         // Expected receiver of the JWT. The value is fixed at iap-v1.
         JWT_PAYLOAD.put("aud", "iap-v1");
         // Time when the JWT is issued. The value is a UTC timestamp, in seconds.
@@ -102,11 +102,18 @@ public class JWTGenerator {
         // Re-put the value in the genJwt method.
         JWT_PAYLOAD.put("exp", 0);
         // App ID.
-        JWT_PAYLOAD.put("aid", "App ID");  // TODO: Need to replace it with the actual value.
+        JWT_PAYLOAD.put("aid", "App ID"); // TODO: Need to replace it with the actual value.
         // Hash value of the request body (JSON character string), which is used to verify the integrity of the body. The algorithm is SHA-256.
         JWT_PAYLOAD.put("digest", "");
     }
-
+    
+    /**
+     * Used for generating JWT.
+     *
+     * @param bodyStr JSON string of the request body.
+     * @return jwt string
+     * @throws Exception exception
+     */
     public static String genJwt(String bodyStr) throws Exception {
         try {
             // Fetch the Private Key Content in PEM format.

@@ -1,13 +1,11 @@
 # Interface (NativeMediaPlayerBridge)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-nativemediaplayerbridge
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-[CreateNativeMediaPlayerCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-t#createnativemediaplayercallback12)回调函数的返回值类型。接管网页媒体的播放器和ArkWeb内核之间的一个接口类。
- 
-ArkWeb内核通过该接口类的实例对象来控制应用创建的用来接管网页媒体的播放器。
+NativeMediaPlayerBridge 是[CreateNativeMediaPlayerCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-t#createnativemediaplayercallback12)回调函数的返回值类型，接管网页媒体的播放器和 ArkWeb 内核之间的一个接口类。ArkWeb 内核通过该接口类的实例对象来控制应用创建的用来接管网页媒体的播放器。该接口允许应用使用自定义的媒体播放器来接管网页中的媒体内容播放，同时，该接口还支持播放器的挂起和恢复机制。
  
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Interface首批接口从API version 12开始支持。 示例效果请以真机运行为准。
@@ -218,7 +216,7 @@ exitFullscreen(): void
 
 resumePlayer?(): void
  
-通知应用重建播放器，并恢复播放器的状态信息。
+通知应用重建播放器，并恢复播放器的状态信息。仅与 suspendPlayer 成对出现。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  
@@ -234,7 +232,7 @@ resumePlayer?(): void
 
 suspendPlayer?(type: SuspendType): void
  
-通知应用销毁播放器，并保存播放器的状态信息。
+通知应用销毁播放器，并保存播放器的状态信息。仅与 resumePlayer 成对出现。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  

@@ -1,6 +1,6 @@
 # styled_string.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-03 02:18:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1615,7 +1615,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontWeight(OH_ArkUI_TextStyle* textStyle, 
 | 参数项 | 描述 |
 | --- | --- |
 | OH_ArkUI_TextStyle* textStyle | 指向OH_ArkUI_TextStyle对象的指针。 |
-| uint32_t fontWeight | 字体粗细。取值范围为[100, 900]中的整百数值，例如100、900。 |
+| uint32_t fontWeight | 字体粗细。取值为ArkUI_FontWeight中的枚举值，默认值为ARKUI_FONT_WEIGHT_W400。 |
 
 
 **返回：**
@@ -1646,7 +1646,7 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontWeight(const OH_ArkUI_TextStyle* textS
 | 参数项 | 描述 |
 | --- | --- |
 | const OH_ArkUI_TextStyle* textStyle | 指向OH_ArkUI_TextStyle对象的指针。 |
-| uint32_t* fontWeight | 字体粗细。取值范围为[100, 900]中的整百数值，例如100、900。 |
+| uint32_t* fontWeight | 字体粗细。取值为ArkUI_FontWeight中的枚举值，默认值为ARKUI_FONT_WEIGHT_W400。 |
 
 
 **返回：**
