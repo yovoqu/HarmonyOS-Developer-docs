@@ -1,6 +1,6 @@
 # 按钮 (Button)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-button
 

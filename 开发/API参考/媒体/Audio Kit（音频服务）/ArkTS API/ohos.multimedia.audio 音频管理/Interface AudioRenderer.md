@@ -1,6 +1,6 @@
 # Interface (AudioRenderer)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2036,7 +2036,7 @@ setDefaultOutputDevice(deviceType: DeviceType): Promise&lt;void&gt;
 设置默认发声设备。使用Promise异步回调。
 
 > [!NOTE]
-> 本接口仅适用于 StreamUsage 为语音消息、VoIP语音通话或者VoIP视频通话的场景，支持听筒、扬声器和系统默认设备。 本接口允许在AudioRenderer创建后随时调用，系统会记录应用设置的默认本机内置发声设备。应用启动播放时，若外接设备如蓝牙耳机或有线耳机已接入，系统优先从外接设备发声；否则，系统遵循应用设置的默认本机内置发声设备。
+> 本接口仅适用于 StreamUsage 为语音消息、VoIP语音通话或者VoIP视频通话的场景，支持听筒、扬声器和系统默认设备。 本接口允许在AudioRenderer创建后随时调用，系统会记录应用设置的默认本机内置发声设备。应用启动播放时，若外接设备如蓝牙耳机或有线耳机已接入，系统优先从外接设备发声；否则，系统遵循应用设置的默认本机内置发声设备。 本接口优先级低于AudioSessionManager的 setDefaultOutputDevice 。如果使用AudioSessionManager的setDefaultOutputDevice设置了默认音频输出设备，本接口的设置将不会生效。
 
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer

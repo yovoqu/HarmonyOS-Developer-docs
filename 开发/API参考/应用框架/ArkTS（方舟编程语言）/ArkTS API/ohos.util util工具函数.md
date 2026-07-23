@@ -1,6 +1,6 @@
 # @ohos.util (util工具函数)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -6623,7 +6623,7 @@ put(key: K,value: V): V
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | K | 是 | 要添加的密钥。 |
+| key | K | 是 | 要添加的键。 |
 | value | V | 是 | 指示与要添加的键关联的值。 |
  
  
@@ -6731,7 +6731,7 @@ remove(key: K): V | undefined
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | K | 是 | 要删除的密钥。 |
+| key | K | 是 | 要删除的键。 |
  
  
 **返回值：**

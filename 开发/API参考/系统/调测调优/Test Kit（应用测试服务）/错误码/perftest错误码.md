@@ -1,6 +1,6 @@
-# perftest错误码
+# PerfTest错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-perftest
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -28,7 +28,7 @@ Initialization failed.
 
 **处理步骤**
 
-使用ps等shell命令查看，确保测试应用进程存在。
+检查测试应用是否正常安装并可用，确保能够成功获取测试应用包名。
 
 
 
@@ -50,7 +50,7 @@ Internal error.
 
 **处理步骤**
 1. 尝试通过重试解决IPC传输失败问题。
-2. 判断PerfTest对象是否已被销毁，若已销毁需要重新[创建PerfTest对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-perftest#create)。
+2. 判断PerfTest对象是否已被销毁，若已销毁需要重新使用[PerfTest.create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-perftest#create)创建PerfTest对象。
 
 
 
@@ -68,11 +68,11 @@ Parameter verification failed.
 
 **可能原因**
 
-参数类型错误/参数取值超出规定范围。
+参数类型错误、参数取值超出规定范围。
 
 **处理步骤**
 
-检查接口入参是否符合要求。
+检查接口入参的类型和取值范围是否符合接口定义要求。
 
 
 
@@ -86,7 +86,7 @@ Failed to execute the callback.
 
 **错误描述**
 
-执行回调代码段失败。
+执行回调函数失败。
 
 **可能原因**
 1. 回调函数内部抛出异常。
@@ -94,7 +94,7 @@ Failed to execute the callback.
 
 **处理步骤**
 
-检查回调函数内部逻辑，确保回调函数执行不会抛出异常或超时。
+检查回调函数内部逻辑，包括异常处理和超时控制机制，确保回调函数执行不会抛出异常或超时。
 
 
 

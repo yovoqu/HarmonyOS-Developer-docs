@@ -1,11 +1,11 @@
 # FrameNode
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-FrameNode表示组件树的实体节点。[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)可通过[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)持有的FrameNode将其挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上，也可通过FrameNode获取[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)，挂载到其他FrameNode上。最佳实践请参考[组件动态创建-组件动态添加、更新和删除](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-dynamic-operations#section153921947151012)。
+FrameNode表示组件树的实体节点。[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)可通过[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)持有的FrameNode将其挂载到[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)上，也可通过FrameNode获取[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)，挂载到其他FrameNode上。最佳实践请参考[组件动态创建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-component-dynamic-creation)。
 
 > [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 当前不支持在预览器中使用FrameNode节点。 FrameNode节点暂不支持拖拽。 FrameNode对象不支持使用JSON序列化。 在 UI上下文不明确 的场景中调用 FrameNode 对象的接口时，建议使用 UIContext 的 runScopedTask 接口明确UI上下文，参考 执行绑定UI实例的闭包 示例。 FrameNode的接口中，仅 Optional 类型的必选参数支持传入null或undefined。
@@ -2451,7 +2451,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/1b4BSi5dRGyooOTDp2rsvA/zh-cn_image_0000002659101521.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=82B70261BFD09F6B7AC92AE1A799C968EA7DEE3FF9A414D5DBDE0FF6D383A21B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/WnQeejjxRjW3l8zkf7cb6g/zh-cn_image_0000002647747610.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011949Z&HW-CC-Expire=86400&HW-CC-Sign=8933E014CE538B02B9525C9A43C109FBE069BAA8777A2A51AB626D9D2C6292BA)
 
 
 
@@ -10252,7 +10252,7 @@ struct FrameNodeTypeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/cJqsVqESR2y5_8BqonXX5Q/zh-cn_image_0000002628862172.png?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=D39B91A865397699115A1F014A24FBFCC3AD1313087D784151A4804D22E3C371)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/xSsEwrMNSpSt-o62PUpOZA/zh-cn_image_0000002647587700.png?HW-CC-KV=V1&HW-CC-Date=20260723T011949Z&HW-CC-Expire=86400&HW-CC-Sign=EEB57FFB17385F7C031BB22DAA77FEBD0D215E3CC5EDCDDFEEA7BA4C448CE2D0)
 
 
 
@@ -12250,7 +12250,7 @@ struct CreateAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/6cKwFKjhQiumfzqpklEqSg/zh-cn_image_0000002659221483.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=1170BB8A998A92D505A89A2FCA8B34939567E84A5D3FE36440A68F9EC332511C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/_ZzVZA5kTRiJPUpnnoZnPA/zh-cn_image_0000002677827341.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011949Z&HW-CC-Expire=86400&HW-CC-Sign=3E3298F4ED19E59598F1F030071BDA3909F0C9C89DB9AEEAF481A88337069506)
 
 
 
@@ -12355,7 +12355,7 @@ struct Index {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该示例演示了FrameNode释放节点前后分别使用[isDisposed](#isdisposed20)接口验证节点的状态，释放节点前节点调用isDisposed接口返回true，释放节点后节点调用isDisposed接口返回false。
+该示例演示了FrameNode释放节点前后分别使用[isDisposed](#isdisposed20)接口验证节点的状态，释放节点前节点调用isDisposed接口返回false，释放节点后节点调用isDisposed接口返回true。
 
 ```text
 import { NodeController, FrameNode, BuilderNode } from '@kit.ArkUI';
@@ -12467,7 +12467,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/qiWfYvB6Q4KdMl4jnlurwQ/zh-cn_image_0000002628702294.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=F452435BC63FF16BD659E645E9241C6AA5407C732B8AB1DE17E6781BCDD92FF4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/TyhrRSToRxKtT52XggHaFA/zh-cn_image_0000002677667493.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011949Z&HW-CC-Expire=86400&HW-CC-Sign=7A511005CAAD929DC108CACC8774B8E0F21C914E7F2DDA0FD58F08DA420DDF9B)
 
 
 
@@ -12476,7 +12476,7 @@ struct Index {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该示例演示了[NodeAdapter](#nodeadapter12)释放节点前后分别使用[isDisposed](#isdisposed20)接口验证节点的状态，释放节点前节点调用isDisposed接口返回true，释放节点后节点调用isDisposed接口返回false。
+该示例演示了[NodeAdapter](#nodeadapter12)释放节点前后分别使用[isDisposed](#isdisposed20)接口验证节点的状态，释放节点前节点调用isDisposed接口返回false，释放节点后节点调用isDisposed接口返回true。
 
 ```text
 import { FrameNode, NodeController, NodeAdapter, typeNode } from '@kit.ArkUI';
@@ -12592,7 +12592,7 @@ struct ListNodeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/D2KbZNxqSEic4L9cki7oew/zh-cn_image_0000002659101523.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=302ECCCDF4A248AB9DE9CE06D9E4CB34A65481AA51D2C35A3AFDD095E29006BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/KpfOAxz8QVighCKWFek7VA/zh-cn_image_0000002647747612.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011949Z&HW-CC-Expire=86400&HW-CC-Sign=31A10F59EAE26C52919AE7A0636BE139E507317F63AA4EBB8C578E080AAB10F5)
 
 
 

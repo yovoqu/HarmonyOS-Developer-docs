@@ -1,6 +1,6 @@
 # drawing_typeface.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-typeface-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,7 +42,7 @@
 | OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromFileWithArguments(const char* path,const OH_Drawing_FontArguments* fontArguments) | 从指定文件路径创建带有字型参数的字体对象。 如果字体对象不支持字型参数中描述的可变维度，此函数将会创建默认字型参数的字体对象。 在这种情况下，此函数将提供与OH_Drawing_TypefaceCreateFromFile相同的功能。 |
 | OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromCurrent(const OH_Drawing_Typeface* current,const OH_Drawing_FontArguments* fontArguments) | 通过已存在的字体对象创建带有字型参数的字体对象。 |
 | OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromStream(OH_Drawing_MemoryStream* memoryStream, int32_t index) | 通过内存流创建一个字形对象。如果内存流是无效的字体文件，返回空指针。内存流传入后，所有权转移，开发者不能再释放它。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 memoryStream为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
-| void OH_Drawing_TypefaceDestroy(OH_Drawing_Typeface* typeface) | 用于销毁字形对象并回收该对象占有的内存。 |
+| void OH_Drawing_TypefaceDestroy(OH_Drawing_Typeface* typeface) | 用于销毁字形对象并回收该对象占用的内存。 |
 | OH_Drawing_FontArguments* OH_Drawing_FontArgumentsCreate(void) | 用于创建一个字型参数对象。字型参数用于创建带有自定义属性的字体对象。 |
 | OH_Drawing_ErrorCode OH_Drawing_FontArgumentsAddVariation(OH_Drawing_FontArguments* fontArguments,const char* axis, float value) | 给字型参数对象添加可变维度。 |
 | OH_Drawing_ErrorCode OH_Drawing_FontArgumentsDestroy(OH_Drawing_FontArguments* fontArguments) | 用于销毁一个字型参数对象。 |
@@ -237,7 +237,7 @@ void OH_Drawing_TypefaceDestroy(OH_Drawing_Typeface* typeface)
  
 **描述**
  
-用于销毁字形对象并回收该对象占有的内存。
+用于销毁字形对象并回收该对象占用的内存。
  
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
  

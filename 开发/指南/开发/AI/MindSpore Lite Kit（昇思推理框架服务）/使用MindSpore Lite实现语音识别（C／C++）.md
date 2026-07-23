@@ -1,6 +1,6 @@
 # 使用MindSpore Lite实现语音识别（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-asr-based-native
 
@@ -48,7 +48,6 @@
 调用[@ohos.multimedia.media](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)、[@ohos.multimedia.audio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio)，实现播放音频的功能。
 
 ```ArkTS
-// player.ets
 import { media } from '@kit.MediaKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -390,6 +389,7 @@ void SuppressTokens(BinBuffer &logits, bool isInitial)
 {
     auto logits_data = static_cast<float *>(logits.first);
     if (isInitial) {
+        // 假设这两个值在 logits 中的索引位置
         logits_data[WHISPER_EOT] = NEG_INF;
         logits_data[WHISPER_BLANK] = NEG_INF;
     }
@@ -408,6 +408,7 @@ std::vector<int> LoopPredict(const OH_AI_ModelHandle model, const BinBuffer &n_l
                              BinBuffer &out_n_layer_self_k_cache, BinBuffer &out_n_layer_self_v_cache,
                              const BinBuffer &data_embedding, const int loop, const int offset_init)
 {
+    // logits
     BinBuffer logits{nullptr, 51865 * sizeof(float)};
     logits.first = malloc(logits.second);
     if (!logits.first) {
@@ -455,6 +456,12 @@ std::vector<int> LoopPredict(const OH_AI_ModelHandle model, const BinBuffer &n_l
         void *data_embedding_src =
             static_cast<char *>(data_embedding.first) + offset * WHISPER_N_TEXT_STATE * sizeof(float);
         memcpy(slice.first, data_embedding_src, slice.second);
+        // out_n_layer_self_k_cache
+        // out_n_layer_self_v_cache
+        // n_layer_cross_k
+        // n_layer_cross_v
+        // slice
+        // token
         BinBuffer mask_bin(mask.data(), mask.size() * sizeof(float));
         int ret = RunMSLiteModel(model, {tokens, out_n_layer_self_k_cache_new, out_n_layer_self_v_cache_new,
                                          n_layer_cross_k, n_layer_cross_v, slice, mask_bin});
@@ -600,8 +607,8 @@ static napi_value RunDemo(napi_env env, napi_callback_info info)
     auto modelBuffer3 = ReadBinFile(resourcesManager, modelName3);
     auto decoder_loop = CreateMSLiteModel(modelBuffer3);
 
-    const std::string dataName_embedding = "tiny-positional_embedding.bin"; // 获取输入数据
-    auto data_embedding = ReadBinFile(resourcesManager, dataName_embedding);
+    const std::string dataNameEmbedding = "tiny-positional_embedding.bin"; // 获取输入数据
+    auto data_embedding = ReadBinFile(resourcesManager, dataNameEmbedding);
     if (data_embedding.first == nullptr) {
         OH_AI_ModelDestroy(&encoder);
         OH_AI_ModelDestroy(&decoder_main);
@@ -706,7 +713,6 @@ export const runDemo: (a: Object) => string;
 在 entry/src/main/ets/pages/Index.ets 中，调用封装的ArkTS模块，最后对推理结果进行处理。若提示@nutpi/chinese_transverter不存在，请参考[中文简繁体转换器三方库](https://developer.huawei.com/consumer/cn/forum/topic/0202169478029484501?fid=0109140870620153026)安装@nutpi/chinese_transverter组件。
 
 ```ArkTS
-// Index.ets
 import msliteNapi from 'libentry.so'
 import AVPlayerDemo from './player';
 import { transverter, TransverterType, TransverterLanguage } from "@nutpi/chinese_transverter"
@@ -728,7 +734,7 @@ struct Index {
           .fontSize(30)
           .fontWeight(FontWeight.Bold);
         Button() {
-          Text('播放示例音频')
+          Text($r('app.string.play'))
             .fontSize(20)
             .fontWeight(FontWeight.Medium)
         }
@@ -746,7 +752,7 @@ struct Index {
           myClass.avPlayerFdSrcDemo();
         })
         Button() {
-          Text('识别示例音频')
+          Text($r('app.string.asr'))
             .fontSize(20)
             .fontWeight(FontWeight.Medium)
         }

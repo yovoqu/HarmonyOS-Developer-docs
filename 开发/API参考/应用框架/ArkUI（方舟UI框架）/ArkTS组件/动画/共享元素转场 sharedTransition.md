@@ -1,6 +1,6 @@
 # 共享元素转场 (sharedTransition)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-shared-elements
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -61,7 +61,7 @@ sharedTransition(id: string, options?: sharedTransitionOptions): T
 | curve | Curve \| string \| ICurve | 否 | 是 | 动画曲线。 推荐以Curve或ICurve形式指定。 当类型为string时，为动画插值曲线，取值参考AnimateParam的curve参数。 默认值：Curve.Linear |
 | delay | number | 否 | 是 | 延迟播放时间。 取值范围：[0, +∞) 默认值：0 单位：毫秒 |
 | motionPath | MotionPathOptions | 否 | 是 | 运动路径信息。 |
-| zIndex | number | 否 | 是 | 设置Z轴。 取值范围：(-∞, +∞) 默认值：0 |
+| zIndex | number | 否 | 是 | 设置共享元素在转场动画期间的Z轴堆叠顺序。 取值范围：(-∞, +∞) 默认值：0 数值越大，该共享元素在转场过程中越靠前（显示在上层），越不容易被其他共享元素遮挡。此zIndex仅在共享元素转场动画期间生效，控制共享元素相对于其他同时参与转场的共享元素在Z轴上的堆叠顺序，不参与页面内普通组件的静态布局层级控制（页面内组件的静态布局层级由组件通用属性zIndex控制）。 |
 | type | SharedTransitionEffectType | 否 | 是 | 动画类型。 默认值：SharedTransitionEffectType.Exchange |
  
  
@@ -71,7 +71,7 @@ sharedTransition(id: string, options?: sharedTransitionOptions): T
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
- 示例代码为点击图片跳转页面时，显示共享元素图片的自定义转场动效。
+示例代码为点击图片跳转页面时，显示共享元素图片的自定义转场动效。
  
 ```ArkTS
 // xxx.ets
@@ -118,4 +118,4 @@ struct PageBExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/9xZ-1sGXQimfRmXF4kWhsA/zh-cn_image_0000002628702900.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=1CB87462B921C1DD52DD83624B13AC4D17CA573BF26DA275B8422FA77D7FA533)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/VUDP-m7VR-G43SR5J6K8gQ/zh-cn_image_0000002677668103.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=6227341E47A84651A778B80F3E2C5342A93497EF61229EBA545C115034B23BF7)

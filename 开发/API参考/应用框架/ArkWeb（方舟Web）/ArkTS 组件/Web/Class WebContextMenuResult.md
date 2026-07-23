@@ -1,6 +1,6 @@
 # Class (WebContextMenuResult)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -148,7 +148,7 @@ redo(): void
 
 pasteAndMatchStyle(): void
 
-执行与此上下文菜单相关的粘贴操作，粘贴的内容会匹配目标格式，以纯文本形式呈现。
+执行与此上下文菜单相关的粘贴操作，粘贴的内容会匹配目标位置的样式格式。
 
 > [!NOTE]
 > 需要配置权限： ohos.permission.READ_PASTEBOARD 。

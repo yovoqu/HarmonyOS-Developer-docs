@@ -1,6 +1,6 @@
 # LocalStorage：页面级UI状态存储
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage
 
@@ -21,7 +21,7 @@ LocalStorage还提供了API接口，可以让开发者通过接口在自定义�
 
 LocalStorage是ArkTS为构建页面级别状态变量提供存储的内存内的“数据库”。
 
- - 应用程序可以创建多个LocalStorage实例，LocalStorage实例可以在页面内共享，也可以通过[getSharedLocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getsharedlocalstorage12)接口，实现跨页面、跨UIAbility实例共享。
+ - 应用程序可以创建多个LocalStorage实例，LocalStorage实例可以在页面内共享，也可以通过[getSharedLocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getsharedlocalstorage12)接口，实现UIAbility内跨页面共享。跨UIAbility共享数据推荐使用[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)。
  - 组件树的根节点，即被[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-entry#entry)装饰的[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)，可以被分配一个LocalStorage实例，此组件的所有子组件实例将自动获得对该LocalStorage实例的访问权限。
  - @Component装饰的组件既可以自动继承来自父组件的LocalStorage实例，也可以传入指定的LocalStorage的实例，详见：[自定义组件接收LocalStorage实例](#自定义组件接收localstorage实例)。
  - LocalStorage中的所有属性都是可变的。

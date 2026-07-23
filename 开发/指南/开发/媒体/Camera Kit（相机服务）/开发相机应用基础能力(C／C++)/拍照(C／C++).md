@@ -1,6 +1,6 @@
 # 拍照(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-shooting
 
@@ -593,7 +593,7 @@ void SetHighQualityPhotoQualityPrioritization(Camera_PhotoOutput* photoOutput)
 {
   Camera_PhotoQualityPrioritization quality = Camera_PhotoQualityPrioritization::CAMERA_PHOTO_QUALITY_PRIORITIZATION_HIGH_QUALITY;
   bool isSupported = false;
-  Camera_ErrorCode ret = OH_PhotoOutput_IsPhotoQualityPrioritizationSupported(photoOutput, quality, isSupported);
+  Camera_ErrorCode ret = OH_PhotoOutput_IsPhotoQualityPrioritizationSupported(photoOutput, quality, &isSupported);
   if (isSupported) {
     ret = OH_PhotoOutput_SetPhotoQualityPrioritization(photoOutput, quality);
     if (ret != 0) {
@@ -655,7 +655,7 @@ void SetHighQualityPhotoQualityPrioritization(Camera_PhotoOutput* photoOutput)
 {
   Camera_PhotoQualityPrioritization quality = Camera_PhotoQualityPrioritization::CAMERA_PHOTO_QUALITY_PRIORITIZATION_HIGH_QUALITY;
   bool isSupported = false;
-  Camera_ErrorCode ret = OH_PhotoOutput_IsPhotoQualityPrioritizationSupported(photoOutput, quality, isSupported);
+  Camera_ErrorCode ret = OH_PhotoOutput_IsPhotoQualityPrioritizationSupported(photoOutput, quality, &isSupported);
   if (isSupported) {
     ret = OH_PhotoOutput_SetPhotoQualityPrioritization(photoOutput, quality);
     if (ret != 0) {

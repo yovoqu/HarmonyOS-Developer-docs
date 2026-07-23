@@ -1,6 +1,6 @@
 # @Reusable装饰器：V1组件复用
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable
 
@@ -1297,7 +1297,6 @@ struct QuestionSwiperItem {
         })
         
       Image(this.itemData?.image)
-        .width('100%')
         .borderRadius(12)
         .objectFit(ImageFit.Contain)
         .margin({

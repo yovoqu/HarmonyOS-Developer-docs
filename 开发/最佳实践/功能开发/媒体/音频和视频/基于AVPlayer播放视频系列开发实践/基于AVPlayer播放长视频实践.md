@@ -1,6 +1,6 @@
 # 基于AVPlayer播放长视频实践
 
-更新时间：2026-06-30 03:03:30
+更新时间：2026-06-30 03:03:30（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video
 

@@ -1,6 +1,6 @@
 # ellipse
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-ellipse
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,8 +37,8 @@
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | id | string | - | 否 | 组件的唯一标识。 |
-| cx | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置椭圆的x轴坐标。支持属性动画。 |
-| cy | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置椭圆的y轴坐标。支持属性动画。 |
+| cx | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置椭圆中心的x轴坐标。支持属性动画。 |
+| cy | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置椭圆中心的y轴坐标。支持属性动画。 |
 | rx | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置椭圆x轴的半径。支持属性动画。 |
 | ry | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置椭圆y轴的半径。支持属性动画。 |
  
@@ -60,4 +60,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/7YGe89a9RdaG7GNbz80X4A/zh-cn_image_0000002626071030.png?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=57D67F3135C99786D5EEA7A657B5969A67AC2D55D267548E108433602F5119CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/yIIoW7iiSF6WBAYrjUTYRQ/zh-cn_image_0000002647588570.png?HW-CC-KV=V1&HW-CC-Date=20260723T012002Z&HW-CC-Expire=86400&HW-CC-Sign=D09F57DE1CE49E6B7F730FAE0FC9C78DB179A75A55BF650219297106DF516ADE)

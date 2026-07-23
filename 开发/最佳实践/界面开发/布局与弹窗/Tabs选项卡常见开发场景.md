@@ -1,6 +1,6 @@
 # Tabs选项卡常见开发场景
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-07-22 06:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-development-scenarios-for-tabs
 
@@ -922,7 +922,7 @@ Tabs({
 在自定义页签样式中，页签的选中和非选中状态显示样式不同时，页签的样式依赖于Tabs组件的切换动作。这种情况下，需要实现Tabs页签的联动，页签切换时，页签样式自动变更。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/tTSpYSo4SRG0H5VuKh750g/zh-cn_image_0000002391492321.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024731Z&HW-CC-Expire=86400&HW-CC-Sign=CDF9521C5B0F248D18FB2F9C87AAC658A09398F2560D570D3A122CD27ED158BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Z_mcXIFpQkOgHyGAq-0FgA/zh-cn_image_0000002391492321.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012215Z&HW-CC-Expire=86400&HW-CC-Sign=D26922FADB98555641A4DE341FDFD40C5967809F648396D931B461BB7E4A89C8)
 
  
 **实现原理**
@@ -983,7 +983,7 @@ export default struct OutTabsComponent {
 Tabs页面不支持懒加载。 若要实现页面懒加载效果，可以通过自定义TabBar与[Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-looping)组件结合[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)来实现页面的懒加载和释放。在使用Tabs组件时，仅保留TabBar，TabContent部分留空，用Swiper组件替代TabContent以显示内容。定义一个数值属性currentIndex，利用[TabsController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#tabscontroller)、[SwiperController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#swipercontroller)及onchange函数，使其同时绑定Tabs组件和Swiper组件，从而实现联动。这是因为Swiper组件内支持LazyForEach组件，而原生Tabs组件不支持。在Swiper中利用LazyForEach显示内容，以实现Tabs的懒加载效果。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/JLNiRdDiSgSb9EFO_NmWiA/zh-cn_image_0000002358052214.png?HW-CC-KV=V1&HW-CC-Date=20260528T024731Z&HW-CC-Expire=86400&HW-CC-Sign=9249FEF9BC79B800A4DA69C049922952C432750A4DF7DDA0B2E53C89EF8C8703)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/UQrTAaD4QV2OW7iKpEe6fw/zh-cn_image_0000002358052214.png?HW-CC-KV=V1&HW-CC-Date=20260723T012215Z&HW-CC-Expire=86400&HW-CC-Sign=7539A7C7E975C109F1406C7D564DE280FF77CC994DFBFE8B72394E5764059050)
 
  
 详情请参见[页面懒加载和释放](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#示例13页面懒加载和释放)。

@@ -1,6 +1,6 @@
 # @Builder装饰器：自定义构建函数
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder
 

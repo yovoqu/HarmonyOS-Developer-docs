@@ -1,6 +1,6 @@
 # 即时反馈（Toast）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast
 
@@ -77,7 +77,7 @@ export struct DefaultAndTopToastExample {
           } catch (error) {
             let message = (error as BusinessError).message;
             let code = (error as BusinessError).code;
-            hilog.error(DOMAIN, TAG, '%{public}s', 'showToast args error code is $\{code}, message is $\{message}');
+            hilog.error(DOMAIN, TAG, '%{public}s', `showToast args error code is ${code}, message is ${message}`);
           }
         })
 
@@ -95,7 +95,7 @@ export struct DefaultAndTopToastExample {
           }  catch (error) {
             let message = (error as BusinessError).message;
             let code = (error as BusinessError).code;
-            hilog.error(DOMAIN, TAG, '%{public}s', 'showToast args error code is $\{code}, message is $\{message}');
+            hilog.error(DOMAIN, TAG, '%{public}s', `showToast args error code is ${code}, message is ${message}`);
           }
         })
       }
@@ -140,7 +140,7 @@ export struct CreateToastExample {
             } catch (error) {
               let message = (error as BusinessError).message;
               let code = (error as BusinessError).code;
-              hilog.error(DOMAIN, TAG, '%{public}s', 'showToast args error code is $\{code}, message is $\{message}');
+              hilog.error(DOMAIN, TAG, '%{public}s', `showToast args error code is ${code}, message is ${message}`);
             }
           })
       }.height('100%').width('100%').justifyContent(FlexAlign.Center)
@@ -191,7 +191,7 @@ export struct OpenCloseToastExample {
             } catch (error) {
               let message = (error as BusinessError).message;
               let code = (error as BusinessError).code;
-              hilog.error(DOMAIN, TAG, '%{public}s', 'OpenToast error code is $\{code}, message is $\{message}');
+              hilog.error(DOMAIN, TAG, '%{public}s', `OpenToast error code is ${code}, message is ${message}`);
             }
           })
         Blank().height(50);
@@ -204,7 +204,7 @@ export struct OpenCloseToastExample {
             } catch (error) {
               let message = (error as BusinessError).message;
               let code = (error as BusinessError).code;
-              hilog.error(DOMAIN, TAG, '%{public}s', 'CloseToast error code is $\{code}, message is $\{message}');
+              hilog.error(DOMAIN, TAG, '%{public}s', `CloseToast error code is ${code}, message is ${message}`);
             }
           })
       }.height('100%').width('100%').justifyContent(FlexAlign.Center)
@@ -214,4 +214,4 @@ export struct OpenCloseToastExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/ES4vawD2TNKiS7Wk6d2tDA/zh-cn_image_0000002656467791.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=25265F580ADC9A3A996D514D6CB97FD2CD879762F8039E03C81371F336CF619A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/GWTNjBt-S_mrkZf1Jn9Acw/zh-cn_image_0000002647585982.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012135Z&HW-CC-Expire=86400&HW-CC-Sign=21BE05515D00EEAEE93F588E69B58C9950202356597CFF0C06511FA6F767371D)

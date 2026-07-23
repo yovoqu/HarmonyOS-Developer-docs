@@ -1,6 +1,6 @@
 # （可选）使用canOpenLink判断应用是否可访问
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canopenlink
 
@@ -22,7 +22,7 @@
 
 #### 接口说明
 
-canOpenLink是[bundleManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagercanopenlink12)提供的支持判断目标应用是否可访问的接口。
+canOpenLink是[@ohos.bundle.bundleManager (应用程序包管理模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager)提供的支持判断目标应用是否可访问的接口。
 
 匹配规则请参考[显式Want与隐式Want匹配规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/explicit-implicit-want-mappings)。
 

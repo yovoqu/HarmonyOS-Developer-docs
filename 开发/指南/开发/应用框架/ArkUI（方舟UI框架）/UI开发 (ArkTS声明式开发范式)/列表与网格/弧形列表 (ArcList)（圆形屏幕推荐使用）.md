@@ -1,6 +1,6 @@
 # 弧形列表 (ArcList)（圆形屏幕推荐使用）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-arclist
 
@@ -183,7 +183,6 @@ class Contact {
 @Entry
 @Component
 export struct ArcListContents {
-  private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
   @State private contacts: Array<object> = [
     // 请将$r('app.string.xxx')替换为实际资源文件
     new Contact($r('app.string.name_xiaohong'), $r('app.media.ic_contact')),
@@ -438,7 +437,7 @@ export struct ArcListArcIndexerBar {
             }
             // ...
             .onScrollIndex((firstIndex: number, lastIndex: number, centerIndex: number) => {
-              // 根据列表滚动到的索引值，重新计算对应索引条的位置this.selectedIndex
+              // 根据列表滚动到的索引值，重新计算对应索引条的位置this.indexerIndex
               this.indexerIndex = centerIndex + 1;
             })
             // ...
@@ -460,7 +459,7 @@ export struct ArcListArcIndexerBar {
 **图8** 弧形列表与弧形索引条联动
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/vEtsXQ75RTWded1r-SHvVw/zh-cn_image_0000002656347677.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=5D412BC64C137CCD692DAE0C724D62E908E5C8CCC4C3BDDEBD2259BDFFE22079)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/1KNxnS1fRO2EEfPmWz1KZQ/zh-cn_image_0000002677825461.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=BF4D9964510B565EDD22B0E74D963ED55D102D3F019EEEFFB4DCCEAE9FC2D0C7)
 
 
 
@@ -523,7 +522,7 @@ ArcListItem() {
 **图9** 侧滑删除列表项
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/XrrpmCJjQG-ijGHAJFAhoQ/zh-cn_image_0000002626228262.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=061AEB6091EFFF5F67E358618862BC776320DFAC235D8889306EC3C550AA4C1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/BVpsxTYnRgCl87SifwbKrQ/zh-cn_image_0000002677665613.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=BA388322F99B9FEC9DF55710ED51D9D1F54B7DD9933D1E19ECA5D50AC973EC1E)
 
 
 

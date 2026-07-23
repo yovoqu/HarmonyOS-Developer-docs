@@ -1,6 +1,6 @@
 # 定位与解决Web白屏问题
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-white-screen
 
@@ -35,9 +35,9 @@ Web页面出现白屏的原因众多，本文列举了若干常见白屏问题�
 
 | --- | --- |
 
-| domStorageAccess | DOM Storage API权限，若不开启，无法使用localStorage存储数据，任何调用localStorage的代码都将失效，依赖本地存储的功能会异常。 |
+| domStorageAccess | 设置是否开启文档对象模型存储接口（DOM Storage API）权限。若不开启，无法使用localStorage存储数据，任何调用localStorage的代码都将失效，依赖本地存储的功能会异常。 |
 
-| fileAccess | ‌若不开启，文件读写功能完全被阻断，依赖文件的模块会崩溃。 |
+| fileAccess | 设置是否开启应用中文件系统的访问。‌若不开启，文件读写功能完全被阻断，依赖文件的模块会崩溃。 |
 
 | imageAccess | 设置是否允许自动加载图片资源。 |
 
@@ -374,7 +374,7 @@ Web组件提供了自适应页面布局的能力，详情见[ Web组件大小自
  - 关闭滚动效果：webSetting({overScrollMode: OverScrollMode.NEVER})。
  - 此模式下不支持动态调整组件高度，确保页面高度固定。
  - 避免在FIT_CONTENT模式下启用键盘避让属性RESIZE_CONTENT，以免导致布局失效。
- - css样式height：&lt;number&gt; vh和Web组件大小自适应页面布局存在计算冲突，请检查height：&lt;number&gt; vh是否是由body节点而内的第一个高度css样式。如以下结构，id为2的dom节点高度将为0，导致白屏。
+ - CSS样式height: &lt;number&gt; vh和Web组件大小自适应页面布局存在计算冲突，请检查height: &lt;number&gt; vh是否是由body节点以内的第一个高度CSS样式。如以下结构，id为2的DOM节点高度将为0，导致白屏。
 
   
 ```text
@@ -479,7 +479,7 @@ Web组件提供了自适应页面布局的能力，详情见[ Web组件大小自
 
 **问题：**
 
-用WebView加载H5在Phone上表现正常，但是在Table/PC/2in1上白屏。
+用WebView加载H5在Phone上表现正常，但是在Tablet/PC/2in1上白屏。
 
 **原因：**
 

@@ -1,6 +1,6 @@
 # @ohos.enterprise.adminManager（admin权限管理）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -477,12 +477,12 @@ startAdminProvision(admin: Want, type: AdminType, context: common.Context, param
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/nC0F9cr2S0W3vVL0grvZFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020150Z&HW-CC-Expire=86400&HW-CC-Sign=E3D21CE216EB17D32506921CA2708AC4BF9102257184AAC18E5987117E92DA8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/NV8GkWaGQuGm0Q0PNrnLeA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012029Z&HW-CC-Expire=86400&HW-CC-Sign=6E8F15C43C0BFF7E45A0D80BDEB33F6057472D45B5F2120D0387046F73A12346)
 
 
 1、此接口只能在企业设备上生效。
 
-2、参数credential为激活凭证，该激活凭证支持管理员通过HEM平台申请，[申请指导](https://developer.huawei.com/business/cn/doc/HEM/hem_user-guide_add-reseller_management-resellerr-0000002469112100)。。 |
+2、参数credential为激活凭证，该激活凭证支持管理员通过HEM平台申请，[申请指导](https://developer.huawei.com/business/cn/doc/HEM/hem_developer_faq_emmwenti_pc_mdmazhjh-0000002540608338#section184382913281)。。 |
 
 
 

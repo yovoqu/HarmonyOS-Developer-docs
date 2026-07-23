@@ -1,6 +1,6 @@
 # gamePlayer（基础游戏服务）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameplayer
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -331,7 +331,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 | CALLS_FREQUENT | 1002000021 | API调用过于频繁。 起始版本： 6.0.1(21) |
 | PAY_PRODUCT_INVALID | 1002000050 | 无效的商品信息。 起始版本： 6.0.1(21) |
 | PAY_PRODUCT_OWNED | 1002000051 | 由于已经拥有该商品，购买失败。 起始版本： 6.0.1(21) |
-| PAY_PRODUCT_NOT_OWNED | 1002000052 | 由于未拥有该商品，发货失败。 起始版本： 6.0.1(21) |
+| PAY_PRODUCT_NOT_OWNED | 1002000052 | 由于未支付该商品，发货失败。 起始版本： 6.0.1(21) |
 | PAY_PRODUCT_CONSUMED | 1002000053 | 此次购买已经完成发货，无需重复发货。 起始版本： 6.0.1(21) |
 | PAY_ACCOUNT_REGION_UNSUPPORTED | 1002000054 | 用户账号所在服务地不在IAP Kit支持结算的国家/地区中。 起始版本： 6.0.1(21) |
 | PAY_DEAL_REJECTED | 1002000056 | 用户交易被拒绝。 起始版本： 6.0.1(21) |

@@ -1,6 +1,6 @@
 # @ohos.data.rdb（关系型数据库）
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-rdb
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -294,7 +294,7 @@ type ValueType = number | string | boolean
 | 类型 | 说明 |
 | --- | --- |
 | number | 表示值类型为数字。 |
-| string | 表示值类型为字符。 |
+| string | 表示值类型为字符串。 |
 | boolean | 表示值类型为布尔值。 |
 
 

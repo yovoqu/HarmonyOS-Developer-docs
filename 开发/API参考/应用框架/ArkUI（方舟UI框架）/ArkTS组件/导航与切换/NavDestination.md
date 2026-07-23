@@ -1,6 +1,6 @@
 # NavDestination
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -405,7 +405,7 @@ recoverable(recoverable: Optional&lt;boolean&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| recoverable | Optional&lt;boolean&gt; | 是 | NavDestination是否可恢复，默认为不可恢复。 默认值：false true：NavDestination可恢复。 false：NavDestination不可恢复。 |
+| recoverable | Optional&lt;boolean&gt; | 是 | NavDestination是否可恢复，默认为可恢复。 默认值：true true：NavDestination可恢复。 false：NavDestination不可恢复。 |
 
 
 
@@ -1297,7 +1297,7 @@ struct Index {
 ```
 
 
-![](assets/NavDestination/file-202607081032221e6e26d2.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/1bYTy7yURjGbCajBwqyDbA/zh-cn_image_0000002677827577.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=9D9D028736D5EC63E2F07907117D32F4BA813992E5679013C6A87EF07C66B69E)
 
 
 
@@ -1442,7 +1442,7 @@ struct NavDest {
 ```
 
 
-![](assets/NavDestination/file-20260708103223a6cd2cbe.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/h-cKOOTvRiu5E9_G1fdzRA/zh-cn_image_0000002677667729.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=93C9E20B8DE4CB7E7B48B3870CBDA62822E9A3EA2167FEE94FCE294D5E8D387D)
 
 
 
@@ -1694,19 +1694,19 @@ struct HomeBody {
 ```
 
 
-![](assets/NavDestination/file-202607081032236a8a48ed.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/L5R7iwcKRdWb6JnBgsXEUQ/zh-cn_image_0000002647747848.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=6F80DAC74242CB9E7D85E137C0EB2B0CC322D0AC5808652F7FC01D9BA3412EB1)
 
 
 
-![](assets/NavDestination/file-202607081032231127ce57.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/vKV8HuH1Q9Gt2EcOePlmNA/zh-cn_image_0000002647587938.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=A5A150E989FA542B04BA0510BFED4794EA8A7CCD4DB02668E7E4643A7BCA7463)
 
 
 
-![](assets/NavDestination/file-20260708103224a57542ee.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/2CdlxoM-T4GsrA3ZOJbn1A/zh-cn_image_0000002677827579.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=32451D618BC87B27849E2F23EB1397ACD71C9F038E8AC5836A4630DD6779A08E)
 
 
 
-![](assets/NavDestination/file-20260708103224725cd5ba.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/QI0PmNzFQdy-4yj9xqYQFg/zh-cn_image_0000002677667731.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=FEA0BF95B746E0CB35F2B36FB3A77EC7385BB4F35B1CC5750E06FA17C0CFA904)
 
 
 
@@ -1801,7 +1801,7 @@ struct ExamplePage {
 ```
 
 
-![](assets/NavDestination/file-20260708103224e15fb56a.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/etAqW1_4TqCDoqUn8qkJXw/zh-cn_image_0000002647747850.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=793555212D849FCF8B6EAD785C5F598B6DF0CB9EA812B32274FE827DBDC6A4CA)
 
 
 
@@ -2022,7 +2022,7 @@ struct NavBody {
 ```
 
 
-![](assets/NavDestination/file-2026070810322510e4b4c3.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/_FXmA01qQw2YcJlYB2H-mg/zh-cn_image_0000002647587940.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=E5FEAE5C647C6D8D50FB2BDFCD0735551A6F5118E86A9B118F902D39D1E93D37)
 
 
 NavDestination其他用法可参考[Navigation示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例)。

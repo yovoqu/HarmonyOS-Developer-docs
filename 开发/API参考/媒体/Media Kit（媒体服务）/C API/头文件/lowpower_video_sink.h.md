@@ -1,6 +1,6 @@
 # lowpower_video_sink.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-video-sink-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -62,7 +62,7 @@
 | OH_AVErrCode OH_LowPowerVideoSinkCallback_SetErrorListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnError onError, void* userData) | 为LowPowerVideoSinkCallback回调设置错误监听。 |
 | OH_AVErrCode OH_LowPowerVideoSinkCallback_SetRenderStartListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnRenderStarted onRenderStarted, void* userData) | 为LowPowerVideoSinkCallback回调设置开始渲染监听。 |
 | OH_AVErrCode OH_LowPowerVideoSinkCallback_SetStreamChangedListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnStreamChanged onStreamChanged, void* userData) | 为LowPowerVideoSinkCallback回调设置流切换监听。 |
-| OH_AVErrCode OH_LowPowerVideoSinkCallback_SetFirstFrameDecodedListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnFirstFrameDecoded onFirstFrameDecoded, void* userData) | 为LowPowerVideoSinkCallback回调设置首帧准备完成监听。 |
+| OH_AVErrCode OH_LowPowerVideoSinkCallback_SetFirstFrameDecodedListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnFirstFrameDecoded onFirstFrameDecoded, void* userData) | 为LowPowerVideoSinkCallback回调设置首帧解码完成监听。 |
 | OH_AVErrCode OH_LowPowerVideoSinkCallback_SetEosListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnEos onEos, void* userData) | 为LowPowerVideoSinkCallback回调设置播放结束监听。 |
  
  
@@ -92,7 +92,7 @@ OH_LowPowerVideoSink* OH_LowPowerVideoSink_CreateByMime(const char* mime)
   
 | 参数项 | 描述 |
 | --- | --- |
-| const char* mime | 视频解码器的MIME类型，取值范围请参考AVCODEC_MIME_TYPE。 |
+| const char* mime | 视频解码器的MIME类型，取值范围请参考OH_AVCODEC_MIMETYPE。 |
  
  
 **返回：**
@@ -920,7 +920,7 @@ OH_AVErrCode OH_LowPowerVideoSinkCallback_SetFirstFrameDecodedListener(OH_LowPow
  
 **描述**
  
-为LowPowerVideoSinkCallback回调设置首帧准备完成监听。
+为LowPowerVideoSinkCallback回调设置首帧解码完成监听。
  
 **起始版本：** 20
  
@@ -929,7 +929,7 @@ OH_AVErrCode OH_LowPowerVideoSinkCallback_SetFirstFrameDecodedListener(OH_LowPow
 | 参数项 | 描述 |
 | --- | --- |
 | OH_LowPowerVideoSinkCallback* callback | 指向OH_LowPowerVideoSinkCallback实例的指针。 |
-| OH_LowPowerVideoSink_OnFirstFrameDecoded onFirstFrameDecoded | OH_LowPowerVideoSink_OnFirstFrameReady方法，在FirstFrameReady事件触发时调用。 |
+| OH_LowPowerVideoSink_OnFirstFrameDecoded onFirstFrameDecoded | OH_LowPowerVideoSink_OnFirstFrameDecoded方法，在第一帧解码成功时调用。 |
 | void* userData | 用户执行回调所依赖的数据。 |
  
  

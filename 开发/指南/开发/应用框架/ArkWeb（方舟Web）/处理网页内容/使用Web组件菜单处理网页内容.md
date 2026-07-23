@@ -1,6 +1,6 @@
 # 使用Web组件菜单处理网页内容
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-menu
 
@@ -243,7 +243,7 @@ struct WebComponent {
 ```
 
 ```text
-<!-- index.html -->
+<!-- index1.html -->
 <!DOCTYPE html>
 <html lang="en">
 <body>
@@ -423,7 +423,6 @@ struct SelectionMenuLongPress {
           .style({ strokeWidth: 3, enableSmoothEffect: true })
           .backgroundColor(Color.White)
           .opacity(this.progressVisible?1:0)
-          .backgroundColor(Color.White)
       }.alignContent(Alignment.Bottom)
       Web({src:$$.url,controller: new webview.WebviewController()})
         .javaScriptAccess(true)
@@ -624,6 +623,7 @@ struct WebComponent {
         }
       }
       fileIo.close(dest.fd);
+      fileIo.close(srcFileDes.fd)
       return dest.path;
     } catch (err) {
       console.error(`copyLocalPicToDir failed with error: ${err.code}, ${err.message}`);

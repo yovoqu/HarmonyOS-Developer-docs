@@ -1,6 +1,6 @@
 # 元数据(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-metadata
 
@@ -142,7 +142,7 @@ OH_LOG_INFO(LOG_APP, "session start");
 ret = OH_CaptureSession_Start(captureSession_);
 ```
 
-6. 调用stop()方法停止输出metadata数据，接口调用失败会返回相应错误码。
+6. 调用[OH_MetadataOutput_Stop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-metadata-output-h#oh_metadataoutput_stop)方法停止输出metadata数据，接口调用失败会返回相应错误码。
 
   
 ```text

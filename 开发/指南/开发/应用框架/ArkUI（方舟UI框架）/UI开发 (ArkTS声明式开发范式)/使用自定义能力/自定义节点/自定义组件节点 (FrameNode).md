@@ -1,6 +1,6 @@
 # 自定义组件节点 (FrameNode)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-framenode
 
@@ -815,7 +815,7 @@ FrameNode提供了查询节点相对窗口、父组件以及屏幕位置偏移�
 [getPositionToWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontowindow12)，[getPositionToParent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontoparent12)，[getPositionToScreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontoscreen12)三个接口获取到的位置信息关系如下图所示：
 
 
-![](assets/自定义组件节点%20(FrameNode)/file-202607081039508d19c3e0.png)
+![](assets/自定义组件节点%20(FrameNode)/file-20260708103950c446e452.png)
 
 
 ```ArkTS
@@ -2103,7 +2103,7 @@ struct Index {
 ```
 
 
-![](assets/自定义组件节点%20(FrameNode)/file-202607081039503d7c62f4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/ML66uZOvRXOF3omFssmUOw/zh-cn_image_0000002677665875.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=BEFCF839E0AD927A54F68C361D66ECA8E829FD552C862FC570F7447A6CA61D66)
 
 
 
@@ -2207,7 +2207,7 @@ struct ListNodeTest {
 ```
 
 
-![](assets/自定义组件节点%20(FrameNode)/file-20260708103950c446e452.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/NeGs6H9pT_m_Civ1PzqbnQ/zh-cn_image_0000002647745994.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=7747DCDAC3FFBFFD55499EF19A9AE6714FB1722F7A18F4401C93BF12853A2338)
 
 
 
@@ -2270,7 +2270,7 @@ struct Index {
         let textNode1 = this.getUIContext().getFrameNodeById('hello1');
         if (textNode1 != null) {
           let isOnRenderTree = textNode1!.isInRenderState();
-          isOnRenderTree ? this.message = 'is on render tree' : 'is not no render tree'
+          isOnRenderTree ? this.message = 'is on render tree' : this.message = 'is not on render tree';
           hilog.info(1, 'frameNode', 'is hello1 on RenderTree: %{public}s', isOnRenderTree);
         }
       })
@@ -2282,4 +2282,4 @@ struct Index {
 ```
 
 
-![](assets/自定义组件节点%20(FrameNode)/file-202607081039501bf31a6f.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/MT8bAIPUSxGW5AfZzv32-w/zh-cn_image_0000002647586084.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=87FBBCCCDA9FE7A2A56D4579C30D4692BE311FDBA0CF77C642F64ECF7244ED1C)

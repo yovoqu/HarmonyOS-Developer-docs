@@ -1,6 +1,6 @@
 # Video
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 用于播放视频文件并控制其播放状态的组件。
 
 > [!NOTE]
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 Video组件只提供简单的视频播放功能，无法支撑复杂的视频播控场景。复杂开发场景推荐使用 AVPlayer 播控API和 XComponent 组件开发。 Video组件在使用expandSafeArea扩展安全区域时，组件视频显示内容区域不支持扩展。
+> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 Video组件只提供简单的视频播放功能，无法支撑复杂的视频播控场景。复杂开发场景推荐使用 AVPlayer 播控API和 XComponent 组件开发。 Video组件在使用 expandSafeArea 扩展安全区域时，组件视频显示内容区域不支持扩展。
 
 
 
@@ -789,7 +789,7 @@ setCurrentTime(value: number, seekMode: SeekMode)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 视频播放进度位置。 取值范围：[0, duration] 当设置value大于duration时，进度跳转至最后；当设置value小于0时，不会进行进度跳转。 单位：秒 |
-| seekMode | SeekMode | 是 | 跳转模式。 |
+| seekMode | SeekMode | 是 | 跳转模式。 异常值undefined、null、NaN和Infinity按PreviousKeyframe处理。 |
 
 
 
@@ -804,12 +804,12 @@ setCurrentTime(value: number, seekMode: SeekMode)
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-| 名称 | 说明 |
-| --- | --- |
-| PreviousKeyframe | 跳转到前一个最近的关键帧。 |
-| NextKeyframe | 跳转到后一个最近的关键帧。 |
-| ClosestKeyframe | 跳转到最近的关键帧。 |
-| Accurate | 精准跳转，不论是否为关键帧。 |
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| PreviousKeyframe | 0 | 跳转到前一个最近的关键帧。 |
+| NextKeyframe | 1 | 跳转到后一个最近的关键帧。 |
+| ClosestKeyframe | 2 | 跳转到最近的关键帧。 |
+| Accurate | 3 | 精准跳转，不论是否为关键帧。 |
 
 
 
@@ -956,7 +956,7 @@ interface FullscreenObject {
 ```
 
 
-![](assets/Video/file-20260708103129e5a6bac8.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/foDJnj4mSkm0inBXGvkWMw/zh-cn_image_0000002647748034.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=85CB0A597A188352A02202B2B2D1E7E6B1755EBD5009FA4FB5BC61695084D26C)
 
 
 
@@ -1122,7 +1122,7 @@ struct VideoObject {
 ```
 
 
-![](assets/Video/file-202607081031293bcafe81.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/SAFAp4NUQZKTWBL-bxQ_aw/zh-cn_image_0000002647588124.png?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=99C32D9769A5FC96C463E742C7AEAF44B8E0E359D66A322826F40916CC0A36F0)
 
 
 
@@ -1169,7 +1169,7 @@ struct VideoErrorComponent {
 ```
 
 
-![](assets/Video/file-20260708103129a3abae62.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/3DZYpwQeQ0S5O1g3C8JZPQ/zh-cn_image_0000002677827765.png?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=98548C4E0C2291F594BA262D436BDBE83DBA8F0F1F8A91C1BD0968C925C1502D)
 
 
 
@@ -1295,4 +1295,4 @@ interface FullscreenObject {
 ```
 
 
-![](assets/Video/file-202607081031303958bd8d.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/oIdWvMnFS2mc42Pe6ZWPaA/zh-cn_image_0000002677667917.png?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=308466B8FC9F8E9B84BA9B8FBE01936853F609A7E66C7EBAF25E37A3563075D1)

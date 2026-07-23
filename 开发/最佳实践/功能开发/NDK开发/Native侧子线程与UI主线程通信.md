@@ -1,6 +1,6 @@
 # Native侧子线程与UI主线程通信
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-03-12 08:45:02（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-native-sub-main-comm
 

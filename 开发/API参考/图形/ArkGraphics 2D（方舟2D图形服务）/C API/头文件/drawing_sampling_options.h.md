@@ -1,6 +1,6 @@
 # drawing_sampling_options.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-sampling-options-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -49,7 +49,7 @@
 | --- | --- |
 | OH_Drawing_SamplingOptions* OH_Drawing_SamplingOptionsCreate(OH_Drawing_FilterMode filterMode,OH_Drawing_MipmapMode mipmapMode) | 创建一个采样选项对象。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 mipmapMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。 |
 | OH_Drawing_SamplingOptions* OH_Drawing_SamplingOptionsCopy(OH_Drawing_SamplingOptions* samplingOptions) | 创建一个采样选项对象副本OH_Drawing_SamplingOptions，用于拷贝一个已有采样选项对象。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 samplingOptions为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
-| void OH_Drawing_SamplingOptionsDestroy(OH_Drawing_SamplingOptions* samplingOptions) | 销毁采样选项对象并回收该对象占有内存。 |
+| void OH_Drawing_SamplingOptionsDestroy(OH_Drawing_SamplingOptions* samplingOptions) | 销毁采样选项对象并回收该对象占用内存。 |
  
  
   
@@ -194,7 +194,7 @@ void OH_Drawing_SamplingOptionsDestroy(OH_Drawing_SamplingOptions* samplingOptio
  
 **描述**
  
-销毁采样选项对象并回收该对象占有内存。
+销毁采样选项对象并回收该对象占用内存。
  
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
  

@@ -1,6 +1,6 @@
 # 文本输入 (TextInput/TextArea/Search)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-text-input
 
@@ -77,7 +77,7 @@ Search()
 
 TextInput、TextArea和Search都支持设置输入框类型，通过type属性进行设置，但是各组件的枚举值略有不同。下面以单行输入框为例进行说明。
 
-TextInput有以下类型可选择：Normal基本输入模式、Password密码输入模式、Email邮箱地址输入模式、Number纯数字输入模式、PhoneNumber电话号码输入模式、USER_NAME用户名输入模式、NEW_PASSWORD新密码输入模式、NUMBER_PASSWORD纯数字密码输入模式、NUMBER_DECIMAL带小数点的数字输入模式、带URL的输入模式。通过[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#type)属性进行设置：
+TextInput有以下类型可选择：Normal基本输入模式、Password密码输入模式、Email邮箱地址输入模式、Number纯数字输入模式、PhoneNumber电话号码输入模式、USER_NAME用户名输入模式、NEW_PASSWORD新密码输入模式、NUMBER_PASSWORD纯数字密码输入模式、NUMBER_DECIMAL带小数点的数字输入模式、URL带链接的输入模式。通过[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#type)属性进行设置：
 
 
 
@@ -309,7 +309,6 @@ struct TextInputEventAdd {
           \n${this.textStr4}\n${this.textStr5}\n${this.textStr6}
           \n${this.textStr7}\n${this.textStr8}\n${this.textStr9}`)
           .fontSize(20)
-          .width('70%')
         TextInput({ text: this.text, placeholder: 'input your word...', controller: this.controller })
           .type(InputType.Password)
           .showPassword(this.passwordState)
@@ -482,7 +481,7 @@ struct DisableMenuItem {
           .caretStyle({ width: '4vp' })
           .editMenuOptions({
             onCreateMenu: (menuItems: Array<TextMenuItem>) => {
-              // menuItems不包含搜索和翻译
+              // menuItems不包含搜索、翻译和AI帮写
               return menuItems;
             },
             onMenuItemClick: (menuItem: TextMenuItem, textRange: TextRange) => {
@@ -630,7 +629,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
   hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
   windowStage.loadContent('pages/Index', (err, data) => {
-    let keyboardAvoidMode = windowStage.getMainWindowSync().getUIContext().getKeyboardAvoidMode();
+    windowStage.getMainWindowSync().getUIContext().getKeyboardAvoidMode();
     windowStage.getMainWindowSync().getUIContext().setKeyboardAvoidMode(KeyboardAvoidMode.OFFSET_WITH_CARET);
     if (err.code) {
       hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
@@ -685,7 +684,7 @@ struct CursorAvoid {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/tQ_ER792TdeMjcx9pOn-Fg/zh-cn_image_0000002626068402.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=CF31D572F09BCE0AB211AC463BC9585B6557B5679B3B3BCC0D554369124F2FB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/vzrhn4cFQe6w74sVRPia4g/zh-cn_image_0000002647745780.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=EB972E8662689788BDA1A9235DBB9638357FE57DDFC8DED98E981F7E0B3B6779)
 
 
 
@@ -760,4 +759,4 @@ struct TextExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/26_1ud2eSECvkSpaFBSwxA/zh-cn_image_0000002656467679.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=852787965BD1839DF42BFDDFC74CDE1CAF41BC37C64F88933A321AB332E62B05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/-t4bWsjwRD-Jp1EGDOHj6Q/zh-cn_image_0000002647585870.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=00BE9182E77B898B8EB747BE9C5F289A90A7403BE37C7CEB6A4B39607BC961B5)

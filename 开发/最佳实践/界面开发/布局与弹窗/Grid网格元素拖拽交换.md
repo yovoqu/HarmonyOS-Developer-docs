@@ -1,6 +1,6 @@
 # Grid网格元素拖拽交换
 
-更新时间：2026-06-30 03:03:30
+更新时间：2026-07-22 06:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-grid-drag-swap
 
@@ -584,7 +584,7 @@ isDraggable(index: number): boolean {
 示意效果图如下。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/9Wy2U5xzTCOkAVmvctXK-g/zh-cn_image_0000002421306206.gif?HW-CC-KV=V1&HW-CC-Date=20260701T015314Z&HW-CC-Expire=86400&HW-CC-Sign=EB1F7F058DBD9FC65DE7B9958B2D1990C77EE2043CDC988DB25DC910AE52C9A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/NF-Ys3ncSiCiIkpnbefUwQ/zh-cn_image_0000002421306206.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012213Z&HW-CC-Expire=86400&HW-CC-Sign=C10FB7AEB2397C72DEFF1E4056367ECB2AC55B969163AA60D15A4642ECE928BB)
 
  
 

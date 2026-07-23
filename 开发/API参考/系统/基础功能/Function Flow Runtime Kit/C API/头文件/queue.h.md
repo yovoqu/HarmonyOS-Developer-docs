@@ -1,6 +1,6 @@
 # queue.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-queue-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -408,7 +408,7 @@ FFRT_C_API void ffrt_queue_attr_set_thread_mode(ffrt_queue_attr_t* attr, bool mo
 | 参数项 | 描述 |
 | --- | --- |
 | ffrt_queue_attr_t* attr | 队列属性指针。 |
-| bool mode | 设置队列任务运行方式。true表示以线程模式运行, false表示以协程方式运行。 |
+| bool mode | 设置队列任务运行方式。true表示以线程模式运行；false表示以协程方式运行。 |
  
  
   

@@ -1,6 +1,6 @@
 # 订阅资源泄漏事件（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-resourceleak-events-ndk
 
@@ -133,7 +133,7 @@ static napi_value RegisterWatcher(napi_env env, napi_callback_info info) {
     const char *names[] = {EVENT_RESOURCE_OVERLIMIT};
     // 开发者订阅感兴趣的事件，此处订阅了系统事件。
     OH_HiAppEvent_SetAppEventFilter(systemEventWatcher, DOMAIN_OS, 0, names, 1);
-    // 开发者设置已实现的回调函数，观察者接收到事件后回立即触发OnReceive回调。
+    // 开发者设置已实现的回调函数，观察者接收到事件回立即触发OnReceive回调。
     OH_HiAppEvent_SetWatcherOnReceive(systemEventWatcher, OnReceive);
     // 使观察者开始监听订阅的事件。
     OH_HiAppEvent_AddWatcher(systemEventWatcher);
@@ -254,7 +254,7 @@ export default class EntryAbility extends UIAbility {
 #### 步骤三：测试资源泄漏事件
 1. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其 onClick 函数中构造资源泄漏场景，以触发资源泄漏事件。
 
-  此处需要使用[hidebug.setAppResourceLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebugsetappresourcelimit12)设置内存限制，造成内存泄漏，同步在“开发者选项”中打开“系统资源泄漏日志”(开关状态变更后需重启设备)。接口示例代码如下：
+  此处需要使用[hidebug.setAppResourceLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebugsetappresourcelimit12)设置内存限制，造成内存泄漏，同步在“开发者选项”中打开“系统资源泄漏日志”（开关状态变更后需重启设备）。接口示例代码如下：
 
   
 ```ArkTS

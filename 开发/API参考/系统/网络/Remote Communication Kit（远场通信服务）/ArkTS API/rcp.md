@@ -1,6 +1,6 @@
 # rcp（数据请求）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2326,7 +2326,7 @@ TransferConfiguration接口为开发者提供了一组选项，用于调整会�
 | autoRedirect | boolean | 否 | 是 | HTTP请求是否开启自动重定向。true表示开启自动重定向，false表示不开启自动重定向。默认值为true。 |
 | maxAutoRedirects | number | 否 | 是 | 最大重定向次数，在autoRedirect为true时生效。 取值范围：1~2147483647。 默认值为50。 起始版本： 5.0.0(12) |
 | timeout | Timeout | 否 | 是 | 配置HTTP请求的超时值，允许开发者定义连接和传输数据所允许的最长时间。如果未设置，则使用默认时间。 |
-| assumesHTTP3Capable | boolean | 否 | 是 | 指定连接是否具有HTTP/3功能，true代表连接具有HTTP/3功能，false代表没有，默认为false。 |
+| assumesHTTP3Capable | boolean | 否 | 是 | 指定本次请求是否尝试升级为HTTP/3版本。true表示尝试升级，系统会根据客户端/服务端平台能力、网络质量等因素决定此次请求是否升级为HTTP/3版本，false表示不升级。默认为false。如需指定HTTP版本，请使用httpVersionSelectCallback。 |
 | pathPreference | PathPreference | 否 | 是 | HTTP请求路径首选项，此处配置的为建议路径，在实际使用过程中，系统会决定使用哪个路径。可以是'auto'或'cellular'路径。默认为'auto'路径。 |
 | serviceType | ServiceType | 否 | 是 | 服务类型。默认为undefined。 |
 | pausePolicy | PausePolicy | 否 | 是 | 请求暂停策略。 起始版本： 5.0.0(12) |

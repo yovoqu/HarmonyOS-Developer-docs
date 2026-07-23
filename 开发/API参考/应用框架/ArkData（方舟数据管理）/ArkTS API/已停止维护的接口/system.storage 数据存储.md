@@ -1,12 +1,12 @@
 # @system.storage (数据存储)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-storage
 **支持设备：** Wearable | lite_wearable
 
 > [!NOTE]
-> 模块维护策略： 对于Lite Wearable设备类型，该模块长期维护，可正常使用。 对于支持该模块的其他设备类型，该模块从API version 6开始不再维护，可以使用模块 @ohos.data.storage 。在API version 9后，推荐使用新模块 @ohos.data.preferences 。 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在FA模型下使用。 在以下内容中，对于Lite Wearable设备类型，请参考“JS示例”；对于支持该模块的其他设备类型，请参考“ArkTS示例”。
+> 模块维护策略： 对于Lite Wearable设备类型，该模块长期维护，可正常使用。 对于支持该模块的其他设备类型，该模块从API version 6开始不再维护，可以使用模块 @ohos.data.storage (轻量级存储) 。在API version 9后，推荐使用新模块 @ohos.data.preferences (用户首选项) 。 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在FA模型下使用。 在以下内容中，对于Lite Wearable设备类型，请参考“JS示例”；对于支持该模块的其他设备类型，请参考“ArkTS示例”。
 
   
 
@@ -317,14 +317,6 @@ export default {
     }
 }
 ```
- 
-  
-
-#### storage.get
-
-**支持设备：** Wearable | lite_wearable
-
-get(options: GetStorageOptions): void
  
   
 

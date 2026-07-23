@@ -1,6 +1,6 @@
 # arkweb_type.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -88,7 +88,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| ARKWEB_MEMBER_EXISTS(s, f) ((intptr_t) & ((s)->f) - (intptr_t)(s) + sizeof((s)->f) <= *reinterpret_cast<size_t*>(s)) | 检查结构体中是否存在该成员变量。 起始版本： 12 |
+| ARKWEB_MEMBER_EXISTS(s, f) ((intptr_t) & ((s)->f) - (intptr_t)(s) + sizeof((s)->f) <= *(size_t *)(s)) | 检查结构体中是否存在该成员变量。 起始版本： 12 |
 | ARKWEB_MEMBER_MISSING(s, f) (!ARKWEB_MEMBER_EXISTS(s, f) \|\| !((s)->f)) | 当前结构体存在该成员变量则返回false，否则返回true 起始版本： 12 |
  
  

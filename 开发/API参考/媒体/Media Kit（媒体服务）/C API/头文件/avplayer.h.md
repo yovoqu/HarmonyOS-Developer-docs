@@ -1,6 +1,6 @@
 # avplayer.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,7 +54,7 @@
 | OH_AVPlayer *OH_AVPlayer_Create(void) | - | 创建播放器。 推荐单个应用创建的音视频播放器实例（即音频、视频、音视频三类相加）不超过16个。 |
 | OH_AVErrCode OH_AVPlayer_SetURLSource(OH_AVPlayer *player, const char *url) | - | 设置播放器的播放源。对应的源可以是http url。 |
 | OH_AVErrCode OH_AVPlayer_SetFDSource(OH_AVPlayer *player, int32_t fd, int64_t offset, int64_t size) | - | 设置播放器的媒体文件描述符来源。 |
-| OH_AVErrCode OH_AVPlayer_SetDataSource(OH_AVPlayer player, OH_AVDataSourceExt datasrc, void* userData) | - | 设置播放器的媒体源，该媒体源的数据由应用程序提供。 |
+| OH_AVErrCode OH_AVPlayer_SetDataSource(OH_AVPlayer *player, OH_AVDataSourceExt* datasrc, void* userData) | - | 设置播放器的媒体源，该媒体源的数据由应用程序提供。 |
 | OH_AVErrCode OH_AVPlayer_Prepare(OH_AVPlayer *player) | - | 准备播放环境，异步缓存媒体数据。 此函数必须在SetSource之后调用。 |
 | OH_AVErrCode OH_AVPlayer_Play(OH_AVPlayer *player) | - | 开始播放。 此函数必须在OH_AVPlayer_Prepare之后调用。 如果播放器状态为&lt;Prepared&gt;，调用此函数开始播放。 |
 | OH_AVErrCode OH_AVPlayer_Pause(OH_AVPlayer *player) | - | 暂停播放。 |

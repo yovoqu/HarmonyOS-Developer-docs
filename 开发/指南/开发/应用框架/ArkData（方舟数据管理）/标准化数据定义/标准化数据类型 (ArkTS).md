@@ -1,6 +1,6 @@
 # 标准化数据类型 (ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uniform-data-type-descriptors
 
@@ -38,7 +38,7 @@ UTD中定义的标准化数据类型在设计原则上按物理和逻辑分为�
 
 按照此分类原则，可以从两个维度对数据类型进行描述。如描述图片时，可以是一个图片对象，同时也可以是一个文件。
 
-并非所有的格式都具有两个维度，如general.calendar，更多的注重calendar对象的功能性描述。
+并非所有的格式都具有两个维度，如general.calendar，更注重calendar对象的功能性描述。
 
 **图1** 物理标准化数据类型示意图
 

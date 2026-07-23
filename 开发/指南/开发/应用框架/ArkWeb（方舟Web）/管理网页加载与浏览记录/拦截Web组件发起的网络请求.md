@@ -1,6 +1,6 @@
 # 拦截Web组件发起的网络请求
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-scheme-handler
 
@@ -106,6 +106,9 @@ export default class EntryAbility extends UIAbility {
     // 设置SchemeHandler。
     testNapi.setSchemeHandler();
   }
+
+// ...
+};
 ```
 
 testNapi.registerCustomSchemes的C++实现：
@@ -228,12 +231,12 @@ this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest, res
 
 错误码定义：
 
-NDK：[网络错误码(arkweb_net_error_list.h)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-net-error-list-h)。
+NDK：[arkweb_net_error_list.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-net-error-list-h)。
 
-ArkTS：[网络错误码(@ohos.web.netErrorList.d.ts)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist)。
+ArkTS：[@ohos.web.netErrorList (ArkWeb网络协议栈错误列表)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/d-DjBRrQScOms3XfLJpHJQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020809Z&HW-CC-Expire=86400&HW-CC-Sign=3A7E43D7A72EF7C6B7C672A1F864EA0E70686F9FF28EA7A5FDF87F4B3DAA7747)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/_bkHyjwjQyOPv7755Ec_ZQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012140Z&HW-CC-Expire=86400&HW-CC-Sign=91750B94C341107102F941E9BA0B4881B2CFFD4411D92E8E548B8473C8C64782)
 
 
  - ArkWeb不支持自定义错误码，请使用ArkWeb提供的错误码来结束请求。

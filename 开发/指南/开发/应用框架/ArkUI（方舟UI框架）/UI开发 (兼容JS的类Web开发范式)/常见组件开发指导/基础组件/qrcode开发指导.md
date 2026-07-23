@@ -1,6 +1,6 @@
 # qrcode开发指导
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-qrcode
 
@@ -157,7 +157,7 @@ qrcode{
 
 ```text
 // index.js
-export default{
+export default {
   data: {
     textVal: ''
   },
@@ -168,4 +168,4 @@ export default{
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2NHSU3ZvTymEuL-pe-K7NA/zh-cn_image_0000002611754131.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030426Z&HW-CC-Expire=86400&HW-CC-Sign=CDE61AEB3BAC1307286B2F54005BF1D34A690720897E663E5965F58A44FDB569)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/5kpcqZQqQoasRDFWqhxnjA/zh-cn_image_0000002677825855.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012138Z&HW-CC-Expire=86400&HW-CC-Sign=05576CF4D8A7440E65F9D9FA76DBAF06B64B90BCA9BD180A500332CE4E671A3F)

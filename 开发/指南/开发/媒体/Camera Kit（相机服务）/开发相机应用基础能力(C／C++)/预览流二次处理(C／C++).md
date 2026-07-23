@@ -1,6 +1,6 @@
 # 预览流二次处理(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview-imagereceiver
 

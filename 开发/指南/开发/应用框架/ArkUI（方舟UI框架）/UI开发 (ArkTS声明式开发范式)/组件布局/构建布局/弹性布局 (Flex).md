@@ -1,6 +1,6 @@
 # 弹性布局 (Flex)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-flex-layout
 
@@ -606,6 +606,7 @@ Flex({ direction: FlexDirection.Row }) {
     .backgroundColor('#F5DEB3')
 
   Text('no flexShrink')
+    .flexShrink(0)
     .width(200)
     .height(100)
     .backgroundColor('#D2B48C')

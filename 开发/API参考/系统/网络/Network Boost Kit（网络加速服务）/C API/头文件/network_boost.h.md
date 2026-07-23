@@ -1,6 +1,6 @@
 # network_boost.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-files-boost
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -46,7 +46,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| struct NetworkBoost_SceneEvent{ NB_SCENE_EVENT_ENTER = 0, NB_SCENE_EVENT_UPDATE = 1, NB_SCENE_EVENT_LEAVE = 2 } | 业务事件枚举。 |
+| NetworkBoost_SceneEvent{ NB_SCENE_EVENT_ENTER = 0, NB_SCENE_EVENT_UPDATE = 1, NB_SCENE_EVENT_LEAVE = 2 } | 业务事件枚举。 |
  
  
   

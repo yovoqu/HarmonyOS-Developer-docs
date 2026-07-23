@@ -1,6 +1,6 @@
 # SafetyDetect（安全检测）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-06-12 06:54:11（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-safetydetect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

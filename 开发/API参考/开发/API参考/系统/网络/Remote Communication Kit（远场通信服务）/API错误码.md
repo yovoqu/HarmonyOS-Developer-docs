@@ -1,12 +1,12 @@
 # API错误码
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 。 Remote Communication Kit错误码映射关系：1007900000 + curl错误码。Remote Communication Kit常见错误码如下， 更多错误码可参考： curl错误码 。
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 。 1007900000 ~ 1007900200：1007900000 + curl错误码。curl错误码可参考： curl错误码 。 1007900201 ~ 1007900999：RCP特有错误码保留段。 1007910000 ~ 1007910999：URPC特有错误码保留段。
 
   
 
@@ -1227,50 +1227,6 @@ Plaintext transmission is forbidden.
 **处理步骤**
  
 检查 network_config.json 中关于HTTP明文传输的相关配置是否符合业务需求。
- 
-  
-
-#### 201 权限被拒绝
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-**错误信息**
- 
-Permission denied.
- 
-**错误描述**
- 
-应用权限不足或格式错误。
- 
-**可能原因**
- 
-应用的权限配置不正确。
- 
-**处理步骤**
- 
-检查用户的权限配置是否正确。
- 
-  
-
-#### 401 参数错误
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-**错误信息**
- 
-Parameter error.
- 
-**错误描述**
- 
-函数入参非法。
- 
-**可能原因**
- 
-传入的参数非法。
- 
-**处理步骤**
- 
-请检查传入的参数是否合理，排查服务实现。
  
   
 

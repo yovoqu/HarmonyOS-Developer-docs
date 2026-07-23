@@ -1,6 +1,6 @@
 # drawable_descriptor.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawable-descriptor-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,7 +41,7 @@
 | OH_PixelmapNative | - | 使用Image Kit定义的Native侧的OH_PixelmapNative对象。 |
 | OH_PixelmapNative* | OH_PixelmapNativeHandle | 定义OH_PixelmapNative对象指针类型。 |
 | ArkUI_Node | - | 定义ArkUI native组件实例对象。 起始版本： 22 |
-| ArkUI_Node* | ArkUI_NodeHandle | 定义ArkUI native组件实例对象指针定义。 起始版本： 22 |
+| ArkUI_Node* | ArkUI_NodeHandle | 定义ArkUI native组件实例对象指针。 起始版本： 22 |
 | ArkUI_DrawableDescriptor_AnimationController | ArkUI_DrawableDescriptor_AnimationController | 定义DrawableDescriptor动图控制器对象。 起始版本： 22 |
 
 
@@ -515,7 +515,7 @@ int32_t OH_ArkUI_DrawableDescriptor_SetAnimationAutoPlay(ArkUI_DrawableDescripto
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_DrawableDescriptor* drawableDescriptor | DrawableDescriptor对象指针。 |
-| uint32_t autoPlay | 是否自动播放。 1表示自动播放，0表示不自动播放。 默认值为1。 |
+| uint32_t autoPlay | 控制动图是否自动播放。 1表示自动播放，0表示不自动播放。 默认值为1。 |
 
 
 **返回：**
@@ -568,7 +568,7 @@ int32_t OH_ArkUI_DrawableDescriptor_SetAnimationStopMode(ArkUI_DrawableDescripto
 
 **描述：**
 
-设置动图停止模式。
+设置动图的停止模式。
 
 **起始版本：** 24
 
@@ -599,7 +599,7 @@ int32_t OH_ArkUI_DrawableDescriptor_GetAnimationStopMode(const ArkUI_DrawableDes
 
 **描述：**
 
-获取动图停止模式。
+获取动图的停止模式。
 
 **起始版本：** 24
 

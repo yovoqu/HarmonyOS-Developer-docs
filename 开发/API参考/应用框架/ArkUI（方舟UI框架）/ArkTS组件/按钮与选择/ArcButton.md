@@ -1,6 +1,6 @@
 # ArcButton
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -82,10 +82,6 @@ ArcButton({ options: ArcButtonOptions })
 定义ArcButton的默认样式或自定义样式参数。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
-
-
-
-#### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -431,4 +427,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/qFPuByP0QGi0geCP0qOEaA/zh-cn_image_0000002659101819.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014338Z&HW-CC-Expire=86400&HW-CC-Sign=71B8F8EBCD20255AEEE9A77C983C0D5E7118B62D66FA77D5F6D9D19406993D44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/9fyAMr8oSIq2BPRiEpk6xg/zh-cn_image_0000002647588000.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T011955Z&HW-CC-Expire=86400&HW-CC-Sign=DB20D868D30FE7CE9A6084F2F1D0D28EF2D0BAB134299882290139D93860B7ED)

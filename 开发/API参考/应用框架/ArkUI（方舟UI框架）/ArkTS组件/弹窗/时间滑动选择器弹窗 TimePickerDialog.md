@@ -1,6 +1,6 @@
 # 时间滑动选择器弹窗 (TimePickerDialog)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-timepicker-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -73,8 +73,8 @@ static show(options?: TimePickerDialogOptions)
 | onChange | (value: TimePickerResult) => void | 否 | 是 | 滑动弹窗中的选择器后，选项归位至选中项位置时，触发该回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | backgroundColor11+ | ResourceColor | 否 | 是 | 弹窗背板颜色。 默认值：Color.Transparent 说明： 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则显示的颜色将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
-| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背板模糊样式选项。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背板效果参数。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | onDidAppear12+ | () => void | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | onDidDisappear12+ | () => void | 否 | 是 | 弹窗消失后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | onWillAppear12+ | () => void | 否 | 是 | 弹窗显示动效前的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
@@ -530,7 +530,7 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/Th5FzXu7R6WtghvD6ZfIog/zh-cn_image_0000002628862814.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=1796796079DD703A0BDDEB468BC7B387376669FD877C0D30827F7EEBCC08EE8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/FdPCC_oiQhKUr75rSMuxBg/zh-cn_image_0000002647588348.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=BE91BA8AE1C07C79BA4D86949455F25C758CCD19E26B0871BC2DAEB1888CCBE2)
 
 
 
@@ -569,7 +569,7 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/qvlbXKEARR28N0X-4sp0hQ/zh-cn_image_0000002659222127.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=67860F19FA294C58B2B877938E499CA85D6FA302F719FFF47E176803C1E73E08)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/8VQs2ixoQaGJSpzihNKRPg/zh-cn_image_0000002677827987.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=B95DB2F10C0B88C0613406BCD9603054A5369A3C9D6CD0A31DCD27AE115EA04E)
 
 
 
@@ -609,4 +609,4 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/uw_XWyFQTP6I1Hcit0uAHw/zh-cn_image_0000002628702936.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=06AD123769EAD8406324021CB32FD51BB14369C79970F3C1144A91CCCAB948B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/4a3y67-QQcmwgRtkEa4BKA/zh-cn_image_0000002677668141.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=EFC4CB343B58E757B45AC10215B9C83285C76D9B402763A147D7BF8912EA2AE0)

@@ -1,6 +1,6 @@
 # 日历选择器弹窗 (CalendarPickerDialog)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-calendarpicker-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,7 +24,7 @@
 
 static show(options?: CalendarDialogOptions): void
 
-定义日历选择器弹窗。
+显示日历选择器弹窗。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -64,8 +64,8 @@ static show(options?: CalendarDialogOptions): void
 | onChange | Callback&lt;Date&gt; | 否 | 是 | 选择弹窗中日期使当前选中项改变时触发该回调。 回调函数的参数表示选中的日期值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | backgroundColor11+ | ResourceColor | 否 | 是 | 弹窗背板颜色。 默认值：Color.Transparent 说明： 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | backgroundBlurStyle11+ | BlurStyle | 否 | 是 | 弹窗背板模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK 说明： 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则显示的颜色将不符合预期效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 背景模糊效果。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 背景效果参数。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyleOptions19+ | BackgroundBlurStyleOptions | 否 | 是 | 弹窗背板模糊效果。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| backgroundEffect19+ | BackgroundEffectOptions | 否 | 是 | 弹窗背板效果参数。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
 | acceptButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置确认按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | cancelButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置取消按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onDidAppear12+ | VoidCallback | 否 | 是 | 弹窗弹出后的事件回调。 说明： 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。 3.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -412,7 +412,7 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/uCdMRegcQjeMZmJsGt8hog/zh-cn_image_0000002659102151.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=8B44422D00484A302B50905EDF5CC750ADBB25E067A2A313B05F18BBA05679BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/qyVfzhzkQraaDAQ8REhw9A/zh-cn_image_0000002647748244.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=F95233A0A09C9BC2396199EAF76BEBD52C37B294E568E67359EDA53063F94212)
 
 
 
@@ -456,4 +456,4 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/4G9baC9jTlK0k-tuXgf2Rg/zh-cn_image_0000002628862804.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=74959F43536118D0D080EAE19590291240BB7CBF61D0C761803226FF2BA0B1B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/S0yqDGZ-RtGNPs8TGZbr3A/zh-cn_image_0000002647588336.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=C001E693FB2A82E2ECB887033C1D9E562C2EA2EFE1184491CC00A1C1DD06900C)

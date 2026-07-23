@@ -1,6 +1,6 @@
 # 弧形按钮 (ArcButton)(圆形屏幕推荐使用)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-advanced-components-arcbutton
 
@@ -174,11 +174,12 @@ ArcButton({
 
 ```json
 "module": {
-  // ···
+  // ...
   "deviceTypes": [
+    "default",
     "wearable"
   ],
-  // ···
+  // ...
 }
 ```
 

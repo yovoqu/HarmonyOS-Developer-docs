@@ -1,6 +1,6 @@
 # Frame分析
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-frame
 
@@ -226,7 +226,7 @@ Frame泳道下新增两个子泳道，分别为Display Vsync与DisplaySync_cb(ti
 5. 同时如果组件有可能的掉帧情况，**DisplaySync_cb**子泳道显示对应的掉帧情况并标红展示。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/8MByu013TFuJ0sb6V7eKwQ/zh-cn_image_0000002624993891.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=71046E16E0E975C265CB0F440FF01A1717B43B587F295156199DC483FB4A3CE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/Ns1wySRNT5aQ5d7ZjWNeJg/zh-cn_image_0000002624993891.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=FDD1B09EF8064935271A95B73CDF1CC9756700E845AF7AB5D0904706F223AE99)
 
 
 
@@ -240,13 +240,13 @@ Frame泳道下新增两个子泳道，分别为Display Vsync与DisplaySync_cb(ti
 2. 详情区给出录制时段内解码过度耗时的统计情况，包括类型，图片名，计数，总耗时，最小耗时、平均耗时、最大耗时，耗时标准差、 图源尺寸大小，目标尺寸大小等。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/N0rCEARrTCC4zBMS47Kafg/zh-cn_image_0000002625074043.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=DBDAC89729351D865F18EA589B09CEDB20D3317D5D184FAA5894F63F5E898C91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/DVGu3Nj3QHS9uIELDBptPw/zh-cn_image_0000002625074043.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=F2C7D2417CECCB41A40FC46DCB665C14842056FB0F5A6CD58F4D9EBBDD824360)
 
 3. 对于耗时超过阈值的序列化、反序列化操作，**Anomaly**泳道也会给出对应的耗时告警。其中可以通过泳道启动配置按钮配置检测阈值，默认配置阈值为8ms。
 4. 详情区给出录制时段内序列化、反序列化耗时情况统计信息，包括类型、计数、总耗时、最小耗时、平均耗时、最大耗时、耗时标准差等。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/Au3IFC7DSMe95YwhNHWdHA/zh-cn_image_0000002594474520.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=AD0A04BB14707C4C8C7A676A1454338BECB4BA29D3876CF891AA575F58637E31)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/9qoZKOXuTrun-FLU34O5mA/zh-cn_image_0000002594474520.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=1201ECD890874B35B05F2C6FF063DE4920D35674D7CE60B9C620BA5A1493D067)
 
 
   
@@ -263,12 +263,12 @@ Frame泳道下新增两个子泳道，分别为Display Vsync与DisplaySync_cb(ti
 2. 详情区列表给出录制时间段内用户事件详情，包括用户事件ID、事件开始时间Input Time、应用开始处理时间Processing Start、应用处理耗时Duration和事件类型User Event Type。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/_9zK_UWmRIGRpnBepgTcVg/zh-cn_image_0000002594634450.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=5F89EA17AFC9170BDE34835693E72CE34CE34D79DBEC7BBBB147A09DCEF36C66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/f4kguEdPS7eWYqhPy7YvmA/zh-cn_image_0000002594634450.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=DEA4EA541148E4B78ED32B017A3A95BDD49794FE7B169460E9FDB6D15F7A6283)
 
 3. 点选User Event泳道中的条块，**Slice Detail**区域展示该事件的详情信息。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/AZVWvZHTTmixyOSVvAQTsw/zh-cn_image_0000002594634470.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=31E6CFFA739940C6CD4F5360BF6E03030D4ACE16F88D10485BE234EA7E696B7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/kvxs5s-DQeWtEVd0FdWUsg/zh-cn_image_0000002594634470.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=4E16EF7B6E72B7730DD41E783C4CBDD45B844B1A511365F5CAEEB8A198473951)
 
 
 更多性能调优最佳实践，请参考[点击响应时延分析](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-click-to-click-response-optimization)、[点击完成时延分析](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-click-to-complete-delay-analysis)、[帧率问题分析](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-zhenlv)、[Web点击响应时延分析](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-click-response-delay-analysis)、[Web加载完成时延分析](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-completion-delay-analysis)。

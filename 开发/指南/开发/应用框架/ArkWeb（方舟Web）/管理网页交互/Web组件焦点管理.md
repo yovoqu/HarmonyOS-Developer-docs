@@ -1,6 +1,6 @@
 # Web组件焦点管理
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-focus
 
@@ -212,7 +212,6 @@ struct WebComponent {
 加载的html文件。
 
 ```text
-// test.html
 <!-- test.html -->
 <!DOCTYPE html>
 <html>

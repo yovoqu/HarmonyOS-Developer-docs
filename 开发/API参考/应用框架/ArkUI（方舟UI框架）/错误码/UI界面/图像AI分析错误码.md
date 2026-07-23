@@ -1,6 +1,6 @@
 # 图像AI分析错误码
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image-analyzer
 
@@ -17,7 +17,7 @@ Image analysis feature is unsupported.
 
 **错误描述**
 
-当开发者调用startImageAnalyzer()接口时，若当前不支持AI分析功能，会抛出此错误码。
+当开发者调用startImageAnalyzer()接口时，若当前不支持AI图像分析功能，会抛出此错误码。
 
 **可能原因**
 

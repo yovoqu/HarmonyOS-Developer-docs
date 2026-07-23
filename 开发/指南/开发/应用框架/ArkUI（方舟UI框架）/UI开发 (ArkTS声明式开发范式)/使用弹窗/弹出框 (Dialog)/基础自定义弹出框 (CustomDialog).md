@@ -1,10 +1,10 @@
 # 基础自定义弹出框 (CustomDialog)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-custom-dialog
 
-CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件更新等与用户交互响应操作。开发者可以通过CustomDialogController类显示自定义弹出框。具体用法请参考[自定义弹出框](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)。
+CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件更新等与用户交互响应操作。开发者可以通过CustomDialogController类显示自定义弹出框。具体用法请参考[自定义弹窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)。
 
 > [!NOTE]
 > 当前，ArkUI弹出框默认为非页面级弹出框，在页面路由跳转时，如果开发者未调用close方法将其关闭，弹出框将不会自动关闭。若需实现在跳转页面时覆盖弹出框的场景，可以使用 组件导航子页面显示类型的弹窗类型 或者 页面级弹出框 。
@@ -798,4 +798,4 @@ export struct GetDialogStatus {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/SkadYO6bS2euBRsTDS9r2Q/zh-cn_image_0000002626228400.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=B93D7E90790D23190220981F2BA6A8F48333D0209325FB2EDD516BE96A6F8B92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/Ki4ZDKLWQA6Nz9tExPS6fw/zh-cn_image_0000002677665751.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012134Z&HW-CC-Expire=86400&HW-CC-Sign=F24AFBC2D1A219C7E2B2EB1E82AF33BF60E1B1E892A830156A0A0EA98BDCC312)

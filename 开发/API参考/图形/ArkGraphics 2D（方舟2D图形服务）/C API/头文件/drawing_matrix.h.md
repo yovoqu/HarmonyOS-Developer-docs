@@ -1,6 +1,6 @@
 # drawing_matrix.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-matrix-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -358,7 +358,7 @@ matrix、src、dst任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER
   
 | 类型 | 说明 |
 | --- | --- |
-| bool | 如果设置失败，则返回false；如果设置成功，则返回true；如果矩阵为空，则返回true，并将矩阵设置为： 如果源矩形src的宽高任意一个小于等于0，则返回false，并将矩阵设置为单位矩阵； 如果目标矩形dst的宽高任意一个小于等于0，则返回true，并将矩阵设置为除透视缩放系数为1外其余值皆为0的矩阵; |
+| bool | 如果设置失败，则返回false；如果设置成功，则返回true； 如果源矩形src的宽高任意一个小于等于0，则返回false，并将矩阵设置为单位矩阵； 如果目标矩形dst的宽高任意一个小于等于0，则返回true，并将矩阵设置为除透视缩放系数为1外其余值皆为0的矩阵; |
  
  
   

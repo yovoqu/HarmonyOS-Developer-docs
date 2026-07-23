@@ -1,6 +1,6 @@
 # JS Crash（进程崩溃）检测
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jscrash-guidelines
 
@@ -15,7 +15,7 @@
 方舟运行时捕获进程异常。生成故障日志的流程如下：
 1. 当代码执行时，未捕获的异常或错误导致应用崩溃，方舟运行时将捕获这些异常。
 2. 方舟运行时收集故障信息，并将其上报给维测进程Hiview。
-3. 维测进程Hiview补充仅其有权限获取的信息(如整机内存状态、应用页面切换轨迹)，生成对应的崩溃日志文件, 存储在“/data/log/faultlog/faultlogger”目录下。
+3. 维测进程Hiview补充仅其有权限获取的信息（如整机内存状态、应用页面切换轨迹），生成对应的崩溃日志文件, 存储在“/data/log/faultlog/faultlogger”目录下。
 4. 上报崩溃事件，开发者可通过HiAppEvent订阅[崩溃事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events)。如需了解JS Crash问题分析方法，请参见[JS Crash类问题分析方法](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-crash-js-way)。
 
 

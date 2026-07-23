@@ -1,6 +1,6 @@
 # 使用MindSpore Lite实现图像分类（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-js
 
@@ -26,7 +26,7 @@
 
 #### 接口说明
 
-这里给出MindSpore Lite推理的通用开发流程中涉及的一些接口，具体请见下列表格。更多接口及详细内容，请见[@ohos.ai.mindSporeLite (推理能力)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-mindsporelite)。
+这里给出MindSpore Lite推理的通用开发流程中涉及的一些接口，具体请见下列表格。更多接口及详细内容，请见[@ohos.ai.mindSporeLite (端侧AI框架)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-mindsporelite)。
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -92,7 +92,6 @@
 
   
 ```ArkTS
-// model.ets
 import { mindSporeLite } from '@kit.MindSporeLiteKit'
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -137,7 +136,6 @@ export default async function modelPredict(
 
   
 ```ArkTS
-// Index.ets
 import modelPredict from './model';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -160,16 +158,19 @@ struct Index {
   @State maxIndex: number = 0;
   @State maxArray: Array<number> = [];
   @State maxIndexArray: Array<number> = [];
+  // ...
 
   build() {
     Row() {
       Column() {
         Text(this.modelPredict)
+        // ...
         Button() {
           Text('photo')
             .fontSize(30)
             .fontWeight(FontWeight.Bold)
         }
+        // ...
         .onClick(() => {
           let resMgr = this.getUIContext()?.getHostContext()?.getApplicationContext().resourceManager;
           if (resMgr === null || resMgr === undefined){
@@ -356,7 +357,7 @@ $ hdc shell rm -rf data/local/tmp/xxx
 $ hdc shell aa start -a EntryAbility -b com.samples.mindsporelitearktsdemo
 ```
 
-2. 在设备屏幕点击photo按钮，选择图片，点击确定。设备屏幕显示所选图片的分类结果，在日志打印结果中，过滤关键字”MS_LITE“，可得到如下结果：
+2. 在设备屏幕点击photo按钮，选择图片，点击确定。设备屏幕显示所选图片的分类结果，在日志打印结果中，过滤关键字“MS_LITE”，可得到如下结果：
 
   
 ```text

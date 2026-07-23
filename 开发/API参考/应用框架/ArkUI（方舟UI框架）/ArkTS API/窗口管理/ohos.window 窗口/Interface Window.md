@@ -1,6 +1,6 @@
 # Interface (Window)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8218,7 +8218,7 @@ minimize(callback: AsyncCallback&lt;void&gt;): void
  - 当调用对象为子窗口或全局悬浮窗时，实现隐藏功能，可以使用[showWindow()](#showwindow9)进行还原。
 
 
-该接口仅支持主窗口、子窗口或全局悬浮窗，其它窗口调用返回1300002错误码，使用callback异步回调。
+该接口仅支持主窗口、子窗口或全局悬浮窗，其他窗口调用返回1300002错误码，使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -8271,7 +8271,7 @@ minimize(): Promise&lt;void&gt;
  - 当调用对象为子窗口或全局悬浮窗时，实现隐藏功能，可以使用[showWindow()](#showwindow9)进行还原。
 
 
-该接口仅支持主窗口、子窗口或全局悬浮窗，其它窗口调用返回1300002错误码，使用Promise异步回调。
+该接口仅支持主窗口、子窗口或全局悬浮窗，其他窗口调用返回1300002错误码，使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 

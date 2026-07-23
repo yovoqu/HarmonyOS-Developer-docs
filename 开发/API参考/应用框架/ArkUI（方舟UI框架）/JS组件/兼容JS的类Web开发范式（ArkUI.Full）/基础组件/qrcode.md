@@ -1,6 +1,6 @@
 # qrcode
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-qrcode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -83,7 +83,7 @@
 ```text
 <!-- xxx.hml -->
 <div class="container">
-  <qrcode value="{{qr_value}}" type="{{qr_type}}"
+  <qrcode value="Hello World" type="{{qr_type}}"
   style="color: {{qr_col}};background-color: {{qr_bcol}};width: {{qr_size}};height: {{qr_size}};margin-bottom: 70px;"></qrcode>
   <text class="txt">Type</text>
   <switch showtext="true" checked="true" texton="rect" textoff="circle" onchange="setType"></switch>
@@ -145,4 +145,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/cnNH7EgaQimRfdeH28VmvQ/zh-cn_image_0000002659102301.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=81B0557AB16E81EEABA570CBC88C6DEA5ABA579FBB4D7E7F0F3F1A1AD0F3A2E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/2EdMYmV8QMGGQXOMX0rGVg/zh-cn_image_0000002677828165.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=3F5501F22FA22889CD6847346047547F2BF807570EA5375A3F968DAB3AD38600)

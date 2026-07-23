@@ -1,6 +1,6 @@
 # 量化基模外挂LoRA微调
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-external-lora-fine-tuning
 
@@ -215,7 +215,7 @@ set_quant_state(transformer_model, False, False)
 ## 根据模型输入，随机生成导出onnx所用的输入。
 dummy_input = ()
 transformer_model(*dummy_input) ### 检查模型前向推理
-## set you onnx input and output node name
+## 设置你的ONNX输入和输出节点名称
 input_names=["in0_name", "in1_name", "..."]
 output_names=["out0_name", "out1_name", "..."]
 onnx_save_path = './xxx.onnx'

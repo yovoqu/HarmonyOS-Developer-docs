@@ -1,6 +1,6 @@
 # image-animator
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-image-animator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
-| images | Array&lt;ImageFrame&gt; | - | 是 | 设置图片帧信息集合。每一帧的帧信息包含图片路径、图片大小和图片位置信息。目前支持以下图片格式：png、jpg。ImageFrame的详细说明请见表 ImageFrame说明。 使用时需要使用数据绑定的方式： - hml文件中引用图片资源：images = {{images}}， - js文件中声明相应变量： images: [{src: "/common/heart-rate01.png",duration:"100"}]。从API version 6开始，支持配置每一帧图片的时长，单位毫秒。 |
+| images | Array&lt;ImageFrame&gt; | - | 是 | 设置图片帧信息集合。每一帧的帧信息包含图片路径、图片大小和图片位置信息。目前支持以下图片格式：png、jpg、svg和heif。ImageFrame的详细说明请见表 ImageFrame说明。 使用时需要使用数据绑定的方式： - hml文件中引用图片资源：images = {{images}}， - js文件中声明相应变量： images: [{src: "/common/heart-rate01.png",duration:"100"}]。从API version 6开始，支持配置每一帧图片的时长，单位毫秒。 |
 | predecode6+ | number | 0 | 否 | 是否启用预解码，默认值为0，即不启用预解码，如该值设为2，则播放当前页时会提前加载后面两张图片至缓存以提升性能。 |
 | iteration | number \| string | infinite | 否 | 设置帧动画播放次数。number表示固定次数，infinite枚举表示无限次数播放。 |
 | reverse | boolean | false | 否 | 设置播放顺序。false表示从第1张图片播放到最后1张图片； true表示从最后1张图片播放到第1张图片。 |
@@ -69,7 +69,7 @@
 | --- | --- | --- |
 | start | - | 帧动画启动时触发。 |
 | pause | - | 帧动画暂停时触发。 |
-| stop | - | 帧动画结束时触发。 |
+| stop | - | 帧动画停止时触发。 |
 | resume | - | 帧动画恢复时触发。 |
  
  
@@ -86,7 +86,7 @@
 | start | - | 开始播放图片帧动画。再次调用，重新从第1帧开始播放。 |
 | pause | - | 暂停播放图片帧动画。 |
 | stop | - | 停止播放图片帧动画。 |
-| resume | - | 继续播放图片帧。 |
+| resume | - | 恢复播放图片帧动画。 |
 | getState | - | 获取播放状态。 - playing：播放中。 - paused：已暂停。 - stopped：已停止。 |
  
  
@@ -218,4 +218,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/XpDSz3MsSu69AufsTnabDQ/zh-cn_image_0000002659102293.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014401Z&HW-CC-Expire=86400&HW-CC-Sign=BD1ABC0082AA376B698ED38FCAAD0444E5E0A5EED6C48E4EF1401D5651DE33D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/FmWAd2rKT2y4JNYHQ-wWlw/zh-cn_image_0000002677828157.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=A0C797070D81DECA3D6D779DBC9279E23E59283A19B0C392E131AABB64A3A3DC)

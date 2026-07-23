@@ -1,0 +1,237 @@
+# 如何在EntryAbility中获取Toggle组件的值
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1016
+
+#### 问题现象
+
+通过首选项保存Toggle组件的值，应用重新启动后Toggle的值和全局变量不一致。导致EntryAbility中无法正确获取到Toggle组件的值，该如何解决？
+ 
+问题代码如下：
+ 
+- EntryAbility.ets中后台时执行的操作：
+```json
+onBackground(): void {
+  <em>// Ability has back to background</em>
+  hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
+<em>  // 判断是否销毁应用</em>
+  if (delAppValue === true) {
+    <em>// module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true</em>
+    this.context.terminateSelf();
+  }
+}
+```
+
+- 设置页：
+```text
+import { preferences } from '@kit.ArkData';
+import { PromptAction } from '@kit.ArkUI';
+
+export let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
+let preferenceDelApp: preferences.Preferences | null = null;
+
+@Entry
+@Component
+struct SetPage {
+  @State delApp: boolean = delAppValue;
+  uiContext: UIContext = this.getUIContext();
+  context: Context = this.uiContext.getHostContext() as Context;
+  promptAction: PromptAction = this.uiContext.getPromptAction();
+
+  async aboutToAppear() {
+    delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
+    this.promptAction.showToast({ message: String(delAppValue) });
+  }
+
+ <em> // 获取首选项中DelApp的值</em>
+  async getPreferenceDelApp(): Promise<boolean> {
+    let value: boolean = false;
+    try {
+      preferenceDelApp = await preferences.getPreferences(this.context, 'DelAppID');
+      value = await preferenceDelApp.get('DelAppID', delAppValue) as boolean;
+    } catch (error) {
+      console.error('getDelAppID Failed');
+    }
+    return value;
+  }
+
+<em>  // 更新首选项中DelApp的值</em>
+  async putPreferenceDelApp(value: boolean) {
+    if (preferenceDelApp !== null) {
+      try {
+        await preferenceDelApp.put('DelAppID', value);
+        await preferenceDelApp.flush();
+      } catch (error) {
+        console.error('putDelAppID Failed');
+      }
+    }
+  }
+
+  build() {
+    Column({ space: 5 }) {
+      Text('自动销毁后台')
+        .fontSize(18);
+      Toggle({ type: ToggleType.Switch, isOn: delAppValue })
+        .onChange(() => {
+          delAppValue = !delAppValue;
+          this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
+          this.promptAction.showToast({ message: String(delAppValue) });
+        });
+    }
+    .width('100%')
+    .height('100%')
+    .padding({ top: 20 });
+  }
+}
+```
+
+
+ 
+ 
+问题现象效果图如下：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/fKGmNDA9QiyylHISMbqy2w/zh-cn_image_0000002658804047.png?HW-CC-KV=V1&HW-CC-Date=20260723T012643Z&HW-CC-Expire=86400&HW-CC-Sign=8DE9E37FFAD035EB6E09F69954D1586EFDD99B065DC56D68552C25C9F51B7363)
+
+ 
+
+#### 背景知识
+
+- [Toggle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle)组件提供勾选框样式、状态按钮样式和开关样式，可以通过[ToggleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#toggleoptions18对象说明)对象设置开关值（支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量）和样式。当开关状态切换时触发[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#onchange)事件获取开关当前状态。
+- [aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)函数在创建自定义组件的新实例后，在其[build](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#build)函数执行前调用。允许在aboutToAppear函数中改变状态变量。
+- [用户首选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences)为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。
+
+ 
+ 
+
+#### 问题定位
+
+当首选项中获取到的值为true时，onBackground中得到的全局变量的值和开关显示的值不一致。
+ 
+ 
+
+#### 分析结论
+
+开关没有使用状态变量，且组件在初始化时采用了默认值false。由于非状态变量发生改变时不会让组件刷新渲染，当首选项值为true时会出现全局变量和开关显示的值不一致的情况。
+ 
+ 
+
+#### 修改建议
+1. 将全局变量delAppValue前的export去掉，改为导出的get方法获取值（如果需要外部修改可以添加set方法并导出）。保证EntryAbility文件中调用get方法可以随时获取delAppValue值。
+```text
+let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
+
+<em>// 用于让EntryAbility文件获取delAppValue</em>
+export function getDelAppValue() {
+  return delAppValue;
+}
+```
+
+2. 开关中的值改为状态变量，在aboutToAppear函数中获取到首选项的值后同步修改状态变量。
+```text
+async aboutToAppear() {
+  delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
+  this.delApp = delAppValue; <em>// 全局变量和开关的值保存一致</em>
+  this.promptAction.showToast({ message: String(delAppValue) });
+}
+```
+
+3. 当开关值发生变化时，通过Toggle组件的onChange事件获取开关当前值，同步给全局变量。让EntryAbility中通过getDelAppValue方法获取到的值和开关一致，根据true和false来判断应用是后台还是直接关闭。
+```text
+Toggle({ type: ToggleType.Switch, isOn: $$this.delApp })
+  .onChange((isOn: boolean) => {
+    delAppValue = isOn; <em>// 开关值发生变化时全局变量同步更新</em>
+    this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
+    this.promptAction.showToast({ message: String(delAppValue) });
+  });
+```
+ 
+```json
+onBackground(): void {
+  <em>// Ability has back to background</em>
+  hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
+<em>  // 判断是否销毁应用</em>
+  if (getDelAppValue() === true) {
+  <em>  // module.json5配置文件中将removeMissionAfterTerminate字段取值配置为true</em>
+    this.context.terminateSelf();
+  }
+}
+```
+
+ 
+完整代码如下：
+ 
+```text
+import { preferences } from '@kit.ArkData';
+import { PromptAction } from '@kit.ArkUI';
+
+let preferenceDelApp: preferences.Preferences | null = null;
+let delAppValue: boolean = false; <em>// delAppValue初始化默认值</em>
+
+<em>// 用于让EntryAbility文件获取delAppValue</em>
+export function getDelAppValue() {
+  return delAppValue;
+}
+
+@Entry
+@Component
+struct SetPage {
+  @State delApp: boolean = false; <em>// 开关，DelApp初始化默认值</em>
+  uiContext: UIContext = this.getUIContext();
+  context: Context = this.uiContext.getHostContext() as Context;
+  promptAction: PromptAction = this.uiContext.getPromptAction();
+
+  async aboutToAppear() {
+    delAppValue = await this.getPreferenceDelApp(); <em>// 获取首选项中的值，同步到全局变量</em>
+    this.delApp = delAppValue; <em>// 全局变量和开关的值保存一致</em>
+    this.promptAction.showToast({ message: String(delAppValue) });
+  }
+
+ <em> // 获取首选项中DelApp的值</em>
+  async getPreferenceDelApp(): Promise<boolean> {
+    let value: boolean = false;
+    try {
+      preferenceDelApp = await preferences.getPreferences(this.context, 'DelAppID');
+      value = await preferenceDelApp.get('DelAppID', delAppValue) as boolean;
+    } catch (error) {
+      console.error('getDelAppID Failed');
+    }
+    return value;
+  }
+
+  <em>// 更新首选项中DelApp的值</em>
+  async putPreferenceDelApp(value: boolean) {
+    if (preferenceDelApp !== null) {
+      try {
+        await preferenceDelApp.put('DelAppID', value);
+        await preferenceDelApp.flush();
+      } catch (error) {
+        console.error('putDelAppID Failed');
+      }
+    }
+  }
+
+  build() {
+    Column({ space: 5 }) {
+      Text('自动销毁后台')
+        .fontSize(18);
+      Toggle({ type: ToggleType.Switch, isOn: $$this.delApp })
+        .onChange((isOn: boolean) => {
+          delAppValue = isOn; <em>// 开关值发生变化时全局变量同步更新</em>
+          this.putPreferenceDelApp(delAppValue); <em>// 保存到首选项中</em>
+          this.promptAction.showToast({ message: String(delAppValue) });
+        });
+    }
+    .width('100%')
+    .height('100%')
+    .padding({ top: 20 });
+  }
+}
+```
+ 
+ 
+效果图如下：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/FGPpFZTzQ6CLaWvZ_-APKQ/zh-cn_image_0000002628404778.png?HW-CC-KV=V1&HW-CC-Date=20260723T012643Z&HW-CC-Expire=86400&HW-CC-Sign=BF9A91CD97BC4C9357526FA89F39E59534106A439A25BC4D7FFDE4DF711BAA68)

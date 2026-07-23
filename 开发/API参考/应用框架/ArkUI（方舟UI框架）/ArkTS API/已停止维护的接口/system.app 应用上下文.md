@@ -1,6 +1,6 @@
 # @system.app (应用上下文)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-app
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -172,7 +172,7 @@ static terminate(): void
  
 退出当前Ability。在Stage模型下接口功能不生效。
  
-从API version 7开始，推荐使用[@ohos.ability.featureAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-featureability)。
+从API version 7开始，推荐使用[@ohos.ability.featureAbility (FeatureAbility模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-featureability)。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -269,7 +269,7 @@ static setImageCacheCount(value: number): void
  
 setImageCacheCount方法需要在@Entry标记的页面，[onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)或[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)里面设置才生效。
  
-setImageCacheCount、setImageRawDataCacheSize、和setImageFileCacheSize并不灵活，后续不继续演进，对于复杂情况，更推荐使用[ImageKnife](https://gitcode.com/openharmony-tpc/ImageKnife)。
+setImageCacheCount、setImageRawDataCacheSize、和setImageFileCacheSize并不灵活，后续不继续演进，对于复杂情况，更推荐使用[ImageKnife](https://gitcode.com/CPF-ApplicationTPC/ImageKnife)。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -439,7 +439,7 @@ static requestFullWindow(options?: RequestFullWindowOptions): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | RequestFullWindowOptions | 否 | 请求全屏时，设定非全屏到全屏的过渡时间，单位为毫秒，默认时间与非全屏到全屏的距离成正比。 |
+| options | RequestFullWindowOptions | 否 | 请求全窗口时，设定非全窗口到全窗口的过渡时间，单位为毫秒，默认时间与非全窗口到全窗口的距离成正比。 |
  
  
 **示例：**

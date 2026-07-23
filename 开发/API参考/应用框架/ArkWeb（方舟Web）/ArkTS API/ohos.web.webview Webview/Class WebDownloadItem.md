@@ -1,6 +1,6 @@
 # Class (WebDownloadItem)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaditem
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -386,7 +386,7 @@ getLastErrorCode(): WebDownloadErrorCode
 
 | 类型 | 说明 |
 | --- | --- |
-| WebDownloadErrorCode | 下载发生错误的时候的错误码。 |
+| WebDownloadErrorCode | 下载失败时的错误码。 |
 
 
 **示例：**
@@ -479,7 +479,7 @@ struct WebComponent {
         .onClick(() => {
           try {
             this.delegate.onBeforeDownload((webDownloadItem: webview.WebDownloadItem) => {
-              console.info("will start a download， method:" + webDownloadItem.getMethod());
+              console.info("will start a download, method:" + webDownloadItem.getMethod());
               // 传入一个下载路径，并开始下载。
               webDownloadItem.start("/data/storage/el2/base/cache/web/" + webDownloadItem.getSuggestedFileName());
             })
@@ -549,7 +549,7 @@ struct WebComponent {
         .onClick(() => {
           try {
             this.delegate.onBeforeDownload((webDownloadItem: webview.WebDownloadItem) => {
-              console.info("will start a download， mime type:" + webDownloadItem.getMimeType());
+              console.info("will start a download, mime type:" + webDownloadItem.getMimeType());
               // 传入一个下载路径，并开始下载。
               webDownloadItem.start("/data/storage/el2/base/cache/web/" + webDownloadItem.getSuggestedFileName());
             })

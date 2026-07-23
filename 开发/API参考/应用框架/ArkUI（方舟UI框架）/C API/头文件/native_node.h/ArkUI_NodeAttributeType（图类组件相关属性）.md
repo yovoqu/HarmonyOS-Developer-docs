@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（图类组件相关属性）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-image
 
@@ -153,7 +153,7 @@ NODE_IMAGE_COLOR_FILTER = 4004
 | --- | --- |
 | .value[0].f32 ~ .value[19].f32 | 表示滤镜矩阵数组。 |
 | .size | 表示滤镜数组大小 5x4。 |
-| .object | 颜色滤波器指针，参数类型为OH_Drawing_ColorFilter。 .object和.size参数只能二选一，不可同时设置。 |
+| .object | 颜色滤镜指针，参数类型为OH_Drawing_ColorFilter。 .object和.size参数只能二选一，不可同时设置。 |
 
 
 **返回：**
@@ -162,7 +162,7 @@ NODE_IMAGE_COLOR_FILTER = 4004
 | --- | --- |
 | .value[0].f32 ~ .value[19].f32 | 表示滤镜矩阵数组。 |
 | .size | 表示滤镜数组大小 5x4。 |
-| .object | 颜色滤波器指针，参数类型为OH_Drawing_ColorFilter。 |
+| .object | 颜色滤镜指针，参数类型为OH_Drawing_ColorFilter。 |
 
 
 
@@ -231,7 +231,7 @@ NODE_IMAGE_ALT = 4006
 NODE_IMAGE_DRAGGABLE = 4007
 ```
 
-图片拖拽效果属性，支持属性设置，属性重置，属性获取接口。
+图片是否可拖拽属性，支持属性设置，属性重置，属性获取接口。
 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
 
@@ -269,14 +269,14 @@ NODE_IMAGE_RENDER_MODE = 4008
 
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_ImageRenderMode。 |
+| .value[0].i32 | 表示图片渲染模式，取ArkUI_ImageRenderMode枚举值。 |
 
 
 **返回：**
 
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型ArkUI_ImageRenderMode。 |
+| .value[0].i32 | 表示图片渲染模式，取ArkUI_ImageRenderMode枚举值。 |
 
 
 

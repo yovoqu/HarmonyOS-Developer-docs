@@ -1,6 +1,6 @@
 # 解决Web组件本地资源跨域问题
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-cross-origin
 
@@ -24,6 +24,7 @@ Access to script at 'xxx' from origin 'xxx' has been blocked by CORS policy: Cro
 
   
 ```ArkTS
+// main/ets/pages/LocCrossOriginResAccSol_one.ets
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -88,7 +89,7 @@ struct Index {
 <!-- main/resources/rawfile/index.html -->
 <html>
 <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
 <script crossorigin src="./js/script.js"></script>
@@ -97,6 +98,7 @@ struct Index {
 ```
 
 ```text
+// main/resources/rawfile/js/script.js
 const body = document.body;
 const element = document.createElement('div');
 element.textContent = 'success';
@@ -138,6 +140,7 @@ body.appendChild(element);
 当路径列表中的任一路径不满足上述条件时，系统将抛出异常码401，并判定路径列表设置失败。如果路径列表设置为空，file协议的可访问范围将遵循[fileAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#fileaccess)规则，具体示例如下。
 
 ```ArkTS
+// main/ets/pages/LocCrossOriginResAccSol_two.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -181,28 +184,28 @@ struct WebComponent {
     <title>Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,   viewport-fit=cover">
     <script>
-        function getFile() {
-            var file = "file:///data/storage/el1/bundle/entry/resources/resfile/js/script.js";
+    function getFile() {
+      var file = "file:///data/storage/el1/bundle/entry/resources/resfile/js/script.js";
       // 使用file协议通过XMLHttpRequest跨域访问本地js文件。
-            var xmlHttpReq = new XMLHttpRequest();
-            xmlHttpReq.onreadystatechange = function(){
-                console.info("readyState:" + xmlHttpReq.readyState);
-                console.info("status:" + xmlHttpReq.status);
-                if(xmlHttpReq.readyState == 4){
-                    if (xmlHttpReq.status == 200) {
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.onreadystatechange = function(){
+          console.info("readyState:" + xmlHttpReq.readyState);
+          console.info("status:" + xmlHttpReq.status);
+        if(xmlHttpReq.readyState == 4){
+            if (xmlHttpReq.status == 200) {
                 // 如果ets侧正确设置路径列表，则此处能正常获取资源
-                        const element = document.getElementById('text');
+                const element = document.getElementById('text');
                         element.textContent = "load " + file + " success";
-                    } else {
+            } else {
                 // 如果ets侧不设置路径列表，则此处会触发CORS跨域检查错误
-                        const element = document.getElementById('text');
+                const element = document.getElementById('text');
                         element.textContent = "load " + file + " failed";
-                    }
-                }
             }
-            xmlHttpReq.open("GET", file);
-            xmlHttpReq.send(null);
         }
+      }
+      xmlHttpReq.open("GET", file);
+      xmlHttpReq.send(null);
+    }
     </script>
 </head>
 
@@ -218,6 +221,7 @@ struct WebComponent {
 
 
 ```text
+// main/resources/resfile/js/script.js
 const body = document.body;
 const element = document.createElement('div');
 element.textContent = 'success';

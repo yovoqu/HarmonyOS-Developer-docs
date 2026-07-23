@@ -1,6 +1,6 @@
 # 创建瀑布流（WaterFlow）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-waterflow
 
@@ -67,7 +67,7 @@ build() {
             .width('100%')
             .aspectRatio(this.itemHeightArray[item % 100] / this.itemWidthArray[item%100])
             .backgroundColor(this.colors[item % 5])
-          }, (item: string) => item)
+          }, (item: number) => item.toString())
         }
         .columnsTemplate('1fr '.repeat(this.columns))
         .backgroundColor(0xFAEEE0)
@@ -118,7 +118,7 @@ build() {
             .width('100%')
             .aspectRatio(this.itemHeightArray[item % 100] / this.itemWidthArray[item%100])
             .backgroundColor(this.colors[item % 5])
-          }, (item: string) => item)
+          }, (item: number) => item.toString())
         }
         .columnsTemplate('1fr '.repeat(this.columns))
         .backgroundColor(0xFAEEE0)
@@ -205,7 +205,7 @@ export struct WaterFlowDynamicSwitchover {
                 .width('100%')
                 .aspectRatio(this.columns === 2 ? this.itemHeightArray[item % 100] / this.itemWidthArray[item % 100] : 0)
                 .backgroundColor(this.colors[item % 5])
-              }, (item: string) => item)
+              }, (item: number) => item.toString())
             }
             .columnsTemplate('1fr '.repeat(this.columns))
             .backgroundColor(0xFAEEE0)
@@ -335,7 +335,7 @@ export struct WaterFlowGroupingMixing {
             .width('100%')
             .aspectRatio(item != 0 ? this.itemHeightArray[item % 100] / this.itemWidthArray[item % 100] : 0)
             .backgroundColor(item != 0 ? this.colors[item % 5] : Color.White)
-          }, (item: string) => item)
+          }, (item: number) => item.toString())
         }
         .backgroundColor(0xFAEEE0)
         .height('100%')

@@ -1,6 +1,6 @@
 # 模型（Model）配置
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-agent-model
 
@@ -96,4 +96,4 @@ CodeGenie支持通过Anthropic-API、Gemini-API和OpenAI-API协议接入第三�
 ![](assets/模型（Model）配置/file-20260525091725482-003.png)
 
  - 添加DeepSeek模型（Anthropic协议）       
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/RgfZfegHRDePlwpQ0h0cJQ/zh-cn_image_0000002594634610.png?HW-CC-KV=V1&HW-CC-Date=20260624T020708Z&HW-CC-Expire=86400&HW-CC-Sign=EBD7FE10F5DF6597996642B175E5CA4DFEA958D5F6D167C51B98264654C882EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/aO4OpzHVTYOWVtzOzP05NA/zh-cn_image_0000002594634610.png?HW-CC-KV=V1&HW-CC-Date=20260723T012118Z&HW-CC-Expire=86400&HW-CC-Sign=B39647EADE33BD939D370AEA0A5F12C89A81C8082BD19C5BA072FE17D12D8DF9)

@@ -1,6 +1,6 @@
 # ArkUI_CrossLanguageOption
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-crosslanguageoption
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -26,7 +26,7 @@ typedef struct ArkUI_CrossLanguageOption ArkUI_CrossLanguageOption
   
 | 名称 | 描述 |
 | --- | --- |
-| OH_ArkUI_NodeUtils_SetCrossLanguageOption | 设置目标节点跨语言设置属性的能力。 |
+| OH_ArkUI_NodeUtils_SetCrossLanguageOption | 设置目标节点跨语言设置属性的配置项。 |
 | OH_ArkUI_NodeUtils_GetCrossLanguageOption | 获取目标节点跨语言设置属性的配置项。 |
 | OH_ArkUI_CrossLanguageOption_Create | 创建跨语言配置项实例。 |
 | OH_ArkUI_CrossLanguageOption_Destroy | 销毁跨语言配置项实例。 |

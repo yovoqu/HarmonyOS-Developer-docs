@@ -1,6 +1,6 @@
 # native_interface_arkweb.h
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-arkweb-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -63,7 +63,7 @@ native_interface_arkweb.h是ArkWeb Native API的核心入口头文件，定义�
 | typedef void (*NativeArkWeb_OnDestroyCallback)(const char*) | NativeArkWeb_OnDestroyCallback | 定义Web组件销毁时的回调函数的类型。 |
 | typedef void (*OH_ArkWeb_OnCookieSaveCallback)(ArkWeb_ErrorCode errorCode) | OH_ArkWeb_OnCookieSaveCallback | 定义保存cookie的回调函数的类型。 起始版本： 20 |
 | void OH_NativeArkWeb_RunJavaScript(const char* webTag, const char* jsCode, NativeArkWeb_OnJavaScriptCallback callback) | - | 在当前显示页面的环境下，加载并异步执行一段JavaScript代码。 |
-| void OH_NativeArkWeb_RegisterJavaScriptProxy(const char* webTag, const char* objName, const char** methodList,NativeArkWeb_OnJavaScriptProxyCallback* callback, int32_t size, bool needRefresh) | - | 注册对象及函数名称列表。 |
+| void OH_NativeArkWeb_RegisterJavaScriptProxy(const char* webTag, const char* objName, const char** methodList, NativeArkWeb_OnJavaScriptProxyCallback* callback, int32_t size, bool needRefresh) | - | 注册对象及函数名称列表。 |
 | void OH_NativeArkWeb_UnregisterJavaScriptProxy(const char* webTag, const char* objName) | - | 删除已注册的对象及其下的回调函数。 |
 | void OH_NativeArkWeb_SetJavaScriptProxyValidCallback(const char* webTag, NativeArkWeb_OnValidCallback callback) | - | 设置对象可注册时的回调函数。 |
 | NativeArkWeb_OnValidCallback OH_NativeArkWeb_GetJavaScriptProxyValidCallback(const char* webTag) | - | 获取已注册的对象可注册时的回调函数。 |
@@ -247,7 +247,7 @@ void OH_NativeArkWeb_RunJavaScript(const char* webTag, const char* jsCode, Nativ
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-void OH_NativeArkWeb_RegisterJavaScriptProxy(const char* webTag, const char* objName, const char** methodList,NativeArkWeb_OnJavaScriptProxyCallback* callback, int32_t size, bool needRefresh)
+void OH_NativeArkWeb_RegisterJavaScriptProxy(const char* webTag, const char* objName, const char** methodList, NativeArkWeb_OnJavaScriptProxyCallback* callback, int32_t size, bool needRefresh)
 ```
 
 **描述：**
@@ -419,7 +419,7 @@ NativeArkWeb_OnDestroyCallback OH_NativeArkWeb_GetDestroyCallback(const char* we
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-ArkWeb_ErrorCode OH_NativeArkWeb_LoadData(const char* webTag,const char* data,const char* mimeType,const char* encoding,const char* baseUrl,const char* historyUrl)
+ArkWeb_ErrorCode OH_NativeArkWeb_LoadData(const char* webTag, const char* data, const char* mimeType, const char* encoding, const char* baseUrl, const char* historyUrl)
 ```
 
 **描述：**
@@ -517,7 +517,7 @@ void OH_ArkWebCookieManager_SaveCookieAsync(OH_ArkWeb_OnCookieSaveCallback callb
 
 | 参数项 | 描述 |
 | --- | --- |
-| OH_ArkWeb_OnCookieSaveCallback* callback | 保存cookie完成后执行该回调。 |
+| OH_ArkWeb_OnCookieSaveCallback callback | 保存cookie完成后执行该回调。 |
 
 
 

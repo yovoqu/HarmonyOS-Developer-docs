@@ -1,6 +1,6 @@
 # 如何安装打包出来的App包（通过什么命令安装）
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-06-15 08:43:31（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-54
 

@@ -1,6 +1,6 @@
 # 订阅地址越界事件（C/C++）
 
-更新时间：2026-03-12 09:39:20
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-address-sanitizer-events-ndk
 
@@ -209,7 +209,7 @@ static napi_value RegisterWatcher(napi_env env, napi_callback_info info) {
 
 
 #### 步骤三：构造地址越界错误
-1. 编辑"napi_init.cpp"文件，定义Test方法, 方法中对一个整数数组进行越界访问：
+1. 编辑"napi_init.cpp"文件，定义Test方法，方法中对一个整数数组进行越界访问：
 
   
 ```text

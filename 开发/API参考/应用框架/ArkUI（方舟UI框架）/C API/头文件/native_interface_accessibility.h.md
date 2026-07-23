@@ -1,6 +1,6 @@
 # native_interface_accessibility.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-accessibility-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -77,7 +77,7 @@
 | 名称 | 描述 |
 | --- | --- |
 | int32_t OH_ArkUI_AccessibilityProviderRegisterCallback(ArkUI_AccessibilityProvider* provider, ArkUI_AccessibilityProviderCallbacks* callbacks) | 注册回调函数。 |
-| int32_t OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance(const char* instanceId,ArkUI_AccessibilityProvider* provider, ArkUI_AccessibilityProviderCallbacksWithInstance* callbacks) | 无障碍多实例场景第三方平台注册回调函数。 |
+| int32_t OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance(const char* instanceId,ArkUI_AccessibilityProvider* provider, ArkUI_AccessibilityProviderCallbacksWithInstance* callbacks) | 无障碍多实例场景第三方平台将回调函数注册到系统侧。 |
 | void OH_ArkUI_SendAccessibilityAsyncEvent(ArkUI_AccessibilityProvider* provider, ArkUI_AccessibilityEventInfo* eventInfo,void (*callback)(int32_t errorCode)) | 主动上报事件接口，通知无障碍服务。 |
 | ArkUI_AccessibilityElementInfo* OH_ArkUI_AddAndGetAccessibilityElementInfo(ArkUI_AccessibilityElementInfoList* list) | 在指定的list中增加element成员，并返回element结构。 |
 | int32_t OH_ArkUI_AccessibilityElementInfoSetElementId(ArkUI_AccessibilityElementInfo* elementInfo, int32_t elementId) | 为ArkUI_AccessibilityElementInfo设置无障碍元素的唯一标识（elementId）。 |
@@ -359,7 +359,7 @@ int32_t OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance(const char* i
 
 **描述：**
 
-无障碍多实例场景第三方平台注册回调函数。
+无障碍多实例场景第三方平台将回调函数注册到系统侧。
 
 **起始版本：** 15
 

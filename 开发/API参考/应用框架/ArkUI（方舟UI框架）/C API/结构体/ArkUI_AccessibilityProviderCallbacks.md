@@ -1,6 +1,6 @@
 # ArkUI_AccessibilityProviderCallbacks
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityprovidercallbacks
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -39,7 +39,7 @@ typedef struct {...} ArkUI_AccessibilityProviderCallbacks
 | int32_t (*findAccessibilityNodeInfosById)(int64_t elementId, ArkUI_AccessibilitySearchMode mode, int32_t requestId, ArkUI_AccessibilityElementInfoList* elementList) | 查询指定节点的节点信息。由接入方平台实现的回调函数，注册给系统侧调用。 |
 | int32_t (*findAccessibilityNodeInfosByText)(int64_t elementId, const char* text, int32_t requestId,ArkUI_AccessibilityElementInfoList* elementList) | 基于指定的节点，查询满足指定text内容的节点信息。由接入方平台实现的回调函数，注册给系统侧调用。 |
 | int32_t (*findFocusedAccessibilityNode)(int64_t elementId, ArkUI_AccessibilityFocusType focusType, int32_t requestId, ArkUI_AccessibilityElementInfo* elementInfo) | 从指定节点出发，根据焦点类型查找当前已获得焦点的节点，并将该节点元素信息返回。由接入方平台实现的回调函数，注册给系统侧调用。 |
-| int32_t (*findNextFocusAccessibilityNode)(int64_t elementId, ArkUI_AccessibilityFocusMoveDirection direction, int32_t requestId, ArkUI_AccessibilityElementInfo* elementInfo) | 根据参考节点查询下一个可以聚焦的节点。由接入方平台实现的回调函数，注册给系统侧调用。 |
+| int32_t (*findNextFocusAccessibilityNode)(int64_t elementId, ArkUI_AccessibilityFocusMoveDirection direction, int32_t requestId, ArkUI_AccessibilityElementInfo* elementInfo) | 根据参考节点和查找方向，查询下一个可以聚焦的节点。由接入方平台实现的回调函数，注册给系统侧调用。 |
 | int32_t (*executeAccessibilityAction)(int64_t elementId, ArkUI_Accessibility_ActionType action,ArkUI_AccessibilityActionArguments *actionArguments, int32_t requestId) | 在指定节点上执行Action操作。 |
 | int32_t (*clearFocusedFocusAccessibilityNode)() | 清除当前焦点节点的焦点状态。 |
 | int32_t (*getAccessibilityNodeCursorPosition)(int64_t elementId, int32_t requestId, int32_t* index) | 查询指定节点的当前光标位置。 |
@@ -162,7 +162,7 @@ int32_t (*findNextFocusAccessibilityNode)(int64_t elementId, ArkUI_Accessibility
  
 **描述：**
  
-根据参考节点查询下一个可以聚焦的节点。由接入方平台实现的回调函数，注册给系统侧调用。
+根据参考节点和查找方向，查询下一个可以聚焦的节点。由接入方平台实现的回调函数，注册给系统侧调用。
  
 **起始版本：** 13
  
@@ -173,7 +173,7 @@ int32_t (*findNextFocusAccessibilityNode)(int64_t elementId, ArkUI_Accessibility
 | int64_t elementId | 无障碍元素的唯一编号。 |
 | ArkUI_AccessibilityFocusMoveDirection direction | 表示查找方向。 |
 | int32_t requestId | 表示请求ID。 |
-| ArkUI_AccessibilityElementInfo* elementInfo | 查询到的无障碍元素信息。 |
+| ArkUI_AccessibilityElementInfo* elementInfo | 表示查询到的无障碍元素信息。 |
  
  
 **返回：**
@@ -195,7 +195,7 @@ int32_t (*executeAccessibilityAction)(int64_t elementId, ArkUI_Accessibility_Act
  
 **描述：**
  
-在指定的无障碍节点上执行无障碍Action操作。
+在指定节点上执行Action操作。
  
 **起始版本：** 13
  
@@ -206,7 +206,7 @@ int32_t (*executeAccessibilityAction)(int64_t elementId, ArkUI_Accessibility_Act
 | int64_t elementId | 无障碍元素的唯一编号。 |
 | ArkUI_Accessibility_ActionType action | 表示要执行的动作。 |
 | ArkUI_AccessibilityActionArguments *actionArguments | 表示动作的参数。 |
-| int32_t requestId | 表示请求的ID。 |
+| int32_t requestId | 表示请求ID。 |
  
  
 **返回：**
@@ -260,7 +260,7 @@ int32_t (*getAccessibilityNodeCursorPosition)(int64_t elementId, int32_t request
 | 参数项 | 描述 |
 | --- | --- |
 | int64_t elementId | 无障碍元素的唯一编号。 |
-| int32_t requestId | 表示请求的ID。 |
+| int32_t requestId | 表示请求ID。 |
 | int32_t* index | 表示光标位置的索引。 |
  
  

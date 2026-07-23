@@ -1,6 +1,6 @@
 # Health Service Kit简介
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-service-kit-ability
 
@@ -57,7 +57,7 @@ Health Service Kit（运动健康服务）是为华为生态应用打造的基�
 
 #### 支持的国家/地区
 
-仅支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
+Phone、Tablet仅支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
  
   
 

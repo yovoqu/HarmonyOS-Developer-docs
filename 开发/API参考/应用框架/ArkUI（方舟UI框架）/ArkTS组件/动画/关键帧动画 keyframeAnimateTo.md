@@ -1,11 +1,11 @@
 # 关键帧动画 (keyframeAnimateTo)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-keyframeanimateto
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-在[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中提供keyframeAnimateTo接口来指定若干个关键帧状态，实现分段的动画。同属性动画，布局类改变宽高的动画，内容都是直接到终点状态，例如文字、[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)的内容等，如果要内容跟随宽高变化，可以使用[renderFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-renderfit#renderfit)属性配置。
+在[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中提供keyframeAnimateTo接口来指定若干个关键帧状态，实现分段的动画。关键帧动画是通过若干个关键时刻的状态，将动画过程划分为多段，同一属性在动画过程内不是单调的从起点到终点的过渡，而可以是分段的过渡。同属性动画，布局类改变宽高的动画，内容都是直接到终点状态，例如文字、[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)的内容等，如果要内容跟随宽高变化，可以使用[renderFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-renderfit#renderfit)属性配置。
  
 > [!NOTE]
 > 从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 该接口为 UIContext 类的成员函数，需要通过UIContext实例对象调用。
@@ -39,7 +39,7 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | delay | number | 否 | 是 | 动画的整体延时时间，单位为ms（毫秒），默认不延时播放。 默认值：0 说明： delay>=0为延迟播放，delay<0表示提前播放。对于delay<0的情况：当delay的绝对值小于实际动画时长，动画将在开始后第一帧直接运动到delay绝对值的时刻的状态；当delay的绝对值大于等于实际动画时长，动画将在开始后第一帧直接运动到终点状态。其中实际动画时长等于单次动画时长乘以动画播放次数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| iterations | number | 否 | 是 | 动画播放次数。默认播放一次，设置为-1时表示无限次播放。设置为0时表示无动画效果。 默认值：1 取值范围：[-1, +∞) 说明： - 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| iterations | number | 否 | 是 | 动画播放次数。默认播放一次，设置为-1时表示无限次播放。设置为0时表示无动画效果。 默认值：1 取值范围：[-1, +∞) 说明： - 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。 - 设置小于-1的值时按-1处理，即无限次播放。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | onFinish | () => void | 否 | 是 | 动画播放完成回调。当keyframe动画所有次数播放完成后调用。在设置的开发者选项中关闭过渡动画，或UIAbility从前台切换至后台时会立即结束仍在播放中的有限循环keyframe动画，触发播放完成回调。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | expectedFrameRateRange19+ | ExpectedFrameRateRange | 否 | 是 | 设置动画的期望帧率。 默认值：{min:0, max:0, expected:0}，即跟随应用帧率。 说明： 开发者通过设置有效的期望帧率后，系统会收集设置的请求帧率，进行决策和分发，在渲染管线上进行分频，尽量能够满足开发者的期望帧率。开发者设置的期望帧率值不能代表最终实际效果，会受限于系统能力和屏幕刷新率。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
  
@@ -69,7 +69,7 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该示例主要演示如何通过keyframeAnimateTo来设置关键帧动画。
+该示例主要演示如何通过keyframeAnimateTo来设置关键帧动画，包括delay延时、onFinish结束回调以及各关键帧的curve曲线配置。
  
 ```ArkTS
 // xxx.ets
@@ -99,9 +99,13 @@ struct KeyframeDemo {
             return;
           }
           this.myScale = 1;
-          // 设置关键帧动画整体播放3次
+          // 设置关键帧动画整体播放3次，延时200ms，并在结束时触发onFinish回调
           this.uiContext.keyframeAnimateTo({
               iterations: 3,
+              delay: 200,
+              onFinish: () => {
+                console.info("keyframe animate finish");
+              },
               expectedFrameRateRange: {
                 min: 10,
                 max: 120,
@@ -109,15 +113,17 @@ struct KeyframeDemo {
               }
             }, [
             {
-              // 第一段关键帧动画时长为800ms，scale属性做从1到1.5的动画
+              // 第一段关键帧动画时长为800ms，使用EaseIn曲线，scale属性做从1到1.5的动画
               duration: 800,
+              curve: Curve.EaseIn,
               event: () => {
                 this.myScale = 1.5;
               }
             },
             {
-              // 第二段关键帧动画时长为500ms，scale属性做从1.5到1的动画
+              // 第二段关键帧动画时长为500ms，使用EaseOut曲线，scale属性做从1.5到1的动画
               duration: 500,
+              curve: Curve.EaseOut,
               event: () => {
                 this.myScale = 1;
               }
@@ -130,4 +136,4 @@ struct KeyframeDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/fQeVuaVvSRemrxn2N2Mxbg/zh-cn_image_0000002628702896.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=5EBE9504DF1E68323F293A74DF4203FDD2478C0203BFFB66F1A0223B98EE3DB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/C3Y9Epp3QLKMUbQtEA88Xw/zh-cn_image_0000002677827945.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=19CF750DB7FF27736178436AD95C29B7501487C4394190B935BCBAF34ADDA25F)

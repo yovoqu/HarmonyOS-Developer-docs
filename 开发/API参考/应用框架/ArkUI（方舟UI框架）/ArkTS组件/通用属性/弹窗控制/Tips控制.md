@@ -1,14 +1,14 @@
 # Tips控制
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-tips
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 为组件绑定Tips悬浮气泡，当鼠标悬浮在组件上时，自动显示提示信息；鼠标离开组件时，悬浮气泡自动隐藏。
  
-> [!NOTE]
-> 从API version 19开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 目前支持通过外接鼠标、手写笔以及触控板触发。
+> [!TIP]
+> 从API version 19开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。 Tips控制依赖设备可以触发 悬浮事件 ，对于无法触发 悬浮事件 的硬件设备无法使用Tips控制。
 
   
 
@@ -123,7 +123,7 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/tKio2CDbQ7aNhAV3G20-eQ/zh-cn_image_0000002659221593.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=CD1E56E75BAE0548E69AE0CA501ABD06525EC97DEFEAC3AEAF43F2E1FB546E71)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/ctfPEVY6SneXkVnd8Ar21w/zh-cn_image_0000002677827451.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011952Z&HW-CC-Expire=86400&HW-CC-Sign=B84BB871ED52DF351489A666A7AF128BBA9470EE7E0E598ABFD02F950FBB1BBA)
 
  
   
@@ -167,7 +167,7 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Fz4e8-ZWR76RTw8r1VNPdw/zh-cn_image_0000002628702402.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=432EABBD76E13568E7F67711AB2C1B2D3D3F7041BCA539A07A78B7CA3E74083D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/fMpT7kK6Td6Y5pjyv0hx_g/zh-cn_image_0000002677667603.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011952Z&HW-CC-Expire=86400&HW-CC-Sign=A92D7A14FD9F4885BF56F5D5E4707CDF9FD90F00BA7B62DF3FCC43878A226953)
 
  
   
@@ -206,10 +206,10 @@ struct TipsExample {
 未设置系统材质时：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/wUT7gzh_T26bTwHpQxrhNQ/zh-cn_image_0000002628860460.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=B53D1C711EAA6422A559F87DCE5A12AB17F87737ACAAC1080F090AF85A93E692)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/mbs5SR4ZQXCtJGFWsnbKXQ/zh-cn_image_0000002647585994.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011952Z&HW-CC-Expire=86400&HW-CC-Sign=83ADC05CE7B82355F787DA45B6A47681F8AD498A47AAD6D0022E27B85256C028)
 
  
 设置系统材质后：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/Co6tzLIkRpmM-t0NdYaPQg/zh-cn_image_0000002659219777.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014328Z&HW-CC-Expire=86400&HW-CC-Sign=8EBC105B5284D3E4BB2ACF695EADDF5D3440087D514C9A66AA2E0A59435D8097)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/I-NBGJNCTruKUJRZte1lwg/zh-cn_image_0000002677825635.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011952Z&HW-CC-Expire=86400&HW-CC-Sign=274669A2568FCF6715A7C6D8A79BD777B29B28342CF922B9F23BE9EA04E747D2)

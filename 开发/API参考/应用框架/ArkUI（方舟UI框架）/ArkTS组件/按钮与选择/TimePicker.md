@@ -1,6 +1,6 @@
 # TimePicker
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-timepicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -26,7 +26,7 @@
 
 TimePicker(options?: TimePickerOptions)
 
-创建滑动选择器，默认使用24小时的时间区间。
+创建时间选择器，默认使用24小时的时间区间。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -69,7 +69,7 @@ Date对象用于处理日期和时间，使用方式如下。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 设置日期格式。 number：毫秒，自1970年1月1日00:00:00开始的毫秒数。 string：时间格式的字符串，如‘2025-02-20 08:00:00’或‘2025-02-20T08:00:00’。 |
+| value | number \| string | 是 | 设置日期时间。 number：毫秒，自1970年1月1日00:00:00开始的毫秒数。 string：表示时间的字符串，如'2025-02-20 08:00:00'或'2025-02-20T08:00:00'。 |
 
 
 **方式3：** new Date(year: number, monthIndex: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number)
@@ -427,7 +427,7 @@ dateTimeOptions(timeFormat: Optional&lt;DateTimeOptions&gt;)
 
 enableHapticFeedback(enable: boolean)
 
-设置是否支持触控反馈。
+设置是否开启触控反馈。
 
 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
 
@@ -464,7 +464,7 @@ enableHapticFeedback(enable: boolean)
 
 enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
-设置是否支持触控反馈。与[enableHapticFeedback12+](#enablehapticfeedback12)相比，enable参数新增了对undefined类型的支持。
+设置是否开启触控反馈。与[enableHapticFeedback12+](#enablehapticfeedback12)相比，enable参数新增了对undefined类型的支持。
 
 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
 
@@ -724,7 +724,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/spQfaBErTTWSadoPAjNjGg/zh-cn_image_0000002628862452.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=AD2C9515BEDA9DDD3A05DD15C90D2175BA7258A4D738269337DA27919F58B1A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/8NtgrapIQJutg2ahlMCicw/zh-cn_image_0000002677827623.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=DCBD8D8E847BC58EE313F7655008CF2CC167129DF62246496DD332801B0DAE7C)
 
 
 
@@ -768,7 +768,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/flhA9j7LQjOmnFVqkqm-SQ/zh-cn_image_0000002659221765.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=B143A712C70E601392285178F93D1E788BC8902E6F71A1FB2E72A0BB49C2D581)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/QQM2ne7NRu6xcJPmev2NNQ/zh-cn_image_0000002677667775.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=C483B374097A96F792103421D56F85F6B8CD20B607D27A86F2950D7156D9E22F)
 
 
 
@@ -803,7 +803,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/XxQfFBNwSwmU8OKaIPb0sQ/zh-cn_image_0000002628702576.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=47075B2CC7DF87FB3B995BDD3AFE531E7B5C37CE0CE0A78C5DEF20A13F266140)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/4_RzeA6VT3WgsST3_a1yFA/zh-cn_image_0000002647747894.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=A3BD75B007A50729AA048773E258765C16BED577A2EE8E06177F4ECBA2355D2E)
 
 
 
@@ -848,7 +848,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/qEF5IHJ2QaeYWCmgji8RyA/zh-cn_image_0000002659101803.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=0331422683802BB7974B36ACA25377351347CB5BD5BA0325B6626A0E703F9E49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/IPIqUtsQRXWFCcxb8DJmLQ/zh-cn_image_0000002647587984.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=65460ACD1B7CF68A5BB9E8168C29632450D901C8BD40A97955A92793361044C4)
 
 
 
@@ -884,7 +884,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/sen7YL6aTla_fGWkbVTroA/zh-cn_image_0000002628862454.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=A947BDF510EA355ECF7218FCB4A9528268FA82EC4EAEF9BA54C1664D8A971B7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/E3sr9f2ATmm2M5Z0jqT8Hw/zh-cn_image_0000002677827625.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=F2FCF411845296BE69699FD0B9CD660EF065B6CA699824D133EC39D370113BAB)
 
 
 
@@ -920,7 +920,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/3Thc9mqcQjmn9kYHfxdb6A/zh-cn_image_0000002659221767.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=D9194E8166D458FCE860A9EFF2B56A7D8AB7351AFDC6D49541982034FCF17230)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/WIBb-ZgBQbu7UXsO4M9Whw/zh-cn_image_0000002677667777.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=1CC9D82E02BBAE97E2D63E2641A5AAB4440A3F80B4CCED5B103027A7A121D134)
 
 
 
@@ -957,4 +957,4 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/w5MpYUcJSO6P7aBkUhLk3g/zh-cn_image_0000002628702578.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=55F3B0580F96ACAB29646B3AE8CF40E0BDC945DA416306440520B6FD4616E0E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/fWNlG2oaTL6ERlJbeQDzEQ/zh-cn_image_0000002647747896.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=962335565FA78308E6AD5D1623004D41A0C7DDB9CA3DEBAE6BDC3357FD51CF08)

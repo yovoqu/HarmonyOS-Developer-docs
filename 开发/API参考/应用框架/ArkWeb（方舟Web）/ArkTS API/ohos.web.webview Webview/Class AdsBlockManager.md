@@ -1,11 +1,11 @@
 # Class (AdsBlockManager)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-AdsBlockManager是ArkWeb框架中用于管理Web组件广告过滤功能的类，提供对广告过滤规则的设置、域名黑白名单管理及过滤策略控制等能力。每个应用中的所有Web组件共享一个AdsBlockManager实例，开发者可通过该类向Web组件注入符合通用EasyList语法规则的广告过滤配置文件，并灵活控制特定网站的广告过滤启用状态。
+AdsBlockManager是ArkWeb框架中用于管理Web组件广告过滤功能的类，提供对广告过滤规则的设置、域名黑白名单管理及过滤策略控制等能力。每个应用中的所有Web组件共享一个AdsBlockManager静态类，开发者可通过该类向Web组件注入符合通用EasyList语法规则的广告过滤配置文件，并灵活控制特定网站的广告过滤启用状态。
 
 AdsBlockManager的核心机制基于域名后缀匹配的AllowedList/DisallowedList双层策略：DisallowedList用于禁用特定网站的广告过滤，而AllowedList具有更高优先级，可在DisallowedList的范围内重新开启部分子域名的广告过滤。广告过滤规则内部解析成功后会被持久化存储，应用重启后无需重复设置；而域名黑白名单不会持久化，应用重启后需重新配置。
 
@@ -30,7 +30,7 @@ import { webview } from '@kit.ArkWeb';
 
 static setAdsBlockRules(rulesFile: string, replace: boolean): void
 
-向Web组件中设置自定义的符合通用easylist语法规则的广告过滤配置文件。
+向Web组件中设置自定义的符合通用EasyList语法规则的广告过滤配置文件。
 
 > [!NOTE]
 > 此接口设置的广告过滤规则，内部解析成功后会持久化存储，应用重启后不需要重复设置。
@@ -42,7 +42,7 @@ static setAdsBlockRules(rulesFile: string, replace: boolean): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rulesFile | string | 是 | 指定了符合easylist通用语法的规则文件路径，应用需要有此文件的读权限。 |
+| rulesFile | string | 是 | 指定了符合EasyList通用语法的规则文件路径，应用需要有此文件的读权限。 |
 | replace | boolean | 是 | true表示强制替换掉内置的默认规则，false表示设置的自定义规则将与内置规则共同工作。 |
 
 
@@ -57,7 +57,7 @@ static setAdsBlockRules(rulesFile: string, replace: boolean): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例：**
@@ -67,7 +67,7 @@ static setAdsBlockRules(rulesFile: string, replace: boolean): void
 import { webview } from '@kit.ArkWeb';
 import { picker, fileUri } from '@kit.CoreFileKit';
 
-// 演示点击按钮，通过filepicker打开一个easylist规则文件并设置到Web组件中
+// 演示点击按钮，通过filepicker打开一个EasyList规则文件并设置到Web组件中
 @Entry
 @Component
 struct WebComponent {
@@ -134,7 +134,7 @@ static addAdsBlockDisallowedList(domainSuffixes: Array&lt;string&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例：**
@@ -222,7 +222,7 @@ static removeAdsBlockDisallowedList(domainSuffixes: Array&lt;string&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例：**
@@ -298,7 +298,7 @@ static clearAdsBlockDisallowedList(): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例：**
@@ -382,7 +382,7 @@ static addAdsBlockAllowedList(domainSuffixes: Array&lt;string&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例：**
@@ -432,7 +432,7 @@ struct WebComponent {
       }
       Web({ src: this.main_url, controller: this.controller })
         .onControllerAttached(()=>{
-          this.controller.enableAdsBlock(true)
+          this.controller.enableAdsBlock(true);
         })
     }
   }
@@ -473,7 +473,7 @@ static removeAdsBlockAllowedList(domainSuffixes: Array&lt;string&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例：**
@@ -549,7 +549,7 @@ static clearAdsBlockAllowedList(): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18+ |
 
 
 **示例：**

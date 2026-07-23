@@ -1,6 +1,6 @@
 # chart
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-chart
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,7 +42,7 @@
 | --- | --- | --- | --- | --- |
 | xAxis | ChartAxis | - | 是 | x轴参数设置。可以设置x轴最小值、最大值、刻度数以及是否显示。 |
 | yAxis | ChartAxis | - | 是 | y轴参数设置。可以设置y轴最小值、最大值、刻度数以及是否显示。 |
-| series | ChartAxis | - | 否 | 数据序列参数设置，仅线形图支持。可以设置： - 线的样式，如线宽、是否平滑。 - 线最前端位置白点的样式和大小。 - 最高点和最低点的样式和大小。 - 屏幕显示满时，是否需要重头开始绘制。 |
+| series | ChartSeries | - | 否 | 数据序列参数设置，仅线形图支持。可以设置： - 线的样式，如线宽、是否平滑。 - 线最前端位置白点的样式和大小。 |
  
  
  **表2** ChartDataset
@@ -382,4 +382,4 @@
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/WWTgE5qoTWarGLmqw4F1cQ/zh-cn_image_0000002659222497.png?HW-CC-KV=V1&HW-CC-Date=20260701T014405Z&HW-CC-Expire=86400&HW-CC-Sign=885CAF42D10560A4E9C1C4039B85370BDF2C7E1AA8F87ECAEA2891B23E071325)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/-mySa6lpQiWpwoK7_2dCjg/zh-cn_image_0000002647748666.png?HW-CC-KV=V1&HW-CC-Date=20260723T012003Z&HW-CC-Expire=86400&HW-CC-Sign=787F0A8EB498E1C883CD25FD9B5900A1C6640472BDAFF757474B6FC22F3BE549)

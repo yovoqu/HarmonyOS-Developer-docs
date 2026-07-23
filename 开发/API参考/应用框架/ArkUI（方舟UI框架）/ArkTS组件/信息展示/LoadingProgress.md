@@ -1,6 +1,6 @@
 # LoadingProgress
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -194,7 +194,7 @@ struct LoadingProgressExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/aVihjlrEQXKShr3fJvQDDQ/zh-cn_image_0000002659221971.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=0A014EDD5F9D66F53E374FB8D450B9358E5C48C0AEB836A60E98948E5C87ACF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/H00-ySnwSTeQakbTaHZgeg/zh-cn_image_0000002677667979.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=781D9A1891811C197869768ADBD63E02CCC53C2EA9FC8F9F136FEA7D15230336)
 
  
   
@@ -221,8 +221,6 @@ class MyLoadingProgressStyle implements ContentModifier<LoadingProgressConfigura
   }
 }
 
-let arr1: string[] =
-  ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'];
 let arr2: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 @Builder
@@ -338,7 +336,7 @@ struct LoadingProgressDemoExample {
         }.width('100%').margin({ top: 5 })
       }.height('85%')
 
-      Button('点击切换config.enableloading').onClick(() => {
+      Button('点击切换config.enableLoading').onClick(() => {
         this.clickFlag++;
         this.loadingProgressIndex = (this.loadingProgressIndex + 1) % this.loadingProgressList.length;
         console.info('enableLoading:' + this.loadingProgressList[this.loadingProgressIndex]);
@@ -350,4 +348,4 @@ struct LoadingProgressDemoExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/YeZNmrRgSMu9fZg2C6Q6uw/zh-cn_image_0000002628702780.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014342Z&HW-CC-Expire=86400&HW-CC-Sign=54A25C5DA26F4D9BCC8EF92C3FA701418855A431757B377C32D29BA0E0D260EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/qmuzUnhrTIC97Zwqwrezrg/zh-cn_image_0000002647748098.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=41B6F016F678ED7FF56AB2B8EB4EBBCD4670DB399313357388B36678DF35F3BA)

@@ -1,6 +1,6 @@
 # HdsNavigation
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -1618,6 +1618,8 @@ HdsNavigation标题栏动态显隐配置信息。
 
 **系统能力：** SystemCapability.UIDesign.HDSComponent.Core
 
+**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在PC/2in1设备调用时需先调用[getSystemMaterialTypes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#getsystemmaterialtypes)接口查询当前设备支持的材质能力。
+
 **起始版本：** 6.1.0(23)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -2013,7 +2015,7 @@ struct Index {
 ```
 
 
-![](assets/HdsNavigation/file-20260708103033eb0fe1ad.gif)
+![](assets/HdsNavigation/file-202607081030333c8af432.jpg)
 
 
 
@@ -2094,7 +2096,7 @@ struct Index {
 ```
 
 
-![](assets/HdsNavigation/file-202607081030337c7468b5.jpg)
+![](assets/HdsNavigation/file-20260708103033463529e1.gif)
 
 
 
@@ -2191,7 +2193,7 @@ struct SheetTransitionExample {
 ```
 
 
-![](assets/HdsNavigation/file-202607081030333c8af432.jpg)
+![](assets/HdsNavigation/file-202607081030337c7468b5.jpg)
 
 
 
@@ -2283,7 +2285,7 @@ struct Index {
 ```
 
 
-![](assets/HdsNavigation/file-20260708103034ebc2c528.gif)
+![](assets/HdsNavigation/file-20260708103033eb0fe1ad.gif)
 
 
 
@@ -2340,7 +2342,7 @@ struct MultiWindowEntryInAPPTest {
 ```
 
 
-![](assets/HdsNavigation/file-202607081030349e10819b.jpg)
+![](assets/HdsNavigation/file-202607081030340df8f30b.gif)
 
 
 
@@ -2411,7 +2413,7 @@ struct Index {
 ```
 
 
-![](assets/HdsNavigation/file-20260708103033463529e1.gif)
+![](assets/HdsNavigation/file-20260708103034617622df.gif)
 
 
 
@@ -2511,7 +2513,7 @@ struct Index {
 执行上述代码展示的效果如下。
 
 
-![](assets/HdsNavigation/file-20260708103034617622df.gif)
+![](assets/HdsNavigation/file-202607081030349e10819b.jpg)
 
 
 
@@ -2656,4 +2658,4 @@ struct NavigationExample2 {
 执行上述代码，效果展示如下。
 
 
-![](assets/HdsNavigation/file-202607081030340df8f30b.gif)
+![](assets/HdsNavigation/file-20260708103034ebc2c528.gif)

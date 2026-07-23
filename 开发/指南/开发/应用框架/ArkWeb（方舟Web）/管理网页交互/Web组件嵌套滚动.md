@@ -1,6 +1,6 @@
 # Web组件嵌套滚动
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-nested-scrolling
 
@@ -104,6 +104,16 @@ struct NestedScroll {
 
 ![](assets/Web组件嵌套滚动/file-20260514130836005-1.gif)
 
+
+
+
+#### 使用nestedScroll常见问题
+
+
+
+#### 在父组件优先滚动的场景中，当Web组件进行惯性滚动（抛滑）时，若父组件到达边界且未完全消耗滚动速度，会导致Web组件停止滚动
+
+该问题存在于API 26.0.0以下版本，已在API 26.0.0中修复。若需在低版本实现“父组件优先且不中断 Web 滚动”的效果，建议采用[方案2：滚动偏移量由滚动父组件统一派发](#滚动偏移量由滚动父组件统一派发)。
 
 
 
@@ -239,7 +249,7 @@ struct Index {
         this.isWebAtEnd = true;
       }
     } catch (err) {
-      console.error(`copyUrlPicToDir failed with error: ${err.code}, ${err.message}`);
+      console.error(`checkScrollBottom failed with error: ${err.code}, ${err.message}`);
     }
   }
 
@@ -341,7 +351,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/5f8QqUniSxGQtI3u5agFMQ/zh-cn_image_0000002626068844.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020808Z&HW-CC-Expire=86400&HW-CC-Sign=737756532D66D22BF4865E6CE6A6DBFDD678A4D631F1BFEAFC9B8A35D7C84A40)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/XCyVzCG9RLuU6pcdfNUvtg/zh-cn_image_0000002647586312.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012139Z&HW-CC-Expire=86400&HW-CC-Sign=C6333C3D6F20E4D22D547C9A0631960D4477F41DD59456A949F355CF8E2EDFD7)
 
 
 

@@ -1,6 +1,6 @@
 # AR Engine
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine
 **支持设备：** Phone | Tablet | TV
@@ -925,7 +925,7 @@ AR特性类别。
 
 | 枚举值 | 描述 |
 | --- | --- |
-| ARENGINE_FEATURE_TYPE_SLAM | 运动跟踪及平面识别特性。 |
+| ARENGINE_FEATURE_TYPE_SLAM | 运动跟踪、命中检测及平面识别特性。 |
 | ARENGINE_FEATURE_TYPE_DEPTH | 深度估计特性。 |
 | ARENGINE_FEATURE_TYPE_MESH | 环境Mesh识别特性。 |
 | ARENGINE_FEATURE_TYPE_IMAGE | 图像跟踪特性。 |
@@ -4490,7 +4490,7 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetRemoteSensorMode(const AREngine_ARSes
 
 **描述**
 
-设置预览更新模式。
+设置远程传感器模式。
 
 **设备行为差异：** 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用[HMS_AREngine_CheckSupported](#hms_arengine_checksupported)接口查询能力是否支持。
 

@@ -1,6 +1,6 @@
 # （可选）同步云端代码至DevEco Studio工程
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-harmonyos-clouddev-sync
 
@@ -117,7 +117,7 @@ DevEco Studio还支持您将AGC云端当前项目下的代码同步至本地工�
 1. 右击云开发工程（“CloudProgram”），选择“Sync Cloud Program”。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/bzsTZRwHQqS-8M7JbGO6dw/zh-cn_image_0000002214858849.png?HW-CC-KV=V1&HW-CC-Date=20260624T020702Z&HW-CC-Expire=86400&HW-CC-Sign=F2D795A9E6DA8C9277896A323F81C1B3DF8C0EFC2B635CE98E90FC3D1EA08469)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/-ClXWNRPSrmkTHr6zOPzsw/zh-cn_image_0000002214858849.png?HW-CC-KV=V1&HW-CC-Date=20260723T012114Z&HW-CC-Expire=86400&HW-CC-Sign=8840D791395327B4B5C914818584081E69F4961AB66F34D1B27E732A4CF7468D)
 
 2. 弹窗提示您本地工程下已存在同名对象类型/云函数/云对象。
 选择“Skip”，同步时将跳过本地同名对象类型/云函数/云对象。

@@ -1,6 +1,6 @@
 # ApplicationInfo
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,11 +35,11 @@
 | iconId | string | 是 | 否 | 应用程序图标的资源ID值。 |
 | process | string | 是 | 否 | 应用程序的进程名称。 |
 | supportedModes | number | 是 | 否 | 标识应用支持的运行模式，当前只定义了驾驶模式（drive）。该标签只适用于车机。 |
-| moduleSourceDirs | Array&lt;string&gt; | 是 | 否 | 应用程序的资源存放的相对路径。不能拼接路径访问资源文件，请使用资源管理接口访问资源。 |
+| moduleSourceDirs | Array&lt;string&gt; | 是 | 否 | 应用程序的资源存放的相对路径。不能拼接路径访问资源文件，请使用@ohos.resourceManager (资源管理)访问资源。 |
 | permissions | Array&lt;string&gt; | 是 | 否 | 访问应用程序所需的权限。 通过调用bundle.getApplicationInfo接口时，传入GET_APPLICATION_INFO_WITH_PERMISSION获取。 |
 | moduleInfos | Array&lt;ModuleInfo&gt; | 是 | 否 | 应用程序的模块信息。 |
-| entryDir | string | 是 | 否 | 应用程序的文件保存路径。不能拼接路径访问资源文件，请使用资源管理接口访问资源。 |
-| codePath8+ | string | 是 | 否 | 应用程序的安装目录。不能拼接路径访问资源文件，请使用资源管理接口访问资源。 |
+| entryDir | string | 是 | 否 | 应用程序的文件保存路径。不能拼接路径访问资源文件，请使用@ohos.resourceManager (资源管理)访问资源。 |
+| codePath8+ | string | 是 | 否 | 应用程序的安装目录。不能拼接路径访问资源文件，请使用@ohos.resourceManager (资源管理)访问资源。 |
 | metaData8+ | Map<string, Array&lt;CustomizeData&gt;> | 是 | 否 | 应用程序的自定义元信息。 通过调用bundle.getApplicationInfo接口时，传入GET_APPLICATION_INFO_WITH_METADATA获取。 |
 | removable8+ | boolean | 是 | 否 | 应用程序是否可以被移除，取值为true表示可以被移除，取值为false表示不可以被移除。 |
 | accessTokenId8+ | number | 是 | 否 | 应用程序的accessTokenId。 |

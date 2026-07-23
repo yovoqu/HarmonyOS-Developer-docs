@@ -1,6 +1,6 @@
 # ArkWeb组件安全开发
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-07-09 02:22:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkweb-component-security
 

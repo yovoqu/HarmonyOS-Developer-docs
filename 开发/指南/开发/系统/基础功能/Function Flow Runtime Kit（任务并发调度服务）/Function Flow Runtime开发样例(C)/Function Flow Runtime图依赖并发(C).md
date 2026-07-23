@@ -1,6 +1,6 @@
 # Function Flow Runtime图依赖并发(C)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-concurrency-graph-c
 
@@ -86,10 +86,10 @@ task5(OUT A);
 用户上传视频到流媒体平台，处理步骤包含：视频解析A、视频转码B、视频缩略图生成C、视频水印添加D和视频发布E，其中步骤B和步骤C可以并行执行。任务流程如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/KtOWLYvLRbWxI49K2zysrw/zh-cn_image_0000002656348449.png?HW-CC-KV=V1&HW-CC-Date=20260624T020851Z&HW-CC-Expire=86400&HW-CC-Sign=BEC7206C6E1E8BA30A34F38631E6CA6B6BD26BFAE911466C4F75BBD980C2E3E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/70NHB_y_Qoy-uIzH9r6J7g/zh-cn_image_0000002677826241.png?HW-CC-KV=V1&HW-CC-Date=20260723T012147Z&HW-CC-Expire=86400&HW-CC-Sign=80BC9EF05ED2684EC5AABE7A3B51AF4165A1562BB39A5C57AD406FA8A49E714C)
 
  
-借助FFRT提供了图依赖并发范式，可以描述任务依赖关系，同时并行化上述视频处理流程，代码如下所示：
+借助FFRT提供的图依赖并发范式，可以描述任务依赖关系，同时并行化上述视频处理流程，代码如下所示：
  
 ```cpp
 #include <cstdio>
@@ -264,7 +264,7 @@ Fibonacci(5) is 5
 各个任务在FFRT内部形成了一棵调用树：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/exf3TCiwQrCzr-G-aR1Tfg/zh-cn_image_0000002626229036.png?HW-CC-KV=V1&HW-CC-Date=20260624T020851Z&HW-CC-Expire=86400&HW-CC-Sign=7764D6DCC92972118074CE7603F0D2D85F9DEBAA657221EA898E4ABFDB126214)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/wz0KDOthQz65p4POgn0ExQ/zh-cn_image_0000002677666393.png?HW-CC-KV=V1&HW-CC-Date=20260723T012147Z&HW-CC-Expire=86400&HW-CC-Sign=BED5CCA36E6F57257FD31512156324FBF397469DE07AF50DF9BE8F6B9999B7C2)
 
  
   

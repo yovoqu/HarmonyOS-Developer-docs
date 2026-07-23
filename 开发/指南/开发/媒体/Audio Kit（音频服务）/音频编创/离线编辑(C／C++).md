@@ -1,6 +1,6 @@
 # 离线编辑(C/C++)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-manual-rendering
 
@@ -137,14 +137,24 @@ OH_AudioSuiteNodeBuilder_SetRequestDataCallback(nodeBuilder, InputNodeWriteDataC
 // 创建输入节点。
 OH_AudioSuiteEngine_CreateNode(audioSuiteEngine, nodeBuilder, &nodes.inputNode);
 
-// 重置构造器配置并设置为均衡器节点类型。
+// 重置构造器配置，创建效果节点。
 OH_AudioSuiteNodeBuilder_Reset(nodeBuilder);
-OH_AudioSuiteNodeBuilder_SetNodeType(nodeBuilder, OH_AudioNode_Type::EFFECT_NODE_TYPE_EQUALIZER);
-// 创建均衡器节点。
-OH_AudioSuiteEngine_CreateNode(audioSuiteEngine, nodeBuilder, &nodes.eqNode);
-// 设置均衡器节点效果为默认。
-OH_AudioSuiteEngine_SetEqualizerFrequencyBandGains(nodes.eqNode, OH_EQUALIZER_PARAM_DEFAULT);
+// 可根据需要设置不同的效果节点类型。
+```
+设置均衡器效果。
 
+  
+```cpp
+// 设置为均衡器节点类型。
+OH_AudioSuiteNodeBuilder_SetNodeType(builder, OH_AudioNode_Type::EFFECT_NODE_TYPE_EQUALIZER);
+// 创建均衡器节点。
+OH_AudioSuiteEngine_CreateNode(pipeline, builder, node);
+// ...
+// 设置均衡器节点效果。
+OH_AudioSuiteEngine_SetEqualizerFrequencyBandGains(*node, gains);
+```
+
+```cpp
 // 重置构造器配置并设置为输出节点类型。
 OH_AudioSuiteNodeBuilder_Reset(nodeBuilder);
 OH_AudioSuiteNodeBuilder_SetNodeType(nodeBuilder, OH_AudioNode_Type::OUTPUT_NODE_TYPE_DEFAULT);

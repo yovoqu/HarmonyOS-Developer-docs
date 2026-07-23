@@ -1,6 +1,6 @@
 # ScenePostProcessSettings
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-post-process-settings
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -17,7 +17,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSettings } from '@kit.ArkGraphics3D';
+import { ToneMappingType, ToneMappingSettings, BloomSettings, VignetteSettings, ColorFringeSettings, PostProcessSettings } from '@kit.ArkGraphics3D';
 ```
  
   

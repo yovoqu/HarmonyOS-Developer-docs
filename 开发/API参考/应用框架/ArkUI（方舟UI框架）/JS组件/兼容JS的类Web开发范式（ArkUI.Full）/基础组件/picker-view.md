@@ -1,6 +1,6 @@
 # picker-view
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-picker-view
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -69,8 +69,8 @@
 | start | &lt;time&gt; | 1970-1-1 | 否 | 设置日期选择器的起始时间，格式为 YYYY-MM-DD。 |
 | end | &lt;time&gt; | 2100-12-31 | 否 | 设置日期选择器的结束时间，格式为 YYYY-MM-DD。 |
 | selected | string | 当前日期 | 否 | 设置日期选择器的默认选择值，格式为 YYYY-MM-DD。 |
-| lunar5+ | boolean | false | 否 | 设置日期选择器界面是否为农历展示。 默认值：false，表示设置日期选择器界面为公历展示。 |
-| lunarswitch | boolean | false | 否 | 设置日期选择器是否显示农历开关，显示农历开关时，可以在界面通过农历开关进行公历和农历切换。在设置显示农历时，开关状态为开，当设置不显示农历时，开关状态为关。 |
+| lunar5+ | boolean | false | 否 | 设置日期选择器是否为农历展示。 默认值：false，表示设置日期选择器为公历展示。 |
+| lunarswitch | boolean | false | 否 | 设置日期选择器是否显示农历开关，显示农历开关时，可以通过农历开关进行公历和农历切换。在设置显示农历时，开关状态为开，当设置不显示农历时，开关状态为关。 |
  
  
   
@@ -83,8 +83,8 @@
 | --- | --- | --- | --- | --- |
 | selected | string | 当前日期时间 | 否 | 设置日期时间选择器的默认取值，格式有两种，为月日时分MM-DD-HH-mm或者年月日时分YYYY-MM-DD-HH-mm，不设置年时，默认使用当前年，该取值表示选择器界面的默认选择值。 |
 | hours | number | 241-4 -5+ | 否 | 设置日期时间选择器采用的时间格式，可选值： - 12：按照12小时制显示，用上午和下午进行区分； - 24：按照24小时制显示。 从API version 5开始，默认值会依据系统当前所选地区和语言选择当地习惯的小时制(12小时制或24小时制)。 |
-| lunar5+ | boolean | false | 否 | 设置日期时间选择器界面是否为农历展示。 默认值：false，表示设置日期选择器界面为公历展示。 |
-| lunarswitch | boolean | false | 否 | 设置日期时间选择器是否显示农历开关，显示农历开关时，可以在界面展现农历开关以便公历和农历切换。在设置显示农历时，开关状态为开，当设置不显示农历时，开关状态为关。 |
+| lunar5+ | boolean | false | 否 | 设置日期时间选择器是否为农历展示。 默认值：false，表示设置日期时间选择器为公历展示。 |
+| lunarswitch | boolean | false | 否 | 设置日期时间选择器是否显示农历开关，显示农历开关时，可以展现农历开关以便公历和农历切换。在设置显示农历时，开关状态为开，当设置不显示农历时，开关状态为关。 |
  
  
   
@@ -96,7 +96,7 @@
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | columns | number | - | 是 | 设置多列文本选择器的列数。 |
-| range | 二维Array | - | 否 | 设置多列文本选择器的选择值，该值为二维数组。长度表示多少列，数组的每项表示每列的数据，如 [["a","b"], ["c","d"]]。 使用时需要使用数据绑定的方式range ={{data}}，js中声明相应变量data：["15","20","25"]。 |
+| range | 二维Array | - | 否 | 设置多列文本选择器的选择值，该值为二维数组。长度表示多少列，数组的每项表示每列的数据，如 [["a","b"], ["c","d"]]。 使用时需要使用数据绑定的方式range ={{data}}，js中声明相应变量data：[["a","b"], ["c","d"]]。 |
 | selected | Array | [0,0,0,…] | 否 | 设置多列文本选择器的默认值，每一列被选中项对应的索引构成的数组，该取值表示选择器界面的默认选择值。 |
  
  
@@ -457,4 +457,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/JrYk0nKdTz2mcuUbss5d8w/zh-cn_image_0000002628862952.png?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=855BB8975F2F838601077B380B55D82E2AF19119F7FD877032814ED4DC51C922)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/pYjK0YsJSre8P-qgQwibcg/zh-cn_image_0000002677668317.png?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=C88070BA5F2E6BA9D65703E4D0E0DD3B9EFA264D42B87937F25DD4D8F9B741FC)

@@ -1,6 +1,6 @@
 # XComponent组件错误码
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-xcomponent
 
@@ -9,11 +9,11 @@
 
 
 
-#### 103501 XComponent状态异常
+#### 103501 XComponent无效状态
 
 **错误信息**
 
-XComponent is in invalid state.
+当前XComponent处于无效状态，方法调用失败。
 
 **错误描述**
 

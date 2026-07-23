@@ -1,6 +1,6 @@
 # arViewController（AR场景管理能力）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller
 **支持设备：** Phone | Tablet | TV
@@ -727,7 +727,7 @@ context.transformPose(pose, rot);
 
 loadGSModel(resourcePath: spatialRender.GSImportSettings, location: arEngine.ARPose): Promise&lt;number&gt;
 
-在指定的关键点处放置3DGS模型。使用Promise异步回调。
+加载3DGS模型。每次会话只能加载一个模型。使用Promise异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

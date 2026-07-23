@@ -1,6 +1,6 @@
 # 栅格布局 (GridRow/GridCol)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout
 
@@ -82,7 +82,7 @@ breakpoints: {value: ['320vp', '600vp', '840vp', '1440vp']} // 表示xs、sm、m
 @Entry
 @Component
 struct WindowRefGridLayout {
-  @State currentBp: string = "unknown"
+  @State currentBp: string = 'unknown'
   @State bgColors: ResourceColor[] =
     ['rgb(213,213,213)', 'rgb(150,150,150)', 'rgb(0,74,175)', 'rgb(39,135,217)', 'rgb(61,157,180)', 'rgb(23,169,141)',
       'rgb(255,192,0)', 'rgb(170,10,33)'];
@@ -438,7 +438,7 @@ struct SpanNumberExample {
 @Entry
 @Component
 struct SpanColumnOptionExample {
-  @State currentBp: string = "unknown"
+  @State currentBp: string = 'unknown'
   @State bgColors: ResourceColor[] =
     ['rgb(213,213,213)', 'rgb(150,150,150)', 'rgb(0,74,175)', 'rgb(39,135,217)', 'rgb(61,157,180)', 'rgb(23,169,141)',
       'rgb(255,192,0)', 'rgb(170,10,33)'];
@@ -525,7 +525,7 @@ struct OffsetNumberExample {
 @Entry
 @Component
 struct OffsetColumnOptionExample {
-  @State currentBp: string = "unknown"
+  @State currentBp: string = 'unknown'
   @State bgColors: ResourceColor[] =
     ['rgb(213,213,213)', 'rgb(150,150,150)', 'rgb(0,74,175)', 'rgb(39,135,217)', 'rgb(61,157,180)', 'rgb(23,169,141)',
       'rgb(255,192,0)', 'rgb(170,10,33)'];

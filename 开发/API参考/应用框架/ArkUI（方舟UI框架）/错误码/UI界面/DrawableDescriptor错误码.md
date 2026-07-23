@@ -1,6 +1,6 @@
 # DrawableDescriptor错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drawable-descriptor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@
 
 
 
-#### 111001 内部错误
+#### 111001 资源加载失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

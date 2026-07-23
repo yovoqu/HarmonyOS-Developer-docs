@@ -1,6 +1,6 @@
 # SVG标签说明
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-svg
 
@@ -17,7 +17,7 @@ SVG（Scalable Vector Graphics）是可缩放矢量图形，它是一种基于XM
   
 | 元素 | 说明 | 特有属性 |
 | --- | --- | --- |
-| &lt;rect&gt; | 矩形 | x：x轴方向偏移分量； y：y轴方向偏移分量； width：宽度； height：高度； rx：圆角x轴半径； ry：圆角y轴半径。 |
+| &lt;rect&gt; | 矩形 | x：矩形左上角的x轴坐标； y：矩形左上角的y轴坐标； width：宽度； height：高度； rx：圆角x轴半径； ry：圆角y轴半径。 |
 | &lt;circle&gt; | 圆形 | cx：圆心x轴坐标； cy：圆心y轴坐标； r：圆形半径。 |
 | &lt;ellipse&gt; | 椭圆 | cx：x轴坐标； cy：y轴坐标； rx：x轴半径； ry：y轴半径。 |
 | &lt;line&gt; | 线 | x1：起点x轴坐标； y1：起点y轴坐标； x2：终点x轴坐标； y2：终点y轴坐标。 |
@@ -120,7 +120,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/2EzPuzkqQMarR-azCwGD2g/zh-cn_image_0000002592380250.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=4AA229EB7A66BAC6E51F0D4D9895745DE6869EC7DF73EAD56FADFEA2BA5918ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/6-gvDwb9Tz6RirO2UJIyDg/zh-cn_image_0000002647748036.png?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=98E928532332AA9BF6320FAF7528D5EA482CBE8B5B822C3BC5614B69BA0911CB)
 
  
   
@@ -229,7 +229,7 @@ struct Index {
   
 | 元素 | 说明 | 特有属性 | 通用属性 |
 | --- | --- | --- | --- |
-| &lt;svg&gt; | 容器，定义个svg片段 | x：x轴偏移分量； y：y轴偏移分量； width：宽度； height：高度； viewBox：视口 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |
+| &lt;svg&gt; | 容器，定义一个svg片段 | x：x轴偏移分量； y：y轴偏移分量； width：宽度； height：高度； viewBox：视口 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |
 | &lt;g&gt; | 分组 | width：宽度； height：高度。 x、y轴偏移分量：可通过transform属性的translate(x, y)实现，参考SVG标签解析能力增强。 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |
 | &lt;use&gt; | 复用已有元素 | x：x轴偏移分量； y：y轴偏移分量； href：目标元素 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |
 | &lt;defs&gt; | 定义可复用对象 | 无特有属性 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |

@@ -1,6 +1,6 @@
 # @ohos.security.asset (关键资产存储服务)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -616,6 +616,7 @@ batchUpdate(sourceAttributes: Array&lt;AssetMap&gt;, destAttributes: Array&lt;As
 | 24000010 | IPC failed. |
 | 24000011 | Calling the Bundle Manager service failed. |
 | 24000012 | Calling the OS Account service failed. |
+| 24000013 | Calling the Access Token service failed. |
 | 24000015 | Getting the system time failed. |
 | 24000019 | Each value of Tag.GROUP_ID and Tag.REQUIRE_ATTR_ENCRYPTED in the array is not consistent. |
 

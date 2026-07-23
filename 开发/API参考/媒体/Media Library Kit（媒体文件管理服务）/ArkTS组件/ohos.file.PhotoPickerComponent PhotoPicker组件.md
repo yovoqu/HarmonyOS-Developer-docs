@@ -1,13 +1,13 @@
 # @ohos.file.PhotoPickerComponent (PhotoPicker组件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用可以在布局中嵌入PhotoPicker组件，通过此组件，应用无需申请权限，即可实现媒体文件选择功能。在用户选择媒体文件后，应用即可访问用户选中的图片或视频文件。仅包含读权限。
 
-需要注意的是PhotoPickerComponent不能嵌套使用，且不建议在PhotoPickerComponent上覆盖设置了overlay属性的组件，将导致PhotoPickerComponent无法接受手势事件。
+请注意PhotoPickerComponent不支持嵌套，且不应在其上覆盖设置overlay属性或更高层级组件，以免导致手势事件失效。
 
 应用嵌入组件后，用户可直接在PhotoPicker组件中选择图片或视频文件。
 
@@ -116,7 +116,7 @@ Picker配置选项，继承自[photoAccessHelper.BaseSelectOptions](https://deve
 | pickerIndex21+ | number | 否 | 是 | 通过设置唯一序号来区分不同的pickerComponent。默认值为-1，-1时不做区分。 元服务API： 从API version 21开始，该接口支持在元服务中使用。 |
 | preselectedInfos21+ | Array&lt;PreselectedInfo&gt; | 否 | 是 | 支持在指定pickerIndex的PhotoPickerComponent中回显用户已选择的数据。 元服务API： 从API version 21开始，该接口支持在元服务中使用。 |
 | badgeConfig21+ | BadgeConfig | 否 | 是 | 支持配置特殊角标显示。Picker目前仅支持一种类型的角标，详见BadgeType。 元服务API： 从API version 21开始，该接口支持在元服务中使用。 |
-| isSlidingSupported23+ | boolean | 否 | 是 | 是否屏蔽PhotoPickerComponent的滚动。true表示不屏蔽滚动事件，响应用户滚动。false表示屏蔽滚动事件，不响应用户滚动。 默认为true。 模型约束：此接口仅可在Stage模型下使用。 元服务API：从API version 23开始，该接口支持在元服务中使用。 |
+| isSlidingSupported23+ | boolean | 否 | 是 | 是否屏蔽PhotoPickerComponent的滚动。true表示不屏蔽滚动事件，响应用户滚动。false表示屏蔽滚动事件，不响应用户滚动。 默认为true。 注意： 当isSlidingSupported设为false时，宫格缩略图将不响应用户点击查看大图的操作。 模型约束：此接口仅可在Stage模型下使用。 元服务API：从API version 23开始，该接口支持在元服务中使用。 |
 | edgeEffect23+ | EdgeEffect | 否 | 是 | Picker宫格页滑动到边缘处的滑动效果。 默认为EdgeEffect.Spring。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API version 23开始，该接口支持在元服务中使用。 |
 | appAlbumFilters23+ | Array&lt;string&gt; | 否 | 是 | 仅显示与指定bundle name对应的相册内容。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API version 23开始，该接口支持在元服务中使用。 |
 | backgroundOpacity24+ | number | 否 | 是 | 支持配置picker背景透明度。取值范围为[0, 1]，0表示完全透明，1表示完全不透明。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API version 24开始，该接口支持在元服务中使用。 |
@@ -541,7 +541,7 @@ setData(dataType: DataType, data: Object): void
 
 addData(dataType: DataType, data: Object): void
 
-应用可通过该接口向picker组件发送增加配置数据。通过[DataType](#datatype)来区分具体发送的数据类型，该方法仅支持SET_BADGE_CONFIGS类型。
+应用可通过该接口向picker组件发送增加配置数据。通过[DataType](#datatype)来区分具体发送的数据类型。在API version 23之前，该方法仅支持SET_BADGE_CONFIGS类型。
 
 **元服务API**：从API version 21开始，该接口支持在元服务中使用。
 
@@ -798,7 +798,7 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 23800151 | Scene parameters validate failed, possible causes: 1. An invalid enumeration value was passed. Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration |
+| 23800151 | Scene parameters validate failed, possible causes: 1. An invalid enumeration value was passed. Only MOVING_PHOTO_ENABLED and MOVING_PHOTO_DISABLED are supported for configuration |
 | 23800202 | Invalid call context. Possible causes: 1. The API is called outside the photo browsing scenario. 2. The API is called when isMovingPhotoBadgeShown is already set to true. |
 
 

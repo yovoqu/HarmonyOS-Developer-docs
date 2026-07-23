@@ -1,6 +1,6 @@
 # marquee开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-marquee
 
@@ -38,7 +38,7 @@ marquee为跑马灯组件，用于展示一段单行滚动的文字。具体用�
 
 #### 设置属性和样式
 
-marquee通过color和font-weight属性设置跑马灯中文本的颜色、字体粗细和边框样式。
+marquee通过color和font-weight属性设置跑马灯中文本的颜色和字体粗细，通过border属性设置边框样式。
 
 ```text
 <!-- xxx.hml -->
@@ -237,4 +237,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/xIwNkxhVRB6zGs2ALeqFnw/zh-cn_image_0000002611754129.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030426Z&HW-CC-Expire=86400&HW-CC-Sign=3DE2C10F93659F49F4CD13D7E069307C2D988BA7B1152A8AB855D5D27E8F9E4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/qX31HLixRx-rqtcNhcrVcg/zh-cn_image_0000002677825853.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012138Z&HW-CC-Expire=86400&HW-CC-Sign=5BD3636CB4DA091FEACEFD48927808B24FF87E6122A879C0C818CF471A0D43E0)

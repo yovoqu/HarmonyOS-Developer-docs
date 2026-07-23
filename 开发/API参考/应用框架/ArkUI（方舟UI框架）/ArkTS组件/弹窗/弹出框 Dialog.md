@@ -1,6 +1,6 @@
 # 弹出框 (Dialog)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -104,7 +104,7 @@ ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?:
 | controller | CustomDialogController | 是 | - | 确认弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | title | ResourceStr | 是 | - | 确认弹出框标题。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | content | ResourceStr | 否 | - | 确认弹出框内容。 默认不设置或设置为undefined，确认弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| checkTips | ResourceStr | 否 | - | checkbox的提示内容。 默认不设置或设置为undefined，checkbox的提示内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| checkTips | ResourceStr | 否 | - | checkbox的提示内容。 默认不设置或设置为undefined，checkbox的提示内容不显示。 说明： 当提示内容不设置时，checkbox也会显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | isChecked | boolean | 否 | @Prop | value为true时，表示checkbox已选中，value为false时，表示未选中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onCheckedChange12+ | Callback&lt;boolean&gt; | 否 | - | checkbox的选中状态改变事件回调。回调参数类型为boolean，true表示checkbox已选中，false表示checkbox未选中。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | primaryButton | ButtonOptions | 否 | - | 确认弹出框左侧按钮。 默认不设置或设置为undefined，确认弹出框左侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -678,7 +678,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/rhYi3gP-TrO4KAVS7rw0Gg/zh-cn_image_0000002659102171.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=88A7DA8AFA3E11F9050F1E40AF73CC831F8BB8EFF6BF1ADEECB9576DE986120D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/XN_L2rPFRNaqSwjtsE_sIg/zh-cn_image_0000002647748270.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=1311DF830FE417BF7E1B853062E54B63E25EBF09FA04A5BE6250BDD2F3079396)
 
 
 
@@ -741,7 +741,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/gYd8y6qfRaq4pmjGZMNneg/zh-cn_image_0000002628862824.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=8EA2A31830864BD771D4024848A27D8C83E7D18C7F1D4183706A4DCCFD3E3818)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/7_WJ5H1pSdyd2SpLCMgFpg/zh-cn_image_0000002647588362.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=65473484F5B39CC6BBE92321CFFABC21040BE3A191B48183165FD3D862A6177D)
 
 
 
@@ -806,7 +806,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/g2_N97obS7WhrVQu6OrYrQ/zh-cn_image_0000002659222137.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=CD4543FE815D3CF06FDF9DB210CC939ACD318667ED06241B42F37EC60F6C29C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/CZah1d-YTQGpzoYA4fP1Tw/zh-cn_image_0000002677828001.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=1D6507F333AB3F63521BDD27604D34DE63A34DB2F946F3CDCD4BE3539590F619)
 
 
 
@@ -862,4 +862,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/umYxgHPcRtaaK-DJYk_9AA/zh-cn_image_0000002628702946.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=27105FB18724A8B6CFE825F2F4737F22E3303B2C2D9344493E2D0EA628880EEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/Pt4mxWvpT8S4A7Rje-p1kA/zh-cn_image_0000002677668155.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=C1498CEDD7865506D55EDDECAE2B6C7410B1524F4766560FA3AECDFD8DCC9EF8)

@@ -1,6 +1,6 @@
 # 创建轮播 (Swiper)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-looping
 
@@ -26,29 +26,29 @@ Swiper作为一个容器组件，如果设置了自身尺寸属性，则在轮�
 
 ```ArkTS
 Swiper() {
-    Text('0')
-      .width('90%')
-      .height('100%')
-      .backgroundColor(Color.Gray)
-      .textAlign(TextAlign.Center)
-      .fontSize(30)
+  Text('0')
+    .width('90%')
+    .height('100%')
+    .backgroundColor(Color.Gray)
+    .textAlign(TextAlign.Center)
+    .fontSize(30)
 
-    Text('1')
-      .width('90%')
-      .height('100%')
-      .backgroundColor(Color.Green)
-      .textAlign(TextAlign.Center)
-      .fontSize(30)
+  Text('1')
+    .width('90%')
+    .height('100%')
+    .backgroundColor(Color.Green)
+    .textAlign(TextAlign.Center)
+    .fontSize(30)
 
-    Text('2')
-      .width('90%')
-      .height('100%')
-      .backgroundColor(Color.Pink)
-      .textAlign(TextAlign.Center)
-      .fontSize(30)
-  }
-// ···
-  .loop(true)
+  Text('2')
+    .width('90%')
+    .height('100%')
+    .backgroundColor(Color.Pink)
+    .textAlign(TextAlign.Center)
+    .fontSize(30)
+}
+// ...
+.loop(true)
 ```
 
 

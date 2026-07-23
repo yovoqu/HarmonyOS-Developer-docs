@@ -1,6 +1,6 @@
 # DialogV2
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialogv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -127,7 +127,7 @@ ConfirmDialogV2({title: ResourceStr, content?: ResourceStr, checkTips?: Resource
 | --- | --- | --- | --- | --- |
 | title | ResourceStr | 是 | @Param @Require | 确认弹出框标题。 说明： 标题超过两行会显示“...”。 |
 | content | ResourceStr | 否 | @Param | 确认弹出框内容。 默认不显示。 |
-| checkTips | ResourceStr | 否 | @Param | checkbox的提示内容。 默认不显示。 |
+| checkTips | ResourceStr | 否 | @Param | checkbox的提示内容。 默认不显示。 说明： 当提示内容不设置时，checkbox也会显示。 |
 | checked | boolean | 否 | @Param | checked为true时，表示checkbox已选中，为false时，表示未选中。 默认值：false |
 | onCheckedChange | AdvancedDialogV2OnCheckedChange | 否 | @Param | checkbox的选中状态改变事件。 默认无事件。 |
 | primaryButton | AdvancedDialogV2Button | 否 | @Param | 确认弹出框左侧按钮。 默认不显示。 |
@@ -747,7 +747,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/he1bVUymTiWrzYdQR5OROA/zh-cn_image_0000002628862856.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=6BBD29DD94431E03FD3A83CE4F2772C7B118F5BC09E7F1F8E3E74107C3DCA226)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/LBfSPIFESLuSG2_6JKPy6w/zh-cn_image_0000002647588408.png?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=10D521C54ABE3F0CB5BD7EE0FD5321B2FBCA73795F42DB376EEEFAC5B37E4FE0)
 
 
 
@@ -811,7 +811,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/DtHen6_pQv6E_sSapbh8uA/zh-cn_image_0000002659222169.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=EC967CA2A194B2C5119A4BA1EA16A6A34B2F30C0EFA1F5C2BE3CC5C307DA6E68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/NozEajAHSYeqW6SzZviS9A/zh-cn_image_0000002677828047.png?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=287211393981E9561F5CCD7F08841E6A6C287297097F8B5CAD893EF2BDBB4A6B)
 
 
 
@@ -872,4 +872,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/BwXWbe2nSZysRtVRn9-LIA/zh-cn_image_0000002628702978.png?HW-CC-KV=V1&HW-CC-Date=20260701T014353Z&HW-CC-Expire=86400&HW-CC-Sign=F50B32FA4C722BB254DDA94106817F012673D14108D3BACC8484ACBD40007637)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/wa9iNankRGyXgQRSToedtg/zh-cn_image_0000002677668201.png?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=90803AF7F29938672CD97BB881B7C77D7F1D22D4002BD509CB46AD93B0F25F8D)

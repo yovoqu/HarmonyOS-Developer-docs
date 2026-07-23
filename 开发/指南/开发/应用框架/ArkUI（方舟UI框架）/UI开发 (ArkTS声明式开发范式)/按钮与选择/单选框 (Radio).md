@@ -1,6 +1,6 @@
 # 单选框 (Radio)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-radio-button
 
@@ -40,15 +40,15 @@ Radio({ value: 'Radio2', group: 'radioGroup' })
 Radio({ value: 'Radio1', group: 'radioGroup' })
   .onChange((isChecked: boolean) => {
     if(isChecked) {
-      //需要执行的操作
-      // ···
+      // 需要执行的操作
+      // ...
     }
   })
 Radio({ value: 'Radio2', group: 'radioGroup' })
   .onChange((isChecked: boolean) => {
     if(isChecked) {
-      //需要执行的操作
-      // ···
+      // 需要执行的操作
+      // ...
     }
   })
 ```

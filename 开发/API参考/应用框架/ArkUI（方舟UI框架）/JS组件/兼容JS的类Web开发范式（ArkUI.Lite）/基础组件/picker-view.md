@@ -1,6 +1,6 @@
 # picker-view
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-picker-view
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -81,7 +81,7 @@ type=time：
 | selected-color | &lt;color&gt; | #ffffff | 否 | 选中项字体颜色。 |
 | selected-font-size | &lt;length&gt; | 38px | 否 | 选中项字体尺寸，类型length，单位px。 |
 | selected-font-family | string | HYQiHei-65S | 否 | 选中项字体类型。 |
-| font-family | string | HYQiHei-65S | 否 | 选项字体类型。 |
+| font-family | string | HYQiHei-65S | 否 | 候选项字体类型。 |
 | width | &lt;length&gt; \| &lt;percentage&gt;5+ | - | 否 | 设置组件自身的宽度。 未设置时组件宽度默认为0。 |
 | height | &lt;length&gt; \| &lt;percentage&gt;5+ | - | 否 | 设置组件自身的高度。 未设置时组件高度默认为0。 |
 | padding | &lt;length&gt; | 0 | 否 | 使用简写属性设置所有的内边距属性。 该属性可以有1到4个值： - 指定一个值时，该值指定四个边的内边距。 - 指定两个值时，第一个值指定上下两边的内边距，第二个指定左右两边的内边距。 - 指定三个值时，第一个指定上边的内边距，第二个指定左右两边的内边距，第三个指定下边的内边距。 - 指定四个值时分别为上、右、下、左边的内边距（顺时针顺序）。 |
@@ -180,4 +180,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/bqjltzmDRG-lCbAhUJCNTA/zh-cn_image_0000002626231110.png?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=C43D7B299F83BC1E335B7195658FC960A13CA18375FB41440A35A7144FCADD6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/gS6Kupy0SCuOy9lDrQEaGw/zh-cn_image_0000002647748648.png?HW-CC-KV=V1&HW-CC-Date=20260723T012002Z&HW-CC-Expire=86400&HW-CC-Sign=F6A7F359E8F9A7514EFCD6383FF224A36CD478B2DF5B71D33CDEE9DD6E89F227)

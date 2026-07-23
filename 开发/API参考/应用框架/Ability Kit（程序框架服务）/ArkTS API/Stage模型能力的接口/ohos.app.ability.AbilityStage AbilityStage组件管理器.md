@@ -1,6 +1,6 @@
 # @ohos.app.ability.AbilityStage (AbilityStage组件管理器)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -401,7 +401,7 @@ onAcceptWantAsync(want: Want): Promise&lt;string&gt;
 import { AbilityStage } from '@kit.AbilityKit';
 
 class MyAbilityStage extends AbilityStage {
-  async onAcceptWantAsync(): Promise<string> {
+  async onAcceptWantAsync(want: Want): Promise<string> {
     await new Promise<string>((res, rej) => {
       setTimeout(res, 1000); // 延时1秒后执行
     });

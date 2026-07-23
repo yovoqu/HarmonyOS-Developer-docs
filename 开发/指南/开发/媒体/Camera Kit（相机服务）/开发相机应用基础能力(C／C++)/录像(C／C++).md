@@ -1,10 +1,10 @@
 # 录像(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording
 
-录像也是相机应用的最重要功能之一，录像是循环帧的捕获。对于录像的流畅度，开发者可以参考[拍照参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-shooting)中的步骤5，设置分辨率、闪光灯、焦距、照片质量及旋转角度等信息。
+录像是循环帧的捕获，同时也是相机应用的最重要功能之一。对于录像的流畅度，开发者可以参考拍照(C/C++)中的[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-shooting#开发步骤)7，设置分辨率、闪光灯、焦距、照片质量及旋转角度等信息。
 
 
 #### 开发步骤

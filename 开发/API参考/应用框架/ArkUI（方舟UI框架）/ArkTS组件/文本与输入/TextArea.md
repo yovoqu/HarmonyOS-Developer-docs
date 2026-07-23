@@ -1,6 +1,6 @@
 # TextArea
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2584,7 +2584,6 @@ struct TextAreaExample {
   controller: TextAreaController = new TextAreaController();
   @State inputValue: string = "";
   @State height1: string | number = '80%';
-  @State height2: number = 100;
   @State supportAvoidance: boolean = true;
 
   // 自定义键盘组件
@@ -3525,6 +3524,8 @@ struct Index {
 #### 示例25（设置placeholder富文本样式）
 
 从API version 22开始，该示例通过[setStyledPlaceholder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-text-style#setstyledplaceholder22)接口设置placeholder富文本样式。
+
+原始文本支持多种语言，不同语言内容时样式起始索引下标start和length会有差异，以下仅以中文设置富文本样式为例。
 
 ```ArkTS
 // xxx.ets

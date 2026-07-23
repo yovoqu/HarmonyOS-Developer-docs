@@ -1,6 +1,6 @@
 # ArkUI_TextCascadePickerRangeContentArray
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textcascadepickerrangecontentarray
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_TextCascadePickerRangeContentArray ArkUI_TextCascadePickerR
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义多列联动数据选择器的列表。
+定义多列联动数据选择器的数组。
  
 **起始版本：** 19
  

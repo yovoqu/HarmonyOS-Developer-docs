@@ -1,6 +1,6 @@
 # Sendable使用规则与约束
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-constraints
 
@@ -15,9 +15,11 @@ Sendable对象的布局和原型链不可变，而非Sendable对象可以通过�
 **正例：**
 
 ```ArkTS
+// 正例：
 @Sendable
 class A {
   constructor() {
+    console.info('hello world');
   }
 }
 
@@ -54,13 +56,16 @@ Sendable对象的布局和原型链不可变，而非Sendable对象可以通过�
 **正例：**
 
 ```ArkTS
+// 正例：
 class A {
   constructor() {
+    console.info('hello world');
   }
 }
 
 class B extends A {
   constructor() {
+    console.info('HELLO WORLD');
     super()
   }
 }
@@ -95,9 +100,23 @@ class B extends A { // A是sendable class，B不能继承它，编译报错
 **正例：**
 
 ```ArkTS
-interface I {};
+// 正例：
+interface I {
+  a: string;
+};
 
-class B implements I {};
+class B implements I {
+  a: string = 'hello world';
+};
+
+// 反例：
+// import { lang } from '@kit.ArkTS';
+
+// type ISendable = lang.ISendable;
+
+// interface I extends ISendable {};
+
+// class B implements I {};
 ```
 
 **反例：**
@@ -125,12 +144,20 @@ Sendable数据不得持有非Sendable数据，因此Sendable类或接口的成�
 **正例：**
 
 ```ArkTS
+// 正例：
 @Sendable
 class A {
   constructor() {
   }
   a: number = 0;
 }
+
+// 反例：
+// @Sendable
+// class A {
+//   constructor() {}
+//   b: Array<number> = [1, 2, 3] // 需使用collections.Array
+// }
 ```
 
 **反例：**
@@ -153,12 +180,20 @@ Sendable对象的成员属性必须赋初值，而“!”修饰的变量可以�
 **正例：**
 
 ```ArkTS
+// 正例：
 @Sendable
 class A {
   constructor() {
   }
   a: number = 0;
 }
+
+// 反例：
+// @Sendable
+// class A {
+//   constructor() {}
+//   a!: number;
+// }
 ```
 
 **反例：**
@@ -181,13 +216,15 @@ Sendable对象的布局不可更改，因为计算属性无法静态确定对象
 **正例：**
 
 ```ArkTS
+// 正例：
 @Sendable
 class A {
-    num1: number = 1;
-    num2: number = 2;
-    add(): number {
-      return this.num1 + this.num2;
-    }
+  num1: number = 1;
+  num2: number = 2;
+
+  add(): number {
+    return this.num1 + this.num2;
+  }
 }
 ```
 
@@ -294,6 +331,7 @@ try {
 **正例：**
 
 ```ArkTS
+// 正例：
 import { lang } from '@kit.ArkTS';
 
 type ISendable = lang.ISendable;
@@ -303,6 +341,7 @@ interface I extends ISendable {}
 @Sendable
 class B implements I {
   static o: number = 1;
+
   static bar(): B {
     return new B();
   }
@@ -366,16 +405,19 @@ let b = new B();
 **正例：**
 
 ```ArkTS
+// 正例：
 @Sendable
 type SendableFuncType = () => void;
 
-@Sendable
-class C {}
+// 反例：
+// @Sendable
+// type A = number; // 编译报错
 
-@Sendable
-function SendableFunc() {
-  console.info("Sendable func");
-}
+// @Sendable
+// class C {}
+
+// @Sendable
+// type D = C; // 编译报错
 ```
 
 **反例：**
@@ -397,10 +439,18 @@ type D = C; // 编译报错
 **正例：**
 
 ```ArkTS
+// 正例：
 @Sendable
 class A {
   num: number = 1;
 }
+
+// 反例：
+// @Sendable
+// @Observed
+// class C {
+//   num: number = 1;
+// }
 ```
 
 **反例：**
@@ -450,9 +500,17 @@ class C {
 **正例：**
 
 ```ArkTS
+// 正例：
 import { collections } from '@kit.ArkTS';
 
 let arr1: collections.Array<number> = new collections.Array<number>(1, 2, 3); // 是Sendable类型
+
+// 反例：
+// import { collections } from '@kit.ArkTS';
+
+// let arr2: collections.Array<number> = [1, 2, 3]; // 不是Sendable类型，编译报错
+// let arr3: number[] = [1, 2, 3]; // 不是Sendable类型，正例，不报错
+// let arr4: number[] = new collections.Array<number>(1, 2, 3); // 编译报错
 ```
 
 **反例：**
@@ -478,6 +536,7 @@ let arr4: number[] = new collections.Array<number>(1, 2, 3); // 编译报错
 **正例：**
 
 ```ArkTS
+// 正例：
 class A {
   state: number = 0;
 }
@@ -488,6 +547,18 @@ class SendableA {
 }
 
 let a1: A = new SendableA() as A;
+
+// 反例：
+// class A {
+//   state: number = 0;
+// }
+
+// @Sendable
+// class SendableA {
+//   state: number = 0;
+// }
+
+// let a2: SendableA = new A() as SendableA;
 ```
 
 **反例：**
@@ -518,12 +589,13 @@ let a2: SendableA = new A() as SendableA; // 编译报错
 **正例：**
 
 ```ArkTS
+// 正例：
 @Sendable
 type SendableFuncType = () => void;
 
 @Sendable
-function SendableFunc() {
-  console.info("Sendable func");
+function sendableFunc() {
+  console.info('Sendable func');
 }
 
 @Sendable
@@ -531,10 +603,21 @@ class SendableClass {
   constructor(f: SendableFuncType) {
     this.func = f;
   }
+
   func: SendableFuncType;
 }
 
-let sendableClass = new SendableClass(SendableFunc);
+let sendableClass = new SendableClass(sendableFunc);
+
+// 反例：
+// @Sendable
+// type SendableFuncType = () => void;
+// let func: SendableFuncType = () => {}; // 编译报错
+
+// @Sendable
+// class SendableClass {
+//   func: SendableFuncType = () => {}; // 编译报错
+// }
 ```
 
 **反例：**

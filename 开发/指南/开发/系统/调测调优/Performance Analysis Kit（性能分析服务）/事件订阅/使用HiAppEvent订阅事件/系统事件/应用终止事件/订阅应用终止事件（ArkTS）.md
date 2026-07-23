@@ -1,6 +1,6 @@
 # 订阅应用终止事件（ArkTS）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-app-killed-events-arkts
 
@@ -24,7 +24,7 @@ API接口的具体使用说明（参数使用限制、具体取值范围等）�
 
 #### 开发步骤
 
-为确保开发阶段顺利接收事件回调，建议采用以下方案：创建新的Native C++工程，在ArkTs代码中实现订阅，搭配C++代码的故障注入代码构造故障以触发应用终止事件。
+为确保开发阶段顺利接收事件回调，建议采用以下方案：创建新的Native C++工程，在ArkTS代码中实现订阅，搭配C++代码的故障注入代码构造故障以触发应用终止事件。
 1. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块：
 
   

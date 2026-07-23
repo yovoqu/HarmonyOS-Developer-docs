@@ -1,6 +1,6 @@
 # 使用WebNativeMessagingExtensionAbility组件实现浏览器扩展和应用通信场景
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-native-messaging
 
@@ -49,7 +49,7 @@
 #### 整体流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/NPIQenzyRCC5mI6is10c4A/zh-cn_image_0000002656348201.png?HW-CC-KV=V1&HW-CC-Date=20260624T020811Z&HW-CC-Expire=86400&HW-CC-Sign=D3FBB8C64FE0B59F2A44C1FA9F9DF2EC9E476420AA9867947F02D97F93C13791)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/XYFShErpRVuFFjfkV7CG3g/zh-cn_image_0000002677825989.png?HW-CC-KV=V1&HW-CC-Date=20260723T012142Z&HW-CC-Expire=86400&HW-CC-Sign=6A0190EAB8E4753B125EB96D7B7D678981F870AEDC36A858E35101EFBB42D7D4)
 
 
  - **流程：**
@@ -211,7 +211,7 @@ function sendNativeMessage() {
     {message: nativeMessage},
     function(response) {
     // 收到一次应用回复的信息后断开连接
-    console.info("sendNativeMessage收到应用程序响应:", JSON.stringify (response));
+    console.info("sendNativeMessage收到应用程序响应:", JSON.stringify(response));
     }
   )
 }
@@ -277,7 +277,7 @@ export default class MyWebNativeMessageExtAbility extends WebNativeMessagingExte
       let writeLen = await fileIo.write(fdWrite, writeBuffer.buffer);
       hilog.info(DOMAIN_NUMBER, TAG, 'write pipe length %{public}d', writeLen);
     } catch (err) {
-      hilog.error(DOMAIN_NUMBER, TAG, 'fileIo failed, error code: ' + err.code + " message: " + err.code);
+      hilog.error(DOMAIN_NUMBER, TAG, 'fileIo failed, error code: ' + err.code + " message: " + err.message);
     }
   }
 
@@ -354,7 +354,7 @@ export default class MyWebNativeMessageExtAbility extends WebNativeMessagingExte
 #### 实现拉起WebNativeMessagingExtensionAbility（浏览器开发者）
 
 浏览器负责实现扩展runtime接口，拉起WebNativeMessagingExtensionAbility，建立和管理NativeMessaging连接。需要申请权限：ohos.permission.WEB_NATIVE_MESSAGING。
-1. 当接收到创建NativeMessaging连接时，先通过[应用间配置共享接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datashare#get20)获取目标应用的extension配置。然后读取WebNativeMessagingExtensionAbility名称和允许访问的扩展列表。最后校验是否允许访问。
+1. 当接收到创建NativeMessaging连接时，先通过[get20](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datashare#get20)获取目标应用的extension配置。然后读取WebNativeMessagingExtensionAbility名称和允许访问的扩展列表。最后校验是否允许访问。
 
   
 ```json
@@ -425,7 +425,7 @@ class ConnectionCallback implements webNativeMessagingExtensionManager.WebExtens
   }
   onDisconnect(connection:webNativeMessagingExtensionManager.ConnectionNativeInfo) {
     // disconnect
-    console.error(`onDisconnect id ${connection.connectionId} is connected`);
+    console.error(`onDisconnect id ${connection.connectionId} is disconnected`);
   }
   onFailed(code:webNativeMessagingExtensionManager.NmErrorCode, errMsg:string) {
     console.error(`onFailed error code is ${code}, errMsg is ${errMsg}`);

@@ -1,6 +1,6 @@
 # input
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-input
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -164,7 +164,7 @@
   width: 60%;
   background-color: gray;
   margin-top: 20px;
- }
+}
 ```
   
 ```text
@@ -188,7 +188,7 @@ export default {
       error: 'error text'
     });
   },
- }
+}
 ```
   
 ![](assets/input/file-20260514164224327-1.png)
@@ -289,4 +289,4 @@ export default {
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/1HPknPNhQsyYwu68_y5Qog/zh-cn_image_0000002659102295.png?HW-CC-KV=V1&HW-CC-Date=20260701T014401Z&HW-CC-Expire=86400&HW-CC-Sign=AEB1180A128BA8D2FAAC65C4FA7CE9F6DCC800DFFA453AD2E4BC8292DE4C7FAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/rG_20VAZQYi7blFsd8WfxQ/zh-cn_image_0000002677828159.png?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=6586D69B25D43FBC3CE275FB251F86B2A5D4581B2FE02DF98D6F18257EFB007E)

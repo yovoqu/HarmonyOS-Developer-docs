@@ -1,6 +1,6 @@
 # 自定义渲染 (XComponent)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-xcomponent-guidelines
 
@@ -192,7 +192,7 @@ struct Index {
 }
 ```
 
- - 通过ArkTS声明式UI描述来创建组件并结合OH_ArkUI_SurfaceHolders实现对Surface生命周期的管理。
+ - 通过ArkTS声明式UI描述来创建组件并结合OH_ArkUI_SurfaceHolder实现对Surface生命周期的管理。
 
   
 ```ArkTS
@@ -269,7 +269,7 @@ class MyXComponentController extends XComponentController {
   }
 
   onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void {
-    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}}`);
+    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}`);
   }
 
   onSurfaceDestroyed(surfaceId: string): void {
@@ -1718,7 +1718,7 @@ target_link_libraries(nativerender PUBLIC ${EGL-lib} ${GLES-lib} ${hilog-lib} ${
 上述用例具体实现可参考[NativeXComponent](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/ArkUISample/NativeXComponentSample)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/oIXIoFICSQ2Iu8Jlt0kyRg/zh-cn_image_0000002626228388.jpeg?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=4B4C07E3AA05E6BEA877DED36DED7EB4E7085BC328B5B5653230A282E46424F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/Z5fI0ZqfR2i3ewwtXDHwQQ/zh-cn_image_0000002677665739.jpeg?HW-CC-KV=V1&HW-CC-Date=20260723T012134Z&HW-CC-Expire=86400&HW-CC-Sign=98AB6BA5410651D86FFDAD38208F841092141E89805F14DD9F31305670A8D1BB)
 
 
 

@@ -1,6 +1,6 @@
 # @ohos.app.ability.EmbeddedUIExtensionAbility (支持跨进程界面嵌入的ExtensionAbility组件)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,4 +40,3 @@ EmbeddedUIExtensionAbility为开发者提供了跨进程界面嵌入的能力，
  
 - 从API version 12开始，该接口在Tablet中可正常调用，在其他设备类型中无法被启动。
 - 从API version 13开始，该接口在PC/2in1、Tablet中可正常调用，在其他设备类型中无法被启动。
-- 从API version 23开始，该接口在PC/2in1、Tablet、Car中可正常调用，在其他设备类型中无法被启动。

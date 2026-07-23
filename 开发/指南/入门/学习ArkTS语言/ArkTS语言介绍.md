@@ -1,6 +1,6 @@
 # ArkTS语言介绍
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/introduction-to-arkts
 
@@ -1736,8 +1736,8 @@ function last(x: number[]): number {
 
 如果需要为任何数组定义相同的函数，使用类型参数将该函数定义为泛型：
 
-```ArkTS
-function last1<T>(x: T[]): T {
+```text
+function last<T>(x: T[]): T {
   return x[x.length - 1];
 }
 ```
@@ -2132,7 +2132,7 @@ function foo(arg1: number) {
 ```ArkTS
 // 注解的声明：
 @interface ClassAuthor {
-  authorName: string
+  authorName: string;
 }
 
 // 注解的使用：
@@ -2172,7 +2172,7 @@ class MyClass1 {
 注解不是Typescript中的特性，只能在.ets/.d.ets文件中使用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/Ie6uRbJ9QBmA8T2APd6VOg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020656Z&HW-CC-Expire=86400&HW-CC-Sign=C340EC136F305BB0F149D5A793D7C2BD19D589ED14551D5C7A89507275F0DF06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/Z_MJDBNXQjO5e63TdM13iw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012107Z&HW-CC-Expire=86400&HW-CC-Sign=47CE6576FC2ECD73B3317301745E9F2046671FB526A4E5F4C1F606EBE4AFDFE1)
 
 
 应用开发中，在[release模式下构建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-har#section19788284410)源码HAR，并同时[开启混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation)时，由于编译产物为JS文件，而在JS中没有注解的实现机制，因此会在编译过程中被移除，导致无法通过注解实现AOP插桩。
@@ -2603,7 +2603,7 @@ class C {
 
 ```text
 @MyAnno({name: "123", value: 456})
-@MyAnno({name: "321", value: 654}) // 编译错误：不允许重复注释
+@MyAnno({name: "321", value: 654}) // 编译错误：不允许重复注解
 class C {
   // ...
 }

@@ -1,6 +1,6 @@
 # ArkUI_RenderNodeClipOption
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-rendernodeclipoption
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_RenderNodeClipOption ArkUI_RenderNodeClipOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义节点裁剪配置项。
+定义渲染节点裁剪配置项。
  
 **起始版本：** 20
  

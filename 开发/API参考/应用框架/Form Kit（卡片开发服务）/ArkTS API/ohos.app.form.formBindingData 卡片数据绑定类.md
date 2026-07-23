@@ -1,6 +1,6 @@
 # @ohos.app.form.formBindingData (卡片数据绑定类)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formbindingdata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -109,11 +109,12 @@ struct Index {
   pathDir: string = this.content.filesDir;
 
   createFormBindingData() {
+    let filePath = this.pathDir + "/form.png";
+    let fd: number = -1;
     try {
-      let filePath = this.pathDir + "/form.png";
-      let file = fileIo.openSync(filePath);
+      fd = fileIo.openSync(filePath, fileIo.OpenMode.READ_ONLY).fd;
       let formImagesParam: Record<string, number> = {
-        'image': file.fd
+        'image': fd
       };
       let createFormBindingDataParam: Record<string, string | Record<string, number>> = {
         'name': '21°',
@@ -122,7 +123,11 @@ struct Index {
       };
       let formBindingDataObj = formBindingData.createFormBindingData(createFormBindingDataParam);
     } catch (error) {
-      console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message})`);
+      console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
+    } finally {
+      if (fd !== -1) {
+        fileIo.closeSync(fd);
+      }
     }
   }
 

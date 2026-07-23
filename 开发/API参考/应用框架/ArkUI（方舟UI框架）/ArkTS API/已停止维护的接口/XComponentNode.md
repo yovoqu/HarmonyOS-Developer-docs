@@ -1,6 +1,6 @@
 # XComponentNode
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-xcomponentnode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -47,7 +47,7 @@ XComponentNode的构造函数。
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uiContext | UIContext | 是 | UI上下文，获取方式可参考UIContext获取方法。 |
-| options | RenderOptions | 是 | XComponentNode的构造可选参数。 |
+| options | RenderOptions | 是 | XComponentNode的构造参数。 |
 | id | string | 是 | XComponent的唯一标识，支持最大的字符串长度128。详见XComponent组件。 |
 | type | XComponentType | 是 | 用于指定XComponent组件类型。详见XComponent组件。 |
 | libraryName | string | 否 | Native层编译输出动态库名称。详见XComponent组件。 |
@@ -133,7 +133,7 @@ changeRenderType(type: NodeRenderType): boolean
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-import { NodeController, FrameNode, XComponentNode, NodeRenderType, UIContext} from '@kit.ArkUI'
+import { NodeController, FrameNode, XComponentNode, NodeRenderType, UIContext } from '@kit.ArkUI'
 
 class XComponentNodeController extends NodeController {
   private xComponentNode: MyXComponentNode | null = null;
@@ -184,4 +184,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/TRErhnkES1iV-AcX3xghYw/zh-cn_image_0000002628862188.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014321Z&HW-CC-Expire=86400&HW-CC-Sign=9962FE3C76FA045EFBDD715312899665D34A55AFCC874D9F1FB3539C8CAC2557)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/STo805kbR-GG8JnFRij1Bw/zh-cn_image_0000002647587716.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T011951Z&HW-CC-Expire=86400&HW-CC-Sign=073E00B897045D40AEE7900197A7728E57EDFC8A490C5328FD3AA963FA623B6E)

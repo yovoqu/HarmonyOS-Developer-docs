@@ -1,6 +1,6 @@
 # 日期滑动选择器弹窗 (DatePickerDialog)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-datepicker-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -67,7 +67,7 @@ static show(options?: DatePickerDialogOptions)
 | disappearTextStyle10+ | PickerTextStyle | 否 | 是 | 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | textStyle10+ | PickerTextStyle | 否 | 是 | 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '16fp', weight: FontWeight.Regular } } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | selectedTextStyle10+ | PickerTextStyle | 否 | 是 | 设置选中项的文本颜色、字号、字体粗细。 默认值： { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| acceptButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置确认按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，如果同时设置为true，则primary字段不生效，保持默认值false。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，呈现效果依然是胶囊型按钮Capsule。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| acceptButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置确定按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，如果同时设置为true，则primary字段不生效，保持默认值false。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，呈现效果依然是胶囊型按钮Capsule。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | cancelButtonStyle12+ | PickerDialogButtonStyle | 否 | 是 | 设置取消按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。 说明： 1.acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，如果同时设置为true，则primary字段不生效，保持默认值false。 2.按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形ROUNDED_RECTANGLE，呈现效果依然是胶囊型按钮Capsule。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | alignment10+ | DialogAlignment | 否 | 是 | 弹窗在竖直方向上的对齐方式。 默认值：DialogAlignment.Default 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | offset10+ | Offset | 否 | 是 | 弹窗相对alignment所在位置的偏移量。 默认值：{ dx: 0 , dy: 0 } 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -550,7 +550,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/cCvrAD-pQ72yIJz2UVzeTw/zh-cn_image_0000002628862808.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=882158C6C8B0E632076D2413C9FCE6105B2A693A4038F3EDB14052E0414F981C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/KVFYkq00RN6mkmRtXChdnQ/zh-cn_image_0000002647588340.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=41B2DDEBA79E37F318559FFC2F674BA6B6DFBE34B97E557F2ABB33895D2B59A9)
 
 
 
@@ -598,7 +598,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/cz-32WsSTZmgib5KAaBPyg/zh-cn_image_0000002659222121.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=C496959BA23CE47B4192E3D95B1E56B3B74B459B19C6DEC5F916A75B6D7DE71B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/xNsF6-hYR9iMnaPMEKpYWA/zh-cn_image_0000002677827979.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=D2E3867132C04C14B1EE26AF7AB3E3A4D08BA87CFD59F3C0B66820B0DE11A6AD)
 
 
 
@@ -641,7 +641,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/dzy7afDSQBmF2QbwPkia9w/zh-cn_image_0000002628702930.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=E62493976FD9EED8C63D45750BE661C507CAD25DC2446B063D2DB0061587AC8B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/ZKWFB1YlTG6Uyh-wPiMoeQ/zh-cn_image_0000002677668133.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=EF1B9056FBD0CEA5BB63B8027810C2D4A9E12B0A51CF06A45DF3DF5928F1C989)
 
 
 
@@ -686,4 +686,4 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/48l6NeibTGadkuPFdXx0gg/zh-cn_image_0000002659102157.png?HW-CC-KV=V1&HW-CC-Date=20260701T014349Z&HW-CC-Expire=86400&HW-CC-Sign=80001A3F1EA848D9BC0AEAC8ABB90D550F062F6DE8CC350EF698859F3D8A31C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/jgKTEz4FQUevP7ySQOBSAA/zh-cn_image_0000002647748250.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=9636B63CBCB700F888923BFD3DB9206A2B797ADB88E2DEF352D638DB167DB784)

@@ -1,6 +1,6 @@
-# BaseDdk
+# Ddk
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-baseddk
 **支持设备：** PC/2in1

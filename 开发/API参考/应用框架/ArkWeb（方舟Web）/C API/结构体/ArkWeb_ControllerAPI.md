@@ -1,6 +1,6 @@
 # ArkWeb_ControllerAPI
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -224,7 +224,7 @@ void (*destroyWebMessagePorts)(ArkWeb_WebMessagePortPtr** ports, size_t size)
   
 | 参数项 | 描述 |
 | --- | --- |
-| ArkWeb_WebMessagePortPtr** ports | 发送Message端口结构体指针数组。 |
+| ArkWeb_WebMessagePortPtr** ports | Post Message端口结构体指针数组。 |
 | size_t size | 端口数量。 |
  
  

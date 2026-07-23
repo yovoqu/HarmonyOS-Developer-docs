@@ -1,6 +1,6 @@
 # @ohos.data.storage (轻量级存储)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-storage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -249,7 +249,7 @@ context.getFilesDir().then((filePath) => {
 
 deleteStorage(path: string): Promise&lt;void&gt;
  
-从内存中移除指定文件对应的Storage单实例，并删除指定文件及其备份文件、损坏文件。删除指定文件时，应用不允许再使用该实例进行数据操作，否则会出现数据一致性问题，使用promise方式返回结果，此方法为异步方法。
+从内存中移除指定文件对应的Storage单实例，并删除指定文件及其备份文件、损坏文件。删除指定文件时，应用不允许再使用该实例进行数据操作，否则会出现数据一致性问题，使用Promise方式返回结果，此方法为异步方法。
  
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core
  
@@ -1075,5 +1075,5 @@ type ValueType = number | string | boolean
 | 类型 | 说明 |
 | --- | --- |
 | number | 表示值类型为数字。 |
-| string | 表示值类型为字符。 |
+| string | 表示值类型为字符串。 |
 | boolean | 表示值类型为布尔值。 |

@@ -1,6 +1,6 @@
 # 属性字符串（StyledString/MutableStyledString）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-styled-string
 
@@ -748,10 +748,11 @@ struct Index {
 // xxx.ets
 import { image } from '@kit.ImageKit';
 import { LengthMetrics } from '@kit.ArkUI';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Entry
 @Component
-export struct StyledStringImageAttachment {
+struct StyledStringImageAttachment {
   @State abled: boolean = true;
   @State message: string = 'Hello World';
   imagePixelMap: image.PixelMap | undefined = undefined;
@@ -770,24 +771,29 @@ export struct StyledStringImageAttachment {
   }]);
 
   async aboutToAppear() {
-    console.info('aboutToAppear initial imagePixelMap');
+    hilog.info(0x0000, 'testTag', 'aboutToAppear initial imagePixelMap');
     // $r('app.media.sea')需要替换为开发者所需的图像资源文件。
     this.imagePixelMap = await this.getPixmapFromMedia($r('app.media.sea'));
   }
 
   private async getPixmapFromMedia(resource: Resource) {
-    let unit8Array = await this.getUIContext().getHostContext()?.resourceManager?.getMediaContent(resource.id);
-    let imageSource = image.createImageSource(unit8Array?.buffer?.slice(0, unit8Array?.buffer?.byteLength));
-    let createPixelMap: image.PixelMap = await imageSource.createPixelMap({
-      desiredPixelFormat: image.PixelMapFormat.RGBA_8888
-    });
-    await imageSource.release();
-    return createPixelMap;
+    try {
+      let unit8Array = await this.getUIContext().getHostContext()?.resourceManager?.getMediaContent(resource.id);
+      let imageSource = image.createImageSource(unit8Array?.buffer?.slice(0, unit8Array?.buffer?.byteLength));
+      let createPixelMap: image.PixelMap = await imageSource.createPixelMap({
+        desiredPixelFormat: image.PixelMapFormat.RGBA_8888
+      });
+      await imageSource.release();
+      return createPixelMap;
+    } catch (error) {
+      hilog.error(0x0000, 'testTag', `Get Pixmap failed. error code: ${error.code}, error message: ${error.message}`);
+    }
+    return undefined;
   }
 
   leadingMarginValue: ParagraphStyle = new ParagraphStyle({ leadingMargin: LengthMetrics.vp(5)});
   // 行高样式对象
-  lineHeightStyle1: LineHeightStyle= new LineHeightStyle(new LengthMetrics(24));
+  lineHeightStyle1: LineHeightStyle = new LineHeightStyle(new LengthMetrics(24));
   // Bold样式
   boldTextStyle: TextStyle = new TextStyle({ fontWeight: FontWeight.Bold });
   // 创建含段落样式的对象paragraphStyledString1
@@ -1069,8 +1075,8 @@ export struct StyledStringGestureStyle {
         // ...
     }
     .backgroundColor('#f1f2f3')
-    // 请将$r('app.string.TStyledStringGestureStyle_title')替换为实际资源文件，在本示例中该资源文件的value值为"设置事件"
-    .title($r('app.string.TStyledStringGestureStyle_title'))
+    // 请将$r('app.string.StyledStringGestureStyle_title')替换为实际资源文件，在本示例中该资源文件的value值为"设置事件"
+    .title($r('app.string.StyledStringGestureStyle_title'))
   }
 }
 ```
@@ -1092,10 +1098,11 @@ export struct StyledStringGestureStyle {
 // xxx.ets
 import { image } from '@kit.ImageKit';
 import { LengthMetrics } from '@kit.ArkUI';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Entry
 @Component
-export struct StyledStringHtml {
+struct StyledStringHtml {
   imagePixelMap: image.PixelMap | undefined = undefined;
   @State html: string | undefined = undefined;
   @State styledString: StyledString | undefined = undefined;
@@ -1104,18 +1111,23 @@ export struct StyledStringHtml {
   private uiContext: UIContext = this.getUIContext();
 
   async aboutToAppear() {
-    console.info('aboutToAppear initial imagePixelMap');
+    hilog.info(0x0000, 'testTag', 'aboutToAppear initial imagePixelMap');
     this.imagePixelMap = await this.getPixmapFromMedia($r('app.media.startIcon'));
   }
 
   private async getPixmapFromMedia(resource: Resource) {
-    let unit8Array = await this.uiContext.getHostContext()?.resourceManager?.getMediaContent(resource.id);
-    let imageSource = image.createImageSource(unit8Array?.buffer.slice(0, unit8Array.buffer.byteLength));
-    let createPixelMap: image.PixelMap = await imageSource.createPixelMap({
-      desiredPixelFormat: image.PixelMapFormat.RGBA_8888
-    });
-    await imageSource.release();
-    return createPixelMap;
+    try {
+      let unit8Array = await this.uiContext.getHostContext()?.resourceManager?.getMediaContent(resource.id);
+      let imageSource = image.createImageSource(unit8Array?.buffer?.slice(0, unit8Array?.buffer?.byteLength));
+      let createPixelMap: image.PixelMap = await imageSource.createPixelMap({
+        desiredPixelFormat: image.PixelMapFormat.RGBA_8888
+      });
+      await imageSource.release();
+      return createPixelMap;
+    } catch (error) {
+      hilog.error(0x0000, 'testTag', `Get Pixmap failed. error code: ${error.code}, error message: ${error.message}`);
+    }
+    return undefined;
   }
 
   build() {
@@ -1246,7 +1258,7 @@ struct HtmlSpanStringDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/bq5I7u9FT6yU3Ui_mO9Wug/zh-cn_image_0000002656467707.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020751Z&HW-CC-Expire=86400&HW-CC-Sign=CD09CA5582BECF68317031693F4D1DD34AA65A70C97700F3AAEC013E5797FD0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/sjWJLLmRSDSG10r809ZO5w/zh-cn_image_0000002647585898.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=0303E6C5FE56574CB551A28370FCE4C5F1F98F8147BD5EFD039CBEC7BFCE7D0E)
 
 
 
@@ -1261,7 +1273,7 @@ import { LengthMetrics } from '@kit.ArkUI';
 
 @Entry
 @Component
-export struct StyledStringSceneExample {
+struct StyledStringSceneExample {
   alignCenterParagraphStyleAttr: ParagraphStyle = new ParagraphStyle({ textAlign: TextAlign.Center });
   // 行高样式对象
   lineHeightStyle1: LineHeightStyle = new LineHeightStyle(LengthMetrics.vp(24));
@@ -1420,4 +1432,4 @@ export struct StyledStringSceneExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/3dRNO3vhQS6DSPT28CvfVg/zh-cn_image_0000002656347755.png?HW-CC-KV=V1&HW-CC-Date=20260624T020751Z&HW-CC-Expire=86400&HW-CC-Sign=AD7D415EAA2D1C936A37D3DB5A33D898B6FEEFD25340C324A0C6F6B5D6D25206)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/cPNHjmhWRJeYkdw-kpfgbg/zh-cn_image_0000002677825539.png?HW-CC-KV=V1&HW-CC-Date=20260723T012133Z&HW-CC-Expire=86400&HW-CC-Sign=A0ECC2A2514181586F41D4B01FB0FB2B8E6D9E4D3EB293E25F8D90C4E8A181D2)

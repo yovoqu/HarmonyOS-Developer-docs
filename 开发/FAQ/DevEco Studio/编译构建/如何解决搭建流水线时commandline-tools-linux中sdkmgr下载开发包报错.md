@@ -1,10 +1,10 @@
 # 如何解决搭建流水线时commandline-tools-linux中sdkmgr下载开发包报错
 
-更新时间：2026-06-15 08:43:00
+更新时间：2026-07-22 12:10:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-76
 
-**问**
+**问题描述**
  
 使用 commandline-tools 工具在 Linux 上时，如果提示“Failed to request URL https://devecostudio-dre.op.hicloud.com/sdkmanager/v5/hos/getSdkList”，请检查网络连接是否正常，确保可以访问该 URL。如果网络无问题，尝试更新 commandline-tools到最新版本。
  

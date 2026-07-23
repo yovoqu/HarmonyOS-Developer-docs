@@ -1,6 +1,6 @@
 # @ohos.arkui.uiMaterial (系统材质)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -257,8 +257,8 @@ getMaterialInfo(): MaterialInfo
 | --- | --- | --- | --- | --- |
 | style | ImmersiveStyle | 否 | 是 | 材质样式。不同样式对应不同的材质参数，影响材质的厚度。 说明：该参数仅对高算力和中算力设备的显示效果生效。 默认值：uiMaterial.ImmersiveStyle.REGULAR |
 | materialColor | ResourceColor | 否 | 是 | 材质层赋色。对于高算力和中算力设备，若不设置该参数或该参数为undefined，不额外混合纯色效果；若设置该参数为有效颜色值，该参数会为材质滤镜再混合一层纯色效果，若该颜色为纯不透明的颜色，会遮挡材质滤镜效果。对于低算力设备，若不设置该参数或该参数为undefined，生效低算力设备材质自带的背景色效果；若设置该参数为有效颜色值，该参数作为背景色backgroundColor属性值。 说明：该参数对所有档位的算力设备的显示效果生效。 默认值：undefined |
-| colorInvert | boolean | 否 | 是 | 设置了材质对象的节点的子树是否自动适配材质到背景色的反色。 若为false，则不会自动反色。 若为true，则只有材质参数足够薄时才会自动反色。具体能反色的材质由系统定义，材质样式至少为THIN或ULTRA_THIN，且与设置应用的沉浸光感的强弱配置相关。材质越薄、沉浸光感越强，越容易符合反色材质的要求。 自动反色能力仅对部分属性接口设置特殊资源（见下表1）值时生效，生效的属性接口包括： Text组件的fontColor， Button组件的fontColor， SymbolGlyph组件的fontColor， Image组件的fillColor， Search组件的placeholderColor、fontColor，searchIcon中的图标颜色、cancelButton中的图标颜色、caretStyle中的光标颜色，searchButton 中的按钮颜色， TabContent组件的tabBar属性使用BottomTabBarStyle， Chip组件的prefixIcon、suffixIcon属性的fillColor，label属性的fontColor， ChipGroup组件的itemStyle的fontColor， TextArea组件的fontColor、placeholderColor， TextInput组件的fontColor、placeholderColor， SegmentButton组件的fontColor， Swiper组件的fontColor， 样式时其中的文本和图标颜色。 说明：该参数仅对高算力和中算力设备的显示效果生效。 默认值：false |
-| applyShadow | boolean | 否 | 是 | 是否添加材质的阴影效果。 当该参数为true时，材质中的阴影效果固定生效，优先于shadow通用属性。当该参数为false时，shadow通用属性生效，材质的阴影效果不生效。 说明：该参数仅对所有档位的算力设备的显示效果生效。 默认值：true |
+| colorInvert | boolean | 否 | 是 | 设置了材质对象的节点的子树是否自动适配材质到背景色的反色。 若为false，则不会自动反色。 若为true，则只有材质参数足够薄时才会自动反色。具体能反色的材质由系统定义，材质样式至少为THIN或ULTRA_THIN，且与设置应用的沉浸光感的强弱配置相关。材质越薄、沉浸光感越强，越容易符合反色材质的要求。 自动反色能力仅对部分属性接口设置特殊资源（见下表1）值时生效，生效的属性接口包括： Text组件的fontColor， Button组件的fontColor， SymbolGlyph组件的fontColor， Image组件的fillColor， Search组件的placeholderColor、fontColor，searchIcon中的图标颜色、cancelButton中的图标颜色、caretStyle中的光标颜色，searchButton 中的按钮颜色， TabContent组件的tabBar属性使用BottomTabBarStyle， Chip组件的prefixIcon、suffixIcon属性的fillColor，label属性的fontColor， ChipGroup组件的itemStyle的fontColor， TextArea组件的fontColor、placeholderColor， TextInput组件的fontColor、placeholderColor， SegmentButton组件的fontColor， Swiper组件的fontColor， 使用以上接口时，其中的文本和图标颜色会自动反色。 说明：该参数仅对高算力和中算力设备的显示效果生效。 默认值：false |
+| applyShadow | boolean | 否 | 是 | 是否添加材质的阴影效果。 当该参数为true时，材质中的阴影效果固定生效，优先于shadow通用属性。当该参数为false时，shadow通用属性生效，材质的阴影效果不生效。 说明：该参数对所有档位的算力设备的显示效果生效。 默认值：true |
 | interactive | boolean | 否 | 是 | 是否启用交互形变效果。 当该参数为true时，启用交互形变效果。当该参数为false时，不启用交互形变效果。 说明：该参数对所有档位的算力设备的显示效果生效。 默认值：false |
 | lightEffect | LightEffectOptions \| null | 否 | 是 | 光感交互反馈效果参数。当该参数为null时，禁用光感交互反馈效果。 说明：该参数对所有档位的算力设备的显示效果生效。 默认值：undefined，不设置光感交互反馈效果。 |
 
@@ -399,13 +399,13 @@ struct SystemMaterialPage {
 在低算力设备上表现：
 
 
-![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-2026070810301262e8af20.jpg)
+![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-202607081030122c660728.jpg)
 
 
 在中算力设备上表现：
 
 
-![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-202607081030122c660728.jpg)
+![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-2026070810301262e8af20.jpg)
 
 
 在高算力设备上表现：
@@ -492,19 +492,19 @@ struct MaterialInfoPage {
 在高算力设备上表现：
 
 
-![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-202607081030138f1c275d.jpg)
+![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-202607081030130423251d.gif)
 
 
 在中算力设备上表现：
 
 
-![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-202607081030139a8e08be.jpg)
+![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-2026070810301360606b9b.jpg)
 
 
 在低算力设备上表现：
 
 
-![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-2026070810301360606b9b.jpg)
+![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-202607081030138f1c275d.jpg)
 
 
 
@@ -546,7 +546,7 @@ struct Index {
 ```
 
 
-![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-202607081030130423251d.gif)
+![](assets/@ohos.arkui.uiMaterial%20(系统材质)/file-202607081030139a8e08be.jpg)
 
 
 

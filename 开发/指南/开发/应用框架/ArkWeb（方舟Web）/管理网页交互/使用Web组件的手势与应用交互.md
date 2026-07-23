@@ -1,6 +1,6 @@
 # 使用Web组件的手势与应用交互
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-gesture
 
@@ -87,7 +87,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/gsX3evfnRB2o6KlTHVBDtQ/zh-cn_image_0000002656348173.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020808Z&HW-CC-Expire=86400&HW-CC-Sign=4CD3BB9A67C2322407F227646327744A425F78C610F73C92BD57275E31D585E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/WSXKqcsIRD6Nuv1etK9KCA/zh-cn_image_0000002677666109.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012140Z&HW-CC-Expire=86400&HW-CC-Sign=F2E2C2A1B1F620C8881539400E62AD867DB2DF0FF0FD24BB405A6D73B01E9AC2)
 
 
 
@@ -149,7 +149,7 @@ struct Index {
         return true;
       }
     } catch (err) {
-      console.error(`copyUrlPicToDir failed with error: ${err.code}, ${err.message}`);
+      console.error(`onBackPress failed with error: ${err.code}, ${err.message}`);
     }
     // 执行系统默认返回逻辑，返回上一个页面
     return false;

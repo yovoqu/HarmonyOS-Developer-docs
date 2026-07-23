@@ -1,6 +1,6 @@
 # PermissionRequestResult
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-permissionrequestresult
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -27,6 +27,8 @@ import { PermissionRequestResult } from '@kit.AbilityKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.Security.AccessToken
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

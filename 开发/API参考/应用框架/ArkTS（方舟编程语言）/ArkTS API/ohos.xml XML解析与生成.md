@@ -1,6 +1,6 @@
 # @ohos.xml (XML解析与生成)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-xml
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1674,7 +1674,7 @@ constructor(inputStream: stream.Readable, encoding?: string)
 XmlSAXParser的构造函数。
 
 > [!NOTE]
-> inputStream参数必须传入继承自 Readable 且实现 Doread 的类。可以传入其他模块中满足该条件的类，如 ReadStream 。
+> inputStream参数必须传入继承自 Readable 且实现 doread 的类。可以传入其他模块中满足该条件的类，如 ReadStream 。
 
 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。

@@ -1,6 +1,6 @@
 # arkweb_interface.h
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -58,7 +58,7 @@ arkweb_interface.h是ArkWeb在Native侧（C/C++）的核心入口头文件：它
 | 名称 | 描述 |
 | --- | --- |
 | ArkWeb_AnyNativeAPI* OH_ArkWeb_GetNativeAPI(ArkWeb_NativeAPIVariantKind type) | 根据传入的API类型，获取对应的Native API结构体。 |
-| bool OH_ArkWeb_RegisterScrollCallback(const char* webTag, ArkWeb_OnScrollCallback callback, void* userData) | 注册滚动事件回调。 |
+| bool OH_ArkWeb_RegisterScrollCallback(const char* webTag, ArkWeb_OnScrollCallback callback, void* userData) | 注册组件滚动时的回调函数。 |
  
  
   

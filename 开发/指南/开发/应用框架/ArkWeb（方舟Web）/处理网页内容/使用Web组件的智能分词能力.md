@@ -1,6 +1,6 @@
 # 使用Web组件的智能分词能力
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-data-detector
 
@@ -31,7 +31,6 @@ import { webview } from '@kit.ArkWeb';
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Hello World';
   webController: webview.WebviewController = new webview.WebviewController();
 
   build() {

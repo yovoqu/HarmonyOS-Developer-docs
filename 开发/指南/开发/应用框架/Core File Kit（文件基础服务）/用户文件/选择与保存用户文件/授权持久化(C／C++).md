@@ -1,6 +1,6 @@
 # 授权持久化(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-fileshare-guidelines
 
@@ -52,7 +52,7 @@ target_link_libraries(sample PUBLIC libohfileshare.so)
 #include <filemanagement/fileshare/oh_file_share.h>
 #include <iostream>
 ```
-1. 创建FileShare_PolicyInfo实例,调用OH_FileShare_PersistPermission接口，设置uri的持久化授权，接口入参policyNum最大上限为500。
+1. 创建FileShare_PolicyInfo实例，调用OH_FileShare_PersistPermission接口，设置uri的持久化授权，接口入参policyNum最大上限为500。
 
   
 ```cpp

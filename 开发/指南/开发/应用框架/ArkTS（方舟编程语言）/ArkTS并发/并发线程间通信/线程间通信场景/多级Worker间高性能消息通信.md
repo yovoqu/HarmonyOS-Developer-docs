@@ -1,12 +1,12 @@
 # 多级Worker间高性能消息通信
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-postmessage-sendable
 
 多级[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)（即通过父Worker创建子Worker的机制形成层级线程关系）间通信是一种常见的需求，由于Worker线程生命周期由用户自行管理，因此需要注意多级Worker生命周期的正确管理，建议开发者确保销毁父Worker前先销毁所有子Worker。
 
-本文介绍如何在多级Worker间实现高性能消息通信。高性能消息通信的关键在于[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)，结合[postMessageWithSharedSendable接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker#postmessagewithsharedsendable12)，可以实现线程间高性能的对象传递。例如，在数据克隆场景中，假设有一个父Worker和两个子Worker。父Worker负责创建子Worker，并向子Worker发送数据克隆任务。子Worker接收任务并执行数据克隆操作，完成后将克隆结果返回给父Worker。
+本文介绍如何在多级Worker间实现高性能消息通信。高性能消息通信的关键在于[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)，结合[postMessageWithSharedSendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker#postmessagewithsharedsendable12)，可以实现线程间高性能的对象传递。例如，在数据克隆场景中，假设有一个父Worker和两个子Worker。父Worker负责创建子Worker，并向子Worker发送数据克隆任务。子Worker接收任务并执行数据克隆操作，完成后将克隆结果返回给父Worker。
 1. 在ets文件夹下新建文件夹Sendable，并准备一个Sendable类CopyEntry，封装克隆任务数据。
 
   
@@ -47,7 +47,7 @@ const asyncLock = new ArkTSUtils.locks.AsyncLock();
 const copyWorker1 = new worker.ThreadWorker('entry/ets/workers/ChildWorker.ets');
 const copyWorker2 = new worker.ThreadWorker('entry/ets/workers/ChildWorker.ets');
 
-workerPort.onmessage = (e : MessageEvents) => {
+workerPort.onmessage = (e: MessageEvents) => {
   let array = e.data as collections.Array<CopyEntry>;
   sum = array.length;
   for (let i = 0; i < array.length; i++) {
@@ -64,7 +64,7 @@ workerPort.onmessage = (e : MessageEvents) => {
   }
 }
 
-copyWorker1.onmessage = async (e : MessageEvents) => {
+copyWorker1.onmessage = async (e: MessageEvents) => {
   console.info('copyWorker1 onmessage:' + e.data);
   await asyncLock.lockAsync(() => {
     count1--;
@@ -81,7 +81,7 @@ copyWorker1.onmessage = async (e : MessageEvents) => {
   })
 }
 
-copyWorker2.onmessage = async (e : MessageEvents) => {
+copyWorker2.onmessage = async (e: MessageEvents) => {
   console.info('copyWorker2 onmessage:' + e.data);
   await asyncLock.lockAsync(() => {
     count2--;
@@ -98,34 +98,34 @@ copyWorker2.onmessage = async (e : MessageEvents) => {
   })
 }
 
-workerPort.onmessageerror = (e : MessageEvents) => {
+workerPort.onmessageerror = (e: MessageEvents) => {
   console.error('onmessageerror:' + e.data);
 }
 
-workerPort.onerror = (e : ErrorEvent) => {
+workerPort.onerror = (e: ErrorEvent) => {
   console.error('onerror:' + e.message);
 }
 ```
 
 ```ArkTS
 // ChildWorker.ets
-import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker} from '@kit.ArkTS'
+import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS'
 import { CopyEntry } from '../Sendable/CopyEntry'
 
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
-workerPort.onmessage = (e : MessageEvents) => {
+workerPort.onmessage = (e: MessageEvents) => {
   let data = e.data as CopyEntry;
   // 中间copy操作省略
   console.info(data.filePath);
   workerPort.postMessageWithSharedSendable('done');
 }
 
-workerPort.onmessageerror = (e : MessageEvents) => {
+workerPort.onmessageerror = (e: MessageEvents) => {
   console.error('onmessageerror:' + e.data);
 }
 
-workerPort.onerror = (e : ErrorEvent) => {
+workerPort.onerror = (e: ErrorEvent) => {
   console.error('onerror:' + e.message);
 }
 ```

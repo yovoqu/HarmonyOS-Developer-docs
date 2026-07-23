@@ -1,6 +1,6 @@
 # ArkWeb_JavaScriptBridgeData
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-javascriptbridgedata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,5 +36,5 @@ ArkWeb_JavaScriptBridgeData是JavaScript桥接数据定义结构体，用于在N
  
 | 名称 | 描述 |
 | --- | --- |
-| const uint8_t* buffer | 指向传输数据的指针。仅支持前端传入String和ArrayBuffer类型，其余类型会被json序列化后，以String类型传递。 |
+| const uint8_t* buffer | 指向传输数据的指针。仅支持前端传入String和ArrayBuffer类型，其余类型会被JSON序列化后，以String类型传递。 |
 | size_t size | 传输数据的长度。 |

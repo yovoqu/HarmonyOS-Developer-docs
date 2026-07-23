@@ -1,6 +1,6 @@
 # ArkTS卡片被动刷新
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-passive-refresh
 
@@ -42,7 +42,7 @@
 > [!NOTE]
 > 在使用定时刷新时，需要在form_config.json配置文件中设置updateEnabled字段为true，以启用周期性刷新功能。
 
- - 下次刷新：表示指定卡片的下一次刷新时间。可以通过调用[setFormNextRefreshTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formprovidersetformnextrefreshtime)接口来实现。最短刷新时间为5分钟。例如，可以在接口调用后的5分钟内刷新卡片内容。
+ - 下次刷新：表示指定卡片的下一次刷新时间。可以通过调用[setFormNextRefreshTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formprovidersetformnextrefreshtime)接口来实现。最短刷新时间为5分钟。例如，可以设置卡片在调用接口5分钟后刷新。
 
   
 ```ts
@@ -95,7 +95,7 @@ export default class UpdateByTimeFormAbility extends FormExtensionAbility {
 
 
 
-在触发定时、下次刷新后，系统会调用FormExtensionAbility的[onUpdateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonupdateform)生命周期回调，在回调中，可以使用[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)进行提供方刷新卡片。onUpdateForm生命周期回调的使用请参见[卡片生命周期管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-lifecycle)。
+在触发定时、下次刷新后，系统会调用FormExtensionAbility的[onUpdateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonupdateform)生命周期回调，在回调中，可以使用[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口刷新卡片内容。onUpdateForm生命周期回调的使用请参见[卡片生命周期管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-lifecycle)。
 
 **约束限制：**
 1. 定时刷新有配额限制，每张卡片每天最多通过定时方式触发刷新50次，定时刷新次数可以通过修改[卡片配置项updateDuration字段](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration#配置文件字段说明)、或调用[setFormNextRefreshTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formprovidersetformnextrefreshtime)接口两种方式进行设置，当达到50次配额后，无法通过定时方式再次触发刷新，刷新次数会在每天的0点重置。
@@ -168,7 +168,7 @@ export default class UpdateByTimeFormAbility extends FormExtensionAbility {
 
 
 
-在触发定点刷新后，系统会调用FormExtensionAbility的[onUpdateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonupdateform)生命周期回调，在回调中，可以使用[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)进行提供方刷新卡片。onUpdateForm生命周期回调的使用请参见[卡片生命周期管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-lifecycle)。
+在触发定点刷新后，系统会调用FormExtensionAbility的[onUpdateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonupdateform)生命周期回调，在回调中，可以使用[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口刷新卡片内容。onUpdateForm生命周期回调的使用请参见[卡片生命周期管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-lifecycle)。
 
 > [!NOTE]
 > 当同时配置了定时刷新updateDuration和定点刷新scheduledUpdateTime时，定时刷新的优先级更高且定点刷新不会执行。如果想要配置定点刷新，则需要将updateDuration配置为0。 multiScheduledUpdateTime的配置最多可设置24个时间。 同时配置了单定点和多定点刷新，多定点刷新配置生效，单定点刷新配置不生效。 考虑到向前兼容的问题，尽量保留scheduledUpdateTime字段，不要直接删除。

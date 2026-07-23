@@ -1,6 +1,6 @@
 # CANN
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -4817,7 +4817,7 @@ OH_NN_ReturnCode HMS_LLMEngineExecutor_SetInferencePerfMode (HMS_LLMEngine_Execu
 | 状态码 | 状态信息 |
 | --- | --- |
 | OH_NN_SUCCESS | 成功状态。 |
-| OH_NN_FAILED | 失败状态，入参为空。 |
+| OH_NN_FAILED | 失败状态。 可能原因：入参executor为空；入参inferPerfMode大于HMS_LLMENGINE_INFERPERF_EXTREME_HIGH或小于HMS_LLMENGINE_INFERPERF_UNSET。 |
  
  
   

@@ -1,6 +1,6 @@
 # @ohos.arkui.inspector (布局回调)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-inspector
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -74,7 +74,7 @@ let listener:inspector.ComponentObserver = inspector.createComponentObserver('CO
 
 on(type: 'layout', callback: () => void): void
  
-通过句柄向对应的查询条件注册回调，当组件布局完成时会触发该回调。
+通过句柄向对应的查询条件注册回调，当组件布局完成时会触发该回调。请注意，该接口无法监听窗口尺寸变化，相关需求请参考[on('windowSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)。此外，布局回调和窗口尺寸变化回调之间不存在确定的执行顺序依赖。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -308,7 +308,7 @@ struct ImageExample {
     }
 
     let uniqueId: number = this.getUniqueId();
-    let listenerForUniqueId: inspector.ComponentObserver = this.getUIContext().getUIInspector().createComponentObserver(uniqueId)
+    let listenerForUniqueId: inspector.ComponentObserver = this.getUIContext().getUIInspector().createComponentObserver(uniqueId.toString())
     listenerForUniqueId.onLayoutChildren(onLayoutChildrenComplete)
   }
 
@@ -390,7 +390,7 @@ offDrawChildren(callback?: Callback<number[]>): void
  
 取消注册drawChildren事件回调。使用callback异步回调。
  
-要实现在子组件布局完成后停止触发特定回调，只需通过其句柄，在对应的查询条件上取消注册该回调即可。
+要实现在子组件绘制送显完成后停止触发特定回调，只需通过其句柄，在对应的查询条件上取消注册该回调即可。
  
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
  

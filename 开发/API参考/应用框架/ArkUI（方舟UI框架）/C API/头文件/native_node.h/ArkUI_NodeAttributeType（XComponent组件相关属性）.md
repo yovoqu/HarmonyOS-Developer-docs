@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（XComponent组件相关属性）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-xcomponent
 
@@ -92,8 +92,8 @@ XComponent组件的宽高，仅支持属性获取接口。
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].u32 | 宽数值，单位为px。 |
-| .value[1].u32 | 高数值，单位为px。 |
+| .value[0].u32 | 宽度数值，单位为px。 |
+| .value[1].u32 | 高度数值，单位为px。 |
  
  
   

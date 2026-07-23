@@ -1,6 +1,6 @@
 # Swiper
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -758,7 +758,7 @@ indicatorStyle(value?: IndicatorStyle)
 设置导航点样式。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 10开始废弃，建议使用 indicator 替代。
+> 从API version 8开始支持，从API version 10开始废弃，建议使用 indicator(value: DotIndicator | DigitIndicator | boolean) 替代。
 
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -2619,7 +2619,7 @@ struct SwiperExample {
 ```
 
 
-![](assets/Swiper/file-202607081031460e2b4b82.gif)
+![](assets/Swiper/file-20260708103148be695c29.gif)
 
 
 
@@ -2710,7 +2710,7 @@ struct SwiperExample {
 ```
 
 
-![](assets/Swiper/file-202607081031464d497adf.gif)
+![](assets/Swiper/file-20260708103148eccf4fdf.jpg)
 
 
 
@@ -2804,7 +2804,7 @@ struct SwiperExample {
 ```
 
 
-![](assets/Swiper/file-202607081031470b475712.gif)
+![](assets/Swiper/file-20260708103148f040b675.gif)
 
 
 
@@ -2944,7 +2944,7 @@ struct SwiperCustomAnimationExample {
 ```
 
 
-![](assets/Swiper/file-202607081031472519aa97.gif)
+![](assets/Swiper/file-20260708103149c26f61c1.gif)
 
 
 
@@ -3044,7 +3044,7 @@ struct Index {
 ```
 
 
-![](assets/Swiper/file-20260708103147f8070244.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/Ac6I7pv9SieunK572AiSRw/zh-cn_image_0000002677827547.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=899346124438EF5AE4CE8470CB8F5E7C0FEE6CC494955AF7A31FDBA670603320)
 
 
 
@@ -3231,7 +3231,7 @@ struct TabsSwiperExample {
 ```
 
 
-![](assets/Swiper/file-20260708103148be695c29.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/WPdwv4Z6SJ2mtIS8VUhRNA/zh-cn_image_0000002677667699.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=048E88B4EC23901D1DDDABF850ADE1279034CC7804E51F91B76B979B50409B70)
 
 
 
@@ -3324,7 +3324,7 @@ struct SwiperExample {
 ```
 
 
-![](assets/Swiper/file-202607081031484a00280f.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/YT6TqfroR6qPZaASrwkz2A/zh-cn_image_0000002647747818.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=0D1F23BB1351AD89F0A42D8BAACC71B37E3C0A8D046B30EA1C65885A0CB459B8)
 
 
 
@@ -3432,7 +3432,7 @@ struct SwiperExample {
 ```
 
 
-![](assets/Swiper/file-20260708103148f040b675.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/LLRPam4UQ-yzKCn6ZO2cIw/zh-cn_image_0000002647587908.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=C25D8445C7EC63F685DE27AADDDE34773F6AAB4ABB0FEDFE2889BA1425DDD8F2)
 
 
 
@@ -3500,13 +3500,13 @@ struct SwiperExample {
 Swiper宽度属于[sm](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)及更小的断点区间时显示1列。
 
 
-![](assets/Swiper/file-2026070810314805c57795.jpg)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/OsXJ6trBQB-qoYMZd_jb6Q/zh-cn_image_0000002677827549.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=54438B63AF1B2CDA4A884B0EEE0EC28D1E8398E3C5966F5C7EA9FF78F4D645C9)
 
 
 Swiper宽度属于[md](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)断点区间时显示2列。
 
 
-![](assets/Swiper/file-20260708103148eccf4fdf.jpg)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/YWMROSQyS6G6UjQjRdzO9A/zh-cn_image_0000002677667701.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=B5FF8129EB20F339190DA2CF4671710A48A13F76D376226FEAE19A47F237A48A)
 
 
 
@@ -3574,4 +3574,4 @@ struct SwiperFakeDragExample {
 ```
 
 
-![](assets/Swiper/file-20260708103149c26f61c1.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/WjLEi3noQtufmX8AbAj4NA/zh-cn_image_0000002647747820.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=DF846F5C517A5C65CBD1546431F8351D96A4D6F602643C6BD4D64071B085E123)

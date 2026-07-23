@@ -1,6 +1,6 @@
 # OH_NativeXComponent_Callback
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-callback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ typedef struct OH_NativeXComponent_Callback {...} OH_NativeXComponent_Callback
  
 | 名称 | 描述 |
 | --- | --- |
-| void (*OnSurfaceCreated)(OH_NativeXComponent* component, void* window) | 创建Surface时调用。 |
+| void (*OnSurfaceCreated)(OH_NativeXComponent* component, void* window) | 当Surface创建时调用。 |
 | void (*OnSurfaceChanged)(OH_NativeXComponent* component, void* window) | 当Surface改变时调用。 |
 | void (*OnSurfaceDestroyed)(OH_NativeXComponent* component, void* window) | 当Surface被销毁时调用。 |
 | void (*DispatchTouchEvent)(OH_NativeXComponent* component, void* window) | 当触摸事件被触发时调用。 |
@@ -60,7 +60,7 @@ void (*OnSurfaceCreated)(OH_NativeXComponent* component, void* window)
  
 **描述：**
  
-创建Surface时调用。
+当Surface创建时调用。
  
 **起始版本：** 8
  

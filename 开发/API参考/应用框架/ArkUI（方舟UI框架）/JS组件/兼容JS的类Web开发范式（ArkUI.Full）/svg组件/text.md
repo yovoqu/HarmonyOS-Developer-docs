@@ -1,6 +1,6 @@
 # text
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-text
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,14 +41,14 @@
 | y | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置组件左上角y轴坐标。 |
 | dx | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置文本x轴偏移。 |
 | dy | &lt;length&gt;\|&lt;percentage&gt; | 0 | 否 | 设置文本y轴偏移。 |
-| rotate | number | 0 | 否 | 字体以左下角为圆心旋转角度，正数顺时针，负数逆时针。 |
+| rotate | number | 0 | 否 | 文本以左下角为圆心旋转角度，正数顺时针，负数逆时针。 |
 | font-size | &lt;length&gt; | 30px | 否 | 设置文本的尺寸。 |
-| fill | &lt;color&gt; | black | 否 | 字体填充颜色。 |
-| fill-opacity | number | 1.0 | 否 | 字体填充透明度。 |
+| fill | &lt;color&gt; | black | 否 | 文本填充颜色。 |
+| fill-opacity | number | 1.0 | 否 | 文本填充透明度。 |
 | opacity | number | 1 | 否 | 元素的透明度，取值范围为0到1，1表示为不透明，0表示为完全透明。支持属性动画。 |
-| stroke | &lt;color&gt; | black | 否 | 绘制字体边框并指定颜色。 |
-| stroke-width | number | 1 | 否 | 字体边框宽度。 默认单位：px |
-| stroke-opacity | number | 1.0 | 否 | 字体边框透明度。 |
+| stroke | &lt;color&gt; | black | 否 | 绘制文本描边并指定颜色。 |
+| stroke-width | number | 1 | 否 | 文本描边宽度。 默认单位：px |
+| stroke-opacity | number | 1.0 | 否 | 文本描边透明度。 |
  
  
   
@@ -156,4 +156,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/C9G6cjIZQEawjuKwuJZ7_A/zh-cn_image_0000002626071034.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=813B8FE34356374A1F1DE3E6BF1DDC2FE46C62430F20A38BFCD4B976BAEB50DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/heluAnWuRQiCzGhyqJqXNA/zh-cn_image_0000002647588574.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012002Z&HW-CC-Expire=86400&HW-CC-Sign=2A157692C0CDAF3EA37697D588468F718850FE478837901410A0DCAC9028F9A6)

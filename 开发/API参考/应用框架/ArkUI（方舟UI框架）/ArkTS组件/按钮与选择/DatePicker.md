@@ -1,6 +1,6 @@
 # DatePicker
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -146,7 +146,7 @@ lunar(value: boolean)
 
 lunar(isLunar: Optional&lt;boolean&gt;)
 
-设置弹窗的日期是否显示为农历。与[lunar](#lunar)相比，isLunar参数新增了对undefined类型的支持。
+设置日期是否显示为农历。与[lunar](#lunar)相比，isLunar参数新增了对undefined类型的支持。
 
 > [!NOTE]
 > 仅在简体中文和繁体中文语言环境下生效，其他语言环境下设置该属性无效果。
@@ -428,7 +428,7 @@ onChange(callback: (value: DatePickerResult) => void)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | (value: DatePickerResult) => void | 是 | 返回选中的时间。 |
+| callback | (value: DatePickerResult) => void | 是 | 返回选中的日期。 |
 
 
 
@@ -544,7 +544,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/ROgrct2aTcSwtZMBd85tyQ/zh-cn_image_0000002659221757.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=FFB2C6B17AEAD1CBED2B22D26944E72AC02AEBFED007704C970D190AD23A766B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/7ZO6pXolTn6N2MWoA5KI-Q/zh-cn_image_0000002677667767.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=BAC0699EE6B74EFDF35BDEA08A4570A8DFCF6AA51FB3EED9E0F142B2AF8D4864)
 
 
 
@@ -581,7 +581,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/npv0fBaOSQet0sJ3icMTPQ/zh-cn_image_0000002628702568.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=2186D0F4285AF1A6E666FCAF147698C3A1C803D5A4024ED325E493F66CE9986A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/FqqBNK4BRgW5GmBZsd8uTQ/zh-cn_image_0000002647747886.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=6DD54E146C5C04BC060B23B00526B9FBCEB12F3C5A5C1AFDECA8AD32800DD560)
 
 
 
@@ -638,7 +638,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/M8gsws9EStm9FsxkaWmHTA/zh-cn_image_0000002659101795.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=7D76ECA9887304666BE1CD915CFF0FBB93279ADD6DAD83B7616412B5030683D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/pTSaUBO2Q2erDWaRI77-EA/zh-cn_image_0000002647587976.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=4F73C5A5618BB14EDCF2E95925DDCD69CDECB84353223CE03A865CC96748752A)
 
 
 
@@ -680,4 +680,4 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/Wk85-Er9Sm2v7RSH09ldng/zh-cn_image_0000002628862446.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=F669B460D6D73AA9A7389F1E59241EB9D23EA0641E440B5CEF7B69DAD1A772C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/tWsUiyKfTR-uIQCx065Iiw/zh-cn_image_0000002677827617.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=F4426319A58A1B87C4FDA6C91306BAB38E3A21F2DA6BAB20936E66B609222F6C)

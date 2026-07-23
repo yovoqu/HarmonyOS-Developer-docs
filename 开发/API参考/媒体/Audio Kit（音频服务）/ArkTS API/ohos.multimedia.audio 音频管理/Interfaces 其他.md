@@ -1,11 +1,11 @@
 # Interfaces (其他)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!TIP]
+> [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
@@ -234,7 +234,7 @@
 | --- | --- | --- | --- | --- |
 | volumeType | AudioVolumeType | 否 | 否 | 音频音量类型。 |
 | volume | number | 否 | 否 | 音量等级，可设置范围通过调用getMinVolume和getMaxVolume方法获取。 |
-| updateUi | boolean | 否 | 否 | 是否在UI中显示音量变化。true表示显示，false表示不显示。 |
+| updateUi | boolean | 否 | 否 | 标识是否会显示系统本身的音量条，true表示会显示系统音量条，false表示不会显示系统音量条。 若应用内含自定义音量条，建议根据此参数动态控制其显示：当updateUi为true时不显示自定义音量条，为false时显示自定义音量条，从而避免出现系统本身音量条与应用自定义音量条同时显示或不显示的问题。 |
 | volumeMode19+ | AudioVolumeMode | 否 | 是 | 音频的音量模式。默认值为SYSTEM_GLOBAL。 |
  
  
@@ -267,7 +267,7 @@
 | --- | --- | --- | --- | --- |
 | streamUsage | StreamUsage | 否 | 否 | 音量发生变化的音频流。 |
 | volume | number | 否 | 否 | 音量值。 |
-| updateUi | boolean | 否 | 否 | 是否在UI上展示音量变化。true表示展示，false表示不展示。 |
+| updateUi | boolean | 否 | 否 | 标识是否会显示系统本身的音量条，true表示会显示系统音量条，false表示不会显示系统音量条。 若应用内含自定义音量条，建议根据此参数动态控制其显示：当updateUi为true时不显示自定义音量条，为false时显示自定义音量条，从而避免出现系统本身音量条与应用自定义音量条同时显示或不显示的问题。 |
 | previousVolume23+ | number | 否 | 是 | 变化前的音量值。 |
  
  

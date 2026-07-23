@@ -1,6 +1,6 @@
 # Navigation
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2322,10 +2322,10 @@ Navigation分割线颜色及上下边距。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-| 名称 | 说明 |
-| --- | --- |
-| Start | 双栏显示时，主列在主轴方向首部。 |
-| End | 双栏显示时，主列在主轴方向尾部。 |
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| Start | 0 | 双栏显示时，主列在主轴方向首部。 |
+| End | 1 | 双栏显示时，主列在主轴方向尾部。 |
 
 
 
@@ -5229,7 +5229,7 @@ export class CustomTransition {
 ```
 
 
-![](assets/Navigation/file-20260708103219fc0e2195.gif)
+![](assets/Navigation/file-20260708103219b12640c7.gif)
 
 
 
@@ -5369,7 +5369,7 @@ struct NavigationExample {
 ```
 
 
-![](assets/Navigation/file-20260708103219b12640c7.gif)
+![](assets/Navigation/file-20260708103219fc0e2195.gif)
 
 
 
@@ -5809,7 +5809,7 @@ export struct PageTwo {
 ```
 
 
-![](assets/Navigation/file-20260708103221c6d313be.gif)
+![](assets/Navigation/file-20260708103221a71b1788.gif)
 
 
 
@@ -5976,4 +5976,4 @@ export struct NavigationMenu {
 
 
 
-![](assets/Navigation/file-20260708103221a71b1788.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/NU1FwYpZSImV1_PQC2LT7w/zh-cn_image_0000002647587936.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=48DF82503004CC6086CEA1FF29B1181D4DD1D46450BF935FEEAF5FA3A1F9F77B)

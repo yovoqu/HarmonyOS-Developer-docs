@@ -1,6 +1,6 @@
 # ArkUI_NodeContent*
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nodecontent8h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_NodeContent* ArkUI_NodeContentHandle
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义ArkUI NodeContent实例在Native侧的实例对象指针定义。
+定义ArkUI_NodeContent在Native侧的实例对象指针。
  
 **起始版本：** 12
  

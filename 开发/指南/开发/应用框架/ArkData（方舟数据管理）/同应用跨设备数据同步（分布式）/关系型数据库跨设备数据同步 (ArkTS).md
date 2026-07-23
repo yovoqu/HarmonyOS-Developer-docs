@@ -1,6 +1,6 @@
 # 关系型数据库跨设备数据同步 (ArkTS)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-rdb-store
 
@@ -135,7 +135,6 @@ const DOMAIN = 0x0000;
 
   
 ```ArkTS
-const context = new UIContext().getHostContext() as common.UIAbilityContext;
 let store: relationalStore.RdbStore | undefined = undefined;
 // ...
   const STORE_CONFIG: relationalStore.StoreConfig = {
@@ -143,6 +142,7 @@ let store: relationalStore.RdbStore | undefined = undefined;
     securityLevel: relationalStore.SecurityLevel.S3 // 数据库安全级别
   };
   // 打开数据库并设置分布式表
+  const context = new UIContext().getHostContext() as common.UIAbilityContext;
   relationalStore.getRdbStore(context, STORE_CONFIG).then(async (rdbStore: relationalStore.RdbStore) => {
     store = rdbStore;
     await store.executeSql('CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL, AGE INTEGER, SALARY REAL, CODES BLOB)');
@@ -339,7 +339,6 @@ if (store) {
 
 
 ```text
-const context = new UIContext().getHostContext() as common.UIAbilityContext;
 let store: relationalStore.RdbStore | undefined = undefined;
 // ...
   const STORE_CONFIG: relationalStore.StoreConfig = {
@@ -353,6 +352,7 @@ let store: relationalStore.RdbStore | undefined = undefined;
     enableCloud: false,
     tableType: relationalStore.DistributedTableType.SINGLE_VERSION
   }
+  const context = new UIContext().getHostContext() as common.UIAbilityContext;
   relationalStore.getRdbStore(context, STORE_CONFIG).then(async (rdbStore: relationalStore.RdbStore) => {
     store = rdbStore;
     await store.executeSql('CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL UNIQUE, AGE INTEGER, SALARY REAL, CODES BLOB)');
@@ -410,7 +410,7 @@ tableName：表名，string，必填字段。
 columnName：字段名，string类型，必填字段。
  - type：字段类型，string类型，必填字段，可选参数范围为：["Text", "Integer", "Long", "Float", "Double", "Blob" ]。
  - primaryKey：该字段表示是否为指定解冲突列，与表中是否为主键无关，bool类型。若是自增表，该字段为必填字段。其中：true表示为解冲突列，false表示非解冲突列，默认为false。
- - autoIncrement：是否自增属性，必须与表结构中对应，bool类型。关系型数据库跨设备数据同步不支持同步自增主键。其中：true表示自增主键，false表示非自增主，键默认为false。
+ - autoIncrement：是否自增属性，必须与表结构中对应，bool类型。关系型数据库跨设备数据同步不支持同步自增主键。其中：true表示自增主键，false表示非自增主键，默认为false。
  - notNull：是否非空，bool类型，非必填字段。其中：true表示非空字段，false表示可以为空字段，默认为false。
 
 

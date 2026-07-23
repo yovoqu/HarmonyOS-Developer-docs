@@ -1,6 +1,6 @@
 # 使用Web组件显示网页弹框
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-dialog
 
@@ -42,7 +42,7 @@ struct Index {
             this.uiContext.showAlertDialog({
               title: 'Warning',
               message: event.message,
-              confirm:{
+              confirm: {
                 value: 'confirm',
                 action: () => {
                   console.info('Alert confirmed.');
@@ -74,7 +74,7 @@ struct Index {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        button,label,input {
+        button, label, input {
         margin: 5px 0;
         }
     </style>
@@ -92,7 +92,7 @@ struct Index {
 </html>
 ```
 
- - 用[CustomDialog-AlertDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#alertdialog)创建弹框。
+ - 用[AlertDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#alertdialog)创建弹框。
 
   
 ```ArkTS
@@ -158,7 +158,7 @@ struct AlertDialogPage {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        button,label,input {
+        button, label, input {
         margin: 5px 0;
         }
     </style>
@@ -254,7 +254,7 @@ struct Index {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        button,label,input {
+        button, label, input {
         margin: 5px 0;
         }
     </style>
@@ -275,7 +275,7 @@ result：<label id="confirmLabel" for="confirm"></label><br/>
 </html>
 ```
 
- - 用[CustomDialog-ConfirmDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#confirmdialog)创建弹框。
+ - 用[ConfirmDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#confirmdialog)创建弹框。
 
   
 ```ArkTS
@@ -290,7 +290,7 @@ struct DialogConfirmDialog {
   @State result: JsResult | null = null;
   webviewController: webview.WebviewController = new webview.WebviewController();
   isChecked = false;
-  dialogControllerCheckBox: CustomDialogController = new CustomDialogController({
+  dialogControllerConfirmDialog: CustomDialogController = new CustomDialogController({
     builder: ConfirmDialog({
       title: this.title,
       content: this.message,
@@ -319,7 +319,7 @@ struct DialogConfirmDialog {
     }),
     onWillDismiss: () => {
       this.result?.handleCancel();
-      this.dialogControllerCheckBox.close();
+      this.dialogControllerConfirmDialog.close();
     },
     autoCancel: true
   })
@@ -337,7 +337,7 @@ struct DialogConfirmDialog {
               this.title = 'Confirm';
               this.message = event.message;
               this.result = event.result;
-              this.dialogControllerCheckBox.open();
+              this.dialogControllerConfirmDialog.open();
             }
           }
           return true;
@@ -360,7 +360,7 @@ struct DialogConfirmDialog {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        button,label,input {
+        button, label, input {
         margin: 5px 0;
         }
     </style>
@@ -391,7 +391,7 @@ result：<label id="confirmLabel" for="confirm"></label><br/>
 
 window.prompt()用于显示一个对话框，并等待用户提交文本或取消对话框。用户需要输入某个值，然后点击确认或取消按钮。点击确认返回输入的值，点击取消返回null。
 
- - 可选参数message向用户显示的一串文本。如果在提示窗口中没有什么可显示的，可以省略。
+ - 可选参数message是要向用户显示的一串文本。如果在提示窗口中没有什么可显示的，可以省略。
  - 可选参数defaultValue是一个字符串，包含文本输入字段中显示的默认值。
  - 返回值为用户输入文本的字符串，或null。
 
@@ -400,7 +400,7 @@ window.prompt()用于显示一个对话框，并等待用户提交文本或取�
 
 应用可以通过[onPrompt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onprompt9)事件监听网页prompt方法，并创建合适的弹框。
 
- - 用[CustomDialog-CustomContentDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#customcontentdialog12)创建弹框。        
+ - 用[CustomContentDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog#customcontentdialog12)创建弹框。        
 ```ArkTS
 import { CustomContentDialog } from '@kit.ArkUI';
 import { webview } from '@kit.ArkWeb';
@@ -489,7 +489,7 @@ struct PromptDialog {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        button,label,input {
+        button, label, input {
         margin: 5px 0;
         }
     </style>

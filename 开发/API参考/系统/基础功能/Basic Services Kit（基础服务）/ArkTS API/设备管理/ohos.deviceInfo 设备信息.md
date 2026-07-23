@@ -1,6 +1,6 @@
 # @ohos.deviceInfo (设备信息)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -80,8 +80,9 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 | chipType21+ | string | 是 | 当前设备CPU芯片型号 示例：xxxxx |
 | bootCount21+ | number | 是 | 当前设备重启次数，获取失败时返回-1 示例：100 |
 | deviceColor | string | 是 | 当前设备颜色。如果无法获取，则返回空字符串 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 示例：gold |
-| 错误码： |  |  |  |
 
+
+**错误码：**
 
 以下错误码的详细介绍请参见[deviceInfo错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-info)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 

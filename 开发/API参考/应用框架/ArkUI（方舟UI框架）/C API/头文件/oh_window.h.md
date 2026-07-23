@@ -1,6 +1,6 @@
 # oh_window.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -625,7 +625,7 @@ int32_t OH_WindowManager_InjectTouchEvent(int32_t windowId, Input_TouchEvent* to
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
-| Input_TouchEvent* touchEvent | 多模触摸事件，具体可见Input_TouchEvent，事件定义在oh_input_manager.h中。该参数包含的部分字段有参数限制，其中，action应为大于等于0且小于等于3的整数；id、displayX、displayY和actionTime应为不小于0的整数。以上参数不符合限制条件会返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示：窗口管理器服务异常。 |
+| Input_TouchEvent* touchEvent | 多模触摸事件，具体可见Input_TouchEvent，事件定义在oh_input_manager.h中。该参数包含的部分字段有参数限制，其中，action应为大于等于0且小于等于3的整数；id、displayX、displayY应为不小于0的整数。以上参数不符合限制条件会返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示：窗口管理器服务异常。 |
 | int32_t windowX | 注入事件相对于注入窗口的落点横坐标。该参数为整数。 |
 | int32_t windowY | 注入事件相对于注入窗口的落点纵坐标。该参数为整数。 |
 

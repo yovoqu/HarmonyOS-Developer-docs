@@ -1,6 +1,6 @@
 # HdsSideBar
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssidebar
 **支持设备：** Phone | PC/2in1 | Tablet | TV

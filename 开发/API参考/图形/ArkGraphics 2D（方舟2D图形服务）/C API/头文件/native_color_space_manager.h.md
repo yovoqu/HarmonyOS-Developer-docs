@@ -1,6 +1,6 @@
 # native_color_space_manager.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-color-space-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -93,9 +93,9 @@ enum ColorSpaceName
 | --- | --- |
 | NONE = 0 | 表示未知的色彩空间。 |
 | ADOBE_RGB = 1 | 表示基于Adobe RGB的色彩空间。 |
-| DCI_P3 = 2 | 表示基于SMPTE RP 431-2-2007和IEC 61966-2.1：1999的色彩空间。 |
-| DISPLAY_P3 = 3 | 表示基于SMPTE RP 431-2-2007和IEC 61966-2.1：1999的色彩空间。 |
-| SRGB = 4 | 表示基于IEC 61966-2.1：1999的标准红绿蓝（SRGB）色彩空间。 |
+| DCI_P3 = 2 | 表示基于SMPTE RP 431-2-2007和IEC 61966-2.1:1999的色彩空间。 |
+| DISPLAY_P3 = 3 | 表示基于SMPTE RP 431-2-2007和IEC 61966-2.1:1999的色彩空间。 |
+| SRGB = 4 | 表示基于IEC 61966-2.1:1999的标准红绿蓝（SRGB）色彩空间。 |
 | BT709 = 6 | 表示基于ITU-R BT.709的色彩空间。 |
 | BT601_EBU = 7 | 表示基于ITU-R BT.601的色彩空间。 |
 | BT601_SMPTE_C = 8 | 表示基于ITU-R BT.601的色彩空间。 |

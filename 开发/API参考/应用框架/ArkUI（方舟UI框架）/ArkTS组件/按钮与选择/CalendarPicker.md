@@ -1,6 +1,6 @@
 # CalendarPicker
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-calendarpicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -256,7 +256,7 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| hintRadius | number \| Resource | 否 | 是 | 描述日期选中态底板样式。 取值范围：[0.0, 16.0] 单位：vp 默认值：16.0，即底板样式为圆形。 说明： 当hintRadius为0.0时表示底板样式为直角矩形；当hintRadius为(0.0, 16.0)时，底板样式为圆角矩形；当hintRadius为负数或大于16.0时，恢复为默认值16.0。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| hintRadius | number \| Resource | 否 | 是 | 设置日期选中态底板的圆角半径。 取值范围：[0.0, 16.0] 单位：vp 默认值：16.0，即底板样式为圆形。 说明： 当hintRadius为0.0时表示底板样式为直角矩形；当hintRadius为(0.0, 16.0)时，底板样式为圆角矩形；当hintRadius为负数或大于16.0时，恢复为默认值16.0。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | selected | Date | 否 | 是 | 设置选中项的日期。选中的日期未设置或日期格式不符合规范则为默认值。 默认值：当前系统日期。 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | start18+ | Date | 否 | 是 | 设置开始日期。 默认值：Date('0001-01-01') 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | end18+ | Date | 否 | 是 | 设置结束日期。 默认值：Date('5000-12-31') 取值范围：[Date('0001-01-01'), Date('5000-12-31')] 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
@@ -373,7 +373,7 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/vbyIhOsvTo2w528D9bqFqA/zh-cn_image_0000002659101793.png?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=4FF28B49AEF0D409E87858E40587C51FF4312DFD188C1214F0DEA9C74516C30D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/x0sXjLmwQ6-hE9Zs_xhIqA/zh-cn_image_0000002647587974.png?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=1134E1DE3D79D813EACD025CB88400994B34DFDA41BE13086CEC1DFAEB22AE4E)
 
  
   
@@ -411,4 +411,4 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ptFUzTHGTgu9h3HkW0BZSw/zh-cn_image_0000002628862444.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014337Z&HW-CC-Expire=86400&HW-CC-Sign=906906A8D6FE144FA6E2C2FFF139706381B20B22543D34B426D4ED0BF03926A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/lvFwDHogRz6rmsr-aAwaBA/zh-cn_image_0000002677827615.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011954Z&HW-CC-Expire=86400&HW-CC-Sign=607B83BDAEA99DC02F65DA924A381FE1C467A231B072A83C93189DFB33353950)

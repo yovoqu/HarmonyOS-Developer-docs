@@ -1,6 +1,6 @@
 # 使用Text组件
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-use-text-component
 
@@ -321,7 +321,7 @@ if (span != nullptr) {
     // 文本基线的偏移量属性
     ArkUI_NumberValue baselineOffsetVal = {.f32 = VALUE_10};
     ArkUI_AttributeItem baselineOffsetItem = {&baselineOffsetVal, VALUE_1};
-    Manager::nodeAPI_->setAttribute(text, NODE_SPAN_BASELINE_OFFSET, &baselineOffsetItem);
+    Manager::nodeAPI_->setAttribute(span, NODE_SPAN_BASELINE_OFFSET, &baselineOffsetItem);
     // 设置字体粗细
     ArkUI_NumberValue fontWeight = {.i32 = ARKUI_FONT_WEIGHT_W500};
     ArkUI_AttributeItem fontWeightItem = {&fontWeight, VALUE_1};
@@ -411,7 +411,6 @@ ArkUI_NumberValue linearGradient[] = {
 ArkUI_AttributeItem linearGradientItem = {
     linearGradient, sizeof(linearGradient) / sizeof(ArkUI_NumberValue)};
 linearGradientItem.object = reinterpret_cast<void *>(colorStopPtr);
-linearGradientItem.size = sizeof(linearGradientItem) / sizeof(ArkUI_NumberValue);
 Manager::nodeAPI_->setAttribute(text5, NODE_TEXT_LINEAR_GRADIENT, &linearGradientItem);
 ```
 
@@ -436,6 +435,7 @@ ArkUI_AttributeItem marqueeOptions_item = {
     .object = marqueeOptions
 };
 Manager::nodeAPI_->setAttribute(text18, NODE_TEXT_MARQUEE_OPTIONS, &marqueeOptions_item);
+OH_ArkUI_TextMarqueeOptions_Dispose(marqueeOptions);
 ```
 
 

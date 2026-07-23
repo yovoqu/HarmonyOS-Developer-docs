@@ -1,6 +1,6 @@
 # Tabs
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2833,7 +2833,7 @@ struct TabsExample {
 ```
 
 
-![](assets/Tabs/file-20260708103213a1be6271.gif)
+![](assets/Tabs/file-20260708103213117d4503.gif)
 
 
 
@@ -2971,8 +2971,8 @@ struct TabsExample {
   }
 
   @Builder
-  tabBuilder(title: string,targetIndex: number) {
-    Column(){
+  tabBuilder(title: string, targetIndex: number) {
+    Column() {
       Text(title).fontColor(this.currentIndex === targetIndex ? '#FF0000' : '#6B6B6B')
     }.width('100%')
     .height(50)
@@ -2984,11 +2984,11 @@ struct TabsExample {
       Tabs({ barPosition: BarPosition.End, controller: this.controller, index: this.currentIndex }) {
         ForEach(this.data, (item: number) => {
           TabContent() {
-            Column(){
+            Column() {
               Text('' + item)
             }.width('100%').height('100%').backgroundColor('#00CB87').justifyContent(FlexAlign.Center)
-          }.tabBar(this.tabBuilder('P' + item, parseInt(item)))
-        }, (item: string) => item)
+          }.tabBar(this.tabBuilder('P' + item, item))
+        }, (item: number) => item.toString())
       }
       .barWidth(360)
       .barHeight(60)
@@ -3004,7 +3004,7 @@ struct TabsExample {
       Text('AnimationMode:' + AnimationMode[this.currentAnimationMode])
 
       Button('AnimationMode').width('50%').margin({ top: 1 }).height(25)
-        .onClick(()=>{
+        .onClick(() => {
           if (this.currentAnimationMode === AnimationMode.CONTENT_FIRST) {
             this.currentAnimationMode = AnimationMode.ACTION_FIRST;
           } else if (this.currentAnimationMode === AnimationMode.ACTION_FIRST) {
@@ -3023,7 +3023,7 @@ struct TabsExample {
 ```
 
 
-![](assets/Tabs/file-20260708103213117d4503.gif)
+![](assets/Tabs/file-20260708103213a1be6271.gif)
 
 
 
@@ -3119,7 +3119,7 @@ struct TabsBarModifierExample {
 ```
 
 
-![](assets/Tabs/file-20260708103214dbe829b2.gif)
+![](assets/Tabs/file-20260708103214557dd08b.png)
 
 
 
@@ -3228,7 +3228,7 @@ struct TabsBarModifierExample {
 ```
 
 
-![](assets/Tabs/file-20260708103214b25f7cf8.gif)
+![](assets/Tabs/file-202607081032146059545e.gif)
 
 
 
@@ -3310,7 +3310,7 @@ struct TabsExample {
 ```
 
 
-![](assets/Tabs/file-202607081032146059545e.gif)
+![](assets/Tabs/file-20260708103214b25f7cf8.gif)
 
 
 
@@ -3444,7 +3444,7 @@ struct TabsExample {
 ```
 
 
-![](assets/Tabs/file-20260708103214557dd08b.png)
+![](assets/Tabs/file-20260708103214dbe829b2.gif)
 
 
 
@@ -3505,7 +3505,7 @@ struct TabsExample {
 ```
 
 
-![](assets/Tabs/file-20260708103215958747ae.gif)
+![](assets/Tabs/file-20260708103215555c1d97.gif)
 
 
 
@@ -3601,7 +3601,7 @@ struct TabsExample {
 ```
 
 
-![](assets/Tabs/file-20260708103215555c1d97.gif)
+![](assets/Tabs/file-20260708103215958747ae.gif)
 
 
 

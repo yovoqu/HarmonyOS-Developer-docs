@@ -1,6 +1,6 @@
 # 堆栈解析工具（hstack）
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack
 
@@ -83,7 +83,7 @@ hstack -c "at anonymous (entry|entry|1.0.0|src/main/ets/pages/Index.ts:401:1)" -
   如果是指定crash文件归档目录，解析完成后，outputDir目录下会生成对应的解析结果，文件以原始crash文件名加“_”前缀进行命名。crash堆栈中的C++日志以及ArkTS日志均已解析为源码对应的文件路径以及行列号，结果如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/w0j0Xy_JQOCUwrfmJ7903A/zh-cn_image_0000002594634532.png?HW-CC-KV=V1&HW-CC-Date=20260624T020703Z&HW-CC-Expire=86400&HW-CC-Sign=B6669F22856399AAEFE2FE98A5AAEA9C9C93B50596FDDBAAAE596E14A715694E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/y1Ztza_zRnqsJkWVUfHogg/zh-cn_image_0000002594634532.png?HW-CC-KV=V1&HW-CC-Date=20260723T012115Z&HW-CC-Expire=86400&HW-CC-Sign=07E95F1DC4C765A103A2329231D5B7ECCD92206C8AA16CFEFFA240C05C5BCC31)
 
 
   在构建Release应用时，so文件是默认不包含符号表信息的，如果需要在构建Release应用时生成包含符号表的so文件，需要在工程的模块级build-profile.json5文件的buildOption属性中，配置如下信息：

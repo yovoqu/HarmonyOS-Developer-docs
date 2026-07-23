@@ -1,6 +1,6 @@
 # BusinessRiskIntelligentDetection（业务风险检测）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-brid
 **支持设备：** Phone | Tablet
@@ -76,7 +76,7 @@ Access cloud server fail.
 
 
 
-#### 1012500004 权限校验失败
+#### 1012500004 校验capability失败
 
 **支持设备：** Phone | Tablet
 
@@ -86,15 +86,15 @@ Verify cloud capability fail.
 
 **错误描述**
 
-权限校验失败。
+校验capability失败。
 
 **可能原因**
 
-应用hap未开通Device Security服务。
+应用未开通业务风险检测相应服务。
 
 **处理步骤**
 
-参考[开通Device Security服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice)在AppGallery Connect开通Device Security服务，开通Device Security服务后重试。
+参考[开通Device Security服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice)在AppGallery Connect开通Device Security服务中的业务风险检测相应服务，开通后重试。
 
 
 

@@ -1,12 +1,12 @@
 # 使用Web组件保存前端页面为PDF
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-createpdf
 
 从API version 14开始，支持使用Web组件的[createPdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#createpdf14)方法，为应用提供了保存前端页面为PDF的功能。
 
-使用[createPdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#createpdf14)生成实例后，调用pdfArrayBuffer方法获取二进制数据流，再使用[fileIo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)方法将二进制数据流保存为PDF文件。用户可以将前端页面内容保存为PDF以便分享或保存。例如，生成报告、发票等，方便用户保存和传输。
+使用[createPdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#createpdf14)生成实例后，调用pdfArrayBuffer方法获取二进制数据流，再使用基础文件IO接口（[ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)）将二进制数据流保存为PDF文件。用户可以将前端页面内容保存为PDF以便分享或保存。例如，生成报告、发票等，方便用户保存和传输。
 
 > [!NOTE]
 > 通过 pdfConfiguration 的配置，可调整PDF每页大小、前端页面缩放比例等；推荐使用前端页面适配策略，通过CSS媒体查询（@media print）优化PDF排版。
@@ -75,7 +75,7 @@ struct Index {
                 });
               } catch (resError) {
                 console.error(
-                  `ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+                  `ErrorCode: ${(resError as BusinessError).code},  Message: ${(resError as BusinessError).message}`);
               }
             });
         })

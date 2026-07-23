@@ -1,6 +1,6 @@
 # 使用Web组件的下载能力
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-download
 
@@ -341,6 +341,7 @@ struct WebComponent {
 ```ArkTS
 import { util } from '@kit.ArkTS';
 import { fileIo } from '@kit.CoreFileKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 const helper = new util.Base64Helper();
 
@@ -385,12 +386,26 @@ export namespace  DownloadUtil {
   }
 
   export function writeToFileSync(dir: string, fileName: string, msg: string): void {
-    let file = fileIo.openSync(dir + '/' + fileName, fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.CREATE);
-    fileIo.writeSync(file.fd, msg);
+    let file: fileIo.File | null = null;
+    try {
+      file = fileIo.openSync(dir + '/' + fileName, fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.CREATE);
+      fileIo.writeSync(file.fd, msg);
+    } catch (error) {
+      console.error(`ErrorCode: ${(error as BusinessError).code}, Message: ${(error as BusinessError).message}`);
+    } finally {
+      if (file) {
+        fileIo.closeSync(file);
+      }
+    }
   }
 
   export function readFileSync(dir: string, fileName: string): string {
-    return fileIo.readTextSync(dir + '/' + fileName);
+    try {
+      return fileIo.readTextSync(dir + '/' + fileName);
+    } catch (error) {
+      console.error(`ErrorCode: ${(error as BusinessError).code}, Message: ${(error as BusinessError).message}`);
+      return '';
+    }
   }
 
 }

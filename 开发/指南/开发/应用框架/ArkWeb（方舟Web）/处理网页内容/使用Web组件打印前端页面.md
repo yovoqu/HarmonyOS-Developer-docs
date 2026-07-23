@@ -1,6 +1,6 @@
 # 使用Web组件打印前端页面
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-print
 
@@ -156,8 +156,8 @@ struct WebComponent {
       Button('createWebPrintDocumentAdapter')
         .onClick(() => {
           try {
-            let webPrintDocadapter = this.controller.createWebPrintDocumentAdapter('example.pdf');
-            print.print('example_job_id', webPrintDocadapter, null, this.getUIContext().getHostContext());
+            let webPrintDocAdapter = this.controller.createWebPrintDocumentAdapter('example.pdf');
+            print.print('example_job_id', webPrintDocAdapter, null, this.getUIContext().getHostContext());
           } catch (error) {
             console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
           }

@@ -1,6 +1,6 @@
 # Marquee
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-marquee
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -96,7 +96,7 @@ fontColor(value: ResourceColor)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ResourceColor | 是 | 字体颜色。 Wearable设备上默认值为：'#c5ffffff'，显示为淡蓝色，其他设备默认值为：'e6182431'，显示为黑色。 |
+| value | ResourceColor | 是 | 字体颜色。 Wearable设备上默认值为：'#c5ffffff'，显示为淡蓝色，其他设备默认值为：'#e6182431'，显示为黑色。 |
 
 
 
@@ -411,7 +411,7 @@ struct MarqueeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/8uzHddAOTfW1cuUAiFizVQ/zh-cn_image_0000002659102007.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014343Z&HW-CC-Expire=86400&HW-CC-Sign=C9E3A471A04EB7F593D2DF7FAFE7BC5380A46891D9632D3A4993CF798E8B43A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/5kDt-uMESC6oiI0mVwoV1w/zh-cn_image_0000002647588188.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=2E93BED07F76F1CA663A225BF07AE6D93B059C20642201F5F0EAC738714DC348)
 
 
 
@@ -492,4 +492,4 @@ struct MarqueeStop4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/YnqCzV7hTOSrfIpqA_Oozw/zh-cn_image_0000002628862658.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014343Z&HW-CC-Expire=86400&HW-CC-Sign=237BC0D763FE2BF5D60E2FBBB7484403D2C1D5D8A2814810B7209AD73D263CA4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/a2Dc--rnRvSgnTEzrMESvQ/zh-cn_image_0000002677827829.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=57394B8428CD456017FCCC0EA1FFD537A5A91D0485C6BE1A766A061200DE5AD5)

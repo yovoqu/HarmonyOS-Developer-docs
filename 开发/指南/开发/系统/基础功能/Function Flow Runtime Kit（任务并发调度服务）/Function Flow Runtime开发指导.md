@@ -1,6 +1,6 @@
 # Function Flow Runtime开发指导
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-development-guideline
 
@@ -613,7 +613,7 @@ void abnormal_case_2()
         ffrt::create_function_wrapper(std::function<void()>([](){ printf("Test task running...\n"); })),
         NULL, NULL, NULL);
     // ...
-    // 内存泄露
+    // 内存泄漏
 }
 ```
 

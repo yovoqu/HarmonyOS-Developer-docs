@@ -1,6 +1,6 @@
 # image
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -45,7 +45,7 @@
 | object-fit | string | cover | 否 | 设置图片的缩放类型，不支持svg格式。可选值类型说明请见object-fit类型说明。 |
 | match-text-direction | boolean | false | 否 | 图片是否跟随文字方向，不支持svg格式。 默认值：false，表示图片不跟随文字方向。 |
 | fit-original-size | boolean | false | 否 | image组件在未设置宽高的情况下是否适应图源尺寸，该属性为true时object-fit属性不生效，svg类型图源不支持该属性。 默认值：false，表示image组件在未设置宽高的情况下不适应图源尺寸。 |
-| object-position7+ | string | 0px 0px | 否 | 设置图片在组件内展示的位置。 设置类型有两种： 1. 像素，单位px，示例 15px 15px 代表X轴或者Y轴移动的位置。 2. 字符，可选值： - left 图片显示在组件左侧。 - top 图片显示在组件顶部位置。 - right 图片显示在组件右侧位置。 - bottom 图片显示在组件底部位置。 |
+| object-position7+ | string | 0px 0px | 否 | 设置图片在组件内展示的位置。 设置类型有两种： 1. 像素，单位px，示例 15px 15px 分别代表X轴和Y轴移动的位置。 2. 字符，可选值： - left 图片显示在组件左侧。 - top 图片显示在组件顶部位置。 - right 图片显示在组件右侧位置。 - bottom 图片显示在组件底部位置。 |
  
  
 **表1** object-fit 类型说明
@@ -129,4 +129,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/W11Lm638RU6O2DYW-MM8NA/zh-cn_image_0000002628703066.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014401Z&HW-CC-Expire=86400&HW-CC-Sign=3ED3C5B47F311A63361A57B355C86AF8E00AC2F344C37F65F6E3B204C76BD702)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/TnSwlK7-RPe2Z2uvW6CFqw/zh-cn_image_0000002647588518.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=A54D15F6EF87AFB4D47A839AD8E44260978A79DED4C821F9C9B31BF13A5BA3CE)

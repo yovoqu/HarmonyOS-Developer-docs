@@ -1,6 +1,6 @@
 # 低时延音频播放(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-fast-playback
 
@@ -19,7 +19,7 @@
 
 #### 开发指导
 
-以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/blob/master/code/DocsSample/Media/Audio/AudioRendererSampleC)。
+以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/AudioRendererSampleC)。
 
 
 
@@ -111,8 +111,8 @@ static OH_AudioData_Callback_Result MyOnWriteData_New(
 {
     // 将待播放的数据，按audioDataSize长度写入audioData。
     // 如果开发者不希望播放某段audioData，返回AUDIO_DATA_CALLBACK_RESULT_INVALID即可。
-    int32_t readCount = fread(audioData, audioDataSize, 1, g_fp);
-    if (readCount < 0) {
+    size_t readCount = fread(audioData, audioDataSize, 1, g_fp);
+    if (readCount == 0) {
         return AUDIO_DATA_CALLBACK_RESULT_INVALID;
     }
     if (feof(g_fp)) {

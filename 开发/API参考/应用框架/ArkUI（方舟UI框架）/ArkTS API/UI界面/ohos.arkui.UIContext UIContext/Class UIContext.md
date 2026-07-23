@@ -1,6 +1,6 @@
 # Class (UIContext)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -636,7 +636,7 @@ struct Index {
 
 getId(): number
 
-获取UI实例对象唯一标识，多实例场景下，开发者可使用此唯一标识区分多个UI实例对象，便于管理。
+获取UI实例对象唯一标识，多实例场景下，开发者可使用此唯一标识区分多个UI实例对象，便于管理。UI实例无效或实例ID不存在时，返回-1。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -753,7 +753,7 @@ getOverlayManager(): OverlayManager
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：**: SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
 
@@ -778,7 +778,7 @@ setOverlayManagerOptions(options: OverlayManagerOptions): boolean
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-**系统能力：**: SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
@@ -810,7 +810,7 @@ getOverlayManagerOptions(): OverlayManagerOptions
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-**系统能力：**: SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
 
@@ -1090,7 +1090,7 @@ struct SharedLocalStorage {
 
 getHostContext(): Context | undefined
 
-获得当前元能力的Context。
+获得当前组件所在Ability的Context。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1819,7 +1819,7 @@ showTextPickerDialog(style: TextPickerDialogOptions|TextPickerDialogOptionsExt):
 
 createAnimator(options: AnimatorOptions): AnimatorResult
 
-定义Animator类。
+创建Animator动画结果对象。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -2098,7 +2098,7 @@ getAtomicServiceBar(): Nullable&lt;AtomicServiceBar&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Nullable&lt;AtomicServiceBar&gt; | 如果是元服务则返回AtomicServerBar类型，否则返回undefined。 |
+| Nullable&lt;AtomicServiceBar&gt; | 如果是元服务则返回AtomicServiceBar类型，否则返回undefined。 |
 
 
 **示例：**
@@ -3922,7 +3922,7 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/U0Q4rYqwSeyCskWUZEhjcg/zh-cn_image_0000002659221449.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=6F350DE8761C2F46C13B1B71953F1BDB84851A754DD575321CF80FE888F90B9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/VWTZ-JtZSTSkSRbMb3W-Sw/zh-cn_image_0000002647587666.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011948Z&HW-CC-Expire=86400&HW-CC-Sign=215F6A36CF8B7A7EE47AD78C2F456EF6E7561C5D407EAB4D0F92459267B2A870)
 
 
 
@@ -4385,7 +4385,7 @@ setImageCacheCount(value: number): void
 
 setImageCacheCount方法需要在@Entry标记的页面，[onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)或[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)里面设置才生效。
 
-setImageCacheCount、setImageRawDataCacheSize和setImageFileCacheSize并不灵活，后续不继续演进。对于复杂情况，更推荐使用[ImageKnife](https://gitcode.com/openharmony-tpc/ImageKnife)。
+setImageCacheCount、setImageRawDataCacheSize和setImageFileCacheSize并不灵活，后续不继续演进。对于复杂情况，更推荐使用[ImageKnife](https://gitcode.com/CPF-ApplicationTPC/ImageKnife)。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
@@ -4633,7 +4633,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/2Z4Ysgq9TjSUcQ1nnkjTWw/zh-cn_image_0000002628702260.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=7DF7117A54268EEC1F19549E053E5F97A17818DBE6EC60F123A01AE497474E84)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/8ThfIVXfQlO1YRA5RGb_bg/zh-cn_image_0000002677827307.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011948Z&HW-CC-Expire=86400&HW-CC-Sign=F02093F04065A94428437963F47902C59DEB8FDD556C6F56E0AAF747DA26A197)
 
 
 
@@ -4794,7 +4794,7 @@ export struct pageThreeTmp {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/ce4wvMhOQwOJchis0HxjEA/zh-cn_image_0000002659101489.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014313Z&HW-CC-Expire=86400&HW-CC-Sign=11D57C76FDB7D437F6DB0A8F723D9E1176167F61D5BF4140EBB2B499D3484012)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/d-aj4J1MQqKdG1Jo8jCAGQ/zh-cn_image_0000002677667459.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T011948Z&HW-CC-Expire=86400&HW-CC-Sign=8F99D6A3AAD3FC427FE02CA857111454D400ADEC273C48CCD186B481CD1250BE)
 
 
 

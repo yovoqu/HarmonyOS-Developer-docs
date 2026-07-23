@@ -1,6 +1,6 @@
 # textPath
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-textpath
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -44,9 +44,9 @@
 | by | number | - | 相对被指定动画的属性偏移值，from默认为原属性值。 |
 | opacity | number | 1 | 元素的透明度，取值范围为0到1，1表示为不透明，0表示为完全透明。支持属性动画。 默认值：1 |
 | fill-opacity | number | 1.0 | 字体填充透明度。 默认值：1.0 |
-| stroke | &lt;color&gt; | black | 绘制字体边框并指定颜色。 默认值：black |
-| stroke-width | number | 1 | 字体边框宽度。 默认值：1px |
-| stroke-opacity | number | 1.0 | 字体边框透明度。 默认值：1.0 |
+| stroke | &lt;color&gt; | black | 绘制字体描边并指定颜色。 默认值：black |
+| stroke-width | number | 1 | 字体描边宽度。 默认值：1，单位px。 |
+| stroke-opacity | number | 1.0 | 字体描边透明度。 默认值：1.0 |
  
  
   
@@ -294,7 +294,7 @@ textpath与tspan组合属性动画与效果图
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/__mPaE8SQXSNNDp2OZE7Pw/zh-cn_image_0000002656470317.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=9686C7A8F5552E4092FBE4A36FF899D67624645E87206F7131BA5E212CA326A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/dDrKMLpESFu072Jmn7ne1g/zh-cn_image_0000002677828219.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012002Z&HW-CC-Expire=86400&HW-CC-Sign=796CF5FD92CC5450D1D08BF316CE849F63DC7B9963FB92904B5A1422BC77C2DF)
 
  
 (1) "tspan attribute stroke" 轮廓颜色从红色逐渐转变成绿色。

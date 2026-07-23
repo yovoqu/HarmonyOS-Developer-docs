@@ -1,6 +1,6 @@
 # Device Certificate Kit术语
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/device-certificate-glossary
 
@@ -64,7 +64,7 @@
 
 #### KeyStore；密钥库
 
-用于存储证书凭据的容器，可以包含证书链、私钥、CA证书等，常见的密钥库文件格式为P12文件（PKCS#12），可以使用密码对证书库文件进行加密保护。
+用于存储证书凭据的容器，可以包含证书链、私钥、CA证书等，常见的密钥库文件格式为P12文件（PKCS #12），可以使用密码对密钥库文件进行加密保护。
  
   
 

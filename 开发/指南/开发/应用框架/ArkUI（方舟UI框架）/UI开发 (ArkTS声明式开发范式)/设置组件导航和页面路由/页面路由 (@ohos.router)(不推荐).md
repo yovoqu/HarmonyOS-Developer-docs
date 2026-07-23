@@ -1,6 +1,6 @@
 # 页面路由 (@ohos.router)(不推荐)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing
 
@@ -376,6 +376,9 @@ struct MyComponent {
 ```
 
 ```ArkTS
+import { hilog } from '@kit.PerformanceAnalysisKit';
+ const DOMAIN = 0xF811;
+ const TAG = '[Sample_ArkTSRouter]';
 // Page.ets
 @Entry
 @Component
@@ -385,18 +388,18 @@ struct Page {
 
   // 只有被@Entry装饰的组件才可以调用页面的生命周期
   onPageShow() {
-    console.info('Page onPageShow');
+    hilog.info(DOMAIN, TAG, 'Page onPageShow');
     this.num = 5;
   }
 
   // 只有被@Entry装饰的组件才可以调用页面的生命周期
   onPageHide() {
-    console.info('Page onPageHide');
+    hilog.info(DOMAIN, TAG, 'Page onPageHide');
   }
 
   // 只有被@Entry装饰的组件才可以调用页面的生命周期
   onBackPress() { // 不设置返回值按照false处理
-    console.info('Page onBackPress');
+    hilog.info(DOMAIN, TAG, 'Page onBackPress');
     this.textColor = Color.Grey;
     this.num = 0;
   }
@@ -422,7 +425,7 @@ struct Page {
 ```
 
 
-![](assets/页面路由%20(@ohos.router)(不推荐)/file-2026070810392197801945.gif)
+![](assets/页面路由%20(@ohos.router)(不推荐)/file-20260708103922d16abfc1.gif)
 
 
 
@@ -442,7 +445,7 @@ router自定义转场可以通过[pageTransition](https://developer.huawei.com/c
 **图3** 页面返回前增加一个询问框
 
 
-![](assets/页面路由%20(@ohos.router)(不推荐)/file-202607081039223e49d250.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/zYbpLZBQTiGHMi6vzjrl-w/zh-cn_image_0000002677825355.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012132Z&HW-CC-Expire=86400&HW-CC-Sign=11FC024EAF95D775B7E36DD59378C44D5B95F14DF5168D0451BBE3035EE003FC)
 
 
 
@@ -556,7 +559,7 @@ onBackClick() {
 **图4** 命名路由跳转
 
 
-![](assets/页面路由%20(@ohos.router)(不推荐)/file-20260708103922d16abfc1.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/_fQxbq-EQeewFOzKbenKhA/zh-cn_image_0000002677665507.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012132Z&HW-CC-Expire=86400&HW-CC-Sign=74F19247560EA3F2A6F7D50AA127157D10E8CE71F168AEF2402609FCB2B4B385)
 
 
 在想要跳转到的共享包[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)页面里，给[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)修饰的自定义组件EntryOptions命名：

@@ -1,6 +1,6 @@
 # @ohos.faultLogger (故障日志获取)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -10,7 +10,7 @@
 系统侧保存的应用故障日志数量受系统日志的压力限制，推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅APP_CRASH及APP_FREEZE等故障事件。
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口从API version 18开始废弃使用, 该接口不再维护。后续版本推荐使用 @ohos.hiviewdfx.hiAppEvent 订阅APP_CRASH，APP_FREEZE事件。 查阅 从Faultlogger接口迁移崩溃事件 ，了解使用hiAppEvent订阅APP_CRASH的具体信息。 查阅 从Faultlogger接口迁移应用冻屏事件 ，了解使用hiAppEvent订阅APP_FREEZE的具体信息。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口从API version 18开始废弃使用，该接口不再维护。后续版本推荐使用 @ohos.hiviewdfx.hiAppEvent 订阅APP_CRASH，APP_FREEZE事件。 查阅 从Faultlogger接口迁移崩溃事件 ，了解使用hiAppEvent订阅APP_CRASH的具体信息。 查阅 从Faultlogger接口迁移应用冻屏事件 ，了解使用hiAppEvent订阅APP_FREEZE的具体信息。
 
 
 

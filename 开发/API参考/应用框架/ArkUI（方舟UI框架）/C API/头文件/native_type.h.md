@@ -1,6 +1,6 @@
 # native_type.h
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -64,7 +64,7 @@
 | ArkUI_ListItemSwipeActionOption | ArkUI_ListItemSwipeActionOption | 定义ListItemSwipeActionOption方法的配置信息。 |
 | ArkUI_Context | ArkUI_Context | 定义ArkUI native UI的上下文实例对象。 |
 | ArkUI_Context* | ArkUI_ContextHandle | 定义ArkUI native UI的上下文实例对象指针定义。 |
-| ArkUI_NodeContent* | ArkUI_NodeContentHandle | 定义ArkUI NodeContent实例在Native侧的实例对象指针定义。 |
+| ArkUI_NodeContent* | ArkUI_NodeContentHandle | 定义ArkUI_NodeContent在Native侧的实例对象指针。 |
 | ArkUI_AlignmentRuleOption | ArkUI_AlignmentRuleOption | 指定设置在相对容器中子组件的对齐规则。 |
 | ArkUI_GuidelineOption | ArkUI_GuidelineOption | Guideline参数，用于定义Guideline（RelativeContainer容器内的辅助线）的id、方向和位置。 |
 | ArkUI_BarrierOption | ArkUI_BarrierOption | barrier选项，用于定义barrier的id、方向和生成时所依赖的组件。 |
@@ -73,13 +73,13 @@
 | ArkUI_ProgressLinearStyleOption | ArkUI_ProgressLinearStyleOption | 定义线性进度条样式。 |
 | ArkUI_CustomProperty | ArkUI_CustomProperty | 定义自定义属性的CustomProperty类信息。 |
 | ArkUI_HostWindowInfo | ArkUI_HostWindowInfo | 定义窗口属性的HostWindowInfo类信息。 |
-| ArkUI_ActiveChildrenInfo | ArkUI_ActiveChildrenInfo | 定义ActiveChildrenInfo类信息。 |
+| ArkUI_ActiveChildrenInfo | ArkUI_ActiveChildrenInfo | 定义ActiveChildrenInfo结构体信息。 |
 | ArkUI_CrossLanguageOption | ArkUI_CrossLanguageOption | 定义跨语言配置项。 |
 | AbilityBase_Want | AbilityBase_Want | 声明元能力want结构。 |
 | ArkUI_EmbeddedComponentOption | ArkUI_EmbeddedComponentOption | 为EmbeddedComponent定义参数EmbeddedComponentOption。 |
 | ArkUI_AccessibilityState | ArkUI_AccessibilityState | 定义组件无障碍状态。 |
 | ArkUI_AccessibilityValue | ArkUI_AccessibilityValue | 定义组件无障碍信息值。 |
-| ArkUI_SystemFontStyleEvent | ArkUI_SystemFontStyleEvent | 系统字体变更事件定义。 |
+| ArkUI_SystemFontStyleEvent | ArkUI_SystemFontStyleEvent | 系统字体样式变更事件定义。 |
 | ArkUI_CustomSpanMeasureInfo | ArkUI_CustomSpanMeasureInfo | 自定义段落组件的测量信息。 |
 | ArkUI_CustomSpanMetrics | ArkUI_CustomSpanMetrics | 自定义段落组件的度量指标。 |
 | ArkUI_CustomSpanDrawInfo | ArkUI_CustomSpanDrawInfo | 自定义段落组件的绘制信息。 |
@@ -2448,7 +2448,7 @@ enum ArkUI_DynamicRangeMode
 
 | 枚举项 | 描述 |
 | --- | --- |
-| ARKUI_DYNAMIC_RANGE_MODE_HIGH = 0 | 高动态范围（High Dynamic Range，简称HDR），表示图片中显示亮度（brightness）的最小值和最大值的范围，范围越大图像的亮度表达更逼近真实环境，在太亮的环境下不会产生过曝（一片白），太暗的环境下不会产生过暗的效果（一片黑）。 |
+| ARKUI_DYNAMIC_RANGE_MODE_HIGH = 0 | 高动态范围（High Dynamic Range，简称HDR），表示图片中显示亮度（brightness）的最小值和最大值的范围，范围越大图像的亮度表达更逼近真实环境，在太亮的环境下不会产生过曝（纯白），太暗的环境下不会产生过暗的效果（纯黑）。 |
 | ARKUI_DYNAMIC_RANGE_MODE_CONSTRAINT = 1 | 受限的高动态范围，包含比SDR更丰富的亮度和色彩，但不是完整的HDR，一般用于需要兼容SDR的情况。 |
 | ARKUI_DYNAMIC_RANGE_MODE_STANDARD = 2 | 标准动态范围（Standard Dynamic Range，简称SDR），表示亮度范围有限，一般在0~100尼特（亮度单位）左右，明暗对比度较小，暗部容易糊成黑，亮部容易过曝。 |
 
@@ -3441,7 +3441,7 @@ enum ArkUI_ErrorCode
 | ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR = 106202 | 传入的buffer size异常（数据过大）。 错误码的详细介绍请参见106202 传入的buffer size异常。 |
 | ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE = 106203 | 传入的节点未挂载到组件树上。错误码的详细介绍请参见106203 传入的节点未挂载到组件树上。 起始版本： 15 |
 | ARKUI_ERROR_CODE_NODE_ON_INVALID_THREAD = 106204 | 不支持在非UI线程操作传入的节点。错误码的详细介绍请参见106204 不支持在非UI线程操作传入的节点。 起始版本： 22 |
-| ARKUI_ERROR_CODE_FORCE_DARK_CONFIG_INVALID = 106205 | 反色能力配置错误。错误码的详细介绍请参见106205 反色能力配置错误。 起始版本： 20 |
+| ARKUI_ERROR_CODE_FORCE_DARK_CONFIG_INVALID = 106205 | 反色能力入参错误。错误码的详细介绍请参见106205 反色能力配置错误。 起始版本： 20 |
 | ARKUI_ERROR_CODE_NODE_IS_ADOPTED = 106206 | 节点已被接纳为附属节点。错误码的详细介绍请参见106206 节点已被接纳为附属节点。 起始版本： 22 |
 | ARKUI_ERROR_CODE_NODE_HAS_PARENT = 106207 | 被接纳的节点已有父节点。错误码的详细介绍请参见106207 被接纳的附属节点已有父节点。 起始版本： 22 |
 | ARKUI_ERROR_CODE_NODE_CAN_NOT_BE_ADOPTED = 106208 | 节点无法被接纳为附属节点。错误码的详细介绍请参见106208 节点无法被接纳为附属节点。 起始版本： 22 |
@@ -3449,7 +3449,7 @@ enum ArkUI_ErrorCode
 | ARKUI_ERROR_CODE_NODE_IS_NOT_IN_ADOPTED_CHILDREN = 106210 | 节点不是被目标节点接纳的附属节点。错误码的详细介绍请参见106210 节点不是被目标节点接纳的附属节点。 起始版本： 22 |
 | ARKUI_ERROR_CODE_NOT_CUSTOM_NODE = 106401 | 当前节点不是自定义节点。错误码的详细介绍请参见渲染节点错误码。 起始版本： 20 |
 | ARKUI_ERROR_CODE_CHILD_EXISTED = 106402 | 当前节点已存在子节点。错误码的详细介绍请参见渲染节点错误码。 起始版本： 20 |
-| ARKUI_ERROR_CODE_RENDER_PARENT_EXISTED = 106403 | 当前渲染节点存在父组件。错误码的详细介绍请参见渲染节点错误码。 起始版本： 20 |
+| ARKUI_ERROR_CODE_RENDER_PARENT_EXISTED = 106403 | 当前渲染节点存在父节点。错误码的详细介绍请参见渲染节点错误码。 起始版本： 20 |
 | ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST = 106404 | 未找到对应的渲染子节点。错误码的详细介绍请参见渲染节点错误码。 起始版本： 20 |
 | ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE = 106405 | 参数值超出范围。错误码的详细介绍请参见渲染节点错误码。 起始版本： 20 |
 | ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE = 106406 | 当前渲染节点从FrameNode中获取。错误码的详细介绍请参见106406 当前渲染节点从FrameNode中获取。 起始版本： 22 |
@@ -13493,7 +13493,7 @@ typedef bool (*ArkUI_TextMenuItemClickCallback)(const ArkUI_TextMenuItem* item,i
 
 | 类型 | 说明 |
 | --- | --- |
-| bool | 是否拦截系统默认处理行为。 true：拦截系统默认处理行为，如点击“粘贴”、“复制”等文本菜单项时不再执行系统系统默认处理行为，仅执行开发者自定义处理行为。 false：不拦截系统默认处理行为，如点击“粘贴”、“复制”等文本菜单项时先执行开发者自定义处理行为，再执行系统默认处理行为。 |
+| bool | 是否拦截系统默认处理行为。 true：拦截系统默认处理行为，如点击“粘贴”、“复制”等文本菜单项时不再执行系统默认处理行为，仅执行开发者自定义处理行为。 false：不拦截系统默认处理行为，如点击“粘贴”、“复制”等文本菜单项时先执行开发者自定义处理行为，再执行系统默认处理行为。 |
 
 
 

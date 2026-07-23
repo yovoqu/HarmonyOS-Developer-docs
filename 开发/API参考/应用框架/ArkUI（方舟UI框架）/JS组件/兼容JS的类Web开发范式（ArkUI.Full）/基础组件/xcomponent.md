@@ -1,6 +1,6 @@
 # xcomponent
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-xcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,7 +60,7 @@
 | 名称 | 功能描述 |
 | --- | --- |
 | onLoad(context?: object) => void | 插件加载完成时回调事件。 context：开发者扩展的xcomponent方法的实例对象，context对象的接口由开发者自定义。 |
-| onDestroy() => void | 插件卸载完成时回调事件。 |
+| onDestroy() => void | 插件销毁完成时回调事件。 |
  
  
   

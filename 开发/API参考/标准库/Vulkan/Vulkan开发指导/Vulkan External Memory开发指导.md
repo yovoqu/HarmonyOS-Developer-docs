@@ -1,6 +1,6 @@
 # Vulkan External Memory开发指导
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vulkan-oh-external-memory-guidelines
 
@@ -45,7 +45,7 @@ VK_OHOS_external_memory 扩展用于在GPU Vulkan环境下与HarmonyOS的本机�
 #### 开发步骤
 
 以下步骤说明了如何将视频解码器输出的本机缓冲区（OHNativeBuffer）导入为Vulkan内存，并绑定到VkImage/VkBuffer。
- 1. 启动渲染子线程，初始化Vulkan环境，动态加载libvulkan.so, 并加载Vulkan基础函数的指针。
+ 1. 启动渲染子线程，初始化Vulkan环境，动态加载libvulkan.so，并加载Vulkan基础函数的指针。
 
   
 ```text
@@ -171,7 +171,7 @@ void VulkanRenderThread::UpdateNativeWindow(void *window, uint64_t width, uint64
     });
 }
 ```
-   同时更新初始化Vulkan的上下文，包括Vulkan的实列、选择物理设备、创建渲染管线等。
+   同时更新初始化Vulkan的上下文，包括Vulkan的实例、选择物理设备、创建渲染管线等。
 
   
 ```text

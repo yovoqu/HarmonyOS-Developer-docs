@@ -1,6 +1,6 @@
 # hiprofiler
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiprofiler
 
@@ -169,7 +169,7 @@ hdc shell "bm dump -n com.example.myapplication | grep appProvisionType"
 
 | 参数名字 | 类型 | 参数含义 | 详细介绍 |
 | --- | --- | --- | --- |
-| fp_unwind | bool | true表示使用fp回栈方式进行回栈； false表示使用dwarf回栈方式进行回栈。 | fp回栈是利用了x29寄存器保存的fp指针，函数的fp指针始终指向父函数（调用方）的fp指针，调优服务根据这一特点进行回栈，根据ip计算相对PC，然后查找maps对应区间来进行符号化。 由于现在编译期越来越优化，出现寄存器重用或者编译禁用fp，会导致fp方式回不出相应的栈；混合栈情况下，fp不会记录多重混合，于是便需要dwarf回栈方式做更精确的回栈。 dwarf回栈是根据pc寄存器在map表中查找对应的map信息，由于dwarf是逐级解析调用栈，所以其性能会比fp有劣化。 注意：fp回栈暂不支持调优非aarch64架构的设备。 |
+| fp_unwind | bool | true表示使用fp回栈方式进行回栈； false表示使用dwarf回栈方式进行回栈。 | fp回栈是利用了x29寄存器保存的fp指针，函数的fp指针始终指向父函数（调用方）的fp指针，调优服务根据这一特点进行回栈，根据ip计算相对PC，然后查找maps对应区间来进行符号化。 由于现在编译器越来越优化，出现寄存器重用或者编译禁用fp，会导致fp方式回不出相应的栈；混合栈情况下，fp不会记录多重混合，于是便需要dwarf回栈方式做更精确的回栈。 dwarf回栈是根据pc寄存器在map表中查找对应的map信息，由于dwarf是逐级解析调用栈，所以其性能会比fp有劣化。 注意：fp回栈暂不支持调优非aarch64架构的设备。 |
 | statistics_interval | int | 统计间隔，表示将一个统计周期内的栈进行汇总，单位：s。 | 为实现长时间轻量化采集，提供统计模式抓栈。如果更关注调优时的性能，只需要知道每个调用栈出现的次数和总大小，不需要知道每一次具体时间，可以使用统计模式。 |
 | process_name | string | 需要进行内存调优的进程名 | 和/proc/节点下的进程名一致。 |
 | startup_mode | bool | 是否抓取进程启动阶段内存。默认不抓取启动阶段内存。 | 记录进程孵化启动到调优结束这个期间内堆内存分配的信息。 |
@@ -679,7 +679,7 @@ CONFIG
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/UrG1l46FSCqADIC8yhagZQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030227Z&HW-CC-Expire=86400&HW-CC-Sign=9C4F5F26875E2A827D02D39ABC3D028B3376D5FEACE226B165DD142FE10CADC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/ImdrKkayStWKXpZVILn0gg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012150Z&HW-CC-Expire=86400&HW-CC-Sign=1BFC829A9BD8EED25A6E385C6EC62F793C5D848CA6452AB4AC807A26912D375F)
 
 
 startup_process_name和restart_process_name不能同时为空。
@@ -730,7 +730,7 @@ CONFIG
 此命令示例抓取整机网络数据信息。执行命令后，通过hdc file recv /data/local/tmp/hiprofiler_data.htrace将文件导出到当前模板，然后通过smartperf打开并解析。结果示例如下图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/YyNc-4ooTuOWf16l5KzThQ/zh-cn_image_0000002611754553.png?HW-CC-KV=V1&HW-CC-Date=20260528T030227Z&HW-CC-Expire=86400&HW-CC-Sign=2326FD021E412F6E3F606CC6426F408F42CCAE89E551B74429760B4A9B09BDC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/FiJJsVpUSUuSot0WlDDlYQ/zh-cn_image_0000002647586674.png?HW-CC-KV=V1&HW-CC-Date=20260723T012150Z&HW-CC-Expire=86400&HW-CC-Sign=E4DD346D6890877E7A5D1FE6AFFFBF762366F233618B274B57DCADF7A99B40AB)
 
 
 
@@ -1055,7 +1055,7 @@ $ hiprofiler_cmd stop
 使用hiprofiler_cmd命令时，显示Service not started。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/Ce06hNxbQC2-5M8BgVVe1w/zh-cn_image_0000002581434616.png?HW-CC-KV=V1&HW-CC-Date=20260528T030227Z&HW-CC-Expire=86400&HW-CC-Sign=C85EEB2344A860B65BD11A91424F77D9D313F086B04315BC190653ECB8ADA482)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/jxmQVQQrTq-uX1shr2M1PA/zh-cn_image_0000002677826315.png?HW-CC-KV=V1&HW-CC-Date=20260723T012150Z&HW-CC-Expire=86400&HW-CC-Sign=EB84E59BBAB873D8932EB7396125F35AFD3F6928821BA764CF6F8851C9357311)
 
 
 **可能原因&解决方法**

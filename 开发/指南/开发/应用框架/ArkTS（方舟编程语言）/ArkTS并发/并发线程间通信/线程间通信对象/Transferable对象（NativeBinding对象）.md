@@ -1,6 +1,6 @@
 # Transferable对象 (NativeBinding对象)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/transferabled-object
 
@@ -94,6 +94,7 @@ struct Index {
 ```ArkTS
 import { image } from '@kit.ImageKit';
 import { resourceManager } from '@kit.LocalizationKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Concurrent
 export async function loadPixelMap(rawFileDescriptor: resourceManager.RawFileDescriptor): Promise<PixelMap> {
@@ -104,7 +105,11 @@ export async function loadPixelMap(rawFileDescriptor: resourceManager.RawFileDes
   // 释放imageSource。
   imageSource.release();
   // 使pixelMap在跨线程传输完成后，脱离原线程的引用。
-  pixelMap.setTransferDetached(true);
+  try {
+       pixelMap.setTransferDetached(true);
+     } catch (err) {
+       hilog.error(0x0000, 'testTag', 'Failed to set transferDetached. Cause: %{public}s', JSON.stringify(err));
+     }
   // 返回pixelMap给主线程。
   return pixelMap;
 }

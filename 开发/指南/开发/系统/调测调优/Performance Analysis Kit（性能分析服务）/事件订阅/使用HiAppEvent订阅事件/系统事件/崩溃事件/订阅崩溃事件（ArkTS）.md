@@ -1,6 +1,6 @@
 # 订阅崩溃事件（ArkTS）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events-arkts
 
@@ -33,7 +33,7 @@
 **建议在应用启动后、执行业务逻辑前添加事件观察者，以确保能够订阅到崩溃事件。**
 
 以订阅用户点击按钮触发崩溃生成的崩溃事件为例，说明开发步骤。
-1. DevEco Studio新建Native C++模板工程，编辑“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块。示例代码如下：
+1. 在DevEco Studio新建Native C++模板工程，编辑“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块。示例代码如下：
 
   
 ```ArkTS
@@ -184,7 +184,7 @@ static napi_value Init(napi_env env, napi_value exports)
     return exports;
 }
 ```
-在"index.d.ts"文件中，定义ArkTS接口：
+在"entry > src > main > cpp > types > libentry > Index.d.ts"文件中，定义ArkTS接口：
 
   
 ```ts
@@ -287,7 +287,7 @@ HiAppEvent eventInfo.params.test_data=100
 
 #### 从Faultlogger接口迁移崩溃事件
 
-[@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用, 不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅崩溃事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅崩溃事件。
+[@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用，不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅崩溃事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅崩溃事件。
 
 在Faultlogger的[FaultType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faulttype)里定义的CPP_CRASH和JS_CRASH都属于崩溃故障类型。
 
@@ -317,6 +317,6 @@ HiAppEvent eventInfo.params.test_data=100
 | summary | external_log文件内容中的一部分 | CPP_CRASH的summary对应external_log文件内容中的Fault thread info字段；JS_CRASH的summary对应external_log文件内容中的Error name、Error message、 Stacktrace、HybridStack字段。 |
 
 
-[FaultLogger.query(使用callback回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9)和[FaultLogger.query(使用Promise回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9-1)都可以使用[hiAppEvent.addWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventaddwatcher)实现相同功能。
+使用callback回调的[FaultLogger.query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9)和使用Promise回调的[FaultLogger.query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9-1)都可以使用[hiAppEvent.addWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventaddwatcher)实现相同功能。
 
 查阅[开发步骤](#开发步骤)和[验证观察者是否订阅到崩溃事件](#验证观察者是否订阅到崩溃事件)，了解使用hiAppEvent订阅崩溃事件（ArkTS）的具体步骤。

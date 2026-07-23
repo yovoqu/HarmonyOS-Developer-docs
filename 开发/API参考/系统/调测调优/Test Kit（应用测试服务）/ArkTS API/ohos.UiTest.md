@@ -1,18 +1,18 @@
 # @ohos.UiTest
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uitest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-UiTest提供模拟UI操作的能力，供开发者在测试场景使用，主要支持如点击、双击、长按、滑动等UI操作能力。
+UiTest提供UI自动化测试能力，供开发者在测试场景使用，主要支持控件查找与操作、坐标点击/滑动、按键注入、截图、窗口管理、多指操作、鼠标/手写笔/触摸板操作等能力。
 
 该模块提供以下功能：
 
  - [On9+](#on9)：提供控件特征描述能力，用于控件筛选匹配查找。
  - [Component9+](#component9)：代表UI界面上的指定控件，提供控件属性获取，控件点击，滑动查找，文本注入等能力。
  - [Driver9+](#driver9)：入口类，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。
- - [UiWindow9+](#uiwindow9)：入口类，提供窗口属性获取，窗口拖动、调整窗口大小等能力。
+ - [UiWindow9+](#uiwindow9)：代表UI界面上的窗口对象，提供窗口属性获取，窗口拖动、调整窗口大小等能力。
  - [By(deprecated)](#bydeprecated)：提供控件特征描述能力，用于控件筛选匹配查找。从API version 8开始支持，从API version 9开始废弃，建议使用[On9+](#on9)替代。
  - [UiComponent(deprecated)](#uicomponentdeprecated)：代表UI界面上的指定控件，提供控件属性获取，控件点击，滑动查找，文本注入等能力。从API version 8开始支持，从API version 9开始废弃，建议使用[Component9+](#component9)替代。
  - [UiDriver(deprecated)](#uidriverdeprecated)：入口类，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。从API version 8开始支持，从API version 9开始废弃，建议使用[Driver9+](#driver9)替代。
@@ -87,8 +87,8 @@ import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeD
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| x | number | 否 | 否 | 坐标点的横坐标，取值大于0的整数。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| y | number | 否 | 否 | 坐标点的纵坐标，取值大于0的整数。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| x | number | 否 | 否 | 坐标点的横坐标，取值大于等于0的整数，单位：px。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| y | number | 否 | 否 | 坐标点的纵坐标，取值大于等于0的整数，单位：px。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | displayId20+ | number | 否 | 是 | 坐标点所属的屏幕ID，取值范围：大于等于0的整数。默认值为设备默认屏幕ID。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
@@ -104,10 +104,10 @@ import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeD
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| left | number | 否 | 否 | 控件边框的左上角的X坐标，取值大于0的整数。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| top | number | 否 | 否 | 控件边框的左上角的Y坐标，取值大于0的整数。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| right | number | 否 | 否 | 控件边框的右下角的X坐标，取值大于0的整数。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| bottom | number | 否 | 否 | 控件边框的右下角的Y坐标，取值大于0的整数。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| left | number | 否 | 否 | 控件边框的左上角的X坐标，取值大于等于0的整数，单位：px。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| top | number | 否 | 否 | 控件边框的左上角的Y坐标，取值大于等于0的整数，单位：px。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| right | number | 否 | 否 | 控件边框的右下角的X坐标，取值大于等于0的整数，单位：px。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| bottom | number | 否 | 否 | 控件边框的右下角的Y坐标，取值大于等于0的整数，单位：px。 说明： 从API version 20开始，该属性不再为只读属性。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | displayId20+ | number | 否 | 是 | 控件边框所属的屏幕ID，取值大于或等于0的整数。默认值为设备默认屏幕ID。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
@@ -117,7 +117,7 @@ import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeD
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-窗口的窗口模式。
+窗口模式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -163,10 +163,10 @@ import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeD
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| bundleName | string | 否 | 是 | 窗口归属应用的包名，默认值为空。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| title | string | 否 | 是 | 窗口的标题信息，默认值为空。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| bundleName | string | 否 | 是 | 窗口归属应用的包名，默认值为空，用于在多窗口场景下根据应用包名筛选目标窗口。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| title | string | 否 | 是 | 窗口的标题信息，默认值为空，用于在多窗口场景下根据窗口标题筛选目标窗口。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | focused | boolean | 否 | 是 | 窗口是否处于获焦状态，true：获焦状态，false：未获焦状态，默认值为false。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| actived(deprecated) | boolean | 否 | 是 | 窗口是否正与用户进行交互，true：交互状态，false：未交互状态，默认值为false。 从API version 11开始废弃，建议使用active替代。 |
+| actived(deprecated) | boolean | 否 | 是 | 窗口是否正与用户进行交互，true：交互状态，false：未交互状态，默认值为false。 从API version 9开始支持，从API version 11开始废弃，建议使用active11+替代。 |
 | active11+ | boolean | 否 | 是 | 窗口是否正与用户进行交互，true：交互状态，false：未交互状态，默认值为false。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | displayId20+ | number | 否 | 是 | 窗口所属的屏幕ID。取值大于或等于0的整数。默认值为设备默认屏幕ID。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
@@ -266,7 +266,7 @@ import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeD
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| timeout | number | 否 | 是 | 监听超时时间，默认值为10000，单位：ms。 |
+| timeout | number | 否 | 是 | 监听超时时间，取值范围：大于等于500的整数，默认值为10000，单位：ms。传入不在范围内的值抛出错误码。 |
 | bundleName | string | 否 | 是 | 监听窗口对应包名，缺省时默认监听所有窗口。 |
 
 
@@ -284,7 +284,7 @@ import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeD
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| timeout | number | 否 | 是 | 监听超时时间，默认值为10000，单位：ms。 |
+| timeout | number | 否 | 是 | 监听超时时间，取值范围：大于等于500的整数，默认值为10000，单位：ms。传入不在范围内的值抛出错误码。 |
 | on | On | 否 | 是 | 监听目标控件的属性要求，默认监听所有控件。 说明： 仅支持监听指定属性要求的控件，不支持监听指定On.isBefore、On.isAfter、On.within等相对位置的控件。 |
 
 
@@ -305,7 +305,7 @@ UI事件的相关信息。
 | text | string | 是 | 否 | 控件/窗口的文本信息。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | windowChangeType22+ | WindowChangeType | 是 | 是 | 窗口变化事件类型，若非窗口变化事件返回WindowChangeType.WINDOW_UNDEFINED。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 | componentEventType22+ | ComponentEventType | 是 | 是 | 控件操作事件类型，若非控件操作事件返回ComponentEventType.COMPONENT_UNDEFINED。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| windowId22+ | number | 是 | 是 | 控件所属窗口id。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| windowId22+ | number | 是 | 是 | 控件所属窗口id，若非窗口变化事件或非控件操作事件则返回-1。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 | componentId22+ | string | 是 | 是 | 控件id，若非控件操作事件返回空字符串。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 | componentRect22+ | Rect | 是 | 是 | 控件边框信息，若非控件操作事件则返回属性值均为0的Rect对象。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 
@@ -356,7 +356,7 @@ UI事件的相关信息。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -376,7 +376,7 @@ UI事件的相关信息。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -384,7 +384,7 @@ UI事件的相关信息。
 | --- | --- | --- | --- | --- |
 | speed | number | 否 | 是 | 操作速率，取值范围为200-40000的整数，默认值为600，单位：px/s。取值为超出取值范围的非负数或为null/undefined时按照默认值600处理，为负数时抛出17000007错误码。 |
 | duration | number | 否 | 是 | 操作持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。 |
-| pressure | number | 否 | 是 | 触摸的压力值，取值范围为0-1，默认值为0。取值为null或undefined时按照默认值处理，其他超出取值范围情况时抛出17000007错误码。 |
+| pressure | number | 否 | 是 | 触摸的压力值，取值范围为[0, 1]，包含0和1，默认值为0。取值为null或undefined时按照默认值处理，其他超出取值范围情况时抛出17000007错误码。 |
 
 
 
@@ -397,7 +397,7 @@ UI事件的相关信息。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -418,7 +418,7 @@ UI事件的相关信息。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -438,7 +438,7 @@ UI事件的相关信息。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -458,7 +458,7 @@ UI事件的相关信息。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -1156,7 +1156,7 @@ isBefore(com: Component): On
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -1176,7 +1176,7 @@ isBefore(com: Component): On
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1190,9 +1190,9 @@ isBefore(com: Component): On
 import { Component, Driver, On, ON } from '@kit.TestKit';
 
 async function demo() {
-  let driver = Driver.create();
-  let com: Component = await driver.findComponent(ON.type('Text'));
-  let on: On = ON.text('123').isBefore(com); // 查找第一个Text组件之前的text为123的组件
+  let driver: Driver = Driver.create();
+  let component: Component = await driver.findComponent(ON.type('Text'));
+  let on: On = ON.text('123').isBefore(component); // 查找第一个Text组件之前的text为123的组件
 }
 ```
 
@@ -1255,7 +1255,7 @@ isAfter(com: Component): On
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -1275,7 +1275,7 @@ isAfter(com: Component): On
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1289,9 +1289,9 @@ isAfter(com: Component): On
 import { Component, Driver, On, ON } from '@kit.TestKit';
 
 async function demo() {
-  let driver = Driver.create();
-  let com: Component = await driver.findComponent(ON.type('Text'));
-  let on: On = ON.text('123').isAfter(com); // 查找第一个Text组件之后的text为123的组件
+  let driver: Driver = Driver.create();
+  let component: Component = await driver.findComponent(ON.type('Text'));
+  let on: On = ON.text('123').isAfter(component); // 查找第一个Text组件之后的text为123的组件
 }
 ```
 
@@ -1354,7 +1354,7 @@ within(com: Component): On
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -1374,7 +1374,7 @@ within(com: Component): On
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1388,9 +1388,9 @@ within(com: Component): On
 import { Component, Driver, On, ON } from '@kit.TestKit';
 
 async function demo() {
-  let driver = Driver.create();
-  let com: Component = await driver.findComponent(ON.type('Text'));
-  let on: On = ON.text('123').within(com); // 查找第一个Text组件内部的text为123的组件
+  let driver: Driver = Driver.create();
+  let component: Component = await driver.findComponent(ON.type('Text'));
+  let on: On = ON.text('123').within(component); // 查找第一个Text组件内部的text为123的组件
 }
 ```
 
@@ -1495,7 +1495,7 @@ let on: On = ON.description('123'); // 使用静态构造器ON创建On对象，�
 
 hint(val: string, pattern?: MatchPattern): On
 
-获取指定提示文本的控件对象，返回On对象自身。
+指定目标控件的提示文本属性，返回On对象自身。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -1542,7 +1542,7 @@ let on: On = ON.hint('welcome', MatchPattern.EQUALS); // 使用静态构造器ON
 
 belongingDisplay(displayId: number): On
 
-获取指定屏幕内的控件对象，返回On对象自身。
+指定目标控件所属的屏幕，返回On对象自身。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1564,7 +1564,7 @@ belongingDisplay(displayId: number): On
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1615,7 +1615,7 @@ originalText(text: string, pattern?: MatchPattern): On
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1637,9 +1637,9 @@ let on: On = ON.originalText('123'); // 使用静态构造器ON创建On对象，
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-UiTest框架在API9中，Component类代表了UI界面上的一个控件，提供控件属性获取，控件点击，滑动查找，文本注入等API。
+UiTest框架从API version 9开始，Component类代表UI界面上的一个控件，提供控件属性获取，控件点击，滑动查找，文本注入等API。
 
-该类提供的所有方法都使用Promise方式作为异步方法，需使用await调用。
+该类提供的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
 
 
 
@@ -1659,12 +1659,12 @@ click(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1679,8 +1679,11 @@ click(): Promise&lt;void&gt;
 import { Driver, ON, Component } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 查找Button类型的控件
   let button: Component = await driver.findComponent(ON.type('Button'));
+  // 点击该控件
   await button.click();
 }
 ```
@@ -1703,12 +1706,12 @@ doubleClick(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1747,12 +1750,12 @@ longClick(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1796,7 +1799,7 @@ getId(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1844,7 +1847,7 @@ getText(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1888,7 +1891,7 @@ getType(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1932,7 +1935,7 @@ getBounds(): Promise&lt;Rect&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1976,7 +1979,7 @@ getBoundsCenter(): Promise&lt;Point&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2020,7 +2023,7 @@ isClickable(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2068,7 +2071,7 @@ isLongClickable(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2116,7 +2119,7 @@ isChecked(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2164,7 +2167,7 @@ isCheckable(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2212,7 +2215,7 @@ isScrollable(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2260,7 +2263,7 @@ isEnabled(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2308,7 +2311,7 @@ isFocused(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2356,7 +2359,7 @@ isSelected(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2395,23 +2398,20 @@ inputText(text: string): Promise&lt;void&gt;
 
 **系统能力**：SystemCapability.Test.UiTest
 
-**返回值：**
-
-| 类型 | 说明 |
-| --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
-
-
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 输入的文本信息，当前支持英文、中文和特殊字符。 |
+| 返回值： |  |  |  |
+| 类型 | 说明 |  |  |
+| ---------------- | ----------------- |  |  |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |  |  |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2427,8 +2427,11 @@ inputText(text: string): Promise&lt;void&gt;
 import { Component, Driver, ON } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 查找text为'hello world'的控件
   let text: Component = await driver.findComponent(ON.text('hello world'));
+  // 清空原有文本并输入'123'
   await text.inputText('123');
 }
 ```
@@ -2452,19 +2455,19 @@ inputText(text: string, mode: InputTextMode): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 输入的文本信息，当前支持英文、中文和特殊字符。 |
-| mode | InputTextMode | 是 | 输入文本的方式，取值请参考InputTextMode。 说明： InputTextMode.addition取值为true时，在控件已有文本末尾后追加指定文本。取值为false时，指定文本将覆盖控件已有文本。 |
+| mode | InputTextMode | 是 | 输入文本的方式，取值请参考InputTextMode。 说明： InputTextMode.addition取值为true时，在控件已有文本末尾后追加指定文本。取值为false时，指定文本将覆盖控件已有文本。 当输入文本中包含中文、特殊字符或文本长度超过200字符时，无论InputTextMode.paste取值为何，均以复制粘贴方式输入。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2505,12 +2508,12 @@ clearText(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2561,7 +2564,7 @@ scrollSearch(on: On): Promise&lt;Component&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2577,8 +2580,11 @@ scrollSearch(on: On): Promise&lt;Component&gt;
 import { Component, Driver, ON } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 获取可滑动的Scroll控件
   let scrollBar: Component = await driver.findComponent(ON.type('Scroll'));
+  // 在Scroll控件上滑动查找text为'next page'的控件
   let button = await scrollBar.scrollSearch(ON.text('next page'));
 }
 ```
@@ -2603,7 +2609,7 @@ scrollSearch(on: On, vertical?: boolean, offset?: number): Promise&lt;Component&
 | --- | --- | --- | --- |
 | on | On | 是 | 目标控件的属性要求。 |
 | vertical | boolean | 否 | 默认为true，表示查找方向是纵向。false表示查找方向为横向。 |
-| offset | number | 否 | 滑动起点/终点到组件边框的偏移，默认80，单位：px，取值范围：大于等于0的整数。 |
+| offset | number | 否 | 滑动起点/终点到组件边框的偏移，默认80，单位：px，取值范围：大于等于0的整数。为负数时抛出401错误码。 |
 
 
 **返回值：**
@@ -2615,7 +2621,7 @@ scrollSearch(on: On, vertical?: boolean, offset?: number): Promise&lt;Component&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2662,12 +2668,12 @@ scrollToTop(speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2714,12 +2720,12 @@ scrollToBottom(speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2749,7 +2755,7 @@ async function demo() {
 
 dragTo(target: Component): Promise&lt;void&gt;
 
-将控件拖拽至目标控件处。使用Promise异步回调。
+将控件拖拽至目标控件处。仅针对支持拖拽的控件生效。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -2768,12 +2774,12 @@ dragTo(target: Component): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2789,9 +2795,13 @@ dragTo(target: Component): Promise&lt;void&gt;
 import { Component, Driver, ON } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 查找Button类型的目标控件
   let button: Component = await driver.findComponent(ON.type('Button'));
+  // 查找text为'hello world'的控件作为拖拽目标
   let text: Component = await driver.findComponent(ON.text('hello world'));
+  // 将Button控件拖拽至text控件处
   await button.dragTo(text);
 }
 ```
@@ -2804,7 +2814,7 @@ async function demo() {
 
 pinchOut(scale: number): Promise&lt;void&gt;
 
-将控件按指定的比例进行捏合放大。使用Promise异步回调。
+将控件按指定的比例进行捏合放大。仅针对支持缩放的控件生效。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -2814,19 +2824,19 @@ pinchOut(scale: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | number | 是 | 指定放大的比例。取值范围大于1。 |
+| scale | number | 是 | 指定放大的比例。取值范围大于1。传入小于等于1的值时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2856,7 +2866,7 @@ async function demo() {
 
 pinchIn(scale: number): Promise&lt;void&gt;
 
-将控件按指定的比例进行捏合缩小。使用Promise异步回调。
+将控件按指定的比例进行捏合缩小。仅针对支持缩放的控件生效。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -2866,19 +2876,19 @@ pinchIn(scale: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | number | 是 | 指定缩小的比例。取值范围为0~1。 |
+| scale | number | 是 | 指定缩小的比例。取值范围为(0, 1]，不包含0，包含1。传入0或负数时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2923,7 +2933,7 @@ getDescription(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2967,7 +2977,7 @@ getHint(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3011,7 +3021,7 @@ getDisplayId(): Promise&lt;number&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3055,7 +3065,7 @@ getOriginalText(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3082,9 +3092,9 @@ async function demo() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Driver类为uitest测试框架的总入口，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。
+Driver类为UiTest测试框架的总入口。提供控件匹配/查找、按键注入、坐标点击/滑动、截图等能力。
 
-该类提供的方法除Driver.create()和Driver.createUIEventObserver()以外的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
+该类提供的所有方法均为异步方法（使用Promise方式），需使用await方式调用。Driver.create()和Driver.createUIEventObserver()为同步方法除外。
 
 
 
@@ -3109,7 +3119,7 @@ static create(): Driver
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3135,7 +3145,7 @@ async function demo() {
 
 delayMs(duration: number): Promise&lt;void&gt;
 
-在给定的时间内延时。使用Promise异步回调。
+延迟指定的时间。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -3145,19 +3155,19 @@ delayMs(duration: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| duration | number | 是 | 给定的时间，单位：ms，取值范围：大于等于0的整数。 |
+| duration | number | 是 | 给定的时间，单位：ms，取值范围：大于等于0的整数。传入负数时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3207,7 +3217,7 @@ findComponent(on: On): Promise&lt;Component&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3222,7 +3232,9 @@ findComponent(on: On): Promise&lt;Component&gt;
 import { Component, Driver, ON } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 查找text为'next page'的控件
   let button: Component = await driver.findComponent(ON.text('next page'));
 }
 ```
@@ -3257,7 +3269,7 @@ findComponents(on: On): Promise<Array&lt;Component&gt;>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3272,7 +3284,9 @@ findComponents(on: On): Promise<Array&lt;Component&gt;>
 import { Component, Driver, ON } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 查找所有text为'next page'的控件
   let buttonList: Array<Component> = await driver.findComponents(ON.text('next page'));
 }
 ```
@@ -3307,7 +3321,7 @@ findWindow(filter: WindowFilter): Promise&lt;UiWindow&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3323,7 +3337,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
 }
 ```
 
@@ -3346,7 +3360,7 @@ waitForComponent(on: On, time: number): Promise&lt;Component&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | on | On | 是 | 目标控件的属性要求。 |
-| time | number | 是 | 查找目标控件的持续时间。单位ms，取值范围：大于等于0的整数。 |
+| time | number | 是 | 查找目标控件的持续时间，单位：ms，取值范围：大于等于0的整数。传入负数时抛出401错误码。 |
 
 
 **返回值：**
@@ -3358,7 +3372,7 @@ waitForComponent(on: On, time: number): Promise&lt;Component&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3386,7 +3400,7 @@ async function demo() {
 
 assertComponentExist(on: On): Promise&lt;void&gt;
 
-断言API，用于断言当前界面是否存在满足给出的目标属性的控件。使用Promise异步回调。
+断言API，用于断言当前界面是否存在满足给出的目标属性的控件。断言失败时会抛出JS异常导致测试用例失败。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -3403,12 +3417,12 @@ assertComponentExist(on: On): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3437,9 +3451,11 @@ async function demo() {
 
 pressBack(): Promise&lt;void&gt;
 
-进行点击BACK键的操作。使用Promise异步回调。
+模拟点击BACK键。使用Promise异步回调。
 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+> [!NOTE]
+> 本方法仅支持在主屏幕上模拟点击BACK键。如需在指定屏幕上模拟点击BACK键，请使用 pressBack(displayId: number) 。 元服务API： 从API version 11开始，该接口支持在元服务中使用。
+
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -3447,12 +3463,12 @@ pressBack(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3479,7 +3495,7 @@ async function demo() {
 
 pressBack(displayId: number): Promise&lt;void&gt;
 
-对指定屏幕进行点击BACK键的操作。使用Promise异步回调。
+对指定屏幕模拟点击BACK键。使用Promise异步回调。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -3496,12 +3512,12 @@ pressBack(displayId: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3529,7 +3545,7 @@ async function demo() {
 
 triggerKey(keyCode: number): Promise&lt;void&gt;
 
-传入key值实现模拟点击对应按键的效果。使用Promise异步回调。
+传入键码值实现模拟点击对应按键的效果。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -3539,19 +3555,19 @@ triggerKey(keyCode: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyCode | number | 是 | 指定的key值，取值范围：KeyCode键码值。 |
+| keyCode | number | 是 | 指定的键码值，取值范围：KeyCode键码值。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3580,7 +3596,7 @@ async function demo() {
 
 triggerKey(keyCode: number, displayId: number): Promise&lt;void&gt;
 
-在指定屏幕，传入key值实现模拟点击对应按键的效果。使用Promise异步回调。
+在指定屏幕，传入键码值实现模拟点击对应按键的效果。使用Promise异步回调。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -3590,7 +3606,7 @@ triggerKey(keyCode: number, displayId: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyCode | number | 是 | 指定的key值，取值范围：KeyCode键码值。 |
+| keyCode | number | 是 | 指定的键码值，取值范围：KeyCode键码值。 |
 | displayId | number | 是 | 指定的屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
@@ -3598,12 +3614,12 @@ triggerKey(keyCode: number, displayId: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3632,7 +3648,7 @@ async function demo() {
 
 triggerCombineKeys(key0: number, key1: number, key2?: number): Promise&lt;void&gt;
 
-通过给定的key值，找到对应组合键并点击。使用Promise异步回调。例如，Key值为(2072, 2019)时，找到key值对应的组合键并点击，如Ctrl+c。
+通过给定的键码值，找到对应组合键并点击。使用Promise异步回调。例如，键码值为(2072, 2019)时，找到键码值对应的组合键并点击，如Ctrl+c。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -3642,21 +3658,21 @@ triggerCombineKeys(key0: number, key1: number, key2?: number): Promise&lt;void&g
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key0 | number | 是 | 指定的第一个key值，取值范围：KeyCode键码值。 |
-| key1 | number | 是 | 指定的第二个key值，取值范围：KeyCode键码值。 |
-| key2 | number | 否 | 指定的第三个key值，取值范围：KeyCode键码值，默认值为0。 |
+| key0 | number | 是 | 指定的第一个键码值，取值范围：KeyCode键码值。 |
+| key1 | number | 是 | 指定的第二个键码值，取值范围：KeyCode键码值。 |
+| key2 | number | 否 | 指定的第三个键码值，取值范围：KeyCode键码值，默认值为0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3672,6 +3688,7 @@ import { Driver } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
+  // 注入Ctrl+Alt+Delete组合键
   await driver.triggerCombineKeys(2072, 2047, 2035);
 }
 ```
@@ -3684,7 +3701,7 @@ async function demo() {
 
 triggerCombineKeys(key0: number, key1: number, key2?: number, displayId?: number): Promise&lt;void&gt;
 
-通过给定的key值，找到对应组合键，并在指定屏幕下进行点击。使用Promise异步回调。例如，Key值为(2072, 2019)时，找到key值对应的组合键并点击，如Ctrl+c。
+通过给定的键码值，找到对应组合键，并在指定屏幕下进行点击。使用Promise异步回调。例如，键码值为(2072, 2019)时，找到键码值对应的组合键并点击，如Ctrl+c。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -3694,22 +3711,22 @@ triggerCombineKeys(key0: number, key1: number, key2?: number, displayId?: number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key0 | number | 是 | 指定的第一个key值，取值范围：KeyCode键码值。 |
-| key1 | number | 是 | 指定的第二个key值，取值范围：KeyCode键码值。 |
-| key2 | number | 否 | 指定的第三个key值，取值范围：KeyCode键码值，默认值为0。 |
-| displayId | number | 否 | 指定的屏幕ID，取值范围：大于等于0的整数，默认值为设备默认屏幕ID。 |
+| key0 | number | 是 | 指定的第一个键码值，取值范围：KeyCode键码值。 |
+| key1 | number | 是 | 指定的第二个键码值，取值范围：KeyCode键码值。 |
+| key2 | number | 否 | 指定的第三个键码值，取值范围：KeyCode键码值，默认值为0。 |
+| displayId | number | 否 | 指定的屏幕ID，取值范围：大于等于0的整数，默认值为设备默认屏幕ID。传入displayId不存在时，将抛出401异常。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3737,7 +3754,7 @@ async function demo() {
 
 click(x: number, y: number): Promise&lt;void&gt;
 
-在目标坐标点单击。使用Promise异步回调。
+在目标坐标点单击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[clickAt](#clickat20)。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -3747,20 +3764,20 @@ click(x: number, y: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | number | 是 | 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。 |
-| y | number | 是 | 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。 |
+| x | number | 是 | 目标点的横坐标信息，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
+| y | number | 是 | 目标点的纵坐标信息，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3775,7 +3792,9 @@ click(x: number, y: number): Promise&lt;void&gt;
 import { Driver } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 在坐标(100,100)处执行点击操作
   await driver.click(100, 100);
 }
 ```
@@ -3805,12 +3824,12 @@ clickAt(point: Point): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3842,7 +3861,7 @@ clickAt(point: Point, options?: TouchOptions): Promise&lt;void&gt;
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -3858,12 +3877,12 @@ clickAt(point: Point, options?: TouchOptions): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3895,7 +3914,7 @@ async function demo() {
 
 doubleClick(x: number, y: number): Promise&lt;void&gt;
 
-在目标坐标点双击。使用Promise异步回调。
+在目标坐标点双击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[doubleClickAt](#doubleclickat20)。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -3905,20 +3924,20 @@ doubleClick(x: number, y: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | number | 是 | 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。 |
-| y | number | 是 | 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。 |
+| x | number | 是 | 目标点的横坐标信息，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
+| y | number | 是 | 目标点的纵坐标信息，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3963,12 +3982,12 @@ doubleClickAt(point: Point): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3996,7 +4015,7 @@ async function demo() {
 
 longClick(x: number, y: number): Promise&lt;void&gt;
 
-在目标坐标点长按。使用Promise异步回调。
+在目标坐标点长按。仅支持在设备默认屏幕上操作且不支持自定义长按时长，如需指定屏幕或长按时长请使用[longClickAt](#longclickat20)。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -4006,20 +4025,20 @@ longClick(x: number, y: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | number | 是 | 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。 |
-| y | number | 是 | 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。 |
+| x | number | 是 | 目标点的横坐标信息，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
+| y | number | 是 | 目标点的纵坐标信息，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4058,19 +4077,19 @@ longClickAt(point: Point, duration?: number): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | point | Point | 是 | 以Point对象的形式传入目标点信息。 |
-| duration | number | 否 | 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。 |
+| duration | number | 否 | 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4102,7 +4121,7 @@ longClickAt(point: Point, options?: TouchOptions): Promise&lt;void&gt;
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -4118,12 +4137,12 @@ longClickAt(point: Point, options?: TouchOptions): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4156,7 +4175,7 @@ async function demo() {
 
 swipe(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise&lt;void&gt;
 
-从起始坐标点滑向目的坐标点。使用Promise异步回调。
+从起始坐标点滑向目的坐标点。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[swipeBetween](#swipebetween20)。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -4166,10 +4185,10 @@ swipe(startx: number, starty: number, endx: number, endy: number, speed?: number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| startx | number | 是 | 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。 |
-| starty | number | 是 | 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。 |
-| endx | number | 是 | 以number的形式传入目的点的横坐标信息，取值范围：大于等于0的整数。 |
-| endy | number | 是 | 以number的形式传入目的点的纵坐标信息，取值范围：大于等于0的整数。 |
+| startx | number | 是 | 起始点的横坐标信息，取值范围：大于等于0的整数。传入不在范围内的值抛出401错误码。 |
+| starty | number | 是 | 起始点的纵坐标信息，取值范围：大于等于0的整数。传入不在范围内的值抛出401错误码。 |
+| endx | number | 是 | 目的点的横坐标信息，取值范围：大于等于0的整数。传入不在范围内的值抛出401错误码。 |
+| endy | number | 是 | 目的点的纵坐标信息，取值范围：大于等于0的整数。传入不在范围内的值抛出401错误码。 |
 | speed | number | 否 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。 |
 
 
@@ -4177,12 +4196,12 @@ swipe(startx: number, starty: number, endx: number, endy: number, speed?: number
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4197,7 +4216,9 @@ swipe(startx: number, starty: number, endx: number, endy: number, speed?: number
 import { Driver } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 从坐标(100,100)滑动到坐标(200,200)，滑动速率为600px/s
   await driver.swipe(100, 100, 200, 200, 600);
 }
 ```
@@ -4229,12 +4250,12 @@ swipeBetween(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4283,12 +4304,12 @@ swipeBetween(from: Point, to: Point, options?: TouchOptions): Promise&lt;void&gt
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4321,7 +4342,7 @@ async function demo() {
 
 drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise&lt;void&gt;
 
-从起始坐标点拖拽至目的坐标点。使用Promise异步回调。
+从起始坐标点拖拽至目的坐标点。仅支持在设备默认屏幕上操作，不支持自定义拖拽前长按时长，如需指定屏幕或长按时长请使用[dragBetween](#dragbetween20)。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -4333,23 +4354,23 @@ drag(startx: number, starty: number, endx: number, endy: number, speed?: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| startx | number | 是 | 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。 |
-| starty | number | 是 | 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。 |
-| endx | number | 是 | 以number的形式传入目的点的横坐标信息，取值范围：大于等于0的整数。 |
-| endy | number | 是 | 以number的形式传入目的点的纵坐标信息，取值范围：大于等于0的整数。 |
-| speed | number | 否 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。 |
+| startx | number | 是 | 起始点的横坐标信息，取值范围：大于等于0的整数，单位：px。 |
+| starty | number | 是 | 起始点的纵坐标信息，取值范围：大于等于0的整数，单位：px。 |
+| endx | number | 是 | 目的点的横坐标信息，取值范围：大于等于0的整数，单位：px。 |
+| endy | number | 是 | 目的点的纵坐标信息，取值范围：大于等于0的整数，单位：px。 |
+| speed | number | 否 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4391,19 +4412,19 @@ dragBetween(from: Point, to: Point, speed?: number, duration?: number): Promise&
 | from | Point | 是 | 以Point对象的形式传入起始点的坐标信息和所属屏幕ID。 |
 | to | Point | 是 | 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。 说明： 应与起始点属于同一个屏幕，否则将抛出17000007异常。 |
 | speed | number | 否 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。 |
-| duration | number | 否 | 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。 |
+| duration | number | 否 | 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4435,7 +4456,7 @@ dragBetween(from: Point, to: Point, options?: TouchOptions): Promise&lt;void&gt;
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -4454,12 +4475,12 @@ dragBetween(from: Point, to: Point, options?: TouchOptions): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4515,7 +4536,7 @@ screenCap(savePath: string): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4566,7 +4587,7 @@ screenCap(savePath: string, displayId: number): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4594,11 +4615,11 @@ async function demo() {
 
 dumpLayout(savePath: string, displayId?: number): Promise&lt;boolean&gt;
 
-获取当前布局信息并保存为JSON格式的文件。使用Promise异步回调。
+获取当前布局信息并保存为JSON格式的文件，适用于需要分析UI控件层级结构或调试控件定位问题的测试场景。使用Promise异步回调。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -4606,8 +4627,8 @@ dumpLayout(savePath: string, displayId?: number): Promise&lt;boolean&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| savePath | string | 是 | JSON文件保存路径。路径需为当前应用的沙箱目录。 |
-| displayId | number | 否 | 指定设备屏幕ID，默认为主屏幕的displayId。 |
+| savePath | string | 是 | JSON文件保存路径。路径需为当前应用的沙箱路径。 |
+| displayId | number | 否 | 指定设备屏幕ID，取值范围：大于等于0的整数。默认值为设备默认屏幕ID。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
 **返回值：**
@@ -4619,7 +4640,7 @@ dumpLayout(savePath: string, displayId?: number): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4667,12 +4688,12 @@ setDisplayRotation(rotation: DisplayRotation): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4702,6 +4723,10 @@ getDisplayRotation(): Promise&lt;DisplayRotation&gt;
 
 获取当前设备的屏幕显示方向。使用Promise异步回调。
 
+> [!NOTE]
+> 本方法仅支持获取主屏幕的显示方向。如需获取指定屏幕的显示方向，请使用 getDisplayRotation(displayId: number) 。
+
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
@@ -4715,7 +4740,7 @@ getDisplayRotation(): Promise&lt;DisplayRotation&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4764,7 +4789,7 @@ getDisplayRotation(displayId: number): Promise&lt;DisplayRotation&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4792,7 +4817,7 @@ async function demo() {
 
 setDisplayRotationEnabled(enabled: boolean): Promise&lt;void&gt;
 
-启用/禁用设备旋转屏幕的功能。使用Promise异步回调。
+启用/禁用设备旋转屏幕的功能，适用于需要在测试过程中锁定屏幕方向以保持特定显示状态的场景，例如测试横屏或竖屏下的布局稳定性。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -4811,12 +4836,12 @@ setDisplayRotationEnabled(enabled: boolean): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4844,6 +4869,10 @@ async function demo() {
 
 getDisplaySize(): Promise&lt;Point&gt;
 
+> [!NOTE]
+> 本方法仅支持获取主屏幕的大小。如需获取指定屏幕的大小，请使用 getDisplaySize(displayId: number) 。
+
+
 获取当前设备的屏幕大小。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -4859,7 +4888,7 @@ getDisplaySize(): Promise&lt;Point&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4908,7 +4937,7 @@ getDisplaySize(displayId: number): Promise&lt;Point&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4938,7 +4967,9 @@ getDisplayDensity(): Promise&lt;Point&gt;
 
 获取当前设备屏幕的分辨率。使用Promise异步回调。
 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+> [!NOTE]
+> 本方法仅支持获取主屏幕的分辨率。如需获取指定屏幕的分辨率，请使用 getDisplayDensity(displayId: number) 。 元服务API： 从API version 11开始，该接口支持在元服务中使用。
+
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -4951,7 +4982,7 @@ getDisplayDensity(): Promise&lt;Point&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5000,7 +5031,7 @@ getDisplayDensity(displayId: number): Promise&lt;Point&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5028,7 +5059,7 @@ async function demo() {
 
 wakeUpDisplay(): Promise&lt;void&gt;
 
-唤醒当前设备即设备亮屏。使用Promise异步回调。
+唤醒当前设备（使设备亮屏）。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5038,12 +5069,12 @@ wakeUpDisplay(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5070,7 +5101,7 @@ async function demo() {
 
 pressHome(): Promise&lt;void&gt;
 
-设备注入返回桌面操作。使用Promise异步回调。
+向设备注入返回桌面操作。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5082,12 +5113,12 @@ pressHome(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5114,7 +5145,7 @@ async function demo() {
 
 pressHome(displayId: number): Promise&lt;void&gt;
 
-设备指定屏幕上注入返回桌面操作。使用Promise异步回调。
+在设备指定屏幕上注入返回桌面操作。使用Promise异步回调。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -5133,12 +5164,12 @@ pressHome(displayId: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5166,7 +5197,7 @@ async function demo() {
 
 waitForIdle(idleTime: number, timeout: number): Promise&lt;boolean&gt;
 
-判断当前界面的所有控件是否已经空闲。使用Promise异步回调。
+判断当前界面的所有控件是否已经空闲，适用于在页面跳转、动画播放或加载等场景后，等待UI界面完全稳定再执行后续测试操作。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5176,8 +5207,8 @@ waitForIdle(idleTime: number, timeout: number): Promise&lt;boolean&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| idleTime | number | 是 | 空闲时间的阈值。在这个时间段控件不发生变化，视为该控件空闲，单位：毫秒，取值范围：大于等于0的整数。 |
-| timeout | number | 是 | 等待空闲的最大时间，单位：毫秒，取值范围：大于等于0的整数。 |
+| idleTime | number | 是 | 空闲时间的阈值。在这个时间段控件不发生变化，视为该控件空闲，单位：ms，取值范围：大于等于0的整数。传入负数时抛出401错误码。 |
+| timeout | number | 是 | 等待空闲的最大时间，单位：ms，取值范围：大于等于0的整数。传入负数时抛出401错误码。 |
 
 
 **返回值：**
@@ -5189,7 +5220,7 @@ waitForIdle(idleTime: number, timeout: number): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5229,20 +5260,20 @@ fling(from: Point, to: Point, stepLen: number, speed: number): Promise&lt;void&g
 | --- | --- | --- | --- |
 | from | Point | 是 | 手指接触屏幕的起始点坐标。 |
 | to | Point | 是 | 手指离开屏幕时的坐标点。 |
-| stepLen | number | 是 | 间隔距离，取值大于等于0的整数，单位：px。 |
-| speed | number | 是 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数时设为默认值600。为负数时抛出401错误码。 |
+| stepLen | number | 是 | 间隔距离，取值大于等于0的整数，单位：px。为负数时抛出401错误码。 |
+| speed | number | 是 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5270,7 +5301,7 @@ async function demo() {
 
 injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise&lt;boolean&gt;
 
-向设备注入多指操作。使用Promise异步回调。
+向设备注入多指操作，适用于需要模拟多指手势的测试场景，如双指捏合缩放图片、多指滑动切换页面等。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5293,7 +5324,7 @@ injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise&lt;bo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5308,18 +5339,23 @@ injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise&lt;bo
 import { Driver, PointerMatrix } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 创建2指5步的滑动轨迹矩阵
   let pointers: PointerMatrix = PointerMatrix.create(2, 5);
+  // 设置第一根手指的滑动轨迹
   pointers.setPoint(0, 0, { x: 250, y: 480 });
   pointers.setPoint(0, 1, { x: 250, y: 440 });
   pointers.setPoint(0, 2, { x: 250, y: 400 });
   pointers.setPoint(0, 3, { x: 250, y: 360 });
   pointers.setPoint(0, 4, { x: 250, y: 320 });
+  // 设置第二根手指的滑动轨迹
   pointers.setPoint(1, 0, { x: 250, y: 480 });
   pointers.setPoint(1, 1, { x: 250, y: 440 });
   pointers.setPoint(1, 2, { x: 250, y: 400 });
   pointers.setPoint(1, 3, { x: 250, y: 360 });
   pointers.setPoint(1, 4, { x: 250, y: 320 });
+  // 注入双指滑动操作
   await driver.injectMultiPointerAction(pointers);
 }
 ```
@@ -5343,19 +5379,19 @@ fling(direction: UiDirection, speed: number): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | direction | UiDirection | 是 | 进行抛滑的方向。 |
-| speed | number | 是 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数时设为默认值600。为负数时抛出401错误码。 |
+| speed | number | 是 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5394,7 +5430,7 @@ fling(direction: UiDirection, speed: number, displayId: number): Promise&lt;void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | direction | UiDirection | 是 | 进行抛滑的方向。 |
-| speed | number | 是 | 滑动速率，取值范围为200-40000，默认值为600，单位：px/s。为不在范围内的非负数时设为默认值600。为负数时抛出401错误码。 |
+| speed | number | 是 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。 |
 | displayId | number | 是 | 指定设备屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
@@ -5402,12 +5438,12 @@ fling(direction: UiDirection, speed: number, displayId: number): Promise&lt;void
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5435,7 +5471,7 @@ async function demo() {
 
 screenCapture(savePath: string, rect?: Rect): Promise&lt;boolean&gt;
 
-捕获当前屏幕的指定区域，并保存为PNG格式的图片至给出的保存路径中。使用Promise异步回调。适用于支持截屏的场景。
+捕获当前屏幕的指定区域，并保存为PNG格式的图片至给出的保存路径中。使用Promise异步回调。适用于支持截屏的场景。与[screenCap](#screencap9)的区别在于本接口支持通过rect参数指定截图区域，而非截取全屏。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5458,7 +5494,7 @@ screenCapture(savePath: string, rect?: Rect): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5491,7 +5527,7 @@ async function demo() {
 
 mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise&lt;void&gt;
 
-在指定坐标点注入鼠标点击动作，支持同时按下对应键盘组合键。使用Promise异步回调。例如，Key值为2072时，按下Ctrl并进行鼠标点击动作。
+在指定坐标点注入鼠标点击动作，支持同时按下对应键盘组合键。使用Promise异步回调。例如，键码值为2072时，按下Ctrl并进行鼠标点击动作。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5501,22 +5537,22 @@ mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| p | Point | 是 | 鼠标点击的坐标。 |
+| p | Point | 是 | 鼠标点击操作的目标坐标。 |
 | btnId | MouseButton | 是 | 按下的鼠标按钮。 |
-| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
+| key1 | number | 否 | 指定的第一个键码值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个键码值，取值范围：KeyCode键码值，默认值为0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5544,7 +5580,7 @@ async function demo() {
 
 mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise&lt;void&gt;
 
-在指定坐标点注入鼠标滚轮滑动动作，支持同时按下对应键盘组合键。使用Promise异步回调。例如，Key值为2072时，按下Ctrl并进行鼠标滚轮滑动动作。
+在指定坐标点注入鼠标滚轮滑动动作，支持同时按下对应键盘组合键。使用Promise异步回调。例如，键码值为2072时，按下Ctrl并进行鼠标滚轮滑动动作。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5554,23 +5590,23 @@ mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): P
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| p | Point | 是 | 鼠标点击的坐标。 |
-| down | boolean | 是 | 滚轮滑动方向是否向下。true表示向下滑动。false表示向上滚动。 |
-| d | number | 是 | 鼠标滚轮滚动的格数，取值大于等于0的整数，每格对应目标点位移120px。 |
-| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
+| p | Point | 是 | 鼠标滚轮操作的目标坐标。 |
+| down | boolean | 是 | 滚轮滑动方向是否向下。true表示向下滚动。false表示向上滚动。 |
+| d | number | 是 | 鼠标滚轮滚动的格数，取值大于等于0的整数，每格对应目标点位移120px。为负数时抛出401错误码。 |
+| key1 | number | 否 | 指定的第一个键码值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个键码值，取值范围：KeyCode键码值，默认值为0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5615,12 +5651,12 @@ mouseMoveTo(p: Point): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5646,7 +5682,7 @@ async function demo() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-createUIEventObserver(): UIEventObserver;
+createUIEventObserver(): UIEventObserver
 
 创建一个UI事件监听器。
 
@@ -5658,12 +5694,12 @@ createUIEventObserver(): UIEventObserver;
 
 | 类型 | 说明 |
 | --- | --- |
-| UIEventObserver | 返回找到的目标窗口对象。 |
+| UIEventObserver | 返回创建的UI事件监听器对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5700,11 +5736,11 @@ mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, sp
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| p | Point | 是 | 鼠标点击的坐标。 |
-| down | boolean | 是 | 滚轮滑动方向是否向下。true表示向下滑动。false表示向上滚动。 |
-| d | number | 是 | 鼠标滚轮滚动的格数，取值大于等于0的整数，每格对应目标点位移120px。 |
-| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
+| p | Point | 是 | 鼠标滚轮操作的目标坐标。 |
+| down | boolean | 是 | 滚轮滑动方向是否向下。true表示向下滚动。false表示向上滚动。 |
+| d | number | 是 | 鼠标滚轮滚动的格数，取值大于等于0的整数，每格对应目标点位移120px。为负数时抛出401错误码。 |
+| key1 | number | 否 | 指定的第一个键码值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个键码值，取值范围：KeyCode键码值，默认值为0。 |
 | speed | number | 否 | 鼠标滚轮滚动的速度，范围：1-500的整数，单位：格/秒。为不在范围内的非负数或为null/undefined时设为默认值20。为负数时抛出401错误码。 |
 
 
@@ -5712,12 +5748,12 @@ mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, sp
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5745,7 +5781,7 @@ async function demo() {
 
 mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise&lt;void&gt;
 
-在指定坐标点注入鼠标双击动作，支持同时按下对应键盘组合键。使用Promise异步回调。例如，Key值为2072时，按下Ctrl并进行鼠标双击动作。
+在指定坐标点注入鼠标双击动作，支持同时按下对应键盘组合键。使用Promise异步回调。例如，键码值为2072时，按下Ctrl并进行鼠标双击动作。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5757,20 +5793,20 @@ mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Pr
 | --- | --- | --- | --- |
 | p | Point | 是 | 鼠标双击的坐标。 |
 | btnId | MouseButton | 是 | 按下的鼠标按钮。 |
-| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值0。 |
-| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值0。 |
+| key1 | number | 否 | 指定的第一个键码值，取值范围：KeyCode键码值，默认值0。 |
+| key2 | number | 否 | 指定的第二个键码值，取值范围：KeyCode键码值，默认值0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5798,7 +5834,7 @@ async function demo() {
 
 mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise&lt;void&gt;
 
-在指定坐标点注入鼠标长按动作，支持同时按下对应键盘组合键。使用Promise异步回调。例如，Key值为2072时，按下Ctrl并进行鼠标长按动作。
+在指定坐标点注入鼠标长按动作，支持同时按下对应键盘组合键。使用Promise异步回调。例如，键码值为2072时，按下Ctrl并进行鼠标长按动作。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5810,20 +5846,20 @@ mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Prom
 | --- | --- | --- | --- |
 | p | Point | 是 | 鼠标长按的坐标。 |
 | btnId | MouseButton | 是 | 按下的鼠标按钮。 |
-| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
+| key1 | number | 否 | 指定的第一个键码值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个键码值，取值范围：KeyCode键码值，默认值为0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5839,6 +5875,7 @@ import { Driver, MouseButton } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
+  // 键码值为2072时，按下Ctrl并进行鼠标长按动作
   await driver.mouseLongClick({ x: 248, y: 194 }, MouseButton.MOUSE_BUTTON_LEFT, 2072);
 }
 ```
@@ -5851,7 +5888,7 @@ async function demo() {
 
 mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number, duration?: number): Promise&lt;void&gt;
 
-在指定坐标点注入鼠标长按动作，支持同时按下对应键盘组合键，支持指定长按时长。使用Promise异步回调。例如，Key值为2072时，按下Ctrl并进行鼠标长按动作。
+在指定坐标点注入鼠标长按动作，支持同时按下对应键盘组合键，支持指定长按时长。使用Promise异步回调。例如，键码值为2072时，按下Ctrl并进行鼠标长按动作。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -5863,21 +5900,21 @@ mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number, durat
 | --- | --- | --- | --- |
 | p | Point | 是 | 鼠标长按的坐标。 |
 | btnId | MouseButton | 是 | 按下的鼠标按钮。 |
-| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
-| duration | number | 否 | 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。 |
+| key1 | number | 否 | 指定的第一个键码值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个键码值，取值范围：KeyCode键码值，默认值为0。 |
+| duration | number | 否 | 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出401错误码，为null或undefined时使用默认值。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5893,6 +5930,7 @@ import { Driver, MouseButton } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
+  // 键码值为2072时，按下Ctrl并进行鼠标长按动作，长按时长2000ms
   await driver.mouseLongClick({ x: 248, y: 194 }, MouseButton.MOUSE_BUTTON_LEFT, 2072, 0, 2000);
 }
 ```
@@ -5905,7 +5943,7 @@ async function demo() {
 
 mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
-鼠标从起始坐标点滑向终点坐标点。使用Promise异步回调。
+鼠标从起始坐标点滑向终点坐标点，带有可见移动轨迹，适用于需要验证鼠标悬停效果、鼠标拖拽选择区域等依赖鼠标移动轨迹的测试场景。使用Promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5924,12 +5962,12 @@ mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5957,7 +5995,7 @@ async function demo() {
 
 mouseDrag(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
-鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点。使用Promise异步回调。
+鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点。使用Promise异步回调。从API版本26.0.0开始，该接口支持鼠标跨屏拖拽操作。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -5978,12 +6016,12 @@ mouseDrag(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6011,7 +6049,7 @@ async function demo() {
 
 mouseDrag(from: Point, to: Point, speed?: number, duration?: number): Promise&lt;void&gt;
 
-鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定拖拽速度和拖拽前长按时间。使用Promise异步回调。
+鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定拖拽速度和拖拽前长按时间。使用Promise异步回调。从API版本26.0.0开始，该接口支持鼠标跨屏拖拽操作。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -6026,19 +6064,19 @@ mouseDrag(from: Point, to: Point, speed?: number, duration?: number): Promise&lt
 | from | Point | 是 | 起始点坐标。 |
 | to | Point | 是 | 终点坐标。 |
 | speed | number | 否 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。 |
-| duration | number | 否 | 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。 |
+| duration | number | 否 | 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出401错误码，为null或undefined时使用默认值。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6066,11 +6104,11 @@ async function demo() {
 
 mouseDrag(from: Point, to: Point, touchOptions?: TouchOptions, keyOptions?: KeyOptions): Promise&lt;void&gt;
 
-按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定触摸选项和按键选项。使用Promise异步回调。
+按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定触摸选项和按键选项。使用Promise异步回调。该接口支持鼠标跨屏拖拽操作。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -6090,12 +6128,12 @@ mouseDrag(from: Point, to: Point, touchOptions?: TouchOptions, keyOptions?: KeyO
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6150,12 +6188,12 @@ inputText(p: Point, text: string): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6170,9 +6208,13 @@ inputText(p: Point, text: string): Promise&lt;void&gt;
 import { Component, Driver, ON } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 查找TextInput类型的目标控件
   let text: Component = await driver.findComponent(ON.type('TextInput'));
+  // 获取控件中心点坐标
   let point = await text.getBoundsCenter();
+  // 在坐标点处输入文本'123'
   await driver.inputText(point, '123');
 }
 ```
@@ -6197,19 +6239,19 @@ inputText(p: Point, text: string, mode: InputTextMode): Promise&lt;void&gt;
 | --- | --- | --- | --- |
 | p | Point | 是 | 输入文本的坐标点。 |
 | text | string | 是 | 输入的文本信息，当前支持英文、中文和特殊字符。 |
-| mode | InputTextMode | 是 | 输入文本的方式，取值请参考InputTextMode。 说明： InputTextMode.addition取值为true时，将光标移动至文本末尾后输入指定文本。取值为false时，将在坐标点位置输入指定文本。 |
+| mode | InputTextMode | 是 | 输入文本的方式，取值请参考InputTextMode。 说明： InputTextMode.addition取值为true时，将光标移动至文本末尾后输入指定文本。取值为false时，将在坐标点位置输入指定文本。 当输入文本中包含中文、特殊字符或文本长度超过200字符时，无论InputTextMode.paste取值为何，均以复制粘贴方式输入。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6231,7 +6273,7 @@ async function demo() {
   await driver.inputText(point, '123', { paste: true, addition: false });
 }
 
-async function demo_Chinese() {
+async function demoChinese() {
   let driver: Driver = Driver.create();
   let text: Component = await driver.findComponent(ON.type('TextInput'));
   let point = await text.getBoundsCenter();
@@ -6260,21 +6302,21 @@ touchPadMultiFingerSwipe(fingers: number, direction: UiDirection, options?: Touc
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fingers | number | 是 | 触摸板多指滑动的手指数。取值为3或者4。 |
+| fingers | number | 是 | 触摸板多指滑动的手指数。取值为3或者4。取值不在范围内时抛出401错误码。 |
 | direction | UiDirection | 是 | 触摸板多指滑动的方向。 |
-| options | TouchPadSwipeOptions | 否 | 触摸板多指滑动手势附加选项，默认取TouchPadSwipeOptions中各属性的默认值。 |
+| options | TouchPadSwipeOptions | 否 | 触摸板多指滑动手势附加选项，默认取TouchPadSwipeOptions中各属性的默认值，用于设置触摸板多指滑动结束是否停留以及滑动速率，适用于在触摸板上模拟多指滑动手势的场景，如三指上滑切换任务视图等。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6317,7 +6359,7 @@ touchPadTwoFingersScroll(point: Point, direction: UiDirection, d: number, speed?
 | --- | --- | --- | --- |
 | point | Point | 是 | 触摸板双指滚动时鼠标光标的位置。 |
 | direction | UiDirection | 是 | 触摸板双指滚动的方向。 |
-| d | number | 是 | 触摸板双指滚动的格数，取值为大于等于0的整数，每格对应目标点位移120px。 |
+| d | number | 是 | 触摸板双指滚动的格数，取值为大于等于0的整数，每格对应目标点位移120px。为负数时抛出17000007错误码。 |
 | speed | number | 否 | 触摸板双指滚动的速度，范围：1-500的整数，单位：格/秒。为不在范围内的非负数或为null/undefined时设为默认值20。为负数时抛出17000007错误码。 |
 
 
@@ -6330,7 +6372,7 @@ touchPadTwoFingersScroll(point: Point, direction: UiDirection, d: number, speed?
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6376,12 +6418,12 @@ penClick(point: Point): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6420,19 +6462,19 @@ penLongClick(point: Point, pressure?: number): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | point | Point | 是 | 长按的坐标点。 |
-| pressure | number | 否 | 手写笔滑动操作的压力，默认为1.0，取值范围为0.0到1.0。 |
+| pressure | number | 否 | 手写笔长按操作的压力，默认为1.0，取值范围为0.0到1.0。取值为null或undefined时按照默认值处理，其他超出取值范围情况时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6477,12 +6519,12 @@ penDoubleClick(point: Point): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6523,19 +6565,19 @@ penSwipe(startPoint: Point, endPoint: Point, speed?: number, pressure?: number):
 | startPoint | Point | 是 | 起始位置的坐标点。 |
 | endPoint | Point | 是 | 结束位置的坐标点。 |
 | speed | number | 否 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。 |
-| pressure | number | 否 | 手写笔滑动操作的压力，默认为1.0，取值范围为0.0到1.0。 |
+| pressure | number | 否 | 手写笔滑动操作的压力，默认为1.0，取值范围为0.0到1.0。取值为null或undefined时按照默认值处理，其他超出取值范围情况时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6563,7 +6605,7 @@ async function demo() {
 
 injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise&lt;void&gt;
 
-模拟手写笔多点连续注入操作。使用Promise异步回调。
+模拟手写笔多点连续注入操作，适用于需要模拟手写笔连续书写、绘图等自定义轨迹操作的测试场景。使用Promise异步回调。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -6575,19 +6617,19 @@ injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: numbe
 | --- | --- | --- | --- |
 | pointers | PointerMatrix | 是 | 滑动轨迹，包括操作手指个数和滑动坐标序列。 说明：当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。 |
 | speed | number | 否 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。 |
-| pressure | number | 否 | 手写笔多点连续注入的压力，默认为1.0，取值范围为0.0到1.0。 |
+| pressure | number | 否 | 手写笔多点连续注入的压力，默认为1.0，取值范围为[0.0, 1.0]，包含0.0和1.0。取值为null或undefined时按照默认值处理，其他超出取值范围情况时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6603,10 +6645,13 @@ import { Driver, PointerMatrix } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
+  // 创建单指8步的滑动轨迹矩阵
   let pointer = PointerMatrix.create(1, 8);
+  // 循环设置每步坐标点，模拟从下向上的滑动
   for (let step = 0; step < 8; step++) {
     pointer.setPoint(0, step, { x: 500, y: 1100 - 100 * step });
   }
+  // 以600px/s速率和0.5压力值注入手写笔滑动操作
   await driver.injectPenPointerAction(pointer, 600, 0.5);
 }
 ```
@@ -6619,11 +6664,11 @@ async function demo() {
 
 triggerPenKey(key: PenKey, mode: PenMode, operation: PenKeyOperation, options?: PenKeyOperationOptions): Promise&lt;void&gt;
 
-触发手写笔按键操作。使用Promise异步回调。
+触发手写笔按键操作，适用于需要模拟手写笔功能切换的测试场景，例如模拟空鼠模式下的点击操作或智慧键唤起等。使用Promise异步回调。
 
 **起始版本：** 26.0.0
 
-**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -6631,16 +6676,16 @@ triggerPenKey(key: PenKey, mode: PenMode, operation: PenKeyOperation, options?: 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | PenKey | 是 | 手写笔按键。 |
-| mode | PenMode | 是 | 手写笔模式。 |
-| operation | PenKeyOperation | 是 | 操作类型。 |
-| options | PenKeyOperationOptions | 否 | 操作选项，包括可选的坐标点。默认值继承PenKeyOperationOptions各属性默认值。 |
+| key | PenKey | 是 | 要触发的手写笔按键类型，用于指定执行操作的手写笔按键，如书写键、智慧键或空鼠键。 |
+| mode | PenMode | 是 | 手写笔的工作模式，用于指定手写笔当前所处的操作模式，如手写模式或空鼠模式。 |
+| operation | PenKeyOperation | 是 | 对手写笔按键执行的操作类型，用于指定按键的操作方式，如单击或双击。 |
+| options | PenKeyOperationOptions | 否 | 操作选项，包括可选的坐标点。默认值继承PenKeyOperationOptions各属性默认值。 说明： 当参数mode取值为AIR_MOUSE且key取值为AIR_MOUSE时，必须在options中设置point属性，否则将抛出17000007错误码。 |
 
 
 **支持的参数组合：**
 
- - mode取值为[HANDWRITING](#penmode)时**：支持key取值为[HANDWRITING](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)。
- - mode取值为[AIR_MOUSE](#penmode)时**：支持key取值为[AIR_MOUSE](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)（需要在options中指定point）；支持key取值为[HANDWRITING](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)；支持key取值为[SMART](#penkey)，operation取值为[CLICK](#penkeyoperation)。
+ - mode取值为[HANDWRITING](#penmode)时：支持key取值为[HANDWRITING](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)。
+ - mode取值为[AIR_MOUSE](#penmode)时：支持key取值为[AIR_MOUSE](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)（需要在options中指定point）；支持key取值为[HANDWRITING](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)；支持key取值为[SMART](#penkey)，operation取值为[CLICK](#penkeyoperation)。
  - 使用其他参数组合将抛出17000007错误码。
 
 
@@ -6653,7 +6698,7 @@ triggerPenKey(key: PenKey, mode: PenMode, operation: PenKeyOperation, options?: 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6699,7 +6744,7 @@ crownRotate(d: number, speed?: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| d | number | 是 | 手表表冠旋转的格数，正值表示顺时针旋转，负值表示逆时针旋转，取值需为整数。 |
+| d | number | 是 | 手表表冠旋转的格数，正值表示顺时针旋转，负值表示逆时针旋转，取值需为整数。为非整数时抛出401错误码。 |
 | speed | number | 否 | 手表表冠旋转的速度，取值范围：1-500的整数，单位：格/秒。为不在范围内的非负数或为null/undefined时设为默认值20。为负数时抛出17000007错误码。 说明： 参数取值超出合法范围时，设为默认值20。 |
 
 
@@ -6707,12 +6752,12 @@ crownRotate(d: number, speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6760,20 +6805,20 @@ knuckleKnock(pointers: Array&lt;Point&gt;, times: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pointers | Array&lt;Point&gt; | 是 | 指关节敲击屏幕坐标点的数组，数组长度取值为1或2。 |
-| times | number | 是 | 指关节连续敲击屏幕的次数，取值为1或2。 |
+| pointers | Array&lt;Point&gt; | 是 | 指关节敲击屏幕坐标点的数组，数组长度取值为1或2。取值不在范围内抛出17000007错误码。 |
+| times | number | 是 | 指关节连续敲击屏幕的次数，取值为1或2。取值不在范围内抛出17000007错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6828,12 +6873,12 @@ injectKnucklePointerAction(pointers: PointerMatrix, speed?: number): Promise&lt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6870,7 +6915,7 @@ async function demo() {
 
 isComponentPresentWhenLongClick(on: On, point: Point, duration?: number): Promise&lt;boolean&gt;
 
-在坐标点长按，并查找目标控件是否存在。使用Promise异步回调。
+在坐标点长按，并查找目标控件是否存在，适用于验证长按操作后动态出现的UI元素，例如长按后弹出的上下文菜单或编辑按钮等。使用Promise异步回调。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -6889,12 +6934,12 @@ isComponentPresentWhenLongClick(on: On, point: Point, duration?: number): Promis
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象。返回长按操作期间目标控件是否存在。true：存在。false：不存在。 |
+| Promise&lt;boolean&gt; | Promise对象。返回长按操作期间目标控件是否存在。true：存在；false：不存在。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6922,7 +6967,7 @@ async function demo() {
 
 isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: number, duration?: number): Promise&lt;boolean&gt;
 
-从起始点拖拽至终止点，并查找目标控件是否存在。使用Promise异步回调。
+从起始点拖拽至终止点，并查找目标控件是否存在，适用于验证拖拽过程中动态出现的UI元素，例如拖拽文件到目标文件夹时验证文件夹高亮效果等。使用Promise异步回调。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -6948,7 +6993,7 @@ isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: number, durat
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6976,7 +7021,7 @@ async function demo() {
 
 isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: number): Promise&lt;boolean&gt;
 
-从起始点滑向终止点，并查找目标控件是否存在。使用Promise异步回调。
+从起始点滑向终止点，并查找目标控件是否存在，适用于验证滑动操作过程中动态出现的UI元素，例如滑动删除列表项时验证删除按钮出现等。使用Promise异步回调。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -7001,7 +7046,7 @@ isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: number): Pro
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7027,7 +7072,7 @@ async function demo() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-存储多指操作中每根手指每一步动作的坐标点及其行为的二维数组。
+存储多指操作中每根手指每一步动作的坐标点及其行为的二维数组。通过[create](#create9)构造对象后，使用[setPoint](#setpoint9)设置每个手指每步操作的坐标值，再作为参数传给[injectMultiPointerAction](#injectmultipointeraction9)执行多指操作。
 
 
 
@@ -7047,8 +7092,8 @@ static create(fingers: number, steps: number): PointerMatrix
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fingers | number | 是 | 多指操作中注入的手指数，取值范围：[1,10]的整数。 |
-| steps | number | 是 | 每根手指操作的步骤数，取值范围：[1,1000]的整数。 |
+| fingers | number | 是 | 多指操作中注入的手指数，取值范围：[1,10]的整数。传入不在取值范围内的值时抛出401错误码。 |
+| steps | number | 是 | 每根手指操作的步骤数，取值范围：[1,1000]的整数。传入不在取值范围内的值时抛出401错误码。 |
 
 
 **返回值：**
@@ -7164,7 +7209,7 @@ getBundleName(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7179,8 +7224,11 @@ getBundleName(): Promise&lt;string&gt;
 import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  // 查找当前活跃窗口
+  let window: UiWindow = await driver.findWindow({ active: true });
+  // 获取窗口归属应用的包名
   let name: string = await window.getBundleName();
 }
 ```
@@ -7208,7 +7256,7 @@ getBounds(): Promise&lt;Rect&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7223,8 +7271,11 @@ getBounds(): Promise&lt;Rect&gt;
 import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  // 查找当前活跃窗口
+  let window: UiWindow = await driver.findWindow({ active: true });
+  // 获取窗口的边框信息
   let rect = await window.getBounds();
 }
 ```
@@ -7252,7 +7303,7 @@ getTitle(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7268,7 +7319,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   let title = await window.getTitle();
 }
 ```
@@ -7296,7 +7347,7 @@ getWindowMode(): Promise&lt;WindowMode&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7312,7 +7363,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   let mode = await window.getWindowMode();
 }
 ```
@@ -7335,12 +7386,12 @@ isFocused(): Promise&lt;boolean&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回窗口对象是否获取获焦状态。true：获焦。false：未获焦。 |
+| Promise&lt;boolean&gt; | Promise对象，返回窗口对象是否获焦。true：获焦。false：未获焦。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7356,7 +7407,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   let focused = await window.isFocused();
 }
 ```
@@ -7386,7 +7437,7 @@ isActived(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7402,7 +7453,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   let focused = await window.isActived();
 }
 ```
@@ -7425,12 +7476,12 @@ focus(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7446,7 +7497,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   await window.focus();
 }
 ```
@@ -7471,20 +7522,20 @@ moveTo(x: number, y: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | number | 是 | 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。 |
-| y | number | 是 | 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。 |
+| x | number | 是 | 目标点的横坐标信息，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
+| y | number | 是 | 目标点的纵坐标信息，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7502,7 +7553,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   await window.moveTo(100, 100);
 }
 ```
@@ -7527,8 +7578,8 @@ resize(wide: number, height: number, direction: ResizeDirection): Promise&lt;voi
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| wide | number | 是 | 以number的形式传入调整后窗口的宽度，取值范围：大于等于0的整数。 |
-| height | number | 是 | 以number的形式传入调整后窗口的高度，取值范围：大于等于0的整数。 |
+| wide | number | 是 | 调整后窗口的宽度，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
+| height | number | 是 | 调整后窗口的高度，取值范围：大于等于0的整数，单位：px。传入不在范围内的值抛出401错误码。 |
 | direction | ResizeDirection | 是 | 以ResizeDirection的形式传入窗口调整的方向。 |
 
 
@@ -7536,12 +7587,12 @@ resize(wide: number, height: number, direction: ResizeDirection): Promise&lt;voi
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7557,7 +7608,7 @@ import { Driver, ResizeDirection, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   await window.resize(100, 100, ResizeDirection.LEFT);
 }
 ```
@@ -7570,7 +7621,7 @@ async function demo() {
 
 split(): Promise&lt;void&gt;
 
-将窗口模式切换成分屏模式。使用Promise异步回调。适用于支持切换分屏模式的窗口。
+将窗口模式切换成分屏模式。可通过[resume()](#resume9)恢复到之前的窗口模式。使用Promise异步回调。适用于支持切换分屏模式的窗口。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -7582,12 +7633,12 @@ split(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7604,7 +7655,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   await window.split();
 }
 ```
@@ -7617,7 +7668,7 @@ async function demo() {
 
 maximize(): Promise&lt;void&gt;
 
-将窗口最大化。使用Promise异步回调。适用于支持窗口最大化操作的窗口。
+将窗口最大化。可通过[resume()](#resume9)恢复到之前的窗口模式。使用Promise异步回调。适用于支持窗口最大化操作的窗口。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -7629,12 +7680,12 @@ maximize(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7651,7 +7702,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   await window.maximize();
 }
 ```
@@ -7664,7 +7715,7 @@ async function demo() {
 
 minimize(): Promise&lt;void&gt;
 
-将窗口最小化。使用Promise异步回调。适用于支持窗口最小化操作的窗口。
+将窗口最小化。可通过[resume()](#resume9)恢复到之前的窗口模式。使用Promise异步回调。适用于支持窗口最小化操作的窗口。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -7676,12 +7727,12 @@ minimize(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，返回无结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7698,7 +7749,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   await window.minimize();
 }
 ```
@@ -7723,12 +7774,12 @@ resume(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7745,7 +7796,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   await window.resume();
 }
 ```
@@ -7770,12 +7821,12 @@ close(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7792,7 +7843,7 @@ import { Driver, UiWindow } from '@kit.TestKit';
 
 async function demo() {
   let driver: Driver = Driver.create();
-  let window: UiWindow = await driver.findWindow({ actived: true });
+  let window: UiWindow = await driver.findWindow({ active: true });
   await window.close();
 }
 ```
@@ -7820,7 +7871,7 @@ isActive(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7864,7 +7915,7 @@ getDisplayId(): Promise&lt;number&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7891,7 +7942,7 @@ async function demo() {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-UI事件监听器。
+UI事件监听器，用于监听UI界面上的各类事件，包括toast控件出现事件、dialog控件出现事件、窗口变化事件以及控件操作事件。通过[Driver.createUIEventObserver()](#createuieventobserver10)创建实例。
 
 
 
@@ -7931,13 +7982,17 @@ once(type: 'toastShow', callback: Callback&lt;UIElementInfo&gt;): void
 import { Driver, UIElementInfo, UIEventObserver } from '@kit.TestKit';
 
 async function demo() {
+  // 创建Driver对象
   let driver: Driver = Driver.create();
+  // 创建UI事件监听器
   let observer: UIEventObserver = driver.createUIEventObserver();
+  // 定义回调函数，输出toast控件的属性信息
   let callback = (UIElementInfo: UIElementInfo) => {
     console.info(UIElementInfo.bundleName);
     console.info(UIElementInfo.text);
     console.info(UIElementInfo.type);
   }
+  // 订阅toast控件出现事件
   observer.once('toastShow', callback);
 }
 ```
@@ -8017,7 +8072,7 @@ once(type: 'windowChange', windowChangeType: WindowChangeType, options: WindowCh
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8075,7 +8130,7 @@ once(type: 'componentEventOccur', componentEventType: ComponentEventType, option
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8581,7 +8636,7 @@ let by: By = BY.type('Text').isAfter(BY.text('123')); // 查找 text为123之后
 
 UiTest中，UiComponent类代表了UI界面上的一个控件，提供控件属性获取，控件点击，滑动查找，文本注入等API。
 
-该类提供的所有方法都使用Promise方式作为异步方法，需使用await调用。
+该类提供的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Component 9+ 替代。
@@ -8607,14 +8662,14 @@ click(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
 
 ```ArkTS
 // xxx.test.ets
-import { UiDriver, BY, Driver, UiComponent } from '@kit.TestKit';
+import { UiDriver, BY, UiComponent } from '@kit.TestKit';
 
 async function demo() {
   let driver: UiDriver = UiDriver.create();
@@ -8643,7 +8698,7 @@ doubleClick(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -8679,7 +8734,7 @@ longClick(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -9050,8 +9105,10 @@ inputText(text: string): Promise&lt;void&gt;
 向控件中输入文本，仅针对可编辑的文本组件生效。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用 inputText 9+ 替代。
+> 
 
+
+从API version 8开始支持，从API version 9开始废弃，建议使用[inputText9+](#inputtext9)替代。
 
 **系统能力**：SystemCapability.Test.UiTest
 
@@ -9066,7 +9123,7 @@ inputText(text: string): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -9133,7 +9190,7 @@ async function demo() {
 
 UiDriver类为uitest测试框架的总入口，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等API。
 
-该类提供的方法除UiDriver.create()以外的所有方法都使用Promise方式作为异步方法，需使用await调用。
+该类提供的方法除UiDriver.create()以外的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 Driver 9+ 替代。
@@ -9181,7 +9238,7 @@ async function demo() {
 
 delayMs(duration: number): Promise&lt;void&gt;
 
-UiDriver对象在给定的时间内延时。使用Promise异步回调。
+延迟指定的时间。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 delayMs 9+ 替代。
@@ -9193,14 +9250,14 @@ UiDriver对象在给定的时间内延时。使用Promise异步回调。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| duration | number | 是 | 给定的时间。 |
+| duration | number | 是 | 给定的时间，单位：ms，取值范围：大于等于0的整数。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -9326,12 +9383,12 @@ assertComponentExist(by: By): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+以下错误码的详细介绍请参见[UiTest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -9372,7 +9429,7 @@ UiDriver对象进行点击BACK键的操作。使用Promise异步回调。
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -9395,7 +9452,7 @@ async function demo() {
 
 triggerKey(keyCode: number): Promise&lt;void&gt;
 
-UiDriver对象采取如下操作：通过key值找到对应键并点击。使用Promise异步回调。
+传入键码值实现模拟点击对应按键的效果。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 triggerKey 9+ 替代。
@@ -9407,21 +9464,21 @@ UiDriver对象采取如下操作：通过key值找到对应键并点击。使用
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyCode | number | 是 | 指定的key值，取值范围：KeyCode键码值。 |
+| keyCode | number | 是 | 指定的键码值，取值范围：KeyCode键码值。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
 
 ```ArkTS
 // xxx.test.ets
-import { Driver, UiDriver } from '@kit.TestKit';
+import { UiDriver } from '@kit.TestKit';
 import { KeyCode } from '@kit.InputKit';
 
 async function demo() {
@@ -9450,15 +9507,15 @@ UiDriver对象采取如下操作：在目标坐标点单击。使用Promise异�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | number | 是 | 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。 |
-| y | number | 是 | 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。 |
+| x | number | 是 | 目标点的横坐标信息，取值范围：大于等于0的整数。 |
+| y | number | 是 | 目标点的纵坐标信息，取值范围：大于等于0的整数。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -9493,15 +9550,15 @@ UiDriver对象采取如下操作：在目标坐标点双击。使用Promise异�
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | number | 是 | 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。 |
-| y | number | 是 | 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。 |
+| x | number | 是 | 目标点的横坐标信息，取值范围：大于等于0的整数。 |
+| y | number | 是 | 目标点的纵坐标信息，取值范围：大于等于0的整数。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -9524,7 +9581,7 @@ async function demo() {
 
 longClick(x: number, y: number): Promise&lt;void&gt;
 
-UiDriver对象采取如下操作：在目标坐标点长按下鼠标左键。使用Promise异步回调。
+UiDriver对象采取如下操作：在目标坐标点长按。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 longClick 9+ 替代。
@@ -9536,15 +9593,15 @@ UiDriver对象采取如下操作：在目标坐标点长按下鼠标左键。使
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | number | 是 | 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。 |
-| y | number | 是 | 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。 |
+| x | number | 是 | 目标点的横坐标信息，取值范围：大于等于0的整数。 |
+| y | number | 是 | 目标点的纵坐标信息，取值范围：大于等于0的整数。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -9579,17 +9636,17 @@ UiDriver对象采取如下操作：从给出的起始坐标点滑向给出的目
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| startx | number | 是 | 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。 |
-| starty | number | 是 | 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。 |
-| endx | number | 是 | 以number的形式传入目的点的横坐标信息，取值范围：大于等于0的整数。 |
-| endy | number | 是 | 以number的形式传入目的点的纵坐标信息，取值范围：大于等于0的整数。 |
+| startx | number | 是 | 起始点的横坐标信息，取值范围：大于等于0的整数。 |
+| starty | number | 是 | 起始点的纵坐标信息，取值范围：大于等于0的整数。 |
+| endx | number | 是 | 目的点的横坐标信息，取值范围：大于等于0的整数。 |
+| endy | number | 是 | 目的点的纵坐标信息，取值范围：大于等于0的整数。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**

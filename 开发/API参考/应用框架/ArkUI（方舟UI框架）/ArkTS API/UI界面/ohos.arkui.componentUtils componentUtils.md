@@ -1,6 +1,6 @@
 # @ohos.arkui.componentUtils (componentUtils)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentutils
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -31,7 +31,7 @@ getRectangleById(id: string): ComponentInfo
 根据组件ID获取组件实例对象，通过组件实例对象将获取的坐标位置和大小同步返回给开发者。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 getRectangleById 替代。getRectangleById需先通过 UIContext 中的 getComponentUtils 方法获取 ComponentUtils 对象，然后通过该对象进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getComponentUtils 方法获取当前UI上下文关联的 ComponentUtils 对象。在目标组件布局完成后，通过该接口能够获取组件坐标和尺寸信息。建议在 布局回调 中使用该接口。如果组件动态创建但未挂载组件树，则无法通过该接口获取正常的组件信息。因为组件在未挂载组件树的情况下，一般未经过UI框架正常的测量与布局，此时请确保组件正常挂载组件树后再尝试获取组件信息。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 getRectangleById 替代。getRectangleById需先通过 UIContext 中的 getComponentUtils 方法获取 ComponentUtils 对象，然后通过该对象进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getComponentUtils 方法获取当前UI上下文关联的 ComponentUtils 对象。在目标组件布局完成后，通过该接口能够获取组件坐标和尺寸信息。建议在 布局回调 中使用该接口。如果组件动态创建但未挂载组件树，则无法通过该接口获取正常的组件信息。因为组件在未挂载组件树的情况下，一般未经过UI框架正常的测量与布局，此时请确保组件正常挂载组件树后再尝试获取组件信息。 该接口返回的组件位置为布局位置，某些属性计算不支持，如 translate 、 offset 、 markAnchor 、 scale 、 transform 等，可以使用替代接口 getPositionToWindowWithTransform 。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -278,4 +278,4 @@ struct Utils {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/dZtwfJkNT8aSgyHGlEoIfA/zh-cn_image_0000002628702244.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014310Z&HW-CC-Expire=86400&HW-CC-Sign=68E77956E411425B4C6D818FDA480EBFA29B906E093155161F255148B03C6095)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/K37-5WJLRUa6e8g7vhThuA/zh-cn_image_0000002677827291.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011947Z&HW-CC-Expire=86400&HW-CC-Sign=EE88F69F9B4BF1539098357E614E0FF6C361CF521D2E91C8A024534592736768)

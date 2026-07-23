@@ -1,6 +1,6 @@
 # Class (UIInspector)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiinspector
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -57,8 +57,8 @@ struct UIInspectorExample {
             .height(110)
             .border({ width: 1 })
             .id('TEXT_ID')
-        }.width(80).width(80)
-      }.width(80).width(80)
+        }.width(80)
+      }.width(80)
     }.height(320).width(360).padding({ right: 10, top: 10 })
   }
 
@@ -105,7 +105,7 @@ createComponentObserver(id: string | number): inspector.ComponentObserver
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| id | string \| number | 是 | 类型为string时，为指定的组件id，该id通过通用属性id或者key设置。类型为number时，为系统分配的唯一标识的节点UniqueID，UniqueID通过getUniqueId获取。使用UniqueID创建监听句柄时，请确保UniqueID对应的节点已经存在，否则后续监听无法生效。number的范围为1~2147483647的整数。 |
+| id | string \| number | 是 | 类型为string时，为指定的组件id，该id通过通用属性id或者key设置。类型为number时，为系统分配的节点唯一标识UniqueID，UniqueID通过getUniqueId获取。使用UniqueID创建监听句柄时，请确保UniqueID对应的节点已经存在，否则后续监听无法生效。number的范围为1~2147483647的整数。 |
  
  
 **返回值：**
@@ -132,8 +132,8 @@ struct UIInspectorExample {
             .height(110)
             .border({ width: 1 })
             .id('TEXT_ID')
-        }.width(80).width(80)
-      }.width(80).width(80)
+        }.width(80)
+      }.width(80)
     }.height(320).width(360).padding({ right: 10, top: 10 })
   }
 

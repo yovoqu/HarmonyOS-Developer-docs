@@ -1,6 +1,6 @@
 # Web页面显示内容滚动
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-content-scrolling
 
@@ -59,7 +59,7 @@ document.getElementById("read-more").addEventListener("click", ()=>{
 
   
 ```text
-window.scrollTo(x, y);// X是你想要显示在左上角的元素沿水平轴的像素，Y是你想要显示在左上角的元素沿垂直轴的像素。
+window.scrollTo(x, y);// x是滚动后窗口左上角的水平坐标（像素），y是滚动后窗口左上角的垂直坐标（像素）。
 ```
 (1) 返回页面顶部。
 

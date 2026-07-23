@@ -1,6 +1,6 @@
 # @ohos.hidebug (Debug调试)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1662,7 +1662,7 @@ dumpJsRawHeapData(needGC?: boolean): Promise&lt;string&gt;
 ![](assets/ohos.hidebug%20Debug调试/file-20260525092927812-018.png)
 
 
-系统通过该接口转存快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
+系统通过该接口转储快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
 
 建议在开发者模式下调用该接口，可免除调用配额限制，当设置的开发者选项开关打开并重启设备后即可生效。
 
@@ -1728,7 +1728,7 @@ dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise&lt;string&gt;
 ![](assets/ohos.hidebug%20Debug调试/file-20260708103017e7f448b4.png)
 
 
-系统通过该接口转存快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
+系统通过该接口转储快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
 
 建议在开发者模式下调用该接口，可免除调用配额限制，当设置的开发者选项开关打开并重启设备后即可生效。
 
@@ -1795,7 +1795,7 @@ dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Pr
 为当前线程或其所属进程生成虚拟机的原始堆快照，并支持清除nodeId缓存，生成的文件为rawheap格式。使用Promise异步回调。文件可通过[rawheap-translator工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawheap-translator)转换为heapsnapshot格式文件进行解析。
 
 
-![](assets/ohos.hidebug%20Debug调试/file-20260708103017e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/3uqzQC2iSQqbUv4H2Y461g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=A60AAF056767B55B64DF44D1349D18E0B196AB54DC1A28D44E77B2BE3673F983)
 
 
 系统通过该接口转储快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
@@ -2018,7 +2018,7 @@ setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void
 设置当前进程转储虚拟机原始堆快照的裁剪级别。使用该接口并传入参数TRIM_LEVEL_2，可以有效减少堆快照的文件大小。
 
 
-![](assets/ohos.hidebug%20Debug调试/file-20260708103017e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/cA0oYrcnQ_SUmKhlv6b9yg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=EEB92802FE7BF1F56EFACFD3CEB96A8CFFAEE90D1F8D9DC6F77586C9ACF65866)
 
 
 默认裁剪级别是TRIM_LEVEL_1。如果设置了TRIM_LEVEL_2裁剪，需使用API version 20之后的[rawheap-translator](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawheap-translator)工具才能将.rawheap文件转换为.heapsnapshot文件，否则可能导致转换失败。
@@ -2073,7 +2073,7 @@ setProcDumpInSharedOOM(enable: boolean): void
 将转储的堆快照由线程级改为进程级。
 
 
-![](assets/ohos.hidebug%20Debug调试/file-20260708103017e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/OKVwoDbaRk-2qJbFcU120g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=0EB15A5916DF43860007F78AC2F7FBECF119962D399E794FD8875B898009321E)
 
 
 要想转储进程级的堆快照，调用该接口并传参true、进程OOM时发生的是SharedHeap OOM，两个条件缺一不可。
@@ -2120,7 +2120,7 @@ getRssInfo(): RssInfo
 **系统能力**：SystemCapability.HiviewDFX.HiProfiler.HiDebug
 
 
-![](assets/ohos.hidebug%20Debug调试/file-20260708103017e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/x1-Ib8rMStqdjYw7bF1vvQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=1E4AE966A25D1BE6CD766D236C9E716FFD91FAE926F58FE011D3C4078046E587)
 
 
 读取/proc/{pid}/status耗时很短，与[hidebug.getAppNativeMemInfo](#hidebuggetappnativememinfo12)接口中获取的rss值相比存在一点误差，但该接口更加轻量，为避免应用丢帧或卡顿推荐使用该接口。

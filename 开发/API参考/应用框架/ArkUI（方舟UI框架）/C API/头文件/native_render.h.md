@@ -1,6 +1,6 @@
 # native_render.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-render-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,23 +38,23 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | ArkUI_RenderNode* | ArkUI_RenderNodeHandle | 渲染节点指针。 |
-| ArkUI_RenderContentModifier* | ArkUI_RenderContentModifierHandle | 内容修改器指针。 |
+| ArkUI_RenderContentModifier* | ArkUI_RenderContentModifierHandle | 渲染内容修改器指针。 |
 | ArkUI_FloatProperty* | ArkUI_FloatPropertyHandle | 浮点数属性指针。 |
 | ArkUI_Vector2Property* | ArkUI_Vector2PropertyHandle | 二维向量属性指针。 |
 | ArkUI_ColorProperty* | ArkUI_ColorPropertyHandle | 颜色属性指针。 |
 | ArkUI_FloatAnimatableProperty* | ArkUI_FloatAnimatablePropertyHandle | 可动画的浮点数属性指针。 |
 | ArkUI_Vector2AnimatableProperty* | ArkUI_Vector2AnimatablePropertyHandle | 可动画的二维向量属性指针。 |
 | ArkUI_ColorAnimatableProperty* | ArkUI_ColorAnimatablePropertyHandle | 可动画的颜色属性指针。 |
-| ArkUI_RectShape | ArkUI_RectShapeOption | 范围形状结构体。 |
+| ArkUI_RectShape | ArkUI_RectShapeOption | 矩形形状结构体。 |
 | ArkUI_NodeBorderStyle | ArkUI_NodeBorderStyleOption | 边框样式配置项。 |
 | ArkUI_NodeBorderWidth | ArkUI_NodeBorderWidthOption | 边框宽度配置项。 |
 | ArkUI_NodeBorderColor | ArkUI_NodeBorderColorOption | 边框颜色配置项。 |
-| ArkUI_NodeBorderRadius | ArkUI_NodeBorderRadiusOption | 边框弧度配置项。 |
+| ArkUI_NodeBorderRadius | ArkUI_NodeBorderRadiusOption | 边框半径配置项。 |
 | ArkUI_CircleShape | ArkUI_CircleShapeOption | 圆形形状配置项。 |
 | ArkUI_RoundRectShape | ArkUI_RoundRectShapeOption | 圆角矩形形状配置项。 |
 | ArkUI_CommandPath | ArkUI_CommandPathOption | 自定义路径配置项。 |
 | ArkUI_RenderNodeMaskOption | ArkUI_RenderNodeMaskOption | 节点遮罩配置项。 |
-| ArkUI_RenderNodeClipOption | ArkUI_RenderNodeClipOption | 节点裁剪配置项。 |
+| ArkUI_RenderNodeClipOption | ArkUI_RenderNodeClipOption | 渲染节点裁剪配置项。 |
 
 
 

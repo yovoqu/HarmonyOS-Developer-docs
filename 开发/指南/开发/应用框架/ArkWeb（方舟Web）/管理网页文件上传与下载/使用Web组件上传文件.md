@@ -1,6 +1,6 @@
 # 使用Web组件上传文件
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-file-upload
 
@@ -147,7 +147,7 @@ struct WebComponent {
 
 #### 使用onShowFileSelector拉起相机
 
-Web组件支持前端页面上传图片文件时调用相机即时拍照，应用开发者可以使用[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口来处理前端页面文件上传的请求并自行拉起相机，如果应用开发者不做任何处理，Web会提供默认行为来处理前端页面调用相机的请求。
+Web组件支持前端页面上传图片文件时调用相机即时拍照，应用开发者可以使用[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口来处理前端页面文件上传的请求并自行拉起相机，如果应用开发者不做任何处理，ArkWeb会提供默认行为来处理前端页面调用相机的请求。
 
 此示例中，应用侧通过监听[onShowFileSelector](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)事件并返回true拦截ArkWeb默认弹窗，并调用系统CameraPicker拉起相机。应用可以通过获取AcceptType对不同类型的目标文件做更精细的筛选。
 
@@ -499,7 +499,7 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/CXllNjCtREqdGLzNMKfz1A/zh-cn_image_0000002656348183.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020810Z&HW-CC-Expire=86400&HW-CC-Sign=85E495AB62BAC7E244B16449725ED32A4331DB183B6AB9B10F559D1501C73723)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/LJqI9O4eTFOnYZFbi6e5wg/zh-cn_image_0000002677666119.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012140Z&HW-CC-Expire=86400&HW-CC-Sign=997FF794C90A0F6264381B1FC32F0F5816930D2AD061888012E7808E30FB1AA1)
 
 
 样例以HTML中的showSaveFilePicker()配合ArkTS中documentViewPicker.save()方法为例。

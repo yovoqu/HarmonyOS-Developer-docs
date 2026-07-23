@@ -1,6 +1,6 @@
 # 绑定半模态页面（bindSheet）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sheet-page
 
@@ -145,7 +145,7 @@ const BUNDLE = 'SupportingAgingFriendly_';
 @Entry
 @Component
 struct OnWillDismiss_Dismiss {
-  @State isShow: Boolean = false;
+  @State isShow: boolean = false;
 
   @Builder
   myBuilder() {
@@ -169,11 +169,11 @@ struct OnWillDismiss_Dismiss {
         title: { title: 'title', subtitle: 'subtitle' },
         enableOutsideInteractive: false,
         onWillDismiss: ((dismissSheetAction: DismissSheetAction) => {
-          // 第二步：确认二次回调交互能力，此处用AlertDialog提示 "是否需要关闭半模态"
+          // 第二步：确认二次回调交互能力，此处用AlertDialog提示 "是否选择关闭半模态"
           this.getUIContext().showAlertDialog(
             {
-              // 请将$r('app.string.bindContentCover_label2')替换为实际资源文件，在本示例中该资源文件的value值为"示例2（自定义转场动画）"
-              message: $r('app.string.bindContentCover_label2'),
+              // 请将$r('app.string.bindSheetCmd_label12')替换为实际资源文件，在本示例中该资源文件的value值为"是否选择关闭半模态"
+              message: $r('app.string.bindSheetCmd_label12'),
               autoCancel: true,
               alignment: DialogAlignment.Bottom,
               gridCount: 4,
@@ -321,4 +321,4 @@ struct SheetTransitionExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/Y87rJ8GTTXSAbtIYBT_xFw/zh-cn_image_0000002628860446.png?HW-CC-KV=V1&HW-CC-Date=20260701T014615Z&HW-CC-Expire=86400&HW-CC-Sign=84EAAA754674F37BC3D9E8D3C0DFF220FBFBBFFC3BC48E8DEBC811A8833ABA9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/owfBJtnhQCKWKDmmyHG_Vg/zh-cn_image_0000002647585980.png?HW-CC-KV=V1&HW-CC-Date=20260723T012135Z&HW-CC-Expire=86400&HW-CC-Sign=ADD71B7D53608F0A64F21F8305F188BED4B38D0BCA71A6594AA53936EF151BD4)

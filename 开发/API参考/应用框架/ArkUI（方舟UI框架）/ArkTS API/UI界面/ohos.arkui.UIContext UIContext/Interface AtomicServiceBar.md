@@ -1,6 +1,6 @@
 # Interface (AtomicServiceBar)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-atomicservicebar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -82,7 +82,7 @@ setBackgroundColor(color:Nullable<Color | number | string>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | Nullable<Color \| number \| string> | 是 | 通过该方法设置元服务menuBar的背景颜色，undefined代表使用默认颜色。number为HEX格式颜色，支持rgb或者argb，示例：0xffffff。string为rgb或者argb格式颜色，示例：'#ffffff'。 |
+| color | Nullable<Color \| number \| string> | 是 | 元服务menuBar的背景颜色，undefined代表使用默认颜色。number为HEX格式颜色，支持rgb或者argb，示例：0xffffff。string为rgb或者argb格式颜色，示例：'#ffffff'。 |
 
 
 **示例：**
@@ -288,7 +288,7 @@ getBarRect(): Frame
 **示例：**
 
 ```text
-import { AtomicServiceBar } from '@kit.ArkUI';
+import { AtomicServiceBar, UIContext } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Entry
@@ -319,7 +319,7 @@ struct Index {
 
 onBarRectChange(callback: Callback&lt;Frame&gt;): void
 
-当元服务AtomicServiceMenuBar（右上角菜单功能胶囊）的大小或位置发生变化时，触发注册的回调，返回AtomicServiceMenuBar最新的布局信息。该布局信息包含了AtomicServiceMenuBar的大小和位置。
+当元服务menuBar（右上角菜单功能胶囊）的大小或位置发生变化时，触发注册的回调，返回menuBar最新的布局信息。该布局信息包含了menuBar的大小和位置。
 
 **起始版本：** 26.0.0
 

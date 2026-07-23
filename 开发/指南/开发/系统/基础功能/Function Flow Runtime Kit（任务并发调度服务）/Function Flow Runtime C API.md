@@ -1,6 +1,6 @@
 # Function Flow Runtime C API
 
-更新时间：2026-03-12 09:39:20
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-api-guideline-c
 
@@ -459,7 +459,7 @@ FFRT_C_API void ffrt_submit_base(ffrt_function_header_t* f, const ffrt_deps_t* i
  
 **参数**
  
-- f：用户的任务执行体，可以是原生的ffrt_function_header_t类型，也可以基于ffrt_function_header_t自定义拓展类型。
+- f：用户的任务执行体，可以是原生的ffrt_function_header_t类型，也可以基于ffrt_function_header_t自定义扩展类型。
 - in_deps：任务的输入数据依赖。输入数据依赖通常以实际数据的地址表达，也支持ffrt_task_handle_t作为一种特殊输入依赖。
 - out_deps：任务的输出数据依赖。输出数据依赖通常以实际数据的地址表达，不支持ffrt_task_handle_t。
 - attr：任务的属性设置。
@@ -657,7 +657,7 @@ FFRT_C_API ffrt_task_handle_t ffrt_submit_h_base(ffrt_function_header_t* f, cons
  
 **参数**
  
-- f：用户的任务执行体，可以是原生的ffrt_function_header_t类型，也可以基于ffrt_function_header_t自定义拓展类型。
+- f：用户的任务执行体，可以是原生的ffrt_function_header_t类型，也可以基于ffrt_function_header_t自定义扩展类型。
 - in_deps：任务的输入数据依赖。输入数据依赖通常以实际数据的地址表达，也支持ffrt_task_handle_t作为一种特殊输入依赖。
 - out_deps：任务的输出数据依赖。输出数据依赖通常以实际数据的地址表达，不支持ffrt_task_handle_t。
 - attr：任务的属性设置。

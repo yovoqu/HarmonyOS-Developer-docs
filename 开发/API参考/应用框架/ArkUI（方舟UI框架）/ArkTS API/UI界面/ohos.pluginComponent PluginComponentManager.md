@@ -1,6 +1,6 @@
 # @ohos.pluginComponent (PluginComponentManager)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-plugincomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -71,7 +71,7 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-使用PluginManager.Push方法时需要传递的参数。
+使用pluginComponentManager.push方法时需要传递的参数。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -92,7 +92,7 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-使用PluginManager.Request方法时需要传递的参数。
+使用pluginComponentManager.request方法时需要传递的参数。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -112,7 +112,7 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-PluginManager.Request方法接收到的回调结果。
+pluginComponentManager.request方法接收到的回调结果。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -163,7 +163,7 @@ type OnPushEventCallback = (source: Want, template: PluginComponentTemplate, dat
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | source | Want | 是 | Push请求发送方相关信息。 |
-| template | PluginComponentTemplate | 是 | 请求组件模板名称。 |
+| template | PluginComponentTemplate | 是 | 组件模板。 |
 | data | KVObject | 是 | 数据。 |
 | extraData | KVObject | 是 | 附加数据。 |
  

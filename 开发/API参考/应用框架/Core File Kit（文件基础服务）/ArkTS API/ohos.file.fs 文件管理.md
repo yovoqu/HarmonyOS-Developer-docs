@@ -1,6 +1,6 @@
 # @ohos.file.fs (文件管理)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -5362,7 +5362,7 @@ fileIo.fdopenStream(file.fd, "r+").then((stream: fileIo.Stream) => {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/QlSnk7BjRxiLWGMKqeLX8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014419Z&HW-CC-Expire=86400&HW-CC-Sign=76D91A09E3C723B040CD0121BBAD3BC4ABA2696663D87BD08BDB2C2BA9F1428F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/q0fO5jK1RNi2DL5mPifRhw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012020Z&HW-CC-Expire=86400&HW-CC-Sign=25123458290CAC277B308AA36E4DB8520656D617C95C8F4F286B7EAE530075C5)
 
 
 使用文件描述符创建的文件流时，文件描述符的生命周期将由文件流对象管理。调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -5416,7 +5416,7 @@ fileIo.fdopenStream(file.fd, "r+", (err: BusinessError, stream: fileIo.Stream) =
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/6IB1Vo3ERpWtwe0y-LrdUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014419Z&HW-CC-Expire=86400&HW-CC-Sign=C0203C883AA2281DB425B7E31A1885DF8B59716816B0701EDBE27E74613ABEFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/XD4joRYXT-qrUDE1EgIrdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012020Z&HW-CC-Expire=86400&HW-CC-Sign=3A4E80001791741ACFC45DD5E08CC9C6B887BF077B9EB68EBAB9686F54ABF4BD)
 
 
 使用文件描述符创建的文件流，文件描述符的生命周期也交由文件流对象，在调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -5466,7 +5466,7 @@ stream.closeSync();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/pIOFmcPBSp6GAJBwEBj60w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014419Z&HW-CC-Expire=86400&HW-CC-Sign=862D2679BD2F0657C568ECD32B0457D93E663040C6E6344F6F7E31CF3E98DDDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/luA2sOqSTJO5I-oUvH_BJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012020Z&HW-CC-Expire=86400&HW-CC-Sign=15FFC05AC335BC3F17EDDE230138A08CE3624E2A3C14C678BDD8C8213993ABF6)
 
 
 使用文件描述符创建的文件流，文件描述符的生命周期也交由文件流对象，在调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -8953,7 +8953,7 @@ filter(name: string): boolean
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-可选项类型，支持readText接口使用，ReadTextOptions继承至[ReadOptions](#readoptions11)。
+可选项类型，支持readText接口使用，ReadTextOptions继承自[ReadOptions](#readoptions11)。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
@@ -8970,7 +8970,7 @@ filter(name: string): boolean
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-可选项类型，支持write接口使用，WriteOptions继承至[Options](#options11)。
+可选项类型，支持write接口使用，WriteOptions继承自[Options](#options11)。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 

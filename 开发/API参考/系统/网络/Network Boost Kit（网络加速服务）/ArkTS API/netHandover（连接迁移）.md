@@ -1,6 +1,6 @@
 # netHandover（连接迁移）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-nethandover
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -212,8 +212,8 @@ getMultiPathQuotaStats(): MultiPathQuota
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 1013600001 | Internal error. For example, the internal management state machine is abnormal, or the internal message queue processing is blocked. |
-| 1013600002 | System service error. For example, IPC call processes fails, or the network management service failed to start. |
+| 1013600001 | Internal error. |
+| 1013600002 | System service error. |
  
  
 **示例：**
@@ -264,8 +264,8 @@ requestMultiPath(callback: Callback&lt;MultiPathRequestResult&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 1013600001 | Internal error. For example, the internal management state machine is abnormal, or the internal message queue processing is blocked. |
-| 1013600002 | System service error. For example, IPC call processes fails, or the network management service failed to start. |
+| 1013600001 | Internal error. |
+| 1013600002 | System service error. |
 | 1013620000 | Multi-path capability is disabled. |
 | 1013620001 | Multi-path links are already active or in the process of being established. |
 | 1013620002 | App request limit reached. |
@@ -317,8 +317,8 @@ releaseMultiPath(): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 1013600001 | Internal error. For example, the internal management state machine is abnormal, or the internal message queue processing is blocked. |
-| 1013600002 | System service error. For example, IPC call processes fails, or the network management service failed to start. |
+| 1013600001 | Internal error. |
+| 1013600002 | System service error. |
 | 1013620100 | Release request mismatch. |
 | 1013620101 | Multi-path not activated. |
  
@@ -368,8 +368,8 @@ on(type: 'multiPathStateChange', callback: Callback&lt;MultiPathStateInfo&gt;): 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 1013600001 | Internal error. For example, the internal management state machine is abnormal, or the internal message queue processing is blocked. |
-| 1013600002 | System service error. For example, IPC call processes fails, or the network management service failed to start. |
+| 1013600001 | Internal error. |
+| 1013600002 | System service error. |
  
  
 **示例：**
@@ -420,8 +420,8 @@ off(type: 'multiPathStateChange', callback?: Callback&lt;MultiPathStateInfo&gt;)
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 1013600001 | Internal error. For example, the internal management state machine is abnormal, or the internal message queue processing is blocked. |
-| 1013600002 | System service error. For example, IPC call processes fails, or the network management service failed to start. |
+| 1013600001 | Internal error. |
+| 1013600002 | System service error. |
  
  
 **示例**：
@@ -469,8 +469,8 @@ on(type: 'multiPathRecommendation', callback: Callback&lt;MultiPathRecommendatio
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 1013600001 | Internal error. For example, the internal management state machine is abnormal, or the internal message queue processing is blocked. |
-| 1013600002 | System service error. For example, IPC call processes fails, or the network management service failed to start. |
+| 1013600001 | Internal error. |
+| 1013600002 | System service error. |
  
  
 **示例：**
@@ -521,8 +521,8 @@ off(type: 'multiPathRecommendation', callback?: Callback&lt;MultiPathRecommendat
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 1013600001 | Internal error. For example, the internal management state machine is abnormal, or the internal message queue processing is blocked. |
-| 1013600002 | System service error. For example, IPC call processes fails, or the network management service failed to start. |
+| 1013600001 | Internal error. |
+| 1013600002 | System service error. |
  
  
 **示例：**

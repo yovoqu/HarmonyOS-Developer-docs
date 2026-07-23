@@ -1,6 +1,6 @@
 # 内存管理Purgeable内存开发指导
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/purgeable-memory-guidelines
 
@@ -145,3 +145,9 @@ OH_PurgeableMemory_Destroy(pPurgmem);
 // 置空指针防止UAF
 pPurgmem = nullptr;
 ```
+
+ 
+ 
+ 
+ 
+ - **[高负载场景线程优先级设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/high-load-thread-priority)**

@@ -1,6 +1,6 @@
 # Class (Int32Array)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-int32array
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -249,7 +249,7 @@ console.info("[" + int32Array1 + "]"); // [2, 3, 4, 5, 6]
 
 static from(arrayLike: ArrayLike&lt;number&gt;): Int32Array
  
-从一个ArrayLike或者可迭代对象中创建一个ArkTS Int32Array对象。
+从一个ArrayLike中创建一个ArkTS Int32Array对象。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  

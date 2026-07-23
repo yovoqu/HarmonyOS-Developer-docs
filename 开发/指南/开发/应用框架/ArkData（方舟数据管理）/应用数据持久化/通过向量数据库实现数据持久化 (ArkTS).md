@@ -1,6 +1,6 @@
 # 通过向量数据库实现数据持久化 (ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-vector-store
 
@@ -43,7 +43,7 @@
 | 类型 | 描述 | 是否支持 |
 | --- | --- | --- |
 | NULL | 空值 | 是 |
-| INTEGER | 整形 | 是 |
+| INTEGER | 整型 | 是 |
 | DOUBLE | 浮点类型 | 是 |
 | TEXT | 字符串类型 | 是 |
 | BLOB | 二进制类型 | 是 |
@@ -299,7 +299,7 @@ try {
   // 创建第二张表
   let CREATE_SQL = 'CREATE TABLE IF NOT EXISTS test1(id text PRIMARY KEY, location text, people text, age int, repr floatvector(2));';
   await store!.execute(CREATE_SQL);
-  let resultSet = await store!.querySql('select *, (1000 * (location='local') + 500 * (people like 'Mike') + 100 * (age > 18)) as score from test1 where repr <-> '[6.2, 7.3]' < 0.8 order by score limit 5;');
+  let resultSet = await store!.querySql("select *, (1000 * (location='local') + 500 * (people like 'Mike') + 100 * (age > 18)) as score from test1 where repr <-> '[6.2, 7.3]' < 0.8 order by score limit 5;");
   resultSet!.close();
 } catch (err) {
   console.error(`query failed, code is ${err.code}, message is ${err.message}`);

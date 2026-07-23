@@ -1,6 +1,6 @@
 # Web组件对接软键盘
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-docking-softkeyboard
 
@@ -341,7 +341,7 @@ struct WebComponent {
        */
       @Builder
       customKeyboardBuilder() {
-          // 这里实现自定义键盘组件，对接WebKeyboardController实现输入、删除、关闭等操作。
+      // 这里实现自定义键盘组件，对接WebKeyboardController实现输入、删除、关闭等操作。
         Row() {
           Text("完成")
             .fontSize(20)
@@ -488,10 +488,10 @@ ArkWeb自定义键盘的示例效果如图4、图5和图6所示。
 **图5** ArkWeb自定义键盘字母键盘
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/O1dOmXlzQySZRfMqPUvm8g/zh-cn_image_0000002656348171.png?HW-CC-KV=V1&HW-CC-Date=20260624T020808Z&HW-CC-Expire=86400&HW-CC-Sign=D0CD5B534DD902261DEBD558E642B350F6913054D93F48C72F4E0FCBCB2C27B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/h7Es9_JMRlCBwG6OJi5w6g/zh-cn_image_0000002677666107.png?HW-CC-KV=V1&HW-CC-Date=20260723T012139Z&HW-CC-Expire=86400&HW-CC-Sign=1BB506C836ACBE187BD18D00E9557A9A7BAF3732E8A5C85DBC73C5EB3944D1DB)
 
 
 **图6** ArkWeb自定义键盘符号键盘
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/LbFGVF9_Qt61yfG-6-2bug/zh-cn_image_0000002626228758.png?HW-CC-KV=V1&HW-CC-Date=20260624T020808Z&HW-CC-Expire=86400&HW-CC-Sign=CAC4DD8EBD6570039C59E66BDABEE2BDB80CF08288024B88A8AFAC437F5A4425)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/LDvX2i-JQlWsXm9KaIJpdA/zh-cn_image_0000002647746226.png?HW-CC-KV=V1&HW-CC-Date=20260723T012139Z&HW-CC-Expire=86400&HW-CC-Sign=1A4DFF811EF2113E46920560BABF2D81C062481547FB41998D5327CFEF58F307)

@@ -1,6 +1,6 @@
 # ArcList
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -71,7 +71,7 @@ ArcList(options?: ArkListOptions)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性（不支持[滚动组件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#属性)）：
 
 
 
@@ -170,8 +170,6 @@ chainAnimation(enable: Optional&lt;boolean&gt;)
 设置当前ArcList是否启用链式联动动效，开启后列表滑动以及顶部和底部拖拽时会有链式联动的效果。
 
 链式联动效果：ArcList内的ArcListItem间隔一定距离，在基本的滑动交互行为下，主动对象驱动从动对象进行联动，驱动效果遵循弹簧物理动效。
-
-链式动效生效需要满足前提条件：ArcList边缘效果为[EdgeEffect.Spring](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#edgeeffect)类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -622,4 +620,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/k-lfVZ9lSNufx0Ot4TIGuQ/zh-cn_image_0000002659101703.png?HW-CC-KV=V1&HW-CC-Date=20260701T014333Z&HW-CC-Expire=86400&HW-CC-Sign=A4574C079CE7CB1C23ABAD75D157CAB6725C0F18CEBCBEA63777C57D564ECCE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/IjhGl68PR3qufWpKoq6xAw/zh-cn_image_0000002647747794.png?HW-CC-KV=V1&HW-CC-Date=20260723T011953Z&HW-CC-Expire=86400&HW-CC-Sign=1230970BA21198BFDA9512BA9594D09AA43D3814CF22B375D0FEE3B45C92CDD4)

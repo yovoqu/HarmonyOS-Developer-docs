@@ -1,6 +1,6 @@
 # SelectionMenu
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-selectionmenu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -359,7 +359,7 @@ struct Index {
         event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
           if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
             let span = item as RichEditorTextSpanResult;
-            console.info('test cut' + span.value);
+            console.info('test onCopy' + span.value);
             console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
           }
         })
@@ -370,7 +370,7 @@ struct Index {
         event.content.spans.forEach((item: RichEditorTextSpanResult | RichEditorImageSpanResult, index) => {
           if (typeof (item as RichEditorTextSpanResult)['textStyle'] != 'undefined') {
             let span = item as RichEditorTextSpanResult;
-            console.info('test onPaste' + span.value);
+            console.info('test onSelectAll' + span.value);
             console.info('test start ' + span.offsetInSpan[0] + ' end: ' + span.offsetInSpan[1]);
           }
         })
@@ -496,7 +496,7 @@ struct Index {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/OD8nkHmeSYCA_mK_ASloaQ/zh-cn_image_0000002659102231.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=723117CF28A83FB9B5CAEB7634E82CAD71D6F180B7D93A23C6D5D053CAE87A5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/KbjYp4LwTKCtKbcOSN2CTA/zh-cn_image_0000002677828087.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=2AFEFF1EC31EC3E7A955D4F3E27395E7797539E3C25CEE79581D58A8630D74DB)
 
 
 
@@ -831,4 +831,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/M6ukLFXTRHmddwyedGXrAw/zh-cn_image_0000002628862884.jpg?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=9FA2AFCB86E80325B9033B374F87F65BC961EA375EFEF5ED7B81763A232CD25F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/Le5J39VGQKWWXmi-UhgIVw/zh-cn_image_0000002677668239.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=FEFE233128515AC713D1EBEC8A0ABD19C4D294DC4BFEAD71D93E2E99057A916A)

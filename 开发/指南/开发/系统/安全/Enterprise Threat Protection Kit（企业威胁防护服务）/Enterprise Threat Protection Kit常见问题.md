@@ -1,6 +1,6 @@
 # Enterprise Threat Protection Kit常见问题
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-03 01:38:22（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-virusremediation-question
 

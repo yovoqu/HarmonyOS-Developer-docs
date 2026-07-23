@@ -1,17 +1,29 @@
 # FormExtensionContext
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-formextensioncontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-FormExtensionContext模块是[FormExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability)的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
- 
 FormExtensionContext模块提供FormExtensionAbility具有的接口和能力。
  
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
+  
+
+#### FormExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+FormExtensionContext模块是[FormExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability)的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
+ 
+**系统能力：** SystemCapability.Ability.Form
+ 
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+ 
   
 
 #### 使用说明
@@ -36,17 +48,3 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   }
 };
 ```
- 
-  
-
-#### FormExtensionContext
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-FormExtensionContext模块是[FormExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability)的上下文环境。
- 
-**系统能力：** SystemCapability.Ability.Form
- 
-**模型约束：** 本模块接口仅可在Stage模型下使用。
- 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。

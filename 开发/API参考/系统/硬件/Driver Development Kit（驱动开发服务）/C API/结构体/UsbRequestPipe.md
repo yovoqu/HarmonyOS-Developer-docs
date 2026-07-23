@@ -1,6 +1,6 @@
 # UsbRequestPipe
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk-usbrequestpipe
 **支持设备：** PC/2in1
@@ -37,5 +37,5 @@ typedef struct UsbRequestPipe {...} __attribute__((aligned(8))) UsbRequestPipe
 | 名称 | 描述 |
 | --- | --- |
 | uint64_t interfaceHandle | 接口操作句柄。 |
-| uint8_t endpoint | 要通信的端点的地址。 |
 | uint32_t timeout | 超时时间，单位是毫秒。 |
+| uint8_t endpoint | 要通信的端点的地址。 |

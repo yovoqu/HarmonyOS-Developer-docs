@@ -1,10 +1,10 @@
 # 一键登录获取华为账号绑定号码和UnionID/OpenID（不推荐）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-user-info-quicklogin-getid
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/aUO8eXwfRkyKCs6tfKROUA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074846Z&HW-CC-Expire=86400&HW-CC-Sign=2FEDA653ADBC499108E2D88099A89CAC5FBF5C943CB6C009AC3EDC81D1120A36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/-TfodQu8TvePXPXGabNnUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012044Z&HW-CC-Expire=86400&HW-CC-Sign=F9B6D91A88247AE828EA477B254D5D9E83983912A50D1EFADE3E69AADDAD1447)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -114,7 +114,7 @@ access_token=<Access Token>
 | --- | --- | --- | --- |
 | openID | 是 | String | 用户OpenID。具体格式要求请参考OpenID和UnionID的格式说明。 |
 | unionID | 是 | String | 用户UnionID。具体格式要求请参考OpenID和UnionID的格式说明。 |
-| loginMobileNumber | 否 | String | 华为账号绑定号码，使用该手机号完成一键登录的功能，详见华为账号一键登录（获取手机号和UnionID/OpenID）。 以下场景loginMobileNumber不返回: - 用户未绑定手机号 - 应用未申请quickLoginMobilePhone的scope权限 - 获取Authorization Code时不携带quickLoginMobilePhone scope - 应用服务器部署在中国境外、香港特别行政区、澳门特别行政区或中国台湾 |
+| loginMobileNumber | 否 | String | 华为账号绑定号码，使用该手机号完成一键登录的功能，详见华为账号一键登录（获取手机号和UnionID/OpenID）。 以下场景loginMobileNumber不返回： - 用户未绑定手机号 - 应用未申请quickLoginMobilePhone的scope权限 - 获取Authorization Code时不携带quickLoginMobilePhone scope - 应用服务器部署在中国境外、香港特别行政区、澳门特别行政区或中国台湾 |
 | loginMobileValid | 否 | int | 通过一键登录功能获取的华为账号绑定号码的实时有效性。 当不返回 loginMobileNumber时，也不进行返回。 若发起一键登录时LoginPanelParams的verifyPhoneNumber参数值传递为true，表示华为代为验证手机号有效性，开发者无需关注此返回值； 若verifyPhoneNumber参数值传递为false, 需要根据返回的状态值进行处理。 0：在过去90天内，无法证明当前手机号码可以触达用户， 需要进行验证 1：在过去90天内，当前手机号码被证明可以触达用户，可以直接使用 |
 | purePhoneNumber | 否 | String | 不带国家码的手机号，此处为loginMobileNumber去除国际冠码与国际电话区号的形式。 当不返回 loginMobileNumber时，也不进行返回。 |
 | phoneCountryCode | 否 | String | purePhoneNumber的国际冠码(00)+国际电话区号。 当不返回 loginMobileNumber时，也不进行返回。 |

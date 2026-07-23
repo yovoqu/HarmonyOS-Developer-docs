@@ -1,10 +1,10 @@
 # Device Security Kit简介
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-introduction
 
-Device Security Kit（设备安全服务）提供应用设备状态检测（DeviceVerify）、安全检测（SafetyDetect）、可信应用服务（TrustedAppService）、数字盾服务（TrustedAuthentication）、业务风险检测（BusinessRiskIntelligentDetection）、星盾机密风控引擎（StarShieldConfidentialRiskControlEngine）、安全审计（SecurityAudit）、反诈选择器（AntifraudPicker）、防窥保护（DlpAntiPeep）、病毒防护服务管理（VirusProtectionServiceManager）和超级隐私模式（SuperPrivacyMode），可以保护应用程序免受安全威胁和保证应用的数据安全。
+Device Security Kit（设备安全服务）提供应用设备状态检测（DeviceVerify）、安全检测（SafetyDetect）、可信应用服务（TrustedAppService）、数字盾服务（TrustedAuthentication）、业务风险检测（BusinessRiskIntelligentDetection）、星盾机密风控引擎（RiskControlEngine）、安全审计（SecurityAudit）、反诈选择器（AntifraudPicker）、防窥保护（DlpAntiPeep）、病毒防护服务管理（VirusProtectionServiceManager）和超级隐私模式（SuperPrivacyMode），可以保护应用程序免受安全威胁和保证应用的数据安全。
   
 
 #### 场景介绍
@@ -14,7 +14,7 @@ Device Security Kit（设备安全服务）提供应用设备状态检测（Devi
 - 可信应用服务（TrustedAppService）场景：提供数据的安全证明服务，旨在为安全摄像头和安全地理位置功能提供基础的安全证明能力，确保图像或位置数据未被篡改。
 - 数字盾服务（TrustedAuthentication）场景：提供基于TUI PIN认证和TUI界面交易信息确认的安全能力，旨在为金融应用在数字盾交易场景下提供金融安全保护。
 - 业务风险检测（BusinessRiskIntelligentDetection）场景：提供基于场景（防作弊、反欺诈）的业务风险决策能力。
-- 星盾机密风控引擎（StarShieldConfidentialRiskControlEngine）场景：提供基于端侧机密计算空间的风控解决方案。
+- 星盾机密风控引擎（RiskControlEngine）场景：提供基于端侧机密计算空间的风控解决方案。
 - 安全审计（SecurityAudit）场景：为应用提供获取当前设备上的审计数据（窗口截屏、移动存储插拔、剪切板复制粘贴等）能力，支撑审计相关业务。
 - 反诈选择器（AntifraudPicker）场景：为反诈应用提供获取诈骗消息、诈骗通话记录和诈骗应用的能力，支撑反诈相关业务。
 - 防窥保护（DlpAntiPeep）场景：支持应用根据窥视状态保护用户隐私，如非机主状态下不进行个性化推荐，隐藏浏览记录、支付记录、收藏记录等敏感信息。

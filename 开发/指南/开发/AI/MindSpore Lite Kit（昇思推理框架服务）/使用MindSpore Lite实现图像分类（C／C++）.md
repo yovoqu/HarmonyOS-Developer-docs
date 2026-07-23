@@ -1,6 +1,6 @@
 # 使用MindSpore Lite实现图像分类（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-native
 
@@ -329,7 +329,7 @@ target_link_libraries(entry PUBLIC ace_napi.z)
 1. 在 entry/src/main/cpp/types/libentry/Index.d.ts，定义ArkTS接口runDemo() 。内容如下：
 
   
-```ts
+```text
 export const runDemo: (a: number[], b:Object) => Array<number>;
 ```
 
@@ -354,7 +354,6 @@ export const runDemo: (a: number[], b:Object) => Array<number>;
 3. 在 entry/src/main/ets/pages/Index.ets 中，调用封装的ArkTS模块，最后对推理结果进行处理。
 
 ```ArkTS
-// Index.ets
 import msliteNapi from 'libentry.so';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -378,16 +377,19 @@ struct Index {
   @State maxIndex: number = 0;
   @State maxArray: Array<number> = [];
   @State maxIndexArray: Array<number> = [];
+  // ...
 
   build() {
     Row() {
       Column() {
         Text(this.message)
+        // ...
         Button() {
           Text('photo')
             .fontSize(30)
             .fontWeight(FontWeight.Bold)
         }
+        // ...
         .onClick(() => {
           let resMgr = this.getUIContext()?.getHostContext()?.getApplicationContext().resourceManager;
           if (resMgr === null || resMgr === undefined){
@@ -522,9 +524,9 @@ struct Index {
 
                         hilog.info(0xFF00, TAG, '%{public}s',
                           `MS_LITE_LOG: *** Finished MSLite Demo ***`);
-                      }).catch((error: BusinessError) => {
-                        hilog.error(0xFF00, TAG, '%{public}s',
-                          `MS_LITE_ERR: getRawFileContent promise error is: ${error}`);
+                        }).catch((error: BusinessError) => {
+                          hilog.error(0xFF00, TAG, '%{public}s',
+                            `MS_LITE_ERR: getRawFileContent promise error is: ${error}`);
                       })
                     })
                     // 5.关闭文件

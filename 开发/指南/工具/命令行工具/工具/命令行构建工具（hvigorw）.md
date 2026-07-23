@@ -1,6 +1,6 @@
 # 命令行构建工具（hvigorw）
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-commandline
 
@@ -156,6 +156,11 @@ buildInfo命令扩展参数：
 
 #### 其他命令
 
+
+
+> [!NOTE] 说明
+> 该命令在4.1 Release及以上版本中已废弃。在CI场景中将自动配置，无需开发者手动配置。
+
 | 参数 | 说明 |
 | --- | --- |
 | -s,--sync | 处理并持久化Hvigor部分工程信息到工程./hvigor/outputs/sync/output.json中。 |
@@ -163,10 +168,7 @@ buildInfo命令扩展参数：
 | -m,--mode | 在对应的目录执行相应的task，例hvigorw clean -m project在工程目录下执行build目录清理（即清理工程级别的build文件夹）。 |
 | --enable-build-script-type-check | 开启工程中hvigorfile.ts的类型检查，该字段已废弃，请使用--type-check替换。 |
 | --type-check, --no-type-check | Hvigor默认关闭工程中hvigorfile.ts的类型检查，如需开启，可在命令行后添加--type-check。 |
-| --no-pnpm-frozen-lockfile，--pnpm-frozen-lockfile | Hvigor默认不忽略pnpm-lock.yaml文件，如需忽略，可在命令行后添加--pnpm-frozen-lockfile。 忽略pnpm-lock.yaml文件，按照hvigor-config.json5的配置安装Hvigor插件的依赖（如果不忽略pnpm-lock.yaml文件，在使用Hvigor 2.0.0及以上版本的CI场景下安装Hvigor插件依赖时将报错）。 
-> [!TIP]
-> 该命令在4.1 Release及以上版本中已废弃。在CI场景中将自动配置，无需开发者手动配置。
- |
+| --no-pnpm-frozen-lockfile，--pnpm-frozen-lockfile | Hvigor默认不忽略pnpm-lock.yaml文件，如需忽略，可在命令行后添加--pnpm-frozen-lockfile。 忽略pnpm-lock.yaml文件，按照hvigor-config.json5的配置安装Hvigor插件的依赖（如果不忽略pnpm-lock.yaml文件，在使用Hvigor 2.0.0及以上版本的CI场景下安装Hvigor插件依赖时将报错）。 |
 | --config, -c | 指定hvigor-config.json5配置文件中的参数。 当前仅支持设置properties里的参数，具体支持的参数请查看hvigor-config.json5文件中properties支持的参数。 --config properties.key=value 同 -c properties.key=value |
 | --watch | 开启观察模式，主要用于预览和热加载场景。 |
 | --generate-build-profile, --no-generate-build-profile | 已废弃。生成BuildProfile.ets文件。 |

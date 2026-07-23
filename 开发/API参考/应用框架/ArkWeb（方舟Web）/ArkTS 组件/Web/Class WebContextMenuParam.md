@@ -1,6 +1,6 @@
 # Class (WebContextMenuParam)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuparam
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -112,7 +112,7 @@ getUnfilteredLinkUrl(): string
 
 getSourceUrl(): string
  
-获取sourceUrl链接。
+获取元素的src属性对应的URL链接地址。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  

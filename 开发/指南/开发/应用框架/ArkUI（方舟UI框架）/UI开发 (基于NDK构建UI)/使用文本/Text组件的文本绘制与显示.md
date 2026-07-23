@@ -1,6 +1,6 @@
 # 使用属性字符串
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-styled-string
 
@@ -24,7 +24,7 @@
 使用[OH_ArkUI_StyledString_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_styledstring_create)接口创建StyledString对象，需要传入[段落样式](#设置段落样式)。
 
 ```cpp
-// 创建StyledString并设置文本内容
+// 创建StyledString对象
 ArkUI_StyledString *styledString = OH_ArkUI_StyledString_Create(typographyStyle, fontCollection);
 ```
 
@@ -57,7 +57,7 @@ StyledString支持为文本中的不同部分设置不同的样式，包括段�
 以下代码示例设置了文字居中，最大行数限制为10。
 
 ```cpp
-// 创建字体集合与段落样式
+// 创建字体集合与段落样式，并设置对齐方式和最大行数
 OH_Drawing_FontCollection *fontCollection = OH_Drawing_CreateFontCollection();
 OH_Drawing_TypographyStyle *typographyStyle = OH_Drawing_CreateTypographyStyle();
 OH_Drawing_SetTypographyTextAlign(typographyStyle, OH_Drawing_TextAlign::TEXT_ALIGN_CENTER);
@@ -178,15 +178,10 @@ static void SerializeAndDeserializeStyledString()
     const char* html = OH_ArkUI_ConvertToHtml(desc);
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "styledString", "html: [%{public}s]", html);
     size_t resultSize = dataSize + 2;
-    uint8_t *buf1 = (uint8_t *)malloc(10 * sizeof(uint8_t));
-    if (buf1 == nullptr) {
-        OH_ArkUI_StyledString_Descriptor_Destroy(desc);
-        return;
-    }
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "styledString", "resultSize: %{public}zu", resultSize);
     uint8_t *buf2 = (uint8_t *)malloc(resultSize * sizeof(uint8_t));
 
-    // 序列化字节数组
+    // 验证反序列化后的数据
     if (buf2 != nullptr) {
         if (resultSize >= dataSize) {
             for (size_t i = 0; i < dataSize; i++) {
@@ -196,7 +191,6 @@ static void SerializeAndDeserializeStyledString()
             OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "styledString",
                          "Buf too small: %{public}zu < %{public}zu", resultSize, dataSize);
             free(buf2);
-            free(buf1);
             OH_ArkUI_StyledString_Descriptor_Destroy(desc);
             return;
         }
@@ -206,7 +200,6 @@ static void SerializeAndDeserializeStyledString()
             "Before: %{public}zu, After: %{public}zu, Equal: %{public}d", dataSize, resultSize, equal);
         free(buf2);
     }
-    free(buf1);
 
     // 释放描述符
     OH_ArkUI_StyledString_Descriptor_Destroy(desc);

@@ -1,6 +1,6 @@
 # XComponent
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -94,7 +94,7 @@ XComponent(value: {id: string, type: XComponentType, libraryname?: string, contr
 | --- | --- | --- | --- |
 | id | string | 是 | 组件的唯一标识，支持最大的字符串长度128。 |
 | type | XComponentType | 是 | 用于指定XComponent组件类型。 |
-| libraryname | string | 否 | 用Native层编译输出动态库名称（对应的动态库不支持跨模块加载），仅类型为SURFACE或TEXTURE时有效。 |
+| libraryname | string | 否 | 应用Native层编译输出动态库名称（对应的动态库不支持跨模块加载），仅类型为SURFACE或TEXTURE时有效。 |
 | controller | XComponentController | 否 | 给组件绑定一个控制器，通过控制器调用组件方法，仅类型为SURFACE或TEXTURE时有效。 |
 
 
@@ -185,7 +185,7 @@ enableAnalyzer(enable: boolean)
 
 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能。
 
-本功能需要搭配XComponentController的[StartImageAnalyzer](#startimageanalyzer12)和[StopImageAnalyzer](#stopimageanalyzer12)一起使用。
+本功能需要搭配XComponentController的[startImageAnalyzer](#startimageanalyzer12)和[stopImageAnalyzer](#stopimageanalyzer12)一起使用。
 
 不能和[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)属性同时使用，两者同时设置时overlay中[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)属性将失效。该特性依赖设备能力。
 
@@ -299,7 +299,7 @@ hdrBrightness(brightness: number, type?: HdrType)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| brightness | number | 是 | HDR视频的亮度。取值范围为0.0到1.0。小于0.0的值按0.0处理，大于1.0的值按1.0处理，其他异常值按1.0处理。0.0表示视频按照SDR亮度显示，1.0表示视频按照当前允许的最高HDR亮度显示。 |
+| brightness | number | 是 | HDR视频的亮度。 默认值：1.0 取值范围：[0.0, 1.0]。小于0.0的值按0.0处理，大于1.0的值按1.0处理，其他异常值按1.0处理。0.0表示视频按照SDR亮度显示，1.0表示视频按照当前允许的最高HDR亮度显示。 |
 | type | HdrType | 否 | 播放HDR视频时的HDR类型。 默认值: HdrType.DEFAULT |
 
 
@@ -309,7 +309,7 @@ hdrBrightness(brightness: number, type?: HdrType)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-HDR视频的高动态范围渲染类型。
+HDR内容的高动态范围渲染类型。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -1041,7 +1041,6 @@ struct XComponentExample {
         Button('Draw Star')
           .fontSize('16fp')
           .fontWeight(500)
-          .margin({ bottom: 24 })
           .onClick(() => {
             let surfaceId = this.xComponentController.getXComponentSurfaceId();
             console.info(`surface rect is ${this.xComponentController.getXComponentSurfaceRect()}`);
@@ -1063,7 +1062,7 @@ struct XComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/qWK34EWbSm-M3qGBUKOKbg/zh-cn_image_0000002659222081.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=2833188DA35B5B1E0B622466E2E319BFDE8B824126C05553D8EF6D1FF4145731)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/EFEtQrT6RyiLCE6NZbOU6Q/zh-cn_image_0000002647588300.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=E5729238F7172E2416E9E4AEB896E2E0C4DB8C703BE1435189CA32C02AADBEAF)
 
 
 
@@ -1181,7 +1180,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/W2YYBltzSJOFh4Kb97_GQg/zh-cn_image_0000002628702890.png?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=5D8088E393011C904BD5A2D0EA1B1096D5F9DFF2D74AF7654E9130DCC4C3A18F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/nGfqH7zCRcKlRqn_zXD1dQ/zh-cn_image_0000002677827939.png?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=5BA59F31F9EE5C2E7B674D396652FC890BA56057ED0AB0C183C8A01B03CE02EF)
 
 
 
@@ -1234,7 +1233,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/o9hHyJtbSg25uQfdEXRQJQ/zh-cn_image_0000002659102117.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=630AA34A776A17F29CAC8B3EA84136266BE48706306C61C529047EC179CA10E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/_IiIDZ7sSWCFxEW_xg3ZDg/zh-cn_image_0000002677668093.jpeg?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=96C24FAE10932A7A3E23E2C8BFF5C1326D9162D5D7357046A3C7DB5E4C200A71)
 
 
 
@@ -1340,4 +1339,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/dFqT44e3SPuyRmzuw3ncRg/zh-cn_image_0000002628862770.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014346Z&HW-CC-Expire=86400&HW-CC-Sign=FE24C6876256418DE78A5E8920068FC3AE11B73BF326AFBB4B4A939441C6C60E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/0h304vx6SC2bk3QJRnd06g/zh-cn_image_0000002647748210.jpeg?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=199C3F5CC7FEEE08B526E4FE510E213743DC119494C40930A38F30877CD221AA)

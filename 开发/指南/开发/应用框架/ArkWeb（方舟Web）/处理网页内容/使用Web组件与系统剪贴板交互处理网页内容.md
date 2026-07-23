@@ -1,6 +1,6 @@
 # 使用Web组件与系统剪贴板交互处理网页内容
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-clipboard
 
@@ -9,7 +9,7 @@
 
 #### 通过菜单或键盘快捷键与系统剪贴板交互
 
-开发者能够自定义菜单中的功能选项，当用户选择特定选项时，开发者可以通过调用[cut](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#cut9)、[copy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#copy9)、[copyImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#copyimage9)、[paste](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#paste9)、[pasteAndMatchStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#pasteandmatchstyle20)等接口，将网页中的文本、HTML或图片数据复制到系统剪贴板，或从系统剪贴板粘贴到网页的可输入区域。
+开发者能够自定义菜单中的功能选项，当用户选择特定选项时，开发者可以通过调用[cut](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#cut9)、[copy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#copy9)、[copyImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#copyimage9)、[paste](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#paste9)、[pasteAndMatchStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult#pasteandmatchstyle20)等接口，对网页内容执行剪切或复制操作至系统剪贴板，或从系统剪贴板粘贴到网页的可输入区域。
 
 菜单功能接口的使用可参考[使用Web组件菜单处理网页内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-menu)。
 
@@ -52,7 +52,7 @@ await navigator.clipboard.write([clipboardItem]);
 const text = await navigator.clipboard.readText()
 ```
 
- - read()：从系统剪贴板读取任意类型内容。
+ - read：从系统剪贴板读取任意类型内容。
 
 
 ```text
@@ -200,7 +200,7 @@ module.json5权限配置：
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/ajG5M-PnT2C6bRXyAzQEvA/zh-cn_image_0000002656468145.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020811Z&HW-CC-Expire=86400&HW-CC-Sign=7E1B57C9083EC85A11B034CD4423F2BA8894EE073313FF65A45F10015465DA32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/QfALNXhkQJSLjvjHTJdAsg/zh-cn_image_0000002677825977.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012141Z&HW-CC-Expire=86400&HW-CC-Sign=67DAE6787F4E92D4FBBF5514284B3A40131B5E7BBDB6AF06843863C467802005)
 
 
 
@@ -287,7 +287,7 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/kT7hkEq4Q-SKaahULJ6UbQ/zh-cn_image_0000002656348193.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020811Z&HW-CC-Expire=86400&HW-CC-Sign=1C03831468B98554BA836649BC854ADA8174F78BC2ED44A5CDA395058DCDCE47)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/dD3h4wScTYiksXVTdArqwQ/zh-cn_image_0000002677666129.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012141Z&HW-CC-Expire=86400&HW-CC-Sign=C9CAD818656153140D0EA7C1F8851E7A6B4F5E1CD0DCBCB94F82565A63AB9678)
 
 
 

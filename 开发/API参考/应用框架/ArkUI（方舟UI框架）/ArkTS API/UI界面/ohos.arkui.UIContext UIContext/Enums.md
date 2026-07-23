@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,7 +68,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-组件的渲染状态。
+节点的渲染状态。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
  

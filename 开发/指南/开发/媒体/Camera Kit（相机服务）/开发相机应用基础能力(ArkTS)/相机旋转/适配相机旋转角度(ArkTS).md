@@ -1,6 +1,6 @@
 # 适配相机旋转角度(ArkTS)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation
 
@@ -110,7 +110,7 @@ previewRotation：预览旋转角度，取上一步[getPreviewRotation](https://
  1. 在[会话配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)过程中调用预览旋转接口，即：使用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)接口提交相关配置后调用，建议在[Start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)起流前调用。
 
   
-```ArkTS
+```text
 // previewOutput是创建的预览输出
 try {
   let initDisplayRotation = display.getDefaultDisplaySync().rotation;

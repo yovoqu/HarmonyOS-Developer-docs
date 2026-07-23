@@ -1,6 +1,6 @@
 # Cpp Crash（进程崩溃）检测
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines
 
@@ -17,10 +17,10 @@
   信号是兼容POSIX的操作系统中进程间通讯的一种方式。
  - **信号处理函数**
 
-  定义了进程在接收到信号之后进行一系列处理操作的函数，信号处理函数需要明确处理哪些信号。
+  定义了进程在接收到信号之后进行一系列处理操作的函数，信号处理函数明确需要处理的信号。
  - **pc**
 
-  全称Program Counter（程序计数器），储存当前程序正在执行指令的地址。
+  全称Program Counter（程序计数器），存储当前程序正在执行指令的地址。
  - **lr**
 
   全称Link Register（链接寄存器），存储子程序的返回地址。
@@ -46,7 +46,7 @@
 1. 进程在运行时发生崩溃，会收到来自内核发送的崩溃信号，由进程在启动时注册的信号处理模块进行处理。
 2. 进程接收到崩溃信号后，保存当前进程上下文，并fork出子进程执行ProcessDump二进制抓取崩溃信息。
 3. ProcessDump进程将崩溃日志数据写入到临时目录下进行存储。
-4. ProcessDump进程收集完崩溃日志后，上报给维测进程Hiview，并补充仅Hiview有权限获取的部分信息(如整机内存状态、应用页面切换轨迹)，然后将崩溃日志存储到“/data/log/faultlog/faultlogger”目录下并生成故障事件。
+4. ProcessDump进程收集完崩溃日志后，上报给维测进程Hiview，并补充仅Hiview有权限获取的部分信息（如整机内存状态、应用页面切换轨迹），然后将崩溃日志存储到“/data/log/faultlog/faultlogger”目录下并生成故障事件。
 
 
 
@@ -61,7 +61,7 @@
 | 6 | SIGABRT | 进程终止 | 进程异常终止，通常为进程自身调用标准函数库的abort()函数。 |
 | 7 | SIGBUS | 非法内存访问 | 进程访问了未对齐或者不存在的物理地址。 |
 | 8 | SIGFPE | 浮点异常 | 进程执行了错误的算术运算，如除数为0、浮点溢出、整数溢出等。 |
-| 11 | SIGSEGV | 无效内存访问 | 进程访问了无效内存引用。 |
+| 11 | SIGSEGV | 无效内存访问 | 进程访问了无效内存。 |
 | 16 | SIGSTKFLT | 栈错误 | 处理器执行了错误的栈操作，如栈空时弹出、栈满时压入。 SIGSTKFLT信号不支持生成minidump。 |
 | 31 | SIGSYS | 错误系统调用 | 系统调用时使用了错误或非法参数。 |
 
@@ -208,8 +208,8 @@ HiAppEvent给开发者提供了故障订阅接口，详见[HiAppEvent介绍](htt
 | Module name | 模块名 | 8 | 是 | - |
 | ReleaseType | 应用的版本类型 | 23 | 否 | 仅在应用进程提供，release表示应用为release版本应用，debug表示应用为debug版本应用。 |
 | CpuAbi | 二进制接口类型 | 23 | 否 | 仅在应用进程提供。 |
-| Version | 应用版本号(点分格式) | 8 | 否 | 仅在应用进程提供。 |
-| VersionCode | 应用版本号(整数格式) | 8 | 否 | 仅在应用进程提供。 |
+| Version | 应用版本号（点分格式） | 8 | 否 | 仅在应用进程提供。 |
+| VersionCode | 应用版本号（整数格式） | 8 | 否 | 仅在应用进程提供。 |
 | IsSystemApp | 应用是否为系统应用 | 23 | 否 | 仅在应用进程提供。 |
 | PreInstalled | 是否预置应用 | 8 | 否 | 仅在应用进程提供。 |
 | Foreground | 前后台状态 | 8 | 否 | 仅在应用进程提供。 |
@@ -752,7 +752,7 @@ OpenFiles:
 
 #### 有页面切换轨迹的故障场景日志规格
 
-针对包含页面切换的应用，自API 20起，维测进程会记录应用切换历史。应用发生故障后，生成的故障文件将包含页面切换历史轨迹。
+针对包含页面切换的应用，自API version 20起，维测进程会记录应用切换历史。应用发生故障后，生成的故障文件将包含页面切换历史轨迹。
 
 故障日志文件最多记录最新的10条历史轨迹。
 
@@ -780,7 +780,7 @@ Uid:0
 ```
 
 
-![](assets/Cpp%20Crash（进程崩溃）检测/file-20260708103754e7f448b4.png)
+![](assets/Cpp%20Crash（进程崩溃）检测/file-20260708103755e7f448b4.png)
 
 
 仅在通过Navigation跳转到子页面时才会有页面名，页面名在[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)中定义。
@@ -861,7 +861,7 @@ b. 去除PC偏移和BuildID；
 
 c. 保留文件路径（如 /system/lib/platformsdk/libace_napi.z.so）；
 
-d. 保留函数完整签名（如 panda::JSValueRef ArkNativeFunctionCallBack&lt;true&gt;(panda::JsiRuntimeCallInfo*)+272)，括号内的内容，含类名、函数名、参数，包括 const、参数类型等，若日志中已解析）。
+d. 保留函数完整签名（如 panda::JSValueRef ArkNativeFunctionCallBack&lt;true&gt;(panda::JsiRuntimeCallInfo*)+272)，括号内的内容，含类名、函数名、参数，包括 const、参数类型等）。
 
 若Native栈帧存在仅有二进制文件名而没有函数名时，可选择保留PC的偏移值与文件路径：
 
@@ -931,7 +931,7 @@ libarkjs_runtime.z.so
 JS栈帧默认为业务栈帧：
 
 ```text
-onPageShow (sample|sample|1.0.0|src/main/ets/pages/Index.ts:381:36)
+at onPageShow (sample|sample|1.0.0|src/main/ets/pages/Index.ts:381:36)
 ```
 
 应用的Native栈帧：
@@ -990,7 +990,7 @@ onPageShow (sample|sample|1.0.0|src/main/ets/pages/Index.ts:381:36)
 从**API version 24**开始，当应用发生SIGPIPE异常退出时，可开启SIGPIPE信号打印调用栈功能，重启应用后，开发者复现问题场景，可以抓取调用栈信息并输出到HILOG。
 
 
-![](assets/Cpp%20Crash（进程崩溃）检测/file-20260708103755e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/di4D342CTbqdI1KDG35SuQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012148Z&HW-CC-Expire=86400&HW-CC-Sign=E6664BB2E6ED3D67BAD1ED4EB955E0004760B4D9ED5FDBED33B8203D585A335C)
 
 
 此功能只能在[debug版本应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#debug版本应用)开启。

@@ -1,6 +1,6 @@
 # OH_PixelmapNative
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-struct
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_PixelmapNative
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义像素图片信息。
+定义像素图信息。
  
 **起始版本：** 15
  

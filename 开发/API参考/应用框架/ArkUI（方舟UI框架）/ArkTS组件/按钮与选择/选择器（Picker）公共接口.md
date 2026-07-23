@@ -1,6 +1,6 @@
 # 选择器（Picker）公共接口
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,7 +48,7 @@
 | --- | --- | --- | --- | --- |
 | type | ButtonType | 否 | 是 | 按钮显示样式。 |
 | style | ButtonStyleMode | 否 | 是 | 按钮的样式和重要程度。 |
-| role | ButtonRole | 否 | 是 | Button组件的角色。 |
+| role | ButtonRole | 否 | 是 | 按钮组件的角色。 |
 | fontSize | Length | 否 | 是 | 文本显示字号。 |
 | fontColor | ResourceColor | 否 | 是 | 文本显示颜色。 |
 | fontWeight | FontWeight \| number \| string | 否 | 是 | 文本的字体粗细。number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"200"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 |

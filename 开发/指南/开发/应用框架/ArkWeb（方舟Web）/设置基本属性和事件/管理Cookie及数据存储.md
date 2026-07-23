@@ -1,6 +1,6 @@
 # 管理Cookie及数据存储
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-cookie-and-data-storage-mgmt
 
@@ -79,7 +79,7 @@ struct WebComponent {
 
 #### 缓存与存储管理
 
-在访问网站时，网络资源请求通常需要较长的时间。开发者可以通过Cache和Dom Storage等手段将资源保存到本地，以提高访问同一网站的速度。
+在访问网站时，网络资源请求通常需要较长的时间。开发者可以通过Cache和DOM Storage等手段将资源保存到本地，以提高访问同一网站的速度。
 
 
 

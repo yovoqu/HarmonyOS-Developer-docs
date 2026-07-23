@@ -1,6 +1,6 @@
 # HAR如何转换为HSP
 
-更新时间：2026-06-15 08:43:31
+更新时间：2026-07-15 09:22:37
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-37
 
@@ -10,4 +10,7 @@
 3. 将HAR的hvigorfile.ts文件中的“harTasks”更改为“hspTasks”。
 4. HAR的build-profile.json5文件中默认生成consumerFiles字段，该项字段HAR可配置，为默认导出的[混淆加固](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation)规则，需要删除。
  
-配置更改后重新编译。
+**配置更改后重新编译。**
+ 
+> [!WARNING]
+> 部分组件和模块在HAP、HSP、HAR中集成使用时存在差异，例如 加载HAR中Worker线程文件相比HSP存在单独的使用约束 ，因此按照以上步骤完成HSP转HAR后，请关注对应组件和模块介绍并进行适配。

@@ -1,6 +1,6 @@
 # ArkTS卡片编辑概述
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-formeditextensionability-overview
 
@@ -70,7 +70,7 @@ ArkTS卡片提供卡片页面编辑能力，支持实现用户自定义卡片内
 
   
 ```ArkTS
-// entry/src/main/ets/entryformability/WidgetCard.ets
+// entry/src/main/ets/entryformability/EntryFormAbility.ets
 import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
 import { PreferencesUtil } from '../common/PreferencesUtil';
@@ -337,7 +337,7 @@ struct WidgetCard {
 import { preferences } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-const TAG: string = 'PreferencesUtil';
+const TAG: string = 'PreferencesUtil -->';
 const MY_STORE: string = 'myStore';
 const key: string = 'formID';
 

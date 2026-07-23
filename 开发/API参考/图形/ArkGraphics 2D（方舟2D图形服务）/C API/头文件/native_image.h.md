@@ -1,6 +1,6 @@
 # native_image.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-image-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -73,7 +73,7 @@
 | OH_NativeImage* OH_ConsumerSurface_CreateWithSingleBufferMode(bool singleBufferMode) | - | 不使用纹理ID创建一个OH_NativeImage实例，作为surface的消费端，并选择是否设置单buffer模式。 本接口仅用于surface消费端的内存轮转，创建的OH_NativeImage内部不会主动进行内存渲染处理。 本接口不能与OH_NativeImage_UpdateSurfaceImage接口同时使用。 本接口需要和OH_NativeImage_Destroy接口配合使用，否则会存在内存泄露。 本接口为非线程安全类型接口。 |
 | int32_t OH_NativeImage_ReleaseTextImage(OH_NativeImage* image) | - | 解除SurfaceBuffer与纹理的绑定，将纹理恢复到未使用状态。 单buffer模式下，需要调用该接口释放纹理，否则生产者下次无法申请buffer。 本接口为非线程安全类型接口。 |
 | int32_t OH_NativeImage_GetColorSpace(OH_NativeImage* image, OH_NativeBuffer_ColorSpace* colorSpace) | - | 获取最近调用OH_NativeImage_UpdateSurfaceImage的纹理图像的相关色彩空间。 本接口为非线程安全类型接口。 |
-| int32_t OH_NativeImage_AcquireLatestNativeWindowBuffer(OH_NativeImage* image, OHNativeWindowBuffer** nativeWindowBuffer, int* fenceFd) | - | 通过消费端的OH_NativeImage获取一个生产者最近生产的OHNativeWindowBuffer，并将其余buffer丢弃。 消费端可以通过OH_OnFrameAvailableListener注册的回调，收到所有可用buffer（包括被丢弃的buffer)的回调。 本接口不能与OH_NativeImage_UpdateSurfaceImage接口同时使用。 本接口为非线程安全类型接口。 |
+| int32_t OH_NativeImage_AcquireLatestNativeWindowBuffer(OH_NativeImage* image, OHNativeWindowBuffer** nativeWindowBuffer, int* fenceFd) | - | 通过消费端的OH_NativeImage获取一个生产者最近生产的OHNativeWindowBuffer，并将其余buffer丢弃。 消费端可以通过OH_OnFrameAvailableListener注册的回调，收到所有可用buffer（包括被丢弃的buffer）的回调。 本接口不能与OH_NativeImage_UpdateSurfaceImage接口同时使用。 本接口为非线程安全类型接口。 |
 | int32_t OH_NativeImage_IsReleased(OH_NativeImage* image, bool* isReleased) | - | 查询与OH_NativeImage关联的纹理是否已释放。 本接口为非线程安全类型接口。 |
 | int32_t OH_NativeImage_Release(OH_NativeImage* image) | - | 清除所有OHNativeWindow的OHNativeWindowBuffer缓存，并将OH_NativeImage从OpenGL ES上下文中分离。 本接口为非线程安全类型接口。 |
  
@@ -965,7 +965,7 @@ int32_t OH_NativeImage_AcquireLatestNativeWindowBuffer(OH_NativeImage* image, OH
  
 通过消费端的OH_NativeImage获取一个生产者最近生产的OHNativeWindowBuffer，并将其余buffer丢弃。
  
-消费端可以通过[OH_OnFrameAvailableListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativeimage-oh-onframeavailablelistener)注册的回调，收到所有可用buffer（包括被丢弃的buffer)的回调。
+消费端可以通过[OH_OnFrameAvailableListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativeimage-oh-onframeavailablelistener)注册的回调，收到所有可用buffer（包括被丢弃的buffer）的回调。
  
 本接口不能与[OH_NativeImage_UpdateSurfaceImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-image-h#oh_nativeimage_updatesurfaceimage)接口同时使用。
  

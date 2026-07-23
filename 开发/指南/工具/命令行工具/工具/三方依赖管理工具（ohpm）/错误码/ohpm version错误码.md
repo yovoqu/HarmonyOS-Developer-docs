@@ -1,6 +1,6 @@
 # ohpm version错误码
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-21 01:13:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-version-errorcode
 
@@ -16,11 +16,11 @@ Invalid Version Arg.
  
 **可能原因**
  
-ohpm version命令后配置的参数无效。
+在模块目录中，执行ohpm version &lt;newversion&gt;时，输入非法的语义化版本，如ohpm version a.b.c。
  
 **处理步骤**
  
-检查配置的参数，确保参数正确。
+检查配置的参数，确保newversion为一个合法的语义化版本。
  
  
 
@@ -36,11 +36,11 @@ Invalid Origin Version.
  
 **可能原因**
  
-配置的版本号无效。
+在模块级oh-package.json5文件中配置的version字段为非法的语义化版本，如"version": "a.b.c"。
  
 **处理步骤**
  
-修改oh-package.json5文件中的version字段，确保其为有效版本。
+修改模块级oh-package.json5文件中的version字段，确保其为合法的语义化版本。
  
  
 

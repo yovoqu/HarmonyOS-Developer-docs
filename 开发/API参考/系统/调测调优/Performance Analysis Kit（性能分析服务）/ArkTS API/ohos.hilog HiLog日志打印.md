@@ -1,6 +1,6 @@
 # @ohos.hilog (HiLog日志打印)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hilog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -290,7 +290,7 @@ setMinLogLevel(level: LogLevel): void
 设置应用日志打印的最低日志级别，用于拦截低级别日志打印。
 
 
-![](assets/ohos.hilog%20HiLog日志打印/file-20260708103016e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/n57mHHUTQfy_mVfbGghXuA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=2F57A63745BF589EFB0958540A1ABE510D7EA5EC32E1F648F2A045EBD3B28469)
 
 
 如果设置的日志级别低于[全局日志级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog#查看和设置日志级别)，设置不生效。
@@ -351,7 +351,7 @@ setLogLevel(level: LogLevel, prefer: PreferStrategy): void
 可通过prefer参数配置不同的偏好策略。如果选择策略PREFER_CLOSE_LOG，等同于调用setMinLogLevel函数。
 
 
-![](assets/ohos.hilog%20HiLog日志打印/file-20260708103016e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/vPhz_mqOT1aWGIoFXQIwgg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=3461AFB3236CDB57F6BA1DFF48E71B8A4B3B3740FAE00B9CB1F11D4367E6D88D)
 
 
 debug版本应用下，此函数不生效。
@@ -384,7 +384,7 @@ debug版本应用下，此函数不生效。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| UNSET_LOGLEVEL | 0 | 清除设置, 实际生效的最低日志级别是系统控制的最低级别。 |
+| UNSET_LOGLEVEL | 0 | 清除设置，实际生效的最低日志级别是系统控制的最低级别。 |
 | PREFER_CLOSE_LOG | 1 | 实际生效的最低日志级别是新设置的级别和系统控制的最低级别两个值的较大值。 |
 | PREFER_OPEN_LOG | 2 | 实际生效的最低日志级别是新设置的级别和系统控制的最低级别两个值的较小值。 |
 
@@ -405,7 +405,7 @@ hilog.info(0x0001, "testTag", 'this is an info level log, id: %{public}d', 5);
 
 由于全局日志起始为INFO，第一条日志可以正常打印。
 
-在设置进程最低日志级别为WARN, 并选择策略PREFER_OPEN_LOG后，实际生效的最低日志级别是全局日志级别INFO，所以第二条和第三条日志均可正常打印。
+在设置进程最低日志级别为WARN，并选择策略PREFER_OPEN_LOG后，实际生效的最低日志级别是全局日志级别INFO，所以第二条和第三条日志均可正常打印。
 
 在设置进程最低日志级别为DEBUG，并选择策略PREFER_CLOSE_LOG后（等同于hilog.setMinLogLevel(hilog.LogLevel.DEBUG)），但是此时全局日志级别为INFO，所以第四条日志不满足全局日志级别，打印失败，第五条日志可以打印。
 

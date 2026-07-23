@@ -1,6 +1,6 @@
 # @ohos.userIAM.userAuth (用户认证)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-useriam-userauth
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -1730,7 +1730,7 @@ getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): vo
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/alzJUN5dSkmOQdEBSYZvyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020107Z&HW-CC-Expire=86400&HW-CC-Sign=DFE9AEB5A69CB79E11F14200E96D5AA13514D69D5C1A1327C38B02B280E053CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/JEOUhqopTOWxxHCYVNhG0w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012026Z&HW-CC-Expire=86400&HW-CC-Sign=93DB7A02D0365C16473DE9DA66397B1D4DFB720FCE5AA0EA375C0AFA9097F970)
 
 
 若用户注册的锁屏口令是4位PIN时，其认证可信等级为ATL3，调用该接口查询是否支持ATL4级别的密码认证时，需返回12500010。
@@ -2092,7 +2092,7 @@ onAcquireInfo ?: (module : number, acquire : number, extraInfo : any) => void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | module | number | 是 | 发送提示信息的模块标识。 |
-| acquire | number | 是 | 认证执过程中的提示信息。 |
+| acquire | number | 是 | 认证执行过程中的提示信息。 |
 | extraInfo | any | 是 | 预留字段。 |
 
 

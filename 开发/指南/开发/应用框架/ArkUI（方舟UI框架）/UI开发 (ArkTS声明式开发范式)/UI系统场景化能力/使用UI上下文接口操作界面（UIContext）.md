@@ -1,6 +1,6 @@
 # 使用UI上下文接口操作界面（UIContext）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface
 
@@ -444,7 +444,11 @@ struct Index {
 [resolveUIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#resolveuicontext22)接口获取UIContext的逻辑与下面示例通过基础查询接口组合使用的代码逻辑是等价的。
 
 ```ArkTS
-function GetUIContextByAtomicInterface(): UIContext {
+// common/Utils.ets
+import hilog from '@ohos.hilog';
+import { UIContext } from '@ohos.arkui';
+
+export function GetUIContextByAtomicInterface(): UIContext {
   let callingScopeUIContext = UIContext.getCallingScopeUIContext();
   if (callingScopeUIContext) {
     hilog.info(0x00, 'testTag', `Get UIContext of calling scope.`)

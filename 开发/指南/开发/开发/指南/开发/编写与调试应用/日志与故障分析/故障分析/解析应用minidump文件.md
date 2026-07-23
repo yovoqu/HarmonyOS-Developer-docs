@@ -1,6 +1,6 @@
 # 解析应用minidump文件
 
-更新时间：2026-06-24 07:08:31
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-analyze-dump
 
@@ -14,16 +14,16 @@
 
 
   
-![](assets/解析应用minidump文件/file-20260708103425555b5c3e.png)
+![](assets/解析应用minidump文件/file-202607081034263e6f2eba.png)
 
 2. 等待解析成功后，默认会展示异常线程和对应的堆栈，展开堆栈可查看变量信息，支持切换查看不同线程的堆栈，点击堆栈中的超链接可以跳转到对应的源码。
 ![](assets/解析应用minidump文件/file-2026070810342697af2cc9.png)
 
 3. 支持查看指定地址的内存，填写内存地址，点击**View**即可查看。
-![](assets/解析应用minidump文件/file-202607081034263e6f2eba.png)
+![](assets/解析应用minidump文件/file-2026070810342725eaa7b7.png)
 
 
   点击**Settings**，可设置进制、偏移量和内存数量。
 
   
-![](assets/解析应用minidump文件/file-2026070810342725eaa7b7.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/3MWXG985RJOzqB6Jz1TZdg/zh-cn_image_0000002594475130.png?HW-CC-KV=V1&HW-CC-Date=20260723T012203Z&HW-CC-Expire=86400&HW-CC-Sign=0207508210EBB1526D18D1732F4EC9386E89C5CB5D66FE0FACBA347351F6BBDD)

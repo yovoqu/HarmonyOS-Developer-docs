@@ -1,6 +1,6 @@
 # ohpmrc
 
-更新时间：2026-06-17 07:24:31
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc
 
@@ -50,6 +50,11 @@ ohpm config set key value
 
 #### 默认配置项
 
+
+
+> [!NOTE] 说明
+> 标准版本通常不会变更，故该参数在~/.ohpm/cache/metadata 目录下的标准版本元数据文件和工程目录下.ohpm/lock/oh-install-meta.json5中的标准版本元数据中不生效。
+
 | 配置项 | 字段名称 | 字段说明 | 字段类型 | 默认值 | 备注 |
 | --- | --- | --- | --- | --- | --- |
 | 仓库设置 | registry | 下载仓库 | 字符串 | https://ohpm.openharmony.cn/ohpm/ | 支持配置多个仓库地址，以英文逗号分隔。系统将按照配置的先后顺序依次检索这些仓库，直到成功下载目标包。例如：当需要下载包a时，会优先从第一个配置的仓库地址查找，若未找到则自动尝试下一个仓库，依此类推。 |
@@ -88,10 +93,7 @@ ohpm config set key value
 | 其他设置 | enable_lock_inner_pkg_version | 依赖内部的.har或.tgz依赖版本锁定 | 布尔 | true | 默认为true。若设置为false，在ohpm安装时，不会将依赖内部的.har或.tgz子依赖的版本保存至oh-package-lock.json5，详情请见enable_lock_inner_pkg_version。 |
 | 其他设置 | case_sensitive_check | 路径大小写敏感检测 | 布尔 | false | 默认为false。若设置为true，在执行ohpm相关命令时，如果ohpm检测到工程中文件的配置路径和文件的实际路径存在大小写不一致问题时，则会报错提示开发者修改，详情请见case_sensitive_check。 该配置项仅在Windows环境下生效。 |
 | 其他设置 | auto_skip_install | 依赖未发生变化时，自动跳过本次安装 | 布尔 | false | 默认为false。若设置为true，首次执行ohpm install安装命令后，如果用户未修改依赖再次执行ohpm install命令，则会跳过本次安装。详细跳过规则请见auto_skip_install。 |
-| 其他设置 | metadata_cache_effective | 设置元数据缓存的过期时间 | 数值 | 10080 | 默认缓存过期时间为7天，取值范围为 [1, 525600]，单位：分钟。 该配置适用于 ~/.ohpm/cache/metadata 目录下所有先行版本元数据文件和全部版本元数据文件，以及工程目录下 .ohpm/lock/oh-install-meta.json5 中的先行版本元数据。 
-> [!TIP]
-> 标准版本通常不会变更，故该参数在~/.ohpm/cache/metadata 目录下的标准版本元数据文件和工程目录下.ohpm/lock/oh-install-meta.json5中的标准版本元数据中不生效。
- |
+| 其他设置 | metadata_cache_effective | 设置元数据缓存的过期时间 | 数值 | 10080 | 默认缓存过期时间为7天，取值范围为 [1, 525600]，单位：分钟。 该配置适用于 ~/.ohpm/cache/metadata 目录下所有先行版本元数据文件和全部版本元数据文件，以及工程目录下 .ohpm/lock/oh-install-meta.json5 中的先行版本元数据。 |
 | 其他设置 | metadata_cache | 开启读取缓存的元数据文件 | 布尔 | false | 默认为false。若设置为true，在执行ohpm install命令时，会读取缓存的元数据文件（ .ohpm/lock/oh-install-meta.json5文件、~/.ohpm/cache/metadata 目录下文件），减少网络请求，缩短安装时间。详情请见metadata_cache。 |
 
 
@@ -714,7 +716,7 @@ ohpm客户端从5.1.1开始新增开关配置enable_unified_lockfile字段。启
 启用enable_unified_lockfile=true后，项目级统一管理lockfile锁文件，针对模块间存在重复依赖的场景，显著减少ohpm install耗时，优化构建流程。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/BuCwcy58Quue-o7iq3UtJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020703Z&HW-CC-Expire=86400&HW-CC-Sign=5FA1CAFFA60557435DD0B4DD2C571DD24C3DEAF02C98269ADC620FA9BCF94A7B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/rEhPsY2QSgekze_vOWdRew/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012115Z&HW-CC-Expire=86400&HW-CC-Sign=5CC1712D43DBC112158EF2676F45CCAB1A01BE78C50273F76EAEDDAB080D9C4D)
 
 
 启用enable_unified_lockfile=true后，原分散在各模块下的.hsp依赖安装目录将统一迁移至项目根目录。在流水线上开启此特性时，需搭配配套的hvigor使用。
@@ -736,7 +738,7 @@ ohpm客户端从5.3.1开始新增开关配置enable_lock_inner_pkg_version字段
 如下图所示，蓝色箭头标识最终要安装的依赖，安装的依赖D@1.0.0来自依赖B@1.0.0（依赖名称和依赖版本相同的依赖会被定性为相同依赖，最终安装哪个由依赖构建先后顺序决定）, 因B@1.0.0并没有安装，但oh-package-lock.json5中锁定了依赖D的版本，在二次安装时会爆出D的依赖路径不存在错误，此时需要将该开关设置为false。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/0mXJc3xtRnOhHIRxMRIwug/zh-cn_image_0000002624994243.png?HW-CC-KV=V1&HW-CC-Date=20260624T020703Z&HW-CC-Expire=86400&HW-CC-Sign=B7CC2019B038211076C1ED4EB7925FFCC2F4BF580DB01F7FCDD882B773FF8BB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/IZ1ApIZwQbm5d1uC2eadHg/zh-cn_image_0000002624994243.png?HW-CC-KV=V1&HW-CC-Date=20260723T012115Z&HW-CC-Expire=86400&HW-CC-Sign=B8DCDD745C54D661AA0CAFA860DC1D4312837E15101B79AAEEB3943AB417465B)
 
 
 **oh-package-lock.json5示例**

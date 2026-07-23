@@ -1,6 +1,6 @@
 # wearEngine（穿戴设备能力开放）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
 **支持设备：** Phone | Tablet | Wearable
@@ -1430,7 +1430,7 @@ startRemoteApp(deviceRandomId: string, remoteBundleName: string, transformLocalB
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;P2pResult&gt; | Promise对象，返回P2p通信的结果。 属性中的code字段表示本次拉起应用的结果。 |
+| Promise&lt;P2pResult&gt; | Promise对象，返回P2p通信的结果。 属性中的code字段表示本次拉起应用的结果。其中，返回203表示穿戴设备应用未在module.json5文件的metadata字段中正确配置wearEngineRemoteAppNameList属性，配置方式请参考对端应用通过startRemoteApp拉起穿戴侧应用。 |
 
 
 **错误码：**
@@ -1508,7 +1508,7 @@ startRemoteApp(deviceRandomId: string, remoteApp: AppInfo, startConfig: StartCon
 
 **系统能力：** SystemCapability.Health.WearEngine
 
-**设备行为差异：** 在wearable中可正常调用，支持拉起HarmonyOS 5.0及以上版本Phone设备的[DISTRIBUTED_SERVICE](#entrytype)组件，HarmonyOS 3.1/4.0版本Phone设备的[SERVICE](#entrytype)组件，Android设备的[SERVICE](#entrytype)组件，在其它系统和设备中无效果。
+**设备行为差异：** 在wearable中可正常调用，支持拉起Phone和Tablet设备中分布式组件或前台组件。HarmonyOS 6.1及以上版本，支持拉起[DISTRIBUTED_SERVICE](#entrytype)组件；HarmonyOS 5.0之前版本（如HarmonyOS 2.x/3.x/4.x），支持拉起[SERVICE](#entrytype)组件；Android系统，支持拉起[SERVICE](#entrytype)组件。在其他系统和设备中不支持拉起。
 
 **起始版本：** 6.1.1(24)
 
@@ -1525,7 +1525,7 @@ startRemoteApp(deviceRandomId: string, remoteApp: AppInfo, startConfig: StartCon
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;P2pResult&gt; | Promise对象，返回P2pResult对象。 其属性中的code字段表示本次消息发送的结果。 |
+| Promise&lt;P2pResult&gt; | Promise对象，返回P2pResult对象。 其属性中的code字段表示本次消息发送的结果。其中，返回203表示entryName不符合规范要求。 |
 
 
 **错误码：**
@@ -1768,32 +1768,51 @@ try {
           remoteApp: appInfo
           // transformLocalAppInfo默认为false，不转换包名指纹
         }
-        // 设置需要发送的文件
-        let p2pFile: wearEngine.P2pFile = {
-          file: fileIo.openSync('')
-        }
-
-        p2pClient.transferFile(device.randomId, appParam, p2pFile,
-          (error: BusinessError, p2pResult: wearEngine.P2pResult) => {
-            // callback处理逻辑
-            if (error) {
-              console.error(`Failed to transfer file. Code is ${error.code}, message is ${error.message}.`);
-              return;
-            }
-            if (p2pResult.code) {
-              if (p2pResult.code === wearEngine.P2pResultCode.COMMUNICATION_SUCCESS) {
-                console.info(`Succeeded in transfering file, the result is ${p2pResult.code}.`);
+        let file: fileIo.File | null = null;
+        try {
+          // 设置需要发送的文件
+          file = fileIo.openSync('');
+          let p2pFile: wearEngine.P2pFile = {
+            file: file
+          }
+          const closeFile = () => {
+            try {
+              if (file) {
+                fileIo.closeSync(file);
+                console.info('File closed successfully.');
               }
-              console.info(`Failed to transfer file, the error code is ${p2pResult.code}.`);
+            } catch (closeErr) {
+              console.error(`Failed to close file. Code is ${closeErr.code}, message is${closeErr.message}.`);
             }
-            if (p2pResult.progress) {
-              console.info(`Succeeded in transfering file, the progress is ${p2pResult.progress}.`);
-            }
-          })
-        fileIo.close(p2pFile.file);
-      }
-    } catch (error) {
-      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
+          };
+
+          p2pClient.transferFile(device.randomId, appParam, p2pFile,
+            (error: BusinessError, p2pResult: wearEngine.P2pResult) => {
+              // callback处理逻辑
+              if (error) {
+                console.error(`Failed to transfer file. Code is ${error.code}, message is ${error.message}.`);
+                closeFile();
+                return;
+              }
+              if (p2pResult.code) {
+                if (p2pResult.code === wearEngine.P2pResultCode.COMMUNICATION_SUCCESS) {
+                  console.info(`Succeeded in transfering file, the result is ${p2pResult.code}.`);
+                } else {
+                  console.error(`Failed to transfer file, the error code is ${p2pResult.code}.`);
+                }
+                closeFile();
+              }
+              if (p2pResult.progress) {
+                console.info(`Succeeded in transfering file, the progress is ${p2pResult.progress}.`);
+              }
+            });
+          } catch (fileErr) {
+            console.error(`Failed to open file. Code is ${fileErr.code}, message is${fileErr.message}`);
+            if (file) fileIo.closeSync(file);
+          }
+        }
+      } catch (error) {
+        console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
     }
 
     if (idx === deviceList.length - 1) {
@@ -2600,7 +2619,7 @@ P2p通信过程中可用的设备侧应用参数类。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | entryType | EntryType | 否 | 否 | 需要拉起的对端设备应用的组件类型。 |
-| entryName | string | 否 | 是 | 需要拉起的对端设备应用的组件名称。 |
+| entryName | string | 否 | 是 | 需要拉起对端设备（Phone/Tablet）应用的组件名称或全限定名称。 对端设备为HarmonyOS 6.1及以上版本时，该属性为组件名称，即"moduleName/abilityName"，如"entry/HiWearAbility"；对端设备为HarmonyOS 5.0之前版本（如HarmonyOS 2.x/3.x/4.x）时，该属性为全限定名称，即"包名.类名"，如"com.huawei.test.demo.FgService"。 |
 
 
 
@@ -2620,7 +2639,7 @@ P2p通信过程中可用的设备侧应用参数类。
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DISTRIBUTED_SERVICE | 'DistributedService' | 分布式服务组件，当要启动分布式服务组件时需设置此值。 |
-| SERVICE | 'Service' | 服务组件，当要拉起服务时需设置此值。 |
+| SERVICE | 'Service' | 服务组件，当要拉起前台服务时需设置此值。 |
 | UI | 'UI' | UI组件，当要启动UI组件时需要设置此值。 |
 
 

@@ -1,6 +1,6 @@
 # AtomicServiceTabs
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicetabs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -80,7 +80,7 @@ AtomicServiceTabs({
 | --- | --- | --- | --- | --- |
 | tabContents | [TabContentBuilder?,TabContentBuilder?, TabContentBuilder?,TabContentBuilder?, TabContentBuilder?] | 否 | @BuilderParam | 内容视图容器数组，默认值为空，无内容展示。 |
 | tabBarOptionsArray | [TabBarOptions,TabBarOptions, TabBarOptions?,TabBarOptions?, TabBarOptions?] | 是 | @Prop | 页签容器数组。 |
-| tabBarPosition | TabBarPosition | 否 | @Prop | 设置页签栏位置，默认值为TabBarPosition.Bottom。 |
+| tabBarPosition | TabBarPosition | 否 | @Prop | 设置页签栏位置，默认值为TabBarPosition.BOTTOM。 |
 | layoutMode18+ | LayoutMode | 否 | @Prop | 设置底部页签的图片、文字排布的方式，默认值为LayoutMode.VERTICAL。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | barBackgroundColor | ResourceColor | 否 | @Prop | 设置TabBar的背景颜色，默认值为透明。 |
 | index | number | 否 | @Prop | 设置当前显示页签的索引，索引值从0开始。默认值为0。 |
@@ -436,4 +436,4 @@ struct AtomicserviceTabs  {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/axV7DQLRTKC4cMLj38AfVg/zh-cn_image_0000002628862840.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=BBFDF1AFB89D22753C301B00B03070A252B10E053CE4F94AFE846883DCA4EF8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/C9RcY5q8SEGJTxLa4SkKeQ/zh-cn_image_0000002647588384.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=B840181B37328B9E0E7DA3771F05D4BD2BA7C72930683F2E0287094A9F6C360F)

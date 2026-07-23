@@ -1,6 +1,6 @@
 # @ohos.resourceschedule.workScheduler (延迟任务调度)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -562,7 +562,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-延迟任务的具体信息, 用于设置延迟任务的触发条件等。
+延迟任务的具体信息，用于设置延迟任务的触发条件等。
 
 > [!NOTE]
 > WorkInfo参数设置时需遵循以下规则： workId、bundleName、abilityName为必填项，bundleName需为本应用包名。 携带参数信息仅支持number、string、boolean三种类型。 至少设置一个满足的条件，包括网络类型、充电类型、存储状态、电池状态等。 对于循环任务，任务执行间隔至少2小时。设置了循环任务时间间隔时，须同时设置是否循环或循环次数中的一个。 对于可选参数，如果缺省表示延迟任务的触发不依赖该条件。

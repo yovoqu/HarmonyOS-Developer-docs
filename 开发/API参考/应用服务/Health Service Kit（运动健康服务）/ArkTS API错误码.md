@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice
 **支持设备：** Phone | Tablet | Wearable | lite_wearable
@@ -279,7 +279,7 @@ Unsupported sport type.
 
 **处理步骤**
 
-检查传入的运动类型，请参见[锻炼记录类型常量](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisedequencehelper)。
+检查传入的运动类型，请参见[锻炼记录类型常量](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisesequencehelper)。
 
 
 

@@ -1,6 +1,6 @@
 # OH_DecodingOptionsForPicture
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-06-27 10:02:54（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-decodingoptionsforpicture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

@@ -1,6 +1,6 @@
 # SplitLayout
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-splitlayout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -34,7 +34,7 @@ import { SplitLayout } from '@kit.ArkUI';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-SplitLayout({mainImage: Resource, primaryText: string, secondaryText?: string, tertiaryText?: string, container: () => void })
+SplitLayout({mainImage: ResourceStr, primaryText: ResourceStr, secondaryText?: ResourceStr, tertiaryText?: ResourceStr, container: () => void })
  
 **装饰器类型：**@Component
  
@@ -111,4 +111,4 @@ struct Index {
 大于840vp布局：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/xNaSUpLsQEenQ1wVqWa6Jg/zh-cn_image_0000002659102233.png?HW-CC-KV=V1&HW-CC-Date=20260701T014354Z&HW-CC-Expire=86400&HW-CC-Sign=49C8F7E4F99734ED630420CD0AFFAD1000738E5E3C9FCEDD22A14D97C44ADF35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/K3YD2LkITtm7DGrdK3WAcQ/zh-cn_image_0000002677828091.png?HW-CC-KV=V1&HW-CC-Date=20260723T012000Z&HW-CC-Expire=86400&HW-CC-Sign=AA8B9F70CBA1D2F2AE7A36CB54F1E2BF7686BC771EC376D08D370D012FD61C93)

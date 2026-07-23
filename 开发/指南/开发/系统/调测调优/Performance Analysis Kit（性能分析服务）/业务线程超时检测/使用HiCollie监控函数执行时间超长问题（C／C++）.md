@@ -1,6 +1,6 @@
 # 使用HiCollie监控函数执行时间超长问题（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hicollie-settimer-guidelines-ndk
 
@@ -34,7 +34,7 @@
 
 #### 开发步骤
 
-下文将展示如何在应用内增加一个按钮，并单击该按钮以调用HiCollie Ndk接口。
+下文将展示如何在应用内增加一个按钮，并单击该按钮以调用HiCollie NDK接口。
 1. 新建Native C++工程，目录结构如下：
 
   

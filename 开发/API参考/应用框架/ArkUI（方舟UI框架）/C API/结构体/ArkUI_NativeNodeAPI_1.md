@@ -1,6 +1,6 @@
 # ArkUI_NativeNodeAPI_1
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -78,9 +78,9 @@ ArkUI提供的Native侧Node类型接口集合。Node模块相关接口需要在�
 | ArkUI_IntOffset (*getLayoutPosition)(ArkUI_NodeHandle node) | 获取组件布局完成后该节点相对于父节点的偏移，单位为px。该偏移是父容器对该节点进行布局之后的结果，因此布局之后生效的offset属性和不参与布局的position属性不影响该偏移值。 |
 | int32_t (*measureNode)(ArkUI_NodeHandle node, ArkUI_LayoutConstraint* Constraint) | 对目标组件进行测算，可以通过getMeasuredSize接口获取测算后的大小。 |
 | int32_t (*layoutNode)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY) | 对目标组件进行布局并传递该组件相对父组件的期望位置。 |
-| int32_t (*addNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event)) | 在组件上添加组件事件回调函数，用于接受该组件产生的组件事件。不同于registerNodeEventReceiver的全局注册函数，该函数允许在同一个组件上添加多个事件接受器。 该函数添加的监听回调函数触发时机会先于registerNodeEventReceiver注册的全局回调函数。 避免直接保存ArkUI_NodeEvent对象指针，数据会在回调结束后销毁。 |
+| int32_t (*addNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event)) | 在组件上添加组件事件回调函数，用于接收该组件产生的组件事件。不同于registerNodeEventReceiver的全局注册函数，该函数允许在同一个组件上添加多个事件接收器。 该函数添加的监听回调函数触发时机会先于registerNodeEventReceiver注册的全局回调函数。 避免直接保存ArkUI_NodeEvent对象指针，数据会在回调结束后销毁。 |
 | int32_t (*removeNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event)) | 在组件上删除注册的组件事件回调函数。 |
-| int32_t (*addNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeCustomEvent* event)) | 在组件上添加自定义事件回调函数，用于接受该组件产生的自定义事件（如布局事件，绘制事件）。不同于registerNodeCustomEventReceiver的全局注册函数，该函数允许在同一个组件上添加多个事件接受器。 该函数添加的监听回调函数触发时机会先于registerNodeCustomEventReceiver注册的全局回调函数。 避免直接保存ArkUI_NodeCustomEvent对象指针，数据会在回调结束后销毁。 |
+| int32_t (*addNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeCustomEvent* event)) | 在组件上添加自定义事件回调函数，用于接收该组件产生的自定义事件（如布局事件，绘制事件）。不同于registerNodeCustomEventReceiver的全局注册函数，该函数允许在同一个组件上添加多个事件接收器。 该函数添加的监听回调函数触发时机会先于registerNodeCustomEventReceiver注册的全局回调函数。 避免直接保存ArkUI_NodeCustomEvent对象指针，数据会在回调结束后销毁。 |
 | int32_t (*removeNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeCustomEvent* event)) | 在组件上删除注册的自定义事件回调函数。 |
 | int32_t (*setUserData)(ArkUI_NodeHandle node, void* userData) | 在组件上保存自定义数据。 |
 | void* (*getUserData)(ArkUI_NodeHandle node) | 获取在组件上保存的自定义数据。 |
@@ -122,7 +122,7 @@ ArkUI_NodeHandle (*createNode)(ArkUI_NodeType type)
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_NodeHandle | 返回创建完成的组件操作指针，如果创建失败返回NULL。需要开发者自行管理返回的组件对象指针的生命周期，否则有可能导致Use After Free等进程崩溃或内存泄漏问题。 |
+| ArkUI_NodeHandle | 返回创建完成的组件对象指针，如果创建失败返回NULL。需要开发者自行管理返回的组件对象指针的生命周期，否则有可能导致Use After Free等进程崩溃或内存泄漏问题。 |
  
  
   
@@ -1008,7 +1008,7 @@ int32_t (*addNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(Ark
  
 **描述：**
  
-在组件上添加组件事件回调函数，用于接受该组件产生的组件事件。不同于registerNodeEventReceiver的全局注册函数，该函数允许在同一个组件上添加多个事件接受器。
+在组件上添加组件事件回调函数，用于接收该组件产生的组件事件。不同于registerNodeEventReceiver的全局注册函数，该函数允许在同一个组件上添加多个事件接收器。
  
  该函数添加的监听回调函数触发时机会先于registerNodeEventReceiver注册的全局回调函数。
  
@@ -1074,7 +1074,7 @@ int32_t (*addNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventReceive
  
 **描述：**
  
-在组件上添加自定义事件回调函数，用于接受该组件产生的自定义事件（如布局事件，绘制事件）。不同于registerNodeCustomEventReceiver的全局注册函数，该函数允许在同一个组件上添加多个事件接受器。
+在组件上添加自定义事件回调函数，用于接收该组件产生的自定义事件（如布局事件，绘制事件）。不同于registerNodeCustomEventReceiver的全局注册函数，该函数允许在同一个组件上添加多个事件接收器。
  
  该函数添加的监听回调函数触发时机会先于registerNodeCustomEventReceiver注册的全局回调函数。
  
@@ -1270,7 +1270,7 @@ int32_t (*removeAllChildren)(ArkUI_NodeHandle parent)
   
 | 参数项 | 描述 |
 | --- | --- |
-| ArkUI_NodeHandle parent | 目标节点对象。 |
+| ArkUI_NodeHandle parent | 父节点指针。 |
  
  
 **返回：**

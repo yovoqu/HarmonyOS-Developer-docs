@@ -1,6 +1,6 @@
 # SceneNode
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -462,6 +462,32 @@ function getNode(): void {
 }
 ```
  
+调用getNodeByPath时需传入节点路径参数path。可通过遍历节点树并打印各节点的属性获取可用的path值，示例如下：
+ 
+```text
+import { Scene, Node } from '@kit.ArkGraphics3D';
+
+// 打印给定节点的树状结构，每行表示一个节点的路径。
+function printNodeTreeInRelativePath(node: Node | null): void {
+  if (!node) {
+    return;
+  }
+  let basePath: string = node.path + node.name + '/';
+  let printRelative = (n: Node | null): void => {
+    if (!n) {
+      return;
+    }
+    console.info(n.path.substring(basePath.length + 1) + n.name);
+    for (let i = 0; i < n.children.count(); i++) {
+      printRelative(n.children.get(i));
+    }
+  }
+  for (let i = 0; i < node.children.count(); i++) {
+    printRelative(node.children.get(i));
+  }
+}
+```
+ 
   
 
 #### Geometry
@@ -532,7 +558,7 @@ function getNode(): void {
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/2T5Hs-XCS7S2LzZ9lL737w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020328Z&HW-CC-Expire=86400&HW-CC-Sign=8A05D9D246DD21860987F8039A8BA10DFE4637C29E270A5BC8144DA0DC500239)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/3yrAbAvxQAO6dlsS3_WoeA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012043Z&HW-CC-Expire=86400&HW-CC-Sign=AD933B9701CB6E3192E59E9A5715D3B797C8A02CD186E4E10FDCCBFC92423514)
  
  
 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。

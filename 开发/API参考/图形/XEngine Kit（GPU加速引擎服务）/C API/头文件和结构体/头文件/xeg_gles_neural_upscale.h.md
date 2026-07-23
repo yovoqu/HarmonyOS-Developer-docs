@@ -1,6 +1,6 @@
 # xeg_gles_neural_upscale.h
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-gles-neural-upscale-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -9,11 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-XEngine空域AI超分特性OpenGL ES接口。使用此头文件中的接口前需要通过[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口查询[XEG_NEURAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_neural_upscale_extension_name)或者[XEG_NEURAL_UPSCALE2_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_neural_upscale2_extension_name)扩展可用。
- 
-[XEG_NEURAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_neural_upscale_extension_name)扩展可用时，推荐超分倍率为(1.0, 1.5]。
- 
-[XEG_NEURAL_UPSCALE2_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_neural_upscale2_extension_name)扩展可用时，推荐超分倍率为(1.0, 2.0]。
+XEngine空域AI超分特性OpenGL ES接口，推荐超分倍率为[1.0, 1.5]。使用此头文件中的接口前需要通过[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口查询[XEG_NEURAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_neural_upscale_extension_name)扩展可用。
  
 **引用文件**：<xengine/xeg_gles_neural_upscale.h>
  

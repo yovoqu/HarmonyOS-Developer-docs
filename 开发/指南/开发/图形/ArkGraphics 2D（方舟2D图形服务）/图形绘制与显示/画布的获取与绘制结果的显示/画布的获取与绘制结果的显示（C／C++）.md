@@ -1,6 +1,6 @@
 # 画布的获取与绘制结果的显示（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c
 
@@ -283,7 +283,7 @@ libEGL.so
 
 3. 初始化EGL上下文。
 
-  初始化上下文相关参数:
+  初始化上下文相关参数：
 
   
 ```cpp

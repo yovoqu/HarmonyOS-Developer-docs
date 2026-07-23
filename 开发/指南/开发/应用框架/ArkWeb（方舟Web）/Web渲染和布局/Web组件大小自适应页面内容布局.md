@@ -1,6 +1,6 @@
 # Web组件大小自适应页面内容布局
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-fit-content
 
@@ -168,7 +168,7 @@ fit_content.html页面代码如下：
 
 核心内容DOM节点高度为0。
 
-CSS样式height：&lt;number&gt; vh和Web组件大小自适应页面布局存在计算冲突，请检查height：&lt;number&gt; vh是否是由body节点以内的第一个高度CSS样式。如以下结构，id为2的DOM节点高度将为0。
+CSS样式height: &lt;number&gt; vh和Web组件大小自适应页面布局存在计算冲突，请检查height: &lt;number&gt; vh是否是由body节点以内的第一个高度CSS样式。如以下结构，id为2的DOM节点高度将为0。
 
 ```text
 <body>

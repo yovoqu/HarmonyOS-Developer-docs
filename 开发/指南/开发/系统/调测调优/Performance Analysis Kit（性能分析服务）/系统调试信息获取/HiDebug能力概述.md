@@ -1,6 +1,6 @@
 # HiDebug能力概述
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidebug-guidelines
 
@@ -117,7 +117,7 @@ CPU的统计信息从左到右分别代表以下含义（其中cpu为所有cpu�
  - irq: 硬中断时间。
  - softirq: 软中断时间。
  - steal: 虚拟化环境中，运行在非该虚拟机内进程上的时间。
- - guest: 操作系统运行虚拟机中非低优先进程（nice <= 0）的时间（已包含在user字段中）。
+ - guest: 操作系统运行虚拟机中非低优先级进程（nice <= 0）的时间（已包含在user字段中）。
  - guest_nice: 操作系统运行虚拟机中低优先级进程（nice > 0）的时间（已包含在nice字段中）。
 
 

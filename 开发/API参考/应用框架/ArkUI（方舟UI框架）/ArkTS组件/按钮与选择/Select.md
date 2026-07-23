@@ -1,6 +1,6 @@
 # Select
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1223,8 +1223,6 @@ showInSubWindow(showInSubWindow:Optional&lt;boolean&gt;)
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**设备行为差异：** 在PC/2in1设备中可生效，在其他设备类型中不生效。
-
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -1610,7 +1608,7 @@ struct SelectExample {
 ```
 
 
-![](assets/Select/file-202607081031575182384b.png)
+![](assets/Select/file-2026070810315736621969.png)
 
 
 
@@ -1704,7 +1702,7 @@ struct SelectExample {
 ```
 
 
-![](assets/Select/file-2026070810315736621969.png)
+![](assets/Select/file-202607081031575182384b.png)
 
 
 
@@ -1816,7 +1814,7 @@ struct SelectExample {
 ```
 
 
-![](assets/Select/file-20260708103158cd29e4f3.png)
+![](assets/Select/file-20260708103158123e58f3.png)
 
 
 
@@ -1895,7 +1893,7 @@ struct SelectExample {
 ```
 
 
-![](assets/Select/file-20260708103158123e58f3.png)
+![](assets/Select/file-2026070810315840b4f582.png)
 
 
 
@@ -2073,7 +2071,7 @@ struct SelectExample {
 ```
 
 
-![](assets/Select/file-2026070810315840b4f582.png)
+![](assets/Select/file-20260708103158cd29e4f3.png)
 
 
 

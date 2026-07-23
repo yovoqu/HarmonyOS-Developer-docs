@@ -1,6 +1,6 @@
 # 延迟任务(ArkTS)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/work-scheduler
 
@@ -124,6 +124,7 @@ import {workScheduler, WorkSchedulerExtensionAbility} from '@kit.BackgroundTasks
 export default class WorkSchedulerAbility extends WorkSchedulerExtensionAbility {
   // 延迟任务开始回调
   onWorkStart(workInfo: workScheduler.WorkInfo) {
+    // ...
     console.info(`onWorkStart, workInfo = ${JSON.stringify(workInfo)}`);
     // 打印 parameters中的参数，如：参数key1
     console.info(`work info parameters: ${JSON.parse(workInfo.parameters?.toString()).key1}`);
@@ -178,14 +179,14 @@ catch (error) {
 
   
 ```ArkTS
-// 创建workinfo
+// 创建workInfo
 let workInfo: workScheduler.WorkInfo = {
   workId: 1,
-  networkType: workScheduler.NetworkType.NETWORK_TYPE_WIFI,
+  networkType: workScheduler.NetworkType.NETWORK_TYPE_ANY,
   bundleName: 'ohos.samples.workschedulerextensionability',
   abilityName: 'WorkSchedulerAbility',
+  // ...
 }
-
 try {
   workScheduler.stopWork(workInfo);
   console.info(`stopWork success`);

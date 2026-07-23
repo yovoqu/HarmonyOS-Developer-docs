@@ -1,6 +1,6 @@
 # 基于DialogHub的通用弹窗
 
-更新时间：2026-06-12 07:22:00
+更新时间：2026-07-22 06:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hadss_dialoghub
 
@@ -78,7 +78,7 @@ DialogHub.getToast()
   .setContent(wrapBuilder(TextToastBuilder), new TextToastParams(CommonConstant.TOAST_TITLE))
   .setAnimation({ dialogAnimation: AnimationType.UP_DOWN })
   .setConfig({ dialogBehavior: { isModal: true } })
-  .setStyle({ backgroundColor: Color.White })
+  .setStyle({ backgroundColor: $r('sys.color.background_primary') })
 ```
 
 3. **创建弹窗实例：**
@@ -132,7 +132,7 @@ DialogHub.createToastTemplate('SimpleToast')
   .setContent(wrapBuilder(TextToastBuilder), new TextToastParams(CommonConstant.TOAST_TITLE))
   .setAnimation({ dialogAnimation: AnimationType.UP_DOWN })
   .setConfig({ dialogBehavior: { isModal: true } })
-  .setStyle({ backgroundColor: Color.White })
+  .setStyle({ backgroundColor: $r('sys.color.background_primary') })
 ```
 
 3. **注册模板：**
@@ -230,7 +230,10 @@ this.specifiedLocationDialog = this.specifiedLocationDialog ?? DialogHub.getCust
     }, this.pageInfos)
     return param
   })
-  // ...
+  ?.setStyle({
+    radius: '50%',
+    backgroundColor: $r('sys.color.comp_background_gray')
+  })
   .setConfig({
     dialogBehavior: { isModal: false, passThroughGesture: true },
     dialogPosition: {
@@ -255,33 +258,38 @@ this.specifiedLocationDialog.show();
 - 通过setAnimation()设置弹窗弹出动效。
 - 通过dialog实例的updateContent()，定时动态刷新弹窗内容。
 ```ArkTS
-this.intervalsDisappearsDialog = this.intervalsDisappearsDialog ?? DialogHub.getCustomDialog()
-  .setContent(wrapBuilder(TimeToastBuilder), params)
-  .setStyle({
-    radius: $r('app.float.popup_disappears_intervals_radius'),
-    shadow: CommonConstant.CUSTOM_SAMPLE_STYLE_SHADOW
-  })
-  .setAnimation({ dialogAnimation: AnimationType.UP_DOWN })
-  .setConfig({
-    dialogBehavior: { isModal: false, passThroughGesture: true },
-    dialogPosition: {
-      alignment: DialogAlignment.Top,
-      offset: { dy: $r('app.float.popup_disappears_intervals_offset'), dx: 0 }
-    }
-  })
-  .build();
+if (!this.intervalsDisappearsDialog) {
+  this.intervalsDisappearsDialog = DialogHub.getCustomDialog()
+    .setContent(wrapBuilder(TimeToastBuilder), params)
+    ?.setStyle({
+      radius: '50%',
+      backgroundColor: $r('sys.color.comp_background_gray')
+    })
+    .setAnimation({ dialogAnimation: AnimationType.UP_DOWN })
+    .setConfig({
+      dialogBehavior: { isModal: false, passThroughGesture: true },
+      dialogPosition: {
+        alignment: DialogAlignment.Top,
+        offset: { dy: $r('app.float.popup_disappears_intervals_offset'), dx: 0 }
+      }
+    })
+    .build();
 
-this.intervalsDisappearsDialog.show();
-
-intervalID = setInterval(() => {
-  time -= 1;
-  params.content = `${time} ${this.resourceMgr!.getStringSync($r('app.string.SecondsClose').id)}`;
-  this.intervalsDisappearsDialog?.updateContent(params)
-  if (time <= 0 && intervalID) {
-    this.intervalsDisappearsDialog?.dismiss();
-    clearInterval(intervalID);
+  this.intervalsDisappearsDialog.show();
+  if (this.intervalID === -1) {
+    this.intervalID = setInterval(() => {
+      time -= 1;
+      params.content = `${time} ${this.resourceMgr!.getStringSync($r('app.string.SecondsClose').id)}`;
+      this.intervalsDisappearsDialog?.updateContent(params)
+      if (time <= 0 && this.intervalID) {
+        clearInterval(this.intervalID);
+        this.intervalsDisappearsDialog?.dismiss();
+        this.intervalsDisappearsDialog = null;
+        this.intervalID = -1;
+      }
+    }, CommonConstant.DURATION_1000);
   }
-}, CommonConstant.DURATION_1000);
+}
 ```
 
 
@@ -307,9 +315,13 @@ this.avoidKeyboardDialog = this.avoidKeyboardDialog ?? DialogHub.getCustomDialog
       isModal: false,
       passThroughGesture: true,
       requestFocusWhenShow: true,
-      keyboardAvoidMode: CustomKeyboardAvoidMode.CONTENT_AVOID
+      keyboardAvoidMode: CustomKeyboardAvoidMode.CONTENT_AVOID,
+      keyboardAvoidSpace: -12
     },
-    dialogPosition: { alignment: DialogAlignment.Bottom }
+    dialogPosition: {
+      alignment: DialogAlignment.Bottom,
+      offset: { dx: 0, dy: -28 }
+    }
   })
   .build();
 this.avoidKeyboardDialog.show();
@@ -337,14 +349,6 @@ setConfig()中preferPlacement可配置箭头偏向。
 DialogHub.getPopup()
 // ...
   .setComponentTargetId('PopupDialog1')
-  .setStyle({
-    radius: $r('app.float.image_popup_builder_borderRadius'),
-    backgroundColor: Color.White,
-    shadow: {
-      radius: $r('app.float.image_popup_shadow_radius'),
-      color: $r('app.color.image_popup_shadow_color')
-    },
-  })
   .setConfig({
     dialogPosition: {
       preferPlacement: Placement.Bottom
@@ -393,16 +397,14 @@ this.activelyCloseDialog = this.activelyCloseDialog ?? DialogHub.getCustomDialog
         this.resourceMgr!.getStringSync($r('app.string.Exit').id),
         () => {
           action.dismiss();
-        }, () => {
-        action.dismiss();
-      })
+        },
+        () => {
+          action.dismiss();
+        }
+      )
     return param;
   })
   .setConfig({ dialogBehavior: { isModal: true, autoDismiss: false, passThroughGesture: false } })
-  .setStyle({
-    radius: $r('app.float.active_close_builder_borderRadius'),
-    backgroundColor: Color.White,
-  })
   .build();
 this.activelyCloseDialog.show();
 ```
@@ -421,7 +423,10 @@ this.activelyCloseDialog.show();
 ```ArkTS
 this.adjustSheetDialog = DialogHub.getSheet()
   .setContent(wrapBuilder(SheetBuilder), sheetParams)
-  .setStyle({ preferType: SheetType.BOTTOM, detents: [CommonConstant.SHEET_MIDDLE, CommonConstant.SHEET_LARGE] })
+  .setStyle({
+    preferType: SheetType.BOTTOM,
+    detents: [CommonConstant.SHEET_MIDDLE, CommonConstant.SHEET_LARGE],
+  })
   .setConfig({ enableOutsideInteractive: false, scrollSizeMode: ScrollSizeMode.CONTINUOUS })
   .setComponentTargetId(CommonConstant.ADJUST_SHEET_DIALOG_ID)
   .build();
@@ -432,19 +437,20 @@ this.adjustSheetDialog = DialogHub.getSheet()
 this.adjustSheetDialog.addLifeCycleListener({
   onHeightDidChange: (h: number) => {
     let vpValue = this.getUIContext().px2vp(h);
-    let keyboardHeight = this.mainWindow?.getWindowAvoidArea(window.AvoidAreaType.TYPE_KEYBOARD).bottomRect.height;
     if (this.isKeyboardShow) {
       this.getUIContext().getFocusController().clearFocus();
     }
     if (vpValue <= CommonConstant.SHEET_MIDDLE && sheetParams.type != 0) {
       sheetParams.type = 0
-    } else if (vpValue > CommonConstant.SHEET_MIDDLE && sheetParams.type != 1 && keyboardHeight == 0) {
+    } else if (vpValue > CommonConstant.SHEET_MIDDLE && sheetParams.type != 1 && this.keyboardHeightChange == 0) {
       sheetParams.type = 1
     }
     this.adjustSheetDialog?.updateContent(sheetParams)
   },
   // ...
 });
+
+            this.adjustSheetDialog?.show();
 ```
 
 
@@ -541,14 +547,12 @@ let passThroughGestureDialog = DialogHub.getCustomDialog()
       passThroughGesture: true
     }
   })
-  // ...
   .build();
 ```
  
 ```ArkTS
 DialogHub.createCustomTemplate(CommonConstant.CUSTOM_TEMPLATE_SIMPLE)
   .setContent(wrapBuilder(TextToastBuilder))
-  .setStyle({ backgroundColor: Color.White })
   .setConfig({ dialogBehavior: { passThroughGesture: true, isModal: false } })
 ```
  
@@ -572,10 +576,14 @@ this.returnDataDialog = DialogHub.getCustomDialog()
     })
     return parms;
   })
-  .setStyle({
-    radius: $r('app.float.InputCallbackBuilderBorderRadius')
+  .setConfig({
+    dialogBehavior: {
+      isModal: true,
+      autoDismiss: false,
+      keyboardAvoidMode: CustomKeyboardAvoidMode.CONTENT_AVOID,
+      keyboardAvoidSpace: 16
+    }
   })
-  .setConfig({ dialogBehavior: { isModal: true, autoDismiss: false } })
   .build();
 this.returnDataDialog.show();
 ```
@@ -593,21 +601,18 @@ this.returnDataDialog.show();
 修改Builder参数内容，再调用updateContent()进行修改。
  
 ```ArkTS
-let params = new ProgressParams(
-  this.resourceMgr!.getStringSync($r('app.string.Uploading').id),
-  CommonConstant.ProgressNameStart,
-  CommonConstant.ProgressNameTotal
-);
+let params = new ProgressParams(this.resourceMgr!.getStringSync($r('app.string.Uploading').id),
+  CommonConstant.progressNameStart,
+  CommonConstant.progressNameTotal);
 
 this.updateByParentDialog = DialogHub.getCustomDialog()
   .setContent(wrapBuilder(ProgressBuilder), params)
-  .setStyle({ radius: $r('app.float.ProgressBuilderProgressBorderRadius') })
   .setConfig({ dialogBehavior: { isModal: true, autoDismiss: false } })
   .build();
 this.updateByParentDialog.show();
 this.intervalID = setInterval(() => {
   params.value += 1
-  if (params.value >= CommonConstant.ProgressNameTotal && this.intervalID >= 0) {
+  if (params.value >= CommonConstant.progressNameTotal && this.intervalID >= 0) {
     this.updateByParentDialog?.dismiss();
     clearInterval(this.intervalID);
   }
@@ -710,7 +715,7 @@ this.skipDialog?.show();
 ```ArkTS
 DialogHub.createToastTemplate(CommonConstant.MY_TEMPLATE_NAME)
   .setTextContent(CommonConstant.TOAST_DISPLAYED_CONTENT)
-    // ...
+  // ...
   .setDuration(CommonConstant.TOAST_DISPLAY_DURATION)
   .register();
 ```
@@ -727,9 +732,9 @@ DialogHub.removeTemplate(CommonConstant.MY_TEMPLATE_NAME);
 
 - 随机修改弹窗模板背景色
 ```ArkTS
-let r = (Math.ceil(Math.random() * 239 + 16) % 255).toString(16);
-let g = (Math.ceil(Math.random() * 239 + 16) % 255).toString(16);
-let b = (Math.ceil(Math.random() * 239 + 16) % 255).toString(16);
+let r = (Math.ceil(Math.random() * 239 + 16) % 255).toString(16).padStart(2, '0');
+let g = (Math.ceil(Math.random() * 239 + 16) % 255).toString(16).padStart(2, '0');
+let b = (Math.ceil(Math.random() * 239 + 16) % 255).toString(16).padStart(2, '0');
 let color = '#ff' + r + g + b;
 DialogHub.updateToastTemplate(CommonConstant.MY_TEMPLATE_NAME)?.setStyle({
   backgroundColor: color

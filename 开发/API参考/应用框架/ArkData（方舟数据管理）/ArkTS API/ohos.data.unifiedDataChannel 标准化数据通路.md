@@ -1,6 +1,6 @@
 # @ohos.data.unifiedDataChannel (标准化数据通路)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-unifieddatachannel
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -2358,7 +2358,7 @@ setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void
 
 设置应用内拖拽通道数据可使用的范围[ShareOptions](#shareoptions12)，目前仅支持DRAG类型数据通道的管控设置。
 
-**需要权限:** ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
+**需要权限：** ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -2406,7 +2406,7 @@ removeAppShareOptions(intention: Intention): void
 
 清除[setAppShareOptions](#unifieddatachannelsetappshareoptions14)设置的管控信息。
 
-**需要权限:** ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
+**需要权限：** ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

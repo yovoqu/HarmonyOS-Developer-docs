@@ -1,6 +1,6 @@
 # 视频播放 (Video)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-video-player
 
@@ -66,7 +66,9 @@ export struct LocalVideo {
 @Component
 export struct LocalVideoTwo {
   private controller: VideoController = new VideoController();
+  // $r('app.media.preview')需要替换为开发者所需的图像资源文件
   private previewUris: Resource = $r('app.media.preview');
+  // 'dataability://device_id/com.domainname.dataability.videodata/video/10'需要替换为开发者所需的影像资源文件
   private videoSrc: string = 'dataability://device_id/com.domainname.dataability.videodata/video/10';
 
   build() {
@@ -95,6 +97,7 @@ export struct LocalVideoTwo {
 @Component
 export struct Sandbox {
   private controller: VideoController = new VideoController();
+  // 'file:///data/storage/el2/base/haps/entry/files/show.mp4'需要替换为开发者所需的实际视频沙箱路径
   private videoSrc: string = 'file:///data/storage/el2/base/haps/entry/files/show.mp4';
 
   build() {
@@ -120,8 +123,10 @@ export struct Sandbox {
 @Component
 export struct OnlineVideo {
   private controller: VideoController = new VideoController();
+  // $r('app.media.preview')需要替换为开发者所需的图像资源文件
   private previewUris: Resource = $r('app.media.preview');
-  private videoSrc: string = 'www.example.com/example.mp4'; // 使用时请替换为实际视频加载网址
+  // 'www.example.com/example.mp4'需要替换为开发者所需的实际视频加载网址
+  private videoSrc: string = 'www.example.com/example.mp4';
 
   build() {
     Column() {
@@ -146,17 +151,20 @@ Video组件[属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 // ···
 @Component
 export struct AttributeVideo {
+  // $rawfile('videoTest.mp4')需要替换为开发者所需的影像资源文件
+  private videoSrc: Resource = $rawfile('videoTest.mp4');
   private controller: VideoController = new VideoController();
 
   build() {
     Column() {
       Video({
+        src: this.videoSrc,
         controller: this.controller
       })
         .muted(false) // 设置是否静音
         .controls(false) // 设置是否显示默认控制条
-        .autoPlay(false) // 设置是否自动播放
-        .loop(false) // 设置是否循环播放
+        .autoPlay(true) // 设置是否自动播放
+        .loop(true) // 设置是否循环播放
         .objectFit(ImageFit.Contain) // 设置视频填充模式
     }
   }
@@ -175,7 +183,9 @@ Video组件回调事件主要包括播放开始、播放暂停、播放结束、
 @Component
 struct EventCall {
   private controller: VideoController = new VideoController();
+  // $r('app.media.preview')需要替换为开发者所需的图像资源文件
   private previewUris: Resource = $r('app.media.preview');
+  // $rawfile('videoTest.mp4')需要替换为开发者所需的影像资源文件
   private innerResource: Resource = $rawfile('videoTest.mp4');
 
   build() {
@@ -214,7 +224,9 @@ Video控制器主要用于控制视频的状态，包括播放、暂停、停止
 @Entry
 @Component
 struct VideoGuide {
+  // $rawfile('videoTest.mp4')需要替换为开发者所需的影像资源文件
   @State videoSrc: Resource = $rawfile('videoTest.mp4');
+  // common/videoIcon.png需要替换为开发者所需的图像资源文件
   @State previewUri: string = 'common/videoIcon.png';
   @State curRate: PlaybackSpeed = PlaybackSpeed.Speed_Forward_1_00_X;
 
@@ -244,7 +256,9 @@ struct VideoGuide {
 @Entry
 @Component
 struct CustomizedControl {
+  // $rawfile('videoTest.mp4')需要替换为开发者所需的影像资源文件
   @State videoSrc: Resource = $rawfile('videoTest.mp4');
+  // common/videoIcon.png需要替换为开发者所需的图像资源文件
   @State previewUri: string = 'common/videoIcon.png';
   @State curRate: PlaybackSpeed = PlaybackSpeed.Speed_Forward_1_00_X;
   // 初始化当前时间为0
@@ -313,8 +327,8 @@ import { window } from '@kit.ArkUI';
 import { AVPlayerController } from '../avplayertool/AVPlayerController';
 import { emitter } from '@kit.BasicServicesKit';
 import { CommonConstants, VideoDataType } from  '../common/constants/CommonConstants';
-import { VideoData } from '../model/VideoData'
-import { common } from '@kit.AbilityKit'
+import { VideoData } from '../model/VideoData';
+import { common } from '@kit.AbilityKit';
 
 class VideoXComponentController extends XComponentController {
   private avPlayerController: AVPlayerController;

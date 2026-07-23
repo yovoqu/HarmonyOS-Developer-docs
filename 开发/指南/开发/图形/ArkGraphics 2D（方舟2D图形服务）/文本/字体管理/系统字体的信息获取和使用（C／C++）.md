@@ -1,6 +1,6 @@
 # 系统字体的信息获取和使用（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/system-font-c
 
@@ -55,7 +55,7 @@ libnative_drawing.so
 #include <hilog/log.h>
 ```
 
-3. 获取系统字体的配置信息，可以通过返回的状态码确定获取信息是否成功，状态码的包含的具体情况和对应含义可见[OH_Drawing_FontConfigInfoErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_fontconfiginfoerrorcode)。
+3. 获取系统字体的配置信息，可以通过返回的状态码确定获取信息是否成功，状态码包含的具体情况和对应含义可见[OH_Drawing_FontConfigInfoErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_fontconfiginfoerrorcode)。
 
   
 ```cpp
@@ -213,7 +213,7 @@ OH_Drawing_DisableFontCollectionSystemFont(fontCollection);
 6. 创建文本样式对象，使用注册成功的自定义字体。
 
   
-![](assets/系统字体的信息获取和使用（C／C++）/file-20260708104019e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/At6eir-VSeCBXbIOFIYXYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012153Z&HW-CC-Expire=86400&HW-CC-Sign=0FBE7F7B581C296E124C036BBAAF0A7880825F19C892302329CD34F08F6E9497)
  
 
   若不设置字体，文本会默认使用系统字体，而系统字体禁用后若不设置使用自定义字体，文本将无法正常显示。

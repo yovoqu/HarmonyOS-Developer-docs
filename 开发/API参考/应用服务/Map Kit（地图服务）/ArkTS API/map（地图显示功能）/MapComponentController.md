@@ -1,6 +1,6 @@
 # Class (MapComponentController)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -5726,6 +5726,8 @@ setIndoorMapEnabled(enabled: boolean): void
 
 **系统能力：** SystemCapability.Map.Core
 
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+
 **起始版本：** 5.1.1(19)
 
 **参数**：
@@ -5767,6 +5769,8 @@ isIndoorMapEnabled(): boolean
 
 **系统能力：** SystemCapability.Map.Core
 
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
+
 **起始版本：** 5.1.1(19)
 
 **返回值：**
@@ -5806,6 +5810,8 @@ switchIndoorMapFloor(buildingId: string, floorName: string): void
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Map.Core
+
+**设备行为差异：** 在5.1.1(19)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 5.1.1(19)
 
@@ -5847,6 +5853,8 @@ setFloorControlsPosition(point: mapCommon.MapPoint): void
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Map.Core
+
+**设备行为差异：** 在6.0.0(20)及之后版本该接口在phone、tablet、PC/2in1均可正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 6.0.0(20)
 

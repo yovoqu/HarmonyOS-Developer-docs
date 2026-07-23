@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -432,7 +432,7 @@ type OnDetectBlankScreenCallback = (event: BlankScreenDetectionEventInfo) => voi
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void;
+type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void
  
 当页面摄像设备状态发生改变时触发此回调。
  
@@ -451,7 +451,7 @@ type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) 
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void;
+type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void
  
 当页面麦克风状态发生改变时触发此回调。
  

@@ -1,6 +1,6 @@
 # AppFreeze（应用冻屏）检测
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines
 
@@ -197,7 +197,7 @@ NOTE: Current fault may be caused by the system's low memory or thermal throttli
 
 从API version 20开始，当整机资源告警（如整机低内存或热限频）时，系统会输出NOTE行。此时开发者可忽略应用冻屏故障。在之前的API版本中，无论整机资源状态如何，系统都不会输出此NOTE行。
 
-从API version 20开始，发生THREAD_BLOCK_6S故障时，日志中新增[HiTraceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hitracechain#hitraceid)信息打印。HitraceId是HiTraceChain提供的唯一跟踪标识，用于跟踪业务流程调用链。可以协助开发者查看故障时间段内，故障流程的hilog日志，分析日志查看应用的执行状态。
+从API version 20开始，发生THREAD_BLOCK_6S故障时，日志中新增[HiTraceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hitracechain#hitraceid)信息打印。HiTraceId是HiTraceChain提供的唯一跟踪标识，用于跟踪业务流程调用链。可以协助开发者查看故障时间段内，故障流程的hilog日志，分析日志查看应用的执行状态。
 
 AppFreeze事件（THREAD_BLOCK_6S、 APP_INPUT_BLOCK）都包含以下几部分信息：
 
@@ -674,7 +674,7 @@ DisplayPowerInfo:powerState:AWAKE
 
   
 > [!NOTE]
-> 由于应用冻屏事件的采样栈会与 MAIN_THREAD_JANK 冲突，如果应用接入MAIN_THREAD_JANK的setEventConfig接口自定义配置采集堆栈的个数，应用冻屏事件的采集堆栈的会与应用当前配置的采集堆栈的个数一致。 APP_INPUT_BLOCK故障有增强日志的前提是：先发生THREAD_BLOCK_3S或LIFECYCLE_HALF_TIMEOUT。
+> 由于应用冻屏事件的采样栈会与 MAIN_THREAD_JANK 冲突，如果应用接入MAIN_THREAD_JANK的setEventConfig接口自定义配置采集堆栈的个数，应用冻屏事件的采集堆栈会与应用当前配置的采集堆栈的个数一致。 APP_INPUT_BLOCK故障有增强日志的前提是：先发生THREAD_BLOCK_3S或LIFECYCLE_HALF_TIMEOUT。
 
 
 
@@ -863,7 +863,7 @@ AppFreeze故障日志信息中的故障线程信息表示业务线程发生故�
 AppFreeze故障信息聚类方法同Cpp Crash一致，参考[CppCrash聚类](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#cppcrash聚类)。
 
 
-![](assets/AppFreeze（应用冻屏）检测/file-20260708103751e7f448b4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/U2U59-w2Qcub9iNqdbFN7g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012148Z&HW-CC-Expire=86400&HW-CC-Sign=FE86C54083CC4337C68F6D31593A3329AE40910355660590C055C4A926742AC8)
 
 
 如果故障线程堆栈中有IPC栈帧，可获取[binder堆栈](#对端信息与当前故障进程通信的进程信息)信息用于聚类。

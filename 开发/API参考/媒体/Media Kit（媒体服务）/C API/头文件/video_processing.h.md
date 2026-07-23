@@ -1,6 +1,6 @@
 # video_processing.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -534,7 +534,7 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_Create(VideoProcessing_Call
 
 | 类型 | 说明 |
 | --- | --- |
-| VideoProcessing_ErrorCode | 如果回调函数对象创建成功，返回VIDEO_PROCESSING_SUCCESS。 如果callback为空或者callback不为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 如果内存不足，返回VIDEO_PROCESSING_ERROR_NO_MEMORY。 |
+| VideoProcessing_ErrorCode | 如果回调函数对象创建成功，返回VIDEO_PROCESSING_SUCCESS。 如果callback为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 如果内存不足，返回VIDEO_PROCESSING_ERROR_NO_MEMORY。 |
 
 
 

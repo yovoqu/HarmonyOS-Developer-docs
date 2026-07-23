@@ -1,6 +1,6 @@
 # @ohos.font (注册自定义字体)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-font
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -115,7 +115,7 @@ struct FontExample {
       Text(this.message)
         .align(Alignment.Center)
         .fontSize(20)
-        .fontFamily('medium') // medium：注册自定义字体的名字（$r('app.string.mediumFamilyName')、'mediumRawFile'等已注册字体也能正常使用）
+        .fontFamily('medium') // medium：注册自定义字体的名字（$r('app.string.font_name')、'mediumRawFile'等已注册字体也能正常使用）
 
       // 使用iconFont的两种方式
       Text(this.unicode)
@@ -269,7 +269,6 @@ import { font } from '@kit.ArkUI';
 @Entry
 @Component
 struct FontExample {
-  fontList: Array<string> = new Array<string>();
   uiFont = this.getUIContext().getFont();
   fontInfo: font.FontInfo = this.uiFont.getFontByName(''); // 建议使用 this.getUIContext().getFont().getFontByName()接口
 

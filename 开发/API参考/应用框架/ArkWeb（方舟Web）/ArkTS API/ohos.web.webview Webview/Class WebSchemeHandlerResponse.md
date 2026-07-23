@@ -1,6 +1,6 @@
 # Class (WebSchemeHandlerResponse)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandlerresponse
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -64,7 +64,7 @@ struct WebComponent {
           console.info("[schemeHandler] getStatusText:" + response.getStatusText())
           console.info("[schemeHandler] getMimeType:" + response.getMimeType())
           console.info("[schemeHandler] getEncoding:" + response.getEncoding())
-          console.info("[schemeHandler] getHeaderByValue:" + response.getHeaderByName("header1"))
+          console.info("[schemeHandler] getHeaderByName:" + response.getHeaderByName("header1"))
           console.info("[schemeHandler] getNetErrorCode:" + response.getNetErrorCode())
 
         } catch (error) {

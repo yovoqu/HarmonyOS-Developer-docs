@@ -1,6 +1,6 @@
 # neural_network_runtime.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -84,7 +84,7 @@ NN_QuantParam *OH_NNQuantParam_Create()
  
 创建一个[NN_QuantParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime-nn-quantparam)量化参数实例。
  
-创建[NN_QuantParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime-nn-quantparam)量化参数实例后，调用[OH_NNQuantParam_SetScales](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnquantparam_setscales)、[OH_NNQuantParam_SetZeroPoints](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnquantparam_setzeropoints)或[OH_NNQuantParam_SetNumBits](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnquantparam_setnumbits)设置它的属性值，并调用[OH_NNModel_SetTensorQuantParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnmodel_settensorquantparams)将它设置到[NN_Tensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime-nn-tensor)中。最后再调用[OH_NNQuantParam_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnquantparam_destroy)销毁它，以避免内存泄露。
+创建[NN_QuantParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime-nn-quantparam)量化参数实例后，调用[OH_NNQuantParam_SetScales](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnquantparam_setscales)、[OH_NNQuantParam_SetZeroPoints](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnquantparam_setzeropoints)或[OH_NNQuantParam_SetNumBits](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnquantparam_setnumbits)设置它的属性值，并调用[OH_NNModel_SetTensorQuantParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnmodel_settensorquantparams)将它设置到[NN_Tensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime-nn-tensor)中。最后再调用[OH_NNQuantParam_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-runtime-h#oh_nnquantparam_destroy)销毁它，以避免内存泄漏。
  
 **起始版本：** 11
  

@@ -1,6 +1,6 @@
 # HdsTabs
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -751,7 +751,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 **系统能力：** SystemCapability.UIDesign.HDSComponent.Core
 
-**设备行为差异：** 该接口在TV无效果，在其他设备类型中可正常调用。
+**设备行为差异：** 该接口在TV无效果，在Phone、Tablet中可正常调用，在PC/2in1设备调用时需先调用[getSystemMaterialTypes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#getsystemmaterialtypes)接口查询当前设备支持的材质能力。
 
 **起始版本：** 6.1.0(23)
 
@@ -1491,7 +1491,7 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/lv3shGjXToWkUnD7WLJ6Eg/zh-cn_image_0000002656470595.png?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=901DC56D2321724B3E270B79F376E577982BC2A5C099A18A074160FE15E9344B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/TC5xWG2PT9i9HUZF2q0w9Q/zh-cn_image_0000002677828497.png?HW-CC-KV=V1&HW-CC-Date=20260723T012023Z&HW-CC-Expire=86400&HW-CC-Sign=11D1974607E96A6826C323E62B3EF4209158DAE6AD25006DC507184085FBF08C)
 
 
 
@@ -1544,7 +1544,7 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/tqX15V32RlqlGKB7OGKM4w/zh-cn_image_0000002656350645.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=2FA75BAD7834C1908F93C820B1BB95563CCEBFEAC821511842F35AEBA6B06F61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/O7vxc1zPT6yDnVj7G3yNLQ/zh-cn_image_0000002677668651.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T012023Z&HW-CC-Expire=86400&HW-CC-Sign=B3F68874B2046AB2792B7A4D7FAD1FE8E1FAFF0D2BD5F42879BA64741B446A52)
 
 
 
@@ -1594,7 +1594,7 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/pMYnvpNNT1ORhZSthzPfkg/zh-cn_image_0000002626231232.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=99236AAC8CCA71F15F6E1D5A7C63C77DFE67B82DB1CE1BE6151A4B4BA3DFD0EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/b_NKlce6TR-LlUq9-6tOmQ/zh-cn_image_0000002647748768.jpg?HW-CC-KV=V1&HW-CC-Date=20260723T012023Z&HW-CC-Expire=86400&HW-CC-Sign=22C5F7A4374035109EB48B79E8F2F04E2B554FF00A2054368DA189901AD65AF4)
 
 
 
@@ -1684,4 +1684,4 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/aGdR4_dTQom0OgX5h0PNDg/zh-cn_image_0000002626071320.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=EA09A1A9FADCA0FAA8EB98DF70FD9F3738986ACF31319D58A257C37F1B65EA7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/c-VKg_LXS8-iufDN8E6XRA/zh-cn_image_0000002647588860.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012023Z&HW-CC-Expire=86400&HW-CC-Sign=B18DA80FFC54233D249441420EC6500ABF0D5A93E8B888FA689F5AD39DF0DA85)

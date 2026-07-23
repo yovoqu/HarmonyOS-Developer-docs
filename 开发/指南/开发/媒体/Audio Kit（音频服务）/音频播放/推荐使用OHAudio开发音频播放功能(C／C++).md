@@ -1,6 +1,6 @@
 # 推荐使用OHAudio开发音频播放功能(C/C++)
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback
 
@@ -183,7 +183,7 @@ OH_AudioStreamBuilder_Destroy(builder);
 
   
 ```cpp
-float volume = 0.5f;
+float volume = 0.1f;
 
 // 设置当前音频流音量值。
 OH_AudioRenderer_SetVolume(audioRenderer, volume);
@@ -210,7 +210,9 @@ OH_AudioRenderer_SetVolume(audioRenderer, volume);
 
 
 ```cpp
-OH_AudioStreamBuilder_SetLatencyMode(builder, AUDIOSTREAM_LATENCY_MODE_FAST);
+OH_AudioStream_LatencyMode latencyMode = g_mode == 0 ? AUDIOSTREAM_LATENCY_MODE_NORMAL :
+    AUDIOSTREAM_LATENCY_MODE_FAST;
+OH_AudioStreamBuilder_SetLatencyMode(builder, latencyMode);
 ```
 
 

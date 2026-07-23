@@ -1,6 +1,6 @@
 # 基于Video组件播放长视频
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-07-22 06:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-component-long-video
 

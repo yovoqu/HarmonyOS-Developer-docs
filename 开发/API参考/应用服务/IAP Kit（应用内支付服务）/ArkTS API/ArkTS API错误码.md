@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-06-27 10:02:54（官网已下线）
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

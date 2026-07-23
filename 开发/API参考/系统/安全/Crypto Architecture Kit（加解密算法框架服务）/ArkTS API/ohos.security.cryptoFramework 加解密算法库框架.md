@@ -1,6 +1,6 @@
 # @ohos.security.cryptoFramework (加解密算法库框架)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -66,7 +66,7 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 #### ParamsSpec
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 加解密参数，在进行对称加解密时需要构造其子类对象，并将子类对象传入[init()](#init-1)方法。
 
@@ -78,9 +78,11 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -95,7 +97,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### IvParamsSpec
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 加解密参数[ParamsSpec](#paramsspec)的子类，用于在对称加解密时作为[init()](#init-1)方法的参数。
 
@@ -103,9 +105,11 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -120,7 +124,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### GcmParamsSpec
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 加解密参数[ParamsSpec](#paramsspec)的子类，用于在对称加解密时作为[init()](#init-1)方法的参数。
 
@@ -128,9 +132,11 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -147,7 +153,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### CcmParamsSpec
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 加解密参数[ParamsSpec](#paramsspec)的子类，用于在对称加解密时作为[init()](#init-1)方法的参数。
 
@@ -155,9 +161,11 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -228,15 +236,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### CryptoMode
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 表示加解密操作的枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -248,15 +258,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### AsyKeySpecItem10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 表示密钥参数的枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -321,15 +333,17 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### AsyKeySpecType10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 表示密钥参数类型的枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -343,7 +357,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### CipherSpecItem10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 表示加解密参数的枚举。这些参数支持通过[setCipherSpec](#setcipherspec10)接口设置，通过[getCipherSpec](#getcipherspec10)接口获取。
 
@@ -351,9 +365,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 10-11 系统能力为 SystemCapability.Security.CryptoFramework；从 API version 12 开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -368,7 +384,7 @@ API version 10-11 系统能力为 SystemCapability.Security.CryptoFramework；�
 
 #### SignSpecItem10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 表示签名验签参数的枚举。这些参数支持通过[setSignSpec](#setsignspec10)、[setVerifySpec](#setverifyspec10)接口设置，通过[getSignSpec](#getsignspec10)、[getVerifySpec](#getverifyspec10)接口获取。
 
@@ -376,9 +392,11 @@ API version 10-11 系统能力为 SystemCapability.Security.CryptoFramework；�
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 10-11 系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为 SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -394,15 +412,17 @@ API version 10-11 系统能力为SystemCapability.Security.CryptoFramework；从
 
 #### AsyKeySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 指定非对称密钥参数的基本接口，用于创建密钥生成器。在指定非对称密钥参数时需要构造其子类对象，并将子类对象传入[createAsyKeyGeneratorBySpec()](#cryptoframeworkcreateasykeygeneratorbyspec10)方法创建密钥生成器。构造子类对象时，除了RSA密钥采用小端写法外，其他bigint类型的密钥参数均采用大端写法，并使用正数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version10-11系统能力为SystemCapability.Security.CryptoFramework；从API version12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -414,7 +434,7 @@ API version10-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### DSACommonParamsSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定DSA算法中公私钥包含的公共参数，随机生成公/私钥。
 
@@ -422,9 +442,11 @@ API version10-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version10-11系统能力为SystemCapability.Security.CryptoFramework；从API version12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -437,7 +459,7 @@ API version10-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### DSAPubKeySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定DSA算法中公钥包含的参数。
 
@@ -445,9 +467,11 @@ API version10-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version10-11系统能力为SystemCapability.Security.CryptoFramework；从API version12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -459,7 +483,7 @@ API version10-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### DSAKeyPairSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定DSA算法中公私钥包含的全量参数。
 
@@ -467,9 +491,11 @@ API version10-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -482,15 +508,17 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### ECField10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 指定椭圆曲线的域类型。当前只支持Fp域。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -501,15 +529,17 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### ECFieldFp10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 指定椭圆曲线的素数域。是[ECField](#ecfield10)的子类。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -520,15 +550,17 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### Point10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 指定椭圆曲线上的一个点。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -540,7 +572,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### ECCCommonParamsSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定ECC算法中公私钥包含的公共参数，随机生成公/私钥。
 
@@ -548,9 +580,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -566,7 +600,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### ECCPriKeySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定ECC算法中私钥包含的参数。
 
@@ -574,9 +608,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -588,7 +624,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### ECCPubKeySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定ECC算法中公钥包含的参数。
 
@@ -596,9 +632,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -610,7 +648,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### ECCKeyPairSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定ECC算法中公私钥包含的全量参数。
 
@@ -618,9 +656,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -633,7 +673,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### RSACommonParamsSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定RSA算法中公私钥包含的公共参数，随机生成公/私钥。
 
@@ -641,9 +681,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -654,7 +696,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### RSAPubKeySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定RSA算法中公钥包含的参数。
 
@@ -662,9 +704,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -676,7 +720,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### RSAKeyPairSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定RSA算法中公私钥包含的全量参数。
 
@@ -684,9 +728,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -699,7 +745,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### ED25519PriKeySpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定Ed25519算法中私钥包含的参数。
 
@@ -707,9 +753,11 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -720,7 +768,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### ED25519PubKeySpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定Ed25519算法中公钥包含的参数。
 
@@ -728,9 +776,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -741,7 +791,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### ED25519KeyPairSpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定Ed25519算法中公私钥包含的全量参数。
 
@@ -749,9 +799,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -763,7 +815,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### X25519PriKeySpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定X25519算法中私钥包含的参数。
 
@@ -771,9 +823,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -784,7 +838,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### X25519PubKeySpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定X25519算法中公钥包含的参数。
 
@@ -792,9 +846,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -805,7 +861,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### X25519KeyPairSpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定X25519算法中公私钥包含的全量参数。
 
@@ -813,9 +869,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -827,7 +885,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### DHCommonParamsSpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定DH算法中公私钥包含的参数。
 
@@ -835,9 +893,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -850,7 +910,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### DHPriKeySpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定DH算法中私钥包含的参数。
 
@@ -858,9 +918,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -872,7 +934,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### DHPubKeySpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定DH算法中公钥包含的参数。
 
@@ -880,9 +942,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -894,7 +958,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### DHKeyPairSpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥参数[AsyKeySpec](#asykeyspec10)的子类，用于指定DH算法中公私钥包含的全量参数。
 
@@ -902,9 +966,11 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -917,15 +983,17 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### KdfSpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥派生函数参数，使用密钥派生函数进行密钥派生时，需要构建其子类对象并作为输入。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Kdf
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Kdf。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Kdf
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -936,15 +1004,17 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### PBKDF2Spec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 密钥派生函数参数[KdfSpec](#kdfspec11)的子类，作为PBKDF2密钥派生函数进行密钥派生时的输入。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Kdf
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Kdf。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Kdf
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1177,13 +1247,13 @@ RSA私钥编码参数，使用获取私钥字符串时，可以添加此参数�
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1195,8 +1265,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### getEncoded
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 getEncoded(): DataBlob
 
 同步方法，获取密钥数据的字节流。密钥可以是对称密钥、公钥或私钥。公钥格式需符合ASN.1语法、X.509规范和DER编码；私钥格式需符合ASN.1语法、PKCS #8规范和DER编码。
@@ -1207,9 +1275,11 @@ getEncoded(): DataBlob
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -1295,7 +1365,7 @@ async function testGenerateAesKey() {
 
 #### SymKey
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 对称密钥，是[Key](#key)的子类，在对称加解密时需要将其对象传入[Cipher](#cipher)实例的[init()](#init-1)方法使用。
 
@@ -1305,17 +1375,17 @@ async function testGenerateAesKey() {
 
 #### clearMem
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 clearMem(): void
 
 同步方法，将系统底层内存中的密钥内容清零。建议在不再使用对称密钥实例时调用此函数，避免密钥数据在内存中存留过久。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.SymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.SymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.SymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **示例：**
 
@@ -1347,17 +1417,17 @@ async function testGenerateAesKeyFun() {
 
 #### getAsyKeySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number
 
 同步方法，获取密钥参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -1672,17 +1742,17 @@ function eccGetKeyDataTest() {
 
 #### clearMem
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 clearMem(): void
 
 同步方法，清零系统底层内存中的密钥内容。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **示例：**
 
@@ -1706,17 +1776,17 @@ async function testClearMem() {
 
 #### getAsyKeySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number
 
 同步方法，获取密钥参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -2316,7 +2386,7 @@ function eccGetKeyDataTest() {
 
 #### KeyPair
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 非对称密钥对包含公钥和私钥。
 
@@ -2330,13 +2400,13 @@ function eccGetKeyDataTest() {
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2348,7 +2418,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### cryptoFramework.createSymKeyGenerator
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createSymKeyGenerator(algName: string): SymKeyGenerator
 
@@ -2358,9 +2428,11 @@ createSymKeyGenerator(algName: string): SymKeyGenerator
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.SymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.SymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -2408,13 +2480,13 @@ let symKeyGenerator = cryptoFramework.createSymKeyGenerator('3DES192');
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.SymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.SymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.SymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2424,8 +2496,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 
 #### generateSymKey
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 generateSymKey(callback: AsyncCallback&lt;SymKey&gt;): void
 
@@ -2441,9 +2511,11 @@ generateSymKey(callback: AsyncCallback&lt;SymKey&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.SymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.SymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.SymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -2477,8 +2549,6 @@ let symKeyGenerator = cryptoFramework.createSymKeyGenerator('3DES192');
 
 #### generateSymKey
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateSymKey(): Promise&lt;SymKey&gt;
 
 获取该对称密钥生成器随机生成的密钥。使用Promise异步回调。
@@ -2489,9 +2559,11 @@ generateSymKey(): Promise&lt;SymKey&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.SymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.SymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.SymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -2583,8 +2655,6 @@ function testGenerateSymKeySync() {
 
 #### convertKey
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 convertKey(key: DataBlob, callback: AsyncCallback&lt;SymKey&gt;): void
 
 根据指定数据生成对称密钥。使用callback异步回调。
@@ -2597,9 +2667,11 @@ convertKey(key: DataBlob, callback: AsyncCallback&lt;SymKey&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.SymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.SymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.SymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -2647,8 +2719,6 @@ function testConvertKey() {
 
 #### convertKey
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 convertKey(key: DataBlob): Promise&lt;SymKey&gt;
 
 根据指定数据生成对称密钥。使用Promise异步回调。
@@ -2657,9 +2727,11 @@ convertKey(key: DataBlob): Promise&lt;SymKey&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.SymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.SymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.SymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -2781,7 +2853,7 @@ function testConvertKeySync() {
 
 #### cryptoFramework.createAsyKeyGenerator
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createAsyKeyGenerator(algName: string): AsyKeyGenerator
 
@@ -2791,9 +2863,11 @@ createAsyKeyGenerator(algName: string): AsyKeyGenerator
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -2840,13 +2914,13 @@ let asyKeyGenerator = cryptoFramework.createAsyKeyGenerator('ECC256');
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2857,17 +2931,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### generateKeyPair
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateKeyPair(callback: AsyncCallback&lt;KeyPair&gt;): void
 
 获取非对称密钥生成器随机生成的密钥。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -2906,17 +2980,17 @@ asyKeyGenerator.generateKeyPair((err, keyPair) => {
 
 #### generateKeyPair
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateKeyPair(): Promise&lt;KeyPair&gt;
 
 获取非对称密钥生成器随机生成的密钥。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -3005,17 +3079,17 @@ try {
 
 #### convertKey
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 convertKey(pubKey: DataBlob | null, priKey: DataBlob | null, callback: AsyncCallback&lt;KeyPair&gt;): void
 
 解析密钥数据，生成非对称密钥对象。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -3066,17 +3140,17 @@ asyKeyGenerator.convertKey(pubKeyBlob, priKeyBlob, (err, keyPair) => {
 
 #### convertKey
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 convertKey(pubKey: DataBlob | null, priKey: DataBlob | null): Promise&lt;KeyPair&gt;
 
 解析密钥数据，生成非对称密钥对象。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -3537,7 +3611,7 @@ function TestConvertPemKeyBySync() {
 
 #### cryptoFramework.createAsyKeyGeneratorBySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec
 
@@ -3545,9 +3619,11 @@ createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -3620,13 +3696,13 @@ let asyKeyGeneratorBySpec = cryptoFramework.createAsyKeyGeneratorBySpec(asyKeyPa
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -3637,8 +3713,6 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### generateKeyPair10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateKeyPair(callback: AsyncCallback&lt;KeyPair&gt;): void
 
 获取非对称密钥生成器生成的密钥。使用callback异步回调。
@@ -3647,9 +3721,11 @@ generateKeyPair(callback: AsyncCallback&lt;KeyPair&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -3716,8 +3792,6 @@ function testGenerateKeyPair() {
 
 #### generateKeyPair10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateKeyPair(): Promise&lt;KeyPair&gt;
 
 获取该非对称密钥生成器生成的密钥。使用Promise异步回调。
@@ -3726,9 +3800,11 @@ generateKeyPair(): Promise&lt;KeyPair&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -3877,8 +3953,6 @@ function testGenerateKeyPairSync() {
 
 #### generatePriKey10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generatePriKey(callback: AsyncCallback&lt;PriKey&gt;): void
 
 获取非对称密钥生成器生成的密钥。使用callback异步回调。
@@ -3887,9 +3961,11 @@ generatePriKey(callback: AsyncCallback&lt;PriKey&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -3956,8 +4032,6 @@ function testGeneratePriKey() {
 
 #### generatePriKey10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generatePriKey(): Promise&lt;PriKey&gt;
 
 获取该非对称密钥生成器生成的密钥。使用Promise异步回调。
@@ -3966,9 +4040,11 @@ generatePriKey(): Promise&lt;PriKey&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -4115,8 +4191,6 @@ function testGeneratePriKeySync() {
 
 #### generatePubKey10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generatePubKey(callback: AsyncCallback&lt;PubKey&gt;): void
 
 获取非对称密钥生成器生成的密钥。使用callback异步回调。
@@ -4125,9 +4199,11 @@ generatePubKey(callback: AsyncCallback&lt;PubKey&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version10-11系统能力为SystemCapability.Security.CryptoFramework；从API version12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -4194,8 +4270,6 @@ function testGeneratePubKey() {
 
 #### generatePubKey10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generatePubKey(): Promise&lt;PubKey&gt;
 
 获取该非对称密钥生成器生成的密钥。使用Promise异步回调。
@@ -4204,9 +4278,11 @@ generatePubKey(): Promise&lt;PubKey&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -4361,17 +4437,17 @@ function testGeneratePubKeySync() {
 
 #### genECCCommonParamsSpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec
 
 根据椭圆曲线相应的NID（Name Identifier）字符串名称生成相应的非对称公共密钥参数。详见[ECC密钥生成规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#ecc)和[SM2密钥生成规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#sm2)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -4537,7 +4613,7 @@ async function doTest() {
 
 #### DHKeyUtil11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 根据素数P的长度和私钥长度（bit位数）生成DH公共密钥参数。
 
@@ -4545,17 +4621,17 @@ async function doTest() {
 
 #### genDHCommonParamsSpec11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 static genDHCommonParamsSpec(pLen: number, skLen?: number): DHCommonParamsSpec
 
 根据素数P的长度和私钥长度（bit位数）生成DH公共密钥参数。详见[DH密钥生成规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#dh)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Key.AsymKey
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -4732,7 +4808,7 @@ try {
 
 #### cryptoFramework.createCipher
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createCipher(transformation: string): Cipher
 
@@ -4740,9 +4816,11 @@ createCipher(transformation: string): Cipher
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -4809,13 +4887,13 @@ try {
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -4826,8 +4904,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### init
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 init(opMode: CryptoMode, key: Key, params: ParamsSpec | null, callback: AsyncCallback&lt;void&gt;): void
 
 初始化加解密的[cipher](#cipher)对象，使用callback异步回调获取结果。init、update、doFinal为三段式接口，需要成组使用。其中init和doFinal必选，update可选。
@@ -4836,9 +4912,11 @@ init(opMode: CryptoMode, key: Key, params: ParamsSpec | null, callback: AsyncCal
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -4867,8 +4945,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### init
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise&lt;void&gt;
 
 初始化加解密的cipher对象。使用Promise异步回调。init、update、doFinal为三段式接口，需要成组使用。其中init和doFinal必选，update可选。
@@ -4877,9 +4953,11 @@ init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise&lt;void&g
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -4952,8 +5030,6 @@ initSync(opMode: CryptoMode, key: Key, params: ParamsSpec | null): void
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 update(data: DataBlob, callback: AsyncCallback&lt;DataBlob&gt;): void
 
 分段更新加密或者解密数据操作。使用callback异步回调。
@@ -4966,9 +5042,11 @@ update(data: DataBlob, callback: AsyncCallback&lt;DataBlob&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -4995,8 +5073,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 update(data: DataBlob): Promise&lt;DataBlob&gt;
 
 分段更新加密或者解密数据操作。使用Promise异步回调。
@@ -5009,9 +5085,11 @@ update(data: DataBlob): Promise&lt;DataBlob&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5089,8 +5167,6 @@ updateSync(data: DataBlob): DataBlob
 
 #### doFinal
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 doFinal(data: DataBlob | null, callback: AsyncCallback&lt;DataBlob&gt;): void
 
 （1）在对称加解密中doFinal用于处理剩余数据和本次传入的数据，并最终结束加密或解密操作，使用callback异步回调函数获取加密或解密后的数据。如果数据量较小，可以在 doFinal 中一次性传入数据，而不使用update；如果在本次加解密流程中已经使用[update](#update)传入过数据，可以在doFinal的data参数处传入null。根据对称加解密的模式不同，doFinal的输出有以下区别：
@@ -5107,9 +5183,11 @@ doFinal(data: DataBlob | null, callback: AsyncCallback&lt;DataBlob&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5188,8 +5266,6 @@ function cipherByCallback() {
 
 #### doFinal
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 doFinal(data: DataBlob | null): Promise&lt;DataBlob&gt;
 
 （1）在对称加解密中，doFinal加/解密（分组模式产生的）剩余数据和本次传入的数据，最后结束加密或者解密数据操作，使用Promise异步回调获取加密或者解密数据。
@@ -5212,9 +5288,11 @@ doFinal(data: DataBlob | null): Promise&lt;DataBlob&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5396,17 +5474,17 @@ async function cipherBySync() {
 
 #### setCipherSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 setCipherSpec(itemType: CipherSpecItem, itemValue: Uint8Array): void
 
 设置加解密参数。常用的加解密参数直接通过[createCipher](#cryptoframeworkcreatecipher) 来指定，剩余参数通过本接口指定。当前只支持RSA算法。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5445,17 +5523,17 @@ function testsetCipherSpec() {
 
 #### getCipherSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 getCipherSpec(itemType: CipherSpecItem): string | Uint8Array
 
 获取加解密参数。当前只支持RSA算法和SM2算法，从API version 11开始，支持SM2算法获取加解密参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Cipher。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Cipher
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5500,7 +5578,7 @@ function testGetCipherSpec() {
 
 #### cryptoFramework.createSign
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createSign(algName: string): Sign
 
@@ -5508,9 +5586,11 @@ createSign(algName: string): Sign
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5577,13 +5657,13 @@ Sign类不支持重复初始化，当业务方需要使用新密钥签名时，�
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -5594,8 +5674,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### init
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 init(priKey: PriKey, callback: AsyncCallback&lt;void&gt;): void
 
 使用私钥初始化Sign对象。使用callback异步回调。init、update、sign为三段式接口，需要成组使用。其中init和sign必选，update可选。
@@ -5604,9 +5682,11 @@ Sign类不支持重复初始化。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5632,8 +5712,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### init
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 init(priKey: PriKey): Promise&lt;void&gt;
 
 使用私钥初始化Sign对象。使用Promise异步回调。init、update、sign为三段式接口，需要成组使用。其中init和sign必选，update可选。
@@ -5642,9 +5720,11 @@ Sign类不支持重复初始化。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5711,8 +5791,6 @@ Sign类不支持重复调用initSync。
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 update(data: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
 追加待签名数据，使用callback异步回调完成更新。
@@ -5725,9 +5803,11 @@ update(data: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5754,8 +5834,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 update(data: DataBlob): Promise&lt;void&gt;
 
 追加待签名数据，使用Promise异步回调方式完成更新。
@@ -5768,9 +5846,11 @@ update(data: DataBlob): Promise&lt;void&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5843,17 +5923,17 @@ updateSync(data: DataBlob): void
 
 #### sign
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 sign(data: DataBlob | null, callback: AsyncCallback&lt;DataBlob&gt;): void
 
 对数据进行签名。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -5879,17 +5959,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### sign
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 sign(data: DataBlob | null): Promise&lt;DataBlob&gt;
 
 对数据进行签名。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6157,8 +6237,6 @@ function signBySync() {
 
 #### setSignSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 setSignSpec(itemType: SignSpecItem, itemValue: number): void
 
 setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void
@@ -6169,9 +6247,11 @@ setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6209,17 +6289,17 @@ function testSetSignSpec() {
 
 #### getSignSpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 getSignSpec(itemType: SignSpecItem): string | number
 
 获取签名参数。当前仅支持RSA算法。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6264,7 +6344,7 @@ function testGetSignSpec() {
 
 #### cryptoFramework.createVerify
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createVerify(algName: string): Verify
 
@@ -6272,9 +6352,11 @@ createVerify(algName: string): Verify
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6335,13 +6417,13 @@ Verify类不支持重复初始化，当业务方需要使用新密钥验签时�
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -6352,17 +6434,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### init
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 init(pubKey: PubKey, callback: AsyncCallback&lt;void&gt;): void
 
 传入公钥初始化Verify对象。使用callback异步回调。init、update、verify为三段式接口，需要成组使用。其中init和verify必选，update可选。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6388,17 +6470,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### init
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 init(pubKey: PubKey): Promise&lt;void&gt;
 
 传入公钥初始化Verify对象。使用Promise异步回调。init、update、verify为三段式接口，需要成组使用。其中init和verify必选，update可选。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6463,8 +6545,6 @@ initSync(pubKey: PubKey): void
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 update(data: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
 追加待验签数据，使用callback异步回调完成更新。
@@ -6477,9 +6557,11 @@ update(data: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6506,8 +6588,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 update(data: DataBlob): Promise&lt;void&gt;
 
 追加待验签数据，使用Promise异步回调完成更新。
@@ -6520,9 +6600,11 @@ update(data: DataBlob): Promise&lt;void&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6595,17 +6677,17 @@ updateSync(data: DataBlob): void
 
 #### verify
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 verify(data: DataBlob | null, signatureData: DataBlob, callback: AsyncCallback&lt;boolean&gt;): void
 
 对数据进行验签。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -6632,17 +6714,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### verify
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 verify(data: DataBlob | null, signatureData: DataBlob): Promise&lt;boolean&gt;
 
 对数据进行验签。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7110,8 +7192,6 @@ recoverSync(signatureData: DataBlob): DataBlob | null
 
 #### setVerifySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 setVerifySpec(itemType: SignSpecItem, itemValue: number): void
 
 setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void
@@ -7124,9 +7204,11 @@ setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7164,8 +7246,6 @@ function testSetVerifySpec() {
 
 #### getVerifySpec10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 getVerifySpec(itemType: SignSpecItem): string | number
 
 获取验签参数。当前只支持RSA算法。
@@ -7174,9 +7254,11 @@ getVerifySpec(itemType: SignSpecItem): string | number
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Signature
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Signature。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Signature
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7221,7 +7303,7 @@ function testGetVerifySpec() {
 
 #### cryptoFramework.createKeyAgreement
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createKeyAgreement(algName: string): KeyAgreement
 
@@ -7229,9 +7311,11 @@ createKeyAgreement(algName: string): KeyAgreement
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.KeyAgreement
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.KeyAgreement。
+ - API版本12+：SystemCapability.Security.CryptoFramework.KeyAgreement
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7278,13 +7362,13 @@ KeyAgreement类，使用密钥协商方法之前需要创建该类的实例进�
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.KeyAgreement
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.KeyAgreement。
+ - API版本12+：SystemCapability.Security.CryptoFramework.KeyAgreement
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -7295,17 +7379,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### generateSecret
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateSecret(priKey: PriKey, pubKey: PubKey, callback: AsyncCallback&lt;DataBlob&gt;): void
 
 基于传入的私钥与公钥进行密钥协商。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.KeyAgreement
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.KeyAgreement。
+ - API版本12+：SystemCapability.Security.CryptoFramework.KeyAgreement
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7332,17 +7416,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### generateSecret
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateSecret(priKey: PriKey, pubKey: PubKey): Promise&lt;DataBlob&gt;
 
 基于传入的私钥与公钥进行密钥协商。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.KeyAgreement
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.KeyAgreement。
+ - API版本12+：SystemCapability.Security.CryptoFramework.KeyAgreement
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7478,9 +7562,11 @@ createMd(algName: string): Md
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.MessageDigest
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
+ - API版本12+：SystemCapability.Security.CryptoFramework.MessageDigest
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7532,13 +7618,13 @@ Md类，调用Md方法进行消息摘要（Message Digest）计算。调用前�
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.MessageDigest
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
+ - API版本12+：SystemCapability.Security.CryptoFramework.MessageDigest
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -7548,8 +7634,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 
 #### update
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 update(input: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
@@ -7561,9 +7645,11 @@ update(input: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.MessageDigest
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
+ - API版本12+：SystemCapability.Security.CryptoFramework.MessageDigest
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7588,8 +7674,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 update(input: DataBlob): Promise&lt;void&gt;
 
 传入消息进行Md更新摘要状态。使用Promise异步回调。update和digest为两段式接口，需要成组使用。其中digest必选，update可选。
@@ -7600,9 +7684,11 @@ update(input: DataBlob): Promise&lt;void&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.MessageDigest
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
+ - API版本12+：SystemCapability.Security.CryptoFramework.MessageDigest
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **设备行为差异：** 该接口仅在Phone、PC/2in1、Tablet、TV、Wearable设备中可正常调用，在Lite Wearable设备中返回undefined。
 
@@ -7671,17 +7757,17 @@ updateSync(input: DataBlob): void
 
 #### digest
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 digest(callback: AsyncCallback&lt;DataBlob&gt;): void
 
 返回Md的计算结果。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.MessageDigest
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
+ - API版本12+：SystemCapability.Security.CryptoFramework.MessageDigest
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -7721,17 +7807,17 @@ function mdByCallback() {
 
 #### digest
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 digest(): Promise&lt;DataBlob&gt;
 
 返回Md的计算结果。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.MessageDigest
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
+ - API版本12+：SystemCapability.Security.CryptoFramework.MessageDigest
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **设备行为差异：** 该接口仅在Phone、PC/2in1、Tablet、TV、Wearable设备中可正常调用，在Lite Wearable设备中返回undefined。
 
@@ -7978,17 +8064,17 @@ export default {
 
 #### getMdLength
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 getMdLength(): number
 
 获取Md消息摘要的字节长度。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.MessageDigest
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.MessageDigest。
+ - API版本12+：SystemCapability.Security.CryptoFramework.MessageDigest
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -8021,7 +8107,7 @@ function getLength() {
 
 #### cryptoFramework.createMac
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createMac(algName: string): Mac
 
@@ -8031,9 +8117,11 @@ createMac(algName: string): Mac
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -8147,13 +8235,13 @@ Mac类，调用Mac方法进行消息认证码（Message Authentication Code）�
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -8163,8 +8251,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 
 #### init
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 init(key: SymKey, callback: AsyncCallback&lt;void&gt;): void
 
@@ -8176,9 +8262,11 @@ init(key: SymKey, callback: AsyncCallback&lt;void&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11 系统能力为SystemCapability.Security.CryptoFramework；从API version 12 开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -8203,17 +8291,17 @@ API version 9-11 系统能力为SystemCapability.Security.CryptoFramework；从A
 
 #### init
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 init(key: SymKey): Promise&lt;void&gt;
 
 使用对称密钥初始化Mac计算。使用Promise异步回调。init、update、doFinal为三段式接口，需要成组使用。其中init和doFinal必选，update可选。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11 系统能力为SystemCapability.Security.CryptoFramework；从API version 12 开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -8276,8 +8364,6 @@ initSync(key: SymKey): void
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 update(input: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
 传入消息进行Mac更新消息认证码状态。使用callback异步回调。
@@ -8288,9 +8374,11 @@ update(input: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -8315,8 +8403,6 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### update
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 update(input: DataBlob): Promise&lt;void&gt;
 
 传入消息进行Mac更新消息认证码状态。使用Promise异步回调。
@@ -8327,9 +8413,11 @@ update(input: DataBlob): Promise&lt;void&gt;
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -8396,17 +8484,17 @@ updateSync(input: DataBlob): void
 
 #### doFinal
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 doFinal(callback: AsyncCallback&lt;DataBlob&gt;): void
 
 返回Mac的计算结果。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -8454,17 +8542,17 @@ function hmacByCallback() {
 
 #### doFinal
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 doFinal(): Promise&lt;DataBlob&gt;
 
 返回Mac的计算结果。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -8562,17 +8650,17 @@ function hmacBySync() {
 
 #### getMacLength
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 getMacLength(): number
 
 获取Mac消息认证码的长度（字节数）。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Mac
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Mac。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Mac
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值：**
 
@@ -8639,9 +8727,11 @@ createRandom(): Random
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Rand
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Rand。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Rand
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **返回值**：
 
@@ -8685,13 +8775,13 @@ Random类，调用Random方法生成随机数。调用前，需要通过[createR
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Rand
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Rand。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Rand
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -8702,17 +8792,17 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 #### generateRandom
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 generateRandom(len: number, callback: AsyncCallback&lt;DataBlob&gt;): void
 
 生成指定长度的随机数。使用callback异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Rand
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Rand。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Rand
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -8752,17 +8842,17 @@ rand.generateRandom(12, (err, randData) => {
 
 #### generateRandom
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 generateRandom(len: number): Promise&lt;DataBlob&gt;
 
 生成指定长度的随机数。使用promise异步回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Rand
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Rand。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Rand
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **设备行为差异：** 该接口仅在Phone、PC/2in1、Tablet、TV、Wearable设备中可正常调用，在Lite Wearable设备中返回undefined。
 
@@ -8878,17 +8968,17 @@ export default {
 
 #### generateRandomSync10+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 generateRandomSync(len: number): DataBlob
 
 同步生成指定长度的随机数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Rand
+**系统能力：**
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Rand。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Rand
+ - API版本10-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -9057,17 +9147,17 @@ rand.generateRandom(12, (err, randData) => {
 
 #### setSeed
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
-
 setSeed(seed: DataBlob): void
 
 设置指定的种子。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Rand
+**系统能力：**
 
-API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Rand。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Rand
+ - API版本9-11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -9111,7 +9201,7 @@ rand.generateRandom(12, (err, randData) => {
 
 #### cryptoFramework.createKdf11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 createKdf(algName: string): Kdf
 
@@ -9119,9 +9209,11 @@ createKdf(algName: string): Kdf
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Kdf
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Kdf。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Kdf
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -9171,13 +9263,13 @@ let kdf = cryptoFramework.createKdf('PBKDF2|SHA256');
 
 #### 属性
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Kdf
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Kdf。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Kdf
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -9188,17 +9280,17 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 #### generateSecret11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateSecret(params: KdfSpec, callback: AsyncCallback&lt;DataBlob&gt;): void
 
 基于传入的密钥派生参数进行密钥派生。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Kdf
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Kdf。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Kdf
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 
@@ -9274,17 +9366,17 @@ kdf.generateSecret(spec, (err, secret) => {
 
 #### generateSecret11+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
 generateSecret(params: KdfSpec): Promise&lt;DataBlob&gt;
 
 基于传入的密钥派生参数进行密钥派生。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力：** SystemCapability.Security.CryptoFramework.Kdf
+**系统能力：**
 
-API version 11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Kdf。
+ - API版本12+：SystemCapability.Security.CryptoFramework.Kdf
+ - API版本11：SystemCapability.Security.CryptoFramework
+
 
 **参数：**
 

@@ -1,6 +1,6 @@
 # 页面间转场 (pageTransition)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -132,7 +132,7 @@ pageTransition() {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | RouteType | 否 | 是 | 页面转场效果生效的路由类型。 默认值：RouteType.None。 |
+| type | RouteType | 否 | 是 | 页面转场效果生效的路由类型。 默认值：RouteType.None。 说明： 当pageTransition函数中配置了多个PageTransitionEnter或PageTransitionExit时，按照RouteType匹配规则生效：系统会根据当前路由操作类型（Push或Pop）从所有配置的PageTransitionEnter/PageTransitionExit中选择最后一个匹配的组件生效。如果存在多个匹配相同RouteType的PageTransitionEnter，则最后配置的生效；如果存在多个匹配相同RouteType的PageTransitionExit，则最后配置的生效。RouteType.None与所有路由类型均匹配。 |
 | duration | number | 否 | 是 | 动画的时长。 单位：毫秒 默认值：1000 取值范围：[0, +∞) |
 | curve | Curve \| string \| ICurve10+ | 否 | 是 | 动画曲线。 推荐以Curve或ICurve形式指定。 当类型为string时，为动画插值曲线，取值参考AnimateParam的curve参数。 默认值：Curve.Linear |
 | delay | number | 否 | 是 | 动画延迟时长。 单位：毫秒 默认值：0 说明： 没有匹配时使用系统默认的页面转场效果(根据设备可能会有差异)，如需禁用系统默认页面转场效果，可以指定duration为0。 |
@@ -648,4 +648,4 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/g15OO6SFRIuHRl94MrYHTg/zh-cn_image_0000002628702898.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014347Z&HW-CC-Expire=86400&HW-CC-Sign=CFE99E075E29507BA916840AB5409258A95697D6C61468A881531CD9A57F8564)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/oDnqpmEXR96aIYi0TCoakQ/zh-cn_image_0000002677827947.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011958Z&HW-CC-Expire=86400&HW-CC-Sign=9E34E25C4DC0AA7C5EBA48F241CF3AE5B58BDBF5CD9BD5B95D016AE4F455E957)

@@ -27955,5 +27955,33 @@
     "name": "ArkTS API错误码",
     "file": "开发/API参考/AI/Vision Kit（场景化视觉服务）/ArkTS API错误码.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision"
+  },
+  {
+    "slug": "remote-communication-error-field",
+    "name": "故障日志关键字段说明",
+    "file": "开发/API参考/系统/网络/Remote Communication Kit（远场通信服务）/故障日志关键字段说明/故障日志关键字段说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-field",
+    "section": "开发"
+  },
+  {
+    "slug": "js-apis-settings-lite",
+    "name": "@ohos.settingsLite (设置信息)",
+    "file": "开发/API参考/系统/基础功能/Basic Services Kit（基础服务）/ArkTS API/其他/@ohos.settingsLite (设置信息)/@ohos.settingsLite (设置信息).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-settings-lite",
+    "section": "开发"
+  },
+  {
+    "slug": "health-api-exercisesequencehelper",
+    "name": "exerciseSequenceHelper (锻炼记录类型常量)",
+    "file": "开发/API参考/应用服务/Health Service Kit（运动健康服务）/ArkTS API/运动健康数据类型常量及模型定义/exerciseSequenceHelper (锻炼记录类型常量)/exerciseSequenceHelper (锻炼记录类型常量).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisesequencehelper",
+    "section": "开发"
+  },
+  {
+    "slug": "health-api-exercisesequencehelper-lite",
+    "name": "exerciseSequenceHelper (锻炼记录类型常量)(Lite)",
+    "file": "开发/API参考/应用服务/Health Service Kit（运动健康服务）/ArkTS API/运动健康数据类型常量及模型定义/exerciseSequenceHelper (锻炼记录类型常量)(Lite)/exerciseSequenceHelper (锻炼记录类型常量)(Lite).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisesequencehelper-lite",
+    "section": "开发"
   }
 ]

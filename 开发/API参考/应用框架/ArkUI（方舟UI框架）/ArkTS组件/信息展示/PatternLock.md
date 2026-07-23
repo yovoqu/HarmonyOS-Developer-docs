@@ -1,6 +1,6 @@
 # PatternLock
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-patternlock
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -499,7 +499,7 @@ struct PatternLockExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/i34V2xEZS2e6zqr4OQG2BQ/zh-cn_image_0000002659221973.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014343Z&HW-CC-Expire=86400&HW-CC-Sign=F293DFD68BC4180BA976C826D69E4BC7A6DCA03F858F5B1A6B89E8881282E0ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/oOV8pEroTMCr7K72QzOE1Q/zh-cn_image_0000002677667981.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=3961AB991C58AA15DCD6BD44A1A62BE1042FEEC8D41460E225D6F6C4C195916D)
 
 
 
@@ -546,7 +546,7 @@ struct PatternLockExample {
         .onPatternComplete((input: Array<number>) => {
           // 输入的密码长度小于5时，提示重新输入
           if (input.length < 5) {
-            this.message = 'The password length needs to be greater than 5, please enter again.';
+            this.message = 'The password length needs to be at least 5, please enter again.';
             return;
           }
           // 判断密码长度是否大于0
@@ -578,4 +578,4 @@ struct PatternLockExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/u1J9rSiGSjWtjKq4FC1Izw/zh-cn_image_0000002628702782.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014343Z&HW-CC-Expire=86400&HW-CC-Sign=55E55EDDDBCFAEDD000126DE6377F5B505758C32F785221813C3900F2EE08FA0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/m8wpP6alQAW7JSH46npbcQ/zh-cn_image_0000002647748100.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011957Z&HW-CC-Expire=86400&HW-CC-Sign=33F3BB94B91717B8C9A5C356CB6E784D0212148A1761A98BFCF98CBF5C557E32)

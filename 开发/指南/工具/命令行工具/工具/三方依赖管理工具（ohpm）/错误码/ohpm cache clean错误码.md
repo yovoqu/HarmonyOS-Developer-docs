@@ -1,6 +1,6 @@
 # ohpm cache clean错误码
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-07-21 01:13:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-cache-errorcode
 
@@ -56,7 +56,9 @@ Invalid Cache Package.
  
 **可能原因**
  
-因缺少依赖等，导致缓存包不完整/无效。
+- 缓存包被修改，导致缓存包损坏/不完整。
+- 网络问题，使从仓库中下载的包在本地校验失败。
+
  
 **处理步骤**
  1. 执行ohpm cache clean清理缓存，然后执行ohpm install安装依赖。

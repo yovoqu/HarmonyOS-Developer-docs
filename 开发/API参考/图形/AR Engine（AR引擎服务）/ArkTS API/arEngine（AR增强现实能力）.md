@@ -1,6 +1,6 @@
 # arEngine（AR增强现实能力）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine
 **支持设备：** Phone | Tablet | TV
@@ -36,7 +36,7 @@ import { arEngine } from '@kit.AREngine';
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| ARENGINE_FEATURE_TYPE_SLAM | 0 | 运动跟踪、命中检测及平面识别等特性。 |
+| ARENGINE_FEATURE_TYPE_SLAM | 0 | 运动跟踪、命中检测及平面识别特性。 |
 | ARENGINE_FEATURE_TYPE_DEPTH | 1 | 深度估计特性。 |
 | ARENGINE_FEATURE_TYPE_MESH | 2 | 环境Mesh识别特性。 |
 | ARENGINE_FEATURE_TYPE_IMAGE | 3 | 图像跟踪特性。 |

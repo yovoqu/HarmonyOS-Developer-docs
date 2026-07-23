@@ -1,6 +1,6 @@
 # @ohos.arkui.drawableDescriptor (DrawableDescriptor)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -218,7 +218,7 @@ PixelMapDrawableDescriptor的构造函数。
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | image.PixelMap | 否 | PixelMap类型参数，存储 PixelMap 图片数据。 |
+| src | image.PixelMap | 否 | 图片资源参数，支持传入PixelMap图片数据。 |
 
 
 
@@ -346,7 +346,7 @@ LayeredDrawableDescriptor的构造函数。
 | --- | --- | --- | --- |
 | foreground | DrawableDescriptor | 否 | 分层图标的前景图片选项。 |
 | background | DrawableDescriptor | 否 | 分层图标的背景图片选项。 |
-| mask | DrawableDescriptor | 否 | 分层图标的遮罩选项。 |
+| mask | DrawableDescriptor | 否 | 分层图标的蒙版选项。 |
 
 
 
@@ -777,7 +777,7 @@ AnimatedDrawableDescriptor的构造函数。
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pixelMaps | Array<image.PixelMap> | 是 | PixelMap 数组类型参数，存储 PixelMap 图片数据。 |
-| options | AnimationOptions | 否 | 动画控制选项。 |
+| options | AnimationOptions | 否 | 动画播放参数。 |
 
 
 
@@ -801,7 +801,7 @@ AnimatedDrawableDescriptor的构造函数。
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | src | ResourceStr \| Array<image.PixelMap> | 是 | 动图资源地址或者PixelMap对象构成的数组。 ResourceStr当前支持的范围：应用资源Resource，沙箱路径（file://&lt;bundleName&gt;/&lt;sandboxPath&gt;），BASE64字符串。 |
-| options | AnimationOptions | 否 | 动画控制参数。 |
+| options | AnimationOptions | 否 | 动画播放参数。 |
 
 
 **示例：**

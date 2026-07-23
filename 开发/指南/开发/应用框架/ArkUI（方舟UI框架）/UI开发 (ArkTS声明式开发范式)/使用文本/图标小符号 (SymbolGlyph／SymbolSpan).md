@@ -1,6 +1,6 @@
 # 图标小符号 (SymbolGlyph/SymbolSpan)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-symbol
 
@@ -457,14 +457,11 @@ struct SymbolMusicDemo {
   @State symbolSourcesIndex: number = 0;
   @State symbolText: string[] = [
     // 请将$r('app.string.play_in_order')替换为实际资源文件，在本示例中该资源文件的value值为"顺序播放"
-    this.getUIContext()
-      .getHostContext()!.resourceManager.getStringSync($r('app.string.play_in_order').id),
+    resourceGetString.resourceToString($r('app.string.play_in_order')),
     // 请将$r('app.string.play_in_single_repeat')替换为实际资源文件，在本示例中该资源文件的value值为"单曲循环"
-    this.getUIContext()
-      .getHostContext()!.resourceManager.getStringSync($r('app.string.play_in_single_repeat').id),
+    resourceGetString.resourceToString($r('app.string.play_in_single_repeat')),
     // 请将$r('app.string.shuffle_play')替换为实际资源文件，在本示例中该资源文件的value值为"随机播放"
-    this.getUIContext()
-      .getHostContext()!.resourceManager.getStringSync($r('app.string.shuffle_play').id),
+    resourceGetString.resourceToString($r('app.string.shuffle_play')),
   ];
   @State symbolTextIndex: number = 0;
   @State fontColorValue: ResourceColor = Color.Grey;
@@ -475,8 +472,7 @@ struct SymbolMusicDemo {
       Row() {
         Text() {
           // 请将$r('app.string.current_playlist')替换为实际资源文件，在本示例中该资源文件的value值为"当前播放列表"
-          Span(this.getUIContext()
-            .getHostContext()!.resourceManager.getStringSync($r('app.string.current_playlist').id))
+          Span(resourceGetString.resourceToString($r('app.string.current_playlist')))
             .fontSize(20)
             .fontWeight(FontWeight.Bolder)
           Span('（101）')
@@ -528,7 +524,7 @@ struct SymbolMusicDemo {
         .width('25%')
       }
 
-      Divider().width(5).color(this.fontColorValue1).width('98%')
+      Divider().color(this.fontColorValue1).width('98%')
       Row() {
         Row() {
           // 请将$r('app.string.song')替换为实际资源文件，在本示例中该资源文件的value值为"歌曲一"

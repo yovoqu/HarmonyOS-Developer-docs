@@ -1,6 +1,6 @@
 # OH_Drawing_Array
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct OH_Drawing_Array OH_Drawing_Array
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义数组对象, 用于存储多个同类型对象。
+定义数组对象，用于存储多个同类型对象。
  
 **起始版本：** 14
  

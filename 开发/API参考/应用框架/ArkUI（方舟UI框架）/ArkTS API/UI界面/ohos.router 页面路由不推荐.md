@@ -1,6 +1,6 @@
 # @ohos.router (页面路由)(不推荐)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
@@ -33,7 +33,7 @@ pushUrl(options: RouterOptions): Promise&lt;void&gt;
 跳转到应用内的指定页面。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 18开始废弃，建议使用 pushUrl 替代。pushUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 9开始支持，从API version 18开始废弃，建议使用 pushUrl(options: router.RouterOptions) 替代。pushUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -116,7 +116,7 @@ pushUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 跳转到应用内的指定页面。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 18开始废弃，建议使用 pushUrl 替代。pushUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 9开始支持，从API version 18开始废弃，建议使用 pushUrl(options: router.RouterOptions, callback: AsyncCallback&lt;void&gt;) 替代。pushUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -191,7 +191,7 @@ pushUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 跳转到应用内的指定页面。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 18开始废弃，建议使用 pushUrl 替代。pushUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 9开始支持，从API version 18开始废弃，建议使用 pushUrl(options: router.RouterOptions, mode: router.RouterMode) 替代。pushUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -275,7 +275,7 @@ pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;voi
 跳转到应用内的指定页面。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 18开始废弃，建议使用 pushUrl 替代。pushUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 9开始支持，从API version 18开始废弃，建议使用 pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;) 替代。pushUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -351,7 +351,7 @@ replaceUrl(options: RouterOptions): Promise&lt;void&gt;
 用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
 
 > [!NOTE]
-> 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl(options: router.RouterOptions) 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -423,7 +423,7 @@ replaceUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
 
 > [!NOTE]
-> 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl(options: router.RouterOptions, callback: AsyncCallback&lt;void&gt;) 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -487,7 +487,7 @@ replaceUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
 
 > [!NOTE]
-> 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl(options: router.RouterOptions, mode: router.RouterMode) 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -560,7 +560,7 @@ replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
 
 > [!NOTE]
-> 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用 replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;) 替代。replaceUrl需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -625,7 +625,7 @@ pushNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 跳转到指定的命名路由页面。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 pushNamedRoute 替代。pushNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 pushNamedRoute(options: router.NamedRouterOptions) 替代。pushNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -712,7 +712,7 @@ pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&gt;)
 跳转到指定的命名路由页面。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 pushNamedRoute 替代。pushNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback&lt;void&gt;) 替代。pushNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -789,7 +789,7 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;void&g
 跳转到指定的命名路由页面。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 pushNamedRoute 替代。pushNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode) 替代。pushNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -875,7 +875,7 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCal
 跳转到指定的命名路由页面。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 pushNamedRoute 替代。pushNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;) 替代。pushNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -953,7 +953,7 @@ replaceNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute(options: router.NamedRouterOptions) 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1027,7 +1027,7 @@ replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&g
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback&lt;void&gt;) 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1093,7 +1093,7 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;voi
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode) 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1168,7 +1168,7 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: Async
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
 
 > [!NOTE]
-> 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 10开始支持，从API version 18开始废弃，建议使用 replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;) 替代。replaceNamedRoute需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1235,7 +1235,7 @@ back(options?: RouterOptions ): void
 返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 18开始废弃，建议使用 back 替代。back需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 8开始支持，从API version 18开始废弃，建议使用 back (options?: router.RouterOptions)替代。back需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1266,7 +1266,7 @@ back(index: number, params?: Object): void;
 返回指定的页面，会删除当前页面与指定页面之间的所有页面。
 
 > [!NOTE]
-> 从API version 12开始支持，从API version 18开始废弃，建议使用 back 替代。back需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 12开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
+> 从API version 12开始支持，从API version 18开始废弃，建议使用 back(index: number, params?: Object) 替代。back需先通过 UIContext 中的 getRouter 获取 Router 实例，然后通过该实例进行调用。 从API version 12开始，可以通过使用 UIContext 中的 getRouter 方法获取当前UI上下文关联的 Router 对象。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1839,7 +1839,7 @@ push(options: RouterOptions): void
 跳转到应用内的指定页面。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用 pushUrl 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 pushUrl(options: router.RouterOptions) 替代。
 
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -1889,7 +1889,7 @@ replace(options: RouterOptions): void
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用 replaceUrl 替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 replaceUrl(options: router.RouterOptions) 替代。
 
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Lite
@@ -2188,4 +2188,4 @@ export default {
 ```
 
 
-![](assets/ohos.router%20页面路由不推荐/file-2026070810310268ddfba9.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/APpoTBgKQ-ioJwaG82U-wQ/zh-cn_image_0000002677827323.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011949Z&HW-CC-Expire=86400&HW-CC-Sign=F92DFAD1347E9305BD08E1C0B4F8FD9AAD21B139599DFCC33ED9BBF4B81C0A90)

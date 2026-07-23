@@ -1,6 +1,6 @@
 # 使用Web组件的广告过滤功能
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-adsblock
 
@@ -37,7 +37,7 @@ ArkWeb为应用提供广告过滤功能，支持通过云端推送默认的easyl
  - 如果1个Web实例启用了广告过滤特性，但未调用[AdsBlockManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager)接口[addAdsBlockDisallowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#addadsblockdisallowedlist12)、[removeAdsBlockDisallowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#removeadsblockdisallowedlist12)、[clearAdsBlockDisallowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#clearadsblockdisallowedlist12)、[addAdsBlockAllowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#addadsblockallowedlist12)、[removeAdsBlockAllowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#removeadsblockallowedlist12)、[clearAdsBlockAllowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#clearadsblockallowedlist12)配置disallowedlist和allowedlist数据，则默认所有网站均启用广告过滤。
  - allowedlist和disallowedlist数据共同使用时，allowedlist的优先级高于disallowedlist，即先使用allowedlist匹配，如果匹配成功就不再使用disallowedlist匹配，该网站会启用广告过滤特性。
  - 如果应用未启用广告过滤特性，那么Web组件不会向服务器请求默认的内置easylist规则。
- - disallowedlist和allowedlist数据采用后缀匹配，例如应用的设置的域名"xxyy.com"，可以匹配上url为"wwsstt.xxyy.com"的网站。
+ - disallowedlist和allowedlist数据采用后缀匹配，例如应用设置的域名"xxyy.com"，可以匹配上url为"wwsstt.xxyy.com"的网站。
 
 
 
@@ -181,7 +181,7 @@ struct WebComponent {
       Row() {
         Flex() {
           TextInput({ text: this.input_text, placeholder: this.main_url, controller: this.text_input_controller})
-            .id('input_url')
+            .id('urlInput')
             .height(40)
             .margin(5)
             .borderColor(Color.Blue)

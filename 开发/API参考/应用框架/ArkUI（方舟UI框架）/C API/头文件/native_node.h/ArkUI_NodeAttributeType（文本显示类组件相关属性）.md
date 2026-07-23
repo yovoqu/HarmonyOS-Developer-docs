@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（文本显示类组件相关属性）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-text
 
@@ -1549,7 +1549,7 @@ NODE_TEXT_CONTROLLER = 1054
 
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 文本的控制器，参数类型为ArkUI_TextEditorStyledStringController。 |
+| .object | 文本的控制器，参数类型为OH_ArkUI_TextController。 |
 
 
 

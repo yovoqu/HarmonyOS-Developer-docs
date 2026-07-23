@@ -1,6 +1,6 @@
 # 自定义渲染节点 (RenderNode)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-rendernode
 
@@ -589,7 +589,7 @@ export struct CustomDrawCanvas {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/dV_VGRUvSxWtjWKEYIrCtQ/zh-cn_image_0000002656467895.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=6696822B0EF44C6BB666850D98C301C9FC8DC77570C6B2FD28CFFD4FB7022E9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/SshQBkV4Qw2LnQUh9HUkjw/zh-cn_image_0000002647586086.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=22A4AC4FE6EC6624CC7226973B332F6F120EF276B09616D13B23E789A0C097E7)
 
 
 **Node-API调用示例：**
@@ -724,8 +724,8 @@ class MyRenderNode extends RenderNode {
 
   draw(context: DrawContext) {
     // 需要将 context 中的宽度和高度从vp转换为px
-    bridge.nativeOnDraw(0, context, this.uiContext.vp2px(context.size.height),
-      this.uiContext.vp2px(context.size.width));
+    bridge.nativeOnDraw(0, context, this.uiContext.vp2px(context.size.width),
+      this.uiContext.vp2px(context.size.height));
   }
 }
 
@@ -760,6 +760,10 @@ export struct CustomDrawCanvasNative {
   }
 }
 ```
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/3lsCN1leTq-kjHPG18PWow/zh-cn_image_0000002677825727.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=5D05BB1A40DA6D854E6F425A2B294601CCC2759D634466EB3F35D59636B4432A)
+
 
 
 
@@ -817,7 +821,7 @@ export struct SetLabel {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/a-WS_RHYQJ-ZzJBUaqeWEQ/zh-cn_image_0000002656347943.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=B3B951AC99FEE976AE356E4893E9A53B4A0EA1CB2DA2FD4DC1B3A8D494B92833)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/k8LDZNONQhC_aIjUOczciA/zh-cn_image_0000002677665879.png?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=2DF353FEB3B5D30BBF3CD317F3788CCDCA50FAA954A4511EF06304807711CD06)
 
 
 
@@ -899,4 +903,4 @@ export struct CheckRenderNodeDisposed {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/tKr_k6nVQLe-bioc0kl5aQ/zh-cn_image_0000002626228528.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=847C6EDFAA7DF8FEE74A746BC399B4D364968DCE92FA01899847E85FFF41FA8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/AvsrcDviT3GhHRuamUaIqA/zh-cn_image_0000002647745998.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012136Z&HW-CC-Expire=86400&HW-CC-Sign=5665E34296A6BA2A1A3AE5736CABA520A91BA4715CE7F60A1C23FE261B06AF35)

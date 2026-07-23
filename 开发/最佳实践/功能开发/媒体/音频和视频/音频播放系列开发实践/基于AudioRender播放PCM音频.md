@@ -1,6 +1,6 @@
 # 基于AudioRenderer播放PCM音频
 
-更新时间：2026-06-12 07:22:00
+更新时间：2026-07-09 02:22:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-audiorenderer
 
@@ -741,7 +741,7 @@ async setListenerForMesFromController() {
 }
 ```
  
-5. 应用状态上报播控中心，当音频状态发生改变时，需要通过[setAVPlaybackState()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setavplaybackstate10)向播控中心上报视频状态，来达到播控中心与应用的状态同步，包括播放状态（state）、播放位置（position）、当前媒体播放时长（duration）等。
+5. 应用状态上报播控中心，当音频状态发生改变时，需要通过[setAVPlaybackState()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setavplaybackstate10)向播控中心上报音频状态，来达到播控中心与应用的状态同步，包括播放状态（state）、播放位置（position）、当前媒体播放时长（duration）等。
  
 ```ArkTS
 // Set favorite state.

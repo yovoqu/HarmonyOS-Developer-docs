@@ -1,6 +1,6 @@
 # @ohos.web.WebNativeMessagingExtensionAbility (Web Native Messaging Extension Ability)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-web-webnativemessagingextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,7 +40,7 @@ import { WebNativeMessagingExtensionAbility } from '@kit.ArkWeb';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | WebNativeMessagingExtensionContext | 否 | 否 | Web原生消息通信上下文。 |
+| context | WebNativeMessagingExtensionContext | 否 | 否 | 当前Web原生消息扩展Ability的上下文。 |
  
  
   

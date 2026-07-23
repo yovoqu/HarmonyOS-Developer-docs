@@ -1,6 +1,6 @@
 # 基于ScrollComponents实现长列表
 
-更新时间：2026-05-22 09:46:30
+更新时间：2026-07-22 06:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-list-based-on-scrollcomponents
 

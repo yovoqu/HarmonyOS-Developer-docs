@@ -1,6 +1,6 @@
 # DataPanel
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -461,16 +461,6 @@ struct LinearGradientDataPanelExample {
     new LinearGradient([{ color: '#65EEC9A3', offset: 0 }, { color: '#FFEF629F', offset: 1 }])
   public color2: LinearGradient =
     new LinearGradient([{ color: '#FF67F9D4', offset: 0 }, { color: '#FFFF9554', offset: 1 }])
-  public colorShadow1: LinearGradient =
-    new LinearGradient([{ color: '#65EEC9A3', offset: 0 }, { color: '#65EF629F', offset: 1 }])
-  public colorShadow2: LinearGradient =
-    new LinearGradient([{ color: '#65e26709', offset: 0 }, { color: '#65efbd08', offset: 1 }])
-  public colorShadow3: LinearGradient =
-    new LinearGradient([{ color: '#6572B513', offset: 0 }, { color: '#6508efa6', offset: 1 }])
-  public colorShadow4: LinearGradient =
-    new LinearGradient([{ color: '#65ed08f5', offset: 0 }, { color: '#65ef0849', offset: 1 }])
-  @State shadowColorArray: Array<LinearGradient | ResourceColor> =
-    [this.colorShadow1, this.colorShadow2, this.colorShadow3, this.colorShadow4]
   @State color3: string = '#00FF00'
   @State color4: string = '#20FF0000'
   @State colorArray: Array<LinearGradient | ResourceColor> = [this.color1, this.color2, this.color3, this.color4]

@@ -1,6 +1,6 @@
 # fiber.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-fiber-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -65,11 +65,11 @@ FFRT_C_API int ffrt_fiber_init(ffrt_fiber_t* fiber, void(*func)(void*), void* ar
   
 | 参数项 | 描述 |
 | --- | --- |
-| fiber | 指向要初始化的纤程的指针, 具体可参考ffrt_fiber_t。 |
+| fiber | 指向要初始化的纤程的指针，具体可参考ffrt_fiber_t。 |
 | func | 纤程切换后所要执行的方法。 |
 | void* arg | 纤程切换后所要执行方法的入参。 |
 | void* stack | 纤程堆栈内存指针。 |
-| size_t stack_size | 纤程堆栈大小, 具体可参考ffrt_storage_size_t。 |
+| size_t stack_size | 纤程堆栈大小，具体可参考ffrt_storage_size_t。 |
  
  
 **返回：**

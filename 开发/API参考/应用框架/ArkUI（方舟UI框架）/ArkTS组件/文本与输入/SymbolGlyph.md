@@ -1,6 +1,6 @@
 # SymbolGlyph
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -925,7 +925,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/js7qJv6zR9C8f-sfov8oMQ/zh-cn_image_0000002659221877.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=1A4D33869274822B96D3BCDACE56C801F9E13D6370FED90E485F10E1011E3F1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/Yxx6o08iRtKJPaccIBgcJw/zh-cn_image_0000002677667885.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=9C8D9AFFA1AFB7AE10FFF3AAC874F24EB4BBBE37CCC62A3E8D4E000E1A27E7CE)
 
  
   
@@ -1033,7 +1033,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/WylfnBzKSQufJLI7xisK-A/zh-cn_image_0000002628702686.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=15084FCF1CCA50D4FA4074594BB4BDC9820DD7524B6E2F09FCF18FDFE320A9D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/quElQzgtQFGSPCb9XG6qlw/zh-cn_image_0000002647748004.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=900499C89647D5AE62F1016E3E7A5BF445E69FE307503A492ABF0A0550B20D72)
 
  
   
@@ -1046,7 +1046,6 @@ struct Index {
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Hello World';
 
   linearGradientOptions1: LinearGradientOptions = {
     angle: 45,
@@ -1178,7 +1177,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/XNzSklV-TI-t7Qkbp920-w/zh-cn_image_0000002659101913.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=1A27489FC5AAA6EE1256217C89EA8E46943206ABF239E2F560652E65432B2584)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/5FFRvanvRhShtuONANn1Yw/zh-cn_image_0000002647588094.jpeg?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=010705D481BB17A5EC38204B48796837890AF747DDB990D5EB1911E3AEAE4F9D)
 
  
   
@@ -1233,4 +1232,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/Ge1W1-QjTFiyauJWhrQp_A/zh-cn_image_0000002628862564.jpeg?HW-CC-KV=V1&HW-CC-Date=20260701T014340Z&HW-CC-Expire=86400&HW-CC-Sign=3C08C911198C98035DA9802B30957DCCE1101F0B8A7A00EBD085C74AC1745086)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/PEUNThaYTE6ZI6-xYhi_Rw/zh-cn_image_0000002677827735.jpeg?HW-CC-KV=V1&HW-CC-Date=20260723T011956Z&HW-CC-Expire=86400&HW-CC-Sign=EA0D49B667B10EF6E5BB2E913C8E675F300DEFAF1EF380D8866C94A603D18653)

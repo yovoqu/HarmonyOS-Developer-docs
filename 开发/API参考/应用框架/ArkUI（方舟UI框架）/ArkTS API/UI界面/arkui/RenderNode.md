@@ -1,6 +1,6 @@
 # RenderNode
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -777,7 +777,7 @@ set backgroundColor(color: number)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | number | 是 | 背景颜色值，ARGB格式，示例：0xE5E5E5。 |
+| color | number | 是 | 背景颜色值，ARGB格式，示例：0xFFE5E5E5。 |
 
 
 get backgroundColor(): number
@@ -3016,7 +3016,7 @@ set markNodeGroup(isNodeGroup: boolean)
 标记是否优先绘制节点及其子节点。若设置为true，则透明度等属性将在节点绘制完毕后再进行合成。设置效果如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/yo3_96G4RWWEVpcrINOvYQ/zh-cn_image_0000002659221493.png?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=B89D33E21DD579553789625D2FA8CA0A59074C10A52BB1DD1BF57A8A5B8F9529)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/aptS7NSBSAWxl6GrQci03g/zh-cn_image_0000002677827351.png?HW-CC-KV=V1&HW-CC-Date=20260723T011950Z&HW-CC-Expire=86400&HW-CC-Sign=BEB60E274CCCDDFD054E75773757FAF17E28817939AE6BD37788DBB33C722C07)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -3302,4 +3302,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/s8CM5QfWRLeHLmUFnHSLNQ/zh-cn_image_0000002628702304.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=0A70300511C769A69DA14E0DDDEB73813354C8ACF7B2B94A34D93383A68ABA61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/sPeL9ufoQYqy_FNQaS0PaA/zh-cn_image_0000002677667503.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011950Z&HW-CC-Expire=86400&HW-CC-Sign=F21046EFA8C9A485543CC67B7A646224A9D83CB4E5CC4C60093BED490A7B585D)

@@ -1,6 +1,6 @@
 # 自定义Native Sendable对象的多线程操作场景
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-define-sendable-object
 
@@ -254,8 +254,8 @@ struct Index {
         Button(this.message)
           .fontSize($r('app.float.page_text_font_size'))
           .fontWeight(FontWeight.Bold)
-          .onClick( async () => {
-            let object : MyObject = new MyObject(0);
+          .onClick(async () => {
+            let object: MyObject = new MyObject(0);
             object.value = 1023;
             let num = object.plusOne();
             console.info('host thread num1 is ' + num); // 日志输出：host thread num1 is 1024

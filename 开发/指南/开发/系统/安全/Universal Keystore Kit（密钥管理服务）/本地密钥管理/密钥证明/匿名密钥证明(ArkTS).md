@@ -1,6 +1,6 @@
 # 匿名密钥证明(ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-anon-attestation-arkts
 
@@ -11,7 +11,7 @@
 1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
 2. 初始化参数集。
 
-  [HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)中的properties字段中的参数必须包含[HUKS_TAG_ATTESTATION_CHALLENGE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)属性,可选参数包含[HUKS_TAG_ATTESTATION_ID_VERSION_INFO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，[HUKS_TAG_ATTESTATION_ID_ALIAS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)属性。
+  [HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)中的properties字段中的参数必须包含[HUKS_TAG_ATTESTATION_CHALLENGE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)属性，可选参数包含[HUKS_TAG_ATTESTATION_ID_VERSION_INFO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，[HUKS_TAG_ATTESTATION_ID_ALIAS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)属性。
 3. 生成非对称密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
 4. 将密钥别名与参数集作为参数传入[anonAttestKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksanonattestkeyitem11)方法中，即可证明密钥。
 

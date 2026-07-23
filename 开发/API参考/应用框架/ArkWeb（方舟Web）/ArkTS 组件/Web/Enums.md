@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -17,7 +17,7 @@
 ConsoleMessage的信息级别。
  
 > [!NOTE]
-> 在html5侧，调用console.log或console.info对应ConsoleMessage的信息级别都为MessageLevel.Info。
+> 在HTML5侧，调用console.log或console.info对应ConsoleMessage的信息级别都为MessageLevel.Info。
 
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -25,10 +25,10 @@ ConsoleMessage的信息级别。
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | Debug | 1 | 调试级别。 |
-| Error | 4 | 错误级别。 |
 | Info | 2 | 消息级别。 |
-| Log | 5 | 日志级别。 |
 | Warn | 3 | 警告级别。 |
+| Error | 4 | 错误级别。 |
+| Log | 5 | 日志级别。 起始版本： 8 废弃版本： 26.0.0 |
  
  
   
@@ -298,6 +298,8 @@ Web布局模式的配置。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+受保护的资源类型。
+ 
 **系统能力：** SystemCapability.Web.Webview.Core
   
 | 名称 | 值 | 说明 | 可申请的权限 |

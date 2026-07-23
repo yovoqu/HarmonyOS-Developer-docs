@@ -1,6 +1,6 @@
 # NativeBuffer开发指导 (C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-buffer-guidelines
 
@@ -16,7 +16,7 @@ NativeBuffer的常见开发场景：通过Native API申请OH_NativeBuffer实例�
 
 | 接口名 | 描述 |
 | --- | --- |
-| OH_NativeBuffer_Alloc (const OH_NativeBuffer_Config *config) | 通过OH_NativeBuffer_Config创建OH_NativeBuffer实例，每次调用都会产生一个新的OH_NativeBuffer实例。本接口需要与OH_NativeBuffer_Unreference接口配合使用，否则会存在内存泄露。 |
+| OH_NativeBuffer_Alloc (const OH_NativeBuffer_Config *config) | 通过OH_NativeBuffer_Config创建OH_NativeBuffer实例，每次调用都会产生一个新的OH_NativeBuffer实例。本接口需要与OH_NativeBuffer_Unreference接口配合使用，否则会存在内存泄漏。 |
 | OH_NativeBuffer_Reference (OH_NativeBuffer *buffer) | 将OH_NativeBuffer对象的引用计数增加1。 |
 | OH_NativeBuffer_Unreference (OH_NativeBuffer *buffer) | 将OH_NativeBuffer对象的引用计数减1，当引用计数为0的时候，该NativeBuffer对象会被析构掉。 |
 | OH_NativeBuffer_GetConfig (OH_NativeBuffer *buffer, OH_NativeBuffer_Config *config) | 用于获取OH_NativeBuffer的属性。 |
@@ -25,7 +25,7 @@ NativeBuffer的常见开发场景：通过Native API申请OH_NativeBuffer实例�
 | OH_NativeBuffer_GetSeqNum (OH_NativeBuffer *buffer) | 获取OH_NativeBuffer的序列号。 |
 
 
-详细的接口说明请参考[native_buffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer)。
+详细的接口说明请参考[OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer)。
 
 
 

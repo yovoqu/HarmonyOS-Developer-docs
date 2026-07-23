@@ -1,6 +1,6 @@
 # 数据库备份与恢复 (ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore
 
@@ -430,7 +430,7 @@ try {
   let backupFilePath = context.databaseDir + '/rdb/Backup.db';
   const backupExist: boolean = await fileIo.access(backupFilePath);
   if (!backupExist) {
-    hilog.info(DOMAIN, 'BackupAndRestore', 'Backup is not exist.');
+    hilog.info(DOMAIN, 'BackupAndRestore', 'Backup does not exist.');
     // todo 开库建表
     // todo 自行生成数据
     return;

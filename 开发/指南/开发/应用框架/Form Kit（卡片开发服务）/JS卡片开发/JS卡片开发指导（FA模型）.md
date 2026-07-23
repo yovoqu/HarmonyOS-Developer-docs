@@ -1,6 +1,6 @@
 # JS卡片开发指导（FA模型）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/widget-development-fa
 
@@ -82,10 +82,10 @@ const domain: number = 0xFF00;
 
 const DATA_STORAGE_PATH: string = 'form_store';
 let storeFormInfo = async (formId: string, formName: string, tempFlag: boolean, context: featureAbility.Context): Promise<void> => {
-  // 此处仅对卡片ID：formId，卡片名：formName和是否为临时卡片：tempFlag进行了持久化
+  // 此处仅对卡片名：formName， 是否为临时卡片：tempFlag进行了持久化
   let formInfo: Record<string, string | number | boolean> = {
-    'formName': 'formName',
-    'tempFlag': 'tempFlag',
+    'formName': formName,
+    'tempFlag': tempFlag,
     'updateCount': 0
   };
   try {
@@ -118,10 +118,6 @@ class LifeCycle {
   onUpdate: (formId: string) => void = (formId) => {
   };
   onVisibilityChange: (newStatus: Record<string, number>) => void = (newStatus) => {
-    let obj: Record<string, number> = {
-      'test': 1
-    };
-    return obj;
   };
   onEvent: (formId: string, message: string) => void = (formId, message) => {
   };
@@ -341,10 +337,10 @@ const domain: number = 0xFF00;
 
 const DATA_STORAGE_PATH: string = 'form_store';
 let storeFormInfo = async (formId: string, formName: string, tempFlag: boolean, context: featureAbility.Context): Promise<void> => {
-  // 此处仅对卡片ID：formId，卡片名：formName和是否为临时卡片：tempFlag进行了持久化
+  // 此处仅对卡片名：formName， 是否为临时卡片：tempFlag进行了持久化
   let formInfo: Record<string, string | number | boolean> = {
-    'formName': 'formName',
-    'tempFlag': 'tempFlag',
+    'formName': formName,
+    'tempFlag': tempFlag,
     'updateCount': 0
   };
   try {
@@ -461,7 +457,7 @@ onUpdate(formId: string) {
 开发者可以使用类Web范式（HML+CSS+JSON）开发JS卡片页面。生成如下卡片页面，可以这样配置卡片页面文件：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/39c0JrpzSnSwZypTRgOCEg/zh-cn_image_0000002656348281.png?HW-CC-KV=V1&HW-CC-Date=20260624T020817Z&HW-CC-Expire=86400&HW-CC-Sign=832E7DF9C48145906B4E22FC8357A25BC495F735541C639D0170BD790F9DC63A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/IjFnjN_kQg2veKSOfonmnw/zh-cn_image_0000002677826069.png?HW-CC-KV=V1&HW-CC-Date=20260723T012144Z&HW-CC-Expire=86400&HW-CC-Sign=236DFBC553F30103BC7715B11D10FBA21606C40B547B27F55A704971B542757D)
 
 
 > [!NOTE]
@@ -579,9 +575,9 @@ onUpdate(formId: string) {
   
  - action属性值为"router"；
 
-3. abilityName为跳转目标的Ability名（支持跳转FA模型的PageAbility组件和Stage模型的UIAbility组件），如目前DevEco创建的FA模型的UIAbility默认名为com.example.entry.EntryAbility；
+3. abilityName为跳转目标的Ability名（支持跳转FA模型的PageAbility组件和Stage模型的UIAbility组件），如目前DevEco创建的Stage模型的UIAbility默认名为com.example.entry.EntryAbility；
 
-4. params为传递给跳转目标Ability的自定义参数，可以按需填写。其值可以在目标Ability启动时的want中的parameters里获取。如FA模型EntryAbility的onCreate生命周期里可以通过featureAbility.getWant()获取到want，然后在其parameters字段下获取到配置的参数；
+4. params为传递给跳转目标Ability的自定义参数，可以按需填写。其值可以在目标Ability启动时的want中的parameters里获取。如FA模型PageAbility的onCreate生命周期里可以通过featureAbility.getWant()获取到want，然后在其parameters字段下获取到配置的参数；
 
 5. 如何设置message事件：
 

@@ -1,6 +1,6 @@
 # 基于ArkTS脚本的应用Skill开发指导
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-skill-development-guide
 
@@ -204,7 +204,9 @@ Schema的核心在于args子对象，它定义了系统智能体可填写的入�
         "matchedCount": 1
     }
 }
+```
 
+```json
 // 2. 入参非法
 {
     "type": "result",
@@ -213,7 +215,9 @@ Schema的核心在于args子对象，它定义了系统智能体可填写的入�
     "errMsg": "songName and singer are both empty",
     "suggestion": "我没听清，你想听哪首歌？"
 }
+```
 
+```json
 // 3. 未命中
 {
     "type": "result",
@@ -224,7 +228,9 @@ Schema的核心在于args子对象，它定义了系统智能体可填写的入�
     },
     "suggestion": "没有找到SingerA的《SongA》"
 }
+```
 
+```json
 // 4. 内部错误
 {
     "type": "result",

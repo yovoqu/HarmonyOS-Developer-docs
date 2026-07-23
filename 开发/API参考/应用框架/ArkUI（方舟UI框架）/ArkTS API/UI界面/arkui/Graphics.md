@@ -1,6 +1,6 @@
 # Graphics
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -253,9 +253,9 @@ const transform: Matrix4 = [
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| x | number | 否 | 否 | x轴方向的旋转角度。 取值范围：(-∞, +∞) |
-| y | number | 否 | 否 | y轴方向的旋转角度。 取值范围：(-∞, +∞) |
-| z | number | 否 | 否 | z轴方向的旋转角度。 取值范围：(-∞, +∞) |
+| x | number | 否 | 否 | 向量x轴方向的值。 取值范围：(-∞, +∞) |
+| y | number | 否 | 否 | 向量y轴方向的值。 取值范围：(-∞, +∞) |
+| z | number | 否 | 否 | 向量z轴方向的值。 取值范围：(-∞, +∞) |
 
 
 
@@ -2375,4 +2375,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/OY0IPJwPSL2NIhsVHYJMnQ/zh-cn_image_0000002628862180.png?HW-CC-KV=V1&HW-CC-Date=20260701T014317Z&HW-CC-Expire=86400&HW-CC-Sign=0AAF0514A115DEB953EC632BF5C82FA7FD0BA64A75737EE0368A042BAEBD5725)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/AsuFi6C2TgShly6pU1QjAQ/zh-cn_image_0000002647587708.png?HW-CC-KV=V1&HW-CC-Date=20260723T011950Z&HW-CC-Expire=86400&HW-CC-Sign=EFEE1A4AFFCBCB0B739A939B322039038C34B6C1AB4EADEFFBEDD780D2C72511)

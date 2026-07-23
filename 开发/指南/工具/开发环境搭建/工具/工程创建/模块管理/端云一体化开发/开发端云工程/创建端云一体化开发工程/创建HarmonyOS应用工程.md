@@ -1,6 +1,6 @@
 # 创建HarmonyOS应用工程
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-harmonyos-create-appproject
 
@@ -211,6 +211,10 @@ dataentry：用于存放数据条目文件。该目录下一般会根据您选�
 ![](assets/创建HarmonyOS应用工程/file-20260514134347835-32.png)
 
 
+  > [!NOTE] 说明
+
+  > 应用分类设置后不支持修改，请谨慎选择。
+
 | 参数 | 说明 |
 
 | --- | --- |
@@ -221,10 +225,7 @@ dataentry：用于存放数据条目文件。该目录下一般会根据您选�
 
 | 应用包名 | 从DevEco Studio中带入自动填充，且不可更改。 |
 
-| 应用分类 | 请选择普通应用或游戏类应用。 
-> [!TIP]
-> 应用分类设置后不支持修改，请谨慎选择。
- |
+| 应用分类 | 请选择普通应用或游戏类应用。 |
 3. 进入“所属项目信息”页面，为应用选择所属的项目后点击“下一步”。
 - 如需将应用添加到已有项目，点击下拉框进行选择。
 
@@ -300,14 +301,14 @@ dataentry：用于存放数据条目文件。该目录下一般会根据您选�
   启用的数据处理位置必须包含中国站点。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/PLPmw0HwQYOykmi2YGqdng/zh-cn_image_0000002179338436.png?HW-CC-KV=V1&HW-CC-Date=20260624T020701Z&HW-CC-Expire=86400&HW-CC-Sign=AA0F99387257DDE4BEEC50D0F30A60C31C6A576523CC662C6A432DFA158ABA7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/JIzfuz3FRge_cxFqQEI7EQ/zh-cn_image_0000002179338436.png?HW-CC-KV=V1&HW-CC-Date=20260723T012112Z&HW-CC-Expire=86400&HW-CC-Sign=B09B88D762011FA6D683477DACD8638E8E5E9FCB3E6923AF524EF162D5542EA0)
 
 - 如项目已设置过数据处理位置，可点击“管理”启用新的数据处理位置、取消已启用的数据处理位置，或修改默认数据处理位置。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/WD6y1pdAR6ONADZvI6J7wQ/zh-cn_image_0000002179338464.png?HW-CC-KV=V1&HW-CC-Date=20260624T020701Z&HW-CC-Expire=86400&HW-CC-Sign=989018302E0CAE21B581AA579F0E38C9FD54F2B6881335778BB7AF90F455F536)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/cXWpyJwjRsu6egYhEEqYIg/zh-cn_image_0000002179338464.png?HW-CC-KV=V1&HW-CC-Date=20260723T012112Z&HW-CC-Expire=86400&HW-CC-Sign=DF9819075D2D3368BA0A95749594E3C92DB882CF5F4DC2C819D183CCC161529A)
 
 
  - 点击“确认”，应用成功关联项目。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/_vEcp_FlRoeOHgHhGLlIlA/zh-cn_image_0000002179498200.png?HW-CC-KV=V1&HW-CC-Date=20260624T020701Z&HW-CC-Expire=86400&HW-CC-Sign=EC2BF05F40FD141B634CBC60D4E7586391538CDC6DEF2AE90B09F42F7CB07DBD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/aCmx9gGlSOi_XkUABC03pw/zh-cn_image_0000002179498200.png?HW-CC-KV=V1&HW-CC-Date=20260723T012112Z&HW-CC-Expire=86400&HW-CC-Sign=07BC5039395E7EF122701C1081188889059F27C86A61425EF82C531673F673DB)
 
 - 返回DevEco Studio，可看到应用已关联上了项目。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/qXXKELALQSyDa3sNpePzXA/zh-cn_image_0000002214858777.png?HW-CC-KV=V1&HW-CC-Date=20260624T020701Z&HW-CC-Expire=86400&HW-CC-Sign=A49918B1029853A3E79B8A54EE66DFB4D7715A3A0BF9770041B48FDB97C1A5F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/ZZBB5HXwTRCBXVsRTBmtZg/zh-cn_image_0000002214858777.png?HW-CC-KV=V1&HW-CC-Date=20260723T012112Z&HW-CC-Expire=86400&HW-CC-Sign=ABDCBBFF81B2B90B9051538F3270A6A532CB0D9962F5FDFAB2B8C4DDDE292FC3)

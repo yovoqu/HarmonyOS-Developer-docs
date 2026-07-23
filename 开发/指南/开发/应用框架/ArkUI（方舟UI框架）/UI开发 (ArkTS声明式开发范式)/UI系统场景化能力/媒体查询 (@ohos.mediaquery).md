@@ -1,6 +1,6 @@
 # 媒体查询 (@ohos.mediaquery)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-media-query
 
@@ -181,6 +181,7 @@ struct MediaQueryExample {
   }
 
   aboutToAppear() {
+    // 绑定当前应用实例
     // 绑定回调函数
     this.listener.on('change', (mediaQueryResult: mediaquery.MediaQueryResult) => {
       this.onPortrait(mediaQueryResult);

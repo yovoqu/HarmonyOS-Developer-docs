@@ -1,6 +1,6 @@
 # 模拟器工具（Emulator）
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-commandline-emulator
 
@@ -95,7 +95,7 @@ Linux模拟器提供了对外的gRPC服务，开发者可通过调用模拟器�
 工作流程如下：
 
 
-![](assets/模拟器工具（Emulator）/file-2026070810341936073ca3.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/lA3bKJEGTo67hkT_YEHwew/zh-cn_image_0000002625074205.png?HW-CC-KV=V1&HW-CC-Date=20260723T012203Z&HW-CC-Expire=86400&HW-CC-Sign=8928C615EB57DCA806445C6D756DBFC106877AD5AC650F9B13D51F7D93D6643D)
 
 1. 开发者需要自行开发本地gRPC客户端。
 2. 开发者需要通过本文档提供的模拟器gRPC服务，定义服务接口和消息结构，使用protoc生成规范的接口头文件。

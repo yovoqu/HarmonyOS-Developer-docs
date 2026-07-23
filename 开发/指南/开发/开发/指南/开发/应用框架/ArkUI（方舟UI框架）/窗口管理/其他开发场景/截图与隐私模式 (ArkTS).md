@@ -1,6 +1,6 @@
 # 截图与隐私模式 (ArkTS)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screenshot-and-privacy-mode
 
@@ -363,7 +363,7 @@ struct Index {
   
 [on('screenshot')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onscreenshot9)接口只能监听截屏动作，无法区分具体的截屏事件类型。对控制中心截屏、hdc命令截屏、整屏截屏接口等生效。
  - [on('screenshotAppEvent')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onscreenshotappevent20)接口可以监听截屏动作，并能返回触发的截屏事件类型[ScreenshotEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#screenshoteventtype20)。比如系统截屏成功或中止、滚动截屏开始或结束等。
- - 当不需要再对进行屏幕截图进行监听时，可通过对应off接口（[off('screenshot')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#offscreenshot9)/[off('screenshotAppEvent')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#offscreenshotappevent20)）关闭监听。
+ - 当不需要再对屏幕截图进行监听时，可通过对应off接口（[off('screenshot')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#offscreenshot9)/[off('screenshotAppEvent')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#offscreenshotappevent20)）关闭监听。
 
 
 

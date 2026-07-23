@@ -1,14 +1,14 @@
 # @ohos.enterprise.usbManager（USB管理）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-usbmanager
 **支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供USB管理能力。
 
-> [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考 MDM Kit开发指南 。 全局通用限制类策略由restrictions统一提供，若要全局禁用USB，请参考 @ohos.enterprise.restrictions（限制类策略） 。
+> [!TIP]
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考 MDM Kit开发指南 。 全局通用限制类策略由restrictions统一提供，若要全局禁用USB，请参考 @ohos.enterprise.restrictions （限制类策略） 。
 
 
 
@@ -217,7 +217,7 @@ try {
 
 setUsbStorageDeviceAccessPolicy(admin: Want, usbPolicy: UsbPolicy): void
 
-设置USB存储设备访问策略。
+设置USB存储设备（baseClass = 0x08）访问策略。
 
 > [!NOTE]
 > 在调用接口前，确保已暂停USB存储设备的读写操作，保证操作的稳定性和数据的完整性，否则可能出现不可预期的异常。
@@ -235,7 +235,11 @@ setUsbStorageDeviceAccessPolicy(admin: Want, usbPolicy: UsbPolicy): void
 
 通过本接口设置，或者通过[addDisallowedUsbDevices](#usbmanageradddisallowedusbdevices14)接口添加存储类型的USB设备，均可禁用USB存储设备。推荐使用后者。
 
-**需要权限：** API版本26.0.0之前：ohos.permission.ENTERPRISE_MANAGE_USB，API版本26.0.0开始：ohos.permission.ENTERPRISE_MANAGE_USB 或者 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS（应用[激活为自带设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagerstartadminprovision15)）。
+**需要权限：**
+
+ - API版本26.0.0之前：ohos.permission.ENTERPRISE_MANAGE_USB
+ - API版本26.0.0开始：ohos.permission.ENTERPRISE_MANAGE_USB 或者 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS（应用调用[adminManager.startAdminProvision](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagerstartadminprovision15)接口激活为自带设备管理应用）。
+
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
@@ -292,9 +296,13 @@ try {
 
 getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy
 
-获取USB存储设备访问策略。
+获取USB存储设备（baseClass = 0x08）访问策略。
 
-**需要权限：** API版本26.0.0之前：ohos.permission.ENTERPRISE_MANAGE_USB，API版本26.0.0开始：ohos.permission.ENTERPRISE_MANAGE_USB 或者 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS（应用[激活为自带设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagerstartadminprovision15)）。
+**需要权限：**
+
+ - API版本26.0.0之前：ohos.permission.ENTERPRISE_MANAGE_USB
+ - API版本26.0.0开始：ohos.permission.ENTERPRISE_MANAGE_USB 或者 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS（应用调用[adminManager.startAdminProvision](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagerstartadminprovision15)接口激活为自带设备管理应用）。
+
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 

@@ -1,6 +1,6 @@
 # Surface模式解码视频的播放控制
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding-play-remote
 
@@ -8,7 +8,7 @@
 
 开发者在开发影视、会议和直播等应用时，通常需要使用视频解码能力实现高性能的播放和视频处理功能。
  
-本文中视频播控功能采用[Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface模式)解码能力实现，Surface模式是指在视频解码的过程中，用[NativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativewindow)来传递输出数据，直接与XComponent组件对接，实现视频播放。与[Buffer模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#buffer模式)相比，开发者不需要处理解码后的视频数据与播放组件的对接。具体区别可参考[surface输出与buffer输出](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface输出与buffer输出)。
+本文中视频播控功能采用[Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface模式)解码能力实现，Surface模式是指在视频解码的过程中，用[NativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativewindow)来传递输出数据，直接与XComponent组件对接，实现视频播放。与[Buffer模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#buffer模式)相比，开发者不需要处理解码后的视频数据与播放组件的对接。具体区别可参考[视频解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding)。
  
 在阅读本文之前，建议开发者先了解[音视频编解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-codec)相关知识，同时建议IDE环境中的SDK版本不低于6.0.2(22)。
  
@@ -44,17 +44,17 @@ Surface模式视频解码播放是通过调用系统AVCodec模块的能力实现
 4. 创建解码输入和输出子线程，启动解码播放流程。
 
   
-![](assets/Surface模式解码视频的播放控制/file-20260708103504be0447a1.png)
+![](assets/Surface模式解码视频的播放控制/file-2026070810350424f89394.png)
 
-5. 输入子线程通过[OH_AVCodecCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-codecbase-oh-avcodeccallback)中的OnNeedInputBuffer异步回调函数指针获取可用的AVBuffer后，从解封装器中读取视频数据提交给解码器，实现向解码器输入待解码的视频数据。
+5. 输入子线程通过[OH_AVCodecCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-codecbase-oh-avcodeccallback)中的OnNeedInputBuffer异步回调函数指针获取可用的AVBuffer后，从解封装器中读取视频数据提交给解码器；实现向解码器输入待解码的视频数据。
 
   
 ![](assets/Surface模式解码视频的播放控制/file-2026070810350492c4f8f2.png)
 
-6. 解码输出子线程通过OnNeedOutputBuffer拿到解码后的帧数据，进行[音画同步](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization)处理后，通知解码器在Surface上完成渲染。
+6. 解码输出子线程通过OnNeedOutputBuffer拿到解码后的帧数据，进行[音画同步](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-synchronization)处理后，通知解码器在Surface上完成渲染。
 
   
-![](assets/Surface模式解码视频的播放控制/file-2026070810350424f89394.png)
+![](assets/Surface模式解码视频的播放控制/file-20260708103504be0447a1.png)
 
  
   
@@ -103,7 +103,7 @@ int32_t Player::CreateVideoDecoder()
 }
 ```
 
-3. 启动解码器，创建解码输入、输出子线程，开始解码视频进行播放。
+3. 启动解码器，创建解码输入、输出子线程，开始解码视频。
 
   
 ```text
@@ -223,7 +223,7 @@ int32_t VideoDecoder::RenderOutputBuffer(uint32_t bufferIndex, bool render)
 
 
   
-![](assets/Surface模式解码视频的播放控制/file-202607081035058980f1fd.png)
+![](assets/Surface模式解码视频的播放控制/file-202607081035055f15d0a1.png)
 
  
   
@@ -289,7 +289,7 @@ XComponent({
 暂停播放通过阻塞输入和输出子线程实现。阻塞后输入子线程停止提交数据到解码器，输出子线程停止向Surface提供视频帧数据，达到暂停播放的效果。继续播放则是取消输入和输出子线程的阻塞状态，从而恢复播放状态。
  
 
-![](assets/Surface模式解码视频的播放控制/file-2026070810350509b417ce.png)
+![](assets/Surface模式解码视频的播放控制/file-202607081035058980f1fd.png)
 
  
   
@@ -378,7 +378,7 @@ int32_t Player::Resume()
 
  
 
-![](assets/Surface模式解码视频的播放控制/file-202607081035055f15d0a1.png)
+![](assets/Surface模式解码视频的播放控制/file-20260708103506261a3046.png)
 
  
   
@@ -462,7 +462,7 @@ CHECK_AND_BREAK_LOG(ret == MEDIA_ERR_OK, "Push data failed, thread out");
 3. 从解封装器中拿到首帧数据，实现循环播放。
  
 
-![](assets/Surface模式解码视频的播放控制/file-202607081035062340f309.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/uft_WOanSXymNiuWxwAdZg/zh-cn_image_0000002647586708.png?HW-CC-KV=V1&HW-CC-Date=20260723T012202Z&HW-CC-Expire=86400&HW-CC-Sign=46FAEDC91D0BC0462B436642430DC6B811B8EB8BD429C55FC58E5570FAD90A21)
 
  
   
@@ -526,10 +526,10 @@ isAudioWaitSeek_.store(false);
 
 #### 实现原理
 
-先设置音频播放速度，音频帧渲染速度变化后，视频帧根据[音画同步](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization)功能，进行同步追帧，实现倍速播放效果。
+先设置音频播放速度，音频帧渲染速度变化后，视频帧根据[音画同步](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-synchronization)功能，进行同步追帧，实现倍速播放效果。
  
 
-![](assets/Surface模式解码视频的播放控制/file-2026070810350624c4e804.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/NOWhTf6kTOaVWKkyXrJ56w/zh-cn_image_0000002677826349.png?HW-CC-KV=V1&HW-CC-Date=20260723T012202Z&HW-CC-Expire=86400&HW-CC-Sign=26246EB6C1D861F1C3B9F098B10D5516A102F18AE24746AAB641BFCC176C94E5)
 
  
   
@@ -550,7 +550,7 @@ void Player::SetSpeed(float speed)
 }
 ```
 
-2. 输出子线程通过音画同步功能进行追帧。可参考音画同步的[开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization#section640118113514)。
+2. 输出子线程通过音画同步功能进行追帧。可参考音画同步的[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-video-synchronization#开发步骤)。
 
   
 ```text
@@ -597,7 +597,7 @@ if (waitTimeUs > 0) {
 3. 使用切换后的视频重新创建解码资源和解码子线程，具体请参考视频播放章节的[实现原理](#视频播放实现原理)。
  
 
-![](assets/Surface模式解码视频的播放控制/file-20260708103506261a3046.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/-S6jYvRXRRmMvY38Qk3sww/zh-cn_image_0000002677666501.png?HW-CC-KV=V1&HW-CC-Date=20260723T012202Z&HW-CC-Expire=86400&HW-CC-Sign=6E3B60C6491A9B2FDB5A4E85E2A3E7593B6BE6C82CFDC4B24D6019A09BEC9FB4)
 
  
   

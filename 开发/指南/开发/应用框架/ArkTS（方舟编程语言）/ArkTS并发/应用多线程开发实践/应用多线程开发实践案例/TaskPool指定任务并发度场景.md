@@ -1,6 +1,6 @@
 # TaskPool指定任务并发度场景
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-async-task-guide
 
@@ -56,13 +56,13 @@ struct TaskpoolAsyncLevel {
           .fontWeight(FontWeight.Bold)
           .onClick(async () => {
             // 创建并发度为5的异步队列，等待队列个数为5，当加入的任务数量超过5时，等待列表中处于队头的任务会被丢弃
-            let asyncRunner:taskpool.AsyncRunner = new taskpool.AsyncRunner('async', 5, 5);
+            let asyncRunner: taskpool.AsyncRunner = new taskpool.AsyncRunner('async', 5, 5);
             // 触发采集任务
             for (let i = 0; i < 20; i++) {
-              let task:taskpool.Task = new taskpool.Task(`async${i}`,collectFrame);
+              let task: taskpool.Task = new taskpool.Task(`async${i}`, collectFrame);
               asyncRunner.execute(task).then(() => {
                 console.info('the current task name is ' + task.name);
-              }).catch((e:BusinessError) => {
+              }).catch((e: BusinessError) => {
                 console.error('async: error is ' + e);
               });
             }

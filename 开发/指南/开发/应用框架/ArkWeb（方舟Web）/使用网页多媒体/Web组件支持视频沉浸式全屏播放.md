@@ -1,6 +1,6 @@
 # Web组件支持视频沉浸式全屏播放
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web_full_screen
 
@@ -25,7 +25,6 @@ import { webview } from '@kit.ArkWeb';
 struct ShortWebPage {
   controller: webview.WebviewController = new webview.WebviewController();
   CONSTANT_HEIGHT = 100;
-  @State marginTop: number = this.CONSTANT_HEIGHT;
   @State isVisible: boolean = true; // 自定义标志位isVisible，来控制是否需要显示组件
 
   build() {
@@ -33,9 +32,9 @@ struct ShortWebPage {
       Text('TextTextTextText')
         .width('100%')
         .height(this.CONSTANT_HEIGHT)
-        .backgroundColor('#e1dede') // 当isVisible标志位为true的时候，组件状态为可见，否则组件状态为不可见，不参与布局、不进行占位
+        .backgroundColor('#e1dede')
         .visibility(this.isVisible ? Visibility.Visible :
-          Visibility.None)
+          Visibility.None) // 当isVisible标志位为true的时候，组件状态为可见，否则组件状态为不可见，不参与布局、不进行占位
       Web({
         src: $rawfile('FullScreen.html'), // 示例网址
         controller: this.controller

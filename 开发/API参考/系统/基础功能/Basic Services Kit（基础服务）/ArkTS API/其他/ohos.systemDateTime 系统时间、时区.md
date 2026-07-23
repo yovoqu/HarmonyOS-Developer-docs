@@ -1,6 +1,6 @@
 # @ohos.systemDateTime (系统时间、时区)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-date-time
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -585,7 +585,7 @@ getUptime(timeType: TimeType, isNanoseconds?: boolean): number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.This error code was added due to missing issues. |
+| 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.This error code was added due to missing issues. 适用版本：12+ |
 
 
 **示例：**
@@ -612,7 +612,7 @@ getDate(callback: AsyncCallback&lt;Date&gt;): void
 获取当前系统日期，使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 10开始废弃，建议使用 如何将时间格式的字符串string转换为Date对象 中的new Date()方法替代，new Date()返回Date实例对象。
+> 从API version 9开始支持，从API version 10开始废弃，建议使用如何将时间格式的字符串string转换为Date对象中的new Date()方法替代，new Date()返回Date实例对象。
 
 
 **系统能力：** SystemCapability.MiscServices.Time
@@ -663,7 +663,7 @@ getDate(): Promise&lt;Date&gt;
 获取当前系统日期，使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 10开始废弃，建议使用 如何将时间格式的字符串string转换为Date对象 中的new Date()方法替代，new Date()返回Date实例对象。
+> 从API version 9开始支持，从API version 10开始废弃，建议使用如何将时间格式的字符串string转换为Date对象中的new Date()方法替代，new Date()返回Date实例对象。
 
 
 **系统能力：** SystemCapability.MiscServices.Time

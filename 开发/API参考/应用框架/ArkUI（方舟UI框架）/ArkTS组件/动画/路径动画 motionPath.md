@@ -1,6 +1,6 @@
 # 路径动画 (motionPath)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-motion-path-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -52,9 +52,9 @@ motionPath(value: MotionPathOptions): T
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| path | string | 否 | 否 | 位移动画的运动路径，使用svg路径字符串。path中支持使用start和end进行起点和终点的替代，如：'Mstart.x start.y L50 50 Lend.x end.y Z'，更多说明请参考绘制路径。 设置为空字符串时相当于不设置路径动画。 |
+| path | string | 否 | 否 | 位移动画的运动路径，使用svg路径描述规范。path中支持使用start和end进行起点和终点的替代，如：'Mstart.x start.y L50 50 Lend.x end.y Z'，更多说明请参考绘制路径。 设置为空字符串时相当于不设置路径动画。 |
 | from | number | 否 | 是 | 运动路径的起点。 默认值：0.0 取值范围：[0.0, 1.0] 设置小于0.0或大于1.0的值时，按默认值0.0处理。 |
-| to | number | 否 | 是 | 运动路径的终点。 默认值：1.0 取值范围：[0.0, 1.0] 设置小于0.0或大于1.0的值时，按默认值1.0处理，且满足to值 >= 异常值处理后的from值。 |
+| to | number | 否 | 是 | 运动路径的终点。 默认值：1.0 取值范围：[0.0, 1.0] 设置小于0.0或大于1.0的值时，按默认值1.0处理，且满足to值 >= 异常值处理后的from值。当处理后的to值小于异常值处理后的from值时，to值会被修正为等于异常值处理后的from值，即to被向上修正至与from相同。当from等于to时（无论是开发者主动设置还是因超出范围被修正），组件在路径上不产生位移。 |
 | rotatable | boolean | 否 | 是 | 是否跟随路径进行旋转。true代表跟随路径进行旋转，false代表不跟随路径进行旋转。 默认值：false |
 
 
@@ -93,4 +93,4 @@ struct MotionPathExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/_xny8n-kRCCybGjLqEpZOg/zh-cn_image_0000002628862780.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014348Z&HW-CC-Expire=86400&HW-CC-Sign=0B815175DE8181E1D8C8452849ED3E9F4A010141984BB93B2A6C7D6F2ADFB0DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/dGDx0lmyQLuyscJtmoA0hg/zh-cn_image_0000002647588312.gif?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=CAB69B781E4C7348A50DF6161A85A26796AB56C7D44F0A3964583E456C604FA9)

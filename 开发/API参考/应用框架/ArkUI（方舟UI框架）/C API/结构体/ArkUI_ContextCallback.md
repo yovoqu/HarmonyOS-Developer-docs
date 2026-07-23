@@ -1,6 +1,6 @@
 # ArkUI_ContextCallback
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-contextcallback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ typedef struct {...} ArkUI_ContextCallback
  
 | 名称 | 描述 |
 | --- | --- |
-| void* userData | 自定义类型，开发者自定义类型的数据，在回调时作为参数传入。 |
+| void* userData | 用户自定义数据，在回调时作为参数传入。 |
  
  
   

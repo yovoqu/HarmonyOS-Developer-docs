@@ -1,6 +1,6 @@
 # native_audiostream_base.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -161,9 +161,9 @@ enum OH_AudioStream_SampleFormat
 | 枚举项 | 描述 |
 | --- | --- |
 | AUDIOSTREAM_SAMPLE_U8 = 0 | Unsigned 8位。 |
-| AUDIOSTREAM_SAMPLE_S16LE = 1 | Short 16位小端。 |
-| AUDIOSTREAM_SAMPLE_S24LE = 2 | Short 24位小端。 |
-| AUDIOSTREAM_SAMPLE_S32LE = 3 | Short 32位小端。 |
+| AUDIOSTREAM_SAMPLE_S16LE = 1 | Signed 16位小端。 |
+| AUDIOSTREAM_SAMPLE_S24LE = 2 | Signed 24位小端。 |
+| AUDIOSTREAM_SAMPLE_S32LE = 3 | Signed 32位小端。 |
 | AUDIOSTREAM_SAMPLE_F32LE = 4 | Float 32位小端。 起始版本： 17 |
  
  

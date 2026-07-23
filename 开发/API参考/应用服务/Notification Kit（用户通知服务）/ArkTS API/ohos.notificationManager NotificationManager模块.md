@@ -1,6 +1,6 @@
 # @ohos.notificationManager (NotificationManager模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -61,6 +61,7 @@ publish(request: NotificationRequest, callback: AsyncCallback&lt;void&gt;): void
 | 1600015 | The current notification status does not support duplicate configurations. 适用版本：11 |
 | 1600016 | The notification version for this update is too low. 适用版本：11 |
 | 1600020 | The application is not allowed to send notifications due to permission settings. 适用版本：12 |
+| 1600029 | The system failed to find the ExtensionAbility instance for the custom Live View widget template. 适用版本：26.0.0 |
 | 2300007 | Network unreachable. 适用版本：11 |
 
 
@@ -139,6 +140,7 @@ publish(request: NotificationRequest): Promise&lt;void&gt;
 | 1600015 | The current notification status does not support duplicate configurations. 适用版本：11 |
 | 1600016 | The notification version for this update is too low. 适用版本：11 |
 | 1600020 | The application is not allowed to send notifications due to permission settings. 适用版本：12 |
+| 1600029 | The system failed to find the ExtensionAbility instance for the custom Live View widget template. 适用版本：26.0.0 |
 | 2300007 | Network unreachable. 适用版本：11 |
 
 

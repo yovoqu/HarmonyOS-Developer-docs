@@ -1,6 +1,6 @@
 # ARKUI_TextPickerRangeContent
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textpickerrangecontent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct {...} ARKUI_TextPickerRangeContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义单列滑动数据选择器支持的图片资源结构体。
+定义单列滑动数据选择器支持的选项内容结构体，包含文本和图片资源。
  
 **起始版本：** 12
  

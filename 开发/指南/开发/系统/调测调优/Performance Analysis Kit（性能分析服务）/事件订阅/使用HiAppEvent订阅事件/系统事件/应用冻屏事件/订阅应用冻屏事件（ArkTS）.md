@@ -1,6 +1,6 @@
 # 订阅应用冻屏事件（ArkTS）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-freeze-events-arkts
 
@@ -195,7 +195,7 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 
 #### 从Faultlogger接口迁移应用冻屏事件
 
-[@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用, 不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅应用冻屏事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅应用冻屏事件。
+[@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用，不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅应用冻屏事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅应用冻屏事件。
 
 在Faultlogger的[FaultType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faulttype)里定义的APP_FREEZE即为应用冻屏故障类型。
 

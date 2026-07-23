@@ -1,11 +1,13 @@
 # @ohos.file.RecentPhotoComponent (最近图片组件)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-recentphotocomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用可以在布局中嵌入最近图片组件，通过此组件，应用无需申请权限，即可指定配置访问公共目录中最近的一个图片或视频文件。授予的权限仅包含只读权限。
+
+请注意RecentPickerComponent不支持嵌套，且不应在其上覆盖设置overlay属性或更高层级组件，以免导致手势事件失效。
 
 > [!NOTE]
 > 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件不支持 同层渲染 。

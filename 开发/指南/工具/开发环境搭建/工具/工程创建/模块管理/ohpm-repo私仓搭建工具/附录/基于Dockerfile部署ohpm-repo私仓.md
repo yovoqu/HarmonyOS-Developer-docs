@@ -1,6 +1,6 @@
 # 基于Dockerfile部署ohpm-repo私仓
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-dockerfile
 

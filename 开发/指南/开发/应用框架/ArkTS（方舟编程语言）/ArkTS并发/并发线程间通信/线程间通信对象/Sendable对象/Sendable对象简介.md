@@ -1,6 +1,6 @@
 # Sendable对象简介
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable
 
@@ -172,7 +172,7 @@ struct enumusage {
 **SharedHeap与LocalHeap关系图**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/EJCgCojxQX-nNTy7kHd-IQ/zh-cn_image_0000002659219317.png?HW-CC-KV=V1&HW-CC-Date=20260701T014613Z&HW-CC-Expire=86400&HW-CC-Sign=41635D2F13F1BFFB99815E4D7D3250C7F95A5849E5363A467B8B791562FF218C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/-wh75rk8QYWYl2oxquB-tw/zh-cn_image_0000002677825167.png?HW-CC-KV=V1&HW-CC-Date=20260723T012129Z&HW-CC-Expire=86400&HW-CC-Sign=6F47B04DD42D71931AFD147A73B2F71D09906E9292B0DB3CF71D90ADD246382E)
 
 
 各个并发实例的LocalHeap是隔离的。SharedHeap是进程级别的堆，可以被所有并发实例共享，但SharedHeap不能引用LocalHeap中的对象。
@@ -198,17 +198,22 @@ struct enumusage {
 **装饰器修饰Class使用示例：**
 
 ```ArkTS
+export { MainPage } from './src/main/ets/components/MainPage';
+
 @Sendable
 class SendableTestClass {
-  desc: string = "sendable: this is SendableTestClass ";
+  desc: string = 'sendable: this is SendableTestClass ';
   num: number = 5;
   printName() {
-    console.info("sendable: SendableTestClass desc is: " + this.desc);
+    console.info('sendable: SendableTestClass desc is: ' + this.desc);
   }
-  getNum(): number {
+  get getNum(): number {
     return this.num;
   }
 }
+
+let object = new SendableTestClass;
+export { object }
 ```
 
 **装饰器修饰Function使用示例：**
@@ -220,22 +225,23 @@ type SendableFuncType = () => void;
 @Sendable
 class TopLevelSendableClass {
   num: number = 1;
+
   PrintNum() {
-    console.info("Top level sendable class");
+    console.info('Top level sendable class');
   }
 }
 
 @Sendable
-function TopLevelSendableFunction() {
-  console.info("Top level sendable function");
+function topLevelSendableFunction() {
+  console.info('Top level sendable function');
 }
 
 @Sendable
-function SendableTestFunction() {
+function sendableTestFunction() {
   const topClass = new TopLevelSendableClass(); // 顶层sendable class
   topClass.PrintNum();
-  TopLevelSendableFunction(); // 顶层sendable function
-  console.info("Sendable test function");
+  topLevelSendableFunction(); // 顶层sendable function
+  console.info('Sendable test function');
 }
 
 @Sendable
@@ -243,14 +249,11 @@ class SendableTestClass {
   constructor(func: SendableFuncType) {
     this.callback = func;
   }
+
   callback: SendableFuncType; // 顶层sendable function
 
   CallSendableFunc() {
-    SendableTestFunction(); // 顶层sendable function
+    sendableTestFunction(); // 顶层sendable function
   }
 }
-
-let sendableClass = new SendableTestClass(SendableTestFunction);
-sendableClass.callback();
-sendableClass.CallSendableFunc();
 ```

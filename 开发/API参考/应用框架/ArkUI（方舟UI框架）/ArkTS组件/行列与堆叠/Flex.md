@@ -1,6 +1,6 @@
 # Flex
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -476,7 +476,7 @@ struct FlexExample6 {
 
 ```text
 @Component
-struct FlexExample7 {
+struct Demo {
   @Require @Prop text: string
 
   build() {
@@ -512,7 +512,7 @@ struct FlexExample7 {
 
 @Entry
 @Component
-struct Index {
+struct FlexExample7 {
   build() {
     Column({ space: 12 }) {
       Text('Width does not reach max length').fontSize(11).fontColor(0XCCCCCC).width('50%')

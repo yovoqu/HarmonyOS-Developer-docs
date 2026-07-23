@@ -1,6 +1,6 @@
 # @ohos.web.webNativeMessagingExtensionManager (Web Native Messaging Extension Manager)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-web-webnativemessagingextensionmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -52,9 +52,9 @@ Native Messaging的错误列表。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| PERMISSION_DENY | 17100203 | Permission denied due to missing ohos.permission.WEB_NATIVE_MESSAGING. |
-| WANT_CONTENT_ERROR | 17100202 | The want content is invalid. |
-| INNER_ERROR | 17100201 | Inner error for native messaging. |
+| PERMISSION_DENY | 17100203 | 由于缺少ohos.permission.WEB_NATIVE_MESSAGING，权限被拒绝。 |
+| WANT_CONTENT_ERROR | 17100202 | Want内容无效。 |
+| INNER_ERROR | 17100201 | 表示有内部错误发生。 |
 
 
 
@@ -282,7 +282,7 @@ connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConne
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | UIAbilityContext | 是 | Web原生消息扩展的上下文。 |
+| context | UIAbilityContext | 是 | 调用方UIAbility的上下文。 |
 | want | Want | 是 | 启动Ability的want信息。 |
 | callback | WebExtensionConnectionCallback | 是 | WebExtensionConnection状态的回调对象。 |
 

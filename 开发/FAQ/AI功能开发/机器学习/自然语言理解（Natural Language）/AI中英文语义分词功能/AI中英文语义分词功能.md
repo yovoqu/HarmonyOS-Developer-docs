@@ -1,0 +1,25 @@
+# AI中英文语义分词功能
+
+更新时间：2026-06-26 07:48:29
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-natural-language-2
+
+#### 问题现象
+
+使用分词功能，中文是正常分词的，英文分词异常，英文分词是简单按照空格分词：
+ 
+```text
+let <span style="color: rgb(255,255,255);">result </span><span style="color: rgb(181,106,1);">= </span>await <span style="color: rgb(255,255,255);">textProcessing</span><span style="color: rgb(181,106,1);">.</span><span style="color: rgb(0,0,255);">getWordSegment</span><span style="color: rgb(255,0,170);">(</span><span style="color: rgb(132,63,161);">'Storage specifications refer to capacity before formatting. Actual formatted capacity will be less.'</span><span style="color: rgb(255,0,170);">)</span><span style="color: rgb(181,106,1);">;</span>
+```
+ 
+返回结果：
+ 
+```text
+[{"word":"Storage","wordTag":"n"},{"word":" ","wordTag":"w"},{"word":"specifications","wordTag":"d"},{"word":" ","wordTag":"w"},{"word":"refer","wordTag":"v"},{"word":" ","wordTag":"w"},{"word":"to","wordTag":"pba"},{"word":" ","wordTag":"w"},{"word":"capacity","wordTag":"n"},{"word":" ","wordTag":"w"},{"word":"before","wordTag":"p"},{"word":" ","wordTag":"w"},{"word":"formatting","wordTag":"a"},{"word":".","wordTag":"wj"},{"word":" ","wordTag":"w"},{"word":"Actual","wordTag":"a"},{"word":" ","wordTag":"w"},{"word":"formatted","wordTag":"n"},{"word":" ","wordTag":"w"},{"word":"capacity","wordTag":"n"},{"word":" ","wordTag":"w"},{"word":"will","wordTag":"nrf"},{"word":" ","wordTag":"w"},{"word":"be","wordTag":"vshi"},{"word":" ","wordTag":"w"},{"word":"less","wordTag":"rzs"},{"word":".","wordTag":"wj"}]
+```
+ 
+ 
+
+#### 解决方案
+
+[Natural Language Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/natural-language-introduction)（自然语言理解服务）提供[分词](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/natural-language-getwordsegmentation)能力，可以将一段文本切分成独立的词语单元，识别出句子中的每个词汇。支持的语言：简体中文、英文、繁体中文。中文会一定程度上进行语义上分词，目前英文分词仅支持以空格进行分词。

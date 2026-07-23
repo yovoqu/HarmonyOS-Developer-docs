@@ -1,6 +1,6 @@
 # CPU活动分析
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-cpu
 
@@ -80,7 +80,7 @@ CPU模板支持的泳道包括：Energy、CPU Core、Process。本文介绍CPU C
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/kSlPqJJZS0i_9YzWYDuftw/zh-cn_image_0000002624994169.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=ADCE463215D05B6C3AC2F73ACC2575ADFDDB4F37AA38F89F203F162E05CBF4C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/itPT-9bAQceDBpJgx9EumQ/zh-cn_image_0000002624994169.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=7CE700996C40555697C6802899B60A9E9877633B1A18BCC3DB9708701C1CDA82)
 
 
  
@@ -96,7 +96,7 @@ CPU模板支持的泳道包括：Energy、CPU Core、Process。本文介绍CPU C
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/VdDLo9j2T1iGq8dEKlTqWQ/zh-cn_image_0000002624994167.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=3C71084C91B61C654804C63026515D2B259ABAB229BE0F48CFD7F85330C0D9A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/6ZqDxWNSSqeB4nY47C0Cow/zh-cn_image_0000002624994167.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=A476567B87DAD9B62DB8E9273664380D99E98E884D2806612998703881CACF5D)
 
 - 框选多个Trace片段，可查看到Trace统计信息列表，包括Trace名称、此类Trace的总耗时、单个Trace的平均耗时、以及该时间段内该类Trace的触发次数等。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/zVtTzzz4RQqqGgyNfTarDg/zh-cn_image_0000002624994173.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=16B8A08B596EDFDF7036732955F3908D69EE4B246B5ECB121AC3D06D94C513B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/5gzlr-RwT-ya0FtiGYXtIw/zh-cn_image_0000002624994173.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=56DA3AFA92D4EB1EFE7498583BA9D63B1AE362308B15486410EFA89844383499)

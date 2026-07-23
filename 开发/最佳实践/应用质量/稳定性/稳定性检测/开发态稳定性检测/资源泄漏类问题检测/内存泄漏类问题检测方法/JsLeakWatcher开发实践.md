@@ -1,6 +1,6 @@
 # JsLeakWatcher开发实践
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-07-22 06:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-js-leak-watcher
 
@@ -20,6 +20,7 @@ ArkTS对象内存泄漏，通常会带来以下影响：
  
 - [JsLeakWatcher简介](#section1942942918444)
 - [JsLeakWatcher泄漏检测流程](#section113834818447)
+- [命令行使能JsLeakWatcher](#section18970171812512)
 - [场景案例](#section1726813110465)
 
  
@@ -49,11 +50,9 @@ ArkTS对象内存泄漏，通常会带来以下影响：
 #### JsLeakWatcher泄漏检测流程
 1. 应用在启动后调用enableLeakWatcher()接口（接口定义参考文档：[jsLeakWatcher.enableLeakWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-jsleakwatcher#jsleakwatcherenableleakwatcher20)）开启ArkTS泄漏检测功能。
 2. 检测框架：
-- 创建FinalizationRegistry对象，用于监控系统内具有生命周期的5类常见ArkTS组件对象注册生命周期，并注册生命周期结束回调函数。（5类对象包括元能力-Ability、窗口-Window、NodeContainer、XComponent、自定义组件-CustomComponent）。
+- 创建FinalizationRegistry对象，用于监控系统内具有生命周期的5类常见ArkTS组件对象注册生命周期，并注册生命周期结束回调函数。（5类对象包括元能力-Ability、窗口-Window、NodeContainer、XComponent、自定义组件-CustomComponent）。添加异步定时GC任务，每90秒执行一次FullGC操作，尝试回收当前所有不可达ArkTS对象；同时添加定时dump任务，FullGC执行5秒后执行一次泄漏检测。
 
-3. 添加异步定时GC任务，每27秒执行一次FullGC操作，尝试回收当前所有不可达ArkTS对象；同时添加定时dump任务，每30秒执行一次泄漏检测。
-
-4. 尝试去解除引用（参考[dispose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#dispose12)()）的组件对象会被记录在列表list1。当组件对象生命周期结束时，FinalizationRegistry对象会通过a步骤注册的回调函数上报销毁组件对象，并将其记录在列表list2；list1与list2的差集（对应下图LeakObjMap）会记录到泄漏对象列表jsleaklist文件，最终会随ArkTS堆快照（rawheap）文件一起落盘至应用沙箱。
+3. 尝试去解除引用（参考[dispose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#dispose12)()）的组件对象会被记录在列表list1。当组件对象生命周期结束时，FinalizationRegistry对象会通过a步骤注册的回调函数上报销毁组件对象，并将其记录在列表list2；list1与list2的差集（对应下图LeakObjMap）会记录到泄漏对象列表jsleaklist文件，最终会随ArkTS堆快照（rawheap）文件一起落盘至应用沙箱。
 - 应用在退出时调用enableLeakWatcher接口关闭ArkTS泄漏检测功能。
 
  
@@ -71,6 +70,46 @@ ArkTS对象内存泄漏，通常会带来以下影响：
 | jsleaklist | 统计无法回收的ArkTS泄漏对象，导入到IDE可以和rawheap中的ArkTS对象进行匹配，查看ArkTS对象中的各属性。 |
  
  
+ 
+
+#### 命令行使能JsLeakWatcher
+
+ 
+
+#### 功能概述
+
+JsLeakWatcher提供零代码开发检测能力，支持通过配置系统参数启用内存泄漏检测功能（默认关闭）。无需应用调用JsLeakWatcher API接口，仅需设置相应的系统参数，即可针对目标应用（debug签名应用）启用泄漏检测。
+ 
+ 
+
+#### 使用方法
+
+通过设置系统参数"hiviewdfx.hichecker.jsleakwatcher.leak.check"的值为"enable.+包名"来启用检测功能。以应用包名"com.example.demo"为例，在命令行窗口执行以下指令：
+ 
+```bash
+hdc shell "param set hiviewdfx.hichecker.jsleakwatcher.leak.check enable.com.example.demo"
+```
+ 
+命令执行成功后重启应用，JsLeakWatcher泄漏检测即自动生效。
+ 
+
+![](assets/JsLeakWatcher开发实践/file-20260515115111891-2.png)
+ 
+
+使用时包名换成实际调试应用的包名。
+ 
+
+ 
+ 
+
+#### 规格说明
+
+> [!NOTE]
+> 检测范围：零代码使能JsLeakWatcher时，支持应用内常用五大ArkUI组件（XComponent、NodeContainer、Window、CustomComponent或Ability）泄漏检测，相比使用API使能JSLeakwatcher缺少检测普通ArkTS对象能力。 检测机制：系统每隔 90 秒执行一次Full GC操作，并在GC操作执行后5秒执行泄漏检测，生成的泄漏信息文件将存储于应用沙箱目录下。落盘文件路径：/data/app/el2/100/base/应用包名/files/jsleak/。导出命令：hdc file recv /data/app/el2/100/base/应用包名/files/jsleak/ ./ 。 文件处理：见步骤5， 分析生成的文件 。 停用方式：如需关闭检测，请执行命令hdc shell "param set hiviewdfx.hichecker.jsleakwatcher.leak.check disable.com.example.demo"并重启应用，或直接重启设备。 使用限制：该功能不支持user版型设备上的release签名应用。如需调试，请确保应用使用debug签名。
+
+ 
+ 
+
  
 
 #### 场景案例
@@ -128,13 +167,13 @@ jsLeakWatcher.enableLeakWatcher(false, config, () => {});
 
   
 - 将*.rawheap文件导入IDE DevEco Studio执行解析：
-![](assets/JsLeakWatcher开发实践/file-20260515115111891-2.png)
+![](assets/JsLeakWatcher开发实践/file-20260515115111891-4.png)
 
 
   解析结果：
 
   
-![](assets/JsLeakWatcher开发实践/file-20260515115111891-3.png)
+![](assets/JsLeakWatcher开发实践/file-20260515115111891-5.png)
 
 
   上图展示了ArkTS Snapshot的信息，其中记录了ArkTS对象的属性，包括成员变量、占用内存大小、类型名等。
@@ -144,7 +183,7 @@ jsLeakWatcher.enableLeakWatcher(false, config, () => {});
   ArkTS Snapshot分析方法，详细请参考资料：[分析Snapshot数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arkts-memory-leak-analysis#section87474517134)。
 
 6. 将*.jsleaklist文件导入DevEco Studio解析：
-![](assets/JsLeakWatcher开发实践/file-20260515115111891-4.png)
+![](assets/JsLeakWatcher开发实践/file-20260515115111891-6.png)
 
 
   解析之后展示泄漏对象的信息，是ArkTS堆快照的子集，分析方法和上述ArkTS Snapshot分析方式相同。
@@ -152,20 +191,20 @@ jsLeakWatcher.enableLeakWatcher(false, config, () => {});
   查看[应用对象名称解析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-snapshot-basic-operations#section17661924162612)数据以及泄漏对象对应代码行号：
 
   
-![](assets/JsLeakWatcher开发实践/file-20260515115111891-5.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/740ymkmYQQSmMvod7S_W9w/zh-cn_image_0000002533197979.png?HW-CC-KV=V1&HW-CC-Date=20260723T012211Z&HW-CC-Expire=86400&HW-CC-Sign=14C3025F22EB6784000581DB4327C13860CDBE7B95335438C5E260C4B6225208)
 
 
   查看泄漏对象的[节点属性与引用链](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-snapshot-basic-operations#section1964818525439)：
 
   
-![](assets/JsLeakWatcher开发实践/file-20260515115111891-6.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/B-Iiojo2S9KaQFrjBPQMPQ/zh-cn_image_0000002533077931.png?HW-CC-KV=V1&HW-CC-Date=20260723T012211Z&HW-CC-Expire=86400&HW-CC-Sign=55A22E4C3F2DE86646DB2BDD7CC3FBAA92C1F1F4F954D65DE99E2367A81CF16F)
 
 
   DevEco支持导入jsleaklist文件的约束限制参考：[离线导入内存快照](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-snapshot-basic-operations#section6760173514388)。
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/CrZDxdOCSUyiWiS1VBxFxQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024722Z&HW-CC-Expire=86400&HW-CC-Sign=00BFBA7C13A8E842A432155DEADDD94E1969063A5B7DF0AEBC200979AE5AD6B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/OfiqHv9NSOK8fEiTibCEzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012211Z&HW-CC-Expire=86400&HW-CC-Sign=C85B734A7DF6680EAFF6DD0F4AD373B0A0C66236EC6E9C63B465A02EBA18EB5D)
  
 
 JsLeakWatcher对应用性能有影响，仅适用于开发调试和压力测试阶段。在应用上架前，请确保不使用JsLeakWatcher。

@@ -1,6 +1,6 @@
 # ArrayBuffer对象
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arraybuffer-object
 
@@ -36,6 +36,7 @@ ArrayBuffer可以用来表示图片等资源，在应用开发中，处理图片
 ```ArkTS
 import { taskpool } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
 // 在Task执行的处理函数，用于处理ArrayBuffer数据
 @Concurrent
@@ -52,7 +53,11 @@ function createImageTask(arrayBuffer: ArrayBuffer, isParamsByTransfer: boolean):
   let task: taskpool.Task = new taskpool.Task(adjustImageValue, arrayBuffer);
   if (!isParamsByTransfer) {
     // 传递空数组[]，全部arrayBuffer参数传递均采用拷贝方式
-    task.setTransferList([]);
+    try {
+      task.setTransferList([]);
+    } catch (err) {
+      hilog.error(0x0000, 'testTag', 'Failed to set transferList. Cause: %{public}s', JSON.stringify(err));
+    }
   }
   return task;
 }

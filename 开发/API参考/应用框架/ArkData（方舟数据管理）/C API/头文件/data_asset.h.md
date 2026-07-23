@@ -1,6 +1,6 @@
 # data_asset.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-data-asset-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -579,7 +579,7 @@ Data_Asset *OH_Data_Asset_CreateOne(void)
   
 | 类型 | 说明 |
 | --- | --- |
-| Data_Asset | 创建成功则返回一个指向Data_Asset结构体实例的指针，否则返回NULL。 使用完成后，必须通过OH_Data_Asset_DestroyOne接口释放内存。 |
+| Data_Asset * | 创建成功则返回一个指向Data_Asset结构体实例的指针，否则返回NULL。 使用完成后，必须通过OH_Data_Asset_DestroyOne接口释放内存。 |
  
  
   
@@ -639,7 +639,7 @@ Data_Asset **OH_Data_Asset_CreateMultiple(uint32_t count)
   
 | 类型 | 说明 |
 | --- | --- |
-| Data_Asset | 创建成功则返回一个指向Data_Asset结构体实例的指针，否则返回NULL。 使用完成后，必须通过OH_Data_Asset_DestroyMultiple接口释放内存。 |
+| Data_Asset ** | 创建成功则返回一个指向Data_Asset结构体指针数组的指针，否则返回NULL。 使用完成后，必须通过OH_Data_Asset_DestroyMultiple接口释放内存。 |
  
  
   
@@ -662,7 +662,7 @@ int OH_Data_Asset_DestroyMultiple(Data_Asset **assets, uint32_t count)
   
 | 参数项 | 描述 |
 | --- | --- |
-| Data_Asset **assets | 表示指向Data_Asset实例的指针。 |
+| Data_Asset **assets | 表示指向Data_Asset结构体指针数组的指针。 |
 | uint32_t count | 代表需要销毁的Data_Asset类型对象的数量。 |
  
  

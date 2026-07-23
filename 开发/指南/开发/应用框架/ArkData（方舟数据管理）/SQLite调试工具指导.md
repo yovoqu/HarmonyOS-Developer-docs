@@ -1,6 +1,6 @@
 # SQLite调试工具指导
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sqlite-database-debug-tool
 
@@ -267,7 +267,7 @@ sqlite> SELECT * FROM COMPANY;
 
 #### 查询数据
 
-在sqlite>提示符下,可通过 SELECT查询数据，支持以下几种数据查询：
+在sqlite>提示符下，可通过 SELECT查询数据，支持以下几种数据查询：
  
 - 可通过SQL语句SELECT * FROM 表的名称查询所有数据
 

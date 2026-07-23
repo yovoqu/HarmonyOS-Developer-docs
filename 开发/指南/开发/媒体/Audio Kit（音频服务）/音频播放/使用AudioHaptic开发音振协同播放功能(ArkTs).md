@@ -1,6 +1,6 @@
 # 使用AudioHaptic开发音振协同播放功能(ArkTs)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiohaptic-for-playback
 
@@ -23,7 +23,7 @@ AudioHaptic提供音频与振动协同播放及管理的方法，适用于需要
 
 #### 开发步骤及注意事项
 
-以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/blob/master/code/DocsSample/Media/Audio/AudioRendererSampleJS)。
+以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/AudioRendererSampleJS)。
 1. 获取音振管理器实例，并注册音频及振动资源，资源支持情况可以查看[AudioHapticManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#audiohapticmanager)。
 
   
@@ -32,68 +32,24 @@ AudioHaptic提供音频与振动协同播放及管理的方法，适用于需要
 
 
   
-```ArkTS
-import { audio, audioHaptic } from '@kit.AudioKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { common } from '@kit.AbilityKit';
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/lxCUx5KTQ0SLO-9xCf1nLQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012151Z&HW-CC-Expire=86400&HW-CC-Sign=169DDE39AECBDCD9945781135DCD4C3B98122823F8CE2D9A379C49B88117D988)
+ 
 
-let audioHapticManagerInstance: audioHaptic.AudioHapticManager = audioHaptic.getAudioHapticManager();
-
-// 单个应用最多支持同时注册128个资源，超过之后将会注册失败（返回注册的资源ID为负数）。
-// 推荐应用合理控制注册资源数量，对于不再需要使用的资源，建议及时取消注册。
-
-// ...
-  // 方法1：使用registerSource接口注册资源。
-  let audioUri = 'data/audioTest.wav'; // 此处仅作示例，实际使用时需要将文件替换为应用目标音频资源的Uri。
-  let hapticUri = 'data/hapticTest.json'; // 此处仅作示例，实际使用时需要将文件替换为应用目标振动资源的Uri。
-  let idForUri = 0;
-
-  audioHapticManagerInstance.registerSource(audioUri, hapticUri).then((value: number) => {
-    console.info(`Promise returned to indicate that the source id of the registered source ${value}.`);
-    idForUri = value;
-    // ...
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to register source ${err}`);
-    // ...
-  });
-  // ...
-  // 方法2:使用registerSourceFromFd接口注册资源。
-  // 此处仅作示例,实际使用时需要将文件替换为应用rawfile目录下的对应文件。
-  let audioFile = context.resourceManager.getRawFdSync('audioTest.ogg');
-  let audioFd: audioHaptic.AudioHapticFileDescriptor = {
-    fd: audioFile.fd,
-    offset: audioFile.offset,
-    length: audioFile.length,
-  };
-  // 此处仅作示例,实际使用时需要将文件替换为应用rawfile目录下的对应文件。
-  let hapticFile = context.resourceManager.getRawFdSync('hapticTest.json');
-  let hapticFd: audioHaptic.AudioHapticFileDescriptor = {
-    fd: hapticFile.fd,
-    offset: hapticFile.offset,
-    length: hapticFile.length,
-  };
-  audioHapticManagerInstance.registerSourceFromFd(audioFd, hapticFd).then((value: number) => {
-    console.info('Succeeded in doing registerSourceFromFd.');
-    idForFd = value;
-    // ...
-  }).catch((err: BusinessError) => {
-    console.error(`Failed to registerSourceFromFd. Code: ${err.code}, message: ${err.message}`);
-    // ...
-  });
-```
-
-2. 设置音振播放器参数，各参数作用可以查看[AudioHapticManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#audiohapticmanager)。
+  
+单个应用最多支持同时注册128个资源，超过之后将会注册失败，返回注册的资源ID为负数。
+2. 推荐应用合理控制注册资源数量，对于不再需要使用的资源，建议及时取消注册。
+3. 设置音振播放器参数，各参数作用可以查看[AudioHapticManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#audiohapticmanager)。
 
   
 ```ArkTS
-let latencyMode: audioHaptic.AudioLatencyMode = audioHaptic.AudioLatencyMode.AUDIO_LATENCY_MODE_FAST;
+let latencyMode: audioHaptic.AudioLatencyMode = audioHaptic.AudioLatencyMode.AUDIO_LATENCY_MODE_NORMAL;
 audioHapticManagerInstance.setAudioLatencyMode(idForFd, latencyMode);
 
 let usage: audio.StreamUsage = audio.StreamUsage.STREAM_USAGE_NOTIFICATION;
 audioHapticManagerInstance.setStreamUsage(idForFd, usage);
 ```
 
-3. 调用[createPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#createplayer)方法，创建AudioHapticPlayer实例。
+4. 调用[createPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#createplayer)方法，创建AudioHapticPlayer实例。
 
   
 ```ArkTS
@@ -101,64 +57,64 @@ let options: audioHaptic.AudioHapticPlayerOptions = {muteAudio: false, muteHapti
 let audioHapticPlayer: audioHaptic.AudioHapticPlayer | undefined = undefined;
 // ...
   audioHapticManagerInstance.createPlayer(idForFd, options).then((value: audioHaptic.AudioHapticPlayer) => {
-    console.info(`Create the audio haptic player successfully.`);
+    console.info('Succeeded in creating player.');
     audioHapticPlayer = value;
     // ...
   }).catch((err: BusinessError) => {
-    console.error(`Failed to create player ${err}`);
+    console.error(`Failed to create player. Code: ${err.code}, message: ${err.message}`);
     // ...
   });
 ```
 
-4. 调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#start)方法，开启音频播放并同步开启振动。
+5. 调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#start)方法，开启音频播放并同步开启振动。
 
   
 ```ArkTS
 audioHapticPlayer.start().then(() => {
-  console.info(`Promise returned to indicate that start playing successfully.`);
+  console.info('Succeeded in starting audio haptic player.');
   // ...
 }).catch((err: BusinessError) => {
-  console.error(`Failed to start playing. ${err}`);
+  console.error(`Failed to start audio haptic player. Code: ${err.code}, message: ${err.message}`);
   // ...
 });
 ```
 
-5. 调用[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#stop)方法，停止音频播放并同步停止振动。
+6. 调用[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#stop)方法，停止音频播放并同步停止振动。
 
   
 ```ArkTS
 audioHapticPlayer.stop().then(() => {
-  console.info(`Promise returned to indicate that stop playing successfully.`);
+  console.info('Succeeded in stopping audio haptic player.');
   // ...
 }).catch((err: BusinessError) => {
-  console.error(`Failed to stop playing. ${err}`);
+  console.error(`Failed to stop audio haptic player. Code: ${err.code}, message: ${err.message}`);
   // ...
 });
 ```
 
-6. 调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#release)方法，释放AudioHapticPlayer实例。
+7. 调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#release)方法，释放AudioHapticPlayer实例。
 
   
 ```ArkTS
 audioHapticPlayer.release().then(() => {
-  console.info(`Promise returned to indicate that release the audio haptic player successfully.`);
+  console.info('Succeeded in releasing audio haptic player.');
   // ...
 }).catch((err: BusinessError) => {
-  console.error(`Failed to release the audio haptic player. ${err}`);
+  console.error(`Failed to release audio haptic player. Code: ${err.code}, message: ${err.message}`);
   // ...
 });
 ```
 
-7. 调用[unregisterSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#unregistersource)方法，将已注册的音频及振动资源移除注册。
+8. 调用[unregisterSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-audiohaptic#unregistersource)方法，将已注册的音频及振动资源移除注册。
 
   
 ```ArkTS
 // 对于不再需要使用的资源，建议应用及时取消注册，避免出现资源泄漏或资源数量超上限等问题。
 audioHapticManagerInstance.unregisterSource(idForFd).then(() => {
-  console.info(`Promise returned to indicate that unregister source successfully`);
+  console.info('Succeeded in unregistering source.');
   // ...
 }).catch((err: BusinessError) => {
-  console.error(`Failed to unregister source ${err}`);
+  console.error(`Failed to unregister source. Code: ${err.code}, message: ${err.message}`);
   // ...
 });
 ```

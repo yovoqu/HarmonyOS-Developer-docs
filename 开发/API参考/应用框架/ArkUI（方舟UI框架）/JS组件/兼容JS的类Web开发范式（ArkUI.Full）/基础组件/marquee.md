@@ -1,6 +1,6 @@
 # marquee
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-marquee
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -96,16 +96,16 @@
 ```text
 <!-- xxx.hml -->
 <div class="tutorial-page">
-  <div class="mymarquee">
-    <marquee  style="color: {{color1}}" loop="{{loopval}}" scrollamount="{{scroll}}" direction="{{isleft}}" class="marqueetext"
-    id="testmarquee" onfinish="setfinish">
-      Life is a journey, not the destination.
-    </marquee>
-  </div>
-  <div style="width: 600px;height: 150px;flex-direction: row;justify-content: space-around;">
-    <button onclick="makestart"  value="start"></button>
-    <button onclick="makestop" value="stop"></button>
-  </div>
+    <div class="myMarquee">
+        <marquee  style="color: {{color1}}" loop="{{loopVal}}" scrollamount="{{scroll}}" direction="{{isLeft}}" class="marqueeText"
+                  id="testMarquee" onfinish="setFinish">
+            Life is a journey, not the destination.
+        </marquee>
+    </div>
+    <div style="width: 600px;height: 150px;flex-direction: row;justify-content: space-around;">
+        <button onclick="makeStart"  value="start"></button>
+        <button onclick="makeStop" value="stop"></button>
+    </div>
 </div>
 ```
  
@@ -118,10 +118,10 @@
   align-items: center;
   justify-content: center;
 }
-.marqueetext {
-  font-size: 37px;
+.marqueeText {
+  font-size: 40px;
 }
-.mymarquee {
+.myMarquee {
   margin-top: 20px;
   width:100%;
   height: 100px;
@@ -141,30 +141,34 @@ button{
 ```text
 // xxx.js
 export default {
-  private: {
-    loopval: 1,
-    scroll: 8,
-    color1: 'red'
-  },
-  onInit(){
-  },
-  setfinish(e) {
-    this.loopval=  this.loopval + 1,
-    this.r = Math.floor(Math.random()*255),
-    this.g = Math.floor(Math.random()*255),
-    this.b = Math.floor(Math.random()*255),
-    this.color1 = 'rgba('+ this.r +','+ this.g +','+ this.b +',0.8)',
-    this.$element('testmarquee').start(),
-    this.loopval=  this.loopval - 1
-  },
-  makestart(e) {
-    this.$element('testmarquee').start()
-  },
-  makestop(e) {
-    this.$element('testmarquee').stop()
-  }
+    private: {
+        loopVal: 1,
+        scroll: 8,
+        color1: 'red',
+        isLeft: 'left',
+        r: 255,
+        g: 0,
+        b: 0
+    },
+    onInit(){
+    },
+    setFinish(e) {
+        this.loopVal=  this.loopVal + 1,
+        this.r = Math.floor(Math.random()*255),
+        this.g = Math.floor(Math.random()*255),
+        this.b = Math.floor(Math.random()*255),
+        this.color1 = 'rgba('+ this.r +','+ this.g +','+ this.b +',0.8)',
+        this.$element('testMarquee').start(),
+        this.loopVal=  this.loopVal - 1
+    },
+    makeStart(e) {
+        this.$element('testMarquee').start()
+    },
+    makeStop(e) {
+        this.$element('testMarquee').stop()
+    }
 }
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/7zfWINJXSJWbjmhleBB0BA/zh-cn_image_0000002659222261.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014402Z&HW-CC-Expire=86400&HW-CC-Sign=DB94377059C287D40AE5A8C201927201938CFFDBB1F6CC32F2EF12E0B19F8B7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/sCM_mjFLT4-DcNt-tW1sCw/zh-cn_image_0000002647748430.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012001Z&HW-CC-Expire=86400&HW-CC-Sign=11748A938F1A3B0C86B1C115C9C4D5EED4DB5CED429AA25DF5A03BFFF29FBD43)

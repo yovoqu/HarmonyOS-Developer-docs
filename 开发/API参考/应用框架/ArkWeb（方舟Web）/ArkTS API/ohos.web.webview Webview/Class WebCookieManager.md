@@ -1,6 +1,6 @@
 # Class (WebCookieManager)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -573,7 +573,7 @@ struct WebComponent {
 
 static configCookie(url: string, value: string): Promise&lt;void&gt;
 
-指定url设置单个cookie的值。使用Promise异步回调。
+为指定url设置单个cookie的值。使用Promise异步回调。
 
 > [!NOTE]
 > configCookie中的url，可以指定域名的方式来使得页面内请求也附带上cookie。 cookie每30s周期性保存到磁盘中，也可以使用接口 saveCookieAsync 进行强制落盘。 value参数必须遵循Set-Cookie HTTP响应头的格式。形式为"key=value"的键值对，后面可跟随以分号分隔的cookie属性列表（例如"key=value;Max-Age=100"）。 若存在相同host、path和名称的cookie，将被新cookie替换。若设置的cookie已过期，则不会存储该cookie。如需设置多个cookie，应多次调用此方法。 若通过configCookie进行两次或多次设置cookie，则每次设置的cookie之间会通过"; "进行分隔。 如果指定的值包含"Secure"属性，则url必须使用"https://"协议。 如果要覆盖HttpOnly的cookies，需要在value中指定HttpOnly属性。
@@ -649,7 +649,7 @@ struct WebComponent {
 
 static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise&lt;void&gt;
 
-指定url设置单个cookie的值。使用Promise异步回调。
+为指定url设置单个cookie的值。使用Promise异步回调。
 
 > [!NOTE]
 > configCookie中的url，可以指定域名的方式来使得页面内请求也附带上cookie。 cookie每30s周期性保存到磁盘中，也可以使用接口 saveCookieAsync 进行强制落盘。 value参数必须遵循Set-Cookie HTTP响应头的格式。形式为"key=value"的键值对，后面可跟随以分号分隔的cookie属性列表（例如"key=value;Max-Age=100"）。 若存在相同host、path和名称的cookie，将被新cookie替换。若设置的cookie已过期，则不会存储该cookie。如需设置多个cookie，应多次调用此方法。 若通过configCookie进行两次或多次设置cookie，则每次设置的cookie之间会通过"; "进行分隔。 如果指定的值包含"Secure"属性，则url必须使用"https://"协议。

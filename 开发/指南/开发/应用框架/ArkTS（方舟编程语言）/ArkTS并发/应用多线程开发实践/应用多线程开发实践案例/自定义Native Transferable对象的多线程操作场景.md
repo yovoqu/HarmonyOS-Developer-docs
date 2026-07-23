@@ -1,6 +1,6 @@
 # 自定义Native Transferable对象的多线程操作场景
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-coerce-to-native-binding-object
 
@@ -34,12 +34,12 @@ public:
         if (thisVar == nullptr) {
             return nullptr;
         }
-        void* object = nullptr;
+        void *object = nullptr;
         napi_unwrap(env, thisVar, &object);
         if (object == nullptr) {
             return nullptr;
         }
-        
+
         uint64_t addressVal = reinterpret_cast<uint64_t>(object);
         napi_value address = nullptr;
         napi_create_bigint_uint64(env, addressVal, &address);
@@ -54,14 +54,14 @@ public:
         if (thisVar == nullptr) {
             return nullptr;
         }
-        void* object = nullptr;
+        void *object = nullptr;
         napi_unwrap(env, thisVar, &object);
         if (object == nullptr) {
             return nullptr;
         }
-        CustomNativeObject* obj = static_cast<CustomNativeObject*>(object);
+        CustomNativeObject *obj = static_cast<CustomNativeObject*>(object);
         std::lock_guard<std::mutex> lock(obj->numberSetMutex_);
-        uint32_t setSize = reinterpret_cast<CustomNativeObject*>(object)->numberSet_.size();
+        uint32_t setSize = reinterpret_cast<CustomNativeObject *>(object)->numberSet_.size();
         napi_value napiSize = nullptr;
         napi_create_uint32(env, setSize, &napiSize);
         return napiSize;
@@ -88,15 +88,15 @@ public:
             return nullptr;
         }
         
-        void* object = nullptr;
+        void *object = nullptr;
         napi_unwrap(env, thisVar, &object);
         if (object == nullptr) {
             return nullptr;
         }
-        
+
         uint32_t value = 0;
         napi_get_value_uint32(env, args[0], &value);
-        CustomNativeObject* obj = static_cast<CustomNativeObject*>(object);
+        CustomNativeObject *obj = static_cast<CustomNativeObject *>(object);
         std::lock_guard<std::mutex> lock(obj->numberSetMutex_);
         reinterpret_cast<CustomNativeObject *>(object)->numberSet_.insert(value);
         return nullptr;
@@ -123,16 +123,16 @@ public:
             return nullptr;
         }
         
-        void* object = nullptr;
+        void *object = nullptr;
         napi_unwrap(env, thisVar, &object);
         if (object == nullptr) {
             return nullptr;
         }
-        
+
         uint32_t value = 0;
         napi_get_value_uint32(env, args[0], &value);
         
-        CustomNativeObject* obj = static_cast<CustomNativeObject*>(object);
+        CustomNativeObject *obj = static_cast<CustomNativeObject *>(object);
         std::lock_guard<std::mutex> lock(obj->numberSetMutex_);
         reinterpret_cast<CustomNativeObject *>(object)->numberSet_.erase(value);
         return nullptr;
@@ -146,12 +146,12 @@ public:
         if (thisVar == nullptr) {
             return nullptr;
         }
-        void* object = nullptr;
+        void *object = nullptr;
         napi_unwrap(env, thisVar, &object);
         if (object == nullptr) {
             return nullptr;
         }
-        CustomNativeObject* obj = static_cast<CustomNativeObject*>(object);
+        CustomNativeObject *obj = static_cast<CustomNativeObject *>(object);
         std::lock_guard<std::mutex> lock(obj->numberSetMutex_);
         reinterpret_cast<CustomNativeObject *>(object)->numberSet_.clear();
         return nullptr;
@@ -168,32 +168,32 @@ public:
             napi_throw_error(env, nullptr, "SetTransferDetached args number must be one.");
             return nullptr;
         }
-        
+
         if (thisVar == nullptr) {
             return nullptr;
         }
-        
+
         napi_valuetype type = napi_undefined;
         napi_typeof(env, args[0], &type);
         if (type != napi_boolean) {
             napi_throw_error(env, nullptr, "SetTransferDetached args is not boolean.");
             return nullptr;
         }
-        
+
         bool isDetached;
         napi_get_value_bool(env, args[0], &isDetached);
         
-        void* object = nullptr;
+        void *object = nullptr;
         napi_unwrap(env, thisVar, &object);
         if (object == nullptr) {
             return nullptr;
         }
-        CustomNativeObject* obj = static_cast<CustomNativeObject*>(object);
+        CustomNativeObject *obj = static_cast<CustomNativeObject *>(object);
         std::lock_guard<std::mutex> lock(obj->numberSetMutex_);
         obj->isDetached_ = isDetached;
         return nullptr;
     }
-    
+
     bool isDetached_ = false;
 
 private:
@@ -217,8 +217,8 @@ void* DetachCallback(napi_env env, void *value, void *hint)
     }
     napi_value jsObject = nullptr;
     napi_get_reference_value(env, reinterpret_cast<napi_ref>(hint), &jsObject);
-    void* object = nullptr;
-    if (static_cast<CustomNativeObject*>(value)->isDetached_) {
+    void *object = nullptr;
+    if (static_cast<CustomNativeObject *>(value)->isDetached_) {
         napi_remove_wrap(env, jsObject, &object);
     }
     return value;
@@ -256,11 +256,11 @@ static napi_value Init(napi_env env, napi_value exports)
             nullptr, nullptr, nullptr, napi_default, nullptr}};
     napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
     auto &object = CustomNativeObject::GetInstance();
-    napi_wrap(env, exports, reinterpret_cast<void*>(&object), FinalizeCallback, nullptr, nullptr);
+    napi_wrap(env, exports, reinterpret_cast<void *>(&object), FinalizeCallback, nullptr, nullptr);
     napi_ref exportsRef;
     napi_create_reference(env, exports, 1, &exportsRef);
     napi_coerce_to_native_binding_object(env, exports, DetachCallback,
-        AttachCallback, reinterpret_cast<void*>(&object), exportsRef);
+        AttachCallback, reinterpret_cast<void *>(&object), exportsRef);
     return exports;
 }
 EXTERN_C_END
@@ -271,8 +271,8 @@ static napi_module demoModule = {
     .nm_filename = nullptr,
     .nm_register_func = Init,
     .nm_modname = "entry",
-    .nm_priv = ((void*)0),
-    .reserved = { 0 },
+    .nm_priv = ((void *)0),
+    .reserved = {0},
 };
 
 extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
@@ -287,11 +287,16 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 ```ts
 // Index.d.ts
 export const getAddress: () => number;
+
 export const getSetSize: () => number;
+
 export const store: (a: number) => void;
+
 export const erase: (a: number) => void;
+
 export const clear: () => void;
-export const setTransferDetached: (b : boolean) => number;
+
+export const setTransferDetached: (b: boolean) => number;
 ```
 
 3. ArkTS对象调用Native侧实现的各项功能。
@@ -310,8 +315,8 @@ function getAddress() {
 }
 
 @Concurrent
-function store(a:number, b:number, c:number) {
-  let size:number = testNapi.getSetSize();
+function store(a: number, b: number, c: number) {
+  let size: number = testNapi.getSetSize();
   console.info('set size is ' + size + ' before store');
   testNapi.store(a);
   testNapi.store(b);
@@ -321,8 +326,8 @@ function store(a:number, b:number, c:number) {
 }
 
 @Concurrent
-function erase(a:number) {
-  let size:number = testNapi.getSetSize();
+function erase(a: number) {
+  let size: number = testNapi.getSetSize();
   console.info('set size is ' + size + ' before erase');
   testNapi.erase(a);
   size = testNapi.getSetSize();
@@ -331,7 +336,7 @@ function erase(a:number) {
 
 @Concurrent
 function clear() {
-  let size:number = testNapi.getSetSize();
+  let size: number = testNapi.getSetSize();
   console.info('set size is ' + size + ' before clear');
   testNapi.clear();
   size = testNapi.getSetSize();
@@ -342,7 +347,7 @@ function clear() {
 async function test(): Promise<void> {
   // setTransferDetached 设置为true，表示传输方式为转移模式
   testNapi.setTransferDetached(true);
-  let address:number = testNapi.getAddress();
+  let address: number = testNapi.getAddress();
   console.info('host thread address is ' + address);
 
   let task1 = new taskpool.Task(getAddress, testNapi);
@@ -355,7 +360,7 @@ async function test(): Promise<void> {
   await taskpool.execute(task3);
 
   // 由于已经设置了转移模式，且testNapi已跨线程传递，所以主线程无法继续访问到Native对象的值
-  let size:number = testNapi.getSetSize();
+  let size: number = testNapi.getSetSize();
   // 输出的日志为“host thread size is undefined”
   console.info('host thread size is ' + size);
 
@@ -405,8 +410,8 @@ function getAddress() {
 }
 
 @Concurrent
-function store(a:number, b:number, c:number) {
-  let size:number = testNapi.getSetSize();
+function store(a: number, b: number, c: number) {
+  let size: number = testNapi.getSetSize();
   console.info('set size is ' + size + ' before store');
   testNapi.store(a);
   testNapi.store(b);
@@ -417,7 +422,7 @@ function store(a:number, b:number, c:number) {
 
 @Concurrent
 function erase(a:number) {
-  let size:number = testNapi.getSetSize();
+  let size: number = testNapi.getSetSize();
   console.info('set size is ' + size + ' before erase');
   testNapi.erase(a);
   size = testNapi.getSetSize();
@@ -426,7 +431,7 @@ function erase(a:number) {
 
 @Concurrent
 function clear() {
-  let size:number = testNapi.getSetSize();
+  let size: number = testNapi.getSetSize();
   console.info('set size is ' + size + ' before clear');
   testNapi.clear();
   size = testNapi.getSetSize();
@@ -435,7 +440,7 @@ function clear() {
 
 // 共享模式
 async function test(): Promise<void> {
-  let address:number = testNapi.getAddress();
+  let address: number = testNapi.getAddress();
   console.info('host thread address is ' + address);
 
   let task1 = new taskpool.Task(getAddress, testNapi);
@@ -448,7 +453,7 @@ async function test(): Promise<void> {
   await taskpool.execute(task3);
 
   // 由于默认的传输模式为共享模式，testNapi跨线程传递后，主线程可以继续访问Native对象的值
-  let size:number = testNapi.getSetSize();
+  let size: number = testNapi.getSetSize();
   // 输出的日志为“host thread size is 6”
   console.info('host thread size is ' + size);
 

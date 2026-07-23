@@ -1,6 +1,6 @@
 # SceneType
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -17,7 +17,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry, CylinderGeometry, Position3, Rotation3, Scale3 } from '@kit.ArkGraphics3D';
+import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, RenderingPipelineType, GeometryType, GeometryDefinition, PrimitiveTopology, ShadowAlgorithmType, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry, CylinderGeometry, Mat4x4, Position3, Rotation3, Scale3 } from '@kit.ArkGraphics3D';
 ```
  
   
@@ -316,7 +316,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 以radius=0.5，height=1，segmentCount=20为例，生成圆柱体的网格以及UV布局如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/53Ov8-dSSciHMFEq25yTyA/zh-cn_image_0000002656351013.png?HW-CC-KV=V1&HW-CC-Date=20260624T020328Z&HW-CC-Expire=86400&HW-CC-Sign=6CB9744F1D2A78543FF1C3C7D2EED25DBDFDEE87D84C0127570974B898EDCCA9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/jWEKZ1bURrG7q8iP_3h8ag/zh-cn_image_0000002677669019.png?HW-CC-KV=V1&HW-CC-Date=20260723T012043Z&HW-CC-Expire=86400&HW-CC-Sign=E294427BB5866FB503895A96AEE57E761CB45546A330D525F19D7B984E8711B9)
 
  
   

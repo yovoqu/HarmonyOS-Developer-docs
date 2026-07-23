@@ -1,6 +1,6 @@
 # 基于HMRouter的页面跳转
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-07-22 06:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hmrouter
 
@@ -192,10 +192,10 @@ export struct PayCancel {
   build() {
     Stack({ alignContent: Alignment.Center }) {
       ConfirmDialog({
-        title: '取消订单',
-        content: '您确认要取消此订单吗?',
-        leftButtonName: '再看看',
-        rightButtonName: '取消订单',
+        title: PayConstants.PAY_CANCEL_TITLE,
+        content: PayConstants.PAY_CANCEL_CONTENT,
+        leftButtonName: PayConstants.PAY_CANCEL_BUTTON1,
+        rightButtonName: PayConstants.PAY_CANCEL_TITLE,
         leftButtonFunc: () => {
           HMRouterMgr.popAsync({
             navigationId: this.queryNavigationInfo()?.navigationId

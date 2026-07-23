@@ -1,6 +1,6 @@
 # 状态管理V1和V2混用指导（API version 19前）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage-before-api-version
 
@@ -140,8 +140,8 @@ class InfoTwo {
 @ComponentV2
 struct ChildTwo {
   // V2对数据输入有严格的管理，从父组件传入数据时，必须使用@Param装饰器进行数据接收
-  @Param @Once message: string = 'hello'; // 可以观测到变化，同步回父组件依赖@Event，使用了@Once可以修改@Param装饰的变量
-  @Param @Once undefinedVal: string | undefined = undefined; // 使用了@Once可以修改@Param装饰的变量
+  @Param @Once message: string = 'hello'; // 使用了@Once可以修改@Param装饰的变量
+  @Param @Once undefinedVal: string | undefined = undefined;
   @Param info: InfoTwo = new InfoTwo(); // 观测不到类属性变化
   @Require @Param set: Set<number>;
 

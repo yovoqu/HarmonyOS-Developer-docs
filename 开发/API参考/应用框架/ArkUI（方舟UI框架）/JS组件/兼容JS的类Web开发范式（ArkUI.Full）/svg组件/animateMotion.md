@@ -1,6 +1,6 @@
 # animateMotion
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatemotion
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,4 +38,4 @@
 | --- | --- | --- | --- | --- |
 | keyPoints | string | - | 是 | 一组关键帧的点位置，每帧的值为对象沿路径的距离比例。功能与animate属性中的values相同。 |
 | path | string | - | 是 | 定义运动的路径，使用与path组件d属性相同的语法。 |
-| rotate | [auto \| auto-reverse \| &lt;number&gt;] | auto | 否 | 设置动画对象的旋转方向。 |
+| rotate | [auto \| auto-reverse \| &lt;number&gt;] | auto | 否 | 设置动画对象的旋转角度或旋转方式。 |

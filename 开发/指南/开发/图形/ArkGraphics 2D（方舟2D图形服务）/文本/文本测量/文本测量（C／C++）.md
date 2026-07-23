@@ -1,6 +1,6 @@
 # 文本测量（C/C++）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-c
 
@@ -76,7 +76,7 @@ OH_Drawing_TypographyHandlerAddText(handler, text);
 OH_Drawing_Typography *typography = OH_Drawing_CreateTypography(handler);
 ```
 
-4. 调用排版接口并设置段落排版宽度，对段落进行塑型排版。
+4. 调用排版接口并设置段落排版宽度，对段落进行塑形排版。
 
   
 ```cpp

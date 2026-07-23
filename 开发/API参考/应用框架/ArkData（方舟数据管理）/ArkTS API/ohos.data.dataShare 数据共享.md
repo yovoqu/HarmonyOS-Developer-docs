@@ -1,11 +1,11 @@
 # @ohos.data.dataShare (数据共享)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datashare
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-**DataShare**用于应用管理其自身数据，同时支持同个设备上不同应用间的数据共享。
+**DataShare**用于应用管理其自身数据，同时支持同一个设备上不同应用间的数据共享。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。

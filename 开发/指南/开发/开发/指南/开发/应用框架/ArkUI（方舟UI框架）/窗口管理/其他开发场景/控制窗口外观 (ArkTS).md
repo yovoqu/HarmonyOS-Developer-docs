@@ -1,6 +1,6 @@
 # 控制窗口外观 (ArkTS)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appearance
 
@@ -31,14 +31,14 @@
   掩码仅支持取值为整数0和整数1的二维数组输入，数组行数对应窗口高度，列数对应窗口宽度。整数0代表对应像素透明且不可交互，整数1代表对应像素不透明且可交互。
 
   
-![](assets/控制窗口外观%20(ArkTS)/file-20260708103554e29d71d9.png)
+![](assets/控制窗口外观%20(ArkTS)/file-202607081035548b476d3c.png)
 
  - 从API版本26.0.0开始，支持使用[setWindowMaskWithAlpha()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowmaskwithalpha)接口设置异形窗口的掩码。
 
   掩码支持取值在[0, 255]范围的数组输入，数组长度等于窗口宽度乘以窗口高度。整数0代表对应像素透明且不可交互，整数255代表对应像素不透明且可交互，0~255之间代表对应像素部分透明且可交互。此接口性能优于[setWindowMask()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowmask12)，推荐使用。
 
   
-![](assets/控制窗口外观%20(ArkTS)/file-202607081035548b476d3c.png)
+![](assets/控制窗口外观%20(ArkTS)/file-20260708103554e29d71d9.png)
 
 
 
@@ -54,7 +54,7 @@
 4. 子窗矩形区域的左上部分变为透明不可交互，通过点击“Create Test Window”按钮，事件透传到该按钮，创建出绿色的测试窗口。
 
   
-```text
+```ArkTS
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -200,7 +200,7 @@ struct SliderDemo {
 
 
 
-![](assets/控制窗口外观%20(ArkTS)/file-20260708103557bb1647ff.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/FEr-nVd2QWeOf7J1rY9P2Q/zh-cn_image_0000002677825941.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012202Z&HW-CC-Expire=86400&HW-CC-Sign=01D3D7F898345403F22619C1949172B22DA46F82B789A46F2E9DF8A88E785835)
 
 
 示例代码如下：

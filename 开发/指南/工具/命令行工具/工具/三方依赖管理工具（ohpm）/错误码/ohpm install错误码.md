@@ -1,6 +1,6 @@
 # ohpm install错误码
 
-更新时间：2026-06-24 07:08:31
+更新时间：2026-07-21 01:13:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-install-errorcode
 
@@ -16,7 +16,7 @@ No Match.
 
 **可能原因**
 
-从服务器获取的ohpm版本号和oh-package.json5中配置的版本号不匹配。
+从服务器获取的包版本号和oh-package.json5中配置的版本号不匹配。
 
 **处理步骤**
 
@@ -74,7 +74,7 @@ Install Local Hsp Failed.
 
 **错误信息**
 
-Not FoundHsp File By Registry Tgz.
+Not Found Hsp File By Registry Tgz.
 
 **错误描述**
 

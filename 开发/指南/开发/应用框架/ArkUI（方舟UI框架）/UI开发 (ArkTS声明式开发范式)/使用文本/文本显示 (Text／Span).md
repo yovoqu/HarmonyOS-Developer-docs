@@ -1,6 +1,6 @@
 # 文本显示 (Text/Span)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-text-display
 
@@ -136,7 +136,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Entry
 @Component
-export struct TextSpanOnHover {
+struct TextSpanOnHover {
   @State textStr1: string = '';
   @State textStr2: string = '';
 
@@ -489,7 +489,6 @@ Text($r('app.string.CustomTextStyle_textContent_high'))
 ```ArkTS
 Text('This is the text content with textCase set to Normal.')
   .textCase(TextCase.Normal)
-  .padding(10)
   .border({ width: 1 })
   .padding(10)
   .margin(5)
@@ -540,9 +539,9 @@ Text('This is the text content with fontFamily')
 ```ArkTS
 @Entry
 @Component
-export struct ContentTransition {
+struct ContentTransitionDemo {
   private static readonly INITIAL_SCORE: number = 98;
-  @State number: number = ContentTransition.INITIAL_SCORE;
+  @State number: number = ContentTransitionDemo.INITIAL_SCORE;
   @State numberTransition: NumericTextTransition =
     new NumericTextTransition({ flipDirection: FlipDirection.DOWN, enableBlur: false });
   build() {
@@ -609,7 +608,7 @@ function style() {
 
 @Entry
 @Component
-export struct LineSpacing {
+struct LineSpacing {
   build() {
     NavDestination() {
       Column() {
@@ -631,7 +630,7 @@ export struct LineSpacing {
 ```ArkTS
 @Entry
 @Component
-export struct EnableAutoSpacing {
+struct EnableAutoSpacing {
   @State enableSpacing: boolean = false;
 
   build() {
@@ -687,7 +686,7 @@ export struct EnableAutoSpacing {
 ```ArkTS
 @Entry
 @Component
-export struct ShaderStyle {
+struct ShaderStyle {
   @State message: string = 'Hello World';
   @State linearGradientOptions: LinearGradientOptions =
     {
@@ -731,7 +730,7 @@ Text组件可以添加通用事件，可以绑定[onClick](https://developer.hua
 import { hilog } from '@kit.PerformanceAnalysisKit';
 @Entry
 @Component
-export struct GeneralEvents {
+struct GeneralEvents {
   @State textStr1: string = '';
   @State textStr2: string = '';
 
@@ -944,7 +943,7 @@ onMenuItemClick = (menuItem: TextMenuItem, textRange: TextRange) => {
 // xxx.ets
 @Entry
 @Component
-export struct SelectionChange {
+struct SelectionChange {
   @State text: string =
     'This is set selection to Selection text content This is set selection to Selection text content.';
   @State start: number = 0;
@@ -996,7 +995,7 @@ export struct SelectionChange {
 // xxx.ets
 @Entry
 @Component
-export struct CustomAndBlockMenus {
+struct CustomAndBlockMenus {
   private static readonly CREATE_MENU_ITEM_ID_1: string = 'create1';
   private static readonly CREATE_MENU_ITEM_ID_2: string = 'create2';
   private static readonly PREPARE_MENU_ITEM_ID: string = 'prepare1';
@@ -1140,7 +1139,7 @@ import { TextMenuController } from '@kit.ArkUI';
 // xxx.ets
 @Entry
 @Component
-export struct ServiceMenuItems {
+struct ServiceMenuItems {
   aboutToAppear(): void {
     // 禁用所有系统服务菜单
     TextMenuController.disableSystemServiceMenuItems(true);
@@ -1190,7 +1189,7 @@ import { TextMenuController } from '@kit.ArkUI';
 // xxx.ets
 @Entry
 @Component
-export struct DisableMenuItems {
+struct DisableMenuItems {
   aboutToAppear(): void {
     // 禁用搜索菜单
     TextMenuController.disableMenuItems([TextMenuItemId.SEARCH])
@@ -1247,8 +1246,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 const DOMAIN = 0x0000;
 @Entry
 @Component
-
-export struct PrepareMenu {
+struct PrepareMenu {
   @State text: string = 'Text editMenuOptions';
   @State endIndex: number = 0;
   onCreateMenu = (menuItems: Array<TextMenuItem>) => {
@@ -1368,11 +1366,9 @@ Text($r('app.string.AIMenu_Text_One'))
 该示例通过[maxLines](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#maxlines)、[textOverflow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textoverflow)、[textAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textalign)、[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)属性展示了热搜榜的效果。
 
 ```ArkTS
-import { ComponentCard } from '../../common/Card';
-
 @Entry
 @Component
-export struct TextHotSearch {
+struct TextHotSearch {
   build() {
     NavDestination() {
       Column({ space: 12 }) {

@@ -1,6 +1,6 @@
 # Web组件支持画中画
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-picture-in-picture
 
@@ -54,10 +54,12 @@ togglePipButton.addEventListener("click", async () => {
 请求退出画中画模式，请使用Document接口的exitPictureInPicture()方法，视频将重新在原始标签页中显示。
 
 ```text
-// ...
+// 示例：先获取video元素
+const video = document.getElementById('video');
+
 try {
-  if (videoElement !== document.pictureInPictureElement) {
-    await videoElement.requestPictureInPicture();
+  if (video !== document.pictureInPictureElement) {
+    await video.requestPictureInPicture();
   } else {
     await document.exitPictureInPicture();
   }

@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -338,7 +338,7 @@ The playerId is not current player.
 
 
 
-#### 1002000011 玩家未确认协议、隐私声明
+#### 1002000011 玩家未同意隐私声明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
@@ -348,7 +348,7 @@ Agreement not agreed.
 
 **错误描述**
 
-玩家未确认协议、隐私声明。
+玩家未同意隐私声明。
 
 **可能原因**
 
@@ -760,12 +760,11 @@ Authentication failed.
 
 **可能原因**
 
-网络连接、传参错误或未开通近场快传开放能力。
+网络连接或传参错误。
 
 **处理步骤**
 1. 首次使用设备进行登录时，请确认网络连接正常。
 2. 请检查[create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-nearbytransfer#gamenearbytransfercreate)接口传参是否正确。
-3. 未开通近场快传开放能力，请参见[申请近场快传开放能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gameservice-nearbytransfer-config-agc#申请近场快传开放能力)申请并开启近场快传开放能力。
 
 
 

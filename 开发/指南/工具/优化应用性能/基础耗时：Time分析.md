@@ -1,6 +1,6 @@
 # 基础耗时：Time分析
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-time
 
@@ -38,10 +38,10 @@ ArkTS：程序正在执行ArkTS代码；
 
 6. **Callstack**：ArkTS和Native混合函数调用泳道。基于时间轴展示各线程的CPU使用率，以及在一段时间内的混合调用栈。调用栈类型会分为开发者或系统的ArkTS以及Native代码两类。由于隐私安全政策，已上架应用市场的应用不支持录制此泳道。         Callstack基于采样模式采集数据，默认采样间隔是500微秒。耗时小于500微秒的函数，Details区域时间相关数据可能存在误差，可通过录制过程中多次触发该函数，根据其耗时百分比判断是否为热点函数。
 
-7. 在**ArkTS Callstack****泳道**和**ArkTS Callstack****子泳道**上长按鼠标左键并拖拽，框选要分析的时间段。**Details**区域会显示所选时间段内的函数栈耗时分布情况，**Heaviest Stack**区域会展示出Details区域选择节点所处的耗时最长的完整调用栈。函数栈耗时分布有三种展现方式：Call Tree（调用树，默认方式）、Flame Chart（火焰图）、Flame Chart（冰锥图）。
+7. 在**ArkTS Callstack****泳道**和**ArkTS Callstack****子泳道**上长按鼠标左键并拖拽，框选要分析的时间段。**Details**区域会显示所选时间段内的函数栈耗时分布情况，**Heaviest Stack**区域会展示出Details区域选择节点所处的耗时最长的完整调用栈。函数栈耗时分布有三种展现方式：调用树（默认展示方式）、火焰图、冰锥图。
 
   
-在Call Tree中，“Weight”字段表示当前函数的总执行时间，“Self”字段表示函数自身的执行时间，两者之差为当前函数所调用的子函数执行时间之和，“Average Duration”字段表示函数自身的平均执行时间，“Category”字段表示函数调用类型。
+在调用树中，“Weight”字段表示当前函数的总执行时间，“Self”字段表示函数自身的执行时间，两者之差为当前函数所调用的子函数执行时间之和，“Average Duration”字段表示函数自身的平均执行时间，“Category”字段表示函数调用类型。
 
 8. 打开页面下方的Flame Chart开关，函数调用栈将以火焰图的形式展示，横轴表示函数的执行时长，纵轴表示调用栈的深度。         
 > [!NOTE]
@@ -82,7 +82,7 @@ ArkTS：程序正在执行ArkTS代码；
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/hZbNa7VmStSXAheLOfBVvg/zh-cn_image_0000002625074737.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=7046D6571072FF217155CB1E062A6CB3E75965DE1E0FA29C31CC3F86DA5064AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/qk4r2FuHQbSFivjRPOSxOw/zh-cn_image_0000002625074737.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=DD0E384090AF575316C9C698209059C8A61588449E8E65E1F00908D6B72DCE03)
 
 
 
@@ -105,7 +105,7 @@ ArkTS：程序正在执行ArkTS代码；
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/Pg_zEEltRvu7O17Ozg0ULA/zh-cn_image_0000002594475234.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=F4A219C83601F0D2E23322D69093D5D23CFEDAD449267DDC180B5AEC2569E554)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/_ZZfZUHOR1KNQ08zTpMMSg/zh-cn_image_0000002594475234.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=DA8553FA79B007D46EC4F9DC13D342BE44362FB0485D458360EB0C9BC1689A2D)
 
 
 
@@ -117,11 +117,11 @@ DevEco Profiler提供离线符号解析能力，基于携带符号表信息的so
 对于有so库路径和偏移地址的采样数据，如图所示，通过导入对应的携带符号表信息的so库进行解析，补充release so库中缺失的符号表信息（包括系统so库，用户自编译的so库，三方库）。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/FMeE0SmZT3W_xJhxd9uU7w/zh-cn_image_0000002594635150.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=D93D24CD36EEA63BD800EAF8BB6702ADA35383A5C79F578EAD701690562CC89C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/NExK40vBRaaRq7LINVYf3A/zh-cn_image_0000002594635150.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=A79E925EB02E8CD8E3EB686B62B5EF065340D9A25071C927524515374F797A5A)
 
 
 您可以通过点击工具栏
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/_fkJJcigQAabJzxWotVW4Q/zh-cn_image_0000002624994591.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=5BBC10EE8F991DC0155D2B9D8901CF5E29735EC8CD735F64F6D6D17B6B4CCF26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/aPwxGiPrRgW-6x3gcYdYtA/zh-cn_image_0000002624994591.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=7A95A43A9A53E295AF75421E0010CD6996D1A133E4D6B3134C6EDC97F7668AF1)
 按钮，导入包含debug信息的so库。
 
 > [!NOTE]
@@ -129,7 +129,7 @@ DevEco Profiler提供离线符号解析能力，基于携带符号表信息的so
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/eyFisFu-RGK6X-Z4QfRbxw/zh-cn_image_0000002625074733.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=AB9D960804A70A0F0985580EBD212C69D5BC5B216B97436F5A7217AC1AB35B51)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/Vzph6QEQRqyX_JDtWpY9ww/zh-cn_image_0000002625074733.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=9076CCB3EDBC8A561BFFD172393727C8989C7921F8C67EF0306C539907F019A3)
 
 
 
@@ -141,7 +141,7 @@ DevEco Profiler提供离线符号解析能力，基于携带符号表信息的so
 单击User Trace泳道的“options”下拉列表，可以设置子泳道是按照Task Name维度还是Thread ID维度显示。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/8hxzzxpPQJeJ34vUzrHaJw/zh-cn_image_0000002594475230.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=63E3E92BE11611E0553A88B54EA4F0ECEB57BD62E3499552B49D59639E49A6DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/3QwW0BjuQDm-UtqtnaDxEA/zh-cn_image_0000002594475230.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=3F14CF559C057EEE6D56A378008BE2B5207708E13023EDA565DE960CD8B9C527)
 
 
  - 展开**User Trace**泳道，在子泳道上长按鼠标左键并拖拽，框选要展示分析的时间段，获取该时间段内的用户打点信息。       
@@ -150,7 +150,7 @@ DevEco Profiler提供离线符号解析能力，基于携带符号表信息的so
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/mog1DBQZR6ajyvUuIOtAng/zh-cn_image_0000002625074739.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=626058A5FB6ACD6BF96899AAE2F36212AA54999935136807370D50C25B4EA594)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/GzlZuyNcQDq6zhd8mqQ7OQ/zh-cn_image_0000002625074739.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=85C5C9A65C0194D2A106B3B95ED0DBDCD206F1D99C5AEEF6C0F41A36E838F242)
 
       - 单击**User Trace**子泳道中的任意一个任务块，**Details**区域将展示该任务块的详细信息。       
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/IO-KGsO6QSeWVqfBcmUrpA/zh-cn_image_0000002594635158.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=B764FADFB03B49E9A9AF856FEB130D93318F51E7B14C476774C809FC23722DCC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/SSfNNdGfTeapISa_P2022w/zh-cn_image_0000002594635158.png?HW-CC-KV=V1&HW-CC-Date=20260723T012124Z&HW-CC-Expire=86400&HW-CC-Sign=D60531C28D56F0B666A4087FF887806970C1D54BF4D705986141C20010B22983)

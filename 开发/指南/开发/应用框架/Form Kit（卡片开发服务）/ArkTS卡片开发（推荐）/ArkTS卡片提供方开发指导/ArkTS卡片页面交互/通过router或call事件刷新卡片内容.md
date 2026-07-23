@@ -1,6 +1,6 @@
 # 通过router或call事件刷新卡片内容
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-uiability
 
@@ -93,7 +93,7 @@ export default class WidgetEventRouterEntryAbility extends UIAbility {
   }
 
   handleFormRouterEvent(want: Want, source: string): void {
-    hilog.info(DOMAIN_NUMBER, TAG, `handleFormRouterEvent ${source}, Want: ${JSON.stringify(want)}`);
+    hilog.info(DOMAIN_NUMBER, TAG, `handleFormRouterEvent ${source}, Want: ${want.parameters?.params as string}`);
     if (want.parameters && want.parameters[formInfo.FormParam.IDENTITY_KEY] !== undefined) {
       let curFormId = want.parameters[formInfo.FormParam.IDENTITY_KEY].toString();
       // want.parameters.params 对应 postCardAction() 中 params 内容
@@ -103,17 +103,17 @@ export default class WidgetEventRouterEntryAbility extends UIAbility {
         'routerDetail': message + ' ' + source + ' UIAbility', // 和卡片布局中对应
       };
       let formMsg = formBindingData.createFormBindingData(formData);
-      formProvider.updateForm(curFormId, formMsg).then((data) => {
-        hilog.info(DOMAIN_NUMBER, TAG, 'updateForm success.', JSON.stringify(data));
+      formProvider.updateForm(curFormId, formMsg).then(() => {
+        hilog.info(DOMAIN_NUMBER, TAG, 'updateForm success.');
       }).catch((error: BusinessError) => {
-        hilog.info(DOMAIN_NUMBER, TAG, 'updateForm failed.', JSON.stringify(error));
+        hilog.error(DOMAIN_NUMBER, TAG, `updateForm failed, error code: ${error.code}, error message: ${error.message}`);
       });
     }
   }
 
   // 如果UIAbility已在后台运行，在收到Router事件后会触发onNewWant生命周期回调
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    hilog.info(DOMAIN_NUMBER, TAG, 'onNewWant Want:', JSON.stringify(want));
+    hilog.info(DOMAIN_NUMBER, TAG, 'onNewWant Want:', want.parameters?.params as string);
     this.handleFormRouterEvent(want, 'onNewWant');
   }
 
@@ -121,12 +121,12 @@ export default class WidgetEventRouterEntryAbility extends UIAbility {
 
     hilog.info(DOMAIN_NUMBER, TAG, '%{public}s', 'Ability onWindowStageCreate');
 
-    windowStage.loadContent('pages/Index', (err, data) => {
+    windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
-        hilog.error(DOMAIN_NUMBER, TAG, 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
+        hilog.error(DOMAIN_NUMBER, TAG, `Failed to load the content. error code: ${err.code}, error message: ${err.message}`);
         return;
       }
-      hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
+      hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in loading the content.');
     });
   }
 }
@@ -250,10 +250,10 @@ let funACall = (data: rpc.MessageSequence): MyParcelable => {
       'calleeDetail': message
     };
     let formMsg: formBindingData.FormBindingData = formBindingData.createFormBindingData(formData);
-    formProvider.updateForm(curFormId, formMsg).then((data) => {
-      hilog.info(DOMAIN_NUMBER, TAG, `updateForm success. ${JSON.stringify(data)}`);
+    formProvider.updateForm(curFormId, formMsg).then(() => {
+      hilog.info(DOMAIN_NUMBER, TAG, `updateForm success.`);
     }).catch((error: BusinessError) => {
-      hilog.error(DOMAIN_NUMBER, TAG, `updateForm failed: ${JSON.stringify(error)}`);
+      hilog.error(DOMAIN_NUMBER, TAG, `updateForm failed, error code: ${error.code}, error message: ${error.message}`);
     });
   }
   return new MyParcelable(CONST_NUMBER_1, 'aaa');
@@ -265,7 +265,7 @@ export default class WidgetCalleeEntryAbility extends UIAbility {
       // 监听call事件所需的方法
       this.callee.on(MSG_SEND_METHOD, funACall);
     } catch (error) {
-      hilog.error(DOMAIN_NUMBER, TAG, `${MSG_SEND_METHOD} register failed with error ${JSON.stringify(error)}`);
+      hilog.error(DOMAIN_NUMBER, TAG, `${MSG_SEND_METHOD} register failed, error code: ${error.code}, error message: ${error.message}`);
     }
   }
 
@@ -273,12 +273,12 @@ export default class WidgetCalleeEntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(DOMAIN_NUMBER, TAG, '%{public}s', 'Ability onWindowStageCreate');
 
-    windowStage.loadContent('pages/Index', (err, data) => {
+    windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
-        hilog.error(DOMAIN_NUMBER, TAG, 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
+        hilog.error(DOMAIN_NUMBER, TAG, `Failed to load the content.error code: ${err.code}, error message: ${err.message}`);
         return;
       }
-      hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
+      hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in loading the content.');
     });
   }
 }

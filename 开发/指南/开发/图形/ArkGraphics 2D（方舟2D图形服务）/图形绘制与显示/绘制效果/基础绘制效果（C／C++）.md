@@ -1,6 +1,6 @@
 # 基础绘制效果（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/basic-drawing-effect-c
 
@@ -29,7 +29,7 @@
 | void OH_Drawing_BrushSetColor (OH_Drawing_Brush* , uint32_t color) | 用于设置画刷的颜色属性，颜色属性描述了画刷填充图形时使用的颜色，用一个32位（ARGB）的变量表示。 |
 | void OH_Drawing_BrushSetAntiAlias (OH_Drawing_Brush* , bool) | 用于设置画刷的抗锯齿属性，设置为true则画刷在绘制图形时会对图形的边缘像素进行半透明的模糊处理，以使图形边缘更加平滑。 |
 | void OH_Drawing_CanvasDetachBrush (OH_Drawing_Canvas*) | 用于去除画布中的画刷，执行后画布将不使用此前设置的画刷，恢复到默认的填充效果。 |
-| void OH_Drawing_BrushDestroy (OH_Drawing_Brush*) | 用于销毁画刷对象并回收该对象占有的内存。 |
+| void OH_Drawing_BrushDestroy (OH_Drawing_Brush*) | 用于销毁画刷对象并回收该对象占用的内存。 |
 
 
 
@@ -126,7 +126,7 @@ OH_Drawing_BrushDestroy(brush);
 
 | void OH_Drawing_CanvasDetachPen (OH_Drawing_Canvas*) | 用于去除画布中的画笔，执行后画布将不去绘制图形形状的轮廓，恢复到默认的填充效果。 |
 
-| void OH_Drawing_PenDestroy (OH_Drawing_Pen*) | 用于销毁画笔对象并回收该对象占有的内存。 |
+| void OH_Drawing_PenDestroy (OH_Drawing_Pen*) | 用于销毁画笔对象并回收该对象占用的内存。 |
 
   
 

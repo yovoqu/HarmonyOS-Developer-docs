@@ -1,6 +1,6 @@
 # UTD预置列表
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uniform-data-type-list
 
@@ -13,7 +13,7 @@
 
 #### 基础类型
 
-基础类型表示通用数据类型，进行跨应用、跨设备设置跨平台交互时，能够被绝大多数应用、设备以及平台识别，标识UTD-ID为general.xxx。当前系统中预定义的通用类型列表如下：
+基础类型表示通用数据类型，进行跨应用、跨设备、跨平台交互时，能够被绝大多数应用、设备以及平台识别，标识UTD-ID为general.xxx。当前系统中预定义的通用类型列表如下：
   
 | UTD-ID | BelongingTo类型 | 后缀名 | MIMEType类型 | 说明 |
 | --- | --- | --- | --- | --- |

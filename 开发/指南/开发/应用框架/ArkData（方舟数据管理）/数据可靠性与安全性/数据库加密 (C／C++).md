@@ -1,6 +1,6 @@
 # 数据库加密 (C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-data-encryption
 
@@ -83,7 +83,7 @@ uint8_t key[6] = {0x31, 0x32, 0x33, 0x34, 0x35, 0x36};
 // 使用指定的密钥打开加密数据库。不指定则由数据库负责生成并保存密钥，并使用生成的密钥。
 const int32_t length = 6;
 OH_Crypto_SetEncryptionKey(cryptoParam, key, length);
-// 秘钥信息使用完之后要清空
+// 密钥信息使用完之后要清空
 for (size_t i = 0; i < sizeof(key); i++) {
     key[i] = 0;
 }

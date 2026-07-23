@@ -1,6 +1,6 @@
 # Text
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3845,8 +3845,6 @@ struct TextExample10 {
   @State str2: string = ""
   @State str3: string = ""
   @State str4: string = ""
-  textStyleAttrs: TextStyle =
-    new TextStyle({ fontWeight: FontWeight.Bolder, fontSize: LengthMetrics.vp(24), fontStyle: FontStyle.Italic });
   titleParagraphStyleAttr: ParagraphStyle =
     new ParagraphStyle({ paragraphSpacing: LengthMetrics.px(50), textIndent: LengthMetrics.vp(15) });
   mutableStyledString: MutableStyledString =

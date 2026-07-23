@@ -1,6 +1,6 @@
 # Interface (AVPlayer)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -488,7 +488,7 @@ removePlaybackMediaSource(id: string): Promise&lt;void&gt;
 从播放器的播放列表中移除指定的媒体源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/IZWGGDDkSYOh16KjcVo_Tw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=6F49A9077717232C8B4C724D526529343C7E4762153CC2F00BB14EB889C4ACC9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/5EuLbajRQB-710jB--gefA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=0FA2EFA2499429CC426DB0A1F62D8211F1BC640C258F7893CF3799B29653371E)
 
 
  - 如果该ID在当前播放列表中不存在，将返回错误码。
@@ -2106,7 +2106,7 @@ seek(timeMs: number, mode?:SeekMode): void
 跳转到指定播放位置，只能在prepared/playing/paused/completed状态调用，可以通过[on('seekDone')](#onseekdone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/YV92dgKnRp2_9wHOYdiVAg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=9B4049EFC5888DA334B035FA57BB69B462D1FB0CCAD9A1A1EB85F8288222E170)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/IV31ZuvhTQqO22tJOrgMFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=C0926C836BB1044EF1D704C169DDBE4C4C1D2DBE3DFB5234F8EC15AB0C3DD0E1)
 
 
 从API版本26.0.0开始，直播场景支持seek。
@@ -2259,7 +2259,7 @@ setSpeed(speed: PlaybackSpeed): void
 设置倍速模式，只能在prepared/playing/paused/completed状态调用，可以通过[on('speedDone')](#onspeeddone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/wZUKwYB5QqiB_Sau9NxOJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=9883687FABDBE63D7747605A14A00A92479336312373D69FC440CFF22B8EAACA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/SVJBMHSWRfqYpkLgz0NnhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=E4D8682C7BCA33D228E884A16271915BABF57EF86711B55369E46549B792E6C1)
 
 
 直播场景不支持setSpeed。
@@ -2364,7 +2364,7 @@ setPlaybackRate(rate: number): void
 设置倍速模式。只能在prepared/playing/paused/completed状态调用，取值范围是[0.125, 4.0]，可以通过[playbackRateDone](#onplaybackratedone20)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/u9ZPkripTmyttnZFTlKWoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=2A73970C6516E7D9414E1A0C97E5D6D8A86C89EDDA02A9337E68A0AE75D2983F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/x3rEaulZReaAMIcP18UyzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=403941BFC205848DC1C463F5B52C37667700E578B84FAA3873444429445011BC)
 
 
 直播场景不支持setPlaybackRate。
@@ -3073,7 +3073,7 @@ on(type: 'timeUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放当前时间，单位为毫秒（ms），用于刷新进度条当前位置，默认间隔100ms时间上报，因用户操作（seek）产生的时间变化会立刻上报。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/9JGK7OZrR6iF67g1gU7rEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=DA9C15EF328D3DAF05A690EFA92AC9C6FE9011D28F689C4DA2854CABA81E12A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/UkJW4L8zQJybFo653g7_5Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=04BE8C37151767332B0BDF88E894978457C2DC4B6215A196B1B75B664FAAFEDD)
 
 
  - 直播场景不支持timeUpdate上报。
@@ -3187,7 +3187,7 @@ on(type: 'durationUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放资源的时长，单位为毫秒（ms），用于刷新进度条长度，默认只在prepared上报一次，同时允许一些特殊码流刷新多次时长。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/tjuWvQ00RayHRGZs3vAmIA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=8ADD56AAB6501AF9238C2E130A0C93041CEA26A162F527C5321AE82DEF1EAFC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/oqi8Y-vCQ2WIxvyj8QRWOA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012038Z&HW-CC-Expire=86400&HW-CC-Sign=554105540A8D677B9333A1B57A4F395AE9FEF5CFADEACBBDFA430D124421B5E6)
 
 
 直播场景不支持durationUpdate上报。
@@ -3698,7 +3698,7 @@ addSubtitleFromUrl(url: string): Promise&lt;void&gt;
 
 ```text
 async function test(){
-  let fdUrl:string = 'http://xxx.xxx.xxx/xx/index.srt';
+  let fdUrl:string = 'https://abc.bcd.example/cde/index.srt'; // 此处仅为示意，请替换为真实资源文件URL。
   let avPlayer: media.AVPlayer = await media.createAVPlayer();
   avPlayer.addSubtitleFromUrl(fdUrl);
 }

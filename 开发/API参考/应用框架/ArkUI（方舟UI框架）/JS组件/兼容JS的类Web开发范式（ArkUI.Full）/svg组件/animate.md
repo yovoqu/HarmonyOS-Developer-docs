@@ -1,6 +1,6 @@
 # animate
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animate
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,12 +41,12 @@
 | end | &lt;time&gt; | 0 | 否 | 设置动效多久时间后结束。支持输入ms(毫秒)、s（秒）、m（分），默认为s(秒)，其他格式不支持。 |
 | repeatCount | <number \| indefinite> | indefinite | 否 | 设置动画播放的次数，默认无限次播放(indefinite)，可通过设置为数值1仅播放一次。 |
 | fill | <freeze \| remove> | remove | 否 | 设置动画结束时的状态。 |
-| calcMode | <discrete \| linear \| paced \| spline> | linear | 否 | 设置动画的插值模式。 discrete：阶跃，from值直接跳转到to的值； linear：线性； paced：线性，设置此项后keyTimes和keyPoints值无效； spline：自定义贝塞尔曲线，spline点定义在keyTimes属性中，每个时间间隔控制点由keySplines定义。 |
+| calcMode | <discrete \| linear \| paced \| spline> | linear | 否 | 设置动画的插值模式。 discrete：阶跃，from值直接跳转到to的值； linear：线性； paced：匀速，设置此项后keyTimes和keySplines值无效； spline：自定义贝塞尔曲线，spline点定义在keyTimes属性中，每个时间间隔控制点由keySplines定义。 |
 | keyTimes | string | - | 否 | 设置关键帧动画的开始时间，值为0~1之间的数值用分号隔开，比如0;0.3;0.8;1。keyTimes、keySplines、values组合设置关键帧动画。keyTimes和values的个数保持一致。keySplines个数为keyTimes个数减一。 |
 | keySplines | string | - | 否 | 与keyTimes相关联的一组贝塞尔控制点。定义每个关键帧的贝塞尔曲线，曲线之间用分号隔开。曲线内的两个控制点格式为x1 y1 x2 y2。比如0.5 0 0.5 1; 0.5 0 0.5 1;0.5 0 0.5 1 |
 | by | number | - | 否 | 在动画中对某一指定属性，添加相对偏移值，from默认为原属性值。 |
 | from | string | - | 否 | 设置需要进行动画的属性的开始值。 如果已经设置了values属性，则from失效。 |
-| to | string | - | 否 | 设置需要进行动画的属性的结束值。 如果已经设置了values属性，则to都失效。 |
+| to | string | - | 否 | 设置需要进行动画的属性的结束值。 如果已经设置了values属性，则to失效。 |
 | values | string | - | 否 | 设置一组动画的变化值。格式为value1;value2;value3。 |
  
  
@@ -134,4 +134,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/oioig1qbTm2cCAQTW0Evag/zh-cn_image_0000002656470319.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=9AD23FEC4892BF71355C5A640A187D2BD9CE5F656559ADF232C388B4D3512012)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/9ZdfpS1ITGqICgVdESWZww/zh-cn_image_0000002677828221.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012002Z&HW-CC-Expire=86400&HW-CC-Sign=40EE12172832DD7585704F224EA858E30CE3DE90F9CD0AA85026EDE3CBE6A7F6)

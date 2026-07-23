@@ -1,6 +1,6 @@
 # TextTimer
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-texttimer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -447,7 +447,7 @@ struct TextTimerExample {
         .fontColor(Color.Black)
         .fontSize(50)
         .onTimer((utc: number, elapsedTime: number) => {
-          console.info('textTimer notCountDown utc is：' + utc + ', elapsedTime: ' + elapsedTime);
+          console.info('textTimer countDown utc is：' + utc + ', elapsedTime: ' + elapsedTime);
         })
       Row() {
         Button('start').onClick(() => {
@@ -652,9 +652,8 @@ struct TextTimerStart {
 // xxx.ets
 @Entry
 @Component
-struct demo {
+struct Demo {
   textTimerController: TextTimerController = new TextTimerController();
-  @State format: string = 'HH:mm:ss.SS';
   @State countValue: number = 5025678;
 
   build() {

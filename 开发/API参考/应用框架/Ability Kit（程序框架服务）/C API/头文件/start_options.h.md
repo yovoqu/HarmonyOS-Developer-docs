@@ -1,6 +1,6 @@
 # start_options.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-start-options-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1385,7 +1385,7 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_GetStartOptionsSupportedWindowModes(A
 | --- | --- |
 | AbilityRuntime_StartOptions *startOptions | AbilityRuntime_StartOptions对象。 |
 | AbilityRuntime_SupportedWindowMode **supportedWindowModes | 启动Ability时的组件所支持的窗口模式。取值范围参见AbilityRuntime_SupportedWindowMode。 |
-| size | 组件所支持的窗口模式大小。 |
+| size_t &size | 组件所支持的窗口模式大小。 |
 
 
 **返回：**

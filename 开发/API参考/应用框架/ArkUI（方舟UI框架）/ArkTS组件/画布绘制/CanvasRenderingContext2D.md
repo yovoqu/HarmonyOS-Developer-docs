@@ -1,6 +1,6 @@
 # CanvasRenderingContext2D
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 CanvasRenderingContext2D对象与Canvas组件绑定后，可在Canvas组件上绘制，绘制对象可以是形状、文本、图片等。
 
 > [!NOTE]
-> 从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 建议使用时将CanvasRenderingContext2D对象与Canvas组件封装到同一个自定义组件中，保证两者一一对应且生命周期保持一致。 本文绘制接口在调用时会存入被关联的Canvas组件的指令队列中。仅当当前帧进入渲染阶段且关联的Canvas组件处于可见状态时，这些指令才会从队列中被提取并执行。因此，在Canvas组件不可见的情况下，应尽量避免频繁调用绘制接口，以防止指令在队列中堆积，从而避免内存占用过大的问题，具体示例请参考 控制在画布组件不可见时不进行绘制 。 beginPath 、 moveTo 、 lineTo 、 closePath 、 bezierCurveTo 、 quadraticCurveTo 、 arc 、 arcTo 、 ellipse 、 rect 和 roundRect 接口只能对CanvasRenderingContext2D中的路径生效，无法对 OffscreenCanvasRenderingContext2D 和 Path2D 对象中设置的路径生效。 Canvas组件的宽或高超过8000px时使用CPU渲染，会导致性能明显下降，此时推荐使用 自定义渲染节点 (RenderNode) 。
+> 从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 建议使用时将CanvasRenderingContext2D对象与Canvas组件封装到同一个自定义组件中，保证两者一一对应且生命周期保持一致。 本文绘制接口在调用时会存入被关联的Canvas组件的指令队列中。仅当当前帧进入渲染阶段且关联的Canvas组件处于可见状态时，这些指令才会从队列中被提取并执行。因此，在Canvas组件不可见的情况下，应尽量避免频繁调用绘制接口，以防止指令在队列中堆积，从而避免内存占用过大的问题，具体示例请参考 控制在画布组件不可见时不进行绘制 。 beginPath 、 moveTo 、 lineTo 、 closePath 、 bezierCurveTo 、 quadraticCurveTo 、 arc 、 arcTo 、 ellipse 、 rect 和 roundRect 接口只能对CanvasRenderingContext2D中的路径生效，无法对 OffscreenCanvasRenderingContext2D 和 Path2D 对象中设置的路径生效。 Canvas组件的宽或高超过8000px时使用CPU渲染，会导致性能明显下降，此时推荐使用 自定义渲染节点 (RenderNode) 。 图形变换接口( rotate 、 scale 、 transform 、 setTransform 、 translate )与 getPixelMap / getImageData / toDataURL 接口在不同帧执行时，后者创建出来的内容没有图形变换效果。
 
 
 

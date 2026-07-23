@@ -1,6 +1,6 @@
 # healthStore (运动健康数据服务)(Lite)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite
 **支持设备：** lite_wearable

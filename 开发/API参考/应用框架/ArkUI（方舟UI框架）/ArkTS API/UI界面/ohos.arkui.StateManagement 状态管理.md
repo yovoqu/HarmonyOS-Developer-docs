@@ -1,6 +1,6 @@
 # @ohos.arkui.StateManagement (状态管理)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -205,7 +205,7 @@ static globalConnect<T extends object>(type: ConnectOptions&lt;T&gt;): T | undef
 
 
 > [!TIP]
-> 1、若未指定key，使用第二个参数作为默认构造器；否则使用第三个参数作为默认构造器（第二个参数非法也使用第三个参数作为默认构造器）。 2、确保数据已经存储在PersistenceV2中，可省略默认构造器，获取存储的数据；否则必须指定默认构造器，不指定将导致应用异常。 3、同一个key，globalConnect不同类型的数据会导致应用异常，应用需要确保类型匹配。 4、key建议使用有意义的值，可由字母、数字、下划线组成，长度不超过255，使用非法字符或空字符的行为是未定义的。 5、关联 @Observed 对象时，因为该类型的name属性未定义，需要指定key或者自定义name属性。 6、数据的存储路径为应用级别，不同module使用相同的key和相同的加密分区进行globalConnect，存储的数据副本应用仅有一份。 7、globalConnect使用同一个key但设置了不同的加密级别，数据为第一个使用globalConnect的加密级别，并且PersistenceV2中的数据也会存入最先使用key的加密级别。 8、connect和globalConnect不建议混用，因为数据副本路径不同，如果混用，则key不可以一样，否则会crash。 9、EL5加密要想生效，需要开发者在module.json中配置字段ohos.permission.PROTECT_SCREEN_LOCK_DATA，使用说明见 声明权限 。
+> 1、若未指定key，使用默认构造器defaultCreator返回数据的类名作为key存入PersistenceV2中。 2、确保数据已经存储在PersistenceV2中，可省略默认构造器，获取存储的数据；否则必须指定默认构造器，不指定将导致应用异常。 3、同一个key，globalConnect不同类型的数据会导致应用异常，应用需要确保类型匹配。 4、key建议使用有意义的值，可由字母、数字、下划线组成，长度不超过255，使用非法字符或空字符的行为是未定义的。 5、关联 @Observed 对象时，因为该类型的name属性未定义，需要指定key或者自定义name属性。 6、数据的存储路径为应用级别，不同module使用相同的key和相同的加密分区进行globalConnect，存储的数据副本应用仅有一份。 7、globalConnect使用同一个key但设置了不同的加密级别，数据为第一个使用globalConnect的加密级别，并且PersistenceV2中的数据也会存入最先使用key的加密级别。 8、connect和globalConnect不建议混用，因为数据副本路径不同，如果混用，则key不可以一样，否则会crash。 9、EL5加密要想生效，需要开发者在module.json中配置字段ohos.permission.PROTECT_SCREEN_LOCK_DATA，使用说明见 声明权限 。
 
 
 **示例：**
@@ -1367,7 +1367,7 @@ static clearMonitor(target: object, path: string | string[], monitorCallback?: M
 
 在下面的示例中：
 1. 在ObservedClass的构造方法中，添加对age属性的同步监听回调onChange。
-2. 点击Text组件，触发age自增，onChange的监听回调函数被触发。打印日志如下。       
+2. 点击Text组件，触发age自增，onChange的监听回调函数被触发。打印日志如下。        
 ```text
 ObservedClass property age change from 10 to 11
 ```

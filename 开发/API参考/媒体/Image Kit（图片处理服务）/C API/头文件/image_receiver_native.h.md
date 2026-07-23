@@ -1,6 +1,6 @@
 # image_receiver_native.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-receiver-native-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -188,7 +188,7 @@ Image_ErrorCode OH_ImageReceiverOptions_SetSize(OH_ImageReceiverOptions* options
 | 参数项 | 描述 |
 | --- | --- |
 | OH_ImageReceiverOptions* options | 表示OH_ImageReceiverOptions对象的指针。 |
-| Image_Size size | 表示Image_Size对象的指针。 |
+| Image_Size size | 表示将设置的Image_Size对象。 |
 
 
 **返回：**

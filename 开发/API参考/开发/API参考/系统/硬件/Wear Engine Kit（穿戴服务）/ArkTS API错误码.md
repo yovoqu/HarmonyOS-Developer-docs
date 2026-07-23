@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine
 **支持设备：** Phone | Tablet | Wearable
@@ -90,7 +90,7 @@ App has not applied for the Wear Engine service.
 手机侧应用未申请Wear Engine服务。
 
 **可能原因**
-1. 开发者未在开发者联盟申请申请Wear Engine服务。
+1. 开发者未在开发者联盟申请Wear Engine服务。
 2. 申请Wear Engine服务时未配置兼容选项。
 3. 在开发者联盟申请的Wear Engine服务权限和代码中向用户申请的权限不一致。
 

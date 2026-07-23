@@ -1,6 +1,6 @@
 # 应用侧与前端页面的相互调用(C/C++)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkweb-ndk-jsbridge
 
@@ -102,7 +102,7 @@ static napi_value NativeWebInit(napi_env env, napi_callback_info info)
 
 #### 使用Native接口获取API结构体
 
-在ArkWeb Native侧，需要先获取API结构体，才能调用结构体里的Native API。ArkWeb Native侧API通过函数[OH_ArkWeb_GetNativeAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h#oh_arkweb_getnativeapi)获取，根据入参type不同，可分别获取[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)结构体。其中，[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)对应ArkTS侧[web_webview.WebviewController API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)，[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)对应ArkTS侧[ArkWeb组件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)。
+在ArkWeb Native侧，需要先获取API结构体，才能调用结构体里的Native API。ArkWeb Native侧API通过函数[OH_ArkWeb_GetNativeAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h#oh_arkweb_getnativeapi)获取，根据入参type不同，可分别获取[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)结构体。其中，[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)对应ArkTS侧[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller) API，[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)对应ArkTS侧[ArkWeb组件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)。
 
 ```text
 static ArkWeb_ControllerAPI *controller = nullptr;
@@ -154,15 +154,16 @@ if (!ARKWEB_MEMBER_MISSING(component, onDestroy)) {
 ```cpp
 // 注册对象
 OH_LOG_Print(
-    LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "ArkWeb", "Native Development Kit RegisterJavaScriptProxy begin");
+    LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "ArkWeb", "Native Development Kit registerJavaScriptProxyEx begin");
 ArkWeb_ProxyMethodWithResult method1 = {
     "method1", ProxyMethod1, static_cast<void *>(jsbridge_object_ptr->GetWeakPtr())};
 ArkWeb_ProxyMethodWithResult method2 = {
     "method2", ProxyMethod2, static_cast<void *>(jsbridge_object_ptr->GetWeakPtr())};
 ArkWeb_ProxyMethodWithResult methodList[2] = {method1, method2};
 // 调用Native Development Kit接口注册对象
-// 如此注册的情况下，在H5页面就可以使用proxy.method1、proxy.method1调用此文件下的ProxyMethod1和ProxyMethod2方法了
+// 如此注册的情况下，在H5页面就可以使用proxy.method1、proxy.method2调用此文件下的ProxyMethod1和ProxyMethod2方法了
 ArkWeb_ProxyObjectWithResult proxyObject = {"ndkProxy", methodList, 2};
+// 参数permission为空，表示不进行权限管控
 controller->registerJavaScriptProxyEx(webTag, &proxyObject, "");
 ```
 
@@ -379,6 +380,7 @@ struct Index {
 
   
 ```ts
+// entry4/src/main/cpp/types/libentry4/index.d.ts
 export const nativeWebInit: (webName: string) => void;
 export const runJavaScript: (webName: string, jsCode: string) => void;
 ```
@@ -843,7 +845,7 @@ static napi_value NativeWebInit(napi_env env, napi_callback_info info) {
 
 #### 使用Native接口获取API结构体
 
-ArkWeb Native侧需要先获取API结构体，才能调用结构体里的Native API。ArkWeb Native侧API通过函数[OH_ArkWeb_GetNativeAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h#oh_arkweb_getnativeapi)获取，根据入参type不同，可分别获取[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)函数指针结构体。其中，[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)对应ArkTS侧[web_webview.WebviewController API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)，[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)对应ArkTS侧[ArkWeb组件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)。
+ArkWeb Native侧需要先获取API结构体，才能调用结构体里的Native API。ArkWeb Native侧API通过函数[OH_ArkWeb_GetNativeAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h#oh_arkweb_getnativeapi)获取，根据入参type不同，可分别获取[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)函数指针结构体。其中，[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)对应ArkTS侧[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller) API，[ArkWeb_ComponentAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-componentapi)对应ArkTS侧[ArkWeb组件API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)。
 
 ```text
 static ArkWeb_ControllerAPI *controller = nullptr;

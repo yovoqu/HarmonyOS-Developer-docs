@@ -1,11 +1,11 @@
-# StarShieldConfidentialRiskControlEngine（星盾机密风控引擎）
+# RiskControlEngine（星盾机密风控引擎）
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-riskcontrolengine-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-本模块提供获取风控评分的能力。
+本模块提供基于应用风险因子的风险控制检测能力。通过接收应用侧采集的多维度风险因子数据，结合预定义的风控策略进行综合风险评估，帮助应用实现设备安全风险识别和防控。
  
 **起始版本：** 26.0.0
   

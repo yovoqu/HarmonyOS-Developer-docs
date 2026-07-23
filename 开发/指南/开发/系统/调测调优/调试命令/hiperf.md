@@ -1,6 +1,6 @@
 # hiperf
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf
 
@@ -392,7 +392,7 @@ $ hiperf dump -i /data/local/tmp/perf.data -o /data/local/tmp/perf.dump
 
 #### report命令
 
-此命令主要用于将采样数据（perf.data）转换为用户指定的格式（例如Json或者ProtoBuf)，并可以将属于相同进程、线程、函数的样本分组到同一样本条目中，根据样本条目的事件计数对样本条目进行排序，并以报告的形式进行展示。
+此命令主要用于将采样数据（perf.data）转换为用户指定的格式（例如Json或者ProtoBuf），并可以将属于相同进程、线程、函数的样本分组到同一样本条目中，根据样本条目的事件计数对样本条目进行排序，并以报告的形式进行展示。
 
 **report命令参数说明**
 

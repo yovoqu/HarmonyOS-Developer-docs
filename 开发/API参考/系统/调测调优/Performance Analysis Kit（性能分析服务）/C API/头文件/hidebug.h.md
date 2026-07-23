@@ -1,6 +1,6 @@
 # hidebug.h
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -431,7 +431,7 @@ typedef void (*OH_HiDebug_SymbolicAddressCallback)(void* pc, void* arg, const Hi
 | --- | --- |
 | void* pc | 传入OH_HiDebug_SymbolicAddress接口的需要解析的pc地址。 |
 | void* arg | 传入OH_HiDebug_SymbolicAddress接口的arg值。 |
-| const HiDebug_StackFrame* frame | 由传入OH_HiDebug_SymbolicAddress接口的pc地址解析后的得到栈信息HiDebug_StackFrame指针，该指针指向内容仅在该函数作用域内有效。 |
+| const HiDebug_StackFrame* frame | 由传入OH_HiDebug_SymbolicAddress接口的pc地址解析后得到栈信息HiDebug_StackFrame指针，该指针指向内容仅在该函数作用域内有效。 |
 
 
 
@@ -449,7 +449,7 @@ HiDebug_ErrorCode OH_HiDebug_SymbolicAddress(HiDebug_Backtrace_Object object, vo
 通过给定的pc地址获取详细的符号信息，该函数非异步信号安全。不能在异步信号处理函数中使用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/dhM4yMo-Sm-0jLv6RGtfoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014430Z&HW-CC-Expire=86400&HW-CC-Sign=1E91035819E18B97D8860308328CAB9FF788805FB2373CA8F71D130830B8A72E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/2haumbqXTc-sXW7jO6SkmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=F7C8DA2EAF52A5798AFFE808C77C25DCC7E79ADC6436F18157E19AD2B705B0D0)
 
 
 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。
@@ -490,7 +490,7 @@ HiDebug_Backtrace_Object OH_HiDebug_CreateBacktraceObject(void)
 创建一个用于栈回溯及栈解析的对象，该函数非异步信号安全。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/4GosYWovSPyVnbKCP-H94Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014430Z&HW-CC-Expire=86400&HW-CC-Sign=E61EA99FF243AEFDC1FDAC751E9D8C8984BF1400DCCB2C384ECFC4CE0DEB5D6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/PNOMxElNTampUOSBtbTqGw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=039AE422F16EC23D3DB2ADD0CD66F3FCB06BB7FF93C3A08A88E6D9A1A5D95B3E)
 
 
 由于该接口涉及多次IO操作，耗时较长，建议不要在主线程中直接调用。
@@ -544,7 +544,7 @@ HiDebug_ErrorCode OH_HiDebug_SetMallocDispatchTable(struct HiDebug_MallocDispatc
 通过设置基础库C库中的MallocDispatch表，将原始内存操作函数（例如：malloc/free/calloc/realloc/mmap/munmap）临时替换为开发者自定义的内存操作函数。MallocDispatch表是基础库C库中封装malloc/calloc/realloc/free等内存操作函数的结构体，HiDebug_MallocDispatch只是MallocDispatch结构体的一部分。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/OosxQX0pQKeDLDmdoTHY2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014430Z&HW-CC-Expire=86400&HW-CC-Sign=B88F41F644BCBD30566EE2E320CCB0DBA4E8CAC3A8118E58E446707E6FB6415F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/Oenig6UbRl6iX0Mepdyy4g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=F458FD8F48730A2497D42EC6A2510E5DCDB67AD34C04F191EA56824096F5E21F)
 
 
 禁止在自定义内存操作函数中直接调用libc标准库中的malloc/free/calloc/realloc/mmap/munmap等内存操作函数，否则会导致死锁。
@@ -766,7 +766,7 @@ HiDebug_ErrorCode OH_HiDebug_StartProfiler(OH_HiDebug_ResourceType type, OH_HiDe
 若采集异常，则文件路径为NULL。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/_82Jy4lnR1u0tUmgOPgpYQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014430Z&HW-CC-Expire=86400&HW-CC-Sign=E0F81430C1FF7EA350C4E44345EB01F4B7F732852540230122597A0BA7B7474D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/mTK5tZu-TJGGZo1-qCJnLA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260723T012034Z&HW-CC-Expire=86400&HW-CC-Sign=AD3C38DA648C46EF94F78F201FB30F455F961AB1752D5CDFC0D0C0D853710E90)
 
 1. 当前接口每24小时可调用10次；
 2. 采集资源的目标进程仅支持调用接口进程本身；

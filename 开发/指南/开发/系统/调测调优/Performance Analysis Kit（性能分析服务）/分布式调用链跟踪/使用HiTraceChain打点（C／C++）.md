@@ -1,6 +1,6 @@
 # 使用HiTraceChain打点（C/C++）
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-guidelines-ndk
 
@@ -24,7 +24,7 @@
 | void OH_HiTrace_Tracepoint(HiTrace_Communication_Mode mode, HiTrace_Tracepoint_Type type, const HiTraceId *id, const char *fmt, ...) | HiTraceMeter跟踪信息埋点。 |
 
 
-下表所示的接口提供对HiTraceId的一些拓展操作，这些接口仅在C/C++中提供。
+下表所示的接口提供对HiTraceId的一些扩展操作，这些接口仅在C/C++中提供。
 
 | 方法 | 接口描述 |
 | --- | --- |

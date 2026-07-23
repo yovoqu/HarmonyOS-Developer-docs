@@ -1,6 +1,6 @@
 # 不依赖UI组件的全局气泡提示 (openPopup)
 
-更新时间：2026-06-12 06:54:11
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-popup
 
@@ -31,7 +31,7 @@ this.promptAction.openPopup(this.contentNode, { id: targetId }, {
 
 ```ArkTS
 private contentNode: ComponentContent<Object> =
-  new ComponentContent(this.uiContext, wrapBuilder(buildText), this.message);
+  new ComponentContent(this.uiContext, wrapBuilder(buildText), new Params(this.message, this.promptActionClass));
 ```
 
 如果在wrapBuilder中包含其他组件（例如：[Popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popup)、[Chip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chip)组件），则应在创建ComponentContent时设置[nestingBuilderSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#buildoptions12)属性为true。
@@ -314,7 +314,7 @@ export struct OpenPopup {
   private promptActionClass: PromptActionClass = new PromptActionClass();
   private targetId: number = ID;
   private contentNode: ComponentContent<Object> =
-    new ComponentContent(this.uiContext, wrapBuilder(buildText), this.message);
+    new ComponentContent(this.uiContext, wrapBuilder(buildText), new Params(this.message, this.promptActionClass));
   private options: PopupCommonOptions = { enableArrow: true };
 
 
@@ -345,4 +345,4 @@ export struct OpenPopup {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/VsZ5lanSQIa8pIzctd7AKQ/zh-cn_image_0000002626068510.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020753Z&HW-CC-Expire=86400&HW-CC-Sign=E97364A97CDFC2A7CBD93962B09B40DF66AF67793F46994DD85E875C412F3366)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/pNqf80IuQX2jE5fhTXtKZA/zh-cn_image_0000002647745888.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012135Z&HW-CC-Expire=86400&HW-CC-Sign=98A6243C68F9A50B187C1EE4D64D2259746527818A2B95442DC3395961FB56FA)

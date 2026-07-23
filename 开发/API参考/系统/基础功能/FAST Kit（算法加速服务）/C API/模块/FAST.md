@@ -1,6 +1,6 @@
 # FAST
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -2440,6 +2440,7 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Insert(
 | handle | 并发哈希表句柄。 |
 | key | 待插入的键指针。 |
 | value | 待插入的值指针。 |
+| originValue | 将被覆盖的值的指针，仅在返回FAST_ERROR_CODE_KEY_EXISTS时有效，如果不需要请传入NULL。 |
  
  
 **返回：**
@@ -2506,7 +2507,7 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Erase(
  
 **描述**
  
-在并发哈希表中删除给定的键及其对应的值，并将其值保存在originalKey和originalValue中以便于开发者进行内存管理; 实际使用时也可根据需求将originalKey或originalValue设为nullptr，此时则不会将键或值的地址返回。
+在并发哈希表中删除给定的键及其对应的值，并将其值保存在originalKey和originalValue中以便于开发者进行内存管理; 实际使用时也可根据需求将originalKey或originalValue设为NULL，此时则不会将键或值的地址返回。
  
 **起始版本：** 6.1.1(24)
  
@@ -2516,8 +2517,8 @@ FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Erase(
 | --- | --- |
 | handle | 并发哈希表句柄。 |
 | key | 待删除的键指针。 |
-| originKey | 用于返回哈希表中保存的键的指针，可为nullptr。 |
-| originValue | 用于返回哈希表中保存的值得指针，可为nullptr。 |
+| originKey | 用于返回哈希表中保存的键的指针，可为NULL。 |
+| originValue | 用于返回哈希表中保存的值得指针，可为NULL。 |
  
  
 **返回：**
@@ -2633,7 +2634,7 @@ size_t HMS_FAST_ConcurrentHashmap_EraseIf(
  
 **描述**
  
-遍历哈希表并删除所有符合给定条件的键值对，同时使用开发者定义的freeFunc释放键值对的内存；实际使用时freeFunc可为nullptr，此时要求开发者另行完成内存管理动作。注意：请避免在condFunc和freeFunc中定义复杂的逻辑（如加锁等）以避免死锁等不可控现象。
+遍历哈希表并删除所有符合给定条件的键值对，同时使用开发者定义的freeFunc释放键值对的内存；实际使用时freeFunc可为NULL，此时要求开发者另行完成内存管理动作。注意：请避免在condFunc和freeFunc中定义复杂的逻辑（如加锁等）以避免死锁等不可控现象。
  
 **起始版本：** 6.1.1(24)
  
@@ -2644,7 +2645,7 @@ size_t HMS_FAST_ConcurrentHashmap_EraseIf(
 | handle | 并发哈希表句柄。 |
 | condFunc | 开发者定义的删除条件回调函数。 |
 | condCtx | 条件回调函数的上下文。 |
-| freeFunc | 开发者定义的内存释放回调函数，可为nullptr。 |
+| freeFunc | 开发者定义的内存释放回调函数，可为NULL。 |
 | freeCtx | 内存释放回调函数的上下文。 |
  
  
@@ -2670,7 +2671,7 @@ void HMS_FAST_ConcurrentHashmap_Traverse(
  
 **描述**
  
-遍历哈希表并对所有符合开发者condFunc的键值对执行workFunc中的修改；如果condFunc为nullptr，则对于表中存在的所有键值对都将执行开发者定义的workFunc。注意：请避免在condFunc和workFunc中定义复杂的逻辑（如加锁等）以避免死锁等不可控现象。
+遍历哈希表并对所有符合开发者condFunc的键值对执行workFunc中的修改；如果condFunc为NULL，则对于表中存在的所有键值对都将执行开发者定义的workFunc。注意：请避免在condFunc和workFunc中定义复杂的逻辑（如加锁等）以避免死锁等不可控现象。
  
 **起始版本：** 6.1.1(24)
  
@@ -2679,7 +2680,7 @@ void HMS_FAST_ConcurrentHashmap_Traverse(
 | 名称 | 描述 |
 | --- | --- |
 | handle | 并发哈希表句柄。 |
-| condFunc | 开发者定义的条件回调函数，可为nullptr。 |
+| condFunc | 开发者定义的条件回调函数，可为NULL。 |
 | condCtx | 回调函数的上下文。 |
 | workFunc | 开发者定义的修改回调函数。 |
 | workCtx | 修改函数的上下文。 |

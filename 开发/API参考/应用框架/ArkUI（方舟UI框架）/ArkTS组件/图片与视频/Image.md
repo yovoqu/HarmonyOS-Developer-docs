@@ -1,6 +1,6 @@
 # Image
 
-更新时间：2026-06-17 08:22:21
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -570,7 +570,7 @@ colorFilter(value: ColorFilter | DrawingColorFilter)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ColorFilter \| DrawingColorFilter12+ | 是 | 1. 给图像设置颜色滤镜效果，入参为一个的4x5的RGBA转换矩阵。 2. 从API version12开始支持@ohos.graphics.drawing的ColorFilter类型作为入参。 说明： API version 11及之前，SVG类型图源不支持该属性。 从API version 12开始，该接口中的DrawingColorfilter类型支持在元服务中使用。其中，SVG类型的图源只有设置了stroke属性（无论是否有值）才会生效。 从API version 21开始，当supportSvg2属性设置为true时，colorFilter属性对整个SVG图源起作用。 |
+| value | ColorFilter \| DrawingColorFilter12+ | 是 | 1. 给图像设置颜色滤镜效果，入参为一个4x5的RGBA转换矩阵。 2. 从API version12开始支持@ohos.graphics.drawing的ColorFilter类型作为入参。 说明： API version 11及之前，SVG类型图源不支持该属性。 从API version 12开始，该接口中的DrawingColorFilter类型支持在元服务中使用。其中，SVG类型的图源只有设置了stroke属性（无论是否有值）才会生效。 从API version 21开始，当supportSvg2属性设置为true时，colorFilter属性对整个SVG图源起作用。 |
 
 
 颜色滤镜通过一个4x5的矩阵来设置图像的颜色滤镜，矩阵第一行表示R（红色）的向量值，第二行表示G（绿色）的向量值，第三行表示B（蓝色）的向量值，第四行表示A（透明度）的向量值，4行分别代表不同的RGBA的向量值。
@@ -721,7 +721,7 @@ dynamicRangeMode(value: DynamicRangeMode)
 
 设置期望展示的图像动态范围。SVG类型图源不支持该属性。
 
-**设备行为差异：** 该接口在手机、PC/2in1和Tablet设备中可正常生效，在其他设备类型中无效果。
+**设备行为差异：** 该接口在Phone、PC/2in1和Tablet设备中可正常生效，在其他设备类型中无效果。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2878,7 +2878,7 @@ struct ImageExample {
 
 
 
-#### 示例28（使用alt属性实现设置加载失败中图片和加载失败时图片）
+#### 示例28（使用alt属性实现设置加载过程中图片和加载失败时图片）
 
 该示例演示了在图片加载过程中和加载失败时，通过设置[alt](#alt22)属性实现图片加载过程中和图片加载失败时显示指定图片。
 
@@ -2937,7 +2937,7 @@ struct Index {
         .height(100)
         .width(100)
         .onError((e)=>{
-          console.info("DownLoadErrorInfo : " + JSON.stringify(e?.downloadInfo))
+          console.info("DownloadErrorInfo : " + JSON.stringify(e?.downloadInfo))
         })
     }
     .height('100%')

@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（交互类相关属性）
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-interaction
 
@@ -510,11 +510,15 @@ NODE_ON_CLICK_EVENT_DISTANCE_THRESHOLD = 115
  
 **起始版本：** 23
  
+> [!NOTE]
+> 如果手指移动超出预设的距离限制，点击事件的识别会失败。
+
+ 
 **参数：**
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].f32 | 点击事件移动阈值。取值范围(0, +∞)。默认值为+∞，单位vp。 |
+| .value[0].f32 | 点击事件移动阈值。当设置的值小于等于0时，会被转化为默认值。取值范围(0, +∞)。默认值为+∞，单位vp。 |
  
  
 **返回：**

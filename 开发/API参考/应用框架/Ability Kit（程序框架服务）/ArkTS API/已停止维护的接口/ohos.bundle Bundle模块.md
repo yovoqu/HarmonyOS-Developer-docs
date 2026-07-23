@@ -1,11 +1,11 @@
 # @ohos.bundle (Bundle模块)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供应用信息查询能力，支持[包信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)、[应用信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)、[Ability组件信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo)等信息的查询，以及应用禁用状态的查询、设置等。
+本模块提供应用信息查询能力，支持[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)、[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)、[AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo)等信息的查询，以及应用禁用状态的查询、设置等。
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 9开始，该模块不再维护，建议使用 @ohos.bundle.bundleManager 替代。

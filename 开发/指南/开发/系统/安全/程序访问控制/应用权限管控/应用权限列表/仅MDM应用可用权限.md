@@ -1,17 +1,38 @@
 # 仅MDM应用可用权限
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-mdm-apps
 
-以下权限仅对MDM（Mobile Device Management）设备管理应用开放。MDM应用的详细介绍，请参考[MDM Kit简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-intro)。
+以下权限仅对MDM（Mobile Device Management）设备管理应用开放。
  
+**企业MDM应用：**
+ 
+- 企业MDM应用定义：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/sU0BN4dWTmm9tAsF8Fvydw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260701T014617Z&HW-CC-Expire=86400&HW-CC-Sign=50F4555AE21A33C6A3F140DE3A8E11A2E247B06F983513C8444992B273D65C1D)
- 
- 
-以下权限不支持自动签名，因此在调试和发布阶段，均需参照[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)的步骤，完成手动签名。
+  企业MDM（Mobile Device Management）应用从移动端设备管控应用延伸而来，在HarmonyOS中表示对1+8设备提供高级管控能力的应用，包括对设备、应用、外设等的管理，如设置禁止连接WiFi、禁止使用USB设备等限制。
+
+  企业MDM应用仅支持在企业场景下使用，设备需在[华为HEM平台](https://developer.huawei.com/business/cn/support)进行注册管理或者为搭载鸿蒙电脑专业版、企业版的PC设备。
+- 企业MDM应用发布开发指导：
+
+  [申请企业MDM应用发布证书](https://developer.huawei.com/consumer/cn/doc/app/agc-help-enterprise-mdm-cert-0000002283256801)、[申请企业MDM应用发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-enterprise-mdm-profile-0000002248341094)。
+- 企业MDM应用支持格式：
+
+  支持.hap，.app，需要为单个应用包体。
+
+  如果包含多个hap、hsp文件，需[打包为.app格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/packing-tool#app打包指令)，且需要在工程级build-profile.json5文件中，将packOptions的[appWithSignedPkg](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section03812484215)属性配置为true，保证APP里的HAP/HSP包均被签名。
+- 企业MDM应用安装方式：
+
   
+设备注册纳管到华为HEM平台，在首次开机时通过[HEM平台批量部署](https://developer.huawei.com/business/cn/doc/HEM/hem-kuaisukaitong-hemchangyongdingzhiosnext-0000002524002086#section104506073517)。
+- 在搭载鸿蒙电脑专业版、企业版的PC设备上，[开启离线应用安装开关](https://developer.huawei.com/business/cn/doc/HEM/hem-kuaisukaitong-hemchangyongdingzhiosnext-0000002524002086#section104506073517)后本地直接安装。
+- 通过上架企业私有应用商店（企业MDM应用）在企业内部进行统一分发安装。
+- 企业MDM应用无法上架华为应用市场进行公开、非公开发布。
+
+  
+ 
+> [!NOTE]
+> HarmonyOS系统以应用包名作为应用的唯一标识，不同的发布证书代表不同的应用版本，需创建不同的应用包名。
 
   
 
@@ -649,7 +670,7 @@
 
 允许设备管理应用设置user_grant类权限策略。
  
-获取该权限后，设备管理应用可设置被管理应用user_grant类权限策略，策略支持静默授予，拒绝授予以及默认（即不影响应用申请）。
+获取该权限后，设备管理应用可设置被管理应用user_grant类权限策略，策略支持静默授予、拒绝授予以及默认（即不影响应用申请）。
  
 **申请后AGC的审核时长：** 预计3个工作日内反馈审核结果。
  

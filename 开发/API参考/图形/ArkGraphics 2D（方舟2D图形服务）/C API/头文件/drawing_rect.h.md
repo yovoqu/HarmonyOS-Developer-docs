@@ -1,6 +1,6 @@
 # drawing_rect.h
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-21 07:44:23
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-rect-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,11 +51,11 @@
 | float OH_Drawing_RectGetHeight(OH_Drawing_Rect* rect) | 用于获取矩形对象高度，计算方式为设置的矩形的右下角纵坐标减去左上角纵坐标。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
 | float OH_Drawing_RectGetWidth(OH_Drawing_Rect* rect) | 用于获取矩形对象的宽度，计算方式为设置的矩形的右下角横坐标减去左上角横坐标。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 rect为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
 | void OH_Drawing_RectCopy(OH_Drawing_Rect* src, OH_Drawing_Rect* dst) | 用于将源矩形对象复制到目标矩形对象。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 src、dst任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
-| void OH_Drawing_RectDestroy(OH_Drawing_Rect* rect) | 用于销毁矩形对象并回收该对象占有的内存。 |
+| void OH_Drawing_RectDestroy(OH_Drawing_Rect* rect) | 用于销毁矩形对象并回收该对象占用的内存。 |
 | OH_Drawing_Array* OH_Drawing_RectCreateArray(size_t size) | 用于创建一个矩形数组对象，用来存储多个矩形对象。不再需要OH_Drawing_Array时，请使用OH_Drawing_RectDestroyArray接口释放该对象的指针。 |
 | OH_Drawing_ErrorCode OH_Drawing_RectGetArraySize(OH_Drawing_Array* rectArray, size_t* pSize) | 用于获取矩形数组对象OH_Drawing_Array的大小。 |
 | OH_Drawing_ErrorCode OH_Drawing_RectGetArrayElement(OH_Drawing_Array* rectArray, size_t index,OH_Drawing_Rect** rect) | 用于获取矩形数组对象中指定索引的矩形对象。 |
-| OH_Drawing_ErrorCode OH_Drawing_RectDestroyArray(OH_Drawing_Array* rectArray) | 用于销毁矩形数组对象并回收该对象占有的内存。 |
+| OH_Drawing_ErrorCode OH_Drawing_RectDestroyArray(OH_Drawing_Array* rectArray) | 用于销毁矩形数组对象并回收该对象占用的内存。 |
 | OH_Drawing_ErrorCode OH_Drawing_RectContains(OH_Drawing_Rect* rect, const OH_Drawing_Rect* other, bool* isContains) | 用于判断一个矩形是否完全包含另外一个矩形。 |
 | OH_Drawing_ErrorCode OH_Drawing_RectInset(OH_Drawing_Rect* rect, float left, float top, float right, float bottom) | 将指定的值添加到矩形边界。 |
 | OH_Drawing_ErrorCode OH_Drawing_RectIsEmpty(const OH_Drawing_Rect* rect, bool* isEmpty) | 判断矩形是否为空。 |
@@ -559,7 +559,7 @@ void OH_Drawing_RectDestroy(OH_Drawing_Rect* rect)
  
 **描述**
  
-用于销毁矩形对象并回收该对象占有的内存。
+用于销毁矩形对象并回收该对象占用的内存。
  
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
  
@@ -683,7 +683,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectDestroyArray(OH_Drawing_Array* rectArray)
  
 **描述**
  
-用于销毁矩形数组对象并回收该对象占有的内存。
+用于销毁矩形数组对象并回收该对象占用的内存。
  
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
  

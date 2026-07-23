@@ -1,6 +1,6 @@
 # pac.json5隐私清单文件
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-15 09:00:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-pac
 
@@ -24,7 +24,7 @@
 
  
 - 开发HSP或HAR情况下，选中HSP或HAR模块目录新建pac.json5文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/A-cZH5VrR6mk6iLjBa1tGw/zh-cn_image_0000002594474614.png?HW-CC-KV=V1&HW-CC-Date=20260624T020716Z&HW-CC-Expire=86400&HW-CC-Sign=7456C97283A601CB03D3E511EE185197B3FD4CB62B039CDF40CC30D5C607BB42)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/Zc371KEbQ9S8541UF3_Q9Q/zh-cn_image_0000002594474614.png?HW-CC-KV=V1&HW-CC-Date=20260723T012123Z&HW-CC-Expire=86400&HW-CC-Sign=378089658308036971801DC19206A1A7991330C371B4EC18CA4E2095DA9A5726)
 
 
  

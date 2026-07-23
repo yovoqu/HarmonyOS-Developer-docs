@@ -1,6 +1,6 @@
 # @ohos.file.picker (选择器)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -944,7 +944,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 | newFileNames | Array&lt;string&gt; | 否 | 是 | 拉起documentPicker进行保存的文件名。若无此参数，则默认需要用户自行输入。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
 | defaultFilePathUri10+ | string | 否 | 是 | 指定保存的文件或者目录的URI。默认为空。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
 | fileSuffixChoices10+ | Array&lt;string&gt; | 否 | 是 | 保存文件的后缀类型。传入字符串数组，每一项代表一个后缀选项，每一项内部用"\|"分为两部分，第一部分为描述，第二部分为要保存的后缀。没有"\|"则没有描述，该项整体是一个保存的后缀。默认没有后缀类型。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
-| pickerMode12+ | DocumentPickerMode | 否 | 是 | 拉起picker的类型, 默认为DEFAULT。当pickerMode设置为DOWNLOAD时，用户配置的参数newFileNames、defaultFilePathUri和fileSuffixChoices将不会生效。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
+| pickerMode12+ | DocumentPickerMode | 否 | 是 | 拉起picker的类型，默认为DEFAULT。当pickerMode设置为DOWNLOAD时，用户配置的参数newFileNames、defaultFilePathUri和fileSuffixChoices将不会生效。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
 | autoCreateEmptyFile23+ | boolean | 否 | 是 | 保存文件时，由应用决定是否预置空文件。默认为true，Picker会预置空文件并且返回文件的URI数组。false不预置空文件，只会返回文件的URI数组。 模型约束：此接口仅可在Stage模型下使用。 系统能力：SystemCapability.FileManagement.UserFileService.FolderSelection |
 
 

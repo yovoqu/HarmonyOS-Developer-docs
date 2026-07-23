@@ -1,6 +1,6 @@
 # calendar
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-calendar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -31,7 +31,7 @@
 | date | string | 当前日期 | 否 | 当前页面选中的日期，默认是当前日期，格式为年-月-日，如"2019-11-22"。 |
 | cardcalendar | boolean | false | 否 | 标识当前日历是否为卡片日历。 默认值：false，表示标识当前日历不是卡片日历。 |
 | startdayofweek | int | 6 | 否 | 标识卡片显示的起始天，默认是星期天（取值范围：0-6）。 |
-| offdays | string | 5，6 | 否 | 标识卡片显示的休息日，默认是星期六、星期天（取值范围：0-6）。 |
+| offdays | string | "5,6" | 否 | 标识卡片显示的休息日，默认是星期六、星期天（取值范围：0-6）。 |
 | calendardata | string | - | 是 | 卡片需要显示的月视图数据信息，包括5*7或者6*7格的日数据信息，格式为JSON字符串。"data"标签属性信息见表1 calendardata的日属性。 |
 | showholiday | boolean | true | 否 | 标识当前是否显示节假日信息。 默认值：true，表示标识当前要显示节假日信息。 |
  
@@ -49,7 +49,7 @@
 | markLunarDay | boolean | 表示节假日时，农历数据部分是否会变成蓝色。取值true，表示当天为节假日时，农历数据部分会变成蓝色。取值false，表示当天为节假日时，农历数据部分不会变成蓝色。 |
 | lunarDay | string | 农历日期。 |
 | lunarMonth | string | 农历月份。 |
-| dayMark | string | 表示工作日。 - “work”：工作日。 - “off”：休息日。 |
+| dayMark | string | 标识日期类型。 - "work"：工作日。 - "off"：休息日。 |
 | dayMarkValue | string | 表示具体需要显示的“班”、“休”信息。 |
  
  
@@ -219,4 +219,4 @@ calendardata示例：
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/Ai00l0tAQbOmj3zQ1KcUMA/zh-cn_image_0000002626071216.png?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=9B0D457EC3C39B8542857FA7D30A2DD4CB7E0F9F805B394A47F29E48E8C5AB03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/t9QfnmwMQI-fAgrwWXo2Yg/zh-cn_image_0000002647588756.png?HW-CC-KV=V1&HW-CC-Date=20260723T012003Z&HW-CC-Expire=86400&HW-CC-Sign=A19B2A88059738CB2DAD14B9E3405DA2F942B801E3AE3DA4EB1ABA0A52611FD6)

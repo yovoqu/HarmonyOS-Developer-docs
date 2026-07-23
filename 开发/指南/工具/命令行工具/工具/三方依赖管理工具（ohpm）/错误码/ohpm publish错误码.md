@@ -1,6 +1,6 @@
 # ohpm publish错误码
 
-更新时间：2026-06-12 06:54:33
+更新时间：2026-07-21 01:13:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-publish-errorcode
 
@@ -281,23 +281,3 @@ oh-package.json5文件中未配置兼容性字段。
 **处理步骤**
  
 确保oh-package.json5文件中配置了必要的兼容性检测字段。
- 
- 
-
-#### 00640001 系统错误
-
-**错误信息**
- 
-System Error.
- 
-**错误描述**
- 
-系统错误。
- 
-**可能原因**
- 
-系统错误，例如内存错误等。
- 
-**处理步骤**
- 
-检查日志文件，寻找错误信息定位根源。

@@ -1,6 +1,6 @@
 # healthService (运动健康联动服务)(Lite)
 
-更新时间：2026-07-03 02:18:23
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite
 **支持设备：** lite_wearable
@@ -414,7 +414,7 @@ import healthService from '@hms.health.service';
 try {
   healthService.workout.pause();
 } catch (err) {
-  //
+  // 异常处理流程
 }
 ```
  

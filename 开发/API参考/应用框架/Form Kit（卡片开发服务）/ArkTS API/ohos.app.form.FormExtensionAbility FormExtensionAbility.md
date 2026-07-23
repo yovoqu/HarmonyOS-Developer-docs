@@ -1,6 +1,6 @@
 # @ohos.app.form.FormExtensionAbility (FormExtensionAbility)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -128,7 +128,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
     // 卡片提供方收到卡片使用方将临时卡片转常态卡片的通知时触发，开发者需根据实际需求做相应的处理
     console.info(`FormExtensionAbility onCastToNormalForm, formId: ${formId}`);
   }
-};
+}
 ```
  
   
@@ -176,7 +176,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
       console.error(`FormExtensionAbility context updateForm failed, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
     });
   }
-};
+}
 ```
  
   
@@ -229,11 +229,11 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
       formProvider.updateForm(keys[i], obj2).then(() => {
         console.info('FormExtensionAbility context updateForm');
       }).catch((error: BusinessError) => {
-        console.error(`Operation updateForm failed. , code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message})`);
+        console.error(`Operation updateForm failed, code: ${error.code}, message: ${error.message}`);
       });
     }
   }
-};
+}
 ```
  
   
@@ -269,7 +269,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   onFormEvent(formId: string, message: string) {
     console.info(`FormExtensionAbility onFormEvent, formId: ${formId}, message: ${message}`);
   }
-};
+}
 ```
  
   
@@ -304,7 +304,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   onRemoveForm(formId: string) {
     console.info(`FormExtensionAbility onRemoveForm, formId: ${formId}`);
   }
-};
+}
 ```
  
   
@@ -342,7 +342,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
     // 需要注意：formExtensionAbility创建后10秒内无操作将会被清理。
     console.info(`onConfigurationUpdate, config: ${newConfig?.language}`);
   }
-};
+}
 ```
  
   
@@ -386,7 +386,7 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
     console.info(`FormExtensionAbility onAcquireFormState, want: ${want}`);
     return formInfo.FormState.UNKNOWN;
   }
-};
+}
 ```
  
   

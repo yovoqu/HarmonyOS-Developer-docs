@@ -1,6 +1,6 @@
 # 预览(ArkTS)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preview
 
@@ -23,7 +23,7 @@
 基础预览是自定义相机核心的功能，用户打开相机应用后，首先看到的就是实时的预览画面，该功能为画面调整、拍摄等操作提供基础。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/7L_iO_93TKK2fl6j1qTzaQ/zh-cn_image_0000002628701310.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=36BB45B8B2582FF42C7BA3170A5274B72D9261BF495855A334691B4610D240D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/dhwLMKk5TTKFKvoIbcalnA/zh-cn_image_0000002677666515.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=6236287BFDCEE4CB44144E962ADEB1072D98870A95E20A3A635D7F5578EF7E90)
 
  
   
@@ -45,7 +45,7 @@
 5. 配置相机会话Session并启动。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/42agxxRTQcWFgMfo1lLHCQ/zh-cn_image_0000002659100537.png?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=AA9616E08D9BE2368406CDA8BB3BE23406BB44F9C4B972CBEC2624801740D184)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/9Dqk3lfBSsuTa6OOvrbZAw/zh-cn_image_0000002647746634.png?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=B85290C4498C142C7E6A3165B56425B04B5B77EF6AC0121F4A952CABCC6E4870)
 
  
   
@@ -358,7 +358,7 @@ addFrameEndEventListener(output: camera.PreviewOutput): void {
 #### 切换前后置镜头
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/XSfqK9sVRNyA1O6bDptOAg/zh-cn_image_0000002628861192.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=BF04CE8A072A4E32ABC07CB0AC182341EC76C7C7A6D459E7B412C14B00DEDABB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/RY2eO4xjTlyAFnOLDzqPpg/zh-cn_image_0000002647586724.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=0D11E706F9A7FCDB6844D98E5A82DC5A0FFEBDE6FE8342BD9BB5A2B2261B1797)
 
  
 预览页面中用isFront属性标识前置还是后置镜头，根据isFront获取[camera.CameraPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraposition)的值。关于折叠屏CameraPosition的选择可参考[相机硬件差异](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-camera#section13854163154917)。
@@ -402,7 +402,7 @@ toggleCameraPositionButton() {
 #### 设置相机焦距
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/2Hl9YFpsR-qTbqn-dhV_og/zh-cn_image_0000002659220505.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=51DBD3894288C1BCE079802964C7518BFE87AB45094B2EACB075BEAE7D45DA67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/pV89ygS6Q_K2nA28pfLH8A/zh-cn_image_0000002677826365.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=759BB319BCF095E04E5F9400F3BDBB14EFF1395837694F20EC937D9BA802C994)
 
  
 使用[getZoomRatioRange()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoomquery#getzoomratiorange11)方法获取当前相机设备支持设置的焦距范围，根据业务需求在页面上生成相应焦距的按钮。
@@ -435,7 +435,7 @@ setSmoothZoom(zoom: number): void {
 #### 设置闪光灯
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/DnVqoA7fSKCW_aGPgQ_Trw/zh-cn_image_0000002628701312.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=C4D0AB56EC204AED9E12254A5E7D456F50AE9819A3B276D0C253D4338D72D0E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/A8XYO2IUS4aeel4XBKE6XQ/zh-cn_image_0000002677666517.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=A15E74AA7C9F33E728D57082C975E6508039A055DCE94E31B88B944000320145)
 
  
 使用[setFlashMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flash#setflashmode11)方法设置闪光灯模式，在设置前需使用[isFlashModeSupported()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flashquery#isflashmodesupported11)方法检测设备是否支持设置所选闪光灯模式。
@@ -462,7 +462,7 @@ setFlashMode(flashMode: camera.FlashMode): void {
 点击预览区域，以点击处为焦点进行对焦，并显示对焦框。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/AMsLhjdNSu6Six4h8up-MQ/zh-cn_image_0000002659100539.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=F9152947AF7F424B19BB8550443302DCFB607C1EF7E52FCA961BAFFF4E337023)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/-Z06fCDLTBurt7FHEd_j1A/zh-cn_image_0000002647746636.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=2018D6615E6C86584EBB3375FD6CB346C01BCD4090C407401A0BED9B713A3696)
 
  
 设置焦点[camera.Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#point)的坐标是以充电口在右侧时横向设备方向为基准，该坐标系左上角为{ 0，0 }，右下角为{ 1，1 }。
@@ -475,7 +475,7 @@ setFlashMode(flashMode: camera.FlashMode): void {
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/r4CjWPENT9-jqSX8Ve7q0Q/zh-cn_image_0000002628861194.png?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=BBB430275ABD431E8826A7238FEF68BE2B7F7B7B63C05D84B5D5FE162F60A9EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/wvi1MEDOQA-iUwhgUSoX-w/zh-cn_image_0000002647586726.png?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=F04B84C10DA67615352DC8C89BC6874CCDEE1531C418353C45D33AC237B8597D)
 
  
 同理，其他屏幕旋转方向上焦点坐标同可以计算出：
@@ -565,7 +565,7 @@ export function getClampedChildPosition(childSize: Size, parentSize: Size, point
 点击预览区域，设置点击处为曝光中心点。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/ECHuhMYPR5aDlR2IGcSP0Q/zh-cn_image_0000002659220507.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=2EF56B57B3376E9C10F333CF1FFF5CA23F3E4B92083EF67544C7500BE8F825E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/gvhVhhg3S-2KEAp6QNs9GQ/zh-cn_image_0000002677826367.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=03639E258870A6BEAE286452A50F44246B803DAFFCC685416D8D38ED87D70C9E)
 
  
 在相机会话启动后，使用[setExposureMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure#setexposuremode11)方法设置曝光模式为EXPOSURE_MODE_CONTINUOUS_AUTO，当点击预览画面时，设置曝光模式为EXPOSURE_MODE_AUTO，以支持曝光区域中心点设置。在设置前需检测相机是否支持该曝光模式。手动设置结束后将曝光模式切换为EXPOSURE_MODE_CONTINUOUS_AUTO，以获得更好的曝光体验。
@@ -602,7 +602,7 @@ setMeteringPoint(point: camera.Point): void {
 #### 设置预览帧率
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/YwnL9mZuTtGSbK8D6kSfCw/zh-cn_image_0000002628701314.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=C8CC327A3339E86B2CC6597BAB13EBE845A7BB9638BE7FCA6A89C8B04F3E8B2E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/rwHo9E_ASh-SDGd8MnOD_A/zh-cn_image_0000002677666519.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=BABB3B81FAD23A693CF9FB91B8A435A46C067B43548C4DF3166D8874CCEE16D3)
 
  
 使用[PreviewOutput.getSupportedFrameRates()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getsupportedframerates12)方法获取预览流支持的帧率范围。
@@ -636,7 +636,7 @@ setFrameRate(minFps: number, maxFps: number): void {
 在预览画面进行手势捏合操作，预览画面焦距会随捏合手势进行对应缩放调整。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/VsDxS9i2TwCsByPGHSi7lw/zh-cn_image_0000002659100541.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=633B37B3541BE7E76A799F470BB48B3C014EDCD6E8A7445135B094D7BE709FAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/roO0atOjR5iTwxOoyXdOQg/zh-cn_image_0000002647746638.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=AB48FF5A4D1D8BC4105E23143E7FB94780B56573DE0CCFD61D577ADD1D28177C)
 
  
 使用[PinchGesture()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pinchgesture)接口给预览区域元素绑定捏合事件。
@@ -677,7 +677,7 @@ XComponent({
 将相机预览画面划分为9个等比例区域（3×3宫格），为用户提供精准的构图参考框架。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/jCsrrmstSiyA_hC_X6_jGQ/zh-cn_image_0000002628861196.png?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=DA766A804833B7D4349BB8D14FD4A77E5A7D3926B1F9D1379933606B341A8C4C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/QB0_D_gaRlmpJIU20LSnLw/zh-cn_image_0000002647586728.png?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=733473FB18C17B36310079B0D18A3C79D636F533E1F21CC94F916ED16CA758B9)
 
  
 获取预览区域的宽高，通过行数和列数计算出每条网格线的起始坐标，在[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)上进行绘制。注意设置[hitTestBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior#hittestbehavior)属性为HitTestMode.Transparent，不影响下方预览区域的正常交互。
@@ -748,7 +748,7 @@ Stack({
 设备旋转过程中，水平仪指示线始终垂直于重力方向，当设备水平时（x轴或y轴垂直于重力方向），水平仪指示线由虚线变为实线。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/1JaBK7jEQJ-yKK7kPDPm2Q/zh-cn_image_0000002659220509.png?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=586FDD5695D7F79C906D9DA9FFE9AAE1868500679BA3CDB946D2FAF6770471CA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/MvAdof9mTfusC9rZtQtkZQ/zh-cn_image_0000002677826369.png?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=F8BCBC8EA0456EB864D3C5ACD972C1D588D38209C6685A660081DE264C5B216D)
 
  
 水平仪的实现需要用到重力加速度传感器。通过[sensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor)模块获取重力加速度在x, y, z轴方向上的分量。以充电口在下的竖屏方向为基准，x, y, z轴的方向如下。
@@ -761,7 +761,7 @@ Stack({
 由下图可知，水平仪指示线与x轴的夹角用θ表示，若要指示线始终垂直重力方向，则tanθ = g(x) / -g(y)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/4jc-U6aJTQG3hl77Mixwvg/zh-cn_image_0000002628701316.png?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=2EACD3F47DF0E88A2733C1FB4ABE98CF1482C19A81FAC27865B4998A6C4CB06C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/PGYtmrMRTDKPQDiQnFbF3g/zh-cn_image_0000002677666521.png?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=EE47B83C90CF487CD4E325633308092587A1E77A9DBAF0F7B5D73C74CC9FDBC8)
 
  
 在module.json5中配置加速度传感器权限。
@@ -781,7 +781,7 @@ Stack({
 ]
 ```
  
-使用[sensor.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#sensoron)方法订阅重力加速度传感器数据。
+使用[sensor.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#sensoronsensoridaccelerometer9)方法订阅重力加速度传感器数据。
  
 ```text
 addGravityEventListener(): void {
@@ -853,7 +853,7 @@ export struct LevelIndicator {
 若相机在超过特定时间内未进行任何操作，则会暂停预览并显示遮罩。点击遮罩可重新启动预览，避免相机资源长时间浪费，从而降低功耗。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/big33QJ8Qf2i5neh2ZYHtA/zh-cn_image_0000002659100543.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=3B2DC73735B6A435D46DF1BCFC504D44FDA825219F93A62CF5900C59E5FEF09C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/XKzco_Y1QDa6prOq_9B8aQ/zh-cn_image_0000002647746640.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=BEE843511E3DC4101E82ACF97A77CAD59CF28FB8512B58CD09C725BF86333EB4)
 
  
 实现带刷新方法的定时器类，初始化时传入计时结束的回调函数。需要重置计时时间，调用refresh()方法实现。
@@ -940,7 +940,7 @@ wakeupMask() {
 当相机应用在退后台之后由于安全策略会被强制断流。当从后台切换至前台时，需要重启相机设备的预览流、拍照流以及相机会话。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/orBoqPaMTZClE7-R3qrnog/zh-cn_image_0000002628861198.gif?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=764C4CB9F5C5D4635A7F74FE89D4F6A5E84F56F1D9ADF7310542245DDA97F964)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/TYn_eezOQdK-FjpUhS-cIA/zh-cn_image_0000002647586730.gif?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=6450DD22FA337C6724C335A4102C60285A1408D646117C377638268ACECB02EB)
 
  
 使用[ApplicationContext.on('applicationStateChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonapplicationstatechange10)方法注册对当前应用前后台状态变化的监听。在切换至后台触发的[onApplicationBackground()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-applicationstatechangecallback#applicationstatechangecallbackonapplicationbackground)回调函数中释放相机相关资源。在切换至前台触发的[onApplicationForeground()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-applicationstatechangecallback#applicationstatechangecallbackonapplicationforeground)回调函数中重新启动相机及预览。
@@ -967,7 +967,7 @@ registerApplicationStateChange(): void {
 相机拍摄人像时，在预览画面上添加人脸检测框可以辅助对焦和构图。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/RAC5e43CSjiHLdOYZaHK2w/zh-cn_image_0000002659220511.png?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=9851B5A90EF0E64C5721367C56BB9193920592E52EB4AB1F2612E4698AB39053)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/FQHPj423TjS8DWUO0EtvQg/zh-cn_image_0000002677826371.png?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=9B3F433432584B21CEA7DA07A1BDC60FF4D742682C6738F3F376B4EC3F4BA378)
 
  
 相机的[元数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-metadata)输出流携带了人脸检测信息，应用可配置元数据输出流并读取检测信息绘制检测框。相较于[基于Core Vision Kit的人脸检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-face-detector)能力，元数据输出流在相机预览时返回数据更快，性能更好，具体对比如下：
@@ -1136,7 +1136,7 @@ faceBox(faceBoxRect: camera.Rect) {
 6. 处理并释放帧数据。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/-4nLlYPcT1aEEuGBLL2tEQ/zh-cn_image_0000002628701318.png?HW-CC-KV=V1&HW-CC-Date=20260701T014621Z&HW-CC-Expire=86400&HW-CC-Sign=B177A1B8B8A79E905749CC16023306327F448FBE09318453A466C368E0306EBC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/sdvkFJpDTIiiwDecT595FQ/zh-cn_image_0000002677666523.png?HW-CC-KV=V1&HW-CC-Date=20260723T012152Z&HW-CC-Expire=86400&HW-CC-Sign=79266842927F3AB20B53C3F3D43BBCC10CA7DAED1514FAEF18E3A6948C178B45)
 
  
   

@@ -1,6 +1,6 @@
 # InterstitialDialogAction
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-interstitialdialogaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -115,8 +115,8 @@ closeDialog(): void
 | subtitleColor | ResourceStr \| Color | 否 | 是 | 弹框副标题文本颜色。默认为\$r('sys.color.ohos_id_color_text_secondary_contrary')。 |
 | backgroundImage | Resource | 否 | 是 | 弹框背景图片。默认为纯色背景，颜色值为#EBEEF5。 |
 | foregroundImage | Resource | 否 | 是 | 弹框前景图片。默认为空，即不显示前景图片。 |
-| iconStyle | IconStyle | 否 | 是 | 关闭按钮图标的样式（亮调或者暗调）。 默认值：IconStyle.Light |
-| titlePosition | TitlePosition | 否 | 是 | 标题在弹框中的位置，在副标题的上方或者在副标题的下方。 默认值：TitlePosition.Top |
+| iconStyle | IconStyle | 否 | 是 | 关闭按钮图标的样式（亮调或者暗调）。 默认值：IconStyle.LIGHT |
+| titlePosition | TitlePosition | 否 | 是 | 标题在弹框中的位置，在副标题的上方或者在副标题的下方。 默认值：TitlePosition.TOP |
 | onDialogClick | Callback&lt;void&gt; | 否 | 是 | 点击弹框任意位置后触发的用户自定义动作。默认为“执行关闭弹框的函数”，即仅关闭弹框。 |
 | onDialogClose | Callback&lt;void&gt; | 否 | 是 | 点击关闭按钮后触发的用户自定义动作。默认为“执行关闭弹框的函数”，即仅关闭弹框。 |
  
@@ -446,4 +446,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/TmAvvSjqTcq7aIflBUt_iw/zh-cn_image_0000002628702962.png?HW-CC-KV=V1&HW-CC-Date=20260701T014350Z&HW-CC-Expire=86400&HW-CC-Sign=D0CBFA9A85B59D807F3554B6ED6A83EDD111AA710DD29A5DA538C34E84338C66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/VPiC4Gh9R4asMnJbeek-1Q/zh-cn_image_0000002677668177.png?HW-CC-KV=V1&HW-CC-Date=20260723T011959Z&HW-CC-Expire=86400&HW-CC-Sign=E451A0D888513E341C04734EBB19E14C2AEED632E268C333550C0266665D5E9D)

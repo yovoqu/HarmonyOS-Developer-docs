@@ -1,13 +1,13 @@
 # Class (ComponentUtils)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentutils
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供获取组件绘制区域坐标和大小的能力。
 
-> [!NOTE]
+> [!TIP]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 10开始支持。 本模块接口仅可在Stage模型下使用。 以下API需先使用UIContext中的 getComponentUtils() 方法获取到ComponentUtils对象，再通过该对象调用对应方法。
 
 
@@ -21,7 +21,7 @@ getRectangleById(id: string): componentUtils.ComponentInfo
 获取组件大小、位置、平移、缩放、旋转及仿射矩阵属性信息。
 
 > [!NOTE]
-> 该接口需要在目标组件布局完成以后获取目标组件区域大小信息，建议在 布局回调 中使用该接口。如果组件动态创建但未挂载组件树，则无法通过该接口获取正常的组件信息。因为组件在未挂载组件树的情况下，一般未经过UI框架正常的测量与布局，此时请确保组件正常挂载组件树后再尝试获取组件信息。
+> 该接口需要在目标组件布局完成以后获取目标组件区域大小信息，建议在 布局回调 中使用该接口。如果组件动态创建但未挂载组件树，则无法通过该接口获取正常的组件信息。因为组件在未挂载组件树的情况下，一般未经过UI框架正常的测量与布局，此时请确保组件正常挂载组件树后再尝试获取组件信息。该接口返回的组件位置为布局位置，某些属性计算不支持，如 translate 、 offset 、 markAnchor 、 scale 、 transform 等，可以使用替代接口 getPositionToWindowWithTransform 。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。

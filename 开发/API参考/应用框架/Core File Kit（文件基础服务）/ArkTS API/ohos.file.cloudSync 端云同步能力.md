@@ -1,6 +1,6 @@
 # @ohos.file.cloudSync (端云同步能力)
 
-更新时间：2026-06-13 03:51:30
+更新时间：2026-07-17 09:35:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-cloudsync
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -132,8 +132,8 @@ import { cloudSync } from '@kit.CoreFileKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | state | State | 否 | 否 | 枚举值，云文件下载状态。 |
-| processed | number | 否 | 否 | 已下载数据大小，取值范围[0，9223372036854775807]（单位：Byte）。 |
-| size | number | 否 | 否 | 当前云文件大小，取值范围[0，9223372036854775807]（单位：Byte）。 |
+| processed | number | 否 | 否 | 已下载数据大小，取值范围[0, 9223372036854775807]（单位：Byte）。 |
+| size | number | 否 | 否 | 当前云文件大小，取值范围[0, 9223372036854775807]（单位：Byte）。 |
 | uri | string | 否 | 否 | 当前云文件URI。 |
 | error | DownloadErrorType | 否 | 否 | 下载的错误类型。 |
 
@@ -982,7 +982,7 @@ stop(uri: string, needClean?: boolean): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uri | string | 是 | 待下载文件uri。 |
-| needClean12+ | boolean | 否 | 是否删除已下载的文件。默认值为false表示不删除；true表示删除。 从API version12开始支持该参数。 |
+| needClean12+ | boolean | 否 | 是否删除已下载的文件。默认值为false表示不删除；true表示删除。 从API version 12开始支持该参数。 |
 
 
 **返回值：**

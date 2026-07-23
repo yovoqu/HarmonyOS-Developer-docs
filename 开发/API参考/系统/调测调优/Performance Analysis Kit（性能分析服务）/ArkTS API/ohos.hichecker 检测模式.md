@@ -1,11 +1,11 @@
 # @ohos.hichecker (检测模式)
 
-更新时间：2026-06-27 10:02:54
+更新时间：2026-07-09 02:26:55
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hichecker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-HiChecker可以作为应用开发阶段使用的检测工具，用于检测代码运行过程中部分易忽略的问题，如应用线程出现耗时调用、应用进程中Ability资源泄露等问题。开发者可以通过日志记录或进程crash等形式查看具体问题并进行修改，提升应用的使用体验。
+HiChecker可以作为应用开发阶段使用的检测工具，用于检测代码运行过程中部分易忽略的问题，如应用线程出现耗时调用、应用进程中Ability资源泄漏等问题。开发者可以通过日志记录或进程crash等形式查看具体问题并进行修改，提升应用的使用体验。
  
 > [!NOTE]
 > 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -36,7 +36,7 @@ import { hichecker } from '@kit.PerformanceAnalysisKit';
 | RULE_CAUTION_TRIGGER_CRASH | bigint | 1ULL << 62 | 告警规则，当有告警时让应用退出。 |
 | RULE_THREAD_CHECK_SLOW_PROCESS | bigint | 1ULL | 检测规则，检测是否有耗时函数被调用。 |
 | RULE_THREAD_CHECK_NETWORK_USAGE | bigint | 1ULL << 1 | 检测规则，检测线程是否调用网络耗时接口。 起始版本: 26.0.0 |
-| RULE_CHECK_ABILITY_CONNECTION_LEAK | bigint | 1ULL << 33 | 检测规则，检测是否发生ability泄露。 |
+| RULE_CHECK_ABILITY_CONNECTION_LEAK | bigint | 1ULL << 33 | 检测规则，检测是否发生ability泄漏。 |
 | RULE_CHECK_ARKUI_PERFORMANCE11+ | bigint | 1ULL << 34 | 检测规则，检测arkui性能。 |
  
  
@@ -285,7 +285,7 @@ hichecker.getRule();
 
 contains(rule: bigint): boolean
  
-> [!TIP]
+> [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 hichecker.containsCheckRule 替代。
 
  

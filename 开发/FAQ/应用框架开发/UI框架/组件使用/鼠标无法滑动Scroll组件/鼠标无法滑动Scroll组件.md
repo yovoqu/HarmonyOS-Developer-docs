@@ -1,0 +1,140 @@
+# 鼠标无法滑动Scroll组件
+
+更新时间：2026-06-26 07:47:42
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-860
+
+#### 问题现象
+
+List组件嵌套Scroll组件布局，List组件竖向滚动，ListItem内嵌套一个横向滚动、隐藏滚动条的Scroll组件，外接鼠标按下左键拖拽或滚动滚轮均无法操作Scroll组件滑动。
+ 
+ 
+
+#### 背景知识
+
+- [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)：可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
+[scrollable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollable)：设置滚动方向。
+- [scrollBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollbar)：设置滚动条状态。
+
+ - [Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)：
+[scrollTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollto)：滑动到指定位置。
+- [currentOffset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#currentoffset)：获取当前的滚动偏移量。
+
+ - [gesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#gesture)：绑定手势。
+- [PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)：滑动手势事件，当滑动的最小距离达到设定的最小值时触发滑动手势事件。
+[onActionUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionupdate)：Pan手势移动过程中回调。
+
+ 
+ 
+ 
+
+#### 问题定位
+1. 检查触屏操作时，List组件内的Scroll组件是否可正常响应滑动手势进行滚动。
+2. 检查当Scroll组件外层没有其他滚动组件时，鼠标左键按下滑动和滚动滚轮是否可以控制Scroll组件滚动。
+3. 检查当List组件内的Scroll组件有滚动条时，鼠标左键按下滚动条是否可以控制Scroll组件滚动。
+ 
+ 
+
+#### 分析结论
+1. 仅当滚动条存在时，Scroll组件才能通过滚动条响应鼠标左键按下滑动事件进行滚动，滚动条隐藏时Scroll组件默认不响应鼠标左键按下滑动事件。
+2. 当Scroll组件的上层不存在其他滚动组件时，Scroll组件能够响应鼠标滚轮滚动事件进行滚动；当Scroll组件的上层存在其他滚动组件（如List）时，鼠标滚轮滚动事件会被上层的滚动组件优先响应（List滚动）并拦截，导致Scroll组件无法响应鼠标滚轮滚动事件。
+ 
+ 
+
+#### 修改建议
+
+给Scroll组件绑定[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件来响应鼠标左键按下滑动事件，调用[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)的[scrollTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollto)方法实现Scroll组件跟随滚动。示例代码如下：
+ 
+```text
+@Entry
+@Component
+struct MousePage {
+  @State arr: number[] = [];
+  scrollers: Scroller[] = [];
+
+  aboutToAppear(): void {
+    <em>// 循环调用10次，初始化用于循环渲染ListItem的数组及用于控制Scroll组件的控制器数组</em>
+    for (let i = 0; i < 10; i++) {
+      this.arr.push(i);
+      this.scrollers.push(new Scroller());
+    }
+  }
+
+  build() {
+    Column() {
+      List({ space: 10 }) {
+        ListItem() {
+          Text('Header');
+        };
+
+        ForEach(this.arr, (item: number, index: number) => {
+          ListItem() {
+            this.RowContent(item, this.scrollers[index]);
+          };
+        });
+      }
+      .scrollBar(BarState.Off)
+      .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM]);
+    }
+    .height('100%')
+    .width('100%')
+    .padding({ left: 16, right: 16 });
+  }
+
+  @Builder
+  RowContent(i: number, scroller: Scroller) {
+    Row() {
+      Text(i + 'AAAA')
+        .width(80);
+      Scroll(scroller) {
+        Row({ space: 20 }) {
+          Text('1111');
+          Text('2222');
+          Text('3333');
+          Text('4444');
+          Text('5555');
+          Text('6666');
+          Text('7777');
+          Text('8888');
+          Text('9999');
+        }
+        .backgroundColor(0xF1F3F5)
+        .height(100);
+      }
+      .borderRadius(12)
+      .margin({ right: 16 })
+      .scrollable(ScrollDirection.Horizontal) <em>// 设置Scroll组件横向滚动</em>
+      .scrollBar(BarState.Off) <em>// 设置Scroll组件隐藏滚动条</em>
+      .gesture( <em>// 给Scroll组件绑定PanGesture滑动手势事件</em>
+        PanGesture(new PanGestureOptions({ direction: PanDirection.Horizontal })) <em>// 设置只响应水平方向的滑动手势事件</em>
+          .onActionUpdate((event: GestureEvent) => { <em>// 监听手势移动</em>
+            if (event) {
+              scroller.scrollTo({
+                <em>// 监听到Scroll组件上水平方向的滑动手势事件时，让Scroll组件滚动对应距离</em>
+                xOffset: scroller.currentOffset().xOffset -
+                event.offsetX, <em>// 在Scroll组件当前的水平滚动偏移量基础上，偏移该次手势移动的距离，当向右滑动时event.offsetX为正值否则为负值</em>
+                yOffset: 0
+              });
+            }
+          })
+      )
+      .layoutWeight(1);
+    }
+    .width('100%');
+  }
+}
+```
+ 
+效果图：
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/SU0qCr0oQNW5UrypmqsEwA/zh-cn_image_0000002658798167.png?HW-CC-KV=V1&HW-CC-Date=20260723T012625Z&HW-CC-Expire=86400&HW-CC-Sign=43B5E20F27EF9A9DF71C10A370AE1559C11D47DF70329745FE86C0CD3F003B4B)
+
+ 
+ 
+
+#### 常见FAQ
+
+Q：可以通过给不同的Scroll组件绑定同一个Scroller实例吗，比如想要通过这种方式实现所有Scroll组件统一滑动？
+ 
+A：不可以，一个Scroller实例只能绑定和控制一个Scroll组件。
